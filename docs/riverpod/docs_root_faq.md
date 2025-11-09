@@ -1,0 +1,3 @@
+# Docs Root Faq
+
+# FAQ

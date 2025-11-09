@@ -1,0 +1,84 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "tobank_sdui",
+            "request": "launch",
+            "type": "dart",
+            "args": ["--web-port=9100"]
+        },
+        {
+            "name": "tobank_sdui (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "args": ["--web-port=9100"]
+        },
+        {
+            "name": "tobank_sdui (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "args": ["--web-port=9100"]
+        },
+        {
+            "name": "tobank_sdui (Debug Panel OFF)",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--web-port=9100",
+                "--dart-define=ENABLE_DEBUG_PANEL=false"
+            ]
+        },
+        {
+            "name": "tobank_sdui (Debug Panel ON)",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--web-port=9100",
+                "--dart-define=ENABLE_DEBUG_PANEL=true"
+            ]
+        },
+        {
+            "name": "tobank_sdui (ISpect OFF)",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--web-port=9100",
+                "--dart-define=ENABLE_ISPECT=false"
+            ]
+        },
+        {
+            "name": "tobank_sdui (ISpect ON)",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--web-port=9100",
+                "--dart-define=ENABLE_ISPECT=true"
+            ]
+        },
+        {
+            "name": "tobank_sdui (Both ON)",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--web-port=9100",
+                "--dart-define=ENABLE_DEBUG_PANEL=true",
+                "--dart-define=ENABLE_ISPECT=true"
+            ]
+        },
+        {
+            "name": "tobank_sdui (Both OFF)",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--web-port=9100",
+                "--dart-define=ENABLE_DEBUG_PANEL=false",
+                "--dart-define=ENABLE_ISPECT=false"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,401 @@
+import 'package:flutter/material.dart';
+import 'package:ispect/ispect.dart' hide LogsJsonService, LogsFileFactory;
+import 'package:ispectify/ispectify.dart';
+import '../services/logs_json_service.dart' as custom;
+import '../services/logs_file_factory.dart' as custom;
+
+/// Controller for managing the state of ISpectLogger views.
+///
+/// - Parameters: None required for initialization
+/// - Return: ISpectViewController instance
+/// - Usage example: final controller = ISpectViewController();
+/// - Edge case notes: Handles null data gracefully with caching
+class ISpectViewController extends ChangeNotifier {
+  ISpectViewController({ISpectShareCallback? onShare}) : _onShare = onShare;
+
+  ISpectFilter _filter = ISpectFilter();
+  bool _expandedLogs = true;
+  bool _isLogOrderReversed = true;
+  ISpectLogData? _activeData;
+
+  // JSON service for logs export/import
+  final custom.LogsJsonService _logsJsonService = const custom.LogsJsonService();
+
+  final ISpectShareCallback? _onShare;
+
+  // Filter cache properties
+  List<String>? _cachedTitles;
+  List<Type>? _cachedTypes;
+  String? _cachedSearchQuery;
+  bool _filterCacheValid = false;
+
+  // Data filtering cache
+  List<ISpectLogData> _cachedFilteredData = <ISpectLogData>[];
+  int _lastProcessedDataLength = 0;
+  ISpectFilter? _lastAppliedFilter;
+  int? _lastDataHash;
+
+  // Titles cache
+  List<String>? _cachedAllTitles;
+  List<String>? _cachedUniqueTitles;
+  int? _lastTitlesDataHash;
+
+  /// Retrieves the current log filter.
+  ISpectFilter get filter => _filter;
+
+  /// Updates the log filter and notifies listeners.
+  set filter(ISpectFilter val) {
+    if (_filter == val) return;
+    _filter = val;
+    _invalidateFilterCache();
+    notifyListeners();
+  }
+
+  /// Gets the currently active data.
+  ISpectLogData? get activeData => _activeData;
+
+  /// Sets the active data and notifies listeners if changed.
+  set activeData(ISpectLogData? data) {
+    if (_activeData == data) return;
+    _activeData = data;
+    notifyListeners();
+  }
+
+  /// Indicates whether logs are expanded.
+  bool get expandedLogs => _expandedLogs;
+
+  /// Toggles the expanded logs state and notifies listeners.
+  void toggleExpandedLogs() {
+    _expandedLogs = !_expandedLogs;
+    notifyListeners();
+  }
+
+  /// Indicates whether log order is reversed.
+  bool get isLogOrderReversed => _isLogOrderReversed;
+
+  /// Toggles the log order between normal and reversed.
+  void toggleLogOrder() {
+    _isLogOrderReversed = !_isLogOrderReversed;
+    notifyListeners();
+  }
+
+  /// Updates the filter's search query and notifies listeners.
+  void updateFilterSearchQuery(String query) {
+    _filter = _filter.copyWith(searchQuery: query);
+    _invalidateFilterCache();
+    notifyListeners();
+  }
+
+  /// Adds a new filter type and notifies listeners.
+  void addFilterType(Type type) {
+    final currentTypes = _getCurrentTypes();
+    if (currentTypes.contains(type)) return;
+
+    _updateFilter(types: [...currentTypes, type]);
+  }
+
+  /// Removes a filter type and notifies listeners.
+  void removeFilterType(Type type) {
+    final currentTypes = _getCurrentTypes();
+    final updatedTypes = currentTypes.where((t) => t != type).toList();
+    if (updatedTypes.length == currentTypes.length) return;
+
+    _updateFilter(types: updatedTypes);
+  }
+
+  /// Adds a new filter title and notifies listeners.
+  void addFilterTitle(String title) {
+    final currentTitles = _getCurrentTitles();
+    if (currentTitles.contains(title)) return;
+
+    _updateFilter(titles: [...currentTitles, title]);
+  }
+
+  /// Removes a filter title and notifies listeners.
+  void removeFilterTitle(String title) {
+    final currentTitles = _getCurrentTitles();
+    final updatedTitles = currentTitles.where((t) => t != title).toList();
+    if (updatedTitles.length == currentTitles.length) return;
+
+    _updateFilter(titles: updatedTitles);
+  }
+
+  /// Updates filter with new values and notifies listeners if changed.
+  void _updateFilter({
+    List<String>? titles,
+    List<Type>? types,
+    String? searchQuery,
+  }) {
+    final newFilter = ISpectFilter(
+      titles: titles ?? _getCurrentTitles(),
+      types: types ?? _getCurrentTypes(),
+      searchQuery: searchQuery ?? _getCurrentSearchQuery(),
+    );
+    if (newFilter == _filter) return;
+    _filter = newFilter;
+    _invalidateFilterCache();
+    notifyListeners();
+  }
+
+  /// Downloads logs as a file.
+  Future<void> downloadLogsFile(String logs) async {
+    final shareCallback = _ensureShareCallback();
+    await custom.LogsFileFactory.downloadFile(logs, onShare: shareCallback);
+  }
+
+  /// Forces a UI update.
+  void update() => notifyListeners();
+
+  /// Retrieves the current title filters with caching.
+  List<String> _getCurrentTitles() {
+    if (!_filterCacheValid || _cachedTitles == null) {
+      _cachedTitles = (_filter.filters.firstWhere(
+        (f) => f is TitleFilter,
+        orElse: () => TitleFilter([]),
+      ) as TitleFilter)
+          .titles
+          .toList();
+    }
+    return _cachedTitles!;
+  }
+
+  /// Retrieves the current type filters with caching.
+  List<Type> _getCurrentTypes() {
+    if (!_filterCacheValid || _cachedTypes == null) {
+      _cachedTypes = (_filter.filters.firstWhere(
+        (f) => f is TypeFilter,
+        orElse: () => TypeFilter([]),
+      ) as TypeFilter)
+          .types
+          .toList();
+    }
+    return _cachedTypes!;
+  }
+
+  /// Retrieves the current search query with caching.
+  String? _getCurrentSearchQuery() {
+    if (!_filterCacheValid || _cachedSearchQuery == null) {
+      final query = (_filter.filters.firstWhere(
+        (f) => f is SearchFilter,
+        orElse: () => SearchFilter(''),
+      ) as SearchFilter)
+          .query;
+      _cachedSearchQuery = query.isEmpty ? null : query;
+    }
+    return _cachedSearchQuery;
+  }
+
+  /// Invalidates the filter cache when filters change.
+  void _invalidateFilterCache() {
+    _filterCacheValid = false;
+    _cachedTitles = null;
+    _cachedTypes = null;
+    _cachedSearchQuery = null;
+  }
+
+  /// Applies current filters to log data with caching for performance.
+  List<ISpectLogData> applyCurrentFilters(List<ISpectLogData> logsData) {
+    if (logsData.isEmpty) return <ISpectLogData>[];
+
+    final currentFilter = filter;
+    final currentDataHash = _calculateDataHash(logsData);
+
+    // Return cached result if data and filter haven't changed
+    if (_isCacheValid(logsData, currentFilter, currentDataHash)) {
+      return _cachedFilteredData;
+    }
+
+    // Apply filter and update cache
+    final filteredData = logsData.where(currentFilter.apply).toList();
+    _updateFilterCache(logsData, currentFilter, currentDataHash, filteredData);
+
+    return filteredData;
+  }
+
+  /// Checks if the current cache is valid.
+  bool _isCacheValid(
+    List<ISpectLogData> logsData,
+    ISpectFilter currentFilter,
+    int currentDataHash,
+  ) {
+    // Always invalidate cache if filter changed (even if empty)
+    if (_lastAppliedFilter != currentFilter) {
+      return false;
+    }
+    
+    return logsData.length == _lastProcessedDataLength &&
+        _lastDataHash == currentDataHash;
+  }
+
+  /// Updates the filter cache with new data.
+  void _updateFilterCache(
+    List<ISpectLogData> logsData,
+    ISpectFilter currentFilter,
+    int currentDataHash,
+    List<ISpectLogData> filteredData,
+  ) {
+    _cachedFilteredData = filteredData;
+    _lastProcessedDataLength = logsData.length;
+    _lastAppliedFilter = currentFilter;
+    _lastDataHash = currentDataHash;
+  }
+
+  /// Calculates a hash for the given data list for cache validation.
+  int _calculateDataHash(List<ISpectLogData> data) {
+    if (data.isEmpty) return 0;
+    return Object.hashAll([
+      data.length,
+      data.first.hashCode,
+      data.last.hashCode,
+    ]);
+  }
+
+  /// Retrieves all titles and unique titles from log data with caching.
+  (List<String>, List<String>) getTitles(List<ISpectLogData> logsData) {
+    final currentHash = _calculateDataHash(logsData);
+
+    // Return cached titles if data hasn't changed
+    if (_lastTitlesDataHash == currentHash &&
+        _cachedAllTitles != null &&
+        _cachedUniqueTitles != null) {
+      return (_cachedAllTitles!, _cachedUniqueTitles!);
+    }
+
+    // Extract and cache titles
+    final allTitles =
+        logsData.map((data) => data.title).whereType<String>().toList();
+    final uniqueTitles = allTitles.toSet().toList();
+
+    _cachedAllTitles = allTitles;
+    _cachedUniqueTitles = uniqueTitles;
+    _lastTitlesDataHash = currentHash;
+
+    return (allTitles, uniqueTitles);
+  }
+
+  /// Handles tap on a log item, toggling its selection state.
+  void handleLogItemTap(ISpectLogData logEntry) {
+    activeData = activeData?.hashCode == logEntry.hashCode ? null : logEntry;
+  }
+
+  /// Handles toggle of title filter selection.
+  void handleTitleFilterToggle(String title, {required bool isSelected}) {
+    if (isSelected) {
+      addFilterTitle(title);
+    } else {
+      removeFilterTitle(title);
+    }
+  }
+
+  /// Retrieves log entry at the specified index, respecting sort order.
+  ISpectLogData getLogEntryAtIndex(
+    List<ISpectLogData> filteredEntries,
+    int index,
+  ) {
+    final actualIndex =
+        isLogOrderReversed ? filteredEntries.length - 1 - index : index;
+    return filteredEntries[actualIndex];
+  }
+
+  /// Copies log entry text to clipboard.
+  void copyLogEntryText(
+    BuildContext context,
+    ISpectLogData logEntry,
+    void Function(BuildContext, {required String value}) copyClipboard,
+  ) {
+    final text = logEntry.toJson(truncated: true).toString();
+    copyClipboard(context, value: text);
+  }
+
+  /// Copies all logs to clipboard with specified formatting.
+  void copyAllLogsToClipboard(
+    BuildContext context,
+    List<ISpectLogData> logs,
+    void Function(
+      BuildContext, {
+      required String value,
+      String? title,
+      bool? showValue,
+    }) copyClipboard,
+    String title,
+  ) {
+    final logsText =
+        logs.map((log) => log.toJson(truncated: true).toString()).join('\n');
+
+    copyClipboard(
+      context,
+      value: logsText,
+      title: title,
+      showValue: false,
+    );
+  }
+
+  /// Clears logs history and updates UI.
+  void clearLogsHistory(VoidCallback clearHistory) {
+    clearHistory();
+    update();
+  }
+
+  /// Shares filtered logs as a downloadable JSON file.
+  ///
+  /// Exports logs in structured JSON format with metadata including
+  /// filter information for better context and import capabilities.
+  Future<void> shareLogsAsFile(
+    List<ISpectLogData> logs, {
+    String fileType = 'json',
+  }) async {
+    final shareCallback = _ensureShareCallback();
+    final filteredLogs = applyCurrentFilters(logs);
+    if (filteredLogs.isEmpty) {
+      ISpect.logger.info('No logs match the active filters. Skipping export.');
+      return;
+    }
+    await _logsJsonService.shareFilteredLogsAsJsonFile(
+      logs,
+      filteredLogs,
+      filter,
+      fileName: 'ispect_logs_${DateTime.now().millisecondsSinceEpoch}',
+      fileType: fileType,
+      onShare: shareCallback,
+    );
+  }
+
+  /// Shares all logs as JSON file without filtering.
+  ///
+  /// Exports all logs in JSON format for complete backup.
+  Future<void> shareAllLogsAsJsonFile(List<ISpectLogData> logs) async {
+    final shareCallback = _ensureShareCallback();
+    if (logs.isEmpty) {
+      ISpect.logger.info('No logs to export. Skipping file creation.');
+      return;
+    }
+    await _logsJsonService.shareLogsAsJsonFile(
+      logs,
+      fileName: 'ispect_all_logs_${DateTime.now().millisecondsSinceEpoch}',
+      onShare: shareCallback,
+    );
+  }
+
+  /// Imports logs from JSON content.
+  ///
+  /// Parses JSON content and returns list of imported logs.
+  /// Can be used to restore previously exported logs.
+  Future<List<ISpectLogData>> importLogsFromJson(String jsonContent) async =>
+      _logsJsonService.importFromJson(jsonContent);
+
+  /// Validates if JSON content is valid for logs import.
+  bool validateLogsJsonContent(String jsonContent) =>
+      _logsJsonService.validateJsonStructure(jsonContent);
+
+  ISpectShareCallback _ensureShareCallback() {
+    final shareCallback = _onShare;
+    if (shareCallback == null) {
+      throw StateError(
+        'Share callback is not configured. Provide onShare when constructing ISpectBuilder.',
+      );
+    }
+    return shareCallback;
+  }
+}
+
+

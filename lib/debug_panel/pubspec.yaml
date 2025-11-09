@@ -1,0 +1,27 @@
+name: debug_panel
+description: A comprehensive Flutter debug panel for internal development and testing
+version: 1.0.0
+homepage: https://github.com/your-org/debug_panel
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  hooks_riverpod: ^3.0.3
+  device_frame: ^1.4.0
+  slow_net_simulator: ^1.0.0
+  path_provider: ^2.1.5
+  ispect: ^4.4.8-dev02
+  ispectify: ^4.4.8-dev02
+  ispectify_dio: ^4.4.8-dev02
+  flutter_performance_pulse: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:

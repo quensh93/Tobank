@@ -1,0 +1,99 @@
+# Widgets Icon
+
+Display Widgets
+Icon
+OverviewWidgetsActions
+
+  * BackdropFilter
+
+  * CarouselView
+  * CircleAvatar
+  * ClipOval
+  * ClipRRect
+  * ColoredBox
+
+  * AlertDialog
+  * AppBar
+  * AutoComplete
+  * BottomBar
+  * CheckBox
+
+  * CircularProgressIndicator
+
+  * DropdownMenu
+  * Dynamic View
+  * ElevatedButton
+  * FilledButton
+  * FloatingActionButton
+
+  * GestureDetector
+  * IconButton
+  * InkWell
+  * LinearProgressIndicator
+  * ListTile
+  * List View
+  * NetworkWidget
+  * OutlinedButton
+  * PageView
+  * RadioGroup
+  * RefreshIndicator
+
+  * SingleChildScrollView
+
+  * SliverAppBar
+
+  * TabBar
+  * TextButton
+  * TextField
+  * TextFormField
+  * WebView
+
+  * CustomScrollView
+  * GridView
+
+  * TableCell
+  * TableRow
+
+  * Vertical Divider
+
+  * Example JSON
+
+Display Widgets
+# Icon
+
+Documentation for Icon
+
+# 
+​
+Icon
+The Stac Icon allows you to build a Flutter icon widget using JSON. To know more about the icon widget in Flutter, refer to the official documentation.
+## 
+​
+Properties
+Property | Type | Description  
+---|---|---  
+icon | `String` | The name of the icon to display.  
+iconType | `IconType` | The type of the icon (material, cupertino). Defaults to `material`.  
+size | `double?` | The size of the icon.  
+color | `String?` | The color of the icon.  
+semanticLabel | `String?` | The semantic label for the icon.  
+textDirection | `TextDirection?` | The text direction for the icon.  
+> Note: To check the available icons, refer to Icon utils.
+## 
+​
+Example JSON
+Copy
+```
+{
+  "type": "icon",
+  "icon": "home",
+  "size": 24.0,
+  "color": "#000000",
+  "semanticLabel": "Home Icon",
+  "textDirection": "ltr"
+}
+
+```
+
+ColoredBoxImage
+⌘I

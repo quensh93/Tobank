@@ -1,0 +1,51 @@
+name: tobank_sdui
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  hooks_riverpod: ^3.0.3
+  flutter_hooks:
+  riverpod_annotation: ^3.0.3
+  retrofit: ^4.7.3
+  dio: ^5.7.0
+  json_annotation: ^4.9.0
+  logger: ^2.6.0
+  fpdart: ^1.1.1
+  flutter_secure_storage: ^9.2.4
+  path_provider: ^2.1.5
+  talker: ^5.0.0
+  talker_flutter: ^5.0.0
+  slow_net_simulator: ^1.0.0
+  flutter_performance_pulse: ^1.0.6
+  ispect: ^4.4.8-dev02
+  ispectify: ^4.4.8-dev02
+  ispectify_dio: ^4.4.8-dev02
+  stac:
+    path: .stac/packages/stac
+  debug_panel:
+    path: lib/debug_panel
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner:
+  custom_lint:
+  riverpod_generator: ^3.0.3
+  riverpod_lint: ^3.0.3
+  retrofit_generator: ^10.0.0
+  json_serializable: ^6.10.0
+
+flutter:
+  uses-material-design: true

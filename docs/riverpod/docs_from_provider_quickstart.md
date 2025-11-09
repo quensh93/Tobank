@@ -1,0 +1,116 @@
+# Docs From Provider Quickstart
+
+# Docs From Provider Quickstart
+# Docs From Provider Quickstart
+**Riverpod**
+[](https://riverpod.dev/docs/from_provider/quickstart)
+  * Riverpod for Provider Users
+# Quickstart
+This section is designed for people familiar with the Provider package who wants to learn about Riverpod.
+Before anything, read the short getting started article and try out the small sandbox example to test Riverpod's features out. If you like what you see there, you should then definitively consider a migration.
+Indeed, migrating from Provider to Riverpod can be very straightforward. 
+Migrating basically consists in a few steps that can be done in an _incremental_ way.
+## Start with `ChangeNotifierProvider`​
+It's fine to keep using `ChangeNotifier` while transitioning towards Riverpod, and not use its latest fancy features ASAP.
+Indeed, the following is perfectly fine to start with:
+```
+// If you have this...  
+classMyNotifierextendsChangeNotifier{  
+  int state =0;  
+voidincrement(){  
+    state++;  
+notifyListeners();  
+}  
+}  
+// ... just add this!  
+final myNotifierProvider =ChangeNotifierProvider((ref){  
+returnMyNotifier();  
+});  
+```
+As you can see Riverpod exposes a ChangeNotifierProvider class, which is there precisely to support migrations from pkg:Provider.
+Keep in mind that this provider is not recommended when writing new code, and it is not the best way to use Riverpod, but it's a gentle and very easy way to start your migration.
+There is no rush to _immediately_ try to change your `ChangeNotifier`s into the more modern Notifiers. Some require a bit of a paradigm shift, so it may be difficult to do initially. 
+Take your time, as it is important to get yourself familiar with Riverpod first; you'll quickly find out that _almost_ all Providers from pkg:provider have a strict equivalent in pkg:riverpod.
+## Start with _leaves_​
+Start with Providers that do not depend on anything else, i.e. start with the _leaves_ in your dependency tree.  
+Once you have migrated all of the leaves, you can then move on to the providers that depend on leaves.
+In other words, avoid migrating `ProxyProvider`s at first; tackle them once all of their dependencies have been migrated.
+This should boost and simplify the migration process, while also minimizing / tracking down any errors.
+## Riverpod and Provider can coexist​
+_Keep in mind that it is entirely possible to use both Provider and Riverpod at the same time._
+Indeed, using import aliases, it is possible to use the two APIs altogether.  
+This is also great for readability and it removes any ambiguous API usage.
+If you plan on doing this, consider using import aliases for each Provider import in your codebase.
+A full guide onto how to effectively implement import aliases is incoming soon.
+## Migrate one Provider at a time​
+If you have an existing app, don't try to migrate all your providers at once!
+While you should strive toward moving all your application to Riverpod in the long-run, **don't burn yourself out**.  
+Do it one provider at a time. 
+Take the above example. **Fully** migrating that `myNotifierProvider` to Riverpod means writing the following:
+```
+classMyNotifierextendsNotifier{  
+@override  
+  int build()=>0;  
+voidincrement()=> state++;  
+}  
+final myNotifierProvider =NotifierProvider(MyNotifier.new);  
+```
+.. and it's _also_ needed to change how that provider is consumed, i.e. writing `ref.watch` in the place of each `context.watch` for this provider.
+This operation might take some time and might lead to some errors, so don't rush doing this all at once.
+## Migrating `ProxyProvider`s​
+Within pkg:Provider, `ProxyProvider` is used to combine values from other Providers; its build depends on the value of other providers, reactively.
+With Riverpod, instead, Providers are composable by default; therefore, when migrating a `ProxyProvider` you'll simply need to write `ref.watch` if you want to declare a direct dependency from a Provider to another.
+If anything, combining values with Riverpod should feel simpler and straightforward; thus, the migration should greatly simplify your code.
+Furthermore, there are no shenanigans about combining more than two providers together: just add another `ref.watch` and you'll be good to go.
+## Eager initialization​
+Since Notifiers are final global variables, they are lazy by default.
+If you need to initialize some warm-up data or a useful service on startup, the best way to do it is to first read your provider in the place where you used to put `MultiProvider`.
+In other words, since Riverpod can't be forced to be eager initialized, they can be read and cached in your startup phase, so that they're warm and ready when needed inside the rest of your application.
+A full guide about eager initialization of pkg:Notifiers is available here.
+## Code Generation​
+Code generation is recommended to use Riverpod the _future-proof_ way.  
+As a side note, chances are that when metaprogramming will be a thing, codegen will be default for Riverpod.
+Unluckily, `@riverpod` can't generate code for `ChangeNotifierProvider`.  
+To overcome this, you can use the following utility extension method:
+```
+extensionChangeNotifierWithCodeGenExtensiononRef{  
+T listenAndDisposeChangeNotifier(T notifier){  
+    notifier.addListener(notifyListeners);  
+onDispose(()=> notifier.removeListener(notifyListeners));  
+onDispose(notifier.dispose);  
+return notifier;  
+}  
+}  
+```
+And then, you can expose your `ChangeNotifier` with the following codegen syntax:
+```
+// ignore_for_file: unsupported_provider_value  
+@riverpod  
+MyNotifierexample(Ref ref){  
+return ref.listenAndDisposeChangeNotifier(MyNotifier());  
+}  
+```
+Once the "base" migration is done, you can change your `ChangeNotifier` to `Notifier`, thus eliminating the need for temporary extensions.  
+Taking up the previous examples, a "fully migrated" `Notifier` becomes:
+```
+@riverpod  
+classMyNotifierextends _$MyNotifier{  
+@override  
+  int build()=>0;  
+voidincrement()=> state++;  
+}  
+```
+Once this is done, and you're positive that there are no more `ChangeNotifierProvider`s in your codebase, you can get rid of the temporary extension definitively.
+Keep in mind that, while being recommended, codegen is not _mandatory_.  
+It's good to reason about migrations incrementally: if you feel like that implementing this migration _while_ transitioning to the code generation syntax in one single take might be too much, _that's fine_.
+Following this guide, you _can_ migrate towards codegen as a further step forward, later on.
+[](https://github.com/rrousselGit/riverpod/edit/master/website/docs/from_provider/quickstart.mdx)
+ Provider vs Riverpod
+  * Start with `ChangeNotifierProvider`
+  * Start with _leaves_
+  * Riverpod and Provider can coexist
+  * Migrate one Provider at a time
+  * Migrating `ProxyProvider`s
+  * Eager initialization
+  * Code Generation
+Docs

@@ -1,0 +1,13 @@
+project:
+  name: tobank_sdui
+  id: tobank_sdui_demo
+  description: "STAC Demo Project"
+
+build:
+  source: stac/
+  output: stac/.build/
+  validate: true
+
+deploy:
+  baseUrl: https://api.stac.dev
+  apiKey: demo_key

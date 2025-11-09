@@ -1,0 +1,59 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# External repositories (maintain their own git)
+# The .stac folder is a separate git repository for the STAC framework
+# It can be updated independently without affecting the main project
+# Note: .stac folder is now tracked in git as core reference code
+
+# External reference templates (not part of main codebase)
+.flutter_riverpod_clean_architecture_template/
+
+# Debug panel reference directory (cloned device_preview for analysis)
+docs/debug_panel/reference/
+
+# VeTransfer directory (external repository)
+VeTransfer/

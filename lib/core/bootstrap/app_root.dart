@@ -1,0 +1,124 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+// ISpect imports - will be tree-shaken if not used
+import 'package:ispect/ispect.dart';
+
+import '../design_system/app_theme.dart';
+import '../helpers/logger.dart';
+import '../config/ispect_config.dart';
+import '../config/debug_panel_config.dart';
+import '../../debug_panel/debug_panel_widget.dart';
+import '../../debug_panel/state/debug_panel_settings_state.dart';
+import '../../features/pre_launch/presentation/screens/pre_launch_screen.dart';
+import '../../features/pre_launch/providers/theme_controller_provider.dart';
+
+class AppRoot extends ConsumerStatefulWidget {
+  const AppRoot({super.key, this.useDevicePreview});
+
+  final bool? useDevicePreview; // if null, auto from kDebugMode
+
+  // Global key for the main app's Navigator - allows debug panel to navigate the main app
+  static final GlobalKey<NavigatorState> mainAppNavigatorKey = GlobalKey<NavigatorState>();
+
+  @override
+  ConsumerState<AppRoot> createState() => _AppRootState();
+}
+
+class _AppRootState extends ConsumerState<AppRoot> {
+  
+  @override
+  Widget build(BuildContext context) {
+    final homeWidget = const PreLaunchScreen();
+    
+    // Get the shared observer instance from provider
+    // This observer is created once and shared across the app
+    final observer = ref.watch(ispectNavigatorObserverProvider);
+    
+    // Get debug panel enabled state from settings
+    final settings = ref.watch(debugPanelSettingsProvider);
+    
+    // Get custom panel buttons for ISpect draggable panel
+    final panelButtons = ref.watch(ispectPanelButtonsProvider);
+    
+    // Watch theme controller for theme mode changes
+    final themeAsync = ref.watch(themeControllerProvider);
+    final themeMode = themeAsync.value ?? ThemeMode.system;
+    
+    final materialApp = MaterialApp(
+      navigatorKey: AppRoot.mainAppNavigatorKey,
+      debugShowCheckedModeBanner: false,
+      theme: buildTheme(brightness: Brightness.light),
+      darkTheme: buildTheme(brightness: Brightness.dark),
+      themeMode: themeMode,
+      home: homeWidget,
+      showPerformanceOverlay: false,
+      showSemanticsDebugger: false,
+      debugShowMaterialGrid: false,
+      // Add ISpect navigator observer if enabled (for route tracking)
+      // MUST use same instance as in ISpectBuilder options
+      navigatorObservers: observer != null ? [observer] : [],
+      builder: (context, child) {
+        // ISpect should work independently of debug panel
+        // It wraps the actual app content, not the debug panel
+        if (observer != null) {
+          try {
+            // CRITICAL: Use the SAME observer instance created above
+            // According to ISpect docs, observer must be in ISpectOptions
+            // and the same instance used in navigatorObservers for navigation to work
+            final isEnabled = settings.ispectDraggablePanelEnabled;
+            
+            // Log the current state to verify changes are being detected
+            debugPrint('🔧 ISpectBuilder building - isISpectEnabled: $isEnabled');
+            AppLogger.d('🔧 ISpectBuilder building - isISpectEnabled: $isEnabled');
+            
+            final ispectBuilder = ISpectBuilder(
+              // Use a key based on enabled state to force rebuild when setting changes
+              key: ValueKey('ispect_builder_$isEnabled'),
+              isISpectEnabled: isEnabled, // Control ISpect panel visibility via settings
+              options: ISpectOptions(
+                observer: observer, // Must match navigatorObservers above
+                locale: const Locale('en'),
+                panelButtons: panelButtons, // Add custom debug panel toggle button with ON/OFF label
+              ),
+              child: child ?? const SizedBox.shrink(),
+            );
+            
+            // Debug: Log ISpectBuilder creation
+            debugPrint('✅ ISpectBuilder created with isISpectEnabled: $isEnabled');
+            AppLogger.d('✅ ISpectBuilder created with isISpectEnabled: $isEnabled');
+            
+            return ispectBuilder;
+          } catch (e, stackTrace) {
+            // Log error and fallback
+            debugPrint('❌ ISpectBuilder error: $e');
+            debugPrint('Stack: $stackTrace');
+            AppLogger.e('❌ ISpectBuilder error: $e', stackTrace);
+            return child ?? const SizedBox.shrink();
+          }
+        }
+        debugPrint('ℹ️ ISpect disabled in builder - panel will not show');
+        AppLogger.d('ℹ️ ISpect disabled in builder - observer is null');
+        return child ?? const SizedBox.shrink();
+      },
+      // Add ISpect localizations if enabled
+      localizationsDelegates: ISpectConfig.shouldInitialize
+          ? ISpectLocalizations.localizationDelegates([])
+          : null,
+    );
+    
+    // Wrap MaterialApp with DebugPanel if flag-based initialization is enabled
+    // DebugPanel wraps ISpect, which wraps the app content
+    // Hierarchy: DebugPanel > MaterialApp (with ISpectBuilder) > App Content
+    // Note: DebugPanel.enabled controls visibility, which is managed by persistent settings
+    if (DebugPanelConfig.shouldInitializeByFlag) {
+      return DebugPanel(
+        enabled: settings.debugPanelEnabled, // Use persistent setting for visibility
+        child: materialApp,
+      );
+    }
+    
+    // If not initialized by flag, return materialApp directly (no DebugPanel wrapper)
+    return materialApp;
+  }
+}
