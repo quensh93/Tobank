@@ -1,0 +1,97 @@
+{
+  "$schema": "tobank-sdui/v1/style-library",
+  "version": "1.0.0",
+  "description": "Predefined styles for SDUI components",
+  
+  "textStyles": {
+    "displayLarge": {"fontSize": 57, "fontWeight": "400", "letterSpacing": -0.25},
+    "displayMedium": {"fontSize": 45, "fontWeight": "400"},
+    "displaySmall": {"fontSize": 36, "fontWeight": "400"},
+    "headlineLarge": {"fontSize": 32, "fontWeight": "400"},
+    "headlineMedium": {"fontSize": 28, "fontWeight": "400"},
+    "headlineSmall": {"fontSize": 24, "fontWeight": "400"},
+    "titleLarge": {"fontSize": 22, "fontWeight": "500"},
+    "titleMedium": {"fontSize": 16, "fontWeight": "500", "letterSpacing": 0.15},
+    "titleSmall": {"fontSize": 14, "fontWeight": "500", "letterSpacing": 0.1},
+    "bodyLarge": {"fontSize": 16, "fontWeight": "400", "letterSpacing": 0.5},
+    "bodyMedium": {"fontSize": 14, "fontWeight": "400", "letterSpacing": 0.25},
+    "bodySmall": {"fontSize": 12, "fontWeight": "400", "letterSpacing": 0.4},
+    "labelLarge": {"fontSize": 14, "fontWeight": "500", "letterSpacing": 0.1},
+    "labelMedium": {"fontSize": 12, "fontWeight": "500", "letterSpacing": 0.5},
+    "labelSmall": {"fontSize": 11, "fontWeight": "500", "letterSpacing": 0.5},
+    "caption": {"fontSize": 10, "fontWeight": "400", "letterSpacing": 0.4}
+  },
+  
+  "colors": {
+    "semantic": {
+      "primary": "{{theme.primaryColor}}",
+      "secondary": "{{theme.secondaryColor}}",
+      "error": "#F44336",
+      "success": "#4CAF50",
+      "warning": "#FF9800",
+      "info": "#2196F3"
+    },
+    "surface": {
+      "background": "{{theme.backgroundColor}}",
+      "surface": "{{theme.surfaceColor}}",
+      "card": "{{theme.cardColor}}",
+      "divider": "{{theme.dividerColor}}"
+    },
+    "text": {
+      "textPrimary": "{{theme.textPrimaryColor}}",
+      "textSecondary": "{{theme.textSecondaryColor}}",
+      "textDisabled": "{{theme.textDisabledColor}}"
+    }
+  },
+  
+  "spacing": {
+    "xs": 4,
+    "sm": 8,
+    "md": 16,
+    "lg": 24,
+    "xl": 32,
+    "xxl": 48
+  },
+  
+  "borderRadius": {
+    "none": 0,
+    "sm": 4,
+    "md": 8,
+    "lg": 12,
+    "xl": 16,
+    "full": 999
+  },
+  
+  "shadows": {
+    "none": "none",
+    "light": {"offset": {"x": 0, "y": 1}, "blurRadius": 3, "color": "rgba(0,0,0,0.12)"},
+    "medium": {"offset": {"x": 0, "y": 2}, "blurRadius": 6, "color": "rgba(0,0,0,0.16)"},
+    "heavy": {"offset": {"x": 0, "y": 4}, "blurRadius": 12, "color": "rgba(0,0,0,0.20)"}
+  },
+  
+  "componentStyles": {
+    "card": {
+      "borderRadius": 12,
+      "elevation": 1,
+      "padding": 16
+    },
+    "button": {
+      "elevated": {"borderRadius": 8, "padding": {"horizontal": 24, "vertical": 12}},
+      "outlined": {"borderRadius": 8, "borderWidth": 1, "padding": {"horizontal": 24, "vertical": 12}},
+      "text": {"padding": {"horizontal": 16, "vertical": 8}}
+    },
+    "textField": {
+      "borderRadius": 8,
+      "padding": {"horizontal": 16, "vertical": 12}
+    },
+    "chip": {
+      "borderRadius": 16,
+      "padding": {"horizontal": 12, "vertical": 6}
+    },
+    "listTile": {
+      "padding": {"horizontal": 16, "vertical": 12},
+      "minHeight": 56
+    }
+  }
+}
+

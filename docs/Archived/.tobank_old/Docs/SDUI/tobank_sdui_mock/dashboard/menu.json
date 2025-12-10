@@ -1,0 +1,343 @@
+{
+  "$schema": "tobank-sdui/v1/menu",
+  "version": "1.0.0",
+  "menuId": "main_menu",
+  "description": "Main service menu structure",
+  
+  "categories": [
+    {
+      "id": "accounts",
+      "title": {"fa": "حساب‌ها", "en": "Accounts"},
+      "icon": "assets/icons/ic_accounts.svg",
+      "color": "#2196F3",
+      "order": 1,
+      "items": [
+        {
+          "id": "my_cards",
+          "title": {"fa": "کارت‌های من", "en": "My Cards"},
+          "icon": "assets/icons/ic_card.svg",
+          "route": "/cards",
+          "badge": null
+        },
+        {
+          "id": "my_deposits",
+          "title": {"fa": "سپرده‌های من", "en": "My Deposits"},
+          "icon": "assets/icons/ic_deposit.svg",
+          "route": "/deposits",
+          "badge": null
+        },
+        {
+          "id": "transactions",
+          "title": {"fa": "تراکنش‌ها", "en": "Transactions"},
+          "icon": "assets/icons/ic_transaction.svg",
+          "route": "/transactions",
+          "badge": null
+        },
+        {
+          "id": "statements",
+          "title": {"fa": "صورت‌حساب", "en": "Statements"},
+          "icon": "assets/icons/ic_statement.svg",
+          "route": "/statements",
+          "badge": null
+        }
+      ]
+    },
+    {
+      "id": "transfers",
+      "title": {"fa": "انتقال وجه", "en": "Transfers"},
+      "icon": "assets/icons/ic_transfer.svg",
+      "color": "#4CAF50",
+      "order": 2,
+      "items": [
+        {
+          "id": "card_to_card",
+          "title": {"fa": "کارت به کارت", "en": "Card to Card"},
+          "icon": "assets/icons/ic_card_to_card.svg",
+          "route": "/transfer/card-to-card",
+          "badge": null
+        },
+        {
+          "id": "paya",
+          "title": {"fa": "پایا", "en": "PAYA"},
+          "icon": "assets/icons/ic_paya.svg",
+          "route": "/transfer/paya",
+          "badge": null
+        },
+        {
+          "id": "satna",
+          "title": {"fa": "ساتنا", "en": "SATNA"},
+          "icon": "assets/icons/ic_satna.svg",
+          "route": "/transfer/satna",
+          "badge": null
+        },
+        {
+          "id": "internal",
+          "title": {"fa": "انتقال داخلی", "en": "Internal Transfer"},
+          "icon": "assets/icons/ic_internal_transfer.svg",
+          "route": "/transfer/internal",
+          "badge": null
+        },
+        {
+          "id": "batch_transfer",
+          "title": {"fa": "انتقال گروهی", "en": "Batch Transfer"},
+          "icon": "assets/icons/ic_batch_transfer.svg",
+          "route": "/transfer/batch",
+          "badge": null
+        }
+      ]
+    },
+    {
+      "id": "payments",
+      "title": {"fa": "پرداخت‌ها", "en": "Payments"},
+      "icon": "assets/icons/ic_payment.svg",
+      "color": "#FF9800",
+      "order": 3,
+      "items": [
+        {
+          "id": "bills",
+          "title": {"fa": "پرداخت قبض", "en": "Pay Bills"},
+          "icon": "assets/icons/ic_bill.svg",
+          "route": "/bills",
+          "badge": {"text": "3", "color": "#E31837"}
+        },
+        {
+          "id": "mobile_topup",
+          "title": {"fa": "شارژ موبایل", "en": "Mobile Top-up"},
+          "icon": "assets/icons/ic_mobile_charge.svg",
+          "route": "/topup/mobile",
+          "badge": null
+        },
+        {
+          "id": "internet_package",
+          "title": {"fa": "بسته اینترنت", "en": "Data Package"},
+          "icon": "assets/icons/ic_internet_package.svg",
+          "route": "/topup/internet",
+          "badge": null
+        },
+        {
+          "id": "qr_payment",
+          "title": {"fa": "پرداخت QR", "en": "QR Payment"},
+          "icon": "assets/icons/ic_qr_code.svg",
+          "route": "/payment/qr",
+          "badge": null
+        },
+        {
+          "id": "traffic_fine",
+          "title": {"fa": "جریمه خودرو", "en": "Traffic Fine"},
+          "icon": "assets/icons/ic_car.svg",
+          "route": "/bills/traffic-fine",
+          "badge": null
+        }
+      ]
+    },
+    {
+      "id": "loans",
+      "title": {"fa": "تسهیلات", "en": "Loans"},
+      "icon": "assets/icons/ic_loan.svg",
+      "color": "#9C27B0",
+      "order": 4,
+      "items": [
+        {
+          "id": "marriage_loan",
+          "title": {"fa": "تسهیلات ازدواج", "en": "Marriage Loan"},
+          "icon": "assets/icons/ic_wedding.svg",
+          "route": "/bpms/marriage-loan",
+          "badge": {"text": "جدید", "color": "#4CAF50"}
+        },
+        {
+          "id": "children_loan",
+          "title": {"fa": "تسهیلات فرزندآوری", "en": "Children Loan"},
+          "icon": "assets/icons/ic_baby.svg",
+          "route": "/bpms/children-loan",
+          "badge": null
+        },
+        {
+          "id": "parsa_loan",
+          "title": {"fa": "تسهیلات پارسا", "en": "Parsa Loan"},
+          "icon": "assets/icons/ic_loan.svg",
+          "route": "/bpms/parsa-loan",
+          "badge": null
+        },
+        {
+          "id": "credit_card",
+          "title": {"fa": "کارت اعتباری", "en": "Credit Card"},
+          "icon": "assets/icons/ic_credit_card.svg",
+          "route": "/bpms/credit-card",
+          "badge": null
+        },
+        {
+          "id": "my_loans",
+          "title": {"fa": "تسهیلات من", "en": "My Loans"},
+          "icon": "assets/icons/ic_loan_list.svg",
+          "route": "/loans/my-loans",
+          "badge": null
+        }
+      ]
+    },
+    {
+      "id": "card_services",
+      "title": {"fa": "خدمات کارت", "en": "Card Services"},
+      "icon": "assets/icons/ic_card_services.svg",
+      "color": "#E31837",
+      "order": 5,
+      "items": [
+        {
+          "id": "card_request",
+          "title": {"fa": "درخواست کارت", "en": "Request Card"},
+          "icon": "assets/icons/ic_request_card.svg",
+          "route": "/bpms/card-request",
+          "badge": null
+        },
+        {
+          "id": "card_reissue",
+          "title": {"fa": "صدور مجدد کارت", "en": "Reissue Card"},
+          "icon": "assets/icons/ic_card_reissue.svg",
+          "route": "/bpms/card-reissue",
+          "badge": null
+        },
+        {
+          "id": "card_physical",
+          "title": {"fa": "صدور فیزیکی کارت", "en": "Physical Card Issue"},
+          "icon": "assets/icons/ic_card_physical.svg",
+          "route": "/bpms/card-physical-issue",
+          "badge": null
+        },
+        {
+          "id": "card_settings",
+          "title": {"fa": "تنظیمات کارت", "en": "Card Settings"},
+          "icon": "assets/icons/ic_card_settings.svg",
+          "route": "/cards/settings",
+          "badge": null
+        },
+        {
+          "id": "change_pin",
+          "title": {"fa": "تغییر رمز کارت", "en": "Change PIN"},
+          "icon": "assets/icons/ic_pin.svg",
+          "route": "/cards/change-pin",
+          "badge": null
+        },
+        {
+          "id": "block_card",
+          "title": {"fa": "مسدودسازی کارت", "en": "Block Card"},
+          "icon": "assets/icons/ic_block_card.svg",
+          "route": "/cards/block",
+          "badge": null
+        }
+      ]
+    },
+    {
+      "id": "cheque",
+      "title": {"fa": "چک", "en": "Cheque"},
+      "icon": "assets/icons/ic_cheque.svg",
+      "color": "#795548",
+      "order": 6,
+      "items": [
+        {
+          "id": "cheque_book",
+          "title": {"fa": "دسته چک", "en": "Cheque Book"},
+          "icon": "assets/icons/ic_cheque_book.svg",
+          "route": "/cheque/book",
+          "badge": null
+        },
+        {
+          "id": "cheque_status",
+          "title": {"fa": "استعلام چک", "en": "Cheque Status"},
+          "icon": "assets/icons/ic_cheque_status.svg",
+          "route": "/cheque/status",
+          "badge": null
+        },
+        {
+          "id": "pichak",
+          "title": {"fa": "پیچک", "en": "Pichak"},
+          "icon": "assets/icons/ic_pichak.svg",
+          "route": "/cheque/pichak",
+          "badge": null
+        },
+        {
+          "id": "sayad",
+          "title": {"fa": "صیاد", "en": "Sayad"},
+          "icon": "assets/icons/ic_sayad.svg",
+          "route": "/cheque/sayad",
+          "badge": null
+        }
+      ]
+    },
+    {
+      "id": "services",
+      "title": {"fa": "خدمات دیگر", "en": "Other Services"},
+      "icon": "assets/icons/ic_services.svg",
+      "color": "#607D8B",
+      "order": 7,
+      "items": [
+        {
+          "id": "military_guarantee",
+          "title": {"fa": "ضمانت‌نامه سربازی", "en": "Military Guarantee"},
+          "icon": "assets/icons/ic_military.svg",
+          "route": "/bpms/military-guarantee",
+          "badge": null
+        },
+        {
+          "id": "gift_card",
+          "title": {"fa": "کارت هدیه", "en": "Gift Card"},
+          "icon": "assets/icons/ic_gift_card.svg",
+          "route": "/gift-card",
+          "badge": {"text": "۱۰٪", "color": "#4CAF50"}
+        },
+        {
+          "id": "certificates",
+          "title": {"fa": "تاییدیه‌ها", "en": "Certificates"},
+          "icon": "assets/icons/ic_document.svg",
+          "route": "/certificates",
+          "badge": null
+        },
+        {
+          "id": "customer_club",
+          "title": {"fa": "باشگاه مشتریان", "en": "Customer Club"},
+          "icon": "assets/icons/ic_star.svg",
+          "route": "/customer-club",
+          "badge": {"text": "۵۰۰", "color": "#FFC107"}
+        },
+        {
+          "id": "currency_rates",
+          "title": {"fa": "نرخ ارز", "en": "Currency Rates"},
+          "icon": "assets/icons/ic_currency.svg",
+          "route": "/currency",
+          "badge": null
+        },
+        {
+          "id": "branch_locator",
+          "title": {"fa": "شعب و خودپردازها", "en": "Branch Locator"},
+          "icon": "assets/icons/ic_location.svg",
+          "route": "/branches",
+          "badge": null
+        }
+      ]
+    }
+  ],
+  
+  "favorites": {
+    "enabled": true,
+    "maxItems": 8,
+    "defaultItems": [
+      "card_to_card",
+      "paya",
+      "bills",
+      "mobile_topup",
+      "my_cards",
+      "transactions"
+    ]
+  },
+  
+  "recentlyUsed": {
+    "enabled": true,
+    "maxItems": 6,
+    "trackingEnabled": true
+  },
+  
+  "searchEnabled": true,
+  "searchPlaceholder": {
+    "fa": "جستجوی خدمات...",
+    "en": "Search services..."
+  }
+}
+

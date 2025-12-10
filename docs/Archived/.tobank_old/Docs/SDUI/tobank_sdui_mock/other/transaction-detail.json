@@ -1,0 +1,90 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "transaction_detail",
+  "title": {"fa": "جزئیات تراکنش", "en": "Transaction Detail"},
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "جزئیات تراکنش", "en": "Transaction Detail"},
+    "actions": [
+      {"icon": "assets/icons/ic_share.svg", "onTap": {"type": "share_receipt"}}
+    ]
+  },
+  
+  "api": {"endpoint": "dibalite/transactions/{{transactionId}}", "method": "GET"},
+  
+  "body": {
+    "type": "scrollable",
+    "children": [
+      {"type": "container", "padding": 24, "decoration": {"color": "{{transaction.type === 'credit' ? '#E8F5E9' : '#FFEBEE'}}"}, "child": {"type": "column", "children": [
+        {"type": "container", "width": 64, "height": 64, "decoration": {"color": "{{transaction.type === 'credit' ? '#4CAF50' : '#F44336'}}", "borderRadius": 32}, "alignment": "center", "child": {"type": "icon", "icon": "{{transaction.type === 'credit' ? 'assets/icons/ic_arrow_down.svg' : 'assets/icons/ic_arrow_up.svg'}}", "size": 32, "color": "#FFFFFF"}},
+        {"type": "text", "text": "{{transaction.type === 'credit' ? {fa: 'واریز', en: 'Credit'} : {fa: 'برداشت', en: 'Debit'}}}", "style": "titleMedium", "margin": {"top": 16}},
+        {"type": "text", "text": "{{transaction.type === 'credit' ? '+' : '-'}}{{formatCurrency(transaction.amount)}} ریال", "style": "displaySmall", "color": "{{transaction.type === 'credit' ? '#4CAF50' : '#F44336'}}", "margin": {"top": 8}},
+        {"type": "chip", "label": "{{transaction.statusLabel}}", "backgroundColor": "{{transaction.statusColor}}20", "textColor": "{{transaction.statusColor}}", "margin": {"top": 12}}
+      ]}},
+      
+      {"type": "container", "padding": 16, "child": {"type": "column", "children": [
+        {"type": "card", "child": {"type": "column", "children": [
+          {"type": "list_tile", "title": {"fa": "شرح تراکنش", "en": "Description"}, "subtitle": {"type": "text", "text": "{{transaction.description}}", "margin": {"top": 4}}},
+          {"type": "divider", "indent": 16},
+          {"type": "list_tile", "title": {"fa": "تاریخ و ساعت", "en": "Date & Time"}, "trailing": {"type": "text", "text": "{{transaction.date}} - {{transaction.time}}"}},
+          {"type": "divider", "indent": 16},
+          {"type": "list_tile", "title": {"fa": "شماره پیگیری", "en": "Reference"}, "trailing": {"type": "row", "children": [{"type": "text", "text": "{{transaction.referenceNumber}}"}, {"type": "icon_button", "icon": "assets/icons/ic_copy.svg", "size": 20, "onTap": {"type": "copy_to_clipboard", "text": "{{transaction.referenceNumber}}"}}]}},
+          {"type": "divider", "indent": 16},
+          {"type": "list_tile", "title": {"fa": "حساب مبدا", "en": "From Account"}, "trailing": {"type": "text", "text": "{{transaction.sourceAccount}}"}},
+          {"type": "conditional", "condition": "{{transaction.destinationAccount}}", "whenTrue": {"type": "column", "children": [
+            {"type": "divider", "indent": 16},
+            {"type": "list_tile", "title": {"fa": "حساب مقصد", "en": "To Account"}, "trailing": {"type": "text", "text": "{{transaction.destinationAccount}}"}}
+          ]}},
+          {"type": "conditional", "condition": "{{transaction.bankName}}", "whenTrue": {"type": "column", "children": [
+            {"type": "divider", "indent": 16},
+            {"type": "list_tile", "title": {"fa": "بانک", "en": "Bank"}, "trailing": {"type": "text", "text": "{{transaction.bankName}}"}}
+          ]}}
+        ]}},
+        
+        {"type": "conditional", "condition": "{{transaction.type === 'debit'}}", "whenTrue": {"type": "card", "margin": {"top": 16}, "padding": 16, "child": {"type": "row", "children": [
+          {"type": "icon", "icon": "assets/icons/ic_repeat.svg", "color": "primary"},
+          {"type": "sized_box", "width": 12},
+          {"type": "expanded", "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+            {"type": "text", "text": {"fa": "تکرار این تراکنش", "en": "Repeat Transaction"}, "style": "titleSmall"},
+            {"type": "text", "text": {"fa": "همین انتقال را دوباره انجام دهید", "en": "Make the same transfer again"}, "style": "bodySmall", "color": "textSecondary"}
+          ]}},
+          {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg", "color": "textSecondary"}
+        ], "onTap": {"type": "navigate", "route": "/payments/repeat?transactionId={{transactionId}}"}}}},
+        
+        {"type": "row", "margin": {"top": 24}, "children": [
+          {"type": "expanded", "child": {"type": "outlined_button", "icon": "assets/icons/ic_download.svg", "label": {"fa": "دانلود رسید", "en": "Download"}, "onTap": {"type": "download_receipt", "transactionId": "{{transactionId}}"}}},
+          {"type": "sized_box", "width": 16},
+          {"type": "expanded", "child": {"type": "elevated_button", "icon": "assets/icons/ic_share.svg", "label": {"fa": "اشتراک‌گذاری", "en": "Share"}, "onTap": {"type": "share_receipt", "transactionId": "{{transactionId}}"}}}
+        ]},
+        
+        {"type": "sized_box", "height": 32}
+      ]}}
+    ]
+  },
+  
+  "dataBindings": {
+    "transactionId": {"source": "route_param", "key": "id"},
+    "transaction": {"source": "api", "endpoint": "dibalite/transactions/{{transactionId}}"}
+  },
+  
+  "mockData": {
+    "transaction": {
+      "id": "tx1",
+      "type": "debit",
+      "amount": 5000000,
+      "description": "کارت به کارت - محمد رضایی",
+      "date": "۱۴۰۳/۰۹/۱۵",
+      "time": "۱۴:۳۲:۴۵",
+      "referenceNumber": "۹۸۷۶۵۴۳۲۱۰۱۲۳۴۵۶",
+      "sourceAccount": "۶۰۳۷-****-****-۱۲۳۴",
+      "destinationAccount": "۶۲۱۹-****-****-۵۶۷۸",
+      "bankName": "بانک ملی",
+      "status": "successful",
+      "statusLabel": "موفق",
+      "statusColor": "#4CAF50"
+    }
+  }
+}
+

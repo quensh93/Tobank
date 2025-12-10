@@ -1,0 +1,181 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "c2c_select_source",
+  "pageType": "selection",
+  "title": {
+    "fa": "کارت به کارت",
+    "en": "Card to Card"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "c2c_select_source",
+    "screenClass": "CardToCardSelectSourcePage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "انتخاب کارت مبدا", "en": "Select Source Card"},
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "children": [
+      {
+        "id": "step_indicator",
+        "type": "step_indicator",
+        "currentStep": 0,
+        "steps": [
+          {"label": {"fa": "کارت مبدا", "en": "Source"}},
+          {"label": {"fa": "کارت مقصد", "en": "Destination"}},
+          {"label": {"fa": "مبلغ", "en": "Amount"}},
+          {"label": {"fa": "تایید", "en": "Confirm"}}
+        ]
+      },
+      
+      {
+        "id": "instruction",
+        "type": "container",
+        "padding": 16,
+        "child": {
+          "type": "text",
+          "text": {"fa": "کارت مبدا را انتخاب کنید", "en": "Select source card"},
+          "style": "titleMedium"
+        }
+      },
+      
+      {
+        "id": "cards_list",
+        "type": "list",
+        "padding": {"horizontal": 16},
+        "dataSource": "cards",
+        "emptyState": {
+          "icon": "assets/icons/ic_card.svg",
+          "title": {"fa": "کارتی یافت نشد", "en": "No cards found"},
+          "action": {
+            "label": {"fa": "افزودن کارت", "en": "Add Card"},
+            "onTap": {"type": "navigate", "route": "/cards/add"}
+          }
+        },
+        "itemTemplate": {
+          "type": "selectable_card",
+          "margin": {"bottom": 12},
+          "selected": "{{selectedCardId === item.id}}",
+          "disabled": "{{item.isBlocked}}",
+          "child": {
+            "type": "row",
+            "padding": 12,
+            "children": [
+              {
+                "type": "image",
+                "src": "{{item.bankLogo}}",
+                "width": 40,
+                "height": 40
+              },
+              {
+                "type": "sized_box",
+                "width": 12
+              },
+              {
+                "type": "expanded",
+                "child": {
+                  "type": "column",
+                  "crossAxisAlignment": "start",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "{{item.nickname || item.bankName}}",
+                      "style": "titleSmall"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{item.cardNumberMasked}}",
+                      "style": "bodySmall",
+                      "color": "textSecondary"
+                    },
+                    {
+                      "type": "conditional",
+                      "condition": "{{item.isBlocked}}",
+                      "whenTrue": {
+                        "type": "chip",
+                        "label": {"fa": "مسدود", "en": "Blocked"},
+                        "color": "#F44336",
+                        "size": "small"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "column",
+                "crossAxisAlignment": "end",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "{{formatCurrency(item.balance)}}",
+                    "style": "titleSmall"
+                  },
+                  {
+                    "type": "text",
+                    "text": {"fa": "ریال", "en": "Rials"},
+                    "style": "bodySmall",
+                    "color": "textSecondary"
+                  }
+                ]
+              }
+            ]
+          },
+          "onTap": {
+            "type": "set_state",
+            "key": "selectedCardId",
+            "value": "{{item.id}}"
+          }
+        }
+      },
+      
+      {
+        "id": "bottom_spacing",
+        "type": "sized_box",
+        "height": 100
+      }
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "decoration": {
+      "color": "surface",
+      "boxShadow": "0 -2px 8px rgba(0,0,0,0.1)"
+    },
+    "child": {
+      "type": "elevated_button",
+      "label": {"fa": "ادامه", "en": "Continue"},
+      "fullWidth": true,
+      "disabled": "{{!selectedCardId}}",
+      "onTap": {
+        "type": "navigate",
+        "route": "/transfer/card-to-card/destination",
+        "params": {"sourceCardId": "{{selectedCardId}}"}
+      }
+    }
+  },
+  
+  "dataBindings": {
+    "cards": {
+      "source": "api",
+      "endpoint": "dibalite/cards",
+      "filter": "item.balance > 0"
+    },
+    "selectedCardId": {
+      "source": "state",
+      "default": "{{routeParams.sourceCardId}}"
+    }
+  },
+  
+  "mockData": {
+    "cards": "$ref:mock-data/cards.json#cards"
+  }
+}
+

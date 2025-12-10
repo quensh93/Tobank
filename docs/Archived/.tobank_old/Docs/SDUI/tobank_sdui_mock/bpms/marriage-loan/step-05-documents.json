@@ -1,0 +1,275 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "marriage_loan_documents",
+  "flowId": "marriage_loan",
+  "stepNumber": 5,
+  "title": {
+    "fa": "بارگذاری مدارک",
+    "en": "Upload Documents"
+  },
+  
+  "appBar": {
+    "type": "bpms_stepper",
+    "title": {"fa": "تسهیلات ازدواج", "en": "Marriage Loan"},
+    "currentStep": 5,
+    "totalSteps": 8,
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "info_banner",
+        "type": "card",
+        "padding": 16,
+        "backgroundColor": "#E3F2FD",
+        "child": {
+          "type": "row",
+          "children": [
+            {
+              "type": "icon",
+              "icon": "assets/icons/ic_info.svg",
+              "color": "#1976D2",
+              "size": 24
+            },
+            {"type": "sized_box", "width": 12},
+            {
+              "type": "expanded",
+              "child": {
+                "type": "text",
+                "text": {"fa": "لطفاً تصاویر واضح و خوانا از مدارک بارگذاری کنید. فرمت‌های مجاز: JPG, PNG, PDF", "en": "Please upload clear images. Formats: JPG, PNG, PDF"},
+                "style": "bodySmall"
+              }
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "applicant_docs_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "مدارک متقاضی", "en": "Applicant Documents"},
+          "icon": "assets/icons/ic_document.svg"
+        },
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "document_upload",
+              "id": "applicant_national_id",
+              "title": {"fa": "کارت ملی متقاضی", "en": "Applicant National ID"},
+              "description": {"fa": "تصویر پشت و روی کارت ملی", "en": "Front and back of national ID"},
+              "icon": "assets/icons/ic_card.svg",
+              "required": true,
+              "maxFiles": 2,
+              "maxSizeMB": 5,
+              "acceptedFormats": ["jpg", "png", "pdf"],
+              "bindTo": "applicantNationalIdDocs"
+            },
+            {
+              "type": "document_upload",
+              "id": "applicant_birth_cert",
+              "title": {"fa": "شناسنامه متقاضی", "en": "Applicant Birth Certificate"},
+              "description": {"fa": "صفحه اول و صفحه توضیحات", "en": "First page and notes page"},
+              "icon": "assets/icons/ic_document.svg",
+              "required": true,
+              "maxFiles": 2,
+              "maxSizeMB": 5,
+              "bindTo": "applicantBirthCertDocs",
+              "margin": {"top": 16}
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "spouse_docs_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "مدارک همسر", "en": "Spouse Documents"},
+          "icon": "assets/icons/ic_document.svg"
+        },
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "document_upload",
+              "id": "spouse_national_id",
+              "title": {"fa": "کارت ملی همسر", "en": "Spouse National ID"},
+              "description": {"fa": "تصویر پشت و روی کارت ملی", "en": "Front and back"},
+              "icon": "assets/icons/ic_card.svg",
+              "required": true,
+              "maxFiles": 2,
+              "maxSizeMB": 5,
+              "bindTo": "spouseNationalIdDocs"
+            },
+            {
+              "type": "document_upload",
+              "id": "spouse_birth_cert",
+              "title": {"fa": "شناسنامه همسر", "en": "Spouse Birth Certificate"},
+              "icon": "assets/icons/ic_document.svg",
+              "required": true,
+              "maxFiles": 2,
+              "maxSizeMB": 5,
+              "bindTo": "spouseBirthCertDocs",
+              "margin": {"top": 16}
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "marriage_docs_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "مدارک ازدواج", "en": "Marriage Documents"},
+          "icon": "assets/icons/ic_marriage.svg"
+        },
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "document_upload",
+              "id": "marriage_cert",
+              "title": {"fa": "عقدنامه یا سند ازدواج", "en": "Marriage Certificate"},
+              "description": {"fa": "تمام صفحات عقدنامه", "en": "All pages of certificate"},
+              "icon": "assets/icons/ic_marriage.svg",
+              "required": true,
+              "maxFiles": 5,
+              "maxSizeMB": 10,
+              "bindTo": "marriageCertDocs"
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "employment_docs_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "مدارک شغلی", "en": "Employment Documents"},
+          "icon": "assets/icons/ic_work.svg"
+        },
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "document_upload",
+              "id": "salary_slip",
+              "title": {"fa": "فیش حقوقی", "en": "Salary Slip"},
+              "description": {"fa": "آخرین فیش حقوقی یا گواهی اشتغال", "en": "Latest salary slip or employment letter"},
+              "icon": "assets/icons/ic_receipt.svg",
+              "required": true,
+              "maxFiles": 2,
+              "maxSizeMB": 5,
+              "bindTo": "salarySlipDocs"
+            },
+            {
+              "type": "document_upload",
+              "id": "insurance_history",
+              "title": {"fa": "سابقه بیمه (اختیاری)", "en": "Insurance History (Optional)"},
+              "description": {"fa": "پرینت سوابق بیمه تامین اجتماعی", "en": "Social security history print"},
+              "icon": "assets/icons/ic_insurance.svg",
+              "required": false,
+              "maxFiles": 2,
+              "maxSizeMB": 5,
+              "bindTo": "insuranceHistoryDocs",
+              "margin": {"top": 16}
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "upload_progress",
+        "type": "conditional",
+        "condition": "{{uploadProgress > 0 && uploadProgress < 100}}",
+        "whenTrue": {
+          "type": "card",
+          "margin": {"top": 16},
+          "padding": 16,
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "row",
+                "mainAxisAlignment": "spaceBetween",
+                "children": [
+                  {"type": "text", "text": {"fa": "در حال بارگذاری...", "en": "Uploading..."}, "style": "bodyMedium"},
+                  {"type": "text", "text": "{{uploadProgress}}%", "style": "bodyMedium"}
+                ]
+              },
+              {
+                "type": "linear_progress",
+                "value": "{{uploadProgress / 100}}",
+                "margin": {"top": 8}
+              }
+            ]
+          }
+        }
+      },
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "decoration": {"color": "surface", "boxShadow": "0 -2px 8px rgba(0,0,0,0.1)"},
+    "child": {
+      "type": "row",
+      "children": [
+        {
+          "type": "expanded",
+          "child": {
+            "type": "outlined_button",
+            "label": {"fa": "مرحله قبل", "en": "Previous"},
+            "onTap": {"type": "navigate_back"}
+          }
+        },
+        {"type": "sized_box", "width": 16},
+        {
+          "type": "expanded",
+          "flex": 2,
+          "child": {
+            "type": "elevated_button",
+            "label": {"fa": "مرحله بعد", "en": "Next"},
+            "loading": "{{isUploading}}",
+            "disabled": "{{!allRequiredDocsUploaded}}",
+            "onTap": {
+              "type": "upload_and_navigate",
+              "uploadApi": "bpms/marriage-loan/upload-documents",
+              "nextRoute": "/bpms/marriage-loan/step-06"
+            }
+          }
+        }
+      ]
+    }
+  },
+  
+  "dataBindings": {
+    "applicantNationalIdDocs": {"source": "form", "default": []},
+    "applicantBirthCertDocs": {"source": "form", "default": []},
+    "spouseNationalIdDocs": {"source": "form", "default": []},
+    "spouseBirthCertDocs": {"source": "form", "default": []},
+    "marriageCertDocs": {"source": "form", "default": []},
+    "salarySlipDocs": {"source": "form", "default": []},
+    "insuranceHistoryDocs": {"source": "form", "default": []},
+    "uploadProgress": {"source": "state", "default": 0},
+    "isUploading": {"source": "state", "default": false},
+    "allRequiredDocsUploaded": {
+      "source": "computed",
+      "expression": "applicantNationalIdDocs.length > 0 && applicantBirthCertDocs.length > 0 && spouseNationalIdDocs.length > 0 && spouseBirthCertDocs.length > 0 && marriageCertDocs.length > 0 && salarySlipDocs.length > 0"
+    }
+  }
+}
+

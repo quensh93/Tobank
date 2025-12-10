@@ -1,0 +1,332 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "marriage_loan_guarantor",
+  "flowId": "marriage_loan",
+  "stepNumber": 6,
+  "title": {
+    "fa": "اطلاعات ضامن",
+    "en": "Guarantor Information"
+  },
+  
+  "appBar": {
+    "type": "bpms_stepper",
+    "title": {"fa": "تسهیلات ازدواج", "en": "Marriage Loan"},
+    "currentStep": 6,
+    "totalSteps": 8,
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "guarantor_info_banner",
+        "type": "card",
+        "padding": 16,
+        "backgroundColor": "#FFF3E0",
+        "child": {
+          "type": "row",
+          "children": [
+            {
+              "type": "icon",
+              "icon": "assets/icons/ic_guarantor.svg",
+              "color": "#FF9800",
+              "size": 24
+            },
+            {"type": "sized_box", "width": 12},
+            {
+              "type": "expanded",
+              "child": {
+                "type": "column",
+                "crossAxisAlignment": "start",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": {"fa": "شرایط ضامن", "en": "Guarantor Requirements"},
+                    "style": "titleSmall"
+                  },
+                  {"type": "sized_box", "height": 4},
+                  {
+                    "type": "text",
+                    "text": {"fa": "• کارمند رسمی دولت یا بخش خصوصی معتبر\n• دارای کسر از حقوق یا سپرده بلندمدت\n• سن ۲۵ تا ۶۰ سال", "en": "• Government or private sector employee\n• Salary deduction or long-term deposit\n• Age 25-60"},
+                    "style": "bodySmall"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "guarantor_personal_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "اطلاعات شخصی ضامن", "en": "Guarantor Personal Info"},
+          "icon": "assets/icons/ic_profile.svg"
+        },
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "text_field",
+              "label": {"fa": "نام ضامن", "en": "Guarantor First Name"},
+              "icon": "assets/icons/ic_profile.svg",
+              "bindTo": "guarantorFirstName",
+              "validation": {"required": true}
+            },
+            {
+              "type": "text_field",
+              "label": {"fa": "نام خانوادگی ضامن", "en": "Guarantor Last Name"},
+              "margin": {"top": 16},
+              "bindTo": "guarantorLastName",
+              "validation": {"required": true}
+            },
+            {
+              "type": "text_field",
+              "label": {"fa": "کد ملی ضامن", "en": "Guarantor National ID"},
+              "margin": {"top": 16},
+              "icon": "assets/icons/ic_card.svg",
+              "keyboardType": "number",
+              "maxLength": 10,
+              "bindTo": "guarantorNationalId",
+              "validation": {"required": true, "pattern": "^[0-9]{10}$"}
+            },
+            {
+              "type": "text_field",
+              "label": {"fa": "شماره موبایل ضامن", "en": "Guarantor Mobile"},
+              "margin": {"top": 16},
+              "icon": "assets/icons/ic_phone.svg",
+              "keyboardType": "phone",
+              "maxLength": 11,
+              "bindTo": "guarantorMobile",
+              "validation": {"required": true, "pattern": "^09[0-9]{9}$"}
+            },
+            {
+              "type": "dropdown_field",
+              "label": {"fa": "نسبت با متقاضی", "en": "Relationship to Applicant"},
+              "margin": {"top": 16},
+              "options": [
+                {"value": "father", "label": {"fa": "پدر", "en": "Father"}},
+                {"value": "mother", "label": {"fa": "مادر", "en": "Mother"}},
+                {"value": "brother", "label": {"fa": "برادر", "en": "Brother"}},
+                {"value": "sister", "label": {"fa": "خواهر", "en": "Sister"}},
+                {"value": "spouse", "label": {"fa": "همسر", "en": "Spouse"}},
+                {"value": "friend", "label": {"fa": "دوست", "en": "Friend"}},
+                {"value": "colleague", "label": {"fa": "همکار", "en": "Colleague"}},
+                {"value": "other", "label": {"fa": "سایر", "en": "Other"}}
+              ],
+              "bindTo": "guarantorRelationship",
+              "validation": {"required": true}
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "guarantor_employment_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "اطلاعات شغلی ضامن", "en": "Guarantor Employment"},
+          "icon": "assets/icons/ic_work.svg"
+        },
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "dropdown_field",
+              "label": {"fa": "نوع اشتغال", "en": "Employment Type"},
+              "options": [
+                {"value": "government", "label": {"fa": "کارمند دولت", "en": "Government"}},
+                {"value": "private", "label": {"fa": "بخش خصوصی", "en": "Private Sector"}},
+                {"value": "retired", "label": {"fa": "بازنشسته", "en": "Retired"}}
+              ],
+              "bindTo": "guarantorEmploymentType",
+              "validation": {"required": true}
+            },
+            {
+              "type": "text_field",
+              "label": {"fa": "نام محل کار", "en": "Employer Name"},
+              "margin": {"top": 16},
+              "bindTo": "guarantorEmployer",
+              "validation": {"required": true}
+            },
+            {
+              "type": "text_field",
+              "label": {"fa": "سمت شغلی", "en": "Job Title"},
+              "margin": {"top": 16},
+              "bindTo": "guarantorJobTitle"
+            },
+            {
+              "type": "currency_field",
+              "label": {"fa": "حقوق ماهیانه ضامن (ریال)", "en": "Guarantor Monthly Salary"},
+              "margin": {"top": 16},
+              "currency": "IRR",
+              "showToman": true,
+              "bindTo": "guarantorSalary",
+              "validation": {"required": true}
+            },
+            {
+              "type": "text_field",
+              "label": {"fa": "سابقه کار (سال)", "en": "Work Experience (Years)"},
+              "margin": {"top": 16},
+              "keyboardType": "number",
+              "bindTo": "guarantorExperience"
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "guarantee_type_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "نوع ضمانت", "en": "Guarantee Type"},
+          "icon": "assets/icons/ic_shield.svg"
+        },
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "radio_group",
+              "options": [
+                {
+                  "value": "salary_deduction",
+                  "label": {"fa": "کسر از حقوق", "en": "Salary Deduction"},
+                  "subtitle": {"fa": "اقساط از حقوق ضامن کسر می‌شود", "en": "Installments deducted from salary"}
+                },
+                {
+                  "value": "deposit_block",
+                  "label": {"fa": "توقیف سپرده", "en": "Deposit Block"},
+                  "subtitle": {"fa": "سپرده بلندمدت به عنوان وثیقه", "en": "Long-term deposit as collateral"}
+                }
+              ],
+              "bindTo": "guaranteeType",
+              "validation": {"required": true}
+            },
+            {
+              "type": "conditional",
+              "condition": "{{guaranteeType === 'deposit_block'}}",
+              "whenTrue": {
+                "type": "text_field",
+                "label": {"fa": "شماره سپرده ضامن", "en": "Guarantor Deposit Number"},
+                "margin": {"top": 16},
+                "hint": {"fa": "شماره سپرده بلندمدت در بانک توسعه صادرات", "en": "Long-term deposit number"},
+                "bindTo": "guarantorDepositNumber"
+              }
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "guarantor_docs_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "مدارک ضامن", "en": "Guarantor Documents"},
+          "icon": "assets/icons/ic_document.svg"
+        },
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "document_upload",
+              "id": "guarantor_national_id_doc",
+              "title": {"fa": "کارت ملی ضامن", "en": "Guarantor National ID"},
+              "icon": "assets/icons/ic_card.svg",
+              "required": true,
+              "maxFiles": 2,
+              "maxSizeMB": 5,
+              "bindTo": "guarantorNationalIdDocs"
+            },
+            {
+              "type": "document_upload",
+              "id": "guarantor_salary_doc",
+              "title": {"fa": "فیش حقوقی ضامن", "en": "Guarantor Salary Slip"},
+              "icon": "assets/icons/ic_receipt.svg",
+              "required": true,
+              "maxFiles": 2,
+              "maxSizeMB": 5,
+              "bindTo": "guarantorSalaryDocs",
+              "margin": {"top": 16}
+            },
+            {
+              "type": "document_upload",
+              "id": "guarantor_commitment",
+              "title": {"fa": "تعهدنامه ضمانت", "en": "Guarantee Commitment Letter"},
+              "description": {"fa": "فرم تعهد امضا شده توسط ضامن", "en": "Signed commitment form"},
+              "icon": "assets/icons/ic_document.svg",
+              "required": true,
+              "maxFiles": 1,
+              "maxSizeMB": 5,
+              "bindTo": "guarantorCommitmentDoc",
+              "margin": {"top": 16}
+            }
+          ]
+        }
+      },
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "decoration": {"color": "surface", "boxShadow": "0 -2px 8px rgba(0,0,0,0.1)"},
+    "child": {
+      "type": "row",
+      "children": [
+        {
+          "type": "expanded",
+          "child": {
+            "type": "outlined_button",
+            "label": {"fa": "مرحله قبل", "en": "Previous"},
+            "onTap": {"type": "navigate_back"}
+          }
+        },
+        {"type": "sized_box", "width": 16},
+        {
+          "type": "expanded",
+          "flex": 2,
+          "child": {
+            "type": "elevated_button",
+            "label": {"fa": "مرحله بعد", "en": "Next"},
+            "loading": "{{isValidating}}",
+            "onTap": {
+              "type": "validate_and_navigate",
+              "validationApi": "bpms/marriage-loan/validate-guarantor",
+              "nextRoute": "/bpms/marriage-loan/step-07"
+            }
+          }
+        }
+      ]
+    }
+  },
+  
+  "dataBindings": {
+    "guarantorFirstName": {"source": "form", "default": ""},
+    "guarantorLastName": {"source": "form", "default": ""},
+    "guarantorNationalId": {"source": "form", "default": ""},
+    "guarantorMobile": {"source": "form", "default": ""},
+    "guarantorRelationship": {"source": "form", "default": null},
+    "guarantorEmploymentType": {"source": "form", "default": null},
+    "guarantorEmployer": {"source": "form", "default": ""},
+    "guarantorJobTitle": {"source": "form", "default": ""},
+    "guarantorSalary": {"source": "form", "default": 0},
+    "guarantorExperience": {"source": "form", "default": ""},
+    "guaranteeType": {"source": "form", "default": null},
+    "guarantorDepositNumber": {"source": "form", "default": ""},
+    "guarantorNationalIdDocs": {"source": "form", "default": []},
+    "guarantorSalaryDocs": {"source": "form", "default": []},
+    "guarantorCommitmentDoc": {"source": "form", "default": []},
+    "isValidating": {"source": "state", "default": false}
+  }
+}
+

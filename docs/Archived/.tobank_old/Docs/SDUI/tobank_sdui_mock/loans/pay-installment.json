@@ -1,0 +1,68 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "pay_installment",
+  "title": {"fa": "پرداخت قسط", "en": "Pay Installment"},
+  
+  "appBar": {"type": "standard", "title": {"fa": "پرداخت قسط", "en": "Pay Installment"}},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "card", "padding": 20, "child": {"type": "column", "children": [
+        {"type": "text", "text": {"fa": "قسط شماره {{installment.number}}", "en": "Installment #{{installment.number}}"}, "style": "titleMedium"},
+        {"type": "text", "text": "{{formatCurrency(installment.amount)}} ریال", "style": "displaySmall", "color": "#673AB7", "margin": {"top": 8}},
+        {"type": "row", "margin": {"top": 12}, "mainAxisAlignment": "spaceBetween", "children": [
+          {"type": "text", "text": {"fa": "سررسید", "en": "Due Date"}, "style": "bodySmall", "color": "textSecondary"},
+          {"type": "text", "text": "{{installment.dueDate}}"}
+        ]},
+        {"type": "conditional", "condition": "{{installment.status === 'overdue'}}", "whenTrue": {"type": "container", "margin": {"top": 12}, "padding": 12, "decoration": {"color": "#FFEBEE", "borderRadius": 8}, "child": {"type": "row", "children": [
+          {"type": "icon", "icon": "assets/icons/ic_warning.svg", "color": "#F44336", "size": 20},
+          {"type": "sized_box", "width": 8},
+          {"type": "text", "text": {"fa": "این قسط معوق شده است", "en": "This installment is overdue"}, "style": "bodySmall", "color": "#F44336"}
+        ]}}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "پرداخت چند قسط", "en": "Pay Multiple"}}, "child": {"type": "column", "children": [
+        {"type": "card", "child": {"type": "list_tile", "title": {"fa": "پرداخت قسط جاری", "en": "Pay Current"}, "trailing": {"type": "radio", "value": "single", "groupValue": "{{paymentType}}"}, "onTap": {"type": "set_state", "key": "paymentType", "value": "single"}}},
+        {"type": "card", "margin": {"top": 8}, "child": {"type": "list_tile", "title": {"fa": "پرداخت چند قسط", "en": "Pay Multiple"}, "trailing": {"type": "radio", "value": "multiple", "groupValue": "{{paymentType}}"}, "onTap": {"type": "set_state", "key": "paymentType", "value": "multiple"}}}
+      ]}},
+      
+      {"type": "conditional", "condition": "{{paymentType === 'multiple'}}", "whenTrue": {"type": "section", "margin": {"top": 16}, "header": {"title": {"fa": "تعداد اقساط", "en": "Number of Installments"}}, "child": {"type": "row", "children": [
+        {"type": "icon_button", "icon": "assets/icons/ic_remove.svg", "onTap": {"type": "decrement", "key": "installmentCount", "min": 1}},
+        {"type": "expanded", "child": {"type": "text", "text": "{{installmentCount}}", "style": "headlineMedium", "textAlign": "center"}},
+        {"type": "icon_button", "icon": "assets/icons/ic_add.svg", "onTap": {"type": "increment", "key": "installmentCount", "max": "{{remainingInstallments}}"}}
+      ]}}},
+      
+      {"type": "card", "margin": {"top": 24}, "padding": 16, "backgroundColor": "#F3E5F5", "child": {"type": "row", "mainAxisAlignment": "spaceBetween", "children": [
+        {"type": "text", "text": {"fa": "مبلغ قابل پرداخت", "en": "Amount to Pay"}, "style": "titleMedium"},
+        {"type": "text", "text": "{{formatCurrency(totalAmount)}} ریال", "style": "titleLarge", "color": "#673AB7"}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "پرداخت از", "en": "Pay From"}}, "child": {"type": "deposit_selector", "deposits": "{{deposits}}", "bindTo": "selectedDeposit", "showBalance": true}},
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {"type": "container", "padding": 16, "child": {"type": "elevated_button", "label": {"fa": "پرداخت", "en": "Pay"}, "fullWidth": true, "disabled": "{{!selectedDeposit}}", "onTap": {"type": "confirm_dialog", "title": {"fa": "تایید پرداخت", "en": "Confirm Payment"}, "message": {"fa": "آیا از پرداخت {{formatCurrency(totalAmount)}} ریال اطمینان دارید؟", "en": "Confirm payment of {{formatCurrency(totalAmount)}} Rials?"}, "onConfirm": {"type": "api_call", "endpoint": "dibalite/loans/{{loanId}}/pay", "method": "POST", "body": {"depositId": "{{selectedDeposit}}", "installmentCount": "{{paymentType === 'multiple' ? installmentCount : 1}}"}, "showLoading": true, "onSuccess": {"type": "navigate_replace", "route": "/loans/payment-result?success=true"}}}}},
+  
+  "dataBindings": {
+    "loanId": {"source": "route_param", "key": "id"},
+    "installment": {"source": "api", "endpoint": "dibalite/loans/{{loanId}}/next-installment"},
+    "deposits": {"source": "api", "endpoint": "dibalite/deposits/list"},
+    "remainingInstallments": {"source": "api", "endpoint": "dibalite/loans/{{loanId}}/remaining-count"},
+    "paymentType": {"source": "state", "default": "single"},
+    "installmentCount": {"source": "state", "default": 1},
+    "selectedDeposit": {"source": "form", "default": null},
+    "totalAmount": {"source": "computed", "formula": "installment.amount * (paymentType === 'multiple' ? installmentCount : 1)"}
+  },
+  
+  "mockData": {
+    "installment": {"number": 4, "amount": 94000000, "dueDate": "۱۴۰۳/۱۱/۱۵", "status": "pending"},
+    "remainingInstallments": 9,
+    "deposits": [{"id": "dep1", "accountNumber": "۰۱۰۸۱۲۳۴۵۶۷۸۹۰", "type": "جاری", "balance": 450000000}]
+  }
+}
+

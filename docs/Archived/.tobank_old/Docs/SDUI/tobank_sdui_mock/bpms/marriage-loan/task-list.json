@@ -1,0 +1,264 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "marriage_loan_tasks",
+  "pageType": "list",
+  "title": {
+    "fa": "پیگیری درخواست تسهیلات ازدواج",
+    "en": "Marriage Loan Application Tracking"
+  },
+  "requiresAuth": true,
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "پیگیری درخواست", "en": "Track Application"},
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "children": [
+      {
+        "id": "status_header",
+        "type": "container",
+        "padding": 16,
+        "decoration": {
+          "gradient": {
+            "type": "linear",
+            "colors": ["#E91E63", "#AD1457"],
+            "begin": "topLeft",
+            "end": "bottomRight"
+          }
+        },
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "row",
+              "mainAxisAlignment": "spaceBetween",
+              "children": [
+                {
+                  "type": "column",
+                  "crossAxisAlignment": "start",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": {"fa": "کد پیگیری", "en": "Tracking Code"},
+                      "style": "bodySmall",
+                      "color": "#FFFFFFAA"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{application.trackingCode}}",
+                      "style": "titleLarge",
+                      "color": "#FFFFFF"
+                    }
+                  ]
+                },
+                {
+                  "type": "chip",
+                  "label": "{{application.statusLabel}}",
+                  "color": "{{application.statusColor}}",
+                  "textColor": "#FFFFFF"
+                }
+              ]
+            },
+            {"type": "sized_box", "height": 16},
+            {
+              "type": "row",
+              "mainAxisAlignment": "spaceBetween",
+              "children": [
+                {
+                  "type": "column",
+                  "crossAxisAlignment": "start",
+                  "children": [
+                    {"type": "text", "text": {"fa": "مبلغ درخواستی", "en": "Requested"}, "style": "bodySmall", "color": "#FFFFFFAA"},
+                    {"type": "text", "text": "{{formatCurrency(application.amount)}} ریال", "style": "titleSmall", "color": "#FFFFFF"}
+                  ]
+                },
+                {
+                  "type": "column",
+                  "crossAxisAlignment": "end",
+                  "children": [
+                    {"type": "text", "text": {"fa": "تاریخ ثبت", "en": "Submit Date"}, "style": "bodySmall", "color": "#FFFFFFAA"},
+                    {"type": "text", "text": "{{application.submitDate}}", "style": "titleSmall", "color": "#FFFFFF"}
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "progress_section",
+        "type": "section",
+        "padding": {"horizontal": 16, "top": 24},
+        "header": {
+          "title": {"fa": "مراحل پیشرفت", "en": "Progress Steps"}
+        },
+        "child": {
+          "type": "vertical_stepper",
+          "steps": "{{progressSteps}}"
+        }
+      },
+      
+      {
+        "id": "pending_tasks_section",
+        "type": "conditional",
+        "condition": "{{pendingTasks.length > 0}}",
+        "whenTrue": {
+          "type": "section",
+          "margin": {"top": 24},
+          "padding": {"horizontal": 16},
+          "header": {
+            "title": {"fa": "وظایف در انتظار شما", "en": "Pending Tasks"},
+            "badge": {"text": "{{pendingTasks.length}}", "color": "#F44336"}
+          },
+          "child": {
+            "type": "list",
+            "dataSource": "pendingTasks",
+            "itemTemplate": {
+              "type": "card",
+              "margin": {"bottom": 12},
+              "child": {
+                "type": "list_tile",
+                "contentPadding": 16,
+                "leading": {
+                  "type": "container",
+                  "width": 48,
+                  "height": 48,
+                  "decoration": {"color": "#FFF3E0", "borderRadius": 12},
+                  "alignment": "center",
+                  "child": {
+                    "type": "icon",
+                    "icon": "{{item.icon}}",
+                    "color": "#FF9800",
+                    "size": 24
+                  }
+                },
+                "title": "{{item.title}}",
+                "subtitle": "{{item.description}}",
+                "trailing": {
+                  "type": "icon",
+                  "icon": "assets/icons/ic_chevron_right.svg"
+                },
+                "onTap": {
+                  "type": "navigate",
+                  "route": "{{item.actionRoute}}"
+                }
+              }
+            }
+          }
+        }
+      },
+      
+      {
+        "id": "history_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "padding": {"horizontal": 16},
+        "header": {
+          "title": {"fa": "تاریخچه", "en": "History"}
+        },
+        "child": {
+          "type": "list",
+          "dataSource": "history",
+          "itemTemplate": {
+            "type": "list_tile",
+            "leading": {
+              "type": "container",
+              "width": 8,
+              "height": 8,
+              "decoration": {"color": "{{item.color}}", "shape": "circle"}
+            },
+            "title": "{{item.title}}",
+            "subtitle": "{{item.date}}",
+            "trailing": {
+              "type": "conditional",
+              "condition": "{{item.hasDetail}}",
+              "whenTrue": {
+                "type": "text_button",
+                "label": {"fa": "جزئیات", "en": "Details"},
+                "onTap": {"type": "show_detail", "detailId": "{{item.id}}"}
+              }
+            }
+          }
+        }
+      },
+      
+      {
+        "id": "contact_section",
+        "type": "card",
+        "margin": 16,
+        "padding": 16,
+        "child": {
+          "type": "row",
+          "children": [
+            {
+              "type": "expanded",
+              "child": {
+                "type": "column",
+                "crossAxisAlignment": "start",
+                "children": [
+                  {"type": "text", "text": {"fa": "نیاز به کمک دارید؟", "en": "Need help?"}, "style": "titleSmall"},
+                  {"type": "text", "text": {"fa": "با پشتیبانی تماس بگیرید", "en": "Contact support"}, "style": "bodySmall", "color": "textSecondary"}
+                ]
+              }
+            },
+            {
+              "type": "elevated_button",
+              "label": {"fa": "تماس", "en": "Call"},
+              "icon": "assets/icons/ic_phone.svg",
+              "size": "small",
+              "onTap": {"type": "call", "number": "02122222222"}
+            }
+          ]
+        }
+      },
+      
+      {"type": "sized_box", "height": 32}
+    ]
+  },
+  
+  "dataBindings": {
+    "trackingCode": {"source": "route_param", "key": "trackingCode"},
+    "application": {"source": "api", "endpoint": "bpms/marriage-loan/application/{{trackingCode}}"},
+    "progressSteps": {"source": "api", "endpoint": "bpms/marriage-loan/progress/{{trackingCode}}"},
+    "pendingTasks": {"source": "api", "endpoint": "bpms/marriage-loan/pending-tasks/{{trackingCode}}"},
+    "history": {"source": "api", "endpoint": "bpms/marriage-loan/history/{{trackingCode}}"}
+  },
+  
+  "mockData": {
+    "application": {
+      "trackingCode": "ML-۱۴۰۳۰۹-۱۲۳۴۵۶",
+      "amount": 1500000000,
+      "submitDate": "۱۴۰۳/۰۹/۰۱",
+      "status": "document_review",
+      "statusLabel": {"fa": "بررسی مدارک", "en": "Document Review"},
+      "statusColor": "#FF9800"
+    },
+    "progressSteps": [
+      {"title": {"fa": "ثبت درخواست", "en": "Submitted"}, "date": "۱۴۰۳/۰۹/۰۱", "status": "completed"},
+      {"title": {"fa": "بررسی اولیه", "en": "Initial Review"}, "date": "۱۴۰۳/۰۹/۰۲", "status": "completed"},
+      {"title": {"fa": "بررسی مدارک", "en": "Document Review"}, "date": "", "status": "current"},
+      {"title": {"fa": "تایید نهایی", "en": "Final Approval"}, "status": "pending"},
+      {"title": {"fa": "واریز تسهیلات", "en": "Disbursement"}, "status": "pending"}
+    ],
+    "pendingTasks": [
+      {
+        "id": "TASK-001",
+        "title": {"fa": "تکمیل مدارک ضامن", "en": "Complete Guarantor Documents"},
+        "description": {"fa": "فیش حقوقی ضامن نیاز به بارگذاری مجدد دارد", "en": "Guarantor salary slip needs re-upload"},
+        "icon": "assets/icons/ic_document.svg",
+        "actionRoute": "/bpms/marriage-loan/upload-task/TASK-001"
+      }
+    ],
+    "history": [
+      {"id": "H-003", "title": {"fa": "شروع بررسی مدارک", "en": "Document review started"}, "date": "۱۴۰۳/۰۹/۰۳ - ۱۰:۳۰", "color": "#2196F3", "hasDetail": false},
+      {"id": "H-002", "title": {"fa": "تایید اطلاعات مشتری", "en": "Customer info verified"}, "date": "۱۴۰۳/۰۹/۰۲ - ۱۴:۲۰", "color": "#4CAF50", "hasDetail": true},
+      {"id": "H-001", "title": {"fa": "ثبت درخواست", "en": "Application submitted"}, "date": "۱۴۰۳/۰۹/۰۱ - ۰۹:۱۵", "color": "#4CAF50", "hasDetail": true}
+    ]
+  }
+}
+

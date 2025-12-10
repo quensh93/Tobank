@@ -1,0 +1,285 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "mobile_topup",
+  "pageType": "form",
+  "title": {
+    "fa": "شارژ موبایل",
+    "en": "Mobile Top-up"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "mobile_topup",
+    "screenClass": "MobileTopupPage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "شارژ موبایل", "en": "Mobile Top-up"},
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "phone_input",
+        "type": "text_field",
+        "label": {"fa": "شماره موبایل", "en": "Mobile Number"},
+        "hint": {"fa": "۰۹۱۲۳۴۵۶۷۸۹", "en": "09123456789"},
+        "icon": "assets/icons/ic_phone.svg",
+        "keyboardType": "phone",
+        "maxLength": 11,
+        "prefixText": "۰",
+        "suffixIcon": {
+          "icon": "assets/icons/ic_contacts.svg",
+          "onTap": {"type": "pick_contact"}
+        },
+        "validation": {
+          "required": true,
+          "pattern": "^09[0-9]{9}$"
+        },
+        "bindTo": "phoneNumber",
+        "onChange": {
+          "type": "detect_operator",
+          "outputTo": "operator"
+        }
+      },
+      
+      {
+        "id": "operator_display",
+        "type": "conditional",
+        "condition": "{{operator}}",
+        "whenTrue": {
+          "type": "container",
+          "margin": {"top": 12},
+          "padding": 12,
+          "decoration": {"color": "#F5F5F5", "borderRadius": 8},
+          "child": {
+            "type": "row",
+            "children": [
+              {
+                "type": "image",
+                "src": "{{operator.logo}}",
+                "width": 32,
+                "height": 32
+              },
+              {"type": "sized_box", "width": 12},
+              {
+                "type": "text",
+                "text": "{{operator.name}}",
+                "style": "bodyMedium"
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "charge_type_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "نوع شارژ", "en": "Charge Type"}
+        },
+        "child": {
+          "type": "row",
+          "children": [
+            {
+              "type": "expanded",
+              "child": {
+                "type": "selectable_card",
+                "selected": "{{chargeType === 'direct'}}",
+                "padding": 16,
+                "child": {
+                  "type": "column",
+                  "children": [
+                    {"type": "icon", "icon": "assets/icons/ic_flash.svg", "color": "#E31837", "size": 32},
+                    {"type": "sized_box", "height": 8},
+                    {"type": "text", "text": {"fa": "مستقیم", "en": "Direct"}, "style": "titleSmall"}
+                  ]
+                },
+                "onTap": {"type": "set_state", "key": "chargeType", "value": "direct"}
+              }
+            },
+            {"type": "sized_box", "width": 12},
+            {
+              "type": "expanded",
+              "child": {
+                "type": "selectable_card",
+                "selected": "{{chargeType === 'pin'}}",
+                "padding": 16,
+                "child": {
+                  "type": "column",
+                  "children": [
+                    {"type": "icon", "icon": "assets/icons/ic_pin_code.svg", "color": "#2196F3", "size": 32},
+                    {"type": "sized_box", "height": 8},
+                    {"type": "text", "text": {"fa": "کد شارژ", "en": "PIN Code"}, "style": "titleSmall"}
+                  ]
+                },
+                "onTap": {"type": "set_state", "key": "chargeType", "value": "pin"}
+              }
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "amount_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "مبلغ شارژ", "en": "Top-up Amount"}
+        },
+        "child": {
+          "type": "grid",
+          "crossAxisCount": 3,
+          "mainAxisSpacing": 12,
+          "crossAxisSpacing": 12,
+          "childAspectRatio": 2,
+          "children": [
+            {
+              "type": "selectable_chip",
+              "selected": "{{amount === 100000}}",
+              "label": {"fa": "۱۰,۰۰۰ تومان", "en": "10K"},
+              "onTap": {"type": "set_state", "key": "amount", "value": 100000}
+            },
+            {
+              "type": "selectable_chip",
+              "selected": "{{amount === 200000}}",
+              "label": {"fa": "۲۰,۰۰۰ تومان", "en": "20K"},
+              "onTap": {"type": "set_state", "key": "amount", "value": 200000}
+            },
+            {
+              "type": "selectable_chip",
+              "selected": "{{amount === 500000}}",
+              "label": {"fa": "۵۰,۰۰۰ تومان", "en": "50K"},
+              "onTap": {"type": "set_state", "key": "amount", "value": 500000}
+            },
+            {
+              "type": "selectable_chip",
+              "selected": "{{amount === 1000000}}",
+              "label": {"fa": "۱۰۰,۰۰۰ تومان", "en": "100K"},
+              "onTap": {"type": "set_state", "key": "amount", "value": 1000000}
+            },
+            {
+              "type": "selectable_chip",
+              "selected": "{{amount === 2000000}}",
+              "label": {"fa": "۲۰۰,۰۰۰ تومان", "en": "200K"},
+              "onTap": {"type": "set_state", "key": "amount", "value": 2000000}
+            },
+            {
+              "type": "selectable_chip",
+              "selected": "{{customAmount}}",
+              "label": {"fa": "سایر", "en": "Custom"},
+              "onTap": {"type": "set_state", "key": "customAmount", "value": true}
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "custom_amount_input",
+        "type": "conditional",
+        "condition": "{{customAmount}}",
+        "whenTrue": {
+          "type": "currency_field",
+          "label": {"fa": "مبلغ دلخواه (تومان)", "en": "Custom Amount (Toman)"},
+          "margin": {"top": 16},
+          "currency": "IRT",
+          "minValue": 10000,
+          "maxValue": 5000000,
+          "bindTo": "amount"
+        }
+      },
+      
+      {
+        "id": "payment_card_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "پرداخت از", "en": "Pay From"}
+        },
+        "child": {
+          "type": "dropdown_field",
+          "dataSource": "cards",
+          "itemTemplate": {
+            "value": "{{item.id}}",
+            "label": "{{item.cardNumberMasked}}",
+            "leading": "{{item.bankLogo}}"
+          },
+          "bindTo": "selectedCardId"
+        }
+      },
+      
+      {
+        "id": "save_number_switch",
+        "type": "switch_tile",
+        "margin": {"top": 16},
+        "title": {"fa": "ذخیره شماره", "en": "Save Number"},
+        "value": "{{saveNumber}}",
+        "bindTo": "saveNumber"
+      },
+      
+      {
+        "id": "submit_button",
+        "type": "elevated_button",
+        "label": {"fa": "خرید شارژ {{formatCurrency(amount * 10)}} ریال", "en": "Buy {{formatCurrency(amount * 10)}} Rials"},
+        "fullWidth": true,
+        "margin": {"top": 32},
+        "loading": "{{isSubmitting}}",
+        "disabled": "{{!phoneNumber || phoneNumber.length !== 11 || !amount || !selectedCardId}}",
+        "onTap": {
+          "type": "api_call",
+          "endpoint": "dibalite/topup/mobile",
+          "method": "POST",
+          "body": {
+            "phoneNumber": "{{phoneNumber}}",
+            "operator": "{{operator.code}}",
+            "amount": "{{amount * 10}}",
+            "chargeType": "{{chargeType}}",
+            "cardId": "{{selectedCardId}}",
+            "saveNumber": "{{saveNumber}}"
+          },
+          "requireOtp": true,
+          "onSuccess": {
+            "type": "navigate_replace",
+            "route": "/topup/result",
+            "params": {
+              "success": true,
+              "type": "mobile",
+              "phoneNumber": "{{phoneNumber}}",
+              "amount": "{{amount * 10}}",
+              "chargeType": "{{chargeType}}",
+              "pinCode": "{{response.pinCode}}",
+              "referenceNumber": "{{response.referenceNumber}}"
+            }
+          }
+        }
+      }
+    ]
+  },
+  
+  "dataBindings": {
+    "phoneNumber": {"source": "form", "default": ""},
+    "operator": {"source": "state", "default": null},
+    "chargeType": {"source": "state", "default": "direct"},
+    "amount": {"source": "form", "default": 0},
+    "customAmount": {"source": "state", "default": false},
+    "selectedCardId": {"source": "form", "default": null},
+    "saveNumber": {"source": "form", "default": false},
+    "cards": {"source": "api", "endpoint": "dibalite/cards"},
+    "isSubmitting": {"source": "state", "default": false}
+  },
+  
+  "mockData": {
+    "cards": "$ref:mock-data/cards.json#cards",
+    "operator": {
+      "code": "mci",
+      "name": "همراه اول",
+      "logo": "assets/images/mci.png"
+    }
+  }
+}
+

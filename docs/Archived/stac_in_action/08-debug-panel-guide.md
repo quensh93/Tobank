@@ -1,0 +1,383 @@
+# Debug Panel Guide - STAC Logs Tab
+
+## Overview
+
+The STAC Logs Tab is a powerful debugging tool integrated into the debug panel that provides comprehensive visibility into all STAC (Server-Driven UI) operations. It tracks screen fetching, JSON parsing, component rendering, and errors, helping developers understand and optimize their STAC implementations.
+
+## Features
+
+### 1. Real-Time Log Monitoring
+
+The STAC Logs Tab displays all STAC operations in real-time, including:
+
+- **Screen Fetch Operations**: Track when screens are fetched from APIs (mock, Firebase, or custom)
+- **JSON Parsing**: Monitor JSON parsing operations and widget types being created
+- **Component Rendering**: View component rendering operations and their performance
+- **Errors**: Catch and diagnose STAC-related errors with detailed information
+
+### 2. Statistics Dashboard
+
+At the top of the tab, you'll find a statistics bar showing:
+
+- **Total Logs**: Total number of log entries
+- **Fetch Count**: Number of screen fetch operations
+- **Parse Count**: Number of JSON parsing operations
+- **Render Count**: Number of component render operations
+- **Error Count**: Number of errors encountered
+
+### 3. Filtering and Search
+
+#### Operation Type Filters
+
+Filter logs by operation type:
+- **Fetch**: Screen fetch operations
+- **Parse**: JSON parsing operations
+- **Render**: Component rendering operations
+- **Error**: Error operations
+
+Click on the filter chips to toggle operation types on/off.
+
+#### API Source Filters
+
+Filter logs by API source:
+- **MOCK**: Logs from mock API
+- **FIREBASE**: Logs from Firebase API
+- **CUSTOM**: Logs from custom API
+
+#### Search
+
+Use the search field to find logs by:
+- Screen name
+- Component type
+- Metadata values
+
+Simply type your search query, and the logs will be filtered in real-time.
+
+#### Time Range Filtering
+
+Filter logs by time range (future enhancement):
+- Start date
+- End date
+
+### 4. Log List View
+
+The log list displays each log entry with:
+
+- **Operation Icon**: Color-coded icon indicating operation type
+  - 📱 Green: Fetch operations
+  - 🔄 Orange: Parse operations
+  - 🎨 Purple: Render operations
+  - ❌ Red: Error operations
+
+- **Screen Name**: Name of the screen being operated on
+
+- **API Source Badge**: Shows the source (MOCK, FIREBASE, CUSTOM)
+
+- **Timestamp**: Time when the operation occurred (HH:mm:ss.SSS format)
+
+- **Duration Badge**: 
+  - Green: Normal performance (<100ms)
+  - Orange: Slow operation (>100ms)
+
+- **Error Indicator**: Red error icon for failed operations
+
+### 5. Detailed Log View
+
+Click on any log entry to view detailed information:
+
+#### Overview Section
+- Timestamp (full date and time)
+- Screen name
+- API source
+- Operation ID (unique identifier)
+
+#### Performance Metrics
+- **Duration**: Time taken for the operation
+  - Shows warning if operation is slow (>100ms)
+- **Data Size**: Size of JSON data (for fetch operations)
+- **Widget Count**: Number of widgets parsed (for parse operations)
+- **Property Count**: Number of properties (for render operations)
+
+#### Error Details (for errors)
+- **Error Message**: Detailed error description
+- **Suggestion**: Recommended fix or troubleshooting steps
+
+#### Metadata
+- All additional metadata associated with the operation
+- Displayed in key-value format
+- Includes operation-specific details
+
+#### JSON Data
+- Formatted JSON data with syntax highlighting
+- Copy-to-clipboard functionality
+- Collapsible sections for easy navigation
+
+### 6. Actions
+
+#### Clear All Logs
+Click the trash icon in the statistics bar to clear all logs. A confirmation dialog will appear to prevent accidental deletion.
+
+#### Copy to Clipboard
+- Copy operation ID
+- Copy JSON data
+- Copy any text field
+
+## Usage Examples
+
+### Example 1: Monitoring Screen Fetch Performance
+
+1. Navigate to the STAC Logs tab
+2. Filter by "Fetch" operation type
+3. Look for orange duration badges indicating slow fetches
+4. Click on a slow fetch to view details
+5. Check the performance metrics to identify bottlenecks
+
+### Example 2: Debugging JSON Parsing Errors
+
+1. Navigate to the STAC Logs tab
+2. Filter by "Error" operation type
+3. Click on an error entry
+4. Review the error message and suggestion
+5. Check the JSON data section to identify the problematic JSON structure
+
+### Example 3: Tracking Widget Rendering
+
+1. Navigate to the STAC Logs tab
+2. Filter by "Render" operation type
+3. Search for a specific component type
+4. Review rendering performance across multiple instances
+5. Identify components that render slowly
+
+### Example 4: Comparing API Sources
+
+1. Navigate to the STAC Logs tab
+2. Filter by "Fetch" operation type
+3. Toggle between MOCK, FIREBASE, and CUSTOM source filters
+4. Compare fetch durations across different sources
+5. Identify which source provides the best performance
+
+## Integration with STAC Logger
+
+The STAC Logs Tab displays logs generated by the `StacLogger` class. To log STAC operations in your code:
+
+### Logging Screen Fetch
+
+```dart
+import 'package:tobank_sdui/core/logging/stac_logger.dart';
+import 'package:tobank_sdui/core/logging/stac_log_models.dart';
+
+// Log a screen fetch operation
+StacLogger.logScreenFetch(
+  screenName: 'home_screen',
+  source: ApiSource.mock,
+  duration: Duration(milliseconds: 150),
+  jsonSize: 2048,
+);
+```
+
+### Logging JSON Parsing
+
+```dart
+// Log JSON parsing operation
+StacLogger.logJsonParsing(
+  screenName: 'home_screen',
+  widgetTypes: ['text', 'button', 'container'],
+  duration: Duration(milliseconds: 50),
+  warnings: ['Missing optional property: padding'],
+);
+```
+
+### Logging Component Rendering
+
+```dart
+// Log component rendering
+StacLogger.logComponentRender(
+  componentType: 'CustomCard',
+  properties: {'title': 'Hello', 'subtitle': 'World'},
+  duration: Duration(milliseconds: 10),
+  screenName: 'home_screen',
+);
+```
+
+### Logging Errors
+
+```dart
+// Log an error
+StacLogger.logError(
+  operation: 'JSON Parsing',
+  error: 'Invalid widget type: unknownWidget',
+  screenName: 'home_screen',
+  jsonPath: 'root.children[0].type',
+  suggestion: 'Check that the widget type is registered in the custom component registry',
+);
+```
+
+## Performance Considerations
+
+### Slow Operation Thresholds
+
+The STAC Logs Tab uses the following thresholds to identify slow operations:
+
+- **Fetch Operations**: >1000ms (1 second)
+- **Parse Operations**: >100ms
+- **Render Operations**: >16ms (60fps threshold)
+
+Operations exceeding these thresholds are marked with orange badges and logged as warnings.
+
+### Log Retention
+
+The STAC Logger keeps a maximum of 1000 log entries in memory. Older entries are automatically removed when this limit is reached. Use the "Clear All Logs" button to manually clear logs if needed.
+
+## Tips and Best Practices
+
+### 1. Use Filters Effectively
+
+- Start with all filters enabled to see the full picture
+- Narrow down to specific operation types when investigating issues
+- Use search to quickly find logs for specific screens or components
+
+### 2. Monitor Performance Regularly
+
+- Check the statistics bar regularly to track error rates
+- Look for patterns in slow operations
+- Compare performance across different API sources
+
+### 3. Investigate Errors Immediately
+
+- Errors are highlighted in red for easy identification
+- Read the suggestion field for quick troubleshooting
+- Check the JSON data to understand the context
+
+### 4. Use the Detail View
+
+- Click on logs to see full details
+- Copy operation IDs for bug reports
+- Review metadata for additional context
+
+### 5. Clear Logs Periodically
+
+- Clear logs before testing specific features
+- This helps isolate logs related to your current work
+- Prevents log list from becoming too long
+
+## Troubleshooting
+
+### No Logs Appearing
+
+**Problem**: The STAC Logs Tab is empty even though STAC operations are occurring.
+
+**Solution**:
+1. Verify that `StacLogger` is being called in your code
+2. Check that the debug panel is enabled
+3. Ensure filters are not excluding all log types
+
+### Logs Not Updating
+
+**Problem**: New logs are not appearing in real-time.
+
+**Solution**:
+1. Try switching to another tab and back
+2. Clear filters and search query
+3. Restart the application if the issue persists
+
+### Performance Issues
+
+**Problem**: The debug panel becomes slow with many logs.
+
+**Solution**:
+1. Clear old logs using the "Clear All Logs" button
+2. Use filters to reduce the number of displayed logs
+3. The logger automatically limits to 1000 entries
+
+### Missing Details
+
+**Problem**: Log entries are missing expected metadata or JSON data.
+
+**Solution**:
+1. Verify that all required parameters are passed to `StacLogger` methods
+2. Check that JSON data is included in the metadata
+3. Ensure the operation completed successfully
+
+## Advanced Features
+
+### Custom Log Entries
+
+You can create custom log entries for operations not covered by the standard logging methods:
+
+```dart
+StacLogger.logCustomOperation(
+  screenName: 'custom_screen',
+  operationType: StacOperationType.fetch,
+  duration: Duration(milliseconds: 200),
+  source: ApiSource.custom,
+  metadata: {
+    'custom_field': 'custom_value',
+    'operation_details': 'Additional information',
+  },
+);
+```
+
+### Accessing Log Statistics
+
+Get statistics about logged operations programmatically:
+
+```dart
+final stats = StacLogger.instance.getStatistics();
+print('Total logs: ${stats['total_logs']}');
+print('Error count: ${stats['error_count']}');
+print('Average fetch duration: ${stats['avg_fetch_duration_ms']}ms');
+```
+
+### Filtering Logs Programmatically
+
+Access filtered logs in your code:
+
+```dart
+// Get all error logs
+final errors = StacLogger.instance.getErrors();
+
+// Get logs for a specific screen
+final screenLogs = StacLogger.instance.getLogsByScreen('home_screen');
+
+// Get slow operations
+final slowOps = StacLogger.instance.getSlowOperations();
+```
+
+## Related Documentation
+
+- [STAC Framework Overview](../stac/README.md)
+- [Custom Widgets Guide](02-custom-widgets-guide.md)
+- [Custom Actions Guide](03-custom-actions-guide.md)
+- [API Layer Guide](05-api-layer-guide.md)
+- [Testing Guide](04-testing-guide.md)
+
+## Keyboard Shortcuts
+
+Currently, the STAC Logs Tab does not have dedicated keyboard shortcuts. This is a potential future enhancement.
+
+## Future Enhancements
+
+Planned features for future releases:
+
+1. **Export Logs**: Export logs to JSON or CSV format
+2. **Log Replay**: Replay logged operations for debugging
+3. **Performance Graphs**: Visualize performance metrics over time
+4. **Log Comparison**: Compare logs across different sessions
+5. **Advanced Filtering**: More sophisticated filtering options
+6. **Keyboard Shortcuts**: Navigate and interact using keyboard
+7. **Log Annotations**: Add notes to specific log entries
+8. **Integration with CI/CD**: Automated log analysis in pipelines
+
+## Feedback and Support
+
+If you encounter issues or have suggestions for improving the STAC Logs Tab, please:
+
+1. Check this documentation for solutions
+2. Review the troubleshooting section
+3. Consult the related documentation
+4. Report issues to the development team
+
+---
+
+**Last Updated**: 2024
+**Version**: 1.0.0

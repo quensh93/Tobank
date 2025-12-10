@@ -1,0 +1,66 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "military_completion",
+  "flowId": "military_guarantee",
+  "stepNumber": 7,
+  "title": {"fa": "اتمام", "en": "Completion"},
+  
+  "appBar": {"type": "standard", "title": {"fa": "ضمانت‌نامه نظام وظیفه", "en": "Military Guarantee"}, "showBackButton": false},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "container", "alignment": "center", "padding": 32, "child": {"type": "lottie", "asset": "assets/animations/success.json", "width": 150, "height": 150, "repeat": false}},
+      {"type": "text", "text": {"fa": "درخواست ثبت شد", "en": "Application Submitted"}, "style": "headlineSmall", "color": "#4CAF50", "textAlign": "center"},
+      
+      {
+        "type": "card",
+        "margin": {"top": 24},
+        "padding": 20,
+        "backgroundColor": "#ECEFF1",
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "text", "text": {"fa": "کد پیگیری", "en": "Tracking Code"}, "style": "titleMedium", "textAlign": "center"},
+            {"type": "text", "text": "{{trackingCode}}", "style": "displaySmall", "textAlign": "center", "margin": {"top": 8}},
+            {"type": "row", "mainAxisAlignment": "center", "margin": {"top": 16}, "children": [
+              {"type": "text_button", "icon": "assets/icons/ic_copy.svg", "label": {"fa": "کپی", "en": "Copy"}, "onTap": {"type": "copy_to_clipboard", "text": "{{trackingCode}}"}}
+            ]}
+          ]
+        }
+      },
+      
+      {
+        "type": "card",
+        "margin": {"top": 24},
+        "padding": 16,
+        "child": {
+          "type": "column",
+          "crossAxisAlignment": "start",
+          "children": [
+            {"type": "text", "text": {"fa": "مراحل بعدی", "en": "Next Steps"}, "style": "titleMedium"},
+            {"type": "step_item", "number": 1, "text": {"fa": "بررسی مدارک", "en": "Document review"}, "margin": {"top": 12}},
+            {"type": "step_item", "number": 2, "text": {"fa": "صدور ضمانت‌نامه", "en": "Guarantee issuance"}, "margin": {"top": 8}},
+            {"type": "step_item", "number": 3, "text": {"fa": "دریافت ضمانت‌نامه از شعبه", "en": "Pickup from branch"}, "margin": {"top": 8}},
+            {"type": "text", "text": {"fa": "زمان تخمینی: ۳ تا ۵ روز کاری", "en": "Est: 3-5 business days"}, "style": "bodySmall", "color": "textSecondary", "margin": {"top": 16}}
+          ]
+        }
+      },
+      
+      {
+        "type": "column",
+        "margin": {"top": 32},
+        "children": [
+          {"type": "elevated_button", "label": {"fa": "پیگیری", "en": "Track"}, "fullWidth": true, "onTap": {"type": "navigate", "route": "/bpms/military-guarantee/tasks"}},
+          {"type": "outlined_button", "label": {"fa": "بازگشت به خانه", "en": "Home"}, "fullWidth": true, "margin": {"top": 12}, "onTap": {"type": "navigate_replace", "route": "/home"}}
+        ]
+      }
+    ]
+  },
+  
+  "dataBindings": {"trackingCode": {"source": "api", "endpoint": "bpms/military-guarantee/tracking-code"}},
+  "mockData": {"trackingCode": "MG-۱۴۰۳۰۹-۳۴۵۶۷۸"}
+}
+

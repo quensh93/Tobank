@@ -1,0 +1,339 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "c2c_confirm",
+  "pageType": "confirmation",
+  "title": {
+    "fa": "تایید انتقال",
+    "en": "Confirm Transfer"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "c2c_confirm",
+    "screenClass": "CardToCardConfirmPage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "تایید انتقال", "en": "Confirm Transfer"},
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "children": [
+      {
+        "id": "step_indicator",
+        "type": "step_indicator",
+        "currentStep": 3,
+        "steps": [
+          {"label": {"fa": "کارت مبدا", "en": "Source"}},
+          {"label": {"fa": "کارت مقصد", "en": "Destination"}},
+          {"label": {"fa": "مبلغ", "en": "Amount"}},
+          {"label": {"fa": "تایید", "en": "Confirm"}}
+        ]
+      },
+      
+      {
+        "id": "amount_display",
+        "type": "container",
+        "padding": 24,
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "text",
+              "text": {"fa": "مبلغ انتقال", "en": "Transfer Amount"},
+              "style": "bodyMedium",
+              "color": "textSecondary",
+              "textAlign": "center"
+            },
+            {
+              "type": "sized_box",
+              "height": 8
+            },
+            {
+              "type": "text",
+              "text": "{{formatCurrency(amount)}}",
+              "style": "displayMedium",
+              "color": "#E31837",
+              "textAlign": "center"
+            },
+            {
+              "type": "text",
+              "text": {"fa": "ریال", "en": "Rials"},
+              "style": "titleMedium",
+              "color": "textSecondary",
+              "textAlign": "center"
+            },
+            {
+              "type": "sized_box",
+              "height": 4
+            },
+            {
+              "type": "text",
+              "text": "({{formatCurrency(amount / 10)}} تومان)",
+              "style": "bodyMedium",
+              "color": "textSecondary",
+              "textAlign": "center"
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "transfer_details",
+        "type": "card",
+        "margin": {"horizontal": 16},
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "info_row",
+              "label": {"fa": "از کارت", "en": "From Card"},
+              "value": "{{sourceCard.cardNumberMasked}}",
+              "icon": "{{sourceCard.bankLogo}}"
+            },
+            {"type": "divider"},
+            {
+              "type": "info_row",
+              "label": {"fa": "به کارت", "en": "To Card"},
+              "value": "{{formatCardNumber(destinationCardNumber)}}",
+              "icon": "{{destinationBank.logo}}"
+            },
+            {
+              "type": "conditional",
+              "condition": "{{destinationOwner}}",
+              "whenTrue": {
+                "type": "column",
+                "children": [
+                  {"type": "divider"},
+                  {
+                    "type": "info_row",
+                    "label": {"fa": "دارنده کارت", "en": "Card Holder"},
+                    "value": "{{destinationOwner}}",
+                    "valueColor": "#4CAF50"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "conditional",
+              "condition": "{{description}}",
+              "whenTrue": {
+                "type": "column",
+                "children": [
+                  {"type": "divider"},
+                  {
+                    "type": "info_row",
+                    "label": {"fa": "توضیحات", "en": "Description"},
+                    "value": "{{description}}"
+                  }
+                ]
+              }
+            },
+            {"type": "divider"},
+            {
+              "type": "info_row",
+              "label": {"fa": "کارمزد", "en": "Fee"},
+              "value": {"fa": "رایگان", "en": "Free"},
+              "valueColor": "#4CAF50"
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "pin_section",
+        "type": "container",
+        "padding": 16,
+        "margin": {"top": 16},
+        "child": {
+          "type": "card",
+          "padding": 20,
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "text",
+                "text": {"fa": "رمز دوم کارت را وارد کنید", "en": "Enter Card CVV2"},
+                "style": "titleMedium",
+                "textAlign": "center"
+              },
+              {
+                "type": "sized_box",
+                "height": 16
+              },
+              {
+                "type": "pin_input",
+                "length": 6,
+                "obscureText": true,
+                "autofocus": true,
+                "bindTo": "cvv2"
+              },
+              {
+                "type": "sized_box",
+                "height": 12
+              },
+              {
+                "type": "text",
+                "text": {"fa": "رمز یکبار مصرف یا رمز دوم ایستا", "en": "OTP or static CVV2"},
+                "style": "bodySmall",
+                "color": "textSecondary",
+                "textAlign": "center"
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "warning_section",
+        "type": "container",
+        "padding": {"horizontal": 16},
+        "margin": {"top": 16},
+        "child": {
+          "type": "card",
+          "padding": 12,
+          "borderColor": "#FFC107",
+          "child": {
+            "type": "row",
+            "crossAxisAlignment": "start",
+            "children": [
+              {
+                "type": "icon",
+                "icon": "assets/icons/ic_warning.svg",
+                "color": "#FFC107",
+                "size": 20
+              },
+              {
+                "type": "sized_box",
+                "width": 8
+              },
+              {
+                "type": "expanded",
+                "child": {
+                  "type": "text",
+                  "text": {"fa": "لطفاً قبل از تایید، اطلاعات را بررسی کنید. امکان بازگشت وجه پس از انتقال وجود ندارد.", "en": "Please verify the details before confirming. Transfers cannot be reversed."},
+                  "style": "bodySmall"
+                }
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "bottom_spacing",
+        "type": "sized_box",
+        "height": 120
+      }
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "decoration": {
+      "color": "surface",
+      "boxShadow": "0 -2px 8px rgba(0,0,0,0.1)"
+    },
+    "child": {
+      "type": "column",
+      "children": [
+        {
+          "type": "elevated_button",
+          "label": {"fa": "تایید و انتقال", "en": "Confirm & Transfer"},
+          "fullWidth": true,
+          "loading": "{{isSubmitting}}",
+          "disabled": "{{cvv2.length < 4}}",
+          "onTap": {
+            "type": "api_call",
+            "endpoint": "dibalite/transfer/card-to-card",
+            "method": "POST",
+            "body": {
+              "sourceCardId": "{{sourceCardId}}",
+              "destinationCardNumber": "{{destinationCardNumber}}",
+              "amount": "{{amount}}",
+              "cvv2": "{{cvv2}}",
+              "description": "{{description}}",
+              "saveToContacts": "{{saveToContacts}}",
+              "contactName": "{{contactName}}"
+            },
+            "requireEncryption": true,
+            "requireEkycSign": true,
+            "onSuccess": {
+              "type": "navigate_replace",
+              "route": "/transfer/card-to-card/result",
+              "params": {
+                "success": true,
+                "transactionId": "{{response.transactionId}}",
+                "referenceNumber": "{{response.referenceNumber}}",
+                "amount": "{{amount}}",
+                "sourceCard": "{{sourceCard.cardNumberMasked}}",
+                "destinationCard": "{{formatCardNumber(destinationCardNumber)}}",
+                "destinationOwner": "{{destinationOwner}}",
+                "date": "{{response.date}}",
+                "time": "{{response.time}}"
+              }
+            },
+            "onError": {
+              "type": "navigate_replace",
+              "route": "/transfer/card-to-card/result",
+              "params": {
+                "success": false,
+                "errorMessage": "{{error.message}}",
+                "errorCode": "{{error.code}}"
+              }
+            }
+          }
+        },
+        {
+          "type": "sized_box",
+          "height": 8
+        },
+        {
+          "type": "text_button",
+          "label": {"fa": "انصراف", "en": "Cancel"},
+          "onTap": {
+            "type": "confirm_dialog",
+            "title": {"fa": "انصراف از انتقال", "en": "Cancel Transfer"},
+            "message": {"fa": "آیا از انصراف اطمینان دارید؟", "en": "Are you sure you want to cancel?"},
+            "confirmLabel": {"fa": "بله", "en": "Yes"},
+            "onConfirm": {
+              "type": "navigate_replace",
+              "route": "/home"
+            }
+          }
+        }
+      ]
+    }
+  },
+  
+  "dataBindings": {
+    "sourceCardId": {"source": "route_param", "key": "sourceCardId"},
+    "destinationCardNumber": {"source": "route_param", "key": "destinationCardNumber"},
+    "destinationOwner": {"source": "route_param", "key": "destinationOwner"},
+    "destinationBank": {"source": "route_param", "key": "destinationBank"},
+    "amount": {"source": "route_param", "key": "amount"},
+    "description": {"source": "route_param", "key": "description"},
+    "saveToContacts": {"source": "route_param", "key": "saveToContacts"},
+    "contactName": {"source": "route_param", "key": "contactName"},
+    "sourceCard": {"source": "api", "endpoint": "dibalite/cards/{{sourceCardId}}"},
+    "cvv2": {"source": "form", "default": ""},
+    "isSubmitting": {"source": "state", "default": false}
+  },
+  
+  "mockData": {
+    "sourceCard": "$ref:mock-data/cards.json#cards[0]",
+    "amount": 25000000,
+    "destinationCardNumber": "6219861212345678",
+    "destinationOwner": "محمد رضایی",
+    "destinationBank": {
+      "code": "012",
+      "name": "بانک ملت",
+      "logo": "assets/images/banks/mellat.png"
+    }
+  }
+}
+

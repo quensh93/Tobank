@@ -1,0 +1,475 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "dashboard_home",
+  "pageType": "dashboard",
+  "title": {
+    "fa": "خانه",
+    "en": "Home"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "dashboard_home",
+    "screenClass": "DashboardPage"
+  },
+  
+  "appBar": {
+    "type": "custom",
+    "showLogo": true,
+    "logoAsset": "assets/images/logo.png",
+    "actions": [
+      {
+        "id": "notifications",
+        "icon": "assets/icons/ic_notification.svg",
+        "badge": {
+          "dataBinding": "{{user.unreadNotifications}}",
+          "showWhenZero": false,
+          "color": "#E31837"
+        },
+        "action": {
+          "type": "navigate",
+          "route": "/notifications"
+        }
+      },
+      {
+        "id": "support",
+        "icon": "assets/icons/ic_support.svg",
+        "action": {
+          "type": "navigate",
+          "route": "/support"
+        }
+      }
+    ]
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "refreshable": true,
+    "onRefresh": {
+      "type": "api_call",
+      "endpoint": "dibalite/dashboard/refresh"
+    },
+    "children": [
+      {
+        "id": "user_greeting",
+        "type": "container",
+        "padding": {"horizontal": 16, "vertical": 12},
+        "child": {
+          "type": "row",
+          "mainAxisAlignment": "spaceBetween",
+          "children": [
+            {
+              "type": "column",
+              "crossAxisAlignment": "start",
+              "children": [
+                {
+                  "type": "text",
+                  "text": {
+                    "fa": "سلام {{user.firstName}}",
+                    "en": "Hello {{user.firstName}}"
+                  },
+                  "style": "headlineMedium",
+                  "dataBinding": "user.firstName"
+                },
+                {
+                  "type": "text",
+                  "text": {
+                    "fa": "به توبانک خوش آمدید",
+                    "en": "Welcome to Tobank"
+                  },
+                  "style": "bodyMedium",
+                  "color": "textSecondary"
+                }
+              ]
+            },
+            {
+              "type": "avatar",
+              "size": 48,
+              "imageUrl": "{{user.avatarUrl}}",
+              "fallbackIcon": "assets/icons/ic_profile.svg",
+              "onTap": {
+                "type": "navigate",
+                "route": "/profile"
+              }
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "total_balance_card",
+        "type": "card",
+        "margin": {"horizontal": 16, "vertical": 8},
+        "padding": 16,
+        "elevation": 2,
+        "borderRadius": 16,
+        "gradient": {
+          "type": "linear",
+          "colors": ["#E31837", "#B71C1C"],
+          "begin": "topLeft",
+          "end": "bottomRight"
+        },
+        "child": {
+          "type": "column",
+          "crossAxisAlignment": "start",
+          "children": [
+            {
+              "type": "row",
+              "mainAxisAlignment": "spaceBetween",
+              "children": [
+                {
+                  "type": "text",
+                  "text": {"fa": "موجودی کل", "en": "Total Balance"},
+                  "style": "bodyMedium",
+                  "color": "#FFFFFF99"
+                },
+                {
+                  "type": "icon_button",
+                  "icon": "{{showBalance ? 'assets/icons/ic_eye_open.svg' : 'assets/icons/ic_eye_close.svg'}}",
+                  "iconColor": "#FFFFFF",
+                  "onTap": {
+                    "type": "toggle_state",
+                    "key": "showBalance"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "sized_box",
+              "height": 8
+            },
+            {
+              "type": "conditional",
+              "condition": "{{showBalance}}",
+              "whenTrue": {
+                "type": "text",
+                "text": "{{formatCurrency(user.totalBalance)}} ریال",
+                "style": "headlineLarge",
+                "color": "#FFFFFF",
+                "dataBinding": "user.totalBalance"
+              },
+              "whenFalse": {
+                "type": "text",
+                "text": "********",
+                "style": "headlineLarge",
+                "color": "#FFFFFF"
+              }
+            },
+            {
+              "type": "sized_box",
+              "height": 16
+            },
+            {
+              "type": "row",
+              "mainAxisAlignment": "spaceEvenly",
+              "children": [
+                {
+                  "type": "quick_action_button",
+                  "icon": "assets/icons/ic_card_to_card.svg",
+                  "label": {"fa": "کارت به کارت", "en": "Card Transfer"},
+                  "iconColor": "#FFFFFF",
+                  "labelColor": "#FFFFFF",
+                  "onTap": {
+                    "type": "navigate",
+                    "route": "/transfer/card-to-card"
+                  }
+                },
+                {
+                  "type": "quick_action_button",
+                  "icon": "assets/icons/ic_deposit.svg",
+                  "label": {"fa": "انتقال وجه", "en": "Transfer"},
+                  "iconColor": "#FFFFFF",
+                  "labelColor": "#FFFFFF",
+                  "onTap": {
+                    "type": "navigate",
+                    "route": "/transfer/paya"
+                  }
+                },
+                {
+                  "type": "quick_action_button",
+                  "icon": "assets/icons/ic_qr_code.svg",
+                  "label": {"fa": "پرداخت QR", "en": "QR Pay"},
+                  "iconColor": "#FFFFFF",
+                  "labelColor": "#FFFFFF",
+                  "onTap": {
+                    "type": "navigate",
+                    "route": "/payment/qr"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "cards_carousel",
+        "type": "section",
+        "margin": {"top": 16},
+        "header": {
+          "title": {"fa": "کارت‌های من", "en": "My Cards"},
+          "action": {
+            "label": {"fa": "مشاهده همه", "en": "View All"},
+            "onTap": {
+              "type": "navigate",
+              "route": "/cards"
+            }
+          }
+        },
+        "child": {
+          "type": "horizontal_list",
+          "height": 180,
+          "padding": {"horizontal": 16},
+          "itemSpacing": 12,
+          "dataSource": "user.cards",
+          "emptyState": {
+            "icon": "assets/icons/ic_card.svg",
+            "title": {"fa": "کارتی یافت نشد", "en": "No cards found"},
+            "action": {
+              "label": {"fa": "افزودن کارت", "en": "Add Card"},
+              "onTap": {"type": "navigate", "route": "/cards/add"}
+            }
+          },
+          "itemTemplate": {
+            "type": "bank_card_widget",
+            "width": 300,
+            "cardNumber": "{{item.cardNumberMasked}}",
+            "cardHolder": "{{item.holderName}}",
+            "expiryDate": "{{item.expiryDate}}",
+            "bankLogo": "{{item.bankLogo}}",
+            "cardDesign": "{{item.cardDesign}}",
+            "balance": "{{item.balance}}",
+            "showBalance": "{{showBalance}}",
+            "onTap": {
+              "type": "navigate",
+              "route": "/cards/detail/{{item.id}}"
+            }
+          }
+        }
+      },
+      
+      {
+        "id": "quick_services",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "خدمات سریع", "en": "Quick Services"}
+        },
+        "child": {
+          "type": "grid",
+          "crossAxisCount": 4,
+          "padding": {"horizontal": 16},
+          "mainAxisSpacing": 16,
+          "crossAxisSpacing": 8,
+          "childAspectRatio": 0.85,
+          "children": [
+            {
+              "type": "service_item",
+              "icon": "assets/icons/ic_mobile_charge.svg",
+              "label": {"fa": "شارژ موبایل", "en": "Mobile Top-up"},
+              "color": "#4CAF50",
+              "onTap": {"type": "navigate", "route": "/topup/mobile"}
+            },
+            {
+              "type": "service_item",
+              "icon": "assets/icons/ic_electric_bill.svg",
+              "label": {"fa": "قبض برق", "en": "Electric Bill"},
+              "color": "#FF9800",
+              "onTap": {"type": "navigate", "route": "/bills/electric"}
+            },
+            {
+              "type": "service_item",
+              "icon": "assets/icons/ic_gas_bill.svg",
+              "label": {"fa": "قبض گاز", "en": "Gas Bill"},
+              "color": "#2196F3",
+              "onTap": {"type": "navigate", "route": "/bills/gas"}
+            },
+            {
+              "type": "service_item",
+              "icon": "assets/icons/ic_water_bill.svg",
+              "label": {"fa": "قبض آب", "en": "Water Bill"},
+              "color": "#00BCD4",
+              "onTap": {"type": "navigate", "route": "/bills/water"}
+            },
+            {
+              "type": "service_item",
+              "icon": "assets/icons/ic_phone_bill.svg",
+              "label": {"fa": "قبض تلفن", "en": "Phone Bill"},
+              "color": "#9C27B0",
+              "onTap": {"type": "navigate", "route": "/bills/phone"}
+            },
+            {
+              "type": "service_item",
+              "icon": "assets/icons/ic_internet_package.svg",
+              "label": {"fa": "بسته اینترنت", "en": "Data Package"},
+              "color": "#E91E63",
+              "onTap": {"type": "navigate", "route": "/topup/internet"}
+            },
+            {
+              "type": "service_item",
+              "icon": "assets/icons/ic_loan.svg",
+              "label": {"fa": "تسهیلات", "en": "Loans"},
+              "color": "#673AB7",
+              "onTap": {"type": "navigate", "route": "/loans"}
+            },
+            {
+              "type": "service_item",
+              "icon": "assets/icons/ic_more.svg",
+              "label": {"fa": "بیشتر", "en": "More"},
+              "color": "#607D8B",
+              "onTap": {"type": "navigate", "route": "/services"}
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "announcements_banner",
+        "type": "section",
+        "margin": {"top": 24},
+        "visibility": {
+          "condition": "{{announcements.length > 0}}"
+        },
+        "child": {
+          "type": "carousel",
+          "height": 140,
+          "autoPlay": true,
+          "autoPlayInterval": 5000,
+          "padding": {"horizontal": 16},
+          "dataSource": "announcements",
+          "indicatorPosition": "bottom",
+          "itemTemplate": {
+            "type": "announcement_card",
+            "imageUrl": "{{item.imageUrl}}",
+            "title": "{{item.title}}",
+            "backgroundColor": "{{item.backgroundColor}}",
+            "onTap": {
+              "type": "{{item.actionType}}",
+              "route": "{{item.actionRoute}}",
+              "url": "{{item.actionUrl}}"
+            }
+          }
+        }
+      },
+      
+      {
+        "id": "recent_transactions",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "تراکنش‌های اخیر", "en": "Recent Transactions"},
+          "action": {
+            "label": {"fa": "مشاهده همه", "en": "View All"},
+            "onTap": {
+              "type": "navigate",
+              "route": "/transactions"
+            }
+          }
+        },
+        "child": {
+          "type": "list",
+          "shrinkWrap": true,
+          "physics": "never_scroll",
+          "padding": {"horizontal": 16},
+          "dataSource": "recentTransactions",
+          "maxItems": 5,
+          "emptyState": {
+            "icon": "assets/icons/ic_transaction.svg",
+            "title": {"fa": "تراکنشی یافت نشد", "en": "No transactions"}
+          },
+          "itemTemplate": {
+            "type": "transaction_item",
+            "icon": "{{item.icon}}",
+            "title": "{{item.title}}",
+            "subtitle": "{{item.description}}",
+            "amount": "{{item.amount}}",
+            "isCredit": "{{item.isCredit}}",
+            "date": "{{item.date}}",
+            "status": "{{item.status}}",
+            "onTap": {
+              "type": "navigate",
+              "route": "/transactions/detail/{{item.id}}"
+            }
+          },
+          "separatorType": "divider"
+        }
+      },
+      
+      {
+        "id": "bottom_spacing",
+        "type": "sized_box",
+        "height": 100
+      }
+    ]
+  },
+  
+  "floatingActionButton": {
+    "icon": "assets/icons/ic_qr_scan.svg",
+    "backgroundColor": "#E31837",
+    "onTap": {
+      "type": "navigate",
+      "route": "/scanner"
+    }
+  },
+  
+  "dataBindings": {
+    "user": {
+      "source": "local",
+      "key": "currentUser"
+    },
+    "announcements": {
+      "source": "api",
+      "endpoint": "dibalite/announcements",
+      "cacheTime": 3600
+    },
+    "recentTransactions": {
+      "source": "api",
+      "endpoint": "dibalite/transactions/recent",
+      "params": {"limit": 5}
+    },
+    "showBalance": {
+      "source": "local",
+      "key": "dashboard_show_balance",
+      "default": true
+    }
+  },
+  
+  "mockData": {
+    "user": {
+      "firstName": "علی",
+      "lastName": "احمدی",
+      "totalBalance": 125450000,
+      "unreadNotifications": 3,
+      "avatarUrl": null,
+      "cards": "$ref:mock-data/cards.json#userCards.full_access"
+    },
+    "announcements": [
+      {
+        "id": "ANN-001",
+        "title": "تسهیلات ازدواج با سود ۴٪",
+        "imageUrl": "assets/images/banners/marriage_loan.png",
+        "backgroundColor": "#E31837",
+        "actionType": "navigate",
+        "actionRoute": "/bpms/marriage-loan"
+      },
+      {
+        "id": "ANN-002",
+        "title": "کارت هدیه با ۱۰٪ تخفیف",
+        "imageUrl": "assets/images/banners/gift_card.png",
+        "backgroundColor": "#4CAF50",
+        "actionType": "navigate",
+        "actionRoute": "/gift-card"
+      },
+      {
+        "id": "ANN-003",
+        "title": "باشگاه مشتریان توبانک",
+        "imageUrl": "assets/images/banners/club.png",
+        "backgroundColor": "#9C27B0",
+        "actionType": "navigate",
+        "actionRoute": "/customer-club"
+      }
+    ],
+    "recentTransactions": "$ref:mock-data/transactions.json#transactions[0:5]"
+  }
+}
+

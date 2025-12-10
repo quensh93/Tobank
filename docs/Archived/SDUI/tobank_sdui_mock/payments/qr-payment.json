@@ -1,0 +1,32 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "پرداخت QR"
+    },
+    "actions": [
+      {
+        "type": "iconButton",
+        "onPressed": {
+          "actionType": "pickImage"
+        },
+        "icon": {
+          "type": "icon",
+          "icon": "image"
+        }
+      },
+      {
+        "type": "iconButton",
+        "onPressed": {
+          "actionType": "toggleFlash"
+        },
+        "icon": {
+          "type": "icon",
+          "icon": "flash_on"
+        }
+      }
+    ]
+  }
+}

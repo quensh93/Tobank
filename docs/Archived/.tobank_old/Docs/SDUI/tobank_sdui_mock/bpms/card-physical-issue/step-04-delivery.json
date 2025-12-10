@@ -1,0 +1,82 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "card_issue_delivery",
+  "flowId": "card_physical_issue",
+  "stepNumber": 4,
+  "title": {"fa": "نحوه تحویل", "en": "Delivery Method"},
+  
+  "appBar": {"type": "bpms_stepper", "title": {"fa": "صدور کارت", "en": "Card Issue"}, "currentStep": 4, "totalSteps": 6},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "section", "header": {"title": {"fa": "روش تحویل", "en": "Delivery Method"}}, "child": {"type": "column", "children": [
+        {"type": "selectable_card", "selected": "{{deliveryMethod === 'branch'}}", "margin": {"bottom": 12}, "child": {"type": "row", "padding": 16, "children": [
+          {"type": "container", "width": 50, "height": 50, "decoration": {"color": "#E3F2FD", "borderRadius": 25}, "alignment": "center", "child": {"type": "icon", "icon": "assets/icons/ic_branch.svg", "color": "#1976D2"}},
+          {"type": "sized_box", "width": 16},
+          {"type": "expanded", "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+            {"type": "text", "text": {"fa": "تحویل در شعبه", "en": "Branch Pickup"}, "style": "titleMedium"},
+            {"type": "text", "text": {"fa": "دریافت از شعبه منتخب", "en": "Pickup from selected branch"}, "style": "bodySmall", "color": "textSecondary"}
+          ]}},
+          {"type": "chip", "label": {"fa": "رایگان", "en": "Free"}, "backgroundColor": "#E8F5E9", "textColor": "#4CAF50"}
+        ]}, "onTap": {"type": "set_state", "key": "deliveryMethod", "value": "branch"}},
+        
+        {"type": "selectable_card", "selected": "{{deliveryMethod === 'postal'}}", "child": {"type": "row", "padding": 16, "children": [
+          {"type": "container", "width": 50, "height": 50, "decoration": {"color": "#FFF3E0", "borderRadius": 25}, "alignment": "center", "child": {"type": "icon", "icon": "assets/icons/ic_delivery.svg", "color": "#FF9800"}},
+          {"type": "sized_box", "width": 16},
+          {"type": "expanded", "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+            {"type": "text", "text": {"fa": "ارسال پستی", "en": "Postal Delivery"}, "style": "titleMedium"},
+            {"type": "text", "text": {"fa": "ارسال به آدرس منزل", "en": "Ship to home address"}, "style": "bodySmall", "color": "textSecondary"}
+          ]}},
+          {"type": "chip", "label": {"fa": "۲۵,۰۰۰ تومان", "en": "25K Toman"}, "backgroundColor": "#FFF3E0", "textColor": "#FF9800"}
+        ]}, "onTap": {"type": "set_state", "key": "deliveryMethod", "value": "postal"}}
+      ]}},
+      
+      {"type": "conditional", "condition": "{{deliveryMethod === 'branch'}}", "whenTrue": {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "انتخاب شعبه", "en": "Select Branch"}}, "child": {"type": "column", "children": [
+        {"type": "dropdown_field", "label": {"fa": "استان", "en": "Province"}, "options": "{{provinces}}", "bindTo": "selectedProvince"},
+        {"type": "dropdown_field", "label": {"fa": "شهر", "en": "City"}, "margin": {"top": 16}, "options": "{{cities}}", "bindTo": "selectedCity", "enabled": "{{selectedProvince}}"},
+        {"type": "dropdown_field", "label": {"fa": "شعبه", "en": "Branch"}, "margin": {"top": 16}, "options": "{{branches}}", "bindTo": "selectedBranch", "enabled": "{{selectedCity}}"}
+      ]}}},
+      
+      {"type": "conditional", "condition": "{{deliveryMethod === 'postal'}}", "whenTrue": {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "آدرس تحویل", "en": "Delivery Address"}}, "child": {"type": "column", "children": [
+        {"type": "dropdown_field", "label": {"fa": "استان", "en": "Province"}, "options": "{{provinces}}", "bindTo": "addressProvince"},
+        {"type": "dropdown_field", "label": {"fa": "شهر", "en": "City"}, "margin": {"top": 16}, "options": "{{cities}}", "bindTo": "addressCity", "enabled": "{{addressProvince}}"},
+        {"type": "text_field", "label": {"fa": "آدرس کامل", "en": "Full Address"}, "margin": {"top": 16}, "maxLines": 3, "bindTo": "fullAddress"},
+        {"type": "text_field", "label": {"fa": "کد پستی", "en": "Postal Code"}, "margin": {"top": 16}, "keyboardType": "number", "maxLength": 10, "bindTo": "postalCode"},
+        {"type": "text_field", "label": {"fa": "شماره تماس گیرنده", "en": "Receiver Phone"}, "margin": {"top": 16}, "keyboardType": "phone", "bindTo": "receiverPhone"}
+      ]}}},
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {"type": "container", "padding": 16, "child": {"type": "row", "children": [
+    {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "قبلی", "en": "Back"}, "onTap": {"type": "navigate_back"}}},
+    {"type": "sized_box", "width": 16},
+    {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "بعدی", "en": "Next"}, "disabled": "{{!deliveryMethod || (deliveryMethod === 'branch' && !selectedBranch) || (deliveryMethod === 'postal' && !fullAddress)}}", "onTap": {"type": "navigate", "route": "/bpms/card-physical-issue/step-05"}}}
+  ]}},
+  
+  "dataBindings": {
+    "deliveryMethod": {"source": "form", "default": null},
+    "provinces": {"source": "api", "endpoint": "common/provinces"},
+    "cities": {"source": "api", "endpoint": "common/cities?provinceId={{selectedProvince}}"},
+    "branches": {"source": "api", "endpoint": "common/branches?cityId={{selectedCity}}"},
+    "selectedProvince": {"source": "form", "default": null},
+    "selectedCity": {"source": "form", "default": null},
+    "selectedBranch": {"source": "form", "default": null},
+    "addressProvince": {"source": "form", "default": null},
+    "addressCity": {"source": "form", "default": null},
+    "fullAddress": {"source": "form", "default": ""},
+    "postalCode": {"source": "form", "default": ""},
+    "receiverPhone": {"source": "form", "default": ""}
+  },
+  
+  "mockData": {
+    "provinces": [{"value": "tehran", "label": "تهران"}, {"value": "isfahan", "label": "اصفهان"}],
+    "cities": [{"value": "tehran_city", "label": "تهران"}, {"value": "karaj", "label": "کرج"}],
+    "branches": [{"value": "branch1", "label": "شعبه مرکزی تهران"}, {"value": "branch2", "label": "شعبه ونک"}]
+  }
+}
+

@@ -1,0 +1,349 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "change_pin",
+  "pageType": "form",
+  "title": {
+    "fa": "تغییر رمز کارت",
+    "en": "Change PIN"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "change_pin",
+    "screenClass": "ChangePinPage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "تغییر رمز کارت", "en": "Change PIN"},
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "stepper",
+    "currentStep": "{{currentStep}}",
+    "steps": [
+      {
+        "id": "step_verify",
+        "title": {"fa": "احراز هویت", "en": "Verification"},
+        "content": {
+          "type": "column",
+          "padding": 16,
+          "children": [
+            {
+              "type": "container",
+              "margin": {"bottom": 24},
+              "child": {
+                "type": "bank_card_widget",
+                "cardNumber": "{{card.cardNumberMasked}}",
+                "cardHolder": "{{card.holderName}}",
+                "bankLogo": "{{card.bankLogo}}",
+                "cardDesign": "{{card.cardDesign}}",
+                "mini": true
+              }
+            },
+            {
+              "type": "text",
+              "text": {"fa": "رمز دوم فعلی کارت را وارد کنید", "en": "Enter current CVV2"},
+              "style": "titleMedium",
+              "textAlign": "center"
+            },
+            {
+              "type": "sized_box",
+              "height": 24
+            },
+            {
+              "type": "pin_input",
+              "length": 6,
+              "obscureText": true,
+              "autofocus": true,
+              "bindTo": "currentCvv2"
+            },
+            {
+              "type": "sized_box",
+              "height": 32
+            },
+            {
+              "type": "elevated_button",
+              "label": {"fa": "تایید و ادامه", "en": "Verify & Continue"},
+              "fullWidth": true,
+              "loading": "{{isVerifying}}",
+              "disabled": "{{currentCvv2.length < 4}}",
+              "onTap": {
+                "type": "api_call",
+                "endpoint": "dibalite/cards/{{cardId}}/verify-cvv",
+                "method": "POST",
+                "body": {"cvv2": "{{currentCvv2}}"},
+                "requireEncryption": true,
+                "onSuccess": {
+                  "type": "set_state",
+                  "key": "currentStep",
+                  "value": 1
+                },
+                "onError": {
+                  "type": "show_error",
+                  "message": "{{error.message}}"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "step_new_pin",
+        "title": {"fa": "رمز جدید", "en": "New PIN"},
+        "content": {
+          "type": "column",
+          "padding": 16,
+          "children": [
+            {
+              "type": "text",
+              "text": {"fa": "رمز اول جدید را وارد کنید", "en": "Enter new PIN"},
+              "style": "titleMedium",
+              "textAlign": "center"
+            },
+            {
+              "type": "text",
+              "text": {"fa": "رمز باید ۴ تا ۶ رقم باشد", "en": "PIN must be 4-6 digits"},
+              "style": "bodySmall",
+              "color": "textSecondary",
+              "textAlign": "center"
+            },
+            {
+              "type": "sized_box",
+              "height": 24
+            },
+            {
+              "type": "pin_input",
+              "length": 6,
+              "obscureText": true,
+              "autofocus": true,
+              "minLength": 4,
+              "bindTo": "newPin"
+            },
+            {
+              "type": "sized_box",
+              "height": 16
+            },
+            {
+              "type": "text",
+              "text": {"fa": "تکرار رمز جدید", "en": "Confirm new PIN"},
+              "style": "titleMedium",
+              "textAlign": "center"
+            },
+            {
+              "type": "sized_box",
+              "height": 16
+            },
+            {
+              "type": "pin_input",
+              "length": 6,
+              "obscureText": true,
+              "minLength": 4,
+              "bindTo": "confirmPin"
+            },
+            {
+              "type": "conditional",
+              "condition": "{{newPin && confirmPin && newPin !== confirmPin}}",
+              "whenTrue": {
+                "type": "container",
+                "margin": {"top": 8},
+                "child": {
+                  "type": "text",
+                  "text": {"fa": "رمزها مطابقت ندارند", "en": "PINs don't match"},
+                  "style": "bodySmall",
+                  "color": "#F44336",
+                  "textAlign": "center"
+                }
+              }
+            },
+            {
+              "type": "sized_box",
+              "height": 32
+            },
+            {
+              "type": "elevated_button",
+              "label": {"fa": "ادامه", "en": "Continue"},
+              "fullWidth": true,
+              "disabled": "{{!newPin || !confirmPin || newPin !== confirmPin || newPin.length < 4}}",
+              "onTap": {
+                "type": "set_state",
+                "key": "currentStep",
+                "value": 2
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "step_otp",
+        "title": {"fa": "تایید نهایی", "en": "Final Confirmation"},
+        "content": {
+          "type": "column",
+          "padding": 16,
+          "children": [
+            {
+              "type": "text",
+              "text": {"fa": "کد تایید ارسال شده به موبایل را وارد کنید", "en": "Enter OTP sent to your mobile"},
+              "style": "titleMedium",
+              "textAlign": "center"
+            },
+            {
+              "type": "text",
+              "text": "{{user.mobileNumber}}",
+              "style": "bodyMedium",
+              "color": "textSecondary",
+              "textAlign": "center"
+            },
+            {
+              "type": "sized_box",
+              "height": 24
+            },
+            {
+              "type": "otp_input",
+              "length": 6,
+              "autofocus": true,
+              "bindTo": "otp",
+              "onComplete": {
+                "type": "submit_change_pin"
+              }
+            },
+            {
+              "type": "sized_box",
+              "height": 16
+            },
+            {
+              "type": "countdown_text",
+              "duration": 120,
+              "format": {"fa": "ارسال مجدد کد تا {{time}} ثانیه", "en": "Resend in {{time}}s"},
+              "onComplete": {
+                "type": "show_button",
+                "buttonId": "resend_otp"
+              }
+            },
+            {
+              "type": "text_button",
+              "id": "resend_otp",
+              "label": {"fa": "ارسال مجدد کد", "en": "Resend Code"},
+              "visible": false,
+              "onTap": {
+                "type": "api_call",
+                "endpoint": "dibalite/auth/resend-otp",
+                "method": "POST"
+              }
+            },
+            {
+              "type": "sized_box",
+              "height": 32
+            },
+            {
+              "type": "elevated_button",
+              "label": {"fa": "تغییر رمز", "en": "Change PIN"},
+              "fullWidth": true,
+              "loading": "{{isSubmitting}}",
+              "disabled": "{{otp.length < 6}}",
+              "onTap": {
+                "type": "api_call",
+                "endpoint": "dibalite/cards/{{cardId}}/change-pin",
+                "method": "POST",
+                "body": {
+                  "newPin": "{{newPin}}",
+                  "otp": "{{otp}}"
+                },
+                "requireEncryption": true,
+                "requireEkycSign": true,
+                "onSuccess": {
+                  "type": "set_state",
+                  "key": "currentStep",
+                  "value": 3
+                },
+                "onError": {
+                  "type": "show_error",
+                  "message": "{{error.message}}"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "step_success",
+        "title": {"fa": "تکمیل", "en": "Complete"},
+        "content": {
+          "type": "column",
+          "padding": 16,
+          "mainAxisAlignment": "center",
+          "children": [
+            {
+              "type": "lottie",
+              "asset": "assets/animations/success.json",
+              "width": 150,
+              "height": 150,
+              "repeat": false
+            },
+            {
+              "type": "sized_box",
+              "height": 24
+            },
+            {
+              "type": "text",
+              "text": {"fa": "رمز کارت با موفقیت تغییر یافت", "en": "PIN changed successfully"},
+              "style": "headlineSmall",
+              "textAlign": "center"
+            },
+            {
+              "type": "sized_box",
+              "height": 8
+            },
+            {
+              "type": "text",
+              "text": {"fa": "رمز جدید از همین لحظه فعال است", "en": "New PIN is active now"},
+              "style": "bodyMedium",
+              "color": "textSecondary",
+              "textAlign": "center"
+            },
+            {
+              "type": "sized_box",
+              "height": 32
+            },
+            {
+              "type": "elevated_button",
+              "label": {"fa": "بازگشت به کارت‌ها", "en": "Back to Cards"},
+              "fullWidth": true,
+              "onTap": {
+                "type": "navigate_replace",
+                "route": "/cards"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  
+  "dataBindings": {
+    "cardId": {"source": "route_param", "key": "cardId"},
+    "card": {"source": "api", "endpoint": "dibalite/cards/{{cardId}}"},
+    "currentStep": {"source": "state", "default": 0},
+    "currentCvv2": {"source": "form", "default": ""},
+    "newPin": {"source": "form", "default": ""},
+    "confirmPin": {"source": "form", "default": ""},
+    "otp": {"source": "form", "default": ""},
+    "isVerifying": {"source": "state", "default": false},
+    "isSubmitting": {"source": "state", "default": false}
+  },
+  
+  "mockData": {
+    "card": {
+      "id": "CARD-001",
+      "cardNumberMasked": "۵۰۲۲-****-****-۵۶۷۸",
+      "holderName": "علی احمدی",
+      "bankLogo": "assets/images/logo.png",
+      "cardDesign": "pasargad_gold"
+    },
+    "user": {
+      "mobileNumber": "۰۹۱۲***۶۷۸۹"
+    }
+  }
+}
+

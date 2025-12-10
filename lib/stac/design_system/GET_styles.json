@@ -1,0 +1,121 @@
+{
+  "GET": {
+    "statusCode": 200,
+  "data": {
+      "appbarStyle": {
+        "color": "{{appColors.current.text.title}}",
+        "fontSize": 20.0,
+        "fontWeight": "w400"
+      },
+      "button": {
+        "primary": {
+          "height": 56.0,
+          "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+          "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+          "elevation": 0.0,
+          "borderRadius": 10.0,
+          "textStyleFontWeight": "w600",
+          "textStyleFontSize": 16.0,
+          "textStyleColor": "{{appColors.current.button.primary.foregroundColor}}",
+          "paddingTop": 8.0,
+          "paddingBottom": 8.0
+        }
+      },
+      "input": {
+        "login": {
+          "borderRadius": 10.0,
+          "borderEnabled": "none",
+          "borderFocused": "none",
+          "contentPaddingHorizontal": 20.0,
+          "contentPaddingVertical": 16.0,
+          "hintStyleFontWeight": "w500",
+          "hintStyleFontSize": 14.0,
+          "hintStyleColor": "{{appColors.current.input.hint}}",
+          "textStyleFontWeight": "w600",
+          "textStyleFontSize": 16.0,
+          "textStyleColor": "{{appColors.current.text.title}}",
+          "fillColor": "transparent"
+        },
+        "loginDatePicker": {
+          "borderRadius": 10.0,
+          "borderEnabled": "none",
+          "borderFocused": "none",
+          "contentPaddingHorizontal": 16.0,
+          "contentPaddingVertical": 16.0,
+          "hintStyleFontWeight": "w500",
+          "hintStyleFontSize": 14.0,
+          "hintStyleColor": "{{appColors.current.input.hint}}",
+          "suffixIconColor": "{{appColors.current.secondary.color}}",
+          "textStyleFontWeight": "w600",
+          "textStyleFontSize": 16.0,
+          "textStyleColor": "{{appColors.current.text.title}}",
+          "fillColor": "transparent"
+        }
+      },
+      "text": {
+        "titleLarge": {
+          "color": "{{appColors.current.text.title}}",
+          "fontSize": 16.0,
+          "fontWeight": "w700",
+          "fontFamily": "IranYekan"
+        },
+        "titleMedium": {
+          "color": "{{appColors.current.text.title}}",
+          "fontSize": 16.0,
+          "fontWeight": "w500",
+          "fontFamily": "IranYekan"
+        },
+        "titleSmall": {
+          "color": "{{appColors.current.text.title}}",
+          "fontSize": 16.0,
+          "fontWeight": "w400",
+          "fontFamily": "IranYekan"
+        },
+        "labelSmall": {
+          "color": "{{appColors.current.text.title}}",
+          "fontSize": 10.0,
+          "fontWeight": "w400",
+          "fontFamily": "IranYekan"
+        },
+        "bodyLarge": {
+          "color": "{{appColors.current.text.title}}",
+          "fontSize": 14.0,
+          "fontWeight": "w400",
+          "fontFamily": "IranYekan"
+        },
+        "bodyMedium": {
+          "color": "{{appColors.current.text.title}}",
+          "fontSize": 12.0,
+          "fontWeight": "w400",
+          "fontFamily": "IranYekan"
+        },
+        "pageTitle": {
+          "color": "{{appColors.current.text.title}}",
+          "fontSize": 20.0,
+          "fontWeight": "w400"
+        },
+        "subtitle": {
+          "color": "{{appColors.current.text.subtitle}}",
+          "fontSize": 14.0,
+          "fontWeight": "w500",
+          "height": 1.6
+        },
+        "label": {
+          "color": "{{appColors.current.text.title}}",
+          "fontSize": 16.0,
+          "fontWeight": "w700"
+        },
+        "agreementRegular": {
+          "color": "{{appColors.current.text.title}}",
+          "fontSize": 14.0,
+          "fontWeight": "w600"
+        },
+        "agreementLink": {
+          "color": "{{appColors.current.secondary.color}}",
+          "fontSize": 16.0,
+          "fontWeight": "w600"
+        }
+      }
+    }
+  }
+}

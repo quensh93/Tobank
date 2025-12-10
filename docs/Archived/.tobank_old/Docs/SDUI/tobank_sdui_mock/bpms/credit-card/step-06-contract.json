@@ -1,0 +1,60 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "credit_card_contract",
+  "flowId": "credit_card",
+  "stepNumber": 6,
+  "title": {"fa": "امضای قرارداد", "en": "Sign Contract"},
+  
+  "appBar": {"type": "bpms_stepper", "title": {"fa": "کارت اعتباری", "en": "Credit Card"}, "currentStep": 6, "totalSteps": 7},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "card", "padding": 20, "child": {"type": "column", "children": [
+        {"type": "text", "text": {"fa": "خلاصه درخواست", "en": "Summary"}, "style": "titleLarge", "textAlign": "center"},
+        {"type": "divider", "margin": {"vertical": 16}},
+        {"type": "info_row", "label": {"fa": "سقف اعتبار", "en": "Credit Limit"}, "value": "{{formatCurrency(summary.creditLimit)}} ریال", "valueColor": "#FF5722"},
+        {"type": "info_row", "label": {"fa": "مهلت بازپرداخت", "en": "Repayment"}, "value": "{{summary.repaymentDays}} روز", "margin": {"top": 8}},
+        {"type": "info_row", "label": {"fa": "نرخ سود", "en": "Interest"}, "value": "۱۸٪ سالانه", "margin": {"top": 8}},
+        {"type": "info_row", "label": {"fa": "ضامن", "en": "Guarantor"}, "value": "{{summary.guarantorName}}", "margin": {"top": 8}}
+      ]}},
+      
+      {"type": "card", "margin": {"top": 24}, "child": {"type": "column", "children": [
+        {"type": "container", "height": 200, "padding": 16, "child": {"type": "scrollable", "child": {"type": "text", "text": "{{contractText}}", "style": "bodySmall"}}},
+        {"type": "divider"},
+        {"type": "container", "padding": 12, "child": {"type": "text_button", "icon": "assets/icons/ic_download.svg", "label": {"fa": "دانلود", "en": "Download"}, "onTap": {"type": "download", "url": "{{contractPdfUrl}}"}}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "احراز هویت", "en": "Verification"}}, "child": {
+        "type": "conditional",
+        "condition": "{{!ekycDone}}",
+        "whenTrue": {"type": "elevated_button", "label": {"fa": "احراز هویت", "en": "Verify"}, "fullWidth": true, "onTap": {"type": "start_ekyc", "onSuccess": {"type": "set_state", "key": "ekycDone", "value": true}}},
+        "whenFalse": {"type": "container", "padding": 16, "decoration": {"color": "#E8F5E9", "borderRadius": 8}, "child": {"type": "row", "mainAxisAlignment": "center", "children": [{"type": "icon", "icon": "assets/icons/ic_check_circle.svg", "color": "#4CAF50"}, {"type": "sized_box", "width": 8}, {"type": "text", "text": {"fa": "تایید شد", "en": "Verified"}, "color": "#4CAF50"}]}}
+      }},
+      
+      {"type": "checkbox_tile", "margin": {"top": 24}, "title": {"fa": "قرارداد را می‌پذیرم", "en": "I accept"}, "bindTo": "accepted"},
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {"type": "container", "padding": 16, "child": {"type": "row", "children": [
+    {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "قبلی", "en": "Back"}, "onTap": {"type": "navigate_back"}}},
+    {"type": "sized_box", "width": 16},
+    {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "امضا", "en": "Sign"}, "disabled": "{{!ekycDone || !accepted}}", "onTap": {"type": "api_call", "endpoint": "bpms/credit-card/sign", "method": "POST", "requireEkycSign": true, "onSuccess": {"type": "navigate_replace", "route": "/bpms/credit-card/step-07"}}}}
+  ]}},
+  
+  "dataBindings": {
+    "summary": {"source": "api", "endpoint": "bpms/credit-card/summary"},
+    "contractText": {"source": "api", "endpoint": "bpms/credit-card/contract"},
+    "ekycDone": {"source": "state", "default": false},
+    "accepted": {"source": "form", "default": false}
+  },
+  
+  "mockData": {
+    "summary": {"creditLimit": 500000000, "repaymentDays": 30, "guarantorName": "محمد محمدی"},
+    "contractText": "قرارداد کارت اعتباری\n\nماده ۱: تعریف اعتبار...\nماده ۲: نحوه استفاده...\nماده ۳: بازپرداخت..."
+  }
+}
+

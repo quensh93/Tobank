@@ -1,0 +1,51 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "support_chat",
+  "title": {"fa": "چت پشتیبانی", "en": "Support Chat"},
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "چت با پشتیبانی", "en": "Support Chat"},
+    "actions": [
+      {"icon": "assets/icons/ic_call.svg", "onTap": {"type": "call", "number": "02191008500"}}
+    ]
+  },
+  
+  "body": {
+    "type": "column",
+    "children": [
+      {"type": "expanded", "child": {"type": "chat_list", "messages": "{{messages}}", "userId": "{{userId}}", "messageBuilder": {"type": "chat_bubble", "message": "{{item.text}}", "isMe": "{{item.senderId === userId}}", "timestamp": "{{item.timestamp}}", "avatar": "{{item.avatar}}", "status": "{{item.status}}"}}},
+      
+      {"type": "container", "padding": 8, "decoration": {"color": "surface", "boxShadow": "light"}, "child": {"type": "row", "children": [
+        {"type": "icon_button", "icon": "assets/icons/ic_attach.svg", "onTap": {"type": "show_bottom_sheet", "content": "attachSheet"}},
+        {"type": "expanded", "child": {"type": "text_field", "hint": {"fa": "پیام خود را بنویسید...", "en": "Type a message..."}, "maxLines": 4, "bindTo": "messageText", "decoration": {"border": "none"}}},
+        {"type": "icon_button", "icon": "assets/icons/ic_send.svg", "color": "primary", "onTap": {"type": "send_message", "text": "{{messageText}}", "onSuccess": {"type": "set_state", "key": "messageText", "value": ""}}}
+      ]}}
+    ]
+  },
+  
+  "bottomSheets": {
+    "attachSheet": {"type": "action_sheet", "title": {"fa": "پیوست", "en": "Attach"}, "actions": [
+      {"icon": "assets/icons/ic_image.svg", "label": {"fa": "تصویر", "en": "Image"}, "onTap": {"type": "pick_image", "source": "gallery", "onSuccess": {"type": "send_image", "image": "{{result}}"}}},
+      {"icon": "assets/icons/ic_camera.svg", "label": {"fa": "دوربین", "en": "Camera"}, "onTap": {"type": "pick_image", "source": "camera", "onSuccess": {"type": "send_image", "image": "{{result}}"}}},
+      {"icon": "assets/icons/ic_document.svg", "label": {"fa": "فایل", "en": "File"}, "onTap": {"type": "pick_file", "onSuccess": {"type": "send_file", "file": "{{result}}"}}}
+    ]}
+  },
+  
+  "dataBindings": {
+    "messages": {"source": "realtime", "channel": "support_chat", "initial": "api", "endpoint": "support/chat/messages"},
+    "userId": {"source": "user", "key": "id"},
+    "messageText": {"source": "state", "default": ""}
+  },
+  
+  "mockData": {
+    "userId": "user1",
+    "messages": [
+      {"id": "m1", "senderId": "support", "text": "سلام! خوش آمدید. چطور می‌تونم کمکتون کنم؟", "timestamp": "۱۰:۳۰", "avatar": "assets/images/support_avatar.png", "status": "read"},
+      {"id": "m2", "senderId": "user1", "text": "سلام، سوالی درباره انتقال وجه داشتم", "timestamp": "۱۰:۳۱", "status": "read"},
+      {"id": "m3", "senderId": "support", "text": "بله حتماً، در خدمتم. لطفاً سوالتون رو بفرمایید.", "timestamp": "۱۰:۳۲", "avatar": "assets/images/support_avatar.png", "status": "read"}
+    ]
+  }
+}
+

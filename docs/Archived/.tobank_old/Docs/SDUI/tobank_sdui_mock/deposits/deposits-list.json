@@ -1,0 +1,62 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "deposits_list",
+  "title": {"fa": "سپرده‌ها", "en": "Deposits"},
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "سپرده‌ها", "en": "Deposits"},
+    "actions": [
+      {"icon": "assets/icons/ic_add.svg", "onTap": {"type": "navigate", "route": "/deposits/open"}}
+    ]
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "card", "padding": 20, "decoration": {"gradient": {"colors": ["#00BCD4", "#0097A7"], "begin": "topLeft", "end": "bottomRight"}}, "child": {"type": "column", "children": [
+        {"type": "text", "text": {"fa": "مجموع موجودی", "en": "Total Balance"}, "style": "titleSmall", "color": "#FFFFFF"},
+        {"type": "text", "text": "{{formatCurrency(totalBalance)}} ریال", "style": "headlineMedium", "color": "#FFFFFF", "margin": {"top": 8}},
+        {"type": "row", "margin": {"top": 16}, "mainAxisAlignment": "spaceAround", "children": [
+          {"type": "column", "children": [{"type": "text", "text": "{{depositsCount}}", "style": "headlineSmall", "color": "#FFFFFF"}, {"type": "text", "text": {"fa": "سپرده", "en": "Deposits"}, "style": "bodySmall", "color": "#FFFFFF80"}]},
+          {"type": "container", "width": 1, "height": 40, "color": "#FFFFFF40"},
+          {"type": "column", "children": [{"type": "text", "text": "{{loansCount}}", "style": "headlineSmall", "color": "#FFFFFF"}, {"type": "text", "text": {"fa": "وام", "en": "Loans"}, "style": "bodySmall", "color": "#FFFFFF80"}]}
+        ]}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "سپرده‌های من", "en": "My Deposits"}, "trailing": {"type": "text_button", "label": {"fa": "افتتاح حساب", "en": "Open Account"}, "onTap": {"type": "navigate", "route": "/deposits/open"}}}, "child": {"type": "list_view", "children": "{{deposits}}", "itemBuilder": {"type": "deposit_list_item", "onTap": {"type": "navigate", "route": "/deposits/detail?id={{item.id}}"}}}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "وام‌های فعال", "en": "Active Loans"}}, "child": {
+        "type": "conditional",
+        "condition": "{{loans.length > 0}}",
+        "whenTrue": {"type": "list_view", "children": "{{loans}}", "itemBuilder": {"type": "loan_list_item", "onTap": {"type": "navigate", "route": "/loans/detail?id={{item.id}}"}}},
+        "whenFalse": {"type": "empty_state", "icon": "assets/icons/ic_loan.svg", "title": {"fa": "وام فعالی ندارید", "en": "No active loans"}, "action": {"label": {"fa": "درخواست وام", "en": "Apply for Loan"}, "onTap": {"type": "navigate", "route": "/bpms/parsa-loan"}}}
+      }},
+      
+      {"type": "sized_box", "height": 32}
+    ]
+  },
+  
+  "dataBindings": {
+    "totalBalance": {"source": "api", "endpoint": "dibalite/deposits/total-balance"},
+    "depositsCount": {"source": "computed", "formula": "deposits.length"},
+    "loansCount": {"source": "computed", "formula": "loans.length"},
+    "deposits": {"source": "api", "endpoint": "dibalite/deposits/list"},
+    "loans": {"source": "api", "endpoint": "dibalite/loans/list"}
+  },
+  
+  "mockData": {
+    "totalBalance": 1875000000,
+    "deposits": [
+      {"id": "dep1", "type": "current", "typeName": "جاری", "accountNumber": "۰۱۰۸۱۲۳۴۵۶۷۸۹۰", "iban": "IR۲۷۰۵۷۰۰۱۰۸۱۲۳۴۵۶۷۸۹۰۱۲", "balance": 450000000, "currency": "IRR"},
+      {"id": "dep2", "type": "savings", "typeName": "پس‌انداز", "accountNumber": "۰۱۰۸۹۸۷۶۵۴۳۲۱۰", "iban": "IR۵۴۰۵۷۰۰۱۰۸۹۸۷۶۵۴۳۲۱۰۰۰", "balance": 1250000000, "interestRate": 18, "currency": "IRR"},
+      {"id": "dep3", "type": "short_term", "typeName": "کوتاه‌مدت", "accountNumber": "۰۱۰۸۵۵۵۱۲۳۴۵۶۷", "iban": "IR۸۱۰۵۷۰۰۱۰۸۵۵۵۱۲۳۴۵۶۷۰۰", "balance": 175000000, "interestRate": 16, "maturityDate": "۱۴۰۳/۱۲/۲۹", "currency": "IRR"}
+    ],
+    "loans": [
+      {"id": "loan1", "type": "parsa", "typeName": "وام پارسا", "amount": 1000000000, "remainingAmount": 750000000, "installmentAmount": 94000000, "nextPaymentDate": "۱۴۰۳/۱۰/۱۵", "status": "active"}
+    ]
+  }
+}
+

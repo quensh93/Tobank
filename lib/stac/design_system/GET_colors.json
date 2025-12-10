@@ -1,0 +1,121 @@
+{
+  "GET": {
+    "statusCode": 200,
+    "data": {
+      "light": {
+        "button": {
+          "primary": {
+            "backgroundColor": "#d61f2c",
+            "foregroundColor": "#ffffff"
+          }
+        },
+        "text": {
+          "title": "#101828",
+          "subtitle": "#667085",
+          "hint": "#667085"
+        },
+        "input": {
+          "hint": "#9eacba",
+          "borderEnabled": "#d0d5dd",
+          "borderFocused": "#344054"
+        },
+        "background": {
+          "surface": "#f9fafb",
+          "onSurface": "#efefef",
+          "onSurfaceVariant": "#e2e2e2",
+          "surfaceContainerLowest": "#d9d9d9",
+          "surfaceContainerLow": "#23344054",
+          "surfaceContainer": "#7d7d7d",
+          "surfaceContainerHigh": "#344054"
+        },
+        "primary": {
+          "color": "#d61f2c",
+          "onPrimary": "#ffffff",
+          "onPrimaryContainer": "#0fd61f2c"
+        },
+        "secondary": {
+          "color": "#00baba",
+          "onSecondary": "#66d6d6",
+          "secondaryContainer": "#0a00baba"
+        },
+        "tertiary": {
+          "color": "#f7941d",
+          "onTertiary": "#fcb900",
+          "onTertiaryContainer": "#fff9ea"
+        },
+        "base": {
+          "white": "#ffffff",
+          "staticWhite": "#ffffff",
+          "black": "#101828",
+          "green": "#039855"
+        },
+        "error": {
+          "color": "#d61f2c"
+        },
+        "success": {
+          "color": "#039855"
+        },
+        "warning": {
+          "color": "#f9a200"
+        }
+      },
+      "dark": {
+        "button": {
+          "primary": {
+            "backgroundColor": "#d61f2c",
+            "foregroundColor": "#ffffff"
+          }
+        },
+        "text": {
+          "title": "#f9fafb",
+          "subtitle": "#BFCCE0",
+          "hint": "#98a2b3"
+        },
+        "input": {
+          "hint": "#98a2b3",
+          "borderEnabled": "#77839b",
+          "borderFocused": "#f9fafb"
+        },
+        "background": {
+          "surface": "#202633",
+          "onSurface": "#7d7d7d",
+          "onSurfaceVariant": "#7d7d7d",
+          "surfaceContainerLowest": "#7d7d7d",
+          "surfaceContainerLow": "#23344054",
+          "surfaceContainer": "#d9d9d9",
+          "surfaceContainerHigh": "#d9d9d9"
+        },
+        "primary": {
+          "color": "#d61f2c",
+          "onPrimary": "#ffffff",
+          "onPrimaryContainer": "#0fd61f2c"
+        },
+        "secondary": {
+          "color": "#00baba",
+          "onSecondary": "#66d6d6",
+          "secondaryContainer": "#0a00baba"
+        },
+        "tertiary": {
+          "color": "#f7941d",
+          "onTertiary": "#fcb900",
+          "onTertiaryContainer": "#fff9ea"
+        },
+        "base": {
+          "white": "#101828",
+          "staticWhite": "#ffffff",
+          "black": "#ffffff",
+          "green": "#039855"
+        },
+        "error": {
+          "color": "#f24a4d"
+        },
+        "success": {
+          "color": "#039855"
+        },
+        "warning": {
+          "color": "#f9a200"
+        }
+      }
+    }
+  }
+}

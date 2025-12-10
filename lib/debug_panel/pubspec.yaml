@@ -18,6 +18,9 @@ dependencies:
   ispectify: ^4.4.8-dev02
   ispectify_dio: ^4.4.8-dev02
   flutter_performance_pulse: ^1.0.6
+  uuid: ^4.5.1
+  re_editor: ^0.8.0
+  re_highlight: ^0.0.3
 
 dev_dependencies:
   flutter_test:

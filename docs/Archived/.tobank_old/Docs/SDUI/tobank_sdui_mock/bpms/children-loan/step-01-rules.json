@@ -1,0 +1,138 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "children_loan_rules",
+  "flowId": "children_loan",
+  "stepNumber": 1,
+  "title": {"fa": "قوانین و مقررات", "en": "Terms & Conditions"},
+  
+  "appBar": {
+    "type": "bpms_stepper",
+    "title": {"fa": "تسهیلات فرزندآوری", "en": "Children Loan"},
+    "currentStep": 1,
+    "totalSteps": 7,
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "header_card",
+        "type": "card",
+        "padding": 20,
+        "backgroundColor": "#F3E5F5",
+        "child": {
+          "type": "row",
+          "children": [
+            {"type": "icon", "icon": "assets/icons/ic_children_loan.svg", "size": 48, "color": "#9C27B0"},
+            {"type": "sized_box", "width": 16},
+            {
+              "type": "expanded",
+              "child": {
+                "type": "column",
+                "crossAxisAlignment": "start",
+                "children": [
+                  {"type": "text", "text": {"fa": "تسهیلات فرزندآوری", "en": "Children Loan"}, "style": "titleLarge"},
+                  {"type": "text", "text": {"fa": "حمایت از خانواده ایرانی", "en": "Supporting Iranian families"}, "style": "bodyMedium", "color": "textSecondary"}
+                ]
+              }
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "amount_tiers",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {"title": {"fa": "مبلغ تسهیلات", "en": "Loan Amount"}},
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "tier_card",
+              "title": {"fa": "فرزند اول", "en": "First Child"},
+              "amount": "۲۰۰ میلیون تومان",
+              "color": "#4CAF50"
+            },
+            {
+              "type": "tier_card",
+              "title": {"fa": "فرزند دوم", "en": "Second Child"},
+              "amount": "۳۰۰ میلیون تومان",
+              "color": "#2196F3",
+              "margin": {"top": 12}
+            },
+            {
+              "type": "tier_card",
+              "title": {"fa": "فرزند سوم به بعد", "en": "Third+ Child"},
+              "amount": "۴۰۰ میلیون تومان",
+              "color": "#9C27B0",
+              "margin": {"top": 12}
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "eligibility_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {"title": {"fa": "شرایط دریافت", "en": "Eligibility"}},
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "check_item", "icon": "assets/icons/ic_calendar.svg", "text": {"fa": "تولد فرزند از سال ۱۴۰۰ به بعد", "en": "Child born after 1400"}},
+            {"type": "check_item", "icon": "assets/icons/ic_deposit.svg", "text": {"fa": "داشتن حساب فعال در بانک", "en": "Active bank account"}},
+            {"type": "check_item", "icon": "assets/icons/ic_guarantor.svg", "text": {"fa": "معرفی ضامن معتبر", "en": "Valid guarantor"}},
+            {"type": "check_item", "icon": "assets/icons/ic_history.svg", "text": {"fa": "عدم سابقه بدهی معوق", "en": "No overdue debts"}}
+          ]
+        }
+      },
+      
+      {
+        "id": "loan_details",
+        "type": "card",
+        "margin": {"top": 24},
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "info_row", "padding": 16, "label": {"fa": "نرخ سود", "en": "Interest"}, "value": "۴٪ سالانه"},
+            {"type": "divider"},
+            {"type": "info_row", "padding": 16, "label": {"fa": "بازپرداخت", "en": "Repayment"}, "value": "۶۰ تا ۱۲۰ ماه"},
+            {"type": "divider"},
+            {"type": "info_row", "padding": 16, "label": {"fa": "مهلت استفاده", "en": "Grace Period"}, "value": "۱۲ ماه"}
+          ]
+        }
+      },
+      
+      {
+        "id": "acceptance",
+        "type": "checkbox_tile",
+        "margin": {"top": 24},
+        "title": {"fa": "قوانین را مطالعه کردم و می‌پذیرم", "en": "I accept terms"},
+        "bindTo": "acceptedTerms"
+      },
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "child": {
+      "type": "elevated_button",
+      "label": {"fa": "شروع درخواست", "en": "Start"},
+      "fullWidth": true,
+      "disabled": "{{!acceptedTerms}}",
+      "onTap": {"type": "navigate", "route": "/bpms/children-loan/step-02"}
+    }
+  },
+  
+  "dataBindings": {
+    "acceptedTerms": {"source": "form", "default": false}
+  }
+}
+

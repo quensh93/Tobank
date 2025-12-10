@@ -1,0 +1,91 @@
+{
+  "$schema": "tobank-sdui/v1/app-config",
+  "version": "1.0.0",
+  "lastUpdated": "2025-01-15T10:30:00Z",
+  
+  "app": {
+    "minVersion": "3.9.0",
+    "forceUpdate": false,
+    "updateUrl": "https://tobank.ir/download",
+    "maintenanceMode": false,
+    "maintenanceMessage": null
+  },
+  
+  "endpoints": {
+    "baseUrl": "https://api.tobank.ir",
+    "apiVersion": "v1",
+    "sduiBase": "https://sdui.tobank.ir/api/v1",
+    "cdnBase": "https://cdn.tobank.ir"
+  },
+  
+  "features": {
+    "cardToCard": true,
+    "bpmsWorkflows": true,
+    "customerClub": true,
+    "promissory": true,
+    "giftCard": true,
+    "charity": true,
+    "safeBox": true,
+    "cbs": true
+  },
+  
+  "navigation": {
+    "bottomTabs": [
+      {
+        "id": "home",
+        "icon": "home_main",
+        "activeIcon": "home_main_selected",
+        "pageRef": "pages/home"
+      },
+      {
+        "id": "transactions",
+        "icon": "transaction_main",
+        "activeIcon": "transaction_main_selected",
+        "pageRef": "pages/transactions"
+      },
+      {
+        "id": "cards",
+        "icon": "cardboard",
+        "activeIcon": "cardboard_selected",
+        "pageRef": "pages/cards"
+      },
+      {
+        "id": "profile",
+        "icon": "profile_main",
+        "activeIcon": "profile_main_selected",
+        "pageRef": "pages/profile"
+      }
+    ]
+  },
+  
+  "pageRegistry": {
+    "pages/home": {
+      "url": "/sdui/pages/home.json",
+      "cache": "1h",
+      "preload": true
+    },
+    "pages/transactions": {
+      "url": "/sdui/pages/transactions.json",
+      "cache": "5m"
+    },
+    "pages/cards": {
+      "url": "/sdui/pages/cards.json",
+      "cache": "5m"
+    },
+    "flows/marriage-loan": {
+      "url": "/sdui/flows/marriage-loan.json",
+      "cache": "1d"
+    }
+  },
+  
+  "menu": {
+    "url": "/sdui/menu/main.json",
+    "cache": "1h"
+  },
+  
+  "localization": {
+    "defaultLocale": "fa",
+    "supportedLocales": ["fa", "en"]
+  }
+}
+

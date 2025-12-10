@@ -1,0 +1,167 @@
+{
+  "$schema": "tobank-sdui/v1/action-library",
+  "version": "1.0.0",
+  "description": "Action definitions for SDUI event handling",
+  
+  "actions": {
+    "navigate": {
+      "description": "Navigate to a route",
+      "parameters": {
+        "route": {"type": "string", "required": true},
+        "params": {"type": "object"},
+        "transition": {"type": "string", "enum": ["push", "replace", "fade", "slide"]}
+      }
+    },
+    
+    "navigate_back": {
+      "description": "Go back to previous screen",
+      "parameters": {
+        "result": {"type": "any"}
+      }
+    },
+    
+    "navigate_replace": {
+      "description": "Replace current screen",
+      "parameters": {
+        "route": {"type": "string", "required": true},
+        "params": {"type": "object"}
+      }
+    },
+    
+    "api_call": {
+      "description": "Make API request",
+      "parameters": {
+        "endpoint": {"type": "string", "required": true},
+        "method": {"type": "string", "enum": ["GET", "POST", "PUT", "DELETE"], "default": "GET"},
+        "body": {"type": "object"},
+        "headers": {"type": "object"},
+        "showLoading": {"type": "boolean", "default": false},
+        "loadingText": {"type": "object"},
+        "requireToken": {"type": "boolean", "default": true},
+        "requireEncryption": {"type": "boolean", "default": false},
+        "requireEkycSign": {"type": "boolean", "default": false},
+        "onSuccess": {"type": "action"},
+        "onError": {"type": "action"}
+      }
+    },
+    
+    "set_state": {
+      "description": "Update local state",
+      "parameters": {
+        "key": {"type": "string", "required": true},
+        "value": {"type": "any", "required": true}
+      }
+    },
+    
+    "show_toast": {
+      "description": "Show toast message",
+      "parameters": {
+        "message": {"type": "object", "required": true},
+        "type": {"type": "string", "enum": ["success", "error", "warning", "info"], "default": "info"},
+        "duration": {"type": "number", "default": 3000}
+      }
+    },
+    
+    "show_dialog": {
+      "description": "Show dialog",
+      "parameters": {
+        "title": {"type": "object"},
+        "message": {"type": "object"},
+        "actions": {"type": "array"},
+        "dismissible": {"type": "boolean", "default": true}
+      }
+    },
+    
+    "confirm_dialog": {
+      "description": "Show confirmation dialog",
+      "parameters": {
+        "title": {"type": "object", "required": true},
+        "message": {"type": "object", "required": true},
+        "confirmLabel": {"type": "object"},
+        "cancelLabel": {"type": "object"},
+        "onConfirm": {"type": "action", "required": true},
+        "onCancel": {"type": "action"}
+      }
+    },
+    
+    "show_bottom_sheet": {
+      "description": "Show bottom sheet",
+      "parameters": {
+        "content": {"type": "string", "required": true},
+        "dismissible": {"type": "boolean", "default": true}
+      }
+    },
+    
+    "close_bottom_sheet": {
+      "description": "Close bottom sheet",
+      "parameters": {}
+    },
+    
+    "copy_to_clipboard": {
+      "description": "Copy text to clipboard",
+      "parameters": {
+        "text": {"type": "string", "required": true},
+        "message": {"type": "object"}
+      }
+    },
+    
+    "share": {
+      "description": "Share content",
+      "parameters": {
+        "text": {"type": "object"},
+        "url": {"type": "string"},
+        "image": {"type": "string"}
+      }
+    },
+    
+    "call": {
+      "description": "Make phone call",
+      "parameters": {
+        "number": {"type": "string", "required": true}
+      }
+    },
+    
+    "open_url": {
+      "description": "Open URL in browser",
+      "parameters": {
+        "url": {"type": "string", "required": true},
+        "inApp": {"type": "boolean", "default": false}
+      }
+    },
+    
+    "biometric_auth": {
+      "description": "Trigger biometric authentication",
+      "parameters": {
+        "reason": {"type": "object"},
+        "onSuccess": {"type": "action"},
+        "onFail": {"type": "action"}
+      }
+    },
+    
+    "start_ekyc": {
+      "description": "Start eKYC verification",
+      "parameters": {
+        "type": {"type": "string", "enum": ["face", "id", "liveness"]},
+        "onSuccess": {"type": "action"},
+        "onFail": {"type": "action"}
+      }
+    },
+    
+    "sequence": {
+      "description": "Execute multiple actions in sequence",
+      "parameters": {
+        "actions": {"type": "array", "items": {"type": "action"}}
+      }
+    },
+    
+    "conditional": {
+      "description": "Execute action based on condition",
+      "parameters": {
+        "condition": {"type": "string", "required": true},
+        "whenTrue": {"type": "action"},
+        "whenFalse": {"type": "action"}
+      }
+    }
+  }
+}
+

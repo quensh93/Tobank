@@ -1,0 +1,45 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "credit_card_customer",
+  "flowId": "credit_card",
+  "stepNumber": 2,
+  "title": {"fa": "اطلاعات مشتری", "en": "Customer Info"},
+  
+  "appBar": {"type": "bpms_stepper", "title": {"fa": "کارت اعتباری", "en": "Credit Card"}, "currentStep": 2, "totalSteps": 7},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "section", "header": {"title": {"fa": "اطلاعات شخصی", "en": "Personal Info"}}, "child": {"type": "column", "children": [
+        {"type": "text_field", "label": {"fa": "نام و نام خانوادگی", "en": "Full Name"}, "value": "{{customer.fullName}}", "readOnly": true},
+        {"type": "text_field", "label": {"fa": "کد ملی", "en": "National ID"}, "margin": {"top": 16}, "value": "{{customer.nationalId}}", "readOnly": true},
+        {"type": "text_field", "label": {"fa": "شماره موبایل", "en": "Mobile"}, "margin": {"top": 16}, "value": "{{customer.mobile}}", "readOnly": true}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "اطلاعات شغلی", "en": "Employment Info"}}, "child": {"type": "column", "children": [
+        {"type": "dropdown_field", "label": {"fa": "نوع اشتغال", "en": "Employment Type"}, "options": [
+          {"value": "government", "label": {"fa": "کارمند دولت", "en": "Government"}},
+          {"value": "private", "label": {"fa": "بخش خصوصی", "en": "Private"}},
+          {"value": "self", "label": {"fa": "خویش‌فرما", "en": "Self-Employed"}}
+        ], "bindTo": "employmentType"},
+        {"type": "text_field", "label": {"fa": "نام محل کار", "en": "Employer"}, "margin": {"top": 16}, "bindTo": "employer"},
+        {"type": "currency_field", "label": {"fa": "درآمد ماهیانه (ریال)", "en": "Monthly Income"}, "margin": {"top": 16}, "currency": "IRR", "bindTo": "income"},
+        {"type": "text_field", "label": {"fa": "سابقه کار (سال)", "en": "Work Experience"}, "margin": {"top": 16}, "keyboardType": "number", "bindTo": "experience"}
+      ]}},
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {"type": "container", "padding": 16, "child": {"type": "row", "children": [
+    {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "قبلی", "en": "Back"}, "onTap": {"type": "navigate_back"}}},
+    {"type": "sized_box", "width": 16},
+    {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "بعدی", "en": "Next"}, "onTap": {"type": "navigate", "route": "/bpms/credit-card/step-03"}}}
+  ]}},
+  
+  "dataBindings": {"customer": {"source": "api", "endpoint": "dibalite/customer/profile"}},
+  "mockData": {"customer": {"fullName": "علی احمدی", "nationalId": "۰۰۱۲۳۴۵۶۷۸", "mobile": "۰۹۱۲۳۴۵۶۷۸۹"}}
+}
+

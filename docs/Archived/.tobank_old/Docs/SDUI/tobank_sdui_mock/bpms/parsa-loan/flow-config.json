@@ -1,0 +1,30 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-flow",
+  "version": "1.0.0",
+  "flowId": "parsa_loan",
+  "flowType": "instant_loan",
+  "title": {"fa": "وام پارسا", "en": "Parsa Loan"},
+  "description": {"fa": "وام فوری با بازپرداخت آسان", "en": "Instant loan with easy repayment"},
+  "icon": "assets/icons/ic_parsa.svg",
+  "color": "#673AB7",
+  
+  "loanDetails": {
+    "minAmount": 50000000,
+    "maxAmount": 5000000000,
+    "interestRate": 23,
+    "repaymentMonths": [6, 12, 24, 36],
+    "requiredScoreMin": 500
+  },
+  
+  "steps": [
+    {"id": "rules", "order": 1, "title": {"fa": "قوانین", "en": "Rules"}, "pageRef": "step-01-rules.json"},
+    {"id": "eligibility", "order": 2, "title": {"fa": "استعلام", "en": "Check"}, "pageRef": "step-02-eligibility.json"},
+    {"id": "amount", "order": 3, "title": {"fa": "مبلغ", "en": "Amount"}, "pageRef": "step-03-amount.json"},
+    {"id": "repayment", "order": 4, "title": {"fa": "اقساط", "en": "Installments"}, "pageRef": "step-04-repayment.json"},
+    {"id": "contract", "order": 5, "title": {"fa": "قرارداد", "en": "Contract"}, "pageRef": "step-05-contract.json"},
+    {"id": "completion", "order": 6, "title": {"fa": "اتمام", "en": "Done"}, "pageRef": "step-06-completion.json", "isFinal": true}
+  ],
+  
+  "api": {"baseEndpoint": "bpms/parsa-loan"}
+}
+

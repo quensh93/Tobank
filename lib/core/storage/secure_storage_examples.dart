@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'secure_storage_keys.dart';
 import 'secure_storage_service.dart';
+import '../helpers/logger.dart';
 
 /// Comprehensive usage examples for secure storage
 /// 
@@ -87,9 +88,9 @@ class SecureStorageExamples {
         final profileData = await SecureStorageService.readMultiple(profileKeys);
         
         if (kDebugMode) {
-          print('📋 User Profile:');
+          AppLogger.d('📋 User Profile:');
           profileData.forEach((key, value) {
-            print('  $key: $value');
+            AppLogger.d('  $key: $value');
           });
         }
       }

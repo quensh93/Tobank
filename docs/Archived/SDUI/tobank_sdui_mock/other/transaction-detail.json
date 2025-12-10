@@ -1,0 +1,16 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "جزئیات تراکنش"
+    },
+    "actions": [
+      {
+        "icon": "assets/icons/ic_share.svg",
+        "onPressed": {}
+      }
+    ]
+  }
+}

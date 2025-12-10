@@ -1,0 +1,243 @@
+{
+  "$schema": "tobank-sdui/v1/form",
+  "id": "customer-address-form",
+  "version": "1.0.0",
+  
+  "meta": {
+    "title": "{{i18n.address_info}}",
+    "description": "{{i18n.address_form_desc}}"
+  },
+  
+  "sections": [
+    {
+      "id": "location",
+      "title": "{{i18n.location}}",
+      "collapsible": false,
+      "fields": [
+        {
+          "type": "dropdown",
+          "id": "province",
+          "label": "{{i18n.province}}",
+          "itemsBinding": "{{provinces}}",
+          "valueKey": "code",
+          "labelKey": "name",
+          "searchable": true,
+          "validation": [
+            {"type": "required", "message": "{{i18n.province_required}}"}
+          ],
+          "onChanged": {
+            "action": "chain",
+            "actions": [
+              {
+                "action": "set_state",
+                "key": "formData.city",
+                "value": null
+              },
+              {
+                "action": "api_call",
+                "endpoint": "locations/cities/{{value}}",
+                "onSuccess": {
+                  "action": "set_state",
+                  "key": "cities",
+                  "value": "{{response.data}}"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "dropdown",
+          "id": "city",
+          "label": "{{i18n.city}}",
+          "itemsBinding": "{{cities}}",
+          "valueKey": "code",
+          "labelKey": "name",
+          "searchable": true,
+          "enabled": "{{formData.province != null}}",
+          "validation": [
+            {"type": "required", "message": "{{i18n.city_required}}"}
+          ],
+          "dependsOn": "province"
+        }
+      ]
+    },
+    {
+      "id": "address-details",
+      "title": "{{i18n.address_details}}",
+      "collapsible": true,
+      "initiallyExpanded": true,
+      "fields": [
+        {
+          "type": "text_field",
+          "id": "postalCode",
+          "label": "{{i18n.postal_code}}",
+          "hint": "{{i18n.postal_code_hint}}",
+          "keyboardType": "number",
+          "maxLength": 10,
+          "inputFormatters": [
+            {"type": "digits_only"}
+          ],
+          "validation": [
+            {"type": "required", "message": "{{i18n.postal_code_required}}"},
+            {"type": "exact_length", "value": 10, "message": "{{i18n.postal_code_length}}"}
+          ]
+        },
+        {
+          "type": "text_field",
+          "id": "mainStreet",
+          "label": "{{i18n.main_street}}",
+          "hint": "{{i18n.main_street_hint}}",
+          "maxLength": 100,
+          "validation": [
+            {"type": "required", "message": "{{i18n.main_street_required}}"},
+            {"type": "min_length", "value": 3, "message": "{{i18n.min_3_chars}}"}
+          ]
+        },
+        {
+          "type": "text_field",
+          "id": "alley",
+          "label": "{{i18n.alley}}",
+          "hint": "{{i18n.alley_hint}}",
+          "maxLength": 50
+        },
+        {
+          "type": "row",
+          "children": [
+            {
+              "type": "text_field",
+              "id": "buildingNumber",
+              "label": "{{i18n.building_number}}",
+              "keyboardType": "number",
+              "maxLength": 5,
+              "flex": 1,
+              "validation": [
+                {"type": "required", "message": "{{i18n.required}}"}
+              ]
+            },
+            {
+              "type": "sized_box",
+              "width": 16
+            },
+            {
+              "type": "text_field",
+              "id": "unit",
+              "label": "{{i18n.unit}}",
+              "keyboardType": "number",
+              "maxLength": 4,
+              "flex": 1
+            }
+          ]
+        },
+        {
+          "type": "text_field",
+          "id": "fullAddress",
+          "label": "{{i18n.full_address}}",
+          "hint": "{{i18n.full_address_hint}}",
+          "maxLines": 3,
+          "maxLength": 300,
+          "validation": [
+            {"type": "required", "message": "{{i18n.full_address_required}}"},
+            {"type": "min_length", "value": 20, "message": "{{i18n.address_too_short}}"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "title": "{{i18n.contact_info}}",
+      "collapsible": true,
+      "fields": [
+        {
+          "type": "text_field",
+          "id": "phone",
+          "label": "{{i18n.phone}}",
+          "prefixIcon": "phone",
+          "keyboardType": "phone",
+          "inputFormatters": [
+            {"type": "mask", "mask": "###-########"}
+          ],
+          "validation": [
+            {"type": "required", "message": "{{i18n.phone_required}}"},
+            {
+              "type": "regex", 
+              "pattern": "^0[0-9]{2}-[0-9]{8}$", 
+              "message": "{{i18n.invalid_phone}}"
+            }
+          ]
+        },
+        {
+          "type": "text_field",
+          "id": "mobile",
+          "label": "{{i18n.mobile}}",
+          "prefixIcon": "smartphone",
+          "keyboardType": "phone",
+          "inputFormatters": [
+            {"type": "mask", "mask": "####-###-####"}
+          ],
+          "validation": [
+            {"type": "required", "message": "{{i18n.mobile_required}}"},
+            {
+              "type": "regex", 
+              "pattern": "^09[0-9]{2}-[0-9]{3}-[0-9]{4}$", 
+              "message": "{{i18n.invalid_mobile}}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  
+  "dataBindings": {
+    "provinces": {
+      "source": "api",
+      "endpoint": "locations/provinces",
+      "cache": "1d"
+    },
+    "cities": {
+      "source": "local",
+      "key": "cities",
+      "default": []
+    }
+  },
+  
+  "submitButton": {
+    "label": "{{i18n.save_address}}",
+    "position": "bottom",
+    "fullWidth": true,
+    "loading": "{{isSubmitting}}"
+  },
+  
+  "onSubmit": {
+    "action": "api_call",
+    "endpoint": "customer/address",
+    "method": "POST",
+    "body": "{{formData}}",
+    "loading": "isSubmitting",
+    "onSuccess": {
+      "action": "chain",
+      "actions": [
+        {
+          "action": "show_toast",
+          "message": "{{i18n.address_saved}}",
+          "type": "success"
+        },
+        {
+          "action": "pop",
+          "result": "{{response.data}}"
+        }
+      ]
+    },
+    "onError": {
+      "action": "show_dialog",
+      "type": "error",
+      "title": "{{i18n.error}}",
+      "message": "{{error.message}}"
+    }
+  },
+  
+  "validation": {
+    "mode": "onSubmit",
+    "showErrors": "all"
+  }
+}
+

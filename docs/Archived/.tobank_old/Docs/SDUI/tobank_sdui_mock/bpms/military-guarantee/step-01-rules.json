@@ -1,0 +1,78 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "military_guarantee_rules",
+  "flowId": "military_guarantee",
+  "stepNumber": 1,
+  "title": {"fa": "قوانین و مقررات", "en": "Terms"},
+  
+  "appBar": {
+    "type": "bpms_stepper",
+    "title": {"fa": "ضمانت‌نامه نظام وظیفه", "en": "Military Guarantee"},
+    "currentStep": 1,
+    "totalSteps": 7
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "type": "card",
+        "padding": 20,
+        "backgroundColor": "#ECEFF1",
+        "child": {
+          "type": "row",
+          "children": [
+            {"type": "icon", "icon": "assets/icons/ic_military.svg", "size": 48, "color": "#607D8B"},
+            {"type": "sized_box", "width": 16},
+            {"type": "expanded", "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+              {"type": "text", "text": {"fa": "ضمانت‌نامه نظام وظیفه", "en": "Military Guarantee"}, "style": "titleLarge"},
+              {"type": "text", "text": {"fa": "برای معافیت تحصیلی، اشتغال یا پزشکی", "en": "For education, employment or medical exemption"}, "style": "bodyMedium", "color": "textSecondary"}
+            ]}}
+          ]
+        }
+      },
+      
+      {
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {"title": {"fa": "انواع ضمانت‌نامه", "en": "Guarantee Types"}},
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "info_card", "title": {"fa": "معافیت تحصیلی", "en": "Education"}, "subtitle": {"fa": "۵۰ میلیون تومان", "en": "50M Toman"}, "icon": "assets/icons/ic_education.svg", "color": "#4CAF50"},
+            {"type": "info_card", "title": {"fa": "معافیت اشتغال", "en": "Employment"}, "subtitle": {"fa": "۱۰۰ میلیون تومان", "en": "100M Toman"}, "icon": "assets/icons/ic_work.svg", "color": "#2196F3", "margin": {"top": 12}},
+            {"type": "info_card", "title": {"fa": "معافیت پزشکی", "en": "Medical"}, "subtitle": {"fa": "۳۰ میلیون تومان", "en": "30M Toman"}, "icon": "assets/icons/ic_medical.svg", "color": "#F44336", "margin": {"top": 12}}
+          ]
+        }
+      },
+      
+      {
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {"title": {"fa": "شرایط", "en": "Requirements"}},
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "check_item", "text": {"fa": "مشمول خدمت نظام وظیفه", "en": "Military service eligible"}},
+            {"type": "check_item", "text": {"fa": "داشتن سپرده یا وثیقه معادل ۱۰٪", "en": "10% deposit required"}},
+            {"type": "check_item", "text": {"fa": "ارائه نامه رسمی از مرجع ذیربط", "en": "Official letter required"}}
+          ]
+        }
+      },
+      
+      {"type": "checkbox_tile", "margin": {"top": 24}, "title": {"fa": "قوانین را می‌پذیرم", "en": "I accept terms"}, "bindTo": "accepted"},
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "child": {"type": "elevated_button", "label": {"fa": "شروع", "en": "Start"}, "fullWidth": true, "disabled": "{{!accepted}}", "onTap": {"type": "navigate", "route": "/bpms/military-guarantee/step-02"}}
+  },
+  
+  "dataBindings": {"accepted": {"source": "form", "default": false}}
+}
+

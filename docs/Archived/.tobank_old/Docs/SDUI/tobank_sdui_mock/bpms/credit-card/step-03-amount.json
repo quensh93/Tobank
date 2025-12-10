@@ -1,0 +1,73 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "credit_card_amount",
+  "flowId": "credit_card",
+  "stepNumber": 3,
+  "title": {"fa": "انتخاب سقف", "en": "Select Limit"},
+  
+  "appBar": {"type": "bpms_stepper", "title": {"fa": "کارت اعتباری", "en": "Credit Card"}, "currentStep": 3, "totalSteps": 7},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "text", "text": {"fa": "سقف اعتبار مورد نظر خود را انتخاب کنید", "en": "Select your credit limit"}, "style": "titleMedium", "textAlign": "center"},
+      
+      {"type": "section", "margin": {"top": 24}, "child": {"type": "column", "children": [
+        {"type": "selectable_card", "selected": "{{creditLimit === 100000000}}", "margin": {"bottom": 12}, "child": {"type": "row", "padding": 16, "children": [
+          {"type": "container", "width": 50, "height": 50, "decoration": {"color": "#CD7F3220", "borderRadius": 25}, "alignment": "center", "child": {"type": "text", "text": "🥉", "style": "headlineSmall"}},
+          {"type": "sized_box", "width": 16},
+          {"type": "expanded", "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+            {"type": "text", "text": {"fa": "کارت برنزی", "en": "Bronze"}, "style": "titleMedium"},
+            {"type": "text", "text": {"fa": "۱۰ میلیون تومان", "en": "10M Toman"}, "style": "bodySmall", "color": "textSecondary"}
+          ]}}
+        ]}, "onTap": {"type": "set_state", "key": "creditLimit", "value": 100000000}},
+        
+        {"type": "selectable_card", "selected": "{{creditLimit === 200000000}}", "margin": {"bottom": 12}, "child": {"type": "row", "padding": 16, "children": [
+          {"type": "container", "width": 50, "height": 50, "decoration": {"color": "#C0C0C020", "borderRadius": 25}, "alignment": "center", "child": {"type": "text", "text": "🥈", "style": "headlineSmall"}},
+          {"type": "sized_box", "width": 16},
+          {"type": "expanded", "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+            {"type": "text", "text": {"fa": "کارت نقره‌ای", "en": "Silver"}, "style": "titleMedium"},
+            {"type": "text", "text": {"fa": "۲۰ میلیون تومان", "en": "20M Toman"}, "style": "bodySmall", "color": "textSecondary"}
+          ]}}
+        ]}, "onTap": {"type": "set_state", "key": "creditLimit", "value": 200000000}},
+        
+        {"type": "selectable_card", "selected": "{{creditLimit === 500000000}}", "margin": {"bottom": 12}, "child": {"type": "row", "padding": 16, "children": [
+          {"type": "container", "width": 50, "height": 50, "decoration": {"color": "#FFD70020", "borderRadius": 25}, "alignment": "center", "child": {"type": "text", "text": "🥇", "style": "headlineSmall"}},
+          {"type": "sized_box", "width": 16},
+          {"type": "expanded", "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+            {"type": "text", "text": {"fa": "کارت طلایی", "en": "Gold"}, "style": "titleMedium"},
+            {"type": "text", "text": {"fa": "۵۰ میلیون تومان", "en": "50M Toman"}, "style": "bodySmall", "color": "textSecondary"}
+          ]}}
+        ]}, "onTap": {"type": "set_state", "key": "creditLimit", "value": 500000000}},
+        
+        {"type": "selectable_card", "selected": "{{creditLimit === 1000000000}}", "child": {"type": "row", "padding": 16, "children": [
+          {"type": "container", "width": 50, "height": 50, "decoration": {"color": "#E5E4E220", "borderRadius": 25}, "alignment": "center", "child": {"type": "text", "text": "💎", "style": "headlineSmall"}},
+          {"type": "sized_box", "width": 16},
+          {"type": "expanded", "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+            {"type": "text", "text": {"fa": "کارت پلاتینیوم", "en": "Platinum"}, "style": "titleMedium"},
+            {"type": "text", "text": {"fa": "۱۰۰ میلیون تومان", "en": "100M Toman"}, "style": "bodySmall", "color": "textSecondary"}
+          ]}}
+        ]}, "onTap": {"type": "set_state", "key": "creditLimit", "value": 1000000000}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "مهلت بازپرداخت", "en": "Repayment Period"}}, "child": {"type": "radio_group", "options": [
+        {"value": 15, "label": {"fa": "۱۵ روز", "en": "15 days"}},
+        {"value": 30, "label": {"fa": "۳۰ روز", "en": "30 days"}},
+        {"value": 45, "label": {"fa": "۴۵ روز", "en": "45 days"}}
+      ], "bindTo": "repaymentDays"}},
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {"type": "container", "padding": 16, "child": {"type": "row", "children": [
+    {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "قبلی", "en": "Back"}, "onTap": {"type": "navigate_back"}}},
+    {"type": "sized_box", "width": 16},
+    {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "بعدی", "en": "Next"}, "disabled": "{{!creditLimit || !repaymentDays}}", "onTap": {"type": "navigate", "route": "/bpms/credit-card/step-04"}}}
+  ]}},
+  
+  "dataBindings": {"creditLimit": {"source": "form", "default": null}, "repaymentDays": {"source": "form", "default": null}}
+}
+

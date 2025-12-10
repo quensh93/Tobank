@@ -18,7 +18,8 @@ dependencies:
   retrofit: ^4.7.3
   dio: ^5.7.0
   json_annotation: ^4.9.0
-  logger: ^2.6.0
+  logger:
+    path: tools/logger
   fpdart: ^1.1.1
   flutter_secure_storage: ^9.2.4
   path_provider: ^2.1.5
@@ -29,13 +30,35 @@ dependencies:
   ispect: ^4.4.8-dev02
   ispectify: ^4.4.8-dev02
   ispectify_dio: ^4.4.8-dev02
-  stac:
-    path: .stac/packages/stac
+  #stac:
+  #  path: .stac/packages/stac
+  stac: ^1.1.2
+  stac_core: any
   debug_panel:
     path: lib/debug_panel
+  supabase_flutter: ^2.10.3
+  uuid: ^4.5.1
+  shared_preferences: ^2.2.0
+  file_picker: ^10.3.6
+  share_plus: ^12.0.1
+  device_frame: ^1.2.0
+  args: ^2.4.2
+  # Missing dependencies
+  intl: ^0.20.2
+  crypto: ^3.0.3
+  meta: ^1.12.0
+  material_color_utilities: ^0.11.1
+  supabase: ^2.10.0
+  re_editor: ^0.8.0
+  re_highlight: ^0.0.3
+  flutter_dotenv: ^5.2.1
+  dio_mocked_responses: ^1.6.5+1
+  persian_datetime_picker: ^3.2.0
 
 
 
+  flutter_riverpod: any
+  shamsi_date: 1.1.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -47,5 +70,36 @@ dev_dependencies:
   retrofit_generator: ^10.0.0
   json_serializable: ^6.10.0
 
+  stac_framework: any
+
+# Force use of local logger instead of pub.dev version
+# This allows us to customize the logger package
+dependency_overrides:
+  logger:
+    path: tools/logger
+  # stac_logger:
+  #   path: .stac/packages/stac_logger  # Temporarily commented out - folder doesn't exist
+
 flutter:
   uses-material-design: true
+  
+  assets:
+    - assets/icons/
+    - assets/images/
+    - lib/stac/.build/
+    - lib/stac/design_system/
+    - lib/stac/config/
+    - lib/stac/tobank/login/json/
+    - lib/stac/tobank/login/api/
+    - lib/stac/tobank/menu/api/
+
+  fonts:
+    - family: IranYekan
+      fonts:
+        - asset: assets/fonts/IRANYekanMobileRegular.ttf
+        - asset: assets/fonts/IRANYekanMobileMedium.ttf
+          weight: 500
+        - asset: assets/fonts/IRANYekanMobileBold.ttf
+          weight: 700
+        - asset: assets/fonts/IRANYekanMobileExtraBold.ttf
+          weight: 900

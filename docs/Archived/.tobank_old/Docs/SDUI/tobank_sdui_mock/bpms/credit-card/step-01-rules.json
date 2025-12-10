@@ -1,0 +1,51 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "credit_card_rules",
+  "flowId": "credit_card",
+  "stepNumber": 1,
+  "title": {"fa": "قوانین", "en": "Rules"},
+  
+  "appBar": {"type": "bpms_stepper", "title": {"fa": "کارت اعتباری", "en": "Credit Card"}, "currentStep": 1, "totalSteps": 7},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "card", "padding": 20, "backgroundColor": "#FBE9E7", "child": {"type": "row", "children": [
+        {"type": "icon", "icon": "assets/icons/ic_credit_card.svg", "size": 48, "color": "#FF5722"},
+        {"type": "sized_box", "width": 16},
+        {"type": "expanded", "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+          {"type": "text", "text": {"fa": "کارت اعتباری بانکی", "en": "Bank Credit Card"}, "style": "titleLarge"},
+          {"type": "text", "text": {"fa": "اعتبار تا ۱۰۰ میلیون تومان", "en": "Credit up to 100M Toman"}, "style": "bodyMedium", "color": "textSecondary"}
+        ]}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "سقف اعتبار", "en": "Credit Limits"}}, "child": {"type": "column", "children": [
+        {"type": "tier_card", "title": {"fa": "برنزی", "en": "Bronze"}, "amount": "۱۰ میلیون تومان", "color": "#CD7F32"},
+        {"type": "tier_card", "title": {"fa": "نقره‌ای", "en": "Silver"}, "amount": "۲۰ میلیون تومان", "color": "#C0C0C0", "margin": {"top": 8}},
+        {"type": "tier_card", "title": {"fa": "طلایی", "en": "Gold"}, "amount": "۵۰ میلیون تومان", "color": "#FFD700", "margin": {"top": 8}},
+        {"type": "tier_card", "title": {"fa": "پلاتینیوم", "en": "Platinum"}, "amount": "۱۰۰ میلیون تومان", "color": "#E5E4E2", "margin": {"top": 8}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "شرایط", "en": "Requirements"}}, "child": {"type": "column", "children": [
+        {"type": "check_item", "text": {"fa": "داشتن حساب فعال در بانک", "en": "Active bank account"}},
+        {"type": "check_item", "text": {"fa": "سابقه خوش‌حسابی", "en": "Good credit history"}},
+        {"type": "check_item", "text": {"fa": "معرفی ضامن معتبر", "en": "Valid guarantor"}}
+      ]}},
+      
+      {"type": "card", "margin": {"top": 24}, "child": {"type": "column", "children": [
+        {"type": "info_row", "padding": 16, "label": {"fa": "نرخ سود", "en": "Interest"}, "value": "۱۸٪ سالانه"},
+        {"type": "divider"},
+        {"type": "info_row", "padding": 16, "label": {"fa": "مهلت بازپرداخت", "en": "Repayment"}, "value": "۱۵، ۳۰ یا ۴۵ روز"}
+      ]}},
+      
+      {"type": "checkbox_tile", "margin": {"top": 24}, "title": {"fa": "قوانین را می‌پذیرم", "en": "I accept"}, "bindTo": "accepted"},
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {"type": "container", "padding": 16, "child": {"type": "elevated_button", "label": {"fa": "شروع", "en": "Start"}, "fullWidth": true, "disabled": "{{!accepted}}", "onTap": {"type": "navigate", "route": "/bpms/credit-card/step-02"}}},
+  "dataBindings": {"accepted": {"source": "form", "default": false}}
+}
+

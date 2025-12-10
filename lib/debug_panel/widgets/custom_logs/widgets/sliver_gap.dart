@@ -1,6 +1,8 @@
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
+import 'gap.dart' show Gap;
+
 /// A sliver that takes a fixed amount of space.
 ///
 /// See also:

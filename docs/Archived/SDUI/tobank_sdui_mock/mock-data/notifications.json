@@ -1,0 +1,324 @@
+{
+  "notifications": [
+    {
+      "id": "NOTIF-001",
+      "userId": "USR-001",
+      "type": "transaction",
+      "typeTitle": "تراکنش",
+      "title": "انتقال وجه موفق",
+      "body": "مبلغ ۲,۵۰۰,۰۰۰ تومان به کارت ****۱۲۳۴ منتقل شد.",
+      "icon": "assets/icons/ic_card_to_card.svg",
+      "color": "#4CAF50",
+      "isRead": false,
+      "date": "۱۴۰۳/۰۹/۰۵",
+      "time": "۱۴:۳۲",
+      "dateTime": "۱۴۰۳/۰۹/۰۵ - ۱۴:۳۲",
+      "action": {
+        "type": "navigate",
+        "route": "/transactions/detail/TRX-001"
+      }
+    },
+    {
+      "id": "NOTIF-002",
+      "userId": "USR-001",
+      "type": "transaction",
+      "typeTitle": "تراکنش",
+      "title": "واریز به حساب شما",
+      "body": "مبلغ ۱,۵۰۰,۰۰۰ تومان از کارت ****۵۵۶۶ به حساب شما واریز شد.",
+      "icon": "assets/icons/ic_card_to_card.svg",
+      "color": "#4CAF50",
+      "isRead": false,
+      "date": "۱۴۰۳/۰۹/۰۴",
+      "time": "۱۰:۱۵",
+      "dateTime": "۱۴۰۳/۰۹/۰۴ - ۱۰:۱۵",
+      "action": {
+        "type": "navigate",
+        "route": "/transactions/detail/TRX-002"
+      }
+    },
+    {
+      "id": "NOTIF-003",
+      "userId": "USR-001",
+      "type": "security",
+      "typeTitle": "امنیت",
+      "title": "ورود جدید به حساب",
+      "body": "ورود به حساب شما از دستگاه Samsung Galaxy S23 در تاریخ ۱۴۰۳/۰۹/۰۵ ثبت شد.",
+      "icon": "assets/icons/ic_lock.svg",
+      "color": "#FF9800",
+      "isRead": false,
+      "date": "۱۴۰۳/۰۹/۰۵",
+      "time": "۰۸:۳۰",
+      "dateTime": "۱۴۰۳/۰۹/۰۵ - ۰۸:۳۰",
+      "action": {
+        "type": "navigate",
+        "route": "/settings/security"
+      }
+    },
+    {
+      "id": "NOTIF-004",
+      "userId": "USR-001",
+      "type": "promotion",
+      "typeTitle": "پیشنهاد ویژه",
+      "title": "تسهیلات ازدواج فعال شد! 💍",
+      "body": "همین حالا درخواست تسهیلات ازدواج خود را ثبت کنید. سقف ۳۰۰ میلیون تومان",
+      "icon": "assets/icons/ic_loan.svg",
+      "color": "#E31837",
+      "isRead": true,
+      "date": "۱۴۰۳/۰۹/۰۳",
+      "time": "۱۲:۰۰",
+      "dateTime": "۱۴۰۳/۰۹/۰۳ - ۱۲:۰۰",
+      "action": {
+        "type": "navigate",
+        "route": "/bpms/marriage-loan"
+      }
+    },
+    {
+      "id": "NOTIF-005",
+      "userId": "USR-001",
+      "type": "reminder",
+      "typeTitle": "یادآوری",
+      "title": "قبض برق نزدیک به سررسید",
+      "body": "قبض برق شما به مبلغ ۳۵۰,۰۰۰ تومان تا ۵ روز دیگر سررسید می‌شود.",
+      "icon": "assets/icons/ic_electric_bill.svg",
+      "color": "#2196F3",
+      "isRead": true,
+      "date": "۱۴۰۳/۰۹/۰۱",
+      "time": "۰۹:۰۰",
+      "dateTime": "۱۴۰۳/۰۹/۰۱ - ۰۹:۰۰",
+      "action": {
+        "type": "navigate",
+        "route": "/payments/bills"
+      }
+    },
+    {
+      "id": "NOTIF-006",
+      "userId": "USR-001",
+      "type": "system",
+      "typeTitle": "سیستم",
+      "title": "به‌روزرسانی جدید موجود است",
+      "body": "نسخه جدید اپلیکیشن توبانک (۳.۹.۱) با قابلیت‌های جدید منتشر شد.",
+      "icon": "assets/icons/ic_download.svg",
+      "color": "#9C27B0",
+      "isRead": true,
+      "date": "۱۴۰۳/۰۸/۲۸",
+      "time": "۱۵:۳۰",
+      "dateTime": "۱۴۰۳/۰۸/۲۸ - ۱۵:۳۰",
+      "action": {
+        "type": "open_url",
+        "url": "https://tobank.ir/download"
+      }
+    },
+    {
+      "id": "NOTIF-007",
+      "userId": "USR-001",
+      "type": "transaction",
+      "typeTitle": "تراکنش",
+      "title": "سود سپرده واریز شد",
+      "body": "سود ماهانه سپرده پس‌انداز به مبلغ ۳۸۳,۳۳۳ تومان واریز شد.",
+      "icon": "assets/icons/ic_percent_circle.svg",
+      "color": "#4CAF50",
+      "isRead": true,
+      "date": "۱۴۰۳/۰۸/۰۱",
+      "time": "۰۰:۰۵",
+      "dateTime": "۱۴۰۳/۰۸/۰۱ - ۰۰:۰۵",
+      "action": {
+        "type": "navigate",
+        "route": "/deposits/detail/DEP-002"
+      }
+    },
+    {
+      "id": "NOTIF-008",
+      "userId": "USR-001",
+      "type": "bpms",
+      "typeTitle": "فرآیند",
+      "title": "وظیفه جدید در فرآیند تسهیلات",
+      "body": "لطفاً مدارک هویتی خود را برای ادامه فرآیند تسهیلات بارگذاری کنید.",
+      "icon": "assets/icons/ic_continue_process.svg",
+      "color": "#FF5722",
+      "isRead": true,
+      "date": "۱۴۰۳/۰۷/۲۵",
+      "time": "۱۱:۲۰",
+      "dateTime": "۱۴۰۳/۰۷/۲۵ - ۱۱:۲۰",
+      "action": {
+        "type": "navigate",
+        "route": "/bpms/marriage-loan/tasks"
+      }
+    },
+    {
+      "id": "NOTIF-009",
+      "userId": "USR-001",
+      "type": "customer_club",
+      "typeTitle": "باشگاه مشتریان",
+      "title": "۵۰۰ امتیاز جایزه گرفتید! 🎉",
+      "body": "به خاطر فعالیت ماهانه، ۵۰۰ امتیاز به حساب باشگاه شما اضافه شد.",
+      "icon": "assets/icons/ic_star_fill.svg",
+      "color": "#FFC107",
+      "isRead": true,
+      "date": "۱۴۰۳/۰۷/۱۵",
+      "time": "۱۰:۰۰",
+      "dateTime": "۱۴۰۳/۰۷/۱۵ - ۱۰:۰۰",
+      "action": {
+        "type": "navigate",
+        "route": "/customer-club"
+      }
+    },
+    {
+      "id": "NOTIF-010",
+      "userId": "USR-001",
+      "type": "card",
+      "typeTitle": "کارت",
+      "title": "کارت شما نزدیک انقضاست",
+      "body": "کارت ****۴۳۲۱ تا ۲ ماه دیگر منقضی می‌شود. برای تمدید اقدام کنید.",
+      "icon": "assets/icons/ic_card.svg",
+      "color": "#F44336",
+      "isRead": true,
+      "date": "۱۴۰۳/۰۷/۱۰",
+      "time": "۱۴:۰۰",
+      "dateTime": "۱۴۰۳/۰۷/۱۰ - ۱۴:۰۰",
+      "action": {
+        "type": "navigate",
+        "route": "/bpms/card-reissue"
+      }
+    },
+    {
+      "id": "NOTIF-011",
+      "userId": "USR-001",
+      "type": "security",
+      "typeTitle": "امنیت",
+      "title": "رمز عبور تغییر کرد",
+      "body": "رمز عبور حساب شما با موفقیت تغییر یافت.",
+      "icon": "assets/icons/ic_lock.svg",
+      "color": "#4CAF50",
+      "isRead": true,
+      "date": "۱۴۰۳/۰۷/۰۵",
+      "time": "۱۶:۴۵",
+      "dateTime": "۱۴۰۳/۰۷/۰۵ - ۱۶:۴۵",
+      "action": null
+    },
+    {
+      "id": "NOTIF-012",
+      "userId": "USR-001",
+      "type": "transaction",
+      "typeTitle": "تراکنش",
+      "title": "پرداخت قبض موفق",
+      "body": "قبض برق به مبلغ ۳۲۰,۰۰۰ تومان پرداخت شد.",
+      "icon": "assets/icons/ic_electric_bill.svg",
+      "color": "#4CAF50",
+      "isRead": true,
+      "date": "۱۴۰۳/۰۷/۰۳",
+      "time": "۱۸:۴۵",
+      "dateTime": "۱۴۰۳/۰۷/۰۳ - ۱۸:۴۵",
+      "action": {
+        "type": "navigate",
+        "route": "/transactions/detail/TRX-003"
+      }
+    },
+    {
+      "id": "NOTIF-013",
+      "userId": "USR-001",
+      "type": "promotion",
+      "typeTitle": "پیشنهاد ویژه",
+      "title": "کارت هدیه با ۱۰٪ تخفیف",
+      "body": "تا پایان هفته، کارت هدیه بخرید و ۱۰٪ تخفیف بگیرید!",
+      "icon": "assets/icons/ic_gift_card.svg",
+      "color": "#E91E63",
+      "isRead": true,
+      "date": "۱۴۰۳/۰۶/۲۸",
+      "time": "۱۰:۰۰",
+      "dateTime": "۱۴۰۳/۰۶/۲۸ - ۱۰:۰۰",
+      "action": {
+        "type": "navigate",
+        "route": "/gift-card"
+      }
+    },
+    {
+      "id": "NOTIF-014",
+      "userId": "USR-001",
+      "type": "system",
+      "typeTitle": "سیستم",
+      "title": "تعمیرات برنامه‌ریزی شده",
+      "body": "سرویس‌های بانکی در تاریخ ۱۴۰۳/۰۶/۳۰ از ساعت ۲ تا ۴ صبح در دسترس نخواهد بود.",
+      "icon": "assets/icons/ic_warning.svg",
+      "color": "#FF9800",
+      "isRead": true,
+      "date": "۱۴۰۳/۰۶/۲۵",
+      "time": "۱۲:۰۰",
+      "dateTime": "۱۴۰۳/۰۶/۲۵ - ۱۲:۰۰",
+      "action": null
+    },
+    {
+      "id": "NOTIF-015",
+      "userId": "USR-001",
+      "type": "transaction",
+      "typeTitle": "تراکنش",
+      "title": "تراکنش ناموفق",
+      "body": "انتقال وجه به مبلغ ۵۰۰,۰۰۰ تومان به دلیل موجودی ناکافی انجام نشد.",
+      "icon": "assets/icons/ic_transaction_failed.svg",
+      "color": "#F44336",
+      "isRead": true,
+      "date": "۱۴۰۳/۰۷/۱۵",
+      "time": "۱۲:۰۰",
+      "dateTime": "۱۴۰۳/۰۷/۱۵ - ۱۲:۰۰",
+      "action": {
+        "type": "navigate",
+        "route": "/transactions/detail/TRX-010"
+      }
+    }
+  ],
+  "summary": {
+    "total": 15,
+    "unreadCount": 3,
+    "byType": {
+      "transaction": 6,
+      "security": 2,
+      "promotion": 2,
+      "reminder": 1,
+      "system": 2,
+      "bpms": 1,
+      "customer_club": 1,
+      "card": 1
+    }
+  },
+  "notificationTypes": [
+    {
+      "code": "transaction",
+      "title": "تراکنش",
+      "icon": "assets/icons/ic_transaction.svg"
+    },
+    {
+      "code": "security",
+      "title": "امنیت",
+      "icon": "assets/icons/ic_lock.svg"
+    },
+    {
+      "code": "promotion",
+      "title": "پیشنهاد ویژه",
+      "icon": "assets/icons/ic_gift_card.svg"
+    },
+    {
+      "code": "reminder",
+      "title": "یادآوری",
+      "icon": "assets/icons/ic_notification.svg"
+    },
+    {
+      "code": "system",
+      "title": "سیستم",
+      "icon": "assets/icons/ic_settings.svg"
+    },
+    {
+      "code": "bpms",
+      "title": "فرآیند",
+      "icon": "assets/icons/ic_continue_process.svg"
+    },
+    {
+      "code": "customer_club",
+      "title": "باشگاه مشتریان",
+      "icon": "assets/icons/ic_star.svg"
+    },
+    {
+      "code": "card",
+      "title": "کارت",
+      "icon": "assets/icons/ic_card.svg"
+    }
+  ]
+}

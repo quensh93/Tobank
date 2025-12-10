@@ -1,0 +1,450 @@
+{
+  "$schema": "tobank-sdui/v1/api-endpoints",
+  "version": "1.0.0",
+  
+  "endpoints": {
+    "auth": {
+      "login": {
+        "path": "dibalite/kyc",
+        "method": "POST",
+        "requireToken": false,
+        "requireEncryption": true,
+        "requireBase64": true
+      },
+      "register": {
+        "path": "dibalite/customer/registration",
+        "method": "POST",
+        "requireToken": true,
+        "requireEncryption": true,
+        "requireBase64": true,
+        "requireEkycSign": true
+      },
+      "refreshToken": {
+        "path": "auth/refresh",
+        "method": "POST",
+        "requireToken": true
+      },
+      "logout": {
+        "path": "auth/logout",
+        "method": "POST",
+        "requireToken": true
+      }
+    },
+    
+    "customer": {
+      "info": {
+        "path": "dibalite/customer/info",
+        "method": "POST",
+        "requireToken": true,
+        "requireBase64": true
+      },
+      "updatePublicKey": {
+        "path": "dibalite/customer/update-public-key",
+        "method": "POST",
+        "requireToken": true,
+        "requireBase64": true,
+        "requireEkycSign": true
+      },
+      "updateAddress": {
+        "path": "dibalite/customer/update-address",
+        "method": "POST",
+        "requireToken": true,
+        "requireBase64": true
+      }
+    },
+    
+    "cards": {
+      "list": {
+        "path": "dibalite/digital/banking/all/customer/cards",
+        "method": "GET",
+        "requireToken": true
+      },
+      "add": {
+        "path": "cards/add",
+        "method": "POST",
+        "requireToken": true
+      },
+      "update": {
+        "path": "cards/{cardId}",
+        "method": "PUT",
+        "requireToken": true
+      },
+      "delete": {
+        "path": "cards/{cardId}",
+        "method": "DELETE",
+        "requireToken": true
+      },
+      "balance": {
+        "path": "pichak/tsm/pin-verification",
+        "method": "POST",
+        "requireToken": true
+      },
+      "owner": {
+        "path": "banks/cards",
+        "method": "POST",
+        "requireToken": true
+      },
+      "block": {
+        "path": "dibalite/cards/block",
+        "method": "POST",
+        "requireToken": true,
+        "requireBase64": true,
+        "requireEkycSign": true
+      },
+      "changePin": {
+        "path": "dibalite/cards/change-pin",
+        "method": "POST",
+        "requireToken": true,
+        "requireBase64": true,
+        "requireEkycSign": true
+      },
+      "changePinArbitrary": {
+        "path": "dibalite/cards/change-pin-arbitrary",
+        "method": "POST",
+        "requireToken": true,
+        "requireBase64": true,
+        "requireEkycSign": true
+      },
+      "issuance": {
+        "path": "dibalite/cards/issuance",
+        "method": "POST",
+        "requireToken": true,
+        "requireBase64": true,
+        "requireEkycSign": true
+      },
+      "templates": {
+        "path": "dibalite/cards/templates",
+        "method": "POST",
+        "requireToken": true,
+        "requireBase64": true
+      },
+      "dynamicPassword": {
+        "path": "banks/otp",
+        "method": "POST",
+        "requireToken": true
+      }
+    },
+    
+    "transfers": {
+      "cardToCard": {
+        "path": "banks/card_to_card",
+        "method": "POST",
+        "requireToken": true
+      },
+      "cardToCardGardeshgary": {
+        "path": "banks/gardeshgary/card_to_card",
+        "method": "POST",
+        "requireToken": true
+      },
+      "depositTransfer": {
+        "path": "dibalite/transfer/internal",
+        "method": "POST",
+        "requireToken": true,
+        "requireBase64": true,
+        "requireEkycSign": true
+      },
+      "payaTransfer": {
+        "path": "dibalite/transfer/paya",
+        "method": "POST",
+        "requireToken": true,
+        "requireBase64": true,
+        "requireEkycSign": true
+      },
+      "satnaTransfer": {
+        "path": "dibalite/transfer/satna",
+        "method": "POST",
+        "requireToken": true,
+        "requireBase64": true,
+        "requireEkycSign": true
+      }
+    },
+    
+    "deposits": {
+      "list": {
+        "path": "dibalite/digital/banking/deposits",
+        "method": "GET",
+        "requireToken": true
+      },
+      "detail": {
+        "path": "dibalite/digital/banking/deposits/{depositId}",
+        "method": "GET",
+        "requireToken": true
+      },
+      "transactions": {
+        "path": "dibalite/digital/banking/deposits/{depositId}/transactions",
+        "method": "GET",
+        "requireToken": true
+      },
+      "open": {
+        "path": "dibalite/deposit/open",
+        "method": "POST",
+        "requireToken": true,
+        "requireBase64": true,
+        "requireEkycSign": true
+      },
+      "close": {
+        "path": "dibalite/deposit/close",
+        "method": "POST",
+        "requireToken": true,
+        "requireBase64": true,
+        "requireEkycSign": true
+      }
+    },
+    
+    "bills": {
+      "inquiry": {
+        "path": "bills/inquiry",
+        "method": "POST",
+        "requireToken": true
+      },
+      "pay": {
+        "path": "bills/pay",
+        "method": "POST",
+        "requireToken": true
+      }
+    },
+    
+    "charge": {
+      "operators": {
+        "path": "charge/operators",
+        "method": "GET",
+        "requireToken": false
+      },
+      "amounts": {
+        "path": "charge/amounts/{operator}",
+        "method": "GET",
+        "requireToken": false
+      },
+      "purchase": {
+        "path": "charge/purchase",
+        "method": "POST",
+        "requireToken": true
+      }
+    },
+    
+    "internet": {
+      "packages": {
+        "path": "internet/packages/{operator}",
+        "method": "GET",
+        "requireToken": false
+      },
+      "purchase": {
+        "path": "internet/purchase",
+        "method": "POST",
+        "requireToken": true
+      }
+    },
+    
+    "bpms": {
+      "startFormData": {
+        "path": "bpms/start-form-data",
+        "method": "POST",
+        "requireToken": true
+      },
+      "startProcess": {
+        "path": "bpms/start-process",
+        "method": "POST",
+        "requireToken": true
+      },
+      "applicantTaskList": {
+        "path": "bpms/applicant-task-list",
+        "method": "POST",
+        "requireToken": true
+      },
+      "getTaskData": {
+        "path": "bpms/task-data/{taskId}",
+        "method": "GET",
+        "requireToken": true
+      },
+      "completeTask": {
+        "path": "bpms/complete-task",
+        "method": "POST",
+        "requireToken": true
+      },
+      "uploadDocument": {
+        "path": "bpms/upload-document",
+        "method": "POST",
+        "requireToken": true,
+        "contentType": "multipart/form-data"
+      },
+      "checkPersonalInfo": {
+        "path": "bpms/check-personal-info",
+        "method": "POST",
+        "requireToken": true
+      }
+    },
+    
+    "cbs": {
+      "creditInquiry": {
+        "path": "transactions/openbanking/credit-inquiry/fee",
+        "method": "POST",
+        "apiVersion": "v2",
+        "requireToken": true
+      },
+      "fetchDocument": {
+        "path": "openbanking/credit-inquiry/document-fetch/{orderId}",
+        "method": "GET",
+        "apiVersion": "v2",
+        "requireToken": true
+      },
+      "thirdPersonOtp": {
+        "path": "openbanking/third-person/send-otp",
+        "method": "POST",
+        "requireToken": true
+      }
+    },
+    
+    "charity": {
+      "list": {
+        "path": "charities",
+        "method": "GET",
+        "requireToken": false
+      },
+      "donate": {
+        "path": "charities/donate/{charityId}",
+        "method": "POST",
+        "requireToken": true
+      }
+    },
+    
+    "customerClub": {
+      "discountEffect": {
+        "path": "customer_club/discount/effect",
+        "method": "GET",
+        "requireToken": true
+      },
+      "webViewLink": {
+        "path": "customer_club/link",
+        "method": "GET",
+        "requireToken": true
+      }
+    },
+    
+    "giftCard": {
+      "list": {
+        "path": "gift-cards",
+        "method": "GET",
+        "requireToken": true
+      },
+      "designs": {
+        "path": "gift-cards/designs",
+        "method": "GET",
+        "requireToken": false
+      },
+      "purchase": {
+        "path": "gift-cards/purchase",
+        "method": "POST",
+        "requireToken": true
+      }
+    },
+    
+    "safeBox": {
+      "list": {
+        "path": "safe-box/my-boxes",
+        "method": "GET",
+        "requireToken": true
+      },
+      "rent": {
+        "path": "safe-box/rent",
+        "method": "POST",
+        "requireToken": true
+      },
+      "reserveVisit": {
+        "path": "safe-box/reserve-visit",
+        "method": "POST",
+        "requireToken": true
+      }
+    },
+    
+    "notifications": {
+      "list": {
+        "path": "notifications",
+        "method": "GET",
+        "requireToken": true
+      },
+      "markRead": {
+        "path": "notifications/{notificationId}/read",
+        "method": "POST",
+        "requireToken": true
+      },
+      "markAllRead": {
+        "path": "notifications/read-all",
+        "method": "POST",
+        "requireToken": true
+      }
+    },
+    
+    "config": {
+      "appConfig": {
+        "path": "config/apps",
+        "method": "GET",
+        "requireToken": false
+      },
+      "menu": {
+        "path": "config/menu",
+        "method": "GET",
+        "apiVersion": "v2",
+        "requireToken": true
+      },
+      "byTitle": {
+        "path": "config/by-title/{title}",
+        "method": "GET",
+        "requireToken": true
+      }
+    },
+    
+    "contacts": {
+      "match": {
+        "path": "users/mobiles/match",
+        "method": "POST",
+        "requireToken": true
+      }
+    },
+    
+    "notebook": {
+      "cards": {
+        "path": "notebook/cards",
+        "method": "GET",
+        "requireToken": true
+      },
+      "deposits": {
+        "path": "notebook/deposits",
+        "method": "GET",
+        "requireToken": true
+      },
+      "addCard": {
+        "path": "notebook/cards",
+        "method": "POST",
+        "requireToken": true
+      },
+      "addDeposit": {
+        "path": "notebook/deposits",
+        "method": "POST",
+        "requireToken": true
+      },
+      "deleteCard": {
+        "path": "notebook/cards/{id}",
+        "method": "DELETE",
+        "requireToken": true
+      },
+      "deleteDeposit": {
+        "path": "notebook/deposits/{id}",
+        "method": "DELETE",
+        "requireToken": true
+      }
+    }
+  },
+  
+  "defaultHeaders": {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Accept-Language": "fa"
+  },
+  
+  "timeouts": {
+    "default": 30000,
+    "upload": 120000,
+    "download": 60000
+  }
+}
+

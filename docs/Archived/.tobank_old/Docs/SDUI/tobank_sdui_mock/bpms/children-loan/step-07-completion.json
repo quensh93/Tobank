@@ -1,0 +1,80 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "children_loan_completion",
+  "flowId": "children_loan",
+  "stepNumber": 7,
+  "title": {"fa": "اتمام", "en": "Completion"},
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "تسهیلات فرزندآوری", "en": "Children Loan"},
+    "showBackButton": false
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "container", "alignment": "center", "padding": 32, "child": {"type": "lottie", "asset": "assets/animations/success.json", "width": 150, "height": 150, "repeat": false}},
+      {"type": "text", "text": {"fa": "درخواست با موفقیت ثبت شد", "en": "Application Submitted"}, "style": "headlineSmall", "color": "#4CAF50", "textAlign": "center"},
+      
+      {
+        "id": "tracking",
+        "type": "card",
+        "margin": {"top": 24},
+        "padding": 20,
+        "backgroundColor": "#F3E5F5",
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "text", "text": {"fa": "کد پیگیری", "en": "Tracking Code"}, "style": "titleMedium", "textAlign": "center"},
+            {"type": "text", "text": "{{trackingCode}}", "style": "displaySmall", "textAlign": "center", "margin": {"top": 8}},
+            {"type": "row", "mainAxisAlignment": "center", "margin": {"top": 16}, "children": [
+              {"type": "text_button", "icon": "assets/icons/ic_copy.svg", "label": {"fa": "کپی", "en": "Copy"}, "onTap": {"type": "copy_to_clipboard", "text": "{{trackingCode}}"}},
+              {"type": "sized_box", "width": 16},
+              {"type": "text_button", "icon": "assets/icons/ic_share.svg", "label": {"fa": "اشتراک", "en": "Share"}, "onTap": {"type": "share", "text": "کد پیگیری: {{trackingCode}}"}}
+            ]}
+          ]
+        }
+      },
+      
+      {
+        "id": "next_steps",
+        "type": "card",
+        "margin": {"top": 24},
+        "padding": 16,
+        "child": {
+          "type": "column",
+          "crossAxisAlignment": "start",
+          "children": [
+            {"type": "text", "text": {"fa": "مراحل بعدی", "en": "Next Steps"}, "style": "titleMedium"},
+            {"type": "step_item", "number": 1, "text": {"fa": "بررسی مدارک توسط کارشناس", "en": "Document review"}, "margin": {"top": 12}},
+            {"type": "step_item", "number": 2, "text": {"fa": "تایید نهایی", "en": "Final approval"}, "margin": {"top": 8}},
+            {"type": "step_item", "number": 3, "text": {"fa": "واریز به حساب", "en": "Disbursement"}, "margin": {"top": 8}},
+            {"type": "text", "text": {"fa": "زمان تخمینی: ۷ تا ۱۴ روز کاری", "en": "Est: 7-14 business days"}, "style": "bodySmall", "color": "textSecondary", "margin": {"top": 16}}
+          ]
+        }
+      },
+      
+      {
+        "id": "actions",
+        "type": "column",
+        "margin": {"top": 32},
+        "children": [
+          {"type": "elevated_button", "label": {"fa": "پیگیری درخواست", "en": "Track"}, "fullWidth": true, "onTap": {"type": "navigate", "route": "/bpms/children-loan/tasks"}},
+          {"type": "outlined_button", "label": {"fa": "بازگشت به خانه", "en": "Home"}, "fullWidth": true, "margin": {"top": 12}, "onTap": {"type": "navigate_replace", "route": "/home"}}
+        ]
+      }
+    ]
+  },
+  
+  "dataBindings": {
+    "trackingCode": {"source": "api", "endpoint": "bpms/children-loan/tracking-code"}
+  },
+  
+  "mockData": {
+    "trackingCode": "CL-۱۴۰۳۰۹-۷۸۹۰۱۲"
+  }
+}
+

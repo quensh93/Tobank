@@ -1,0 +1,40 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "open_deposit",
+  "title": {"fa": "افتتاح حساب", "en": "Open Account"},
+  
+  "appBar": {"type": "standard", "title": {"fa": "افتتاح حساب", "en": "Open Account"}},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "text", "text": {"fa": "نوع حساب را انتخاب کنید", "en": "Select Account Type"}, "style": "titleMedium", "textAlign": "center"},
+      
+      {"type": "section", "margin": {"top": 24}, "child": {"type": "column", "children": [
+        {"type": "card", "margin": {"bottom": 12}, "child": {"type": "list_tile", "leading": {"type": "container", "width": 48, "height": 48, "decoration": {"color": "#E3F2FD", "borderRadius": 24}, "alignment": "center", "child": {"type": "icon", "icon": "assets/icons/ic_deposit_current.svg", "color": "#1976D2"}}, "title": {"fa": "حساب جاری", "en": "Current Account"}, "subtitle": {"fa": "برداشت و واریز نامحدود", "en": "Unlimited transactions"}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "navigate", "route": "/deposits/open/current"}}},
+        
+        {"type": "card", "margin": {"bottom": 12}, "child": {"type": "list_tile", "leading": {"type": "container", "width": 48, "height": 48, "decoration": {"color": "#E8F5E9", "borderRadius": 24}, "alignment": "center", "child": {"type": "icon", "icon": "assets/icons/ic_deposit_savings.svg", "color": "#388E3C"}}, "title": {"fa": "حساب پس‌انداز", "en": "Savings Account"}, "subtitle": {"fa": "سود ۱۸٪ سالانه", "en": "18% annual interest"}, "trailing": {"type": "chip", "label": {"fa": "محبوب", "en": "Popular"}, "backgroundColor": "#E8F5E9", "textColor": "#388E3C"}, "onTap": {"type": "navigate", "route": "/deposits/open/savings"}}},
+        
+        {"type": "card", "margin": {"bottom": 12}, "child": {"type": "list_tile", "leading": {"type": "container", "width": 48, "height": 48, "decoration": {"color": "#FFF3E0", "borderRadius": 24}, "alignment": "center", "child": {"type": "icon", "icon": "assets/icons/ic_deposit_short.svg", "color": "#F57C00"}}, "title": {"fa": "سپرده کوتاه‌مدت", "en": "Short-term Deposit"}, "subtitle": {"fa": "سود ۱۶٪، سررسید ۳ تا ۶ ماه", "en": "16%, 3-6 months term"}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "navigate", "route": "/deposits/open/short-term"}}},
+        
+        {"type": "card", "margin": {"bottom": 12}, "child": {"type": "list_tile", "leading": {"type": "container", "width": 48, "height": 48, "decoration": {"color": "#F3E5F5", "borderRadius": 24}, "alignment": "center", "child": {"type": "icon", "icon": "assets/icons/ic_deposit_long.svg", "color": "#7B1FA2"}}, "title": {"fa": "سپرده بلندمدت", "en": "Long-term Deposit"}, "subtitle": {"fa": "سود ۲۳٪، سررسید ۱ سال", "en": "23%, 1 year term"}, "trailing": {"type": "chip", "label": {"fa": "بالاترین سود", "en": "Best Rate"}, "backgroundColor": "#F3E5F5", "textColor": "#7B1FA2"}, "onTap": {"type": "navigate", "route": "/deposits/open/long-term"}}},
+        
+        {"type": "card", "child": {"type": "list_tile", "leading": {"type": "container", "width": 48, "height": 48, "decoration": {"color": "#FFEBEE", "borderRadius": 24}, "alignment": "center", "child": {"type": "icon", "icon": "assets/icons/ic_deposit_foreign.svg", "color": "#C62828"}}, "title": {"fa": "حساب ارزی", "en": "Foreign Currency"}, "subtitle": {"fa": "دلار، یورو، درهم", "en": "USD, EUR, AED"}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "navigate", "route": "/deposits/open/foreign"}}}
+      ]}},
+      
+      {"type": "card", "margin": {"top": 24}, "padding": 16, "backgroundColor": "#E3F2FD", "child": {"type": "row", "children": [
+        {"type": "icon", "icon": "assets/icons/ic_info.svg", "color": "#1976D2"},
+        {"type": "sized_box", "width": 12},
+        {"type": "expanded", "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+          {"type": "text", "text": {"fa": "مدارک مورد نیاز", "en": "Required Documents"}, "style": "titleSmall"},
+          {"type": "text", "text": {"fa": "• کارت ملی هوشمند\n• شماره موبایل به نام خودتان", "en": "• National ID card\n• Mobile number in your name"}, "style": "bodySmall", "margin": {"top": 4}}
+        ]}}
+      ]}},
+      
+      {"type": "sized_box", "height": 32}
+    ]
+  }
+}
+

@@ -1,0 +1,58 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:gardeshpay_app/flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../../../../../controller/bpms/credit_card_facility/credit_card_add_warranty_controller.dart';
+import '../../../../../../util/theme/theme_util.dart';
+import '../../../../common/document_picker_widget.dart';
+
+class CustomerSalaryWarrantyWidget extends StatelessWidget {
+  const CustomerSalaryWarrantyWidget({required this.pageIndex, super.key});
+
+  final int pageIndex;
+
+  @override
+  Widget build(BuildContext context) {
+    //locale
+    final locale = AppLocalizations.of(context)!;
+
+    return GetBuilder<CreditCardAddWarrantyController>(builder: (controller) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            locale.select_salary_deduction_certificate_info,
+            style: TextStyle(
+              color: ThemeUtil.textSubtitleColor,
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+              height: 1.6,
+            ),
+          ),
+          const SizedBox(
+            height: 16.0,
+          ),
+          DocumentPickerWidget(
+            title: locale.salary_deduction_certificate_title,
+            subTitle: '',
+            cameraFunction: (documentId) {
+              controller.selectDocumentImage(documentId: documentId, imageSource: ImageSource.camera);
+            },
+            galleryFunction: (documentId) {
+              controller.selectDocumentImage(documentId: documentId, imageSource: ImageSource.gallery);
+            },
+            isUploading: controller.isUploading,
+            isUploaded: controller.isUploaded(pageIndex),
+            deleteDocumentFunction: (documentId) {
+              controller.deleteDocument(documentId);
+            },
+            documentId: pageIndex,
+            selectedDocumentId: controller.selectedDocumentId,
+            selectedImageFile: controller.collateralsImages[pageIndex],
+          ),
+        ],
+      );
+    });
+  }
+}

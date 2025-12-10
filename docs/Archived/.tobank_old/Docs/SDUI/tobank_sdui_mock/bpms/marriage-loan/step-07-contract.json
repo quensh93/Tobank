@@ -1,0 +1,317 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "marriage_loan_contract",
+  "flowId": "marriage_loan",
+  "stepNumber": 7,
+  "title": {
+    "fa": "امضای قرارداد",
+    "en": "Sign Contract"
+  },
+  
+  "appBar": {
+    "type": "bpms_stepper",
+    "title": {"fa": "تسهیلات ازدواج", "en": "Marriage Loan"},
+    "currentStep": 7,
+    "totalSteps": 8,
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "summary_card",
+        "type": "card",
+        "padding": 20,
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "text",
+              "text": {"fa": "خلاصه درخواست", "en": "Application Summary"},
+              "style": "titleLarge",
+              "textAlign": "center"
+            },
+            {"type": "divider", "margin": {"vertical": 16}},
+            {
+              "type": "info_row",
+              "label": {"fa": "مبلغ تسهیلات", "en": "Loan Amount"},
+              "value": "{{formatCurrency(applicationData.loanAmount)}} ریال",
+              "valueColor": "#E91E63"
+            },
+            {"type": "sized_box", "height": 12},
+            {
+              "type": "info_row",
+              "label": {"fa": "مدت بازپرداخت", "en": "Repayment Period"},
+              "value": "{{applicationData.repaymentPeriod}} ماه"
+            },
+            {"type": "sized_box", "height": 12},
+            {
+              "type": "info_row",
+              "label": {"fa": "مبلغ هر قسط", "en": "Monthly Payment"},
+              "value": "{{formatCurrency(applicationData.monthlyPayment)}} ریال"
+            },
+            {"type": "sized_box", "height": 12},
+            {
+              "type": "info_row",
+              "label": {"fa": "نرخ سود", "en": "Interest Rate"},
+              "value": "۴٪ سالانه"
+            },
+            {"type": "sized_box", "height": 12},
+            {
+              "type": "info_row",
+              "label": {"fa": "ضامن", "en": "Guarantor"},
+              "value": "{{applicationData.guarantorName}}"
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "contract_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "متن قرارداد", "en": "Contract Text"},
+          "icon": "assets/icons/ic_document.svg"
+        },
+        "child": {
+          "type": "card",
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "container",
+                "height": 300,
+                "padding": 16,
+                "child": {
+                  "type": "scrollable",
+                  "child": {
+                    "type": "text",
+                    "text": "{{contractText}}",
+                    "style": "bodySmall"
+                  }
+                }
+              },
+              {"type": "divider"},
+              {
+                "type": "container",
+                "padding": 16,
+                "child": {
+                  "type": "row",
+                  "mainAxisAlignment": "spaceBetween",
+                  "children": [
+                    {
+                      "type": "text_button",
+                      "icon": "assets/icons/ic_download.svg",
+                      "label": {"fa": "دانلود PDF", "en": "Download PDF"},
+                      "onTap": {"type": "download", "url": "{{contractPdfUrl}}"}
+                    },
+                    {
+                      "type": "text_button",
+                      "icon": "assets/icons/ic_fullscreen.svg",
+                      "label": {"fa": "مشاهده کامل", "en": "Full View"},
+                      "onTap": {"type": "open_pdf_viewer", "url": "{{contractPdfUrl}}"}
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "ekyc_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "امضای الکترونیکی", "en": "Electronic Signature"},
+          "icon": "assets/icons/ic_signature.svg"
+        },
+        "child": {
+          "type": "card",
+          "padding": 20,
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "text",
+                "text": {"fa": "برای امضای قرارداد، لازم است احراز هویت انجام شود.", "en": "Identity verification required for signing."},
+                "style": "bodyMedium",
+                "textAlign": "center"
+              },
+              {"type": "sized_box", "height": 16},
+              {
+                "type": "conditional",
+                "condition": "{{!ekycCompleted}}",
+                "whenTrue": {
+                  "type": "elevated_button",
+                  "label": {"fa": "شروع احراز هویت", "en": "Start Verification"},
+                  "icon": "assets/icons/ic_face_id.svg",
+                  "loading": "{{ekycInProgress}}",
+                  "onTap": {
+                    "type": "start_ekyc",
+                    "flowType": "sign_contract",
+                    "onSuccess": {"type": "set_state", "key": "ekycCompleted", "value": true}
+                  }
+                },
+                "whenFalse": {
+                  "type": "container",
+                  "padding": 16,
+                  "decoration": {"color": "#E8F5E9", "borderRadius": 8},
+                  "child": {
+                    "type": "row",
+                    "mainAxisAlignment": "center",
+                    "children": [
+                      {
+                        "type": "icon",
+                        "icon": "assets/icons/ic_check_circle.svg",
+                        "color": "#4CAF50",
+                        "size": 24
+                      },
+                      {"type": "sized_box", "width": 8},
+                      {
+                        "type": "text",
+                        "text": {"fa": "احراز هویت تکمیل شد", "en": "Verification Completed"},
+                        "style": "titleSmall",
+                        "color": "#4CAF50"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "signature_pad_section",
+        "type": "conditional",
+        "condition": "{{ekycCompleted}}",
+        "whenTrue": {
+          "type": "section",
+          "margin": {"top": 24},
+          "header": {
+            "title": {"fa": "امضای دیجیتال", "en": "Digital Signature"},
+            "action": {
+              "label": {"fa": "پاک کردن", "en": "Clear"},
+              "onTap": {"type": "clear_signature"}
+            }
+          },
+          "child": {
+            "type": "signature_pad",
+            "height": 200,
+            "backgroundColor": "#FAFAFA",
+            "penColor": "#000000",
+            "bindTo": "signature"
+          }
+        }
+      },
+      
+      {
+        "id": "agreement_checkboxes",
+        "type": "column",
+        "margin": {"top": 24},
+        "children": [
+          {
+            "type": "checkbox_tile",
+            "title": {"fa": "قرارداد را به طور کامل مطالعه کردم", "en": "I have read the contract completely"},
+            "value": "{{readContract}}",
+            "bindTo": "readContract"
+          },
+          {
+            "type": "checkbox_tile",
+            "title": {"fa": "شرایط و مقررات را می‌پذیرم", "en": "I accept terms and conditions"},
+            "value": "{{acceptTerms}}",
+            "bindTo": "acceptTerms"
+          },
+          {
+            "type": "checkbox_tile",
+            "title": {"fa": "موافق کسر اقساط از حساب هستم", "en": "I agree to automatic deductions"},
+            "value": "{{acceptDeduction}}",
+            "bindTo": "acceptDeduction"
+          }
+        ]
+      },
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "decoration": {"color": "surface", "boxShadow": "0 -2px 8px rgba(0,0,0,0.1)"},
+    "child": {
+      "type": "row",
+      "children": [
+        {
+          "type": "expanded",
+          "child": {
+            "type": "outlined_button",
+            "label": {"fa": "مرحله قبل", "en": "Previous"},
+            "onTap": {"type": "navigate_back"}
+          }
+        },
+        {"type": "sized_box", "width": 16},
+        {
+          "type": "expanded",
+          "flex": 2,
+          "child": {
+            "type": "elevated_button",
+            "label": {"fa": "امضا و ثبت نهایی", "en": "Sign & Submit"},
+            "loading": "{{isSubmitting}}",
+            "disabled": "{{!canSubmit}}",
+            "onTap": {
+              "type": "api_call",
+              "endpoint": "bpms/marriage-loan/sign-contract",
+              "method": "POST",
+              "requireEkycSign": true,
+              "body": {
+                "signature": "{{signature}}",
+                "acceptedTerms": true
+              },
+              "onSuccess": {
+                "type": "navigate_replace",
+                "route": "/bpms/marriage-loan/step-08"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  
+  "dataBindings": {
+    "applicationData": {"source": "api", "endpoint": "bpms/marriage-loan/summary"},
+    "contractText": {"source": "api", "endpoint": "bpms/marriage-loan/contract-text"},
+    "contractPdfUrl": {"source": "api", "endpoint": "bpms/marriage-loan/contract-pdf-url"},
+    "ekycCompleted": {"source": "state", "default": false},
+    "ekycInProgress": {"source": "state", "default": false},
+    "signature": {"source": "form", "default": null},
+    "readContract": {"source": "form", "default": false},
+    "acceptTerms": {"source": "form", "default": false},
+    "acceptDeduction": {"source": "form", "default": false},
+    "isSubmitting": {"source": "state", "default": false},
+    "canSubmit": {
+      "source": "computed",
+      "expression": "ekycCompleted && signature && readContract && acceptTerms && acceptDeduction"
+    }
+  },
+  
+  "mockData": {
+    "applicationData": {
+      "loanAmount": 1500000000,
+      "repaymentPeriod": 48,
+      "monthlyPayment": 35416667,
+      "interestRate": 4,
+      "guarantorName": "محمد محمدی"
+    },
+    "contractText": "بسمه تعالی\n\nقرارداد قرض‌الحسنه ازدواج\n\nطرفین قرارداد:\n\n۱. بانک توسعه صادرات ایران (قرض‌دهنده)\n۲. آقای/خانم علی احمدی (قرض‌گیرنده)\n\nماده ۱: موضوع قرارداد\nاعطای تسهیلات قرض‌الحسنه ازدواج به مبلغ یک میلیارد و پانصد میلیون ریال...\n\nماده ۲: مدت قرارداد\nمدت این قرارداد ۴۸ ماه شمسی از تاریخ امضا می‌باشد...\n\nماده ۳: نحوه بازپرداخت\nقرض‌گیرنده متعهد می‌شود اقساط ماهیانه را در سررسید مقرر پرداخت نماید...\n\nماده ۴: تعهدات قرض‌گیرنده\n...\n\nماده ۵: تعهدات ضامن\n..."
+  }
+}
+

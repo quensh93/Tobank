@@ -1,0 +1,71 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "parsa_loan_eligibility",
+  "flowId": "parsa_loan",
+  "stepNumber": 2,
+  "title": {"fa": "استعلام اعتبار", "en": "Credit Check"},
+  
+  "appBar": {"type": "bpms_stepper", "title": {"fa": "وام پارسا", "en": "Parsa Loan"}, "currentStep": 2, "totalSteps": 6},
+  
+  "api": {"endpoint": "bpms/parsa-loan/credit-check", "method": "GET", "autoFetch": true},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "conditional", "condition": "{{loading}}", "whenTrue": {"type": "column", "mainAxisAlignment": "center", "children": [
+        {"type": "lottie", "asset": "assets/animations/loading.json", "width": 200, "height": 200},
+        {"type": "text", "text": {"fa": "در حال استعلام...", "en": "Checking..."}, "style": "titleMedium", "textAlign": "center", "margin": {"top": 16}}
+      ]}},
+      
+      {"type": "conditional", "condition": "{{!loading && creditResult}}", "whenTrue": {"type": "column", "children": [
+        {"type": "card", "padding": 24, "child": {"type": "column", "children": [
+          {"type": "container", "width": 100, "height": 100, "decoration": {"color": "{{creditResult.eligible ? '#E8F5E9' : '#FFEBEE'}}", "borderRadius": 50}, "alignment": "center", "child": {"type": "icon", "icon": "{{creditResult.eligible ? 'assets/icons/ic_check_circle.svg' : 'assets/icons/ic_close_circle.svg'}}", "size": 48, "color": "{{creditResult.eligible ? '#4CAF50' : '#F44336'}}"}},
+          {"type": "text", "text": "{{creditResult.eligible ? {fa: 'واجد شرایط هستید', en: 'Eligible'} : {fa: 'متاسفانه واجد شرایط نیستید', en: 'Not Eligible'}}}", "style": "titleLarge", "textAlign": "center", "margin": {"top": 16}}
+        ]}},
+        
+        {"type": "conditional", "condition": "{{creditResult.eligible}}", "whenTrue": {"type": "column", "children": [
+          {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "نتیجه استعلام", "en": "Credit Result"}}, "child": {"type": "card", "child": {"type": "column", "children": [
+            {"type": "container", "padding": 16, "child": {"type": "column", "children": [
+              {"type": "text", "text": {"fa": "امتیاز اعتباری شما", "en": "Your Credit Score"}, "style": "titleMedium", "textAlign": "center"},
+              {"type": "credit_score_gauge", "score": "{{creditResult.score}}", "maxScore": 850, "margin": {"top": 16}},
+              {"type": "text", "text": "{{creditResult.score}}", "style": "displayLarge", "textAlign": "center", "color": "#673AB7"}
+            ]}},
+            {"type": "divider"},
+            {"type": "info_row", "padding": 16, "label": {"fa": "حداکثر وام مجاز", "en": "Max Loan"}, "value": "{{formatCurrency(creditResult.maxAmount)}} ریال", "valueColor": "#673AB7"},
+            {"type": "divider"},
+            {"type": "info_row", "padding": 16, "label": {"fa": "وضعیت چک", "en": "Check Status"}, "value": "{{creditResult.bounceStatus}}"}
+          ]}}},
+          
+          {"type": "card", "margin": {"top": 16}, "padding": 16, "backgroundColor": "#F3E5F5", "child": {"type": "row", "children": [
+            {"type": "icon", "icon": "assets/icons/ic_info.svg", "color": "#673AB7"},
+            {"type": "sized_box", "width": 12},
+            {"type": "expanded", "child": {"type": "text", "text": {"fa": "مبلغ وام بر اساس اعتبارسنجی محاسبه شده", "en": "Loan amount based on credit score"}, "style": "bodySmall"}}
+          ]}}
+        ]}}
+      ]}}
+    ]
+  },
+  
+  "bottomBar": {"type": "conditional", "condition": "{{creditResult.eligible}}", "whenTrue": {"type": "container", "padding": 16, "child": {"type": "row", "children": [
+    {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "انصراف", "en": "Cancel"}, "onTap": {"type": "navigate_back"}}},
+    {"type": "sized_box", "width": 16},
+    {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "ادامه", "en": "Continue"}, "onTap": {"type": "navigate", "route": "/bpms/parsa-loan/step-03"}}}
+  ]}}},
+  
+  "dataBindings": {
+    "loading": {"source": "state", "default": true},
+    "creditResult": {"source": "api", "endpoint": "bpms/parsa-loan/credit-check"}
+  },
+  
+  "mockData": {
+    "creditResult": {
+      "eligible": true,
+      "score": 720,
+      "maxAmount": 3000000000,
+      "bounceStatus": "بدون چک برگشتی"
+    }
+  }
+}
+

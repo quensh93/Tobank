@@ -340,10 +340,10 @@ class _LogsScreenState extends State<LogsScreen> {
       context: context,
       builder: (_) => AlertDialog(
         title: Text(context.ispectL10n.pasteContent),
-        content: TextField(
+        content: const TextField(
           autofocus: true,
           maxLines: 10,
-          decoration: const InputDecoration(
+          decoration: InputDecoration(
             hintText: 'Paste JSON content here...',
           ),
         ),
@@ -496,7 +496,7 @@ class _MainLogsView extends StatelessWidget {
           backgroundColor: iSpectTheme.theme.backgroundColor(context),
         ),
         if (filteredLogEntries.isEmpty)
-          SliverFillRemaining(
+          const SliverFillRemaining(
             hasScrollBody: false,
             child: _EmptyLogsWidget(),
           ),

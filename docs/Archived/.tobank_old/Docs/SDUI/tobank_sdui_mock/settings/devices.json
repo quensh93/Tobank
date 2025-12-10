@@ -1,0 +1,62 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "devices",
+  "title": {"fa": "دستگاه‌ها", "en": "Devices"},
+  
+  "appBar": {"type": "standard", "title": {"fa": "دستگاه‌های فعال", "en": "Active Devices"}},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "card", "padding": 16, "decoration": {"border": {"color": "#4CAF50", "width": 2}}, "child": {"type": "row", "children": [
+        {"type": "container", "width": 48, "height": 48, "decoration": {"color": "#E8F5E9", "borderRadius": 24}, "alignment": "center", "child": {"type": "icon", "icon": "assets/icons/ic_phone.svg", "color": "#4CAF50"}},
+        {"type": "sized_box", "width": 16},
+        {"type": "expanded", "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+          {"type": "row", "children": [{"type": "text", "text": "{{currentDevice.name}}", "style": "titleMedium"}, {"type": "chip", "label": {"fa": "این دستگاه", "en": "This device"}, "backgroundColor": "#E8F5E9", "textColor": "#4CAF50", "size": "small", "margin": {"left": 8}}]},
+          {"type": "text", "text": "{{currentDevice.model}}", "style": "bodySmall", "color": "textSecondary", "margin": {"top": 4}},
+          {"type": "text", "text": {"fa": "آخرین فعالیت: {{currentDevice.lastActivity}}", "en": "Last activity: {{currentDevice.lastActivity}}"}, "style": "bodySmall", "color": "textSecondary", "margin": {"top": 2}}
+        ]}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "سایر دستگاه‌ها", "en": "Other Devices"}, "trailing": {"type": "text_button", "label": {"fa": "خروج همه", "en": "Log Out All"}, "color": "#F44336", "onTap": {"type": "confirm_dialog", "title": {"fa": "خروج از همه", "en": "Log Out All"}, "message": {"fa": "از همه دستگاه‌ها خارج می‌شوید (به جز این دستگاه)", "en": "You will be logged out from all other devices"}, "onConfirm": {"type": "api_call", "endpoint": "auth/logout-others", "method": "POST"}}}}, "child": {"type": "list_view", "children": "{{otherDevices}}", "itemBuilder": {"type": "card", "margin": {"bottom": 12}, "child": {"type": "row", "padding": 16, "children": [
+        {"type": "container", "width": 48, "height": 48, "decoration": {"color": "#F5F5F5", "borderRadius": 24}, "alignment": "center", "child": {"type": "icon", "icon": "{{item.icon}}", "color": "textSecondary"}},
+        {"type": "sized_box", "width": 16},
+        {"type": "expanded", "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+          {"type": "text", "text": "{{item.name}}", "style": "titleMedium"},
+          {"type": "text", "text": "{{item.model}}", "style": "bodySmall", "color": "textSecondary", "margin": {"top": 4}},
+          {"type": "row", "margin": {"top": 4}, "children": [
+            {"type": "icon", "icon": "assets/icons/ic_location.svg", "size": 14, "color": "textSecondary"},
+            {"type": "text", "text": "{{item.location}}", "style": "bodySmall", "color": "textSecondary", "margin": {"left": 4}},
+            {"type": "text", "text": " • ", "style": "bodySmall", "color": "textSecondary"},
+            {"type": "text", "text": "{{item.lastActivity}}", "style": "bodySmall", "color": "textSecondary"}
+          ]}
+        ]}},
+        {"type": "icon_button", "icon": "assets/icons/ic_close.svg", "color": "#F44336", "onTap": {"type": "confirm_dialog", "title": {"fa": "خروج", "en": "Log Out"}, "message": {"fa": "از این دستگاه خارج شوید؟", "en": "Log out from this device?"}, "onConfirm": {"type": "api_call", "endpoint": "auth/logout-device/{{item.id}}", "method": "POST"}}}
+      ]}}}},
+      
+      {"type": "sized_box", "height": 32}
+    ]
+  },
+  
+  "dataBindings": {
+    "currentDevice": {"source": "api", "endpoint": "auth/current-device"},
+    "otherDevices": {"source": "api", "endpoint": "auth/other-devices"}
+  },
+  
+  "mockData": {
+    "currentDevice": {
+      "id": "dev1",
+      "name": "Samsung Galaxy S23",
+      "model": "Android 14",
+      "icon": "assets/icons/ic_phone.svg",
+      "lastActivity": "همین الان"
+    },
+    "otherDevices": [
+      {"id": "dev2", "name": "iPhone 14 Pro", "model": "iOS 17.2", "icon": "assets/icons/ic_phone.svg", "location": "تهران", "lastActivity": "۲ ساعت پیش"},
+      {"id": "dev3", "name": "MacBook Pro", "model": "macOS Sonoma", "icon": "assets/icons/ic_laptop.svg", "location": "تهران", "lastActivity": "دیروز"}
+    ]
+  }
+}
+

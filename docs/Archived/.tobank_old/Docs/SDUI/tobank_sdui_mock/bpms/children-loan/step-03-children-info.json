@@ -1,0 +1,127 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "children_loan_children",
+  "flowId": "children_loan",
+  "stepNumber": 3,
+  "title": {"fa": "اطلاعات فرزندان", "en": "Children Info"},
+  
+  "appBar": {
+    "type": "bpms_stepper",
+    "title": {"fa": "تسهیلات فرزندآوری", "en": "Children Loan"},
+    "currentStep": 3,
+    "totalSteps": 7
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "info_card",
+        "type": "card",
+        "padding": 16,
+        "backgroundColor": "#E8F5E9",
+        "child": {
+          "type": "row",
+          "children": [
+            {"type": "icon", "icon": "assets/icons/ic_info.svg", "color": "#4CAF50"},
+            {"type": "sized_box", "width": 12},
+            {"type": "expanded", "child": {"type": "text", "text": {"fa": "فرزندانی که از سال ۱۴۰۰ به بعد متولد شده‌اند را وارد کنید", "en": "Enter children born after 1400"}, "style": "bodySmall"}}
+          ]
+        }
+      },
+      
+      {
+        "id": "children_list",
+        "type": "dynamic_list",
+        "margin": {"top": 24},
+        "dataSource": "children",
+        "minItems": 1,
+        "maxItems": 5,
+        "addButtonLabel": {"fa": "افزودن فرزند", "en": "Add Child"},
+        "itemTemplate": {
+          "type": "card",
+          "margin": {"bottom": 16},
+          "padding": 16,
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "row",
+                "mainAxisAlignment": "spaceBetween",
+                "children": [
+                  {"type": "text", "text": "فرزند {{index + 1}}", "style": "titleSmall"},
+                  {
+                    "type": "icon_button",
+                    "icon": "assets/icons/ic_delete.svg",
+                    "color": "#F44336",
+                    "onTap": {"type": "remove_item", "index": "{{index}}"},
+                    "visible": "{{children.length > 1}}"
+                  }
+                ]
+              },
+              {"type": "divider", "margin": {"vertical": 12}},
+              {"type": "text_field", "label": {"fa": "نام فرزند", "en": "Child Name"}, "bindTo": "item.name", "validation": {"required": true}},
+              {"type": "text_field", "label": {"fa": "کد ملی فرزند", "en": "Child National ID"}, "margin": {"top": 12}, "keyboardType": "number", "maxLength": 10, "bindTo": "item.nationalId", "validation": {"required": true}},
+              {"type": "date_picker_field", "label": {"fa": "تاریخ تولد", "en": "Birth Date"}, "margin": {"top": 12}, "calendar": "jalali", "minDate": "1400/01/01", "bindTo": "item.birthDate", "validation": {"required": true}},
+              {
+                "type": "dropdown_field",
+                "label": {"fa": "چندمین فرزند", "en": "Child Order"},
+                "margin": {"top": 12},
+                "options": [
+                  {"value": 1, "label": {"fa": "اول", "en": "First"}},
+                  {"value": 2, "label": {"fa": "دوم", "en": "Second"}},
+                  {"value": 3, "label": {"fa": "سوم", "en": "Third"}},
+                  {"value": 4, "label": {"fa": "چهارم و بعد", "en": "Fourth+"}}
+                ],
+                "bindTo": "item.order"
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "loan_calculation",
+        "type": "card",
+        "margin": {"top": 16},
+        "padding": 16,
+        "backgroundColor": "#F3E5F5",
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "text", "text": {"fa": "مبلغ تسهیلات قابل دریافت", "en": "Eligible Amount"}, "style": "titleSmall"},
+            {"type": "sized_box", "height": 8},
+            {"type": "text", "text": "{{formatCurrency(calculatedAmount)}}", "style": "headlineMedium", "color": "#9C27B0"},
+            {"type": "text", "text": {"fa": "ریال", "en": "Rials"}, "style": "bodySmall", "color": "textSecondary"}
+          ]
+        }
+      },
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "child": {
+      "type": "row",
+      "children": [
+        {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "قبلی", "en": "Back"}, "onTap": {"type": "navigate_back"}}},
+        {"type": "sized_box", "width": 16},
+        {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "بعدی", "en": "Next"}, "disabled": "{{children.length === 0}}", "onTap": {"type": "navigate", "route": "/bpms/children-loan/step-04"}}}
+      ]
+    }
+  },
+  
+  "dataBindings": {
+    "children": {"source": "form", "default": [{"name": "", "nationalId": "", "birthDate": null, "order": 1}]},
+    "calculatedAmount": {
+      "source": "computed",
+      "expression": "children.reduce((sum, child) => sum + (child.order === 1 ? 2000000000 : child.order === 2 ? 3000000000 : 4000000000), 0)"
+    }
+  }
+}
+

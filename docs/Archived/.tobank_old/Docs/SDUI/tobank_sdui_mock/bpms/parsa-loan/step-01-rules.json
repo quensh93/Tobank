@@ -1,0 +1,49 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "parsa_loan_rules",
+  "flowId": "parsa_loan",
+  "stepNumber": 1,
+  "title": {"fa": "قوانین", "en": "Rules"},
+  
+  "appBar": {"type": "bpms_stepper", "title": {"fa": "وام پارسا", "en": "Parsa Loan"}, "currentStep": 1, "totalSteps": 6},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "card", "padding": 20, "decoration": {"gradient": {"colors": ["#673AB7", "#9C27B0"], "begin": "topLeft", "end": "bottomRight"}}, "child": {"type": "column", "children": [
+        {"type": "icon", "icon": "assets/icons/ic_parsa.svg", "size": 64, "color": "#FFFFFF"},
+        {"type": "text", "text": {"fa": "وام پارسا", "en": "Parsa Loan"}, "style": "headlineMedium", "color": "#FFFFFF", "margin": {"top": 16}},
+        {"type": "text", "text": {"fa": "وام فوری تا ۵۰۰ میلیون تومان", "en": "Instant loan up to 500M Toman"}, "style": "bodyMedium", "color": "#FFFFFF", "margin": {"top": 8}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "ویژگی‌ها", "en": "Features"}}, "child": {"type": "column", "children": [
+        {"type": "feature_item", "icon": "assets/icons/ic_flash.svg", "title": {"fa": "پرداخت آنی", "en": "Instant"}, "subtitle": {"fa": "واریز فوری به حساب", "en": "Direct deposit"}},
+        {"type": "feature_item", "icon": "assets/icons/ic_calendar.svg", "title": {"fa": "اقساط منعطف", "en": "Flexible"}, "subtitle": {"fa": "۶ تا ۳۶ ماه", "en": "6-36 months"}, "margin": {"top": 12}},
+        {"type": "feature_item", "icon": "assets/icons/ic_no_doc.svg", "title": {"fa": "بدون ضامن", "en": "No Guarantor"}, "subtitle": {"fa": "بر اساس اعتبارسنجی", "en": "Credit-based"}, "margin": {"top": 12}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "شرایط", "en": "Requirements"}}, "child": {"type": "column", "children": [
+        {"type": "check_item", "text": {"fa": "داشتن حساب فعال در بانک تو", "en": "Active ToBank account"}},
+        {"type": "check_item", "text": {"fa": "حداقل اعتبارسنجی ۵۰۰ امتیاز", "en": "Min credit score 500"}},
+        {"type": "check_item", "text": {"fa": "عدم چک برگشتی", "en": "No bounced checks"}}
+      ]}},
+      
+      {"type": "card", "margin": {"top": 24}, "child": {"type": "column", "children": [
+        {"type": "info_row", "padding": 16, "label": {"fa": "نرخ سود", "en": "Interest"}, "value": "۲۳٪ سالانه"},
+        {"type": "divider"},
+        {"type": "info_row", "padding": 16, "label": {"fa": "سقف وام", "en": "Max Loan"}, "value": "۵۰۰ میلیون تومان"},
+        {"type": "divider"},
+        {"type": "info_row", "padding": 16, "label": {"fa": "مدت بازپرداخت", "en": "Term"}, "value": "۶ تا ۳۶ ماه"}
+      ]}},
+      
+      {"type": "checkbox_tile", "margin": {"top": 24}, "title": {"fa": "قوانین را می‌پذیرم", "en": "I accept"}, "bindTo": "accepted"},
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {"type": "container", "padding": 16, "child": {"type": "elevated_button", "label": {"fa": "استعلام اعتبار", "en": "Check Eligibility"}, "fullWidth": true, "disabled": "{{!accepted}}", "onTap": {"type": "navigate", "route": "/bpms/parsa-loan/step-02"}}},
+  "dataBindings": {"accepted": {"source": "form", "default": false}}
+}
+

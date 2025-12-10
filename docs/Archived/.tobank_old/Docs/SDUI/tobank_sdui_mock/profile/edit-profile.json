@@ -1,0 +1,57 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "edit_profile",
+  "title": {"fa": "ویرایش پروفایل", "en": "Edit Profile"},
+  
+  "appBar": {"type": "standard", "title": {"fa": "ویرایش پروفایل", "en": "Edit Profile"}},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "container", "alignment": "center", "child": {"type": "stack", "children": [
+        {"type": "container", "width": 120, "height": 120, "decoration": {"color": "#E0F7FA", "borderRadius": 60}, "alignment": "center", "child": {"type": "conditional", "condition": "{{avatar}}", "whenTrue": {"type": "image", "src": "{{avatar}}", "width": 116, "height": 116, "borderRadius": 58}, "whenFalse": {"type": "text", "text": "{{initials}}", "style": "displayMedium", "color": "#00BCD4"}}},
+        {"type": "positioned", "bottom": 0, "right": 0, "child": {"type": "container", "width": 40, "height": 40, "decoration": {"color": "#00BCD4", "borderRadius": 20}, "alignment": "center", "child": {"type": "icon_button", "icon": "assets/icons/ic_camera.svg", "color": "#FFFFFF", "onTap": {"type": "show_bottom_sheet", "content": "avatarSheet"}}}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 32}, "header": {"title": {"fa": "اطلاعات شخصی", "en": "Personal Info"}}, "child": {"type": "column", "children": [
+        {"type": "text_field", "label": {"fa": "نام", "en": "First Name"}, "bindTo": "firstName", "value": "{{user.firstName}}"},
+        {"type": "text_field", "label": {"fa": "نام خانوادگی", "en": "Last Name"}, "margin": {"top": 16}, "bindTo": "lastName", "value": "{{user.lastName}}"},
+        {"type": "text_field", "label": {"fa": "نام پدر", "en": "Father's Name"}, "margin": {"top": 16}, "value": "{{user.fatherName}}", "readOnly": true},
+        {"type": "text_field", "label": {"fa": "کد ملی", "en": "National ID"}, "margin": {"top": 16}, "value": "{{user.nationalId}}", "readOnly": true}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "اطلاعات تماس", "en": "Contact Info"}}, "child": {"type": "column", "children": [
+        {"type": "text_field", "label": {"fa": "شماره موبایل", "en": "Mobile"}, "value": "{{user.mobile}}", "readOnly": true, "trailing": {"type": "text_button", "label": {"fa": "تغییر", "en": "Change"}, "onTap": {"type": "navigate", "route": "/settings/change-mobile"}}},
+        {"type": "text_field", "label": {"fa": "ایمیل", "en": "Email"}, "margin": {"top": 16}, "keyboardType": "email", "bindTo": "email", "value": "{{user.email}}"}
+      ]}},
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomSheets": {
+    "avatarSheet": {"type": "action_sheet", "title": {"fa": "انتخاب تصویر", "en": "Choose Photo"}, "actions": [
+      {"icon": "assets/icons/ic_camera.svg", "label": {"fa": "دوربین", "en": "Camera"}, "onTap": {"type": "pick_image", "source": "camera", "onSuccess": {"type": "set_state", "key": "avatar", "value": "{{result}}"}}},
+      {"icon": "assets/icons/ic_gallery.svg", "label": {"fa": "گالری", "en": "Gallery"}, "onTap": {"type": "pick_image", "source": "gallery", "onSuccess": {"type": "set_state", "key": "avatar", "value": "{{result}}"}}},
+      {"icon": "assets/icons/ic_delete.svg", "label": {"fa": "حذف تصویر", "en": "Remove"}, "destructive": true, "onTap": {"type": "set_state", "key": "avatar", "value": null}}
+    ]}
+  },
+  
+  "bottomBar": {"type": "container", "padding": 16, "child": {"type": "elevated_button", "label": {"fa": "ذخیره تغییرات", "en": "Save Changes"}, "fullWidth": true, "onTap": {"type": "api_call", "endpoint": "dibalite/customer/profile", "method": "PUT", "body": {"firstName": "{{firstName}}", "lastName": "{{lastName}}", "email": "{{email}}", "avatar": "{{avatar}}"}, "onSuccess": {"type": "sequence", "actions": [{"type": "show_toast", "message": {"fa": "تغییرات ذخیره شد", "en": "Changes saved"}}, {"type": "navigate_back"}]}}}},
+  
+  "dataBindings": {
+    "user": {"source": "api", "endpoint": "dibalite/customer/profile"},
+    "firstName": {"source": "form"},
+    "lastName": {"source": "form"},
+    "email": {"source": "form"},
+    "avatar": {"source": "form"},
+    "initials": {"source": "computed", "formula": "getInitials(firstName, lastName)"}
+  },
+  
+  "mockData": {
+    "user": {"firstName": "علی", "lastName": "احمدی", "fatherName": "محمد", "nationalId": "۰۰۱۲۳۴۵۶۷۸", "mobile": "۰۹۱۲۳۴۵۶۷۸۹", "email": "ali.ahmadi@email.com", "avatar": null}
+  }
+}
+

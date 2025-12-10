@@ -1,0 +1,338 @@
+{
+  "app_name": "Tobank Mock",
+  "version": "1.0.0",
+  "description": "Complete Tobank banking app mock with SDUI - Full server-driven UI implementation",
+  "initial_screen": "dashboard/home",
+  "base_path": "docs/SDUI/tobank_sdui_mock",
+  "screens": {
+    "dashboard/home": {
+      "template": "dashboard/home.json",
+      "data": "mock-data/users.json"
+    },
+    "dashboard/menu": {
+      "template": "dashboard/menu.json",
+      "data": "mock-data/users.json"
+    },
+    "dashboard/quick-actions": {
+      "template": "dashboard/quick-actions.json",
+      "data": "mock-data/users.json"
+    },
+    "dashboard/announcements": {
+      "template": "dashboard/announcements.json",
+      "data": "mock-data/notifications.json"
+    },
+    "auth/login": {
+      "template": "auth/login.json",
+      "data": "mock-data/users.json"
+    },
+    "auth/otp": {
+      "template": "auth/otp.json",
+      "data": "mock-data/users.json"
+    },
+    "auth/register": {
+      "template": "auth/register.json",
+      "data": "mock-data/users.json"
+    },
+    "cards/list": {
+      "template": "cards/cards-list.json",
+      "data": "mock-data/cards.json"
+    },
+    "cards/detail": {
+      "template": "cards/card-detail.json",
+      "data": "mock-data/cards.json"
+    },
+    "cards/add": {
+      "template": "cards/add-card.json",
+      "data": "mock-data/cards.json"
+    },
+    "cards/edit": {
+      "template": "cards/edit-card.json",
+      "data": "mock-data/cards.json"
+    },
+    "cards/balance": {
+      "template": "cards/card-balance.json",
+      "data": "mock-data/cards.json"
+    },
+    "cards/settings": {
+      "template": "cards/card-settings.json",
+      "data": "mock-data/cards.json"
+    },
+    "cards/block": {
+      "template": "cards/block-card.json",
+      "data": "mock-data/cards.json"
+    },
+    "cards/change-pin": {
+      "template": "cards/change-pin.json",
+      "data": "mock-data/cards.json"
+    },
+    "cards/card-to-card/select-source": {
+      "template": "cards/card-to-card/select-source.json",
+      "data": "mock-data/cards.json"
+    },
+    "cards/card-to-card/enter-destination": {
+      "template": "cards/card-to-card/enter-destination.json",
+      "data": "mock-data/contacts.json"
+    },
+    "cards/card-to-card/enter-amount": {
+      "template": "cards/card-to-card/enter-amount.json",
+      "data": "mock-data/cards.json"
+    },
+    "cards/card-to-card/confirm": {
+      "template": "cards/card-to-card/confirm.json",
+      "data": "mock-data/cards.json"
+    },
+    "cards/card-to-card/result": {
+      "template": "cards/card-to-card/result.json",
+      "data": "mock-data/transactions.json"
+    },
+    "payments/bills/list": {
+      "template": "payments/bills/bills-list.json",
+      "data": "mock-data/transactions.json"
+    },
+    "payments/bills/inquiry": {
+      "template": "payments/bills/bill-inquiry.json",
+      "data": "mock-data/transactions.json"
+    },
+    "payments/bills/payment": {
+      "template": "payments/bills/bill-payment.json",
+      "data": "mock-data/cards.json"
+    },
+    "payments/bills/result": {
+      "template": "payments/bills/bill-result.json",
+      "data": "mock-data/transactions.json"
+    },
+    "payments/topup/mobile": {
+      "template": "payments/topup/mobile-topup.json",
+      "data": "mock-data/cards.json"
+    },
+    "payments/topup/internet": {
+      "template": "payments/topup/internet-package.json",
+      "data": "mock-data/cards.json"
+    },
+    "payments/topup/result": {
+      "template": "payments/topup/topup-result.json",
+      "data": "mock-data/transactions.json"
+    },
+    "payments/transfer/paya": {
+      "template": "payments/transfer/paya.json",
+      "data": "mock-data/cards.json"
+    },
+    "payments/transfer/satna": {
+      "template": "payments/transfer/satna.json",
+      "data": "mock-data/cards.json"
+    },
+    "payments/transfer/internal": {
+      "template": "payments/transfer/internal.json",
+      "data": "mock-data/deposits.json"
+    },
+    "payments/transfer/result": {
+      "template": "payments/transfer/result.json",
+      "data": "mock-data/transactions.json"
+    },
+    "payments/qr-payment": {
+      "template": "payments/qr-payment.json",
+      "data": "mock-data/cards.json"
+    },
+    "payments/charity": {
+      "template": "payments/charity.json",
+      "data": "mock-data/cards.json"
+    },
+    "payments/charge-purchase": {
+      "template": "payments/charge-purchase.json",
+      "data": "mock-data/cards.json"
+    },
+    "bpms/marriage-loan/flow": {
+      "template": "bpms/marriage-loan/flow-config.json",
+      "data": "mock-data/users.json"
+    },
+    "bpms/marriage-loan/step-01-rules": {
+      "template": "bpms/marriage-loan/step-01-rules.json",
+      "data": "mock-data/users.json"
+    },
+    "bpms/marriage-loan/step-02-customer-info": {
+      "template": "bpms/marriage-loan/step-02-customer-info.json",
+      "data": "mock-data/users.json"
+    },
+    "bpms/marriage-loan/step-03-amount": {
+      "template": "bpms/marriage-loan/step-03-amount-selection.json",
+      "data": "mock-data/users.json"
+    },
+    "bpms/marriage-loan/step-04-spouse": {
+      "template": "bpms/marriage-loan/step-04-spouse-info.json",
+      "data": "mock-data/users.json"
+    },
+    "bpms/marriage-loan/step-05-documents": {
+      "template": "bpms/marriage-loan/step-05-documents.json",
+      "data": "mock-data/users.json"
+    },
+    "bpms/marriage-loan/step-06-guarantor": {
+      "template": "bpms/marriage-loan/step-06-guarantor.json",
+      "data": "mock-data/users.json"
+    },
+    "bpms/marriage-loan/step-07-contract": {
+      "template": "bpms/marriage-loan/step-07-contract.json",
+      "data": "mock-data/users.json"
+    },
+    "bpms/marriage-loan/step-08-completion": {
+      "template": "bpms/marriage-loan/step-08-completion.json",
+      "data": "mock-data/users.json"
+    },
+    "bpms/children-loan/flow": {
+      "template": "bpms/children-loan/flow-config.json",
+      "data": "mock-data/users.json"
+    },
+    "bpms/military-guarantee/flow": {
+      "template": "bpms/military-guarantee/flow-config.json",
+      "data": "mock-data/users.json"
+    },
+    "bpms/credit-card/flow": {
+      "template": "bpms/credit-card/flow-config.json",
+      "data": "mock-data/users.json"
+    },
+    "bpms/parsa-loan/flow": {
+      "template": "bpms/parsa-loan/flow-config.json",
+      "data": "mock-data/users.json"
+    },
+    "bpms/card-physical-issue/flow": {
+      "template": "bpms/card-physical-issue/flow-config.json",
+      "data": "mock-data/users.json"
+    },
+    "deposits/list": {
+      "template": "deposits/deposits-list.json",
+      "data": "mock-data/deposits.json"
+    },
+    "deposits/detail": {
+      "template": "deposits/deposit-detail.json",
+      "data": "mock-data/deposits.json"
+    },
+    "deposits/open": {
+      "template": "deposits/open-deposit.json",
+      "data": "mock-data/deposits.json"
+    },
+    "deposits/statement": {
+      "template": "deposits/statement.json",
+      "data": "mock-data/transactions.json"
+    },
+    "deposits/transactions": {
+      "template": "deposits/transactions.json",
+      "data": "mock-data/transactions.json"
+    },
+    "loans/detail": {
+      "template": "loans/loan-detail.json",
+      "data": "mock-data/users.json"
+    },
+    "loans/installments": {
+      "template": "loans/installments-list.json",
+      "data": "mock-data/users.json"
+    },
+    "loans/pay-installment": {
+      "template": "loans/pay-installment.json",
+      "data": "mock-data/cards.json"
+    },
+    "loans/cheques": {
+      "template": "loans/cheque-list.json",
+      "data": "mock-data/users.json"
+    },
+    "profile/view": {
+      "template": "profile/profile.json",
+      "data": "mock-data/users.json"
+    },
+    "profile/edit": {
+      "template": "profile/edit-profile.json",
+      "data": "mock-data/users.json"
+    },
+    "settings/main": {
+      "template": "settings/settings.json",
+      "data": "mock-data/users.json"
+    },
+    "settings/security": {
+      "template": "settings/security.json",
+      "data": "mock-data/users.json"
+    },
+    "settings/notifications": {
+      "template": "settings/notifications.json",
+      "data": "mock-data/notifications.json"
+    },
+    "settings/change-password": {
+      "template": "settings/change-password.json",
+      "data": "mock-data/users.json"
+    },
+    "settings/devices": {
+      "template": "settings/devices.json",
+      "data": "mock-data/users.json"
+    },
+    "settings/about": {
+      "template": "settings/about.json",
+      "data": "mock-data/users.json"
+    },
+    "support/main": {
+      "template": "support/support.json",
+      "data": "mock-data/users.json"
+    },
+    "support/chat": {
+      "template": "support/chat.json",
+      "data": "mock-data/users.json"
+    },
+    "support/tickets": {
+      "template": "support/tickets.json",
+      "data": "mock-data/users.json"
+    },
+    "other/notifications": {
+      "template": "other/notifications-inbox.json",
+      "data": "mock-data/notifications.json"
+    },
+    "other/branch-finder": {
+      "template": "other/branch-finder.json",
+      "data": "mock-data/users.json"
+    },
+    "other/exchange-rates": {
+      "template": "other/exchange-rates.json",
+      "data": "mock-data/users.json"
+    },
+    "other/referral": {
+      "template": "other/referral.json",
+      "data": "mock-data/users.json"
+    },
+    "other/transaction-detail": {
+      "template": "other/transaction-detail.json",
+      "data": "mock-data/transactions.json"
+    },
+    "other/scan-qr": {
+      "template": "other/scan-qr.json",
+      "data": "mock-data/cards.json"
+    }
+  },
+  "navigation": {
+    "routes": [
+      {
+        "name": "dashboard/home",
+        "path": "/"
+      },
+      {
+        "name": "dashboard/menu",
+        "path": "/menu"
+      },
+      {
+        "name": "cards/list",
+        "path": "/cards"
+      },
+      {
+        "name": "cards/detail",
+        "path": "/cards/:id"
+      },
+      {
+        "name": "payments/bills/list",
+        "path": "/payments/bills"
+      },
+      {
+        "name": "profile/view",
+        "path": "/profile"
+      },
+      {
+        "name": "settings/main",
+        "path": "/settings"
+      }
+    ]
+  }
+}
+

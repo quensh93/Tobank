@@ -1,0 +1,248 @@
+{
+  "$schema": "tobank-sdui/v1/data",
+  "version": "1.0.0",
+  "dataId": "announcements",
+  "description": "Announcements and promotional banners",
+  
+  "announcements": [
+    {
+      "id": "ANN-001",
+      "type": "banner",
+      "priority": 1,
+      "title": {
+        "fa": "تسهیلات ازدواج فعال شد! 💍",
+        "en": "Marriage Loan Now Available! 💍"
+      },
+      "subtitle": {
+        "fa": "سقف ۳۰۰ میلیون تومان با سود ۴ درصد",
+        "en": "Up to 300M Toman with 4% interest"
+      },
+      "imageUrl": "assets/images/banners/marriage_loan.png",
+      "backgroundColor": "#E31837",
+      "textColor": "#FFFFFF",
+      "action": {
+        "type": "navigate",
+        "route": "/bpms/marriage-loan"
+      },
+      "startDate": "1403/09/01",
+      "endDate": "1403/12/29",
+      "targetUsers": ["all"],
+      "displayLocations": ["home", "loans"],
+      "analytics": {
+        "impressionEvent": "banner_impression",
+        "clickEvent": "banner_click",
+        "campaignId": "marriage_loan_1403"
+      }
+    },
+    {
+      "id": "ANN-002",
+      "type": "banner",
+      "priority": 2,
+      "title": {
+        "fa": "کارت هدیه با ۱۰٪ تخفیف 🎁",
+        "en": "Gift Card with 10% OFF 🎁"
+      },
+      "subtitle": {
+        "fa": "تا پایان آذر ماه",
+        "en": "Until end of Azar"
+      },
+      "imageUrl": "assets/images/banners/gift_card.png",
+      "backgroundColor": "#4CAF50",
+      "textColor": "#FFFFFF",
+      "action": {
+        "type": "navigate",
+        "route": "/gift-card"
+      },
+      "startDate": "1403/09/01",
+      "endDate": "1403/09/30",
+      "targetUsers": ["all"],
+      "displayLocations": ["home"],
+      "analytics": {
+        "impressionEvent": "banner_impression",
+        "clickEvent": "banner_click",
+        "campaignId": "gift_card_azar"
+      }
+    },
+    {
+      "id": "ANN-003",
+      "type": "banner",
+      "priority": 3,
+      "title": {
+        "fa": "باشگاه مشتریان توبانک ⭐",
+        "en": "Tobank Customer Club ⭐"
+      },
+      "subtitle": {
+        "fa": "امتیاز بگیرید، جایزه ببرید",
+        "en": "Earn points, win prizes"
+      },
+      "imageUrl": "assets/images/banners/club.png",
+      "backgroundColor": "#9C27B0",
+      "textColor": "#FFFFFF",
+      "action": {
+        "type": "navigate",
+        "route": "/customer-club"
+      },
+      "startDate": "1403/01/01",
+      "endDate": "1403/12/29",
+      "targetUsers": ["all"],
+      "displayLocations": ["home", "profile"],
+      "analytics": {
+        "impressionEvent": "banner_impression",
+        "clickEvent": "banner_click",
+        "campaignId": "club_permanent"
+      }
+    },
+    {
+      "id": "ANN-004",
+      "type": "banner",
+      "priority": 4,
+      "title": {
+        "fa": "بسته اینترنت با ۲۰٪ تخفیف 📱",
+        "en": "Internet Package 20% OFF 📱"
+      },
+      "subtitle": {
+        "fa": "همراه اول و ایرانسل",
+        "en": "MCI & Irancell"
+      },
+      "imageUrl": "assets/images/banners/internet.png",
+      "backgroundColor": "#2196F3",
+      "textColor": "#FFFFFF",
+      "action": {
+        "type": "navigate",
+        "route": "/topup/internet"
+      },
+      "startDate": "1403/09/01",
+      "endDate": "1403/09/15",
+      "targetUsers": ["all"],
+      "displayLocations": ["home", "topup"],
+      "analytics": {
+        "impressionEvent": "banner_impression",
+        "clickEvent": "banner_click",
+        "campaignId": "internet_discount"
+      }
+    },
+    {
+      "id": "ANN-005",
+      "type": "banner",
+      "priority": 5,
+      "title": {
+        "fa": "تسهیلات فرزندآوری 👶",
+        "en": "Children Support Loan 👶"
+      },
+      "subtitle": {
+        "fa": "حمایت از خانواده‌های جوان",
+        "en": "Supporting young families"
+      },
+      "imageUrl": "assets/images/banners/children_loan.png",
+      "backgroundColor": "#FF9800",
+      "textColor": "#FFFFFF",
+      "action": {
+        "type": "navigate",
+        "route": "/bpms/children-loan"
+      },
+      "startDate": "1403/09/01",
+      "endDate": "1403/12/29",
+      "targetUsers": ["all"],
+      "displayLocations": ["home", "loans"],
+      "analytics": {
+        "impressionEvent": "banner_impression",
+        "clickEvent": "banner_click",
+        "campaignId": "children_loan_1403"
+      }
+    }
+  ],
+  
+  "popups": [
+    {
+      "id": "POPUP-001",
+      "type": "modal",
+      "priority": 1,
+      "title": {
+        "fa": "به‌روزرسانی جدید",
+        "en": "New Update Available"
+      },
+      "message": {
+        "fa": "نسخه جدید اپلیکیشن با قابلیت‌های جدید منتشر شده است.",
+        "en": "A new version with exciting features is available."
+      },
+      "imageUrl": "assets/images/update.png",
+      "primaryAction": {
+        "label": {"fa": "به‌روزرسانی", "en": "Update"},
+        "action": {"type": "open_store"}
+      },
+      "secondaryAction": {
+        "label": {"fa": "بعداً", "en": "Later"},
+        "action": {"type": "dismiss"}
+      },
+      "dismissible": true,
+      "showOnce": true,
+      "showOnceKey": "update_popup_v3.9.1",
+      "minVersion": "3.9.0",
+      "targetVersion": "3.9.1"
+    },
+    {
+      "id": "POPUP-002",
+      "type": "bottom_sheet",
+      "priority": 2,
+      "title": {
+        "fa": "فعال‌سازی اعلان‌ها",
+        "en": "Enable Notifications"
+      },
+      "message": {
+        "fa": "برای اطلاع از تراکنش‌ها و پیشنهادات ویژه، اعلان‌ها را فعال کنید.",
+        "en": "Enable notifications to stay updated on transactions and special offers."
+      },
+      "imageUrl": "assets/images/notification_prompt.png",
+      "primaryAction": {
+        "label": {"fa": "فعال‌سازی", "en": "Enable"},
+        "action": {"type": "request_notification_permission"}
+      },
+      "secondaryAction": {
+        "label": {"fa": "الان نه", "en": "Not Now"},
+        "action": {"type": "dismiss"}
+      },
+      "dismissible": true,
+      "showCondition": "!hasNotificationPermission",
+      "showAfterLogin": 3
+    }
+  ],
+  
+  "inAppMessages": [
+    {
+      "id": "IAM-001",
+      "type": "snackbar",
+      "message": {
+        "fa": "۵۰۰ امتیاز به حساب باشگاه شما اضافه شد! 🎉",
+        "en": "500 points added to your club account! 🎉"
+      },
+      "actionLabel": {"fa": "مشاهده", "en": "View"},
+      "action": {"type": "navigate", "route": "/customer-club"},
+      "duration": 5000,
+      "triggerEvent": "club_points_earned"
+    },
+    {
+      "id": "IAM-002",
+      "type": "toast",
+      "message": {
+        "fa": "قبض شما نزدیک سررسید است",
+        "en": "Your bill is due soon"
+      },
+      "icon": "assets/icons/ic_warning.svg",
+      "duration": 3000,
+      "triggerCondition": "hasPendingBills"
+    }
+  ],
+  
+  "carouselSettings": {
+    "autoPlay": true,
+    "autoPlayInterval": 5000,
+    "showIndicators": true,
+    "indicatorStyle": "dots",
+    "indicatorActiveColor": "#E31837",
+    "indicatorInactiveColor": "#E0E0E0",
+    "aspectRatio": 2.5,
+    "borderRadius": 12,
+    "margin": {"horizontal": 16, "vertical": 8}
+  }
+}
+

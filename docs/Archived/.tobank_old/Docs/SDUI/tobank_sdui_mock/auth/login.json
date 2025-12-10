@@ -1,0 +1,52 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "login",
+  "title": {"fa": "ورود", "en": "Login"},
+  
+  "appBar": {"type": "hidden"},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 24,
+    "children": [
+      {"type": "sized_box", "height": 60},
+      {"type": "container", "alignment": "center", "child": {"type": "column", "children": [
+        {"type": "image", "src": "assets/images/tobank_logo.png", "width": 100, "height": 100},
+        {"type": "text", "text": "تو بانک", "style": "headlineMedium", "margin": {"top": 16}},
+        {"type": "text", "text": {"fa": "خوش آمدید", "en": "Welcome"}, "style": "bodyLarge", "color": "textSecondary", "margin": {"top": 8}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 48}, "child": {"type": "column", "children": [
+        {"type": "text_field", "label": {"fa": "شماره موبایل", "en": "Mobile Number"}, "keyboardType": "phone", "maxLength": 11, "prefix": {"type": "row", "children": [{"type": "image", "src": "assets/icons/iran_flag.png", "width": 24, "height": 16}, {"type": "text", "text": "+۹۸ ", "margin": {"left": 8}}]}, "bindTo": "mobile", "validation": {"required": true, "pattern": "^09[0-9]{9}$"}},
+        {"type": "password_field", "label": {"fa": "رمز عبور", "en": "Password"}, "margin": {"top": 16}, "bindTo": "password", "validation": {"required": true}},
+        {"type": "row", "margin": {"top": 12}, "mainAxisAlignment": "end", "children": [
+          {"type": "text_button", "label": {"fa": "فراموشی رمز عبور", "en": "Forgot Password?"}, "onTap": {"type": "navigate", "route": "/auth/forgot-password"}}
+        ]}
+      ]}},
+      
+      {"type": "elevated_button", "label": {"fa": "ورود", "en": "Login"}, "fullWidth": true, "margin": {"top": 32}, "disabled": "{{!mobile || !password}}", "onTap": {"type": "api_call", "endpoint": "auth/login", "method": "POST", "body": {"mobile": "{{mobile}}", "password": "{{password}}"}, "showLoading": true, "onSuccess": {"type": "navigate_replace", "route": "/auth/otp"}, "onError": {"type": "show_error", "message": "{{error.message}}"}}},
+      
+      {"type": "row", "margin": {"top": 24}, "mainAxisAlignment": "center", "children": [
+        {"type": "container", "height": 1, "width": 60, "color": "divider"},
+        {"type": "text", "text": {"fa": "یا", "en": "or"}, "style": "bodySmall", "color": "textSecondary", "margin": {"horizontal": 16}},
+        {"type": "container", "height": 1, "width": 60, "color": "divider"}
+      ]},
+      
+      {"type": "outlined_button", "label": {"fa": "ورود با اثر انگشت", "en": "Biometric Login"}, "icon": "assets/icons/ic_fingerprint.svg", "fullWidth": true, "margin": {"top": 24}, "onTap": {"type": "biometric_auth", "onSuccess": {"type": "navigate_replace", "route": "/home"}}},
+      
+      {"type": "row", "margin": {"top": 32}, "mainAxisAlignment": "center", "children": [
+        {"type": "text", "text": {"fa": "حساب کاربری ندارید؟", "en": "Don't have an account?"}, "style": "bodyMedium", "color": "textSecondary"},
+        {"type": "text_button", "label": {"fa": "ثبت‌نام", "en": "Register"}, "margin": {"left": 8}, "onTap": {"type": "navigate", "route": "/auth/register"}}
+      ]},
+      
+      {"type": "sized_box", "height": 32}
+    ]
+  },
+  
+  "dataBindings": {
+    "mobile": {"source": "form", "default": ""},
+    "password": {"source": "form", "default": ""}
+  }
+}
+

@@ -1,0 +1,61 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "about",
+  "title": {"fa": "درباره ما", "en": "About Us"},
+  
+  "appBar": {"type": "standard", "title": {"fa": "درباره ما", "en": "About Us"}},
+  
+  "body": {
+    "type": "scrollable",
+    "children": [
+      {"type": "container", "padding": 32, "alignment": "center", "child": {"type": "column", "children": [
+        {"type": "image", "src": "assets/images/tobank_logo.png", "width": 120, "height": 120},
+        {"type": "text", "text": "تو بانک", "style": "headlineMedium", "margin": {"top": 16}},
+        {"type": "text", "text": {"fa": "بانکداری نوین در دستان شما", "en": "Modern banking in your hands"}, "style": "bodyMedium", "color": "textSecondary", "margin": {"top": 8}},
+        {"type": "text", "text": "{{appVersion}}", "style": "bodySmall", "color": "textSecondary", "margin": {"top": 4}}
+      ]}},
+      
+      {"type": "container", "padding": 16, "child": {"type": "column", "children": [
+        {"type": "card", "child": {"type": "column", "children": [
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_star.svg", "color": "#FFC107"}, "title": {"fa": "امتیاز به برنامه", "en": "Rate App"}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "open_store"}},
+          {"type": "divider", "indent": 56},
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_share.svg", "color": "#2196F3"}, "title": {"fa": "معرفی به دوستان", "en": "Share App"}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "share", "text": {"fa": "اپلیکیشن تو بانک: بانکداری ساده\nhttps://tobank.app", "en": "ToBank App: Simple banking\nhttps://tobank.app"}}},
+          {"type": "divider", "indent": 56},
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_feedback.svg", "color": "#4CAF50"}, "title": {"fa": "ارسال بازخورد", "en": "Send Feedback"}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "navigate", "route": "/feedback"}}
+        ]}},
+        
+        {"type": "card", "margin": {"top": 16}, "child": {"type": "column", "children": [
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_document.svg"}, "title": {"fa": "قوانین و مقررات", "en": "Terms of Service"}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "navigate", "route": "/terms"}},
+          {"type": "divider", "indent": 56},
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_privacy.svg"}, "title": {"fa": "حریم خصوصی", "en": "Privacy Policy"}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "navigate", "route": "/privacy"}},
+          {"type": "divider", "indent": 56},
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_license.svg"}, "title": {"fa": "مجوزها", "en": "Licenses"}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "navigate", "route": "/licenses"}}
+        ]}},
+        
+        {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "تماس با ما", "en": "Contact Us"}}, "child": {"type": "card", "child": {"type": "column", "children": [
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_phone.svg", "color": "#4CAF50"}, "title": "۰۲۱-۹۱۰۰۸۵۰۰", "subtitle": {"fa": "پشتیبانی ۲۴ ساعته", "en": "24/7 Support"}, "onTap": {"type": "call", "number": "02191008500"}},
+          {"type": "divider", "indent": 56},
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_email.svg", "color": "#2196F3"}, "title": "support@tobank.ir", "onTap": {"type": "email", "address": "support@tobank.ir"}},
+          {"type": "divider", "indent": 56},
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_web.svg", "color": "#FF9800"}, "title": "www.tobank.ir", "onTap": {"type": "open_url", "url": "https://www.tobank.ir"}}
+        ]}}},
+        
+        {"type": "row", "margin": {"top": 24}, "mainAxisAlignment": "center", "children": [
+          {"type": "icon_button", "icon": "assets/icons/ic_instagram.svg", "onTap": {"type": "open_url", "url": "https://instagram.com/tobank"}},
+          {"type": "icon_button", "icon": "assets/icons/ic_telegram.svg", "onTap": {"type": "open_url", "url": "https://t.me/tobank"}},
+          {"type": "icon_button", "icon": "assets/icons/ic_twitter.svg", "onTap": {"type": "open_url", "url": "https://twitter.com/tobank"}},
+          {"type": "icon_button", "icon": "assets/icons/ic_linkedin.svg", "onTap": {"type": "open_url", "url": "https://linkedin.com/company/tobank"}}
+        ]},
+        
+        {"type": "text", "text": {"fa": "© ۱۴۰۳ تمامی حقوق محفوظ است", "en": "© 2024 All rights reserved"}, "style": "bodySmall", "color": "textSecondary", "textAlign": "center", "margin": {"top": 16}},
+        
+        {"type": "sized_box", "height": 32}
+      ]}}
+    ]
+  },
+  
+  "dataBindings": {"appVersion": {"source": "app_info", "key": "version"}},
+  "mockData": {"appVersion": "نسخه ۲.۵.۱ (۱۲۳)"}
+}
+

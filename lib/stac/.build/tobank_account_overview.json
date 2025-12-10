@@ -1,0 +1,267 @@
+{
+  "appBar": {
+    "title": {
+      "request": {
+        "url": "https://api.tobank.com/account-overview-data",
+        "method": "get",
+        "actionType": "networkRequest"
+      },
+      "targetPath": "data",
+      "template": {
+        "data": "{{appBarTitle}}",
+        "style": {
+          "type": "custom",
+          "color": "onSurface",
+          "fontSize": 20.0,
+          "fontWeight": "bold"
+        },
+        "type": "text"
+      },
+      "loaderWidget": {
+        "data": "{{appStrings.account.title}}",
+        "style": {
+          "type": "custom",
+          "color": "onSurface",
+          "fontSize": 20.0,
+          "fontWeight": "bold"
+        },
+        "type": "text"
+      },
+      "errorWidget": {
+        "data": "{{appStrings.account.title}}",
+        "style": {
+          "type": "custom",
+          "color": "onSurface",
+          "fontSize": 20.0,
+          "fontWeight": "bold"
+        },
+        "type": "text"
+      },
+      "type": "dynamicView"
+    },
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "body": {
+    "request": {
+      "url": "https://api.tobank.com/account-overview-data",
+      "method": "get",
+      "actionType": "networkRequest"
+    },
+    "targetPath": "data",
+    "template": {
+      "padding": {
+        "left": 16.0,
+        "top": 16.0,
+        "right": 16.0,
+        "bottom": 16.0
+      },
+      "child": {
+        "crossAxisAlignment": "stretch",
+        "children": [
+          {
+            "child": {
+              "padding": {
+                "left": 24.0,
+                "top": 24.0,
+                "right": 24.0,
+                "bottom": 24.0
+              },
+              "child": {
+                "crossAxisAlignment": "start",
+                "children": [
+                  {
+                    "data": "{{accountNumberLabel}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "onSurfaceVariant",
+                      "fontSize": 14.0,
+                      "fontWeight": "w400"
+                    },
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{accountNumber}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "onSurface",
+                      "fontSize": 18.0,
+                      "fontWeight": "bold"
+                    },
+                    "type": "text"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "padding"
+            },
+            "type": "card"
+          },
+          {
+            "height": 16.0,
+            "type": "sizedBox"
+          },
+          {
+            "child": {
+              "padding": {
+                "left": 24.0,
+                "top": 24.0,
+                "right": 24.0,
+                "bottom": 24.0
+              },
+              "child": {
+                "crossAxisAlignment": "start",
+                "children": [
+                  {
+                    "data": "{{accountTypeLabel}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "onSurfaceVariant",
+                      "fontSize": 14.0,
+                      "fontWeight": "w400"
+                    },
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{accountType}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "onSurface",
+                      "fontSize": 18.0,
+                      "fontWeight": "bold"
+                    },
+                    "type": "text"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "padding"
+            },
+            "type": "card"
+          },
+          {
+            "height": 16.0,
+            "type": "sizedBox"
+          },
+          {
+            "child": {
+              "padding": {
+                "left": 24.0,
+                "top": 24.0,
+                "right": 24.0,
+                "bottom": 24.0
+              },
+              "child": {
+                "crossAxisAlignment": "start",
+                "children": [
+                  {
+                    "data": "{{balanceLabel}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "onSurfaceVariant",
+                      "fontSize": 14.0,
+                      "fontWeight": "w400"
+                    },
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{balance}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "onSurface",
+                      "fontSize": 24.0,
+                      "fontWeight": "bold"
+                    },
+                    "type": "text"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "padding"
+            },
+            "type": "card"
+          },
+          {
+            "height": 16.0,
+            "type": "sizedBox"
+          },
+          {
+            "child": {
+              "padding": {
+                "left": 24.0,
+                "top": 24.0,
+                "right": 24.0,
+                "bottom": 24.0
+              },
+              "child": {
+                "crossAxisAlignment": "start",
+                "children": [
+                  {
+                    "data": "{{holderLabel}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "onSurfaceVariant",
+                      "fontSize": 14.0,
+                      "fontWeight": "w400"
+                    },
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{accountHolder}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "onSurface",
+                      "fontSize": 18.0,
+                      "fontWeight": "bold"
+                    },
+                    "type": "text"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "padding"
+            },
+            "type": "card"
+          }
+        ],
+        "type": "column"
+      },
+      "type": "singleChildScrollView"
+    },
+    "loaderWidget": {
+      "child": {
+        "type": "circularProgressIndicator"
+      },
+      "type": "center"
+    },
+    "errorWidget": {
+      "child": {
+        "data": "{{appStrings.account.errorLoading}}",
+        "style": {
+          "type": "custom",
+          "color": "error"
+        },
+        "type": "text"
+      },
+      "type": "center"
+    },
+    "type": "dynamicView"
+  },
+  "type": "scaffold"
+}

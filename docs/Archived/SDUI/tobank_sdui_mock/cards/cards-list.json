@@ -1,0 +1,26 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "کارت‌های من"
+    },
+    "actions": [
+      {
+        "type": "iconButton",
+        "onPressed": {
+          "actionType": "navigate",
+          "path": "/cards/add"
+        },
+        "icon": {
+          "type": "image",
+          "src": "assets/icons/ic_add.svg",
+          "width": 24,
+          "height": 24,
+          "imageType": "asset"
+        }
+      }
+    ]
+  }
+}

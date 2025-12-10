@@ -1,0 +1,91 @@
+```mermaid
+flowchart TB
+    Start([Create Custom Component]) --> Decision{Widget or Action?}
+    
+    Decision -->|Widget| CreateWidgetModel[1. Create Widget Model]
+    Decision -->|Action| CreateActionModel[1. Create Action Model]
+    
+    CreateWidgetModel --> AddWidgetAnnotations[2. Add @JsonSerializable]
+    CreateActionModel --> AddActionAnnotations[2. Add @JsonSerializable]
+    
+    AddWidgetAnnotations --> WidgetMethods[3. Add fromJson/toJson]
+    AddActionAnnotations --> ActionMethods[3. Add fromJson/toJson]
+    
+    WidgetMethods --> CreateWidgetParser[4. Create Widget Parser]
+    ActionMethods --> CreateActionParser[4. Create Action Parser]
+    
+    CreateWidgetParser --> ExtendStacParser[5. Extend StacParser]
+    CreateActionParser --> ExtendActionParser[5. Extend StacActionParser]
+    
+    ExtendStacParser --> ImplementParse[6. Implement parse method]
+    ExtendActionParser --> ImplementExecute[6. Implement execute method]
+    
+    ImplementParse --> ImplementType[7. Implement type getter]
+    ImplementExecute --> ImplementActionType[7. Implement actionType getter]
+    
+    ImplementType --> ImplementFromJson[8. Implement fromJson]
+    ImplementActionType --> ImplementFromJson
+    
+    ImplementFromJson --> RunBuildRunner[9. Run build_runner]
+    
+    RunBuildRunner --> BuildSuccess{Build Success?}
+    
+    BuildSuccess -->|No| FixErrors[Fix Compilation Errors]
+    FixErrors --> RunBuildRunner
+    
+    BuildSuccess -->|Yes| RegisterComponent[10. Register in Registry]
+    
+    RegisterComponent --> WidgetRegistry{Component Type?}
+    
+    WidgetRegistry -->|Widget| RegisterWidget[registry.registerWidget]
+    WidgetRegistry -->|Action| RegisterAction[registry.registerAction]
+    
+    RegisterWidget --> WriteTests[11. Write Unit Tests]
+    RegisterAction --> WriteTests
+    
+    WriteTests --> TestModel[Test JSON Serialization]
+    TestModel --> TestParser[Test Parser Logic]
+    TestParser --> TestRendering[Test Widget Rendering/Action Execution]
+    
+    TestRendering --> RunTests[12. Run Tests]
+    
+    RunTests --> TestsPass{Tests Pass?}
+    
+    TestsPass -->|No| FixTestErrors[Fix Test Errors]
+    FixTestErrors --> RunTests
+    
+    TestsPass -->|Yes| TestInPlayground[13. Test in JSON Playground]
+    
+    TestInPlayground --> CreateJSON[Create Test JSON]
+    CreateJSON --> RenderPreview[Render in Preview]
+    RenderPreview --> VerifyBehavior[Verify Behavior]
+    
+    VerifyBehavior --> WorksCorrectly{Works Correctly?}
+    
+    WorksCorrectly -->|No| DebugIssue[Debug Issue]
+    DebugIssue --> CheckLogs[Check STAC Logs]
+    CheckLogs --> FixIssue[Fix Implementation]
+    FixIssue --> RunBuildRunner
+    
+    WorksCorrectly -->|Yes| CreateDocs[14. Create Documentation]
+    
+    CreateDocs --> DocUsage[Document Usage]
+    DocUsage --> DocExamples[Add Code Examples]
+    DocExamples --> DocJSON[Add JSON Examples]
+    
+    DocJSON --> IntegrateApp[15. Integrate into App]
+    
+    IntegrateApp --> UseInScreen[Use in STAC Screen]
+    UseInScreen --> TestIntegration[Test Integration]
+    TestIntegration --> End([Component Complete])
+    
+    style Start fill:#e8f5e9
+    style End fill:#c8e6c9
+    style RunBuildRunner fill:#fff9c4
+    style RunTests fill:#fff9c4
+    style TestInPlayground fill:#e1f5ff
+    style CreateDocs fill:#f3e5f5
+    style FixErrors fill:#ffebee
+    style FixTestErrors fill:#ffebee
+    style DebugIssue fill:#ffebee
+```

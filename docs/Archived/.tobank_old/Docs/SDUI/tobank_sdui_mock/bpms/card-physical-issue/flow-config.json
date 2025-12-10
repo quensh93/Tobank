@@ -1,0 +1,28 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-flow",
+  "version": "1.0.0",
+  "flowId": "card_physical_issue",
+  "flowType": "card_service",
+  "title": {"fa": "صدور کارت فیزیکی", "en": "Physical Card Issue"},
+  "description": {"fa": "درخواست صدور کارت بانکی فیزیکی", "en": "Request physical bank card issuance"},
+  "icon": "assets/icons/ic_card_issue.svg",
+  "color": "#00BCD4",
+  
+  "cardOptions": {
+    "cardTypes": ["debit", "credit", "gift"],
+    "deliveryMethods": ["branch", "postal"],
+    "postalCost": 250000
+  },
+  
+  "steps": [
+    {"id": "card_type", "order": 1, "title": {"fa": "نوع کارت", "en": "Card Type"}, "pageRef": "step-01-card-type.json"},
+    {"id": "personal_info", "order": 2, "title": {"fa": "اطلاعات", "en": "Info"}, "pageRef": "step-02-personal-info.json"},
+    {"id": "design", "order": 3, "title": {"fa": "طراحی", "en": "Design"}, "pageRef": "step-03-design.json"},
+    {"id": "delivery", "order": 4, "title": {"fa": "تحویل", "en": "Delivery"}, "pageRef": "step-04-delivery.json"},
+    {"id": "confirmation", "order": 5, "title": {"fa": "تایید", "en": "Confirm"}, "pageRef": "step-05-confirmation.json"},
+    {"id": "completion", "order": 6, "title": {"fa": "اتمام", "en": "Done"}, "pageRef": "step-06-completion.json", "isFinal": true}
+  ],
+  
+  "api": {"baseEndpoint": "bpms/card-physical-issue"}
+}
+

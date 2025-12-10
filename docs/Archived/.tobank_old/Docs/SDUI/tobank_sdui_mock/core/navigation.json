@@ -1,0 +1,314 @@
+{
+  "$schema": "tobank-sdui/v1/navigation",
+  "version": "1.0.0",
+  
+  "shell": {
+    "type": "bottom_navigation",
+    "backgroundColor": "{{theme.surface}}",
+    "selectedItemColor": "{{theme.primary}}",
+    "unselectedItemColor": "{{theme.onSurface}}",
+    "showLabels": true,
+    "elevation": 8,
+    
+    "items": [
+      {
+        "id": "home",
+        "label": "خانه",
+        "icon": "assets/icons/ic_home_main.svg",
+        "activeIcon": "assets/icons/ic_home_main_selected.svg",
+        "route": "/dashboard/home"
+      },
+      {
+        "id": "transactions",
+        "label": "تراکنش‌ها",
+        "icon": "assets/icons/ic_transaction_main.svg",
+        "activeIcon": "assets/icons/ic_transaction_main_selected.svg",
+        "route": "/dashboard/transactions"
+      },
+      {
+        "id": "cards",
+        "label": "کارت‌ها",
+        "icon": "assets/icons/ic_cardboard.svg",
+        "activeIcon": "assets/icons/ic_cardboard_selected.svg",
+        "route": "/dashboard/cards"
+      },
+      {
+        "id": "profile",
+        "label": "حساب من",
+        "icon": "assets/icons/ic_profile_main.svg",
+        "activeIcon": "assets/icons/ic_profile_main_selected.svg",
+        "route": "/dashboard/profile"
+      }
+    ]
+  },
+  
+  "routes": {
+    "/": {
+      "redirect": "/dashboard/home"
+    },
+    "/intro": {
+      "page": "intro/intro-page",
+      "fullscreen": true,
+      "showBottomNav": false
+    },
+    "/login": {
+      "page": "auth/login-page",
+      "fullscreen": true,
+      "showBottomNav": false
+    },
+    "/register": {
+      "page": "auth/register-page",
+      "fullscreen": true,
+      "showBottomNav": false
+    },
+    
+    "/dashboard/home": {
+      "page": "dashboard/home-page",
+      "showBottomNav": true,
+      "tabIndex": 0
+    },
+    "/dashboard/transactions": {
+      "page": "dashboard/transactions-page",
+      "showBottomNav": true,
+      "tabIndex": 1
+    },
+    "/dashboard/cards": {
+      "page": "dashboard/cards-page",
+      "showBottomNav": true,
+      "tabIndex": 2
+    },
+    "/dashboard/profile": {
+      "page": "dashboard/profile-page",
+      "showBottomNav": true,
+      "tabIndex": 3
+    },
+    
+    "/cards/add": {
+      "page": "cards/add-card-page",
+      "title": "افزودن کارت",
+      "showBottomNav": false
+    },
+    "/cards/edit/:cardId": {
+      "page": "cards/edit-card-page",
+      "title": "ویرایش کارت",
+      "showBottomNav": false
+    },
+    "/cards/detail/:cardId": {
+      "page": "cards/card-detail-page",
+      "title": "جزئیات کارت",
+      "showBottomNav": false
+    },
+    "/cards/balance": {
+      "page": "cards/card-balance-page",
+      "title": "موجودی",
+      "showBottomNav": false
+    },
+    "/cards/services": {
+      "page": "cards/services/card-management-menu",
+      "title": "خدمات کارت",
+      "showBottomNav": false
+    },
+    "/cards/block": {
+      "page": "cards/services/block-card-flow",
+      "title": "مسدودسازی کارت",
+      "showBottomNav": false
+    },
+    "/cards/change-pin": {
+      "page": "cards/services/change-pin-flow",
+      "title": "تغییر رمز اول",
+      "showBottomNav": false
+    },
+    "/cards/change-pin2": {
+      "page": "cards/services/change-pin2-flow",
+      "title": "تغییر رمز دوم",
+      "showBottomNav": false
+    },
+    
+    "/payments/card-to-card": {
+      "page": "payments/card-to-card/main-page",
+      "title": "کارت به کارت",
+      "showBottomNav": false
+    },
+    "/payments/deposit-transfer": {
+      "page": "payments/deposit-transfer/transfer-type-page",
+      "title": "انتقال وجه",
+      "showBottomNav": false
+    },
+    "/payments/bills": {
+      "page": "payments/bills/bill-types-page",
+      "title": "پرداخت قبض",
+      "showBottomNav": false
+    },
+    "/payments/sim-charge": {
+      "page": "payments/sim-charge/main-page",
+      "title": "شارژ سیم‌کارت",
+      "showBottomNav": false
+    },
+    "/payments/internet": {
+      "page": "payments/internet/main-page",
+      "title": "بسته اینترنت",
+      "showBottomNav": false
+    },
+    
+    "/bpms/marriage-loan": {
+      "page": "bpms/marriage-loan/flow-config",
+      "title": "تسهیلات ازدواج",
+      "showBottomNav": false,
+      "isWorkflow": true
+    },
+    "/bpms/children-loan": {
+      "page": "bpms/children-loan/flow-config",
+      "title": "تسهیلات فرزندآوری",
+      "showBottomNav": false,
+      "isWorkflow": true
+    },
+    "/bpms/military-guarantee": {
+      "page": "bpms/military-guarantee/flow-config",
+      "title": "ضمانت‌نامه نظام وظیفه",
+      "showBottomNav": false,
+      "isWorkflow": true
+    },
+    "/bpms/credit-card": {
+      "page": "bpms/credit-card/flow-config",
+      "title": "تسهیلات کارت اعتباری",
+      "showBottomNav": false,
+      "isWorkflow": true
+    },
+    "/bpms/parsa-loan": {
+      "page": "bpms/parsa-loan/flow-config",
+      "title": "تسهیلات پارسا",
+      "showBottomNav": false,
+      "isWorkflow": true
+    },
+    "/bpms/card-issue": {
+      "page": "bpms/card-issue/flow-config",
+      "title": "صدور کارت فیزیکی",
+      "showBottomNav": false,
+      "isWorkflow": true
+    },
+    "/bpms/card-reissue": {
+      "page": "bpms/card-reissue/flow-config",
+      "title": "تعویض کارت",
+      "showBottomNav": false,
+      "isWorkflow": true
+    },
+    
+    "/deposits/list": {
+      "page": "deposits/deposit-list-page",
+      "title": "سپرده‌ها",
+      "showBottomNav": false
+    },
+    "/deposits/detail/:depositId": {
+      "page": "deposits/deposit-detail-page",
+      "title": "جزئیات سپرده",
+      "showBottomNav": false
+    },
+    "/deposits/open": {
+      "page": "deposits/open-deposit-flow",
+      "title": "افتتاح سپرده",
+      "showBottomNav": false
+    },
+    
+    "/settings": {
+      "page": "settings/settings-menu",
+      "title": "تنظیمات",
+      "showBottomNav": false
+    },
+    "/settings/theme": {
+      "page": "settings/theme-settings",
+      "title": "تنظیمات ظاهری",
+      "showBottomNav": false
+    },
+    "/settings/security": {
+      "page": "settings/security-settings",
+      "title": "تنظیمات امنیتی",
+      "showBottomNav": false
+    },
+    "/settings/change-password": {
+      "page": "settings/change-password-page",
+      "title": "تغییر رمز عبور",
+      "showBottomNav": false
+    },
+    
+    "/profile/view": {
+      "page": "profile/profile-view-page",
+      "title": "پروفایل",
+      "showBottomNav": false
+    },
+    "/profile/edit": {
+      "page": "profile/edit-profile-page",
+      "title": "ویرایش پروفایل",
+      "showBottomNav": false
+    },
+    
+    "/customer-club": {
+      "page": "customer-club/main-page",
+      "title": "باشگاه مشتریان",
+      "showBottomNav": false
+    },
+    "/cbs": {
+      "page": "cbs/intro-page",
+      "title": "اعتبارسنجی",
+      "showBottomNav": false
+    },
+    "/gift-card": {
+      "page": "gift-card/main-page",
+      "title": "کارت هدیه",
+      "showBottomNav": false
+    },
+    "/safe-box": {
+      "page": "safe-box/intro-page",
+      "title": "صندوق امانات",
+      "showBottomNav": false
+    },
+    
+    "/notifications": {
+      "page": "other/notifications-page",
+      "title": "اعلان‌ها",
+      "showBottomNav": false
+    },
+    "/contact-us": {
+      "page": "other/contact-us-page",
+      "title": "تماس با ما",
+      "showBottomNav": false
+    },
+    "/about-us": {
+      "page": "other/about-us-page",
+      "title": "درباره ما",
+      "showBottomNav": false
+    },
+    "/branch-map": {
+      "page": "other/branch-map-page",
+      "title": "نقشه شعب",
+      "showBottomNav": false
+    }
+  },
+  
+  "transitions": {
+    "default": {
+      "type": "slide",
+      "direction": "right",
+      "duration": 300
+    },
+    "modal": {
+      "type": "slide",
+      "direction": "up",
+      "duration": 300
+    },
+    "fade": {
+      "type": "fade",
+      "duration": 200
+    }
+  },
+  
+  "deepLinks": {
+    "scheme": "tobank",
+    "host": "app",
+    "links": {
+      "/transfer/:cardNumber": "/payments/card-to-card?destination={{cardNumber}}",
+      "/loan/:type": "/bpms/{{type}}",
+      "/notification/:id": "/notifications?highlight={{id}}"
+    }
+  }
+}
+

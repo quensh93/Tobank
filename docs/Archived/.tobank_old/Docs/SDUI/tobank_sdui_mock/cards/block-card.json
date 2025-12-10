@@ -1,0 +1,345 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "block_card",
+  "pageType": "action",
+  "title": {
+    "fa": "مسدودسازی کارت",
+    "en": "Block Card"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "block_card",
+    "screenClass": "BlockCardPage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "{{card.isBlocked ? 'رفع مسدودی' : 'مسدودسازی کارت'}}", "en": "{{card.isBlocked ? 'Unblock Card' : 'Block Card'}}"},
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "card_preview",
+        "type": "container",
+        "margin": {"bottom": 24},
+        "child": {
+          "type": "bank_card_widget",
+          "cardNumber": "{{card.cardNumberMasked}}",
+          "cardHolder": "{{card.holderName}}",
+          "bankLogo": "{{card.bankLogo}}",
+          "cardDesign": "{{card.cardDesign}}",
+          "isBlocked": "{{card.isBlocked}}",
+          "mini": true
+        }
+      },
+      
+      {
+        "id": "status_banner",
+        "type": "conditional",
+        "condition": "{{card.isBlocked}}",
+        "whenTrue": {
+          "type": "container",
+          "padding": 16,
+          "margin": {"bottom": 16},
+          "decoration": {
+            "color": "#FFEBEE",
+            "borderRadius": 12
+          },
+          "child": {
+            "type": "row",
+            "children": [
+              {
+                "type": "icon",
+                "icon": "assets/icons/ic_block_card.svg",
+                "color": "#F44336",
+                "size": 24
+              },
+              {
+                "type": "sized_box",
+                "width": 12
+              },
+              {
+                "type": "expanded",
+                "child": {
+                  "type": "column",
+                  "crossAxisAlignment": "start",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": {"fa": "کارت مسدود است", "en": "Card is Blocked"},
+                      "style": "titleSmall",
+                      "color": "#F44336"
+                    },
+                    {
+                      "type": "text",
+                      "text": {"fa": "این کارت در حال حاضر غیرفعال است و امکان انجام تراکنش ندارد.", "en": "This card is currently inactive and cannot be used for transactions."},
+                      "style": "bodySmall",
+                      "color": "#B71C1C"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "whenFalse": {
+          "type": "container",
+          "padding": 16,
+          "margin": {"bottom": 16},
+          "decoration": {
+            "color": "#E8F5E9",
+            "borderRadius": 12
+          },
+          "child": {
+            "type": "row",
+            "children": [
+              {
+                "type": "icon",
+                "icon": "assets/icons/ic_check_circle.svg",
+                "color": "#4CAF50",
+                "size": 24
+              },
+              {
+                "type": "sized_box",
+                "width": 12
+              },
+              {
+                "type": "expanded",
+                "child": {
+                  "type": "column",
+                  "crossAxisAlignment": "start",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": {"fa": "کارت فعال است", "en": "Card is Active"},
+                      "style": "titleSmall",
+                      "color": "#4CAF50"
+                    },
+                    {
+                      "type": "text",
+                      "text": {"fa": "این کارت فعال است و می‌توانید از آن استفاده کنید.", "en": "This card is active and ready to use."},
+                      "style": "bodySmall",
+                      "color": "#1B5E20"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "block_reasons",
+        "type": "conditional",
+        "condition": "{{!card.isBlocked}}",
+        "whenTrue": {
+          "type": "card",
+          "padding": 16,
+          "margin": {"bottom": 16},
+          "child": {
+            "type": "column",
+            "crossAxisAlignment": "start",
+            "children": [
+              {
+                "type": "text",
+                "text": {"fa": "دلیل مسدودسازی", "en": "Block Reason"},
+                "style": "titleMedium"
+              },
+              {
+                "type": "sized_box",
+                "height": 12
+              },
+              {
+                "type": "radio_group",
+                "bindTo": "blockReason",
+                "options": [
+                  {
+                    "value": "lost",
+                    "label": {"fa": "گم شدن کارت", "en": "Lost Card"},
+                    "icon": "assets/icons/ic_lost.svg"
+                  },
+                  {
+                    "value": "stolen",
+                    "label": {"fa": "سرقت کارت", "en": "Stolen Card"},
+                    "icon": "assets/icons/ic_stolen.svg"
+                  },
+                  {
+                    "value": "suspicious",
+                    "label": {"fa": "فعالیت مشکوک", "en": "Suspicious Activity"},
+                    "icon": "assets/icons/ic_warning.svg"
+                  },
+                  {
+                    "value": "temporary",
+                    "label": {"fa": "مسدودسازی موقت", "en": "Temporary Block"},
+                    "icon": "assets/icons/ic_pause.svg"
+                  },
+                  {
+                    "value": "other",
+                    "label": {"fa": "سایر دلایل", "en": "Other"},
+                    "icon": "assets/icons/ic_more.svg"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "warning_section",
+        "type": "conditional",
+        "condition": "{{!card.isBlocked}}",
+        "whenTrue": {
+          "type": "card",
+          "padding": 16,
+          "borderColor": "#FFC107",
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "row",
+                "children": [
+                  {
+                    "type": "icon",
+                    "icon": "assets/icons/ic_warning.svg",
+                    "color": "#FFC107",
+                    "size": 24
+                  },
+                  {
+                    "type": "sized_box",
+                    "width": 8
+                  },
+                  {
+                    "type": "text",
+                    "text": {"fa": "توجه", "en": "Warning"},
+                    "style": "titleSmall",
+                    "color": "#F57F17"
+                  }
+                ]
+              },
+              {
+                "type": "sized_box",
+                "height": 8
+              },
+              {
+                "type": "text",
+                "text": {"fa": "با مسدود کردن کارت:\n• امکان برداشت از خودپرداز وجود نخواهد داشت\n• خرید اینترنتی غیرممکن می‌شود\n• کارت به کارت انجام نمی‌شود\n• در صورت گم شدن یا سرقت، سریعاً با بانک تماس بگیرید", "en": "By blocking this card:\n• ATM withdrawal will be disabled\n• Online purchases will be blocked\n• Card transfers will be disabled\n• Contact the bank immediately if lost or stolen"},
+                "style": "bodySmall"
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "action_buttons",
+        "type": "container",
+        "margin": {"top": 24},
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "conditional",
+              "condition": "{{card.isBlocked}}",
+              "whenTrue": {
+                "type": "elevated_button",
+                "label": {"fa": "رفع مسدودی کارت", "en": "Unblock Card"},
+                "fullWidth": true,
+                "color": "#4CAF50",
+                "loading": "{{isSubmitting}}",
+                "onTap": {
+                  "type": "confirm_dialog",
+                  "title": {"fa": "رفع مسدودی", "en": "Unblock Card"},
+                  "message": {"fa": "کارت فعال شده و قابل استفاده خواهد بود. ادامه می‌دهید؟", "en": "The card will be activated and ready to use. Continue?"},
+                  "confirmLabel": {"fa": "بله، فعال شود", "en": "Yes, Unblock"},
+                  "onConfirm": {
+                    "type": "api_call",
+                    "endpoint": "dibalite/cards/{{cardId}}/unblock",
+                    "method": "POST",
+                    "requireOtp": true,
+                    "onSuccess": {
+                      "type": "navigate_replace",
+                      "route": "/cards/detail/{{cardId}}",
+                      "showSnackbar": {
+                        "message": {"fa": "کارت با موفقیت فعال شد", "en": "Card unblocked successfully"},
+                        "type": "success"
+                      }
+                    }
+                  }
+                }
+              },
+              "whenFalse": {
+                "type": "elevated_button",
+                "label": {"fa": "مسدود کردن کارت", "en": "Block Card"},
+                "fullWidth": true,
+                "color": "#F44336",
+                "loading": "{{isSubmitting}}",
+                "disabled": "{{!blockReason}}",
+                "onTap": {
+                  "type": "confirm_dialog",
+                  "title": {"fa": "مسدودسازی کارت", "en": "Block Card"},
+                  "message": {"fa": "کارت غیرفعال شده و امکان تراکنش نخواهد داشت. ادامه می‌دهید؟", "en": "The card will be deactivated and cannot be used. Continue?"},
+                  "confirmLabel": {"fa": "بله، مسدود شود", "en": "Yes, Block"},
+                  "confirmColor": "#F44336",
+                  "onConfirm": {
+                    "type": "api_call",
+                    "endpoint": "dibalite/cards/{{cardId}}/block",
+                    "method": "POST",
+                    "body": {"reason": "{{blockReason}}"},
+                    "requireOtp": true,
+                    "onSuccess": {
+                      "type": "navigate_replace",
+                      "route": "/cards/detail/{{cardId}}",
+                      "showSnackbar": {
+                        "message": {"fa": "کارت با موفقیت مسدود شد", "en": "Card blocked successfully"},
+                        "type": "warning"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type": "sized_box",
+              "height": 16
+            },
+            {
+              "type": "text_button",
+              "label": {"fa": "تماس با پشتیبانی", "en": "Contact Support"},
+              "icon": "assets/icons/ic_support.svg",
+              "onTap": {
+                "type": "open_url",
+                "url": "tel:02191008500"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  
+  "dataBindings": {
+    "cardId": {"source": "route_param", "key": "cardId"},
+    "card": {"source": "api", "endpoint": "dibalite/cards/{{cardId}}"},
+    "blockReason": {"source": "form", "default": ""},
+    "isSubmitting": {"source": "state", "default": false}
+  },
+  
+  "mockData": {
+    "card": {
+      "id": "CARD-001",
+      "cardNumberMasked": "۵۰۲۲-****-****-۵۶۷۸",
+      "holderName": "علی احمدی",
+      "bankLogo": "assets/images/logo.png",
+      "cardDesign": "pasargad_gold",
+      "isBlocked": false
+    }
+  }
+}
+

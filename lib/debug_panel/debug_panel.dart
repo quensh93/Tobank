@@ -15,8 +15,20 @@ export 'themes/debug_panel_theme.dart';
 
 // Models
 export 'models/device_info.dart';
+export 'models/widget_node.dart';
 
 // Widgets (if needed for external customization)
 export 'widgets/device_preview_tab.dart';
 export 'widgets/logs_tab.dart';
 export 'widgets/accessibility_tab.dart';
+export 'widgets/component_palette.dart';
+export 'widgets/editor_canvas.dart';
+export 'widgets/property_editor.dart';
+// Note: widget_tree_view.dart is disabled
+
+// Screens
+export 'screens/json_playground_screen.dart';
+// Note: visual_editor_screen.dart is disabled
+
+// Data
+export 'data/playground_templates.dart';

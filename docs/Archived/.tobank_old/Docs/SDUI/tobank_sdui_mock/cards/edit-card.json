@@ -1,0 +1,151 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "edit_card",
+  "pageType": "form",
+  "title": {
+    "fa": "ویرایش کارت",
+    "en": "Edit Card"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "edit_card",
+    "screenClass": "EditCardPage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "ویرایش کارت", "en": "Edit Card"},
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "card_preview",
+        "type": "container",
+        "margin": {"bottom": 24},
+        "child": {
+          "type": "bank_card_widget",
+          "cardNumber": "{{card.cardNumberMasked}}",
+          "cardHolder": "{{card.holderName}}",
+          "bankLogo": "{{card.bankLogo}}",
+          "cardDesign": "{{selectedDesign || card.cardDesign}}"
+        }
+      },
+      
+      {
+        "id": "nickname_field",
+        "type": "text_field",
+        "label": {"fa": "نام مستعار کارت", "en": "Card Nickname"},
+        "hint": {"fa": "مثال: کارت حقوق", "en": "e.g. Salary Card"},
+        "icon": "assets/icons/ic_edit.svg",
+        "maxLength": 30,
+        "initialValue": "{{card.nickname}}",
+        "bindTo": "nickname"
+      },
+      
+      {
+        "id": "design_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "طرح کارت", "en": "Card Design"}
+        },
+        "child": {
+          "type": "horizontal_list",
+          "height": 120,
+          "itemSpacing": 12,
+          "dataSource": "availableDesigns",
+          "itemTemplate": {
+            "type": "selectable_card",
+            "width": 180,
+            "selected": "{{(selectedDesign || card.cardDesign) === item.id}}",
+            "child": {
+              "type": "image",
+              "src": "{{item.preview}}",
+              "fit": "cover",
+              "borderRadius": 8
+            },
+            "onTap": {
+              "type": "set_state",
+              "key": "selectedDesign",
+              "value": "{{item.id}}"
+            }
+          }
+        }
+      },
+      
+      {
+        "id": "default_switch",
+        "type": "switch_tile",
+        "margin": {"top": 24},
+        "title": {"fa": "کارت پیش‌فرض", "en": "Default Card"},
+        "subtitle": {"fa": "برای انتقال وجه و پرداخت", "en": "For transfers and payments"},
+        "value": "{{isDefault !== undefined ? isDefault : card.isDefault}}",
+        "bindTo": "isDefault"
+      },
+      
+      {
+        "id": "save_button",
+        "type": "elevated_button",
+        "label": {"fa": "ذخیره تغییرات", "en": "Save Changes"},
+        "fullWidth": true,
+        "margin": {"top": 32},
+        "loading": "{{isSubmitting}}",
+        "onTap": {
+          "type": "api_call",
+          "endpoint": "dibalite/cards/{{cardId}}",
+          "method": "PUT",
+          "body": {
+            "nickname": "{{nickname}}",
+            "design": "{{selectedDesign}}",
+            "isDefault": "{{isDefault}}"
+          },
+          "onSuccess": {
+            "type": "navigate_back",
+            "showSnackbar": {
+              "message": {"fa": "تغییرات ذخیره شد", "en": "Changes saved"},
+              "type": "success"
+            }
+          },
+          "onError": {
+            "type": "show_error",
+            "message": "{{error.message}}"
+          }
+        }
+      }
+    ]
+  },
+  
+  "dataBindings": {
+    "cardId": {"source": "route_param", "key": "cardId"},
+    "card": {"source": "api", "endpoint": "dibalite/cards/{{cardId}}"},
+    "availableDesigns": {"source": "api", "endpoint": "dibalite/cards/designs"},
+    "nickname": {"source": "form", "default": ""},
+    "selectedDesign": {"source": "state", "default": null},
+    "isDefault": {"source": "form", "default": null},
+    "isSubmitting": {"source": "state", "default": false}
+  },
+  
+  "mockData": {
+    "card": {
+      "id": "CARD-001",
+      "cardNumberMasked": "۵۰۲۲-****-****-۵۶۷۸",
+      "holderName": "علی احمدی",
+      "bankLogo": "assets/images/logo.png",
+      "cardDesign": "pasargad_gold",
+      "nickname": "کارت اصلی",
+      "isDefault": true
+    },
+    "availableDesigns": [
+      {"id": "pasargad_gold", "name": "طلایی", "preview": "assets/images/cards/pasargad_gold.png"},
+      {"id": "pasargad_silver", "name": "نقره‌ای", "preview": "assets/images/cards/pasargad_silver.png"},
+      {"id": "pasargad_blue", "name": "آبی", "preview": "assets/images/cards/pasargad_blue.png"},
+      {"id": "pasargad_dark", "name": "مشکی", "preview": "assets/images/cards/pasargad_dark.png"}
+    ]
+  }
+}
+

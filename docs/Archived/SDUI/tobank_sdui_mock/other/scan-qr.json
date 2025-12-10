@@ -1,0 +1,17 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "اسکن QR کد"
+    },
+    "actions": [
+      {
+        "icon": "assets/icons/ic_flash.svg",
+        "color": "#FFFFFF",
+        "onPressed": {}
+      }
+    ]
+  }
+}

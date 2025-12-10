@@ -1,0 +1,38 @@
+---
+description: "Tobank STAC SDUI - AI documentation reference"
+alwaysApply: true
+---
+
+# Tobank STAC SDUI - Base Rules
+
+## 🚨 MANDATORY: Read AI Documentation First
+
+**Before starting ANY task, you MUST read the AI documentation folder:**
+
+**Location**: `docs/AI/`
+
+### Start Here
+
+- **`docs/AI/README.md`** - Main index
+- **`docs/AI/Rules/QUICK_RULES.md`** - **READ THIS FIRST!** One-page quick reference
+- **`docs/AI/Issues/ISSUES_LOG.md`** - **ALWAYS CHECK BEFORE STARTING**
+
+### Core Documentation Files
+
+1. **`docs/AI/PROJECT_OVERVIEW.md`** - Project structure, architecture, key concepts
+2. **`docs/AI/DEVELOPMENT_WORKFLOW.md`** - How to create STAC pages, workflow rules
+3. **`docs/AI/CUSTOM_COMPONENTS.md`** - Creating custom actions and parsers
+4. **`docs/AI/DATA_BINDING_SYSTEM.md`** - Colors, styles, strings system
+5. **`docs/AI/CORE_STAC_STRUCTURE.md`** - Deep dive into `lib/core/stac` structure
+6. **`docs/AI/REFERENCE_LOCATIONS.md`** - Where to find documentation, old code, resources
+7. **`docs/AI/ISSUES_HANDLING.md`** - How to handle issues and use Issues log
+
+### Rules Documentation
+
+- **`docs/AI/Rules/QUICK_RULES.md`** - One-page quick reference (START HERE)
+- **`docs/AI/Rules/README.md`** - Rules index
+- **`docs/AI/Rules/*.md`** - Detailed rules by category
+
+## 📚 Documentation Reference
+
+**The `docs/AI/` folder contains all AI agent documentation. Always read relevant docs before starting tasks.**

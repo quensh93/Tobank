@@ -1,0 +1,131 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-flow",
+  "version": "1.0.0",
+  "flowId": "marriage_loan",
+  "flowType": "loan_application",
+  "title": {
+    "fa": "تسهیلات ازدواج",
+    "en": "Marriage Loan"
+  },
+  "description": {
+    "fa": "درخواست تسهیلات قرض‌الحسنه ازدواج",
+    "en": "Marriage loan application"
+  },
+  "icon": "assets/icons/ic_marriage_loan.svg",
+  "color": "#E91E63",
+  "requiresAuth": true,
+  "analytics": {
+    "flowName": "marriage_loan_application",
+    "flowCategory": "bpms_loan"
+  },
+  
+  "eligibility": {
+    "minAge": 18,
+    "maxAge": 35,
+    "requiredDocuments": ["national_id", "marriage_certificate"],
+    "customerTypes": ["real"],
+    "requiredDeposit": true
+  },
+  
+  "loanDetails": {
+    "type": "gharz_al_hasaneh",
+    "maxAmount": 3000000000,
+    "minAmount": 500000000,
+    "interestRate": 4,
+    "repaymentPeriods": [36, 48, 60],
+    "gracePeriod": 6,
+    "guarantorRequired": true,
+    "collateralType": "salary_assignment"
+  },
+  
+  "steps": [
+    {
+      "id": "rules",
+      "order": 1,
+      "title": {"fa": "قوانین و مقررات", "en": "Terms & Conditions"},
+      "pageRef": "step-01-rules.json",
+      "required": true,
+      "canGoBack": false
+    },
+    {
+      "id": "customer_info",
+      "order": 2,
+      "title": {"fa": "اطلاعات مشتری", "en": "Customer Info"},
+      "pageRef": "step-02-customer-info.json",
+      "required": true,
+      "canGoBack": true,
+      "validationApi": "bpms/marriage-loan/validate-customer"
+    },
+    {
+      "id": "amount_selection",
+      "order": 3,
+      "title": {"fa": "انتخاب مبلغ", "en": "Amount Selection"},
+      "pageRef": "step-03-amount-selection.json",
+      "required": true,
+      "canGoBack": true
+    },
+    {
+      "id": "spouse_info",
+      "order": 4,
+      "title": {"fa": "اطلاعات همسر", "en": "Spouse Info"},
+      "pageRef": "step-04-spouse-info.json",
+      "required": true,
+      "canGoBack": true,
+      "validationApi": "bpms/marriage-loan/validate-spouse"
+    },
+    {
+      "id": "documents",
+      "order": 5,
+      "title": {"fa": "بارگذاری مدارک", "en": "Upload Documents"},
+      "pageRef": "step-05-documents.json",
+      "required": true,
+      "canGoBack": true
+    },
+    {
+      "id": "guarantor",
+      "order": 6,
+      "title": {"fa": "اطلاعات ضامن", "en": "Guarantor Info"},
+      "pageRef": "step-06-guarantor.json",
+      "required": true,
+      "canGoBack": true,
+      "validationApi": "bpms/marriage-loan/validate-guarantor"
+    },
+    {
+      "id": "contract",
+      "order": 7,
+      "title": {"fa": "امضای قرارداد", "en": "Sign Contract"},
+      "pageRef": "step-07-contract.json",
+      "required": true,
+      "canGoBack": false,
+      "requireEkycSign": true
+    },
+    {
+      "id": "completion",
+      "order": 8,
+      "title": {"fa": "اتمام فرآیند", "en": "Completion"},
+      "pageRef": "step-08-completion.json",
+      "required": true,
+      "canGoBack": false,
+      "isFinal": true
+    }
+  ],
+  
+  "statusFlow": {
+    "statuses": [
+      {"id": "draft", "label": {"fa": "پیش‌نویس", "en": "Draft"}, "color": "#9E9E9E"},
+      {"id": "pending_review", "label": {"fa": "در انتظار بررسی", "en": "Pending Review"}, "color": "#FF9800"},
+      {"id": "document_required", "label": {"fa": "نیاز به مدارک", "en": "Documents Required"}, "color": "#F44336"},
+      {"id": "approved", "label": {"fa": "تایید شده", "en": "Approved"}, "color": "#4CAF50"},
+      {"id": "disbursed", "label": {"fa": "واریز شده", "en": "Disbursed"}, "color": "#2196F3"},
+      {"id": "rejected", "label": {"fa": "رد شده", "en": "Rejected"}, "color": "#F44336"}
+    ]
+  },
+  
+  "api": {
+    "baseEndpoint": "bpms/marriage-loan",
+    "submitEndpoint": "bpms/marriage-loan/submit",
+    "statusEndpoint": "bpms/marriage-loan/status",
+    "taskListEndpoint": "bpms/marriage-loan/tasks"
+  }
+}
+

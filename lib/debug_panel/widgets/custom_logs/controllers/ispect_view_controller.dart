@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ispect/ispect.dart' hide LogsJsonService, LogsFileFactory;
-import 'package:ispectify/ispectify.dart';
 import '../services/logs_json_service.dart' as custom;
 import '../services/logs_file_factory.dart' as custom;
 

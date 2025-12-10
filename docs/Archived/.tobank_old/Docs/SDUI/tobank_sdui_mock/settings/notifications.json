@@ -1,0 +1,69 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "notification_settings",
+  "title": {"fa": "اعلان‌ها", "en": "Notifications"},
+  
+  "appBar": {"type": "standard", "title": {"fa": "تنظیمات اعلان", "en": "Notification Settings"}},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "section", "header": {"title": {"fa": "کانال‌های اعلان", "en": "Notification Channels"}}, "child": {"type": "card", "child": {"type": "column", "children": [
+        {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_notifications.svg", "color": "#2196F3"}, "title": {"fa": "نوتیفیکیشن پوش", "en": "Push Notifications"}, "subtitle": {"fa": "اعلان در گوشی", "en": "Mobile notifications"}, "trailing": {"type": "switch", "value": "{{notifications.push}}", "onChanged": {"type": "toggle_notification", "channel": "push"}}},
+        {"type": "divider", "indent": 56},
+        {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_sms.svg", "color": "#4CAF50"}, "title": {"fa": "پیامک", "en": "SMS"}, "subtitle": {"fa": "پیامک به {{user.mobile}}", "en": "SMS to {{user.mobile}}"}, "trailing": {"type": "switch", "value": "{{notifications.sms}}", "onChanged": {"type": "toggle_notification", "channel": "sms"}}},
+        {"type": "divider", "indent": 56},
+        {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_email.svg", "color": "#FF9800"}, "title": {"fa": "ایمیل", "en": "Email"}, "subtitle": {"fa": "ایمیل به {{user.email}}", "en": "Email to {{user.email}}"}, "trailing": {"type": "switch", "value": "{{notifications.email}}", "onChanged": {"type": "toggle_notification", "channel": "email"}}}
+      ]}}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "نوع اعلان‌ها", "en": "Notification Types"}}, "child": {"type": "card", "child": {"type": "column", "children": [
+        {"type": "list_tile", "title": {"fa": "تراکنش‌ها", "en": "Transactions"}, "subtitle": {"fa": "واریز، برداشت، خرید", "en": "Deposits, withdrawals, purchases"}, "trailing": {"type": "switch", "value": "{{notifications.transactions}}", "onChanged": {"type": "toggle_notification", "type": "transactions"}}},
+        {"type": "divider", "indent": 16},
+        {"type": "list_tile", "title": {"fa": "اقساط وام", "en": "Loan Installments"}, "subtitle": {"fa": "یادآوری سررسید اقساط", "en": "Payment due reminders"}, "trailing": {"type": "switch", "value": "{{notifications.loanReminders}}", "onChanged": {"type": "toggle_notification", "type": "loanReminders"}}},
+        {"type": "divider", "indent": 16},
+        {"type": "list_tile", "title": {"fa": "امنیتی", "en": "Security"}, "subtitle": {"fa": "ورود، تغییرات امنیتی", "en": "Logins, security changes"}, "trailing": {"type": "switch", "value": "{{notifications.security}}", "onChanged": {"type": "toggle_notification", "type": "security"}}},
+        {"type": "divider", "indent": 16},
+        {"type": "list_tile", "title": {"fa": "تبلیغات", "en": "Promotions"}, "subtitle": {"fa": "پیشنهادات ویژه", "en": "Special offers"}, "trailing": {"type": "switch", "value": "{{notifications.promotions}}", "onChanged": {"type": "toggle_notification", "type": "promotions"}}},
+        {"type": "divider", "indent": 16},
+        {"type": "list_tile", "title": {"fa": "اخبار و رویدادها", "en": "News & Updates"}, "subtitle": {"fa": "اخبار بانک و خدمات جدید", "en": "Bank news and new services"}, "trailing": {"type": "switch", "value": "{{notifications.news}}", "onChanged": {"type": "toggle_notification", "type": "news"}}}
+      ]}}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "ساعت سکوت", "en": "Quiet Hours"}}, "child": {"type": "card", "child": {"type": "column", "children": [
+        {"type": "list_tile", "title": {"fa": "فعال‌سازی", "en": "Enable"}, "subtitle": {"fa": "عدم اعلان در ساعات مشخص", "en": "No notifications during set hours"}, "trailing": {"type": "switch", "value": "{{notifications.quietHoursEnabled}}", "onChanged": {"type": "toggle_notification", "type": "quietHours"}}},
+        {"type": "conditional", "condition": "{{notifications.quietHoursEnabled}}", "whenTrue": {"type": "column", "children": [
+          {"type": "divider", "indent": 16},
+          {"type": "list_tile", "title": {"fa": "از ساعت", "en": "From"}, "trailing": {"type": "text", "text": "{{notifications.quietStart}}"}, "onTap": {"type": "show_time_picker", "bindTo": "notifications.quietStart"}},
+          {"type": "divider", "indent": 16},
+          {"type": "list_tile", "title": {"fa": "تا ساعت", "en": "To"}, "trailing": {"type": "text", "text": "{{notifications.quietEnd}}"}, "onTap": {"type": "show_time_picker", "bindTo": "notifications.quietEnd"}}
+        ]}}
+      ]}}},
+      
+      {"type": "sized_box", "height": 32}
+    ]
+  },
+  
+  "dataBindings": {
+    "user": {"source": "api", "endpoint": "dibalite/customer/profile"},
+    "notifications": {"source": "api", "endpoint": "notifications/settings"}
+  },
+  
+  "mockData": {
+    "user": {"mobile": "۰۹۱۲۳۴۵۶۷۸۹", "email": "ali@email.com"},
+    "notifications": {
+      "push": true,
+      "sms": true,
+      "email": false,
+      "transactions": true,
+      "loanReminders": true,
+      "security": true,
+      "promotions": false,
+      "news": false,
+      "quietHoursEnabled": true,
+      "quietStart": "۲۲:۰۰",
+      "quietEnd": "۰۷:۰۰"
+    }
+  }
+}
+

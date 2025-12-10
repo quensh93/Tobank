@@ -1,0 +1,133 @@
+{
+  "$schema": "tobank-sdui/v1/formatter-library",
+  "version": "1.0.0",
+  "description": "Data formatting functions for display",
+  
+  "formatters": {
+    "formatCurrency": {
+      "description": "Format number as currency",
+      "parameters": {
+        "value": {"type": "number", "required": true},
+        "currency": {"type": "string", "default": "IRR"},
+        "showSymbol": {"type": "boolean", "default": false},
+        "locale": {"type": "string", "default": "fa-IR"}
+      },
+      "examples": [
+        {"input": 1000000, "output": "۱,۰۰۰,۰۰۰"},
+        {"input": 50000000, "output": "۵۰,۰۰۰,۰۰۰"}
+      ]
+    },
+    
+    "formatCardNumber": {
+      "description": "Format card number with mask",
+      "parameters": {
+        "value": {"type": "string", "required": true},
+        "mask": {"type": "boolean", "default": true},
+        "separator": {"type": "string", "default": "-"}
+      },
+      "examples": [
+        {"input": "6037991234561234", "output": "۶۰۳۷-****-****-۱۲۳۴"}
+      ]
+    },
+    
+    "formatIban": {
+      "description": "Format IBAN with spaces",
+      "parameters": {
+        "value": {"type": "string", "required": true}
+      },
+      "examples": [
+        {"input": "IR270570010812345678901", "output": "IR۲۷ ۰۵۷۰ ۰۱۰۸ ۱۲۳۴ ۵۶۷۸ ۹۰۱"}
+      ]
+    },
+    
+    "formatMobile": {
+      "description": "Format mobile number",
+      "parameters": {
+        "value": {"type": "string", "required": true},
+        "mask": {"type": "boolean", "default": false}
+      },
+      "examples": [
+        {"input": "09123456789", "output": "۰۹۱۲-۳۴۵-۶۷۸۹"},
+        {"input": "09123456789", "mask": true, "output": "۰۹۱۲***۶۷۸۹"}
+      ]
+    },
+    
+    "formatDate": {
+      "description": "Format date in Jalali calendar",
+      "parameters": {
+        "value": {"type": "string", "required": true},
+        "format": {"type": "string", "default": "YYYY/MM/DD"},
+        "relative": {"type": "boolean", "default": false}
+      },
+      "examples": [
+        {"input": "2024-11-25", "output": "۱۴۰۳/۰۹/۰۵"},
+        {"input": "2024-11-25", "relative": true, "output": "امروز"}
+      ]
+    },
+    
+    "formatTime": {
+      "description": "Format time",
+      "parameters": {
+        "value": {"type": "string", "required": true},
+        "format": {"type": "string", "default": "HH:mm"}
+      },
+      "examples": [
+        {"input": "14:30:00", "output": "۱۴:۳۰"}
+      ]
+    },
+    
+    "formatRelativeTime": {
+      "description": "Format as relative time",
+      "parameters": {
+        "value": {"type": "string", "required": true}
+      },
+      "examples": [
+        {"input": "2024-11-25T10:00:00", "output": "۵ دقیقه پیش"},
+        {"input": "2024-11-24T10:00:00", "output": "دیروز"}
+      ]
+    },
+    
+    "formatNumber": {
+      "description": "Format number with Persian digits",
+      "parameters": {
+        "value": {"type": "number", "required": true},
+        "decimals": {"type": "number", "default": 0}
+      },
+      "examples": [
+        {"input": 12345, "output": "۱۲,۳۴۵"}
+      ]
+    },
+    
+    "formatPercent": {
+      "description": "Format as percentage",
+      "parameters": {
+        "value": {"type": "number", "required": true},
+        "decimals": {"type": "number", "default": 0}
+      },
+      "examples": [
+        {"input": 0.23, "output": "۲۳٪"},
+        {"input": 0.185, "decimals": 1, "output": "۱۸.۵٪"}
+      ]
+    },
+    
+    "amountInWords": {
+      "description": "Convert amount to Persian words",
+      "parameters": {
+        "value": {"type": "number", "required": true}
+      },
+      "examples": [
+        {"input": 5000000, "output": "پنج میلیون ریال"},
+        {"input": 1250000, "output": "یک میلیون و دویست و پنجاه هزار ریال"}
+      ]
+    },
+    
+    "truncate": {
+      "description": "Truncate string with ellipsis",
+      "parameters": {
+        "value": {"type": "string", "required": true},
+        "length": {"type": "number", "default": 50}
+      }
+    }
+  }
+}
+

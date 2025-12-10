@@ -1,0 +1,21 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "تسهیلات ازدواج"
+    },
+    "actions": [
+      {
+        "id": "close",
+        "icon": "assets/icons/ic_close.svg",
+        "onPressed": {
+          "actionType": "navigate",
+          "replacement": true,
+          "path": "/home"
+        }
+      }
+    ]
+  }
+}

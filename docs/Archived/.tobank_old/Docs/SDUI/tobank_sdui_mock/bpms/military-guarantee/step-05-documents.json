@@ -1,0 +1,84 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "military_documents",
+  "flowId": "military_guarantee",
+  "stepNumber": 5,
+  "title": {"fa": "بارگذاری مدارک", "en": "Upload Documents"},
+  
+  "appBar": {"type": "bpms_stepper", "title": {"fa": "ضمانت‌نامه نظام وظیفه", "en": "Military Guarantee"}, "currentStep": 5, "totalSteps": 7},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "type": "section",
+        "header": {"title": {"fa": "مدارک هویتی", "en": "Identity Documents"}},
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "document_upload", "title": {"fa": "کارت ملی", "en": "National ID"}, "required": true, "maxFiles": 2, "bindTo": "nationalIdDocs"},
+            {"type": "document_upload", "title": {"fa": "شناسنامه", "en": "Birth Certificate"}, "required": true, "maxFiles": 2, "bindTo": "birthCertDocs", "margin": {"top": 16}}
+          ]
+        }
+      },
+      
+      {
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {"title": {"fa": "مدارک نظام وظیفه", "en": "Military Documents"}},
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "document_upload", "title": {"fa": "کارت معافیت موقت", "en": "Temporary Exemption Card"}, "required": true, "bindTo": "exemptionCardDocs"},
+            {"type": "document_upload", "title": {"fa": "نامه درخواست ضمانت‌نامه", "en": "Guarantee Request Letter"}, "description": {"fa": "از سازمان نظام وظیفه", "en": "From military organization"}, "required": true, "bindTo": "requestLetterDocs", "margin": {"top": 16}}
+          ]
+        }
+      },
+      
+      {
+        "type": "conditional",
+        "condition": "{{guaranteeType === 'education'}}",
+        "whenTrue": {
+          "type": "section",
+          "margin": {"top": 24},
+          "header": {"title": {"fa": "مدارک تحصیلی", "en": "Education Documents"}},
+          "child": {
+            "type": "column",
+            "children": [
+              {"type": "document_upload", "title": {"fa": "گواهی اشتغال به تحصیل", "en": "Enrollment Certificate"}, "required": true, "bindTo": "enrollmentDocs"},
+              {"type": "document_upload", "title": {"fa": "کارت دانشجویی", "en": "Student ID"}, "bindTo": "studentIdDocs", "margin": {"top": 16}}
+            ]
+          }
+        }
+      },
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "child": {
+      "type": "row",
+      "children": [
+        {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "قبلی", "en": "Back"}, "onTap": {"type": "navigate_back"}}},
+        {"type": "sized_box", "width": 16},
+        {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "بعدی", "en": "Next"}, "onTap": {"type": "navigate", "route": "/bpms/military-guarantee/step-06"}}}
+      ]
+    }
+  },
+  
+  "dataBindings": {
+    "guaranteeType": {"source": "route_param", "key": "guaranteeType"},
+    "nationalIdDocs": {"source": "form", "default": []},
+    "birthCertDocs": {"source": "form", "default": []},
+    "exemptionCardDocs": {"source": "form", "default": []},
+    "requestLetterDocs": {"source": "form", "default": []},
+    "enrollmentDocs": {"source": "form", "default": []},
+    "studentIdDocs": {"source": "form", "default": []}
+  }
+}
+

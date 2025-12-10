@@ -1,0 +1,367 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "c2c_result",
+  "pageType": "result",
+  "title": {
+    "fa": "نتیجه انتقال",
+    "en": "Transfer Result"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "c2c_result",
+    "screenClass": "CardToCardResultPage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "نتیجه انتقال", "en": "Transfer Result"},
+    "showBackButton": false,
+    "actions": [
+      {
+        "id": "close",
+        "icon": "assets/icons/ic_close.svg",
+        "onTap": {
+          "type": "navigate_replace",
+          "route": "/home"
+        }
+      }
+    ]
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "children": [
+      {
+        "id": "result_header",
+        "type": "container",
+        "padding": 32,
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "conditional",
+              "condition": "{{success}}",
+              "whenTrue": {
+                "type": "lottie",
+                "asset": "assets/animations/success.json",
+                "width": 150,
+                "height": 150,
+                "repeat": false
+              },
+              "whenFalse": {
+                "type": "lottie",
+                "asset": "assets/animations/error.json",
+                "width": 150,
+                "height": 150,
+                "repeat": false
+              }
+            },
+            {
+              "type": "sized_box",
+              "height": 16
+            },
+            {
+              "type": "text",
+              "text": "{{success ? {'fa': 'انتقال موفق', 'en': 'Transfer Successful'} : {'fa': 'انتقال ناموفق', 'en': 'Transfer Failed'}}}",
+              "style": "headlineSmall",
+              "color": "{{success ? '#4CAF50' : '#F44336'}}",
+              "textAlign": "center"
+            },
+            {
+              "type": "conditional",
+              "condition": "{{!success}}",
+              "whenTrue": {
+                "type": "container",
+                "margin": {"top": 8},
+                "child": {
+                  "type": "text",
+                  "text": "{{errorMessage}}",
+                  "style": "bodyMedium",
+                  "color": "textSecondary",
+                  "textAlign": "center"
+                }
+              }
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "amount_display",
+        "type": "conditional",
+        "condition": "{{success}}",
+        "whenTrue": {
+          "type": "container",
+          "padding": {"horizontal": 16},
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "text",
+                "text": "{{formatCurrency(amount)}}",
+                "style": "displaySmall",
+                "textAlign": "center"
+              },
+              {
+                "type": "text",
+                "text": {"fa": "ریال", "en": "Rials"},
+                "style": "titleMedium",
+                "color": "textSecondary",
+                "textAlign": "center"
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "transaction_details",
+        "type": "conditional",
+        "condition": "{{success}}",
+        "whenTrue": {
+          "type": "card",
+          "margin": {"horizontal": 16, "top": 24},
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "info_row",
+                "label": {"fa": "شماره پیگیری", "en": "Reference Number"},
+                "value": "{{referenceNumber}}",
+                "copyable": true
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "label": {"fa": "از کارت", "en": "From Card"},
+                "value": "{{sourceCard}}"
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "label": {"fa": "به کارت", "en": "To Card"},
+                "value": "{{destinationCard}}"
+              },
+              {
+                "type": "conditional",
+                "condition": "{{destinationOwner}}",
+                "whenTrue": {
+                  "type": "column",
+                  "children": [
+                    {"type": "divider"},
+                    {
+                      "type": "info_row",
+                      "label": {"fa": "دارنده کارت", "en": "Card Holder"},
+                      "value": "{{destinationOwner}}"
+                    }
+                  ]
+                }
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "label": {"fa": "تاریخ", "en": "Date"},
+                "value": "{{date}}"
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "label": {"fa": "ساعت", "en": "Time"},
+                "value": "{{time}}"
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "error_details",
+        "type": "conditional",
+        "condition": "{{!success}}",
+        "whenTrue": {
+          "type": "card",
+          "margin": {"horizontal": 16, "top": 16},
+          "borderColor": "#FFCDD2",
+          "child": {
+            "type": "column",
+            "padding": 16,
+            "children": [
+              {
+                "type": "row",
+                "children": [
+                  {
+                    "type": "icon",
+                    "icon": "assets/icons/ic_error.svg",
+                    "color": "#F44336",
+                    "size": 24
+                  },
+                  {
+                    "type": "sized_box",
+                    "width": 12
+                  },
+                  {
+                    "type": "text",
+                    "text": {"fa": "علت خطا", "en": "Error Reason"},
+                    "style": "titleSmall",
+                    "color": "#F44336"
+                  }
+                ]
+              },
+              {
+                "type": "sized_box",
+                "height": 8
+              },
+              {
+                "type": "text",
+                "text": "{{errorMessage}}",
+                "style": "bodyMedium"
+              },
+              {
+                "type": "conditional",
+                "condition": "{{errorCode}}",
+                "whenTrue": {
+                  "type": "text",
+                  "text": "کد خطا: {{errorCode}}",
+                  "style": "bodySmall",
+                  "color": "textSecondary",
+                  "margin": {"top": 8}
+                }
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "share_section",
+        "type": "conditional",
+        "condition": "{{success}}",
+        "whenTrue": {
+          "type": "container",
+          "padding": 16,
+          "margin": {"top": 16},
+          "child": {
+            "type": "row",
+            "mainAxisAlignment": "spaceEvenly",
+            "children": [
+              {
+                "type": "icon_button_column",
+                "icon": "assets/icons/ic_share.svg",
+                "label": {"fa": "اشتراک‌گذاری", "en": "Share"},
+                "onTap": {
+                  "type": "share",
+                  "text": "انتقال {{formatCurrency(amount)}} ریال به کارت {{destinationCard}} با موفقیت انجام شد.\nشماره پیگیری: {{referenceNumber}}"
+                }
+              },
+              {
+                "type": "icon_button_column",
+                "icon": "assets/icons/ic_download.svg",
+                "label": {"fa": "دانلود رسید", "en": "Download"},
+                "onTap": {
+                  "type": "download_receipt",
+                  "transactionId": "{{transactionId}}"
+                }
+              },
+              {
+                "type": "icon_button_column",
+                "icon": "assets/icons/ic_repeat.svg",
+                "label": {"fa": "تکرار انتقال", "en": "Repeat"},
+                "onTap": {
+                  "type": "navigate",
+                  "route": "/transfer/card-to-card/amount",
+                  "params": {
+                    "sourceCardId": "{{sourceCardId}}",
+                    "destinationCardNumber": "{{destinationCardNumber}}",
+                    "destinationOwner": "{{destinationOwner}}"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "bottom_spacing",
+        "type": "sized_box",
+        "height": 120
+      }
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "decoration": {
+      "color": "surface",
+      "boxShadow": "0 -2px 8px rgba(0,0,0,0.1)"
+    },
+    "child": {
+      "type": "column",
+      "children": [
+        {
+          "type": "conditional",
+          "condition": "{{success}}",
+          "whenTrue": {
+            "type": "elevated_button",
+            "label": {"fa": "انتقال جدید", "en": "New Transfer"},
+            "fullWidth": true,
+            "onTap": {
+              "type": "navigate_replace",
+              "route": "/transfer/card-to-card"
+            }
+          },
+          "whenFalse": {
+            "type": "elevated_button",
+            "label": {"fa": "تلاش مجدد", "en": "Try Again"},
+            "fullWidth": true,
+            "onTap": {
+              "type": "navigate_back"
+            }
+          }
+        },
+        {
+          "type": "sized_box",
+          "height": 8
+        },
+        {
+          "type": "outlined_button",
+          "label": {"fa": "بازگشت به خانه", "en": "Back to Home"},
+          "fullWidth": true,
+          "onTap": {
+            "type": "navigate_replace",
+            "route": "/home"
+          }
+        }
+      ]
+    }
+  },
+  
+  "dataBindings": {
+    "success": {"source": "route_param", "key": "success", "transform": "boolean"},
+    "transactionId": {"source": "route_param", "key": "transactionId"},
+    "referenceNumber": {"source": "route_param", "key": "referenceNumber"},
+    "amount": {"source": "route_param", "key": "amount", "transform": "number"},
+    "sourceCard": {"source": "route_param", "key": "sourceCard"},
+    "destinationCard": {"source": "route_param", "key": "destinationCard"},
+    "destinationOwner": {"source": "route_param", "key": "destinationOwner"},
+    "date": {"source": "route_param", "key": "date"},
+    "time": {"source": "route_param", "key": "time"},
+    "errorMessage": {"source": "route_param", "key": "errorMessage"},
+    "errorCode": {"source": "route_param", "key": "errorCode"}
+  },
+  
+  "mockData": {
+    "success": true,
+    "transactionId": "TRX-123456789",
+    "referenceNumber": "۹۸۷۶۵۴۳۲۱۰",
+    "amount": 25000000,
+    "sourceCard": "۵۰۲۲-****-****-۵۶۷۸",
+    "destinationCard": "۶۲۱۹-****-****-۵۶۷۸",
+    "destinationOwner": "محمد رضایی",
+    "date": "۱۴۰۳/۰۹/۰۵",
+    "time": "۱۴:۳۲:۴۵"
+  }
+}
+

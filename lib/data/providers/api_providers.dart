@@ -58,7 +58,7 @@ Dio dio(Ref ref) {
     try {
       // ISpect.logger is available globally after ISpect.run() is called
       // Insert after network simulator
-      final insertIndex = dio.interceptors.length > 0 ? 1 : 0;
+      final insertIndex = dio.interceptors.isNotEmpty ? 1 : 0;
       dio.interceptors.insert(
         insertIndex,
         ISpectDioInterceptor(

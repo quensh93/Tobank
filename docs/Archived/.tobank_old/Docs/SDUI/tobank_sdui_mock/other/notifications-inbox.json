@@ -1,0 +1,51 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "notifications_inbox",
+  "title": {"fa": "اعلان‌ها", "en": "Notifications"},
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "اعلان‌ها", "en": "Notifications"},
+    "actions": [
+      {"icon": "assets/icons/ic_check_all.svg", "tooltip": {"fa": "خواندن همه", "en": "Mark all read"}, "onTap": {"type": "api_call", "endpoint": "notifications/mark-all-read", "method": "POST"}},
+      {"icon": "assets/icons/ic_settings.svg", "onTap": {"type": "navigate", "route": "/settings/notifications"}}
+    ]
+  },
+  
+  "body": {
+    "type": "column",
+    "children": [
+      {"type": "container", "padding": {"horizontal": 16, "vertical": 8}, "child": {"type": "row", "children": [
+        {"type": "expanded", "child": {"type": "filter_chip", "label": {"fa": "همه", "en": "All"}, "selected": "{{filter === 'all'}}", "onTap": {"type": "set_state", "key": "filter", "value": "all"}}},
+        {"type": "sized_box", "width": 8},
+        {"type": "expanded", "child": {"type": "filter_chip", "label": {"fa": "خوانده نشده", "en": "Unread"}, "badge": "{{unreadCount}}", "selected": "{{filter === 'unread'}}", "onTap": {"type": "set_state", "key": "filter", "value": "unread"}}},
+        {"type": "sized_box", "width": 8},
+        {"type": "expanded", "child": {"type": "filter_chip", "label": {"fa": "مهم", "en": "Important"}, "selected": "{{filter === 'important'}}", "onTap": {"type": "set_state", "key": "filter", "value": "important"}}}
+      ]}},
+      
+      {"type": "expanded", "child": {
+        "type": "conditional",
+        "condition": "{{filteredNotifications.length > 0}}",
+        "whenTrue": {"type": "grouped_list_view", "groupBy": "dateGroup", "children": "{{filteredNotifications}}", "groupHeaderBuilder": {"type": "container", "padding": {"horizontal": 16, "vertical": 8}, "child": {"type": "text", "text": "{{group.key}}", "style": "titleSmall", "color": "textSecondary"}}, "itemBuilder": {"type": "dismissible", "direction": "endToStart", "background": {"type": "container", "color": "#F44336", "alignment": "centerRight", "padding": {"right": 20}, "child": {"type": "icon", "icon": "assets/icons/ic_delete.svg", "color": "#FFFFFF"}}, "onDismissed": {"type": "api_call", "endpoint": "notifications/{{item.id}}", "method": "DELETE"}, "child": {"type": "list_tile", "leading": {"type": "container", "width": 48, "height": 48, "decoration": {"color": "{{item.color}}20", "borderRadius": 24}, "alignment": "center", "child": {"type": "icon", "icon": "{{item.icon}}", "color": "{{item.color}}"}}, "title": {"type": "row", "children": [{"type": "expanded", "child": {"type": "text", "text": "{{item.title}}"}}, {"type": "conditional", "condition": "{{!item.read}}", "whenTrue": {"type": "container", "width": 8, "height": 8, "decoration": {"color": "#2196F3", "borderRadius": 4}}}]}, "subtitle": {"type": "column", "crossAxisAlignment": "start", "margin": {"top": 4}, "children": [{"type": "text", "text": "{{item.body}}", "style": "bodySmall", "color": "textSecondary", "maxLines": 2}, {"type": "text", "text": "{{item.time}}", "style": "caption", "color": "textSecondary", "margin": {"top": 4}}]}, "tileColor": "{{item.read ? 'transparent' : 'primary10'}}", "onTap": {"type": "sequence", "actions": [{"type": "api_call", "endpoint": "notifications/{{item.id}}/read", "method": "POST"}, {"type": "conditional", "condition": "{{item.action}}", "whenTrue": {"type": "navigate", "route": "{{item.action}}"}}]}}}}},
+        "whenFalse": {"type": "empty_state", "icon": "assets/icons/ic_notifications.svg", "title": {"fa": "اعلانی ندارید", "en": "No notifications"}}
+      }}
+    ]
+  },
+  
+  "dataBindings": {
+    "notifications": {"source": "api", "endpoint": "notifications"},
+    "unreadCount": {"source": "computed", "formula": "notifications.filter(n => !n.read).length"},
+    "filter": {"source": "state", "default": "all"},
+    "filteredNotifications": {"source": "computed", "formula": "filterNotifications(notifications, filter)"}
+  },
+  
+  "mockData": {
+    "notifications": [
+      {"id": "n1", "title": "واریز موفق", "body": "مبلغ ۱۵,۰۰۰,۰۰۰ ریال به حساب شما واریز شد", "icon": "assets/icons/ic_deposit.svg", "color": "#4CAF50", "time": "۵ دقیقه پیش", "dateGroup": "امروز", "read": false, "important": true, "action": "/transactions/detail?id=tx123"},
+      {"id": "n2", "title": "یادآوری قسط", "body": "قسط وام شما به مبلغ ۹۴,۰۰۰,۰۰۰ ریال فردا سررسید می‌شود", "icon": "assets/icons/ic_calendar.svg", "color": "#FF9800", "time": "۲ ساعت پیش", "dateGroup": "امروز", "read": false, "important": true, "action": "/loans/detail?id=loan1"},
+      {"id": "n3", "title": "ورود جدید", "body": "ورود جدید از دستگاه iPhone 14 در تهران", "icon": "assets/icons/ic_security.svg", "color": "#2196F3", "time": "دیروز ۱۵:۳۰", "dateGroup": "دیروز", "read": true, "important": false, "action": "/settings/devices"}
+    ]
+  }
+}
+

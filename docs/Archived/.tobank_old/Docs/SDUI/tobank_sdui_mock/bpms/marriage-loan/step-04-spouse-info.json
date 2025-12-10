@@ -1,0 +1,274 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "marriage_loan_spouse",
+  "flowId": "marriage_loan",
+  "stepNumber": 4,
+  "title": {
+    "fa": "اطلاعات همسر",
+    "en": "Spouse Information"
+  },
+  
+  "appBar": {
+    "type": "bpms_stepper",
+    "title": {"fa": "تسهیلات ازدواج", "en": "Marriage Loan"},
+    "currentStep": 4,
+    "totalSteps": 8,
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "spouse_personal_section",
+        "type": "section",
+        "header": {
+          "title": {"fa": "اطلاعات شخصی همسر", "en": "Spouse Personal Info"},
+          "icon": "assets/icons/ic_profile.svg"
+        },
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "text_field",
+              "label": {"fa": "نام همسر", "en": "Spouse First Name"},
+              "icon": "assets/icons/ic_profile.svg",
+              "bindTo": "spouseFirstName",
+              "validation": {"required": true}
+            },
+            {
+              "type": "text_field",
+              "label": {"fa": "نام خانوادگی همسر", "en": "Spouse Last Name"},
+              "margin": {"top": 16},
+              "bindTo": "spouseLastName",
+              "validation": {"required": true}
+            },
+            {
+              "type": "text_field",
+              "label": {"fa": "کد ملی همسر", "en": "Spouse National ID"},
+              "margin": {"top": 16},
+              "icon": "assets/icons/ic_card.svg",
+              "keyboardType": "number",
+              "maxLength": 10,
+              "bindTo": "spouseNationalId",
+              "validation": {"required": true, "pattern": "^[0-9]{10}$"}
+            },
+            {
+              "type": "date_picker_field",
+              "label": {"fa": "تاریخ تولد همسر", "en": "Spouse Birth Date"},
+              "margin": {"top": 16},
+              "calendar": "jalali",
+              "maxDate": "{{today}}",
+              "bindTo": "spouseBirthDate",
+              "validation": {"required": true}
+            },
+            {
+              "type": "text_field",
+              "label": {"fa": "نام پدر همسر", "en": "Spouse Father's Name"},
+              "margin": {"top": 16},
+              "bindTo": "spouseFatherName",
+              "validation": {"required": true}
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "marriage_info_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "اطلاعات ازدواج", "en": "Marriage Information"},
+          "icon": "assets/icons/ic_marriage.svg"
+        },
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "date_picker_field",
+              "label": {"fa": "تاریخ ازدواج", "en": "Marriage Date"},
+              "calendar": "jalali",
+              "maxDate": "{{today}}",
+              "bindTo": "marriageDate",
+              "validation": {"required": true}
+            },
+            {
+              "type": "text_field",
+              "label": {"fa": "شماره ثبت ازدواج", "en": "Marriage Registration No."},
+              "margin": {"top": 16},
+              "keyboardType": "number",
+              "bindTo": "marriageRegistrationNo",
+              "validation": {"required": true}
+            },
+            {
+              "type": "text_field",
+              "label": {"fa": "محل ثبت ازدواج", "en": "Marriage Registration Office"},
+              "margin": {"top": 16},
+              "hint": {"fa": "نام دفترخانه و شهر", "en": "Office name and city"},
+              "bindTo": "marriageOffice",
+              "validation": {"required": true}
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "spouse_contact_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "اطلاعات تماس همسر", "en": "Spouse Contact Info"},
+          "icon": "assets/icons/ic_phone.svg"
+        },
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "text_field",
+              "label": {"fa": "شماره موبایل همسر", "en": "Spouse Mobile"},
+              "icon": "assets/icons/ic_phone.svg",
+              "keyboardType": "phone",
+              "maxLength": 11,
+              "bindTo": "spouseMobile",
+              "validation": {"required": true, "pattern": "^09[0-9]{9}$"}
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "spouse_employment_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "اطلاعات شغلی همسر", "en": "Spouse Employment"},
+          "icon": "assets/icons/ic_work.svg"
+        },
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "dropdown_field",
+              "label": {"fa": "وضعیت شغلی همسر", "en": "Spouse Employment Status"},
+              "options": [
+                {"value": "employed", "label": {"fa": "شاغل", "en": "Employed"}},
+                {"value": "housewife", "label": {"fa": "خانه‌دار", "en": "Housewife"}},
+                {"value": "student", "label": {"fa": "دانشجو", "en": "Student"}},
+                {"value": "retired", "label": {"fa": "بازنشسته", "en": "Retired"}}
+              ],
+              "bindTo": "spouseEmploymentStatus",
+              "validation": {"required": true}
+            },
+            {
+              "type": "conditional",
+              "condition": "{{spouseEmploymentStatus === 'employed'}}",
+              "whenTrue": {
+                "type": "column",
+                "children": [
+                  {
+                    "type": "text_field",
+                    "label": {"fa": "نام محل کار همسر", "en": "Spouse Employer"},
+                    "margin": {"top": 16},
+                    "bindTo": "spouseEmployer"
+                  },
+                  {
+                    "type": "currency_field",
+                    "label": {"fa": "درآمد ماهیانه همسر (ریال)", "en": "Spouse Monthly Income"},
+                    "margin": {"top": 16},
+                    "currency": "IRR",
+                    "showToman": true,
+                    "bindTo": "spouseIncome"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "warning_card",
+        "type": "card",
+        "margin": {"top": 24},
+        "padding": 16,
+        "backgroundColor": "#FFF3E0",
+        "child": {
+          "type": "row",
+          "children": [
+            {
+              "type": "icon",
+              "icon": "assets/icons/ic_warning.svg",
+              "color": "#FF9800",
+              "size": 24
+            },
+            {"type": "sized_box", "width": 12},
+            {
+              "type": "expanded",
+              "child": {
+                "type": "text",
+                "text": {"fa": "اطلاعات وارد شده با مدارک ارسالی مطابقت داده خواهد شد. لطفاً از صحت اطلاعات اطمینان حاصل فرمایید.", "en": "Information will be verified with submitted documents."},
+                "style": "bodySmall"
+              }
+            }
+          ]
+        }
+      },
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "decoration": {"color": "surface", "boxShadow": "0 -2px 8px rgba(0,0,0,0.1)"},
+    "child": {
+      "type": "row",
+      "children": [
+        {
+          "type": "expanded",
+          "child": {
+            "type": "outlined_button",
+            "label": {"fa": "مرحله قبل", "en": "Previous"},
+            "onTap": {"type": "navigate_back"}
+          }
+        },
+        {"type": "sized_box", "width": 16},
+        {
+          "type": "expanded",
+          "flex": 2,
+          "child": {
+            "type": "elevated_button",
+            "label": {"fa": "مرحله بعد", "en": "Next"},
+            "loading": "{{isValidating}}",
+            "onTap": {
+              "type": "validate_and_navigate",
+              "validationApi": "bpms/marriage-loan/validate-spouse",
+              "nextRoute": "/bpms/marriage-loan/step-05"
+            }
+          }
+        }
+      ]
+    }
+  },
+  
+  "dataBindings": {
+    "spouseFirstName": {"source": "form", "default": ""},
+    "spouseLastName": {"source": "form", "default": ""},
+    "spouseNationalId": {"source": "form", "default": ""},
+    "spouseBirthDate": {"source": "form", "default": null},
+    "spouseFatherName": {"source": "form", "default": ""},
+    "marriageDate": {"source": "form", "default": null},
+    "marriageRegistrationNo": {"source": "form", "default": ""},
+    "marriageOffice": {"source": "form", "default": ""},
+    "spouseMobile": {"source": "form", "default": ""},
+    "spouseEmploymentStatus": {"source": "form", "default": null},
+    "spouseEmployer": {"source": "form", "default": ""},
+    "spouseIncome": {"source": "form", "default": 0},
+    "today": {"source": "system", "key": "currentDate"},
+    "isValidating": {"source": "state", "default": false}
+  }
+}
+

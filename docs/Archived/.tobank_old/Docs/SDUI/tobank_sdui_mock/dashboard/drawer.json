@@ -1,0 +1,265 @@
+{
+  "$schema": "tobank-sdui/v1/navigation",
+  "version": "1.0.0",
+  "navId": "side_drawer",
+  "description": "Side drawer/hamburger menu configuration",
+  
+  "header": {
+    "type": "user_profile",
+    "showAvatar": true,
+    "avatarSize": 64,
+    "backgroundColor": "#E31837",
+    "textColor": "#FFFFFF",
+    "content": {
+      "name": "{{user.fullName}}",
+      "subtitle": "{{user.mobileNumber}}",
+      "avatar": "{{user.avatarUrl}}"
+    },
+    "onTap": {
+      "type": "navigate",
+      "route": "/profile"
+    }
+  },
+  
+  "sections": [
+    {
+      "id": "main",
+      "title": null,
+      "items": [
+        {
+          "id": "home",
+          "title": {"fa": "خانه", "en": "Home"},
+          "icon": "assets/icons/ic_home.svg",
+          "route": "/home",
+          "badge": null
+        },
+        {
+          "id": "notifications",
+          "title": {"fa": "اعلان‌ها", "en": "Notifications"},
+          "icon": "assets/icons/ic_notification.svg",
+          "route": "/notifications",
+          "badge": {
+            "type": "count",
+            "value": "{{user.unreadNotifications}}",
+            "color": "#E31837"
+          }
+        },
+        {
+          "id": "messages",
+          "title": {"fa": "پیام‌ها", "en": "Messages"},
+          "icon": "assets/icons/ic_message.svg",
+          "route": "/messages",
+          "badge": {
+            "type": "count",
+            "value": "{{user.unreadMessages}}",
+            "color": "#E31837"
+          }
+        }
+      ]
+    },
+    {
+      "id": "accounts",
+      "title": {"fa": "حساب‌های من", "en": "My Accounts"},
+      "items": [
+        {
+          "id": "my_cards",
+          "title": {"fa": "کارت‌ها", "en": "Cards"},
+          "icon": "assets/icons/ic_card.svg",
+          "route": "/cards",
+          "badge": null
+        },
+        {
+          "id": "my_deposits",
+          "title": {"fa": "سپرده‌ها", "en": "Deposits"},
+          "icon": "assets/icons/ic_deposit.svg",
+          "route": "/deposits",
+          "badge": null
+        },
+        {
+          "id": "my_loans",
+          "title": {"fa": "تسهیلات من", "en": "My Loans"},
+          "icon": "assets/icons/ic_loan.svg",
+          "route": "/loans/my-loans",
+          "badge": null
+        }
+      ]
+    },
+    {
+      "id": "services",
+      "title": {"fa": "خدمات", "en": "Services"},
+      "items": [
+        {
+          "id": "transfer",
+          "title": {"fa": "انتقال وجه", "en": "Transfer"},
+          "icon": "assets/icons/ic_transfer.svg",
+          "route": "/transfer",
+          "badge": null
+        },
+        {
+          "id": "payments",
+          "title": {"fa": "پرداخت‌ها", "en": "Payments"},
+          "icon": "assets/icons/ic_payment.svg",
+          "route": "/payments",
+          "badge": null
+        },
+        {
+          "id": "loans",
+          "title": {"fa": "تسهیلات", "en": "Loans"},
+          "icon": "assets/icons/ic_loan.svg",
+          "route": "/loans",
+          "badge": {"type": "text", "value": "جدید", "color": "#4CAF50"}
+        },
+        {
+          "id": "cheque",
+          "title": {"fa": "چک", "en": "Cheque"},
+          "icon": "assets/icons/ic_cheque.svg",
+          "route": "/cheque",
+          "badge": null
+        }
+      ]
+    },
+    {
+      "id": "support",
+      "title": {"fa": "پشتیبانی", "en": "Support"},
+      "items": [
+        {
+          "id": "contact_us",
+          "title": {"fa": "تماس با ما", "en": "Contact Us"},
+          "icon": "assets/icons/ic_phone.svg",
+          "route": "/support/contact",
+          "badge": null
+        },
+        {
+          "id": "faq",
+          "title": {"fa": "سوالات متداول", "en": "FAQ"},
+          "icon": "assets/icons/ic_help.svg",
+          "route": "/support/faq",
+          "badge": null
+        },
+        {
+          "id": "branches",
+          "title": {"fa": "شعب و خودپردازها", "en": "Branches & ATMs"},
+          "icon": "assets/icons/ic_location.svg",
+          "route": "/branches",
+          "badge": null
+        },
+        {
+          "id": "tickets",
+          "title": {"fa": "تیکت‌های پشتیبانی", "en": "Support Tickets"},
+          "icon": "assets/icons/ic_ticket.svg",
+          "route": "/support/tickets",
+          "badge": null
+        }
+      ]
+    },
+    {
+      "id": "settings",
+      "title": {"fa": "تنظیمات", "en": "Settings"},
+      "items": [
+        {
+          "id": "profile_settings",
+          "title": {"fa": "پروفایل", "en": "Profile"},
+          "icon": "assets/icons/ic_profile.svg",
+          "route": "/settings/profile",
+          "badge": null
+        },
+        {
+          "id": "security",
+          "title": {"fa": "امنیت", "en": "Security"},
+          "icon": "assets/icons/ic_lock.svg",
+          "route": "/settings/security",
+          "badge": null
+        },
+        {
+          "id": "notifications_settings",
+          "title": {"fa": "تنظیمات اعلان", "en": "Notification Settings"},
+          "icon": "assets/icons/ic_notification_settings.svg",
+          "route": "/settings/notifications",
+          "badge": null
+        },
+        {
+          "id": "appearance",
+          "title": {"fa": "ظاهر برنامه", "en": "Appearance"},
+          "icon": "assets/icons/ic_theme.svg",
+          "route": "/settings/appearance",
+          "badge": null
+        },
+        {
+          "id": "language",
+          "title": {"fa": "زبان", "en": "Language"},
+          "icon": "assets/icons/ic_language.svg",
+          "route": "/settings/language",
+          "badge": null
+        }
+      ]
+    }
+  ],
+  
+  "footer": {
+    "items": [
+      {
+        "id": "about",
+        "title": {"fa": "درباره ما", "en": "About Us"},
+        "icon": "assets/icons/ic_info.svg",
+        "route": "/about"
+      },
+      {
+        "id": "logout",
+        "title": {"fa": "خروج از حساب", "en": "Logout"},
+        "icon": "assets/icons/ic_logout.svg",
+        "action": {
+          "type": "logout",
+          "confirmation": {
+            "title": {"fa": "خروج از حساب", "en": "Logout"},
+            "message": {"fa": "آیا از خروج اطمینان دارید؟", "en": "Are you sure you want to logout?"},
+            "confirmLabel": {"fa": "بله، خروج", "en": "Yes, Logout"},
+            "cancelLabel": {"fa": "انصراف", "en": "Cancel"}
+          }
+        },
+        "textColor": "#E31837"
+      }
+    ],
+    "versionInfo": {
+      "show": true,
+      "format": "v{{appVersion}}"
+    }
+  },
+  
+  "styling": {
+    "width": 280,
+    "backgroundColor": {
+      "light": "#FFFFFF",
+      "dark": "#121212"
+    },
+    "headerHeight": 180,
+    "itemHeight": 48,
+    "iconSize": 24,
+    "dividerColor": {
+      "light": "#E0E0E0",
+      "dark": "#424242"
+    },
+    "selectedItemBackground": {
+      "light": "#FEE8EC",
+      "dark": "#3D1F24"
+    },
+    "selectedItemColor": "#E31837"
+  },
+  
+  "behavior": {
+    "closeOnItemTap": true,
+    "draggable": true,
+    "scrimColor": "#00000066"
+  },
+  
+  "mockData": {
+    "user": {
+      "fullName": "علی احمدی",
+      "mobileNumber": "۰۹۱۲۳۴۵۶۷۸۹",
+      "avatarUrl": null,
+      "unreadNotifications": 3,
+      "unreadMessages": 1
+    },
+    "appVersion": "3.9.0"
+  }
+}
+

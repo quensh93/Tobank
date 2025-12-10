@@ -1,0 +1,87 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "loan_detail",
+  "title": {"fa": "جزئیات وام", "en": "Loan Detail"},
+  
+  "appBar": {"type": "standard", "title": {"fa": "جزئیات وام", "en": "Loan Detail"}},
+  
+  "api": {"endpoint": "dibalite/loans/{{loanId}}", "method": "GET"},
+  
+  "body": {
+    "type": "scrollable",
+    "children": [
+      {"type": "container", "padding": 24, "decoration": {"gradient": {"colors": ["#673AB7", "#9C27B0"]}}, "child": {"type": "column", "children": [
+        {"type": "text", "text": "{{loan.typeName}}", "style": "titleSmall", "color": "#FFFFFF"},
+        {"type": "text", "text": "{{formatCurrency(loan.amount)}} ریال", "style": "displaySmall", "color": "#FFFFFF", "margin": {"top": 8}},
+        {"type": "progress_bar", "value": "{{loan.paidPercentage}}", "backgroundColor": "#FFFFFF30", "color": "#FFFFFF", "height": 8, "margin": {"top": 16}},
+        {"type": "row", "margin": {"top": 8}, "mainAxisAlignment": "spaceBetween", "children": [
+          {"type": "text", "text": {"fa": "پرداخت شده: {{loan.paidInstallments}} قسط", "en": "Paid: {{loan.paidInstallments}}"}, "style": "bodySmall", "color": "#FFFFFF"},
+          {"type": "text", "text": {"fa": "باقیمانده: {{loan.remainingInstallments}} قسط", "en": "Remaining: {{loan.remainingInstallments}}"}, "style": "bodySmall", "color": "#FFFFFF"}
+        ]}
+      ]}},
+      
+      {"type": "container", "padding": 16, "child": {"type": "column", "children": [
+        {"type": "card", "child": {"type": "column", "children": [
+          {"type": "container", "padding": 16, "decoration": {"color": "#F3E5F5"}, "child": {"type": "column", "children": [
+            {"type": "text", "text": {"fa": "قسط بعدی", "en": "Next Installment"}, "style": "titleSmall"},
+            {"type": "row", "margin": {"top": 8}, "mainAxisAlignment": "spaceBetween", "children": [
+              {"type": "column", "crossAxisAlignment": "start", "children": [
+                {"type": "text", "text": "{{formatCurrency(loan.installmentAmount)}} ریال", "style": "titleLarge", "color": "#673AB7"},
+                {"type": "text", "text": {"fa": "تاریخ: {{loan.nextPaymentDate}}", "en": "Due: {{loan.nextPaymentDate}}"}, "style": "bodySmall", "color": "textSecondary", "margin": {"top": 4}}
+              ]},
+              {"type": "elevated_button", "label": {"fa": "پرداخت", "en": "Pay"}, "onTap": {"type": "navigate", "route": "/loans/pay-installment?id={{loanId}}"}}
+            ]}
+          ]}},
+          {"type": "info_row", "padding": 16, "label": {"fa": "مبلغ کل وام", "en": "Total Loan"}, "value": "{{formatCurrency(loan.amount)}} ریال"},
+          {"type": "divider", "indent": 16},
+          {"type": "info_row", "padding": 16, "label": {"fa": "مانده بدهی", "en": "Remaining"}, "value": "{{formatCurrency(loan.remainingAmount)}} ریال"},
+          {"type": "divider", "indent": 16},
+          {"type": "info_row", "padding": 16, "label": {"fa": "تعداد اقساط", "en": "Installments"}, "value": "{{loan.totalInstallments}} قسط"},
+          {"type": "divider", "indent": 16},
+          {"type": "info_row", "padding": 16, "label": {"fa": "نرخ سود", "en": "Interest"}, "value": "{{loan.interestRate}}٪ سالانه"},
+          {"type": "divider", "indent": 16},
+          {"type": "info_row", "padding": 16, "label": {"fa": "تاریخ شروع", "en": "Start Date"}, "value": "{{loan.startDate}}"},
+          {"type": "divider", "indent": 16},
+          {"type": "info_row", "padding": 16, "label": {"fa": "تاریخ پایان", "en": "End Date"}, "value": "{{loan.endDate}}"}
+        ]}},
+        
+        {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "تاریخچه اقساط", "en": "Installment History"}, "trailing": {"type": "text_button", "label": {"fa": "همه", "en": "All"}, "onTap": {"type": "navigate", "route": "/loans/installments?id={{loanId}}"}}}, "child": {"type": "list_view", "children": "{{installments}}", "itemBuilder": {"type": "installment_list_item"}}},
+        
+        {"type": "sized_box", "height": 32}
+      ]}}
+    ]
+  },
+  
+  "dataBindings": {
+    "loanId": {"source": "route_param", "key": "id"},
+    "loan": {"source": "api", "endpoint": "dibalite/loans/{{loanId}}"},
+    "installments": {"source": "api", "endpoint": "dibalite/loans/{{loanId}}/installments?limit=5"}
+  },
+  
+  "mockData": {
+    "loan": {
+      "id": "loan1",
+      "type": "parsa",
+      "typeName": "وام پارسا",
+      "amount": 1000000000,
+      "remainingAmount": 750000000,
+      "installmentAmount": 94000000,
+      "totalInstallments": 12,
+      "paidInstallments": 3,
+      "remainingInstallments": 9,
+      "paidPercentage": 0.25,
+      "interestRate": 23,
+      "nextPaymentDate": "۱۴۰۳/۱۰/۱۵",
+      "startDate": "۱۴۰۳/۰۷/۱۵",
+      "endDate": "۱۴۰۴/۰۷/۱۵",
+      "status": "active"
+    },
+    "installments": [
+      {"id": "inst1", "number": 1, "amount": 94000000, "dueDate": "۱۴۰۳/۰۸/۱۵", "paidDate": "۱۴۰۳/۰۸/۱۴", "status": "paid"},
+      {"id": "inst2", "number": 2, "amount": 94000000, "dueDate": "۱۴۰۳/۰۹/۱۵", "paidDate": "۱۴۰۳/۰۹/۱۰", "status": "paid"},
+      {"id": "inst3", "number": 3, "amount": 94000000, "dueDate": "۱۴۰۳/۱۰/۱۵", "paidDate": null, "status": "pending"}
+    ]
+  }
+}
+

@@ -1,0 +1,369 @@
+{
+  "appBar": {
+    "title": {
+      "data": "{{appStrings.register.title}}",
+      "style": {
+        "type": "custom",
+        "color": "onSurface",
+        "fontSize": 20.0,
+        "fontWeight": "bold"
+      },
+      "type": "text"
+    },
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "body": {
+    "request": {
+      "url": "https://api.tobank.com/register-labels",
+      "method": "get",
+      "actionType": "networkRequest"
+    },
+    "targetPath": "data",
+    "template": {
+      "padding": {
+        "left": 16.0,
+        "top": 24.0,
+        "right": 16.0,
+        "bottom": 24.0
+      },
+      "child": {
+        "child": {
+          "mainAxisAlignment": "start",
+          "crossAxisAlignment": "stretch",
+          "children": [
+            {
+              "height": 16.0,
+              "type": "sizedBox"
+            },
+            {
+              "data": "{{title}}",
+              "style": {
+                "type": "custom",
+                "color": "onSurface",
+                "fontSize": 24.0,
+                "fontWeight": "bold"
+              },
+              "textAlign": "center",
+              "type": "text"
+            },
+            {
+              "height": 8.0,
+              "type": "sizedBox"
+            },
+            {
+              "data": "{{subtitle}}",
+              "style": {
+                "type": "custom",
+                "color": "onSurfaceVariant",
+                "fontSize": 14.0,
+                "fontWeight": "w400"
+              },
+              "textAlign": "center",
+              "type": "text"
+            },
+            {
+              "height": 32.0,
+              "type": "sizedBox"
+            },
+            {
+              "data": "{{fullNameLabel}}",
+              "style": {
+                "type": "custom",
+                "color": "onSurface",
+                "fontSize": 16.0,
+                "fontWeight": "w600"
+              },
+              "type": "text"
+            },
+            {
+              "height": 8.0,
+              "type": "sizedBox"
+            },
+            {
+              "id": "full_name",
+              "decoration": {
+                "hintText": "{{fullNamePlaceholder}}",
+                "hintStyle": {
+                  "type": "custom",
+                  "color": "onSurfaceVariant",
+                  "fontSize": 14.0,
+                  "fontWeight": "w400"
+                },
+                "filled": true,
+                "fillColor": "surface"
+              },
+              "keyboardType": "text",
+              "textInputAction": "next",
+              "style": {
+                "type": "custom",
+                "color": "onSurface",
+                "fontSize": 16.0,
+                "fontWeight": "w600"
+              },
+              "type": "textFormField"
+            },
+            {
+              "height": 16.0,
+              "type": "sizedBox"
+            },
+            {
+              "data": "{{emailLabel}}",
+              "style": {
+                "type": "custom",
+                "color": "onSurface",
+                "fontSize": 16.0,
+                "fontWeight": "w600"
+              },
+              "type": "text"
+            },
+            {
+              "height": 8.0,
+              "type": "sizedBox"
+            },
+            {
+              "id": "email",
+              "decoration": {
+                "hintText": "{{emailPlaceholder}}",
+                "hintStyle": {
+                  "type": "custom",
+                  "color": "onSurfaceVariant",
+                  "fontSize": 14.0,
+                  "fontWeight": "w400"
+                },
+                "filled": true,
+                "fillColor": "surface"
+              },
+              "keyboardType": "emailAddress",
+              "textInputAction": "next",
+              "style": {
+                "type": "custom",
+                "color": "onSurface",
+                "fontSize": 16.0,
+                "fontWeight": "w600"
+              },
+              "type": "textFormField"
+            },
+            {
+              "height": 16.0,
+              "type": "sizedBox"
+            },
+            {
+              "data": "{{passwordLabel}}",
+              "style": {
+                "type": "custom",
+                "color": "onSurface",
+                "fontSize": 16.0,
+                "fontWeight": "w600"
+              },
+              "type": "text"
+            },
+            {
+              "height": 8.0,
+              "type": "sizedBox"
+            },
+            {
+              "id": "password",
+              "decoration": {
+                "hintText": "{{passwordPlaceholder}}",
+                "hintStyle": {
+                  "type": "custom",
+                  "color": "onSurfaceVariant",
+                  "fontSize": 14.0,
+                  "fontWeight": "w400"
+                },
+                "filled": true,
+                "fillColor": "surface"
+              },
+              "keyboardType": "visiblePassword",
+              "textInputAction": "next",
+              "style": {
+                "type": "custom",
+                "color": "onSurface",
+                "fontSize": 16.0,
+                "fontWeight": "w600"
+              },
+              "obscureText": true,
+              "type": "textFormField"
+            },
+            {
+              "height": 16.0,
+              "type": "sizedBox"
+            },
+            {
+              "data": "{{confirmPasswordLabel}}",
+              "style": {
+                "type": "custom",
+                "color": "onSurface",
+                "fontSize": 16.0,
+                "fontWeight": "w600"
+              },
+              "type": "text"
+            },
+            {
+              "height": 8.0,
+              "type": "sizedBox"
+            },
+            {
+              "id": "confirm_password",
+              "decoration": {
+                "hintText": "{{confirmPasswordPlaceholder}}",
+                "hintStyle": {
+                  "type": "custom",
+                  "color": "onSurfaceVariant",
+                  "fontSize": 14.0,
+                  "fontWeight": "w400"
+                },
+                "filled": true,
+                "fillColor": "surface"
+              },
+              "keyboardType": "visiblePassword",
+              "textInputAction": "done",
+              "style": {
+                "type": "custom",
+                "color": "onSurface",
+                "fontSize": 16.0,
+                "fontWeight": "w600"
+              },
+              "obscureText": true,
+              "type": "textFormField"
+            },
+            {
+              "height": 24.0,
+              "type": "sizedBox"
+            },
+            {
+              "onPressed": {
+                "actions": [
+                  {
+                    "widget": {
+                      "type": "alertDialog",
+                      "title": {
+                        "type": "text",
+                        "data": "{{successTitle}}",
+                        "style": {
+                          "type": "custom",
+                          "fontSize": 18,
+                          "fontWeight": "bold",
+                          "color": "onSurface"
+                        }
+                      },
+                      "content": {
+                        "type": "text",
+                        "data": "{{successMessage}}",
+                        "style": {
+                          "type": "custom",
+                          "fontSize": 14,
+                          "color": "onSurfaceVariant"
+                        }
+                      },
+                      "actions": [
+                        {
+                          "type": "textButton",
+                          "child": {
+                            "type": "text",
+                            "data": "{{okButtonText}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "primary"
+                            }
+                          },
+                          "onPressed": {
+                            "actionType": "navigate",
+                            "assetPath": "stac/.build/tobank_login.json",
+                            "navigationStyle": "push"
+                          }
+                        }
+                      ]
+                    },
+                    "actionType": "showDialog"
+                  }
+                ],
+                "sync": false,
+                "actionType": "multiAction"
+              },
+              "style": {
+                "backgroundColor": "primary",
+                "padding": {
+                  "top": 16.0,
+                  "bottom": 16.0
+                }
+              },
+              "child": {
+                "data": "{{registerButtonText}}",
+                "style": {
+                  "type": "custom",
+                  "color": "onPrimary",
+                  "fontSize": 16.0,
+                  "fontWeight": "bold"
+                },
+                "type": "text"
+              },
+              "type": "elevatedButton"
+            },
+            {
+              "height": 16.0,
+              "type": "sizedBox"
+            },
+            {
+              "mainAxisAlignment": "center",
+              "children": [
+                {
+                  "data": "{{loginLinkText}}",
+                  "style": {
+                    "type": "custom",
+                    "color": "onSurfaceVariant",
+                    "fontSize": 14.0,
+                    "fontWeight": "w400"
+                  },
+                  "type": "text"
+                },
+                {
+                  "onPressed": {
+                    "assetPath": "stac/.build/tobank_login.json",
+                    "navigationStyle": "push",
+                    "actionType": "navigate"
+                  },
+                  "child": {
+                    "data": "{{loginButtonText}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "primary",
+                      "fontSize": 14.0,
+                      "fontWeight": "w600"
+                    },
+                    "type": "text"
+                  },
+                  "type": "textButton"
+                }
+              ],
+              "type": "row"
+            }
+          ],
+          "type": "column"
+        },
+        "type": "form"
+      },
+      "type": "singleChildScrollView"
+    },
+    "loaderWidget": {
+      "child": {
+        "type": "circularProgressIndicator"
+      },
+      "type": "center"
+    },
+    "errorWidget": {
+      "child": {
+        "data": "{{appStrings.register.errorLoading}}",
+        "style": {
+          "type": "custom",
+          "color": "error"
+        },
+        "type": "text"
+      },
+      "type": "center"
+    },
+    "type": "dynamicView"
+  },
+  "type": "scaffold"
+}

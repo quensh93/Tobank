@@ -1,0 +1,287 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "bill_payment",
+  "pageType": "form",
+  "title": {
+    "fa": "پرداخت قبض",
+    "en": "Bill Payment"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "bill_payment",
+    "screenClass": "BillPaymentPage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "پرداخت قبض", "en": "Bill Payment"},
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "bill_info_card",
+        "type": "card",
+        "padding": 16,
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "container",
+                  "width": 56,
+                  "height": 56,
+                  "decoration": {
+                    "color": "{{bill.color}}20",
+                    "borderRadius": 12
+                  },
+                  "alignment": "center",
+                  "child": {
+                    "type": "icon",
+                    "icon": "{{bill.icon}}",
+                    "color": "{{bill.color}}",
+                    "size": 32
+                  }
+                },
+                {"type": "sized_box", "width": 16},
+                {
+                  "type": "expanded",
+                  "child": {
+                    "type": "column",
+                    "crossAxisAlignment": "start",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "{{bill.title}}",
+                        "style": "titleMedium"
+                      },
+                      {
+                        "type": "text",
+                        "text": "دوره: {{bill.period}}",
+                        "style": "bodySmall",
+                        "color": "textSecondary"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {"type": "divider", "margin": {"vertical": 16}},
+            {
+              "type": "info_row",
+              "label": {"fa": "شناسه قبض", "en": "Bill ID"},
+              "value": "{{bill.billId}}",
+              "copyable": true
+            },
+            {"type": "sized_box", "height": 8},
+            {
+              "type": "info_row",
+              "label": {"fa": "شناسه پرداخت", "en": "Payment ID"},
+              "value": "{{bill.paymentId}}",
+              "copyable": true
+            },
+            {"type": "sized_box", "height": 8},
+            {
+              "type": "info_row",
+              "label": {"fa": "مهلت پرداخت", "en": "Due Date"},
+              "value": "{{bill.dueDate}}",
+              "valueColor": "{{isOverdue ? '#F44336' : 'textPrimary'}}"
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "amount_display",
+        "type": "container",
+        "margin": {"top": 24},
+        "alignment": "center",
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "text",
+              "text": {"fa": "مبلغ قابل پرداخت", "en": "Amount Due"},
+              "style": "bodyMedium",
+              "color": "textSecondary"
+            },
+            {"type": "sized_box", "height": 8},
+            {
+              "type": "text",
+              "text": "{{formatCurrency(bill.amount)}}",
+              "style": "displaySmall",
+              "color": "#E31837"
+            },
+            {
+              "type": "text",
+              "text": {"fa": "ریال", "en": "Rials"},
+              "style": "titleMedium",
+              "color": "textSecondary"
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "payment_method_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "روش پرداخت", "en": "Payment Method"}
+        },
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "radio_tile",
+              "value": "card",
+              "groupValue": "{{paymentMethod}}",
+              "title": {"fa": "کارت بانکی", "en": "Bank Card"},
+              "leading": "assets/icons/ic_card.svg",
+              "onChanged": {"type": "set_state", "key": "paymentMethod", "value": "card"}
+            },
+            {
+              "type": "radio_tile",
+              "value": "deposit",
+              "groupValue": "{{paymentMethod}}",
+              "title": {"fa": "سپرده", "en": "Deposit"},
+              "leading": "assets/icons/ic_deposit.svg",
+              "onChanged": {"type": "set_state", "key": "paymentMethod", "value": "deposit"}
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "card_selector",
+        "type": "conditional",
+        "condition": "{{paymentMethod === 'card'}}",
+        "whenTrue": {
+          "type": "section",
+          "margin": {"top": 16},
+          "header": {
+            "title": {"fa": "انتخاب کارت", "en": "Select Card"}
+          },
+          "child": {
+            "type": "dropdown_field",
+            "dataSource": "cards",
+            "itemTemplate": {
+              "value": "{{item.id}}",
+              "label": "{{item.cardNumberMasked}}",
+              "subtitle": "{{item.bankName}}"
+            },
+            "bindTo": "selectedCardId"
+          }
+        }
+      },
+      
+      {
+        "id": "deposit_selector",
+        "type": "conditional",
+        "condition": "{{paymentMethod === 'deposit'}}",
+        "whenTrue": {
+          "type": "section",
+          "margin": {"top": 16},
+          "header": {
+            "title": {"fa": "انتخاب سپرده", "en": "Select Deposit"}
+          },
+          "child": {
+            "type": "dropdown_field",
+            "dataSource": "deposits",
+            "itemTemplate": {
+              "value": "{{item.id}}",
+              "label": "{{item.depositNumber}}",
+              "subtitle": "موجودی: {{formatCurrency(item.balance)}} ریال"
+            },
+            "bindTo": "selectedDepositId"
+          }
+        }
+      },
+      
+      {
+        "id": "save_bill_switch",
+        "type": "switch_tile",
+        "margin": {"top": 16},
+        "title": {"fa": "ذخیره قبض", "en": "Save Bill"},
+        "subtitle": {"fa": "برای پرداخت‌های بعدی", "en": "For future payments"},
+        "value": "{{saveBill}}",
+        "bindTo": "saveBill"
+      },
+      
+      {
+        "id": "submit_button",
+        "type": "elevated_button",
+        "label": {"fa": "پرداخت {{formatCurrency(bill.amount)}} ریال", "en": "Pay {{formatCurrency(bill.amount)}} Rials"},
+        "fullWidth": true,
+        "margin": {"top": 32},
+        "loading": "{{isSubmitting}}",
+        "disabled": "{{(paymentMethod === 'card' && !selectedCardId) || (paymentMethod === 'deposit' && !selectedDepositId)}}",
+        "onTap": {
+          "type": "api_call",
+          "endpoint": "dibalite/bills/pay",
+          "method": "POST",
+          "body": {
+            "billId": "{{bill.billId}}",
+            "paymentId": "{{bill.paymentId}}",
+            "amount": "{{bill.amount}}",
+            "paymentMethod": "{{paymentMethod}}",
+            "cardId": "{{selectedCardId}}",
+            "depositId": "{{selectedDepositId}}",
+            "saveBill": "{{saveBill}}"
+          },
+          "requireOtp": true,
+          "onSuccess": {
+            "type": "navigate_replace",
+            "route": "/bills/result",
+            "params": {
+              "success": true,
+              "billType": "{{bill.type}}",
+              "amount": "{{bill.amount}}",
+              "referenceNumber": "{{response.referenceNumber}}"
+            }
+          }
+        }
+      }
+    ]
+  },
+  
+  "dataBindings": {
+    "billId": {"source": "route_param", "key": "billId"},
+    "bill": {"source": "api", "endpoint": "dibalite/bills/{{billId}}"},
+    "cards": {"source": "api", "endpoint": "dibalite/cards"},
+    "deposits": {"source": "api", "endpoint": "dibalite/deposits"},
+    "paymentMethod": {"source": "state", "default": "card"},
+    "selectedCardId": {"source": "form", "default": null},
+    "selectedDepositId": {"source": "form", "default": null},
+    "saveBill": {"source": "form", "default": true},
+    "isSubmitting": {"source": "state", "default": false},
+    "isOverdue": {
+      "source": "computed",
+      "expression": "new Date(bill.dueDate) < new Date()"
+    }
+  },
+  
+  "mockData": {
+    "bill": {
+      "id": "BILL-001",
+      "type": "electric",
+      "title": "قبض برق",
+      "icon": "assets/icons/ic_electric_bill.svg",
+      "color": "#FF9800",
+      "billId": "۱۲۳۴۵۶۷۸۹۰۱۲۳",
+      "paymentId": "۹۸۷۶۵۴۳۲۱",
+      "period": "آذر ۱۴۰۳",
+      "amount": 3500000,
+      "dueDate": "۱۴۰۳/۰۹/۲۵"
+    },
+    "cards": "$ref:mock-data/cards.json#cards",
+    "deposits": "$ref:mock-data/deposits.json#deposits"
+  }
+}
+

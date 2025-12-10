@@ -1,0 +1,55 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "card_issue_completion",
+  "flowId": "card_physical_issue",
+  "stepNumber": 6,
+  "title": {"fa": "اتمام", "en": "Completion"},
+  
+  "appBar": {"type": "standard", "title": {"fa": "صدور کارت", "en": "Card Issue"}, "showBackButton": false},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "container", "alignment": "center", "padding": 24, "child": {"type": "lottie", "asset": "assets/animations/success.json", "width": 150, "height": 150, "repeat": false}},
+      {"type": "text", "text": {"fa": "درخواست ثبت شد!", "en": "Request Submitted!"}, "style": "headlineSmall", "color": "#4CAF50", "textAlign": "center"},
+      
+      {"type": "card", "margin": {"top": 24}, "padding": 20, "backgroundColor": "#E0F7FA", "child": {"type": "column", "children": [
+        {"type": "text", "text": {"fa": "کد پیگیری", "en": "Tracking Code"}, "style": "titleMedium", "textAlign": "center"},
+        {"type": "text", "text": "{{result.trackingCode}}", "style": "displaySmall", "textAlign": "center", "color": "#00BCD4", "margin": {"top": 8}},
+        {"type": "text_button", "icon": "assets/icons/ic_copy.svg", "label": {"fa": "کپی", "en": "Copy"}, "margin": {"top": 12}, "onTap": {"type": "copy_to_clipboard", "text": "{{result.trackingCode}}"}}
+      ]}},
+      
+      {"type": "card", "margin": {"top": 24}, "padding": 16, "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+        {"type": "text", "text": {"fa": "مراحل بعدی", "en": "Next Steps"}, "style": "titleMedium"},
+        {"type": "divider", "margin": {"vertical": 12}},
+        {"type": "step_item", "number": 1, "text": {"fa": "بررسی و تایید درخواست", "en": "Review & Approval"}, "subtitle": {"fa": "۱ تا ۲ روز کاری", "en": "1-2 business days"}},
+        {"type": "step_item", "number": 2, "text": {"fa": "چاپ و شخصی‌سازی کارت", "en": "Card Printing"}, "subtitle": {"fa": "۲ تا ۳ روز کاری", "en": "2-3 business days"}, "margin": {"top": 12}},
+        {"type": "step_item", "number": 3, "text": {"fa": "{{result.deliveryMethod === 'branch' ? 'آماده تحویل در شعبه' : 'ارسال پستی'}}", "en": "{{result.deliveryMethod === 'branch' ? 'Ready for pickup' : 'Postal delivery'}}"}, "subtitle": {"fa": "{{result.deliveryMethod === 'branch' ? 'پیامک اطلاع‌رسانی' : '۳ تا ۵ روز کاری'}}", "en": "{{result.deliveryMethod === 'branch' ? 'SMS notification' : '3-5 business days'}}"}, "margin": {"top": 12}}
+      ]}},
+      
+      {"type": "card", "margin": {"top": 16}, "padding": 16, "backgroundColor": "#FFF3E0", "child": {"type": "row", "children": [
+        {"type": "icon", "icon": "assets/icons/ic_info.svg", "color": "#FF9800"},
+        {"type": "sized_box", "width": 12},
+        {"type": "expanded", "child": {"type": "text", "text": {"fa": "کارت ملی معتبر برای دریافت کارت الزامی است", "en": "Valid national ID required for pickup"}, "style": "bodySmall"}}
+      ]}},
+      
+      {"type": "column", "margin": {"top": 32}, "children": [
+        {"type": "elevated_button", "label": {"fa": "پیگیری درخواست", "en": "Track Request"}, "fullWidth": true, "onTap": {"type": "navigate", "route": "/bpms/card-physical-issue/track?code={{result.trackingCode}}"}},
+        {"type": "outlined_button", "label": {"fa": "بازگشت به خانه", "en": "Back to Home"}, "fullWidth": true, "margin": {"top": 12}, "onTap": {"type": "navigate_replace", "route": "/home"}}
+      ]},
+      {"type": "sized_box", "height": 32}
+    ]
+  },
+  
+  "dataBindings": {"result": {"source": "api", "endpoint": "bpms/card-physical-issue/result"}},
+  "mockData": {
+    "result": {
+      "trackingCode": "CPI-۱۴۰۳۰۹-۱۲۳۴۵۶",
+      "deliveryMethod": "branch",
+      "estimatedDate": "۱۴۰۳/۰۹/۲۵"
+    }
+  }
+}
+

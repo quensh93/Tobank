@@ -1,0 +1,114 @@
+{
+  "$schema": "tobank-sdui/v1/error-states",
+  "version": "1.0.0",
+  "description": "Error state configurations for different scenarios",
+  
+  "errorStates": {
+    "network_error": {
+      "icon": "assets/icons/ic_no_connection.svg",
+      "title": {"fa": "اتصال به اینترنت برقرار نیست", "en": "No Internet Connection"},
+      "subtitle": {"fa": "لطفاً اتصال اینترنت خود را بررسی کنید", "en": "Please check your internet connection"},
+      "primaryAction": {
+        "label": {"fa": "تلاش مجدد", "en": "Retry"},
+        "action": {"type": "retry"}
+      },
+      "backgroundColor": "#FFEBEE",
+      "iconColor": "#F44336"
+    },
+    
+    "server_error": {
+      "icon": "assets/icons/ic_server_error.svg",
+      "title": {"fa": "خطای سرور", "en": "Server Error"},
+      "subtitle": {"fa": "لطفاً بعداً تلاش کنید", "en": "Please try again later"},
+      "primaryAction": {
+        "label": {"fa": "تلاش مجدد", "en": "Retry"},
+        "action": {"type": "retry"}
+      },
+      "secondaryAction": {
+        "label": {"fa": "تماس با پشتیبانی", "en": "Contact Support"},
+        "action": {"type": "navigate", "route": "/support"}
+      },
+      "backgroundColor": "#FFF3E0",
+      "iconColor": "#FF9800"
+    },
+    
+    "session_expired": {
+      "icon": "assets/icons/ic_session.svg",
+      "title": {"fa": "نشست منقضی شده", "en": "Session Expired"},
+      "subtitle": {"fa": "لطفاً دوباره وارد شوید", "en": "Please login again"},
+      "primaryAction": {
+        "label": {"fa": "ورود مجدد", "en": "Login Again"},
+        "action": {"type": "navigate_replace", "route": "/auth/login"}
+      },
+      "backgroundColor": "#E3F2FD",
+      "iconColor": "#2196F3"
+    },
+    
+    "maintenance": {
+      "icon": "assets/icons/ic_maintenance.svg",
+      "title": {"fa": "در حال به‌روزرسانی", "en": "Under Maintenance"},
+      "subtitle": {"fa": "به زودی برمی‌گردیم", "en": "We'll be back soon"},
+      "backgroundColor": "#F3E5F5",
+      "iconColor": "#9C27B0"
+    },
+    
+    "permission_denied": {
+      "icon": "assets/icons/ic_lock.svg",
+      "title": {"fa": "دسترسی محدود", "en": "Access Denied"},
+      "subtitle": {"fa": "شما مجوز دسترسی به این بخش را ندارید", "en": "You don't have permission to access this"},
+      "primaryAction": {
+        "label": {"fa": "بازگشت", "en": "Go Back"},
+        "action": {"type": "navigate_back"}
+      },
+      "backgroundColor": "#FFEBEE",
+      "iconColor": "#F44336"
+    },
+    
+    "not_found": {
+      "icon": "assets/icons/ic_not_found.svg",
+      "title": {"fa": "یافت نشد", "en": "Not Found"},
+      "subtitle": {"fa": "صفحه مورد نظر وجود ندارد", "en": "The page you're looking for doesn't exist"},
+      "primaryAction": {
+        "label": {"fa": "بازگشت به خانه", "en": "Go Home"},
+        "action": {"type": "navigate_replace", "route": "/home"}
+      },
+      "backgroundColor": "#F5F5F5",
+      "iconColor": "#9E9E9E"
+    },
+    
+    "empty_list": {
+      "icon": "assets/icons/ic_empty.svg",
+      "title": {"fa": "موردی یافت نشد", "en": "Nothing Found"},
+      "subtitle": {"fa": "داده‌ای برای نمایش وجود ندارد", "en": "No data to display"},
+      "backgroundColor": "#FAFAFA",
+      "iconColor": "#BDBDBD"
+    },
+    
+    "transaction_failed": {
+      "icon": "assets/icons/ic_error.svg",
+      "title": {"fa": "تراکنش ناموفق", "en": "Transaction Failed"},
+      "subtitle": {"fa": "متاسفانه تراکنش انجام نشد", "en": "Sorry, the transaction failed"},
+      "primaryAction": {
+        "label": {"fa": "تلاش مجدد", "en": "Try Again"},
+        "action": {"type": "retry"}
+      },
+      "secondaryAction": {
+        "label": {"fa": "گزارش مشکل", "en": "Report Issue"},
+        "action": {"type": "navigate", "route": "/support/tickets/new"}
+      },
+      "backgroundColor": "#FFEBEE",
+      "iconColor": "#F44336"
+    }
+  },
+  
+  "apiErrorMapping": {
+    "NETWORK_ERROR": "network_error",
+    "500": "server_error",
+    "503": "maintenance",
+    "401": "session_expired",
+    "403": "permission_denied",
+    "404": "not_found",
+    "TRANSACTION_FAILED": "transaction_failed"
+  }
+}
+

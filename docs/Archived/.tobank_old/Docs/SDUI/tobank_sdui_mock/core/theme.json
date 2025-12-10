@@ -1,0 +1,300 @@
+{
+  "$schema": "tobank-sdui/v1/theme",
+  "version": "1.0.0",
+  
+  "light": {
+    "name": "روشن",
+    "brightness": "light",
+    
+    "colors": {
+      "primary": "#E31837",
+      "primaryVariant": "#C41230",
+      "secondary": "#2196F3",
+      "secondaryVariant": "#1976D2",
+      "background": "#FAFAFA",
+      "surface": "#FFFFFF",
+      "surfaceVariant": "#F5F5F5",
+      "error": "#F44336",
+      "success": "#4CAF50",
+      "warning": "#FF9800",
+      "info": "#2196F3",
+      "onPrimary": "#FFFFFF",
+      "onSecondary": "#FFFFFF",
+      "onBackground": "#212121",
+      "onSurface": "#212121",
+      "onError": "#FFFFFF",
+      "outline": "#E0E0E0",
+      "shadow": "rgba(0, 0, 0, 0.1)",
+      "scrim": "rgba(0, 0, 0, 0.32)",
+      "inverseSurface": "#303030",
+      "inverseOnSurface": "#FFFFFF",
+      "inversePrimary": "#FF8A80",
+      "surfaceTint": "#E31837",
+      "disabled": "#9E9E9E",
+      "disabledBackground": "#EEEEEE",
+      "divider": "#E0E0E0",
+      "cardGradientStart": "#E31837",
+      "cardGradientEnd": "#C41230",
+      "depositGradientStart": "#2196F3",
+      "depositGradientEnd": "#1976D2",
+      "incomeColor": "#4CAF50",
+      "expenseColor": "#F44336",
+      "pendingColor": "#FF9800"
+    },
+    
+    "typography": {
+      "fontFamily": "IRANSansX",
+      "displayLarge": {
+        "fontSize": 57,
+        "fontWeight": "400",
+        "letterSpacing": -0.25,
+        "lineHeight": 64
+      },
+      "displayMedium": {
+        "fontSize": 45,
+        "fontWeight": "400",
+        "letterSpacing": 0,
+        "lineHeight": 52
+      },
+      "displaySmall": {
+        "fontSize": 36,
+        "fontWeight": "400",
+        "letterSpacing": 0,
+        "lineHeight": 44
+      },
+      "headlineLarge": {
+        "fontSize": 32,
+        "fontWeight": "400",
+        "letterSpacing": 0,
+        "lineHeight": 40
+      },
+      "headlineMedium": {
+        "fontSize": 28,
+        "fontWeight": "400",
+        "letterSpacing": 0,
+        "lineHeight": 36
+      },
+      "headlineSmall": {
+        "fontSize": 24,
+        "fontWeight": "400",
+        "letterSpacing": 0,
+        "lineHeight": 32
+      },
+      "titleLarge": {
+        "fontSize": 22,
+        "fontWeight": "500",
+        "letterSpacing": 0,
+        "lineHeight": 28
+      },
+      "titleMedium": {
+        "fontSize": 16,
+        "fontWeight": "500",
+        "letterSpacing": 0.15,
+        "lineHeight": 24
+      },
+      "titleSmall": {
+        "fontSize": 14,
+        "fontWeight": "500",
+        "letterSpacing": 0.1,
+        "lineHeight": 20
+      },
+      "bodyLarge": {
+        "fontSize": 16,
+        "fontWeight": "400",
+        "letterSpacing": 0.5,
+        "lineHeight": 24
+      },
+      "bodyMedium": {
+        "fontSize": 14,
+        "fontWeight": "400",
+        "letterSpacing": 0.25,
+        "lineHeight": 20
+      },
+      "bodySmall": {
+        "fontSize": 12,
+        "fontWeight": "400",
+        "letterSpacing": 0.4,
+        "lineHeight": 16
+      },
+      "labelLarge": {
+        "fontSize": 14,
+        "fontWeight": "500",
+        "letterSpacing": 0.1,
+        "lineHeight": 20
+      },
+      "labelMedium": {
+        "fontSize": 12,
+        "fontWeight": "500",
+        "letterSpacing": 0.5,
+        "lineHeight": 16
+      },
+      "labelSmall": {
+        "fontSize": 11,
+        "fontWeight": "500",
+        "letterSpacing": 0.5,
+        "lineHeight": 16
+      }
+    },
+    
+    "shapes": {
+      "extraSmall": 4,
+      "small": 8,
+      "medium": 12,
+      "large": 16,
+      "extraLarge": 24,
+      "full": 9999
+    },
+    
+    "elevation": {
+      "level0": 0,
+      "level1": 1,
+      "level2": 3,
+      "level3": 6,
+      "level4": 8,
+      "level5": 12
+    },
+    
+    "spacing": {
+      "xs": 4,
+      "sm": 8,
+      "md": 12,
+      "lg": 16,
+      "xl": 24,
+      "xxl": 32
+    }
+  },
+  
+  "dark": {
+    "name": "تاریک",
+    "brightness": "dark",
+    
+    "colors": {
+      "primary": "#FF6B6B",
+      "primaryVariant": "#FF8A80",
+      "secondary": "#64B5F6",
+      "secondaryVariant": "#90CAF9",
+      "background": "#121212",
+      "surface": "#1E1E1E",
+      "surfaceVariant": "#2C2C2C",
+      "error": "#EF5350",
+      "success": "#66BB6A",
+      "warning": "#FFA726",
+      "info": "#42A5F5",
+      "onPrimary": "#000000",
+      "onSecondary": "#000000",
+      "onBackground": "#FFFFFF",
+      "onSurface": "#FFFFFF",
+      "onError": "#000000",
+      "outline": "#424242",
+      "shadow": "rgba(0, 0, 0, 0.3)",
+      "scrim": "rgba(0, 0, 0, 0.6)",
+      "inverseSurface": "#E0E0E0",
+      "inverseOnSurface": "#303030",
+      "inversePrimary": "#E31837",
+      "surfaceTint": "#FF6B6B",
+      "disabled": "#757575",
+      "disabledBackground": "#424242",
+      "divider": "#424242",
+      "cardGradientStart": "#FF6B6B",
+      "cardGradientEnd": "#E31837",
+      "depositGradientStart": "#64B5F6",
+      "depositGradientEnd": "#2196F3",
+      "incomeColor": "#66BB6A",
+      "expenseColor": "#EF5350",
+      "pendingColor": "#FFA726"
+    },
+    
+    "typography": {
+      "fontFamily": "IRANSansX"
+    },
+    
+    "shapes": {
+      "extraSmall": 4,
+      "small": 8,
+      "medium": 12,
+      "large": 16,
+      "extraLarge": 24,
+      "full": 9999
+    },
+    
+    "elevation": {
+      "level0": 0,
+      "level1": 1,
+      "level2": 3,
+      "level3": 6,
+      "level4": 8,
+      "level5": 12
+    },
+    
+    "spacing": {
+      "xs": 4,
+      "sm": 8,
+      "md": 12,
+      "lg": 16,
+      "xl": 24,
+      "xxl": 32
+    }
+  },
+  
+  "components": {
+    "button": {
+      "borderRadius": 12,
+      "height": 48,
+      "minWidth": 88,
+      "paddingHorizontal": 24,
+      "elevation": 2
+    },
+    "textField": {
+      "borderRadius": 12,
+      "height": 56,
+      "borderWidth": 1
+    },
+    "card": {
+      "borderRadius": 16,
+      "elevation": 2,
+      "padding": 16
+    },
+    "dialog": {
+      "borderRadius": 24,
+      "elevation": 24,
+      "padding": 24
+    },
+    "bottomSheet": {
+      "borderRadius": 24,
+      "handleWidth": 32,
+      "handleHeight": 4
+    },
+    "appBar": {
+      "height": 56,
+      "elevation": 0
+    },
+    "bottomNav": {
+      "height": 80,
+      "elevation": 8
+    },
+    "bankCard": {
+      "borderRadius": 16,
+      "aspectRatio": 1.586,
+      "padding": 20
+    },
+    "listTile": {
+      "height": 72,
+      "padding": 16
+    },
+    "avatar": {
+      "sizeSmall": 32,
+      "sizeMedium": 48,
+      "sizeLarge": 64
+    },
+    "badge": {
+      "size": 20,
+      "borderRadius": 10
+    },
+    "chip": {
+      "height": 32,
+      "borderRadius": 16,
+      "paddingHorizontal": 12
+    }
+  }
+}
+

@@ -1,0 +1,72 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "scan_qr",
+  "title": {"fa": "اسکن QR", "en": "Scan QR"},
+  
+  "appBar": {
+    "type": "transparent",
+    "title": {"fa": "اسکن QR کد", "en": "Scan QR Code"},
+    "titleColor": "#FFFFFF",
+    "iconColor": "#FFFFFF",
+    "actions": [
+      {"icon": "assets/icons/ic_flash.svg", "color": "#FFFFFF", "onTap": {"type": "toggle_flash"}}
+    ]
+  },
+  
+  "body": {
+    "type": "stack",
+    "children": [
+      {"type": "qr_scanner", "onScan": {"type": "process_qr", "data": "{{qrData}}"}},
+      
+      {"type": "positioned", "top": 0, "left": 0, "right": 0, "bottom": 0, "child": {"type": "column", "children": [
+        {"type": "expanded", "flex": 1, "child": {"type": "container", "color": "#00000080"}},
+        {"type": "row", "children": [
+          {"type": "expanded", "flex": 1, "child": {"type": "container", "color": "#00000080"}},
+          {"type": "container", "width": 250, "height": 250, "child": {"type": "stack", "children": [
+            {"type": "positioned", "top": 0, "left": 0, "child": {"type": "corner_border", "color": "#FFFFFF", "position": "topLeft"}},
+            {"type": "positioned", "top": 0, "right": 0, "child": {"type": "corner_border", "color": "#FFFFFF", "position": "topRight"}},
+            {"type": "positioned", "bottom": 0, "left": 0, "child": {"type": "corner_border", "color": "#FFFFFF", "position": "bottomLeft"}},
+            {"type": "positioned", "bottom": 0, "right": 0, "child": {"type": "corner_border", "color": "#FFFFFF", "position": "bottomRight"}},
+            {"type": "positioned", "top": 0, "left": 0, "right": 0, "child": {"type": "scan_line_animation"}}
+          ]}},
+          {"type": "expanded", "flex": 1, "child": {"type": "container", "color": "#00000080"}}
+        ]},
+        {"type": "expanded", "flex": 1, "child": {"type": "container", "color": "#00000080", "padding": 24, "alignment": "topCenter", "child": {"type": "column", "children": [
+          {"type": "text", "text": {"fa": "QR کد را در کادر قرار دهید", "en": "Position QR code in frame"}, "style": "bodyLarge", "color": "#FFFFFF", "textAlign": "center"},
+          {"type": "row", "margin": {"top": 32}, "mainAxisAlignment": "spaceEvenly", "children": [
+            {"type": "column", "children": [
+              {"type": "icon_button", "icon": "assets/icons/ic_gallery.svg", "backgroundColor": "#FFFFFF20", "iconColor": "#FFFFFF", "size": 48, "onTap": {"type": "pick_image", "source": "gallery", "onSuccess": {"type": "scan_qr_from_image", "image": "{{result}}"}}},
+              {"type": "text", "text": {"fa": "گالری", "en": "Gallery"}, "style": "bodySmall", "color": "#FFFFFF", "margin": {"top": 8}}
+            ]},
+            {"type": "column", "children": [
+              {"type": "icon_button", "icon": "assets/icons/ic_history.svg", "backgroundColor": "#FFFFFF20", "iconColor": "#FFFFFF", "size": 48, "onTap": {"type": "navigate", "route": "/qr/history"}},
+              {"type": "text", "text": {"fa": "تاریخچه", "en": "History"}, "style": "bodySmall", "color": "#FFFFFF", "margin": {"top": 8}}
+            ]},
+            {"type": "column", "children": [
+              {"type": "icon_button", "icon": "assets/icons/ic_qr_my.svg", "backgroundColor": "#FFFFFF20", "iconColor": "#FFFFFF", "size": 48, "onTap": {"type": "navigate", "route": "/qr/my-qr"}},
+              {"type": "text", "text": {"fa": "QR من", "en": "My QR"}, "style": "bodySmall", "color": "#FFFFFF", "margin": {"top": 8}}
+            ]}
+          ]}
+        ]}}}
+      ]}}
+    ]
+  },
+  
+  "onQrDetected": {
+    "type": "conditional",
+    "conditions": [
+      {"condition": "{{qrData.startsWith('tobank://payment')}}", "action": {"type": "navigate", "route": "/payments/qr-payment?data={{qrData}}"}},
+      {"condition": "{{qrData.startsWith('tobank://transfer')}}", "action": {"type": "navigate", "route": "/payments/transfer?data={{qrData}}"}},
+      {"condition": "{{qrData.startsWith('tobank://r/')}}", "action": {"type": "navigate", "route": "/referral/accept?code={{extractReferralCode(qrData)}}"}},
+      {"condition": "{{isValidUrl(qrData)}}", "action": {"type": "show_dialog", "title": {"fa": "لینک شناسایی شد", "en": "Link detected"}, "message": "{{qrData}}", "actions": [{"label": {"fa": "باز کردن", "en": "Open"}, "onTap": {"type": "open_url", "url": "{{qrData}}"}}]}}
+    ],
+    "default": {"type": "show_dialog", "title": {"fa": "QR کد", "en": "QR Code"}, "message": "{{qrData}}", "actions": [{"label": {"fa": "کپی", "en": "Copy"}, "onTap": {"type": "copy_to_clipboard", "text": "{{qrData}}"}}]}
+  },
+  
+  "dataBindings": {
+    "flashOn": {"source": "state", "default": false},
+    "qrData": {"source": "state", "default": null}
+  }
+}
+

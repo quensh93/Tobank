@@ -1,0 +1,332 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "card_settings",
+  "pageType": "settings",
+  "title": {
+    "fa": "تنظیمات کارت",
+    "en": "Card Settings"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "card_settings",
+    "screenClass": "CardSettingsPage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "تنظیمات کارت", "en": "Card Settings"},
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "children": [
+      {
+        "id": "card_preview",
+        "type": "container",
+        "padding": 16,
+        "child": {
+          "type": "bank_card_widget",
+          "cardNumber": "{{card.cardNumberMasked}}",
+          "cardHolder": "{{card.holderName}}",
+          "bankLogo": "{{card.bankLogo}}",
+          "cardDesign": "{{card.cardDesign}}",
+          "mini": true
+        }
+      },
+      
+      {
+        "id": "general_settings",
+        "type": "section",
+        "header": {
+          "title": {"fa": "تنظیمات عمومی", "en": "General Settings"}
+        },
+        "child": {
+          "type": "card",
+          "margin": {"horizontal": 16},
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "list_tile",
+                "leading": "assets/icons/ic_edit.svg",
+                "title": {"fa": "نام مستعار کارت", "en": "Card Nickname"},
+                "subtitle": "{{card.nickname || 'تنظیم نشده'}}",
+                "trailing": "chevron_right",
+                "onTap": {
+                  "type": "show_dialog",
+                  "dialogType": "input",
+                  "title": {"fa": "نام مستعار", "en": "Nickname"},
+                  "hint": {"fa": "مثال: کارت حقوق", "en": "e.g. Salary Card"},
+                  "initialValue": "{{card.nickname}}",
+                  "onConfirm": {
+                    "type": "api_call",
+                    "endpoint": "dibalite/cards/{{cardId}}/nickname",
+                    "method": "PUT",
+                    "body": {"nickname": "{{inputValue}}"}
+                  }
+                }
+              },
+              {"type": "divider"},
+              {
+                "type": "switch_tile",
+                "leading": "assets/icons/ic_star.svg",
+                "title": {"fa": "کارت پیش‌فرض", "en": "Default Card"},
+                "subtitle": {"fa": "برای انتقال وجه و پرداخت", "en": "For transfers and payments"},
+                "value": "{{card.isDefault}}",
+                "onChanged": {
+                  "type": "api_call",
+                  "endpoint": "dibalite/cards/{{cardId}}/default",
+                  "method": "PUT",
+                  "body": {"isDefault": "{{!card.isDefault}}"}
+                }
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "security_settings",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "امنیت", "en": "Security"}
+        },
+        "child": {
+          "type": "card",
+          "margin": {"horizontal": 16},
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "list_tile",
+                "leading": "assets/icons/ic_pin.svg",
+                "title": {"fa": "تغییر رمز اول (PIN)", "en": "Change PIN"},
+                "subtitle": {"fa": "رمز عابر بانک", "en": "ATM Password"},
+                "trailing": "chevron_right",
+                "onTap": {"type": "navigate", "route": "/cards/change-pin/{{cardId}}"}
+              },
+              {"type": "divider"},
+              {
+                "type": "list_tile",
+                "leading": "assets/icons/ic_lock.svg",
+                "title": {"fa": "تغییر رمز دوم (CVV2)", "en": "Change CVV2"},
+                "subtitle": {"fa": "رمز خرید اینترنتی", "en": "Online purchase password"},
+                "trailing": "chevron_right",
+                "onTap": {"type": "navigate", "route": "/cards/change-cvv/{{cardId}}"}
+              },
+              {"type": "divider"},
+              {
+                "type": "list_tile",
+                "leading": "assets/icons/ic_otp.svg",
+                "title": {"fa": "فعال‌سازی رمز پویا", "en": "Enable Dynamic Password"},
+                "subtitle": {"fa": "رمز یکبار مصرف", "en": "One-time password"},
+                "trailing": "chevron_right",
+                "onTap": {"type": "navigate", "route": "/cards/otp-settings/{{cardId}}"}
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "limits_settings",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "محدودیت‌ها", "en": "Limits"}
+        },
+        "child": {
+          "type": "card",
+          "margin": {"horizontal": 16},
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "switch_tile",
+                "leading": "assets/icons/ic_internet.svg",
+                "title": {"fa": "خرید اینترنتی", "en": "Online Purchase"},
+                "subtitle": {"fa": "فعال/غیرفعال کردن خرید آنلاین", "en": "Enable/disable online shopping"},
+                "value": "{{card.onlinePurchaseEnabled}}",
+                "onChanged": {
+                  "type": "api_call",
+                  "endpoint": "dibalite/cards/{{cardId}}/online-purchase",
+                  "method": "PUT",
+                  "body": {"enabled": "{{!card.onlinePurchaseEnabled}}"}
+                }
+              },
+              {"type": "divider"},
+              {
+                "type": "switch_tile",
+                "leading": "assets/icons/ic_abroad.svg",
+                "title": {"fa": "خرید خارج از کشور", "en": "International Purchase"},
+                "subtitle": {"fa": "خرید از سایت‌های خارجی", "en": "Purchase from foreign websites"},
+                "value": "{{card.internationalEnabled}}",
+                "onChanged": {
+                  "type": "api_call",
+                  "endpoint": "dibalite/cards/{{cardId}}/international",
+                  "method": "PUT",
+                  "body": {"enabled": "{{!card.internationalEnabled}}"}
+                }
+              },
+              {"type": "divider"},
+              {
+                "type": "list_tile",
+                "leading": "assets/icons/ic_limit.svg",
+                "title": {"fa": "سقف روزانه کارت به کارت", "en": "Daily Card Transfer Limit"},
+                "subtitle": "{{formatCurrency(card.dailyTransferLimit)}} ریال",
+                "trailing": "chevron_right",
+                "onTap": {"type": "navigate", "route": "/cards/limits/{{cardId}}"}
+              },
+              {"type": "divider"},
+              {
+                "type": "list_tile",
+                "leading": "assets/icons/ic_atm.svg",
+                "title": {"fa": "سقف برداشت از خودپرداز", "en": "ATM Withdrawal Limit"},
+                "subtitle": "{{formatCurrency(card.atmWithdrawLimit)}} ریال",
+                "trailing": "chevron_right",
+                "onTap": {"type": "navigate", "route": "/cards/limits/{{cardId}}"}
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "notifications_settings",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "اعلان‌ها", "en": "Notifications"}
+        },
+        "child": {
+          "type": "card",
+          "margin": {"horizontal": 16},
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "switch_tile",
+                "leading": "assets/icons/ic_sms.svg",
+                "title": {"fa": "پیامک تراکنش", "en": "Transaction SMS"},
+                "subtitle": {"fa": "دریافت پیامک برای هر تراکنش", "en": "Receive SMS for each transaction"},
+                "value": "{{card.smsNotificationEnabled}}",
+                "onChanged": {
+                  "type": "api_call",
+                  "endpoint": "dibalite/cards/{{cardId}}/sms-notification",
+                  "method": "PUT",
+                  "body": {"enabled": "{{!card.smsNotificationEnabled}}"}
+                }
+              },
+              {"type": "divider"},
+              {
+                "type": "switch_tile",
+                "leading": "assets/icons/ic_notification.svg",
+                "title": {"fa": "اعلان اپلیکیشن", "en": "App Notification"},
+                "subtitle": {"fa": "دریافت نوتیفیکیشن در اپ", "en": "Receive push notifications"},
+                "value": "{{card.pushNotificationEnabled}}",
+                "onChanged": {
+                  "type": "set_state",
+                  "key": "card.pushNotificationEnabled",
+                  "value": "{{!card.pushNotificationEnabled}}"
+                }
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "danger_zone",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "عملیات خطرناک", "en": "Danger Zone"}
+        },
+        "child": {
+          "type": "card",
+          "margin": {"horizontal": 16},
+          "borderColor": "#FFCDD2",
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "list_tile",
+                "leading": "assets/icons/ic_block_card.svg",
+                "leadingColor": "#F44336",
+                "title": {"fa": "{{card.isBlocked ? 'رفع مسدودی کارت' : 'مسدود کردن کارت'}}", "en": "{{card.isBlocked ? 'Unblock Card' : 'Block Card'}}"},
+                "titleColor": "#F44336",
+                "subtitle": {"fa": "{{card.isBlocked ? 'فعال‌سازی مجدد کارت' : 'غیرفعال کردن موقت کارت'}}", "en": "{{card.isBlocked ? 'Reactivate the card' : 'Temporarily disable card'}}"},
+                "trailing": "chevron_right",
+                "onTap": {"type": "navigate", "route": "/cards/block/{{cardId}}"}
+              },
+              {"type": "divider"},
+              {
+                "type": "list_tile",
+                "leading": "assets/icons/ic_delete.svg",
+                "leadingColor": "#F44336",
+                "title": {"fa": "حذف کارت", "en": "Remove Card"},
+                "titleColor": "#F44336",
+                "subtitle": {"fa": "حذف کارت از لیست کارت‌ها", "en": "Remove card from your list"},
+                "trailing": "chevron_right",
+                "onTap": {
+                  "type": "confirm_dialog",
+                  "title": {"fa": "حذف کارت", "en": "Remove Card"},
+                  "message": {"fa": "این کارت از لیست کارت‌های شما حذف می‌شود. آیا مطمئن هستید؟", "en": "This card will be removed from your list. Are you sure?"},
+                  "confirmLabel": {"fa": "بله، حذف شود", "en": "Yes, Remove"},
+                  "confirmColor": "#F44336",
+                  "onConfirm": {
+                    "type": "api_call",
+                    "endpoint": "dibalite/cards/{{cardId}}",
+                    "method": "DELETE",
+                    "onSuccess": {
+                      "type": "navigate_replace",
+                      "route": "/cards"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "bottom_spacing",
+        "type": "sized_box",
+        "height": 32
+      }
+    ]
+  },
+  
+  "dataBindings": {
+    "cardId": {"source": "route_param", "key": "cardId"},
+    "card": {
+      "source": "api",
+      "endpoint": "dibalite/cards/{{cardId}}"
+    }
+  },
+  
+  "mockData": {
+    "cardId": "CARD-001",
+    "card": {
+      "id": "CARD-001",
+      "cardNumberMasked": "۵۰۲۲-****-****-۵۶۷۸",
+      "holderName": "علی احمدی",
+      "bankLogo": "assets/images/logo.png",
+      "cardDesign": "pasargad_gold",
+      "nickname": "کارت اصلی",
+      "isDefault": true,
+      "isBlocked": false,
+      "onlinePurchaseEnabled": true,
+      "internationalEnabled": false,
+      "dailyTransferLimit": 100000000,
+      "atmWithdrawLimit": 50000000,
+      "smsNotificationEnabled": true,
+      "pushNotificationEnabled": true
+    }
+  }
+}
+

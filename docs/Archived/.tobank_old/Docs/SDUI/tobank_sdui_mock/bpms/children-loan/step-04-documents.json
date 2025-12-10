@@ -1,0 +1,92 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "children_loan_documents",
+  "flowId": "children_loan",
+  "stepNumber": 4,
+  "title": {"fa": "بارگذاری مدارک", "en": "Upload Documents"},
+  
+  "appBar": {
+    "type": "bpms_stepper",
+    "title": {"fa": "تسهیلات فرزندآوری", "en": "Children Loan"},
+    "currentStep": 4,
+    "totalSteps": 7
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "parent_docs",
+        "type": "section",
+        "header": {"title": {"fa": "مدارک والدین", "en": "Parent Documents"}},
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "document_upload", "title": {"fa": "کارت ملی پدر", "en": "Father's National ID"}, "required": true, "maxFiles": 2, "bindTo": "fatherIdDocs"},
+            {"type": "document_upload", "title": {"fa": "کارت ملی مادر", "en": "Mother's National ID"}, "required": true, "maxFiles": 2, "bindTo": "motherIdDocs", "margin": {"top": 16}},
+            {"type": "document_upload", "title": {"fa": "شناسنامه والدین", "en": "Birth Certificates"}, "required": true, "maxFiles": 4, "bindTo": "parentBirthCerts", "margin": {"top": 16}}
+          ]
+        }
+      },
+      
+      {
+        "id": "children_docs",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {"title": {"fa": "مدارک فرزندان", "en": "Children Documents"}},
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "document_upload", "title": {"fa": "شناسنامه فرزند(ان)", "en": "Children Birth Certificates"}, "description": {"fa": "شناسنامه تمام فرزندان متولد ۱۴۰۰ به بعد", "en": "All children born after 1400"}, "required": true, "maxFiles": 5, "bindTo": "childrenBirthCerts"},
+            {"type": "document_upload", "title": {"fa": "گواهی تولد بیمارستان", "en": "Hospital Birth Certificate"}, "required": false, "maxFiles": 5, "bindTo": "hospitalCerts", "margin": {"top": 16}}
+          ]
+        }
+      },
+      
+      {
+        "id": "employment_docs",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {"title": {"fa": "مدارک شغلی", "en": "Employment Documents"}},
+        "child": {
+          "type": "document_upload",
+          "title": {"fa": "فیش حقوقی یا گواهی اشتغال", "en": "Salary Slip"},
+          "required": true,
+          "maxFiles": 2,
+          "bindTo": "salaryDocs"
+        }
+      },
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "child": {
+      "type": "row",
+      "children": [
+        {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "قبلی", "en": "Back"}, "onTap": {"type": "navigate_back"}}},
+        {"type": "sized_box", "width": 16},
+        {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "بعدی", "en": "Next"}, "disabled": "{{!allDocsUploaded}}", "onTap": {"type": "navigate", "route": "/bpms/children-loan/step-05"}}}
+      ]
+    }
+  },
+  
+  "dataBindings": {
+    "fatherIdDocs": {"source": "form", "default": []},
+    "motherIdDocs": {"source": "form", "default": []},
+    "parentBirthCerts": {"source": "form", "default": []},
+    "childrenBirthCerts": {"source": "form", "default": []},
+    "hospitalCerts": {"source": "form", "default": []},
+    "salaryDocs": {"source": "form", "default": []},
+    "allDocsUploaded": {
+      "source": "computed",
+      "expression": "fatherIdDocs.length > 0 && motherIdDocs.length > 0 && parentBirthCerts.length > 0 && childrenBirthCerts.length > 0 && salaryDocs.length > 0"
+    }
+  }
+}
+

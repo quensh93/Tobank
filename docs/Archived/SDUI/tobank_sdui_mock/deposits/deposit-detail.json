@@ -1,0 +1,23 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "جزئیات سپرده"
+    },
+    "actions": [
+      {
+        "type": "iconButton",
+        "onPressed": {
+          "actionType": "share",
+          "data": "{{deposit.iban}}"
+        },
+        "icon": {
+          "type": "icon",
+          "icon": "share"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,292 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "marriage_loan_amount",
+  "flowId": "marriage_loan",
+  "stepNumber": 3,
+  "title": {
+    "fa": "انتخاب مبلغ",
+    "en": "Amount Selection"
+  },
+  
+  "appBar": {
+    "type": "bpms_stepper",
+    "title": {"fa": "تسهیلات ازدواج", "en": "Marriage Loan"},
+    "currentStep": 3,
+    "totalSteps": 8,
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "amount_header",
+        "type": "card",
+        "padding": 20,
+        "backgroundColor": "#E8F5E9",
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "text",
+              "text": {"fa": "سقف تسهیلات شما", "en": "Your Loan Limit"},
+              "style": "titleMedium",
+              "textAlign": "center"
+            },
+            {"type": "sized_box", "height": 8},
+            {
+              "type": "text",
+              "text": {"fa": "۳۰۰,۰۰۰,۰۰۰ تومان", "en": "300,000,000 Toman"},
+              "style": "displaySmall",
+              "color": "#4CAF50",
+              "textAlign": "center"
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "amount_selection_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "مبلغ درخواستی", "en": "Requested Amount"}
+        },
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "slider",
+              "min": 500000000,
+              "max": 3000000000,
+              "step": 50000000,
+              "valueFormat": "currency",
+              "showLabels": true,
+              "minLabel": {"fa": "۵۰ میلیون", "en": "50M"},
+              "maxLabel": {"fa": "۳۰۰ میلیون", "en": "300M"},
+              "bindTo": "loanAmount"
+            },
+            {
+              "type": "container",
+              "margin": {"top": 16},
+              "alignment": "center",
+              "child": {
+                "type": "column",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "{{formatCurrency(loanAmount)}}",
+                    "style": "headlineMedium",
+                    "color": "#E91E63"
+                  },
+                  {
+                    "type": "text",
+                    "text": {"fa": "ریال", "en": "Rials"},
+                    "style": "titleMedium",
+                    "color": "textSecondary"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "wrap",
+              "margin": {"top": 16},
+              "spacing": 8,
+              "alignment": "center",
+              "children": [
+                {
+                  "type": "amount_chip",
+                  "label": {"fa": "۵۰ میلیون", "en": "50M"},
+                  "selected": "{{loanAmount === 500000000}}",
+                  "onTap": {"type": "set_state", "key": "loanAmount", "value": 500000000}
+                },
+                {
+                  "type": "amount_chip",
+                  "label": {"fa": "۱۰۰ میلیون", "en": "100M"},
+                  "selected": "{{loanAmount === 1000000000}}",
+                  "onTap": {"type": "set_state", "key": "loanAmount", "value": 1000000000}
+                },
+                {
+                  "type": "amount_chip",
+                  "label": {"fa": "۱۵۰ میلیون", "en": "150M"},
+                  "selected": "{{loanAmount === 1500000000}}",
+                  "onTap": {"type": "set_state", "key": "loanAmount", "value": 1500000000}
+                },
+                {
+                  "type": "amount_chip",
+                  "label": {"fa": "۲۰۰ میلیون", "en": "200M"},
+                  "selected": "{{loanAmount === 2000000000}}",
+                  "onTap": {"type": "set_state", "key": "loanAmount", "value": 2000000000}
+                },
+                {
+                  "type": "amount_chip",
+                  "label": {"fa": "۳۰۰ میلیون", "en": "300M"},
+                  "selected": "{{loanAmount === 3000000000}}",
+                  "onTap": {"type": "set_state", "key": "loanAmount", "value": 3000000000}
+                }
+              ]
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "repayment_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "مدت بازپرداخت", "en": "Repayment Period"}
+        },
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "radio_group",
+              "options": [
+                {"value": 36, "label": {"fa": "۳۶ ماه (۳ سال)", "en": "36 months (3 years)"}},
+                {"value": 48, "label": {"fa": "۴۸ ماه (۴ سال)", "en": "48 months (4 years)"}},
+                {"value": 60, "label": {"fa": "۶۰ ماه (۵ سال)", "en": "60 months (5 years)"}}
+              ],
+              "bindTo": "repaymentPeriod"
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "calculation_card",
+        "type": "card",
+        "margin": {"top": 24},
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "container",
+              "padding": 16,
+              "decoration": {"color": "#F5F5F5"},
+              "child": {
+                "type": "text",
+                "text": {"fa": "محاسبه اقساط", "en": "Installment Calculation"},
+                "style": "titleMedium"
+              }
+            },
+            {
+              "type": "info_row",
+              "padding": 16,
+              "label": {"fa": "مبلغ تسهیلات", "en": "Loan Amount"},
+              "value": "{{formatCurrency(loanAmount)}} ریال"
+            },
+            {"type": "divider"},
+            {
+              "type": "info_row",
+              "padding": 16,
+              "label": {"fa": "نرخ سود سالانه", "en": "Annual Rate"},
+              "value": "۴٪"
+            },
+            {"type": "divider"},
+            {
+              "type": "info_row",
+              "padding": 16,
+              "label": {"fa": "تعداد اقساط", "en": "Installments"},
+              "value": "{{repaymentPeriod}} ماه"
+            },
+            {"type": "divider"},
+            {
+              "type": "info_row",
+              "padding": 16,
+              "label": {"fa": "مبلغ هر قسط", "en": "Monthly Payment"},
+              "value": "{{formatCurrency(monthlyPayment)}} ریال",
+              "valueColor": "#E91E63",
+              "valueStyle": "titleMedium"
+            },
+            {"type": "divider"},
+            {
+              "type": "info_row",
+              "padding": 16,
+              "label": {"fa": "جمع کل بازپرداخت", "en": "Total Repayment"},
+              "value": "{{formatCurrency(totalRepayment)}} ریال"
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "deposit_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "سپرده واریز تسهیلات", "en": "Deposit for Disbursement"}
+        },
+        "child": {
+          "type": "dropdown_field",
+          "label": {"fa": "انتخاب سپرده", "en": "Select Deposit"},
+          "dataSource": "deposits",
+          "itemTemplate": {
+            "value": "{{item.id}}",
+            "label": "{{item.depositNumber}}",
+            "subtitle": "{{item.depositType}}"
+          },
+          "bindTo": "selectedDepositId",
+          "validation": {"required": true}
+        }
+      },
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "decoration": {"color": "surface", "boxShadow": "0 -2px 8px rgba(0,0,0,0.1)"},
+    "child": {
+      "type": "row",
+      "children": [
+        {
+          "type": "expanded",
+          "child": {
+            "type": "outlined_button",
+            "label": {"fa": "مرحله قبل", "en": "Previous"},
+            "onTap": {"type": "navigate_back"}
+          }
+        },
+        {"type": "sized_box", "width": 16},
+        {
+          "type": "expanded",
+          "flex": 2,
+          "child": {
+            "type": "elevated_button",
+            "label": {"fa": "مرحله بعد", "en": "Next"},
+            "disabled": "{{!loanAmount || !repaymentPeriod || !selectedDepositId}}",
+            "onTap": {
+              "type": "navigate",
+              "route": "/bpms/marriage-loan/step-04"
+            }
+          }
+        }
+      ]
+    }
+  },
+  
+  "dataBindings": {
+    "loanAmount": {"source": "form", "default": 1500000000},
+    "repaymentPeriod": {"source": "form", "default": 48},
+    "selectedDepositId": {"source": "form", "default": null},
+    "deposits": {"source": "api", "endpoint": "dibalite/deposits"},
+    "monthlyPayment": {
+      "source": "computed",
+      "expression": "Math.round((loanAmount * (1 + 0.04 * repaymentPeriod / 12)) / repaymentPeriod)"
+    },
+    "totalRepayment": {
+      "source": "computed",
+      "expression": "monthlyPayment * repaymentPeriod"
+    }
+  },
+  
+  "mockData": {
+    "deposits": "$ref:mock-data/deposits.json#deposits"
+  }
+}
+

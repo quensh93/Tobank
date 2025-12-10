@@ -1,0 +1,38 @@
+"change_deal_stage_description": "این معامله به ({stage_name}) منتقل شود؟",
+"@change_deal_stage_description": {
+  "placeholders": {
+    "stage_name": {
+      "type": "String",
+      "example": "0"
+    }
+  }
+},
+
+AppLocalizations.of(context)!.change_deal_stage_description(controller.stages[controller.currentPage.value-1].title),
+
+
+------------------------------
+
+AppLocalizations.of(context)!.contact_us
+or
+AppLocalizations.of(Get.context!)!.rules_and_regulations
+
+--------
+
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+
+
+
+//locale
+final locale = AppLocalizations.of(context)!;
+
+
+
+
+//locale
+final locale = AppLocalizations.of(Get.context!)!;
+
+
+///
+flutter gen-l10n

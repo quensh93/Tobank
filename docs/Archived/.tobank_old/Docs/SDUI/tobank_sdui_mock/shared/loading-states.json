@@ -1,0 +1,91 @@
+{
+  "$schema": "tobank-sdui/v1/loading-states",
+  "version": "1.0.0",
+  "description": "Loading state configurations",
+  
+  "loadingStates": {
+    "page_loading": {
+      "type": "skeleton",
+      "description": "Full page skeleton loading",
+      "components": {
+        "header": {"type": "skeleton_box", "height": 200},
+        "content": {"type": "skeleton_list", "count": 5, "itemHeight": 72}
+      }
+    },
+    
+    "list_loading": {
+      "type": "skeleton",
+      "description": "List skeleton loading",
+      "components": {
+        "items": {"type": "skeleton_list", "count": 10, "itemHeight": 72}
+      }
+    },
+    
+    "card_loading": {
+      "type": "skeleton",
+      "description": "Single card skeleton",
+      "components": {
+        "image": {"type": "skeleton_box", "height": 180},
+        "title": {"type": "skeleton_text", "width": "60%"},
+        "subtitle": {"type": "skeleton_text", "width": "40%"}
+      }
+    },
+    
+    "inline_loading": {
+      "type": "spinner",
+      "description": "Inline spinner for buttons/actions",
+      "size": 20,
+      "color": "primary"
+    },
+    
+    "overlay_loading": {
+      "type": "overlay",
+      "description": "Full screen loading overlay",
+      "components": {
+        "spinner": {"type": "circular_progress", "size": 48},
+        "text": {"type": "text", "style": "bodyMedium"}
+      },
+      "backgroundColor": "rgba(0,0,0,0.5)"
+    },
+    
+    "pull_refresh": {
+      "type": "refresh_indicator",
+      "description": "Pull to refresh indicator",
+      "color": "primary",
+      "backgroundColor": "surface"
+    },
+    
+    "pagination_loading": {
+      "type": "inline",
+      "description": "Load more pagination",
+      "components": {
+        "spinner": {"type": "circular_progress", "size": 24},
+        "text": {"fa": "در حال بارگذاری...", "en": "Loading..."}
+      }
+    },
+    
+    "transaction_processing": {
+      "type": "lottie",
+      "description": "Transaction processing animation",
+      "asset": "assets/animations/processing.json",
+      "size": 150,
+      "text": {"fa": "در حال پردازش...", "en": "Processing..."}
+    },
+    
+    "biometric_loading": {
+      "type": "lottie",
+      "description": "Biometric authentication loading",
+      "asset": "assets/animations/fingerprint.json",
+      "size": 120,
+      "text": {"fa": "لطفاً اثر انگشت را اسکن کنید", "en": "Please scan your fingerprint"}
+    }
+  },
+  
+  "skeletonConfig": {
+    "baseColor": "#E0E0E0",
+    "highlightColor": "#F5F5F5",
+    "animationDuration": 1500,
+    "borderRadius": 4
+  }
+}
+

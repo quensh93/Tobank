@@ -1,0 +1,23 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "چک‌ها"
+    },
+    "actions": [
+      {
+        "type": "iconButton",
+        "onPressed": {
+          "actionType": "navigate",
+          "path": "/cheques/request"
+        },
+        "icon": {
+          "type": "icon",
+          "icon": "add"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "GET": {
+    "statusCode": 200,
+    "data": {
+      "common": {
+        "loading": "در حال بارگذاری...",
+        "error": "خطا",
+        "errorLoadingForm": "خطا در بارگذاری فرم"
+      },
+      "login": {
+        "validationTitle": "اعتبار سنجی",
+        "validationInstructions": "کاربر گرامی؛ پیرو دستورالعمل بانک مرکزی در راستای اعتبارسنجی کاربران، شماره همراه، کد ملی و تاریخ تولد خود را بصورت صحیح وارد نمایید. لطفا شماره همراهی را وارد نمایید که مالک سیم‌کارت آن هستید.",
+        "mobileNumberLabel": "شماره همراه",
+        "mobileNumberPlaceholder": "شماره همراه خود را وارد نمایید",
+        "mobileNumberError": "یک شماره همراه معتبر وارد نمایید",
+        "nationalCodeTitle": "کد ملی",
+        "nationalCodePlaceholder": "کد ملی خود را بدون خط تیره وارد نمایید",
+        "nationalCodeError": "کد ملی معتبر وارد نمایید",
+        "birthdateLabel": "تاریخ تولد",
+        "birthdatePlaceholder": "تاریخ تولد خود را انتخاب نمایید",
+        "birthdateError": "لطفا تاریخ تولد خود را انتخاب نمایید",
+        "agreeWithRulesMessage": "با ورود به توبانک با ",
+        "rulesAndRegulations": "قوانین و مقررات",
+        "agreeSuffix": " آن موافق هستم",
+        "receiveVerificationCode": "دریافت کد تایید",
+        "dialogRequestResultTitle": "نتیجه درخواست",
+        "dialogRequestSentLabel": "درخواست ارسال شده (POST):",
+        "dialogResponseReceivedLabel": "پاسخ دریافت شده:",
+        "dialogConfirmButton": "تأیید",
+        "otpSentSuccessMessage": "کد تایید با موفقیت ارسال شد"
+      },
+      "menu": {
+        "appBarTitle": "توبانک SDUI",
+        "title": "منو",
+        "errorLoading": "خطا در بارگذاری منو",
+        "noItemsFound": "آیتمی در منو یافت نشد",
+        "items": {
+          "login": "لاگین",
+          "verifyIdentity": "احراز هویت",
+          "home": "هوم",
+          "accountOverview": "اطلاعات حساب ها",
+          "transfer": "انتقال وجه",
+          "transactionHistory": "تاریخچه تراکنش ها",
+          "inbox": "کارتابل",
+          "loans": "تسهیلات",
+          "profile": "پروفایل"
+        }
+      },
+      "verifyOtp": {
+        "title": "دریافت کد تایید",
+        "errorLoading": "خطا در بارگذاری فرم",
+        "receiveVerificationCode": "دریافت کد تایید",
+        "verifyCodeSentToPhoneNumber": "کد تایید به شماره {{mobile_number}} ارسال شد",
+        "wrongNumber": "شماره اشتباه است",
+        "edit": "ویرایش",
+        "sendAgain": "ارسال مجدد",
+        "continueLabel": "ادامه",
+        "otpCodeLabel": "کد تایید",
+        "otpCodePlaceholder": "کد تایید را وارد کنید",
+        "otpCodeError": "لطفا کد تایید را وارد نمایید"
+      },
+      "profile": {
+        "title": "پروفایل",
+        "errorLoading": "خطا در بارگذاری پروفایل"
+      },
+      "transactions": {
+        "title": "تاریخچه تراکنش‌ها",
+        "errorLoading": "خطا در بارگذاری تراکنش‌ها",
+        "noTransactionsFound": "تراکنشی ثبت نشده است."
+      },
+      "transfer": {
+        "title": "انتقال وجه",
+        "errorLoading": "خطا در بارگذاری فرم",
+        "fromAccountPlaceholder": "انتخاب حساب مبدا",
+        "toAccountPlaceholder": "شماره حساب مقصد را وارد کنید"
+      },
+      "account": {
+        "title": "اطلاعات حساب",
+        "errorLoading": "خطا در بارگذاری اطلاعات"
+      },
+      "home": {
+        "title": "خانه",
+        "errorLoading": "خطا در بارگذاری اطلاعات خانه",
+        "errorLoadingTransactions": "خطا در بارگذاری تراکنش‌ها",
+        "noTransactionsFound": "تراکنشی یافت نشد"
+      },
+      "register": {
+        "title": "ثبت نام",
+        "errorLoading": "خطا در بارگذاری فرم ثبت نام"
+      }
+    }
+  }
+}

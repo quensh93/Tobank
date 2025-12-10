@@ -1,0 +1,260 @@
+{
+  "type": "scaffold",
+  "body": {
+    "type": "singleChildScrollView",
+    "child": {
+      "type": "padding",
+      "padding": {
+        "left": 24,
+        "top": 24,
+        "right": 24,
+        "bottom": 24
+      },
+      "child": {
+        "type": "column",
+        "children": [
+          {
+            "type": "sizedBox",
+            "height": 60
+          },
+          {
+            "type": "center",
+            "child": {
+              "type": "column",
+              "children": [
+                {
+                  "type": "image",
+                  "src": "assets/images/tobank_logo.png",
+                  "imageType": "asset",
+                  "width": 100,
+                  "height": 100
+                },
+                {
+                  "type": "text",
+                  "data": "تو بانک",
+                  "style": {
+                    "fontSize": 24,
+                    "fontWeight": "bold"
+                  }
+                },
+                {
+                  "type": "text",
+                  "data": "خوش آمدید",
+                  "style": {
+                    "fontSize": 16,
+                    "color": "#757575"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "sizedBox",
+            "height": 48
+          },
+          {
+            "type": "column",
+            "children": [
+              {
+                "type": "textField",
+                "decoration": {
+                  "labelText": "شماره موبایل",
+                  "prefixIcon": {
+                    "type": "row",
+                    "mainAxisSize": "min",
+                    "children": [
+                      {
+                        "type": "image",
+                        "src": "assets/icons/iran_flag.png",
+                        "imageType": "asset",
+                        "width": 24,
+                        "height": 16
+                      },
+                      {
+                        "type": "text",
+                        "data": "+۹۸ ",
+                        "style": {
+                          "fontSize": 14
+                        }
+                      }
+                    ]
+                  }
+                },
+                "keyboardType": "phone",
+                "maxLength": 11,
+                "onChanged": {
+                  "actionType": "setValue",
+                  "key": "mobile",
+                  "value": "{{value}}"
+                }
+              },
+              {
+                "type": "sizedBox",
+                "height": 16
+              },
+              {
+                "type": "textField",
+                "obscureText": true,
+                "decoration": {
+                  "labelText": "رمز عبور"
+                },
+                "onChanged": {
+                  "actionType": "setValue",
+                  "key": "password",
+                  "value": "{{value}}"
+                },
+                "maxLines": 1
+              },
+              {
+                "type": "sizedBox",
+                "height": 12
+              },
+              {
+                "type": "row",
+                "mainAxisAlignment": "end",
+                "children": [
+                  {
+                    "type": "textButton",
+                    "child": {
+                      "type": "text",
+                      "data": "فراموشی رمز عبور"
+                    },
+                    "onPressed": {
+                      "actionType": "navigate",
+                      "path": "/auth/forgot-password"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "sizedBox",
+            "height": 32
+          },
+          {
+            "type": "elevatedButton",
+            "child": {
+              "type": "text",
+              "data": "ورود"
+            },
+            "onPressed": {
+              "actionType": "networkRequest",
+              "url": "https://api.tobank.com/auth/login",
+              "method": "POST",
+              "data": {
+                "mobile": "{{mobile}}",
+                "password": "{{password}}"
+              },
+              "onSuccess": {
+                "actionType": "navigate",
+                "path": "/auth/otp"
+              },
+              "onError": {
+                "actionType": "showSnackBar",
+                "content": "{{error.message}}"
+              }
+            }
+          },
+          {
+            "type": "sizedBox",
+            "height": 24
+          },
+          {
+            "type": "row",
+            "mainAxisAlignment": "center",
+            "children": [
+              {
+                "type": "container",
+                "height": 1,
+                "width": 60,
+                "decoration": {
+                  "color": "#E0E0E0"
+                }
+              },
+              {
+                "type": "text",
+                "data": "یا",
+                "style": {
+                  "color": "#757575"
+                }
+              },
+              {
+                "type": "container",
+                "height": 1,
+                "width": 60,
+                "decoration": {
+                  "color": "#E0E0E0"
+                }
+              }
+            ]
+          },
+          {
+            "type": "sizedBox",
+            "height": 24
+          },
+          {
+            "type": "outlinedButton",
+            "child": {
+              "type": "row",
+              "mainAxisSize": "min",
+              "children": [
+                {
+                  "type": "image",
+                  "src": "assets/icons/ic_fingerprint.svg",
+                  "imageType": "asset",
+                  "width": 24,
+                  "height": 24
+                },
+                {
+                  "type": "sizedBox",
+                  "width": 8
+                },
+                {
+                  "type": "text",
+                  "data": "ورود با اثر انگشت"
+                }
+              ]
+            },
+            "onPressed": {
+              "actionType": "navigate",
+              "path": "/home"
+            }
+          },
+          {
+            "type": "sizedBox",
+            "height": 32
+          },
+          {
+            "type": "row",
+            "mainAxisAlignment": "center",
+            "children": [
+              {
+                "type": "text",
+                "data": "حساب کاربری ندارید؟",
+                "style": {
+                  "color": "#757575"
+                }
+              },
+              {
+                "type": "textButton",
+                "child": {
+                  "type": "text",
+                  "data": "ثبت‌نام"
+                },
+                "onPressed": {
+                  "actionType": "navigate",
+                  "path": "/auth/register"
+                }
+              }
+            ]
+          },
+          {
+            "type": "sizedBox",
+            "height": 32
+          }
+        ]
+      }
+    }
+  }
+}

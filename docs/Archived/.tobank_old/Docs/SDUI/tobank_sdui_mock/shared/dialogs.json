@@ -1,0 +1,102 @@
+{
+  "$schema": "tobank-sdui/v1/dialog-templates",
+  "version": "1.0.0",
+  "description": "Reusable dialog templates",
+  
+  "dialogs": {
+    "confirm_exit": {
+      "type": "confirm",
+      "title": {"fa": "خروج از برنامه", "en": "Exit App"},
+      "message": {"fa": "آیا می‌خواهید از برنامه خارج شوید؟", "en": "Do you want to exit the app?"},
+      "confirmLabel": {"fa": "خروج", "en": "Exit"},
+      "cancelLabel": {"fa": "انصراف", "en": "Cancel"},
+      "confirmColor": "#F44336"
+    },
+    
+    "confirm_logout": {
+      "type": "confirm",
+      "title": {"fa": "خروج از حساب", "en": "Log Out"},
+      "message": {"fa": "آیا می‌خواهید از حساب کاربری خود خارج شوید؟", "en": "Do you want to log out of your account?"},
+      "confirmLabel": {"fa": "خروج", "en": "Log Out"},
+      "cancelLabel": {"fa": "انصراف", "en": "Cancel"},
+      "confirmColor": "#F44336"
+    },
+    
+    "confirm_delete": {
+      "type": "confirm",
+      "title": {"fa": "حذف", "en": "Delete"},
+      "message": {"fa": "آیا از حذف این مورد اطمینان دارید؟", "en": "Are you sure you want to delete this?"},
+      "confirmLabel": {"fa": "حذف", "en": "Delete"},
+      "cancelLabel": {"fa": "انصراف", "en": "Cancel"},
+      "confirmColor": "#F44336"
+    },
+    
+    "confirm_transaction": {
+      "type": "confirm",
+      "title": {"fa": "تایید تراکنش", "en": "Confirm Transaction"},
+      "icon": "assets/icons/ic_warning.svg",
+      "iconColor": "#FF9800",
+      "confirmLabel": {"fa": "تایید", "en": "Confirm"},
+      "cancelLabel": {"fa": "انصراف", "en": "Cancel"}
+    },
+    
+    "success_transaction": {
+      "type": "alert",
+      "icon": "assets/icons/ic_check_circle.svg",
+      "iconColor": "#4CAF50",
+      "title": {"fa": "تراکنش موفق", "en": "Transaction Successful"},
+      "primaryAction": {"label": {"fa": "بستن", "en": "Close"}}
+    },
+    
+    "error_transaction": {
+      "type": "alert",
+      "icon": "assets/icons/ic_error.svg",
+      "iconColor": "#F44336",
+      "title": {"fa": "خطا در تراکنش", "en": "Transaction Error"},
+      "primaryAction": {"label": {"fa": "تلاش مجدد", "en": "Retry"}},
+      "secondaryAction": {"label": {"fa": "بستن", "en": "Close"}}
+    },
+    
+    "update_available": {
+      "type": "alert",
+      "icon": "assets/icons/ic_update.svg",
+      "iconColor": "#2196F3",
+      "title": {"fa": "نسخه جدید موجود است", "en": "Update Available"},
+      "message": {"fa": "نسخه جدیدی از برنامه منتشر شده است", "en": "A new version of the app is available"},
+      "primaryAction": {"label": {"fa": "به‌روزرسانی", "en": "Update"}},
+      "secondaryAction": {"label": {"fa": "بعداً", "en": "Later"}},
+      "dismissible": true
+    },
+    
+    "force_update": {
+      "type": "alert",
+      "icon": "assets/icons/ic_update.svg",
+      "iconColor": "#F44336",
+      "title": {"fa": "به‌روزرسانی الزامی", "en": "Update Required"},
+      "message": {"fa": "برای ادامه باید برنامه را به‌روزرسانی کنید", "en": "You must update the app to continue"},
+      "primaryAction": {"label": {"fa": "به‌روزرسانی", "en": "Update"}},
+      "dismissible": false
+    },
+    
+    "biometric_prompt": {
+      "type": "biometric",
+      "title": {"fa": "تایید هویت", "en": "Verify Identity"},
+      "subtitle": {"fa": "از اثر انگشت یا تشخیص چهره استفاده کنید", "en": "Use fingerprint or face recognition"},
+      "negativeButtonText": {"fa": "استفاده از رمز عبور", "en": "Use Password"}
+    },
+    
+    "rating_prompt": {
+      "type": "custom",
+      "title": {"fa": "نظر شما چیست؟", "en": "How do you like it?"},
+      "message": {"fa": "لطفاً به برنامه امتیاز دهید", "en": "Please rate our app"},
+      "content": {
+        "type": "star_rating",
+        "maxStars": 5,
+        "bindTo": "rating"
+      },
+      "primaryAction": {"label": {"fa": "ارسال", "en": "Submit"}},
+      "secondaryAction": {"label": {"fa": "بعداً", "en": "Later"}}
+    }
+  }
+}
+

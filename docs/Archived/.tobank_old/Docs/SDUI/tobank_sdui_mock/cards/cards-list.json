@@ -1,0 +1,303 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "cards_list",
+  "pageType": "list",
+  "title": {
+    "fa": "کارت‌های من",
+    "en": "My Cards"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "cards_list",
+    "screenClass": "CardsListPage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "کارت‌های من", "en": "My Cards"},
+    "showBackButton": true,
+    "actions": [
+      {
+        "id": "add_card",
+        "icon": "assets/icons/ic_add.svg",
+        "tooltip": {"fa": "افزودن کارت", "en": "Add Card"},
+        "action": {
+          "type": "navigate",
+          "route": "/cards/add"
+        }
+      }
+    ]
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "refreshable": true,
+    "onRefresh": {
+      "type": "api_call",
+      "endpoint": "dibalite/cards/refresh"
+    },
+    "children": [
+      {
+        "id": "total_balance_section",
+        "type": "container",
+        "padding": 16,
+        "child": {
+          "type": "card",
+          "borderRadius": 16,
+          "gradient": {
+            "type": "linear",
+            "colors": ["#E31837", "#B71C1C"],
+            "begin": "topLeft",
+            "end": "bottomRight"
+          },
+          "padding": 20,
+          "child": {
+            "type": "column",
+            "crossAxisAlignment": "start",
+            "children": [
+              {
+                "type": "row",
+                "mainAxisAlignment": "spaceBetween",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": {"fa": "مجموع موجودی", "en": "Total Balance"},
+                    "style": "bodyMedium",
+                    "color": "#FFFFFF99"
+                  },
+                  {
+                    "type": "icon_button",
+                    "icon": "{{showBalance ? 'assets/icons/ic_eye_open.svg' : 'assets/icons/ic_eye_close.svg'}}",
+                    "iconColor": "#FFFFFF",
+                    "onTap": {"type": "toggle_state", "key": "showBalance"}
+                  }
+                ]
+              },
+              {
+                "type": "sized_box",
+                "height": 8
+              },
+              {
+                "type": "conditional",
+                "condition": "{{showBalance}}",
+                "whenTrue": {
+                  "type": "text",
+                  "text": "{{formatCurrency(totalBalance)}} ریال",
+                  "style": "headlineLarge",
+                  "color": "#FFFFFF"
+                },
+                "whenFalse": {
+                  "type": "text",
+                  "text": "********",
+                  "style": "headlineLarge",
+                  "color": "#FFFFFF"
+                }
+              },
+              {
+                "type": "sized_box",
+                "height": 4
+              },
+              {
+                "type": "text",
+                "text": {"fa": "{{cards.length}} کارت فعال", "en": "{{cards.length}} active cards"},
+                "style": "bodySmall",
+                "color": "#FFFFFF99"
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "cards_list",
+        "type": "list",
+        "padding": {"horizontal": 16},
+        "dataSource": "cards",
+        "emptyState": {
+          "icon": "assets/icons/ic_card.svg",
+          "title": {"fa": "کارتی یافت نشد", "en": "No cards found"},
+          "subtitle": {"fa": "کارت بانکی خود را اضافه کنید", "en": "Add your bank card"},
+          "action": {
+            "label": {"fa": "افزودن کارت", "en": "Add Card"},
+            "onTap": {"type": "navigate", "route": "/cards/add"}
+          }
+        },
+        "itemTemplate": {
+          "type": "card",
+          "margin": {"bottom": 12},
+          "borderRadius": 16,
+          "elevation": 2,
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "bank_card_widget",
+                "cardNumber": "{{item.cardNumberMasked}}",
+                "cardHolder": "{{item.holderName}}",
+                "expiryDate": "{{item.expiryDate}}",
+                "bankLogo": "{{item.bankLogo}}",
+                "cardDesign": "{{item.cardDesign}}",
+                "balance": "{{item.balance}}",
+                "showBalance": "{{showBalance}}",
+                "isBlocked": "{{item.isBlocked}}"
+              },
+              {
+                "type": "container",
+                "padding": {"horizontal": 16, "bottom": 12},
+                "child": {
+                  "type": "row",
+                  "mainAxisAlignment": "spaceEvenly",
+                  "children": [
+                    {
+                      "type": "text_button",
+                      "icon": "assets/icons/ic_balance.svg",
+                      "label": {"fa": "موجودی", "en": "Balance"},
+                      "onTap": {
+                        "type": "navigate",
+                        "route": "/cards/balance/{{item.id}}"
+                      }
+                    },
+                    {
+                      "type": "text_button",
+                      "icon": "assets/icons/ic_card_to_card.svg",
+                      "label": {"fa": "انتقال", "en": "Transfer"},
+                      "onTap": {
+                        "type": "navigate",
+                        "route": "/transfer/card-to-card?sourceCardId={{item.id}}"
+                      }
+                    },
+                    {
+                      "type": "text_button",
+                      "icon": "assets/icons/ic_settings.svg",
+                      "label": {"fa": "تنظیمات", "en": "Settings"},
+                      "onTap": {
+                        "type": "navigate",
+                        "route": "/cards/settings/{{item.id}}"
+                      }
+                    },
+                    {
+                      "type": "text_button",
+                      "icon": "assets/icons/ic_more.svg",
+                      "label": {"fa": "بیشتر", "en": "More"},
+                      "onTap": {
+                        "type": "show_bottom_sheet",
+                        "sheetId": "card_actions_sheet",
+                        "data": {"cardId": "{{item.id}}"}
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "add_card_button",
+        "type": "container",
+        "padding": 16,
+        "child": {
+          "type": "outlined_button",
+          "icon": "assets/icons/ic_add.svg",
+          "label": {"fa": "افزودن کارت جدید", "en": "Add New Card"},
+          "fullWidth": true,
+          "onTap": {
+            "type": "navigate",
+            "route": "/cards/add"
+          }
+        }
+      },
+      
+      {
+        "id": "bottom_spacing",
+        "type": "sized_box",
+        "height": 80
+      }
+    ]
+  },
+  
+  "bottomSheets": {
+    "card_actions_sheet": {
+      "type": "actions_sheet",
+      "title": {"fa": "عملیات کارت", "en": "Card Actions"},
+      "actions": [
+        {
+          "id": "view_detail",
+          "icon": "assets/icons/ic_info.svg",
+          "label": {"fa": "مشاهده جزئیات", "en": "View Details"},
+          "onTap": {"type": "navigate", "route": "/cards/detail/{{cardId}}"}
+        },
+        {
+          "id": "transactions",
+          "icon": "assets/icons/ic_transaction.svg",
+          "label": {"fa": "تراکنش‌ها", "en": "Transactions"},
+          "onTap": {"type": "navigate", "route": "/cards/transactions/{{cardId}}"}
+        },
+        {
+          "id": "change_pin",
+          "icon": "assets/icons/ic_pin.svg",
+          "label": {"fa": "تغییر رمز", "en": "Change PIN"},
+          "onTap": {"type": "navigate", "route": "/cards/change-pin/{{cardId}}"}
+        },
+        {
+          "id": "block_card",
+          "icon": "assets/icons/ic_block_card.svg",
+          "label": {"fa": "مسدودسازی", "en": "Block Card"},
+          "color": "#F44336",
+          "onTap": {"type": "navigate", "route": "/cards/block/{{cardId}}"}
+        },
+        {
+          "id": "edit_card",
+          "icon": "assets/icons/ic_edit.svg",
+          "label": {"fa": "ویرایش", "en": "Edit"},
+          "onTap": {"type": "navigate", "route": "/cards/edit/{{cardId}}"}
+        },
+        {
+          "id": "delete_card",
+          "icon": "assets/icons/ic_delete.svg",
+          "label": {"fa": "حذف کارت", "en": "Delete Card"},
+          "color": "#F44336",
+          "onTap": {
+            "type": "confirm_dialog",
+            "title": {"fa": "حذف کارت", "en": "Delete Card"},
+            "message": {"fa": "آیا از حذف این کارت اطمینان دارید؟", "en": "Are you sure you want to delete this card?"},
+            "confirmLabel": {"fa": "بله، حذف شود", "en": "Yes, Delete"},
+            "cancelLabel": {"fa": "انصراف", "en": "Cancel"},
+            "onConfirm": {
+              "type": "api_call",
+              "endpoint": "dibalite/cards/delete",
+              "method": "DELETE",
+              "body": {"cardId": "{{cardId}}"}
+            }
+          }
+        }
+      ]
+    }
+  },
+  
+  "dataBindings": {
+    "cards": {
+      "source": "api",
+      "endpoint": "dibalite/cards",
+      "cacheTime": 300
+    },
+    "totalBalance": {
+      "source": "computed",
+      "expression": "cards.reduce((sum, card) => sum + card.balance, 0)"
+    },
+    "showBalance": {
+      "source": "local",
+      "key": "cards_show_balance",
+      "default": true
+    }
+  },
+  
+  "mockData": {
+    "cards": "$ref:mock-data/cards.json#cards",
+    "totalBalance": 125450000,
+    "showBalance": true
+  }
+}
+

@@ -14,7 +14,7 @@ class AppInitializer {
     
     try {
       // Add any additional initialization here
-      // For example: Firebase, Analytics, etc.
+      // For example: Supabase clients, analytics, etc.
       
       AppLogger.i('App initialization completed successfully');
     } catch (e) {

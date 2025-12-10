@@ -1,0 +1,338 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "card_detail",
+  "pageType": "detail",
+  "title": {
+    "fa": "جزئیات کارت",
+    "en": "Card Details"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "card_detail",
+    "screenClass": "CardDetailPage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "جزئیات کارت", "en": "Card Details"},
+    "showBackButton": true,
+    "actions": [
+      {
+        "id": "edit",
+        "icon": "assets/icons/ic_edit.svg",
+        "onTap": {"type": "navigate", "route": "/cards/edit/{{cardId}}"}
+      }
+    ]
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "children": [
+      {
+        "id": "card_widget",
+        "type": "container",
+        "padding": 16,
+        "child": {
+          "type": "bank_card_widget",
+          "cardNumber": "{{card.cardNumberMasked}}",
+          "cardHolder": "{{card.holderName}}",
+          "expiryDate": "{{card.expiryDate}}",
+          "bankLogo": "{{card.bankLogo}}",
+          "cardDesign": "{{card.cardDesign}}",
+          "balance": "{{card.balance}}",
+          "showBalance": "{{showBalance}}",
+          "isBlocked": "{{card.isBlocked}}",
+          "onBalanceTap": {"type": "toggle_state", "key": "showBalance"}
+        }
+      },
+      
+      {
+        "id": "quick_actions",
+        "type": "container",
+        "padding": {"horizontal": 16},
+        "child": {
+          "type": "row",
+          "mainAxisAlignment": "spaceEvenly",
+          "children": [
+            {
+              "type": "action_chip",
+              "icon": "assets/icons/ic_balance.svg",
+              "label": {"fa": "موجودی", "en": "Balance"},
+              "onTap": {"type": "navigate", "route": "/cards/balance/{{cardId}}"}
+            },
+            {
+              "type": "action_chip",
+              "icon": "assets/icons/ic_card_to_card.svg",
+              "label": {"fa": "انتقال", "en": "Transfer"},
+              "onTap": {"type": "navigate", "route": "/transfer/card-to-card?sourceCardId={{cardId}}"}
+            },
+            {
+              "type": "action_chip",
+              "icon": "assets/icons/ic_pin.svg",
+              "label": {"fa": "تغییر رمز", "en": "Change PIN"},
+              "onTap": {"type": "navigate", "route": "/cards/change-pin/{{cardId}}"}
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "card_info_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "اطلاعات کارت", "en": "Card Information"}
+        },
+        "child": {
+          "type": "card",
+          "margin": {"horizontal": 16},
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "info_row",
+                "label": {"fa": "شماره کارت", "en": "Card Number"},
+                "value": "{{card.cardNumberFormatted}}",
+                "copyable": true,
+                "copyValue": "{{card.cardNumber}}"
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "label": {"fa": "بانک", "en": "Bank"},
+                "value": "{{card.bankName}}",
+                "leadingIcon": "{{card.bankLogo}}"
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "label": {"fa": "دارنده کارت", "en": "Card Holder"},
+                "value": "{{card.holderName}}"
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "label": {"fa": "تاریخ انقضا", "en": "Expiry Date"},
+                "value": "{{card.expiryDate}}"
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "label": {"fa": "نام مستعار", "en": "Nickname"},
+                "value": "{{card.nickname || '-'}}"
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "label": {"fa": "وضعیت", "en": "Status"},
+                "value": "{{card.isBlocked ? 'مسدود' : 'فعال'}}",
+                "valueColor": "{{card.isBlocked ? '#F44336' : '#4CAF50'}}"
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "deposit_info_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "اطلاعات سپرده", "en": "Deposit Information"}
+        },
+        "child": {
+          "type": "card",
+          "margin": {"horizontal": 16},
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "info_row",
+                "label": {"fa": "شماره سپرده", "en": "Deposit Number"},
+                "value": "{{card.depositNumber}}",
+                "copyable": true
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "label": {"fa": "شبا", "en": "IBAN"},
+                "value": "{{card.ibanFormatted}}",
+                "copyable": true,
+                "copyValue": "{{card.iban}}"
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "label": {"fa": "نوع سپرده", "en": "Deposit Type"},
+                "value": "{{card.depositType}}"
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "recent_transactions",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "تراکنش‌های اخیر", "en": "Recent Transactions"},
+          "action": {
+            "label": {"fa": "مشاهده همه", "en": "View All"},
+            "onTap": {"type": "navigate", "route": "/cards/transactions/{{cardId}}"}
+          }
+        },
+        "child": {
+          "type": "list",
+          "shrinkWrap": true,
+          "physics": "never_scroll",
+          "padding": {"horizontal": 16},
+          "dataSource": "recentTransactions",
+          "maxItems": 5,
+          "emptyState": {
+            "icon": "assets/icons/ic_transaction.svg",
+            "title": {"fa": "تراکنشی یافت نشد", "en": "No transactions"}
+          },
+          "itemTemplate": {
+            "type": "transaction_item",
+            "icon": "{{item.icon}}",
+            "title": "{{item.title}}",
+            "subtitle": "{{item.description}}",
+            "amount": "{{item.amount}}",
+            "isCredit": "{{item.isCredit}}",
+            "date": "{{item.date}}",
+            "onTap": {"type": "navigate", "route": "/transactions/detail/{{item.id}}"}
+          }
+        }
+      },
+      
+      {
+        "id": "actions_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "عملیات", "en": "Actions"}
+        },
+        "child": {
+          "type": "card",
+          "margin": {"horizontal": 16},
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "list_tile",
+                "leading": "assets/icons/ic_settings.svg",
+                "title": {"fa": "تنظیمات کارت", "en": "Card Settings"},
+                "trailing": "chevron_right",
+                "onTap": {"type": "navigate", "route": "/cards/settings/{{cardId}}"}
+              },
+              {"type": "divider"},
+              {
+                "type": "list_tile",
+                "leading": "assets/icons/ic_pin.svg",
+                "title": {"fa": "تغییر رمز اول", "en": "Change PIN"},
+                "trailing": "chevron_right",
+                "onTap": {"type": "navigate", "route": "/cards/change-pin/{{cardId}}"}
+              },
+              {"type": "divider"},
+              {
+                "type": "list_tile",
+                "leading": "assets/icons/ic_pin.svg",
+                "title": {"fa": "تغییر رمز دوم", "en": "Change CVV2"},
+                "trailing": "chevron_right",
+                "onTap": {"type": "navigate", "route": "/cards/change-cvv/{{cardId}}"}
+              },
+              {"type": "divider"},
+              {
+                "type": "list_tile",
+                "leading": "assets/icons/ic_block_card.svg",
+                "title": {"fa": "{{card.isBlocked ? 'رفع مسدودی' : 'مسدودسازی کارت'}}", "en": "{{card.isBlocked ? 'Unblock Card' : 'Block Card'}}"},
+                "titleColor": "#F44336",
+                "trailing": "chevron_right",
+                "onTap": {"type": "navigate", "route": "/cards/block/{{cardId}}"}
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "delete_button",
+        "type": "container",
+        "padding": 16,
+        "margin": {"top": 16},
+        "child": {
+          "type": "text_button",
+          "label": {"fa": "حذف کارت از لیست", "en": "Remove Card"},
+          "color": "#F44336",
+          "onTap": {
+            "type": "confirm_dialog",
+            "title": {"fa": "حذف کارت", "en": "Remove Card"},
+            "message": {"fa": "آیا از حذف این کارت اطمینان دارید؟", "en": "Are you sure?"},
+            "confirmLabel": {"fa": "بله", "en": "Yes"},
+            "cancelLabel": {"fa": "خیر", "en": "No"},
+            "onConfirm": {
+              "type": "api_call",
+              "endpoint": "dibalite/cards/delete/{{cardId}}",
+              "method": "DELETE",
+              "onSuccess": {
+                "type": "navigate_replace",
+                "route": "/cards"
+              }
+            }
+          }
+        }
+      },
+      
+      {
+        "id": "bottom_spacing",
+        "type": "sized_box",
+        "height": 32
+      }
+    ]
+  },
+  
+  "dataBindings": {
+    "cardId": {"source": "route_param", "key": "cardId"},
+    "card": {
+      "source": "api",
+      "endpoint": "dibalite/cards/{{cardId}}"
+    },
+    "recentTransactions": {
+      "source": "api",
+      "endpoint": "dibalite/cards/{{cardId}}/transactions",
+      "params": {"limit": 5}
+    },
+    "showBalance": {
+      "source": "local",
+      "key": "card_detail_show_balance",
+      "default": true
+    }
+  },
+  
+  "mockData": {
+    "cardId": "CARD-001",
+    "card": {
+      "id": "CARD-001",
+      "cardNumber": "5022291012345678",
+      "cardNumberMasked": "۵۰۲۲-****-****-۵۶۷۸",
+      "cardNumberFormatted": "۵۰۲۲-۲۹۱۰-****-۵۶۷۸",
+      "holderName": "علی احمدی",
+      "expiryDate": "۱۴۰۵/۰۶",
+      "bankCode": "057",
+      "bankName": "بانک پاسارگاد",
+      "bankLogo": "assets/images/logo.png",
+      "cardDesign": "pasargad_gold",
+      "balance": 45230000,
+      "nickname": "کارت اصلی",
+      "isBlocked": false,
+      "depositNumber": "۱۲۳۴۵۶۷۸۹۰",
+      "iban": "IR570570028180010123456789",
+      "ibanFormatted": "IR57-0570-0281-8001-0123-4567-89",
+      "depositType": "قرض‌الحسنه پس‌انداز"
+    },
+    "recentTransactions": "$ref:mock-data/transactions.json#transactions[0:5]"
+  }
+}
+

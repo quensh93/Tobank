@@ -1,0 +1,67 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "security_settings",
+  "title": {"fa": "امنیت", "en": "Security"},
+  
+  "appBar": {"type": "standard", "title": {"fa": "تنظیمات امنیتی", "en": "Security Settings"}},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "card", "padding": 16, "backgroundColor": "#E8F5E9", "child": {"type": "row", "children": [
+        {"type": "icon", "icon": "assets/icons/ic_shield_check.svg", "color": "#4CAF50", "size": 48},
+        {"type": "sized_box", "width": 16},
+        {"type": "expanded", "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+          {"type": "text", "text": {"fa": "امنیت حساب شما", "en": "Account Security"}, "style": "titleMedium"},
+          {"type": "text", "text": {"fa": "سطح امنیت: {{securityLevel}}", "en": "Security Level: {{securityLevel}}"}, "style": "bodySmall", "color": "#4CAF50", "margin": {"top": 4}}
+        ]}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "احراز هویت", "en": "Authentication"}}, "child": {"type": "card", "child": {"type": "column", "children": [
+        {"type": "list_tile", "title": {"fa": "ورود بیومتریک", "en": "Biometric Login"}, "subtitle": {"fa": "اثر انگشت یا تشخیص چهره", "en": "Fingerprint or Face ID"}, "trailing": {"type": "switch", "value": "{{security.biometricEnabled}}", "onChanged": {"type": "toggle_biometric"}}},
+        {"type": "divider", "indent": 16},
+        {"type": "list_tile", "title": {"fa": "رمز عبور برنامه", "en": "App PIN"}, "subtitle": {"fa": "پین ۶ رقمی برای ورود", "en": "6-digit PIN for login"}, "trailing": {"type": "switch", "value": "{{security.pinEnabled}}", "onChanged": {"type": "toggle_pin"}}},
+        {"type": "conditional", "condition": "{{security.pinEnabled}}", "whenTrue": {"type": "list_tile", "title": {"fa": "تغییر پین", "en": "Change PIN"}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "navigate", "route": "/settings/change-pin"}}},
+        {"type": "divider", "indent": 16},
+        {"type": "list_tile", "title": {"fa": "احراز دو مرحله‌ای", "en": "Two-Factor Auth"}, "subtitle": {"fa": "کد یکبار مصرف در هر ورود", "en": "OTP on every login"}, "trailing": {"type": "switch", "value": "{{security.twoFactorEnabled}}", "onChanged": {"type": "navigate", "route": "/settings/two-factor"}}}
+      ]}}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "رمز عبور", "en": "Password"}}, "child": {"type": "card", "child": {"type": "column", "children": [
+        {"type": "list_tile", "title": {"fa": "تغییر رمز عبور", "en": "Change Password"}, "subtitle": {"fa": "آخرین تغییر: {{security.lastPasswordChange}}", "en": "Last changed: {{security.lastPasswordChange}}"}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "navigate", "route": "/settings/change-password"}}
+      ]}}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "دستگاه‌ها", "en": "Devices"}}, "child": {"type": "card", "child": {"type": "column", "children": [
+        {"type": "list_tile", "title": {"fa": "دستگاه‌های فعال", "en": "Active Devices"}, "subtitle": {"fa": "{{security.activeDevices}} دستگاه متصل", "en": "{{security.activeDevices}} connected devices"}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "navigate", "route": "/settings/devices"}},
+        {"type": "divider", "indent": 16},
+        {"type": "list_tile", "title": {"fa": "خروج از همه دستگاه‌ها", "en": "Log Out All Devices"}, "titleColor": "#F44336", "onTap": {"type": "confirm_dialog", "title": {"fa": "خروج از همه", "en": "Log Out All"}, "message": {"fa": "از همه دستگاه‌ها خارج می‌شوید", "en": "You will be logged out from all devices"}, "onConfirm": {"type": "api_call", "endpoint": "auth/logout-all", "method": "POST"}}}
+      ]}}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "تاریخچه", "en": "History"}}, "child": {"type": "card", "child": {"type": "column", "children": [
+        {"type": "list_tile", "title": {"fa": "سوابق ورود", "en": "Login History"}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "navigate", "route": "/settings/login-history"}},
+        {"type": "divider", "indent": 16},
+        {"type": "list_tile", "title": {"fa": "فعالیت‌های امنیتی", "en": "Security Activity"}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "navigate", "route": "/settings/security-activity"}}
+      ]}}},
+      
+      {"type": "sized_box", "height": 32}
+    ]
+  },
+  
+  "dataBindings": {
+    "security": {"source": "api", "endpoint": "auth/security-settings"},
+    "securityLevel": {"source": "computed", "formula": "calculateSecurityLevel(security)"}
+  },
+  
+  "mockData": {
+    "securityLevel": "بالا",
+    "security": {
+      "biometricEnabled": true,
+      "pinEnabled": true,
+      "twoFactorEnabled": false,
+      "lastPasswordChange": "۱۴۰۳/۰۷/۱۵",
+      "activeDevices": 2
+    }
+  }
+}
+

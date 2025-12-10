@@ -1,0 +1,304 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "bills_list",
+  "pageType": "list",
+  "title": {
+    "fa": "پرداخت قبض",
+    "en": "Pay Bills"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "bills_list",
+    "screenClass": "BillsListPage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "پرداخت قبض", "en": "Pay Bills"},
+    "showBackButton": true,
+    "actions": [
+      {
+        "id": "add_bill",
+        "icon": "assets/icons/ic_add.svg",
+        "onTap": {"type": "navigate", "route": "/bills/add"}
+      }
+    ]
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "children": [
+      {
+        "id": "bill_types",
+        "type": "section",
+        "padding": {"horizontal": 16, "top": 16},
+        "child": {
+          "type": "grid",
+          "crossAxisCount": 4,
+          "mainAxisSpacing": 16,
+          "crossAxisSpacing": 12,
+          "childAspectRatio": 0.9,
+          "children": [
+            {
+              "type": "service_item",
+              "icon": "assets/icons/ic_electric_bill.svg",
+              "label": {"fa": "برق", "en": "Electric"},
+              "color": "#FF9800",
+              "onTap": {"type": "navigate", "route": "/bills/inquiry?type=electric"}
+            },
+            {
+              "type": "service_item",
+              "icon": "assets/icons/ic_gas_bill.svg",
+              "label": {"fa": "گاز", "en": "Gas"},
+              "color": "#2196F3",
+              "onTap": {"type": "navigate", "route": "/bills/inquiry?type=gas"}
+            },
+            {
+              "type": "service_item",
+              "icon": "assets/icons/ic_water_bill.svg",
+              "label": {"fa": "آب", "en": "Water"},
+              "color": "#00BCD4",
+              "onTap": {"type": "navigate", "route": "/bills/inquiry?type=water"}
+            },
+            {
+              "type": "service_item",
+              "icon": "assets/icons/ic_phone_bill.svg",
+              "label": {"fa": "تلفن", "en": "Phone"},
+              "color": "#9C27B0",
+              "onTap": {"type": "navigate", "route": "/bills/inquiry?type=phone"}
+            },
+            {
+              "type": "service_item",
+              "icon": "assets/icons/ic_mobile_bill.svg",
+              "label": {"fa": "موبایل", "en": "Mobile"},
+              "color": "#E91E63",
+              "onTap": {"type": "navigate", "route": "/bills/inquiry?type=mobile"}
+            },
+            {
+              "type": "service_item",
+              "icon": "assets/icons/ic_car.svg",
+              "label": {"fa": "جریمه", "en": "Fines"},
+              "color": "#F44336",
+              "onTap": {"type": "navigate", "route": "/bills/traffic-fine"}
+            },
+            {
+              "type": "service_item",
+              "icon": "assets/icons/ic_municipality.svg",
+              "label": {"fa": "عوارض", "en": "Tax"},
+              "color": "#795548",
+              "onTap": {"type": "navigate", "route": "/bills/inquiry?type=municipality"}
+            },
+            {
+              "type": "service_item",
+              "icon": "assets/icons/ic_barcode.svg",
+              "label": {"fa": "بارکد", "en": "Barcode"},
+              "color": "#607D8B",
+              "onTap": {"type": "navigate", "route": "/bills/scan"}
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "pending_bills_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "قبوض پرداخت نشده", "en": "Pending Bills"},
+          "badge": {"text": "{{pendingBills.length}}", "color": "#E31837"}
+        },
+        "child": {
+          "type": "list",
+          "padding": {"horizontal": 16},
+          "dataSource": "pendingBills",
+          "emptyState": {
+            "icon": "assets/icons/ic_check_circle.svg",
+            "title": {"fa": "قبض پرداخت نشده‌ای ندارید", "en": "No pending bills"},
+            "iconColor": "#4CAF50"
+          },
+          "itemTemplate": {
+            "type": "card",
+            "margin": {"bottom": 12},
+            "child": {
+              "type": "list_tile",
+              "contentPadding": 16,
+              "leading": {
+                "type": "container",
+                "width": 48,
+                "height": 48,
+                "decoration": {
+                  "color": "{{item.color}}20",
+                  "borderRadius": 12
+                },
+                "alignment": "center",
+                "child": {
+                  "type": "icon",
+                  "icon": "{{item.icon}}",
+                  "color": "{{item.color}}",
+                  "size": 24
+                }
+              },
+              "title": "{{item.title}}",
+              "subtitle": "شناسه: {{item.billId}} | دوره: {{item.period}}",
+              "trailing": {
+                "type": "column",
+                "crossAxisAlignment": "end",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "{{formatCurrency(item.amount)}}",
+                    "style": "titleSmall",
+                    "color": "#E31837"
+                  },
+                  {
+                    "type": "text",
+                    "text": {"fa": "ریال", "en": "Rials"},
+                    "style": "bodySmall",
+                    "color": "textSecondary"
+                  }
+                ]
+              },
+              "onTap": {
+                "type": "navigate",
+                "route": "/bills/payment",
+                "params": {"billId": "{{item.id}}"}
+              }
+            }
+          }
+        }
+      },
+      
+      {
+        "id": "saved_bills_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "قبوض ذخیره شده", "en": "Saved Bills"},
+          "action": {
+            "label": {"fa": "افزودن", "en": "Add"},
+            "onTap": {"type": "navigate", "route": "/bills/add"}
+          }
+        },
+        "child": {
+          "type": "list",
+          "padding": {"horizontal": 16},
+          "dataSource": "savedBills",
+          "emptyState": {
+            "icon": "assets/icons/ic_bill.svg",
+            "title": {"fa": "قبضی ذخیره نشده", "en": "No saved bills"},
+            "action": {
+              "label": {"fa": "افزودن قبض", "en": "Add Bill"},
+              "onTap": {"type": "navigate", "route": "/bills/add"}
+            }
+          },
+          "itemTemplate": {
+            "type": "list_tile",
+            "leading": {
+              "type": "icon",
+              "icon": "{{item.icon}}",
+              "color": "{{item.color}}"
+            },
+            "title": "{{item.title}}",
+            "subtitle": "{{item.billId}}",
+            "trailing": "chevron_right",
+            "onTap": {
+              "type": "navigate",
+              "route": "/bills/inquiry",
+              "params": {"type": "{{item.type}}", "billId": "{{item.billId}}"}
+            }
+          }
+        }
+      },
+      
+      {
+        "id": "recent_payments_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "پرداخت‌های اخیر", "en": "Recent Payments"}
+        },
+        "child": {
+          "type": "list",
+          "padding": {"horizontal": 16},
+          "dataSource": "recentPayments",
+          "maxItems": 5,
+          "itemTemplate": {
+            "type": "list_tile",
+            "leading": {
+              "type": "icon",
+              "icon": "{{item.icon}}",
+              "color": "{{item.color}}"
+            },
+            "title": "{{item.title}}",
+            "subtitle": "{{item.date}}",
+            "trailing": {
+              "type": "text",
+              "text": "{{formatCurrency(item.amount)}} ریال",
+              "style": "bodySmall"
+            }
+          }
+        }
+      },
+      
+      {"type": "sized_box", "height": 32}
+    ]
+  },
+  
+  "dataBindings": {
+    "pendingBills": {"source": "api", "endpoint": "dibalite/bills/pending"},
+    "savedBills": {"source": "api", "endpoint": "dibalite/bills/saved"},
+    "recentPayments": {"source": "api", "endpoint": "dibalite/bills/recent"}
+  },
+  
+  "mockData": {
+    "pendingBills": [
+      {
+        "id": "BILL-001",
+        "type": "electric",
+        "title": "قبض برق",
+        "icon": "assets/icons/ic_electric_bill.svg",
+        "color": "#FF9800",
+        "billId": "۱۲۳۴۵۶۷۸۹۰۱۲۳",
+        "paymentId": "۹۸۷۶۵۴۳۲۱",
+        "period": "آذر ۱۴۰۳",
+        "amount": 3500000,
+        "dueDate": "۱۴۰۳/۰۹/۲۵"
+      },
+      {
+        "id": "BILL-002",
+        "type": "gas",
+        "title": "قبض گاز",
+        "icon": "assets/icons/ic_gas_bill.svg",
+        "color": "#2196F3",
+        "billId": "۲۳۴۵۶۷۸۹۰۱۲۳۴",
+        "paymentId": "۸۷۶۵۴۳۲۱۰",
+        "period": "آبان ۱۴۰۳",
+        "amount": 1850000,
+        "dueDate": "۱۴۰۳/۰۹/۲۰"
+      },
+      {
+        "id": "BILL-003",
+        "type": "water",
+        "title": "قبض آب",
+        "icon": "assets/icons/ic_water_bill.svg",
+        "color": "#00BCD4",
+        "billId": "۳۴۵۶۷۸۹۰۱۲۳۴۵",
+        "paymentId": "۷۶۵۴۳۲۱۰۹",
+        "period": "شهریور-آبان ۱۴۰۳",
+        "amount": 980000,
+        "dueDate": "۱۴۰۳/۰۹/۳۰"
+      }
+    ],
+    "savedBills": [
+      {"id": "SB-001", "type": "electric", "title": "برق منزل", "billId": "۱۲۳۴۵۶۷۸۹۰۱۲۳", "icon": "assets/icons/ic_electric_bill.svg", "color": "#FF9800"},
+      {"id": "SB-002", "type": "gas", "title": "گاز منزل", "billId": "۲۳۴۵۶۷۸۹۰۱۲۳۴", "icon": "assets/icons/ic_gas_bill.svg", "color": "#2196F3"},
+      {"id": "SB-003", "type": "phone", "title": "تلفن ثابت", "billId": "۰۲۱۱۲۳۴۵۶۷۸", "icon": "assets/icons/ic_phone_bill.svg", "color": "#9C27B0"}
+    ],
+    "recentPayments": [
+      {"id": "RP-001", "type": "electric", "title": "قبض برق", "icon": "assets/icons/ic_electric_bill.svg", "color": "#FF9800", "amount": 2800000, "date": "۱۴۰۳/۰۸/۱۵"},
+      {"id": "RP-002", "type": "mobile", "title": "قبض موبایل", "icon": "assets/icons/ic_mobile_bill.svg", "color": "#E91E63", "amount": 450000, "date": "۱۴۰۳/۰۸/۱۰"}
+    ]
+  }
+}
+

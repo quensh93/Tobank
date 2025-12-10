@@ -1,0 +1,356 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "charity",
+  "pageType": "list",
+  "title": {
+    "fa": "نیکوکاری",
+    "en": "Charity"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "charity",
+    "screenClass": "CharityPage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "نیکوکاری", "en": "Charity"},
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "children": [
+      {
+        "id": "header_banner",
+        "type": "container",
+        "height": 180,
+        "decoration": {
+          "gradient": {
+            "type": "linear",
+            "colors": ["#4CAF50", "#2E7D32"],
+            "begin": "topLeft",
+            "end": "bottomRight"
+          },
+          "borderRadius": {"bottomLeft": 24, "bottomRight": 24}
+        },
+        "padding": 24,
+        "child": {
+          "type": "column",
+          "mainAxisAlignment": "center",
+          "crossAxisAlignment": "start",
+          "children": [
+            {
+              "type": "text",
+              "text": {"fa": "در کار خیر شریک شوید", "en": "Join in doing good"},
+              "style": "headlineSmall",
+              "color": "#FFFFFF"
+            },
+            {"type": "sized_box", "height": 8},
+            {
+              "type": "text",
+              "text": {"fa": "کمک به نیازمندان و خیریه‌ها", "en": "Help those in need"},
+              "style": "bodyMedium",
+              "color": "#FFFFFFCC"
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "quick_donate_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "padding": {"horizontal": 16},
+        "header": {
+          "title": {"fa": "کمک سریع", "en": "Quick Donate"}
+        },
+        "child": {
+          "type": "wrap",
+          "spacing": 12,
+          "runSpacing": 12,
+          "children": [
+            {
+              "type": "donate_chip",
+              "amount": 100000,
+              "label": {"fa": "۱۰,۰۰۰ تومان", "en": "10K"},
+              "onTap": {"type": "set_state", "key": "selectedAmount", "value": 100000}
+            },
+            {
+              "type": "donate_chip",
+              "amount": 500000,
+              "label": {"fa": "۵۰,۰۰۰ تومان", "en": "50K"},
+              "onTap": {"type": "set_state", "key": "selectedAmount", "value": 500000}
+            },
+            {
+              "type": "donate_chip",
+              "amount": 1000000,
+              "label": {"fa": "۱۰۰,۰۰۰ تومان", "en": "100K"},
+              "onTap": {"type": "set_state", "key": "selectedAmount", "value": 1000000}
+            },
+            {
+              "type": "donate_chip",
+              "amount": 5000000,
+              "label": {"fa": "۵۰۰,۰۰۰ تومان", "en": "500K"},
+              "onTap": {"type": "set_state", "key": "selectedAmount", "value": 5000000}
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "charities_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "خیریه‌ها", "en": "Charities"},
+          "padding": {"horizontal": 16}
+        },
+        "child": {
+          "type": "list",
+          "padding": {"horizontal": 16},
+          "dataSource": "charities",
+          "itemTemplate": {
+            "type": "card",
+            "margin": {"bottom": 16},
+            "child": {
+              "type": "column",
+              "children": [
+                {
+                  "type": "row",
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "avatar",
+                      "size": 56,
+                      "imageUrl": "{{item.logo}}",
+                      "fallbackText": "{{item.name[0]}}"
+                    },
+                    {"type": "sized_box", "width": 16},
+                    {
+                      "type": "expanded",
+                      "child": {
+                        "type": "column",
+                        "crossAxisAlignment": "start",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "{{item.name}}",
+                            "style": "titleMedium"
+                          },
+                          {
+                            "type": "text",
+                            "text": "{{item.description}}",
+                            "style": "bodySmall",
+                            "color": "textSecondary",
+                            "maxLines": 2
+                          },
+                          {"type": "sized_box", "height": 4},
+                          {
+                            "type": "row",
+                            "children": [
+                              {
+                                "type": "icon",
+                                "icon": "assets/icons/ic_verified.svg",
+                                "color": "#4CAF50",
+                                "size": 16
+                              },
+                              {"type": "sized_box", "width": 4},
+                              {
+                                "type": "text",
+                                "text": {"fa": "تایید شده", "en": "Verified"},
+                                "style": "bodySmall",
+                                "color": "#4CAF50"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {"type": "divider"},
+                {
+                  "type": "row",
+                  "padding": 12,
+                  "mainAxisAlignment": "spaceBetween",
+                  "children": [
+                    {
+                      "type": "column",
+                      "crossAxisAlignment": "start",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": {"fa": "کمک‌های جمع‌آوری شده", "en": "Donations Collected"},
+                          "style": "bodySmall",
+                          "color": "textSecondary"
+                        },
+                        {
+                          "type": "text",
+                          "text": "{{formatCurrency(item.totalDonations)}} تومان",
+                          "style": "titleSmall"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "elevated_button",
+                      "label": {"fa": "کمک کنید", "en": "Donate"},
+                      "size": "small",
+                      "onTap": {
+                        "type": "show_bottom_sheet",
+                        "sheetId": "donate_sheet",
+                        "params": {"charityId": "{{item.id}}"}
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      },
+      
+      {
+        "id": "my_donations_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "padding": {"horizontal": 16},
+        "header": {
+          "title": {"fa": "کمک‌های من", "en": "My Donations"},
+          "action": {
+            "label": {"fa": "همه", "en": "All"},
+            "onTap": {"type": "navigate", "route": "/charity/history"}
+          }
+        },
+        "child": {
+          "type": "list",
+          "dataSource": "myDonations",
+          "maxItems": 3,
+          "emptyState": {
+            "icon": "assets/icons/ic_heart.svg",
+            "title": {"fa": "هنوز کمکی ثبت نشده", "en": "No donations yet"}
+          },
+          "itemTemplate": {
+            "type": "list_tile",
+            "leading": {
+              "type": "icon",
+              "icon": "assets/icons/ic_heart.svg",
+              "color": "#E91E63"
+            },
+            "title": "{{item.charityName}}",
+            "subtitle": "{{item.date}}",
+            "trailing": {
+              "type": "text",
+              "text": "{{formatCurrency(item.amount)}} تومان",
+              "style": "bodySmall"
+            }
+          }
+        }
+      },
+      
+      {"type": "sized_box", "height": 32}
+    ]
+  },
+  
+  "bottomSheets": {
+    "donate_sheet": {
+      "type": "modal",
+      "title": {"fa": "مبلغ کمک", "en": "Donation Amount"},
+      "child": {
+        "type": "column",
+        "padding": 16,
+        "children": [
+          {
+            "type": "currency_field",
+            "label": {"fa": "مبلغ (تومان)", "en": "Amount (Toman)"},
+            "currency": "IRT",
+            "minValue": 10000,
+            "bindTo": "donationAmount"
+          },
+          {"type": "sized_box", "height": 16},
+          {
+            "type": "wrap",
+            "spacing": 8,
+            "children": [
+              {"type": "amount_chip", "label": "۱۰,۰۰۰", "onTap": {"type": "set_state", "key": "donationAmount", "value": 10000}},
+              {"type": "amount_chip", "label": "۵۰,۰۰۰", "onTap": {"type": "set_state", "key": "donationAmount", "value": 50000}},
+              {"type": "amount_chip", "label": "۱۰۰,۰۰۰", "onTap": {"type": "set_state", "key": "donationAmount", "value": 100000}},
+              {"type": "amount_chip", "label": "۵۰۰,۰۰۰", "onTap": {"type": "set_state", "key": "donationAmount", "value": 500000}}
+            ]
+          },
+          {"type": "sized_box", "height": 16},
+          {
+            "type": "switch_tile",
+            "title": {"fa": "کمک ناشناس", "en": "Anonymous donation"},
+            "value": "{{anonymous}}",
+            "bindTo": "anonymous"
+          },
+          {"type": "sized_box", "height": 24},
+          {
+            "type": "elevated_button",
+            "label": {"fa": "پرداخت", "en": "Pay"},
+            "fullWidth": true,
+            "onTap": {
+              "type": "api_call",
+              "endpoint": "dibalite/charity/donate",
+              "method": "POST",
+              "body": {
+                "charityId": "{{charityId}}",
+                "amount": "{{donationAmount * 10}}",
+                "anonymous": "{{anonymous}}"
+              },
+              "requireOtp": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  
+  "dataBindings": {
+    "charities": {"source": "api", "endpoint": "dibalite/charity/list"},
+    "myDonations": {"source": "api", "endpoint": "dibalite/charity/my-donations"},
+    "selectedAmount": {"source": "state", "default": 0},
+    "donationAmount": {"source": "form", "default": 0},
+    "anonymous": {"source": "form", "default": false}
+  },
+  
+  "mockData": {
+    "charities": [
+      {
+        "id": "CH-001",
+        "name": "کمیته امداد امام خمینی (ره)",
+        "description": "کمک به خانواده‌های نیازمند و ایتام",
+        "logo": "assets/images/charities/emdad.png",
+        "totalDonations": 1500000000
+      },
+      {
+        "id": "CH-002",
+        "name": "بنیاد خیریه محک",
+        "description": "حمایت از کودکان مبتلا به سرطان",
+        "logo": "assets/images/charities/mahak.png",
+        "totalDonations": 2300000000
+      },
+      {
+        "id": "CH-003",
+        "name": "خیریه نیکوکاران شریف",
+        "description": "ساخت مدرسه در مناطق محروم",
+        "logo": "assets/images/charities/sharif.png",
+        "totalDonations": 890000000
+      },
+      {
+        "id": "CH-004",
+        "name": "بنیاد بیماری‌های خاص",
+        "description": "حمایت از بیماران خاص و صعب‌العلاج",
+        "logo": "assets/images/charities/special.png",
+        "totalDonations": 1200000000
+      }
+    ],
+    "myDonations": [
+      {"id": "DON-001", "charityName": "کمیته امداد", "amount": 100000, "date": "۱۴۰۳/۰۸/۲۰"},
+      {"id": "DON-002", "charityName": "محک", "amount": 500000, "date": "۱۴۰۳/۰۷/۱۵"}
+    ]
+  }
+}
+

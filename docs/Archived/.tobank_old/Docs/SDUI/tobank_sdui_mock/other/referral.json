@@ -1,0 +1,78 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "referral",
+  "title": {"fa": "دعوت از دوستان", "en": "Invite Friends"},
+  
+  "appBar": {"type": "standard", "title": {"fa": "دعوت از دوستان", "en": "Invite Friends"}},
+  
+  "body": {
+    "type": "scrollable",
+    "children": [
+      {"type": "container", "padding": 24, "decoration": {"gradient": {"colors": ["#4CAF50", "#388E3C"]}}, "child": {"type": "column", "children": [
+        {"type": "icon", "icon": "assets/icons/ic_gift.svg", "size": 64, "color": "#FFFFFF"},
+        {"type": "text", "text": {"fa": "۵۰,۰۰۰ تومان هدیه بگیرید!", "en": "Get 50K Toman reward!"}, "style": "headlineSmall", "color": "#FFFFFF", "margin": {"top": 16}, "textAlign": "center"},
+        {"type": "text", "text": {"fa": "با دعوت از هر دوست به تو بانک", "en": "For each friend you invite"}, "style": "bodyMedium", "color": "#FFFFFF", "textAlign": "center", "margin": {"top": 8}}
+      ]}},
+      
+      {"type": "container", "padding": 16, "child": {"type": "column", "children": [
+        {"type": "card", "padding": 20, "child": {"type": "column", "children": [
+          {"type": "text", "text": {"fa": "کد دعوت شما", "en": "Your Referral Code"}, "style": "titleSmall", "textAlign": "center"},
+          {"type": "container", "margin": {"top": 12}, "padding": 16, "decoration": {"color": "#E8F5E9", "borderRadius": 8}, "child": {"type": "row", "mainAxisAlignment": "center", "children": [
+            {"type": "text", "text": "{{referralCode}}", "style": "headlineMedium", "letterSpacing": 4},
+            {"type": "icon_button", "icon": "assets/icons/ic_copy.svg", "margin": {"left": 8}, "onTap": {"type": "copy_to_clipboard", "text": "{{referralCode}}", "message": {"fa": "کد کپی شد", "en": "Code copied"}}}
+          ]}},
+          {"type": "divider", "margin": {"vertical": 20}},
+          {"type": "row", "children": [
+            {"type": "expanded", "child": {"type": "elevated_button", "icon": "assets/icons/ic_share.svg", "label": {"fa": "اشتراک‌گذاری", "en": "Share"}, "onTap": {"type": "share", "text": {"fa": "با کد دعوت من {{referralCode}} در تو بانک ثبت‌نام کن و ۵۰ هزار تومان هدیه بگیر!\nhttps://tobank.app/r/{{referralCode}}", "en": "Sign up on ToBank with my code {{referralCode}} and get 50K Toman!\nhttps://tobank.app/r/{{referralCode}}"}}}},
+            {"type": "sized_box", "width": 12},
+            {"type": "expanded", "child": {"type": "outlined_button", "icon": "assets/icons/ic_qr.svg", "label": {"fa": "QR کد", "en": "QR Code"}, "onTap": {"type": "show_bottom_sheet", "content": "qrSheet"}}}
+          ]}
+        ]}},
+        
+        {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "چگونه کار می‌کند؟", "en": "How it works"}}, "child": {"type": "card", "child": {"type": "column", "padding": 16, "children": [
+          {"type": "how_it_works_item", "number": 1, "title": {"fa": "کد را به اشتراک بگذارید", "en": "Share your code"}, "subtitle": {"fa": "کد دعوت یا لینک را برای دوستان ارسال کنید", "en": "Send the code or link to friends"}},
+          {"type": "how_it_works_item", "number": 2, "title": {"fa": "دوستتان ثبت‌نام کند", "en": "Friend signs up"}, "subtitle": {"fa": "با کد شما در تو بانک ثبت‌نام کند", "en": "They register using your code"}, "margin": {"top": 16}},
+          {"type": "how_it_works_item", "number": 3, "title": {"fa": "هدیه دریافت کنید", "en": "Get reward"}, "subtitle": {"fa": "۵۰,۰۰۰ تومان به حساب شما واریز می‌شود", "en": "50K Toman deposited to your account"}, "margin": {"top": 16}}
+        ]}}},
+        
+        {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "آمار دعوت‌ها", "en": "Referral Stats"}}, "child": {"type": "card", "child": {"type": "row", "padding": 16, "mainAxisAlignment": "spaceAround", "children": [
+          {"type": "column", "children": [
+            {"type": "text", "text": "{{stats.totalInvites}}", "style": "headlineMedium", "color": "#4CAF50"},
+            {"type": "text", "text": {"fa": "دعوت شده", "en": "Invited"}, "style": "bodySmall", "color": "textSecondary"}
+          ]},
+          {"type": "container", "width": 1, "height": 40, "color": "divider"},
+          {"type": "column", "children": [
+            {"type": "text", "text": "{{stats.registered}}", "style": "headlineMedium", "color": "#2196F3"},
+            {"type": "text", "text": {"fa": "ثبت‌نام کرده", "en": "Registered"}, "style": "bodySmall", "color": "textSecondary"}
+          ]},
+          {"type": "container", "width": 1, "height": 40, "color": "divider"},
+          {"type": "column", "children": [
+            {"type": "text", "text": "{{formatCurrency(stats.totalEarned)}} ت", "style": "headlineMedium", "color": "#FF9800"},
+            {"type": "text", "text": {"fa": "کسب شده", "en": "Earned"}, "style": "bodySmall", "color": "textSecondary"}
+          ]}
+        ]}}},
+        
+        {"type": "sized_box", "height": 32}
+      ]}}
+    ]
+  },
+  
+  "bottomSheets": {
+    "qrSheet": {"type": "bottom_sheet", "title": {"fa": "QR کد دعوت", "en": "Referral QR Code"}, "child": {"type": "column", "padding": 24, "alignment": "center", "children": [
+      {"type": "qr_code", "data": "https://tobank.app/r/{{referralCode}}", "size": 200},
+      {"type": "text", "text": {"fa": "دوستانتان می‌توانند این QR را اسکن کنند", "en": "Friends can scan this QR code"}, "style": "bodySmall", "color": "textSecondary", "margin": {"top": 16}, "textAlign": "center"}
+    ]}}
+  },
+  
+  "dataBindings": {
+    "referralCode": {"source": "api", "endpoint": "referral/code"},
+    "stats": {"source": "api", "endpoint": "referral/stats"}
+  },
+  
+  "mockData": {
+    "referralCode": "ALI۱۲۳۴",
+    "stats": {"totalInvites": 12, "registered": 8, "totalEarned": 400000}
+  }
+}
+

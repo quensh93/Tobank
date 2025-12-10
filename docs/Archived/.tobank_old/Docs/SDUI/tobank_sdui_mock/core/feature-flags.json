@@ -1,0 +1,245 @@
+{
+  "$schema": "tobank-sdui/v1/feature-flags",
+  "version": "1.0.0",
+  "lastUpdated": "1403/09/05",
+  
+  "flags": {
+    "payments": {
+      "cardToCard": {
+        "enabled": true,
+        "requireNationalCode": false,
+        "requireCard": true,
+        "maxAmount": 500000000,
+        "dailyLimit": 1000000000,
+        "message": null
+      },
+      "depositTransfer": {
+        "enabled": true,
+        "requireNationalCode": true,
+        "requireDeposit": true,
+        "message": null
+      },
+      "payaTransfer": {
+        "enabled": true,
+        "requireNationalCode": true,
+        "requireDeposit": true,
+        "cutoffTime": "13:00",
+        "message": null
+      },
+      "satnaTransfer": {
+        "enabled": true,
+        "requireNationalCode": true,
+        "requireDeposit": true,
+        "minAmount": 150000000,
+        "message": null
+      },
+      "billPayment": {
+        "enabled": true,
+        "requireCard": true,
+        "message": null
+      },
+      "simCharge": {
+        "enabled": false,
+        "requireCard": true,
+        "message": "سرویس شارژ در حال حاضر در دسترس نیست"
+      },
+      "internetPackage": {
+        "enabled": true,
+        "requireCard": true,
+        "message": null
+      }
+    },
+    
+    "services": {
+      "mobileBank": {
+        "enabled": true,
+        "uuid": "134e24cc-fcca-4673-92cb-65ae5db4ce17",
+        "requireNationalCode": true,
+        "message": null
+      },
+      "internetBank": {
+        "enabled": true,
+        "uuid": "ad387ef5-ed46-4341-abd4-d01ea5a35562",
+        "requireNationalCode": true,
+        "message": null
+      },
+      "safeBox": {
+        "enabled": true,
+        "uuid": "273dfc4b-977a-4ddc-a493-346887113590",
+        "requireNationalCode": true,
+        "message": null
+      },
+      "militaryGuarantee": {
+        "enabled": false,
+        "uuid": "a438cc47-8d39-43bc-af55-67f0782e3bf1",
+        "requireNationalCode": true,
+        "requireDeposit": true,
+        "message": "این سرویس موقتا غیر فعال می‌باشد"
+      },
+      "cbs": {
+        "enabled": true,
+        "uuid": "a8f3f7f5-654f-48ea-8742-edfb736aa892",
+        "requireNationalCode": true,
+        "message": null
+      },
+      "promissory": {
+        "enabled": false,
+        "uuid": "7edd4156-e911-4cc1-9dab-05d3d00765b4",
+        "requireNationalCode": true,
+        "requireDeposit": true,
+        "message": "این سرویس موقتا غیر فعال می‌باشد"
+      },
+      "azkiLoan": {
+        "enabled": true,
+        "uuid": "d9a63cdc-60f6-4759-aa2f-1759d7074e7c",
+        "requireNationalCode": true,
+        "requireDeposit": true,
+        "message": null
+      },
+      "giftCard": {
+        "enabled": true,
+        "uuid": "837f763b-ab46-43b4-84b5-613f0c34ae23",
+        "requireCard": true,
+        "message": null
+      },
+      "charity": {
+        "enabled": true,
+        "message": null
+      }
+    },
+    
+    "facilities": {
+      "marriageLoan": {
+        "enabled": false,
+        "uuid": "615adac8-78f1-48b8-97e4-2e846c4c0154",
+        "requireNationalCode": true,
+        "requireDeposit": true,
+        "processDefinitionKey": "MarriageLoan",
+        "message": "این سرویس موقتا غیر فعال می‌باشد"
+      },
+      "childrenLoan": {
+        "enabled": false,
+        "uuid": "088dc15c-4f34-49ee-97c5-5fecbad97149",
+        "requireNationalCode": true,
+        "requireDeposit": true,
+        "processDefinitionKey": "ChildrenLoan",
+        "message": "این سرویس موقتا غیر فعال می‌باشد"
+      },
+      "creditCardFacility": {
+        "enabled": false,
+        "uuid": "922cde78-1427-4c8f-99e7-3979268deb04",
+        "requireNationalCode": true,
+        "requireDeposit": true,
+        "processDefinitionKey": "CreditCardFacility",
+        "message": "این سرویس موقتا غیر فعال می‌باشد"
+      },
+      "turboLoan": {
+        "enabled": false,
+        "uuid": "673277fd-a078-4e63-a4ca-963f44825251",
+        "requireNationalCode": true,
+        "requireDeposit": true,
+        "processDefinitionKey": "RetailLoan",
+        "message": "این سرویس موقتا غیر فعال می‌باشد"
+      },
+      "parsaLoan": {
+        "enabled": false,
+        "uuid": "69aa2ae6-7891-4a73-83d6-2e29053b1192",
+        "requireNationalCode": true,
+        "requireDeposit": true,
+        "processDefinitionKey": "ParsaLoan",
+        "message": "این سرویس موقتا غیر فعال می‌باشد"
+      }
+    },
+    
+    "customerClub": {
+      "enabled": true,
+      "uuid": "ddfab471-da33-4638-8755-c671618f15de",
+      "features": {
+        "topBank": {
+          "enabled": true,
+          "uuid": "cc54e071-8d16-458a-8bad-29873ea3af78",
+          "message": null
+        },
+        "discountCodes": {
+          "enabled": false,
+          "uuid": "f7923477-96fa-479f-bbb8-cca79c866037",
+          "message": "به زودی"
+        },
+        "pointsGuide": {
+          "enabled": false,
+          "uuid": "da5aeff3-9f86-41ff-b4fe-5ec5476b5244",
+          "message": "به زودی"
+        },
+        "pointsHistory": {
+          "enabled": false,
+          "uuid": "c01ae467-0f14-4f86-bda7-0ecc248221c9",
+          "message": "به زودی"
+        },
+        "lottery": {
+          "enabled": false,
+          "uuid": "a2215f1d-63be-4122-a28f-a7bb169e4407",
+          "message": "به زودی"
+        }
+      }
+    },
+    
+    "daran": {
+      "enabled": true,
+      "uuid": "e9eee3ff-eb45-4041-b2c0-71694c1123a2",
+      "requireNationalCode": true,
+      "requireCard": true,
+      "message": null
+    },
+    
+    "cardServices": {
+      "balance": {
+        "enabled": true,
+        "message": null
+      },
+      "block": {
+        "enabled": true,
+        "message": null
+      },
+      "changePin": {
+        "enabled": true,
+        "message": null
+      },
+      "changePin2": {
+        "enabled": true,
+        "message": null
+      },
+      "walletCharge": {
+        "enabled": true,
+        "message": null
+      },
+      "dynamicPassword": {
+        "enabled": true,
+        "message": null
+      },
+      "physicalIssue": {
+        "enabled": true,
+        "message": null
+      },
+      "reissue": {
+        "enabled": true,
+        "message": null
+      }
+    }
+  },
+  
+  "userSegments": {
+    "registered": {
+      "description": "کاربران ثبت‌نام شده با eKYC تکمیل",
+      "allowedFeatures": ["all"]
+    },
+    "limited": {
+      "description": "کاربران با ثبت‌نام اولیه بدون eKYC",
+      "allowedFeatures": ["cardToCard", "billPayment", "simCharge", "balance"]
+    },
+    "new": {
+      "description": "کاربران جدید فقط با موبایل تایید شده",
+      "allowedFeatures": ["cardToCard", "balance"]
+    }
+  }
+}
+

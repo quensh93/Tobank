@@ -1,0 +1,114 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "children_loan_guarantor",
+  "flowId": "children_loan",
+  "stepNumber": 5,
+  "title": {"fa": "اطلاعات ضامن", "en": "Guarantor Info"},
+  
+  "appBar": {
+    "type": "bpms_stepper",
+    "title": {"fa": "تسهیلات فرزندآوری", "en": "Children Loan"},
+    "currentStep": 5,
+    "totalSteps": 7
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "guarantor_info",
+        "type": "section",
+        "header": {"title": {"fa": "اطلاعات ضامن", "en": "Guarantor Info"}},
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "text_field", "label": {"fa": "نام و نام خانوادگی ضامن", "en": "Guarantor Name"}, "bindTo": "guarantorName", "validation": {"required": true}},
+            {"type": "text_field", "label": {"fa": "کد ملی ضامن", "en": "Guarantor National ID"}, "margin": {"top": 16}, "keyboardType": "number", "maxLength": 10, "bindTo": "guarantorNationalId", "validation": {"required": true}},
+            {"type": "text_field", "label": {"fa": "شماره موبایل ضامن", "en": "Guarantor Mobile"}, "margin": {"top": 16}, "keyboardType": "phone", "maxLength": 11, "bindTo": "guarantorMobile", "validation": {"required": true}},
+            {
+              "type": "dropdown_field",
+              "label": {"fa": "نسبت با متقاضی", "en": "Relationship"},
+              "margin": {"top": 16},
+              "options": [
+                {"value": "father", "label": {"fa": "پدر", "en": "Father"}},
+                {"value": "mother", "label": {"fa": "مادر", "en": "Mother"}},
+                {"value": "sibling", "label": {"fa": "خواهر/برادر", "en": "Sibling"}},
+                {"value": "spouse", "label": {"fa": "همسر", "en": "Spouse"}},
+                {"value": "other", "label": {"fa": "سایر", "en": "Other"}}
+              ],
+              "bindTo": "guarantorRelation"
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "guarantor_employment",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {"title": {"fa": "اطلاعات شغلی ضامن", "en": "Guarantor Employment"}},
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "text_field", "label": {"fa": "محل کار", "en": "Employer"}, "bindTo": "guarantorEmployer"},
+            {"type": "currency_field", "label": {"fa": "حقوق ماهیانه (ریال)", "en": "Monthly Salary"}, "margin": {"top": 16}, "currency": "IRR", "bindTo": "guarantorSalary"},
+            {
+              "type": "radio_group",
+              "margin": {"top": 16},
+              "label": {"fa": "نوع ضمانت", "en": "Guarantee Type"},
+              "options": [
+                {"value": "salary", "label": {"fa": "کسر از حقوق", "en": "Salary Deduction"}},
+                {"value": "deposit", "label": {"fa": "توقیف سپرده", "en": "Deposit Block"}}
+              ],
+              "bindTo": "guaranteeType"
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "guarantor_docs",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {"title": {"fa": "مدارک ضامن", "en": "Guarantor Documents"}},
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "document_upload", "title": {"fa": "کارت ملی ضامن", "en": "Guarantor National ID"}, "required": true, "bindTo": "guarantorIdDocs"},
+            {"type": "document_upload", "title": {"fa": "فیش حقوقی ضامن", "en": "Guarantor Salary Slip"}, "required": true, "bindTo": "guarantorSalaryDocs", "margin": {"top": 16}}
+          ]
+        }
+      },
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "child": {
+      "type": "row",
+      "children": [
+        {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "قبلی", "en": "Back"}, "onTap": {"type": "navigate_back"}}},
+        {"type": "sized_box", "width": 16},
+        {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "بعدی", "en": "Next"}, "onTap": {"type": "navigate", "route": "/bpms/children-loan/step-06"}}}
+      ]
+    }
+  },
+  
+  "dataBindings": {
+    "guarantorName": {"source": "form", "default": ""},
+    "guarantorNationalId": {"source": "form", "default": ""},
+    "guarantorMobile": {"source": "form", "default": ""},
+    "guarantorRelation": {"source": "form", "default": null},
+    "guarantorEmployer": {"source": "form", "default": ""},
+    "guarantorSalary": {"source": "form", "default": 0},
+    "guaranteeType": {"source": "form", "default": "salary"},
+    "guarantorIdDocs": {"source": "form", "default": []},
+    "guarantorSalaryDocs": {"source": "form", "default": []}
+  }
+}
+

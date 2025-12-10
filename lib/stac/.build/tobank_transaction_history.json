@@ -1,0 +1,92 @@
+{
+  "appBar": {
+    "title": {
+      "request": {
+        "url": "https://api.tobank.com/transaction-history-data",
+        "method": "get",
+        "actionType": "networkRequest"
+      },
+      "targetPath": "data",
+      "template": {
+        "data": "{{appBarTitle}}",
+        "style": {
+          "type": "custom",
+          "color": "onSurface",
+          "fontSize": 20.0,
+          "fontWeight": "bold"
+        },
+        "type": "text"
+      },
+      "loaderWidget": {
+        "data": "{{appStrings.transactions.title}}",
+        "style": {
+          "type": "custom",
+          "color": "onSurface",
+          "fontSize": 20.0,
+          "fontWeight": "bold"
+        },
+        "type": "text"
+      },
+      "errorWidget": {
+        "data": "{{appStrings.transactions.title}}",
+        "style": {
+          "type": "custom",
+          "color": "onSurface",
+          "fontSize": 20.0,
+          "fontWeight": "bold"
+        },
+        "type": "text"
+      },
+      "type": "dynamicView"
+    },
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "body": {
+    "request": {
+      "url": "https://api.tobank.com/transaction-history-data",
+      "method": "get",
+      "actionType": "networkRequest"
+    },
+    "targetPath": "data.transactions",
+    "template": {
+      "padding": {
+        "left": 8.0,
+        "top": 8.0,
+        "right": 8.0,
+        "bottom": 8.0
+      },
+      "type": "listView"
+    },
+    "emptyTemplate": {
+      "child": {
+        "data": "{{appStrings.transactions.noTransactionsFound}}",
+        "style": {
+          "type": "custom",
+          "color": "onSurfaceVariant"
+        },
+        "type": "text"
+      },
+      "type": "center"
+    },
+    "loaderWidget": {
+      "child": {
+        "type": "circularProgressIndicator"
+      },
+      "type": "center"
+    },
+    "errorWidget": {
+      "child": {
+        "data": "{{appStrings.transactions.errorLoading}}",
+        "style": {
+          "type": "custom",
+          "color": "error"
+        },
+        "type": "text"
+      },
+      "type": "center"
+    },
+    "type": "dynamicView"
+  },
+  "type": "scaffold"
+}

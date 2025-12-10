@@ -1,0 +1,64 @@
+```mermaid
+flowchart TB
+    Start([App Requests Screen]) --> CheckConfig{Check API Config}
+    
+    CheckConfig -->|Mock Mode| MockAPI[Mock API Service]
+    CheckConfig -->|Firebase Mode| FirebaseAPI[Firebase API Service]
+    CheckConfig -->|Custom Mode| CustomAPI[Custom API Service]
+    
+    MockAPI --> CheckMockCache{Check Cache}
+    FirebaseAPI --> CheckFirebaseCache{Check Cache}
+    CustomAPI --> CheckCustomCache{Check Cache}
+    
+    CheckMockCache -->|Cached & Valid| ReturnMockCache[Return Cached Data]
+    CheckMockCache -->|Not Cached| LoadAsset[Load from Assets]
+    
+    CheckFirebaseCache -->|Cached & Valid| ReturnFirebaseCache[Return Cached Data]
+    CheckFirebaseCache -->|Not Cached| FetchFirestore[Fetch from Firestore]
+    
+    CheckCustomCache -->|Cached & Valid| ReturnCustomCache[Return Cached Data]
+    CheckCustomCache -->|Not Cached| FetchAPI[Fetch from REST API]
+    
+    LoadAsset --> ValidateMock{Validate JSON}
+    FetchFirestore --> ValidateFirebase{Validate JSON}
+    FetchAPI --> ValidateCustom{Validate JSON}
+    
+    ValidateMock -->|Valid| CacheMock[Cache Data]
+    ValidateMock -->|Invalid| ErrorMock[Throw ValidationException]
+    
+    ValidateFirebase -->|Valid| CacheFirebase[Cache Data]
+    ValidateFirebase -->|Invalid| ErrorFirebase[Throw ValidationException]
+    
+    ValidateCustom -->|Valid| CacheCustom[Cache Data]
+    ValidateCustom -->|Invalid| ErrorCustom[Throw ValidationException]
+    
+    CacheMock --> LogMock[Log Fetch Operation]
+    CacheFirebase --> LogFirebase[Log Fetch Operation]
+    CacheCustom --> LogCustom[Log Fetch Operation]
+    
+    ReturnMockCache --> LogMock
+    ReturnFirebaseCache --> LogFirebase
+    ReturnCustomCache --> LogCustom
+    
+    LogMock --> ParseJSON[Parse JSON to Widgets]
+    LogFirebase --> ParseJSON
+    LogCustom --> ParseJSON
+    
+    ParseJSON --> LogParse[Log Parse Operation]
+    LogParse --> RenderWidgets[Render Widgets]
+    RenderWidgets --> LogRender[Log Render Operation]
+    LogRender --> End([Display Screen])
+    
+    ErrorMock --> HandleError[Handle Error]
+    ErrorFirebase --> HandleError
+    ErrorCustom --> HandleError
+    HandleError --> LogError[Log Error]
+    LogError --> ShowError[Show Error Widget]
+    ShowError --> End
+    
+    style MockAPI fill:#e1f5ff
+    style FirebaseAPI fill:#fff4e1
+    style CustomAPI fill:#e8f5e9
+    style HandleError fill:#ffebee
+    style End fill:#f3e5f5
+```

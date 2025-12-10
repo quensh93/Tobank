@@ -1,0 +1,51 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-flow",
+  "version": "1.0.0",
+  "flowId": "children_loan",
+  "flowType": "loan_application",
+  "title": {
+    "fa": "تسهیلات فرزندآوری",
+    "en": "Children Loan"
+  },
+  "description": {
+    "fa": "تسهیلات قرض‌الحسنه فرزندآوری",
+    "en": "Childbirth loan application"
+  },
+  "icon": "assets/icons/ic_children_loan.svg",
+  "color": "#9C27B0",
+  
+  "eligibility": {
+    "requiredDocuments": ["national_id", "birth_certificate_child"],
+    "customerTypes": ["real"],
+    "requiredDeposit": true
+  },
+  
+  "loanDetails": {
+    "type": "gharz_al_hasaneh",
+    "amountPerChild": {
+      "first": 2000000000,
+      "second": 3000000000,
+      "third_plus": 4000000000
+    },
+    "interestRate": 4,
+    "repaymentPeriods": [60, 84, 120],
+    "gracePeriod": 12,
+    "guarantorRequired": true
+  },
+  
+  "steps": [
+    {"id": "rules", "order": 1, "title": {"fa": "قوانین", "en": "Rules"}, "pageRef": "step-01-rules.json"},
+    {"id": "customer_info", "order": 2, "title": {"fa": "اطلاعات مشتری", "en": "Customer Info"}, "pageRef": "step-02-customer-info.json"},
+    {"id": "children_info", "order": 3, "title": {"fa": "اطلاعات فرزندان", "en": "Children Info"}, "pageRef": "step-03-children-info.json"},
+    {"id": "documents", "order": 4, "title": {"fa": "مدارک", "en": "Documents"}, "pageRef": "step-04-documents.json"},
+    {"id": "guarantor", "order": 5, "title": {"fa": "ضامن", "en": "Guarantor"}, "pageRef": "step-05-guarantor.json"},
+    {"id": "contract", "order": 6, "title": {"fa": "قرارداد", "en": "Contract"}, "pageRef": "step-06-contract.json", "requireEkycSign": true},
+    {"id": "completion", "order": 7, "title": {"fa": "اتمام", "en": "Completion"}, "pageRef": "step-07-completion.json", "isFinal": true}
+  ],
+  
+  "api": {
+    "baseEndpoint": "bpms/children-loan",
+    "submitEndpoint": "bpms/children-loan/submit"
+  }
+}
+

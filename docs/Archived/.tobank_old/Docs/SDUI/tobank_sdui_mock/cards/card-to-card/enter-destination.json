@@ -1,0 +1,388 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "c2c_enter_destination",
+  "pageType": "form",
+  "title": {
+    "fa": "کارت مقصد",
+    "en": "Destination Card"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "c2c_enter_destination",
+    "screenClass": "CardToCardDestinationPage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "کارت مقصد", "en": "Destination Card"},
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "children": [
+      {
+        "id": "step_indicator",
+        "type": "step_indicator",
+        "currentStep": 1,
+        "steps": [
+          {"label": {"fa": "کارت مبدا", "en": "Source"}},
+          {"label": {"fa": "کارت مقصد", "en": "Destination"}},
+          {"label": {"fa": "مبلغ", "en": "Amount"}},
+          {"label": {"fa": "تایید", "en": "Confirm"}}
+        ]
+      },
+      
+      {
+        "id": "source_card_preview",
+        "type": "container",
+        "padding": 16,
+        "child": {
+          "type": "card",
+          "padding": 12,
+          "child": {
+            "type": "row",
+            "children": [
+              {
+                "type": "image",
+                "src": "{{sourceCard.bankLogo}}",
+                "width": 32,
+                "height": 32
+              },
+              {
+                "type": "sized_box",
+                "width": 12
+              },
+              {
+                "type": "expanded",
+                "child": {
+                  "type": "column",
+                  "crossAxisAlignment": "start",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": {"fa": "از کارت", "en": "From"},
+                      "style": "bodySmall",
+                      "color": "textSecondary"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{sourceCard.cardNumberMasked}}",
+                      "style": "bodyMedium"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "text",
+                "text": "{{formatCurrency(sourceCard.balance)}} ریال",
+                "style": "bodySmall",
+                "color": "textSecondary"
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "destination_input",
+        "type": "container",
+        "padding": {"horizontal": 16},
+        "child": {
+          "type": "text_field",
+          "label": {"fa": "شماره کارت مقصد", "en": "Destination Card Number"},
+          "hint": {"fa": "شماره ۱۶ رقمی کارت", "en": "16-digit card number"},
+          "icon": "assets/icons/ic_card.svg",
+          "keyboardType": "number",
+          "maxLength": 19,
+          "formatter": "card_number",
+          "suffixIcon": {
+            "icon": "assets/icons/ic_contacts.svg",
+            "onTap": {
+              "type": "show_bottom_sheet",
+              "sheetId": "contacts_sheet"
+            }
+          },
+          "validation": {
+            "required": true,
+            "minLength": 16,
+            "pattern": "^[0-9]{16}$"
+          },
+          "bindTo": "destinationCardNumber",
+          "onChange": {
+            "type": "detect_bank",
+            "outputTo": "destinationBank"
+          }
+        }
+      },
+      
+      {
+        "id": "detected_bank",
+        "type": "conditional",
+        "condition": "{{destinationBank}}",
+        "whenTrue": {
+          "type": "container",
+          "padding": {"horizontal": 16, "top": 8},
+          "child": {
+            "type": "row",
+            "children": [
+              {
+                "type": "image",
+                "src": "{{destinationBank.logo}}",
+                "width": 24,
+                "height": 24
+              },
+              {
+                "type": "sized_box",
+                "width": 8
+              },
+              {
+                "type": "text",
+                "text": "{{destinationBank.name}}",
+                "style": "bodySmall",
+                "color": "textSecondary"
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "inquiry_result",
+        "type": "conditional",
+        "condition": "{{ownerName}}",
+        "whenTrue": {
+          "type": "container",
+          "padding": 16,
+          "child": {
+            "type": "card",
+            "padding": 12,
+            "backgroundColor": "#E8F5E9",
+            "child": {
+              "type": "row",
+              "children": [
+                {
+                  "type": "icon",
+                  "icon": "assets/icons/ic_check_circle.svg",
+                  "color": "#4CAF50",
+                  "size": 24
+                },
+                {
+                  "type": "sized_box",
+                  "width": 12
+                },
+                {
+                  "type": "column",
+                  "crossAxisAlignment": "start",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": {"fa": "دارنده کارت", "en": "Card Holder"},
+                      "style": "bodySmall",
+                      "color": "textSecondary"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{ownerName}}",
+                      "style": "titleSmall"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      },
+      
+      {
+        "id": "recent_contacts_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "انتقال‌های اخیر", "en": "Recent Transfers"}
+        },
+        "child": {
+          "type": "horizontal_list",
+          "height": 100,
+          "padding": {"horizontal": 16},
+          "itemSpacing": 12,
+          "dataSource": "recentContacts",
+          "itemTemplate": {
+            "type": "contact_chip",
+            "avatar": "{{item.avatar}}",
+            "name": "{{item.name}}",
+            "subtitle": "{{item.maskedNumber}}",
+            "onTap": {
+              "type": "set_state",
+              "key": "destinationCardNumber",
+              "value": "{{item.cardNumber}}"
+            }
+          }
+        }
+      },
+      
+      {
+        "id": "saved_contacts_section",
+        "type": "section",
+        "margin": {"top": 16},
+        "header": {
+          "title": {"fa": "مخاطبین ذخیره شده", "en": "Saved Contacts"},
+          "action": {
+            "label": {"fa": "مشاهده همه", "en": "View All"},
+            "onTap": {
+              "type": "show_bottom_sheet",
+              "sheetId": "contacts_sheet"
+            }
+          }
+        },
+        "child": {
+          "type": "list",
+          "shrinkWrap": true,
+          "physics": "never_scroll",
+          "padding": {"horizontal": 16},
+          "dataSource": "favoriteContacts",
+          "maxItems": 5,
+          "itemTemplate": {
+            "type": "list_tile",
+            "leading": {
+              "type": "avatar",
+              "text": "{{item.name[0]}}",
+              "backgroundColor": "#E31837"
+            },
+            "title": "{{item.name}}",
+            "subtitle": "{{item.maskedNumber}}",
+            "trailing": "{{item.bankName}}",
+            "onTap": {
+              "type": "set_state",
+              "key": "destinationCardNumber",
+              "value": "{{item.cardNumberRaw}}"
+            }
+          }
+        }
+      },
+      
+      {
+        "id": "bottom_spacing",
+        "type": "sized_box",
+        "height": 100
+      }
+    ]
+  },
+  
+  "bottomSheets": {
+    "contacts_sheet": {
+      "type": "scrollable",
+      "title": {"fa": "انتخاب از مخاطبین", "en": "Select Contact"},
+      "searchable": true,
+      "searchPlaceholder": {"fa": "جستجوی نام یا شماره کارت", "en": "Search name or card number"},
+      "dataSource": "allContacts",
+      "itemTemplate": {
+        "type": "list_tile",
+        "leading": {
+          "type": "avatar",
+          "text": "{{item.name[0]}}"
+        },
+        "title": "{{item.name}}",
+        "subtitle": "{{item.maskedNumber}} - {{item.bankName}}",
+        "onTap": {
+          "type": "multi_action",
+          "actions": [
+            {"type": "set_state", "key": "destinationCardNumber", "value": "{{item.cardNumberRaw}}"},
+            {"type": "dismiss_sheet"}
+          ]
+        }
+      }
+    }
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "decoration": {
+      "color": "surface",
+      "boxShadow": "0 -2px 8px rgba(0,0,0,0.1)"
+    },
+    "child": {
+      "type": "column",
+      "children": [
+        {
+          "type": "conditional",
+          "condition": "{{destinationCardNumber.length === 16 && !ownerName}}",
+          "whenTrue": {
+            "type": "outlined_button",
+            "label": {"fa": "استعلام دارنده کارت", "en": "Inquiry Card Owner"},
+            "fullWidth": true,
+            "loading": "{{isInquiring}}",
+            "onTap": {
+              "type": "api_call",
+              "endpoint": "dibalite/cards/inquiry",
+              "method": "POST",
+              "body": {"cardNumber": "{{destinationCardNumber}}"},
+              "onSuccess": {
+                "type": "set_state",
+                "key": "ownerName",
+                "value": "{{response.ownerName}}"
+              }
+            }
+          }
+        },
+        {
+          "type": "sized_box",
+          "height": 8
+        },
+        {
+          "type": "elevated_button",
+          "label": {"fa": "ادامه", "en": "Continue"},
+          "fullWidth": true,
+          "disabled": "{{destinationCardNumber.length !== 16}}",
+          "onTap": {
+            "type": "navigate",
+            "route": "/transfer/card-to-card/amount",
+            "params": {
+              "sourceCardId": "{{sourceCardId}}",
+              "destinationCardNumber": "{{destinationCardNumber}}",
+              "destinationOwner": "{{ownerName}}",
+              "destinationBank": "{{destinationBank}}"
+            }
+          }
+        }
+      ]
+    }
+  },
+  
+  "dataBindings": {
+    "sourceCardId": {"source": "route_param", "key": "sourceCardId"},
+    "sourceCard": {
+      "source": "api",
+      "endpoint": "dibalite/cards/{{sourceCardId}}"
+    },
+    "destinationCardNumber": {"source": "form", "default": ""},
+    "destinationBank": {"source": "state", "default": null},
+    "ownerName": {"source": "state", "default": null},
+    "isInquiring": {"source": "state", "default": false},
+    "recentContacts": {
+      "source": "api",
+      "endpoint": "dibalite/contacts/recent",
+      "params": {"type": "card", "limit": 10}
+    },
+    "favoriteContacts": {
+      "source": "api",
+      "endpoint": "dibalite/contacts/favorites",
+      "params": {"type": "card", "limit": 5}
+    },
+    "allContacts": {
+      "source": "api",
+      "endpoint": "dibalite/contacts",
+      "params": {"type": "card"}
+    }
+  },
+  
+  "mockData": {
+    "sourceCard": "$ref:mock-data/cards.json#cards[0]",
+    "recentContacts": "$ref:mock-data/contacts.json#contacts[0:5]",
+    "favoriteContacts": "$ref:mock-data/contacts.json#contacts[?isFavorite=true]",
+    "allContacts": "$ref:mock-data/contacts.json#contacts[?type=card]"
+  }
+}
+

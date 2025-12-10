@@ -1,0 +1,217 @@
+{
+  "type": "scaffold",
+  "body": {
+    "type": "drawer",
+    "child": {
+      "type": "listView",
+      "padding": {
+        "vertical": 12
+      },
+      "children": [
+        {
+          "type": "container",
+          "padding": 16,
+          "child": {
+            "type": "row",
+            "children": [
+              {
+                "type": "container",
+                "width": 64,
+                "height": 64,
+                "alignment": "center",
+                "decoration": {
+                  "color": "#FFFFFF33",
+                  "borderRadius": 32
+                },
+                "child": {
+                  "type": "image",
+                  "src": "{{user.avatarUrl}}",
+                  "width": 64,
+                  "height": 64
+                }
+              },
+              {
+                "type": "sizedBox",
+                "width": 12
+              },
+              {
+                "type": "column",
+                "crossAxisAlignment": "start",
+                "children": [
+                  {
+                    "type": "text",
+                    "data": "{{user.fullName}}",
+                    "style": "titleMedium",
+                    "color": "#FFFFFF"
+                  },
+                  {
+                    "type": "text",
+                    "data": "{{user.mobileNumber}}",
+                    "style": "bodySmall",
+                    "color": "#FFFFFFCC"
+                  }
+                ]
+              }
+            ]
+          },
+          "decoration": {
+            "color": "#E31837"
+          }
+        },
+        {
+          "type": "listTile",
+          "leading": {
+            "type": "image",
+            "src": "assets/icons/ic_home.svg",
+            "imageType": "asset",
+            "width": 24,
+            "height": 24
+          },
+          "title": "خانه",
+          "onPressed": {
+            "actionType": "navigate",
+            "path": "/home"
+          }
+        },
+        {
+          "type": "listTile",
+          "leading": {
+            "type": "image",
+            "src": "assets/icons/ic_notification.svg",
+            "imageType": "asset",
+            "width": 24,
+            "height": 24
+          },
+          "title": "اعلان‌ها",
+          "trailing": {
+            "type": "text",
+            "data": "{{user.unreadNotifications}}",
+            "style": "labelLarge",
+            "color": "#E31837"
+          },
+          "onPressed": {
+            "actionType": "navigate",
+            "path": "/notifications"
+          }
+        },
+        {
+          "type": "listTile",
+          "leading": {
+            "type": "image",
+            "src": "assets/icons/ic_message.svg",
+            "imageType": "asset",
+            "width": 24,
+            "height": 24
+          },
+          "title": "پیام‌ها",
+          "trailing": {
+            "type": "text",
+            "data": "{{user.unreadMessages}}",
+            "style": "labelLarge",
+            "color": "#E31837"
+          },
+          "onPressed": {
+            "actionType": "navigate",
+            "path": "/messages"
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "listTile",
+          "leading": {
+            "type": "image",
+            "src": "assets/icons/ic_card.svg",
+            "imageType": "asset",
+            "width": 24,
+            "height": 24
+          },
+          "title": "کارت‌ها",
+          "onPressed": {
+            "actionType": "navigate",
+            "path": "/cards"
+          }
+        },
+        {
+          "type": "listTile",
+          "leading": {
+            "type": "image",
+            "src": "assets/icons/ic_deposit.svg",
+            "imageType": "asset",
+            "width": 24,
+            "height": 24
+          },
+          "title": "سپرده‌ها",
+          "onPressed": {
+            "actionType": "navigate",
+            "path": "/deposits"
+          }
+        },
+        {
+          "type": "listTile",
+          "leading": {
+            "type": "image",
+            "src": "assets/icons/ic_loan.svg",
+            "imageType": "asset",
+            "width": 24,
+            "height": 24
+          },
+          "title": "تسهیلات",
+          "onPressed": {
+            "actionType": "navigate",
+            "path": "/loans"
+          }
+        },
+        {
+          "type": "divider"
+        },
+        {
+          "type": "listTile",
+          "leading": {
+            "type": "image",
+            "src": "assets/icons/ic_settings.svg",
+            "imageType": "asset",
+            "width": 24,
+            "height": 24
+          },
+          "title": "تنظیمات",
+          "onPressed": {
+            "actionType": "navigate",
+            "path": "/settings"
+          }
+        },
+        {
+          "type": "listTile",
+          "leading": {
+            "type": "image",
+            "src": "assets/icons/ic_support.svg",
+            "imageType": "asset",
+            "width": 24,
+            "height": 24
+          },
+          "title": "پشتیبانی",
+          "onPressed": {
+            "actionType": "navigate",
+            "path": "/support"
+          }
+        },
+        {
+          "type": "listTile",
+          "leading": {
+            "type": "image",
+            "src": "assets/icons/ic_logout.svg",
+            "imageType": "asset",
+            "width": 24,
+            "height": 24
+          },
+          "title": "خروج",
+          "onPressed": {
+            "actionType": "navigate",
+            "path": "/auth/login"
+          }
+        }
+      ]
+    }
+  }
+}

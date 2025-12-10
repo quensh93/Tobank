@@ -1,0 +1,113 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "military_info",
+  "flowId": "military_guarantee",
+  "stepNumber": 3,
+  "title": {"fa": "اطلاعات نظام وظیفه", "en": "Military Info"},
+  
+  "appBar": {"type": "bpms_stepper", "title": {"fa": "ضمانت‌نامه نظام وظیفه", "en": "Military Guarantee"}, "currentStep": 3, "totalSteps": 7},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "type": "section",
+        "header": {"title": {"fa": "نوع ضمانت‌نامه", "en": "Guarantee Type"}},
+        "child": {
+          "type": "radio_group",
+          "options": [
+            {"value": "education", "label": {"fa": "معافیت تحصیلی", "en": "Education"}, "subtitle": {"fa": "برای ادامه تحصیل", "en": "For continuing education"}},
+            {"value": "employment", "label": {"fa": "معافیت اشتغال", "en": "Employment"}, "subtitle": {"fa": "برای اشتغال در مناطق محروم", "en": "For employment in deprived areas"}},
+            {"value": "medical", "label": {"fa": "معافیت پزشکی", "en": "Medical"}, "subtitle": {"fa": "برای معافیت پزشکی", "en": "For medical exemption"}}
+          ],
+          "bindTo": "guaranteeType"
+        }
+      },
+      
+      {
+        "type": "conditional",
+        "condition": "{{guaranteeType}}",
+        "whenTrue": {
+          "type": "card",
+          "margin": {"top": 16},
+          "padding": 16,
+          "backgroundColor": "#E3F2FD",
+          "child": {
+            "type": "column",
+            "children": [
+              {"type": "text", "text": {"fa": "مبلغ ضمانت‌نامه:", "en": "Guarantee Amount:"}, "style": "bodyMedium"},
+              {"type": "text", "text": "{{formatCurrency(guaranteeAmount)}}", "style": "headlineSmall", "color": "#1976D2"},
+              {"type": "text", "text": {"fa": "ریال", "en": "Rials"}, "style": "bodySmall", "color": "textSecondary"},
+              {"type": "divider", "margin": {"vertical": 12}},
+              {"type": "text", "text": {"fa": "سپرده مورد نیاز (۱۰٪):", "en": "Required Deposit (10%):"}, "style": "bodyMedium"},
+              {"type": "text", "text": "{{formatCurrency(requiredDeposit)}}", "style": "titleMedium"}
+            ]
+          }
+        }
+      },
+      
+      {
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {"title": {"fa": "اطلاعات نظام وظیفه", "en": "Service Info"}},
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "text_field", "label": {"fa": "شماره نظام وظیفه", "en": "Military ID"}, "bindTo": "militaryId", "validation": {"required": true}},
+            {"type": "dropdown_field", "label": {"fa": "وضعیت خدمت", "en": "Service Status"}, "margin": {"top": 16}, "options": [
+              {"value": "eligible", "label": {"fa": "مشمول", "en": "Eligible"}},
+              {"value": "deferred", "label": {"fa": "معاف موقت", "en": "Deferred"}},
+              {"value": "studying", "label": {"fa": "در حال تحصیل", "en": "Studying"}}
+            ], "bindTo": "serviceStatus"},
+            {"type": "text_field", "label": {"fa": "شماره نامه درخواست", "en": "Request Letter No"}, "margin": {"top": 16}, "hint": {"fa": "شماره نامه از سازمان نظام وظیفه", "en": "Letter number from military organization"}, "bindTo": "requestLetterNo"}
+          ]
+        }
+      },
+      
+      {"type": "conditional", "condition": "{{guaranteeType === 'education'}}", "whenTrue": {
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {"title": {"fa": "اطلاعات تحصیلی", "en": "Education Info"}},
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "text_field", "label": {"fa": "نام دانشگاه/مؤسسه", "en": "University"}, "bindTo": "university"},
+            {"type": "text_field", "label": {"fa": "رشته تحصیلی", "en": "Field of Study"}, "margin": {"top": 16}, "bindTo": "fieldOfStudy"},
+            {"type": "dropdown_field", "label": {"fa": "مقطع", "en": "Degree"}, "margin": {"top": 16}, "options": [
+              {"value": "bachelor", "label": {"fa": "کارشناسی", "en": "Bachelor"}},
+              {"value": "master", "label": {"fa": "کارشناسی ارشد", "en": "Master"}},
+              {"value": "phd", "label": {"fa": "دکتری", "en": "PhD"}}
+            ], "bindTo": "degree"}
+          ]
+        }
+      }},
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "child": {
+      "type": "row",
+      "children": [
+        {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "قبلی", "en": "Back"}, "onTap": {"type": "navigate_back"}}},
+        {"type": "sized_box", "width": 16},
+        {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "بعدی", "en": "Next"}, "disabled": "{{!guaranteeType}}", "onTap": {"type": "navigate", "route": "/bpms/military-guarantee/step-04"}}}
+      ]
+    }
+  },
+  
+  "dataBindings": {
+    "guaranteeType": {"source": "form", "default": null},
+    "guaranteeAmount": {"source": "computed", "expression": "guaranteeType === 'education' ? 500000000 : guaranteeType === 'employment' ? 1000000000 : 300000000"},
+    "requiredDeposit": {"source": "computed", "expression": "guaranteeAmount * 0.1"},
+    "militaryId": {"source": "form", "default": ""},
+    "serviceStatus": {"source": "form", "default": null},
+    "requestLetterNo": {"source": "form", "default": ""}
+  }
+}
+

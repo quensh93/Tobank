@@ -1,0 +1,284 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "qr_payment",
+  "pageType": "scanner",
+  "title": {
+    "fa": "پرداخت QR",
+    "en": "QR Payment"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "qr_payment",
+    "screenClass": "QRPaymentPage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "پرداخت QR", "en": "QR Payment"},
+    "showBackButton": true,
+    "actions": [
+      {
+        "id": "gallery",
+        "icon": "assets/icons/ic_gallery.svg",
+        "onTap": {"type": "pick_qr_from_gallery"}
+      },
+      {
+        "id": "flash",
+        "icon": "{{flashOn ? 'assets/icons/ic_flash_on.svg' : 'assets/icons/ic_flash_off.svg'}}",
+        "onTap": {"type": "toggle_state", "key": "flashOn"}
+      }
+    ]
+  },
+  
+  "body": {
+    "type": "stack",
+    "children": [
+      {
+        "id": "scanner_view",
+        "type": "qr_scanner",
+        "scanArea": {
+          "width": 280,
+          "height": 280,
+          "borderColor": "#E31837",
+          "borderWidth": 3,
+          "cornerRadius": 16
+        },
+        "flashEnabled": "{{flashOn}}",
+        "onScan": {
+          "type": "process_qr",
+          "onValid": {
+            "type": "navigate",
+            "route": "/payment/qr/confirm",
+            "params": {"qrData": "{{scannedData}}"}
+          },
+          "onInvalid": {
+            "type": "show_snackbar",
+            "message": {"fa": "کد QR نامعتبر است", "en": "Invalid QR code"},
+            "type": "error"
+          }
+        }
+      },
+      
+      {
+        "id": "overlay_content",
+        "type": "positioned",
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "child": {
+          "type": "container",
+          "padding": 24,
+          "decoration": {
+            "gradient": {
+              "type": "linear",
+              "colors": ["#00000000", "#000000CC"],
+              "begin": "topCenter",
+              "end": "bottomCenter"
+            }
+          },
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "text",
+                "text": {"fa": "کد QR را در کادر قرار دهید", "en": "Place QR code in the frame"},
+                "style": "bodyMedium",
+                "color": "#FFFFFF",
+                "textAlign": "center"
+              },
+              {"type": "sized_box", "height": 24},
+              {
+                "type": "row",
+                "mainAxisAlignment": "spaceEvenly",
+                "children": [
+                  {
+                    "type": "icon_button_column",
+                    "icon": "assets/icons/ic_qr_history.svg",
+                    "label": {"fa": "تاریخچه", "en": "History"},
+                    "iconColor": "#FFFFFF",
+                    "labelColor": "#FFFFFF",
+                    "onTap": {"type": "navigate", "route": "/payment/qr/history"}
+                  },
+                  {
+                    "type": "icon_button_column",
+                    "icon": "assets/icons/ic_my_qr.svg",
+                    "label": {"fa": "QR من", "en": "My QR"},
+                    "iconColor": "#FFFFFF",
+                    "labelColor": "#FFFFFF",
+                    "onTap": {"type": "navigate", "route": "/payment/qr/my-qr"}
+                  },
+                  {
+                    "type": "icon_button_column",
+                    "icon": "assets/icons/ic_help.svg",
+                    "label": {"fa": "راهنما", "en": "Help"},
+                    "iconColor": "#FFFFFF",
+                    "labelColor": "#FFFFFF",
+                    "onTap": {"type": "show_help", "helpId": "qr_payment"}
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  
+  "pages": {
+    "confirm": {
+      "pageId": "qr_payment_confirm",
+      "title": {"fa": "تایید پرداخت", "en": "Confirm Payment"},
+      "body": {
+        "type": "scrollable",
+        "padding": 16,
+        "children": [
+          {
+            "id": "merchant_info",
+            "type": "card",
+            "padding": 20,
+            "child": {
+              "type": "column",
+              "children": [
+                {
+                  "type": "avatar",
+                  "size": 64,
+                  "imageUrl": "{{qrData.merchantLogo}}",
+                  "fallbackText": "{{qrData.merchantName[0]}}"
+                },
+                {"type": "sized_box", "height": 16},
+                {
+                  "type": "text",
+                  "text": "{{qrData.merchantName}}",
+                  "style": "titleLarge",
+                  "textAlign": "center"
+                },
+                {
+                  "type": "text",
+                  "text": "{{qrData.terminalId}}",
+                  "style": "bodySmall",
+                  "color": "textSecondary",
+                  "textAlign": "center"
+                }
+              ]
+            }
+          },
+          
+          {
+            "id": "amount_section",
+            "type": "conditional",
+            "condition": "{{qrData.amount}}",
+            "whenTrue": {
+              "type": "container",
+              "margin": {"top": 24},
+              "child": {
+                "type": "column",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": {"fa": "مبلغ پرداخت", "en": "Payment Amount"},
+                    "style": "bodyMedium",
+                    "color": "textSecondary",
+                    "textAlign": "center"
+                  },
+                  {"type": "sized_box", "height": 8},
+                  {
+                    "type": "text",
+                    "text": "{{formatCurrency(qrData.amount)}}",
+                    "style": "displaySmall",
+                    "color": "#E31837",
+                    "textAlign": "center"
+                  },
+                  {
+                    "type": "text",
+                    "text": {"fa": "ریال", "en": "Rials"},
+                    "style": "titleMedium",
+                    "color": "textSecondary",
+                    "textAlign": "center"
+                  }
+                ]
+              }
+            },
+            "whenFalse": {
+              "type": "currency_field",
+              "label": {"fa": "مبلغ پرداخت (ریال)", "en": "Payment Amount (Rials)"},
+              "margin": {"top": 24},
+              "currency": "IRR",
+              "showToman": true,
+              "bindTo": "customAmount"
+            }
+          },
+          
+          {
+            "id": "card_selector",
+            "type": "section",
+            "margin": {"top": 24},
+            "header": {"title": {"fa": "پرداخت از", "en": "Pay From"}},
+            "child": {
+              "type": "dropdown_field",
+              "dataSource": "cards",
+              "itemTemplate": {
+                "value": "{{item.id}}",
+                "label": "{{item.cardNumberMasked}}",
+                "leading": "{{item.bankLogo}}"
+              },
+              "bindTo": "selectedCardId"
+            }
+          },
+          
+          {
+            "id": "submit_button",
+            "type": "elevated_button",
+            "label": {"fa": "پرداخت", "en": "Pay"},
+            "fullWidth": true,
+            "margin": {"top": 32},
+            "loading": "{{isSubmitting}}",
+            "disabled": "{{!selectedCardId || (!qrData.amount && !customAmount)}}",
+            "onTap": {
+              "type": "api_call",
+              "endpoint": "dibalite/payment/qr",
+              "method": "POST",
+              "body": {
+                "qrData": "{{qrData}}",
+                "amount": "{{qrData.amount || customAmount}}",
+                "cardId": "{{selectedCardId}}"
+              },
+              "requireOtp": true,
+              "onSuccess": {
+                "type": "navigate_replace",
+                "route": "/payment/qr/result",
+                "params": {
+                  "success": true,
+                  "merchantName": "{{qrData.merchantName}}",
+                  "amount": "{{qrData.amount || customAmount}}",
+                  "referenceNumber": "{{response.referenceNumber}}"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  
+  "dataBindings": {
+    "flashOn": {"source": "state", "default": false},
+    "qrData": {"source": "route_param", "key": "qrData"},
+    "customAmount": {"source": "form", "default": 0},
+    "selectedCardId": {"source": "form", "default": null},
+    "cards": {"source": "api", "endpoint": "dibalite/cards"},
+    "isSubmitting": {"source": "state", "default": false}
+  },
+  
+  "mockData": {
+    "cards": "$ref:mock-data/cards.json#cards",
+    "qrData": {
+      "merchantId": "M123456",
+      "merchantName": "فروشگاه دیجی‌کالا",
+      "merchantLogo": "assets/images/merchants/digikala.png",
+      "terminalId": "T98765432",
+      "amount": 2500000
+    }
+  }
+}
+

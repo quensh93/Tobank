@@ -1,0 +1,279 @@
+{
+  "appBar": {
+    "title": {
+      "data": "Login",
+      "style": {
+        "type": "custom",
+        "color": "onSurface",
+        "fontSize": 20.0,
+        "fontWeight": "bold"
+      },
+      "type": "text"
+    },
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "body": {
+    "padding": {
+      "left": 16.0,
+      "top": 24.0,
+      "right": 16.0,
+      "bottom": 24.0
+    },
+    "child": {
+      "mainAxisAlignment": "start",
+      "crossAxisAlignment": "stretch",
+      "children": [
+        {
+          "height": 32.0,
+          "type": "sizedBox"
+        },
+        {
+          "data": "Welcome Back",
+          "style": {
+            "type": "custom",
+            "color": "onSurface",
+            "fontSize": 24.0,
+            "fontWeight": "bold"
+          },
+          "textAlign": "center",
+          "type": "text"
+        },
+        {
+          "height": 8.0,
+          "type": "sizedBox"
+        },
+        {
+          "data": "Sign in to your account",
+          "style": {
+            "type": "custom",
+            "color": "onSurfaceVariant",
+            "fontSize": 14.0,
+            "fontWeight": "w400"
+          },
+          "textAlign": "center",
+          "type": "text"
+        },
+        {
+          "height": 32.0,
+          "type": "sizedBox"
+        },
+        {
+          "data": "Username or Email",
+          "style": {
+            "type": "custom",
+            "color": "onSurface",
+            "fontSize": 16.0,
+            "fontWeight": "w600"
+          },
+          "type": "text"
+        },
+        {
+          "height": 8.0,
+          "type": "sizedBox"
+        },
+        {
+          "id": "username",
+          "decoration": {
+            "hintText": "Enter your username or email",
+            "hintStyle": {
+              "type": "custom",
+              "color": "onSurfaceVariant",
+              "fontSize": 14.0,
+              "fontWeight": "w400"
+            },
+            "filled": true,
+            "fillColor": "surface"
+          },
+          "keyboardType": "text",
+          "textInputAction": "next",
+          "style": {
+            "type": "custom",
+            "color": "onSurface",
+            "fontSize": 16.0,
+            "fontWeight": "w600"
+          },
+          "type": "textFormField"
+        },
+        {
+          "height": 16.0,
+          "type": "sizedBox"
+        },
+        {
+          "data": "Password",
+          "style": {
+            "type": "custom",
+            "color": "onSurface",
+            "fontSize": 16.0,
+            "fontWeight": "w600"
+          },
+          "type": "text"
+        },
+        {
+          "height": 8.0,
+          "type": "sizedBox"
+        },
+        {
+          "id": "password",
+          "decoration": {
+            "hintText": "Enter your password",
+            "hintStyle": {
+              "type": "custom",
+              "color": "onSurfaceVariant",
+              "fontSize": 14.0,
+              "fontWeight": "w400"
+            },
+            "filled": true,
+            "fillColor": "surface"
+          },
+          "keyboardType": "visiblePassword",
+          "textInputAction": "done",
+          "style": {
+            "type": "custom",
+            "color": "onSurface",
+            "fontSize": 16.0,
+            "fontWeight": "w600"
+          },
+          "obscureText": true,
+          "type": "textFormField"
+        },
+        {
+          "height": 16.0,
+          "type": "sizedBox"
+        },
+        {
+          "onPressed": {
+            "routeName": "tobank_forgot_password",
+            "navigationStyle": "push",
+            "actionType": "navigate"
+          },
+          "child": {
+            "data": "Forgot Password?",
+            "style": {
+              "type": "custom",
+              "color": "primary",
+              "fontSize": 14.0,
+              "fontWeight": "w500"
+            },
+            "type": "text"
+          },
+          "type": "textButton"
+        },
+        {
+          "height": 24.0,
+          "type": "sizedBox"
+        },
+        {
+          "onPressed": {
+            "actions": [
+              {
+                "widget": {
+                  "type": "alertDialog",
+                  "title": {
+                    "type": "text",
+                    "data": "Login Successful",
+                    "style": {
+                      "type": "custom",
+                      "fontSize": 18,
+                      "fontWeight": "bold",
+                      "color": "onSurface"
+                    }
+                  },
+                  "content": {
+                    "type": "text",
+                    "data": "Welcome! You have successfully logged in.",
+                    "style": {
+                      "type": "custom",
+                      "fontSize": 14,
+                      "color": "onSurfaceVariant"
+                    }
+                  },
+                  "actions": [
+                    {
+                      "type": "textButton",
+                      "child": {
+                        "type": "text",
+                        "data": "OK",
+                        "style": {
+                          "type": "custom",
+                          "color": "primary"
+                        }
+                      },
+                      "onPressed": {
+                        "actionType": "navigate",
+                        "routeName": "tobank_home",
+                        "navigationStyle": "push"
+                      }
+                    }
+                  ]
+                },
+                "actionType": "showDialog"
+              }
+            ],
+            "sync": false,
+            "actionType": "multiAction"
+          },
+          "style": {
+            "backgroundColor": "primary",
+            "padding": {
+              "top": 16.0,
+              "bottom": 16.0
+            }
+          },
+          "child": {
+            "data": "Login",
+            "style": {
+              "type": "custom",
+              "color": "onPrimary",
+              "fontSize": 16.0,
+              "fontWeight": "bold"
+            },
+            "type": "text"
+          },
+          "type": "elevatedButton"
+        },
+        {
+          "height": 16.0,
+          "type": "sizedBox"
+        },
+        {
+          "mainAxisAlignment": "center",
+          "children": [
+            {
+              "data": "Don't have an account? ",
+              "style": {
+                "type": "custom",
+                "color": "onSurfaceVariant",
+                "fontSize": 14.0,
+                "fontWeight": "w400"
+              },
+              "type": "text"
+            },
+            {
+              "onPressed": {
+                "routeName": "tobank_register",
+                "navigationStyle": "push",
+                "actionType": "navigate"
+              },
+              "child": {
+                "data": "Register",
+                "style": {
+                  "type": "custom",
+                  "color": "primary",
+                  "fontSize": 14.0,
+                  "fontWeight": "w600"
+                },
+                "type": "text"
+              },
+              "type": "textButton"
+            }
+          ],
+          "type": "row"
+        }
+      ],
+      "type": "column"
+    },
+    "type": "singleChildScrollView"
+  },
+  "type": "scaffold"
+}

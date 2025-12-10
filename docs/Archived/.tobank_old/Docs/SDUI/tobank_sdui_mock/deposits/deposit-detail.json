@@ -1,0 +1,81 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "deposit_detail",
+  "title": {"fa": "جزئیات سپرده", "en": "Deposit Detail"},
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "جزئیات سپرده", "en": "Deposit Detail"},
+    "actions": [
+      {"icon": "assets/icons/ic_share.svg", "onTap": {"type": "share", "text": "{{deposit.iban}}"}}
+    ]
+  },
+  
+  "api": {"endpoint": "dibalite/deposits/{{depositId}}", "method": "GET"},
+  
+  "body": {
+    "type": "scrollable",
+    "children": [
+      {"type": "container", "padding": 24, "decoration": {"gradient": {"colors": ["#00BCD4", "#0097A7"]}}, "child": {"type": "column", "children": [
+        {"type": "text", "text": {"fa": "موجودی", "en": "Balance"}, "style": "titleSmall", "color": "#FFFFFF"},
+        {"type": "text", "text": "{{formatCurrency(deposit.balance)}} ریال", "style": "displaySmall", "color": "#FFFFFF", "margin": {"top": 8}},
+        {"type": "chip", "label": "{{deposit.typeName}}", "backgroundColor": "#FFFFFF20", "textColor": "#FFFFFF", "margin": {"top": 12}}
+      ]}},
+      
+      {"type": "container", "padding": 16, "child": {"type": "column", "children": [
+        {"type": "row", "mainAxisAlignment": "spaceEvenly", "children": [
+          {"type": "quick_action_button", "icon": "assets/icons/ic_transfer.svg", "label": {"fa": "انتقال", "en": "Transfer"}, "onTap": {"type": "navigate", "route": "/payments/transfer/internal?fromDeposit={{depositId}}"}},
+          {"type": "quick_action_button", "icon": "assets/icons/ic_history.svg", "label": {"fa": "تراکنش‌ها", "en": "History"}, "onTap": {"type": "navigate", "route": "/deposits/transactions?id={{depositId}}"}},
+          {"type": "quick_action_button", "icon": "assets/icons/ic_statement.svg", "label": {"fa": "صورتحساب", "en": "Statement"}, "onTap": {"type": "navigate", "route": "/deposits/statement?id={{depositId}}"}},
+          {"type": "quick_action_button", "icon": "assets/icons/ic_more.svg", "label": {"fa": "بیشتر", "en": "More"}, "onTap": {"type": "show_bottom_sheet", "content": "moreActionsSheet"}}
+        ]},
+        
+        {"type": "card", "margin": {"top": 24}, "child": {"type": "column", "children": [
+          {"type": "list_tile", "title": {"fa": "شماره حساب", "en": "Account Number"}, "trailing": {"type": "row", "children": [{"type": "text", "text": "{{deposit.accountNumber}}"}, {"type": "icon_button", "icon": "assets/icons/ic_copy.svg", "size": 20, "onTap": {"type": "copy_to_clipboard", "text": "{{deposit.accountNumber}}"}}]}},
+          {"type": "divider", "indent": 16},
+          {"type": "list_tile", "title": {"fa": "شبا", "en": "IBAN"}, "trailing": {"type": "row", "children": [{"type": "text", "text": "{{deposit.iban}}", "style": "bodySmall"}, {"type": "icon_button", "icon": "assets/icons/ic_copy.svg", "size": 20, "onTap": {"type": "copy_to_clipboard", "text": "{{deposit.iban}}"}}]}},
+          {"type": "divider", "indent": 16},
+          {"type": "list_tile", "title": {"fa": "نوع حساب", "en": "Account Type"}, "trailing": {"type": "text", "text": "{{deposit.typeName}}"}},
+          {"type": "divider", "indent": 16},
+          {"type": "list_tile", "title": {"fa": "تاریخ افتتاح", "en": "Opening Date"}, "trailing": {"type": "text", "text": "{{deposit.openingDate}}"}},
+          {"type": "conditional", "condition": "{{deposit.interestRate}}", "whenTrue": {"type": "column", "children": [
+            {"type": "divider", "indent": 16},
+            {"type": "list_tile", "title": {"fa": "نرخ سود", "en": "Interest Rate"}, "trailing": {"type": "text", "text": "{{deposit.interestRate}}٪ سالانه"}}
+          ]}},
+          {"type": "conditional", "condition": "{{deposit.maturityDate}}", "whenTrue": {"type": "column", "children": [
+            {"type": "divider", "indent": 16},
+            {"type": "list_tile", "title": {"fa": "سررسید", "en": "Maturity"}, "trailing": {"type": "text", "text": "{{deposit.maturityDate}}"}}
+          ]}}
+        ]}},
+        
+        {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "آخرین تراکنش‌ها", "en": "Recent Transactions"}, "trailing": {"type": "text_button", "label": {"fa": "همه", "en": "All"}, "onTap": {"type": "navigate", "route": "/deposits/transactions?id={{depositId}}"}}}, "child": {"type": "list_view", "children": "{{recentTransactions}}", "itemBuilder": {"type": "transaction_list_item"}}},
+        
+        {"type": "sized_box", "height": 32}
+      ]}}
+    ]
+  },
+  
+  "bottomSheets": {
+    "moreActionsSheet": {"type": "action_sheet", "title": {"fa": "عملیات بیشتر", "en": "More Actions"}, "actions": [
+      {"icon": "assets/icons/ic_block.svg", "label": {"fa": "مسدودسازی موقت", "en": "Temporary Block"}, "onTap": {"type": "navigate", "route": "/deposits/block?id={{depositId}}"}},
+      {"icon": "assets/icons/ic_settings.svg", "label": {"fa": "تنظیمات", "en": "Settings"}, "onTap": {"type": "navigate", "route": "/deposits/settings?id={{depositId}}"}},
+      {"icon": "assets/icons/ic_close.svg", "label": {"fa": "بستن حساب", "en": "Close Account"}, "destructive": true, "onTap": {"type": "navigate", "route": "/deposits/close?id={{depositId}}"}}
+    ]}
+  },
+  
+  "dataBindings": {
+    "depositId": {"source": "route_param", "key": "id"},
+    "deposit": {"source": "api", "endpoint": "dibalite/deposits/{{depositId}}"},
+    "recentTransactions": {"source": "api", "endpoint": "dibalite/deposits/{{depositId}}/transactions?limit=5"}
+  },
+  
+  "mockData": {
+    "deposit": {"id": "dep1", "type": "current", "typeName": "جاری", "accountNumber": "۰۱۰۸۱۲۳۴۵۶۷۸۹۰", "iban": "IR۲۷۰۵۷۰۰۱۰۸۱۲۳۴۵۶۷۸۹۰۱۲", "balance": 450000000, "currency": "IRR", "openingDate": "۱۳۹۸/۰۴/۱۵", "branchCode": "۱۲۳", "branchName": "شعبه مرکزی"},
+    "recentTransactions": [
+      {"id": "tx1", "type": "credit", "amount": 15000000, "description": "واریز حقوق", "date": "۱۴۰۳/۰۹/۰۱", "time": "۱۰:۳۲"},
+      {"id": "tx2", "type": "debit", "amount": 2500000, "description": "خرید از فروشگاه", "date": "۱۴۰۳/۰۸/۲۸", "time": "۱۶:۴۵"}
+    ]
+  }
+}
+

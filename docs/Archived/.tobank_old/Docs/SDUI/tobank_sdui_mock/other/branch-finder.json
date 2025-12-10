@@ -1,0 +1,62 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "branch_finder",
+  "title": {"fa": "شعب و خودپردازها", "en": "Branches & ATMs"},
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "شعب و خودپردازها", "en": "Branches & ATMs"},
+    "actions": [
+      {"icon": "assets/icons/ic_filter.svg", "onTap": {"type": "show_bottom_sheet", "content": "filterSheet"}}
+    ]
+  },
+  
+  "body": {
+    "type": "column",
+    "children": [
+      {"type": "container", "height": 300, "child": {"type": "map_view", "initialLocation": "{{userLocation}}", "markers": "{{mapMarkers}}", "onMarkerTap": {"type": "select_location", "id": "{{marker.id}}"}}},
+      
+      {"type": "container", "padding": 16, "child": {"type": "row", "children": [
+        {"type": "expanded", "child": {"type": "text_field", "prefixIcon": "assets/icons/ic_search.svg", "hint": {"fa": "جستجو...", "en": "Search..."}, "bindTo": "searchQuery"}},
+        {"type": "sized_box", "width": 8},
+        {"type": "segmented_button", "options": [
+          {"value": "all", "label": {"fa": "همه", "en": "All"}},
+          {"value": "branch", "label": {"fa": "شعب", "en": "Branches"}},
+          {"value": "atm", "label": {"fa": "ATM", "en": "ATM"}}
+        ], "value": "{{typeFilter}}", "onChanged": {"type": "set_state", "key": "typeFilter"}}
+      ]}},
+      
+      {"type": "expanded", "child": {"type": "list_view", "padding": {"horizontal": 16}, "children": "{{filteredLocations}}", "itemBuilder": {"type": "card", "margin": {"bottom": 12}, "child": {"type": "list_tile", "leading": {"type": "container", "width": 48, "height": 48, "decoration": {"color": "{{item.type === 'branch' ? '#E3F2FD' : '#E8F5E9'}}", "borderRadius": 24}, "alignment": "center", "child": {"type": "icon", "icon": "{{item.type === 'branch' ? 'assets/icons/ic_branch.svg' : 'assets/icons/ic_atm.svg'}}", "color": "{{item.type === 'branch' ? '#1976D2' : '#388E3C'}}"}}, "title": "{{item.name}}", "subtitle": {"type": "column", "crossAxisAlignment": "start", "margin": {"top": 4}, "children": [{"type": "text", "text": "{{item.address}}", "style": "bodySmall", "color": "textSecondary", "maxLines": 1}, {"type": "row", "margin": {"top": 4}, "children": [{"type": "icon", "icon": "assets/icons/ic_location.svg", "size": 14, "color": "textSecondary"}, {"type": "text", "text": "{{item.distance}}", "style": "bodySmall", "color": "textSecondary", "margin": {"left": 4}}, {"type": "conditional", "condition": "{{item.type === 'branch'}}", "whenTrue": {"type": "row", "children": [{"type": "text", "text": " • ", "color": "textSecondary"}, {"type": "text", "text": "{{item.isOpen ? {fa: 'باز', en: 'Open'} : {fa: 'بسته', en: 'Closed'}}}", "style": "bodySmall", "color": "{{item.isOpen ? '#4CAF50' : '#F44336'}}"}]}}]}]}, "trailing": {"type": "icon_button", "icon": "assets/icons/ic_directions.svg", "onTap": {"type": "open_map_directions", "lat": "{{item.lat}}", "lng": "{{item.lng}}"}}, "onTap": {"type": "select_location", "id": "{{item.id}}"}}}}}
+    ]
+  },
+  
+  "bottomSheets": {
+    "filterSheet": {"type": "bottom_sheet", "title": {"fa": "فیلتر", "en": "Filter"}, "child": {"type": "column", "padding": 16, "children": [
+      {"type": "checkbox_tile", "title": {"fa": "فقط شعب ۲۴ ساعته", "en": "24/7 branches only"}, "bindTo": "filter24h"},
+      {"type": "checkbox_tile", "title": {"fa": "دارای صندوق امانات", "en": "With safe deposit boxes"}, "bindTo": "filterSafeBox", "margin": {"top": 8}},
+      {"type": "checkbox_tile", "title": {"fa": "دارای ارز", "en": "Currency exchange"}, "bindTo": "filterCurrency", "margin": {"top": 8}},
+      {"type": "elevated_button", "label": {"fa": "اعمال", "en": "Apply"}, "fullWidth": true, "margin": {"top": 24}, "onTap": {"type": "close_bottom_sheet"}}
+    ]}}
+  },
+  
+  "dataBindings": {
+    "userLocation": {"source": "location", "permission": true},
+    "locations": {"source": "api", "endpoint": "branches/nearby?lat={{userLocation.lat}}&lng={{userLocation.lng}}"},
+    "searchQuery": {"source": "state", "default": ""},
+    "typeFilter": {"source": "state", "default": "all"},
+    "mapMarkers": {"source": "computed", "formula": "locationsToMarkers(filteredLocations)"},
+    "filteredLocations": {"source": "computed", "formula": "filterLocations(locations, typeFilter, searchQuery)"}
+  },
+  
+  "mockData": {
+    "userLocation": {"lat": 35.7219, "lng": 51.3347},
+    "locations": [
+      {"id": "b1", "type": "branch", "name": "شعبه مرکزی تهران", "address": "خیابان ولیعصر، نبش میرداماد", "lat": 35.7620, "lng": 51.4230, "distance": "۲.۵ کیلومتر", "isOpen": true, "phone": "۰۲۱-۲۲۲۲۲۲۲۲"},
+      {"id": "b2", "type": "branch", "name": "شعبه ونک", "address": "میدان ونک، خیابان ملاصدرا", "lat": 35.7580, "lng": 51.4100, "distance": "۳.۱ کیلومتر", "isOpen": true, "phone": "۰۲۱-۸۸۸۸۸۸۸۸"},
+      {"id": "a1", "type": "atm", "name": "خودپرداز میرداماد", "address": "خیابان میرداماد، جنب بانک", "lat": 35.7615, "lng": 51.4225, "distance": "۲.۴ کیلومتر", "isOpen": true},
+      {"id": "a2", "type": "atm", "name": "خودپرداز تجریش", "address": "میدان تجریش، پاساژ تجریش", "lat": 35.8040, "lng": 51.4280, "distance": "۵.۲ کیلومتر", "isOpen": true}
+    ]
+  }
+}
+

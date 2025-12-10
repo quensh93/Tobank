@@ -1,0 +1,19 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "تیکت‌های پشتیبانی"
+    },
+    "actions": [
+      {
+        "icon": "assets/icons/ic_add.svg",
+        "onPressed": {
+          "actionType": "navigate",
+          "path": "/support/tickets/new"
+        }
+      }
+    ]
+  }
+}

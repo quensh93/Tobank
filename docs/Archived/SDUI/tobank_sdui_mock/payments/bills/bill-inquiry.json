@@ -1,0 +1,23 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "استعلام قبض"
+    },
+    "actions": [
+      {
+        "type": "iconButton",
+        "onPressed": {
+          "actionType": "navigate",
+          "path": "/bills/scan"
+        },
+        "icon": {
+          "type": "icon",
+          "icon": "qr_code_scanner"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "otp_verification",
+  "title": {"fa": "تایید کد", "en": "Verify Code"},
+  
+  "appBar": {"type": "standard", "title": {"fa": "تایید شماره موبایل", "en": "Verify Mobile"}},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 24,
+    "children": [
+      {"type": "container", "alignment": "center", "child": {"type": "column", "children": [
+        {"type": "container", "width": 80, "height": 80, "decoration": {"color": "#E0F7FA", "borderRadius": 40}, "alignment": "center", "child": {"type": "icon", "icon": "assets/icons/ic_sms.svg", "size": 40, "color": "#00BCD4"}},
+        {"type": "text", "text": {"fa": "کد تایید", "en": "Verification Code"}, "style": "headlineSmall", "margin": {"top": 24}},
+        {"type": "text", "text": {"fa": "کد ۵ رقمی به شماره {{maskedMobile}} ارسال شد", "en": "5-digit code sent to {{maskedMobile}}"}, "style": "bodyMedium", "color": "textSecondary", "textAlign": "center", "margin": {"top": 8}}
+      ]}},
+      
+      {"type": "otp_field", "length": 5, "margin": {"top": 40}, "bindTo": "otpCode", "autoSubmit": true, "onComplete": {"type": "verify_otp"}},
+      
+      {"type": "container", "margin": {"top": 32}, "alignment": "center", "child": {
+        "type": "conditional",
+        "condition": "{{resendTimer > 0}}",
+        "whenTrue": {"type": "text", "text": {"fa": "ارسال مجدد تا {{resendTimer}} ثانیه", "en": "Resend in {{resendTimer}}s"}, "style": "bodyMedium", "color": "textSecondary"},
+        "whenFalse": {"type": "text_button", "label": {"fa": "ارسال مجدد کد", "en": "Resend Code"}, "onTap": {"type": "resend_otp"}}
+      }},
+      
+      {"type": "row", "margin": {"top": 16}, "mainAxisAlignment": "center", "children": [
+        {"type": "text_button", "label": {"fa": "تغییر شماره موبایل", "en": "Change Number"}, "onTap": {"type": "navigate_back"}}
+      ]},
+      
+      {"type": "sized_box", "height": 40},
+      
+      {"type": "elevated_button", "label": {"fa": "تایید", "en": "Verify"}, "fullWidth": true, "disabled": "{{otpCode.length !== 5}}", "onTap": {"type": "api_call", "endpoint": "auth/verify-otp", "method": "POST", "body": {"mobile": "{{mobile}}", "code": "{{otpCode}}"}, "showLoading": true, "onSuccess": {"type": "navigate_replace", "route": "/home"}, "onError": {"type": "show_error", "message": {"fa": "کد وارد شده اشتباه است", "en": "Invalid code"}}}}
+    ]
+  },
+  
+  "dataBindings": {
+    "mobile": {"source": "route_param", "key": "mobile"},
+    "maskedMobile": {"source": "computed", "formula": "maskMobile(mobile)"},
+    "otpCode": {"source": "form", "default": ""},
+    "resendTimer": {"source": "timer", "duration": 120, "autoStart": true}
+  },
+  
+  "mockData": {"maskedMobile": "۰۹۱۲***۶۷۸۹"}
+}
+

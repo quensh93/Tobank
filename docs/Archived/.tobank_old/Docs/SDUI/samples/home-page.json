@@ -1,0 +1,272 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "id": "home-page",
+  "version": "1.0.0",
+  "type": "page",
+  
+  "meta": {
+    "title": "{{i18n.home}}",
+    "showAppBar": false,
+    "backgroundColor": "{{theme.scaffoldBackground}}"
+  },
+  
+  "body": {
+    "type": "scroll_view",
+    "refreshable": true,
+    "onRefresh": {
+      "action": "refresh_bindings",
+      "bindings": ["cards", "banners", "notifications"]
+    },
+    "padding": {"horizontal": 16, "vertical": 8},
+    "children": [
+      {
+        "type": "column",
+        "children": [
+          {
+            "type": "row",
+            "mainAxisAlignment": "spaceBetween",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "row",
+                "children": [
+                  {
+                    "type": "avatar",
+                    "source": "network",
+                    "url": "{{user.avatarUrl}}",
+                    "size": 48
+                  },
+                  {
+                    "type": "sized_box",
+                    "width": 12
+                  },
+                  {
+                    "type": "column",
+                    "crossAxisAlignment": "start",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "{{i18n.welcome}}",
+                        "style": "bodySmall",
+                        "color": "{{theme.onSurface.withOpacity(0.6)}}"
+                      },
+                      {
+                        "type": "text",
+                        "value": "{{user.fullName}}",
+                        "style": "titleMedium",
+                        "fontWeight": "bold"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "icon_button",
+                "icon": "notification",
+                "onTap": {
+                  "action": "navigate",
+                  "route": "pages/notifications"
+                },
+                "badge": "{{notifications.unreadCount}}"
+              }
+            ]
+          },
+          
+          {
+            "type": "sized_box",
+            "height": 24
+          },
+          
+          {
+            "type": "conditional",
+            "condition": "{{cards.length > 0}}",
+            "then": {
+              "type": "card_carousel",
+              "data": "{{cards}}",
+              "itemBuilder": {
+                "type": "bank_card_widget",
+                "cardNumber": "{{item.maskedNumber}}",
+                "bankName": "{{item.bankName}}",
+                "balance": "{{item.balance | currency}}",
+                "cardColor": "{{item.cardColor}}",
+                "onTap": {
+                  "action": "navigate",
+                  "route": "pages/card-detail",
+                  "params": {"cardId": "{{item.id}}"}
+                }
+              },
+              "height": 200
+            },
+            "else": {
+              "type": "empty_card_placeholder",
+              "message": "{{i18n.no_cards}}",
+              "action": {
+                "label": "{{i18n.add_card}}",
+                "onTap": {
+                  "action": "navigate",
+                  "route": "pages/add-card"
+                }
+              }
+            }
+          },
+          
+          {
+            "type": "sized_box",
+            "height": 24
+          },
+          
+          {
+            "type": "text",
+            "value": "{{i18n.quick_actions}}",
+            "style": "titleMedium",
+            "fontWeight": "bold"
+          },
+          
+          {
+            "type": "sized_box",
+            "height": 12
+          },
+          
+          {
+            "type": "grid_view",
+            "crossAxisCount": 4,
+            "mainAxisSpacing": 12,
+            "crossAxisSpacing": 12,
+            "childAspectRatio": 0.9,
+            "data": "{{quickActions}}",
+            "itemBuilder": {
+              "type": "quick_action_item",
+              "icon": "{{item.icon}}",
+              "label": "{{item.title}}",
+              "onTap": {
+                "action": "navigate",
+                "route": "{{item.route}}"
+              }
+            }
+          },
+          
+          {
+            "type": "sized_box",
+            "height": 24
+          },
+          
+          {
+            "type": "conditional",
+            "condition": "{{banners.length > 0}}",
+            "then": {
+              "type": "banner_carousel",
+              "data": "{{banners}}",
+              "autoPlay": true,
+              "interval": 5000,
+              "itemBuilder": {
+                "type": "ink_well",
+                "borderRadius": 12,
+                "onTap": {
+                  "action": "conditional",
+                  "condition": "{{item.type == 'externalUrl'}}",
+                  "then": {
+                    "action": "open_url",
+                    "url": "{{item.url}}",
+                    "mode": "external"
+                  },
+                  "else": {
+                    "action": "navigate",
+                    "route": "{{item.route}}"
+                  }
+                },
+                "child": {
+                  "type": "image",
+                  "source": "network",
+                  "url": "{{cdnBase}}{{item.imageUrl}}",
+                  "fit": "cover",
+                  "borderRadius": 12
+                }
+              },
+              "height": 140
+            }
+          },
+          
+          {
+            "type": "sized_box",
+            "height": 24
+          },
+          
+          {
+            "type": "text",
+            "value": "{{i18n.services}}",
+            "style": "titleMedium",
+            "fontWeight": "bold"
+          },
+          
+          {
+            "type": "sized_box",
+            "height": 12
+          },
+          
+          {
+            "type": "list_view",
+            "data": "{{services}}",
+            "separator": {
+              "type": "sized_box",
+              "height": 8
+            },
+            "itemBuilder": {
+              "type": "service_item_card",
+              "title": "{{item.title}}",
+              "subtitle": "{{item.subtitle}}",
+              "icon": "{{item.icon}}",
+              "enabled": "{{!item.isDisable}}",
+              "message": "{{item.message}}",
+              "onTap": {
+                "action": "conditional",
+                "condition": "{{!item.isDisable}}",
+                "then": {
+                  "action": "navigate",
+                  "route": "{{item.route}}"
+                },
+                "else": {
+                  "action": "show_toast",
+                  "message": "{{item.message}}",
+                  "type": "info"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  
+  "dataBindings": {
+    "user": {
+      "source": "local",
+      "key": "currentUser"
+    },
+    "cards": {
+      "source": "api",
+      "endpoint": "cards/list",
+      "cache": "5m"
+    },
+    "banners": {
+      "source": "api",
+      "endpoint": "dashboard/banners",
+      "cache": "5m"
+    },
+    "quickActions": {
+      "source": "api",
+      "endpoint": "menu/quick-actions",
+      "cache": "1h"
+    },
+    "services": {
+      "source": "api",
+      "endpoint": "menu/services",
+      "cache": "1h"
+    },
+    "notifications": {
+      "source": "api",
+      "endpoint": "notifications/summary",
+      "cache": "1m"
+    }
+  }
+}
+

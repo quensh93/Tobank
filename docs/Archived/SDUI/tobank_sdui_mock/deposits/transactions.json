@@ -1,0 +1,35 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "تراکنش‌ها"
+    },
+    "actions": [
+      {
+        "type": "iconButton",
+        "onPressed": {
+          "actionType": "toast",
+          "message": "فیلترها (به زودی)"
+        },
+        "icon": {
+          "type": "icon",
+          "icon": "filter_list"
+        }
+      },
+      {
+        "type": "iconButton",
+        "onPressed": {
+          "actionType": "setValue",
+          "key": "showSearch",
+          "value": "{{!showSearch}}"
+        },
+        "icon": {
+          "type": "icon",
+          "icon": "search"
+        }
+      }
+    ]
+  }
+}

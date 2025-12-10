@@ -1,0 +1,23 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "پرداخت قبض"
+    },
+    "actions": [
+      {
+        "type": "iconButton",
+        "onPressed": {
+          "actionType": "navigate",
+          "path": "/bills/add"
+        },
+        "icon": {
+          "type": "icon",
+          "icon": "add"
+        }
+      }
+    ]
+  }
+}

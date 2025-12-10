@@ -1,0 +1,413 @@
+{
+  "appBar": {
+    "title": {
+      "request": {
+        "url": "https://api.tobank.com/home-data",
+        "method": "get",
+        "actionType": "networkRequest"
+      },
+      "targetPath": "data",
+      "template": {
+        "data": "{{appBarTitle}}",
+        "style": {
+          "type": "custom",
+          "color": "onSurface",
+          "fontSize": 20.0,
+          "fontWeight": "bold"
+        },
+        "type": "text"
+      },
+      "loaderWidget": {
+        "data": "{{appStrings.home.title}}",
+        "style": {
+          "type": "custom",
+          "color": "onSurface",
+          "fontSize": 20.0,
+          "fontWeight": "bold"
+        },
+        "type": "text"
+      },
+      "errorWidget": {
+        "data": "{{appStrings.home.title}}",
+        "style": {
+          "type": "custom",
+          "color": "onSurface",
+          "fontSize": 20.0,
+          "fontWeight": "bold"
+        },
+        "type": "text"
+      },
+      "type": "dynamicView"
+    },
+    "actions": [
+      {
+        "onPressed": {
+          "assetPath": "stac/.build/tobank_notifications.json",
+          "navigationStyle": "push",
+          "actionType": "navigate"
+        },
+        "icon": {
+          "icon": "notifications",
+          "iconType": "material",
+          "size": 24.0,
+          "color": "onSurface",
+          "type": "icon"
+        },
+        "type": "iconButton"
+      }
+    ],
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "body": {
+    "request": {
+      "url": "https://api.tobank.com/home-data",
+      "method": "get",
+      "actionType": "networkRequest"
+    },
+    "targetPath": "data",
+    "template": {
+      "padding": {
+        "left": 16.0,
+        "top": 16.0,
+        "right": 16.0,
+        "bottom": 16.0
+      },
+      "child": {
+        "mainAxisAlignment": "start",
+        "crossAxisAlignment": "stretch",
+        "children": [
+          {
+            "child": {
+              "padding": {
+                "left": 24.0,
+                "top": 24.0,
+                "right": 24.0,
+                "bottom": 24.0
+              },
+              "child": {
+                "crossAxisAlignment": "start",
+                "children": [
+                  {
+                    "data": "{{accountBalanceLabel}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "onSurfaceVariant",
+                      "fontSize": 14.0,
+                      "fontWeight": "w400"
+                    },
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{balance}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "onSurface",
+                      "fontSize": 32.0,
+                      "fontWeight": "bold"
+                    },
+                    "type": "text"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{accountNumber}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "onSurfaceVariant",
+                      "fontSize": 14.0,
+                      "fontWeight": "w400"
+                    },
+                    "type": "text"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "padding"
+            },
+            "type": "card"
+          },
+          {
+            "height": 24.0,
+            "type": "sizedBox"
+          },
+          {
+            "data": "{{quickActionsTitle}}",
+            "style": {
+              "type": "custom",
+              "color": "onSurface",
+              "fontSize": 18.0,
+              "fontWeight": "bold"
+            },
+            "type": "text"
+          },
+          {
+            "height": 16.0,
+            "type": "sizedBox"
+          },
+          {
+            "mainAxisAlignment": "spaceEvenly",
+            "children": [
+              {
+                "child": {
+                  "children": [
+                    {
+                      "onPressed": {
+                        "assetPath": "stac/.build/tobank_transfer_form.json",
+                        "navigationStyle": "push",
+                        "actionType": "navigate"
+                      },
+                      "icon": {
+                        "icon": "send",
+                        "iconType": "material",
+                        "size": 32.0,
+                        "color": "primary",
+                        "type": "icon"
+                      },
+                      "type": "iconButton"
+                    },
+                    {
+                      "height": 8.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "data": "{{transferLabel}}",
+                      "style": {
+                        "type": "custom",
+                        "color": "onSurface",
+                        "fontSize": 14.0,
+                        "fontWeight": "w500"
+                      },
+                      "textAlign": "center",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "expanded"
+              },
+              {
+                "child": {
+                  "children": [
+                    {
+                      "onPressed": {
+                        "assetPath": "stac/.build/tobank_pay_bills.json",
+                        "navigationStyle": "push",
+                        "actionType": "navigate"
+                      },
+                      "icon": {
+                        "icon": "receipt",
+                        "iconType": "material",
+                        "size": 32.0,
+                        "color": "primary",
+                        "type": "icon"
+                      },
+                      "type": "iconButton"
+                    },
+                    {
+                      "height": 8.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "data": "{{payBillsLabel}}",
+                      "style": {
+                        "type": "custom",
+                        "color": "onSurface",
+                        "fontSize": 14.0,
+                        "fontWeight": "w500"
+                      },
+                      "textAlign": "center",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "expanded"
+              },
+              {
+                "child": {
+                  "children": [
+                    {
+                      "onPressed": {
+                        "assetPath": "stac/.build/tobank_account_overview.json",
+                        "navigationStyle": "push",
+                        "actionType": "navigate"
+                      },
+                      "icon": {
+                        "icon": "account_balance",
+                        "iconType": "material",
+                        "size": 32.0,
+                        "color": "primary",
+                        "type": "icon"
+                      },
+                      "type": "iconButton"
+                    },
+                    {
+                      "height": 8.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "data": "{{accountLabel}}",
+                      "style": {
+                        "type": "custom",
+                        "color": "onSurface",
+                        "fontSize": 14.0,
+                        "fontWeight": "w500"
+                      },
+                      "textAlign": "center",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "expanded"
+              },
+              {
+                "child": {
+                  "children": [
+                    {
+                      "onPressed": {
+                        "assetPath": "stac/.build/tobank_transaction_history.json",
+                        "navigationStyle": "push",
+                        "actionType": "navigate"
+                      },
+                      "icon": {
+                        "icon": "history",
+                        "iconType": "material",
+                        "size": 32.0,
+                        "color": "primary",
+                        "type": "icon"
+                      },
+                      "type": "iconButton"
+                    },
+                    {
+                      "height": 8.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "data": "{{historyLabel}}",
+                      "style": {
+                        "type": "custom",
+                        "color": "onSurface",
+                        "fontSize": 14.0,
+                        "fontWeight": "w500"
+                      },
+                      "textAlign": "center",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "expanded"
+              }
+            ],
+            "type": "row"
+          },
+          {
+            "height": 32.0,
+            "type": "sizedBox"
+          },
+          {
+            "mainAxisAlignment": "spaceBetween",
+            "children": [
+              {
+                "data": "{{recentTransactionsTitle}}",
+                "style": {
+                  "type": "custom",
+                  "color": "onSurface",
+                  "fontSize": 18.0,
+                  "fontWeight": "bold"
+                },
+                "type": "text"
+              },
+              {
+                "onPressed": {
+                  "assetPath": "stac/.build/tobank_transaction_history.json",
+                  "navigationStyle": "push",
+                  "actionType": "navigate"
+                },
+                "child": {
+                  "data": "{{viewAllText}}",
+                  "style": {
+                    "type": "custom",
+                    "color": "primary",
+                    "fontSize": 14.0,
+                    "fontWeight": "w600"
+                  },
+                  "type": "text"
+                },
+                "type": "textButton"
+              }
+            ],
+            "type": "row"
+          },
+          {
+            "height": 16.0,
+            "type": "sizedBox"
+          },
+          {
+            "request": {
+              "url": "https://api.tobank.com/home-data",
+              "method": "get",
+              "actionType": "networkRequest"
+            },
+            "targetPath": "data.transactions",
+            "template": {
+              "physics": "never",
+              "shrinkWrap": true,
+              "type": "listView"
+            },
+            "emptyTemplate": {
+              "data": "{{appStrings.home.noTransactionsFound}}",
+              "style": {
+                "type": "custom",
+                "color": "onSurfaceVariant"
+              },
+              "type": "text"
+            },
+            "loaderWidget": {
+              "height": 100.0,
+              "type": "sizedBox"
+            },
+            "errorWidget": {
+              "data": "{{appStrings.home.errorLoadingTransactions}}",
+              "style": {
+                "type": "custom",
+                "color": "error"
+              },
+              "type": "text"
+            },
+            "type": "dynamicView"
+          }
+        ],
+        "type": "column"
+      },
+      "type": "singleChildScrollView"
+    },
+    "loaderWidget": {
+      "child": {
+        "type": "circularProgressIndicator"
+      },
+      "type": "center"
+    },
+    "errorWidget": {
+      "child": {
+        "data": "{{appStrings.home.errorLoading}}",
+        "style": {
+          "type": "custom",
+          "color": "error"
+        },
+        "type": "text"
+      },
+      "type": "center"
+    },
+    "type": "dynamicView"
+  },
+  "type": "scaffold"
+}

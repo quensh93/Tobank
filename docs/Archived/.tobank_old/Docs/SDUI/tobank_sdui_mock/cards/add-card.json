@@ -1,0 +1,263 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "add_card",
+  "pageType": "form",
+  "title": {
+    "fa": "افزودن کارت",
+    "en": "Add Card"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "add_card",
+    "screenClass": "AddCardPage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "افزودن کارت", "en": "Add Card"},
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "card_preview",
+        "type": "container",
+        "margin": {"bottom": 24},
+        "child": {
+          "type": "bank_card_widget",
+          "cardNumber": "{{cardNumber || '****-****-****-****'}}",
+          "cardHolder": "{{cardHolderName || 'نام دارنده کارت'}}",
+          "expiryDate": "{{expiryMonth}}/{{expiryYear}}",
+          "bankLogo": "{{detectedBankLogo}}",
+          "cardDesign": "default",
+          "isPreview": true
+        }
+      },
+      
+      {
+        "id": "card_number_field",
+        "type": "text_field",
+        "label": {"fa": "شماره کارت", "en": "Card Number"},
+        "hint": {"fa": "شماره ۱۶ رقمی کارت", "en": "16-digit card number"},
+        "icon": "assets/icons/ic_card.svg",
+        "keyboardType": "number",
+        "maxLength": 19,
+        "formatter": "card_number",
+        "validation": {
+          "required": true,
+          "minLength": 16,
+          "maxLength": 16,
+          "pattern": "^[0-9]{16}$",
+          "customValidator": "validateCardNumber",
+          "errorMessages": {
+            "required": {"fa": "شماره کارت الزامی است", "en": "Card number is required"},
+            "pattern": {"fa": "شماره کارت معتبر نیست", "en": "Invalid card number"}
+          }
+        },
+        "bindTo": "cardNumber",
+        "onChange": {
+          "type": "detect_bank",
+          "outputTo": "detectedBank"
+        }
+      },
+      
+      {
+        "id": "detected_bank_info",
+        "type": "conditional",
+        "condition": "{{detectedBank}}",
+        "whenTrue": {
+          "type": "container",
+          "margin": {"top": 8, "bottom": 16},
+          "padding": 12,
+          "decoration": {
+            "color": "#F5F5F5",
+            "borderRadius": 8
+          },
+          "child": {
+            "type": "row",
+            "children": [
+              {
+                "type": "image",
+                "src": "{{detectedBank.logo}}",
+                "width": 32,
+                "height": 32
+              },
+              {
+                "type": "sized_box",
+                "width": 12
+              },
+              {
+                "type": "text",
+                "text": "{{detectedBank.name}}",
+                "style": "bodyMedium"
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "expiry_row",
+        "type": "row",
+        "children": [
+          {
+            "type": "expanded",
+            "child": {
+              "type": "dropdown_field",
+              "label": {"fa": "ماه", "en": "Month"},
+              "hint": {"fa": "ماه انقضا", "en": "Expiry month"},
+              "options": [
+                {"value": "01", "label": "01"},
+                {"value": "02", "label": "02"},
+                {"value": "03", "label": "03"},
+                {"value": "04", "label": "04"},
+                {"value": "05", "label": "05"},
+                {"value": "06", "label": "06"},
+                {"value": "07", "label": "07"},
+                {"value": "08", "label": "08"},
+                {"value": "09", "label": "09"},
+                {"value": "10", "label": "10"},
+                {"value": "11", "label": "11"},
+                {"value": "12", "label": "12"}
+              ],
+              "validation": {"required": true},
+              "bindTo": "expiryMonth"
+            }
+          },
+          {
+            "type": "sized_box",
+            "width": 16
+          },
+          {
+            "type": "expanded",
+            "child": {
+              "type": "dropdown_field",
+              "label": {"fa": "سال", "en": "Year"},
+              "hint": {"fa": "سال انقضا", "en": "Expiry year"},
+              "options": [
+                {"value": "03", "label": "۱۴۰۳"},
+                {"value": "04", "label": "۱۴۰۴"},
+                {"value": "05", "label": "۱۴۰۵"},
+                {"value": "06", "label": "۱۴۰۶"},
+                {"value": "07", "label": "۱۴۰۷"},
+                {"value": "08", "label": "۱۴۰۸"}
+              ],
+              "validation": {"required": true},
+              "bindTo": "expiryYear"
+            }
+          }
+        ]
+      },
+      
+      {
+        "id": "cvv_field",
+        "type": "text_field",
+        "label": {"fa": "CVV2", "en": "CVV2"},
+        "hint": {"fa": "کد ۳ یا ۴ رقمی پشت کارت", "en": "3 or 4 digit code"},
+        "icon": "assets/icons/ic_lock.svg",
+        "keyboardType": "number",
+        "maxLength": 4,
+        "obscureText": true,
+        "validation": {
+          "required": true,
+          "minLength": 3,
+          "maxLength": 4,
+          "pattern": "^[0-9]{3,4}$"
+        },
+        "bindTo": "cvv2"
+      },
+      
+      {
+        "id": "card_name_field",
+        "type": "text_field",
+        "label": {"fa": "نام مستعار کارت (اختیاری)", "en": "Card Nickname (optional)"},
+        "hint": {"fa": "مثال: کارت حقوق", "en": "e.g. Salary Card"},
+        "icon": "assets/icons/ic_edit.svg",
+        "maxLength": 30,
+        "bindTo": "cardNickname"
+      },
+      
+      {
+        "id": "set_default_switch",
+        "type": "switch_tile",
+        "title": {"fa": "کارت پیش‌فرض", "en": "Default Card"},
+        "subtitle": {"fa": "این کارت به عنوان کارت پیش‌فرض تنظیم شود", "en": "Set as default card"},
+        "bindTo": "isDefault",
+        "defaultValue": false
+      },
+      
+      {
+        "id": "scan_card_button",
+        "type": "outlined_button",
+        "icon": "assets/icons/ic_camera.svg",
+        "label": {"fa": "اسکن کارت با دوربین", "en": "Scan Card with Camera"},
+        "fullWidth": true,
+        "margin": {"top": 16},
+        "onTap": {
+          "type": "scan_card",
+          "onSuccess": {
+            "type": "fill_form",
+            "mappings": {
+              "cardNumber": "scannedCardNumber",
+              "expiryMonth": "scannedExpiryMonth",
+              "expiryYear": "scannedExpiryYear"
+            }
+          }
+        }
+      },
+      
+      {
+        "id": "submit_button",
+        "type": "elevated_button",
+        "label": {"fa": "افزودن کارت", "en": "Add Card"},
+        "fullWidth": true,
+        "margin": {"top": 32},
+        "loading": "{{isSubmitting}}",
+        "disabled": "{{!isFormValid}}",
+        "onTap": {
+          "type": "submit_form",
+          "endpoint": "dibalite/cards/add",
+          "method": "POST",
+          "body": {
+            "cardNumber": "{{cardNumber}}",
+            "expiryMonth": "{{expiryMonth}}",
+            "expiryYear": "{{expiryYear}}",
+            "cvv2": "{{cvv2}}",
+            "nickname": "{{cardNickname}}",
+            "isDefault": "{{isDefault}}"
+          },
+          "requireOtp": true,
+          "onSuccess": {
+            "type": "navigate_replace",
+            "route": "/cards",
+            "showSnackbar": {
+              "message": {"fa": "کارت با موفقیت اضافه شد", "en": "Card added successfully"},
+              "type": "success"
+            }
+          },
+          "onError": {
+            "type": "show_error",
+            "message": "{{error.message}}"
+          }
+        }
+      }
+    ]
+  },
+  
+  "dataBindings": {
+    "cardNumber": {"source": "form", "default": ""},
+    "expiryMonth": {"source": "form", "default": ""},
+    "expiryYear": {"source": "form", "default": ""},
+    "cvv2": {"source": "form", "default": ""},
+    "cardNickname": {"source": "form", "default": ""},
+    "isDefault": {"source": "form", "default": false},
+    "detectedBank": {"source": "computed", "default": null},
+    "isSubmitting": {"source": "state", "default": false},
+    "isFormValid": {"source": "computed", "expression": "cardNumber.length === 16 && expiryMonth && expiryYear && cvv2.length >= 3"}
+  }
+}
+

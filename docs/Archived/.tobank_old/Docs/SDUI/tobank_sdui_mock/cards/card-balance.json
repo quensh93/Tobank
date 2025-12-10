@@ -1,0 +1,291 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "card_balance",
+  "pageType": "inquiry",
+  "title": {
+    "fa": "استعلام موجودی",
+    "en": "Balance Inquiry"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "card_balance",
+    "screenClass": "CardBalancePage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "استعلام موجودی", "en": "Balance Inquiry"},
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "card_selector",
+        "type": "conditional",
+        "condition": "{{!cardId}}",
+        "whenTrue": {
+          "type": "section",
+          "header": {
+            "title": {"fa": "انتخاب کارت", "en": "Select Card"}
+          },
+          "child": {
+            "type": "horizontal_list",
+            "height": 180,
+            "itemSpacing": 12,
+            "dataSource": "cards",
+            "itemTemplate": {
+              "type": "selectable_card",
+              "width": 280,
+              "selected": "{{selectedCardId === item.id}}",
+              "child": {
+                "type": "bank_card_widget",
+                "cardNumber": "{{item.cardNumberMasked}}",
+                "cardHolder": "{{item.holderName}}",
+                "bankLogo": "{{item.bankLogo}}",
+                "cardDesign": "{{item.cardDesign}}"
+              },
+              "onTap": {
+                "type": "set_state",
+                "key": "selectedCardId",
+                "value": "{{item.id}}"
+              }
+            }
+          }
+        }
+      },
+      
+      {
+        "id": "selected_card_preview",
+        "type": "conditional",
+        "condition": "{{selectedCard}}",
+        "whenTrue": {
+          "type": "container",
+          "margin": {"bottom": 24},
+          "child": {
+            "type": "bank_card_widget",
+            "cardNumber": "{{selectedCard.cardNumberMasked}}",
+            "cardHolder": "{{selectedCard.holderName}}",
+            "bankLogo": "{{selectedCard.bankLogo}}",
+            "cardDesign": "{{selectedCard.cardDesign}}"
+          }
+        }
+      },
+      
+      {
+        "id": "pin_input_section",
+        "type": "conditional",
+        "condition": "{{selectedCardId && !balanceResult}}",
+        "whenTrue": {
+          "type": "card",
+          "padding": 20,
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "text",
+                "text": {"fa": "رمز دوم کارت را وارد کنید", "en": "Enter Card PIN2"},
+                "style": "titleMedium",
+                "textAlign": "center"
+              },
+              {
+                "type": "sized_box",
+                "height": 24
+              },
+              {
+                "type": "pin_input",
+                "length": 6,
+                "obscureText": true,
+                "autofocus": true,
+                "bindTo": "pin2",
+                "onComplete": {
+                  "type": "submit_inquiry"
+                }
+              },
+              {
+                "type": "sized_box",
+                "height": 16
+              },
+              {
+                "type": "text",
+                "text": {"fa": "رمز یکبار مصرف ارسال شده به موبایل", "en": "OTP sent to your mobile"},
+                "style": "bodySmall",
+                "color": "textSecondary",
+                "textAlign": "center"
+              },
+              {
+                "type": "sized_box",
+                "height": 24
+              },
+              {
+                "type": "elevated_button",
+                "label": {"fa": "استعلام موجودی", "en": "Check Balance"},
+                "fullWidth": true,
+                "loading": "{{isLoading}}",
+                "disabled": "{{pin2.length < 5}}",
+                "onTap": {
+                  "type": "api_call",
+                  "endpoint": "dibalite/cards/balance",
+                  "method": "POST",
+                  "body": {
+                    "cardId": "{{selectedCardId}}",
+                    "pin2": "{{pin2}}"
+                  },
+                  "requireEncryption": true,
+                  "onSuccess": {
+                    "type": "set_state",
+                    "key": "balanceResult",
+                    "value": "{{response}}"
+                  },
+                  "onError": {
+                    "type": "show_error",
+                    "message": "{{error.message}}"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "balance_result_section",
+        "type": "conditional",
+        "condition": "{{balanceResult}}",
+        "whenTrue": {
+          "type": "column",
+          "children": [
+            {
+              "type": "card",
+              "padding": 24,
+              "child": {
+                "type": "column",
+                "children": [
+                  {
+                    "type": "icon",
+                    "icon": "assets/icons/ic_check_circle.svg",
+                    "size": 64,
+                    "color": "#4CAF50"
+                  },
+                  {
+                    "type": "sized_box",
+                    "height": 16
+                  },
+                  {
+                    "type": "text",
+                    "text": {"fa": "موجودی قابل برداشت", "en": "Available Balance"},
+                    "style": "bodyMedium",
+                    "color": "textSecondary"
+                  },
+                  {
+                    "type": "sized_box",
+                    "height": 8
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{formatCurrency(balanceResult.availableBalance)}} ریال",
+                    "style": "headlineLarge",
+                    "color": "#4CAF50"
+                  },
+                  {
+                    "type": "sized_box",
+                    "height": 24
+                  },
+                  {
+                    "type": "divider"
+                  },
+                  {
+                    "type": "sized_box",
+                    "height": 16
+                  },
+                  {
+                    "type": "info_row",
+                    "label": {"fa": "موجودی کل", "en": "Total Balance"},
+                    "value": "{{formatCurrency(balanceResult.totalBalance)}} ریال"
+                  },
+                  {
+                    "type": "sized_box",
+                    "height": 8
+                  },
+                  {
+                    "type": "info_row",
+                    "label": {"fa": "موجودی مسدود", "en": "Blocked Amount"},
+                    "value": "{{formatCurrency(balanceResult.blockedAmount)}} ریال"
+                  },
+                  {
+                    "type": "sized_box",
+                    "height": 8
+                  },
+                  {
+                    "type": "info_row",
+                    "label": {"fa": "تاریخ استعلام", "en": "Inquiry Date"},
+                    "value": "{{balanceResult.inquiryDate}}"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "sized_box",
+              "height": 24
+            },
+            {
+              "type": "row",
+              "mainAxisAlignment": "spaceEvenly",
+              "children": [
+                {
+                  "type": "outlined_button",
+                  "icon": "assets/icons/ic_refresh.svg",
+                  "label": {"fa": "استعلام مجدد", "en": "Refresh"},
+                  "onTap": {
+                    "type": "set_state",
+                    "key": "balanceResult",
+                    "value": null
+                  }
+                },
+                {
+                  "type": "elevated_button",
+                  "icon": "assets/icons/ic_card_to_card.svg",
+                  "label": {"fa": "انتقال وجه", "en": "Transfer"},
+                  "onTap": {
+                    "type": "navigate",
+                    "route": "/transfer/card-to-card?sourceCardId={{selectedCardId}}"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  
+  "dataBindings": {
+    "cardId": {"source": "route_param", "key": "cardId"},
+    "cards": {"source": "api", "endpoint": "dibalite/cards"},
+    "selectedCardId": {
+      "source": "state",
+      "default": "{{cardId}}"
+    },
+    "selectedCard": {
+      "source": "computed",
+      "expression": "cards.find(c => c.id === selectedCardId)"
+    },
+    "pin2": {"source": "form", "default": ""},
+    "balanceResult": {"source": "state", "default": null},
+    "isLoading": {"source": "state", "default": false}
+  },
+  
+  "mockData": {
+    "cards": "$ref:mock-data/cards.json#cards",
+    "balanceResult": {
+      "availableBalance": 45230000,
+      "totalBalance": 47500000,
+      "blockedAmount": 2270000,
+      "inquiryDate": "۱۴۰۳/۰۹/۰۵ - ۱۴:۳۲:۱۵"
+    }
+  }
+}
+

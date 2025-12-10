@@ -13,6 +13,8 @@ import 'widgets/accessibility_tab.dart';
 import 'widgets/performance_tab.dart';
 import 'widgets/network_tab.dart';
 import 'widgets/settings_tab.dart';
+import 'widgets/playground_tab.dart';
+import 'widgets/visual_editor_tab.dart';
 import 'widgets/color_showcase_screen.dart';
 
 /// Main debug panel widget that wraps the application
@@ -135,7 +137,7 @@ class DebugPanelProvider extends ConsumerWidget {
       data: debugPanelTheme.themeForBrightness(systemBrightness),
       child: Localizations(
         locale: const Locale('en'),
-        delegates: [
+        delegates: const [
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
@@ -267,7 +269,7 @@ class _DebugPanelLargeLayoutState extends ConsumerState<DebugPanelLargeLayout> {
                 // Right panel (debug panel) - full size
                 Expanded(
                   flex: ((1 - leftPanelWidth) * 1000).round(), // Convert to flex units
-                  child: SizedBox(
+                  child: const SizedBox(
                     height: double.infinity, // Full height
                     child: ToolPanel(),
                   ),
@@ -306,7 +308,7 @@ class DebugPanelSmallLayout extends ConsumerWidget {
               ),
             ),
             // Bottom debug panel
-            Positioned(
+            const Positioned(
               left: 0,
               right: 0,
               bottom: 0,
@@ -446,7 +448,7 @@ class _DebugPanelVerticalLayoutState extends ConsumerState<DebugPanelVerticalLay
                       minHeight: _minPanelHeightPx,
                       maxHeight: availableHeight,
                     ),
-                    child: SizedBox(
+                    child: const SizedBox(
                       width: double.infinity, // Explicit full width
                       child: ToolPanel(isVertical: true), // Pass isVertical flag
                     ),
@@ -540,7 +542,7 @@ class _ToolPanelState extends ConsumerState<ToolPanel> with SingleTickerProvider
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 7, vsync: this);
+    _tabController = TabController(length: 9, vsync: this);
     _tabController.addListener(_onTabChanged);
   }
 
@@ -635,7 +637,7 @@ class _ToolPanelState extends ConsumerState<ToolPanel> with SingleTickerProvider
                     children: [
                         // Tab bar with proper padding - using UI size settings
                         Padding(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                             horizontal: 16.0,
                             vertical: 4.0,
                           ),
@@ -653,6 +655,14 @@ class _ToolPanelState extends ConsumerState<ToolPanel> with SingleTickerProvider
                                 Tab(
                                   icon: Icon(Icons.build, size: settings.uiSize.iconSize),
                                   text: 'Tools',
+                                ),
+                                Tab(
+                                  icon: Icon(Icons.code, size: settings.uiSize.iconSize),
+                                  text: 'Playground',
+                                ),
+                                Tab(
+                                  icon: Icon(Icons.design_services, size: settings.uiSize.iconSize),
+                                  text: 'Visual Editor',
                                 ),
                                 Tab(
                                   icon: Icon(Icons.accessibility, size: settings.uiSize.iconSize),
@@ -679,10 +689,12 @@ class _ToolPanelState extends ConsumerState<ToolPanel> with SingleTickerProvider
                         Expanded(
                           child: TabBarView(
                             controller: _tabController,
-                            children: [
+                            children: const [
                               DevicePreviewTab(),
                               LogsTab(),
                               ToolsTab(),
+                              PlaygroundTab(),
+                              VisualEditorTab(),
                               AccessibilityTab(),
                               PerformanceTab(),
                               NetworkTab(),
@@ -727,6 +739,60 @@ class ToolsTab extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          _buildSectionHeader(context, 'STAC Tools', Icons.view_stream),
+          const SizedBox(height: 12),
+          _buildToolCard(
+            context,
+            icon: Icons.list_alt,
+            title: 'STAC Logs',
+            description: 'View STAC operations including screen fetching, JSON parsing, and component rendering',
+            onTap: () {
+              // Navigate the main app (device frame) using the main app's Navigator key
+              final navigatorKey = AppRoot.mainAppNavigatorKey;
+              final navigator = navigatorKey.currentState;
+              if (navigator != null) {
+                // Note: The actual StacLogsScreen import will be added in the main app
+                // This is a placeholder that shows the feature is available
+                navigator.push(
+                  MaterialPageRoute(
+                    builder: (_) => Scaffold(
+                      appBar: AppBar(
+                        title: const Text('STAC Logs'),
+                      ),
+                      body: const Center(
+                        child: Padding(
+                          padding: EdgeInsets.all(24.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.view_stream, size: 64, color: Colors.blue),
+                              SizedBox(height: 24),
+                              Text(
+                                'STAC Logs',
+                                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(height: 16),
+                              Text(
+                                'The STAC Logs feature is available in lib/debug_panel_extensions/screens/stac_logs_screen.dart',
+                                textAlign: TextAlign.center,
+                              ),
+                              SizedBox(height: 8),
+                              Text(
+                                'Import and use StacLogsScreen in your main app to view STAC operation logs.',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              }
+            },
+          ),
+          const SizedBox(height: 24),
           _buildSectionHeader(context, 'Design System Tools', Icons.palette),
           const SizedBox(height: 12),
           _buildToolCard(

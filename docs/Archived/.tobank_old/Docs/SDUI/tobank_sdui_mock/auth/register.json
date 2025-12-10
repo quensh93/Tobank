@@ -1,0 +1,69 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "register",
+  "title": {"fa": "ثبت‌نام", "en": "Register"},
+  
+  "appBar": {"type": "standard", "title": {"fa": "ثبت‌نام", "en": "Register"}},
+  
+  "body": {
+    "type": "stepper",
+    "currentStep": "{{currentStep}}",
+    "steps": [
+      {
+        "id": "mobile",
+        "title": {"fa": "موبایل", "en": "Mobile"},
+        "content": {"type": "column", "padding": 16, "children": [
+          {"type": "text", "text": {"fa": "شماره موبایل خود را وارد کنید", "en": "Enter your mobile number"}, "style": "titleMedium"},
+          {"type": "text_field", "label": {"fa": "شماره موبایل", "en": "Mobile"}, "margin": {"top": 24}, "keyboardType": "phone", "maxLength": 11, "bindTo": "mobile", "validation": {"required": true, "pattern": "^09[0-9]{9}$"}},
+          {"type": "elevated_button", "label": {"fa": "دریافت کد", "en": "Get Code"}, "fullWidth": true, "margin": {"top": 24}, "disabled": "{{!isMobileValid}}", "onTap": {"type": "api_call", "endpoint": "auth/send-otp", "method": "POST", "body": {"mobile": "{{mobile}}"}, "onSuccess": {"type": "next_step"}}}
+        ]}
+      },
+      {
+        "id": "otp",
+        "title": {"fa": "تایید", "en": "Verify"},
+        "content": {"type": "column", "padding": 16, "children": [
+          {"type": "text", "text": {"fa": "کد تایید را وارد کنید", "en": "Enter verification code"}, "style": "titleMedium"},
+          {"type": "otp_field", "length": 5, "margin": {"top": 24}, "bindTo": "otpCode"},
+          {"type": "elevated_button", "label": {"fa": "تایید", "en": "Verify"}, "fullWidth": true, "margin": {"top": 24}, "disabled": "{{otpCode.length !== 5}}", "onTap": {"type": "api_call", "endpoint": "auth/verify-register-otp", "method": "POST", "body": {"mobile": "{{mobile}}", "code": "{{otpCode}}"}, "onSuccess": {"type": "next_step"}}}
+        ]}
+      },
+      {
+        "id": "info",
+        "title": {"fa": "اطلاعات", "en": "Info"},
+        "content": {"type": "column", "padding": 16, "children": [
+          {"type": "text", "text": {"fa": "اطلاعات شخصی", "en": "Personal Information"}, "style": "titleMedium"},
+          {"type": "text_field", "label": {"fa": "کد ملی", "en": "National ID"}, "margin": {"top": 24}, "keyboardType": "number", "maxLength": 10, "bindTo": "nationalId"},
+          {"type": "text_field", "label": {"fa": "نام", "en": "First Name"}, "margin": {"top": 16}, "bindTo": "firstName"},
+          {"type": "text_field", "label": {"fa": "نام خانوادگی", "en": "Last Name"}, "margin": {"top": 16}, "bindTo": "lastName"},
+          {"type": "elevated_button", "label": {"fa": "بعدی", "en": "Next"}, "fullWidth": true, "margin": {"top": 24}, "onTap": {"type": "next_step"}}
+        ]}
+      },
+      {
+        "id": "password",
+        "title": {"fa": "رمز عبور", "en": "Password"},
+        "content": {"type": "column", "padding": 16, "children": [
+          {"type": "text", "text": {"fa": "رمز عبور تعیین کنید", "en": "Set your password"}, "style": "titleMedium"},
+          {"type": "password_field", "label": {"fa": "رمز عبور", "en": "Password"}, "margin": {"top": 24}, "bindTo": "password", "strengthIndicator": true},
+          {"type": "password_field", "label": {"fa": "تکرار رمز عبور", "en": "Confirm Password"}, "margin": {"top": 16}, "bindTo": "confirmPassword"},
+          {"type": "checkbox_tile", "title": {"fa": "قوانین و مقررات را می‌پذیرم", "en": "I accept the terms"}, "margin": {"top": 16}, "bindTo": "acceptTerms"},
+          {"type": "elevated_button", "label": {"fa": "ثبت‌نام", "en": "Register"}, "fullWidth": true, "margin": {"top": 24}, "disabled": "{{!acceptTerms || password !== confirmPassword}}", "onTap": {"type": "api_call", "endpoint": "auth/register", "method": "POST", "showLoading": true, "onSuccess": {"type": "navigate_replace", "route": "/home"}}}
+        ]}
+      }
+    ]
+  },
+  
+  "dataBindings": {
+    "currentStep": {"source": "state", "default": 0},
+    "mobile": {"source": "form", "default": ""},
+    "otpCode": {"source": "form", "default": ""},
+    "nationalId": {"source": "form", "default": ""},
+    "firstName": {"source": "form", "default": ""},
+    "lastName": {"source": "form", "default": ""},
+    "password": {"source": "form", "default": ""},
+    "confirmPassword": {"source": "form", "default": ""},
+    "acceptTerms": {"source": "form", "default": false},
+    "isMobileValid": {"source": "computed", "formula": "/^09[0-9]{9}$/.test(mobile)"}
+  }
+}
+

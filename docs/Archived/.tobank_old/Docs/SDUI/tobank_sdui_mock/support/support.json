@@ -1,0 +1,68 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "support",
+  "title": {"fa": "پشتیبانی", "en": "Support"},
+  
+  "appBar": {"type": "standard", "title": {"fa": "پشتیبانی", "en": "Support"}},
+  
+  "body": {
+    "type": "scrollable",
+    "children": [
+      {"type": "container", "padding": 24, "decoration": {"gradient": {"colors": ["#00BCD4", "#0097A7"]}}, "child": {"type": "column", "children": [
+        {"type": "icon", "icon": "assets/icons/ic_support.svg", "size": 64, "color": "#FFFFFF"},
+        {"type": "text", "text": {"fa": "چطور می‌تونیم کمکتون کنیم؟", "en": "How can we help?"}, "style": "headlineSmall", "color": "#FFFFFF", "margin": {"top": 16}, "textAlign": "center"}
+      ]}},
+      
+      {"type": "container", "padding": 16, "child": {"type": "column", "children": [
+        {"type": "text_field", "prefixIcon": "assets/icons/ic_search.svg", "hint": {"fa": "جستجو در سوالات متداول...", "en": "Search FAQ..."}, "bindTo": "searchQuery"},
+        
+        {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "راه‌های ارتباطی", "en": "Contact Us"}}, "child": {"type": "row", "children": [
+          {"type": "expanded", "child": {"type": "card", "padding": 16, "child": {"type": "column", "children": [
+            {"type": "icon", "icon": "assets/icons/ic_chat.svg", "size": 32, "color": "#4CAF50"},
+            {"type": "text", "text": {"fa": "چت آنلاین", "en": "Live Chat"}, "style": "titleSmall", "margin": {"top": 8}, "textAlign": "center"}
+          ]}, "onTap": {"type": "navigate", "route": "/support/chat"}}},
+          {"type": "sized_box", "width": 12},
+          {"type": "expanded", "child": {"type": "card", "padding": 16, "child": {"type": "column", "children": [
+            {"type": "icon", "icon": "assets/icons/ic_phone.svg", "size": 32, "color": "#2196F3"},
+            {"type": "text", "text": {"fa": "تماس", "en": "Call"}, "style": "titleSmall", "margin": {"top": 8}, "textAlign": "center"}
+          ]}, "onTap": {"type": "call", "number": "02191008500"}}},
+          {"type": "sized_box", "width": 12},
+          {"type": "expanded", "child": {"type": "card", "padding": 16, "child": {"type": "column", "children": [
+            {"type": "icon", "icon": "assets/icons/ic_ticket.svg", "size": 32, "color": "#FF9800"},
+            {"type": "text", "text": {"fa": "تیکت", "en": "Ticket"}, "style": "titleSmall", "margin": {"top": 8}, "textAlign": "center"}
+          ]}, "onTap": {"type": "navigate", "route": "/support/tickets"}}}
+        ]}},
+        
+        {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "سوالات متداول", "en": "FAQ"}}, "child": {"type": "list_view", "children": "{{faqCategories}}", "itemBuilder": {"type": "card", "margin": {"bottom": 8}, "child": {"type": "expansion_tile", "leading": {"type": "icon", "icon": "{{item.icon}}", "color": "{{item.color}}"}, "title": "{{item.title}}", "children": "{{item.questions}}", "childBuilder": {"type": "list_tile", "title": "{{child.question}}", "onTap": {"type": "navigate", "route": "/support/faq/{{child.id}}"}}}}}},
+        
+        {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "تیکت‌های اخیر", "en": "Recent Tickets"}, "trailing": {"type": "text_button", "label": {"fa": "همه", "en": "All"}, "onTap": {"type": "navigate", "route": "/support/tickets"}}}, "child": {"type": "conditional", "condition": "{{tickets.length > 0}}", "whenTrue": {"type": "list_view", "children": "{{tickets}}", "itemBuilder": {"type": "card", "margin": {"bottom": 8}, "child": {"type": "list_tile", "title": "{{item.subject}}", "subtitle": {"type": "row", "margin": {"top": 4}, "children": [{"type": "chip", "label": "{{item.statusLabel}}", "backgroundColor": "{{item.statusColor}}20", "textColor": "{{item.statusColor}}", "size": "small"}, {"type": "text", "text": " • {{item.date}}", "style": "bodySmall", "color": "textSecondary"}]}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "navigate", "route": "/support/tickets/{{item.id}}"}}}}, "whenFalse": {"type": "empty_state", "icon": "assets/icons/ic_ticket.svg", "title": {"fa": "تیکتی ندارید", "en": "No tickets"}}}},
+        
+        {"type": "sized_box", "height": 32}
+      ]}}
+    ]
+  },
+  
+  "dataBindings": {
+    "searchQuery": {"source": "state", "default": ""},
+    "faqCategories": {"source": "api", "endpoint": "support/faq-categories"},
+    "tickets": {"source": "api", "endpoint": "support/tickets/recent"}
+  },
+  
+  "mockData": {
+    "faqCategories": [
+      {"id": "account", "icon": "assets/icons/ic_person.svg", "color": "#2196F3", "title": {"fa": "حساب کاربری", "en": "Account"}, "questions": [
+        {"id": "q1", "question": {"fa": "چگونه رمز عبور را تغییر دهم؟", "en": "How to change password?"}},
+        {"id": "q2", "question": {"fa": "چگونه شماره موبایل را تغییر دهم؟", "en": "How to change mobile?"}}
+      ]},
+      {"id": "card", "icon": "assets/icons/ic_card.svg", "color": "#4CAF50", "title": {"fa": "کارت بانکی", "en": "Bank Card"}, "questions": [
+        {"id": "q3", "question": {"fa": "چگونه کارت اضافه کنم؟", "en": "How to add card?"}},
+        {"id": "q4", "question": {"fa": "کارت به کارت چگونه انجام می‌شود؟", "en": "How does card transfer work?"}}
+      ]}
+    ],
+    "tickets": [
+      {"id": "t1", "subject": "مشکل در انتقال وجه", "status": "open", "statusLabel": "در انتظار پاسخ", "statusColor": "#FF9800", "date": "۱۴۰۳/۰۹/۰۵"}
+    ]
+  }
+}
+

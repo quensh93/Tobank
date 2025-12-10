@@ -1,0 +1,113 @@
+```mermaid
+graph TB
+    subgraph "Debug Panel UI"
+        DebugButton[Debug Panel Button]
+        DebugOverlay[Debug Panel Overlay]
+        TabBar[Tab Navigation]
+    end
+    
+    subgraph "Core Tabs"
+        LogsTab[Logs Tab]
+        NetworkTab[Network Tab]
+        StateTab[State Tab]
+        PerformanceTab[Performance Tab]
+    end
+    
+    subgraph "STAC-Specific Tabs"
+        StacLogsTab[STAC Logs Tab]
+        PlaygroundTab[JSON Playground Tab]
+        VisualEditorTab[Visual Editor Tab]
+    end
+    
+    subgraph "STAC Logs Components"
+        LogList[Log Entry List]
+        LogFilter[Filter Controls]
+        LogSearch[Search Bar]
+        LogViewer[Detailed Log Viewer]
+        JSONViewer[JSON Viewer]
+    end
+    
+    subgraph "Playground Components"
+        JSONEditor[JSON Editor]
+        PreviewPanel[Preview Panel]
+        TemplateSelector[Template Selector]
+        SaveLoad[Save/Load Controls]
+        ExportImport[Export/Import]
+    end
+    
+    subgraph "Visual Editor Components"
+        ComponentPalette[Component Palette]
+        Canvas[Drag-Drop Canvas]
+        PropertyEditor[Property Editor]
+        TreeView[Widget Tree View]
+        JSONSync[JSON Synchronization]
+    end
+    
+    subgraph "Data Sources"
+        StacLogger[STAC Logger]
+        APIServices[API Services]
+        CacheManager[Cache Manager]
+        LocalStorage[Local Storage]
+    end
+    
+    subgraph "Actions"
+        RefreshAction[Refresh Data]
+        ClearCacheAction[Clear Cache]
+        ExportAction[Export JSON]
+        SaveAction[Save to Mock/Firebase]
+    end
+    
+    DebugButton --> DebugOverlay
+    DebugOverlay --> TabBar
+    
+    TabBar --> LogsTab
+    TabBar --> NetworkTab
+    TabBar --> StateTab
+    TabBar --> PerformanceTab
+    TabBar --> StacLogsTab
+    TabBar --> PlaygroundTab
+    TabBar --> VisualEditorTab
+    
+    StacLogsTab --> LogList
+    StacLogsTab --> LogFilter
+    StacLogsTab --> LogSearch
+    LogList --> LogViewer
+    LogViewer --> JSONViewer
+    
+    PlaygroundTab --> JSONEditor
+    PlaygroundTab --> PreviewPanel
+    PlaygroundTab --> TemplateSelector
+    PlaygroundTab --> SaveLoad
+    PlaygroundTab --> ExportImport
+    
+    VisualEditorTab --> ComponentPalette
+    VisualEditorTab --> Canvas
+    VisualEditorTab --> PropertyEditor
+    VisualEditorTab --> TreeView
+    Canvas --> JSONSync
+    PropertyEditor --> JSONSync
+    TreeView --> JSONSync
+    
+    StacLogger --> LogList
+    APIServices --> LogList
+    APIServices --> NetworkTab
+    CacheManager --> StateTab
+    LocalStorage --> SaveLoad
+    
+    LogViewer --> RefreshAction
+    PlaygroundTab --> ClearCacheAction
+    PlaygroundTab --> ExportAction
+    VisualEditorTab --> SaveAction
+    
+    RefreshAction --> APIServices
+    ClearCacheAction --> CacheManager
+    ExportAction --> LocalStorage
+    SaveAction --> APIServices
+    
+    style DebugPanel fill:#e8f5e9
+    style StacLogsTab fill:#e1f5ff
+    style PlaygroundTab fill:#fff4e1
+    style VisualEditorTab fill:#f3e5f5
+    style StacLogger fill:#ffebee
+    style APIServices fill:#ffebee
+```

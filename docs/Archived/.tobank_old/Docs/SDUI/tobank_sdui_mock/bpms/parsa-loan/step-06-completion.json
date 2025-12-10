@@ -1,0 +1,63 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "parsa_loan_completion",
+  "flowId": "parsa_loan",
+  "stepNumber": 6,
+  "title": {"fa": "اتمام", "en": "Completion"},
+  
+  "appBar": {"type": "standard", "title": {"fa": "وام پارسا", "en": "Parsa Loan"}, "showBackButton": false},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "container", "alignment": "center", "padding": 32, "child": {"type": "lottie", "asset": "assets/animations/success.json", "width": 180, "height": 180, "repeat": false}},
+      {"type": "text", "text": {"fa": "وام شما واریز شد!", "en": "Loan Deposited!"}, "style": "headlineMedium", "color": "#4CAF50", "textAlign": "center"},
+      
+      {"type": "card", "margin": {"top": 24}, "padding": 20, "decoration": {"gradient": {"colors": ["#673AB7", "#9C27B0"], "begin": "topLeft", "end": "bottomRight"}}, "child": {"type": "column", "children": [
+        {"type": "text", "text": {"fa": "مبلغ واریز شده", "en": "Deposited Amount"}, "style": "titleMedium", "color": "#FFFFFF", "textAlign": "center"},
+        {"type": "text", "text": "{{formatCurrency(result.amount)}} ریال", "style": "displaySmall", "color": "#FFFFFF", "textAlign": "center", "margin": {"top": 8}},
+        {"type": "divider", "color": "#FFFFFF40", "margin": {"vertical": 16}},
+        {"type": "row", "mainAxisAlignment": "spaceAround", "children": [
+          {"type": "column", "children": [{"type": "text", "text": {"fa": "اولین قسط", "en": "First Payment"}, "style": "bodySmall", "color": "#FFFFFF"}, {"type": "text", "text": "{{result.firstPaymentDate}}", "style": "titleSmall", "color": "#FFFFFF", "margin": {"top": 4}}]},
+          {"type": "column", "children": [{"type": "text", "text": {"fa": "مبلغ قسط", "en": "Installment"}, "style": "bodySmall", "color": "#FFFFFF"}, {"type": "text", "text": "{{formatCurrency(result.installment)}} ریال", "style": "titleSmall", "color": "#FFFFFF", "margin": {"top": 4}}]}
+        ]}
+      ]}},
+      
+      {"type": "card", "margin": {"top": 16}, "padding": 16, "backgroundColor": "#F3E5F5", "child": {"type": "column", "children": [
+        {"type": "text", "text": {"fa": "کد پیگیری", "en": "Tracking Code"}, "style": "titleSmall", "textAlign": "center"},
+        {"type": "text", "text": "{{result.trackingCode}}", "style": "headlineSmall", "textAlign": "center", "margin": {"top": 4}},
+        {"type": "text_button", "icon": "assets/icons/ic_copy.svg", "label": {"fa": "کپی", "en": "Copy"}, "margin": {"top": 8}, "onTap": {"type": "copy_to_clipboard", "text": "{{result.trackingCode}}"}}
+      ]}},
+      
+      {"type": "card", "margin": {"top": 24}, "padding": 16, "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+        {"type": "text", "text": {"fa": "جزئیات", "en": "Details"}, "style": "titleMedium"},
+        {"type": "divider", "margin": {"vertical": 12}},
+        {"type": "info_row", "label": {"fa": "حساب واریز", "en": "Account"}, "value": "{{result.accountNumber}}"},
+        {"type": "info_row", "label": {"fa": "تعداد اقساط", "en": "Installments"}, "value": "{{result.months}} ماه", "margin": {"top": 8}},
+        {"type": "info_row", "label": {"fa": "روز پرداخت", "en": "Payment Day"}, "value": "{{result.paymentDay}}ام هر ماه", "margin": {"top": 8}}
+      ]}},
+      
+      {"type": "column", "margin": {"top": 32}, "children": [
+        {"type": "elevated_button", "label": {"fa": "مشاهده اقساط", "en": "View Installments"}, "fullWidth": true, "onTap": {"type": "navigate", "route": "/loans/parsa/installments"}},
+        {"type": "outlined_button", "label": {"fa": "بازگشت به خانه", "en": "Back to Home"}, "fullWidth": true, "margin": {"top": 12}, "onTap": {"type": "navigate_replace", "route": "/home"}}
+      ]},
+      {"type": "sized_box", "height": 32}
+    ]
+  },
+  
+  "dataBindings": {"result": {"source": "api", "endpoint": "bpms/parsa-loan/result"}},
+  "mockData": {
+    "result": {
+      "amount": 1000000000,
+      "installment": 94000000,
+      "months": 12,
+      "firstPaymentDate": "۱۴۰۳/۱۰/۱۵",
+      "paymentDay": 15,
+      "accountNumber": "۰۱۰۸۱۲۳۴۵۶۷۸۹۰",
+      "trackingCode": "PL-۱۴۰۳۰۹-۸۹۰۱۲۳"
+    }
+  }
+}
+

@@ -1,0 +1,312 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "bill_inquiry",
+  "pageType": "form",
+  "title": {
+    "fa": "استعلام قبض",
+    "en": "Bill Inquiry"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "bill_inquiry",
+    "screenClass": "BillInquiryPage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "استعلام قبض", "en": "Bill Inquiry"},
+    "showBackButton": true,
+    "actions": [
+      {
+        "id": "scan",
+        "icon": "assets/icons/ic_barcode.svg",
+        "onTap": {"type": "navigate", "route": "/bills/scan"}
+      }
+    ]
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "bill_type_header",
+        "type": "row",
+        "margin": {"bottom": 24},
+        "children": [
+          {
+            "type": "container",
+            "width": 56,
+            "height": 56,
+            "decoration": {
+              "color": "{{billTypeConfig.color}}20",
+              "borderRadius": 12
+            },
+            "alignment": "center",
+            "child": {
+              "type": "icon",
+              "icon": "{{billTypeConfig.icon}}",
+              "color": "{{billTypeConfig.color}}",
+              "size": 32
+            }
+          },
+          {"type": "sized_box", "width": 16},
+          {
+            "type": "expanded",
+            "child": {
+              "type": "column",
+              "crossAxisAlignment": "start",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "{{billTypeConfig.title}}",
+                  "style": "titleLarge"
+                },
+                {
+                  "type": "text",
+                  "text": "{{billTypeConfig.description}}",
+                  "style": "bodySmall",
+                  "color": "textSecondary"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      
+      {
+        "id": "bill_id_field",
+        "type": "text_field",
+        "label": {"fa": "شناسه قبض", "en": "Bill ID"},
+        "hint": {"fa": "شناسه قبض را وارد کنید", "en": "Enter bill ID"},
+        "icon": "assets/icons/ic_bill.svg",
+        "keyboardType": "number",
+        "maxLength": 20,
+        "validation": {
+          "required": true,
+          "minLength": 10
+        },
+        "bindTo": "billId"
+      },
+      
+      {
+        "id": "payment_id_field",
+        "type": "text_field",
+        "label": {"fa": "شناسه پرداخت", "en": "Payment ID"},
+        "hint": {"fa": "شناسه پرداخت را وارد کنید", "en": "Enter payment ID"},
+        "icon": "assets/icons/ic_receipt.svg",
+        "keyboardType": "number",
+        "margin": {"top": 16},
+        "maxLength": 15,
+        "bindTo": "paymentId"
+      },
+      
+      {
+        "id": "inquiry_button",
+        "type": "elevated_button",
+        "label": {"fa": "استعلام", "en": "Inquire"},
+        "fullWidth": true,
+        "margin": {"top": 24},
+        "loading": "{{isLoading}}",
+        "disabled": "{{!billId || billId.length < 10}}",
+        "onTap": {
+          "type": "api_call",
+          "endpoint": "dibalite/bills/inquiry",
+          "method": "POST",
+          "body": {
+            "billId": "{{billId}}",
+            "paymentId": "{{paymentId}}",
+            "billType": "{{billType}}"
+          },
+          "onSuccess": {"type": "set_state", "key": "billInfo", "value": "{{response}}"},
+          "onError": {
+            "type": "show_snackbar",
+            "message": {"fa": "قبضی با این مشخصات یافت نشد", "en": "Bill not found"},
+            "type": "error"
+          }
+        }
+      },
+      
+      {
+        "id": "bill_info_card",
+        "type": "conditional",
+        "condition": "{{billInfo}}",
+        "whenTrue": {
+          "type": "card",
+          "margin": {"top": 24},
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "container",
+                "padding": 16,
+                "child": {
+                  "type": "row",
+                  "mainAxisAlignment": "spaceBetween",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": {"fa": "اطلاعات قبض", "en": "Bill Information"},
+                      "style": "titleMedium"
+                    },
+                    {
+                      "type": "chip",
+                      "label": "{{billInfo.status === 'unpaid' ? {'fa': 'پرداخت نشده', 'en': 'Unpaid'} : {'fa': 'پرداخت شده', 'en': 'Paid'}}}",
+                      "color": "{{billInfo.status === 'unpaid' ? '#F44336' : '#4CAF50'}}"
+                    }
+                  ]
+                }
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "padding": 16,
+                "label": {"fa": "شناسه قبض", "en": "Bill ID"},
+                "value": "{{billInfo.billId}}"
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "padding": 16,
+                "label": {"fa": "شناسه پرداخت", "en": "Payment ID"},
+                "value": "{{billInfo.paymentId}}"
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "padding": 16,
+                "label": {"fa": "دوره", "en": "Period"},
+                "value": "{{billInfo.period}}"
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "padding": 16,
+                "label": {"fa": "مهلت پرداخت", "en": "Due Date"},
+                "value": "{{billInfo.dueDate}}"
+              },
+              {"type": "divider"},
+              {
+                "type": "container",
+                "padding": 16,
+                "child": {
+                  "type": "row",
+                  "mainAxisAlignment": "spaceBetween",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": {"fa": "مبلغ قابل پرداخت", "en": "Amount Due"},
+                      "style": "titleSmall"
+                    },
+                    {
+                      "type": "column",
+                      "crossAxisAlignment": "end",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "{{formatCurrency(billInfo.amount)}}",
+                          "style": "titleLarge",
+                          "color": "#E31837"
+                        },
+                        {
+                          "type": "text",
+                          "text": {"fa": "ریال", "en": "Rials"},
+                          "style": "bodySmall",
+                          "color": "textSecondary"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "pay_button",
+        "type": "conditional",
+        "condition": "{{billInfo && billInfo.status === 'unpaid'}}",
+        "whenTrue": {
+          "type": "elevated_button",
+          "label": {"fa": "پرداخت قبض", "en": "Pay Bill"},
+          "fullWidth": true,
+          "margin": {"top": 16},
+          "onTap": {
+            "type": "navigate",
+            "route": "/bills/payment",
+            "params": {"billId": "{{billInfo.id}}"}
+          }
+        }
+      }
+    ]
+  },
+  
+  "dataBindings": {
+    "billType": {"source": "route_param", "key": "type", "default": "electric"},
+    "billTypeConfig": {
+      "source": "computed",
+      "expression": "billTypes[billType]"
+    },
+    "billId": {"source": "route_param", "key": "billId", "default": ""},
+    "paymentId": {"source": "form", "default": ""},
+    "isLoading": {"source": "state", "default": false},
+    "billInfo": {"source": "state", "default": null}
+  },
+  
+  "constants": {
+    "billTypes": {
+      "electric": {
+        "title": {"fa": "قبض برق", "en": "Electric Bill"},
+        "description": {"fa": "استعلام و پرداخت قبض برق", "en": "Inquiry and pay electric bill"},
+        "icon": "assets/icons/ic_electric_bill.svg",
+        "color": "#FF9800"
+      },
+      "gas": {
+        "title": {"fa": "قبض گاز", "en": "Gas Bill"},
+        "description": {"fa": "استعلام و پرداخت قبض گاز", "en": "Inquiry and pay gas bill"},
+        "icon": "assets/icons/ic_gas_bill.svg",
+        "color": "#2196F3"
+      },
+      "water": {
+        "title": {"fa": "قبض آب", "en": "Water Bill"},
+        "description": {"fa": "استعلام و پرداخت قبض آب", "en": "Inquiry and pay water bill"},
+        "icon": "assets/icons/ic_water_bill.svg",
+        "color": "#00BCD4"
+      },
+      "phone": {
+        "title": {"fa": "قبض تلفن", "en": "Phone Bill"},
+        "description": {"fa": "استعلام و پرداخت قبض تلفن ثابت", "en": "Inquiry and pay phone bill"},
+        "icon": "assets/icons/ic_phone_bill.svg",
+        "color": "#9C27B0"
+      },
+      "mobile": {
+        "title": {"fa": "قبض موبایل", "en": "Mobile Bill"},
+        "description": {"fa": "استعلام و پرداخت قبض موبایل", "en": "Inquiry and pay mobile bill"},
+        "icon": "assets/icons/ic_mobile_bill.svg",
+        "color": "#E91E63"
+      },
+      "municipality": {
+        "title": {"fa": "عوارض شهرداری", "en": "Municipality Tax"},
+        "description": {"fa": "استعلام و پرداخت عوارض", "en": "Inquiry and pay tax"},
+        "icon": "assets/icons/ic_municipality.svg",
+        "color": "#795548"
+      }
+    }
+  },
+  
+  "mockData": {
+    "billInfo": {
+      "id": "BILL-001",
+      "billId": "۱۲۳۴۵۶۷۸۹۰۱۲۳",
+      "paymentId": "۹۸۷۶۵۴۳۲۱",
+      "period": "آذر ۱۴۰۳",
+      "dueDate": "۱۴۰۳/۰۹/۲۵",
+      "amount": 3500000,
+      "status": "unpaid"
+    }
+  }
+}
+

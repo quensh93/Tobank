@@ -1,0 +1,279 @@
+{
+  "appBar": {
+    "title": {
+      "request": {
+        "url": "https://api.tobank.com/transfer-form-labels",
+        "method": "get",
+        "actionType": "networkRequest"
+      },
+      "targetPath": "data",
+      "template": {
+        "data": "{{appBarTitle}}",
+        "style": {
+          "type": "custom",
+          "color": "onSurface",
+          "fontSize": 20.0,
+          "fontWeight": "bold"
+        },
+        "type": "text"
+      },
+      "loaderWidget": {
+        "data": "{{appStrings.transfer.title}}",
+        "style": {
+          "type": "custom",
+          "color": "onSurface",
+          "fontSize": 20.0,
+          "fontWeight": "bold"
+        },
+        "type": "text"
+      },
+      "errorWidget": {
+        "data": "{{appStrings.transfer.title}}",
+        "style": {
+          "type": "custom",
+          "color": "onSurface",
+          "fontSize": 20.0,
+          "fontWeight": "bold"
+        },
+        "type": "text"
+      },
+      "type": "dynamicView"
+    },
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "body": {
+    "request": {
+      "url": "https://api.tobank.com/transfer-form-labels",
+      "method": "get",
+      "actionType": "networkRequest"
+    },
+    "targetPath": "data",
+    "template": {
+      "padding": {
+        "left": 16.0,
+        "top": 16.0,
+        "right": 16.0,
+        "bottom": 16.0
+      },
+      "child": {
+        "child": {
+          "crossAxisAlignment": "stretch",
+          "children": [
+            {
+              "data": "{{fromAccountLabel}}",
+              "style": {
+                "type": "custom",
+                "color": "onSurface",
+                "fontSize": 16.0,
+                "fontWeight": "w600"
+              },
+              "type": "text"
+            },
+            {
+              "height": 8.0,
+              "type": "sizedBox"
+            },
+            {
+              "id": "from_account",
+              "decoration": {
+                "hintText": "Ø§Ù†ØªØ®Ø§Ø¨ Ø­Ø³Ø§Ø¨ Ù…Ø¨Ø¯Ø§",
+                "hintStyle": {
+                  "type": "custom",
+                  "color": "onSurfaceVariant",
+                  "fontSize": 14.0,
+                  "fontWeight": "w400"
+                },
+                "filled": true,
+                "fillColor": "surface"
+              },
+              "style": {
+                "type": "custom",
+                "color": "onSurface",
+                "fontSize": 16.0,
+                "fontWeight": "w600"
+              },
+              "readOnly": true,
+              "type": "textFormField"
+            },
+            {
+              "height": 16.0,
+              "type": "sizedBox"
+            },
+            {
+              "data": "{{toAccountLabel}}",
+              "style": {
+                "type": "custom",
+                "color": "onSurface",
+                "fontSize": 16.0,
+                "fontWeight": "w600"
+              },
+              "type": "text"
+            },
+            {
+              "height": 8.0,
+              "type": "sizedBox"
+            },
+            {
+              "id": "to_account",
+              "decoration": {
+                "hintText": "{{appStrings.transfer.toAccountPlaceholder}}",
+                "hintStyle": {
+                  "type": "custom",
+                  "color": "onSurfaceVariant",
+                  "fontSize": 14.0,
+                  "fontWeight": "w400"
+                },
+                "filled": true,
+                "fillColor": "surface"
+              },
+              "keyboardType": "number",
+              "textInputAction": "next",
+              "style": {
+                "type": "custom",
+                "color": "onSurface",
+                "fontSize": 16.0,
+                "fontWeight": "w600"
+              },
+              "type": "textFormField"
+            },
+            {
+              "height": 16.0,
+              "type": "sizedBox"
+            },
+            {
+              "data": "{{amountLabel}}",
+              "style": {
+                "type": "custom",
+                "color": "onSurface",
+                "fontSize": 16.0,
+                "fontWeight": "w600"
+              },
+              "type": "text"
+            },
+            {
+              "height": 8.0,
+              "type": "sizedBox"
+            },
+            {
+              "id": "amount",
+              "decoration": {
+                "hintText": "{{amountPlaceholder}}",
+                "hintStyle": {
+                  "type": "custom",
+                  "color": "onSurfaceVariant",
+                  "fontSize": 14.0,
+                  "fontWeight": "w400"
+                },
+                "filled": true,
+                "fillColor": "surface"
+              },
+              "keyboardType": "number",
+              "textInputAction": "next",
+              "style": {
+                "type": "custom",
+                "color": "onSurface",
+                "fontSize": 16.0,
+                "fontWeight": "w600"
+              },
+              "type": "textFormField"
+            },
+            {
+              "height": 16.0,
+              "type": "sizedBox"
+            },
+            {
+              "data": "{{descriptionLabel}}",
+              "style": {
+                "type": "custom",
+                "color": "onSurface",
+                "fontSize": 16.0,
+                "fontWeight": "w600"
+              },
+              "type": "text"
+            },
+            {
+              "height": 8.0,
+              "type": "sizedBox"
+            },
+            {
+              "id": "description",
+              "decoration": {
+                "hintText": "{{descriptionPlaceholder}}",
+                "hintStyle": {
+                  "type": "custom",
+                  "color": "onSurfaceVariant",
+                  "fontSize": 14.0,
+                  "fontWeight": "w400"
+                },
+                "filled": true,
+                "fillColor": "surface"
+              },
+              "keyboardType": "text",
+              "textInputAction": "done",
+              "style": {
+                "type": "custom",
+                "color": "onSurface",
+                "fontSize": 16.0,
+                "fontWeight": "w600"
+              },
+              "maxLines": 3,
+              "type": "textFormField"
+            },
+            {
+              "height": 24.0,
+              "type": "sizedBox"
+            },
+            {
+              "onPressed": {
+                "assetPath": "stac/.build/tobank_transfer_confirmation.json",
+                "navigationStyle": "push",
+                "actionType": "navigate"
+              },
+              "style": {
+                "backgroundColor": "primary",
+                "padding": {
+                  "top": 16.0,
+                  "bottom": 16.0
+                }
+              },
+              "child": {
+                "data": "{{reviewButtonText}}",
+                "style": {
+                  "type": "custom",
+                  "color": "onPrimary",
+                  "fontSize": 16.0,
+                  "fontWeight": "bold"
+                },
+                "type": "text"
+              },
+              "type": "elevatedButton"
+            }
+          ],
+          "type": "column"
+        },
+        "type": "form"
+      },
+      "type": "singleChildScrollView"
+    },
+    "loaderWidget": {
+      "child": {
+        "type": "circularProgressIndicator"
+      },
+      "type": "center"
+    },
+    "errorWidget": {
+      "child": {
+        "data": "{{appStrings.transfer.errorLoading}}",
+        "style": {
+          "type": "custom",
+          "color": "error"
+        },
+        "type": "text"
+      },
+      "type": "center"
+    },
+    "type": "dynamicView"
+  },
+  "type": "scaffold"
+}

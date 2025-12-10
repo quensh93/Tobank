@@ -1,0 +1,244 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "internal_transfer",
+  "pageType": "form",
+  "title": {
+    "fa": "انتقال داخلی",
+    "en": "Internal Transfer"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "internal_transfer",
+    "screenClass": "InternalTransferPage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "انتقال داخلی", "en": "Internal Transfer"},
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "source_section",
+        "type": "section",
+        "header": {
+          "title": {"fa": "از سپرده", "en": "From Deposit"}
+        },
+        "child": {
+          "type": "dropdown_field",
+          "hint": {"fa": "انتخاب سپرده مبدا", "en": "Select source deposit"},
+          "dataSource": "deposits",
+          "itemTemplate": {
+            "value": "{{item.id}}",
+            "label": "{{item.depositType}} - {{item.depositNumber}}",
+            "subtitle": "موجودی: {{formatCurrency(item.balance)}} ریال"
+          },
+          "bindTo": "sourceDepositId"
+        }
+      },
+      
+      {
+        "id": "swap_button",
+        "type": "container",
+        "alignment": "center",
+        "margin": {"vertical": 8},
+        "child": {
+          "type": "icon_button",
+          "icon": "assets/icons/ic_swap.svg",
+          "size": 40,
+          "backgroundColor": "#F5F5F5",
+          "onTap": {
+            "type": "swap_values",
+            "key1": "sourceDepositId",
+            "key2": "destinationDepositId"
+          }
+        }
+      },
+      
+      {
+        "id": "destination_section",
+        "type": "section",
+        "header": {
+          "title": {"fa": "به سپرده", "en": "To Deposit"}
+        },
+        "child": {
+          "type": "dropdown_field",
+          "hint": {"fa": "انتخاب سپرده مقصد", "en": "Select destination deposit"},
+          "dataSource": "deposits",
+          "filter": "item.id !== sourceDepositId",
+          "itemTemplate": {
+            "value": "{{item.id}}",
+            "label": "{{item.depositType}} - {{item.depositNumber}}",
+            "subtitle": "موجودی: {{formatCurrency(item.balance)}} ریال"
+          },
+          "bindTo": "destinationDepositId"
+        }
+      },
+      
+      {
+        "id": "amount_section",
+        "type": "section",
+        "margin": {"top": 16},
+        "header": {
+          "title": {"fa": "مبلغ", "en": "Amount"}
+        },
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "currency_field",
+              "label": {"fa": "مبلغ (ریال)", "en": "Amount (Rials)"},
+              "currency": "IRR",
+              "showToman": true,
+              "minValue": 10000,
+              "maxValue": "{{sourceDeposit.balance}}",
+              "bindTo": "amount"
+            },
+            {
+              "type": "conditional",
+              "condition": "{{sourceDeposit}}",
+              "whenTrue": {
+                "type": "container",
+                "margin": {"top": 8},
+                "child": {
+                  "type": "text",
+                  "text": {"fa": "موجودی قابل انتقال: {{formatCurrency(sourceDeposit.balance)}} ریال", "en": "Available: {{formatCurrency(sourceDeposit.balance)}} Rials"},
+                  "style": "bodySmall",
+                  "color": "textSecondary"
+                }
+              }
+            },
+            {
+              "type": "sized_box",
+              "height": 16
+            },
+            {
+              "type": "wrap",
+              "spacing": 8,
+              "children": [
+                {
+                  "type": "amount_chip",
+                  "label": {"fa": "۱ میلیون", "en": "1M"},
+                  "onTap": {"type": "set_state", "key": "amount", "value": 10000000}
+                },
+                {
+                  "type": "amount_chip",
+                  "label": {"fa": "۵ میلیون", "en": "5M"},
+                  "onTap": {"type": "set_state", "key": "amount", "value": 50000000}
+                },
+                {
+                  "type": "amount_chip",
+                  "label": {"fa": "۱۰ میلیون", "en": "10M"},
+                  "onTap": {"type": "set_state", "key": "amount", "value": 100000000}
+                },
+                {
+                  "type": "amount_chip",
+                  "label": {"fa": "کل موجودی", "en": "All"},
+                  "onTap": {"type": "set_state", "key": "amount", "value": "{{sourceDeposit.balance}}"}
+                }
+              ]
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "description_field",
+        "type": "text_field",
+        "label": {"fa": "توضیحات (اختیاری)", "en": "Description (optional)"},
+        "margin": {"top": 16},
+        "maxLength": 50,
+        "bindTo": "description"
+      },
+      
+      {
+        "id": "info_card",
+        "type": "card",
+        "margin": {"top": 16},
+        "padding": 12,
+        "backgroundColor": "#E8F5E9",
+        "child": {
+          "type": "row",
+          "children": [
+            {
+              "type": "icon",
+              "icon": "assets/icons/ic_check_circle.svg",
+              "color": "#4CAF50",
+              "size": 20
+            },
+            {"type": "sized_box", "width": 8},
+            {
+              "type": "expanded",
+              "child": {
+                "type": "text",
+                "text": {"fa": "انتقال داخلی آنی و بدون کارمزد است", "en": "Internal transfer is instant and free"},
+                "style": "bodySmall"
+              }
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "submit_button",
+        "type": "elevated_button",
+        "label": {"fa": "انتقال وجه", "en": "Transfer"},
+        "fullWidth": true,
+        "margin": {"top": 32},
+        "loading": "{{isSubmitting}}",
+        "disabled": "{{!sourceDepositId || !destinationDepositId || !amount || amount < 10000}}",
+        "onTap": {
+          "type": "confirm_dialog",
+          "title": {"fa": "تایید انتقال", "en": "Confirm Transfer"},
+          "message": {"fa": "آیا از انتقال {{formatCurrency(amount)}} ریال اطمینان دارید؟", "en": "Transfer {{formatCurrency(amount)}} Rials?"},
+          "confirmLabel": {"fa": "بله، انتقال شود", "en": "Yes, Transfer"},
+          "onConfirm": {
+            "type": "api_call",
+            "endpoint": "dibalite/transfer/internal",
+            "method": "POST",
+            "body": {
+              "sourceDepositId": "{{sourceDepositId}}",
+              "destinationDepositId": "{{destinationDepositId}}",
+              "amount": "{{amount}}",
+              "description": "{{description}}"
+            },
+            "requireOtp": true,
+            "onSuccess": {
+              "type": "navigate_replace",
+              "route": "/payments/transfer/result",
+              "params": {
+                "success": true,
+                "type": "internal",
+                "referenceNumber": "{{response.referenceNumber}}",
+                "amount": "{{amount}}"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  
+  "dataBindings": {
+    "deposits": {"source": "api", "endpoint": "dibalite/deposits"},
+    "sourceDepositId": {"source": "form", "default": null},
+    "destinationDepositId": {"source": "form", "default": null},
+    "sourceDeposit": {
+      "source": "computed",
+      "expression": "deposits.find(d => d.id === sourceDepositId)"
+    },
+    "amount": {"source": "form", "default": 0},
+    "description": {"source": "form", "default": ""},
+    "isSubmitting": {"source": "state", "default": false}
+  },
+  
+  "mockData": {
+    "deposits": "$ref:mock-data/deposits.json#deposits"
+  }
+}
+

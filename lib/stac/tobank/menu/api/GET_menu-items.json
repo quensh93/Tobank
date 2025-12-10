@@ -1,0 +1,71 @@
+{
+  "GET": {
+    "statusCode": 200,
+    "data": {
+      "menuItems": [
+        {
+          "title": "{{appStrings.menu.items.login}}",
+          "dartPath": "lib/stac/tobank/login/dart/tobank_login.dart",
+          "jsonPath": "lib/stac/tobank/login/json/tobank_login.json",
+          "apiPath": "lib/stac/tobank/login/api/GET_tobank_login.json",
+          "widgetType": "tobank_login_dart"
+        },
+        {
+          "title": "{{appStrings.menu.items.verifyIdentity}}",
+          "dartPath": null,
+          "jsonPath": null,
+          "apiPath": null
+        },
+        {
+          "title": "تایید کد ورود",
+          "dartPath": "lib/stac/tobank/login/dart/verify_otp.dart",
+          "jsonPath": "lib/stac/tobank/login/json/tobank_verify_otp.json",
+          "apiPath": "lib/stac/tobank/login/api/GET_tobank_verify_otp.json",
+          "widgetType": "tobank_verify_otp_dart"
+        },
+        {
+          "title": "{{appStrings.menu.items.home}}",
+          "dartPath": "lib/stac/tobank/home/dart/home.dart",
+          "jsonPath": "lib/stac/.build/tobank_home.json",
+          "apiPath": "lib/stac/tobank/home/api/GET_tobank_home.json"
+        },
+        {
+          "title": "{{appStrings.menu.items.accountOverview}}",
+          "dartPath": null,
+          "jsonPath": "lib/stac/.build/tobank_account_overview.json",
+          "apiPath": "lib/stac/tobank/account/api/GET_tobank_account_overview.json"
+        },
+        {
+          "title": "{{appStrings.menu.items.transfer}}",
+          "dartPath": null,
+          "jsonPath": "lib/stac/.build/tobank_transfer_form.json",
+          "apiPath": "lib/stac/tobank/transfer/api/GET_tobank_transfer_form.json"
+        },
+        {
+          "title": "{{appStrings.menu.items.transactionHistory}}",
+          "dartPath": null,
+          "jsonPath": "lib/stac/.build/tobank_transaction_history.json",
+          "apiPath": "lib/stac/tobank/transactions/api/GET_tobank_transaction_history.json"
+        },
+        {
+          "title": "{{appStrings.menu.items.inbox}}",
+          "dartPath": null,
+          "jsonPath": null,
+          "apiPath": null
+        },
+        {
+          "title": "{{appStrings.menu.items.loans}}",
+          "dartPath": null,
+          "jsonPath": null,
+          "apiPath": null
+        },
+        {
+          "title": "{{appStrings.menu.items.profile}}",
+          "dartPath": null,
+          "jsonPath": "lib/stac/.build/tobank_profile.json",
+          "apiPath": "lib/stac/tobank/profile/api/GET_tobank_profile.json"
+        }
+      ]
+    }
+  }
+}

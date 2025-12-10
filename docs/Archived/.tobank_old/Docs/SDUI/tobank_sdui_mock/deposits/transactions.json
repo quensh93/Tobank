@@ -1,0 +1,69 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "deposit_transactions",
+  "title": {"fa": "تراکنش‌ها", "en": "Transactions"},
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "تراکنش‌ها", "en": "Transactions"},
+    "actions": [
+      {"icon": "assets/icons/ic_filter.svg", "onTap": {"type": "show_bottom_sheet", "content": "filterSheet"}},
+      {"icon": "assets/icons/ic_search.svg", "onTap": {"type": "toggle_search"}}
+    ]
+  },
+  
+  "searchBar": {"hint": {"fa": "جستجو در تراکنش‌ها...", "en": "Search transactions..."}, "bindTo": "searchQuery"},
+  
+  "body": {
+    "type": "column",
+    "children": [
+      {"type": "container", "padding": 16, "child": {"type": "row", "children": [
+        {"type": "expanded", "child": {"type": "filter_chip", "label": {"fa": "همه", "en": "All"}, "selected": "{{filter === 'all'}}", "onTap": {"type": "set_state", "key": "filter", "value": "all"}}},
+        {"type": "sized_box", "width": 8},
+        {"type": "expanded", "child": {"type": "filter_chip", "label": {"fa": "واریز", "en": "Credit"}, "selected": "{{filter === 'credit'}}", "onTap": {"type": "set_state", "key": "filter", "value": "credit"}}},
+        {"type": "sized_box", "width": 8},
+        {"type": "expanded", "child": {"type": "filter_chip", "label": {"fa": "برداشت", "en": "Debit"}, "selected": "{{filter === 'debit'}}", "onTap": {"type": "set_state", "key": "filter", "value": "debit"}}}
+      ]}},
+      
+      {"type": "expanded", "child": {"type": "grouped_list_view", "groupBy": "date", "children": "{{filteredTransactions}}", "groupHeaderBuilder": {"type": "container", "padding": {"horizontal": 16, "vertical": 8}, "child": {"type": "text", "text": "{{group.key}}", "style": "titleSmall", "color": "textSecondary"}}, "itemBuilder": {"type": "transaction_list_item", "onTap": {"type": "navigate", "route": "/transactions/detail?id={{item.id}}"}}}}
+    ]
+  },
+  
+  "bottomSheets": {
+    "filterSheet": {"type": "bottom_sheet", "title": {"fa": "فیلتر تراکنش‌ها", "en": "Filter Transactions"}, "child": {"type": "column", "padding": 16, "children": [
+      {"type": "section", "header": {"title": {"fa": "بازه زمانی", "en": "Date Range"}}, "child": {"type": "column", "children": [
+        {"type": "date_range_picker", "bindTo": "dateRange"}
+      ]}},
+      {"type": "section", "margin": {"top": 16}, "header": {"title": {"fa": "محدوده مبلغ", "en": "Amount Range"}}, "child": {"type": "row", "children": [
+        {"type": "expanded", "child": {"type": "currency_field", "label": {"fa": "از", "en": "From"}, "bindTo": "amountFrom"}},
+        {"type": "sized_box", "width": 16},
+        {"type": "expanded", "child": {"type": "currency_field", "label": {"fa": "تا", "en": "To"}, "bindTo": "amountTo"}}
+      ]}},
+      {"type": "row", "margin": {"top": 24}, "children": [
+        {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "پاک کردن", "en": "Clear"}, "onTap": {"type": "clear_filters"}}},
+        {"type": "sized_box", "width": 16},
+        {"type": "expanded", "child": {"type": "elevated_button", "label": {"fa": "اعمال", "en": "Apply"}, "onTap": {"type": "apply_filters"}}}
+      ]}
+    ]}}
+  },
+  
+  "dataBindings": {
+    "depositId": {"source": "route_param", "key": "id"},
+    "transactions": {"source": "api", "endpoint": "dibalite/deposits/{{depositId}}/transactions"},
+    "filter": {"source": "state", "default": "all"},
+    "searchQuery": {"source": "state", "default": ""},
+    "filteredTransactions": {"source": "computed", "formula": "filterTransactions(transactions, filter, searchQuery)"}
+  },
+  
+  "mockData": {
+    "transactions": [
+      {"id": "tx1", "type": "credit", "amount": 15000000, "description": "واریز حقوق - شرکت نرم‌افزاری", "date": "۱۴۰۳/۰۹/۰۱", "time": "۱۰:۳۲", "referenceNumber": "۹۸۷۶۵۴۳۲۱"},
+      {"id": "tx2", "type": "debit", "amount": 2500000, "description": "خرید از هایپرمارکت افق کوروش", "date": "۱۴۰۳/۰۸/۲۸", "time": "۱۶:۴۵", "referenceNumber": "۱۲۳۴۵۶۷۸۹"},
+      {"id": "tx3", "type": "debit", "amount": 5000000, "description": "کارت به کارت", "date": "۱۴۰۳/۰۸/۲۵", "time": "۱۴:۲۰", "referenceNumber": "۵۵۵۱۲۳۴۵۶"},
+      {"id": "tx4", "type": "credit", "amount": 25000000, "description": "واریز پایا", "date": "۱۴۰۳/۰۸/۲۰", "time": "۰۹:۱۵", "referenceNumber": "۷۷۷۸۸۸۹۹۹"},
+      {"id": "tx5", "type": "debit", "amount": 1200000, "description": "پرداخت قبض برق", "date": "۱۴۰۳/۰۸/۱۵", "time": "۱۱:۰۰", "referenceNumber": "۳۳۳۴۴۴۵۵۵"}
+    ]
+  }
+}
+

@@ -120,7 +120,7 @@ The `SecureStorageKeys` enum provides type-safe access to all storage keys:
 - `phoneNumber` - Phone number
 
 ### Device Keys
-- `fcmToken` - Firebase Cloud Messaging token
+- `fcmToken` - Push notification token
 - `deviceId` - Device identifier
 
 ### Security Keys

@@ -1,0 +1,831 @@
+import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import '../models/widget_node.dart';
+import '../models/navigation_route.dart';
+import '../models/menu_item.dart';
+import '../widgets/component_palette.dart';
+import '../widgets/editor_canvas.dart';
+import '../widgets/property_editor.dart';
+import '../widgets/widget_tree_view.dart';
+import '../widgets/navigation_editor.dart';
+import '../widgets/menu_editor.dart';
+import '../state/debug_panel_settings_state.dart';
+
+/// Editor mode for the visual editor
+enum EditorMode {
+  widget,
+  navigation,
+  menu,
+}
+
+/// Visual JSON editor screen with drag-and-drop interface
+class VisualEditorScreen extends ConsumerStatefulWidget {
+  const VisualEditorScreen({super.key});
+
+  @override
+  ConsumerState<VisualEditorScreen> createState() => _VisualEditorScreenState();
+}
+
+class _VisualEditorScreenState extends ConsumerState<VisualEditorScreen> {
+  // Widget editor state
+  WidgetNode? _rootNode;
+  WidgetNode? _selectedNode;
+  
+  // Navigation editor state
+  List<NavigationRoute> _routes = [];
+  NavigationRoute? _selectedRoute;
+  
+  // Menu editor state
+  List<MenuItem> _menuItems = [];
+  MenuItem? _selectedMenuItem;
+  
+  // Common state
+  EditorMode _editorMode = EditorMode.widget;
+  bool _showJsonView = false;
+  final TextEditingController _jsonController = TextEditingController();
+  String? _jsonError;
+  bool _isJsonDirty = false;
+
+  @override
+  void dispose() {
+    _jsonController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: _buildAppBar(),
+      body: _showJsonView ? _buildJsonView() : _buildVisualEditor(),
+    );
+  }
+
+  PreferredSizeWidget _buildAppBar() {
+    return AppBar(
+      title: Row(
+        children: [
+          const Text('Visual JSON Editor'),
+          const SizedBox(width: 16),
+          // Editor mode selector
+          SegmentedButton<EditorMode>(
+            segments: const [
+              ButtonSegment(
+                value: EditorMode.widget,
+                icon: Icon(Icons.widgets, size: 16),
+                label: Text('Widgets'),
+              ),
+              ButtonSegment(
+                value: EditorMode.navigation,
+                icon: Icon(Icons.route, size: 16),
+                label: Text('Navigation'),
+              ),
+              ButtonSegment(
+                value: EditorMode.menu,
+                icon: Icon(Icons.menu, size: 16),
+                label: Text('Menu'),
+              ),
+            ],
+            selected: {_editorMode},
+            onSelectionChanged: (Set<EditorMode> newSelection) {
+              setState(() {
+                _editorMode = newSelection.first;
+                _showJsonView = false; // Reset to visual view when switching modes
+              });
+            },
+          ),
+        ],
+      ),
+      actions: [
+        // View toggle
+        IconButton(
+          icon: Icon(_showJsonView ? Icons.design_services : Icons.code),
+          tooltip: _showJsonView ? 'Visual View' : 'JSON View',
+          onPressed: () {
+            setState(() {
+              if (!_showJsonView) {
+                // Switching to JSON view - sync from visual
+                _syncVisualToJson();
+              }
+              _showJsonView = !_showJsonView;
+            });
+          },
+        ),
+        const VerticalDivider(),
+        // New
+        IconButton(
+          icon: const Icon(Icons.add),
+          tooltip: 'New',
+          onPressed: _createNew,
+        ),
+        // Import
+        IconButton(
+          icon: const Icon(Icons.upload_file),
+          tooltip: 'Import JSON',
+          onPressed: _importJson,
+        ),
+        // Export
+        IconButton(
+          icon: const Icon(Icons.download),
+          tooltip: 'Export JSON',
+          onPressed: _exportJson,
+        ),
+        // Copy
+        IconButton(
+          icon: const Icon(Icons.content_copy),
+          tooltip: 'Copy JSON',
+          onPressed: _copyJson,
+        ),
+        const VerticalDivider(),
+        // Open in Playground
+        IconButton(
+          icon: const Icon(Icons.code),
+          tooltip: 'Open in Playground',
+          onPressed: _openInPlayground,
+        ),
+        const SizedBox(width: 8),
+      ],
+    );
+  }
+
+  Widget _buildVisualEditor() {
+    switch (_editorMode) {
+      case EditorMode.widget:
+        return _buildWidgetEditor();
+      case EditorMode.navigation:
+        return _buildNavigationEditor();
+      case EditorMode.menu:
+        return _buildMenuEditor();
+    }
+  }
+
+  Widget _buildWidgetEditor() {
+    return Row(
+      children: [
+        // Component Palette (Left)
+        ComponentPalette(
+          onComponentSelected: (component) {
+            if (_rootNode == null) {
+              _createRootNode(component);
+            }
+          },
+        ),
+
+        // Canvas (Center)
+        Expanded(
+          child: EditorCanvas(
+            rootNode: _rootNode,
+            selectedNode: _selectedNode,
+            onNodeSelected: (WidgetNode node) {
+              setState(() {
+                _selectedNode = node;
+              });
+            },
+            onNodeUpdated: (node) {
+              setState(() {
+                // Trigger rebuild
+              });
+            },
+            onComponentDropped: (WidgetNode parentNode, ComponentItem component) {
+              setState(() {
+                final newNode = WidgetNode(
+                  type: component.type,
+                  properties: Map<String, dynamic>.from(component.defaultProperties),
+                );
+                parentNode.addChild(newNode);
+                _selectedNode = newNode;
+              });
+            },
+          ),
+        ),
+
+        // Right Panel - Tree View and Properties
+        SizedBox(
+          width: 600,
+          child: Row(
+            children: [
+              // Widget Tree View
+              Expanded(
+                child: WidgetTreeView(
+                  rootNode: _rootNode,
+                  selectedNode: _selectedNode,
+                  onNodeSelected: (WidgetNode node) {
+                    setState(() {
+                      _selectedNode = node;
+                    });
+                  },
+                  onNodeDeleted: (WidgetNode node) {
+                    setState(() {
+                      if (node.parent != null) {
+                        node.parent!.removeChild(node);
+                        if (_selectedNode?.id == node.id) {
+                          _selectedNode = null;
+                        }
+                      } else {
+                        // Deleting root node
+                        _rootNode = null;
+                        _selectedNode = null;
+                      }
+                    });
+                  },
+                  onNodeDuplicated: (WidgetNode node) {
+                    setState(() {
+                      if (node.parent != null) {
+                        final duplicate = node.duplicate();
+                        final index = node.parent!.children.indexOf(node);
+                        node.parent!.addChild(duplicate, index: index + 1);
+                        _selectedNode = duplicate;
+                      }
+                    });
+                  },
+                ),
+              ),
+
+              // Property Editor
+              PropertyEditor(
+                selectedNode: _selectedNode,
+                onPropertyChanged: (WidgetNode node) {
+                  setState(() {
+                    // Trigger rebuild
+                  });
+                },
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildNavigationEditor() {
+    return NavigationEditor(
+      routes: _routes,
+      selectedRoute: _selectedRoute,
+      onRoutesChanged: (routes) {
+        setState(() {
+          _routes = routes;
+        });
+      },
+      onRouteSelected: (route) {
+        setState(() {
+          _selectedRoute = route;
+        });
+      },
+    );
+  }
+
+  Widget _buildMenuEditor() {
+    return MenuEditor(
+      menuItems: _menuItems,
+      selectedMenuItem: _selectedMenuItem,
+      onMenuItemsChanged: (items) {
+        setState(() {
+          _menuItems = items;
+        });
+      },
+      onMenuItemSelected: (item) {
+        setState(() {
+          _selectedMenuItem = item;
+        });
+      },
+    );
+  }
+
+  Widget _buildJsonView() {
+    return Column(
+      children: [
+        // Toolbar
+        Container(
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            color: Colors.grey[100],
+            border: Border(
+              bottom: BorderSide(color: Colors.grey[300]!),
+            ),
+          ),
+          child: Row(
+            children: [
+              if (_jsonError != null)
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: Colors.red[50],
+                      borderRadius: BorderRadius.circular(4),
+                      border: Border.all(color: Colors.red[300]!),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(Icons.error, size: 16, color: Colors.red[700]),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            _jsonError!,
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.red[700],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              if (_jsonError == null && _isJsonDirty)
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: Colors.orange[50],
+                      borderRadius: BorderRadius.circular(4),
+                      border: Border.all(color: Colors.orange[300]!),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(Icons.warning, size: 16, color: Colors.orange[700]),
+                        const SizedBox(width: 8),
+                        Text(
+                          'JSON has unsaved changes',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.orange[700],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              const Spacer(),
+              ElevatedButton.icon(
+                onPressed: _isJsonDirty ? _applyJsonChanges : null,
+                icon: const Icon(Icons.check, size: 16),
+                label: const Text('Apply Changes'),
+              ),
+              const SizedBox(width: 8),
+              OutlinedButton.icon(
+                onPressed: _isJsonDirty ? _revertJsonChanges : null,
+                icon: const Icon(Icons.undo, size: 16),
+                label: const Text('Revert'),
+              ),
+            ],
+          ),
+        ),
+
+        // JSON Editor
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: TextField(
+              controller: _jsonController,
+              maxLines: null,
+              expands: true,
+              style: const TextStyle(
+                fontFamily: 'monospace',
+                fontSize: 13,
+              ),
+              decoration: InputDecoration(
+                border: const OutlineInputBorder(),
+                hintText: 'Enter JSON here...',
+                filled: true,
+                fillColor: Colors.grey[50],
+              ),
+              onChanged: (value) {
+                setState(() {
+                  _isJsonDirty = true;
+                  _validateJson(value);
+                });
+              },
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  void _createRootNode(ComponentItem component) {
+    setState(() {
+      _rootNode = WidgetNode(
+        type: component.type,
+        properties: Map<String, dynamic>.from(component.defaultProperties),
+      );
+      _selectedNode = _rootNode;
+    });
+  }
+
+  void _syncVisualToJson() {
+    String jsonString = '';
+    
+    switch (_editorMode) {
+      case EditorMode.widget:
+        if (_rootNode != null) {
+          jsonString = _rootNode!.toJsonString(pretty: true);
+        }
+        break;
+      case EditorMode.navigation:
+        if (_routes.isNotEmpty) {
+          final routesJson = {
+            'routes': _routes.map((r) => r.toJson()).toList(),
+          };
+          jsonString = const JsonEncoder.withIndent('  ').convert(routesJson);
+        }
+        break;
+      case EditorMode.menu:
+        if (_menuItems.isNotEmpty) {
+          final menuJson = {
+            'menuItems': _menuItems.map((m) => m.toJson()).toList(),
+          };
+          jsonString = const JsonEncoder.withIndent('  ').convert(menuJson);
+        }
+        break;
+    }
+    
+    _jsonController.text = jsonString;
+    _isJsonDirty = false;
+    _jsonError = null;
+  }
+
+  void _syncJsonToVisual() {
+    try {
+      if (_jsonController.text.trim().isEmpty) {
+        setState(() {
+          switch (_editorMode) {
+            case EditorMode.widget:
+              _rootNode = null;
+              _selectedNode = null;
+              break;
+            case EditorMode.navigation:
+              _routes = [];
+              _selectedRoute = null;
+              break;
+            case EditorMode.menu:
+              _menuItems = [];
+              _selectedMenuItem = null;
+              break;
+          }
+          _jsonError = null;
+        });
+        return;
+      }
+
+      final json = jsonDecode(_jsonController.text) as Map<String, dynamic>;
+      
+      setState(() {
+        switch (_editorMode) {
+          case EditorMode.widget:
+            _rootNode = WidgetNode.fromJson(json);
+            _selectedNode = _rootNode;
+            break;
+          case EditorMode.navigation:
+            if (json.containsKey('routes')) {
+              _routes = (json['routes'] as List)
+                  .map((r) => NavigationRoute.fromJson(r as Map<String, dynamic>))
+                  .toList();
+              _selectedRoute = _routes.isNotEmpty ? _routes.first : null;
+            }
+            break;
+          case EditorMode.menu:
+            if (json.containsKey('menuItems')) {
+              _menuItems = (json['menuItems'] as List)
+                  .map((m) => MenuItem.fromJson(m as Map<String, dynamic>))
+                  .toList();
+              _selectedMenuItem = _menuItems.isNotEmpty ? _menuItems.first : null;
+            }
+            break;
+        }
+        _jsonError = null;
+        _isJsonDirty = false;
+      });
+    } catch (e) {
+      setState(() {
+        _jsonError = 'Invalid JSON: ${e.toString()}';
+      });
+    }
+  }
+
+  void _validateJson(String jsonString) {
+    if (jsonString.trim().isEmpty) {
+      setState(() {
+        _jsonError = null;
+      });
+      return;
+    }
+
+    try {
+      jsonDecode(jsonString);
+      setState(() {
+        _jsonError = null;
+      });
+    } catch (e) {
+      setState(() {
+        _jsonError = 'Invalid JSON: ${e.toString()}';
+      });
+    }
+  }
+
+  void _applyJsonChanges() {
+    _syncJsonToVisual();
+    if (_jsonError == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('JSON applied successfully'),
+          backgroundColor: Colors.green,
+        ),
+      );
+    }
+  }
+
+  void _revertJsonChanges() {
+    _syncVisualToJson();
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Changes reverted')),
+    );
+  }
+
+  void _createNew() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Create New'),
+        content: Text(
+          'This will clear the current ${_getEditorModeName()} editor. Are you sure?',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              setState(() {
+                switch (_editorMode) {
+                  case EditorMode.widget:
+                    _rootNode = null;
+                    _selectedNode = null;
+                    break;
+                  case EditorMode.navigation:
+                    _routes = [];
+                    _selectedRoute = null;
+                    break;
+                  case EditorMode.menu:
+                    _menuItems = [];
+                    _selectedMenuItem = null;
+                    break;
+                }
+                _jsonController.clear();
+                _jsonError = null;
+                _isJsonDirty = false;
+              });
+            },
+            child: const Text('Create New'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _getEditorModeName() {
+    switch (_editorMode) {
+      case EditorMode.widget:
+        return 'widget';
+      case EditorMode.navigation:
+        return 'navigation';
+      case EditorMode.menu:
+        return 'menu';
+    }
+  }
+
+  void _importJson() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        final controller = TextEditingController();
+        return AlertDialog(
+          title: Text('Import ${_getEditorModeName().toUpperCase()} JSON'),
+          content: SizedBox(
+            width: 500,
+            child: TextField(
+              controller: controller,
+              maxLines: 15,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'Paste JSON here...',
+              ),
+              style: const TextStyle(fontFamily: 'monospace', fontSize: 12),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                try {
+                  final json = jsonDecode(controller.text) as Map<String, dynamic>;
+                  setState(() {
+                    switch (_editorMode) {
+                      case EditorMode.widget:
+                        _rootNode = WidgetNode.fromJson(json);
+                        _selectedNode = _rootNode;
+                        _jsonController.text = _rootNode!.toJsonString(pretty: true);
+                        break;
+                      case EditorMode.navigation:
+                        if (json.containsKey('routes')) {
+                          _routes = (json['routes'] as List)
+                              .map((r) => NavigationRoute.fromJson(r as Map<String, dynamic>))
+                              .toList();
+                          _selectedRoute = _routes.isNotEmpty ? _routes.first : null;
+                        }
+                        _jsonController.text = const JsonEncoder.withIndent('  ').convert(json);
+                        break;
+                      case EditorMode.menu:
+                        if (json.containsKey('menuItems')) {
+                          _menuItems = (json['menuItems'] as List)
+                              .map((m) => MenuItem.fromJson(m as Map<String, dynamic>))
+                              .toList();
+                          _selectedMenuItem = _menuItems.isNotEmpty ? _menuItems.first : null;
+                        }
+                        _jsonController.text = const JsonEncoder.withIndent('  ').convert(json);
+                        break;
+                    }
+                    _jsonError = null;
+                    _isJsonDirty = false;
+                  });
+                  Navigator.of(context).pop();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('JSON imported successfully'),
+                      backgroundColor: Colors.green,
+                    ),
+                  );
+                } catch (e) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Invalid JSON: ${e.toString()}'),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
+                }
+              },
+              child: const Text('Import'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _exportJson() {
+    String? json;
+    
+    switch (_editorMode) {
+      case EditorMode.widget:
+        if (_rootNode == null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Nothing to export')),
+          );
+          return;
+        }
+        json = _rootNode!.toJsonString(pretty: true);
+        break;
+      case EditorMode.navigation:
+        if (_routes.isEmpty) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Nothing to export')),
+          );
+          return;
+        }
+        final routesJson = {
+          'routes': _routes.map((r) => r.toJson()).toList(),
+        };
+        json = const JsonEncoder.withIndent('  ').convert(routesJson);
+        break;
+      case EditorMode.menu:
+        if (_menuItems.isEmpty) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Nothing to export')),
+          );
+          return;
+        }
+        final menuJson = {
+          'menuItems': _menuItems.map((m) => m.toJson()).toList(),
+        };
+        json = const JsonEncoder.withIndent('  ').convert(menuJson);
+        break;
+    }
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Export ${_getEditorModeName().toUpperCase()} JSON'),
+        content: SizedBox(
+          width: 500,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.grey[100],
+                  borderRadius: BorderRadius.circular(4),
+                  border: Border.all(color: Colors.grey[300]!),
+                ),
+                constraints: const BoxConstraints(maxHeight: 400),
+                child: SingleChildScrollView(
+                  child: SelectableText(
+                    json!,
+                    style: const TextStyle(
+                      fontFamily: 'monospace',
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Close'),
+          ),
+          TextButton(
+            onPressed: () {
+              Clipboard.setData(ClipboardData(text: json!));
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('JSON copied to clipboard'),
+                  backgroundColor: Colors.green,
+                ),
+              );
+            },
+            child: const Text('Copy'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _copyJson() {
+    String? json;
+    
+    switch (_editorMode) {
+      case EditorMode.widget:
+        if (_rootNode == null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Nothing to copy')),
+          );
+          return;
+        }
+        json = _rootNode!.toJsonString(pretty: true);
+        break;
+      case EditorMode.navigation:
+        if (_routes.isEmpty) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Nothing to copy')),
+          );
+          return;
+        }
+        final routesJson = {
+          'routes': _routes.map((r) => r.toJson()).toList(),
+        };
+        json = const JsonEncoder.withIndent('  ').convert(routesJson);
+        break;
+      case EditorMode.menu:
+        if (_menuItems.isEmpty) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Nothing to copy')),
+          );
+          return;
+        }
+        final menuJson = {
+          'menuItems': _menuItems.map((m) => m.toJson()).toList(),
+        };
+        json = const JsonEncoder.withIndent('  ').convert(menuJson);
+        break;
+    }
+
+    Clipboard.setData(ClipboardData(text: json));
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('JSON copied to clipboard'),
+        backgroundColor: Colors.green,
+      ),
+    );
+  }
+
+  void _openInPlayground() {
+    // Switch to Playground tab (index 3: Device, Logs, Tools, Playground)
+    ref.read(debugPanelSettingsProvider.notifier).setSelectedTabIndex(3);
+    
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Switched to Playground. You can test your JSON there.'),
+        backgroundColor: Colors.blue,
+      ),
+    );
+  }
+}

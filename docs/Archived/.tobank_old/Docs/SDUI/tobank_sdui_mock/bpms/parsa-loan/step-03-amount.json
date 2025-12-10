@@ -1,0 +1,62 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "parsa_loan_amount",
+  "flowId": "parsa_loan",
+  "stepNumber": 3,
+  "title": {"fa": "انتخاب مبلغ", "en": "Select Amount"},
+  
+  "appBar": {"type": "bpms_stepper", "title": {"fa": "وام پارسا", "en": "Parsa Loan"}, "currentStep": 3, "totalSteps": 6},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "card", "padding": 16, "backgroundColor": "#F3E5F5", "child": {"type": "column", "children": [
+        {"type": "text", "text": {"fa": "سقف مجاز شما", "en": "Your Max Limit"}, "style": "titleSmall", "textAlign": "center"},
+        {"type": "text", "text": "{{formatCurrency(maxAmount)}} ریال", "style": "headlineMedium", "color": "#673AB7", "textAlign": "center", "margin": {"top": 8}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "مبلغ درخواستی", "en": "Requested Amount"}}, "child": {"type": "column", "children": [
+        {"type": "currency_field", "currency": "IRR", "bindTo": "amount", "validation": {"min": 50000000, "max": "{{maxAmount}}"}},
+        {"type": "slider", "min": 50000000, "max": "{{maxAmount}}", "divisions": 10, "bindTo": "amount", "margin": {"top": 16}},
+        {"type": "row", "mainAxisAlignment": "spaceBetween", "margin": {"top": 8}, "children": [
+          {"type": "text", "text": "۵ میلیون", "style": "caption", "color": "textSecondary"},
+          {"type": "text", "text": "{{formatCurrency(maxAmount / 10000000)}} میلیون", "style": "caption", "color": "textSecondary"}
+        ]}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "مبالغ پیشنهادی", "en": "Suggested Amounts"}}, "child": {"type": "wrap", "spacing": 12, "runSpacing": 12, "children": [
+        {"type": "choice_chip", "label": "۵۰ میلیون", "selected": "{{amount === 500000000}}", "onTap": {"type": "set_state", "key": "amount", "value": 500000000}},
+        {"type": "choice_chip", "label": "۱۰۰ میلیون", "selected": "{{amount === 1000000000}}", "onTap": {"type": "set_state", "key": "amount", "value": 1000000000}},
+        {"type": "choice_chip", "label": "۱۵۰ میلیون", "selected": "{{amount === 1500000000}}", "onTap": {"type": "set_state", "key": "amount", "value": 1500000000}},
+        {"type": "choice_chip", "label": "۲۰۰ میلیون", "selected": "{{amount === 2000000000}}", "onTap": {"type": "set_state", "key": "amount", "value": 2000000000}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "حساب واریز", "en": "Deposit Account"}}, "child": {"type": "deposit_selector", "deposits": "{{deposits}}", "bindTo": "selectedDeposit"}},
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {"type": "container", "padding": 16, "child": {"type": "row", "children": [
+    {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "قبلی", "en": "Back"}, "onTap": {"type": "navigate_back"}}},
+    {"type": "sized_box", "width": 16},
+    {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "محاسبه اقساط", "en": "Calculate"}, "disabled": "{{!amount || !selectedDeposit}}", "onTap": {"type": "navigate", "route": "/bpms/parsa-loan/step-04"}}}
+  ]}},
+  
+  "dataBindings": {
+    "maxAmount": {"source": "state", "default": 3000000000},
+    "amount": {"source": "form", "default": 1000000000},
+    "selectedDeposit": {"source": "form", "default": null},
+    "deposits": {"source": "api", "endpoint": "dibalite/deposits/list"}
+  },
+  
+  "mockData": {
+    "deposits": [
+      {"id": "dep1", "accountNumber": "۰۱۰۸۱۲۳۴۵۶۷۸۹۰", "type": "جاری", "balance": 45000000},
+      {"id": "dep2", "accountNumber": "۰۱۰۸۹۸۷۶۵۴۳۲۱۰", "type": "پس‌انداز", "balance": 125000000}
+    ]
+  }
+}
+

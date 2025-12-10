@@ -1,0 +1,280 @@
+{
+  "appBar": {
+    "title": {
+      "data": "Tobank Mock",
+      "style": {
+        "type": "custom",
+        "color": "onSurface",
+        "fontSize": 20.0,
+        "fontWeight": "bold"
+      },
+      "type": "text"
+    },
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "body": {
+    "padding": {
+      "left": 8.0,
+      "top": 8.0,
+      "right": 8.0,
+      "bottom": 8.0
+    },
+    "children": [
+      {
+        "leading": {
+          "icon": "login",
+          "iconType": "material",
+          "size": 28.0,
+          "color": "primary",
+          "type": "icon"
+        },
+        "title": {
+          "data": "Authentication",
+          "style": {
+            "type": "custom",
+            "color": "onSurface",
+            "fontSize": 16.0,
+            "fontWeight": "w600"
+          },
+          "type": "text"
+        },
+        "subtitle": {
+          "data": "Login and Register screens",
+          "style": {
+            "type": "custom",
+            "color": "onSurfaceVariant",
+            "fontSize": 14.0,
+            "fontWeight": "w400"
+          },
+          "type": "text"
+        },
+        "trailing": {
+          "icon": "chevron_right",
+          "iconType": "material",
+          "size": 24.0,
+          "color": "onSurfaceVariant",
+          "type": "icon"
+        },
+        "onTap": {
+          "routeName": "tobank_login",
+          "navigationStyle": "push",
+          "actionType": "navigate"
+        },
+        "type": "listTile"
+      },
+      {
+        "leading": {
+          "icon": "home",
+          "iconType": "material",
+          "size": 28.0,
+          "color": "primary",
+          "type": "icon"
+        },
+        "title": {
+          "data": "Home Screen",
+          "style": {
+            "type": "custom",
+            "color": "onSurface",
+            "fontSize": 16.0,
+            "fontWeight": "w600"
+          },
+          "type": "text"
+        },
+        "subtitle": {
+          "data": "Main dashboard and balance",
+          "style": {
+            "type": "custom",
+            "color": "onSurfaceVariant",
+            "fontSize": 14.0,
+            "fontWeight": "w400"
+          },
+          "type": "text"
+        },
+        "trailing": {
+          "icon": "chevron_right",
+          "iconType": "material",
+          "size": 24.0,
+          "color": "onSurfaceVariant",
+          "type": "icon"
+        },
+        "onTap": {
+          "routeName": "tobank_home",
+          "navigationStyle": "push",
+          "actionType": "navigate"
+        },
+        "type": "listTile"
+      },
+      {
+        "leading": {
+          "icon": "account_balance",
+          "iconType": "material",
+          "size": 28.0,
+          "color": "primary",
+          "type": "icon"
+        },
+        "title": {
+          "data": "Account Overview",
+          "style": {
+            "type": "custom",
+            "color": "onSurface",
+            "fontSize": 16.0,
+            "fontWeight": "w600"
+          },
+          "type": "text"
+        },
+        "subtitle": {
+          "data": "View account details and balance",
+          "style": {
+            "type": "custom",
+            "color": "onSurfaceVariant",
+            "fontSize": 14.0,
+            "fontWeight": "w400"
+          },
+          "type": "text"
+        },
+        "trailing": {
+          "icon": "chevron_right",
+          "iconType": "material",
+          "size": 24.0,
+          "color": "onSurfaceVariant",
+          "type": "icon"
+        },
+        "onTap": {
+          "routeName": "tobank_account_overview",
+          "navigationStyle": "push",
+          "actionType": "navigate"
+        },
+        "type": "listTile"
+      },
+      {
+        "leading": {
+          "icon": "send",
+          "iconType": "material",
+          "size": 28.0,
+          "color": "primary",
+          "type": "icon"
+        },
+        "title": {
+          "data": "Transfer Money",
+          "style": {
+            "type": "custom",
+            "color": "onSurface",
+            "fontSize": 16.0,
+            "fontWeight": "w600"
+          },
+          "type": "text"
+        },
+        "subtitle": {
+          "data": "Send money to other accounts",
+          "style": {
+            "type": "custom",
+            "color": "onSurfaceVariant",
+            "fontSize": 14.0,
+            "fontWeight": "w400"
+          },
+          "type": "text"
+        },
+        "trailing": {
+          "icon": "chevron_right",
+          "iconType": "material",
+          "size": 24.0,
+          "color": "onSurfaceVariant",
+          "type": "icon"
+        },
+        "onTap": {
+          "routeName": "tobank_transfer_form",
+          "navigationStyle": "push",
+          "actionType": "navigate"
+        },
+        "type": "listTile"
+      },
+      {
+        "leading": {
+          "icon": "receipt",
+          "iconType": "material",
+          "size": 28.0,
+          "color": "primary",
+          "type": "icon"
+        },
+        "title": {
+          "data": "Transaction History",
+          "style": {
+            "type": "custom",
+            "color": "onSurface",
+            "fontSize": 16.0,
+            "fontWeight": "w600"
+          },
+          "type": "text"
+        },
+        "subtitle": {
+          "data": "View all transactions",
+          "style": {
+            "type": "custom",
+            "color": "onSurfaceVariant",
+            "fontSize": 14.0,
+            "fontWeight": "w400"
+          },
+          "type": "text"
+        },
+        "trailing": {
+          "icon": "chevron_right",
+          "iconType": "material",
+          "size": 24.0,
+          "color": "onSurfaceVariant",
+          "type": "icon"
+        },
+        "onTap": {
+          "routeName": "tobank_transaction_history",
+          "navigationStyle": "push",
+          "actionType": "navigate"
+        },
+        "type": "listTile"
+      },
+      {
+        "leading": {
+          "icon": "person",
+          "iconType": "material",
+          "size": 28.0,
+          "color": "primary",
+          "type": "icon"
+        },
+        "title": {
+          "data": "Profile",
+          "style": {
+            "type": "custom",
+            "color": "onSurface",
+            "fontSize": 16.0,
+            "fontWeight": "w600"
+          },
+          "type": "text"
+        },
+        "subtitle": {
+          "data": "User profile and settings",
+          "style": {
+            "type": "custom",
+            "color": "onSurfaceVariant",
+            "fontSize": 14.0,
+            "fontWeight": "w400"
+          },
+          "type": "text"
+        },
+        "trailing": {
+          "icon": "chevron_right",
+          "iconType": "material",
+          "size": 24.0,
+          "color": "onSurfaceVariant",
+          "type": "icon"
+        },
+        "onTap": {
+          "routeName": "tobank_profile",
+          "navigationStyle": "push",
+          "actionType": "navigate"
+        },
+        "type": "listTile"
+      }
+    ],
+    "type": "listView"
+  },
+  "type": "scaffold"
+}

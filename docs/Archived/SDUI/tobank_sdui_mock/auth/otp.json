@@ -1,0 +1,157 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "تایید شماره موبایل"
+    }
+  },
+  "body": {
+    "type": "singleChildScrollView",
+    "child": {
+      "type": "column",
+      "padding": 24,
+      "children": [
+        {
+          "type": "container",
+          "alignment": "center",
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "container",
+                "width": 80,
+                "height": 80,
+                "decoration": {
+                  "color": "#E0F7FA",
+                  "borderRadius": 40
+                },
+                "alignment": "center",
+                "child": {
+                  "type": "image",
+                  "src": "assets/icons/ic_sms.svg",
+                  "imageType": "asset",
+                  "width": 40,
+                  "height": 40,
+                  "color": "#00BCD4"
+                }
+              },
+              {
+                "type": "text",
+                "style": "headlineSmall",
+                "margin": {
+                  "top": 24
+                },
+                "data": "کد تایید"
+              },
+              {
+                "type": "text",
+                "style": "bodyMedium",
+                "color": "textSecondary",
+                "textAlign": "center",
+                "margin": {
+                  "top": 8
+                },
+                "data": "کد 5 رقمی به شماره {{maskedMobile}} ارسال شد"
+              }
+            ]
+          }
+        },
+        {
+          "type": "otp_field",
+          "length": 5,
+          "margin": {
+            "top": 40
+          },
+          "autoSubmit": true,
+          "onComplete": {
+            "type": "verify_otp"
+          },
+          "onChanged": {
+            "actionType": "setValue",
+            "key": "otpCode",
+            "value": "{{value}}"
+          }
+        },
+        {
+          "type": "container",
+          "margin": {
+            "top": 32
+          },
+          "alignment": "center",
+          "child": {
+            "type": "conditional",
+            "condition": "{{resendTimer > 0}}",
+            "ifTrue": {
+              "type": "text",
+              "data": "ارسال مجدد تا {{resendTimer}} ثانیه",
+              "style": "bodyMedium",
+              "color": "textSecondary"
+            },
+            "ifFalse": {
+              "type": "textButton",
+              "label": "ارسال مجدد کد",
+              "onPressed": {
+                "actionType": "navigate",
+                "path": "/auth/resend-otp"
+              }
+            }
+          }
+        },
+        {
+          "type": "row",
+          "margin": {
+            "top": 16
+          },
+          "mainAxisAlignment": "center",
+          "children": [
+            {
+              "type": "textButton",
+              "onPressed": {
+                "actionType": "navigate",
+                "path": "/auth/login"
+              },
+              "child": {
+                "type": "text",
+                "data": "تغییر شماره موبایل"
+              }
+            }
+          ]
+        },
+        {
+          "type": "sizedBox",
+          "height": 40
+        },
+        {
+          "type": "elevatedButton",
+          "fullWidth": true,
+          "disabled": "{{otpCode.length !== 5}}",
+          "child": {
+            "type": "text",
+            "data": "تایید"
+          },
+          "onPressed": {
+            "actionType": "networkRequest",
+            "url": "https://api.tobank.com/auth/verify-otp",
+            "method": "POST",
+            "body": {
+              "mobile": "{{mobile}}",
+              "code": "{{otpCode}}"
+            },
+            "showLoading": true,
+            "onSuccess": {
+              "actionType": "navigateReplace",
+              "path": "/home"
+            },
+            "onError": {
+              "actionType": "showDialog",
+              "title": "خطا",
+              "message": "کد وارد شده اشتباه است"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "parsa_loan_repayment",
+  "flowId": "parsa_loan",
+  "stepNumber": 4,
+  "title": {"fa": "برنامه اقساط", "en": "Repayment Plan"},
+  
+  "appBar": {"type": "bpms_stepper", "title": {"fa": "وام پارسا", "en": "Parsa Loan"}, "currentStep": 4, "totalSteps": 6},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "card", "padding": 16, "child": {"type": "column", "children": [
+        {"type": "text", "text": {"fa": "مبلغ وام", "en": "Loan Amount"}, "style": "titleSmall", "color": "textSecondary"},
+        {"type": "text", "text": "{{formatCurrency(loanAmount)}} ریال", "style": "headlineSmall", "color": "#673AB7", "margin": {"top": 4}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "مدت بازپرداخت", "en": "Repayment Term"}}, "child": {"type": "row", "children": [
+        {"type": "expanded", "child": {"type": "selectable_card", "selected": "{{months === 6}}", "child": {"type": "column", "padding": 12, "children": [{"type": "text", "text": "۶", "style": "headlineMedium", "textAlign": "center"}, {"type": "text", "text": {"fa": "ماه", "en": "mo"}, "style": "bodySmall", "textAlign": "center"}]}, "onTap": {"type": "set_state", "key": "months", "value": 6}}},
+        {"type": "sized_box", "width": 12},
+        {"type": "expanded", "child": {"type": "selectable_card", "selected": "{{months === 12}}", "child": {"type": "column", "padding": 12, "children": [{"type": "text", "text": "۱۲", "style": "headlineMedium", "textAlign": "center"}, {"type": "text", "text": {"fa": "ماه", "en": "mo"}, "style": "bodySmall", "textAlign": "center"}]}, "onTap": {"type": "set_state", "key": "months", "value": 12}}},
+        {"type": "sized_box", "width": 12},
+        {"type": "expanded", "child": {"type": "selectable_card", "selected": "{{months === 24}}", "child": {"type": "column", "padding": 12, "children": [{"type": "text", "text": "۲۴", "style": "headlineMedium", "textAlign": "center"}, {"type": "text", "text": {"fa": "ماه", "en": "mo"}, "style": "bodySmall", "textAlign": "center"}]}, "onTap": {"type": "set_state", "key": "months", "value": 24}}},
+        {"type": "sized_box", "width": 12},
+        {"type": "expanded", "child": {"type": "selectable_card", "selected": "{{months === 36}}", "child": {"type": "column", "padding": 12, "children": [{"type": "text", "text": "۳۶", "style": "headlineMedium", "textAlign": "center"}, {"type": "text", "text": {"fa": "ماه", "en": "mo"}, "style": "bodySmall", "textAlign": "center"}]}, "onTap": {"type": "set_state", "key": "months", "value": 36}}}
+      ]}},
+      
+      {"type": "card", "margin": {"top": 24}, "child": {"type": "column", "children": [
+        {"type": "container", "padding": 20, "decoration": {"color": "#F3E5F5"}, "child": {"type": "column", "children": [
+          {"type": "text", "text": {"fa": "مبلغ هر قسط", "en": "Monthly Installment"}, "style": "titleSmall", "textAlign": "center"},
+          {"type": "text", "text": "{{formatCurrency(installmentAmount)}} ریال", "style": "headlineLarge", "color": "#673AB7", "textAlign": "center", "margin": {"top": 8}}
+        ]}},
+        {"type": "info_row", "padding": 16, "label": {"fa": "تعداد اقساط", "en": "Installments"}, "value": "{{months}} قسط"},
+        {"type": "divider"},
+        {"type": "info_row", "padding": 16, "label": {"fa": "نرخ سود", "en": "Interest"}, "value": "۲۳٪ سالانه"},
+        {"type": "divider"},
+        {"type": "info_row", "padding": 16, "label": {"fa": "جمع سود", "en": "Total Interest"}, "value": "{{formatCurrency(totalInterest)}} ریال"},
+        {"type": "divider"},
+        {"type": "info_row", "padding": 16, "label": {"fa": "جمع بازپرداخت", "en": "Total Payment"}, "value": "{{formatCurrency(totalPayment)}} ریال", "valueColor": "#673AB7"}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "روز پرداخت قسط", "en": "Payment Day"}}, "child": {"type": "dropdown_field", "options": [
+        {"value": 1, "label": {"fa": "اول ماه", "en": "1st"}},
+        {"value": 10, "label": {"fa": "دهم ماه", "en": "10th"}},
+        {"value": 15, "label": {"fa": "پانزدهم ماه", "en": "15th"}},
+        {"value": 25, "label": {"fa": "بیست و پنجم ماه", "en": "25th"}}
+      ], "bindTo": "paymentDay"}},
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {"type": "container", "padding": 16, "child": {"type": "row", "children": [
+    {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "قبلی", "en": "Back"}, "onTap": {"type": "navigate_back"}}},
+    {"type": "sized_box", "width": 16},
+    {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "تایید", "en": "Confirm"}, "disabled": "{{!months || !paymentDay}}", "onTap": {"type": "navigate", "route": "/bpms/parsa-loan/step-05"}}}
+  ]}},
+  
+  "dataBindings": {
+    "loanAmount": {"source": "state", "default": 1000000000},
+    "months": {"source": "form", "default": 12},
+    "paymentDay": {"source": "form", "default": null},
+    "installmentAmount": {"source": "computed", "formula": "calculateInstallment(loanAmount, 23, months)"},
+    "totalInterest": {"source": "computed", "formula": "(installmentAmount * months) - loanAmount"},
+    "totalPayment": {"source": "computed", "formula": "installmentAmount * months"}
+  },
+  
+  "mockData": {
+    "installmentAmount": 94000000,
+    "totalInterest": 128000000,
+    "totalPayment": 1128000000
+  }
+}
+

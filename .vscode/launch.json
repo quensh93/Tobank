@@ -1,84 +1,65 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "tobank_sdui",
-            "request": "launch",
-            "type": "dart",
-            "args": ["--web-port=9100"]
-        },
-        {
-            "name": "tobank_sdui (profile mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "profile",
-            "args": ["--web-port=9100"]
-        },
-        {
-            "name": "tobank_sdui (release mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release",
-            "args": ["--web-port=9100"]
-        },
-        {
-            "name": "tobank_sdui (Debug Panel OFF)",
-            "request": "launch",
-            "type": "dart",
-            "args": [
-                "--web-port=9100",
-                "--dart-define=ENABLE_DEBUG_PANEL=false"
-            ]
-        },
-        {
-            "name": "tobank_sdui (Debug Panel ON)",
-            "request": "launch",
-            "type": "dart",
-            "args": [
-                "--web-port=9100",
-                "--dart-define=ENABLE_DEBUG_PANEL=true"
-            ]
-        },
-        {
-            "name": "tobank_sdui (ISpect OFF)",
-            "request": "launch",
-            "type": "dart",
-            "args": [
-                "--web-port=9100",
-                "--dart-define=ENABLE_ISPECT=false"
-            ]
-        },
-        {
-            "name": "tobank_sdui (ISpect ON)",
-            "request": "launch",
-            "type": "dart",
-            "args": [
-                "--web-port=9100",
-                "--dart-define=ENABLE_ISPECT=true"
-            ]
-        },
-        {
-            "name": "tobank_sdui (Both ON)",
-            "request": "launch",
-            "type": "dart",
-            "args": [
-                "--web-port=9100",
-                "--dart-define=ENABLE_DEBUG_PANEL=true",
-                "--dart-define=ENABLE_ISPECT=true"
-            ]
-        },
-        {
-            "name": "tobank_sdui (Both OFF)",
-            "request": "launch",
-            "type": "dart",
-            "args": [
-                "--web-port=9100",
-                "--dart-define=ENABLE_DEBUG_PANEL=false",
-                "--dart-define=ENABLE_ISPECT=false"
-            ]
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Flutter (Mock API)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": []
+    },
+    {
+      "name": "Flutter (Supabase)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "toolArgs": [
+        "--dart-define=SUPABASE_URL=https://yjhedjtbtqnxudxgodhc.supabase.co",
+        "--dart-define=SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlqaGVkanRidHFueHVkeGdvZGhjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzMzIxNjUsImV4cCI6MjA3ODkwODE2NX0.Jh_2TouVA1sEPKwLNC-NqWgOMtEOv3hr3KVoONHZG7o"
+      ]
+    },
+    {
+      "name": "Flutter (Profile Mode)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "flutterMode": "profile"
+    },
+    {
+      "name": "Flutter (Release Mode)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "flutterMode": "release"
+    },
+    {
+      "name": "Flutter (Simple Logger)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "toolArgs": [
+        "--dart-define=SIMPLE_LOGGER=true"
+      ]
+    },
+    {
+      "name": "Flutter (Mock API - Simple Logger)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "toolArgs": [
+        "--dart-define=SIMPLE_LOGGER=true"
+      ]
+    },
+    {
+      "name": "Flutter (Supabase - Simple Logger)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "toolArgs": [
+        "--dart-define=SIMPLE_LOGGER=true",
+        "--dart-define=SUPABASE_URL=https://yjhedjtbtqnxudxgodhc.supabase.co",
+        "--dart-define=SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlqaGVkanRidHFueHVkeGdvZGhjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzMzIxNjUsImV4cCI6MjA3ODkwODE2NX0.Jh_2TouVA1sEPKwLNC-NqWgOMtEOv3hr3KVoONHZG7o"
+      ]
+    }
+  ]
 }

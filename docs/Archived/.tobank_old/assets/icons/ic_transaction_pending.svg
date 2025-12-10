@@ -1,0 +1,9 @@
+<svg fill="none" height="56" viewBox="0 0 56 56" width="56" xmlns="http://www.w3.org/2000/svg">
+    <rect fill="#FEC84B" fill-opacity=".15" height="55" rx="27.5" width="55" x=".5" y=".5" />
+    <rect height="55" rx="27.5" stroke="#fff" width="55" x=".5" y=".5" />
+    <rect fill="#FEC84B" fill-opacity=".2" height="46" rx="23" width="46" x="5" y="5" />
+    <rect fill="#fff" height="24" rx="12" width="24" x="16" y="16" />
+    <path clip-rule="evenodd"
+        d="M41.335 28c0 7.364-5.97 13.334-13.334 13.334S14.668 35.364 14.668 28c0-7.363 5.97-13.333 13.333-13.333 7.364 0 13.334 5.97 13.334 13.333zM33 28a1 1 0 0 1-1 1h-8a1 1 0 1 1 0-2h8a1 1 0 0 1 1 1z"
+        fill="#FEC84B" fill-rule="evenodd" />
+</svg>

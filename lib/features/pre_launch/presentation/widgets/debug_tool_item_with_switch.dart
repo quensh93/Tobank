@@ -69,8 +69,8 @@ class DebugToolItemWithSwitch extends StatelessWidget {
           Switch(
             value: value,
             onChanged: onChanged,
-            activeColor: colorScheme.primary,
-            activeTrackColor: colorScheme.primary.withOpacity(0.5),
+            activeThumbColor: colorScheme.primary,
+            activeTrackColor: colorScheme.primary.withValues(alpha: 0.5),
           ),
         ],
       ),

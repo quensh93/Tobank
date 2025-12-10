@@ -1,0 +1,30 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-flow",
+  "version": "1.0.0",
+  "flowId": "credit_card",
+  "flowType": "credit_facility",
+  "title": {"fa": "تسهیلات کارت اعتباری", "en": "Credit Card Facility"},
+  "description": {"fa": "درخواست کارت اعتباری بانکی", "en": "Bank credit card application"},
+  "icon": "assets/icons/ic_credit_card.svg",
+  "color": "#FF5722",
+  
+  "creditDetails": {
+    "creditLimits": [100000000, 200000000, 500000000, 1000000000],
+    "interestRate": 18,
+    "repaymentDays": [15, 30, 45],
+    "guarantorRequired": true
+  },
+  
+  "steps": [
+    {"id": "rules", "order": 1, "title": {"fa": "قوانین", "en": "Rules"}, "pageRef": "step-01-rules.json"},
+    {"id": "customer_info", "order": 2, "title": {"fa": "اطلاعات مشتری", "en": "Customer Info"}, "pageRef": "step-02-customer-info.json"},
+    {"id": "amount", "order": 3, "title": {"fa": "انتخاب سقف", "en": "Select Limit"}, "pageRef": "step-03-amount.json"},
+    {"id": "guarantor", "order": 4, "title": {"fa": "ضامن", "en": "Guarantor"}, "pageRef": "step-04-guarantor.json"},
+    {"id": "documents", "order": 5, "title": {"fa": "مدارک", "en": "Documents"}, "pageRef": "step-05-documents.json"},
+    {"id": "contract", "order": 6, "title": {"fa": "قرارداد", "en": "Contract"}, "pageRef": "step-06-contract.json"},
+    {"id": "completion", "order": 7, "title": {"fa": "اتمام", "en": "Completion"}, "pageRef": "step-07-completion.json", "isFinal": true}
+  ],
+  
+  "api": {"baseEndpoint": "bpms/credit-card"}
+}
+

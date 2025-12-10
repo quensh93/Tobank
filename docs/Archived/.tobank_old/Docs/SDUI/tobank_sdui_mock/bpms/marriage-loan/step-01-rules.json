@@ -1,0 +1,234 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "marriage_loan_rules",
+  "flowId": "marriage_loan",
+  "stepNumber": 1,
+  "title": {
+    "fa": "قوانین و مقررات",
+    "en": "Terms & Conditions"
+  },
+  
+  "appBar": {
+    "type": "bpms_stepper",
+    "title": {"fa": "تسهیلات ازدواج", "en": "Marriage Loan"},
+    "currentStep": 1,
+    "totalSteps": 8,
+    "showBackButton": true,
+    "onBack": {"type": "confirm_exit_flow"}
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "header_card",
+        "type": "card",
+        "padding": 20,
+        "backgroundColor": "#FCE4EC",
+        "child": {
+          "type": "row",
+          "children": [
+            {
+              "type": "icon",
+              "icon": "assets/icons/ic_marriage_loan.svg",
+              "size": 48,
+              "color": "#E91E63"
+            },
+            {"type": "sized_box", "width": 16},
+            {
+              "type": "expanded",
+              "child": {
+                "type": "column",
+                "crossAxisAlignment": "start",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": {"fa": "قرض‌الحسنه ازدواج", "en": "Marriage Loan"},
+                    "style": "titleLarge"
+                  },
+                  {
+                    "type": "text",
+                    "text": {"fa": "حداکثر ۳۰۰ میلیون تومان", "en": "Up to 300M Toman"},
+                    "style": "bodyMedium",
+                    "color": "textSecondary"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "eligibility_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "شرایط دریافت", "en": "Eligibility"},
+          "icon": "assets/icons/ic_checklist.svg"
+        },
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "check_item",
+              "icon": "assets/icons/ic_age.svg",
+              "text": {"fa": "سن متقاضی: ۱۸ تا ۳۵ سال", "en": "Age: 18-35 years"}
+            },
+            {
+              "type": "check_item",
+              "icon": "assets/icons/ic_calendar.svg",
+              "text": {"fa": "ازدواج در ۵ سال اخیر", "en": "Married within last 5 years"}
+            },
+            {
+              "type": "check_item",
+              "icon": "assets/icons/ic_deposit.svg",
+              "text": {"fa": "داشتن حساب فعال در بانک", "en": "Active bank account required"}
+            },
+            {
+              "type": "check_item",
+              "icon": "assets/icons/ic_guarantor.svg",
+              "text": {"fa": "معرفی یک نفر ضامن معتبر", "en": "One valid guarantor required"}
+            },
+            {
+              "type": "check_item",
+              "icon": "assets/icons/ic_history.svg",
+              "text": {"fa": "عدم سابقه چک برگشتی", "en": "No bounced check history"}
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "loan_details_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "مشخصات تسهیلات", "en": "Loan Details"},
+          "icon": "assets/icons/ic_info.svg"
+        },
+        "child": {
+          "type": "card",
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "info_row",
+                "padding": 16,
+                "label": {"fa": "حداکثر مبلغ", "en": "Max Amount"},
+                "value": {"fa": "۳۰۰,۰۰۰,۰۰۰ تومان", "en": "300M Toman"}
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "padding": 16,
+                "label": {"fa": "نرخ سود", "en": "Interest Rate"},
+                "value": {"fa": "۴٪ سالانه", "en": "4% annual"}
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "padding": 16,
+                "label": {"fa": "مدت بازپرداخت", "en": "Repayment Period"},
+                "value": {"fa": "۳۶ تا ۶۰ ماه", "en": "36-60 months"}
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "padding": 16,
+                "label": {"fa": "مهلت استفاده", "en": "Grace Period"},
+                "value": {"fa": "۶ ماه", "en": "6 months"}
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "documents_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {
+          "title": {"fa": "مدارک مورد نیاز", "en": "Required Documents"},
+          "icon": "assets/icons/ic_document.svg"
+        },
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "document_item", "text": {"fa": "کارت ملی زوجین", "en": "National ID of both"}},
+            {"type": "document_item", "text": {"fa": "شناسنامه زوجین", "en": "Birth certificate of both"}},
+            {"type": "document_item", "text": {"fa": "عقدنامه یا سند ازدواج", "en": "Marriage certificate"}},
+            {"type": "document_item", "text": {"fa": "فیش حقوقی یا گواهی اشتغال", "en": "Salary slip or employment letter"}},
+            {"type": "document_item", "text": {"fa": "مدارک ضامن", "en": "Guarantor documents"}}
+          ]
+        }
+      },
+      
+      {
+        "id": "terms_section",
+        "type": "card",
+        "margin": {"top": 24},
+        "padding": 16,
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "text",
+              "text": {"fa": "قوانین و مقررات", "en": "Terms and Conditions"},
+              "style": "titleMedium"
+            },
+            {"type": "sized_box", "height": 12},
+            {
+              "type": "container",
+              "height": 200,
+              "decoration": {"color": "#F5F5F5", "borderRadius": 8},
+              "padding": 12,
+              "child": {
+                "type": "scrollable",
+                "child": {
+                  "type": "text",
+                  "text": {"fa": "۱. متقاضی باید دارای حساب فعال در بانک توسعه صادرات باشد.\n\n۲. حداکثر سن متقاضی در زمان درخواست ۳۵ سال تمام می‌باشد.\n\n۳. تاریخ ازدواج می‌بایست حداکثر ۵ سال قبل از تاریخ درخواست باشد.\n\n۴. متقاضی نباید بدهی معوق به سیستم بانکی داشته باشد.\n\n۵. ضامن معرفی شده باید دارای کسر از حقوق یا سپرده بلندمدت باشد.\n\n۶. بازپرداخت اقساط از ماه هفتم پس از دریافت تسهیلات آغاز می‌شود.\n\n۷. در صورت تاخیر در پرداخت اقساط، جریمه دیرکرد مطابق مقررات بانک مرکزی اعمال می‌شود.\n\n۸. متقاضی حق انصراف از درخواست را تا قبل از امضای قرارداد دارد.\n\n۹. کلیه اطلاعات ارائه شده باید صحیح و معتبر باشد.\n\n۱۰. بانک حق بررسی و رد درخواست را برای خود محفوظ می‌دارد.", "en": "Terms and conditions text in English..."},
+                  "style": "bodySmall"
+                }
+              }
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "acceptance_checkbox",
+        "type": "checkbox_tile",
+        "margin": {"top": 16},
+        "title": {"fa": "قوانین و مقررات را مطالعه کردم و می‌پذیرم", "en": "I have read and accept the terms"},
+        "value": "{{acceptedTerms}}",
+        "bindTo": "acceptedTerms"
+      },
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "decoration": {"color": "surface", "boxShadow": "0 -2px 8px rgba(0,0,0,0.1)"},
+    "child": {
+      "type": "elevated_button",
+      "label": {"fa": "شروع درخواست", "en": "Start Application"},
+      "fullWidth": true,
+      "disabled": "{{!acceptedTerms}}",
+      "onTap": {
+        "type": "navigate",
+        "route": "/bpms/marriage-loan/step-02"
+      }
+    }
+  },
+  
+  "dataBindings": {
+    "acceptedTerms": {"source": "form", "default": false}
+  }
+}
+

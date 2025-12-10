@@ -1,0 +1,60 @@
+name: Test Suite
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.9.0'
+          channel: 'stable'
+      
+      - name: Get dependencies
+        run: flutter pub get
+      
+      - name: Install STAC CLI
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/StacDev/install/main/install.sh | bash
+          echo "$HOME/.stac/bin" >> $GITHUB_PATH
+      
+      - name: Build STAC JSON files
+        run: stac build
+        # Note: Files are generated in stac/.build/ and loaded directly via assets
+        # No copying needed - pubspec.yaml includes stac/.build/ as assets
+      
+      - name: Run analyzer
+        run: flutter analyze
+      
+      - name: Run unit tests
+        run: flutter test test/core --reporter=expanded
+      
+      - name: Run integration tests
+        run: flutter test test/integration --reporter=expanded
+      
+      - name: Run regression tests
+        run: flutter test test/regression --reporter=expanded
+      
+      - name: Generate coverage report
+        run: flutter test --coverage
+      
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage/lcov.info
+          fail_ci_if_error: false
+      
+      - name: Check test results
+        if: failure()
+        run: echo "Tests failed. Please fix the failing tests before merging."

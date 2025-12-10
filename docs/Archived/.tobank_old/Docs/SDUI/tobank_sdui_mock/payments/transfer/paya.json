@@ -1,0 +1,468 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "paya_transfer",
+  "pageType": "form_flow",
+  "title": {
+    "fa": "انتقال پایا",
+    "en": "PAYA Transfer"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "paya_transfer",
+    "screenClass": "PayaTransferPage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "انتقال پایا", "en": "PAYA Transfer"},
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "stepper",
+    "currentStep": "{{currentStep}}",
+    "steps": [
+      {
+        "id": "step_source",
+        "title": {"fa": "مبدا", "en": "Source"},
+        "content": {
+          "type": "column",
+          "padding": 16,
+          "children": [
+            {
+              "type": "text",
+              "text": {"fa": "سپرده مبدا را انتخاب کنید", "en": "Select source deposit"},
+              "style": "titleMedium"
+            },
+            {
+              "type": "sized_box",
+              "height": 16
+            },
+            {
+              "type": "list",
+              "dataSource": "deposits",
+              "itemTemplate": {
+                "type": "selectable_card",
+                "selected": "{{selectedDepositId === item.id}}",
+                "margin": {"bottom": 12},
+                "child": {
+                  "type": "row",
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "icon",
+                      "icon": "assets/icons/ic_deposit.svg",
+                      "size": 40,
+                      "color": "#E31837"
+                    },
+                    {
+                      "type": "sized_box",
+                      "width": 12
+                    },
+                    {
+                      "type": "expanded",
+                      "child": {
+                        "type": "column",
+                        "crossAxisAlignment": "start",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "{{item.depositType}}",
+                            "style": "titleSmall"
+                          },
+                          {
+                            "type": "text",
+                            "text": "{{item.depositNumber}}",
+                            "style": "bodySmall",
+                            "color": "textSecondary"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "column",
+                      "crossAxisAlignment": "end",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "{{formatCurrency(item.balance)}}",
+                          "style": "titleSmall"
+                        },
+                        {
+                          "type": "text",
+                          "text": {"fa": "ریال", "en": "Rials"},
+                          "style": "bodySmall",
+                          "color": "textSecondary"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "onTap": {
+                  "type": "set_state",
+                  "key": "selectedDepositId",
+                  "value": "{{item.id}}"
+                }
+              }
+            },
+            {
+              "type": "sized_box",
+              "height": 24
+            },
+            {
+              "type": "elevated_button",
+              "label": {"fa": "ادامه", "en": "Continue"},
+              "fullWidth": true,
+              "disabled": "{{!selectedDepositId}}",
+              "onTap": {
+                "type": "set_state",
+                "key": "currentStep",
+                "value": 1
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "step_destination",
+        "title": {"fa": "مقصد", "en": "Destination"},
+        "content": {
+          "type": "column",
+          "padding": 16,
+          "children": [
+            {
+              "type": "text_field",
+              "label": {"fa": "شماره شبا مقصد", "en": "Destination IBAN"},
+              "hint": {"fa": "IR + 24 رقم", "en": "IR + 24 digits"},
+              "icon": "assets/icons/ic_iban.svg",
+              "keyboardType": "text",
+              "maxLength": 26,
+              "formatter": "iban",
+              "prefixText": "IR",
+              "suffixIcon": {
+                "icon": "assets/icons/ic_contacts.svg",
+                "onTap": {
+                  "type": "show_bottom_sheet",
+                  "sheetId": "contacts_sheet"
+                }
+              },
+              "validation": {
+                "required": true,
+                "pattern": "^IR[0-9]{24}$",
+                "customValidator": "validateIban"
+              },
+              "bindTo": "destinationIban"
+            },
+            {
+              "type": "conditional",
+              "condition": "{{destinationBank}}",
+              "whenTrue": {
+                "type": "container",
+                "margin": {"top": 8},
+                "padding": 12,
+                "decoration": {"color": "#F5F5F5", "borderRadius": 8},
+                "child": {
+                  "type": "row",
+                  "children": [
+                    {
+                      "type": "image",
+                      "src": "{{destinationBank.logo}}",
+                      "width": 24,
+                      "height": 24
+                    },
+                    {
+                      "type": "sized_box",
+                      "width": 8
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{destinationBank.name}}",
+                      "style": "bodySmall"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "sized_box",
+              "height": 16
+            },
+            {
+              "type": "text_field",
+              "label": {"fa": "نام دارنده حساب", "en": "Account Holder Name"},
+              "hint": {"fa": "نام و نام خانوادگی", "en": "Full name"},
+              "icon": "assets/icons/ic_profile.svg",
+              "bindTo": "destinationName"
+            },
+            {
+              "type": "sized_box",
+              "height": 24
+            },
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "expanded",
+                  "child": {
+                    "type": "outlined_button",
+                    "label": {"fa": "قبلی", "en": "Back"},
+                    "onTap": {"type": "set_state", "key": "currentStep", "value": 0}
+                  }
+                },
+                {
+                  "type": "sized_box",
+                  "width": 16
+                },
+                {
+                  "type": "expanded",
+                  "child": {
+                    "type": "elevated_button",
+                    "label": {"fa": "ادامه", "en": "Continue"},
+                    "disabled": "{{!destinationIban || destinationIban.length < 26}}",
+                    "onTap": {"type": "set_state", "key": "currentStep", "value": 2}
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "step_amount",
+        "title": {"fa": "مبلغ", "en": "Amount"},
+        "content": {
+          "type": "column",
+          "padding": 16,
+          "children": [
+            {
+              "type": "currency_field",
+              "label": {"fa": "مبلغ (ریال)", "en": "Amount (Rials)"},
+              "currency": "IRR",
+              "showToman": true,
+              "minValue": 100000,
+              "maxValue": "{{selectedDeposit.balance}}",
+              "bindTo": "amount"
+            },
+            {
+              "type": "sized_box",
+              "height": 8
+            },
+            {
+              "type": "text",
+              "text": {"fa": "حداقل مبلغ: ۱۰۰,۰۰۰ ریال | حداکثر: ۵۰۰,۰۰۰,۰۰۰ ریال", "en": "Min: 100,000 | Max: 500,000,000 Rials"},
+              "style": "bodySmall",
+              "color": "textSecondary"
+            },
+            {
+              "type": "sized_box",
+              "height": 16
+            },
+            {
+              "type": "text_field",
+              "label": {"fa": "شرح انتقال", "en": "Description"},
+              "hint": {"fa": "بابت چه پرداختی؟", "en": "What is this for?"},
+              "maxLength": 50,
+              "bindTo": "description"
+            },
+            {
+              "type": "sized_box",
+              "height": 16
+            },
+            {
+              "type": "card",
+              "padding": 12,
+              "backgroundColor": "#FFF8E1",
+              "child": {
+                "type": "column",
+                "children": [
+                  {
+                    "type": "row",
+                    "children": [
+                      {
+                        "type": "icon",
+                        "icon": "assets/icons/ic_info.svg",
+                        "color": "#F57C00",
+                        "size": 20
+                      },
+                      {
+                        "type": "sized_box",
+                        "width": 8
+                      },
+                      {
+                        "type": "text",
+                        "text": {"fa": "اطلاعات پایا", "en": "PAYA Info"},
+                        "style": "titleSmall"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "sized_box",
+                    "height": 8
+                  },
+                  {
+                    "type": "text",
+                    "text": {"fa": "• انتقال طی ۲۴ ساعت انجام می‌شود\n• ساعت پردازش: ۸ صبح، ۱۲ ظهر، ۴ عصر\n• کارمزد: رایگان", "en": "• Transfer within 24 hours\n• Processing: 8AM, 12PM, 4PM\n• Fee: Free"},
+                    "style": "bodySmall"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "sized_box",
+              "height": 24
+            },
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "expanded",
+                  "child": {
+                    "type": "outlined_button",
+                    "label": {"fa": "قبلی", "en": "Back"},
+                    "onTap": {"type": "set_state", "key": "currentStep", "value": 1}
+                  }
+                },
+                {
+                  "type": "sized_box",
+                  "width": 16
+                },
+                {
+                  "type": "expanded",
+                  "child": {
+                    "type": "elevated_button",
+                    "label": {"fa": "ادامه", "en": "Continue"},
+                    "disabled": "{{!amount || amount < 100000}}",
+                    "onTap": {"type": "set_state", "key": "currentStep", "value": 3}
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "step_confirm",
+        "title": {"fa": "تایید", "en": "Confirm"},
+        "content": {
+          "type": "column",
+          "padding": 16,
+          "children": [
+            {
+              "type": "text",
+              "text": "{{formatCurrency(amount)}}",
+              "style": "displaySmall",
+              "color": "#E31837",
+              "textAlign": "center"
+            },
+            {
+              "type": "text",
+              "text": {"fa": "ریال", "en": "Rials"},
+              "style": "titleMedium",
+              "color": "textSecondary",
+              "textAlign": "center"
+            },
+            {
+              "type": "sized_box",
+              "height": 24
+            },
+            {
+              "type": "card",
+              "child": {
+                "type": "column",
+                "children": [
+                  {
+                    "type": "info_row",
+                    "label": {"fa": "از سپرده", "en": "From Deposit"},
+                    "value": "{{selectedDeposit.depositNumber}}"
+                  },
+                  {"type": "divider"},
+                  {
+                    "type": "info_row",
+                    "label": {"fa": "به شبا", "en": "To IBAN"},
+                    "value": "{{formatIban(destinationIban)}}"
+                  },
+                  {"type": "divider"},
+                  {
+                    "type": "info_row",
+                    "label": {"fa": "نام گیرنده", "en": "Recipient"},
+                    "value": "{{destinationName}}"
+                  },
+                  {"type": "divider"},
+                  {
+                    "type": "info_row",
+                    "label": {"fa": "نوع انتقال", "en": "Transfer Type"},
+                    "value": {"fa": "پایا (ACH)", "en": "PAYA (ACH)"}
+                  },
+                  {"type": "divider"},
+                  {
+                    "type": "info_row",
+                    "label": {"fa": "کارمزد", "en": "Fee"},
+                    "value": {"fa": "رایگان", "en": "Free"},
+                    "valueColor": "#4CAF50"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "sized_box",
+              "height": 24
+            },
+            {
+              "type": "elevated_button",
+              "label": {"fa": "تایید و انتقال", "en": "Confirm & Transfer"},
+              "fullWidth": true,
+              "loading": "{{isSubmitting}}",
+              "onTap": {
+                "type": "api_call",
+                "endpoint": "dibalite/transfer/paya",
+                "method": "POST",
+                "body": {
+                  "sourceDepositId": "{{selectedDepositId}}",
+                  "destinationIban": "{{destinationIban}}",
+                  "destinationName": "{{destinationName}}",
+                  "amount": "{{amount}}",
+                  "description": "{{description}}"
+                },
+                "requireOtp": true,
+                "requireEkycSign": true,
+                "onSuccess": {
+                  "type": "navigate_replace",
+                  "route": "/payments/transfer/result",
+                  "params": {
+                    "success": true,
+                    "type": "paya",
+                    "referenceNumber": "{{response.referenceNumber}}",
+                    "amount": "{{amount}}",
+                    "destination": "{{destinationIban}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  
+  "dataBindings": {
+    "deposits": {"source": "api", "endpoint": "dibalite/deposits"},
+    "currentStep": {"source": "state", "default": 0},
+    "selectedDepositId": {"source": "state", "default": null},
+    "selectedDeposit": {
+      "source": "computed",
+      "expression": "deposits.find(d => d.id === selectedDepositId)"
+    },
+    "destinationIban": {"source": "form", "default": ""},
+    "destinationBank": {"source": "state", "default": null},
+    "destinationName": {"source": "form", "default": ""},
+    "amount": {"source": "form", "default": 0},
+    "description": {"source": "form", "default": ""},
+    "isSubmitting": {"source": "state", "default": false}
+  },
+  
+  "mockData": {
+    "deposits": "$ref:mock-data/deposits.json#deposits"
+  }
+}
+

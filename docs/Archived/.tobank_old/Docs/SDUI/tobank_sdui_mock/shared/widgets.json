@@ -1,0 +1,116 @@
+{
+  "$schema": "tobank-sdui/v1/widget-library",
+  "version": "1.0.0",
+  "description": "Shared widget definitions for SDUI rendering",
+  
+  "widgets": {
+    "card_widget": {
+      "description": "Bank card display widget",
+      "properties": {
+        "cardNumber": {"type": "string", "required": true},
+        "cardHolder": {"type": "string"},
+        "expiry": {"type": "string"},
+        "balance": {"type": "number"},
+        "bankName": {"type": "string"},
+        "bankLogo": {"type": "string"},
+        "gradient": {"type": "array"},
+        "showBalance": {"type": "boolean", "default": true},
+        "isDefault": {"type": "boolean", "default": false}
+      }
+    },
+    
+    "deposit_selector": {
+      "description": "Deposit/account selection widget",
+      "properties": {
+        "deposits": {"type": "array", "required": true},
+        "selectedId": {"type": "string"},
+        "showBalance": {"type": "boolean", "default": true},
+        "multiple": {"type": "boolean", "default": false}
+      }
+    },
+    
+    "amount_field": {
+      "description": "Currency input field with formatting",
+      "properties": {
+        "currency": {"type": "string", "default": "IRR"},
+        "min": {"type": "number"},
+        "max": {"type": "number"},
+        "quickAmounts": {"type": "array"},
+        "showInWords": {"type": "boolean", "default": true}
+      }
+    },
+    
+    "otp_field": {
+      "description": "OTP code input field",
+      "properties": {
+        "length": {"type": "number", "default": 5},
+        "autoSubmit": {"type": "boolean", "default": true},
+        "obscure": {"type": "boolean", "default": false}
+      }
+    },
+    
+    "transaction_list_item": {
+      "description": "Single transaction display",
+      "properties": {
+        "type": {"type": "string", "enum": ["credit", "debit"]},
+        "amount": {"type": "number", "required": true},
+        "description": {"type": "string"},
+        "date": {"type": "string"},
+        "time": {"type": "string"},
+        "icon": {"type": "string"},
+        "color": {"type": "string"}
+      }
+    },
+    
+    "contact_selector": {
+      "description": "Contact/recipient selection",
+      "properties": {
+        "contacts": {"type": "array"},
+        "recentContacts": {"type": "array"},
+        "showRecent": {"type": "boolean", "default": true},
+        "showSearch": {"type": "boolean", "default": true}
+      }
+    },
+    
+    "document_upload": {
+      "description": "Document upload widget",
+      "properties": {
+        "title": {"type": "object"},
+        "required": {"type": "boolean", "default": false},
+        "maxFiles": {"type": "number", "default": 1},
+        "acceptedTypes": {"type": "array", "default": ["image/*", "application/pdf"]}
+      }
+    },
+    
+    "info_row": {
+      "description": "Label-value pair display",
+      "properties": {
+        "label": {"type": "object", "required": true},
+        "value": {"type": "string", "required": true},
+        "valueColor": {"type": "string"},
+        "copyable": {"type": "boolean", "default": false}
+      }
+    },
+    
+    "bpms_stepper": {
+      "description": "BPMS workflow step indicator",
+      "properties": {
+        "currentStep": {"type": "number", "required": true},
+        "totalSteps": {"type": "number", "required": true},
+        "steps": {"type": "array"},
+        "allowNavigation": {"type": "boolean", "default": false}
+      }
+    },
+    
+    "empty_state": {
+      "description": "Empty state placeholder",
+      "properties": {
+        "icon": {"type": "string"},
+        "title": {"type": "object"},
+        "subtitle": {"type": "object"},
+        "action": {"type": "object"}
+      }
+    }
+  }
+}
+

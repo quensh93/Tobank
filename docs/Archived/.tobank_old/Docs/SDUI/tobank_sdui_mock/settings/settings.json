@@ -1,0 +1,76 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "settings",
+  "title": {"fa": "تنظیمات", "en": "Settings"},
+  
+  "appBar": {"type": "standard", "title": {"fa": "تنظیمات", "en": "Settings"}},
+  
+  "body": {
+    "type": "scrollable",
+    "children": [
+      {"type": "container", "padding": 16, "child": {"type": "column", "children": [
+        {"type": "section", "header": {"title": {"fa": "عمومی", "en": "General"}}, "child": {"type": "card", "child": {"type": "column", "children": [
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_language.svg"}, "title": {"fa": "زبان", "en": "Language"}, "trailing": {"type": "row", "children": [{"type": "text", "text": "{{settings.languageLabel}}", "color": "textSecondary"}, {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}]}, "onTap": {"type": "navigate", "route": "/settings/language"}},
+          {"type": "divider", "indent": 56},
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_theme.svg"}, "title": {"fa": "تم برنامه", "en": "Theme"}, "trailing": {"type": "row", "children": [{"type": "text", "text": "{{settings.themeLabel}}", "color": "textSecondary"}, {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}]}, "onTap": {"type": "navigate", "route": "/settings/theme"}},
+          {"type": "divider", "indent": 56},
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_font.svg"}, "title": {"fa": "اندازه فونت", "en": "Font Size"}, "trailing": {"type": "row", "children": [{"type": "text", "text": "{{settings.fontSizeLabel}}", "color": "textSecondary"}, {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}]}, "onTap": {"type": "navigate", "route": "/settings/font-size"}}
+        ]}}},
+        
+        {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "اعلان‌ها", "en": "Notifications"}}, "child": {"type": "card", "child": {"type": "column", "children": [
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_notifications.svg"}, "title": {"fa": "اعلان‌های پوش", "en": "Push Notifications"}, "trailing": {"type": "switch", "value": "{{settings.pushEnabled}}", "onChanged": {"type": "toggle_setting", "key": "pushEnabled"}}},
+          {"type": "divider", "indent": 56},
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_sms.svg"}, "title": {"fa": "پیامک تراکنش", "en": "SMS Alerts"}, "trailing": {"type": "switch", "value": "{{settings.smsEnabled}}", "onChanged": {"type": "toggle_setting", "key": "smsEnabled"}}},
+          {"type": "divider", "indent": 56},
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_email.svg"}, "title": {"fa": "ایمیل", "en": "Email"}, "trailing": {"type": "switch", "value": "{{settings.emailEnabled}}", "onChanged": {"type": "toggle_setting", "key": "emailEnabled"}}}
+        ]}}},
+        
+        {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "امنیت", "en": "Security"}}, "child": {"type": "card", "child": {"type": "column", "children": [
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_lock.svg"}, "title": {"fa": "تغییر رمز عبور", "en": "Change Password"}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "navigate", "route": "/settings/change-password"}},
+          {"type": "divider", "indent": 56},
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_fingerprint.svg"}, "title": {"fa": "ورود بیومتریک", "en": "Biometric"}, "trailing": {"type": "switch", "value": "{{settings.biometricEnabled}}", "onChanged": {"type": "toggle_biometric"}}},
+          {"type": "divider", "indent": 56},
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_pin.svg"}, "title": {"fa": "تغییر پین برنامه", "en": "Change PIN"}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "navigate", "route": "/settings/change-pin"}},
+          {"type": "divider", "indent": 56},
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_2fa.svg"}, "title": {"fa": "احراز دو مرحله‌ای", "en": "Two-Factor Auth"}, "trailing": {"type": "switch", "value": "{{settings.twoFactorEnabled}}", "onChanged": {"type": "navigate", "route": "/settings/two-factor"}}}
+        ]}}},
+        
+        {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "درباره", "en": "About"}}, "child": {"type": "card", "child": {"type": "column", "children": [
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_info.svg"}, "title": {"fa": "درباره ما", "en": "About Us"}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "navigate", "route": "/about"}},
+          {"type": "divider", "indent": 56},
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_document.svg"}, "title": {"fa": "قوانین و مقررات", "en": "Terms"}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "navigate", "route": "/terms"}},
+          {"type": "divider", "indent": 56},
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_privacy.svg"}, "title": {"fa": "حریم خصوصی", "en": "Privacy Policy"}, "trailing": {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg"}, "onTap": {"type": "navigate", "route": "/privacy"}},
+          {"type": "divider", "indent": 56},
+          {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_version.svg"}, "title": {"fa": "نسخه", "en": "Version"}, "trailing": {"type": "text", "text": "{{appVersion}}", "color": "textSecondary"}}
+        ]}}},
+        
+        {"type": "sized_box", "height": 32}
+      ]}}
+    ]
+  },
+  
+  "dataBindings": {
+    "settings": {"source": "local_storage", "key": "user_settings"},
+    "appVersion": {"source": "app_info", "key": "version"}
+  },
+  
+  "mockData": {
+    "settings": {
+      "language": "fa",
+      "languageLabel": "فارسی",
+      "theme": "system",
+      "themeLabel": "سیستم",
+      "fontSize": "medium",
+      "fontSizeLabel": "متوسط",
+      "pushEnabled": true,
+      "smsEnabled": true,
+      "emailEnabled": false,
+      "biometricEnabled": true,
+      "twoFactorEnabled": false
+    },
+    "appVersion": "۲.۵.۱ (۱۲۳)"
+  }
+}
+

@@ -1,0 +1,16 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "نرخ ارز"
+    },
+    "actions": [
+      {
+        "icon": "assets/icons/ic_refresh.svg",
+        "onPressed": {}
+      }
+    ]
+  }
+}

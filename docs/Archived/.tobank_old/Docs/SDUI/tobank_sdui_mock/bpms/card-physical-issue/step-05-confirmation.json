@@ -1,0 +1,68 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "card_issue_confirm",
+  "flowId": "card_physical_issue",
+  "stepNumber": 5,
+  "title": {"fa": "تایید و پرداخت", "en": "Confirm & Pay"},
+  
+  "appBar": {"type": "bpms_stepper", "title": {"fa": "صدور کارت", "en": "Card Issue"}, "currentStep": 5, "totalSteps": 6},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "card", "child": {"type": "aspect_ratio", "aspectRatio": 1.586, "child": {"type": "card_preview", "design": "{{summary.design}}", "name": "{{summary.cardName}}", "cardNumber": "XXXX XXXX XXXX XXXX"}}},
+      
+      {"type": "card", "margin": {"top": 24}, "child": {"type": "column", "children": [
+        {"type": "container", "padding": 16, "child": {"type": "text", "text": {"fa": "خلاصه درخواست", "en": "Order Summary"}, "style": "titleMedium"}},
+        {"type": "divider"},
+        {"type": "info_row", "padding": 16, "label": {"fa": "نوع کارت", "en": "Card Type"}, "value": "{{summary.cardType}}"},
+        {"type": "divider"},
+        {"type": "info_row", "padding": 16, "label": {"fa": "نام روی کارت", "en": "Name on Card"}, "value": "{{summary.cardName}}"},
+        {"type": "divider"},
+        {"type": "info_row", "padding": 16, "label": {"fa": "حساب متصل", "en": "Linked Account"}, "value": "{{summary.accountNumber}}"},
+        {"type": "divider"},
+        {"type": "info_row", "padding": 16, "label": {"fa": "نحوه تحویل", "en": "Delivery"}, "value": "{{summary.deliveryMethod === 'branch' ? 'شعبه' : 'پستی'}}"},
+        {"type": "conditional", "condition": "{{summary.deliveryMethod === 'branch'}}", "whenTrue": {"type": "column", "children": [{"type": "divider"}, {"type": "info_row", "padding": 16, "label": {"fa": "شعبه", "en": "Branch"}, "value": "{{summary.branchName}}"}]}},
+        {"type": "conditional", "condition": "{{summary.deliveryMethod === 'postal'}}", "whenTrue": {"type": "column", "children": [{"type": "divider"}, {"type": "info_row", "padding": 16, "label": {"fa": "آدرس", "en": "Address"}, "value": "{{summary.address}}"}]}}
+      ]}},
+      
+      {"type": "card", "margin": {"top": 24}, "child": {"type": "column", "children": [
+        {"type": "container", "padding": 16, "child": {"type": "text", "text": {"fa": "هزینه‌ها", "en": "Costs"}, "style": "titleMedium"}},
+        {"type": "divider"},
+        {"type": "info_row", "padding": 16, "label": {"fa": "هزینه صدور", "en": "Issuance Fee"}, "value": "{{formatCurrency(costs.issuanceFee)}} ریال"},
+        {"type": "conditional", "condition": "{{costs.designFee > 0}}", "whenTrue": {"type": "column", "children": [{"type": "divider"}, {"type": "info_row", "padding": 16, "label": {"fa": "طرح ویژه", "en": "Premium Design"}, "value": "{{formatCurrency(costs.designFee)}} ریال"}]}},
+        {"type": "conditional", "condition": "{{costs.deliveryFee > 0}}", "whenTrue": {"type": "column", "children": [{"type": "divider"}, {"type": "info_row", "padding": 16, "label": {"fa": "هزینه ارسال", "en": "Delivery"}, "value": "{{formatCurrency(costs.deliveryFee)}} ریال"}]}},
+        {"type": "divider"},
+        {"type": "container", "padding": 16, "decoration": {"color": "#E0F7FA"}, "child": {"type": "row", "mainAxisAlignment": "spaceBetween", "children": [
+          {"type": "text", "text": {"fa": "مجموع", "en": "Total"}, "style": "titleMedium"},
+          {"type": "text", "text": "{{formatCurrency(costs.total)}} ریال", "style": "titleLarge", "color": "#00BCD4"}
+        ]}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "پرداخت از", "en": "Pay From"}}, "child": {"type": "deposit_selector", "deposits": "{{deposits}}", "bindTo": "paymentDeposit", "showBalance": true}},
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {"type": "container", "padding": 16, "child": {"type": "row", "children": [
+    {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "قبلی", "en": "Back"}, "onTap": {"type": "navigate_back"}}},
+    {"type": "sized_box", "width": 16},
+    {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "پرداخت و صدور", "en": "Pay & Issue"}, "disabled": "{{!paymentDeposit}}", "onTap": {"type": "api_call", "endpoint": "bpms/card-physical-issue/submit", "method": "POST", "body": {"depositId": "{{paymentDeposit}}"}, "showLoading": true, "onSuccess": {"type": "navigate_replace", "route": "/bpms/card-physical-issue/step-06"}}}}
+  ]}},
+  
+  "dataBindings": {
+    "summary": {"source": "api", "endpoint": "bpms/card-physical-issue/summary"},
+    "costs": {"source": "api", "endpoint": "bpms/card-physical-issue/costs"},
+    "deposits": {"source": "api", "endpoint": "dibalite/deposits/list"},
+    "paymentDeposit": {"source": "form", "default": null}
+  },
+  
+  "mockData": {
+    "summary": {"cardType": "کارت نقدی", "cardName": "ALI AHMADI", "accountNumber": "۰۱۰۸۱۲۳۴۵۶۷۸۹۰", "design": "classic_blue", "deliveryMethod": "branch", "branchName": "شعبه مرکزی تهران"},
+    "costs": {"issuanceFee": 500000, "designFee": 0, "deliveryFee": 0, "total": 500000}
+  }
+}
+

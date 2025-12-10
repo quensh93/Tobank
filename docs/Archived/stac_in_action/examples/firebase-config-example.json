@@ -1,0 +1,254 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Example Firebase configuration for STAC Hybrid App Framework",
+  
+  "firebaseConfig": {
+    "apiKey": "AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "authDomain": "your-project.firebaseapp.com",
+    "projectId": "your-project-id",
+    "storageBucket": "your-project.appspot.com",
+    "messagingSenderId": "123456789012",
+    "appId": "1:123456789012:web:abcdef1234567890",
+    "measurementId": "G-XXXXXXXXXX"
+  },
+  
+  "firestoreStructure": {
+    "description": "Recommended Firestore collection structure for STAC screens",
+    "collections": {
+      "stac_screens": {
+        "description": "Main collection for STAC screen configurations",
+        "documents": {
+          "home_screen": {
+            "version": 1,
+            "updated_at": "2025-01-11T00:00:00Z",
+            "updated_by": "admin@example.com",
+            "description": "Home screen configuration",
+            "tags": ["home", "main"],
+            "json": {
+              "type": "scaffold",
+              "appBar": {
+                "type": "appBar",
+                "title": {
+                  "type": "text",
+                  "data": "Home"
+                }
+              },
+              "body": {
+                "type": "center",
+                "child": {
+                  "type": "text",
+                  "data": "Welcome to STAC!"
+                }
+              }
+            }
+          },
+          "product_list": {
+            "version": 2,
+            "updated_at": "2025-01-11T00:00:00Z",
+            "updated_by": "admin@example.com",
+            "description": "Product listing screen",
+            "tags": ["products", "ecommerce"],
+            "json": {
+              "type": "scaffold",
+              "body": {
+                "type": "listView",
+                "children": []
+              }
+            }
+          }
+        }
+      },
+      
+      "stac_config": {
+        "description": "Global configuration for STAC app",
+        "documents": {
+          "navigation": {
+            "version": 1,
+            "updated_at": "2025-01-11T00:00:00Z",
+            "json": {
+              "initialRoute": "/home",
+              "routes": {
+                "/home": "home_screen",
+                "/products": "product_list",
+                "/profile": "profile_screen"
+              }
+            }
+          },
+          "theme": {
+            "version": 1,
+            "updated_at": "2025-01-11T00:00:00Z",
+            "json": {
+              "primaryColor": "#2196F3",
+              "accentColor": "#FF5722",
+              "fontFamily": "Roboto",
+              "darkMode": false
+            }
+          },
+          "features": {
+            "version": 1,
+            "updated_at": "2025-01-11T00:00:00Z",
+            "json": {
+              "enableAnalytics": true,
+              "enablePushNotifications": true,
+              "enableOfflineMode": true,
+              "cacheExpiry": 300
+            }
+          }
+        }
+      },
+      
+      "stac_versions": {
+        "description": "Version history for rollback capability",
+        "documents": {
+          "home_screen_v1": {
+            "screen_name": "home_screen",
+            "version": 1,
+            "created_at": "2025-01-10T00:00:00Z",
+            "created_by": "admin@example.com",
+            "json": {}
+          },
+          "home_screen_v2": {
+            "screen_name": "home_screen",
+            "version": 2,
+            "created_at": "2025-01-11T00:00:00Z",
+            "created_by": "admin@example.com",
+            "json": {}
+          }
+        }
+      }
+    }
+  },
+  
+  "securityRules": {
+    "description": "Recommended Firestore security rules",
+    "rules": "rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    \n    // Helper functions\n    function isAuthenticated() {\n      return request.auth != null;\n    }\n    \n    function isAdmin() {\n      return isAuthenticated() && \n             request.auth.token.admin == true;\n    }\n    \n    function isValidScreen(screen) {\n      return screen.keys().hasAll(['version', 'updated_at', 'json']) &&\n             screen.version is int &&\n             screen.updated_at is timestamp &&\n             screen.json is map;\n    }\n    \n    // STAC screens collection\n    match /stac_screens/{screen} {\n      // Anyone authenticated can read\n      allow read: if isAuthenticated();\n      \n      // Only admins can write\n      allow create: if isAdmin() && isValidScreen(request.resource.data);\n      allow update: if isAdmin() && isValidScreen(request.resource.data);\n      allow delete: if isAdmin();\n    }\n    \n    // STAC config collection\n    match /stac_config/{config} {\n      allow read: if isAuthenticated();\n      allow write: if isAdmin();\n    }\n    \n    // Version history (read-only for non-admins)\n    match /stac_versions/{version} {\n      allow read: if isAuthenticated();\n      allow write: if isAdmin();\n    }\n  }\n}"
+  },
+  
+  "apiConfiguration": {
+    "description": "API configuration for different environments",
+    "development": {
+      "mode": "mock",
+      "enableDebugPanel": true,
+      "enablePlayground": true,
+      "enableVisualEditor": true,
+      "cacheExpiry": 60,
+      "logLevel": "debug"
+    },
+    "staging": {
+      "mode": "firebase",
+      "firebaseProjectId": "your-project-staging",
+      "enableDebugPanel": true,
+      "enablePlayground": false,
+      "enableVisualEditor": false,
+      "cacheExpiry": 300,
+      "logLevel": "info"
+    },
+    "production": {
+      "mode": "custom",
+      "apiUrl": "https://api.yourapp.com",
+      "enableDebugPanel": false,
+      "enablePlayground": false,
+      "enableVisualEditor": false,
+      "cacheExpiry": 600,
+      "logLevel": "error"
+    }
+  },
+  
+  "cliConfiguration": {
+    "description": "Configuration for Firebase CLI tool",
+    "commands": {
+      "upload": {
+        "description": "Upload screen JSON to Firebase",
+        "example": "dart run lib/tools/firebase_cli/firebase_cli.dart upload --screen home_screen --file assets/mock_data/screens/home_screen.json"
+      },
+      "download": {
+        "description": "Download screen JSON from Firebase",
+        "example": "dart run lib/tools/firebase_cli/firebase_cli.dart download --screen home_screen --output assets/mock_data/screens/home_screen.json"
+      },
+      "list": {
+        "description": "List all screens in Firebase",
+        "example": "dart run lib/tools/firebase_cli/firebase_cli.dart list"
+      },
+      "delete": {
+        "description": "Delete screen from Firebase",
+        "example": "dart run lib/tools/firebase_cli/firebase_cli.dart delete --screen home_screen"
+      },
+      "validate": {
+        "description": "Validate JSON before upload",
+        "example": "dart run lib/tools/firebase_cli/firebase_cli.dart validate --file assets/mock_data/screens/home_screen.json"
+      }
+    }
+  },
+  
+  "bestPractices": {
+    "naming": {
+      "screens": "Use snake_case for screen names (e.g., home_screen, product_list)",
+      "collections": "Use descriptive collection names with stac_ prefix",
+      "fields": "Use snake_case for field names"
+    },
+    "versioning": {
+      "strategy": "Increment version number on each update",
+      "history": "Keep version history for rollback capability",
+      "testing": "Test new versions in staging before production"
+    },
+    "security": {
+      "authentication": "Always require authentication for reads",
+      "authorization": "Restrict writes to admin users only",
+      "validation": "Validate data structure in security rules",
+      "tokens": "Use custom claims for role-based access"
+    },
+    "performance": {
+      "caching": "Enable caching with appropriate expiry times",
+      "indexing": "Create indexes for frequently queried fields",
+      "pagination": "Use pagination for large collections",
+      "compression": "Consider compressing large JSON payloads"
+    },
+    "monitoring": {
+      "logging": "Log all CRUD operations",
+      "analytics": "Track screen views and user interactions",
+      "errors": "Monitor and alert on errors",
+      "performance": "Track fetch and parse times"
+    }
+  },
+  
+  "exampleQueries": {
+    "description": "Common Firestore queries for STAC screens",
+    "getAllScreens": "db.collection('stac_screens').get()",
+    "getScreenByName": "db.collection('stac_screens').doc('home_screen').get()",
+    "getScreensByTag": "db.collection('stac_screens').where('tags', 'array-contains', 'ecommerce').get()",
+    "getRecentlyUpdated": "db.collection('stac_screens').orderBy('updated_at', 'desc').limit(10).get()",
+    "getScreenVersions": "db.collection('stac_versions').where('screen_name', '==', 'home_screen').orderBy('version', 'desc').get()"
+  },
+  
+  "migrationGuide": {
+    "description": "Steps to migrate from mock to Firebase",
+    "steps": [
+      "1. Set up Firebase project and add configuration files",
+      "2. Create Firestore collections (stac_screens, stac_config, stac_versions)",
+      "3. Upload mock data to Firestore using CLI tool",
+      "4. Update security rules to protect data",
+      "5. Test in staging environment",
+      "6. Update API configuration to use Firebase mode",
+      "7. Deploy to production"
+    ]
+  },
+  
+  "troubleshooting": {
+    "permissionDenied": {
+      "cause": "User not authenticated or security rules blocking access",
+      "solution": "Check authentication status and security rules"
+    },
+    "documentNotFound": {
+      "cause": "Screen document doesn't exist in Firestore",
+      "solution": "Verify document name and upload screen using CLI"
+    },
+    "invalidData": {
+      "cause": "JSON structure doesn't match validation rules",
+      "solution": "Validate JSON using CLI tool before uploading"
+    },
+    "slowQueries": {
+      "cause": "Missing indexes or large result sets",
+      "solution": "Create composite indexes and use pagination"
+    }
+  }
+}

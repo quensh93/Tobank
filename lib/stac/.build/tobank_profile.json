@@ -1,0 +1,324 @@
+{
+  "appBar": {
+    "title": {
+      "request": {
+        "url": "https://api.tobank.com/profile-data",
+        "method": "get",
+        "actionType": "networkRequest"
+      },
+      "targetPath": "data",
+      "template": {
+        "data": "{{appBarTitle}}",
+        "style": {
+          "type": "custom",
+          "color": "onSurface",
+          "fontSize": 20.0,
+          "fontWeight": "bold"
+        },
+        "type": "text"
+      },
+      "loaderWidget": {
+        "data": "{{appStrings.profile.title}}",
+        "style": {
+          "type": "custom",
+          "color": "onSurface",
+          "fontSize": 20.0,
+          "fontWeight": "bold"
+        },
+        "type": "text"
+      },
+      "errorWidget": {
+        "data": "{{appStrings.profile.title}}",
+        "style": {
+          "type": "custom",
+          "color": "onSurface",
+          "fontSize": 20.0,
+          "fontWeight": "bold"
+        },
+        "type": "text"
+      },
+      "type": "dynamicView"
+    },
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "body": {
+    "request": {
+      "url": "https://api.tobank.com/profile-data",
+      "method": "get",
+      "actionType": "networkRequest"
+    },
+    "targetPath": "data",
+    "template": {
+      "padding": {
+        "left": 16.0,
+        "top": 16.0,
+        "right": 16.0,
+        "bottom": 16.0
+      },
+      "child": {
+        "crossAxisAlignment": "stretch",
+        "children": [
+          {
+            "child": {
+              "padding": {
+                "left": 24.0,
+                "top": 24.0,
+                "right": 24.0,
+                "bottom": 24.0
+              },
+              "child": {
+                "crossAxisAlignment": "start",
+                "children": [
+                  {
+                    "data": "{{nameLabel}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "onSurfaceVariant",
+                      "fontSize": 14.0,
+                      "fontWeight": "w400"
+                    },
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{userName}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "onSurface",
+                      "fontSize": 18.0,
+                      "fontWeight": "bold"
+                    },
+                    "type": "text"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "padding"
+            },
+            "type": "card"
+          },
+          {
+            "height": 16.0,
+            "type": "sizedBox"
+          },
+          {
+            "child": {
+              "padding": {
+                "left": 24.0,
+                "top": 24.0,
+                "right": 24.0,
+                "bottom": 24.0
+              },
+              "child": {
+                "crossAxisAlignment": "start",
+                "children": [
+                  {
+                    "data": "{{mobileLabel}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "onSurfaceVariant",
+                      "fontSize": 14.0,
+                      "fontWeight": "w400"
+                    },
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{mobileNumber}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "onSurface",
+                      "fontSize": 18.0,
+                      "fontWeight": "bold"
+                    },
+                    "type": "text"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "padding"
+            },
+            "type": "card"
+          },
+          {
+            "height": 16.0,
+            "type": "sizedBox"
+          },
+          {
+            "child": {
+              "padding": {
+                "left": 24.0,
+                "top": 24.0,
+                "right": 24.0,
+                "bottom": 24.0
+              },
+              "child": {
+                "crossAxisAlignment": "start",
+                "children": [
+                  {
+                    "data": "{{customerNumberLabel}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "onSurfaceVariant",
+                      "fontSize": 14.0,
+                      "fontWeight": "w400"
+                    },
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{customerNumber}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "onSurface",
+                      "fontSize": 18.0,
+                      "fontWeight": "bold"
+                    },
+                    "type": "text"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "padding"
+            },
+            "type": "card"
+          },
+          {
+            "height": 16.0,
+            "type": "sizedBox"
+          },
+          {
+            "child": {
+              "padding": {
+                "left": 24.0,
+                "top": 24.0,
+                "right": 24.0,
+                "bottom": 24.0
+              },
+              "child": {
+                "crossAxisAlignment": "start",
+                "children": [
+                  {
+                    "data": "{{emailLabel}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "onSurfaceVariant",
+                      "fontSize": 14.0,
+                      "fontWeight": "w400"
+                    },
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{email}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "onSurface",
+                      "fontSize": 18.0,
+                      "fontWeight": "bold"
+                    },
+                    "type": "text"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "padding"
+            },
+            "type": "card"
+          },
+          {
+            "height": 24.0,
+            "type": "sizedBox"
+          },
+          {
+            "onPressed": {
+              "assetPath": "stac/.build/tobank_edit_profile.json",
+              "navigationStyle": "push",
+              "actionType": "navigate"
+            },
+            "style": {
+              "backgroundColor": "primary",
+              "padding": {
+                "top": 16.0,
+                "bottom": 16.0
+              }
+            },
+            "child": {
+              "data": "{{editProfileButtonText}}",
+              "style": {
+                "type": "custom",
+                "color": "onPrimary",
+                "fontSize": 16.0,
+                "fontWeight": "bold"
+              },
+              "type": "text"
+            },
+            "type": "elevatedButton"
+          },
+          {
+            "height": 16.0,
+            "type": "sizedBox"
+          },
+          {
+            "onPressed": {
+              "assetPath": "stac/.build/tobank_settings.json",
+              "navigationStyle": "push",
+              "actionType": "navigate"
+            },
+            "style": {
+              "padding": {
+                "top": 16.0,
+                "bottom": 16.0
+              }
+            },
+            "child": {
+              "data": "{{settingsButtonText}}",
+              "style": {
+                "type": "custom",
+                "color": "primary",
+                "fontSize": 16.0,
+                "fontWeight": "bold"
+              },
+              "type": "text"
+            },
+            "type": "outlinedButton"
+          }
+        ],
+        "type": "column"
+      },
+      "type": "singleChildScrollView"
+    },
+    "loaderWidget": {
+      "child": {
+        "type": "circularProgressIndicator"
+      },
+      "type": "center"
+    },
+    "errorWidget": {
+      "child": {
+        "data": "{{appStrings.profile.errorLoading}}",
+        "style": {
+          "type": "custom",
+          "color": "error"
+        },
+        "type": "text"
+      },
+      "type": "center"
+    },
+    "type": "dynamicView"
+  },
+  "type": "scaffold"
+}

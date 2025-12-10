@@ -3,6 +3,7 @@
 /// This package provides a comprehensive secure storage solution with:
 /// - Type-safe enum-based key management
 /// - Singleton pattern for resource efficiency
+library;
 /// - Enhanced security features (double encryption, biometric protection)
 /// - Data integrity verification
 /// - Automatic data expiration

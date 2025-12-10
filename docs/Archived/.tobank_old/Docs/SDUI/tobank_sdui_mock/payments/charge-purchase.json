@@ -1,0 +1,248 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "charge_purchase",
+  "pageType": "list",
+  "title": {
+    "fa": "خرید شارژ و کارت",
+    "en": "Purchase Charges & Cards"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "charge_purchase",
+    "screenClass": "ChargePurchasePage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "خرید شارژ و کارت", "en": "Purchase Charges & Cards"},
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "children": [
+      {
+        "id": "categories_section",
+        "type": "section",
+        "padding": {"horizontal": 16, "top": 16},
+        "header": {
+          "title": {"fa": "دسته‌بندی‌ها", "en": "Categories"}
+        },
+        "child": {
+          "type": "grid",
+          "crossAxisCount": 3,
+          "mainAxisSpacing": 16,
+          "crossAxisSpacing": 16,
+          "childAspectRatio": 0.9,
+          "children": [
+            {
+              "type": "service_card",
+              "icon": "assets/icons/ic_mobile_charge.svg",
+              "label": {"fa": "شارژ سیم‌کارت", "en": "SIM Charge"},
+              "color": "#E91E63",
+              "onTap": {"type": "navigate", "route": "/topup/mobile"}
+            },
+            {
+              "type": "service_card",
+              "icon": "assets/icons/ic_internet_package.svg",
+              "label": {"fa": "بسته اینترنت", "en": "Internet"},
+              "color": "#2196F3",
+              "onTap": {"type": "navigate", "route": "/topup/internet"}
+            },
+            {
+              "type": "service_card",
+              "icon": "assets/icons/ic_gift_card.svg",
+              "label": {"fa": "کارت هدیه", "en": "Gift Card"},
+              "color": "#9C27B0",
+              "onTap": {"type": "navigate", "route": "/charge/gift-card"}
+            },
+            {
+              "type": "service_card",
+              "icon": "assets/icons/ic_game.svg",
+              "label": {"fa": "شارژ بازی", "en": "Game Credit"},
+              "color": "#FF5722",
+              "onTap": {"type": "navigate", "route": "/charge/game"}
+            },
+            {
+              "type": "service_card",
+              "icon": "assets/icons/ic_antivirus.svg",
+              "label": {"fa": "آنتی‌ویروس", "en": "Antivirus"},
+              "color": "#4CAF50",
+              "onTap": {"type": "navigate", "route": "/charge/antivirus"}
+            },
+            {
+              "type": "service_card",
+              "icon": "assets/icons/ic_pin_code.svg",
+              "label": {"fa": "پین‌کد", "en": "PIN Code"},
+              "color": "#607D8B",
+              "onTap": {"type": "navigate", "route": "/charge/pin-code"}
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "popular_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "padding": {"horizontal": 16},
+        "header": {
+          "title": {"fa": "پرفروش‌ترین‌ها", "en": "Best Sellers"}
+        },
+        "child": {
+          "type": "list",
+          "dataSource": "popularProducts",
+          "itemTemplate": {
+            "type": "card",
+            "margin": {"bottom": 12},
+            "child": {
+              "type": "list_tile",
+              "contentPadding": 12,
+              "leading": {
+                "type": "image",
+                "src": "{{item.image}}",
+                "width": 48,
+                "height": 48,
+                "borderRadius": 8
+              },
+              "title": "{{item.name}}",
+              "subtitle": "{{item.description}}",
+              "trailing": {
+                "type": "column",
+                "crossAxisAlignment": "end",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "{{formatCurrency(item.price)}}",
+                    "style": "titleSmall",
+                    "color": "#E31837"
+                  },
+                  {
+                    "type": "text",
+                    "text": {"fa": "تومان", "en": "Toman"},
+                    "style": "bodySmall",
+                    "color": "textSecondary"
+                  }
+                ]
+              },
+              "onTap": {
+                "type": "navigate",
+                "route": "/charge/product/{{item.id}}"
+              }
+            }
+          }
+        }
+      },
+      
+      {
+        "id": "recent_purchases_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "padding": {"horizontal": 16},
+        "header": {
+          "title": {"fa": "خریدهای اخیر", "en": "Recent Purchases"},
+          "action": {
+            "label": {"fa": "همه", "en": "All"},
+            "onTap": {"type": "navigate", "route": "/charge/history"}
+          }
+        },
+        "child": {
+          "type": "list",
+          "dataSource": "recentPurchases",
+          "emptyState": {
+            "icon": "assets/icons/ic_history.svg",
+            "title": {"fa": "خریدی ثبت نشده", "en": "No purchases yet"}
+          },
+          "maxItems": 3,
+          "itemTemplate": {
+            "type": "list_tile",
+            "leading": {
+              "type": "icon",
+              "icon": "{{item.icon}}",
+              "color": "{{item.color}}"
+            },
+            "title": "{{item.name}}",
+            "subtitle": "{{item.date}}",
+            "trailing": {
+              "type": "text_button",
+              "label": {"fa": "خرید مجدد", "en": "Rebuy"},
+              "onTap": {"type": "rebuy", "productId": "{{item.productId}}"}
+            }
+          }
+        }
+      },
+      
+      {"type": "sized_box", "height": 32}
+    ]
+  },
+  
+  "dataBindings": {
+    "popularProducts": {"source": "api", "endpoint": "dibalite/charge/popular"},
+    "recentPurchases": {"source": "api", "endpoint": "dibalite/charge/recent"}
+  },
+  
+  "mockData": {
+    "popularProducts": [
+      {
+        "id": "PROD-001",
+        "name": "شارژ ۵۰ هزار تومانی همراه اول",
+        "description": "شارژ مستقیم سیم‌کارت",
+        "image": "assets/images/mci.png",
+        "price": 50000,
+        "category": "mobile"
+      },
+      {
+        "id": "PROD-002",
+        "name": "بسته ۱۵ گیگ اینترنت ماهانه",
+        "description": "همراه اول - ۳۰ روزه",
+        "image": "assets/images/mci.png",
+        "price": 150000,
+        "category": "internet"
+      },
+      {
+        "id": "PROD-003",
+        "name": "کارت هدیه ۵۰۰ هزار تومانی",
+        "description": "قابل استفاده در همه فروشگاه‌ها",
+        "image": "assets/images/gift_card.png",
+        "price": 500000,
+        "category": "gift"
+      },
+      {
+        "id": "PROD-004",
+        "name": "شارژ پلی‌استیشن ۲۰ دلاری",
+        "description": "PlayStation Network",
+        "image": "assets/images/psn.png",
+        "price": 1200000,
+        "category": "game"
+      },
+      {
+        "id": "PROD-005",
+        "name": "اشتراک اسپاتیفای ۱ ماهه",
+        "description": "Premium Individual",
+        "image": "assets/images/spotify.png",
+        "price": 180000,
+        "category": "subscription"
+      }
+    ],
+    "recentPurchases": [
+      {
+        "id": "PUR-001",
+        "productId": "PROD-001",
+        "name": "شارژ ۵۰ هزار تومانی همراه اول",
+        "icon": "assets/icons/ic_mobile_charge.svg",
+        "color": "#E91E63",
+        "date": "۱۴۰۳/۰۹/۰۳"
+      },
+      {
+        "id": "PUR-002",
+        "productId": "PROD-002",
+        "name": "بسته ۱۵ گیگ اینترنت",
+        "icon": "assets/icons/ic_internet_package.svg",
+        "color": "#2196F3",
+        "date": "۱۴۰۳/۰۸/۲۵"
+      }
+    ]
+  }
+}
+

@@ -1,0 +1,23 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "سپرده‌ها"
+    },
+    "actions": [
+      {
+        "type": "iconButton",
+        "onPressed": {
+          "actionType": "navigate",
+          "path": "/deposits/open"
+        },
+        "icon": {
+          "type": "icon",
+          "icon": "add"
+        }
+      }
+    ]
+  }
+}

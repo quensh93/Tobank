@@ -179,8 +179,8 @@ class _ColorShowcaseScreenState extends ConsumerState<ColorShowcaseScreen> {
                 },
               ),
             ),
-            TabBar(
-              tabs: const [
+            const TabBar(
+              tabs: [
                 Tab(text: 'Color Roles', icon: Icon(Icons.color_lens)),
                 Tab(text: 'Tonal Palettes', icon: Icon(Icons.palette)),
                 Tab(text: 'Material Widgets', icon: Icon(Icons.widgets)),
@@ -657,10 +657,10 @@ class _ColorShowcaseScreenState extends ConsumerState<ColorShowcaseScreen> {
                     trailing: Icon(Icons.chevron_right, color: colorScheme.onSurfaceVariant),
                   ),
                   Divider(height: 1, color: colorScheme.outlineVariant),
-                  ListTile(
+                  const ListTile(
                     selected: true,
                     leading: Icon(Icons.notifications),
-                    title: const Text('Selected Item'),
+                    title: Text('Selected Item'),
                   ),
                 ],
               ),
@@ -697,7 +697,7 @@ class _ColorShowcaseScreenState extends ConsumerState<ColorShowcaseScreen> {
               spacing: 8,
               runSpacing: 8,
               children: [
-                Chip(label: const Text('Chip'), avatar: const Icon(Icons.star, size: 18)),
+                const Chip(label: Text('Chip'), avatar: Icon(Icons.star, size: 18)),
                 FilterChip(label: const Text('Filter'), selected: false, onSelected: (_) {}),
                 FilterChip(label: const Text('Selected'), selected: true, onSelected: (_) {}),
                 ActionChip(label: const Text('Action'), onPressed: () {}),
@@ -733,23 +733,23 @@ class _ColorShowcaseScreenState extends ConsumerState<ColorShowcaseScreen> {
             colorScheme: colorScheme,
             title: 'TextField',
             colors: 'outline, onSurface, onSurfaceVariant, primary (focus), error',
-            basicExample: Column(
+            basicExample: const Column(
               children: [
                 TextField(
                   decoration: InputDecoration(
                     labelText: 'Label',
                     hintText: 'Hint text',
                     helperText: 'Helper text',
-                    border: const OutlineInputBorder(),
-                    prefixIcon: const Icon(Icons.search),
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.search),
                   ),
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 TextField(
                   decoration: InputDecoration(
                     labelText: 'Error state',
                     errorText: 'Error message',
-                    border: const OutlineInputBorder(),
+                    border: OutlineInputBorder(),
                   ),
                 ),
               ],
@@ -863,10 +863,10 @@ class _ColorShowcaseScreenState extends ConsumerState<ColorShowcaseScreen> {
             colorScheme: colorScheme,
             title: 'Progress Indicators',
             colors: 'primary (indicator), surfaceContainerHighest (track)',
-            basicExample: Row(
+            basicExample: const Row(
               children: [
-                const CircularProgressIndicator(),
-                const SizedBox(width: 24),
+                CircularProgressIndicator(),
+                SizedBox(width: 24),
                 Expanded(child: LinearProgressIndicator(value: 0.7)),
               ],
             ),

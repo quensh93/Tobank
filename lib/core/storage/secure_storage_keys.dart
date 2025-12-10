@@ -77,7 +77,7 @@ extension SecureStorageKeysExtension on SecureStorageKeys {
       case SecureStorageKeys.phoneNumber:
         return 'Phone Number';
       case SecureStorageKeys.fcmToken:
-        return 'Firebase Cloud Messaging Token';
+        return 'Push Notification Token';
       case SecureStorageKeys.deviceId:
         return 'Device ID';
       case SecureStorageKeys.apiKey:

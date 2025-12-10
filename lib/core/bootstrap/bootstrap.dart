@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
 // ISpect imports - will be tree-shaken if not used
 import 'package:ispect/ispect.dart';
 import 'package:flutter_performance_pulse/flutter_performance_pulse.dart' as pulse;
@@ -68,6 +69,7 @@ Future<void> bootstrap() async {
     await AppInitializer.initialize();
     await AppConfig.initialize(AppInitializer.prefs);
 
+    // Supabase uses standard HTTP clients and does not require a global initializer.
     AppLogger.i('App starting…');
 
     // Initialize flutter_performance_pulse if Debug Panel is enabled
@@ -117,6 +119,7 @@ Future<void> bootstrap() async {
     // Fallback error handling if bootstrap fails
     runApp(
       const MaterialApp(
+        
         home: Scaffold(
           body: Center(
             child: Text('App initialization failed. Please restart the app.'),

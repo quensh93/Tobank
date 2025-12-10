@@ -1,0 +1,62 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "card_issue_type",
+  "flowId": "card_physical_issue",
+  "stepNumber": 1,
+  "title": {"fa": "انتخاب نوع کارت", "en": "Select Card Type"},
+  
+  "appBar": {"type": "bpms_stepper", "title": {"fa": "صدور کارت", "en": "Card Issue"}, "currentStep": 1, "totalSteps": 6},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "text", "text": {"fa": "نوع کارت مورد نظر را انتخاب کنید", "en": "Select your card type"}, "style": "titleMedium", "textAlign": "center"},
+      
+      {"type": "section", "margin": {"top": 24}, "child": {"type": "column", "children": [
+        {"type": "selectable_card", "selected": "{{cardType === 'debit'}}", "margin": {"bottom": 12}, "child": {"type": "row", "padding": 16, "children": [
+          {"type": "container", "width": 60, "height": 40, "decoration": {"gradient": {"colors": ["#2196F3", "#1976D2"]}, "borderRadius": 8}, "alignment": "center", "child": {"type": "icon", "icon": "assets/icons/ic_card.svg", "size": 24, "color": "#FFFFFF"}},
+          {"type": "sized_box", "width": 16},
+          {"type": "expanded", "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+            {"type": "text", "text": {"fa": "کارت نقدی", "en": "Debit Card"}, "style": "titleMedium"},
+            {"type": "text", "text": {"fa": "برداشت مستقیم از حساب", "en": "Direct account access"}, "style": "bodySmall", "color": "textSecondary"}
+          ]}},
+          {"type": "icon", "icon": "assets/icons/ic_arrow_left.svg", "color": "textSecondary"}
+        ]}, "onTap": {"type": "set_state", "key": "cardType", "value": "debit"}},
+        
+        {"type": "selectable_card", "selected": "{{cardType === 'credit'}}", "margin": {"bottom": 12}, "child": {"type": "row", "padding": 16, "children": [
+          {"type": "container", "width": 60, "height": 40, "decoration": {"gradient": {"colors": ["#FF9800", "#F57C00"]}, "borderRadius": 8}, "alignment": "center", "child": {"type": "icon", "icon": "assets/icons/ic_credit_card.svg", "size": 24, "color": "#FFFFFF"}},
+          {"type": "sized_box", "width": 16},
+          {"type": "expanded", "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+            {"type": "text", "text": {"fa": "کارت اعتباری", "en": "Credit Card"}, "style": "titleMedium"},
+            {"type": "text", "text": {"fa": "خرید اعتباری با بازپرداخت", "en": "Buy now, pay later"}, "style": "bodySmall", "color": "textSecondary"}
+          ]}},
+          {"type": "chip", "label": {"fa": "نیاز به تایید", "en": "Approval"}, "backgroundColor": "#FFF3E0", "textColor": "#FF9800"}
+        ]}, "onTap": {"type": "set_state", "key": "cardType", "value": "credit"}},
+        
+        {"type": "selectable_card", "selected": "{{cardType === 'gift'}}", "child": {"type": "row", "padding": 16, "children": [
+          {"type": "container", "width": 60, "height": 40, "decoration": {"gradient": {"colors": ["#E91E63", "#C2185B"]}, "borderRadius": 8}, "alignment": "center", "child": {"type": "icon", "icon": "assets/icons/ic_gift.svg", "size": 24, "color": "#FFFFFF"}},
+          {"type": "sized_box", "width": 16},
+          {"type": "expanded", "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+            {"type": "text", "text": {"fa": "کارت هدیه", "en": "Gift Card"}, "style": "titleMedium"},
+            {"type": "text", "text": {"fa": "هدیه به عزیزان", "en": "Gift for loved ones"}, "style": "bodySmall", "color": "textSecondary"}
+          ]}}
+        ]}, "onTap": {"type": "set_state", "key": "cardType", "value": "gift"}}
+      ]}},
+      
+      {"type": "conditional", "condition": "{{cardType}}", "whenTrue": {"type": "card", "margin": {"top": 24}, "padding": 16, "backgroundColor": "#E0F7FA", "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+        {"type": "text", "text": {"fa": "ویژگی‌های کارت {{cardType === 'debit' ? 'نقدی' : cardType === 'credit' ? 'اعتباری' : 'هدیه'}}", "en": "Features"}, "style": "titleSmall"},
+        {"type": "check_item", "text": {"fa": "قابل استفاده در تمام پایانه‌ها", "en": "Works everywhere"}, "margin": {"top": 8}},
+        {"type": "check_item", "text": {"fa": "خرید اینترنتی", "en": "Online shopping"}, "margin": {"top": 4}},
+        {"type": "check_item", "text": {"fa": "برداشت از خودپرداز", "en": "ATM withdrawal"}, "margin": {"top": 4}}
+      ]}}},
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {"type": "container", "padding": 16, "child": {"type": "elevated_button", "label": {"fa": "ادامه", "en": "Continue"}, "fullWidth": true, "disabled": "{{!cardType}}", "onTap": {"type": "navigate", "route": "/bpms/card-physical-issue/step-02"}}},
+  "dataBindings": {"cardType": {"source": "form", "default": null}}
+}
+

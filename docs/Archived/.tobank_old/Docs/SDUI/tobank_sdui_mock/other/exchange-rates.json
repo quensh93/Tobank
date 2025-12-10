@@ -1,0 +1,90 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "exchange_rates",
+  "title": {"fa": "نرخ ارز", "en": "Exchange Rates"},
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "نرخ ارز", "en": "Exchange Rates"},
+    "actions": [
+      {"icon": "assets/icons/ic_refresh.svg", "onTap": {"type": "refresh_data"}}
+    ]
+  },
+  
+  "pullToRefresh": true,
+  
+  "body": {
+    "type": "scrollable",
+    "children": [
+      {"type": "container", "padding": 16, "child": {"type": "card", "padding": 16, "decoration": {"gradient": {"colors": ["#1E88E5", "#1565C0"]}}, "child": {"type": "row", "mainAxisAlignment": "spaceBetween", "children": [
+        {"type": "column", "crossAxisAlignment": "start", "children": [
+          {"type": "text", "text": {"fa": "دلار آمریکا", "en": "US Dollar"}, "style": "titleSmall", "color": "#FFFFFF"},
+          {"type": "text", "text": "{{formatCurrency(rates.usd.sell)}} ریال", "style": "headlineMedium", "color": "#FFFFFF", "margin": {"top": 4}},
+          {"type": "row", "margin": {"top": 8}, "children": [
+            {"type": "icon", "icon": "{{rates.usd.change > 0 ? 'assets/icons/ic_arrow_up.svg' : 'assets/icons/ic_arrow_down.svg'}}", "size": 16, "color": "{{rates.usd.change > 0 ? '#FFEB3B' : '#FF5722'}}"},
+            {"type": "text", "text": "{{rates.usd.changePercent}}٪", "style": "bodySmall", "color": "{{rates.usd.change > 0 ? '#FFEB3B' : '#FF5722'}}", "margin": {"left": 4}}
+          ]}
+        ]},
+        {"type": "image", "src": "assets/icons/flags/us.png", "width": 48, "height": 32}
+      ]}}},
+      
+      {"type": "container", "padding": {"horizontal": 16}, "child": {"type": "column", "children": [
+        {"type": "text", "text": {"fa": "آخرین به‌روزرسانی: {{lastUpdate}}", "en": "Last updated: {{lastUpdate}}"}, "style": "bodySmall", "color": "textSecondary"},
+        
+        {"type": "section", "margin": {"top": 16}, "header": {"title": {"fa": "نرخ ارزها", "en": "Currency Rates"}}, "child": {"type": "card", "child": {"type": "column", "children": [
+          {"type": "container", "padding": 12, "decoration": {"color": "#F5F5F5"}, "child": {"type": "row", "children": [
+            {"type": "expanded", "flex": 2, "child": {"type": "text", "text": {"fa": "ارز", "en": "Currency"}, "style": "titleSmall"}},
+            {"type": "expanded", "child": {"type": "text", "text": {"fa": "خرید", "en": "Buy"}, "style": "titleSmall", "textAlign": "center"}},
+            {"type": "expanded", "child": {"type": "text", "text": {"fa": "فروش", "en": "Sell"}, "style": "titleSmall", "textAlign": "center"}},
+            {"type": "expanded", "child": {"type": "text", "text": {"fa": "تغییر", "en": "Change"}, "style": "titleSmall", "textAlign": "center"}}
+          ]}},
+          {"type": "list_view", "children": "{{currencies}}", "itemBuilder": {"type": "container", "child": {"type": "column", "children": [
+            {"type": "container", "padding": 12, "child": {"type": "row", "children": [
+              {"type": "expanded", "flex": 2, "child": {"type": "row", "children": [
+                {"type": "image", "src": "{{item.flag}}", "width": 24, "height": 16},
+                {"type": "text", "text": "{{item.name}}", "margin": {"left": 8}}
+              ]}},
+              {"type": "expanded", "child": {"type": "text", "text": "{{formatCurrency(item.buy)}}", "textAlign": "center", "style": "bodySmall"}},
+              {"type": "expanded", "child": {"type": "text", "text": "{{formatCurrency(item.sell)}}", "textAlign": "center", "style": "bodySmall"}},
+              {"type": "expanded", "child": {"type": "row", "mainAxisAlignment": "center", "children": [
+                {"type": "icon", "icon": "{{item.change > 0 ? 'assets/icons/ic_arrow_up.svg' : 'assets/icons/ic_arrow_down.svg'}}", "size": 12, "color": "{{item.change > 0 ? '#4CAF50' : '#F44336'}}"},
+                {"type": "text", "text": "{{item.changePercent}}٪", "style": "bodySmall", "color": "{{item.change > 0 ? '#4CAF50' : '#F44336'}}", "margin": {"left": 2}}
+              ]}}
+            ]}},
+            {"type": "divider"}
+          ]}}}
+        ]}}},
+        
+        {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "سکه و طلا", "en": "Gold & Coins"}}, "child": {"type": "card", "child": {"type": "list_view", "children": "{{goldItems}}", "itemBuilder": {"type": "list_tile", "leading": {"type": "container", "width": 40, "height": 40, "decoration": {"color": "#FFF8E1", "borderRadius": 20}, "alignment": "center", "child": {"type": "icon", "icon": "assets/icons/ic_gold.svg", "color": "#FFC107", "size": 24}}, "title": "{{item.name}}", "trailing": {"type": "column", "crossAxisAlignment": "end", "children": [{"type": "text", "text": "{{formatCurrency(item.price)}} ریال"}, {"type": "row", "children": [{"type": "icon", "icon": "{{item.change > 0 ? 'assets/icons/ic_arrow_up.svg' : 'assets/icons/ic_arrow_down.svg'}}", "size": 12, "color": "{{item.change > 0 ? '#4CAF50' : '#F44336'}}"}, {"type": "text", "text": "{{item.changePercent}}٪", "style": "bodySmall", "color": "{{item.change > 0 ? '#4CAF50' : '#F44336'}}"}]}]}}}}},
+        
+        {"type": "sized_box", "height": 32}
+      ]}}
+    ]
+  },
+  
+  "dataBindings": {
+    "rates": {"source": "api", "endpoint": "exchange/rates"},
+    "currencies": {"source": "api", "endpoint": "exchange/currencies"},
+    "goldItems": {"source": "api", "endpoint": "exchange/gold"},
+    "lastUpdate": {"source": "computed", "formula": "formatTime(rates.updatedAt)"}
+  },
+  
+  "mockData": {
+    "lastUpdate": "۱۴:۳۲",
+    "rates": {"usd": {"buy": 580000, "sell": 585000, "change": 5000, "changePercent": 0.86}},
+    "currencies": [
+      {"code": "USD", "name": "دلار", "flag": "assets/icons/flags/us.png", "buy": 580000, "sell": 585000, "change": 5000, "changePercent": 0.86},
+      {"code": "EUR", "name": "یورو", "flag": "assets/icons/flags/eu.png", "buy": 630000, "sell": 638000, "change": -3000, "changePercent": -0.47},
+      {"code": "GBP", "name": "پوند", "flag": "assets/icons/flags/gb.png", "buy": 735000, "sell": 745000, "change": 8000, "changePercent": 1.08},
+      {"code": "AED", "name": "درهم", "flag": "assets/icons/flags/ae.png", "buy": 158000, "sell": 161000, "change": 1000, "changePercent": 0.62}
+    ],
+    "goldItems": [
+      {"name": "سکه امامی", "price": 325000000, "change": 5000000, "changePercent": 1.56},
+      {"name": "نیم سکه", "price": 185000000, "change": -2000000, "changePercent": -1.07},
+      {"name": "ربع سکه", "price": 105000000, "change": 1500000, "changePercent": 1.45},
+      {"name": "طلای ۱۸ عیار (گرم)", "price": 28500000, "change": 500000, "changePercent": 1.79}
+    ]
+  }
+}
+

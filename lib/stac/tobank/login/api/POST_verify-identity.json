@@ -1,0 +1,11 @@
+{
+  "POST": {
+    "statusCode": 200,
+    "data": {
+      "success": true,
+      "message": "{{appStrings.login.otpSentSuccessMessage}}",
+      "otpCode": "123456",
+      "expiresIn": 120
+    }
+  }
+}

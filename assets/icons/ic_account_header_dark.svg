@@ -1,0 +1,22 @@
+<svg fill="none" height="201" viewBox="0 0 375 201" width="375" xmlns="http://www.w3.org/2000/svg">
+    <path d="M376 201C325.068 69 188.249 40.5 116.344 133 64.874 199.212 20.228 171.622-1 142.994V-1h377v202z"
+        fill="url(#fr73fs41ua)"
+        opacity=".5" />
+    <path d="M0 200C50.932 69.307 186.751 41.09 258.656 132.673c51.469 65.557 95.116 38.239 116.344 9.895V0H0v200z"
+        fill="url(#r0fk9lzpcb)"
+        opacity=".5" />
+    <defs>
+        <linearGradient gradientUnits="userSpaceOnUse" id="fr73fs41ua" x1="176.5" x2="182" y1="14"
+            y2="213.5">
+            <stop offset=".112" stop-color="#1C222E" />
+            <stop offset=".336" stop-color="#303543" stop-opacity=".85" />
+            <stop offset="1" stop-color="#303543" stop-opacity=".62" />
+        </linearGradient>
+        <linearGradient gradientUnits="userSpaceOnUse" id="r0fk9lzpcb" x1="258.5" x2="187" y1="-6"
+            y2="245.5">
+            <stop offset=".153" stop-color="#1C222E" stop-opacity=".38" />
+            <stop offset=".508" stop-color="#303543" stop-opacity=".76" />
+            <stop offset="1" stop-color="#303543" stop-opacity=".68" />
+        </linearGradient>
+    </defs>
+</svg>

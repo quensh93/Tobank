@@ -1,0 +1,57 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "loan_installments",
+  "title": {"fa": "اقساط", "en": "Installments"},
+  
+  "appBar": {"type": "standard", "title": {"fa": "اقساط وام", "en": "Loan Installments"}},
+  
+  "body": {
+    "type": "column",
+    "children": [
+      {"type": "container", "padding": 16, "child": {"type": "card", "padding": 16, "child": {"type": "row", "mainAxisAlignment": "spaceAround", "children": [
+        {"type": "column", "children": [
+          {"type": "text", "text": "{{summary.paidCount}}", "style": "headlineMedium", "color": "#4CAF50"},
+          {"type": "text", "text": {"fa": "پرداخت شده", "en": "Paid"}, "style": "bodySmall", "color": "textSecondary"}
+        ]},
+        {"type": "container", "width": 1, "height": 40, "color": "divider"},
+        {"type": "column", "children": [
+          {"type": "text", "text": "{{summary.pendingCount}}", "style": "headlineMedium", "color": "#FF9800"},
+          {"type": "text", "text": {"fa": "در انتظار", "en": "Pending"}, "style": "bodySmall", "color": "textSecondary"}
+        ]},
+        {"type": "container", "width": 1, "height": 40, "color": "divider"},
+        {"type": "column", "children": [
+          {"type": "text", "text": "{{summary.overdueCount}}", "style": "headlineMedium", "color": "#F44336"},
+          {"type": "text", "text": {"fa": "معوق", "en": "Overdue"}, "style": "bodySmall", "color": "textSecondary"}
+        ]}
+      ]}}},
+      
+      {"type": "expanded", "child": {"type": "list_view", "padding": {"horizontal": 16}, "children": "{{installments}}", "itemBuilder": {"type": "card", "margin": {"bottom": 12}, "child": {"type": "list_tile", "leading": {"type": "container", "width": 40, "height": 40, "decoration": {"color": "{{item.status === 'paid' ? '#E8F5E9' : item.status === 'overdue' ? '#FFEBEE' : '#FFF3E0'}}", "borderRadius": 20}, "alignment": "center", "child": {"type": "text", "text": "{{item.number}}", "style": "titleMedium", "color": "{{item.status === 'paid' ? '#4CAF50' : item.status === 'overdue' ? '#F44336' : '#FF9800'}}"}}, "title": {"type": "row", "mainAxisAlignment": "spaceBetween", "children": [{"type": "text", "text": {"fa": "قسط {{item.number}}", "en": "Installment {{item.number}}"}}, {"type": "text", "text": "{{formatCurrency(item.amount)}} ریال", "color": "{{item.status === 'paid' ? '#4CAF50' : 'textPrimary'}}"}]}, "subtitle": {"type": "row", "mainAxisAlignment": "spaceBetween", "margin": {"top": 4}, "children": [{"type": "text", "text": {"fa": "سررسید: {{item.dueDate}}", "en": "Due: {{item.dueDate}}"}, "style": "bodySmall", "color": "textSecondary"}, {"type": "chip", "label": "{{item.status === 'paid' ? {fa: 'پرداخت شده', en: 'Paid'} : item.status === 'overdue' ? {fa: 'معوق', en: 'Overdue'} : {fa: 'در انتظار', en: 'Pending'}}}", "backgroundColor": "{{item.status === 'paid' ? '#E8F5E9' : item.status === 'overdue' ? '#FFEBEE' : '#FFF3E0'}}", "textColor": "{{item.status === 'paid' ? '#4CAF50' : item.status === 'overdue' ? '#F44336' : '#FF9800'}}", "size": "small"}]}, "onTap": {"type": "conditional", "condition": "{{item.status !== 'paid'}}", "whenTrue": {"type": "navigate", "route": "/loans/pay-installment?id={{loanId}}&installment={{item.id}}"}}}}}}
+    ]
+  },
+  
+  "dataBindings": {
+    "loanId": {"source": "route_param", "key": "id"},
+    "installments": {"source": "api", "endpoint": "dibalite/loans/{{loanId}}/installments"},
+    "summary": {"source": "computed", "formula": "summarizeInstallments(installments)"}
+  },
+  
+  "mockData": {
+    "summary": {"paidCount": 3, "pendingCount": 9, "overdueCount": 0},
+    "installments": [
+      {"id": "inst1", "number": 1, "amount": 94000000, "dueDate": "۱۴۰۳/۰۸/۱۵", "paidDate": "۱۴۰۳/۰۸/۱۴", "status": "paid"},
+      {"id": "inst2", "number": 2, "amount": 94000000, "dueDate": "۱۴۰۳/۰۹/۱۵", "paidDate": "۱۴۰۳/۰۹/۱۰", "status": "paid"},
+      {"id": "inst3", "number": 3, "amount": 94000000, "dueDate": "۱۴۰۳/۱۰/۱۵", "paidDate": "۱۴۰۳/۱۰/۱۲", "status": "paid"},
+      {"id": "inst4", "number": 4, "amount": 94000000, "dueDate": "۱۴۰۳/۱۱/۱۵", "paidDate": null, "status": "pending"},
+      {"id": "inst5", "number": 5, "amount": 94000000, "dueDate": "۱۴۰۳/۱۲/۱۵", "paidDate": null, "status": "pending"},
+      {"id": "inst6", "number": 6, "amount": 94000000, "dueDate": "۱۴۰۴/۰۱/۱۵", "paidDate": null, "status": "pending"},
+      {"id": "inst7", "number": 7, "amount": 94000000, "dueDate": "۱۴۰۴/۰۲/۱۵", "paidDate": null, "status": "pending"},
+      {"id": "inst8", "number": 8, "amount": 94000000, "dueDate": "۱۴۰۴/۰۳/۱۵", "paidDate": null, "status": "pending"},
+      {"id": "inst9", "number": 9, "amount": 94000000, "dueDate": "۱۴۰۴/۰۴/۱۵", "paidDate": null, "status": "pending"},
+      {"id": "inst10", "number": 10, "amount": 94000000, "dueDate": "۱۴۰۴/۰۵/۱۵", "paidDate": null, "status": "pending"},
+      {"id": "inst11", "number": 11, "amount": 94000000, "dueDate": "۱۴۰۴/۰۶/۱۵", "paidDate": null, "status": "pending"},
+      {"id": "inst12", "number": 12, "amount": 94000000, "dueDate": "۱۴۰۴/۰۷/۱۵", "paidDate": null, "status": "pending"}
+    ]
+  }
+}
+

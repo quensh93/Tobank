@@ -1,0 +1,52 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "cheque_list",
+  "title": {"fa": "چک‌ها", "en": "Cheques"},
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "چک‌ها", "en": "Cheques"},
+    "actions": [
+      {"icon": "assets/icons/ic_add.svg", "onTap": {"type": "navigate", "route": "/cheques/request"}}
+    ]
+  },
+  
+  "body": {
+    "type": "column",
+    "children": [
+      {"type": "container", "padding": 16, "child": {"type": "row", "children": [
+        {"type": "expanded", "child": {"type": "filter_chip", "label": {"fa": "همه", "en": "All"}, "selected": "{{filter === 'all'}}", "onTap": {"type": "set_state", "key": "filter", "value": "all"}}},
+        {"type": "sized_box", "width": 8},
+        {"type": "expanded", "child": {"type": "filter_chip", "label": {"fa": "صادره", "en": "Issued"}, "selected": "{{filter === 'issued'}}", "onTap": {"type": "set_state", "key": "filter", "value": "issued"}}},
+        {"type": "sized_box", "width": 8},
+        {"type": "expanded", "child": {"type": "filter_chip", "label": {"fa": "دریافتی", "en": "Received"}, "selected": "{{filter === 'received'}}", "onTap": {"type": "set_state", "key": "filter", "value": "received"}}}
+      ]}},
+      
+      {"type": "expanded", "child": {
+        "type": "conditional",
+        "condition": "{{cheques.length > 0}}",
+        "whenTrue": {"type": "list_view", "padding": {"horizontal": 16}, "children": "{{filteredCheques}}", "itemBuilder": {"type": "card", "margin": {"bottom": 12}, "child": {"type": "list_tile", "leading": {"type": "container", "width": 48, "height": 48, "decoration": {"color": "{{item.type === 'issued' ? '#E3F2FD' : '#E8F5E9'}}", "borderRadius": 24}, "alignment": "center", "child": {"type": "icon", "icon": "{{item.type === 'issued' ? 'assets/icons/ic_cheque_out.svg' : 'assets/icons/ic_cheque_in.svg'}}", "color": "{{item.type === 'issued' ? '#1976D2' : '#388E3C'}}"}}, "title": {"type": "row", "mainAxisAlignment": "spaceBetween", "children": [{"type": "text", "text": "{{item.chequeNumber}}"}, {"type": "text", "text": "{{formatCurrency(item.amount)}} ریال"}]}, "subtitle": {"type": "row", "mainAxisAlignment": "spaceBetween", "margin": {"top": 4}, "children": [{"type": "text", "text": {"fa": "سررسید: {{item.dueDate}}", "en": "Due: {{item.dueDate}}"}, "style": "bodySmall", "color": "textSecondary"}, {"type": "chip", "label": "{{item.statusLabel}}", "backgroundColor": "{{item.statusColor}}20", "textColor": "{{item.statusColor}}", "size": "small"}]}, "onTap": {"type": "navigate", "route": "/cheques/detail?id={{item.id}}"}}}},
+        "whenFalse": {"type": "empty_state", "icon": "assets/icons/ic_cheque.svg", "title": {"fa": "چکی ثبت نشده", "en": "No cheques"}, "subtitle": {"fa": "چک‌های صادره و دریافتی شما اینجا نمایش داده می‌شود", "en": "Your issued and received cheques will appear here"}}
+      }}
+    ]
+  },
+  
+  "fab": {"icon": "assets/icons/ic_add.svg", "label": {"fa": "درخواست دسته چک", "en": "Request Chequebook"}, "onTap": {"type": "navigate", "route": "/cheques/request"}},
+  
+  "dataBindings": {
+    "cheques": {"source": "api", "endpoint": "dibalite/cheques/list"},
+    "filter": {"source": "state", "default": "all"},
+    "filteredCheques": {"source": "computed", "formula": "filterCheques(cheques, filter)"}
+  },
+  
+  "mockData": {
+    "cheques": [
+      {"id": "chq1", "chequeNumber": "۱۲۳۴۵۶/۰۱", "type": "issued", "amount": 50000000, "dueDate": "۱۴۰۳/۱۰/۱۵", "beneficiary": "شرکت پارس", "status": "pending", "statusLabel": "در انتظار", "statusColor": "#FF9800"},
+      {"id": "chq2", "chequeNumber": "۷۸۹۰۱۲/۰۵", "type": "received", "amount": 120000000, "dueDate": "۱۴۰۳/۱۱/۰۱", "issuer": "علی محمدی", "status": "cleared", "statusLabel": "وصول شده", "statusColor": "#4CAF50"},
+      {"id": "chq3", "chequeNumber": "۱۲۳۴۵۶/۰۲", "type": "issued", "amount": 75000000, "dueDate": "۱۴۰۳/۱۲/۲۰", "beneficiary": "فروشگاه نور", "status": "pending", "statusLabel": "در انتظار", "statusColor": "#FF9800"},
+      {"id": "chq4", "chequeNumber": "۵۵۵۶۶۶/۰۳", "type": "received", "amount": 30000000, "dueDate": "۱۴۰۳/۰۹/۱۰", "issuer": "رضا رضایی", "status": "bounced", "statusLabel": "برگشتی", "statusColor": "#F44336"}
+    ]
+  }
+}
+

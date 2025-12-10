@@ -1,0 +1,31 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-flow",
+  "version": "1.0.0",
+  "flowId": "military_guarantee",
+  "flowType": "guarantee",
+  "title": {"fa": "ضمانت‌نامه نظام وظیفه", "en": "Military Guarantee"},
+  "description": {"fa": "صدور ضمانت‌نامه بانکی جهت معافیت از خدمت", "en": "Bank guarantee for military exemption"},
+  "icon": "assets/icons/ic_military.svg",
+  "color": "#607D8B",
+  
+  "guaranteeDetails": {
+    "types": ["education", "employment", "medical"],
+    "amounts": {"education": 500000000, "employment": 1000000000, "medical": 300000000},
+    "validityPeriod": 12,
+    "depositRequired": true,
+    "depositPercentage": 10
+  },
+  
+  "steps": [
+    {"id": "rules", "order": 1, "title": {"fa": "قوانین", "en": "Rules"}, "pageRef": "step-01-rules.json"},
+    {"id": "personal_info", "order": 2, "title": {"fa": "اطلاعات شخصی", "en": "Personal Info"}, "pageRef": "step-02-personal-info.json"},
+    {"id": "military_info", "order": 3, "title": {"fa": "اطلاعات نظام وظیفه", "en": "Military Info"}, "pageRef": "step-03-military-info.json"},
+    {"id": "deposit_info", "order": 4, "title": {"fa": "سپرده", "en": "Deposit"}, "pageRef": "step-04-deposit-info.json"},
+    {"id": "documents", "order": 5, "title": {"fa": "مدارک", "en": "Documents"}, "pageRef": "step-05-documents.json"},
+    {"id": "contract", "order": 6, "title": {"fa": "قرارداد", "en": "Contract"}, "pageRef": "step-06-contract.json"},
+    {"id": "completion", "order": 7, "title": {"fa": "اتمام", "en": "Completion"}, "pageRef": "step-07-completion.json", "isFinal": true}
+  ],
+  
+  "api": {"baseEndpoint": "bpms/military-guarantee"}
+}
+

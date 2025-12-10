@@ -1,5 +1,6 @@
 /// Core package exports
 /// This file exports all core functionality for easy imports
+library;
 
 // Constants
 export 'constants/app_constants.dart';

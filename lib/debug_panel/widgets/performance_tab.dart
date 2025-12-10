@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:flutter_performance_pulse/flutter_performance_pulse.dart' as pulse;
+import 'package:flutter_performance_pulse/flutter_performance_pulse.dart'
+    as pulse;
 import '../state/debug_panel_settings_state.dart';
 import 'custom_performance/frame_timing_data_collector.dart';
 import 'custom_performance/single_frame_chart.dart';
 
 /// Performance tab that displays real-time performance metrics
-/// 
+///
 /// Shows comprehensive performance monitoring including frame timing charts
 /// (UI, Raster, High Latency) and system metrics (FPS, CPU, Disk).
 class PerformanceTab extends ConsumerStatefulWidget {
@@ -38,7 +39,7 @@ class _PerformanceTabState extends ConsumerState<PerformanceTab> {
     final theme = Theme.of(context);
     final settings = ref.watch(debugPanelSettingsProvider);
     final isTrackingEnabled = settings.performanceTrackingEnabled;
-    
+
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Stack(
@@ -74,22 +75,28 @@ class _PerformanceTabState extends ConsumerState<PerformanceTab> {
                     // Layout toggle button
                     IconButton(
                       icon: Icon(
-                        settings.performanceLayoutMode == PerformanceLayoutMode.singleRow
+                        settings.performanceLayoutMode ==
+                                PerformanceLayoutMode.singleRow
                             ? Icons.grid_view
                             : Icons.view_column,
                       ),
                       onPressed: () {
-                        final newMode = settings.performanceLayoutMode == PerformanceLayoutMode.singleRow
+                        final newMode = settings.performanceLayoutMode ==
+                                PerformanceLayoutMode.singleRow
                             ? PerformanceLayoutMode.grid
                             : PerformanceLayoutMode.singleRow;
-                        ref.read(debugPanelSettingsProvider.notifier).setPerformanceLayoutMode(newMode);
+                        ref
+                            .read(debugPanelSettingsProvider.notifier)
+                            .setPerformanceLayoutMode(newMode);
                       },
                     ),
                     const SizedBox(width: 8),
                     Switch(
                       value: isTrackingEnabled,
                       onChanged: (value) {
-                        ref.read(debugPanelSettingsProvider.notifier).setPerformanceTrackingEnabled(value);
+                        ref
+                            .read(debugPanelSettingsProvider.notifier)
+                            .setPerformanceTrackingEnabled(value);
                       },
                     ),
                     const SizedBox(width: 4),
@@ -101,10 +108,11 @@ class _PerformanceTabState extends ConsumerState<PerformanceTab> {
                 ),
               ),
               const Divider(height: 1),
-              
+
               // Info section - made more compact
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                 child: Row(
                   children: [
                     Icon(
@@ -122,10 +130,11 @@ class _PerformanceTabState extends ConsumerState<PerformanceTab> {
                   ],
                 ),
               ),
-              
+
               // Sample size control
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                 child: Row(
                   children: [
                     Icon(
@@ -144,11 +153,19 @@ class _PerformanceTabState extends ConsumerState<PerformanceTab> {
                       icon: const Icon(Icons.remove),
                       iconSize: 16,
                       padding: EdgeInsets.zero,
-                      constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+                      constraints:
+                          const BoxConstraints(minWidth: 32, minHeight: 32),
                       onPressed: settings.performanceSampleSize > 8
                           ? () {
-                              final newValue = (((settings.performanceSampleSize / 8).floor() - 1) * 8).clamp(8, 1000);
-                              ref.read(debugPanelSettingsProvider.notifier).setPerformanceSampleSize(newValue);
+                              final newValue =
+                                  (((settings.performanceSampleSize / 8)
+                                                  .floor() -
+                                              1) *
+                                          8)
+                                      .clamp(8, 1000);
+                              ref
+                                  .read(debugPanelSettingsProvider.notifier)
+                                  .setPerformanceSampleSize(newValue);
                             }
                           : null,
                     ),
@@ -168,11 +185,19 @@ class _PerformanceTabState extends ConsumerState<PerformanceTab> {
                       icon: const Icon(Icons.add),
                       iconSize: 16,
                       padding: EdgeInsets.zero,
-                      constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+                      constraints:
+                          const BoxConstraints(minWidth: 32, minHeight: 32),
                       onPressed: settings.performanceSampleSize < 1000
                           ? () {
-                              final newValue = (((settings.performanceSampleSize / 8).floor() + 1) * 8).clamp(8, 1000);
-                              ref.read(debugPanelSettingsProvider.notifier).setPerformanceSampleSize(newValue);
+                              final newValue =
+                                  (((settings.performanceSampleSize / 8)
+                                                  .floor() +
+                                              1) *
+                                          8)
+                                      .clamp(8, 1000);
+                              ref
+                                  .read(debugPanelSettingsProvider.notifier)
+                                  .setPerformanceSampleSize(newValue);
                             }
                           : null,
                     ),
@@ -181,13 +206,14 @@ class _PerformanceTabState extends ConsumerState<PerformanceTab> {
                     Text(
                       '(8-1000)',
                       style: theme.textTheme.bodySmall?.copyWith(
-                        color: theme.colorScheme.onSurface.withOpacity(0.5),
+                        color:
+                            theme.colorScheme.onSurface.withValues(alpha: 0.5),
                       ),
                     ),
                   ],
                 ),
               ),
-              
+
               // Performance charts container
               Expanded(
                 child: _buildPerformanceCharts(context),
@@ -209,7 +235,7 @@ class _PerformanceTabState extends ConsumerState<PerformanceTab> {
 
     final theme = Theme.of(context);
     final layoutMode = settings.performanceLayoutMode;
-    
+
     // Show charts based on layout mode
     if (layoutMode == PerformanceLayoutMode.singleRow) {
       return _buildSingleRowLayout(context, theme);
@@ -234,7 +260,8 @@ class _PerformanceTabState extends ConsumerState<PerformanceTab> {
               ClipRect(
                 child: SizedBox(
                   width: 300,
-                  child: _buildSingleChart(context, theme, 'UI', Colors.teal, 0),
+                  child:
+                      _buildSingleChart(context, theme, 'UI', Colors.teal, 0),
                 ),
               ),
               const SizedBox(width: 16),
@@ -242,7 +269,8 @@ class _PerformanceTabState extends ConsumerState<PerformanceTab> {
               ClipRect(
                 child: SizedBox(
                   width: 300,
-                  child: _buildSingleChart(context, theme, 'Raster', Colors.blue, 1),
+                  child: _buildSingleChart(
+                      context, theme, 'Raster', Colors.blue, 1),
                 ),
               ),
               const SizedBox(width: 16),
@@ -250,7 +278,8 @@ class _PerformanceTabState extends ConsumerState<PerformanceTab> {
               ClipRect(
                 child: SizedBox(
                   width: 300,
-                  child: _buildSingleChart(context, theme, 'High Latency', Colors.cyan, 2),
+                  child: _buildSingleChart(
+                      context, theme, 'High Latency', Colors.cyan, 2),
                 ),
               ),
               const SizedBox(width: 16),
@@ -275,12 +304,14 @@ class _PerformanceTabState extends ConsumerState<PerformanceTab> {
                         showCPU: true,
                         showDisk: true,
                         theme: pulse.DashboardTheme(
-                          backgroundColor: theme.colorScheme.surfaceContainerHighest,
+                          backgroundColor:
+                              theme.colorScheme.surfaceContainerHighest,
                           textColor: theme.colorScheme.onSurface,
                           warningColor: Colors.orange,
                           errorColor: Colors.red,
                           chartLineColor: theme.colorScheme.primary,
-                          chartFillColor: theme.colorScheme.primary.withOpacity(0.2),
+                          chartFillColor:
+                              theme.colorScheme.primary.withValues(alpha: 0.2),
                         ),
                       ),
                     ],
@@ -311,12 +342,14 @@ class _PerformanceTabState extends ConsumerState<PerformanceTab> {
             const SizedBox(height: 16),
             // Raster Chart
             ClipRect(
-              child: _buildSingleChart(context, theme, 'Raster', Colors.blue, 1),
+              child:
+                  _buildSingleChart(context, theme, 'Raster', Colors.blue, 1),
             ),
             const SizedBox(height: 16),
             // High Latency Chart
             ClipRect(
-              child: _buildSingleChart(context, theme, 'High Latency', Colors.cyan, 2),
+              child: _buildSingleChart(
+                  context, theme, 'High Latency', Colors.cyan, 2),
             ),
             const SizedBox(height: 16),
             // System Metrics
@@ -338,12 +371,14 @@ class _PerformanceTabState extends ConsumerState<PerformanceTab> {
                     showCPU: true,
                     showDisk: true,
                     theme: pulse.DashboardTheme(
-                      backgroundColor: theme.colorScheme.surfaceContainerHighest,
+                      backgroundColor:
+                          theme.colorScheme.surfaceContainerHighest,
                       textColor: theme.colorScheme.onSurface,
                       warningColor: Colors.orange,
                       errorColor: Colors.red,
                       chartLineColor: theme.colorScheme.primary,
-                      chartFillColor: theme.colorScheme.primary.withOpacity(0.2),
+                      chartFillColor:
+                          theme.colorScheme.primary.withValues(alpha: 0.2),
                     ),
                   ),
                 ],
@@ -355,7 +390,8 @@ class _PerformanceTabState extends ConsumerState<PerformanceTab> {
     );
   }
 
-  Widget _buildSingleChart(BuildContext context, ThemeData theme, String title, Color color, int chartIndex) {
+  Widget _buildSingleChart(BuildContext context, ThemeData theme, String title,
+      Color color, int chartIndex) {
     final samples = switch (chartIndex) {
       0 => _uiSamples,
       1 => _rasterSamples,
@@ -370,7 +406,8 @@ class _PerformanceTabState extends ConsumerState<PerformanceTab> {
       targetFrameTime: const Duration(microseconds: 16667),
       barRangeMax: const Duration(milliseconds: 50),
       textColor: theme.colorScheme.onSurface,
-      showFps: chartIndex == 2, // Only show FPS for High Latency (total frame time)
+      showFps:
+          chartIndex == 2, // Only show FPS for High Latency (total frame time)
     );
   }
 

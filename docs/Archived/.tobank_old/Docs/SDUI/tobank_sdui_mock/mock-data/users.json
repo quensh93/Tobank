@@ -1,0 +1,199 @@
+{
+  "$schema": "tobank-sdui/v1/mock-data",
+  "version": "1.0.0",
+  "description": "سه پروفایل کاربر برای تست",
+  
+  "users": {
+    "full_access": {
+      "id": "USR-001",
+      "mobile": "۰۹۱۲۱۲۳۴۵۶۷",
+      "mobileRaw": "09121234567",
+      "nationalCode": "۰۰۱۲۳۴۵۶۷۸",
+      "nationalCodeRaw": "0012345678",
+      "customerNumber": "۱۲۳۴۵۶۷",
+      "firstName": "علی",
+      "lastName": "احمدی",
+      "fullName": "علی احمدی",
+      "fatherName": "محمد",
+      "birthDate": "۱۳۷۰/۰۵/۱۵",
+      "birthDateRaw": "1370/05/15",
+      "gender": "male",
+      "email": "ali.ahmadi@email.com",
+      "avatarUrl": "https://cdn.tobank.ir/avatars/default-male.png",
+      
+      "address": {
+        "province": "تهران",
+        "provinceCode": "23",
+        "city": "تهران",
+        "cityCode": "1",
+        "postalCode": "۱۲۳۴۵۶۷۸۹۰",
+        "mainStreet": "خیابان ولیعصر",
+        "alley": "کوچه گلها",
+        "buildingNumber": "۱۲",
+        "unit": "۳",
+        "fullAddress": "تهران، خیابان ولیعصر، کوچه گلها، پلاک ۱۲، واحد ۳"
+      },
+      
+      "phone": "۰۲۱-۸۸۱۲۳۴۵۶",
+      
+      "status": {
+        "isRegistered": true,
+        "ekycCompleted": true,
+        "ekycLevel": 3,
+        "hasCertificate": true,
+        "certificateExpiry": "۱۴۰۴/۰۶/۰۱",
+        "hasPassword": true,
+        "hasBiometric": true,
+        "segment": "registered"
+      },
+      
+      "wallet": {
+        "balance": 2500000,
+        "balanceFormatted": "۲,۵۰۰,۰۰۰ ریال",
+        "points": 12500,
+        "pointsFormatted": "۱۲,۵۰۰ امتیاز",
+        "level": "طلایی"
+      },
+      
+      "cards": ["CARD-001", "CARD-002", "CARD-003", "CARD-004", "CARD-005"],
+      "deposits": ["DEP-001", "DEP-002", "DEP-003"],
+      
+      "preferences": {
+        "theme": "system",
+        "language": "fa",
+        "notifications": true,
+        "biometricLogin": true,
+        "defaultCard": "CARD-001"
+      }
+    },
+    
+    "limited": {
+      "id": "USR-002",
+      "mobile": "۰۹۳۵۹۸۷۶۵۴۳",
+      "mobileRaw": "09359876543",
+      "nationalCode": "۰۰۹۸۷۶۵۴۳۲",
+      "nationalCodeRaw": "0098765432",
+      "customerNumber": null,
+      "firstName": "مریم",
+      "lastName": "محمدی",
+      "fullName": "مریم محمدی",
+      "fatherName": "حسین",
+      "birthDate": "۱۳۷۵/۱۱/۲۰",
+      "birthDateRaw": "1375/11/20",
+      "gender": "female",
+      "email": null,
+      "avatarUrl": "https://cdn.tobank.ir/avatars/default-female.png",
+      
+      "address": {
+        "province": "اصفهان",
+        "provinceCode": "10",
+        "city": "اصفهان",
+        "cityCode": "1",
+        "postalCode": null,
+        "mainStreet": null,
+        "alley": null,
+        "buildingNumber": null,
+        "unit": null,
+        "fullAddress": null
+      },
+      
+      "phone": null,
+      
+      "status": {
+        "isRegistered": true,
+        "ekycCompleted": false,
+        "ekycLevel": 1,
+        "hasCertificate": false,
+        "certificateExpiry": null,
+        "hasPassword": true,
+        "hasBiometric": false,
+        "segment": "limited"
+      },
+      
+      "wallet": {
+        "balance": 0,
+        "balanceFormatted": "۰ ریال",
+        "points": 0,
+        "pointsFormatted": "۰ امتیاز",
+        "level": "برنزی"
+      },
+      
+      "cards": ["CARD-006", "CARD-007"],
+      "deposits": [],
+      
+      "preferences": {
+        "theme": "light",
+        "language": "fa",
+        "notifications": true,
+        "biometricLogin": false,
+        "defaultCard": "CARD-006"
+      }
+    },
+    
+    "new": {
+      "id": "USR-003",
+      "mobile": "۰۹۱۹۵۵۵۱۲۳۴",
+      "mobileRaw": "09195551234",
+      "nationalCode": null,
+      "nationalCodeRaw": null,
+      "customerNumber": null,
+      "firstName": "رضا",
+      "lastName": "کریمی",
+      "fullName": "رضا کریمی",
+      "fatherName": null,
+      "birthDate": null,
+      "birthDateRaw": null,
+      "gender": "male",
+      "email": null,
+      "avatarUrl": "https://cdn.tobank.ir/avatars/default-male.png",
+      
+      "address": {
+        "province": null,
+        "provinceCode": null,
+        "city": null,
+        "cityCode": null,
+        "postalCode": null,
+        "mainStreet": null,
+        "alley": null,
+        "buildingNumber": null,
+        "unit": null,
+        "fullAddress": null
+      },
+      
+      "phone": null,
+      
+      "status": {
+        "isRegistered": false,
+        "ekycCompleted": false,
+        "ekycLevel": 0,
+        "hasCertificate": false,
+        "certificateExpiry": null,
+        "hasPassword": true,
+        "hasBiometric": false,
+        "segment": "new"
+      },
+      
+      "wallet": {
+        "balance": 0,
+        "balanceFormatted": "۰ ریال",
+        "points": 0,
+        "pointsFormatted": "۰ امتیاز",
+        "level": null
+      },
+      
+      "cards": ["CARD-008"],
+      "deposits": [],
+      
+      "preferences": {
+        "theme": "system",
+        "language": "fa",
+        "notifications": true,
+        "biometricLogin": false,
+        "defaultCard": "CARD-008"
+      }
+    }
+  },
+  
+  "currentUser": "full_access"
+}
+

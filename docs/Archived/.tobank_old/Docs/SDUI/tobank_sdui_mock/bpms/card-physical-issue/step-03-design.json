@@ -1,0 +1,49 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "card_issue_design",
+  "flowId": "card_physical_issue",
+  "stepNumber": 3,
+  "title": {"fa": "طراحی کارت", "en": "Card Design"},
+  
+  "appBar": {"type": "bpms_stepper", "title": {"fa": "صدور کارت", "en": "Card Issue"}, "currentStep": 3, "totalSteps": 6},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "text", "text": {"fa": "طرح کارت را انتخاب کنید", "en": "Choose your card design"}, "style": "titleMedium", "textAlign": "center"},
+      
+      {"type": "card", "margin": {"top": 24}, "child": {"type": "aspect_ratio", "aspectRatio": 1.586, "child": {"type": "card_preview", "design": "{{selectedDesign}}", "name": "{{cardName}}", "cardNumber": "XXXX XXXX XXXX XXXX"}}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "طرح‌های موجود", "en": "Available Designs"}}, "child": {"type": "grid_view", "crossAxisCount": 3, "childAspectRatio": 1.586, "mainAxisSpacing": 12, "crossAxisSpacing": 12, "children": [
+        {"type": "selectable_card", "selected": "{{selectedDesign === 'classic_blue'}}", "child": {"type": "card_design_thumb", "designId": "classic_blue", "gradient": ["#1E88E5", "#1565C0"]}, "onTap": {"type": "set_state", "key": "selectedDesign", "value": "classic_blue"}},
+        {"type": "selectable_card", "selected": "{{selectedDesign === 'classic_gold'}}", "child": {"type": "card_design_thumb", "designId": "classic_gold", "gradient": ["#FFD54F", "#FF8F00"]}, "onTap": {"type": "set_state", "key": "selectedDesign", "value": "classic_gold"}},
+        {"type": "selectable_card", "selected": "{{selectedDesign === 'classic_purple'}}", "child": {"type": "card_design_thumb", "designId": "classic_purple", "gradient": ["#7E57C2", "#512DA8"]}, "onTap": {"type": "set_state", "key": "selectedDesign", "value": "classic_purple"}},
+        {"type": "selectable_card", "selected": "{{selectedDesign === 'nature_green'}}", "child": {"type": "card_design_thumb", "designId": "nature_green", "gradient": ["#66BB6A", "#388E3C"]}, "onTap": {"type": "set_state", "key": "selectedDesign", "value": "nature_green"}},
+        {"type": "selectable_card", "selected": "{{selectedDesign === 'sunset'}}", "child": {"type": "card_design_thumb", "designId": "sunset", "gradient": ["#FF7043", "#E64A19"]}, "onTap": {"type": "set_state", "key": "selectedDesign", "value": "sunset"}},
+        {"type": "selectable_card", "selected": "{{selectedDesign === 'ocean'}}", "child": {"type": "card_design_thumb", "designId": "ocean", "gradient": ["#26C6DA", "#0097A7"]}, "onTap": {"type": "set_state", "key": "selectedDesign", "value": "ocean"}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "طرح‌های ویژه", "en": "Premium Designs"}, "trailing": {"type": "chip", "label": {"fa": "۵۰,۰۰۰ تومان", "en": "50K Toman"}, "backgroundColor": "#FFF3E0", "textColor": "#FF9800"}}, "child": {"type": "grid_view", "crossAxisCount": 3, "childAspectRatio": 1.586, "mainAxisSpacing": 12, "crossAxisSpacing": 12, "children": [
+        {"type": "selectable_card", "selected": "{{selectedDesign === 'premium_carbon'}}", "child": {"type": "card_design_thumb", "designId": "premium_carbon", "image": "assets/images/card_carbon.png", "premium": true}, "onTap": {"type": "set_state", "key": "selectedDesign", "value": "premium_carbon"}},
+        {"type": "selectable_card", "selected": "{{selectedDesign === 'premium_galaxy'}}", "child": {"type": "card_design_thumb", "designId": "premium_galaxy", "image": "assets/images/card_galaxy.png", "premium": true}, "onTap": {"type": "set_state", "key": "selectedDesign", "value": "premium_galaxy"}},
+        {"type": "selectable_card", "selected": "{{selectedDesign === 'premium_art'}}", "child": {"type": "card_design_thumb", "designId": "premium_art", "image": "assets/images/card_art.png", "premium": true}, "onTap": {"type": "set_state", "key": "selectedDesign", "value": "premium_art"}}
+      ]}},
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {"type": "container", "padding": 16, "child": {"type": "row", "children": [
+    {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "قبلی", "en": "Back"}, "onTap": {"type": "navigate_back"}}},
+    {"type": "sized_box", "width": 16},
+    {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "بعدی", "en": "Next"}, "disabled": "{{!selectedDesign}}", "onTap": {"type": "navigate", "route": "/bpms/card-physical-issue/step-04"}}}
+  ]}},
+  
+  "dataBindings": {
+    "cardName": {"source": "state", "default": "ALI AHMADI"},
+    "selectedDesign": {"source": "form", "default": null}
+  }
+}
+

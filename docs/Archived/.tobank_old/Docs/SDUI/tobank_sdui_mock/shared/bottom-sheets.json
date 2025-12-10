@@ -1,0 +1,117 @@
+{
+  "$schema": "tobank-sdui/v1/bottom-sheet-templates",
+  "version": "1.0.0",
+  "description": "Reusable bottom sheet templates",
+  
+  "bottomSheets": {
+    "select_card": {
+      "type": "selection",
+      "title": {"fa": "انتخاب کارت", "en": "Select Card"},
+      "dataSource": "cards",
+      "itemBuilder": {
+        "type": "card_select_item",
+        "leading": {"type": "card_mini", "cardNumber": "{{item.cardNumber}}", "bankLogo": "{{item.bankLogo}}"},
+        "title": "{{item.bankName}}",
+        "subtitle": "{{formatCardNumber(item.cardNumber)}}"
+      },
+      "searchable": true,
+      "searchHint": {"fa": "جستجوی کارت...", "en": "Search cards..."}
+    },
+    
+    "select_deposit": {
+      "type": "selection",
+      "title": {"fa": "انتخاب حساب", "en": "Select Account"},
+      "dataSource": "deposits",
+      "itemBuilder": {
+        "type": "deposit_select_item",
+        "title": "{{item.typeName}}",
+        "subtitle": "{{item.accountNumber}}",
+        "trailing": "{{formatCurrency(item.balance)}} ریال"
+      }
+    },
+    
+    "select_contact": {
+      "type": "selection",
+      "title": {"fa": "انتخاب مخاطب", "en": "Select Contact"},
+      "tabs": [
+        {"id": "recent", "label": {"fa": "اخیر", "en": "Recent"}},
+        {"id": "contacts", "label": {"fa": "مخاطبین", "en": "Contacts"}},
+        {"id": "favorites", "label": {"fa": "علاقه‌مندی", "en": "Favorites"}}
+      ],
+      "searchable": true,
+      "itemBuilder": {
+        "type": "contact_item",
+        "avatar": "{{item.avatar}}",
+        "title": "{{item.name}}",
+        "subtitle": "{{formatCardNumber(item.cardNumber)}}"
+      }
+    },
+    
+    "select_bank": {
+      "type": "selection",
+      "title": {"fa": "انتخاب بانک", "en": "Select Bank"},
+      "dataSource": "banks",
+      "searchable": true,
+      "searchHint": {"fa": "نام بانک...", "en": "Bank name..."},
+      "itemBuilder": {
+        "type": "bank_item",
+        "leading": {"type": "image", "src": "{{item.logo}}", "width": 40, "height": 40},
+        "title": "{{item.name}}"
+      }
+    },
+    
+    "date_picker": {
+      "type": "date_picker",
+      "title": {"fa": "انتخاب تاریخ", "en": "Select Date"},
+      "calendar": "jalali",
+      "minDate": "{{minDate}}",
+      "maxDate": "{{maxDate}}",
+      "showToday": true
+    },
+    
+    "time_picker": {
+      "type": "time_picker",
+      "title": {"fa": "انتخاب ساعت", "en": "Select Time"},
+      "format": "24h"
+    },
+    
+    "amount_keypad": {
+      "type": "keypad",
+      "title": {"fa": "مبلغ را وارد کنید", "en": "Enter Amount"},
+      "currency": "IRR",
+      "quickAmounts": [500000, 1000000, 2000000, 5000000],
+      "showInWords": true
+    },
+    
+    "sort_options": {
+      "type": "action_list",
+      "title": {"fa": "مرتب‌سازی", "en": "Sort By"},
+      "actions": [
+        {"id": "date_desc", "label": {"fa": "جدیدترین", "en": "Newest"}, "icon": "assets/icons/ic_sort_date.svg"},
+        {"id": "date_asc", "label": {"fa": "قدیمی‌ترین", "en": "Oldest"}, "icon": "assets/icons/ic_sort_date.svg"},
+        {"id": "amount_desc", "label": {"fa": "بیشترین مبلغ", "en": "Highest Amount"}, "icon": "assets/icons/ic_sort_amount.svg"},
+        {"id": "amount_asc", "label": {"fa": "کمترین مبلغ", "en": "Lowest Amount"}, "icon": "assets/icons/ic_sort_amount.svg"}
+      ]
+    },
+    
+    "share_options": {
+      "type": "action_list",
+      "title": {"fa": "اشتراک‌گذاری", "en": "Share"},
+      "actions": [
+        {"id": "copy", "label": {"fa": "کپی متن", "en": "Copy Text"}, "icon": "assets/icons/ic_copy.svg"},
+        {"id": "share", "label": {"fa": "اشتراک‌گذاری", "en": "Share"}, "icon": "assets/icons/ic_share.svg"},
+        {"id": "download", "label": {"fa": "دانلود رسید", "en": "Download Receipt"}, "icon": "assets/icons/ic_download.svg"}
+      ]
+    },
+    
+    "image_picker": {
+      "type": "action_list",
+      "title": {"fa": "انتخاب تصویر", "en": "Choose Image"},
+      "actions": [
+        {"id": "camera", "label": {"fa": "دوربین", "en": "Camera"}, "icon": "assets/icons/ic_camera.svg"},
+        {"id": "gallery", "label": {"fa": "گالری", "en": "Gallery"}, "icon": "assets/icons/ic_gallery.svg"}
+      ]
+    }
+  }
+}
+

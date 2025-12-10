@@ -1,0 +1,116 @@
+{
+  "$schema": "tobank-sdui/v1/validator-library",
+  "version": "1.0.0",
+  "description": "Validation rules for form fields",
+  
+  "validators": {
+    "required": {
+      "description": "Field must have a value",
+      "parameters": {
+        "message": {"type": "object", "default": {"fa": "این فیلد الزامی است", "en": "This field is required"}}
+      }
+    },
+    
+    "minLength": {
+      "description": "Minimum character length",
+      "parameters": {
+        "value": {"type": "number", "required": true},
+        "message": {"type": "object", "default": {"fa": "حداقل {{value}} کاراکتر", "en": "Minimum {{value}} characters"}}
+      }
+    },
+    
+    "maxLength": {
+      "description": "Maximum character length",
+      "parameters": {
+        "value": {"type": "number", "required": true},
+        "message": {"type": "object", "default": {"fa": "حداکثر {{value}} کاراکتر", "en": "Maximum {{value}} characters"}}
+      }
+    },
+    
+    "min": {
+      "description": "Minimum numeric value",
+      "parameters": {
+        "value": {"type": "number", "required": true},
+        "message": {"type": "object", "default": {"fa": "حداقل مقدار {{value}}", "en": "Minimum value {{value}}"}}
+      }
+    },
+    
+    "max": {
+      "description": "Maximum numeric value",
+      "parameters": {
+        "value": {"type": "number", "required": true},
+        "message": {"type": "object", "default": {"fa": "حداکثر مقدار {{value}}", "en": "Maximum value {{value}}"}}
+      }
+    },
+    
+    "pattern": {
+      "description": "Regex pattern match",
+      "parameters": {
+        "value": {"type": "string", "required": true},
+        "message": {"type": "object", "default": {"fa": "فرمت نامعتبر", "en": "Invalid format"}}
+      }
+    },
+    
+    "email": {
+      "description": "Valid email format",
+      "parameters": {
+        "message": {"type": "object", "default": {"fa": "ایمیل نامعتبر", "en": "Invalid email"}}
+      }
+    },
+    
+    "mobile": {
+      "description": "Iranian mobile number format",
+      "parameters": {
+        "message": {"type": "object", "default": {"fa": "شماره موبایل نامعتبر", "en": "Invalid mobile number"}}
+      },
+      "pattern": "^09[0-9]{9}$"
+    },
+    
+    "nationalId": {
+      "description": "Iranian national ID validation",
+      "parameters": {
+        "message": {"type": "object", "default": {"fa": "کد ملی نامعتبر", "en": "Invalid national ID"}}
+      }
+    },
+    
+    "iban": {
+      "description": "Iranian IBAN validation",
+      "parameters": {
+        "message": {"type": "object", "default": {"fa": "شبا نامعتبر", "en": "Invalid IBAN"}}
+      },
+      "pattern": "^IR[0-9]{24}$"
+    },
+    
+    "cardNumber": {
+      "description": "Bank card number validation",
+      "parameters": {
+        "message": {"type": "object", "default": {"fa": "شماره کارت نامعتبر", "en": "Invalid card number"}}
+      }
+    },
+    
+    "match": {
+      "description": "Match another field value",
+      "parameters": {
+        "field": {"type": "string", "required": true},
+        "message": {"type": "object", "default": {"fa": "مقادیر یکسان نیستند", "en": "Values do not match"}}
+      }
+    },
+    
+    "date": {
+      "description": "Valid date format",
+      "parameters": {
+        "format": {"type": "string", "default": "jalali"},
+        "message": {"type": "object", "default": {"fa": "تاریخ نامعتبر", "en": "Invalid date"}}
+      }
+    },
+    
+    "postalCode": {
+      "description": "Iranian postal code validation",
+      "parameters": {
+        "message": {"type": "object", "default": {"fa": "کد پستی نامعتبر", "en": "Invalid postal code"}}
+      },
+      "pattern": "^[0-9]{10}$"
+    }
+  }
+}
+

@@ -1,0 +1,251 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "marriage_loan_completion",
+  "flowId": "marriage_loan",
+  "stepNumber": 8,
+  "title": {
+    "fa": "اتمام فرآیند",
+    "en": "Completion"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "تسهیلات ازدواج", "en": "Marriage Loan"},
+    "showBackButton": false,
+    "actions": [
+      {
+        "id": "close",
+        "icon": "assets/icons/ic_close.svg",
+        "onTap": {"type": "navigate_replace", "route": "/home"}
+      }
+    ]
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "success_animation",
+        "type": "container",
+        "alignment": "center",
+        "padding": 32,
+        "child": {
+          "type": "lottie",
+          "asset": "assets/animations/success.json",
+          "width": 180,
+          "height": 180,
+          "repeat": false
+        }
+      },
+      
+      {
+        "id": "success_message",
+        "type": "text",
+        "text": {"fa": "درخواست شما با موفقیت ثبت شد", "en": "Application Submitted Successfully"},
+        "style": "headlineSmall",
+        "color": "#4CAF50",
+        "textAlign": "center"
+      },
+      
+      {
+        "id": "tracking_code_card",
+        "type": "card",
+        "margin": {"top": 24},
+        "padding": 20,
+        "backgroundColor": "#E8F5E9",
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "text",
+              "text": {"fa": "کد پیگیری", "en": "Tracking Code"},
+              "style": "titleMedium",
+              "textAlign": "center"
+            },
+            {"type": "sized_box", "height": 8},
+            {
+              "type": "text",
+              "text": "{{trackingCode}}",
+              "style": "displaySmall",
+              "textAlign": "center",
+              "letterSpacing": 2
+            },
+            {"type": "sized_box", "height": 16},
+            {
+              "type": "row",
+              "mainAxisAlignment": "center",
+              "children": [
+                {
+                  "type": "text_button",
+                  "icon": "assets/icons/ic_copy.svg",
+                  "label": {"fa": "کپی", "en": "Copy"},
+                  "onTap": {"type": "copy_to_clipboard", "text": "{{trackingCode}}"}
+                },
+                {"type": "sized_box", "width": 16},
+                {
+                  "type": "text_button",
+                  "icon": "assets/icons/ic_share.svg",
+                  "label": {"fa": "اشتراک", "en": "Share"},
+                  "onTap": {"type": "share", "text": "کد پیگیری درخواست تسهیلات ازدواج: {{trackingCode}}"}
+                }
+              ]
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "status_card",
+        "type": "card",
+        "margin": {"top": 24},
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "container",
+              "padding": 16,
+              "decoration": {"color": "#F5F5F5"},
+              "child": {
+                "type": "text",
+                "text": {"fa": "وضعیت درخواست", "en": "Application Status"},
+                "style": "titleMedium"
+              }
+            },
+            {
+              "type": "stepper_progress",
+              "padding": 16,
+              "steps": [
+                {"label": {"fa": "ثبت درخواست", "en": "Submitted"}, "status": "completed"},
+                {"label": {"fa": "بررسی مدارک", "en": "Document Review"}, "status": "current"},
+                {"label": {"fa": "تایید نهایی", "en": "Final Approval"}, "status": "pending"},
+                {"label": {"fa": "واریز وجه", "en": "Disbursement"}, "status": "pending"}
+              ]
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "next_steps_card",
+        "type": "card",
+        "margin": {"top": 24},
+        "padding": 16,
+        "child": {
+          "type": "column",
+          "crossAxisAlignment": "start",
+          "children": [
+            {
+              "type": "text",
+              "text": {"fa": "مراحل بعدی", "en": "Next Steps"},
+              "style": "titleMedium"
+            },
+            {"type": "sized_box", "height": 16},
+            {
+              "type": "step_item",
+              "number": 1,
+              "text": {"fa": "مدارک شما توسط کارشناسان بانک بررسی می‌شود", "en": "Documents will be reviewed by bank experts"}
+            },
+            {
+              "type": "step_item",
+              "number": 2,
+              "text": {"fa": "در صورت نیاز به مدارک تکمیلی با شما تماس گرفته می‌شود", "en": "You'll be contacted if additional documents needed"},
+              "margin": {"top": 12}
+            },
+            {
+              "type": "step_item",
+              "number": 3,
+              "text": {"fa": "پس از تایید، مبلغ به حساب شما واریز می‌شود", "en": "Amount will be deposited after approval"},
+              "margin": {"top": 12}
+            },
+            {
+              "type": "step_item",
+              "number": 4,
+              "text": {"fa": "زمان تخمینی: ۷ تا ۱۴ روز کاری", "en": "Estimated time: 7-14 business days"},
+              "margin": {"top": 12}
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "contact_info",
+        "type": "card",
+        "margin": {"top": 24},
+        "padding": 16,
+        "backgroundColor": "#E3F2FD",
+        "child": {
+          "type": "row",
+          "children": [
+            {
+              "type": "icon",
+              "icon": "assets/icons/ic_support.svg",
+              "color": "#1976D2",
+              "size": 32
+            },
+            {"type": "sized_box", "width": 16},
+            {
+              "type": "expanded",
+              "child": {
+                "type": "column",
+                "crossAxisAlignment": "start",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": {"fa": "سوالی دارید؟", "en": "Have questions?"},
+                    "style": "titleSmall"
+                  },
+                  {
+                    "type": "text",
+                    "text": {"fa": "با پشتیبانی تماس بگیرید: ۰۲۱-۲۲۲۲۲۲۲۲", "en": "Contact support: 021-22222222"},
+                    "style": "bodySmall"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      
+      {
+        "id": "action_buttons",
+        "type": "container",
+        "margin": {"top": 32},
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "elevated_button",
+              "label": {"fa": "پیگیری درخواست", "en": "Track Application"},
+              "fullWidth": true,
+              "onTap": {
+                "type": "navigate",
+                "route": "/bpms/marriage-loan/tasks",
+                "params": {"trackingCode": "{{trackingCode}}"}
+              }
+            },
+            {"type": "sized_box", "height": 12},
+            {
+              "type": "outlined_button",
+              "label": {"fa": "بازگشت به خانه", "en": "Back to Home"},
+              "fullWidth": true,
+              "onTap": {"type": "navigate_replace", "route": "/home"}
+            }
+          ]
+        }
+      },
+      
+      {"type": "sized_box", "height": 32}
+    ]
+  },
+  
+  "dataBindings": {
+    "trackingCode": {"source": "api", "endpoint": "bpms/marriage-loan/tracking-code"}
+  },
+  
+  "mockData": {
+    "trackingCode": "ML-۱۴۰۳۰۹-۱۲۳۴۵۶"
+  }
+}
+

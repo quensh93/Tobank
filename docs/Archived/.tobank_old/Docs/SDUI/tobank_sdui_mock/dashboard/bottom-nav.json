@@ -1,0 +1,126 @@
+{
+  "$schema": "tobank-sdui/v1/navigation",
+  "version": "1.0.0",
+  "navId": "bottom_navigation",
+  "description": "Bottom navigation bar configuration",
+  
+  "items": [
+    {
+      "id": "home",
+      "index": 0,
+      "label": {
+        "fa": "خانه",
+        "en": "Home"
+      },
+      "icon": "assets/icons/ic_home.svg",
+      "activeIcon": "assets/icons/ic_home_fill.svg",
+      "route": "/home",
+      "badge": null,
+      "enabled": true
+    },
+    {
+      "id": "cards",
+      "index": 1,
+      "label": {
+        "fa": "کارت‌ها",
+        "en": "Cards"
+      },
+      "icon": "assets/icons/ic_card.svg",
+      "activeIcon": "assets/icons/ic_card_fill.svg",
+      "route": "/cards",
+      "badge": null,
+      "enabled": true
+    },
+    {
+      "id": "scanner",
+      "index": 2,
+      "label": {
+        "fa": "اسکن",
+        "en": "Scan"
+      },
+      "icon": "assets/icons/ic_qr_scan.svg",
+      "activeIcon": "assets/icons/ic_qr_scan.svg",
+      "route": "/scanner",
+      "badge": null,
+      "enabled": true,
+      "isSpecial": true,
+      "specialStyle": {
+        "type": "floating",
+        "backgroundColor": "#E31837",
+        "iconColor": "#FFFFFF",
+        "elevation": 4,
+        "size": 56
+      }
+    },
+    {
+      "id": "services",
+      "index": 3,
+      "label": {
+        "fa": "خدمات",
+        "en": "Services"
+      },
+      "icon": "assets/icons/ic_menu_grid.svg",
+      "activeIcon": "assets/icons/ic_menu_grid_fill.svg",
+      "route": "/services",
+      "badge": null,
+      "enabled": true
+    },
+    {
+      "id": "profile",
+      "index": 4,
+      "label": {
+        "fa": "پروفایل",
+        "en": "Profile"
+      },
+      "icon": "assets/icons/ic_profile.svg",
+      "activeIcon": "assets/icons/ic_profile_fill.svg",
+      "route": "/profile",
+      "badge": {
+        "type": "dot",
+        "color": "#E31837",
+        "condition": "{{user.hasUnreadNotifications}}"
+      },
+      "enabled": true
+    }
+  ],
+  
+  "styling": {
+    "backgroundColor": {
+      "light": "#FFFFFF",
+      "dark": "#1E1E1E"
+    },
+    "selectedItemColor": "#E31837",
+    "unselectedItemColor": {
+      "light": "#757575",
+      "dark": "#BDBDBD"
+    },
+    "elevation": 8,
+    "height": 60,
+    "iconSize": 24,
+    "labelStyle": {
+      "fontSize": 11,
+      "fontWeight": "w500"
+    },
+    "showLabels": true,
+    "showLabelsOnlyWhenSelected": false,
+    "type": "fixed"
+  },
+  
+  "behavior": {
+    "hideOnScroll": false,
+    "hapticFeedback": true,
+    "animationDuration": 200,
+    "animationCurve": "easeInOut"
+  },
+  
+  "accessibility": {
+    "semanticLabels": {
+      "home": {"fa": "صفحه اصلی", "en": "Home page"},
+      "cards": {"fa": "مدیریت کارت‌ها", "en": "Manage cards"},
+      "scanner": {"fa": "اسکن کد QR", "en": "Scan QR code"},
+      "services": {"fa": "لیست خدمات", "en": "Services list"},
+      "profile": {"fa": "پروفایل کاربری", "en": "User profile"}
+    }
+  }
+}
+

@@ -1,0 +1,116 @@
+{
+  "$schema": "tobank-sdui/v1/app-config",
+  "version": "1.0.0",
+  "lastUpdated": "2025-11-29T00:00:00Z",
+  
+  "app": {
+    "name": "Tobank Mock SDUI",
+    "minVersion": "3.9.0",
+    "forceUpdate": false,
+    "maintenanceMode": false,
+    "maintenanceMessage": null
+  },
+  
+  "features": {
+    "cardToCard": true,
+    "accountManagement": true,
+    "transfers": true,
+    "transactions": true,
+    "profile": true,
+    "settings": true,
+    "bpmsWorkflows": false,
+    "customerClub": false,
+    "promissory": false,
+    "giftCard": false,
+    "charity": false,
+    "safeBox": false,
+    "cbs": false
+  },
+  
+  "navigation": {
+    "initialRoute": "tobank_menu",
+    "bottomTabs": [
+      {
+        "id": "home",
+        "label": "خانه",
+        "icon": "home",
+        "screenName": "tobank_home"
+      },
+      {
+        "id": "transactions",
+        "label": "تراکنش‌ها",
+        "icon": "receipt",
+        "screenName": "tobank_transaction_history"
+      },
+      {
+        "id": "account",
+        "label": "حساب",
+        "icon": "account_balance",
+        "screenName": "tobank_account_overview"
+      },
+      {
+        "id": "profile",
+        "label": "پروفایل",
+        "icon": "person",
+        "screenName": "tobank_profile"
+      }
+    ]
+  },
+  
+  "screenRegistry": {
+    "tobank_menu": {
+      "path": "stac/.build/tobank_menu.json",
+      "preload": true
+    },
+    "tobank_login": {
+      "path": "stac/.build/tobank_login.json"
+    },
+    "tobank_register": {
+      "path": "stac/.build/tobank_register.json"
+    },
+    "tobank_home": {
+      "path": "stac/.build/tobank_home.json",
+      "preload": true
+    },
+    "tobank_account_overview": {
+      "path": "stac/.build/tobank_account_overview.json"
+    },
+    "tobank_transfer_form": {
+      "path": "stac/.build/tobank_transfer_form.json"
+    },
+    "tobank_transfer_confirmation": {
+      "path": "stac/.build/tobank_transfer_confirmation.json"
+    },
+    "tobank_transaction_history": {
+      "path": "stac/.build/tobank_transaction_history.json"
+    },
+    "tobank_transaction_detail": {
+      "path": "stac/.build/tobank_transaction_detail.json"
+    },
+    "tobank_profile": {
+      "path": "stac/.build/tobank_profile.json"
+    },
+    "tobank_security_settings": {
+      "path": "stac/.build/tobank_security_settings.json"
+    },
+    "tobank_notification_settings": {
+      "path": "stac/.build/tobank_notification_settings.json"
+    },
+    "tobank_language_settings": {
+      "path": "stac/.build/tobank_language_settings.json"
+    }
+  },
+  
+  "localization": {
+    "defaultLocale": "fa",
+    "supportedLocales": ["fa", "en"],
+    "rtl": true
+  },
+  
+  "theme": {
+    "primaryColor": "#1976D2",
+    "accentColor": "#FF4081",
+    "backgroundColor": "#FFFFFF",
+    "darkMode": false
+  }
+}

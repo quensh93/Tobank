@@ -1,0 +1,24 @@
+{
+  "brightness": "dark",
+  "disabledColor": "#6077839B",
+  "fontFamily": "IranYekan",
+  "colorScheme": {
+    "brightness": "dark",
+    "primary": "#D61F2C",
+    "onPrimary": "#FFFFFF",
+    "secondary": "#00BABA",
+    "onSecondary": "#F3F3F6",
+    "surface": "#202633",
+    "onSurface": "#FFFFFF",
+    "background": "#202633",
+    "onBackground": "#FFFFFF",
+    "surfaceVariant": "#344054",
+    "onSurfaceVariant": "#BFCCE0",
+    "error": "#F24A4D",
+    "onError": "#FFFFFF",
+    "success": "#039855",
+    "onSuccess": "#FFFFFF",
+    "warning": "#F9A200",
+    "onWarning": "#FFFFFF"
+  }
+}

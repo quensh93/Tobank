@@ -1,0 +1,288 @@
+{
+  "$schema": "tobank-sdui/v1/mock-data",
+  "version": "1.0.0",
+  "description": "لیست بانک‌های ایران",
+  
+  "banks": [
+    {
+      "code": "010",
+      "name": "بانک مرکزی",
+      "persianName": "بانک مرکزی جمهوری اسلامی ایران",
+      "cardPrefix": [],
+      "logo": "assets/images/banks/markazi.png",
+      "color": "#003366"
+    },
+    {
+      "code": "011",
+      "name": "بانک صنعت و معدن",
+      "persianName": "بانک صنعت و معدن",
+      "cardPrefix": ["6279"],
+      "logo": "assets/images/banks/sanat.png",
+      "color": "#006633"
+    },
+    {
+      "code": "012",
+      "name": "بانک ملت",
+      "persianName": "بانک ملت",
+      "cardPrefix": ["6104", "9919"],
+      "logo": "assets/images/banks/mellat.png",
+      "color": "#E91E63"
+    },
+    {
+      "code": "013",
+      "name": "بانک رفاه",
+      "persianName": "بانک رفاه کارگران",
+      "cardPrefix": ["5894"],
+      "logo": "assets/images/banks/refah.png",
+      "color": "#1976D2"
+    },
+    {
+      "code": "014",
+      "name": "بانک مسکن",
+      "persianName": "بانک مسکن",
+      "cardPrefix": ["6280"],
+      "logo": "assets/images/banks/maskan.png",
+      "color": "#FF5722"
+    },
+    {
+      "code": "015",
+      "name": "بانک سپه",
+      "persianName": "بانک سپه",
+      "cardPrefix": ["5892"],
+      "logo": "assets/images/banks/sepah.png",
+      "color": "#795548"
+    },
+    {
+      "code": "016",
+      "name": "بانک کشاورزی",
+      "persianName": "بانک کشاورزی",
+      "cardPrefix": ["6037", "6395"],
+      "logo": "assets/images/banks/keshavarzi.png",
+      "color": "#4CAF50"
+    },
+    {
+      "code": "017",
+      "name": "بانک ملی",
+      "persianName": "بانک ملی ایران",
+      "cardPrefix": ["6037"],
+      "logo": "assets/images/banks/melli.png",
+      "color": "#2196F3"
+    },
+    {
+      "code": "018",
+      "name": "بانک تجارت",
+      "persianName": "بانک تجارت",
+      "cardPrefix": ["6273", "5859"],
+      "logo": "assets/images/banks/tejarat.png",
+      "color": "#3F51B5"
+    },
+    {
+      "code": "019",
+      "name": "بانک صادرات",
+      "persianName": "بانک صادرات ایران",
+      "cardPrefix": ["6037", "9030"],
+      "logo": "assets/images/banks/saderat.png",
+      "color": "#009688"
+    },
+    {
+      "code": "020",
+      "name": "بانک توسعه صادرات",
+      "persianName": "بانک توسعه صادرات ایران",
+      "cardPrefix": ["6278", "6279"],
+      "logo": "assets/images/banks/tosee_saderat.png",
+      "color": "#607D8B"
+    },
+    {
+      "code": "021",
+      "name": "پست بانک",
+      "persianName": "پست بانک ایران",
+      "cardPrefix": ["6277"],
+      "logo": "assets/images/banks/postbank.png",
+      "color": "#FFC107"
+    },
+    {
+      "code": "022",
+      "name": "بانک توسعه تعاون",
+      "persianName": "بانک توسعه تعاون",
+      "cardPrefix": ["5029"],
+      "logo": "assets/images/banks/tosee_taavon.png",
+      "color": "#00BCD4"
+    },
+    {
+      "code": "051",
+      "name": "موسسه کوثر",
+      "persianName": "موسسه اعتباری کوثر",
+      "cardPrefix": ["5053"],
+      "logo": "assets/images/banks/kosar.png",
+      "color": "#8BC34A"
+    },
+    {
+      "code": "052",
+      "name": "بانک قوامین",
+      "persianName": "بانک قوامین",
+      "cardPrefix": ["6395"],
+      "logo": "assets/images/banks/ghavamin.png",
+      "color": "#FF9800"
+    },
+    {
+      "code": "053",
+      "name": "بانک کارآفرین",
+      "persianName": "بانک کارآفرین",
+      "cardPrefix": ["6274"],
+      "logo": "assets/images/banks/karafarin.png",
+      "color": "#9C27B0"
+    },
+    {
+      "code": "054",
+      "name": "بانک پارسیان",
+      "persianName": "بانک پارسیان",
+      "cardPrefix": ["6221", "6223"],
+      "logo": "assets/images/banks/parsian.png",
+      "color": "#673AB7"
+    },
+    {
+      "code": "055",
+      "name": "بانک اقتصاد نوین",
+      "persianName": "بانک اقتصاد نوین",
+      "cardPrefix": ["6274"],
+      "logo": "assets/images/banks/eghtesad.png",
+      "color": "#FF5722"
+    },
+    {
+      "code": "056",
+      "name": "بانک سامان",
+      "persianName": "بانک سامان",
+      "cardPrefix": ["6219"],
+      "logo": "assets/images/banks/saman.png",
+      "color": "#E91E63"
+    },
+    {
+      "code": "057",
+      "name": "بانک پاسارگاد",
+      "persianName": "بانک پاسارگاد",
+      "cardPrefix": ["5022", "6393"],
+      "logo": "assets/images/logo.png",
+      "color": "#E31837"
+    },
+    {
+      "code": "058",
+      "name": "بانک سرمایه",
+      "persianName": "بانک سرمایه",
+      "cardPrefix": ["6396"],
+      "logo": "assets/images/banks/sarmaye.png",
+      "color": "#00BCD4"
+    },
+    {
+      "code": "059",
+      "name": "بانک سینا",
+      "persianName": "بانک سینا",
+      "cardPrefix": ["6393"],
+      "logo": "assets/images/banks/sina.png",
+      "color": "#4CAF50"
+    },
+    {
+      "code": "060",
+      "name": "قرض‌الحسنه مهر",
+      "persianName": "بانک قرض‌الحسنه مهر ایران",
+      "cardPrefix": ["6063"],
+      "logo": "assets/images/banks/mehr.png",
+      "color": "#8BC34A"
+    },
+    {
+      "code": "061",
+      "name": "بانک شهر",
+      "persianName": "بانک شهر",
+      "cardPrefix": ["5047"],
+      "logo": "assets/images/banks/shahr.png",
+      "color": "#3F51B5"
+    },
+    {
+      "code": "062",
+      "name": "بانک آینده",
+      "persianName": "بانک آینده",
+      "cardPrefix": ["6362"],
+      "logo": "assets/images/banks/ayandeh.png",
+      "color": "#FF9800"
+    },
+    {
+      "code": "063",
+      "name": "بانک انصار",
+      "persianName": "بانک انصار",
+      "cardPrefix": ["6273"],
+      "logo": "assets/images/banks/ansar.png",
+      "color": "#009688"
+    },
+    {
+      "code": "064",
+      "name": "بانک گردشگری",
+      "persianName": "بانک گردشگری",
+      "cardPrefix": ["5054"],
+      "logo": "assets/images/banks/gardeshgari.png",
+      "color": "#E91E63"
+    },
+    {
+      "code": "065",
+      "name": "بانک حکمت ایرانیان",
+      "persianName": "بانک حکمت ایرانیان",
+      "cardPrefix": ["6363"],
+      "logo": "assets/images/banks/hekmat.png",
+      "color": "#795548"
+    },
+    {
+      "code": "066",
+      "name": "بانک دی",
+      "persianName": "بانک دی",
+      "cardPrefix": ["5029"],
+      "logo": "assets/images/banks/day.png",
+      "color": "#607D8B"
+    },
+    {
+      "code": "069",
+      "name": "بانک ایران زمین",
+      "persianName": "بانک ایران زمین",
+      "cardPrefix": ["5057"],
+      "logo": "assets/images/banks/iranzamin.png",
+      "color": "#1976D2"
+    },
+    {
+      "code": "070",
+      "name": "قرض‌الحسنه رسالت",
+      "persianName": "بانک قرض‌الحسنه رسالت",
+      "cardPrefix": ["5041"],
+      "logo": "assets/images/banks/resalat.png",
+      "color": "#4CAF50"
+    }
+  ],
+  
+  "operators": [
+    {
+      "code": "mci",
+      "name": "همراه اول",
+      "prefixes": ["0910", "0911", "0912", "0913", "0914", "0915", "0916", "0917", "0918", "0919", "0990", "0991", "0992", "0993", "0994"],
+      "logo": "assets/images/mci.png",
+      "color": "#2196F3"
+    },
+    {
+      "code": "irancell",
+      "name": "ایرانسل",
+      "prefixes": ["0930", "0933", "0935", "0936", "0937", "0938", "0939", "0901", "0902", "0903", "0904", "0905"],
+      "logo": "assets/images/mtn.png",
+      "color": "#FFC107"
+    },
+    {
+      "code": "rightel",
+      "name": "رایتل",
+      "prefixes": ["0920", "0921", "0922"],
+      "logo": "assets/images/rightel.png",
+      "color": "#9C27B0"
+    },
+    {
+      "code": "shatel",
+      "name": "شاتل موبایل",
+      "prefixes": ["099810", "099811", "099812", "099813", "099814", "099815"],
+      "logo": "assets/images/shatel.png",
+      "color": "#E91E63"
+    }
+  ]
+}
+

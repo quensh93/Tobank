@@ -1,0 +1,402 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "satna_transfer",
+  "pageType": "form_flow",
+  "title": {
+    "fa": "انتقال ساتنا",
+    "en": "SATNA Transfer"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "satna_transfer",
+    "screenClass": "SatnaTransferPage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "انتقال ساتنا", "en": "SATNA Transfer"},
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "stepper",
+    "currentStep": "{{currentStep}}",
+    "steps": [
+      {
+        "id": "step_source",
+        "title": {"fa": "مبدا", "en": "Source"},
+        "content": {
+          "type": "column",
+          "padding": 16,
+          "children": [
+            {
+              "type": "text",
+              "text": {"fa": "سپرده مبدا را انتخاب کنید", "en": "Select source deposit"},
+              "style": "titleMedium"
+            },
+            {
+              "type": "sized_box",
+              "height": 16
+            },
+            {
+              "type": "list",
+              "dataSource": "deposits",
+              "itemTemplate": {
+                "type": "selectable_card",
+                "selected": "{{selectedDepositId === item.id}}",
+                "margin": {"bottom": 12},
+                "child": {
+                  "type": "row",
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "icon",
+                      "icon": "assets/icons/ic_deposit.svg",
+                      "size": 40,
+                      "color": "#E31837"
+                    },
+                    {
+                      "type": "sized_box",
+                      "width": 12
+                    },
+                    {
+                      "type": "expanded",
+                      "child": {
+                        "type": "column",
+                        "crossAxisAlignment": "start",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "{{item.depositType}}",
+                            "style": "titleSmall"
+                          },
+                          {
+                            "type": "text",
+                            "text": "{{item.depositNumber}}",
+                            "style": "bodySmall",
+                            "color": "textSecondary"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "type": "column",
+                      "crossAxisAlignment": "end",
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "{{formatCurrency(item.balance)}}",
+                          "style": "titleSmall"
+                        },
+                        {
+                          "type": "text",
+                          "text": {"fa": "ریال", "en": "Rials"},
+                          "style": "bodySmall",
+                          "color": "textSecondary"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "onTap": {
+                  "type": "set_state",
+                  "key": "selectedDepositId",
+                  "value": "{{item.id}}"
+                }
+              }
+            },
+            {
+              "type": "sized_box",
+              "height": 24
+            },
+            {
+              "type": "elevated_button",
+              "label": {"fa": "ادامه", "en": "Continue"},
+              "fullWidth": true,
+              "disabled": "{{!selectedDepositId}}",
+              "onTap": {"type": "set_state", "key": "currentStep", "value": 1}
+            }
+          ]
+        }
+      },
+      {
+        "id": "step_destination",
+        "title": {"fa": "مقصد", "en": "Destination"},
+        "content": {
+          "type": "column",
+          "padding": 16,
+          "children": [
+            {
+              "type": "text_field",
+              "label": {"fa": "شماره شبا مقصد", "en": "Destination IBAN"},
+              "hint": {"fa": "IR + 24 رقم", "en": "IR + 24 digits"},
+              "icon": "assets/icons/ic_iban.svg",
+              "maxLength": 26,
+              "prefixText": "IR",
+              "bindTo": "destinationIban"
+            },
+            {
+              "type": "sized_box",
+              "height": 16
+            },
+            {
+              "type": "text_field",
+              "label": {"fa": "نام دارنده حساب", "en": "Account Holder Name"},
+              "icon": "assets/icons/ic_profile.svg",
+              "bindTo": "destinationName"
+            },
+            {
+              "type": "sized_box",
+              "height": 24
+            },
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "expanded",
+                  "child": {
+                    "type": "outlined_button",
+                    "label": {"fa": "قبلی", "en": "Back"},
+                    "onTap": {"type": "set_state", "key": "currentStep", "value": 0}
+                  }
+                },
+                {"type": "sized_box", "width": 16},
+                {
+                  "type": "expanded",
+                  "child": {
+                    "type": "elevated_button",
+                    "label": {"fa": "ادامه", "en": "Continue"},
+                    "disabled": "{{!destinationIban || destinationIban.length < 26}}",
+                    "onTap": {"type": "set_state", "key": "currentStep", "value": 2}
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "step_amount",
+        "title": {"fa": "مبلغ", "en": "Amount"},
+        "content": {
+          "type": "column",
+          "padding": 16,
+          "children": [
+            {
+              "type": "currency_field",
+              "label": {"fa": "مبلغ (ریال)", "en": "Amount (Rials)"},
+              "currency": "IRR",
+              "showToman": true,
+              "minValue": 1500000000,
+              "bindTo": "amount"
+            },
+            {
+              "type": "sized_box",
+              "height": 8
+            },
+            {
+              "type": "text",
+              "text": {"fa": "حداقل مبلغ ساتنا: ۱۵۰,۰۰۰,۰۰۰ تومان", "en": "Minimum SATNA: 150,000,000 Toman"},
+              "style": "bodySmall",
+              "color": "#F57C00"
+            },
+            {
+              "type": "sized_box",
+              "height": 16
+            },
+            {
+              "type": "text_field",
+              "label": {"fa": "شرح انتقال", "en": "Description"},
+              "maxLength": 50,
+              "bindTo": "description"
+            },
+            {
+              "type": "sized_box",
+              "height": 16
+            },
+            {
+              "type": "card",
+              "padding": 12,
+              "backgroundColor": "#E3F2FD",
+              "child": {
+                "type": "column",
+                "children": [
+                  {
+                    "type": "row",
+                    "children": [
+                      {
+                        "type": "icon",
+                        "icon": "assets/icons/ic_info.svg",
+                        "color": "#1976D2",
+                        "size": 20
+                      },
+                      {"type": "sized_box", "width": 8},
+                      {
+                        "type": "text",
+                        "text": {"fa": "اطلاعات ساتنا", "en": "SATNA Info"},
+                        "style": "titleSmall"
+                      }
+                    ]
+                  },
+                  {"type": "sized_box", "height": 8},
+                  {
+                    "type": "text",
+                    "text": {"fa": "• انتقال آنی و برگشت‌ناپذیر\n• ساعات کاری: ۸ صبح تا ۴ عصر\n• کارمزد: ۰.۰۱٪ مبلغ (حداکثر ۲۵۰,۰۰۰ ریال)", "en": "• Instant & irreversible\n• Working hours: 8AM-4PM\n• Fee: 0.01% (max 250,000 Rials)"},
+                    "style": "bodySmall"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "sized_box",
+              "height": 24
+            },
+            {
+              "type": "row",
+              "children": [
+                {
+                  "type": "expanded",
+                  "child": {
+                    "type": "outlined_button",
+                    "label": {"fa": "قبلی", "en": "Back"},
+                    "onTap": {"type": "set_state", "key": "currentStep", "value": 1}
+                  }
+                },
+                {"type": "sized_box", "width": 16},
+                {
+                  "type": "expanded",
+                  "child": {
+                    "type": "elevated_button",
+                    "label": {"fa": "ادامه", "en": "Continue"},
+                    "disabled": "{{!amount || amount < 1500000000}}",
+                    "onTap": {"type": "set_state", "key": "currentStep", "value": 3}
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "step_confirm",
+        "title": {"fa": "تایید", "en": "Confirm"},
+        "content": {
+          "type": "column",
+          "padding": 16,
+          "children": [
+            {
+              "type": "text",
+              "text": "{{formatCurrency(amount)}}",
+              "style": "displaySmall",
+              "color": "#E31837",
+              "textAlign": "center"
+            },
+            {
+              "type": "text",
+              "text": {"fa": "ریال", "en": "Rials"},
+              "style": "titleMedium",
+              "color": "textSecondary",
+              "textAlign": "center"
+            },
+            {
+              "type": "sized_box",
+              "height": 24
+            },
+            {
+              "type": "card",
+              "child": {
+                "type": "column",
+                "children": [
+                  {
+                    "type": "info_row",
+                    "label": {"fa": "از سپرده", "en": "From"},
+                    "value": "{{selectedDeposit.depositNumber}}"
+                  },
+                  {"type": "divider"},
+                  {
+                    "type": "info_row",
+                    "label": {"fa": "به شبا", "en": "To IBAN"},
+                    "value": "{{formatIban(destinationIban)}}"
+                  },
+                  {"type": "divider"},
+                  {
+                    "type": "info_row",
+                    "label": {"fa": "نام گیرنده", "en": "Recipient"},
+                    "value": "{{destinationName}}"
+                  },
+                  {"type": "divider"},
+                  {
+                    "type": "info_row",
+                    "label": {"fa": "نوع انتقال", "en": "Type"},
+                    "value": {"fa": "ساتنا (RTGS)", "en": "SATNA (RTGS)"}
+                  },
+                  {"type": "divider"},
+                  {
+                    "type": "info_row",
+                    "label": {"fa": "کارمزد", "en": "Fee"},
+                    "value": "{{formatCurrency(Math.min(amount * 0.0001, 250000))}} ریال"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "sized_box",
+              "height": 24
+            },
+            {
+              "type": "elevated_button",
+              "label": {"fa": "تایید و انتقال", "en": "Confirm & Transfer"},
+              "fullWidth": true,
+              "loading": "{{isSubmitting}}",
+              "onTap": {
+                "type": "api_call",
+                "endpoint": "dibalite/transfer/satna",
+                "method": "POST",
+                "body": {
+                  "sourceDepositId": "{{selectedDepositId}}",
+                  "destinationIban": "{{destinationIban}}",
+                  "destinationName": "{{destinationName}}",
+                  "amount": "{{amount}}",
+                  "description": "{{description}}"
+                },
+                "requireOtp": true,
+                "requireEkycSign": true,
+                "onSuccess": {
+                  "type": "navigate_replace",
+                  "route": "/payments/transfer/result",
+                  "params": {
+                    "success": true,
+                    "type": "satna",
+                    "referenceNumber": "{{response.referenceNumber}}",
+                    "amount": "{{amount}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  
+  "dataBindings": {
+    "deposits": {"source": "api", "endpoint": "dibalite/deposits"},
+    "currentStep": {"source": "state", "default": 0},
+    "selectedDepositId": {"source": "state", "default": null},
+    "selectedDeposit": {
+      "source": "computed",
+      "expression": "deposits.find(d => d.id === selectedDepositId)"
+    },
+    "destinationIban": {"source": "form", "default": ""},
+    "destinationName": {"source": "form", "default": ""},
+    "amount": {"source": "form", "default": 0},
+    "description": {"source": "form", "default": ""},
+    "isSubmitting": {"source": "state", "default": false}
+  },
+  
+  "mockData": {
+    "deposits": "$ref:mock-data/deposits.json#deposits"
+  }
+}
+

@@ -1,0 +1,65 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "support_tickets",
+  "title": {"fa": "تیکت‌ها", "en": "Tickets"},
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "تیکت‌های پشتیبانی", "en": "Support Tickets"},
+    "actions": [
+      {"icon": "assets/icons/ic_add.svg", "onTap": {"type": "navigate", "route": "/support/tickets/new"}}
+    ]
+  },
+  
+  "body": {
+    "type": "column",
+    "children": [
+      {"type": "container", "padding": 16, "child": {"type": "row", "children": [
+        {"type": "expanded", "child": {"type": "filter_chip", "label": {"fa": "همه", "en": "All"}, "selected": "{{filter === 'all'}}", "onTap": {"type": "set_state", "key": "filter", "value": "all"}}},
+        {"type": "sized_box", "width": 8},
+        {"type": "expanded", "child": {"type": "filter_chip", "label": {"fa": "باز", "en": "Open"}, "selected": "{{filter === 'open'}}", "onTap": {"type": "set_state", "key": "filter", "value": "open"}}},
+        {"type": "sized_box", "width": 8},
+        {"type": "expanded", "child": {"type": "filter_chip", "label": {"fa": "بسته", "en": "Closed"}, "selected": "{{filter === 'closed'}}", "onTap": {"type": "set_state", "key": "filter", "value": "closed"}}}
+      ]}},
+      
+      {"type": "expanded", "child": {
+        "type": "conditional",
+        "condition": "{{filteredTickets.length > 0}}",
+        "whenTrue": {"type": "list_view", "padding": {"horizontal": 16}, "children": "{{filteredTickets}}", "itemBuilder": {"type": "card", "margin": {"bottom": 12}, "child": {"type": "column", "crossAxisAlignment": "start", "padding": 16, "children": [
+          {"type": "row", "mainAxisAlignment": "spaceBetween", "children": [
+            {"type": "text", "text": "#{{item.id}}", "style": "bodySmall", "color": "textSecondary"},
+            {"type": "chip", "label": "{{item.statusLabel}}", "backgroundColor": "{{item.statusColor}}20", "textColor": "{{item.statusColor}}", "size": "small"}
+          ]},
+          {"type": "text", "text": "{{item.subject}}", "style": "titleMedium", "margin": {"top": 8}},
+          {"type": "text", "text": "{{item.lastMessage}}", "style": "bodySmall", "color": "textSecondary", "maxLines": 2, "margin": {"top": 4}},
+          {"type": "row", "margin": {"top": 12}, "mainAxisAlignment": "spaceBetween", "children": [
+            {"type": "row", "children": [
+              {"type": "icon", "icon": "assets/icons/ic_category.svg", "size": 14, "color": "textSecondary"},
+              {"type": "text", "text": "{{item.category}}", "style": "bodySmall", "color": "textSecondary", "margin": {"left": 4}}
+            ]},
+            {"type": "text", "text": "{{item.date}}", "style": "bodySmall", "color": "textSecondary"}
+          ]}
+        ], "onTap": {"type": "navigate", "route": "/support/tickets/{{item.id}}"}}}},
+        "whenFalse": {"type": "empty_state", "icon": "assets/icons/ic_ticket.svg", "title": {"fa": "تیکتی ندارید", "en": "No tickets"}, "action": {"label": {"fa": "ثبت تیکت جدید", "en": "Create Ticket"}, "onTap": {"type": "navigate", "route": "/support/tickets/new"}}}
+      }}
+    ]
+  },
+  
+  "fab": {"icon": "assets/icons/ic_add.svg", "label": {"fa": "تیکت جدید", "en": "New Ticket"}, "onTap": {"type": "navigate", "route": "/support/tickets/new"}},
+  
+  "dataBindings": {
+    "tickets": {"source": "api", "endpoint": "support/tickets"},
+    "filter": {"source": "state", "default": "all"},
+    "filteredTickets": {"source": "computed", "formula": "filterTickets(tickets, filter)"}
+  },
+  
+  "mockData": {
+    "tickets": [
+      {"id": "TKT-۱۲۳۴", "subject": "مشکل در انتقال وجه", "lastMessage": "با سلام، پیگیری انجام شد و مبلغ برگشت داده شد.", "category": "انتقال وجه", "status": "closed", "statusLabel": "بسته شده", "statusColor": "#9E9E9E", "date": "۱۴۰۳/۰۹/۰۵"},
+      {"id": "TKT-۱۲۳۵", "subject": "درخواست افزایش سقف کارت به کارت", "lastMessage": "درخواست شما در حال بررسی است.", "category": "کارت", "status": "open", "statusLabel": "در انتظار پاسخ", "statusColor": "#FF9800", "date": "۱۴۰۳/۰۹/۱۰"},
+      {"id": "TKT-۱۲۳۶", "subject": "سوال درباره وام پارسا", "lastMessage": "سلام، شرایط دریافت وام پارسا چیست؟", "category": "وام", "status": "answered", "statusLabel": "پاسخ داده شده", "statusColor": "#4CAF50", "date": "۱۴۰۳/۰۹/۰۸"}
+    ]
+  }
+}
+

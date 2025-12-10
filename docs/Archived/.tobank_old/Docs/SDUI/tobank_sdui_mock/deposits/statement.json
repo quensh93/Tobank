@@ -1,0 +1,66 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "deposit_statement",
+  "title": {"fa": "صورتحساب", "en": "Statement"},
+  
+  "appBar": {"type": "standard", "title": {"fa": "صورتحساب", "en": "Statement"}},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "card", "padding": 16, "child": {"type": "column", "children": [
+        {"type": "text", "text": {"fa": "حساب", "en": "Account"}, "style": "titleSmall", "color": "textSecondary"},
+        {"type": "text", "text": "{{deposit.accountNumber}}", "style": "titleMedium", "margin": {"top": 4}},
+        {"type": "text", "text": "{{deposit.typeName}}", "style": "bodySmall", "color": "textSecondary", "margin": {"top": 2}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "بازه زمانی", "en": "Date Range"}}, "child": {"type": "column", "children": [
+        {"type": "row", "children": [
+          {"type": "expanded", "child": {"type": "date_picker", "label": {"fa": "از تاریخ", "en": "From Date"}, "bindTo": "fromDate"}},
+          {"type": "sized_box", "width": 16},
+          {"type": "expanded", "child": {"type": "date_picker", "label": {"fa": "تا تاریخ", "en": "To Date"}, "bindTo": "toDate"}}
+        ]},
+        {"type": "wrap", "margin": {"top": 16}, "spacing": 8, "children": [
+          {"type": "choice_chip", "label": {"fa": "یک ماه", "en": "1 Month"}, "selected": "{{preset === '1m'}}", "onTap": {"type": "set_date_preset", "preset": "1m"}},
+          {"type": "choice_chip", "label": {"fa": "سه ماه", "en": "3 Months"}, "selected": "{{preset === '3m'}}", "onTap": {"type": "set_date_preset", "preset": "3m"}},
+          {"type": "choice_chip", "label": {"fa": "شش ماه", "en": "6 Months"}, "selected": "{{preset === '6m'}}", "onTap": {"type": "set_date_preset", "preset": "6m"}},
+          {"type": "choice_chip", "label": {"fa": "یک سال", "en": "1 Year"}, "selected": "{{preset === '1y'}}", "onTap": {"type": "set_date_preset", "preset": "1y"}}
+        ]}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "فرمت خروجی", "en": "Output Format"}}, "child": {"type": "column", "children": [
+        {"type": "selectable_card", "selected": "{{format === 'pdf'}}", "margin": {"bottom": 8}, "child": {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_pdf.svg", "color": "#F44336"}, "title": {"fa": "PDF", "en": "PDF"}, "subtitle": {"fa": "فایل قابل چاپ", "en": "Printable file"}}, "onTap": {"type": "set_state", "key": "format", "value": "pdf"}},
+        {"type": "selectable_card", "selected": "{{format === 'excel'}}", "child": {"type": "list_tile", "leading": {"type": "icon", "icon": "assets/icons/ic_excel.svg", "color": "#4CAF50"}, "title": {"fa": "Excel", "en": "Excel"}, "subtitle": {"fa": "فایل قابل ویرایش", "en": "Editable spreadsheet"}}, "onTap": {"type": "set_state", "key": "format", "value": "excel"}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "نحوه دریافت", "en": "Delivery Method"}}, "child": {"type": "column", "children": [
+        {"type": "radio_tile", "value": "download", "groupValue": "{{delivery}}", "title": {"fa": "دانلود مستقیم", "en": "Direct Download"}, "onTap": {"type": "set_state", "key": "delivery", "value": "download"}},
+        {"type": "radio_tile", "value": "email", "groupValue": "{{delivery}}", "title": {"fa": "ارسال به ایمیل", "en": "Send to Email"}, "onTap": {"type": "set_state", "key": "delivery", "value": "email"}, "margin": {"top": 8}},
+        {"type": "conditional", "condition": "{{delivery === 'email'}}", "whenTrue": {"type": "text_field", "label": {"fa": "آدرس ایمیل", "en": "Email Address"}, "margin": {"top": 12}, "keyboardType": "email", "bindTo": "email", "value": "{{user.email}}"}}
+      ]}},
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {"type": "container", "padding": 16, "child": {"type": "elevated_button", "label": {"fa": "دریافت صورتحساب", "en": "Get Statement"}, "fullWidth": true, "disabled": "{{!fromDate || !toDate || !format || !delivery || (delivery === 'email' && !email)}}", "onTap": {"type": "api_call", "endpoint": "dibalite/deposits/{{depositId}}/statement", "method": "POST", "body": {"fromDate": "{{fromDate}}", "toDate": "{{toDate}}", "format": "{{format}}", "delivery": "{{delivery}}", "email": "{{email}}"}, "onSuccess": {"type": "conditional", "condition": "{{delivery === 'download'}}", "whenTrue": {"type": "download", "url": "{{response.downloadUrl}}"}, "whenFalse": {"type": "show_toast", "message": {"fa": "صورتحساب به ایمیل ارسال شد", "en": "Statement sent to email"}}}}}},
+  
+  "dataBindings": {
+    "depositId": {"source": "route_param", "key": "id"},
+    "deposit": {"source": "api", "endpoint": "dibalite/deposits/{{depositId}}"},
+    "user": {"source": "api", "endpoint": "dibalite/customer/profile"},
+    "fromDate": {"source": "form", "default": null},
+    "toDate": {"source": "form", "default": null},
+    "format": {"source": "form", "default": "pdf"},
+    "delivery": {"source": "form", "default": "download"},
+    "email": {"source": "form", "default": ""}
+  },
+  
+  "mockData": {
+    "deposit": {"accountNumber": "۰۱۰۸۱۲۳۴۵۶۷۸۹۰", "typeName": "جاری"},
+    "user": {"email": "ali.ahmadi@email.com"}
+  }
+}
+

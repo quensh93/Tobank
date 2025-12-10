@@ -1,0 +1,12 @@
+import 'package:flutter/material.dart';
+import '../screens/visual_editor_screen.dart';
+
+/// Visual Editor tab widget that embeds the Visual Editor screen
+class VisualEditorTab extends StatelessWidget {
+  const VisualEditorTab({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const VisualEditorScreen();
+  }
+}

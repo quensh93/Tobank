@@ -1,0 +1,286 @@
+{
+  "$schema": "tobank-sdui/v1/component",
+  "version": "1.0.0",
+  "componentId": "quick_actions",
+  "componentType": "grid_menu",
+  "description": "Quick action buttons for dashboard",
+  
+  "quickActions": {
+    "primary": [
+      {
+        "id": "card_to_card",
+        "icon": "assets/icons/ic_card_to_card.svg",
+        "label": {"fa": "کارت به کارت", "en": "Card Transfer"},
+        "description": {"fa": "انتقال فوری بین کارت‌ها", "en": "Instant card-to-card transfer"},
+        "color": "#E31837",
+        "route": "/transfer/card-to-card",
+        "badge": null,
+        "enabled": true,
+        "requiredPermissions": ["transfer.card"],
+        "analytics": {"event": "quick_action_tap", "params": {"action": "card_to_card"}}
+      },
+      {
+        "id": "paya_transfer",
+        "icon": "assets/icons/ic_paya.svg",
+        "label": {"fa": "پایا", "en": "PAYA"},
+        "description": {"fa": "انتقال بین بانکی پایا", "en": "Interbank PAYA transfer"},
+        "color": "#2196F3",
+        "route": "/transfer/paya",
+        "badge": null,
+        "enabled": true,
+        "requiredPermissions": ["transfer.paya"],
+        "analytics": {"event": "quick_action_tap", "params": {"action": "paya"}}
+      },
+      {
+        "id": "satna_transfer",
+        "icon": "assets/icons/ic_satna.svg",
+        "label": {"fa": "ساتنا", "en": "SATNA"},
+        "description": {"fa": "انتقال فوری بین بانکی", "en": "Real-time gross settlement"},
+        "color": "#9C27B0",
+        "route": "/transfer/satna",
+        "badge": null,
+        "enabled": true,
+        "requiredPermissions": ["transfer.satna"],
+        "analytics": {"event": "quick_action_tap", "params": {"action": "satna"}}
+      },
+      {
+        "id": "internal_transfer",
+        "icon": "assets/icons/ic_internal_transfer.svg",
+        "label": {"fa": "انتقال داخلی", "en": "Internal"},
+        "description": {"fa": "انتقال بین حساب‌های خود", "en": "Transfer between own accounts"},
+        "color": "#4CAF50",
+        "route": "/transfer/internal",
+        "badge": null,
+        "enabled": true,
+        "requiredPermissions": ["transfer.internal"],
+        "analytics": {"event": "quick_action_tap", "params": {"action": "internal"}}
+      }
+    ],
+    
+    "payments": [
+      {
+        "id": "mobile_topup",
+        "icon": "assets/icons/ic_mobile_charge.svg",
+        "label": {"fa": "شارژ موبایل", "en": "Mobile Top-up"},
+        "description": {"fa": "خرید شارژ سیم‌کارت", "en": "Buy mobile credit"},
+        "color": "#4CAF50",
+        "route": "/topup/mobile",
+        "badge": null,
+        "enabled": true
+      },
+      {
+        "id": "internet_package",
+        "icon": "assets/icons/ic_internet_package.svg",
+        "label": {"fa": "بسته اینترنت", "en": "Data Package"},
+        "description": {"fa": "خرید بسته اینترنت", "en": "Buy internet package"},
+        "color": "#E91E63",
+        "route": "/topup/internet",
+        "badge": null,
+        "enabled": true
+      },
+      {
+        "id": "bill_payment",
+        "icon": "assets/icons/ic_bill.svg",
+        "label": {"fa": "پرداخت قبض", "en": "Pay Bills"},
+        "description": {"fa": "پرداخت انواع قبوض", "en": "Pay utility bills"},
+        "color": "#FF9800",
+        "route": "/bills",
+        "badge": {"text": "3", "color": "#E31837"},
+        "enabled": true
+      },
+      {
+        "id": "qr_payment",
+        "icon": "assets/icons/ic_qr_code.svg",
+        "label": {"fa": "پرداخت QR", "en": "QR Pay"},
+        "description": {"fa": "پرداخت با کد QR", "en": "Scan QR to pay"},
+        "color": "#00BCD4",
+        "route": "/payment/qr",
+        "badge": null,
+        "enabled": true
+      }
+    ],
+    
+    "bills": [
+      {
+        "id": "electric_bill",
+        "icon": "assets/icons/ic_electric_bill.svg",
+        "label": {"fa": "قبض برق", "en": "Electric"},
+        "color": "#FF9800",
+        "route": "/bills/electric"
+      },
+      {
+        "id": "gas_bill",
+        "icon": "assets/icons/ic_gas_bill.svg",
+        "label": {"fa": "قبض گاز", "en": "Gas"},
+        "color": "#2196F3",
+        "route": "/bills/gas"
+      },
+      {
+        "id": "water_bill",
+        "icon": "assets/icons/ic_water_bill.svg",
+        "label": {"fa": "قبض آب", "en": "Water"},
+        "color": "#00BCD4",
+        "route": "/bills/water"
+      },
+      {
+        "id": "phone_bill",
+        "icon": "assets/icons/ic_phone_bill.svg",
+        "label": {"fa": "قبض تلفن", "en": "Phone"},
+        "color": "#9C27B0",
+        "route": "/bills/phone"
+      },
+      {
+        "id": "mobile_bill",
+        "icon": "assets/icons/ic_mobile_bill.svg",
+        "label": {"fa": "قبض موبایل", "en": "Mobile"},
+        "color": "#E91E63",
+        "route": "/bills/mobile"
+      },
+      {
+        "id": "traffic_fine",
+        "icon": "assets/icons/ic_car.svg",
+        "label": {"fa": "جریمه خودرو", "en": "Traffic Fine"},
+        "color": "#F44336",
+        "route": "/bills/traffic-fine"
+      }
+    ],
+    
+    "services": [
+      {
+        "id": "loans",
+        "icon": "assets/icons/ic_loan.svg",
+        "label": {"fa": "تسهیلات", "en": "Loans"},
+        "description": {"fa": "درخواست انواع تسهیلات", "en": "Apply for loans"},
+        "color": "#673AB7",
+        "route": "/loans",
+        "badge": {"text": "جدید", "color": "#4CAF50"},
+        "enabled": true
+      },
+      {
+        "id": "cheque",
+        "icon": "assets/icons/ic_cheque.svg",
+        "label": {"fa": "چک", "en": "Cheque"},
+        "description": {"fa": "مدیریت چک‌ها", "en": "Manage cheques"},
+        "color": "#795548",
+        "route": "/cheque",
+        "badge": null,
+        "enabled": true
+      },
+      {
+        "id": "card_request",
+        "icon": "assets/icons/ic_request_card.svg",
+        "label": {"fa": "درخواست کارت", "en": "Request Card"},
+        "description": {"fa": "صدور کارت جدید", "en": "Request new card"},
+        "color": "#E31837",
+        "route": "/bpms/card-request",
+        "badge": null,
+        "enabled": true
+      },
+      {
+        "id": "deposit_open",
+        "icon": "assets/icons/ic_deposit.svg",
+        "label": {"fa": "افتتاح سپرده", "en": "Open Deposit"},
+        "description": {"fa": "افتتاح حساب جدید", "en": "Open new deposit"},
+        "color": "#009688",
+        "route": "/deposits/open",
+        "badge": null,
+        "enabled": true
+      },
+      {
+        "id": "certificate",
+        "icon": "assets/icons/ic_document.svg",
+        "label": {"fa": "تاییدیه‌ها", "en": "Certificates"},
+        "description": {"fa": "دریافت گواهی و تاییدیه", "en": "Get certificates"},
+        "color": "#607D8B",
+        "route": "/certificates",
+        "badge": null,
+        "enabled": true
+      },
+      {
+        "id": "club",
+        "icon": "assets/icons/ic_star.svg",
+        "label": {"fa": "باشگاه مشتریان", "en": "Customer Club"},
+        "description": {"fa": "امتیازات و جوایز", "en": "Rewards & points"},
+        "color": "#FFC107",
+        "route": "/customer-club",
+        "badge": {"text": "۵۰۰", "color": "#FFC107"},
+        "enabled": true
+      }
+    ],
+    
+    "bpms": [
+      {
+        "id": "marriage_loan",
+        "icon": "assets/icons/ic_wedding.svg",
+        "label": {"fa": "تسهیلات ازدواج", "en": "Marriage Loan"},
+        "color": "#E91E63",
+        "route": "/bpms/marriage-loan",
+        "badge": {"text": "۴٪", "color": "#4CAF50"}
+      },
+      {
+        "id": "children_loan",
+        "icon": "assets/icons/ic_baby.svg",
+        "label": {"fa": "تسهیلات فرزندآوری", "en": "Children Loan"},
+        "color": "#FF9800",
+        "route": "/bpms/children-loan"
+      },
+      {
+        "id": "military_guarantee",
+        "icon": "assets/icons/ic_military.svg",
+        "label": {"fa": "ضمانت‌نامه سربازی", "en": "Military Guarantee"},
+        "color": "#4CAF50",
+        "route": "/bpms/military-guarantee"
+      },
+      {
+        "id": "credit_card",
+        "icon": "assets/icons/ic_credit_card.svg",
+        "label": {"fa": "کارت اعتباری", "en": "Credit Card"},
+        "color": "#2196F3",
+        "route": "/bpms/credit-card"
+      },
+      {
+        "id": "parsa_loan",
+        "icon": "assets/icons/ic_loan.svg",
+        "label": {"fa": "تسهیلات پارسا", "en": "Parsa Loan"},
+        "color": "#9C27B0",
+        "route": "/bpms/parsa-loan"
+      },
+      {
+        "id": "card_physical_issue",
+        "icon": "assets/icons/ic_card_physical.svg",
+        "label": {"fa": "صدور فیزیکی کارت", "en": "Physical Card Issue"},
+        "color": "#795548",
+        "route": "/bpms/card-physical-issue"
+      }
+    ]
+  },
+  
+  "layouts": {
+    "dashboard_grid": {
+      "type": "grid",
+      "crossAxisCount": 4,
+      "mainAxisSpacing": 16,
+      "crossAxisSpacing": 8,
+      "childAspectRatio": 0.85,
+      "items": ["quickActions.primary", "quickActions.payments[0:4]"]
+    },
+    
+    "services_full": {
+      "type": "grid",
+      "crossAxisCount": 4,
+      "mainAxisSpacing": 20,
+      "crossAxisSpacing": 12,
+      "childAspectRatio": 0.9,
+      "items": ["quickActions.services", "quickActions.bpms"]
+    },
+    
+    "bills_horizontal": {
+      "type": "horizontal_scroll",
+      "height": 100,
+      "itemWidth": 80,
+      "spacing": 12,
+      "items": "quickActions.bills"
+    }
+  }
+}
+

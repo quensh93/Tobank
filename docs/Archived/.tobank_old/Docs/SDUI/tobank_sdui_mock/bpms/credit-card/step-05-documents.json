@@ -1,0 +1,44 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "credit_card_documents",
+  "flowId": "credit_card",
+  "stepNumber": 5,
+  "title": {"fa": "بارگذاری مدارک", "en": "Upload Documents"},
+  
+  "appBar": {"type": "bpms_stepper", "title": {"fa": "کارت اعتباری", "en": "Credit Card"}, "currentStep": 5, "totalSteps": 7},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "section", "header": {"title": {"fa": "مدارک متقاضی", "en": "Applicant Documents"}}, "child": {"type": "column", "children": [
+        {"type": "document_upload", "title": {"fa": "کارت ملی", "en": "National ID"}, "required": true, "maxFiles": 2, "bindTo": "nationalIdDocs"},
+        {"type": "document_upload", "title": {"fa": "فیش حقوقی", "en": "Salary Slip"}, "required": true, "maxFiles": 2, "bindTo": "salaryDocs", "margin": {"top": 16}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "مدارک ضامن", "en": "Guarantor Documents"}}, "child": {"type": "column", "children": [
+        {"type": "document_upload", "title": {"fa": "کارت ملی ضامن", "en": "Guarantor ID"}, "required": true, "maxFiles": 2, "bindTo": "guarantorIdDocs"},
+        {"type": "document_upload", "title": {"fa": "فیش حقوقی ضامن", "en": "Guarantor Salary"}, "required": true, "maxFiles": 2, "bindTo": "guarantorSalaryDocs", "margin": {"top": 16}},
+        {"type": "document_upload", "title": {"fa": "تعهدنامه ضمانت", "en": "Guarantee Letter"}, "required": true, "maxFiles": 1, "bindTo": "guaranteeLetterDocs", "margin": {"top": 16}}
+      ]}},
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {"type": "container", "padding": 16, "child": {"type": "row", "children": [
+    {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "قبلی", "en": "Back"}, "onTap": {"type": "navigate_back"}}},
+    {"type": "sized_box", "width": 16},
+    {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "بعدی", "en": "Next"}, "onTap": {"type": "navigate", "route": "/bpms/credit-card/step-06"}}}
+  ]}},
+  
+  "dataBindings": {
+    "nationalIdDocs": {"source": "form", "default": []},
+    "salaryDocs": {"source": "form", "default": []},
+    "guarantorIdDocs": {"source": "form", "default": []},
+    "guarantorSalaryDocs": {"source": "form", "default": []},
+    "guaranteeLetterDocs": {"source": "form", "default": []}
+  }
+}
+

@@ -1,0 +1,29 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "جزئیات کارت"
+    },
+    "actions": [
+      {
+        "type": "iconButton",
+        "onPressed": {
+          "actionType": "navigate",
+          "path": "/cards/edit",
+          "data": {
+            "cardId": "{{cardId}}"
+          }
+        },
+        "icon": {
+          "type": "image",
+          "src": "assets/icons/ic_edit.svg",
+          "width": 24,
+          "height": 24,
+          "imageType": "asset"
+        }
+      }
+    ]
+  }
+}

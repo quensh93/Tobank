@@ -85,7 +85,7 @@ class AccessibilityTab extends ConsumerWidget {
               children: [
                 Expanded(
                   child: DropdownButtonFormField<AccessibilityIssueType>(
-                    value: state.selectedFilter,
+                    initialValue: state.selectedFilter,
                     decoration: const InputDecoration(
                       labelText: 'Filter by Type',
                       border: OutlineInputBorder(),

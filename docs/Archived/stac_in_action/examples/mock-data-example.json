@@ -1,0 +1,397 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Example STAC screen configuration for a product listing page",
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Products"
+    },
+    "actions": [
+      {
+        "type": "iconButton",
+        "icon": "search",
+        "onPressed": {
+          "actionType": "navigate",
+          "route": "/search"
+        }
+      },
+      {
+        "type": "iconButton",
+        "icon": "shopping_cart",
+        "onPressed": {
+          "actionType": "navigate",
+          "route": "/cart"
+        }
+      }
+    ]
+  },
+  "body": {
+    "type": "refreshIndicator",
+    "onRefresh": {
+      "actionType": "refreshScreen",
+      "screenName": "product_list"
+    },
+    "child": {
+      "type": "customScrollView",
+      "slivers": [
+        {
+          "type": "sliverToBoxAdapter",
+          "child": {
+            "type": "container",
+            "padding": {
+              "all": 16
+            },
+            "child": {
+              "type": "column",
+              "crossAxisAlignment": "start",
+              "children": [
+                {
+                  "type": "text",
+                  "data": "Featured Products",
+                  "style": {
+                    "fontSize": 24,
+                    "fontWeight": "bold"
+                  }
+                },
+                {
+                  "type": "sizedBox",
+                  "height": 8
+                },
+                {
+                  "type": "text",
+                  "data": "Discover our best-selling items",
+                  "style": {
+                    "fontSize": 14,
+                    "color": "#666666"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "sliverPadding",
+          "padding": {
+            "horizontal": 16,
+            "vertical": 8
+          },
+          "sliver": {
+            "type": "sliverGrid",
+            "gridDelegate": {
+              "type": "sliverGridDelegateWithFixedCrossAxisCount",
+              "crossAxisCount": 2,
+              "mainAxisSpacing": 16,
+              "crossAxisSpacing": 16,
+              "childAspectRatio": 0.7
+            },
+            "children": [
+              {
+                "type": "productCard",
+                "imageUrl": "https://picsum.photos/400/300?random=1",
+                "title": "Premium Wireless Headphones",
+                "description": "High-quality sound with active noise cancellation",
+                "price": 299.99,
+                "currency": "$",
+                "rating": 4.5,
+                "reviewCount": 1234,
+                "inStock": true,
+                "onTap": {
+                  "actionType": "sequence",
+                  "actions": [
+                    {
+                      "actionType": "trackAnalytics",
+                      "eventName": "product_clicked",
+                      "category": "ecommerce",
+                      "parameters": {
+                        "product_id": "prod_001",
+                        "product_name": "Premium Wireless Headphones",
+                        "price": 299.99,
+                        "position": 1
+                      }
+                    },
+                    {
+                      "actionType": "navigate",
+                      "route": "/product-details",
+                      "arguments": {
+                        "productId": "prod_001"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "productCard",
+                "imageUrl": "https://picsum.photos/400/300?random=2",
+                "title": "Smart Watch Pro",
+                "description": "Track your fitness and stay connected",
+                "price": 399.99,
+                "currency": "$",
+                "rating": 4.8,
+                "reviewCount": 856,
+                "inStock": true,
+                "onTap": {
+                  "actionType": "sequence",
+                  "actions": [
+                    {
+                      "actionType": "trackAnalytics",
+                      "eventName": "product_clicked",
+                      "category": "ecommerce",
+                      "parameters": {
+                        "product_id": "prod_002",
+                        "product_name": "Smart Watch Pro",
+                        "price": 399.99,
+                        "position": 2
+                      }
+                    },
+                    {
+                      "actionType": "navigate",
+                      "route": "/product-details",
+                      "arguments": {
+                        "productId": "prod_002"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "productCard",
+                "imageUrl": "https://picsum.photos/400/300?random=3",
+                "title": "Portable Bluetooth Speaker",
+                "description": "Powerful sound in a compact design",
+                "price": 79.99,
+                "currency": "$",
+                "rating": 4.3,
+                "reviewCount": 2341,
+                "inStock": true,
+                "onTap": {
+                  "actionType": "navigate",
+                  "route": "/product-details",
+                  "arguments": {
+                    "productId": "prod_003"
+                  }
+                }
+              },
+              {
+                "type": "productCard",
+                "imageUrl": "https://picsum.photos/400/300?random=4",
+                "title": "Wireless Charging Pad",
+                "description": "Fast charging for all your devices",
+                "price": 49.99,
+                "currency": "$",
+                "rating": 4.6,
+                "reviewCount": 567,
+                "inStock": false,
+                "onTap": {
+                  "actionType": "showDialog",
+                  "title": "Out of Stock",
+                  "message": "This item is currently unavailable. Would you like to be notified when it's back in stock?",
+                  "actions": [
+                    {
+                      "text": "Notify Me",
+                      "action": {
+                        "actionType": "trackAnalytics",
+                        "eventName": "notify_me_clicked",
+                        "category": "engagement",
+                        "parameters": {
+                          "product_id": "prod_004"
+                        }
+                      }
+                    },
+                    {
+                      "text": "Cancel",
+                      "action": {
+                        "actionType": "closeDialog"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "productCard",
+                "imageUrl": "https://picsum.photos/400/300?random=5",
+                "title": "USB-C Hub Adapter",
+                "description": "Expand your connectivity options",
+                "price": 34.99,
+                "currency": "$",
+                "rating": 4.4,
+                "reviewCount": 892,
+                "inStock": true,
+                "onTap": {
+                  "actionType": "navigate",
+                  "route": "/product-details",
+                  "arguments": {
+                    "productId": "prod_005"
+                  }
+                }
+              },
+              {
+                "type": "productCard",
+                "imageUrl": "https://picsum.photos/400/300?random=6",
+                "title": "Laptop Stand",
+                "description": "Ergonomic design for better posture",
+                "price": 59.99,
+                "currency": "$",
+                "rating": 4.7,
+                "reviewCount": 1456,
+                "inStock": true,
+                "onTap": {
+                  "actionType": "navigate",
+                  "route": "/product-details",
+                  "arguments": {
+                    "productId": "prod_006"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "sliverToBoxAdapter",
+          "child": {
+            "type": "container",
+            "padding": {
+              "all": 16
+            },
+            "child": {
+              "type": "elevatedButton",
+              "style": {
+                "minimumSize": {
+                  "width": "infinity",
+                  "height": 48
+                }
+              },
+              "child": {
+                "type": "text",
+                "data": "Load More Products"
+              },
+              "onPressed": {
+                "actionType": "sequence",
+                "actions": [
+                  {
+                    "actionType": "trackAnalytics",
+                    "eventName": "load_more_clicked",
+                    "category": "user_interaction",
+                    "parameters": {
+                      "current_page": 1
+                    }
+                  },
+                  {
+                    "actionType": "loadMore",
+                    "endpoint": "/api/products",
+                    "page": 2
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "floatingActionButton": {
+    "type": "floatingActionButton",
+    "child": {
+      "type": "icon",
+      "icon": "filter_list"
+    },
+    "onPressed": {
+      "actionType": "showBottomSheet",
+      "content": {
+        "type": "container",
+        "padding": {
+          "all": 16
+        },
+        "child": {
+          "type": "column",
+          "mainAxisSize": "min",
+          "children": [
+            {
+              "type": "text",
+              "data": "Filter Products",
+              "style": {
+                "fontSize": 20,
+                "fontWeight": "bold"
+              }
+            },
+            {
+              "type": "sizedBox",
+              "height": 16
+            },
+            {
+              "type": "text",
+              "data": "Price Range"
+            },
+            {
+              "type": "rangeSlider",
+              "min": 0,
+              "max": 500,
+              "values": [0, 500]
+            },
+            {
+              "type": "sizedBox",
+              "height": 16
+            },
+            {
+              "type": "text",
+              "data": "Rating"
+            },
+            {
+              "type": "slider",
+              "min": 0,
+              "max": 5,
+              "value": 0
+            },
+            {
+              "type": "sizedBox",
+              "height": 16
+            },
+            {
+              "type": "elevatedButton",
+              "style": {
+                "minimumSize": {
+                  "width": "infinity",
+                  "height": 48
+                }
+              },
+              "child": {
+                "type": "text",
+                "data": "Apply Filters"
+              },
+              "onPressed": {
+                "actionType": "sequence",
+                "actions": [
+                  {
+                    "actionType": "trackAnalytics",
+                    "eventName": "filters_applied",
+                    "category": "user_interaction"
+                  },
+                  {
+                    "actionType": "closeBottomSheet"
+                  },
+                  {
+                    "actionType": "refreshScreen",
+                    "screenName": "product_list"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "metadata": {
+    "version": 1,
+    "lastUpdated": "2025-01-11T00:00:00Z",
+    "description": "Product listing screen with custom product cards",
+    "tags": ["ecommerce", "products", "shopping"],
+    "requiredCustomComponents": [
+      "productCard"
+    ],
+    "requiredCustomActions": [
+      "trackAnalytics"
+    ]
+  }
+}

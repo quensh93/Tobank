@@ -10,7 +10,7 @@ void main() {
       const testWidget = Text('Test Widget');
       
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: DebugPanel(
             enabled: true,
             child: testWidget,
@@ -25,7 +25,7 @@ void main() {
       const testWidget = Text('Test Widget');
       
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: DebugPanel(
             enabled: false,
             child: testWidget,
@@ -42,7 +42,7 @@ void main() {
       const testWidget = Text('Test Widget');
       
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: DebugPanel(
             enabled: true,
             child: testWidget,

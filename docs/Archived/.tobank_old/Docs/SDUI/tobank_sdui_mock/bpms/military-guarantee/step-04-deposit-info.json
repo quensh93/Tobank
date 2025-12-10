@@ -1,0 +1,120 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "military_deposit",
+  "flowId": "military_guarantee",
+  "stepNumber": 4,
+  "title": {"fa": "اطلاعات سپرده", "en": "Deposit Info"},
+  
+  "appBar": {"type": "bpms_stepper", "title": {"fa": "ضمانت‌نامه نظام وظیفه", "en": "Military Guarantee"}, "currentStep": 4, "totalSteps": 7},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "type": "card",
+        "padding": 16,
+        "backgroundColor": "#FFF3E0",
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "text", "text": {"fa": "مبلغ وثیقه مورد نیاز", "en": "Required Collateral"}, "style": "titleSmall"},
+            {"type": "text", "text": "{{formatCurrency(requiredDeposit)}} ریال", "style": "headlineSmall", "color": "#FF9800"},
+            {"type": "text", "text": {"fa": "معادل ۱۰٪ مبلغ ضمانت‌نامه", "en": "10% of guarantee amount"}, "style": "bodySmall", "color": "textSecondary"}
+          ]
+        }
+      },
+      
+      {
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {"title": {"fa": "انتخاب نوع وثیقه", "en": "Collateral Type"}},
+        "child": {
+          "type": "radio_group",
+          "options": [
+            {"value": "deposit", "label": {"fa": "سپرده بلندمدت", "en": "Long-term Deposit"}, "subtitle": {"fa": "توقیف سپرده موجود", "en": "Block existing deposit"}},
+            {"value": "new_deposit", "label": {"fa": "واریز نقدی", "en": "Cash Deposit"}, "subtitle": {"fa": "واریز مبلغ وثیقه", "en": "Deposit collateral amount"}}
+          ],
+          "bindTo": "collateralType"
+        }
+      },
+      
+      {"type": "conditional", "condition": "{{collateralType === 'deposit'}}", "whenTrue": {
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {"title": {"fa": "انتخاب سپرده", "en": "Select Deposit"}},
+        "child": {
+          "type": "list",
+          "dataSource": "deposits",
+          "emptyState": {"icon": "assets/icons/ic_deposit.svg", "title": {"fa": "سپرده‌ای یافت نشد", "en": "No deposits found"}},
+          "itemTemplate": {
+            "type": "selectable_card",
+            "selected": "{{selectedDepositId === item.id}}",
+            "margin": {"bottom": 12},
+            "disabled": "{{item.balance < requiredDeposit}}",
+            "child": {
+              "type": "row",
+              "padding": 16,
+              "children": [
+                {"type": "icon", "icon": "assets/icons/ic_deposit.svg", "size": 40, "color": "#607D8B"},
+                {"type": "sized_box", "width": 12},
+                {"type": "expanded", "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+                  {"type": "text", "text": "{{item.depositType}}", "style": "titleSmall"},
+                  {"type": "text", "text": "{{item.depositNumber}}", "style": "bodySmall", "color": "textSecondary"}
+                ]}},
+                {"type": "column", "crossAxisAlignment": "end", "children": [
+                  {"type": "text", "text": "{{formatCurrency(item.balance)}}", "style": "titleSmall"},
+                  {"type": "text", "text": {"fa": "ریال", "en": "Rials"}, "style": "bodySmall", "color": "textSecondary"},
+                  {"type": "conditional", "condition": "{{item.balance < requiredDeposit}}", "whenTrue": {"type": "chip", "label": {"fa": "ناکافی", "en": "Insufficient"}, "size": "small", "color": "#F44336"}}
+                ]}
+              ]
+            },
+            "onTap": {"type": "set_state", "key": "selectedDepositId", "value": "{{item.id}}"}
+          }
+        }
+      }},
+      
+      {"type": "conditional", "condition": "{{collateralType === 'new_deposit'}}", "whenTrue": {
+        "type": "card",
+        "margin": {"top": 24},
+        "padding": 16,
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "text", "text": {"fa": "اطلاعات واریز", "en": "Deposit Info"}, "style": "titleSmall"},
+            {"type": "text", "text": {"fa": "مبلغ {{formatCurrency(requiredDeposit)}} ریال به حساب زیر واریز شود:", "en": "Deposit {{formatCurrency(requiredDeposit)}} Rials to:"}, "style": "bodySmall", "margin": {"top": 8}},
+            {"type": "info_row", "margin": {"top": 16}, "label": {"fa": "شماره حساب", "en": "Account"}, "value": "۱۲۳۴-۵۶۷۸-۹۰۱۲-۳۴۵۶", "copyable": true}
+          ]
+        }
+      }},
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "child": {
+      "type": "row",
+      "children": [
+        {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "قبلی", "en": "Back"}, "onTap": {"type": "navigate_back"}}},
+        {"type": "sized_box", "width": 16},
+        {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "بعدی", "en": "Next"}, "disabled": "{{!collateralType || (collateralType === 'deposit' && !selectedDepositId)}}", "onTap": {"type": "navigate", "route": "/bpms/military-guarantee/step-05"}}}
+      ]
+    }
+  },
+  
+  "dataBindings": {
+    "requiredDeposit": {"source": "route_param", "key": "requiredDeposit", "default": 50000000},
+    "collateralType": {"source": "form", "default": null},
+    "deposits": {"source": "api", "endpoint": "dibalite/deposits"},
+    "selectedDepositId": {"source": "form", "default": null}
+  },
+  
+  "mockData": {
+    "deposits": "$ref:mock-data/deposits.json#deposits"
+  }
+}
+

@@ -5,10 +5,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../core/helpers/logger.dart';
 import '../../../../dummy/stac_test_page.dart';
-import '../../../../dummy/register_form_page.dart';
-import '../../../../dummy/digital_clock_page.dart';
 import '../../../../dummy/simple_api_test_page.dart';
 import '../../../../dummy/news_api_test_page.dart';
+import '../../../tobank_mock_new/presentation/screens/tobank_stac_dart_screen.dart';
 import '../../providers/theme_controller_provider.dart';
 import '../widgets/menu_card.dart';
 import '../widgets/debug_tool_item.dart';
@@ -106,18 +105,6 @@ class _PreLaunchScreenState extends ConsumerState<PreLaunchScreen> {
           onTap: () => _navigateToPage(const StacTestPage(), '/stac-test'),
         ),
         MenuCard(
-          icon: Icons.app_registration,
-          title: 'Registration Form',
-          subtitle: 'Form validation test',
-          onTap: () => _navigateToPage(const RegisterFormPage(), '/register-form'),
-        ),
-        MenuCard(
-          icon: Icons.access_time,
-          title: 'Digital Clock',
-          subtitle: 'STAC widget example',
-          onTap: () => _navigateToPage(const DigitalClockPage(), '/digital-clock'),
-        ),
-        MenuCard(
           icon: Icons.api,
           title: 'HTTPBin API Test',
           subtitle: 'API testing',
@@ -128,6 +115,12 @@ class _PreLaunchScreenState extends ConsumerState<PreLaunchScreen> {
           title: 'Network Layer Test',
           subtitle: 'Network layer testing',
           onTap: () => _navigateToPage(const NetworkLayerTestPage(), '/network-layer-test'),
+        ),
+        MenuCard(
+          icon: Icons.code,
+          title: 'Tobank SDUI',
+          subtitle: 'Render Tobank login via Dart StacWidget',
+          onTap: () => _navigateToPage(const TobankStacDartScreen(), '/tobank-stac-dart'),
         ),
       ],
     );
@@ -312,6 +305,7 @@ class _PreLaunchScreenState extends ConsumerState<PreLaunchScreen> {
     );
     
     if (result == true && controller.text.isNotEmpty) {
+      if (!mounted) return;
       final scaffoldMessenger = ScaffoldMessenger.of(context);
       
       try {

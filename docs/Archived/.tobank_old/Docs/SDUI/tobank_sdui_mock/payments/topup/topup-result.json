@@ -1,0 +1,211 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "topup_result",
+  "pageType": "result",
+  "title": {
+    "fa": "نتیجه خرید",
+    "en": "Purchase Result"
+  },
+  "requiresAuth": true,
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "نتیجه خرید", "en": "Purchase Result"},
+    "showBackButton": false
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "result_animation",
+        "type": "container",
+        "alignment": "center",
+        "padding": 32,
+        "child": {
+          "type": "conditional",
+          "condition": "{{success}}",
+          "whenTrue": {
+            "type": "lottie",
+            "asset": "assets/animations/success.json",
+            "width": 150,
+            "height": 150,
+            "repeat": false
+          },
+          "whenFalse": {
+            "type": "lottie",
+            "asset": "assets/animations/error.json",
+            "width": 150,
+            "height": 150,
+            "repeat": false
+          }
+        }
+      },
+      
+      {
+        "id": "result_title",
+        "type": "text",
+        "text": "{{success ? {'fa': 'خرید موفق', 'en': 'Purchase Successful'} : {'fa': 'خرید ناموفق', 'en': 'Purchase Failed'}}}",
+        "style": "headlineSmall",
+        "color": "{{success ? '#4CAF50' : '#F44336'}}",
+        "textAlign": "center"
+      },
+      
+      {
+        "id": "pin_code_section",
+        "type": "conditional",
+        "condition": "{{success && chargeType === 'pin' && pinCode}}",
+        "whenTrue": {
+          "type": "card",
+          "margin": {"top": 24},
+          "padding": 20,
+          "backgroundColor": "#FFF8E1",
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "text",
+                "text": {"fa": "کد شارژ شما", "en": "Your PIN Code"},
+                "style": "titleMedium",
+                "textAlign": "center"
+              },
+              {"type": "sized_box", "height": 16},
+              {
+                "type": "text",
+                "text": "{{pinCode}}",
+                "style": "displaySmall",
+                "textAlign": "center",
+                "letterSpacing": 4
+              },
+              {"type": "sized_box", "height": 16},
+              {
+                "type": "row",
+                "mainAxisAlignment": "center",
+                "children": [
+                  {
+                    "type": "text_button",
+                    "icon": "assets/icons/ic_copy.svg",
+                    "label": {"fa": "کپی کد", "en": "Copy"},
+                    "onTap": {"type": "copy_to_clipboard", "text": "{{pinCode}}"}
+                  },
+                  {"type": "sized_box", "width": 16},
+                  {
+                    "type": "text_button",
+                    "icon": "assets/icons/ic_share.svg",
+                    "label": {"fa": "اشتراک", "en": "Share"},
+                    "onTap": {"type": "share", "text": "کد شارژ: {{pinCode}}"}
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "receipt_card",
+        "type": "conditional",
+        "condition": "{{success}}",
+        "whenTrue": {
+          "type": "card",
+          "margin": {"top": 24},
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "info_row",
+                "label": {"fa": "شماره پیگیری", "en": "Reference"},
+                "value": "{{referenceNumber}}",
+                "copyable": true
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "label": {"fa": "شماره موبایل", "en": "Mobile"},
+                "value": "{{phoneNumber}}"
+              },
+              {"type": "divider"},
+              {
+                "type": "conditional",
+                "condition": "{{type === 'internet'}}",
+                "whenTrue": {
+                  "type": "info_row",
+                  "label": {"fa": "بسته", "en": "Package"},
+                  "value": "{{packageName}}"
+                },
+                "whenFalse": {
+                  "type": "info_row",
+                  "label": {"fa": "نوع شارژ", "en": "Type"},
+                  "value": "{{chargeType === 'direct' ? {'fa': 'شارژ مستقیم', 'en': 'Direct'} : {'fa': 'کد شارژ', 'en': 'PIN Code'}}}"
+                }
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "label": {"fa": "مبلغ", "en": "Amount"},
+                "value": "{{formatCurrency(amount)}} ریال"
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "label": {"fa": "وضعیت", "en": "Status"},
+                "value": "{{chargeType === 'direct' ? {'fa': 'شارژ شد', 'en': 'Charged'} : {'fa': 'آماده استفاده', 'en': 'Ready to use'}}}",
+                "valueColor": "#4CAF50"
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "action_buttons",
+        "type": "container",
+        "margin": {"top": 32},
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "elevated_button",
+              "label": {"fa": "خرید مجدد", "en": "Buy Again"},
+              "fullWidth": true,
+              "onTap": {
+                "type": "navigate_replace",
+                "route": "{{type === 'internet' ? '/topup/internet' : '/topup/mobile'}}"
+              }
+            },
+            {"type": "sized_box", "height": 12},
+            {
+              "type": "outlined_button",
+              "label": {"fa": "بازگشت به خانه", "en": "Back to Home"},
+              "fullWidth": true,
+              "onTap": {"type": "navigate_replace", "route": "/home"}
+            }
+          ]
+        }
+      }
+    ]
+  },
+  
+  "dataBindings": {
+    "success": {"source": "route_param", "key": "success", "transform": "boolean"},
+    "type": {"source": "route_param", "key": "type"},
+    "phoneNumber": {"source": "route_param", "key": "phoneNumber"},
+    "amount": {"source": "route_param", "key": "amount", "transform": "number"},
+    "chargeType": {"source": "route_param", "key": "chargeType"},
+    "pinCode": {"source": "route_param", "key": "pinCode"},
+    "packageName": {"source": "route_param", "key": "packageName"},
+    "referenceNumber": {"source": "route_param", "key": "referenceNumber"}
+  },
+  
+  "mockData": {
+    "success": true,
+    "type": "mobile",
+    "phoneNumber": "۰۹۱۲۳۴۵۶۷۸۹",
+    "amount": 1000000,
+    "chargeType": "direct",
+    "referenceNumber": "۹۸۷۶۵۴۳۲۱۰"
+  }
+}
+

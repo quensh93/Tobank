@@ -1,0 +1,23 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "نتیجه انتقال"
+    },
+    "actions": [
+      {
+        "type": "iconButton",
+        "onPressed": {
+          "actionType": "navigate",
+          "path": "/home"
+        },
+        "icon": {
+          "type": "icon",
+          "icon": "close"
+        }
+      }
+    ]
+  }
+}

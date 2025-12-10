@@ -1,0 +1,43 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "credit_card_completion",
+  "flowId": "credit_card",
+  "stepNumber": 7,
+  "title": {"fa": "اتمام", "en": "Completion"},
+  
+  "appBar": {"type": "standard", "title": {"fa": "کارت اعتباری", "en": "Credit Card"}, "showBackButton": false},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "container", "alignment": "center", "padding": 32, "child": {"type": "lottie", "asset": "assets/animations/success.json", "width": 150, "height": 150, "repeat": false}},
+      {"type": "text", "text": {"fa": "درخواست ثبت شد", "en": "Application Submitted"}, "style": "headlineSmall", "color": "#4CAF50", "textAlign": "center"},
+      
+      {"type": "card", "margin": {"top": 24}, "padding": 20, "backgroundColor": "#FBE9E7", "child": {"type": "column", "children": [
+        {"type": "text", "text": {"fa": "کد پیگیری", "en": "Tracking Code"}, "style": "titleMedium", "textAlign": "center"},
+        {"type": "text", "text": "{{trackingCode}}", "style": "displaySmall", "textAlign": "center", "margin": {"top": 8}},
+        {"type": "row", "mainAxisAlignment": "center", "margin": {"top": 16}, "children": [{"type": "text_button", "icon": "assets/icons/ic_copy.svg", "label": {"fa": "کپی", "en": "Copy"}, "onTap": {"type": "copy_to_clipboard", "text": "{{trackingCode}}"}}]}
+      ]}},
+      
+      {"type": "card", "margin": {"top": 24}, "padding": 16, "child": {"type": "column", "crossAxisAlignment": "start", "children": [
+        {"type": "text", "text": {"fa": "مراحل بعدی", "en": "Next Steps"}, "style": "titleMedium"},
+        {"type": "step_item", "number": 1, "text": {"fa": "بررسی مدارک", "en": "Review"}, "margin": {"top": 12}},
+        {"type": "step_item", "number": 2, "text": {"fa": "تایید اعتباری", "en": "Credit Approval"}, "margin": {"top": 8}},
+        {"type": "step_item", "number": 3, "text": {"fa": "صدور کارت", "en": "Card Issuance"}, "margin": {"top": 8}},
+        {"type": "step_item", "number": 4, "text": {"fa": "تحویل کارت", "en": "Card Delivery"}, "margin": {"top": 8}},
+        {"type": "text", "text": {"fa": "زمان تخمینی: ۱۰ تا ۱۵ روز کاری", "en": "Est: 10-15 business days"}, "style": "bodySmall", "color": "textSecondary", "margin": {"top": 16}}
+      ]}},
+      
+      {"type": "column", "margin": {"top": 32}, "children": [
+        {"type": "elevated_button", "label": {"fa": "پیگیری", "en": "Track"}, "fullWidth": true, "onTap": {"type": "navigate", "route": "/bpms/credit-card/tasks"}},
+        {"type": "outlined_button", "label": {"fa": "بازگشت", "en": "Home"}, "fullWidth": true, "margin": {"top": 12}, "onTap": {"type": "navigate_replace", "route": "/home"}}
+      ]}
+    ]
+  },
+  
+  "dataBindings": {"trackingCode": {"source": "api", "endpoint": "bpms/credit-card/tracking-code"}},
+  "mockData": {"trackingCode": "CC-۱۴۰۳۰۹-۵۶۷۸۹۰"}
+}
+

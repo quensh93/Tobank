@@ -1,0 +1,113 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "children_loan_contract",
+  "flowId": "children_loan",
+  "stepNumber": 6,
+  "title": {"fa": "امضای قرارداد", "en": "Sign Contract"},
+  
+  "appBar": {
+    "type": "bpms_stepper",
+    "title": {"fa": "تسهیلات فرزندآوری", "en": "Children Loan"},
+    "currentStep": 6,
+    "totalSteps": 7
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "summary",
+        "type": "card",
+        "padding": 20,
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "text", "text": {"fa": "خلاصه درخواست", "en": "Summary"}, "style": "titleLarge", "textAlign": "center"},
+            {"type": "divider", "margin": {"vertical": 16}},
+            {"type": "info_row", "label": {"fa": "مبلغ تسهیلات", "en": "Amount"}, "value": "{{formatCurrency(summary.amount)}} ریال", "valueColor": "#9C27B0"},
+            {"type": "info_row", "label": {"fa": "تعداد فرزندان", "en": "Children"}, "value": "{{summary.childrenCount}} نفر", "margin": {"top": 8}},
+            {"type": "info_row", "label": {"fa": "مدت بازپرداخت", "en": "Period"}, "value": "{{summary.period}} ماه", "margin": {"top": 8}},
+            {"type": "info_row", "label": {"fa": "مبلغ قسط", "en": "Installment"}, "value": "{{formatCurrency(summary.installment)}} ریال", "margin": {"top": 8}}
+          ]
+        }
+      },
+      
+      {
+        "id": "contract_view",
+        "type": "card",
+        "margin": {"top": 24},
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "container", "height": 250, "padding": 16, "child": {"type": "scrollable", "child": {"type": "text", "text": "{{contractText}}", "style": "bodySmall"}}},
+            {"type": "divider"},
+            {"type": "container", "padding": 12, "child": {"type": "text_button", "icon": "assets/icons/ic_download.svg", "label": {"fa": "دانلود PDF", "en": "Download PDF"}, "onTap": {"type": "download", "url": "{{contractPdfUrl}}"}}}
+          ]
+        }
+      },
+      
+      {
+        "id": "ekyc",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {"title": {"fa": "احراز هویت و امضا", "en": "Verification & Sign"}},
+        "child": {
+          "type": "conditional",
+          "condition": "{{!ekycDone}}",
+          "whenTrue": {"type": "elevated_button", "label": {"fa": "شروع احراز هویت", "en": "Start Verification"}, "fullWidth": true, "onTap": {"type": "start_ekyc", "onSuccess": {"type": "set_state", "key": "ekycDone", "value": true}}},
+          "whenFalse": {
+            "type": "column",
+            "children": [
+              {"type": "container", "padding": 16, "decoration": {"color": "#E8F5E9", "borderRadius": 8}, "child": {"type": "row", "mainAxisAlignment": "center", "children": [{"type": "icon", "icon": "assets/icons/ic_check_circle.svg", "color": "#4CAF50"}, {"type": "sized_box", "width": 8}, {"type": "text", "text": {"fa": "احراز هویت انجام شد", "en": "Verified"}, "color": "#4CAF50"}]}},
+              {"type": "signature_pad", "height": 150, "margin": {"top": 16}, "bindTo": "signature"}
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "agreements",
+        "type": "column",
+        "margin": {"top": 24},
+        "children": [
+          {"type": "checkbox_tile", "title": {"fa": "قرارداد را مطالعه کردم", "en": "I read the contract"}, "bindTo": "readContract"},
+          {"type": "checkbox_tile", "title": {"fa": "شرایط را می‌پذیرم", "en": "I accept terms"}, "bindTo": "acceptTerms"}
+        ]
+      },
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "child": {
+      "type": "row",
+      "children": [
+        {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "قبلی", "en": "Back"}, "onTap": {"type": "navigate_back"}}},
+        {"type": "sized_box", "width": 16},
+        {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "امضا و ثبت", "en": "Sign"}, "disabled": "{{!canSubmit}}", "onTap": {"type": "api_call", "endpoint": "bpms/children-loan/sign", "method": "POST", "requireEkycSign": true, "onSuccess": {"type": "navigate_replace", "route": "/bpms/children-loan/step-07"}}}}
+      ]
+    }
+  },
+  
+  "dataBindings": {
+    "summary": {"source": "api", "endpoint": "bpms/children-loan/summary"},
+    "contractText": {"source": "api", "endpoint": "bpms/children-loan/contract"},
+    "contractPdfUrl": {"source": "state", "default": ""},
+    "ekycDone": {"source": "state", "default": false},
+    "signature": {"source": "form", "default": null},
+    "readContract": {"source": "form", "default": false},
+    "acceptTerms": {"source": "form", "default": false},
+    "canSubmit": {"source": "computed", "expression": "ekycDone && signature && readContract && acceptTerms"}
+  },
+  
+  "mockData": {
+    "summary": {"amount": 2000000000, "childrenCount": 1, "period": 60, "installment": 38333333},
+    "contractText": "قرارداد تسهیلات فرزندآوری\n\nماده ۱: طرفین قرارداد...\nماده ۲: موضوع قرارداد...\nماده ۳: مبلغ تسهیلات...\nماده ۴: نحوه بازپرداخت..."
+  }
+}
+

@@ -1,0 +1,407 @@
+{
+  "$schema": "tobank-sdui/v1/workflow",
+  "id": "marriage-loan-flow",
+  "version": "1.0.0",
+  "type": "workflow",
+  
+  "meta": {
+    "title": "{{i18n.marriage_loan}}",
+    "description": "{{i18n.marriage_loan_desc}}",
+    "icon": "loan",
+    "estimatedTime": "15 دقیقه"
+  },
+  
+  "requirements": {
+    "authentication": true,
+    "biometric": true,
+    "customerStatus": ["registered"],
+    "requiredData": ["nationalCode", "customerNumber"]
+  },
+  
+  "steps": [
+    {
+      "id": "rules",
+      "type": "info",
+      "title": "{{i18n.rules_title}}",
+      "content": {
+        "type": "column",
+        "padding": {"all": 16},
+        "children": [
+          {
+            "type": "webview",
+            "url": "https://tobank.ir/app/marriage-loan-conditions",
+            "height": 400
+          },
+          {
+            "type": "sized_box",
+            "height": 16
+          },
+          {
+            "type": "checkbox",
+            "id": "rulesAccepted",
+            "label": "{{i18n.accept_terms}}",
+            "binding": "formData.rulesAccepted"
+          }
+        ]
+      },
+      "actions": {
+        "primary": {
+          "label": "{{i18n.continue}}",
+          "enabled": "{{formData.rulesAccepted}}",
+          "onTap": {
+            "action": "chain",
+            "actions": [
+              {
+                "action": "api_call",
+                "endpoint": "bpms/start-form-data",
+                "method": "POST",
+                "body": {
+                  "processDefinitionKey": "MarriageLoan"
+                },
+                "loading": "isLoading",
+                "onSuccess": {
+                  "action": "set_state",
+                  "key": "formOptions",
+                  "value": "{{response.data.formFields}}"
+                }
+              },
+              {
+                "action": "next_step"
+              }
+            ]
+          }
+        }
+      }
+    },
+    
+    {
+      "id": "customer-info",
+      "type": "form",
+      "title": "{{i18n.customer_info}}",
+      "form": {
+        "sections": [
+          {
+            "id": "personal",
+            "title": "{{i18n.personal_info}}",
+            "fields": [
+              {
+                "type": "text_field",
+                "id": "fullName",
+                "label": "{{i18n.full_name}}",
+                "readOnly": true,
+                "binding": "{{user.firstName + ' ' + user.lastName}}"
+              },
+              {
+                "type": "text_field",
+                "id": "nationalCode",
+                "label": "{{i18n.national_code}}",
+                "readOnly": true,
+                "binding": "{{user.nationalCode}}"
+              }
+            ]
+          },
+          {
+            "id": "loan-details",
+            "title": "{{i18n.loan_details}}",
+            "fields": [
+              {
+                "type": "dropdown",
+                "id": "requestAmount",
+                "label": "{{i18n.loan_amount}}",
+                "itemsBinding": "{{formOptions.requestAmount.enumValues}}",
+                "valueKey": "key",
+                "labelKey": "title",
+                "validation": [{"type": "required", "message": "{{i18n.required}}"}]
+              },
+              {
+                "type": "text_field",
+                "id": "cbiTrackingNumber",
+                "label": "{{i18n.cbi_tracking_code}}",
+                "hint": "{{i18n.tracking_code_hint}}",
+                "maxLength": 20,
+                "keyboardType": "number",
+                "inputFormatters": [{"type": "digits_only"}],
+                "validation": [
+                  {"type": "required", "message": "{{i18n.required}}"},
+                  {"type": "exact_length", "value": 20, "message": "{{i18n.tracking_code_length}}"}
+                ],
+                "suffixIcon": "help",
+                "onSuffixTap": {
+                  "action": "show_bottom_sheet",
+                  "content": {
+                    "type": "tracking_code_help",
+                    "imageUrl": "{{cdnBase}}/images/tracking-code-help.png"
+                  }
+                }
+              },
+              {
+                "type": "checkbox",
+                "id": "isVeteran",
+                "label": "{{i18n.is_veteran}}",
+                "binding": "formData.isVeteran"
+              }
+            ]
+          }
+        ]
+      },
+      "actions": {
+        "primary": {
+          "label": "{{i18n.start_process}}",
+          "validation": "form",
+          "onTap": {
+            "action": "chain",
+            "actions": [
+              {
+                "action": "api_call",
+                "endpoint": "bpms/check-personal-info",
+                "method": "POST",
+                "body": {
+                  "nationalCode": "{{user.nationalCode}}",
+                  "birthDate": "{{user.birthDate}}",
+                  "checkBadCredit": true
+                },
+                "loading": "isLoading",
+                "onError": {
+                  "action": "show_dialog",
+                  "type": "error",
+                  "title": "{{i18n.error}}",
+                  "message": "{{error.message}}"
+                }
+              },
+              {
+                "action": "api_call",
+                "endpoint": "bpms/start-process",
+                "method": "POST",
+                "body": {
+                  "processDefinitionKey": "MarriageLoan",
+                  "variables": {
+                    "branchCode": "110",
+                    "requestAmount": "{{formData.requestAmount}}",
+                    "customerNumber": "{{user.customerNumber}}",
+                    "cbiTrackingNumber": "{{formData.cbiTrackingNumber}}",
+                    "veteran": "{{formData.isVeteran}}"
+                  }
+                },
+                "loading": "isLoading",
+                "onSuccess": {
+                  "action": "set_state",
+                  "key": "processInstanceId",
+                  "value": "{{response.data.processInstanceId}}"
+                },
+                "onError": {
+                  "action": "conditional",
+                  "condition": "{{error.statusCode == 409}}",
+                  "then": {
+                    "action": "show_dialog",
+                    "type": "alert",
+                    "title": "{{i18n.cbs_low_rate}}",
+                    "message": "{{error.message}}"
+                  },
+                  "else": {
+                    "action": "show_dialog",
+                    "type": "error"
+                  }
+                }
+              },
+              {
+                "action": "next_step"
+              }
+            ]
+          }
+        }
+      }
+    },
+    
+    {
+      "id": "task-list",
+      "type": "dynamic",
+      "title": "{{i18n.required_tasks}}",
+      "dataSource": {
+        "endpoint": "bpms/applicant-task-list",
+        "method": "POST",
+        "body": {
+          "processInstanceId": "{{processInstanceId}}",
+          "customerNumber": "{{user.customerNumber}}",
+          "nationalId": "{{user.nationalCode}}"
+        },
+        "refreshOn": ["task_completed"]
+      },
+      "content": {
+        "type": "conditional",
+        "condition": "{{taskList.length > 0}}",
+        "then": {
+          "type": "list_view",
+          "data": "{{taskList}}",
+          "separator": {
+            "type": "divider"
+          },
+          "itemBuilder": {
+            "type": "task_list_item",
+            "taskName": "{{item.taskName}}",
+            "taskDescription": "{{item.taskDescription}}",
+            "status": "{{item.status}}",
+            "onTap": {
+              "action": "navigate",
+              "route": "flows/task/{{item.taskDefinitionKey}}",
+              "params": {
+                "taskId": "{{item.taskId}}",
+                "processInstanceId": "{{processInstanceId}}"
+              }
+            }
+          }
+        },
+        "else": {
+          "type": "column",
+          "mainAxisAlignment": "center",
+          "children": [
+            {
+              "type": "icon",
+              "name": "check_circle",
+              "size": 64,
+              "color": "{{theme.success}}"
+            },
+            {
+              "type": "sized_box",
+              "height": 16
+            },
+            {
+              "type": "text",
+              "value": "{{i18n.all_tasks_completed}}",
+              "style": "titleMedium"
+            }
+          ]
+        }
+      },
+      "taskMapping": {
+        "COMPLETE_CUSTOMER_INFO": "forms/customer-info-task",
+        "COMPLETE_CUSTOMER_DOCUMENTS": "forms/document-upload-task",
+        "COMPLETE_SPOUSE_INFO": "forms/spouse-info-task",
+        "COMPLETE_MARRIAGE_LICENSE": "forms/marriage-license-task",
+        "COMPLETE_GUARANTOR_INFO": "forms/guarantor-info-task",
+        "SIGN_CONTRACT": "forms/sign-contract-task"
+      }
+    },
+    
+    {
+      "id": "completion",
+      "type": "result",
+      "title": "{{i18n.success}}",
+      "content": {
+        "type": "column",
+        "mainAxisAlignment": "center",
+        "padding": {"all": 24},
+        "children": [
+          {
+            "type": "icon",
+            "name": "check_circle_outline",
+            "size": 80,
+            "color": "{{theme.success}}"
+          },
+          {
+            "type": "sized_box",
+            "height": 24
+          },
+          {
+            "type": "text",
+            "value": "{{i18n.process_submitted}}",
+            "style": "headlineSmall",
+            "textAlign": "center"
+          },
+          {
+            "type": "sized_box",
+            "height": 8
+          },
+          {
+            "type": "text",
+            "value": "{{i18n.will_notify}}",
+            "style": "bodyMedium",
+            "textAlign": "center",
+            "color": "{{theme.onSurface.withOpacity(0.6)}}"
+          },
+          {
+            "type": "sized_box",
+            "height": 24
+          },
+          {
+            "type": "card",
+            "padding": {"all": 16},
+            "child": {
+              "type": "row",
+              "mainAxisAlignment": "spaceBetween",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "{{i18n.tracking_number}}",
+                  "style": "bodyMedium"
+                },
+                {
+                  "type": "row",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "{{result.trackingNumber}}",
+                      "style": "titleMedium",
+                      "fontWeight": "bold"
+                    },
+                    {
+                      "type": "icon_button",
+                      "icon": "copy",
+                      "size": 20,
+                      "onTap": {
+                        "action": "chain",
+                        "actions": [
+                          {
+                            "action": "copy_to_clipboard",
+                            "text": "{{result.trackingNumber}}"
+                          },
+                          {
+                            "action": "show_toast",
+                            "message": "{{i18n.copied}}",
+                            "type": "success"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "actions": {
+        "primary": {
+          "label": "{{i18n.back_to_home}}",
+          "onTap": {
+            "action": "navigate",
+            "route": "pages/home",
+            "transition": "pushAndClear"
+          }
+        },
+        "secondary": {
+          "label": "{{i18n.view_processes}}",
+          "onTap": {
+            "action": "navigate",
+            "route": "pages/my-processes"
+          }
+        }
+      }
+    }
+  ],
+  
+  "navigation": {
+    "type": "pageView",
+    "canGoBack": true,
+    "backConfirmation": {
+      "show": true,
+      "message": "{{i18n.exit_confirmation}}",
+      "excludeSteps": ["completion"]
+    }
+  },
+  
+  "state": {
+    "persist": true,
+    "storageKey": "marriage-loan-draft-{{user.id}}"
+  }
+}
+

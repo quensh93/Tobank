@@ -1,0 +1,54 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "card_issue_info",
+  "flowId": "card_physical_issue",
+  "stepNumber": 2,
+  "title": {"fa": "اطلاعات شخصی", "en": "Personal Info"},
+  
+  "appBar": {"type": "bpms_stepper", "title": {"fa": "صدور کارت", "en": "Card Issue"}, "currentStep": 2, "totalSteps": 6},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "section", "header": {"title": {"fa": "اطلاعات هویتی", "en": "Identity Info"}}, "child": {"type": "column", "children": [
+        {"type": "text_field", "label": {"fa": "نام و نام خانوادگی", "en": "Full Name"}, "value": "{{customer.fullName}}", "readOnly": true},
+        {"type": "text_field", "label": {"fa": "کد ملی", "en": "National ID"}, "margin": {"top": 16}, "value": "{{customer.nationalId}}", "readOnly": true},
+        {"type": "text_field", "label": {"fa": "تاریخ تولد", "en": "Birth Date"}, "margin": {"top": 16}, "value": "{{customer.birthDate}}", "readOnly": true}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "نام روی کارت", "en": "Name on Card"}}, "child": {"type": "column", "children": [
+        {"type": "text_field", "label": {"fa": "نام لاتین (حداکثر ۲۴ کاراکتر)", "en": "Latin Name"}, "value": "{{customer.latinName}}", "maxLength": 24, "bindTo": "cardName", "hint": {"fa": "مثال: ALI AHMADI", "en": "Example: ALI AHMADI"}},
+        {"type": "card", "margin": {"top": 16}, "padding": 12, "backgroundColor": "#F5F5F5", "child": {"type": "row", "children": [
+          {"type": "icon", "icon": "assets/icons/ic_info.svg", "color": "textSecondary", "size": 20},
+          {"type": "sized_box", "width": 8},
+          {"type": "expanded", "child": {"type": "text", "text": {"fa": "نام روی کارت باید به لاتین و مطابق گذرنامه باشد", "en": "Name must match passport"}, "style": "bodySmall", "color": "textSecondary"}}
+        ]}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "انتخاب حساب", "en": "Select Account"}}, "child": {"type": "deposit_selector", "deposits": "{{deposits}}", "bindTo": "selectedDeposit"}},
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {"type": "container", "padding": 16, "child": {"type": "row", "children": [
+    {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "قبلی", "en": "Back"}, "onTap": {"type": "navigate_back"}}},
+    {"type": "sized_box", "width": 16},
+    {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "بعدی", "en": "Next"}, "disabled": "{{!cardName || !selectedDeposit}}", "onTap": {"type": "navigate", "route": "/bpms/card-physical-issue/step-03"}}}
+  ]}},
+  
+  "dataBindings": {
+    "customer": {"source": "api", "endpoint": "dibalite/customer/profile"},
+    "deposits": {"source": "api", "endpoint": "dibalite/deposits/list"},
+    "cardName": {"source": "form", "default": ""},
+    "selectedDeposit": {"source": "form", "default": null}
+  },
+  
+  "mockData": {
+    "customer": {"fullName": "علی احمدی", "latinName": "ALI AHMADI", "nationalId": "۰۰۱۲۳۴۵۶۷۸", "birthDate": "۱۳۷۰/۰۵/۱۵"},
+    "deposits": [{"id": "dep1", "accountNumber": "۰۱۰۸۱۲۳۴۵۶۷۸۹۰", "type": "جاری", "balance": 45000000}]
+  }
+}
+

@@ -1,0 +1,166 @@
+{
+  "$schema": "tobank-sdui/v1/app-config",
+  "version": "3.9.0",
+  "schemaVersion": "1.0.0",
+  "lastUpdated": "1403/09/05",
+  
+  "app": {
+    "name": "توبانک",
+    "bundleId": "ir.tobank.app",
+    "minVersion": "3.8.0",
+    "currentVersion": "3.9.0",
+    "forceUpdate": false,
+    "updateUrl": {
+      "android": "https://tobank.ir/download/android",
+      "ios": "https://tobank.ir/download/ios"
+    },
+    "maintenanceMode": false,
+    "maintenanceMessage": null
+  },
+  
+  "endpoints": {
+    "baseUrl": "https://api.tobank.ir",
+    "apiVersion": "v1",
+    "sduiBase": "https://sdui.tobank.ir/api/v1",
+    "cdnBase": "https://cdn.tobank.ir",
+    "socketUrl": "wss://socket.tobank.ir"
+  },
+  
+  "security": {
+    "certificatePinning": true,
+    "encryptionEnabled": true,
+    "biometricEnabled": true,
+    "sessionTimeout": 300,
+    "maxFailedAttempts": 5,
+    "lockoutDuration": 900
+  },
+  
+  "features": {
+    "cardToCard": true,
+    "depositTransfer": true,
+    "payaBankTransfer": true,
+    "satnaBankTransfer": true,
+    "billPayment": true,
+    "simCharge": true,
+    "internetPackage": true,
+    "giftCard": true,
+    "charity": true,
+    "safeBox": true,
+    "promissory": true,
+    "cbs": true,
+    "customerClub": true,
+    "bpmsWorkflows": true,
+    "marriageLoan": true,
+    "childrenLoan": true,
+    "militaryGuarantee": true,
+    "creditCardFacility": true,
+    "parsaLoan": true,
+    "cardPhysicalIssue": true,
+    "cardReissue": true,
+    "rayanCardFacility": true,
+    "retailLoan": true,
+    "azkiLoan": true,
+    "microLendingLoan": true,
+    "daranInvestment": true
+  },
+  
+  "navigation": {
+    "bottomTabs": [
+      {
+        "id": "home",
+        "title": "خانه",
+        "icon": "assets/icons/ic_home_main.svg",
+        "activeIcon": "assets/icons/ic_home_main_selected.svg",
+        "pageRef": "dashboard/home-page"
+      },
+      {
+        "id": "transactions",
+        "title": "تراکنش‌ها",
+        "icon": "assets/icons/ic_transaction_main.svg",
+        "activeIcon": "assets/icons/ic_transaction_main_selected.svg",
+        "pageRef": "dashboard/transactions-page"
+      },
+      {
+        "id": "cards",
+        "title": "کارت‌ها",
+        "icon": "assets/icons/ic_cardboard.svg",
+        "activeIcon": "assets/icons/ic_cardboard_selected.svg",
+        "pageRef": "dashboard/cards-page"
+      },
+      {
+        "id": "profile",
+        "title": "حساب من",
+        "icon": "assets/icons/ic_profile_main.svg",
+        "activeIcon": "assets/icons/ic_profile_main_selected.svg",
+        "pageRef": "dashboard/profile-page"
+      }
+    ],
+    "initialTab": "home"
+  },
+  
+  "pageRegistry": {
+    "dashboard/home-page": {
+      "url": "/sdui/pages/dashboard/home-page.json",
+      "cache": "5m",
+      "preload": true
+    },
+    "dashboard/transactions-page": {
+      "url": "/sdui/pages/dashboard/transactions-page.json",
+      "cache": "1m"
+    },
+    "dashboard/cards-page": {
+      "url": "/sdui/pages/dashboard/cards-page.json",
+      "cache": "5m"
+    },
+    "dashboard/profile-page": {
+      "url": "/sdui/pages/dashboard/profile-page.json",
+      "cache": "10m"
+    },
+    "menu/main-menu": {
+      "url": "/sdui/pages/menu/main-menu.json",
+      "cache": "1h"
+    },
+    "bpms/marriage-loan": {
+      "url": "/sdui/flows/bpms/marriage-loan/flow-config.json",
+      "cache": "1d"
+    },
+    "bpms/children-loan": {
+      "url": "/sdui/flows/bpms/children-loan/flow-config.json",
+      "cache": "1d"
+    },
+    "bpms/military-guarantee": {
+      "url": "/sdui/flows/bpms/military-guarantee/flow-config.json",
+      "cache": "1d"
+    }
+  },
+  
+  "menu": {
+    "url": "/sdui/menu/main-menu.json",
+    "cache": "1h"
+  },
+  
+  "theme": {
+    "url": "/sdui/core/theme.json",
+    "cache": "1d"
+  },
+  
+  "localization": {
+    "defaultLocale": "fa",
+    "supportedLocales": ["fa", "en"],
+    "direction": "rtl"
+  },
+  
+  "analytics": {
+    "enabled": true,
+    "sentryDsn": "https://sentry.tobank.ir/xxx",
+    "firebaseEnabled": true
+  },
+  
+  "support": {
+    "phone": "۰۲۱-۹۱۰۰۵۰۰۰",
+    "email": "support@tobank.ir",
+    "website": "https://tobank.ir",
+    "workingHours": "شنبه تا چهارشنبه ۸ صبح تا ۴ بعدازظهر"
+  }
+}
+

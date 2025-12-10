@@ -1,0 +1,225 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "transfer_result",
+  "pageType": "result",
+  "title": {
+    "fa": "نتیجه انتقال",
+    "en": "Transfer Result"
+  },
+  "requiresAuth": true,
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "نتیجه انتقال", "en": "Transfer Result"},
+    "showBackButton": false,
+    "actions": [
+      {
+        "id": "close",
+        "icon": "assets/icons/ic_close.svg",
+        "onTap": {"type": "navigate_replace", "route": "/home"}
+      }
+    ]
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "result_icon",
+        "type": "container",
+        "padding": 32,
+        "alignment": "center",
+        "child": {
+          "type": "conditional",
+          "condition": "{{success}}",
+          "whenTrue": {
+            "type": "lottie",
+            "asset": "assets/animations/success.json",
+            "width": 150,
+            "height": 150,
+            "repeat": false
+          },
+          "whenFalse": {
+            "type": "lottie",
+            "asset": "assets/animations/error.json",
+            "width": 150,
+            "height": 150,
+            "repeat": false
+          }
+        }
+      },
+      
+      {
+        "id": "result_message",
+        "type": "text",
+        "text": "{{success ? {'fa': 'انتقال با موفقیت ثبت شد', 'en': 'Transfer Successful'} : {'fa': 'انتقال ناموفق', 'en': 'Transfer Failed'}}}",
+        "style": "headlineSmall",
+        "color": "{{success ? '#4CAF50' : '#F44336'}}",
+        "textAlign": "center"
+      },
+      
+      {
+        "id": "transfer_type_badge",
+        "type": "container",
+        "alignment": "center",
+        "margin": {"top": 8},
+        "child": {
+          "type": "chip",
+          "label": "{{type === 'paya' ? {'fa': 'پایا', 'en': 'PAYA'} : type === 'satna' ? {'fa': 'ساتنا', 'en': 'SATNA'} : {'fa': 'داخلی', 'en': 'Internal'}}}",
+          "color": "{{type === 'paya' ? '#FF9800' : type === 'satna' ? '#2196F3' : '#4CAF50'}}"
+        }
+      },
+      
+      {
+        "id": "amount_display",
+        "type": "conditional",
+        "condition": "{{success}}",
+        "whenTrue": {
+          "type": "container",
+          "margin": {"top": 24},
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "text",
+                "text": "{{formatCurrency(amount)}}",
+                "style": "displaySmall",
+                "textAlign": "center"
+              },
+              {
+                "type": "text",
+                "text": {"fa": "ریال", "en": "Rials"},
+                "style": "titleMedium",
+                "color": "textSecondary",
+                "textAlign": "center"
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "details_card",
+        "type": "conditional",
+        "condition": "{{success}}",
+        "whenTrue": {
+          "type": "card",
+          "margin": {"top": 24},
+          "child": {
+            "type": "column",
+            "children": [
+              {
+                "type": "info_row",
+                "label": {"fa": "شماره پیگیری", "en": "Reference"},
+                "value": "{{referenceNumber}}",
+                "copyable": true
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "label": {"fa": "تاریخ", "en": "Date"},
+                "value": "{{date || 'امروز'}}"
+              },
+              {"type": "divider"},
+              {
+                "type": "info_row",
+                "label": {"fa": "وضعیت", "en": "Status"},
+                "value": "{{type === 'paya' ? {'fa': 'در انتظار پردازش', 'en': 'Pending'} : {'fa': 'انجام شده', 'en': 'Completed'}}}",
+                "valueColor": "{{type === 'paya' ? '#FF9800' : '#4CAF50'}}"
+              },
+              {
+                "type": "conditional",
+                "condition": "{{type === 'paya'}}",
+                "whenTrue": {
+                  "type": "column",
+                  "children": [
+                    {"type": "divider"},
+                    {
+                      "type": "info_row",
+                      "label": {"fa": "زمان تقریبی واریز", "en": "Est. Arrival"},
+                      "value": {"fa": "تا ۲۴ ساعت آینده", "en": "Within 24 hours"}
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "share_section",
+        "type": "conditional",
+        "condition": "{{success}}",
+        "whenTrue": {
+          "type": "container",
+          "margin": {"top": 24},
+          "child": {
+            "type": "row",
+            "mainAxisAlignment": "spaceEvenly",
+            "children": [
+              {
+                "type": "icon_button_column",
+                "icon": "assets/icons/ic_share.svg",
+                "label": {"fa": "اشتراک", "en": "Share"},
+                "onTap": {
+                  "type": "share",
+                  "text": "انتقال {{formatCurrency(amount)}} ریال\nشماره پیگیری: {{referenceNumber}}"
+                }
+              },
+              {
+                "type": "icon_button_column",
+                "icon": "assets/icons/ic_download.svg",
+                "label": {"fa": "رسید", "en": "Receipt"},
+                "onTap": {"type": "download_receipt", "referenceNumber": "{{referenceNumber}}"}
+              }
+            ]
+          }
+        }
+      },
+      
+      {
+        "id": "action_buttons",
+        "type": "container",
+        "margin": {"top": 32},
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "elevated_button",
+              "label": {"fa": "انتقال جدید", "en": "New Transfer"},
+              "fullWidth": true,
+              "onTap": {"type": "navigate_replace", "route": "/transfer"}
+            },
+            {"type": "sized_box", "height": 12},
+            {
+              "type": "outlined_button",
+              "label": {"fa": "بازگشت به خانه", "en": "Back to Home"},
+              "fullWidth": true,
+              "onTap": {"type": "navigate_replace", "route": "/home"}
+            }
+          ]
+        }
+      }
+    ]
+  },
+  
+  "dataBindings": {
+    "success": {"source": "route_param", "key": "success", "transform": "boolean"},
+    "type": {"source": "route_param", "key": "type"},
+    "referenceNumber": {"source": "route_param", "key": "referenceNumber"},
+    "amount": {"source": "route_param", "key": "amount", "transform": "number"},
+    "date": {"source": "route_param", "key": "date"}
+  },
+  
+  "mockData": {
+    "success": true,
+    "type": "paya",
+    "referenceNumber": "۹۸۷۶۵۴۳۲۱۰۱۲۳",
+    "amount": 50000000,
+    "date": "۱۴۰۳/۰۹/۰۵"
+  }
+}
+

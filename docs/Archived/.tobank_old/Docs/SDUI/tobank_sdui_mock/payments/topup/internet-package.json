@@ -1,0 +1,278 @@
+{
+  "$schema": "tobank-sdui/v1/page",
+  "version": "1.0.0",
+  "pageId": "internet_package",
+  "pageType": "form",
+  "title": {
+    "fa": "بسته اینترنت",
+    "en": "Internet Package"
+  },
+  "requiresAuth": true,
+  "analytics": {
+    "screenName": "internet_package",
+    "screenClass": "InternetPackagePage"
+  },
+  
+  "appBar": {
+    "type": "standard",
+    "title": {"fa": "بسته اینترنت", "en": "Internet Package"},
+    "showBackButton": true
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "children": [
+      {
+        "id": "phone_input",
+        "type": "container",
+        "padding": 16,
+        "child": {
+          "type": "text_field",
+          "label": {"fa": "شماره موبایل", "en": "Mobile Number"},
+          "hint": {"fa": "۰۹۱۲۳۴۵۶۷۸۹", "en": "09123456789"},
+          "icon": "assets/icons/ic_phone.svg",
+          "keyboardType": "phone",
+          "maxLength": 11,
+          "bindTo": "phoneNumber",
+          "onChange": {"type": "detect_operator", "outputTo": "operator"}
+        }
+      },
+      
+      {
+        "id": "operator_tabs",
+        "type": "conditional",
+        "condition": "{{operator}}",
+        "whenTrue": {
+          "type": "container",
+          "padding": {"horizontal": 16},
+          "child": {
+            "type": "chip",
+            "label": "{{operator.name}}",
+            "avatar": "{{operator.logo}}",
+            "backgroundColor": "{{operator.color}}20"
+          }
+        }
+      },
+      
+      {
+        "id": "package_filter",
+        "type": "container",
+        "padding": 16,
+        "child": {
+          "type": "segmented_button",
+          "segments": [
+            {"value": "daily", "label": {"fa": "روزانه", "en": "Daily"}},
+            {"value": "weekly", "label": {"fa": "هفتگی", "en": "Weekly"}},
+            {"value": "monthly", "label": {"fa": "ماهانه", "en": "Monthly"}},
+            {"value": "yearly", "label": {"fa": "سالانه", "en": "Yearly"}}
+          ],
+          "bindTo": "packageType"
+        }
+      },
+      
+      {
+        "id": "packages_list",
+        "type": "list",
+        "padding": {"horizontal": 16},
+        "dataSource": "filteredPackages",
+        "emptyState": {
+          "icon": "assets/icons/ic_internet_package.svg",
+          "title": {"fa": "ابتدا شماره موبایل را وارد کنید", "en": "Enter mobile number first"}
+        },
+        "itemTemplate": {
+          "type": "selectable_card",
+          "selected": "{{selectedPackageId === item.id}}",
+          "margin": {"bottom": 12},
+          "child": {
+            "type": "row",
+            "padding": 16,
+            "children": [
+              {
+                "type": "container",
+                "width": 56,
+                "height": 56,
+                "decoration": {
+                  "color": "#E3F2FD",
+                  "borderRadius": 12
+                },
+                "alignment": "center",
+                "child": {
+                  "type": "column",
+                  "mainAxisAlignment": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "{{item.volume}}",
+                      "style": "titleMedium",
+                      "color": "#1976D2"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{item.unit}}",
+                      "style": "bodySmall",
+                      "color": "#1976D2"
+                    }
+                  ]
+                }
+              },
+              {"type": "sized_box", "width": 16},
+              {
+                "type": "expanded",
+                "child": {
+                  "type": "column",
+                  "crossAxisAlignment": "start",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "{{item.name}}",
+                      "style": "titleSmall"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{item.duration}}",
+                      "style": "bodySmall",
+                      "color": "textSecondary"
+                    },
+                    {
+                      "type": "conditional",
+                      "condition": "{{item.discount}}",
+                      "whenTrue": {
+                        "type": "chip",
+                        "label": "{{item.discount}}٪ تخفیف",
+                        "size": "small",
+                        "color": "#4CAF50"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "column",
+                "crossAxisAlignment": "end",
+                "children": [
+                  {
+                    "type": "conditional",
+                    "condition": "{{item.originalPrice !== item.price}}",
+                    "whenTrue": {
+                      "type": "text",
+                      "text": "{{formatCurrency(item.originalPrice)}}",
+                      "style": "bodySmall",
+                      "color": "textSecondary",
+                      "decoration": "lineThrough"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{formatCurrency(item.price)}}",
+                    "style": "titleSmall",
+                    "color": "#E31837"
+                  },
+                  {
+                    "type": "text",
+                    "text": {"fa": "تومان", "en": "Toman"},
+                    "style": "bodySmall",
+                    "color": "textSecondary"
+                  }
+                ]
+              }
+            ]
+          },
+          "onTap": {
+            "type": "set_state",
+            "key": "selectedPackageId",
+            "value": "{{item.id}}"
+          }
+        }
+      },
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "conditional",
+    "condition": "{{selectedPackage}}",
+    "whenTrue": {
+      "type": "container",
+      "padding": 16,
+      "decoration": {"color": "surface", "boxShadow": "0 -2px 8px rgba(0,0,0,0.1)"},
+      "child": {
+        "type": "column",
+        "children": [
+          {
+            "type": "row",
+            "mainAxisAlignment": "spaceBetween",
+            "children": [
+              {"type": "text", "text": {"fa": "مبلغ قابل پرداخت:", "en": "Total:"}, "style": "bodyMedium"},
+              {"type": "text", "text": "{{formatCurrency(selectedPackage.price * 10)}} ریال", "style": "titleMedium", "color": "#E31837"}
+            ]
+          },
+          {"type": "sized_box", "height": 12},
+          {
+            "type": "elevated_button",
+            "label": {"fa": "خرید بسته", "en": "Buy Package"},
+            "fullWidth": true,
+            "loading": "{{isSubmitting}}",
+            "onTap": {
+              "type": "api_call",
+              "endpoint": "dibalite/topup/internet",
+              "method": "POST",
+              "body": {
+                "phoneNumber": "{{phoneNumber}}",
+                "packageId": "{{selectedPackageId}}",
+                "operator": "{{operator.code}}"
+              },
+              "requireOtp": true,
+              "onSuccess": {
+                "type": "navigate_replace",
+                "route": "/topup/result",
+                "params": {
+                  "success": true,
+                  "type": "internet",
+                  "phoneNumber": "{{phoneNumber}}",
+                  "packageName": "{{selectedPackage.name}}",
+                  "amount": "{{selectedPackage.price * 10}}",
+                  "referenceNumber": "{{response.referenceNumber}}"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  
+  "dataBindings": {
+    "phoneNumber": {"source": "form", "default": ""},
+    "operator": {"source": "state", "default": null},
+    "packageType": {"source": "state", "default": "monthly"},
+    "packages": {"source": "api", "endpoint": "dibalite/topup/internet/packages?operator={{operator.code}}"},
+    "filteredPackages": {
+      "source": "computed",
+      "expression": "packages.filter(p => p.type === packageType)"
+    },
+    "selectedPackageId": {"source": "state", "default": null},
+    "selectedPackage": {
+      "source": "computed",
+      "expression": "packages.find(p => p.id === selectedPackageId)"
+    },
+    "isSubmitting": {"source": "state", "default": false}
+  },
+  
+  "mockData": {
+    "operator": {"code": "mci", "name": "همراه اول", "logo": "assets/images/mci.png", "color": "#2196F3"},
+    "packages": [
+      {"id": "PKG-001", "name": "بسته روزانه اقتصادی", "volume": "500", "unit": "MB", "duration": "۱ روزه", "type": "daily", "price": 15000, "originalPrice": 15000},
+      {"id": "PKG-002", "name": "بسته روزانه پرسرعت", "volume": "1", "unit": "GB", "duration": "۱ روزه", "type": "daily", "price": 25000, "originalPrice": 25000},
+      {"id": "PKG-003", "name": "بسته هفتگی", "volume": "3", "unit": "GB", "duration": "۷ روزه", "type": "weekly", "price": 55000, "originalPrice": 60000, "discount": 8},
+      {"id": "PKG-004", "name": "بسته هفتگی ویژه", "volume": "7", "unit": "GB", "duration": "۷ روزه", "type": "weekly", "price": 95000, "originalPrice": 110000, "discount": 14},
+      {"id": "PKG-005", "name": "بسته ماهانه اقتصادی", "volume": "5", "unit": "GB", "duration": "۳۰ روزه", "type": "monthly", "price": 85000, "originalPrice": 85000},
+      {"id": "PKG-006", "name": "بسته ماهانه استاندارد", "volume": "15", "unit": "GB", "duration": "۳۰ روزه", "type": "monthly", "price": 150000, "originalPrice": 180000, "discount": 17},
+      {"id": "PKG-007", "name": "بسته ماهانه پرمصرف", "volume": "30", "unit": "GB", "duration": "۳۰ روزه", "type": "monthly", "price": 250000, "originalPrice": 300000, "discount": 17},
+      {"id": "PKG-008", "name": "بسته ماهانه نامحدود", "volume": "60", "unit": "GB", "duration": "۳۰ روزه", "type": "monthly", "price": 450000, "originalPrice": 500000, "discount": 10},
+      {"id": "PKG-009", "name": "بسته سالانه", "volume": "120", "unit": "GB", "duration": "۳۶۵ روزه", "type": "yearly", "price": 1500000, "originalPrice": 2000000, "discount": 25},
+      {"id": "PKG-010", "name": "بسته سالانه ویژه", "volume": "300", "unit": "GB", "duration": "۳۶۵ روزه", "type": "yearly", "price": 3500000, "originalPrice": 4500000, "discount": 22}
+    ]
+  }
+}
+

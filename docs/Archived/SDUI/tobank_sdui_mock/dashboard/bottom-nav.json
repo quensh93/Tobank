@@ -1,0 +1,127 @@
+{
+  "type": "scaffold",
+  "body": {
+    "type": "column",
+    "children": [
+      {
+        "type": "expanded",
+        "child": {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "صفحه ناوبری"
+          }
+        }
+      },
+      {
+        "type": "bottomNavigationBar",
+        "items": [
+          {
+            "type": "bottomNavigationViewItem",
+            "icon": {
+              "type": "image",
+              "src": "assets/icons/ic_home.svg",
+              "imageType": "asset",
+              "width": 24,
+              "height": 24
+            },
+            "activeIcon": {
+              "type": "image",
+              "src": "assets/icons/ic_home_fill.svg",
+              "imageType": "asset",
+              "width": 24,
+              "height": 24
+            },
+            "label": "خانه",
+            "onTap": {
+              "actionType": "navigate",
+              "path": "/home"
+            }
+          },
+          {
+            "type": "bottomNavigationViewItem",
+            "icon": {
+              "type": "image",
+              "src": "assets/icons/ic_card.svg",
+              "imageType": "asset",
+              "width": 24,
+              "height": 24
+            },
+            "activeIcon": {
+              "type": "image",
+              "src": "assets/icons/ic_card_fill.svg",
+              "imageType": "asset",
+              "width": 24,
+              "height": 24
+            },
+            "label": "کارت‌ها",
+            "onTap": {
+              "actionType": "navigate",
+              "path": "/cards"
+            }
+          },
+          {
+            "type": "bottomNavigationViewItem",
+            "icon": {
+              "type": "image",
+              "src": "assets/icons/ic_qr_scan.svg",
+              "imageType": "asset",
+              "width": 32,
+              "height": 32
+            },
+            "label": "اسکن",
+            "onTap": {
+              "actionType": "navigate",
+              "path": "/scanner"
+            }
+          },
+          {
+            "type": "bottomNavigationViewItem",
+            "icon": {
+              "type": "image",
+              "src": "assets/icons/ic_menu_grid.svg",
+              "imageType": "asset",
+              "width": 24,
+              "height": 24
+            },
+            "activeIcon": {
+              "type": "image",
+              "src": "assets/icons/ic_menu_grid_fill.svg",
+              "imageType": "asset",
+              "width": 24,
+              "height": 24
+            },
+            "label": "خدمات",
+            "onTap": {
+              "actionType": "navigate",
+              "path": "/services"
+            }
+          },
+          {
+            "type": "bottomNavigationViewItem",
+            "icon": {
+              "type": "image",
+              "src": "assets/icons/ic_profile.svg",
+              "imageType": "asset",
+              "width": 24,
+              "height": 24
+            },
+            "activeIcon": {
+              "type": "image",
+              "src": "assets/icons/ic_profile_fill.svg",
+              "imageType": "asset",
+              "width": 24,
+              "height": 24
+            },
+            "label": "پروفایل",
+            "onTap": {
+              "actionType": "navigate",
+              "path": "/profile"
+            }
+          }
+        ],
+        "selectedIndex": 0
+      }
+    ]
+  }
+}

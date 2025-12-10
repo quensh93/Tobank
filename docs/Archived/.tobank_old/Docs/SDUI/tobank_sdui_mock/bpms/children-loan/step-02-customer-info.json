@@ -1,0 +1,93 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "children_loan_customer",
+  "flowId": "children_loan",
+  "stepNumber": 2,
+  "title": {"fa": "اطلاعات مشتری", "en": "Customer Info"},
+  
+  "appBar": {
+    "type": "bpms_stepper",
+    "title": {"fa": "تسهیلات فرزندآوری", "en": "Children Loan"},
+    "currentStep": 2,
+    "totalSteps": 7
+  },
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {
+        "id": "personal_section",
+        "type": "section",
+        "header": {"title": {"fa": "اطلاعات شخصی", "en": "Personal Info"}},
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "text_field", "label": {"fa": "نام", "en": "First Name"}, "value": "{{customer.firstName}}", "readOnly": true},
+            {"type": "text_field", "label": {"fa": "نام خانوادگی", "en": "Last Name"}, "margin": {"top": 16}, "value": "{{customer.lastName}}", "readOnly": true},
+            {"type": "text_field", "label": {"fa": "کد ملی", "en": "National ID"}, "margin": {"top": 16}, "value": "{{customer.nationalId}}", "readOnly": true},
+            {"type": "text_field", "label": {"fa": "شماره موبایل", "en": "Mobile"}, "margin": {"top": 16}, "value": "{{customer.mobile}}", "readOnly": true}
+          ]
+        }
+      },
+      
+      {
+        "id": "spouse_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {"title": {"fa": "اطلاعات همسر", "en": "Spouse Info"}},
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "text_field", "label": {"fa": "نام همسر", "en": "Spouse Name"}, "bindTo": "spouseName", "validation": {"required": true}},
+            {"type": "text_field", "label": {"fa": "کد ملی همسر", "en": "Spouse National ID"}, "margin": {"top": 16}, "keyboardType": "number", "maxLength": 10, "bindTo": "spouseNationalId", "validation": {"required": true}}
+          ]
+        }
+      },
+      
+      {
+        "id": "address_section",
+        "type": "section",
+        "margin": {"top": 24},
+        "header": {"title": {"fa": "آدرس", "en": "Address"}},
+        "child": {
+          "type": "column",
+          "children": [
+            {"type": "dropdown_field", "label": {"fa": "استان", "en": "Province"}, "dataSource": "provinces", "bindTo": "province"},
+            {"type": "dropdown_field", "label": {"fa": "شهر", "en": "City"}, "margin": {"top": 16}, "dataSource": "cities", "bindTo": "city"},
+            {"type": "text_field", "label": {"fa": "آدرس کامل", "en": "Address"}, "margin": {"top": 16}, "maxLines": 2, "bindTo": "address"},
+            {"type": "text_field", "label": {"fa": "کد پستی", "en": "Postal Code"}, "margin": {"top": 16}, "keyboardType": "number", "maxLength": 10, "bindTo": "postalCode"}
+          ]
+        }
+      },
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {
+    "type": "container",
+    "padding": 16,
+    "child": {
+      "type": "row",
+      "children": [
+        {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "قبلی", "en": "Back"}, "onTap": {"type": "navigate_back"}}},
+        {"type": "sized_box", "width": 16},
+        {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "بعدی", "en": "Next"}, "onTap": {"type": "navigate", "route": "/bpms/children-loan/step-03"}}}
+      ]
+    }
+  },
+  
+  "dataBindings": {
+    "customer": {"source": "api", "endpoint": "dibalite/customer/profile"},
+    "provinces": {"source": "api", "endpoint": "core/provinces"},
+    "cities": {"source": "state", "default": []}
+  },
+  
+  "mockData": {
+    "customer": {"firstName": "علی", "lastName": "احمدی", "nationalId": "۰۰۱۲۳۴۵۶۷۸", "mobile": "۰۹۱۲۳۴۵۶۷۸۹"},
+    "provinces": "$ref:mock-data/provinces-cities.json#provinces"
+  }
+}
+

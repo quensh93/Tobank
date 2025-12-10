@@ -1,0 +1,57 @@
+{
+  "$schema": "tobank-sdui/v1/bpms-step",
+  "version": "1.0.0",
+  "stepId": "credit_card_guarantor",
+  "flowId": "credit_card",
+  "stepNumber": 4,
+  "title": {"fa": "اطلاعات ضامن", "en": "Guarantor Info"},
+  
+  "appBar": {"type": "bpms_stepper", "title": {"fa": "کارت اعتباری", "en": "Credit Card"}, "currentStep": 4, "totalSteps": 7},
+  
+  "body": {
+    "type": "scrollable",
+    "padding": 16,
+    "children": [
+      {"type": "card", "padding": 16, "backgroundColor": "#FFF3E0", "child": {"type": "row", "children": [
+        {"type": "icon", "icon": "assets/icons/ic_info.svg", "color": "#FF9800"},
+        {"type": "sized_box", "width": 12},
+        {"type": "expanded", "child": {"type": "text", "text": {"fa": "ضامن باید کارمند رسمی با کسر از حقوق باشد", "en": "Guarantor must be a government employee"}, "style": "bodySmall"}}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "اطلاعات ضامن", "en": "Guarantor Info"}}, "child": {"type": "column", "children": [
+        {"type": "text_field", "label": {"fa": "نام و نام خانوادگی", "en": "Full Name"}, "bindTo": "guarantorName", "validation": {"required": true}},
+        {"type": "text_field", "label": {"fa": "کد ملی", "en": "National ID"}, "margin": {"top": 16}, "keyboardType": "number", "maxLength": 10, "bindTo": "guarantorNationalId", "validation": {"required": true}},
+        {"type": "text_field", "label": {"fa": "شماره موبایل", "en": "Mobile"}, "margin": {"top": 16}, "keyboardType": "phone", "maxLength": 11, "bindTo": "guarantorMobile", "validation": {"required": true}},
+        {"type": "dropdown_field", "label": {"fa": "نسبت", "en": "Relationship"}, "margin": {"top": 16}, "options": [
+          {"value": "parent", "label": {"fa": "والدین", "en": "Parent"}},
+          {"value": "sibling", "label": {"fa": "خواهر/برادر", "en": "Sibling"}},
+          {"value": "spouse", "label": {"fa": "همسر", "en": "Spouse"}},
+          {"value": "other", "label": {"fa": "سایر", "en": "Other"}}
+        ], "bindTo": "relation"}
+      ]}},
+      
+      {"type": "section", "margin": {"top": 24}, "header": {"title": {"fa": "اطلاعات شغلی ضامن", "en": "Guarantor Employment"}}, "child": {"type": "column", "children": [
+        {"type": "text_field", "label": {"fa": "محل کار", "en": "Employer"}, "bindTo": "guarantorEmployer"},
+        {"type": "currency_field", "label": {"fa": "حقوق ماهیانه (ریال)", "en": "Monthly Salary"}, "margin": {"top": 16}, "currency": "IRR", "bindTo": "guarantorSalary"}
+      ]}},
+      
+      {"type": "sized_box", "height": 100}
+    ]
+  },
+  
+  "bottomBar": {"type": "container", "padding": 16, "child": {"type": "row", "children": [
+    {"type": "expanded", "child": {"type": "outlined_button", "label": {"fa": "قبلی", "en": "Back"}, "onTap": {"type": "navigate_back"}}},
+    {"type": "sized_box", "width": 16},
+    {"type": "expanded", "flex": 2, "child": {"type": "elevated_button", "label": {"fa": "بعدی", "en": "Next"}, "onTap": {"type": "navigate", "route": "/bpms/credit-card/step-05"}}}
+  ]}},
+  
+  "dataBindings": {
+    "guarantorName": {"source": "form", "default": ""},
+    "guarantorNationalId": {"source": "form", "default": ""},
+    "guarantorMobile": {"source": "form", "default": ""},
+    "relation": {"source": "form", "default": null},
+    "guarantorEmployer": {"source": "form", "default": ""},
+    "guarantorSalary": {"source": "form", "default": 0}
+  }
+}
+
