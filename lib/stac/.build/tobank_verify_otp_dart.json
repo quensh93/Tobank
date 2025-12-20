@@ -34,7 +34,7 @@
                   "data": "{{appStrings.verifyOtp.receiveVerificationCode}}",
                   "style": {
                     "type": "custom",
-                    "color": "onSurface",
+                    "color": "{{appColors.current.text.title}}",
                     "fontSize": 20.0,
                     "fontWeight": "w600"
                   },
@@ -49,7 +49,7 @@
                   "data": "Ú©Ø¯ ØªØ§ÛŒÛŒØ¯ Ø¨Ù‡ Ø´Ù…Ø§Ø±Ù‡ {{appData.mobile_number}} Ø§Ø±Ø³Ø§Ù„ Ø´Ø¯",
                   "style": {
                     "type": "custom",
-                    "color": "onSurface",
+                    "color": "{{appColors.current.text.subtitle}}",
                     "fontSize": 14.0,
                     "fontWeight": "w500"
                   },
@@ -69,7 +69,7 @@
                         "data": "{{appStrings.verifyOtp.wrongNumber}}",
                         "style": {
                           "type": "custom",
-                          "color": "onSurface",
+                          "color": "{{appColors.current.text.title}}",
                           "fontSize": 16.0,
                           "fontWeight": "w600"
                         },
@@ -91,7 +91,7 @@
                           {
                             "src": "assets/icons/ic_edit.svg",
                             "imageType": "asset",
-                            "color": "secondary",
+                            "color": "{{appColors.current.secondary.color}}",
                             "width": 16.0,
                             "height": 16.0,
                             "type": "image"
@@ -104,7 +104,7 @@
                             "data": "{{appStrings.verifyOtp.edit}}",
                             "style": {
                               "type": "custom",
-                              "color": "secondary",
+                              "color": "{{appColors.current.secondary.color}}",
                               "fontSize": 14.0,
                               "fontWeight": "w600"
                             },
@@ -145,7 +145,7 @@
                           "textInputAction": "done",
                           "style": {
                             "type": "custom",
-                            "color": "onSurface",
+                            "color": "{{appColors.current.text.title}}",
                             "fontSize": 24.0,
                             "fontWeight": "w600",
                             "letterSpacing": 8.0,
@@ -210,7 +210,7 @@
                         "data": "{{appStrings.verifyOtp.sendAgain}}",
                         "style": {
                           "type": "custom",
-                          "color": "secondary",
+                          "color": "{{appColors.current.secondary.color}}",
                           "fontSize": 14.0,
                           "fontWeight": "w600",
                           "fontFamily": "IranYekan"

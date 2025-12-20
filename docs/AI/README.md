@@ -19,6 +19,7 @@
 5. **[CORE_STAC_STRUCTURE.md](./CORE_STAC_STRUCTURE.md)** - Deep dive into `lib/core/stac` structure
 6. **[REFERENCE_LOCATIONS.md](./REFERENCE_LOCATIONS.md)** - Where to find documentation, old code, and resources
 7. **[ISSUES_HANDLING.md](./ISSUES_HANDLING.md)** - How to handle issues and use the Issues log
+8. **[STAC_LIMITATIONS.md](./STAC_LIMITATIONS.md)** - Known STAC framework limitations and workarounds
 
 ## 🎯 Quick Start for AI Agents
 
@@ -52,6 +53,18 @@
 5. **Theme-Aware Colors** - Always use `{{appColors.current.*}}` not `{{appColors.light.*}}`
 6. **Check Issues First** - Always check Issues log before starting tasks
 
+## 📝 Templates (For AI Agent Prompts)
+
+**🎯 [template/create_new_page_rule_template.md](./template/create_new_page_rule_template.md)** - **ADD TO AI AGENT!** Complete template/prompt for teaching AI agents how to create new SDUI pages. Includes:
+- Complete 7-step workflow
+- Creation scenarios (from Figma / from old tobank)
+- Code style rules & templates
+- Data binding system guide
+- Troubleshooting guide
+- Reference locations
+
+> **Usage**: Copy this template into your AI agent configuration to enable consistent, efficient page creation without repeating instructions.
+
 ## 📖 Additional Resources
 
 - **Complete Guide**: `docs/TOBANK_STAC_SDUI_COMPLETE_GUIDE.md`
@@ -61,6 +74,6 @@
 
 ---
 
-**Last Updated**: 2025-01-XX  
+**Last Updated**: 2025-12-16  
 **Status**: ✅ Complete - Ready for AI Agents
 

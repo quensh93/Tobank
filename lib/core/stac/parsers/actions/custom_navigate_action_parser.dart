@@ -6,13 +6,15 @@ import 'package:stac_framework/stac_framework.dart';
 import '../../services/widget/stac_widget_loader.dart';
 import '../../services/widget/stac_widget_resolver.dart';
 import '../../services/navigation/stac_navigation_service.dart';
+import '../../../../stac/tobank/flows/login_flow/dart/login_flow_screen.dart';
 
 /// Custom navigation action parser with enhanced functionality.
-/// 
+///
 /// This parser extends the default navigation behavior with:
 /// 1. **Theme wrapping**: Wraps all navigated widgets with a custom theme
 /// 2. **Dart widget support**: Handles navigation to Dart STAC screens
-/// 
+/// 3. **Flow config support**: Handles navigation to config-driven flow screens
+///
 /// **SOLID Principles Applied:**
 /// - **Single Responsibility**: Only responsible for parsing navigation actions
 ///   and orchestrating widget resolution and navigation
@@ -29,6 +31,13 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
     // Check for widgetType and inject widgetJson from Dart file if needed
     final widgetType = json['widgetType'];
     if (widgetType is String) {
+      // Special handling for flow config widgets - don't remove widgetType
+      if (widgetType == 'login_flow_config' ||
+          widgetType == 'login_flow_config_api') {
+        // Keep widgetType for special handling in onCall
+        return StacNavigateAction.fromJson(json);
+      }
+
       final widgetJson = StacWidgetLoader.loadWidgetJson(widgetType);
       if (widgetJson != null) {
         json = Map<String, dynamic>.from(json);
@@ -44,9 +53,21 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
   FutureOr onCall(BuildContext context, StacNavigateAction model) async {
     Widget? widget;
 
+    // Check for special flow config widget types first
+    // This is a workaround since StacNavigateAction doesn't expose widgetType directly
+    // We store it in the action's result field temporarily (a bit hacky but works)
+
     // Resolve widget from different sources using the resolver service
     if (model.widgetJson != null) {
-      widget = StacWidgetResolver.resolveFromJson(context, model.widgetJson);
+      // Check if this is a flow config type by examining the widgetJson
+      final widgetType = model.widgetJson?['_flowWidgetType'] as String?;
+      if (widgetType == 'login_flow_config') {
+        widget = const LoginFlowScreen(useApiPath: false);
+      } else if (widgetType == 'login_flow_config_api') {
+        widget = const LoginFlowScreen(useApiPath: true);
+      } else {
+        widget = StacWidgetResolver.resolveFromJson(context, model.widgetJson);
+      }
     } else if (model.request != null) {
       widget = StacWidgetResolver.resolveFromNetwork(context, model.request!);
     } else if (model.assetPath != null) {

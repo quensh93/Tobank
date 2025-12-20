@@ -9,6 +9,11 @@ import '../parsers/actions/custom_navigate_action_parser.dart';
 import '../parsers/actions/custom_set_value_action_parser.dart';
 import '../parsers/actions/persian_date_picker_action_parser.dart';
 import '../parsers/actions/close_dialog_action_parser.dart';
+import '../parsers/actions/theme_toggle_action_parser.dart';
+import '../parsers/widgets/tobank_onboarding_slider_parser.dart';
+import '../parsers/widgets/timed_splash_parser.dart';
+import '../parsers/actions/flow_next_action_parser.dart';
+import '../../../../stac/tobank/flows/login_flow/dart/login_flow_screen.dart';
 
 /// Register all custom STAC parsers with the STAC framework.
 ///
@@ -97,15 +102,22 @@ Future<void> registerCustomParsers() async {
     // This allows controllers to be registered for external updates (e.g., date picker)
     try {
       const customTextFormFieldParser = CustomTextFormFieldParser();
-      final success = stacRegistry.register(customTextFormFieldParser, true); // override: true
+      final success = stacRegistry.register(
+        customTextFormFieldParser,
+        true,
+      ); // override: true
       if (success) {
         widgetCount++;
-        AppLogger.i('✅ Registered custom TextFormField parser (overriding default)');
+        AppLogger.i(
+          '✅ Registered custom TextFormField parser (overriding default)',
+        );
       } else {
         AppLogger.w('⚠️ Failed to register custom TextFormField parser');
       }
     } catch (e, stackTrace) {
-      AppLogger.e('❌ Failed to register custom TextFormField parser: $e\n$stackTrace');
+      AppLogger.e(
+        '❌ Failed to register custom TextFormField parser: $e\n$stackTrace',
+      );
     }
 
     // Register custom navigate action parser to override the default navigate parser
@@ -113,30 +125,44 @@ Future<void> registerCustomParsers() async {
     // and supports navigation to Dart STAC screens via widgetType
     try {
       const customNavigateParser = CustomNavigateActionParser();
-      final success = stacRegistry.registerAction(customNavigateParser, true); // override: true as positional parameter
+      final success = stacRegistry.registerAction(
+        customNavigateParser,
+        true,
+      ); // override: true as positional parameter
       if (success) {
         actionCount++;
-        AppLogger.i('✅ Registered custom navigate action parser (overriding default)');
+        AppLogger.i(
+          '✅ Registered custom navigate action parser (overriding default)',
+        );
       } else {
         AppLogger.w('⚠️ Failed to register custom navigate action parser');
       }
     } catch (e, stackTrace) {
-      AppLogger.e('❌ Failed to register custom navigate action parser: $e\n$stackTrace');
+      AppLogger.e(
+        '❌ Failed to register custom navigate action parser: $e\n$stackTrace',
+      );
     }
 
     // Register custom setValue action parser to override the default setValue parser
     // This resolves StacGetFormValue actions before storing values in registry
     try {
       const customSetValueParser = CustomSetValueActionParser();
-      final success = stacRegistry.registerAction(customSetValueParser, true); // override: true
+      final success = stacRegistry.registerAction(
+        customSetValueParser,
+        true,
+      ); // override: true
       if (success) {
         actionCount++;
-        AppLogger.i('✅ Registered custom setValue action parser (overriding default)');
+        AppLogger.i(
+          '✅ Registered custom setValue action parser (overriding default)',
+        );
       } else {
         AppLogger.w('⚠️ Failed to register custom setValue action parser');
       }
     } catch (e, stackTrace) {
-      AppLogger.e('❌ Failed to register custom setValue action parser: $e\n$stackTrace');
+      AppLogger.e(
+        '❌ Failed to register custom setValue action parser: $e\n$stackTrace',
+      );
     }
 
     // Note: Custom text parser removed to avoid stack overflow recursion
@@ -174,12 +200,29 @@ void _registerExampleParsers() {
 
   // Register example action parsers
   registerExampleActionParser();
-  
+
   // Register Persian date picker action parser
   registerPersianDatePickerActionParser();
-  
+
   // Register close dialog action parser
   registerCloseDialogActionParser();
+
+  // Register theme toggle action parser
+  registerThemeToggleActionParser();
+
+  // Register flow next action parser
+  CustomComponentRegistry.instance.registerAction(const FlowNextActionParser());
+
+  // Register Tobank onboarding slider widget parser
+  CustomComponentRegistry.instance.registerWidget(
+    const TobankOnboardingSliderParser(),
+  );
+
+  // Register Login Flow Overview widget parser
+  CustomComponentRegistry.instance.registerWidget(LoginFlowOverviewParser());
+
+  // Register Timed Splash widget parser for auto-navigation splash screens
+  CustomComponentRegistry.instance.registerWidget(TimedSplashParser());
 }
 
 /// Unregister all custom parsers from the STAC framework.

@@ -29,7 +29,7 @@ StacWidget tobankTransferForm() {
           style: StacCustomTextStyle(
             fontSize: 20,
             fontWeight: StacFontWeight.bold,
-            color: 'onSurface',
+            color: '{{appColors.current.text.title}}',
           ),
         ),
         loaderWidget: StacText(
@@ -37,7 +37,7 @@ StacWidget tobankTransferForm() {
           style: StacCustomTextStyle(
             fontSize: 20,
             fontWeight: StacFontWeight.bold,
-            color: 'onSurface',
+            color: '{{appColors.current.text.title}}',
           ),
         ),
         errorWidget: StacText(
@@ -45,7 +45,7 @@ StacWidget tobankTransferForm() {
           style: StacCustomTextStyle(
             fontSize: 20,
             fontWeight: StacFontWeight.bold,
-            color: 'onSurface',
+            color: '{{appColors.current.text.title}}',
           ),
         ),
       ),
@@ -64,7 +64,7 @@ StacWidget tobankTransferForm() {
         child: StacText(
           data: '{{appStrings.transfer.errorLoading}}',
           style: StacCustomTextStyle(
-            color: 'error',
+            color: '{{appColors.current.error.color}}',
           ),
         ),
       ),
@@ -80,7 +80,7 @@ StacWidget tobankTransferForm() {
                 style: StacCustomTextStyle(
                   fontSize: 16,
                   fontWeight: StacFontWeight.w600,
-                  color: 'onSurface',
+                  color: '{{appColors.current.text.title}}',
                 ),
               ),
               
@@ -96,7 +96,7 @@ StacWidget tobankTransferForm() {
                   hintStyle: StacCustomTextStyle(
                     fontSize: 14,
                     fontWeight: StacFontWeight.w400,
-                    color: 'onSurfaceVariant',
+                    color: '{{appColors.current.text.subtitle}}',
                   ),
                   filled: true,
                   fillColor: 'surface',
@@ -104,7 +104,7 @@ StacWidget tobankTransferForm() {
                 style: StacCustomTextStyle(
                   fontSize: 16,
                   fontWeight: StacFontWeight.w600,
-                  color: 'onSurface',
+                  color: '{{appColors.current.text.title}}',
                 ),
               ),
               
@@ -116,7 +116,7 @@ StacWidget tobankTransferForm() {
                 style: StacCustomTextStyle(
                   fontSize: 16,
                   fontWeight: StacFontWeight.w600,
-                  color: 'onSurface',
+                  color: '{{appColors.current.text.title}}',
                 ),
               ),
               
@@ -129,7 +129,7 @@ StacWidget tobankTransferForm() {
                   hintStyle: StacCustomTextStyle(
                     fontSize: 14,
                     fontWeight: StacFontWeight.w400,
-                    color: 'onSurfaceVariant',
+                    color: '{{appColors.current.text.subtitle}}',
                   ),
                   filled: true,
                   fillColor: 'surface',
@@ -139,7 +139,7 @@ StacWidget tobankTransferForm() {
                 style: StacCustomTextStyle(
                   fontSize: 16,
                   fontWeight: StacFontWeight.w600,
-                  color: 'onSurface',
+                  color: '{{appColors.current.text.title}}',
                 ),
               ),
               
@@ -151,7 +151,7 @@ StacWidget tobankTransferForm() {
                 style: StacCustomTextStyle(
                   fontSize: 16,
                   fontWeight: StacFontWeight.w600,
-                  color: 'onSurface',
+                  color: '{{appColors.current.text.title}}',
                 ),
               ),
               
@@ -164,7 +164,7 @@ StacWidget tobankTransferForm() {
                   hintStyle: StacCustomTextStyle(
                     fontSize: 14,
                     fontWeight: StacFontWeight.w400,
-                    color: 'onSurfaceVariant',
+                    color: '{{appColors.current.text.subtitle}}',
                   ),
                   filled: true,
                   fillColor: 'surface',
@@ -174,7 +174,7 @@ StacWidget tobankTransferForm() {
                 style: StacCustomTextStyle(
                   fontSize: 16,
                   fontWeight: StacFontWeight.w600,
-                  color: 'onSurface',
+                  color: '{{appColors.current.text.title}}',
                 ),
               ),
               
@@ -186,7 +186,7 @@ StacWidget tobankTransferForm() {
                 style: StacCustomTextStyle(
                   fontSize: 16,
                   fontWeight: StacFontWeight.w600,
-                  color: 'onSurface',
+                  color: '{{appColors.current.text.title}}',
                 ),
               ),
               
@@ -199,7 +199,7 @@ StacWidget tobankTransferForm() {
                   hintStyle: StacCustomTextStyle(
                     fontSize: 14,
                     fontWeight: StacFontWeight.w400,
-                    color: 'onSurfaceVariant',
+                    color: '{{appColors.current.text.subtitle}}',
                   ),
                   filled: true,
                   fillColor: 'surface',
@@ -210,7 +210,7 @@ StacWidget tobankTransferForm() {
                 style: StacCustomTextStyle(
                   fontSize: 16,
                   fontWeight: StacFontWeight.w600,
-                  color: 'onSurface',
+                  color: '{{appColors.current.text.title}}',
                 ),
               ),
               

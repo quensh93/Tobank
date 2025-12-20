@@ -1,0 +1,24 @@
+{
+  "GET": {
+    "statusCode": 200,
+    "data": {
+      "icons": {
+        "logoRed": "assets/icons/ToBank_Red_1.svg",
+        "login": "assets/icons/ic_login.svg",
+        "calendar": "assets/icons/ic_calendar.svg",
+        "edit": "assets/icons/ic_edit.svg",
+        "success": "assets/icons/ic_success.svg",
+        "theme": "assets/icons/ic_theme.svg",
+        "arrowRight": "assets/icons/ic_right_arrow.svg",
+        "arrowLeft": "assets/icons/ic_arrow_left.svg",
+        "buttonNext": "assets/icons/ic_button_next.svg"
+      },
+      "onboarding": {
+        "page1": "assets/images/onboarding_1.svg",
+        "page2": "assets/images/onboarding_2.svg",
+        "page3": "assets/images/onboarding_3.svg",
+        "page4": "assets/images/onboarding_4.svg"
+      }
+    }
+  }
+}

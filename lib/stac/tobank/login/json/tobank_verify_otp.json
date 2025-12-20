@@ -89,7 +89,7 @@
                         "textDirection": "rtl",
                         "children": [
                           {
-                            "src": "assets/icons/ic_edit.svg",
+                            "src": "{{appAssets.icons.edit}}",
                             "imageType": "asset",
                             "color": "secondary",
                             "width": 16.0,
@@ -264,14 +264,134 @@
                     }
                   },
                   "results": [
-                    {
-                      "statusCode": 200,
-                      "action": {
-                        "assetPath": "lib/stac/.build/tobank_home.json",
-                        "navigationStyle": "push",
-                        "actionType": "navigate"
-                      }
-                    }
+                        {
+                          "statusCode": 200,
+                          "action": {
+                            "widget": {
+                              "type": "alertDialog",
+                              "title": {
+                                "type": "text",
+                                "data": "پایان روند",
+                                "textDirection": "rtl",
+                                "textAlign": "center",
+                                "style": {
+                                  "type": "custom",
+                                  "fontSize": 20.0,
+                                  "fontWeight": "w700",
+                                  "color": "{{appColors.current.text.title}}"
+                                }
+                              },
+                              "contentPadding": {
+                                "left": 24,
+                                "right": 24,
+                                "top": 20,
+                                "bottom": 24
+                              },
+                              "content": {
+                                "type": "column",
+                                "crossAxisAlignment": "center",
+                                "mainAxisSize": "min",
+                                "children": [
+                                  {
+                                    "type": "image",
+                                    "src": "{{appAssets.icons.success}}",
+                                    "imageType": "asset",
+                                    "width": 80.0,
+                                    "height": 80.0,
+                                    "color": "{{appColors.current.success.color}}"
+                                  },
+                                  {
+                                    "type": "sizedBox",
+                                    "height": 20.0
+                                  },
+                                  {
+                                    "type": "text",
+                                    "data": "تبریک! روند لاگین با موفقیت تکمیل شد.",
+                                    "textDirection": "rtl",
+                                    "textAlign": "center",
+                                    "style": {
+                                      "type": "custom",
+                                      "fontSize": 16.0,
+                                      "fontWeight": "w500",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "height": 1.5
+                                    }
+                                  },
+                                  {
+                                    "type": "sizedBox",
+                                    "height": 12.0
+                                  },
+                                  {
+                                    "type": "text",
+                                    "data": "اسپلش ← آنبردینگ ← ورود ← تایید کد",
+                                    "textDirection": "rtl",
+                                    "textAlign": "center",
+                                    "style": {
+                                      "type": "custom",
+                                      "fontSize": 13.0,
+                                      "color": "{{appColors.current.text.subtitle}}"
+                                    }
+                                  },
+                                  {
+                                    "type": "sizedBox",
+                                    "height": 24.0
+                                  },
+                                  {
+                                    "type": "sizedBox",
+                                    "width": 999999.0,
+                                    "child": {
+                                      "type": "filledButton",
+                                      "style": {
+                                        "backgroundColor": "{{appColors.current.primary.color}}",
+                                        "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                                        "minimumSize": {
+                                          "width": 999999.0,
+                                          "height": 48.0
+                                        },
+                                        "shape": {
+                                          "type": "roundedRectangle",
+                                          "borderRadius": {
+                                            "topLeft": 12.0,
+                                            "topRight": 12.0,
+                                            "bottomLeft": 12.0,
+                                            "bottomRight": 12.0
+                                          }
+                                        }
+                                      },
+                                      "child": {
+                                        "type": "text",
+                                        "data": "بازگشت به منو",
+                                        "textDirection": "rtl",
+                                        "style": {
+                                          "type": "custom",
+                                          "fontSize": 16.0,
+                                          "color": "{{appColors.current.primary.onPrimary}}",
+                                          "fontWeight": "w600"
+                                        }
+                                      },
+                                      "onPressed": {
+                                        "actionType": "multiAction",
+                                        "actions": [
+                                          {
+                                            "actionType": "closeDialog"
+                                          },
+                                          {
+                                            "actionType": "flowNext",
+                                            "fallback": {
+                                              "actionType": "navigate",
+                                              "navigationStyle": "popAll"
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            "actionType": "showDialog"
+                          }
+                        }
                   ],
                   "actionType": "networkRequest"
                 },

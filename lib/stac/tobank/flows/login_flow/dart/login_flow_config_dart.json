@@ -1,0 +1,44 @@
+{
+  "flowId": "login_flow_dart",
+  "title": "روند لاگین (Dart)",
+  "description": "روند کامل لاگین از اسپلش تا تایید کد ورود - نسخه Dart",
+  "steps": [
+    {
+      "id": "splash",
+      "title": "اسپلش",
+      "description": "صفحه خوش‌آمدگویی",
+      "widgetType": "tobank_splash_dart",
+      "jsonPath": "lib/stac/tobank/splash/json/tobank_splash.json",
+      "apiPath": "lib/stac/tobank/splash/api/GET_tobank_splash.json",
+      "duration": 2000,
+      "enabled": true
+    },
+    {
+      "id": "onboarding",
+      "title": "آنبردینگ",
+      "description": "معرفی امکانات",
+      "widgetType": "tobank_onboarding",
+      "jsonPath": "lib/stac/tobank/onboarding/json/tobank_onboarding.json",
+      "apiPath": "lib/stac/tobank/onboarding/api/GET_tobank_onboarding.json",
+      "enabled": true
+    },
+    {
+      "id": "login",
+      "title": "ورود",
+      "description": "وارد کردن اطلاعات کاربری",
+      "widgetType": "tobank_login_dart",
+      "jsonPath": "lib/stac/tobank/login/json/tobank_login.json",
+      "apiPath": "lib/stac/tobank/login/api/GET_tobank_login.json",
+      "enabled": true
+    },
+    {
+      "id": "verify_otp",
+      "title": "تایید کد",
+      "description": "تایید کد یکبار مصرف",
+      "widgetType": "tobank_verify_otp_dart",
+      "jsonPath": "lib/stac/tobank/login/json/tobank_verify_otp.json",
+      "apiPath": "lib/stac/tobank/login/api/GET_tobank_verify_otp.json",
+      "enabled": true
+    }
+  ]
+}

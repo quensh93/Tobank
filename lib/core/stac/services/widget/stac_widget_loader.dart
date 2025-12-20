@@ -1,11 +1,23 @@
 import '../../../../stac/tobank/login/dart/tobank_login.dart' as login_dart;
 import '../../../../stac/tobank/login/dart/verify_otp.dart' as verify_otp_dart;
+import '../../../../stac/tobank/splash/dart/tobank_splash.dart' as splash_dart;
+import '../../../../stac/tobank/menu/dart/tobank_menu.dart' as tobank_menu_dart;
+import '../../../../stac/tobank/home/dart/home.dart' as home_dart;
+import '../../../../stac/tobank/account/dart/account_overview.dart'
+    as account_dart;
+import '../../../../stac/tobank/profile/dart/profile.dart' as profile_dart;
+import '../../../../stac/tobank/transactions/dart/transaction_history.dart'
+    as transactions_dart;
+import '../../../../stac/tobank/transfer/dart/transfer_form.dart'
+    as transfer_dart;
+import '../../../../stac/tobank/onboarding/dart/tobank_onboarding.dart'
+    as onboarding_dart;
 
 /// Service for loading STAC widgets from Dart files.
-/// 
+///
 /// Follows Single Responsibility Principle - only responsible for loading
 /// widget JSON from Dart widget definitions.
-/// 
+///
 /// Follows Open/Closed Principle - new widget types can be registered
 /// without modifying this class.
 class StacWidgetLoader {
@@ -15,7 +27,36 @@ class StacWidgetLoader {
   /// Extensible - new widget types can be registered without modifying this class.
   static final Map<String, Map<String, dynamic> Function()> _widgetLoaders = {
     'tobank_login_dart': () => login_dart.tobankLoginDart().toJson(),
-    'tobank_verify_otp_dart': () => verify_otp_dart.tobankVerifyOtpDart().toJson(),
+    'tobank_verify_otp_dart': () =>
+        verify_otp_dart.tobankVerifyOtpDart().toJson(),
+    'tobank_splash_dart': () => splash_dart.tobankSplashDart().toJson(),
+    'tobank_menu_dart': () => tobank_menu_dart.tobankMenuDart().toJson(),
+    'tobank_home': () => home_dart.tobankHome().toJson(),
+    'tobank_account_overview': () =>
+        account_dart.tobankAccountOverview().toJson(),
+    'tobank_profile': () => profile_dart.tobankProfile().toJson(),
+    'tobank_transaction_history': () =>
+        transactions_dart.tobankTransactionHistory().toJson(),
+    'tobank_transfer_form': () => transfer_dart.tobankTransferForm().toJson(),
+    'tobank_onboarding': () => onboarding_dart.tobankOnboarding().toJson(),
+    // Flow widgets - all use FlowManager via loginFlowOverview
+    'tobank_login_flow_dart': () => {
+      'type': 'loginFlowOverview',
+      'configPath':
+          'lib/stac/tobank/flows/login_flow/dart/login_flow_config_dart.json',
+      'useApiPath': false,
+    },
+    // Config-driven flow screens - uses LoginFlowOverview widget
+    'login_flow_config': () => {
+      '_flowWidgetType': 'login_flow_config',
+      'configPath':
+          'lib/stac/tobank/flows/login_flow/json/login_flow_config.json',
+    },
+    'login_flow_config_api': () => {
+      '_flowWidgetType': 'login_flow_config_api',
+      'configPath':
+          'lib/stac/tobank/flows/login_flow/api/GET_login_flow_config.json',
+    },
   };
 
   /// Registers a widget loader for a specific widget type.
@@ -50,7 +91,9 @@ class StacWidgetLoader {
       return json;
     } catch (e, stackTrace) {
       // Log error but don't throw - allows fallback to other navigation methods
-      print('❌ StacWidgetLoader: Error loading widget JSON for $widgetType: $e');
+      print(
+        '❌ StacWidgetLoader: Error loading widget JSON for $widgetType: $e',
+      );
       print('📋 Stack trace: $stackTrace');
       return null;
     }

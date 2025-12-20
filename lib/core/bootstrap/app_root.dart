@@ -16,6 +16,7 @@ import '../../features/pre_launch/presentation/screens/pre_launch_screen.dart';
 import '../../features/pre_launch/providers/theme_controller_provider.dart';
 import '../../features/tobank_mock_new/data/theme/tobank_theme_loader.dart';
 import '../stac/loaders/tobank/tobank_colors_loader.dart';
+import '../stac/loaders/tobank/tobank_version_loader.dart';
 
 class AppRoot extends ConsumerStatefulWidget {
   const AppRoot({super.key, this.useDevicePreview});
@@ -23,7 +24,8 @@ class AppRoot extends ConsumerStatefulWidget {
   final bool? useDevicePreview; // if null, auto from kDebugMode
 
   // Global key for the main app's Navigator - allows debug panel to navigate the main app
-  static final GlobalKey<NavigatorState> mainAppNavigatorKey = GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> mainAppNavigatorKey =
+      GlobalKey<NavigatorState>();
 
   @override
   ConsumerState<AppRoot> createState() => _AppRootState();
@@ -45,7 +47,10 @@ class _AppRootState extends ConsumerState<AppRoot> {
       AppLogger.i('Loading Tobank STAC themes...');
       final lightTheme = await TobankThemeLoader.loadLightTheme();
       final darkTheme = await TobankThemeLoader.loadDarkTheme();
-      
+
+      // Load app version for splash screen
+      await TobankVersionLoader.loadVersion();
+
       if (mounted) {
         setState(() {
           _lightTheme = lightTheme;
@@ -55,7 +60,11 @@ class _AppRootState extends ConsumerState<AppRoot> {
         AppLogger.i('✅ Tobank STAC themes loaded successfully');
       }
     } catch (e, stackTrace) {
-      AppLogger.e('Failed to load Tobank STAC themes, falling back to MaterialApp', e, stackTrace);
+      AppLogger.e(
+        'Failed to load Tobank STAC themes, falling back to MaterialApp',
+        e,
+        stackTrace,
+      );
       if (mounted) {
         setState(() {
           _themesLoaded = true; // Still set to true to show fallback
@@ -63,27 +72,30 @@ class _AppRootState extends ConsumerState<AppRoot> {
       }
     }
   }
-  
+
   @override
   Widget build(BuildContext context) {
     final homeWidget = const PreLaunchScreen();
-    
+
     // Get the shared observer instance from provider
     // This observer is created once and shared across the app
     final observer = ref.watch(ispectNavigatorObserverProvider);
-    
+
     // Get debug panel enabled state from settings
     final settings = ref.watch(debugPanelSettingsProvider);
-    
+
     // Get custom panel buttons for ISpect draggable panel
     final panelButtons = ref.watch(ispectPanelButtonsProvider);
-    
+
     // Watch theme controller for theme mode changes
     final themeAsync = ref.watch(themeControllerProvider);
     final themeMode = themeAsync.value ?? ThemeMode.system;
 
     // Keep STAC color aliases in sync with the active theme mode
-    ref.listen<AsyncValue<ThemeMode>>(themeControllerProvider, (previous, next) {
+    ref.listen<AsyncValue<ThemeMode>>(themeControllerProvider, (
+      previous,
+      next,
+    ) {
       final mode = next.value;
       if (mode != null) {
         _syncColorsWithTheme(mode);
@@ -98,11 +110,7 @@ class _AppRootState extends ConsumerState<AppRoot> {
     // Show loading indicator while themes are loading
     if (!_themesLoaded) {
       return const MaterialApp(
-        home: Scaffold(
-          body: Center(
-            child: CircularProgressIndicator(),
-          ),
-        ),
+        home: Scaffold(body: Center(child: CircularProgressIndicator())),
       );
     }
 
@@ -144,27 +152,37 @@ class _AppRootState extends ConsumerState<AppRoot> {
                   // According to ISpect docs, observer must be in ISpectOptions
                   // and the same instance used in navigatorObservers for navigation to work
                   final isEnabled = settings.ispectDraggablePanelEnabled;
-                  
+
                   // Log the current state to verify changes are being detected
-                  debugPrint('🔧 ISpectBuilder building - isISpectEnabled: $isEnabled');
-                  AppLogger.d('🔧 ISpectBuilder building - isISpectEnabled: $isEnabled');
-                  
+                  debugPrint(
+                    '🔧 ISpectBuilder building - isISpectEnabled: $isEnabled',
+                  );
+                  AppLogger.d(
+                    '🔧 ISpectBuilder building - isISpectEnabled: $isEnabled',
+                  );
+
                   final ispectBuilder = ISpectBuilder(
                     // Use a key based on enabled state to force rebuild when setting changes
                     key: ValueKey('ispect_builder_$isEnabled'),
-                    isISpectEnabled: isEnabled, // Control ISpect panel visibility via settings
+                    isISpectEnabled:
+                        isEnabled, // Control ISpect panel visibility via settings
                     options: ISpectOptions(
                       observer: observer, // Must match navigatorObservers above
                       locale: const Locale('en'),
-                      panelButtons: panelButtons, // Add custom debug panel toggle button with ON/OFF label
+                      panelButtons:
+                          panelButtons, // Add custom debug panel toggle button with ON/OFF label
                     ),
                     child: child ?? const SizedBox.shrink(),
                   );
-                  
+
                   // Debug: Log ISpectBuilder creation
-                  debugPrint('✅ ISpectBuilder created with isISpectEnabled: $isEnabled');
-                  AppLogger.d('✅ ISpectBuilder created with isISpectEnabled: $isEnabled');
-                  
+                  debugPrint(
+                    '✅ ISpectBuilder created with isISpectEnabled: $isEnabled',
+                  );
+                  AppLogger.d(
+                    '✅ ISpectBuilder created with isISpectEnabled: $isEnabled',
+                  );
+
                   return ispectBuilder;
                 } catch (e, stackTrace) {
                   // Log error and fallback
@@ -215,27 +233,37 @@ class _AppRootState extends ConsumerState<AppRoot> {
                   // According to ISpect docs, observer must be in ISpectOptions
                   // and the same instance used in navigatorObservers for navigation to work
                   final isEnabled = settings.ispectDraggablePanelEnabled;
-                  
+
                   // Log the current state to verify changes are being detected
-                  debugPrint('🔧 ISpectBuilder building - isISpectEnabled: $isEnabled');
-                  AppLogger.d('🔧 ISpectBuilder building - isISpectEnabled: $isEnabled');
-                  
+                  debugPrint(
+                    '🔧 ISpectBuilder building - isISpectEnabled: $isEnabled',
+                  );
+                  AppLogger.d(
+                    '🔧 ISpectBuilder building - isISpectEnabled: $isEnabled',
+                  );
+
                   final ispectBuilder = ISpectBuilder(
                     // Use a key based on enabled state to force rebuild when setting changes
                     key: ValueKey('ispect_builder_$isEnabled'),
-                    isISpectEnabled: isEnabled, // Control ISpect panel visibility via settings
+                    isISpectEnabled:
+                        isEnabled, // Control ISpect panel visibility via settings
                     options: ISpectOptions(
                       observer: observer, // Must match navigatorObservers above
                       locale: const Locale('en'),
-                      panelButtons: panelButtons, // Add custom debug panel toggle button with ON/OFF label
+                      panelButtons:
+                          panelButtons, // Add custom debug panel toggle button with ON/OFF label
                     ),
                     child: child ?? const SizedBox.shrink(),
                   );
-                  
+
                   // Debug: Log ISpectBuilder creation
-                  debugPrint('✅ ISpectBuilder created with isISpectEnabled: $isEnabled');
-                  AppLogger.d('✅ ISpectBuilder created with isISpectEnabled: $isEnabled');
-                  
+                  debugPrint(
+                    '✅ ISpectBuilder created with isISpectEnabled: $isEnabled',
+                  );
+                  AppLogger.d(
+                    '✅ ISpectBuilder created with isISpectEnabled: $isEnabled',
+                  );
+
                   return ispectBuilder;
                 } catch (e, stackTrace) {
                   // Log error and fallback
@@ -250,24 +278,32 @@ class _AppRootState extends ConsumerState<AppRoot> {
               return child ?? const SizedBox.shrink();
             },
           );
-    
+
     // Wrap app with DebugPanel if flag-based initialization is enabled
     // DebugPanel wraps ISpect, which wraps the app content
     // Hierarchy: DebugPanel > StacApp/MaterialApp (with ISpectBuilder) > App Content
     // Note: DebugPanel.enabled controls visibility, which is managed by persistent settings
     if (DebugPanelConfig.shouldInitializeByFlag) {
       return DebugPanel(
-        enabled: settings.debugPanelEnabled, // Use persistent setting for visibility
+        enabled:
+            settings.debugPanelEnabled, // Use persistent setting for visibility
         child: app,
       );
     }
-    
+
     // If not initialized by flag, return app directly (no DebugPanel wrapper)
     return app;
   }
 
   void _syncColorsWithTheme(ThemeMode mode) {
-    final themeString = mode == ThemeMode.dark ? 'dark' : 'light';
+    String themeString;
+    if (mode == ThemeMode.system) {
+      final brightness = MediaQuery.of(context).platformBrightness;
+      themeString = brightness == Brightness.dark ? 'dark' : 'light';
+    } else {
+      themeString = mode == ThemeMode.dark ? 'dark' : 'light';
+    }
+
     if (TobankColorsLoader.isLoaded) {
       TobankColorsLoader.setCurrentTheme(themeString);
     }

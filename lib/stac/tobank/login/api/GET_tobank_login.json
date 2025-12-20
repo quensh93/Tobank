@@ -194,7 +194,7 @@
                                   "bottom": 8.0
                                 },
                                 "child": {
-                                  "src": "assets/icons/ic_calendar.svg",
+                                  "src": "{{appAssets.icons.calendar}}",
                                   "imageType": "asset",
                                   "color": "{{appStyles.input.loginDatePicker.suffixIconColor}}",
                                   "width": 24.0,

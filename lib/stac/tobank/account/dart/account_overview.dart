@@ -29,7 +29,7 @@ StacWidget tobankAccountOverview() {
           style: StacCustomTextStyle(
             fontSize: 20,
             fontWeight: StacFontWeight.bold,
-            color: 'onSurface',
+            color: '{{appColors.current.text.title}}',
           ),
         ),
         loaderWidget: StacText(
@@ -37,7 +37,7 @@ StacWidget tobankAccountOverview() {
           style: StacCustomTextStyle(
             fontSize: 20,
             fontWeight: StacFontWeight.bold,
-            color: 'onSurface',
+            color: '{{appColors.current.text.title}}',
           ),
         ),
         errorWidget: StacText(
@@ -45,7 +45,7 @@ StacWidget tobankAccountOverview() {
           style: StacCustomTextStyle(
             fontSize: 20,
             fontWeight: StacFontWeight.bold,
-            color: 'onSurface',
+            color: '{{appColors.current.text.title}}',
           ),
         ),
       ),
@@ -64,7 +64,7 @@ StacWidget tobankAccountOverview() {
         child: StacText(
           data: '{{appStrings.account.errorLoading}}',
           style: StacCustomTextStyle(
-            color: 'error',
+            color: '{{appColors.current.error.color}}',
           ),
         ),
       ),
@@ -85,7 +85,7 @@ StacWidget tobankAccountOverview() {
                       style: StacCustomTextStyle(
                         fontSize: 14,
                         fontWeight: StacFontWeight.w400,
-                        color: 'onSurfaceVariant',
+                        color: '{{appColors.current.text.subtitle}}',
                       ),
                     ),
                     StacSizedBox(height: 8),
@@ -94,7 +94,7 @@ StacWidget tobankAccountOverview() {
                       style: StacCustomTextStyle(
                         fontSize: 18,
                         fontWeight: StacFontWeight.bold,
-                        color: 'onSurface',
+                        color: '{{appColors.current.text.title}}',
                       ),
                     ),
                   ],
@@ -116,7 +116,7 @@ StacWidget tobankAccountOverview() {
                       style: StacCustomTextStyle(
                         fontSize: 14,
                         fontWeight: StacFontWeight.w400,
-                        color: 'onSurfaceVariant',
+                        color: '{{appColors.current.text.subtitle}}',
                       ),
                     ),
                     StacSizedBox(height: 8),
@@ -125,7 +125,7 @@ StacWidget tobankAccountOverview() {
                       style: StacCustomTextStyle(
                         fontSize: 18,
                         fontWeight: StacFontWeight.bold,
-                        color: 'onSurface',
+                        color: '{{appColors.current.text.title}}',
                       ),
                     ),
                   ],
@@ -147,7 +147,7 @@ StacWidget tobankAccountOverview() {
                       style: StacCustomTextStyle(
                         fontSize: 14,
                         fontWeight: StacFontWeight.w400,
-                        color: 'onSurfaceVariant',
+                        color: '{{appColors.current.text.subtitle}}',
                       ),
                     ),
                     StacSizedBox(height: 8),
@@ -156,7 +156,7 @@ StacWidget tobankAccountOverview() {
                       style: StacCustomTextStyle(
                         fontSize: 24,
                         fontWeight: StacFontWeight.bold,
-                        color: 'onSurface',
+                        color: '{{appColors.current.text.title}}',
                       ),
                     ),
                   ],
@@ -178,7 +178,7 @@ StacWidget tobankAccountOverview() {
                       style: StacCustomTextStyle(
                         fontSize: 14,
                         fontWeight: StacFontWeight.w400,
-                        color: 'onSurfaceVariant',
+                        color: '{{appColors.current.text.subtitle}}',
                       ),
                     ),
                     StacSizedBox(height: 8),
@@ -187,7 +187,7 @@ StacWidget tobankAccountOverview() {
                       style: StacCustomTextStyle(
                         fontSize: 18,
                         fontWeight: StacFontWeight.bold,
-                        color: 'onSurface',
+                        color: '{{appColors.current.text.title}}',
                       ),
                     ),
                   ],

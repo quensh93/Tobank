@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
+
 import 'package:stac_core/stac_core.dart';
 
 /// Service for handling navigation operations.
-/// 
+///
 /// Follows Single Responsibility Principle - only responsible for navigation logic.
 class StacNavigationService {
   StacNavigationService._();
@@ -47,11 +47,7 @@ class StacNavigationService {
         break;
 
       case NavigationStyle.pushNamed:
-        return Navigator.pushNamed(
-          context,
-          routeName!,
-          arguments: arguments,
-        );
+        return Navigator.pushNamed(context, routeName!, arguments: arguments);
 
       case NavigationStyle.pushNamedAndRemoveAll:
         return Navigator.pushNamedAndRemoveUntil(

@@ -1,0 +1,5 @@
+{
+  "type": "loginFlowOverview",
+  "configPath": "lib/stac/tobank/flows/login_flow/dart/login_flow_config_dart.json",
+  "useApiPath": false
+}

@@ -47,7 +47,7 @@ class _PreviewPanelState extends State<PreviewPanel> {
     }
 
     try {
-      final json = jsonDecode(widget.jsonString) as Map<String, dynamic>;
+      final _ = jsonDecode(widget.jsonString) as Map<String, dynamic>;
       const renderedWidget = Center(
         child: Text('STAC Preview\n(Framework not available)'),
       );

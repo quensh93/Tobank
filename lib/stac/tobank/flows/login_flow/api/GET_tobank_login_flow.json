@@ -1,0 +1,10 @@
+{
+  "GET": {
+    "statusCode": 200,
+    "data": {
+      "type": "loginFlowOverview",
+      "useApiPath": true,
+      "configPath": "lib/stac/tobank/flows/login_flow/api/GET_login_flow_config.json"
+    }
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "GET": {
+    "statusCode": 200,
+    "data": {
+      "type": "scaffold",
+      "appBar": {
+        "type": "appBar",
+        "title": {
+          "type": "text",
+          "data": "{{appStrings.menu.title}}",
+          "textDirection": "rtl",
+          "style": {
+            "type": "custom",
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "color": "{{appColors.current.text.title}}"
+          }
+        },
+        "centerTitle": true,
+        "actions": [
+          {
+            "type": "iconButton",
+            "icon": {
+              "type": "image",
+              "src": "assets/icons/ic_theme.svg",
+              "imageType": "asset",
+              "width": 24,
+              "height": 24,
+              "color": "{{appColors.current.text.title}}"
+            },
+            "onPressed": {
+              "actionType": "toggleTheme"
+            },
+            "tooltip": "{{appStrings.menu.themeToggle.tooltip}}"
+          }
+        ]
+      },
+      "body": {
+        "type": "dynamicView",
+        "request": {
+          "url": "https://api.tobank.com/menu-items",
+          "method": "get",
+          "actionType": "networkRequest"
+        },
+        "targetPath": "data.menuItems",
+        "loaderWidget": {
+          "type": "center",
+          "child": {
+            "type": "circularProgressIndicator"
+          }
+        },
+        "errorWidget": {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "{{appStrings.menu.errorLoading}}",
+            "textDirection": "rtl",
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.error.color}}"
+            }
+          }
+        },
+        "emptyTemplate": {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "{{appStrings.menu.noItemsFound}}",
+            "textDirection": "rtl",
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.text.subtitle}}"
+            }
+          }
+        },
+        "template": {
+          "type": "listView",
+          "padding": {
+            "left": 16,
+            "top": 16,
+            "right": 16,
+            "bottom": 16
+          },
+          "itemTemplate": {
+            "type": "container",
+            "margin": {
+              "bottom": 12
+            },
+            "decoration": {
+              "color": "{{appColors.current.background.surfaceContainer}}",
+              "borderRadius": {
+                "topLeft": 12,
+                "topRight": 12,
+                "bottomLeft": 12,
+                "bottomRight": 12
+              },
+              "border": {
+                "color": "{{appColors.current.input.borderEnabled}}",
+                "width": 1
+              }
+            },
+            "child": {
+              "type": "listTile",
+              "contentPadding": {
+                "left": 16,
+                "top": 8,
+                "right": 16,
+                "bottom": 8
+              },
+              "onTap": {
+                "actionType": "navigate",
+                "widgetType": "{{widgetType}}",
+                "assetPath": "{{jsonPath}}"
+              },
+              "title": {
+                "type": "text",
+                "data": "{{title}}",
+                "textDirection": "rtl",
+                "style": {
+                  "type": "custom",
+                  "fontSize": 16,
+                  "fontWeight": "w600",
+                  "color": "{{appColors.current.text.title}}"
+                }
+              },
+              "trailing": {
+                "type": "image",
+                "src": "assets/icons/ic_arrow_left.svg",
+                "imageType": "asset",
+                "width": 16,
+                "height": 16,
+                "color": "{{appColors.current.text.subtitle}}"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

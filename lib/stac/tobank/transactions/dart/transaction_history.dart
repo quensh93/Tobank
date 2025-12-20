@@ -25,7 +25,7 @@ StacWidget tobankTransactionHistory() {
           style: StacCustomTextStyle(
             fontSize: 20,
             fontWeight: StacFontWeight.bold,
-            color: 'onSurface',
+            color: '{{appColors.current.text.title}}',
           ),
         ),
         loaderWidget: StacText(
@@ -33,7 +33,7 @@ StacWidget tobankTransactionHistory() {
           style: StacCustomTextStyle(
             fontSize: 20,
             fontWeight: StacFontWeight.bold,
-            color: 'onSurface',
+            color: '{{appColors.current.text.title}}',
           ),
         ),
         errorWidget: StacText(
@@ -41,7 +41,7 @@ StacWidget tobankTransactionHistory() {
           style: StacCustomTextStyle(
             fontSize: 20,
             fontWeight: StacFontWeight.bold,
-            color: 'onSurface',
+            color: '{{appColors.current.text.title}}',
           ),
         ),
       ),
@@ -60,7 +60,7 @@ StacWidget tobankTransactionHistory() {
         child: StacText(
           data: '{{appStrings.transactions.errorLoading}}',
           style: StacCustomTextStyle(
-            color: 'error',
+            color: '{{appColors.current.error.color}}',
           ),
         ),
       ),
@@ -68,7 +68,7 @@ StacWidget tobankTransactionHistory() {
         child: StacText(
           data: '{{appStrings.transactions.noTransactionsFound}}',
           style: StacCustomTextStyle(
-            color: 'onSurfaceVariant',
+            color: '{{appColors.current.text.subtitle}}',
           ),
         ),
       ),

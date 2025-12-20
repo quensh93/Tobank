@@ -16,7 +16,7 @@ StacWidget tobankRegister() {
         style: StacCustomTextStyle(
           fontSize: 20,
           fontWeight: StacFontWeight.bold,
-          color: 'onSurface',
+          color: '{{appColors.current.text.title}}',
         ),
       ),
       centerTitle: true,
@@ -34,7 +34,7 @@ StacWidget tobankRegister() {
         child: StacText(
           data: '{{appStrings.register.errorLoading}}',
           style: StacCustomTextStyle(
-            color: 'error',
+            color: '{{appColors.current.error.color}}',
           ),
         ),
       ),
@@ -53,7 +53,7 @@ StacWidget tobankRegister() {
                 style: StacCustomTextStyle(
                   fontSize: 24,
                   fontWeight: StacFontWeight.bold,
-                  color: 'onSurface',
+                  color: '{{appColors.current.text.title}}',
                 ),
                 textAlign: StacTextAlign.center,
               ),
@@ -66,7 +66,7 @@ StacWidget tobankRegister() {
                 style: StacCustomTextStyle(
                   fontSize: 14,
                   fontWeight: StacFontWeight.w400,
-                  color: 'onSurfaceVariant',
+                  color: '{{appColors.current.text.subtitle}}',
                 ),
                 textAlign: StacTextAlign.center,
               ),
@@ -79,7 +79,7 @@ StacWidget tobankRegister() {
                 style: StacCustomTextStyle(
                   fontSize: 16,
                   fontWeight: StacFontWeight.w600,
-                  color: 'onSurface',
+                  color: '{{appColors.current.text.title}}',
                 ),
               ),
               
@@ -92,7 +92,7 @@ StacWidget tobankRegister() {
                   hintStyle: StacCustomTextStyle(
                     fontSize: 14,
                     fontWeight: StacFontWeight.w400,
-                    color: 'onSurfaceVariant',
+                    color: '{{appColors.current.text.subtitle}}',
                   ),
                   filled: true,
                   fillColor: 'surface',
@@ -102,7 +102,7 @@ StacWidget tobankRegister() {
                 style: StacCustomTextStyle(
                   fontSize: 16,
                   fontWeight: StacFontWeight.w600,
-                  color: 'onSurface',
+                  color: '{{appColors.current.text.title}}',
                 ),
               ),
               
@@ -114,7 +114,7 @@ StacWidget tobankRegister() {
                 style: StacCustomTextStyle(
                   fontSize: 16,
                   fontWeight: StacFontWeight.w600,
-                  color: 'onSurface',
+                  color: '{{appColors.current.text.title}}',
                 ),
               ),
               
@@ -127,7 +127,7 @@ StacWidget tobankRegister() {
                   hintStyle: StacCustomTextStyle(
                     fontSize: 14,
                     fontWeight: StacFontWeight.w400,
-                    color: 'onSurfaceVariant',
+                    color: '{{appColors.current.text.subtitle}}',
                   ),
                   filled: true,
                   fillColor: 'surface',
@@ -137,7 +137,7 @@ StacWidget tobankRegister() {
                 style: StacCustomTextStyle(
                   fontSize: 16,
                   fontWeight: StacFontWeight.w600,
-                  color: 'onSurface',
+                  color: '{{appColors.current.text.title}}',
                 ),
               ),
               
@@ -149,7 +149,7 @@ StacWidget tobankRegister() {
                 style: StacCustomTextStyle(
                   fontSize: 16,
                   fontWeight: StacFontWeight.w600,
-                  color: 'onSurface',
+                  color: '{{appColors.current.text.title}}',
                 ),
               ),
               
@@ -162,7 +162,7 @@ StacWidget tobankRegister() {
                   hintStyle: StacCustomTextStyle(
                     fontSize: 14,
                     fontWeight: StacFontWeight.w400,
-                    color: 'onSurfaceVariant',
+                    color: '{{appColors.current.text.subtitle}}',
                   ),
                   filled: true,
                   fillColor: 'surface',
@@ -173,7 +173,7 @@ StacWidget tobankRegister() {
                 style: StacCustomTextStyle(
                   fontSize: 16,
                   fontWeight: StacFontWeight.w600,
-                  color: 'onSurface',
+                  color: '{{appColors.current.text.title}}',
                 ),
               ),
               
@@ -185,7 +185,7 @@ StacWidget tobankRegister() {
                 style: StacCustomTextStyle(
                   fontSize: 16,
                   fontWeight: StacFontWeight.w600,
-                  color: 'onSurface',
+                  color: '{{appColors.current.text.title}}',
                 ),
               ),
               
@@ -198,7 +198,7 @@ StacWidget tobankRegister() {
                   hintStyle: StacCustomTextStyle(
                     fontSize: 14,
                     fontWeight: StacFontWeight.w400,
-                    color: 'onSurfaceVariant',
+                    color: '{{appColors.current.text.subtitle}}',
                   ),
                   filled: true,
                   fillColor: 'surface',
@@ -209,7 +209,7 @@ StacWidget tobankRegister() {
                 style: StacCustomTextStyle(
                   fontSize: 16,
                   fontWeight: StacFontWeight.w600,
-                  color: 'onSurface',
+                  color: '{{appColors.current.text.title}}',
                 ),
               ),
               
@@ -229,7 +229,7 @@ StacWidget tobankRegister() {
                             'type': 'custom',
                             'fontSize': 18,
                             'fontWeight': 'bold',
-                            'color': 'onSurface',
+                            'color': '{{appColors.current.text.title}}',
                           },
                         },
                         'content': {
@@ -238,7 +238,7 @@ StacWidget tobankRegister() {
                           'style': {
                             'type': 'custom',
                             'fontSize': 14,
-                            'color': 'onSurfaceVariant',
+                            'color': '{{appColors.current.text.subtitle}}',
                           },
                         },
                         'actions': [
@@ -288,7 +288,7 @@ StacWidget tobankRegister() {
                     style: StacCustomTextStyle(
                       fontSize: 14,
                       fontWeight: StacFontWeight.w400,
-                      color: 'onSurfaceVariant',
+                      color: '{{appColors.current.text.subtitle}}',
                     ),
                   ),
                   StacTextButton(
@@ -301,7 +301,7 @@ StacWidget tobankRegister() {
                       style: StacCustomTextStyle(
                         fontSize: 14,
                         fontWeight: StacFontWeight.w600,
-                        color: 'primary',
+                        color: '{{appColors.current.primary.color}}',
                       ),
                     ),
                   ),

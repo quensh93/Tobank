@@ -25,7 +25,7 @@ StacWidget tobankHome() {
           style: StacCustomTextStyle(
             fontSize: 20,
             fontWeight: StacFontWeight.bold,
-            color: 'onSurface',
+            color: '{{appColors.current.text.title}}',
           ),
         ),
         loaderWidget: StacText(
@@ -33,7 +33,7 @@ StacWidget tobankHome() {
           style: StacCustomTextStyle(
             fontSize: 20,
             fontWeight: StacFontWeight.bold,
-            color: 'onSurface',
+            color: '{{appColors.current.text.title}}',
           ),
         ),
         errorWidget: StacText(
@@ -41,7 +41,7 @@ StacWidget tobankHome() {
           style: StacCustomTextStyle(
             fontSize: 20,
             fontWeight: StacFontWeight.bold,
-            color: 'onSurface',
+            color: '{{appColors.current.text.title}}',
           ),
         ),
       ),
@@ -50,7 +50,7 @@ StacWidget tobankHome() {
         StacIconButton(
           icon: StacIcon(
             icon: 'notifications',
-            color: 'onSurface',
+            color: '{{appColors.current.text.title}}',
             size: 24,
           ),
           onPressed: StacNavigateAction(
@@ -73,7 +73,7 @@ StacWidget tobankHome() {
         child: StacText(
           data: '{{appStrings.home.errorLoading}}',
           style: StacCustomTextStyle(
-            color: 'error',
+            color: '{{appColors.current.error.color}}',
           ),
         ),
       ),
@@ -95,7 +95,7 @@ StacWidget tobankHome() {
                       style: StacCustomTextStyle(
                         fontSize: 14,
                         fontWeight: StacFontWeight.w400,
-                        color: 'onSurfaceVariant',
+                        color: '{{appColors.current.text.subtitle}}',
                       ),
                     ),
                     StacSizedBox(height: 8),
@@ -104,7 +104,7 @@ StacWidget tobankHome() {
                       style: StacCustomTextStyle(
                         fontSize: 32,
                         fontWeight: StacFontWeight.bold,
-                        color: 'onSurface',
+                        color: '{{appColors.current.text.title}}',
                       ),
                     ),
                     StacSizedBox(height: 16),
@@ -113,7 +113,7 @@ StacWidget tobankHome() {
                       style: StacCustomTextStyle(
                         fontSize: 14,
                         fontWeight: StacFontWeight.w400,
-                        color: 'onSurfaceVariant',
+                        color: '{{appColors.current.text.subtitle}}',
                       ),
                     ),
                   ],
@@ -129,7 +129,7 @@ StacWidget tobankHome() {
               style: StacCustomTextStyle(
                 fontSize: 18,
                 fontWeight: StacFontWeight.bold,
-                color: 'onSurface',
+                color: '{{appColors.current.text.title}}',
               ),
             ),
             
@@ -146,7 +146,7 @@ StacWidget tobankHome() {
                       StacIconButton(
                         icon: StacIcon(
                           icon: 'send',
-                          color: 'primary',
+                          color: '{{appColors.current.primary.color}}',
                           size: 32,
                         ),
                         onPressed: StacNavigateAction(
@@ -160,7 +160,7 @@ StacWidget tobankHome() {
                         style: StacCustomTextStyle(
                           fontSize: 14,
                           fontWeight: StacFontWeight.w500,
-                          color: 'onSurface',
+                          color: '{{appColors.current.text.title}}',
                         ),
                         textAlign: StacTextAlign.center,
                       ),
@@ -175,7 +175,7 @@ StacWidget tobankHome() {
                       StacIconButton(
                         icon: StacIcon(
                           icon: 'receipt',
-                          color: 'primary',
+                          color: '{{appColors.current.primary.color}}',
                           size: 32,
                         ),
                         onPressed: StacNavigateAction(
@@ -189,7 +189,7 @@ StacWidget tobankHome() {
                         style: StacCustomTextStyle(
                           fontSize: 14,
                           fontWeight: StacFontWeight.w500,
-                          color: 'onSurface',
+                          color: '{{appColors.current.text.title}}',
                         ),
                         textAlign: StacTextAlign.center,
                       ),
@@ -204,7 +204,7 @@ StacWidget tobankHome() {
                       StacIconButton(
                         icon: StacIcon(
                           icon: 'account_balance',
-                          color: 'primary',
+                          color: '{{appColors.current.primary.color}}',
                           size: 32,
                         ),
                         onPressed: StacNavigateAction(
@@ -218,7 +218,7 @@ StacWidget tobankHome() {
                         style: StacCustomTextStyle(
                           fontSize: 14,
                           fontWeight: StacFontWeight.w500,
-                          color: 'onSurface',
+                          color: '{{appColors.current.text.title}}',
                         ),
                         textAlign: StacTextAlign.center,
                       ),
@@ -233,7 +233,7 @@ StacWidget tobankHome() {
                       StacIconButton(
                         icon: StacIcon(
                           icon: 'history',
-                          color: 'primary',
+                          color: '{{appColors.current.primary.color}}',
                           size: 32,
                         ),
                         onPressed: StacNavigateAction(
@@ -247,7 +247,7 @@ StacWidget tobankHome() {
                         style: StacCustomTextStyle(
                           fontSize: 14,
                           fontWeight: StacFontWeight.w500,
-                          color: 'onSurface',
+                          color: '{{appColors.current.text.title}}',
                         ),
                         textAlign: StacTextAlign.center,
                       ),
@@ -268,7 +268,7 @@ StacWidget tobankHome() {
                   style: StacCustomTextStyle(
                     fontSize: 18,
                     fontWeight: StacFontWeight.bold,
-                    color: 'onSurface',
+                    color: '{{appColors.current.text.title}}',
                   ),
                 ),
                 StacTextButton(
@@ -281,7 +281,7 @@ StacWidget tobankHome() {
                     style: StacCustomTextStyle(
                       fontSize: 14,
                       fontWeight: StacFontWeight.w600,
-                      color: 'primary',
+                      color: '{{appColors.current.primary.color}}',
                     ),
                   ),
                 ),
@@ -301,11 +301,11 @@ StacWidget tobankHome() {
               loaderWidget: StacSizedBox(height: 100),
               errorWidget: StacText(
                 data: '{{appStrings.home.errorLoadingTransactions}}',
-                style: StacCustomTextStyle(color: 'error'),
+                style: StacCustomTextStyle(color: '{{appColors.current.error.color}}'),
               ),
               emptyTemplate: StacText(
                 data: '{{appStrings.home.noTransactionsFound}}',
-                style: StacCustomTextStyle(color: 'onSurfaceVariant'),
+                style: StacCustomTextStyle(color: '{{appColors.current.text.subtitle}}'),
               ),
               // Use StacListView - itemTemplate will be added to JSON after build
               template: StacListView(

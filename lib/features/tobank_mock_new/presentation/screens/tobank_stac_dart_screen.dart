@@ -1,57 +1,97 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
 import '../../../../../stac/tobank/menu/dart/tobank_menu.dart' as tobank_menu;
+import '../../../pre_launch/providers/theme_controller_provider.dart';
 
 /// Renders the Tobank STAC menu screen directly from the Dart StacWidget.
-class TobankStacDartScreen extends StatelessWidget {
+///
+/// Uses ConsumerWidget to watch theme changes and rebuild the entire
+/// STAC widget tree when theme is toggled, ensuring all colors update.
+class TobankStacDartScreen extends ConsumerWidget {
   const TobankStacDartScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Watch the theme controller - this triggers rebuild when theme changes
+    // This is critical for updating all STAC colors when theme toggles
+    final themeState = ref.watch(themeControllerProvider);
+
+    // Get current theme mode for logging/debugging
+    final themeMode = themeState.maybeWhen(
+      data: (mode) => mode,
+      orElse: () => ThemeMode.system,
+    );
+
+    debugPrint(
+      '🎨 TobankStacDartScreen rebuilding with theme: ${themeMode.name}',
+    );
+
     final stacWidget = tobank_menu.tobankMenuDart();
     var json = stacWidget.toJson();
-    
-    // Manually add itemTemplate to the template JSON since StacListView doesn't support it in Dart
-    // Each menu item is displayed as a card with 3 buttons: dart, json, api
-    // Using STAC Dart widgets syntax, then converting to JSON
-    if (json['body'] != null && 
-        json['body']['template'] != null && 
-        json['body']['template']['type'] == 'listView') {
-      final itemTemplateWidget = _buildMenuItemCard();
-      json['body']['template']['itemTemplate'] = itemTemplateWidget.toJson();
+
+    // Recursively inject itemTemplate into all StacListView widgets
+    // This allows flexible layouts (e.g. Columns of ListViews, ScrollViews, etc.)
+    void injectItemTemplateRecursively(dynamic node) {
+      if (node is Map<String, dynamic>) {
+        if (node['type'] == 'listView') {
+          // Check if children is populated (static list) or empty (dynamic list)
+          // We only want to enable shrinkWrap/physics for the dynamic lists (empty children)
+          // The main list has static children and should behave normally
+          final children = node['children'];
+          final bool hasStaticChildren =
+              children != null && children is List && children.isNotEmpty;
+
+          if (!hasStaticChildren) {
+            if (node['itemTemplate'] == null) {
+              node['itemTemplate'] = _buildMenuItemCard().toJson();
+            }
+            node['shrinkWrap'] = true;
+            node['physics'] = 'never';
+          }
+        }
+
+        // Use keys.toList() to avoid concurrent modification during iteration
+        final keys = node.keys.toList();
+        for (final key in keys) {
+          final value = node[key];
+          if (value is Map<String, dynamic> || value is List) {
+            injectItemTemplateRecursively(value);
+          }
+        }
+      } else if (node is List) {
+        for (var item in node) {
+          injectItemTemplateRecursively(item);
+        }
+      }
     }
-    
-    final rendered =
-        Stac.fromJson(json, context) ?? const SizedBox.shrink();
+
+    injectItemTemplateRecursively(json);
+
+    final rendered = Stac.fromJson(json, context) ?? const SizedBox.shrink();
 
     return rendered;
   }
-  
+
   /// Build menu item card template with title and 3 buttons (dart, json, api) in one row
   /// Minimal material design - title on right, space, then buttons on left, with visible border
-  /// Uses STAC Dart widgets syntax
+  /// Uses STAC Dart widgets syntax with theme-aware colors
   StacWidget _buildMenuItemCard() {
     return StacContainer(
-      margin: StacEdgeInsets.only(
-        left: 8.0,
-        top: 4.0,
-        right: 8.0,
-        bottom: 4.0,
-      ),
+      margin: StacEdgeInsets.only(left: 8.0, top: 4.0, right: 8.0, bottom: 4.0),
       decoration: StacBoxDecoration(
-        color: StacColors.white,
+        // Use theme-aware surfaceContainer for card background
+        color: '{{appColors.current.background.surfaceContainer}}',
         border: StacBorder(
           width: 1.5,
-          color: '#E0E0E0', // Light gray border
+          // Use theme-aware border color
+          color: '{{appColors.current.input.borderEnabled}}',
         ),
         borderRadius: StacBorderRadius.all(8.0),
       ),
       child: StacPadding(
-        padding: StacEdgeInsets.symmetric(
-          horizontal: 12.0,
-          vertical: 10.0,
-        ),
+        padding: StacEdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
         child: StacRow(
           mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
           crossAxisAlignment: StacCrossAxisAlignment.center,
@@ -109,7 +149,7 @@ class TobankStacDartScreen extends StatelessWidget {
   }
 
   /// Build a button widget for navigating to dart/json/api files using STAC Dart syntax
-  /// 
+  ///
   /// If path is null or empty, the button will be disabled (no onPressed action)
   StacWidget _buildButtonWidget({
     required String label,
@@ -120,12 +160,11 @@ class TobankStacDartScreen extends StatelessWidget {
     // Determine navigation action based on button type
     // Note: When path is null in API, STAC will resolve {{path}} to empty string or "null"
     StacAction? onPressed;
-    
+
     // Check if path is valid (not null, not empty, not the string "null")
-    final hasValidPath = path.isNotEmpty && 
-                        path != 'null' && 
-                        path.trim().isNotEmpty;
-    
+    final hasValidPath =
+        path.isNotEmpty && path != 'null' && path.trim().isNotEmpty;
+
     if (buttonType == 'dart') {
       // For Dart button: prefer widgetType if available, otherwise use dartPath
       if (widgetType != null && widgetType.isNotEmpty && widgetType != 'null') {
@@ -154,21 +193,26 @@ class TobankStacDartScreen extends StatelessWidget {
     // If no valid path/widgetType, button will be disabled (no onPressed)
 
     // Use filledButton for bigger buttons with passive material color
-    final isEnabled = hasValidPath || (buttonType == 'dart' && widgetType != null && widgetType.isNotEmpty && widgetType != 'null');
-    
-    // Use passive material colors - light blue-gray for enabled, gray for disabled
-    final buttonColor = '#E3F2FD'; // Light blue-gray passive color
-    final textColor = '#1976D2'; // Dark blue for text
-    final disabledButtonColor = '#F5F5F5'; // Light gray for disabled
-    final disabledTextColor = '#9E9E9E'; // Medium gray for disabled text
-    
+    final isEnabled =
+        hasValidPath ||
+        (buttonType == 'dart' &&
+            widgetType != null &&
+            widgetType.isNotEmpty &&
+            widgetType != 'null');
+
+    // Use theme-aware colors for buttons
+    // Note: For buttons, we'll use theme tokens but need to handle disabled state specially
+    // Using secondaryContainer for enabled, surfaceContainerHigh for disabled
+    final buttonColor = '{{appColors.current.secondary.secondaryContainer}}';
+    final textColor = '{{appColors.current.secondary.color}}';
+    final disabledButtonColor =
+        '{{appColors.current.background.surfaceContainerHigh}}';
+    final disabledTextColor = '{{appColors.current.text.hint}}';
+
     return StacFilledButton(
       onPressed: onPressed,
       style: StacButtonStyle(
-        padding: StacEdgeInsets.symmetric(
-          horizontal: 8.0,
-          vertical: 6.0,
-        ),
+        padding: StacEdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0),
         minimumSize: const StacSize(0.0, 0.0),
         backgroundColor: isEnabled ? buttonColor : disabledButtonColor,
         foregroundColor: isEnabled ? textColor : disabledTextColor,

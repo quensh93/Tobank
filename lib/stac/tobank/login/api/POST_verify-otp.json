@@ -1,0 +1,11 @@
+{
+  "POST": {
+    "statusCode": 200,
+    "data": {
+      "success": true,
+      "message": "تایید هویت با موفقیت انجام شد",
+      "accessToken": "mock_access_token_12345",
+      "userId": "user_001"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import 'package:stac/stac.dart';
-import 'package:stac_logger/stac_logger.dart';
-
+import '../../core/stac/parsers/widgets/tobank_onboarding_slider_parser.dart';
 import 'custom_component_registry.dart';
+
 // Custom widgets and actions will be imported here when created
 // import '../widgets/example_card/example_card_parser.dart';
 // import '../actions/example_action/example_action_parser.dart';
@@ -26,7 +26,7 @@ import 'custom_component_registry.dart';
 /// ```
 Future<void> registerCustomParsers() async {
   try {
-    Log.i('🔧 Registering custom STAC parsers...');
+    print('🔧 Registering custom STAC parsers...');
 
     // Register example parsers with custom registry first
     _registerExampleParsers();
@@ -45,7 +45,7 @@ Future<void> registerCustomParsers() async {
         // Check if this would conflict with a built-in parser
         final existingParser = stacRegistry.getParser(type);
         if (existingParser != null) {
-          Log.w(
+          print(
             'Skipping custom widget parser "$type" - conflicts with built-in parser',
           );
           widgetSkipped++;
@@ -56,7 +56,7 @@ Future<void> registerCustomParsers() async {
         final success = stacRegistry.register(parser);
         if (success) {
           widgetCount++;
-          Log.d('Registered custom widget parser: $type');
+          print('Registered custom widget parser: $type');
         }
       }
     }
@@ -72,7 +72,7 @@ Future<void> registerCustomParsers() async {
         // Check if this would conflict with a built-in parser
         final existingParser = stacRegistry.getActionParser(actionType);
         if (existingParser != null) {
-          Log.w(
+          print(
             'Skipping custom action parser "$actionType" - conflicts with built-in parser',
           );
           actionSkipped++;
@@ -83,29 +83,29 @@ Future<void> registerCustomParsers() async {
         final success = stacRegistry.registerAction(parser);
         if (success) {
           actionCount++;
-          Log.d('Registered custom action parser: $actionType');
+          print('Registered custom action parser: $actionType');
         }
       }
     }
 
     // Log summary
-    Log.i(
+    print(
       '✅ Custom parser registration complete: '
       '$widgetCount widgets, $actionCount actions registered',
     );
 
     if (widgetSkipped > 0 || actionSkipped > 0) {
-      Log.w(
+      print(
         '⚠️ Skipped $widgetSkipped widgets and $actionSkipped actions due to conflicts',
       );
     }
 
     // Log detailed summary
     final summary = customRegistry.getSummary();
-    Log.d('Custom registry summary: $summary');
+    print('Custom registry summary: $summary');
   } catch (e, stackTrace) {
-    Log.e('❌ Failed to register custom parsers: $e');
-    Log.e('Stack trace:\n$stackTrace');
+    print('❌ Failed to register custom parsers: $e');
+    print('Stack trace:\n$stackTrace');
     rethrow;
   }
 }
@@ -118,6 +118,9 @@ Future<void> registerCustomParsers() async {
 void _registerExampleParsers() {
   // Register example widget parsers
   // registerExampleCardParser(); // Uncomment when widgets are created
+  CustomComponentRegistry.instance.registerWidget(
+    const TobankOnboardingSliderParser(),
+  );
 
   // Register example action parsers
   // registerExampleActionParser(); // Uncomment when actions are created
@@ -129,7 +132,7 @@ void _registerExampleParsers() {
 /// reset the parser registry.
 Future<void> unregisterCustomParsers() async {
   try {
-    Log.i('🔧 Unregistering custom STAC parsers...');
+    print('🔧 Unregistering custom STAC parsers...');
 
     final customRegistry = CustomComponentRegistry.instance;
 
@@ -137,10 +140,10 @@ Future<void> unregisterCustomParsers() async {
     // so we can only clear our custom registry
     customRegistry.clearAll();
 
-    Log.i('✅ Custom parsers cleared from custom registry');
+    print('✅ Custom parsers cleared from custom registry');
   } catch (e, stackTrace) {
-    Log.e('❌ Failed to unregister custom parsers: $e');
-    Log.e('Stack trace:\n$stackTrace');
+    print('❌ Failed to unregister custom parsers: $e');
+    print('Stack trace:\n$stackTrace');
     rethrow;
   }
 }

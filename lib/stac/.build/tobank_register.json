@@ -4,7 +4,7 @@
       "data": "{{appStrings.register.title}}",
       "style": {
         "type": "custom",
-        "color": "onSurface",
+        "color": "{{appColors.current.text.title}}",
         "fontSize": 20.0,
         "fontWeight": "bold"
       },
@@ -40,7 +40,7 @@
               "data": "{{title}}",
               "style": {
                 "type": "custom",
-                "color": "onSurface",
+                "color": "{{appColors.current.text.title}}",
                 "fontSize": 24.0,
                 "fontWeight": "bold"
               },
@@ -55,7 +55,7 @@
               "data": "{{subtitle}}",
               "style": {
                 "type": "custom",
-                "color": "onSurfaceVariant",
+                "color": "{{appColors.current.text.subtitle}}",
                 "fontSize": 14.0,
                 "fontWeight": "w400"
               },
@@ -70,7 +70,7 @@
               "data": "{{fullNameLabel}}",
               "style": {
                 "type": "custom",
-                "color": "onSurface",
+                "color": "{{appColors.current.text.title}}",
                 "fontSize": 16.0,
                 "fontWeight": "w600"
               },
@@ -86,7 +86,7 @@
                 "hintText": "{{fullNamePlaceholder}}",
                 "hintStyle": {
                   "type": "custom",
-                  "color": "onSurfaceVariant",
+                  "color": "{{appColors.current.text.subtitle}}",
                   "fontSize": 14.0,
                   "fontWeight": "w400"
                 },
@@ -97,7 +97,7 @@
               "textInputAction": "next",
               "style": {
                 "type": "custom",
-                "color": "onSurface",
+                "color": "{{appColors.current.text.title}}",
                 "fontSize": 16.0,
                 "fontWeight": "w600"
               },
@@ -111,7 +111,7 @@
               "data": "{{emailLabel}}",
               "style": {
                 "type": "custom",
-                "color": "onSurface",
+                "color": "{{appColors.current.text.title}}",
                 "fontSize": 16.0,
                 "fontWeight": "w600"
               },
@@ -127,7 +127,7 @@
                 "hintText": "{{emailPlaceholder}}",
                 "hintStyle": {
                   "type": "custom",
-                  "color": "onSurfaceVariant",
+                  "color": "{{appColors.current.text.subtitle}}",
                   "fontSize": 14.0,
                   "fontWeight": "w400"
                 },
@@ -138,7 +138,7 @@
               "textInputAction": "next",
               "style": {
                 "type": "custom",
-                "color": "onSurface",
+                "color": "{{appColors.current.text.title}}",
                 "fontSize": 16.0,
                 "fontWeight": "w600"
               },
@@ -152,7 +152,7 @@
               "data": "{{passwordLabel}}",
               "style": {
                 "type": "custom",
-                "color": "onSurface",
+                "color": "{{appColors.current.text.title}}",
                 "fontSize": 16.0,
                 "fontWeight": "w600"
               },
@@ -168,7 +168,7 @@
                 "hintText": "{{passwordPlaceholder}}",
                 "hintStyle": {
                   "type": "custom",
-                  "color": "onSurfaceVariant",
+                  "color": "{{appColors.current.text.subtitle}}",
                   "fontSize": 14.0,
                   "fontWeight": "w400"
                 },
@@ -179,7 +179,7 @@
               "textInputAction": "next",
               "style": {
                 "type": "custom",
-                "color": "onSurface",
+                "color": "{{appColors.current.text.title}}",
                 "fontSize": 16.0,
                 "fontWeight": "w600"
               },
@@ -194,7 +194,7 @@
               "data": "{{confirmPasswordLabel}}",
               "style": {
                 "type": "custom",
-                "color": "onSurface",
+                "color": "{{appColors.current.text.title}}",
                 "fontSize": 16.0,
                 "fontWeight": "w600"
               },
@@ -210,7 +210,7 @@
                 "hintText": "{{confirmPasswordPlaceholder}}",
                 "hintStyle": {
                   "type": "custom",
-                  "color": "onSurfaceVariant",
+                  "color": "{{appColors.current.text.subtitle}}",
                   "fontSize": 14.0,
                   "fontWeight": "w400"
                 },
@@ -221,7 +221,7 @@
               "textInputAction": "done",
               "style": {
                 "type": "custom",
-                "color": "onSurface",
+                "color": "{{appColors.current.text.title}}",
                 "fontSize": 16.0,
                 "fontWeight": "w600"
               },
@@ -245,7 +245,7 @@
                           "type": "custom",
                           "fontSize": 18,
                           "fontWeight": "bold",
-                          "color": "onSurface"
+                          "color": "{{appColors.current.text.title}}"
                         }
                       },
                       "content": {
@@ -254,7 +254,7 @@
                         "style": {
                           "type": "custom",
                           "fontSize": 14,
-                          "color": "onSurfaceVariant"
+                          "color": "{{appColors.current.text.subtitle}}"
                         }
                       },
                       "actions": [
@@ -312,7 +312,7 @@
                   "data": "{{loginLinkText}}",
                   "style": {
                     "type": "custom",
-                    "color": "onSurfaceVariant",
+                    "color": "{{appColors.current.text.subtitle}}",
                     "fontSize": 14.0,
                     "fontWeight": "w400"
                   },
@@ -328,7 +328,7 @@
                     "data": "{{loginButtonText}}",
                     "style": {
                       "type": "custom",
-                      "color": "primary",
+                      "color": "{{appColors.current.primary.color}}",
                       "fontSize": 14.0,
                       "fontWeight": "w600"
                     },
@@ -357,7 +357,7 @@
         "data": "{{appStrings.register.errorLoading}}",
         "style": {
           "type": "custom",
-          "color": "error"
+          "color": "{{appColors.current.error.color}}"
         },
         "type": "text"
       },

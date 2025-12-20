@@ -244,7 +244,9 @@ StacWidget tobankLoginDart() {
                           StacText(
                             data: '{{appStrings.login.agreeWithRulesMessage}}',
                             textDirection: StacTextDirection.rtl,
-                            style: StacAliasTextStyle('{{appStyles.text.agreementRegular}}'),
+                            style: StacAliasTextStyle(
+                              '{{appStyles.text.agreementRegular}}',
+                            ),
                           ),
                           StacTextButton(
                             onPressed: StacNavigateAction(
@@ -256,18 +258,23 @@ StacWidget tobankLoginDart() {
                               navigationStyle: NavigationStyle.push,
                             ),
                             style: StacButtonStyle(
-                              foregroundColor: '{{appColors.current.secondary.color}}',
+                              foregroundColor:
+                                  '{{appColors.current.secondary.color}}',
                             ),
                             child: StacText(
                               data: '{{appStrings.login.rulesAndRegulations}}',
                               textDirection: StacTextDirection.rtl,
-                              style: StacAliasTextStyle('{{appStyles.text.agreementLink}}'),
+                              style: StacAliasTextStyle(
+                                '{{appStyles.text.agreementLink}}',
+                              ),
                             ),
                           ),
                           StacText(
                             data: '{{appStrings.login.agreeSuffix}}',
                             textDirection: StacTextDirection.rtl,
-                            style: StacAliasTextStyle('{{appStyles.text.agreementRegular}}'),
+                            style: StacAliasTextStyle(
+                              '{{appStyles.text.agreementRegular}}',
+                            ),
                           ),
                         ],
                       ),
@@ -330,7 +337,7 @@ StacWidget tobankLoginDart() {
                                 'type': 'custom',
                                 'fontSize': 18.0,
                                 'fontWeight': 'w700',
-                                'color': 'onSurface',
+                                'color': '{{appColors.current.text.title}}',
                               },
                             },
                             'content': {
@@ -350,7 +357,8 @@ StacWidget tobankLoginDart() {
                                       'type': 'custom',
                                       'fontSize': 14.0,
                                       'fontWeight': 'w600',
-                                      'color': 'onSurface',
+                                      'color':
+                                          '{{appColors.current.text.title}}',
                                     },
                                   },
                                   {'type': 'sizedBox', 'height': 8},
@@ -363,7 +371,8 @@ StacWidget tobankLoginDart() {
                                       'type': 'custom',
                                       'fontSize': 11.0,
                                       'fontFamily': 'monospace',
-                                      'color': 'onSurface',
+                                      'color':
+                                          '{{appColors.current.text.title}}',
                                     },
                                   },
                                   {'type': 'sizedBox', 'height': 16},
@@ -376,7 +385,8 @@ StacWidget tobankLoginDart() {
                                       'type': 'custom',
                                       'fontSize': 14.0,
                                       'fontWeight': 'w600',
-                                      'color': 'onSurface',
+                                      'color':
+                                          '{{appColors.current.text.title}}',
                                     },
                                   },
                                   {'type': 'sizedBox', 'height': 8},
@@ -389,7 +399,8 @@ StacWidget tobankLoginDart() {
                                       'type': 'custom',
                                       'fontSize': 11.0,
                                       'fontFamily': 'monospace',
-                                      'color': 'onSurface',
+                                      'color':
+                                          '{{appColors.current.text.title}}',
                                     },
                                   },
                                 ],
@@ -405,6 +416,54 @@ StacWidget tobankLoginDart() {
                                   'textDirection': 'rtl',
                                 },
                                 'onPressed': {'actionType': 'closeDialog'},
+                              },
+                              {
+                                'type': 'filledButton',
+                                'style': {
+                                  'backgroundColor':
+                                      '{{appColors.current.primary.color}}',
+                                  'foregroundColor':
+                                      '{{appColors.current.primary.onPrimary}}',
+                                  'padding': {
+                                    'left': 24,
+                                    'right': 24,
+                                    'top': 8,
+                                    'bottom': 8,
+                                  },
+                                  'shape': {
+                                    'type': 'roundedRectangle',
+                                    'borderRadius': {
+                                      'topLeft': 8,
+                                      'topRight': 8,
+                                      'bottomLeft': 8,
+                                      'bottomRight': 8,
+                                    },
+                                  },
+                                },
+                                'child': {
+                                  'type': 'text',
+                                  'data': 'ادامه',
+                                  'textDirection': 'rtl',
+                                  'style': {
+                                    'type': 'custom',
+                                    'color':
+                                        '{{appColors.current.primary.onPrimary}}',
+                                    'fontWeight': 'w600',
+                                  },
+                                },
+                                'onPressed': {
+                                  'actionType': 'multiAction',
+                                  'actions': [
+                                    {'actionType': 'closeDialog'},
+                                    {
+                                      'actionType': 'flowNext',
+                                      'fallback': {
+                                        'actionType': 'navigate',
+                                        'widgetType': 'tobank_verify_otp_dart',
+                                      },
+                                    },
+                                  ],
+                                },
                               },
                             ],
                           },
