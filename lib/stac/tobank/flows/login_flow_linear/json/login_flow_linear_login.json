@@ -1,11 +1,9 @@
 {
+  "type": "scaffold",
   "appBar": {
     "title": {
       "data": "{{appStrings.login.validationTitle}}",
-      "style": {
-        "type": "alias",
-        "value": "{{appStyles.appbarStyle}}"
-      },
+      "style": "{{appStyles.appbarStyle}}",
       "textDirection": "rtl",
       "type": "text"
     },
@@ -32,10 +30,7 @@
               "children": [
                 {
                   "data": "{{appStrings.login.validationTitle}}",
-                  "style": {
-                    "type": "alias",
-                    "value": "{{appStyles.text.pageTitle}}"
-                  },
+                  "style": "{{appStyles.text.pageTitle}}",
                   "textDirection": "rtl",
                   "type": "text"
                 },
@@ -45,10 +40,7 @@
                 },
                 {
                   "data": "{{appStrings.login.validationInstructions}}",
-                  "style": {
-                    "type": "alias",
-                    "value": "{{appStyles.text.subtitle}}"
-                  },
+                  "style": "{{appStyles.text.subtitle}}",
                   "textDirection": "rtl",
                   "type": "text"
                 },
@@ -62,10 +54,7 @@
                   "children": [
                     {
                       "data": "{{appStrings.login.mobileNumberLabel}}",
-                      "style": {
-                        "type": "alias",
-                        "value": "{{appStyles.text.label}}"
-                      },
+                      "style": "{{appStyles.text.label}}",
                       "textDirection": "rtl",
                       "type": "text"
                     },
@@ -94,13 +83,13 @@
                       },
                       "keyboardType": "number",
                       "textInputAction": "next",
+                      "textAlign": "right",
                       "style": {
                         "type": "custom",
                         "color": "{{appStyles.input.login.textStyleColor}}",
                         "fontSize": 16.0,
                         "fontWeight": "w600"
                       },
-                      "textAlign": "right",
                       "textDirection": "rtl",
                       "validatorRules": [
                         {
@@ -116,10 +105,7 @@
                     },
                     {
                       "data": "{{appStrings.login.nationalCodeTitle}}",
-                      "style": {
-                        "type": "alias",
-                        "value": "{{appStyles.text.label}}"
-                      },
+                      "style": "{{appStyles.text.label}}",
                       "textDirection": "rtl",
                       "type": "text"
                     },
@@ -148,13 +134,13 @@
                       },
                       "keyboardType": "number",
                       "textInputAction": "done",
+                      "textAlign": "right",
                       "style": {
                         "type": "custom",
                         "color": "{{appStyles.input.login.textStyleColor}}",
                         "fontSize": 16.0,
                         "fontWeight": "w600"
                       },
-                      "textAlign": "right",
                       "textDirection": "rtl",
                       "validatorRules": [
                         {
@@ -170,10 +156,7 @@
                     },
                     {
                       "data": "{{appStrings.login.birthdateLabel}}",
-                      "style": {
-                        "type": "alias",
-                        "value": "{{appStyles.text.label}}"
-                      },
+                      "style": "{{appStyles.text.label}}",
                       "textDirection": "rtl",
                       "type": "text"
                     },
@@ -182,8 +165,17 @@
                       "type": "sizedBox"
                     },
                     {
+                      "type": "gestureDetector",
+                      "onTap": {
+                        "actionType": "persianDatePicker",
+                        "formFieldId": "birthdate",
+                        "firstDate": "1350/01/01",
+                        "lastDate": "1450/12/29"
+                      },
                       "child": {
                         "id": "birthdate",
+                        "readOnly": true,
+                        "enabled": false,
                         "decoration": {
                           "hintText": "{{appStrings.login.birthdatePlaceholder}}",
                           "hintStyle": {
@@ -220,16 +212,14 @@
                           "fillColor": "{{appStyles.input.loginDatePicker.fillColor}}"
                         },
                         "keyboardType": "text",
+                        "textAlign": "right",
                         "style": {
                           "type": "custom",
                           "color": "{{appStyles.input.loginDatePicker.textStyleColor}}",
                           "fontSize": 16.0,
                           "fontWeight": "w600"
                         },
-                        "textAlign": "right",
                         "textDirection": "rtl",
-                        "readOnly": true,
-                        "enabled": false,
                         "validatorRules": [
                           {
                             "rule": "^\\d{4}/\\d{2}/\\d{2}$",
@@ -237,14 +227,7 @@
                           }
                         ],
                         "type": "textFormField"
-                      },
-                      "onTap": {
-                        "actionType": "persianDatePicker",
-                        "formFieldId": "birthdate",
-                        "firstDate": "1350/01/01",
-                        "lastDate": "1450/12/29"
-                      },
-                      "type": "gestureDetector"
+                      }
                     },
                     {
                       "height": 24.0,
@@ -252,14 +235,12 @@
                     },
                     {
                       "mainAxisAlignment": "center",
+                      "mainAxisSize": "min",
                       "textDirection": "rtl",
                       "children": [
                         {
                           "data": "{{appStrings.login.agreeWithRulesMessage}}",
-                          "style": {
-                            "type": "alias",
-                            "value": "{{appStyles.text.agreementRegular}}"
-                          },
+                          "style": "{{appStyles.text.agreementRegular}}",
                           "textDirection": "rtl",
                           "type": "text"
                         },
@@ -273,15 +254,9 @@
                             "navigationStyle": "push",
                             "actionType": "navigate"
                           },
-                          "style": {
-                            "foregroundColor": "{{appColors.current.secondary.color}}"
-                          },
                           "child": {
                             "data": "{{appStrings.login.rulesAndRegulations}}",
-                            "style": {
-                              "type": "alias",
-                              "value": "{{appStyles.text.agreementLink}}"
-                            },
+                            "style": "{{appStyles.text.agreementLink}}",
                             "textDirection": "rtl",
                             "type": "text"
                           },
@@ -289,10 +264,7 @@
                         },
                         {
                           "data": "{{appStrings.login.agreeSuffix}}",
-                          "style": {
-                            "type": "alias",
-                            "value": "{{appStyles.text.agreementRegular}}"
-                          },
+                          "style": "{{appStyles.text.agreementRegular}}",
                           "textDirection": "rtl",
                           "type": "text"
                         }
@@ -334,22 +306,22 @@
                       "actionType": "getFormValue"
                     }
                   },
-                  {
-                    "key": "form.birthdate",
-                    "value": {
-                      "id": "birthdate",
-                      "actionType": "getFormValue"
+                    {
+                      "key": "form.birthdate",
+                      "value": {
+                        "id": "birthdate",
+                        "actionType": "getFormValue"
+                      }
+                    },
+                    {
+                      "key": "appData.mobile_number",
+                      "value": {
+                        "id": "mobile_number",
+                        "actionType": "getFormValue"
+                      }
                     }
-                  },
-                  {
-                    "key": "appData.mobile_number",
-                    "value": {
-                      "id": "mobile_number",
-                      "actionType": "getFormValue"
-                    }
-                  }
-                ],
-                "action": {
+                  ],
+                  "action": {
                   "url": "https://api.tobank.com/verify-identity",
                   "method": "post",
                   "contentType": "application/json",
@@ -381,7 +353,7 @@
                               "type": "custom",
                               "fontSize": 18.0,
                               "fontWeight": "w700",
-                              "color": "{{appColors.current.text.title}}"
+                              "color": "onSurface"
                             }
                           },
                           "content": {
@@ -400,7 +372,7 @@
                                     "type": "custom",
                                     "fontSize": 14.0,
                                     "fontWeight": "w600",
-                                    "color": "{{appColors.current.text.title}}"
+                                    "color": "onSurface"
                                   }
                                 },
                                 {
@@ -415,7 +387,7 @@
                                     "type": "custom",
                                     "fontSize": 11.0,
                                     "fontFamily": "monospace",
-                                    "color": "{{appColors.current.text.title}}"
+                                    "color": "onSurface"
                                   }
                                 },
                                 {
@@ -430,7 +402,7 @@
                                     "type": "custom",
                                     "fontSize": 14.0,
                                     "fontWeight": "w600",
-                                    "color": "{{appColors.current.text.title}}"
+                                    "color": "onSurface"
                                   }
                                 },
                                 {
@@ -439,13 +411,13 @@
                                 },
                                 {
                                   "type": "text",
-                                  "data": "Status: 200 OK\n\nResponse:\n{\n  \"success\": true,\n  \"message\": \"Ú©Ø¯ ØªØ§ÛŒÛŒØ¯ Ø¨Ø§ Ù…ÙˆÙÙ‚ÛŒØª Ø§Ø±Ø³Ø§Ù„ Ø´Ø¯\",\n  \"otpCode\": \"123456\",\n  \"expiresIn\": 120\n}",
+                                  "data": "Status: 200 OK\n\nResponse:\n{\n  \"success\": true,\n  \"message\": \"{{appStrings.login.otpSentSuccessMessage}}\",\n  \"otpCode\": \"123456\",\n  \"expiresIn\": 120\n}",
                                   "textDirection": "ltr",
                                   "style": {
                                     "type": "custom",
                                     "fontSize": 11.0,
                                     "fontFamily": "monospace",
-                                    "color": "{{appColors.current.text.title}}"
+                                    "color": "onSurface"
                                   }
                                 }
                               ]
@@ -486,7 +458,7 @@
                               },
                               "child": {
                                 "type": "text",
-                                "data": "Ø§Ø¯Ø§Ù…Ù‡",
+                                "data": "ادامه",
                                 "textDirection": "rtl",
                                 "style": {
                                   "type": "custom",
@@ -501,11 +473,9 @@
                                     "actionType": "closeDialog"
                                   },
                                   {
-                                    "actionType": "flowNext",
-                                    "fallback": {
-                                      "actionType": "navigate",
-                                      "widgetType": "tobank_verify_otp_dart"
-                                    }
+                                    "actionType": "navigate",
+                                    "assetPath": "lib/stac/tobank/flows/login_flow_linear/json/login_flow_linear_verify_otp.json",
+                                    "navigationStyle": "pushReplacement"
                                   }
                                 ]
                               }
@@ -572,6 +542,5 @@
       "type": "column"
     },
     "type": "form"
-  },
-  "type": "scaffold"
+  }
 }

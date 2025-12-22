@@ -91,7 +91,26 @@ class StacThemeWrapper {
   }
 
   /// Wraps a widget with the navigation theme.
+  /// Avoids creating nested Theme widgets if already wrapped.
   static Widget wrapWithTheme(BuildContext context, Widget child) {
+    // Check if we're already inside a Theme with the InputDecorationTheme we need
+    final currentTheme = Theme.of(context);
+    final borderEnabled = StacRegistry.instance.getValue(
+      'appColors.current.input.borderEnabled',
+    );
+
+    // If current theme already has InputDecorationTheme with our borders, don't wrap again
+    if (currentTheme.inputDecorationTheme.enabledBorder is OutlineInputBorder) {
+      final enabledBorder =
+          currentTheme.inputDecorationTheme.enabledBorder as OutlineInputBorder;
+      final expectedColor = _hexToColor(borderEnabled) ?? currentTheme.dividerColor;
+      // If the border color matches, we're likely already wrapped
+      if (enabledBorder.borderSide.color == expectedColor) {
+        return child;
+      }
+    }
+
+    // Create new theme and wrap
     return Theme(data: createNavigationTheme(context), child: child);
   }
 

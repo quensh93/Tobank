@@ -1,0 +1,366 @@
+{
+  "appBar": {
+    "title": {
+      "data": "{{appStrings.menu.title}}",
+      "style": {
+        "type": "custom",
+        "color": "{{appColors.current.text.title}}",
+        "fontSize": 20.0,
+        "fontWeight": "bold"
+      },
+      "textDirection": "rtl",
+      "type": "text"
+    },
+    "actions": [
+      {
+        "onPressed": {
+          "actionType": "toggleTheme"
+        },
+        "tooltip": "{{appStrings.menu.themeToggle.tooltip}}",
+        "icon": {
+          "src": "{{appAssets.icons.theme}}",
+          "imageType": "asset",
+          "color": "{{appColors.current.text.title}}",
+          "width": 24.0,
+          "height": 24.0,
+          "type": "image"
+        },
+        "type": "iconButton"
+      }
+    ],
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "body": {
+    "padding": {
+      "left": 16.0,
+      "top": 16.0,
+      "right": 16.0,
+      "bottom": 16.0
+    },
+    "children": [
+      {
+        "textDirection": "rtl",
+        "children": [
+          {
+            "child": {
+              "color": "{{appColors.current.primary.color}}",
+              "height": 1.0,
+              "type": "container"
+            },
+            "type": "expanded"
+          },
+          {
+            "padding": {
+              "left": 12.0,
+              "right": 12.0
+            },
+            "child": {
+              "data": "Ø±ÙˆÙ†Ø¯ Ù‡Ø§ÛŒ ØºÛŒØ± Ø®Ø·ÛŒ",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.primary.color}}",
+                "fontSize": 14.0,
+                "fontWeight": "bold"
+              },
+              "type": "text"
+            },
+            "type": "padding"
+          },
+          {
+            "child": {
+              "color": "{{appColors.current.primary.color}}",
+              "height": 1.0,
+              "type": "container"
+            },
+            "type": "expanded"
+          }
+        ],
+        "type": "row"
+      },
+      {
+        "height": 16.0,
+        "type": "sizedBox"
+      },
+      {
+        "request": {
+          "url": "https://api.tobank.com/menu-items",
+          "method": "get",
+          "actionType": "networkRequest"
+        },
+        "targetPath": "data.nonLinearFlows",
+        "template": {
+          "padding": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 0.0,
+            "bottom": 0.0
+          },
+          "type": "listView"
+        },
+        "emptyTemplate": {
+          "type": "sizedBox"
+        },
+        "loaderWidget": {
+          "child": {
+            "type": "circularProgressIndicator"
+          },
+          "type": "center"
+        },
+        "errorWidget": {
+          "type": "sizedBox"
+        },
+        "type": "dynamicView"
+      },
+      {
+        "height": 24.0,
+        "type": "sizedBox"
+      },
+      {
+        "textDirection": "rtl",
+        "children": [
+          {
+            "child": {
+              "color": "{{appColors.current.secondary.color}}",
+              "height": 1.0,
+              "type": "container"
+            },
+            "type": "expanded"
+          },
+          {
+            "padding": {
+              "left": 12.0,
+              "right": 12.0
+            },
+            "child": {
+              "data": "Ø±ÙˆÙ†Ø¯ Ù‡Ø§ÛŒ Ø®Ø·ÛŒ",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.secondary.color}}",
+                "fontSize": 14.0,
+                "fontWeight": "bold"
+              },
+              "type": "text"
+            },
+            "type": "padding"
+          },
+          {
+            "child": {
+              "color": "{{appColors.current.secondary.color}}",
+              "height": 1.0,
+              "type": "container"
+            },
+            "type": "expanded"
+          }
+        ],
+        "type": "row"
+      },
+      {
+        "height": 16.0,
+        "type": "sizedBox"
+      },
+      {
+        "request": {
+          "url": "https://api.tobank.com/menu-items",
+          "method": "get",
+          "actionType": "networkRequest"
+        },
+        "targetPath": "data.linearFlows",
+        "template": {
+          "padding": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 0.0,
+            "bottom": 0.0
+          },
+          "type": "listView"
+        },
+        "emptyTemplate": {
+          "type": "sizedBox"
+        },
+        "loaderWidget": {
+          "child": {
+            "type": "circularProgressIndicator"
+          },
+          "type": "center"
+        },
+        "errorWidget": {
+          "type": "sizedBox"
+        },
+        "type": "dynamicView"
+      },
+      {
+        "height": 24.0,
+        "type": "sizedBox"
+      },
+      {
+        "textDirection": "rtl",
+        "children": [
+          {
+            "child": {
+              "color": "{{appColors.current.success.color}}",
+              "height": 1.0,
+              "type": "container"
+            },
+            "type": "expanded"
+          },
+          {
+            "padding": {
+              "left": 12.0,
+              "right": 12.0
+            },
+            "child": {
+              "data": "ØµÙØ­Ø§Øª ØªÙ…Ø§Ù… Ø´Ø¯Ù‡",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.success.color}}",
+                "fontSize": 12.0,
+                "fontWeight": "w500"
+              },
+              "type": "text"
+            },
+            "type": "padding"
+          },
+          {
+            "child": {
+              "color": "{{appColors.current.success.color}}",
+              "height": 1.0,
+              "type": "container"
+            },
+            "type": "expanded"
+          }
+        ],
+        "type": "row"
+      },
+      {
+        "height": 16.0,
+        "type": "sizedBox"
+      },
+      {
+        "request": {
+          "url": "https://api.tobank.com/menu-items",
+          "method": "get",
+          "actionType": "networkRequest"
+        },
+        "targetPath": "data.completedItems",
+        "template": {
+          "padding": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 0.0,
+            "bottom": 0.0
+          },
+          "type": "listView"
+        },
+        "emptyTemplate": {
+          "type": "sizedBox"
+        },
+        "loaderWidget": {
+          "child": {
+            "type": "circularProgressIndicator"
+          },
+          "type": "center"
+        },
+        "errorWidget": {
+          "child": {
+            "data": "{{appStrings.menu.errorLoading}}",
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.error.color}}"
+            },
+            "type": "text"
+          },
+          "type": "center"
+        },
+        "type": "dynamicView"
+      },
+      {
+        "height": 24.0,
+        "type": "sizedBox"
+      },
+      {
+        "textDirection": "rtl",
+        "children": [
+          {
+            "child": {
+              "color": "{{appColors.current.text.subtitle}}",
+              "height": 1.0,
+              "type": "container"
+            },
+            "type": "expanded"
+          },
+          {
+            "padding": {
+              "left": 12.0,
+              "right": 12.0
+            },
+            "child": {
+              "data": "Ø³Ø§ÛŒØ± Ù…ÙˆØ§Ø±Ø¯",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.subtitle}}",
+                "fontSize": 12.0,
+                "fontWeight": "w500"
+              },
+              "type": "text"
+            },
+            "type": "padding"
+          },
+          {
+            "child": {
+              "color": "{{appColors.current.text.subtitle}}",
+              "height": 1.0,
+              "type": "container"
+            },
+            "type": "expanded"
+          }
+        ],
+        "type": "row"
+      },
+      {
+        "height": 16.0,
+        "type": "sizedBox"
+      },
+      {
+        "request": {
+          "url": "https://api.tobank.com/menu-items",
+          "method": "get",
+          "actionType": "networkRequest"
+        },
+        "targetPath": "data.incompleteItems",
+        "template": {
+          "padding": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 0.0,
+            "bottom": 0.0
+          },
+          "type": "listView"
+        },
+        "emptyTemplate": {
+          "type": "sizedBox"
+        },
+        "loaderWidget": {
+          "child": {
+            "type": "circularProgressIndicator"
+          },
+          "type": "center"
+        },
+        "errorWidget": {
+          "child": {
+            "data": "{{appStrings.menu.errorLoading}}",
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.error.color}}"
+            },
+            "type": "text"
+          },
+          "type": "center"
+        },
+        "type": "dynamicView"
+      }
+    ],
+    "type": "listView"
+  },
+  "type": "scaffold"
+}

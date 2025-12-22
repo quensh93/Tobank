@@ -12,6 +12,15 @@ import '../../../../stac/tobank/transfer/dart/transfer_form.dart'
     as transfer_dart;
 import '../../../../stac/tobank/onboarding/dart/tobank_onboarding.dart'
     as onboarding_dart;
+import '../../../../stac/tobank/sum_test/dart/sum_test.dart' as sum_test_dart;
+import '../../../../stac/tobank/flows/login_flow_linear/dart/login_flow_linear_splash.dart'
+    as linear_splash_dart;
+import '../../../../stac/tobank/flows/login_flow_linear/dart/login_flow_linear_onboarding.dart'
+    as linear_onboarding_dart;
+import '../../../../stac/tobank/flows/login_flow_linear/dart/login_flow_linear_login.dart'
+    as linear_login_dart;
+import '../../../../stac/tobank/flows/login_flow_linear/dart/login_flow_linear_verify_otp.dart'
+    as linear_verify_otp_dart;
 
 /// Service for loading STAC widgets from Dart files.
 ///
@@ -39,6 +48,7 @@ class StacWidgetLoader {
         transactions_dart.tobankTransactionHistory().toJson(),
     'tobank_transfer_form': () => transfer_dart.tobankTransferForm().toJson(),
     'tobank_onboarding': () => onboarding_dart.tobankOnboarding().toJson(),
+    'tobank_sum_test': () => sum_test_dart.tobankSumTestDart().toJson(),
     // Flow widgets - all use FlowManager via loginFlowOverview
     'tobank_login_flow_dart': () => {
       'type': 'loginFlowOverview',
@@ -57,6 +67,16 @@ class StacWidgetLoader {
       'configPath':
           'lib/stac/tobank/flows/login_flow/api/GET_login_flow_config.json',
     },
+    // Linear flow widgets - each page handles navigation internally
+    // Splash: Uses onMountAction to auto-navigate after 2 seconds (handled in Dart file)
+    'tobank_login_flow_linear_splash': () =>
+        linear_splash_dart.tobankLoginFlowLinearSplash().toJson(),
+    'tobank_login_flow_linear_onboarding': () =>
+        linear_onboarding_dart.tobankLoginFlowLinearOnboarding().toJson(),
+    'tobank_login_flow_linear_login': () =>
+        linear_login_dart.tobankLoginFlowLinearLogin().toJson(),
+    'tobank_login_flow_linear_verify_otp': () =>
+        linear_verify_otp_dart.tobankLoginFlowLinearVerifyOtp().toJson(),
   };
 
   /// Registers a widget loader for a specific widget type.

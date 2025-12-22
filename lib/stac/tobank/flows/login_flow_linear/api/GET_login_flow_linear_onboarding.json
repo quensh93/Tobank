@@ -1,0 +1,46 @@
+﻿{
+    "GET": {
+        "statusCode": 200,
+        "data": {
+            "type": "scaffold",
+            "backgroundColor": "{{appColors.current.background.surface}}",
+            "body": {
+                "type": "tobank_onboarding_slider",
+                "pages": [
+                    {
+                        "title": "{{appStrings.onboarding.page1.title}}",
+                        "description": "{{appStrings.onboarding.page1.description}}",
+                        "image": "{{appAssets.onboarding.page1}}",
+                        "buttonText": "{{appStrings.onboarding.startButton}}"
+                    },
+                    {
+                        "title": "{{appStrings.onboarding.page2.title}}",
+                        "description": "{{appStrings.onboarding.page2.description}}",
+                        "image": "{{appAssets.onboarding.page2}}",
+                        "buttonText": "{{appStrings.onboarding.startButton}}"
+                    },
+                    {
+                        "title": "{{appStrings.onboarding.page3.title}}",
+                        "description": "{{appStrings.onboarding.page3.description}}",
+                        "image": "{{appAssets.onboarding.page3}}",
+                        "buttonText": "{{appStrings.onboarding.startButton}}"
+                    },
+                    {
+                        "title": "{{appStrings.onboarding.page4.title}}",
+                        "description": "{{appStrings.onboarding.page4.description}}",
+                        "image": "{{appAssets.onboarding.page4}}",
+                        "buttonText": "{{appStrings.onboarding.startButton}}"
+                    }
+                ],
+                "onFinish": {
+                    "actionType": "navigate",
+                    "request": {
+                        "url": "https://api.tobank.com/flows/login_flow_linear/login_flow_linear_login",
+                        "method": "get"
+                    },
+                    "navigationStyle": "pushReplacement"
+                }
+            }
+        }
+    }
+}

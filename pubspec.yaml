@@ -90,7 +90,13 @@ flutter:
     - assets/images/
     - lib/stac/.build/
     - lib/stac/design_system/
+    - lib/stac/design_system/tobank_theme_light.json
+    - lib/stac/design_system/tobank_theme_dark.json
+    - lib/stac/design_system/GET_colors.json
+    - lib/stac/design_system/GET_styles.json
     - lib/stac/config/
+    - lib/stac/config/GET_strings.json
+    - lib/stac/config/GET_assets.json
     - lib/stac/tobank/login/json/
     - lib/stac/tobank/login/api/
     - lib/stac/tobank/menu/api/
@@ -109,10 +115,15 @@ flutter:
     - lib/stac/tobank/onboarding/json/
     - lib/stac/tobank/onboarding/api/
     - lib/stac/tobank/auth/api/
+    - lib/stac/tobank/sum_test/json/
+    - lib/stac/tobank/sum_test/api/
     # Flows
     - lib/stac/tobank/flows/login_flow/dart/
     - lib/stac/tobank/flows/login_flow/json/
     - lib/stac/tobank/flows/login_flow/api/
+    - lib/stac/tobank/flows/login_flow_linear/dart/
+    - lib/stac/tobank/flows/login_flow_linear/json/
+    - lib/stac/tobank/flows/login_flow_linear/api/
 
 
   fonts:

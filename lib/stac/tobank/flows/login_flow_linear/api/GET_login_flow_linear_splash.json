@@ -1,0 +1,85 @@
+{
+  "GET": {
+    "statusCode": 200,
+    "data": {
+      "type": "onMountAction",
+      "delay": 2000,
+      "action": {
+        "actionType": "navigate",
+        "request": {
+          "url": "https://api.tobank.com/flows/login_flow_linear/login_flow_linear_onboarding",
+          "method": "get"
+        },
+        "navigationStyle": "pushReplacement"
+      },
+      "child": {
+        "type": "scaffold",
+        "backgroundColor": "{{appColors.current.background.surface}}",
+        "body": {
+          "type": "stack",
+          "children": [
+            {
+              "type": "align",
+              "alignment": "center",
+              "child": {
+                "type": "column",
+                "mainAxisSize": "min",
+                "crossAxisAlignment": "center",
+                "children": [
+                  {
+                    "type": "image",
+                    "src": "{{appAssets.icons.logoRed}}",
+                    "imageType": "asset",
+                    "width": 229.0,
+                    "height": 36.0,
+                    "fit": "contain"
+                  },
+                  {
+                    "type": "sizedBox",
+                    "height": 27.0
+                  },
+                  {
+                    "type": "text",
+                    "data": "{{appStrings.splash.slogan}}",
+                    "textDirection": "rtl",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 20.0,
+                      "fontWeight": "bold",
+                      "fontFamily": "IranYekan"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "align",
+              "alignment": "bottomCenter",
+              "child": {
+                "type": "padding",
+                "padding": {
+                  "bottom": 49.0
+                },
+                "child": {
+                  "type": "text",
+                  "data": "{{appStrings.splash.version}} {{appData.version}}",
+                  "textDirection": "rtl",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.text.subtitle}}",
+                    "fontSize": 16.0,
+                    "fontWeight": "w400",
+                    "fontFamily": "IranYekan"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "comment": "Complete standalone JSON - ready for server deployment. Includes onMountAction wrapper with navigation action and full splash screen UI structure."
+    }
+  }
+}
+

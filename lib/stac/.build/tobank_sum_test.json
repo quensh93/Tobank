@@ -1,0 +1,171 @@
+{
+  "appBar": {
+    "title": {
+      "data": "ØªØ³Øª Ø¬Ù…Ø¹",
+      "style": {
+        "type": "custom",
+        "color": "{{appColors.current.text.title}}",
+        "fontSize": 20.0,
+        "fontWeight": "bold"
+      },
+      "textDirection": "rtl",
+      "type": "text"
+    },
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "body": {
+    "child": {
+      "padding": {
+        "left": 16.0,
+        "top": 16.0,
+        "right": 16.0,
+        "bottom": 16.0
+      },
+      "child": {
+        "crossAxisAlignment": "stretch",
+        "textDirection": "rtl",
+        "children": [
+          {
+            "height": 24.0,
+            "type": "sizedBox"
+          },
+          {
+            "data": "A",
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.text.title}}",
+              "fontSize": 16.0,
+              "fontWeight": "w600"
+            },
+            "textDirection": "rtl",
+            "type": "text"
+          },
+          {
+            "height": 8.0,
+            "type": "sizedBox"
+          },
+          {
+            "id": "input_a",
+            "decoration": {
+              "hintText": "Ø¹Ø¯Ø¯ Ø±Ø§ ÙˆØ§Ø±Ø¯ Ú©Ù†ÛŒØ¯",
+              "contentPadding": {
+                "left": 16.0,
+                "top": 16.0,
+                "right": 16.0,
+                "bottom": 16.0
+              },
+              "filled": true,
+              "fillColor": "{{appColors.current.background.surface}}"
+            },
+            "keyboardType": "number",
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.text.title}}",
+              "fontSize": 16.0,
+              "fontWeight": "w600"
+            },
+            "textAlign": "right",
+            "textDirection": "rtl",
+            "type": "textFormField"
+          },
+          {
+            "height": 24.0,
+            "type": "sizedBox"
+          },
+          {
+            "data": "B",
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.text.title}}",
+              "fontSize": 16.0,
+              "fontWeight": "w600"
+            },
+            "textDirection": "rtl",
+            "type": "text"
+          },
+          {
+            "height": 8.0,
+            "type": "sizedBox"
+          },
+          {
+            "id": "input_b",
+            "decoration": {
+              "hintText": "Ø¹Ø¯Ø¯ Ø±Ø§ ÙˆØ§Ø±Ø¯ Ú©Ù†ÛŒØ¯",
+              "contentPadding": {
+                "left": 16.0,
+                "top": 16.0,
+                "right": 16.0,
+                "bottom": 16.0
+              },
+              "filled": true,
+              "fillColor": "{{appColors.current.background.surface}}"
+            },
+            "keyboardType": "number",
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.text.title}}",
+              "fontSize": 16.0,
+              "fontWeight": "w600"
+            },
+            "textAlign": "right",
+            "textDirection": "rtl",
+            "type": "textFormField"
+          },
+          {
+            "height": 24.0,
+            "type": "sizedBox"
+          },
+          {
+            "data": "C (Ù†ØªÛŒØ¬Ù‡)",
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.text.title}}",
+              "fontSize": 16.0,
+              "fontWeight": "w600"
+            },
+            "textDirection": "rtl",
+            "type": "text"
+          },
+          {
+            "height": 8.0,
+            "type": "sizedBox"
+          },
+          {
+            "id": "input_c",
+            "decoration": {
+              "hintText": "Ù†ØªÛŒØ¬Ù‡",
+              "contentPadding": {
+                "left": 16.0,
+                "top": 16.0,
+                "right": 16.0,
+                "bottom": 16.0
+              },
+              "filled": true,
+              "fillColor": "{{appColors.current.background.surface}}"
+            },
+            "keyboardType": "number",
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.text.title}}",
+              "fontSize": 16.0,
+              "fontWeight": "w600"
+            },
+            "textAlign": "right",
+            "textDirection": "rtl",
+            "readOnly": true,
+            "type": "textFormField"
+          },
+          {
+            "height": 24.0,
+            "type": "sizedBox"
+          }
+        ],
+        "type": "column"
+      },
+      "type": "singleChildScrollView"
+    },
+    "type": "form"
+  },
+  "type": "scaffold"
+}

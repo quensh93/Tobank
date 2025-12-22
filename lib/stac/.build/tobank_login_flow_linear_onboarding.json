@@ -29,11 +29,9 @@
       }
     ],
     "onFinish": {
-      "actionType": "flowNext",
-      "fallback": {
-        "actionType": "navigate",
-        "navigationStyle": "pop"
-      }
+      "actionType": "navigate",
+      "widgetType": "tobank_login_flow_linear_login",
+      "navigationStyle": "pushReplacement"
     }
   },
   "type": "scaffold"

@@ -80,9 +80,11 @@ class StacWidgetResolver {
     // Regular JSON file - load from assets and resolve variables before parsing
     // For asset files, we need to load the content first
     try {
+      print('📦 Attempting to load asset: $normalizedPath');
       final jsonString = await DefaultAssetBundle.of(
         context,
       ).loadString(normalizedPath);
+      print('✅ Successfully loaded asset: $normalizedPath');
       final jsonData = json.decode(jsonString) as Map<String, dynamic>;
 
       return _ThemeReactiveStacWidget(
@@ -102,7 +104,10 @@ class StacWidgetResolver {
         },
       );
     } catch (e) {
+      print('❌ Failed to load asset: $normalizedPath');
+      print('❌ Error: $e');
       // If manual loading fails, fallback to Stac.fromAssets
+      print('🔄 Falling back to Stac.fromAssets for: $normalizedPath');
       return _ThemeReactiveStacWidget(
         builder: (ctx) {
           final parsedWidget = Stac.fromAssets(normalizedPath);

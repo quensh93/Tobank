@@ -32,10 +32,14 @@ class CustomTextFormFieldParser extends StacParser<StacTextFormField> {
 
   @override
   StacTextFormField getModel(Map<String, dynamic> json) {
-    // Check if onTap exists in JSON before processing
+    // Check if onTap or onChanged exists in JSON before processing
     final hasOnTap = json.containsKey('onTap');
+    final hasOnChanged = json.containsKey('onChanged');
     if (hasOnTap) {
       Log.d('📝 TextFormField JSON contains onTap: ${json['onTap']}');
+    }
+    if (hasOnChanged) {
+      Log.d('📝 TextFormField JSON contains onChanged: ${json['onChanged']}');
     }
     
     // Generate key from JSON content (before model creation) to ensure consistency
@@ -43,8 +47,8 @@ class CustomTextFormFieldParser extends StacParser<StacTextFormField> {
     
     final model = StacTextFormField.fromJson(json);
     // Store the raw JSON keyed by JSON content hash
-    _jsonCache[key] = Map<String, dynamic>.from(json); // Create a copy to preserve onTap
-    Log.d('💾 Stored JSON for TextFormField id=${json['id']}, hasOnTap=$hasOnTap, key=$key');
+    _jsonCache[key] = Map<String, dynamic>.from(json); // Create a copy to preserve onTap and onChanged
+    Log.d('💾 Stored JSON for TextFormField id=${json['id']}, hasOnTap=$hasOnTap, hasOnChanged=$hasOnChanged, key=$key');
     return model;
   }
 
@@ -59,12 +63,13 @@ class CustomTextFormFieldParser extends StacParser<StacTextFormField> {
     // Let's try a different approach: store JSON keyed by a combination that we can recreate
     
     // Try to find JSON by matching model properties
+    // DON'T remove from cache - keep it for onChanged callbacks
     Map<String, dynamic>? rawJson;
     for (final entry in _jsonCache.entries) {
       final cachedJson = entry.value;
       // Match by id first (most reliable)
       if (model.id != null && cachedJson['id'] == model.id) {
-        rawJson = _jsonCache.remove(entry.key);
+        rawJson = Map<String, dynamic>.from(entry.value); // Create a copy, don't remove
         break;
       }
       // Fallback: match by other properties if no ID
@@ -72,18 +77,23 @@ class CustomTextFormFieldParser extends StacParser<StacTextFormField> {
           cachedJson['id'] == null &&
           cachedJson['readOnly'] == model.readOnly &&
           cachedJson['enabled'] == model.enabled) {
-        rawJson = _jsonCache.remove(entry.key);
+        rawJson = Map<String, dynamic>.from(entry.value); // Create a copy, don't remove
         break;
       }
     }
     
     if (rawJson != null) {
       final hasOnTap = rawJson.containsKey('onTap');
-      Log.d('🔍 Retrieved JSON for TextFormField id=${model.id}, hasOnTap=$hasOnTap');
+      final hasOnChanged = rawJson.containsKey('onChanged');
+      Log.d('🔍 Retrieved JSON for TextFormField id=${model.id}, hasOnTap=$hasOnTap, hasOnChanged=$hasOnChanged');
       if (hasOnTap) {
         Log.d('✅ Found onTap action: ${rawJson['onTap']}');
-      } else {
-        Log.w('⚠️ onTap not found in retrieved JSON. Keys: ${rawJson.keys.toList()}');
+      }
+      if (hasOnChanged) {
+        Log.d('✅ Found onChanged action: ${rawJson['onChanged']}');
+      }
+      if (!hasOnTap && !hasOnChanged) {
+        Log.w('⚠️ Neither onTap nor onChanged found in retrieved JSON. Keys: ${rawJson.keys.toList()}');
       }
     } else {
       Log.w('⚠️ No cached JSON found for TextFormField id=${model.id}');
@@ -164,8 +174,36 @@ class _CustomTextFormFieldWidgetState
       controller: _controller,
       focusNode: _focusNode,
       onChanged: (value) {
+        Log.i('🔄 TextFormField onChanged triggered for id=${widget.model.id}, value="$value"');
         if (widget.model.id != null) {
           widget.formScope?.formData[widget.model.id!] = value;
+          Log.d('📝 Updated formData[${widget.model.id}] = "$value"');
+        }
+        
+        // Check if onChanged action is provided in raw JSON
+        if (widget.rawJson != null) {
+          Log.d('🔍 Checking for onChanged in raw JSON for id=${widget.model.id}');
+          Log.d('📋 Raw JSON keys: ${widget.rawJson!.keys.toList()}');
+          final onChangedAction = widget.rawJson?['onChanged'] as Map<String, dynamic>?;
+          if (onChangedAction != null) {
+            Log.i('✅ onChanged action found! Executing calculateSum action...');
+            Log.d('📋 Action JSON: $onChangedAction');
+            // Execute asynchronously to avoid blocking the UI
+            Future.microtask(() {
+              try {
+                Stac.onCallFromJson(onChangedAction, context);
+                Log.i('✅ onChanged action executed successfully');
+              } catch (e, stackTrace) {
+                Log.e('❌ Error executing onChanged action: $e');
+                Log.e('📋 Stack trace: $stackTrace');
+              }
+            });
+          } else {
+            Log.w('⚠️ No onChanged action found in raw JSON for id=${widget.model.id}');
+            Log.w('📋 Available keys: ${widget.rawJson!.keys.toList()}');
+          }
+        } else {
+          Log.e('❌ rawJson is null for id=${widget.model.id}, cannot check onChanged');
         }
       },
       keyboardType: widget.model.keyboardType?.parse,
@@ -213,9 +251,9 @@ class _CustomTextFormFieldWidgetState
       },
     );
 
-    // Check if onTap action is provided in raw JSON
+    // Check if onTap or onChanged action is provided in raw JSON
     if (widget.rawJson != null) {
-      Log.d('🔍 Checking for onTap in TextFormField id=${widget.model.id}');
+      Log.d('🔍 Checking for onTap/onChanged in TextFormField id=${widget.model.id}');
       Log.d('📋 Raw JSON keys: ${widget.rawJson!.keys.toList()}');
     }
     

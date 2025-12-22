@@ -229,8 +229,44 @@ Dio setupStacMockDio() {
                   await rootBundle.loadString(testPath);
                   assetPath = testPath;
                   isScreenJson = true; // Screen JSON needs variable resolution
-                } catch (_) {
+                  AppLogger.d('✅ Mock interceptor: Found flow file: $testPath');
+                } catch (e) {
+                  AppLogger.d('⚠️ Mock interceptor: Failed to load $testPath: $e');
                   // Continue
+                }
+              }
+            }
+
+            // Fallback handling for incorrectly formatted flow URLs
+            // Pattern: login_flow_linear_splash/tobank_login_flow_linear_splash
+            // Should map to: flows/login_flow_linear/api/GET_login_flow_linear_splash.json
+            if (assetPath == null && path.contains('/') && path.contains('_flow_')) {
+              final pathParts = path.split('/');
+              if (pathParts.length == 2) {
+                final firstPart = pathParts[0]; // e.g., 'login_flow_linear_splash'
+                final secondPart = pathParts[1]; // e.g., 'tobank_login_flow_linear_splash'
+                
+                // Extract flow name by removing last segment from first part
+                // login_flow_linear_splash -> login_flow_linear
+                final firstParts = firstPart.split('_');
+                if (firstParts.length > 1) {
+                  final flowNameParts = firstParts.sublist(0, firstParts.length - 1);
+                  final flowName = flowNameParts.join('_'); // e.g., 'login_flow_linear'
+                  
+                  // Remove 'tobank_' prefix from second part to get screen name
+                  final screenName = secondPart.startsWith('tobank_')
+                      ? secondPart.substring(7) // Remove 'tobank_' prefix
+                      : secondPart;
+                  
+                  final testPath =
+                      'lib/stac/tobank/flows/$flowName/api/GET_$screenName.json';
+                  try {
+                    await rootBundle.loadString(testPath);
+                    assetPath = testPath;
+                    isScreenJson = true;
+                  } catch (_) {
+                    // Continue
+                  }
                 }
               }
             }

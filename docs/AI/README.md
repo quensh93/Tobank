@@ -20,6 +20,7 @@
 6. **[REFERENCE_LOCATIONS.md](./REFERENCE_LOCATIONS.md)** - Where to find documentation, old code, and resources
 7. **[ISSUES_HANDLING.md](./ISSUES_HANDLING.md)** - How to handle issues and use the Issues log
 8. **[STAC_LIMITATIONS.md](./STAC_LIMITATIONS.md)** - Known STAC framework limitations and workarounds
+9. **[SDUI_FLOW_PATTERNS.md](./SDUI_FLOW_PATTERNS.md)** - **Standard patterns for SDUI flows** (file structure, navigation, JSON formatting, onMountAction)
 
 ## 🎯 Quick Start for AI Agents
 
@@ -36,6 +37,14 @@
 2. **Check old tobank reference** in `docs/Archived/.tobank_old/` - Match UI exactly
 3. **Follow workflow** in [DEVELOPMENT_WORKFLOW.md](./DEVELOPMENT_WORKFLOW.md)
 4. **Use assets** from `assets/` folder (copied from old tobank)
+
+### When Creating a New SDUI Flow
+
+1. **Read [SDUI_FLOW_PATTERNS.md](./SDUI_FLOW_PATTERNS.md)** - **CRITICAL!** Standard patterns for flows
+2. **Check reference implementation**: `lib/stac/tobank/flows/login_flow_linear/`
+3. **Follow file structure**: `dart/`, `json/`, `api/` directories
+4. **Use `request` URLs in API files**, `assetPath` in JSON files
+5. **Ensure `"type"` is first** in all widget objects
 
 ### When Facing an Issue
 

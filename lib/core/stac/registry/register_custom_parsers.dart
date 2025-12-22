@@ -10,9 +10,13 @@ import '../parsers/actions/custom_set_value_action_parser.dart';
 import '../parsers/actions/persian_date_picker_action_parser.dart';
 import '../parsers/actions/close_dialog_action_parser.dart';
 import '../parsers/actions/theme_toggle_action_parser.dart';
+import '../parsers/actions/calculate_sum_action_parser.dart';
+import '../parsers/actions/log_action_parser.dart';
 import '../parsers/widgets/tobank_onboarding_slider_parser.dart';
 import '../parsers/widgets/timed_splash_parser.dart';
+import '../parsers/widgets/on_mount_action_parser.dart';
 import '../parsers/actions/flow_next_action_parser.dart';
+import '../parsers/widgets/stateful_widget_parser.dart';
 import '../../../../stac/tobank/flows/login_flow/dart/login_flow_screen.dart';
 
 /// Register all custom STAC parsers with the STAC framework.
@@ -210,6 +214,12 @@ void _registerExampleParsers() {
   // Register theme toggle action parser
   registerThemeToggleActionParser();
 
+  // Register calculate sum action parser
+  registerCalculateSumActionParser();
+
+  // Register log action parser
+  CustomComponentRegistry.instance.registerAction(const LogActionParser());
+
   // Register flow next action parser
   CustomComponentRegistry.instance.registerAction(const FlowNextActionParser());
 
@@ -223,6 +233,14 @@ void _registerExampleParsers() {
 
   // Register Timed Splash widget parser for auto-navigation splash screens
   CustomComponentRegistry.instance.registerWidget(TimedSplashParser());
+
+  // Register OnMountAction widget parser for executing actions on widget mount
+  // This allows backend-controlled auto-actions (navigation, data fetching, etc.)
+  CustomComponentRegistry.instance.registerWidget(OnMountActionParser());
+
+  // Register StatefulWidget parser for full widget lifecycle management
+  // This enables Flutter-like lifecycle methods in STAC widgets
+  CustomComponentRegistry.instance.registerWidget(StatefulWidgetParser());
 }
 
 /// Unregister all custom parsers from the STAC framework.

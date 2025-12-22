@@ -501,11 +501,9 @@
                                     "actionType": "closeDialog"
                                   },
                                   {
-                                    "actionType": "flowNext",
-                                    "fallback": {
-                                      "actionType": "navigate",
-                                      "widgetType": "tobank_verify_otp_dart"
-                                    }
+                                    "actionType": "navigate",
+                                    "widgetType": "tobank_login_flow_linear_verify_otp",
+                                    "navigationStyle": "pushReplacement"
                                   }
                                 ]
                               }

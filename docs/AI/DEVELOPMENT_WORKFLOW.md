@@ -44,6 +44,8 @@ lib/stac/tobank/{feature_name}/
     └── GET_{feature_name}.json (created later)
 ```
 
+**📌 For SDUI Flows**: If creating a multi-screen flow, see **[SDUI_FLOW_PATTERNS.md](./SDUI_FLOW_PATTERNS.md)** for complete structure and navigation patterns.
+
 **Example:**
 ```
 lib/stac/tobank/account/
@@ -211,6 +213,11 @@ StacNavigateAction(
   navigationStyle: NavigationStyle.push,
 )
 ```
+
+**📌 For SDUI Flows**: See **[SDUI_FLOW_PATTERNS.md](./SDUI_FLOW_PATTERNS.md)** for:
+- Using `request` URLs in API JSON files (server-ready)
+- Using `assetPath` in JSON files (local development)
+- Complete navigation patterns and examples
 
 ## 🔄 Complete Workflow Diagram
 

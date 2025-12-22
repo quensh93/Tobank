@@ -1,4 +1,5 @@
 {
+  "type": "scaffold",
   "backgroundColor": "{{appColors.current.background.surface}}",
   "body": {
     "type": "tobank_onboarding_slider",
@@ -29,12 +30,9 @@
       }
     ],
     "onFinish": {
-      "actionType": "flowNext",
-      "fallback": {
-        "actionType": "navigate",
-        "navigationStyle": "pop"
-      }
+      "actionType": "navigate",
+      "assetPath": "lib/stac/tobank/flows/login_flow_linear/json/login_flow_linear_login.json",
+      "navigationStyle": "pushReplacement"
     }
-  },
-  "type": "scaffold"
+  }
 }

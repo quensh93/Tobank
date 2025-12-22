@@ -20,11 +20,16 @@ class TimedSplashModel {
   /// Optional: The child widget to display as splash content.
   final Map<String, dynamic>? child;
 
+  /// Optional: Widget type to load child from widget loader when child is missing.
+  /// Used when API JSON doesn't include child property.
+  final String? loadChildFromWidgetType;
+
   const TimedSplashModel({
     this.duration = 2000,
     required this.nextWidgetType,
     this.splashWidgetType,
     this.child,
+    this.loadChildFromWidgetType,
   });
 
   factory TimedSplashModel.fromJson(Map<String, dynamic> json) {
@@ -33,6 +38,7 @@ class TimedSplashModel {
       nextWidgetType: json['nextWidgetType'] as String,
       splashWidgetType: json['splashWidgetType'] as String?,
       child: json['child'] as Map<String, dynamic>?,
+      loadChildFromWidgetType: json['_loadChildFromWidgetType'] as String?,
     );
   }
 }
@@ -140,15 +146,24 @@ class _TimedSplashWidgetState extends State<TimedSplashWidget> {
   @override
   Widget build(BuildContext context) {
     // If splashWidgetType is provided, load that widget
+    // IMPORTANT: Check for circular reference to prevent infinite recursion
     if (widget.model.splashWidgetType != null) {
       final splashJson = StacWidgetLoader.loadWidgetJson(
         widget.model.splashWidgetType!,
       );
       if (splashJson != null) {
-        final splashWidget = StacWidgetResolver.resolveFromJson(
-          context,
-          splashJson,
-        );
+        // Check if the loaded JSON is itself a timedSplash to prevent recursion
+        if (splashJson['type'] == 'timedSplash') {
+          debugPrint(
+            '⚠️ TimedSplash: Detected circular reference with splashWidgetType="${widget.model.splashWidgetType}", showing loading indicator instead',
+          );
+          return const Scaffold(
+            body: Center(child: CircularProgressIndicator()),
+          );
+        }
+        // Use Stac.fromJson directly to avoid double-wrapping with Theme
+        // The parent StacWidgetResolver already wraps with Theme
+        final splashWidget = Stac.fromJson(splashJson, context);
         if (splashWidget != null) {
           return splashWidget;
         }
@@ -163,7 +178,30 @@ class _TimedSplashWidgetState extends State<TimedSplashWidget> {
       }
     }
 
+    // If child is missing, try to load it from widget loader
+    // This handles cases where API JSON doesn't include the child property
+    if (widget.model.loadChildFromWidgetType != null) {
+      final loaderJson = StacWidgetLoader.loadWidgetJson(
+        widget.model.loadChildFromWidgetType!,
+      );
+      if (loaderJson != null && loaderJson['type'] == 'timedSplash') {
+        final childFromLoader = loaderJson['child'] as Map<String, dynamic>?;
+        if (childFromLoader != null) {
+          debugPrint(
+            '✅ TimedSplash: Loaded child from widget loader for ${widget.model.loadChildFromWidgetType}',
+          );
+          final childWidget = Stac.fromJson(childFromLoader, context);
+          if (childWidget != null) {
+            return childWidget;
+          }
+        }
+      }
+    }
+
     // Fallback: Show a simple loading indicator
+    debugPrint(
+      '⚠️ TimedSplash: child property is missing and could not be loaded from widget loader',
+    );
     return const Scaffold(body: Center(child: CircularProgressIndicator()));
   }
 }

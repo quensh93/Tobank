@@ -1,0 +1,92 @@
+{
+  "type": "stateful",
+  "onInit": {
+    "actionType": "sequence",
+    "actions": [
+      {
+        "actionType": "setValue",
+        "key": "splashStartTime",
+        "value": "{{now()}}"
+      },
+      {
+        "actionType": "delay",
+        "duration": 2000
+      },
+      {
+        "actionType": "navigate",
+        "assetPath": "lib/stac/tobank/flows/login_flow_linear/json/login_flow_linear_onboarding.json",
+        "navigationStyle": "pushReplacement"
+      }
+    ]
+  },
+  "onDispose": {
+    "actionType": "log",
+    "message": "Splash screen disposed"
+  },
+  "child": {
+    "type": "scaffold",
+    "backgroundColor": "{{appColors.current.background.surface}}",
+    "body": {
+      "type": "stack",
+      "children": [
+        {
+          "type": "align",
+          "alignment": "center",
+          "child": {
+            "type": "column",
+            "mainAxisSize": "min",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "image",
+                "src": "{{appAssets.icons.logoRed}}",
+                "imageType": "asset",
+                "width": 229.0,
+                "height": 36.0,
+                "fit": "contain"
+              },
+              {
+                "type": "sizedBox",
+                "height": 27.0
+              },
+              {
+                "type": "text",
+                "data": "{{appStrings.splash.slogan}}",
+                "textDirection": "rtl",
+                "style": {
+                  "type": "custom",
+                  "color": "{{appColors.current.text.title}}",
+                  "fontSize": 20.0,
+                  "fontWeight": "bold",
+                  "fontFamily": "IranYekan"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "align",
+          "alignment": "bottomCenter",
+          "child": {
+            "type": "padding",
+            "padding": {
+              "bottom": 49.0
+            },
+            "child": {
+              "type": "text",
+              "data": "{{appStrings.splash.version}} {{appData.version}}",
+              "textDirection": "rtl",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.subtitle}}",
+                "fontSize": 16.0,
+                "fontWeight": "w400",
+                "fontFamily": "IranYekan"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

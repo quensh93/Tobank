@@ -41,10 +41,10 @@ StacWidget tobankMenuDart() {
       padding: StacEdgeInsets.all(16),
       children: [
         // ============================================
-        // FLOWS SECTION (روند ها)
+        // NON-LINEAR FLOWS SECTION (روند های غیر خطی)
         // ============================================
 
-        // Flows Section Divider with Text
+        // Non-Linear Flows Section Divider with Text
         StacRow(
           textDirection: StacTextDirection.rtl,
           children: [
@@ -57,7 +57,7 @@ StacWidget tobankMenuDart() {
             StacPadding(
               padding: StacEdgeInsets.symmetric(horizontal: 12),
               child: StacText(
-                data: "روند ها",
+                data: "روند های غیر خطی",
                 style: StacCustomTextStyle(
                   color: '{{appColors.current.primary.color}}',
                   fontSize: 14,
@@ -76,13 +76,64 @@ StacWidget tobankMenuDart() {
 
         StacSizedBox(height: 16),
 
-        // Flows Items - Load from API
+        // Non-Linear Flows Items - Load from API
         StacDynamicView(
           request: StacNetworkRequest(
             url: 'https://api.tobank.com/menu-items',
             method: Method.get,
           ),
-          targetPath: 'data.flows',
+          targetPath: 'data.nonLinearFlows',
+          loaderWidget: StacCenter(child: StacCircularProgressIndicator()),
+          errorWidget: StacSizedBox(),
+          emptyTemplate: StacSizedBox(),
+          template: StacListView(padding: StacEdgeInsets.all(0), children: []),
+        ),
+
+        StacSizedBox(height: 24),
+
+        // ============================================
+        // LINEAR FLOWS SECTION (روند های خطی)
+        // ============================================
+
+        // Linear Flows Section Divider with Text
+        StacRow(
+          textDirection: StacTextDirection.rtl,
+          children: [
+            StacExpanded(
+              child: StacContainer(
+                height: 1,
+                color: '{{appColors.current.secondary.color}}',
+              ),
+            ),
+            StacPadding(
+              padding: StacEdgeInsets.symmetric(horizontal: 12),
+              child: StacText(
+                data: "روند های خطی",
+                style: StacCustomTextStyle(
+                  color: '{{appColors.current.secondary.color}}',
+                  fontSize: 14,
+                  fontWeight: StacFontWeight.bold,
+                ),
+              ),
+            ),
+            StacExpanded(
+              child: StacContainer(
+                height: 1,
+                color: '{{appColors.current.secondary.color}}',
+              ),
+            ),
+          ],
+        ),
+
+        StacSizedBox(height: 16),
+
+        // Linear Flows Items - Load from API
+        StacDynamicView(
+          request: StacNetworkRequest(
+            url: 'https://api.tobank.com/menu-items',
+            method: Method.get,
+          ),
+          targetPath: 'data.linearFlows',
           loaderWidget: StacCenter(child: StacCircularProgressIndicator()),
           errorWidget: StacSizedBox(),
           emptyTemplate: StacSizedBox(),

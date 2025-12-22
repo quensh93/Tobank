@@ -2,16 +2,28 @@
   "GET": {
     "statusCode": 200,
     "data": {
-      "flows": [
+      "nonLinearFlows": [
         {
           "title": "لاگین",
-          "description": "از اسپلش تا تایید کد ورود",
+          "description": "از اسپلش تا تایید کد ورود (با فایل کانفیگ)",
           "icon": "{{appAssets.icons.login}}",
           "dartPath": "lib/stac/tobank/flows/login_flow/dart/GET_tobank_login_flow_dart.json",
           "jsonPath": "lib/stac/tobank/flows/login_flow/json/login_flow.json",
           "apiPath": "lib/stac/tobank/flows/login_flow/api/GET_tobank_login_flow.json",
           "widgetType": "tobank_login_flow_dart",
           "flowSteps": ["tobank_splash_dart", "tobank_onboarding", "tobank_login_dart", "tobank_verify_otp_dart"]
+        }
+      ],
+      "linearFlows": [
+        {
+          "title": "لاگین (خطی)",
+          "description": "از اسپلش تا تایید کد ورود (بدون فایل کانفیگ)",
+          "icon": "{{appAssets.icons.login}}",
+          "dartPath": "lib/stac/tobank/flows/login_flow_linear/dart/login_flow_linear_splash.dart",
+          "jsonPath": "lib/stac/tobank/flows/login_flow_linear/json/login_flow_linear_splash.json",
+          "apiPath": "lib/stac/tobank/flows/login_flow_linear/api/GET_login_flow_linear_splash.json",
+          "widgetType": "tobank_login_flow_linear_splash",
+          "flowSteps": ["tobank_login_flow_linear_splash", "tobank_login_flow_linear_onboarding", "tobank_login_flow_linear_login", "tobank_login_flow_linear_verify_otp"]
         }
       ],
       "completedItems": [
@@ -45,6 +57,13 @@
         }
       ],
       "incompleteItems": [
+        {
+          "title": "تست جمع",
+          "dartPath": "lib/stac/tobank/sum_test/dart/sum_test.dart",
+          "jsonPath": "lib/stac/tobank/sum_test/json/tobank_sum_test.json",
+          "apiPath": "lib/stac/tobank/sum_test/api/GET_tobank_sum_test.json",
+          "widgetType": "tobank_sum_test"
+        },
         {
           "title": "{{appStrings.menu.items.verifyIdentity}}",
           "dartPath": null,
