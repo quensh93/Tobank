@@ -368,210 +368,207 @@
                 },
                 "child": {
                   "onPressed": {
-                    "isValid": {
-                      "values": [
-                        {
-                          "key": "form.mobile_number",
-                          "value": {
-                            "id": "mobile_number",
-                            "actionType": "getFormValue"
-                          }
-                        },
-                        {
-                          "key": "form.national_code",
-                          "value": {
-                            "id": "national_code",
-                            "actionType": "getFormValue"
-                          }
-                        },
-                        {
-                          "key": "form.birthdate",
-                          "value": {
-                            "id": "birthdate",
-                            "actionType": "getFormValue"
-                          }
-                        },
-                        {
-                          "key": "appData.mobile_number",
-                          "value": {
-                            "id": "mobile_number",
-                            "actionType": "getFormValue"
-                          }
+                    "actionType": "setValue",
+                    "values": [
+                      {
+                        "key": "form.mobile_number",
+                        "value": {
+                          "id": "mobile_number",
+                          "actionType": "getFormValue"
                         }
-                      ],
-                      "action": {
-                        "url": "https://api.tobank.com/verify-identity",
-                        "method": "post",
-                        "contentType": "application/json",
-                        "body": {
-                          "mobile_number": {
-                            "id": "mobile_number",
-                            "actionType": "getFormValue"
-                          },
-                          "national_code": {
-                            "id": "national_code",
-                            "actionType": "getFormValue"
-                          },
-                          "birthdate": {
-                            "id": "birthdate",
-                            "actionType": "getFormValue"
-                          }
+                      },
+                      {
+                        "key": "form.national_code",
+                        "value": {
+                          "id": "national_code",
+                          "actionType": "getFormValue"
+                        }
+                      },
+                      {
+                        "key": "form.birthdate",
+                        "value": {
+                          "id": "birthdate",
+                          "actionType": "getFormValue"
+                        }
+                      },
+                      {
+                        "key": "appData.mobile_number",
+                        "value": {
+                          "id": "mobile_number",
+                          "actionType": "getFormValue"
+                        }
+                      }
+                    ],
+                    "action": {
+                      "url": "https://api.tobank.com/verify-identity",
+                      "method": "post",
+                      "contentType": "application/json",
+                      "body": {
+                        "mobile_number": {
+                          "id": "mobile_number",
+                          "actionType": "getFormValue"
                         },
-                        "results": [
-                          {
-                            "statusCode": 200,
-                            "action": {
-                              "widget": {
-                                "type": "alertDialog",
-                                "title": {
-                                  "type": "text",
-                                  "data": "{{appStrings.login.dialogRequestResultTitle}}",
+                        "national_code": {
+                          "id": "national_code",
+                          "actionType": "getFormValue"
+                        },
+                        "birthdate": {
+                          "id": "birthdate",
+                          "actionType": "getFormValue"
+                        }
+                      },
+                      "results": [
+                        {
+                          "statusCode": 200,
+                          "action": {
+                            "widget": {
+                              "type": "alertDialog",
+                              "title": {
+                                "type": "text",
+                                "data": "{{appStrings.login.dialogRequestResultTitle}}",
+                                "textDirection": "rtl",
+                                "style": {
+                                  "type": "custom",
+                                  "fontSize": 18.0,
+                                  "fontWeight": "w700",
+                                  "color": "onSurface"
+                                }
+                              },
+                              "content": {
+                                "type": "singleChildScrollView",
+                                "child": {
+                                  "type": "column",
+                                  "crossAxisAlignment": "stretch",
                                   "textDirection": "rtl",
-                                  "style": {
-                                    "type": "custom",
-                                    "fontSize": 18.0,
-                                    "fontWeight": "w700",
-                                    "color": "onSurface"
-                                  }
-                                },
-                                "content": {
-                                  "type": "singleChildScrollView",
-                                  "child": {
-                                    "type": "column",
-                                    "crossAxisAlignment": "stretch",
-                                    "textDirection": "rtl",
-                                    "mainAxisSize": "min",
-                                    "children": [
-                                      {
-                                        "type": "text",
-                                        "data": "{{appStrings.login.dialogRequestSentLabel}}",
-                                        "textDirection": "rtl",
-                                        "style": {
-                                          "type": "custom",
-                                          "fontSize": 14.0,
-                                          "fontWeight": "w600",
-                                          "color": "onSurface"
-                                        }
-                                      },
-                                      {
-                                        "type": "sizedBox",
-                                        "height": 8
-                                      },
-                                      {
-                                        "type": "text",
-                                        "data": "URL: https://api.tobank.com/verify-identity\nMethod: POST\n\nBody:\n{\n  \"mobile_number\": \"{{form.mobile_number}}\",\n  \"national_code\": \"{{form.national_code}}\",\n  \"birthdate\": \"{{form.birthdate}}\"\n}",
-                                        "textDirection": "ltr",
-                                        "style": {
-                                          "type": "custom",
-                                          "fontSize": 11.0,
-                                          "fontFamily": "monospace",
-                                          "color": "onSurface"
-                                        }
-                                      },
-                                      {
-                                        "type": "sizedBox",
-                                        "height": 16
-                                      },
-                                      {
-                                        "type": "text",
-                                        "data": "{{appStrings.login.dialogResponseReceivedLabel}}",
-                                        "textDirection": "rtl",
-                                        "style": {
-                                          "type": "custom",
-                                          "fontSize": 14.0,
-                                          "fontWeight": "w600",
-                                          "color": "onSurface"
-                                        }
-                                      },
-                                      {
-                                        "type": "sizedBox",
-                                        "height": 8
-                                      },
-                                      {
-                                        "type": "text",
-                                        "data": "Status: 200 OK\n\nResponse:\n{\n  \"success\": true,\n  \"message\": \"{{appStrings.login.otpSentSuccessMessage}}\",\n  \"otpCode\": \"123456\",\n  \"expiresIn\": 120\n}",
-                                        "textDirection": "ltr",
-                                        "style": {
-                                          "type": "custom",
-                                          "fontSize": 11.0,
-                                          "fontFamily": "monospace",
-                                          "color": "onSurface"
-                                        }
-                                      }
-                                    ]
-                                  }
-                                },
-                                "actions": [
-                                  {
-                                    "type": "textButton",
-                                    "child": {
+                                  "mainAxisSize": "min",
+                                  "children": [
+                                    {
                                       "type": "text",
-                                      "data": "{{appStrings.login.dialogConfirmButton}}",
-                                      "textDirection": "rtl"
-                                    },
-                                    "onPressed": {
-                                      "actionType": "closeDialog"
-                                    }
-                                  },
-                                  {
-                                    "type": "filledButton",
-                                    "style": {
-                                      "backgroundColor": "{{appColors.current.primary.color}}",
-                                      "foregroundColor": "{{appColors.current.primary.onPrimary}}",
-                                      "padding": {
-                                        "left": 24,
-                                        "right": 24,
-                                        "top": 8,
-                                        "bottom": 8
-                                      },
-                                      "shape": {
-                                        "type": "roundedRectangle",
-                                        "borderRadius": {
-                                          "topLeft": 8,
-                                          "topRight": 8,
-                                          "bottomLeft": 8,
-                                          "bottomRight": 8
-                                        }
-                                      }
-                                    },
-                                    "child": {
-                                      "type": "text",
-                                      "data": "ادامه",
+                                      "data": "{{appStrings.login.dialogRequestSentLabel}}",
                                       "textDirection": "rtl",
                                       "style": {
                                         "type": "custom",
-                                        "color": "{{appColors.current.primary.onPrimary}}",
-                                        "fontWeight": "w600"
+                                        "fontSize": 14.0,
+                                        "fontWeight": "w600",
+                                        "color": "onSurface"
                                       }
                                     },
-                                    "onPressed": {
-                                      "actionType": "multiAction",
-                                      "actions": [
-                                        {
-                                          "actionType": "closeDialog"
-                                        },
-                                        {
-                                          "actionType": "navigate",
-                                          "request": {
-                                            "url": "https://api.tobank.com/flows/login_flow_linear/login_flow_linear_verify_otp",
-                                            "method": "get"
-                                          },
-                                          "navigationStyle": "pushReplacement"
-                                        }
-                                      ]
+                                    {
+                                      "type": "sizedBox",
+                                      "height": 8
+                                    },
+                                    {
+                                      "type": "text",
+                                      "data": "URL: https://api.tobank.com/verify-identity\nMethod: POST\n\nBody:\n{\n  \"mobile_number\": \"{{form.mobile_number}}\",\n  \"national_code\": \"{{form.national_code}}\",\n  \"birthdate\": \"{{form.birthdate}}\"\n}",
+                                      "textDirection": "ltr",
+                                      "style": {
+                                        "type": "custom",
+                                        "fontSize": 11.0,
+                                        "fontFamily": "monospace",
+                                        "color": "onSurface"
+                                      }
+                                    },
+                                    {
+                                      "type": "sizedBox",
+                                      "height": 16
+                                    },
+                                    {
+                                      "type": "text",
+                                      "data": "{{appStrings.login.dialogResponseReceivedLabel}}",
+                                      "textDirection": "rtl",
+                                      "style": {
+                                        "type": "custom",
+                                        "fontSize": 14.0,
+                                        "fontWeight": "w600",
+                                        "color": "onSurface"
+                                      }
+                                    },
+                                    {
+                                      "type": "sizedBox",
+                                      "height": 8
+                                    },
+                                    {
+                                      "type": "text",
+                                      "data": "Status: 200 OK\n\nResponse:\n{\n  \"success\": true,\n  \"message\": \"{{appStrings.login.otpSentSuccessMessage}}\",\n  \"otpCode\": \"123456\",\n  \"expiresIn\": 120\n}",
+                                      "textDirection": "ltr",
+                                      "style": {
+                                        "type": "custom",
+                                        "fontSize": 11.0,
+                                        "fontFamily": "monospace",
+                                        "color": "onSurface"
+                                      }
                                     }
-                                  }
-                                ]
+                                  ]
+                                }
                               },
-                              "actionType": "showDialog"
-                            }
+                              "actions": [
+                                {
+                                  "type": "textButton",
+                                  "child": {
+                                    "type": "text",
+                                    "data": "{{appStrings.login.dialogConfirmButton}}",
+                                    "textDirection": "rtl"
+                                  },
+                                  "onPressed": {
+                                    "actionType": "closeDialog"
+                                  }
+                                },
+                                {
+                                  "type": "filledButton",
+                                  "style": {
+                                    "backgroundColor": "{{appColors.current.primary.color}}",
+                                    "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                                    "padding": {
+                                      "left": 24,
+                                      "right": 24,
+                                      "top": 8,
+                                      "bottom": 8
+                                    },
+                                    "shape": {
+                                      "type": "roundedRectangle",
+                                      "borderRadius": {
+                                        "topLeft": 8,
+                                        "topRight": 8,
+                                        "bottomLeft": 8,
+                                        "bottomRight": 8
+                                      }
+                                    }
+                                  },
+                                  "child": {
+                                    "type": "text",
+                                    "data": "ادامه",
+                                    "textDirection": "rtl",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.primary.onPrimary}}",
+                                      "fontWeight": "w600"
+                                    }
+                                  },
+                                  "onPressed": {
+                                    "actionType": "multiAction",
+                                    "actions": [
+                                      {
+                                        "actionType": "closeDialog"
+                                      },
+                                      {
+                                        "actionType": "navigate",
+                                        "request": {
+                                          "url": "https://api.tobank.com/flows/login_flow_linear/login_flow_linear_verify_otp",
+                                          "method": "get"
+                                        },
+                                        "navigationStyle": "pushReplacement"
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            },
+                            "actionType": "showDialog"
                           }
-                        ],
-                        "actionType": "networkRequest"
-                      },
-                      "actionType": "setValue"
-                    },
-                    "actionType": "validateForm"
+                        }
+                      ],
+                      "actionType": "networkRequest"
+                    }
                   },
                   "style": {
                     "backgroundColor": "{{appStyles.button.primary.backgroundColor}}",
