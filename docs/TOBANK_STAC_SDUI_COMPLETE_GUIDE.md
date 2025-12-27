@@ -797,8 +797,80 @@ stacRegistry.register(customTextFormFieldParser, true); // override: true
    - Actions: `StacActionParser<YourModel>`
    - Widgets: `StacParser<YourModel>`
 
-2. **Implement Required Methods**:
-   - `get actionType` / `get type`
+
+## ⚡ Stateful Widgets & Actions
+
+### StacStatefulWidget
+
+For screens requiring lifecycle management or complex initialization logic, use `StacStatefulWidget` instead of the standard `StacWidget`.
+
+**Features:**
+- **Lifecycle Methods**: `onInit`, `onBuild`, `onDispose`.
+- **Dynamic State**: Manage local state variables.
+
+**Usage:**
+
+```dart
+@StacScreen(screenName: 'tobank_stateful_example')
+StacStatefulWidget tobankStatefulExampleDart() {
+  return StacStatefulWidget(
+    onInit: StacSequenceAction(actions: [
+      StacLogAction(message: 'Screen Initialized'),
+    ]),
+    child: StacScaffold(
+      // ... content
+    ),
+  );
+}
+```
+
+### Dart Builders for Actions
+
+Instead of using raw `Map<String, dynamic>` for actions, use the type-safe Dart builders from `stac_custom_actions.dart`.
+
+**Available Builders:**
+
+1.  **`StacSequenceAction`**: Execute multiple actions in order.
+2.  **`StacLogAction`**: Log messages to the console.
+3.  **`StacNetworkRequestAction`**: Make API calls (GET/POST/PUT/DELETE) with success/error handling.
+4.  **`StacValidateFieldsAction`**: Validate form fields.
+5.  **`StacCustomSetValueAction`**: Set values in the form or state.
+6.  **`StacGetFormValueAction`**: Retrieve values from form fields (`{{form.id}}`).
+7.  **`StacPersianDatePickerAction`**: Show the Persian date picker.
+
+**Example: Network Request with Success/Error Handling**
+
+```dart
+StacNetworkRequestAction(
+  url: 'https://api.tobank.com/submit',
+  method: 'post',
+  data: {'mobile': '09123456789'},
+  results: [
+    // Success Case (200)
+    {
+      'statusCode': 200,
+      'action': StacSequenceAction(actions: [
+        StacLogAction(message: 'Success!'),
+        StacCustomSetValueAction(key: 'status', value: 'Submitted'),
+      ]),
+    },
+    // Error Case (400)
+    {
+      'statusCode': 400,
+      'action': StacLogAction(message: 'Validation Error', level: 'error'),
+    },
+  ],
+)
+```
+
+**Why Use Builders?**
+- **Type Safety**: Avoids string typos in action names.
+- **Autocompletion**: Easier to discover properties.
+- **Serialization**: Handles complex nested structures automatically.
+
+---
+
+## 5. Registry (`registry/`)   - `get actionType` / `get type`
    - `getModel(Map<String, dynamic> json)`
    - `onCall(BuildContext, Model)` / `parse(BuildContext, Model)`
 

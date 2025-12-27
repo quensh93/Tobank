@@ -21,6 +21,7 @@ dependencies:
   uuid: ^4.5.1
   re_editor: ^0.8.0
   re_highlight: ^0.0.3
+  logger: any
 
 dev_dependencies:
   flutter_test:

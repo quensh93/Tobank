@@ -1,5 +1,0 @@
-{
-  "type": "loginFlowOverview",
-  "useApiPath": false,
-  "configPath": "lib/stac/tobank/flows/login_flow/json/login_flow_config.json"
-}

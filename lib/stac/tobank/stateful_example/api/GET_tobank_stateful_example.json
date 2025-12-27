@@ -1,0 +1,1289 @@
+{
+  "GET": {
+    "statusCode": 200,
+    "data": {
+      "type": "stateFull",
+      "onInit": {
+        "actionType": "sequence",
+        "actions": [
+          {
+            "actionType": "setValue",
+            "key": "screenId",
+            "value": "stateful_example"
+          },
+          {
+            "actionType": "setValue",
+            "key": "lastStatus",
+            "value": "idle"
+          },
+          {
+            "actionType": "setValue",
+            "key": "lastMessage",
+            "value": "-"
+          },
+          {
+            "actionType": "setValue",
+            "key": "live.mobile_number",
+            "value": "-"
+          },
+          {
+            "actionType": "setValue",
+            "key": "live.national_code",
+            "value": "-"
+          },
+          {
+            "actionType": "setValue",
+            "key": "live.birthdate",
+            "value": "-"
+          },
+          {
+            "actionType": "setValue",
+            "key": "parallelEnabled",
+            "value": false
+          },
+          {
+            "actionType": "setValue",
+            "key": "initAt",
+            "value": "{{now()}}"
+          },
+          {
+            "actionType": "log",
+            "message": "?????? screen=stateful_example action=national_code_input tracking=enabled"
+          },
+          {
+            "actionType": "log",
+            "message": "screen=stateful_example action=onInit"
+          }
+        ]
+      },
+      "onBuild": {
+        "actionType": "log",
+        "message": "screen=stateful_example action=onBuild"
+      },
+      "onDispose": {
+        "actionType": "sequence",
+        "actions": [
+          {
+            "actionType": "log",
+            "message": "screen=stateful_example action=onDispose"
+          },
+          {
+            "actionType": "log",
+            "message": "screen=stateful_example lifetimeMs={{now() - initAt}}"
+          }
+        ]
+      },
+      "child": {
+        "type": "scaffold",
+        "appBar": {
+          "type": "appBar",
+          "title": {
+            "type": "text",
+            "data": "تست استیت فول",
+            "textDirection": "rtl",
+            "style": {
+              "type": "custom",
+              "fontSize": 18,
+              "fontWeight": "w600",
+              "color": "{{appColors.current.text.title}}"
+            }
+          },
+          "centerTitle": true
+        },
+        "body": {
+          "type": "singleChildScrollView",
+          "child": {
+            "type": "column",
+            "crossAxisAlignment": "stretch",
+            "textDirection": "rtl",
+            "children": [
+              {
+                "type": "padding",
+                "padding": {
+                  "left": 16,
+                  "right": 16,
+                  "top": 20,
+                  "bottom": 20
+                },
+                "child": {
+                  "type": "form",
+                  "child": {
+                    "type": "column",
+                  "crossAxisAlignment": "stretch",
+                  "textDirection": "rtl",
+                  "children": [
+                    {
+                      "type": "text",
+                      "data": "این صفحه برای تست stateFull، اکشن‌های زنجیره‌ای، لاگ، تاخیر، و درخواست شبکه است.",
+                      "textDirection": "rtl",
+                      "style": {
+                        "type": "custom",
+                        "fontSize": 14,
+                        "color": "{{appColors.current.text.subtitle}}"
+                      }
+                    },
+                    {
+                      "type": "sizedBox",
+                      "height": 12
+                    },
+                    {
+                      "type": "text",
+                      "data": "آخرین وضعیت:",
+                      "textDirection": "rtl",
+                      "style": {
+                        "type": "custom",
+                        "fontSize": 13,
+                        "fontWeight": "w600",
+                        "color": "{{appColors.current.text.title}}"
+                      }
+                    },
+                    {
+                      "type": "textFormField",
+                      "id": "lastStatus",
+                      "readOnly": true,
+                      "enabled": true,
+                      "decoration": {
+                        "hintText": "وضعیت آخرین اجرا",
+                        "filled": true,
+                        "fillColor": "{{appColors.current.background.surface}}",
+                        "contentPadding": {
+                          "left": 16.0,
+                          "top": 12.0,
+                          "right": 16.0,
+                          "bottom": 12.0
+                        }
+                      },
+                      "textDirection": "rtl",
+                      "style": {
+                        "type": "custom",
+                        "fontSize": 12.0,
+                        "color": "{{appColors.current.text.subtitle}}"
+                      }
+                    },
+                    {
+                      "type": "sizedBox",
+                      "height": 8
+                    },
+                    {
+                      "type": "text",
+                      "data": "پیام:",
+                      "textDirection": "rtl",
+                      "style": {
+                        "type": "custom",
+                        "fontSize": 13,
+                        "fontWeight": "w600",
+                        "color": "{{appColors.current.text.title}}"
+                      }
+                    },
+                    {
+                      "type": "textFormField",
+                      "id": "lastMessage",
+                      "readOnly": true,
+                      "enabled": true,
+                      "decoration": {
+                        "hintText": "آخرین پیام",
+                        "filled": true,
+                        "fillColor": "{{appColors.current.background.surface}}",
+                        "contentPadding": {
+                          "left": 16.0,
+                          "top": 12.0,
+                          "right": 16.0,
+                          "bottom": 12.0
+                        }
+                      },
+                      "textDirection": "rtl",
+                      "style": {
+                        "type": "custom",
+                        "fontSize": 12.0,
+                        "color": "{{appColors.current.text.subtitle}}"
+                      }
+                    },
+                    {
+                      "type": "sizedBox",
+                      "height": 8
+                    },
+                    {
+                      "type": "text",
+                      "data": "تغییرات فرم (زنده):",
+                      "textDirection": "rtl",
+                      "style": {
+                        "type": "custom",
+                        "fontSize": 13,
+                        "fontWeight": "w600",
+                        "color": "{{appColors.current.text.title}}"
+                      }
+                    },
+                    {
+                      "type": "textFormField",
+                      "id": "live.mobile_number",
+                      "readOnly": true,
+                      "enabled": true,
+                      "decoration": {
+                        "hintText": "شماره موبایل",
+                        "filled": true,
+                        "fillColor": "{{appColors.current.background.surface}}",
+                        "contentPadding": {
+                          "left": 16.0,
+                          "top": 12.0,
+                          "right": 16.0,
+                          "bottom": 12.0
+                        }
+                      },
+                      "textDirection": "rtl",
+                      "style": {
+                        "type": "custom",
+                        "fontSize": 12.0,
+                        "color": "{{appColors.current.text.subtitle}}"
+                      }
+                    },
+                    {
+                      "type": "textFormField",
+                      "id": "live.national_code",
+                      "readOnly": true,
+                      "enabled": true,
+                      "decoration": {
+                        "hintText": "کد ملی",
+                        "filled": true,
+                        "fillColor": "{{appColors.current.background.surface}}",
+                        "contentPadding": {
+                          "left": 16.0,
+                          "top": 12.0,
+                          "right": 16.0,
+                          "bottom": 12.0
+                        }
+                      },
+                      "textDirection": "rtl",
+                      "style": {
+                        "type": "custom",
+                        "fontSize": 12.0,
+                        "color": "{{appColors.current.text.subtitle}}"
+                      }
+                    },
+                    {
+                      "type": "textFormField",
+                      "id": "live.birthdate",
+                      "readOnly": true,
+                      "enabled": true,
+                      "decoration": {
+                        "hintText": "تاریخ تولد",
+                        "filled": true,
+                        "fillColor": "{{appColors.current.background.surface}}",
+                        "contentPadding": {
+                          "left": 16.0,
+                          "top": 12.0,
+                          "right": 16.0,
+                          "bottom": 12.0
+                        }
+                      },
+                      "textDirection": "rtl",
+                      "style": {
+                        "type": "custom",
+                        "fontSize": 12.0,
+                        "color": "{{appColors.current.text.subtitle}}"
+                      }
+                    },
+                    {
+                      "type": "sizedBox",
+                      "height": 16
+                    },
+                    {
+                      "type": "filledButton",
+                      "style": {
+                        "backgroundColor": "{{appColors.current.primary.color}}",
+                        "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                        "minimumSize": {
+                          "width": 999999,
+                          "height": 48
+                        },
+                        "shape": {
+                          "type": "roundedRectangle",
+                          "borderRadius": {
+                            "topLeft": 12,
+                            "topRight": 12,
+                            "bottomLeft": 12,
+                            "bottomRight": 12
+                          }
+                        }
+                      },
+                      "child": {
+                        "type": "text",
+                        "data": "اجرای تست کامل",
+                        "textDirection": "rtl",
+                        "style": {
+                          "type": "custom",
+                          "fontSize": 16,
+                          "fontWeight": "w600",
+                          "color": "{{appColors.current.primary.onPrimary}}"
+                        }
+                      },
+                      "onPressed": {
+                        "actionType": "sequence",
+                        "actions": [
+                          {
+                            "actionType": "setValue",
+                            "key": "runStart",
+                            "value": "{{now()}}"
+                          },
+                          {
+                            "actionType": "log",
+                            "message": "screen=stateful_example action=runStart"
+                          },
+                          {
+                            "actionType": "delay",
+                            "milliseconds": 300
+                          },
+                          {
+                            "actionType": "networkRequest",
+                            "url": "https://api.tobank.com/stateful_example_status",
+                            "method": "get",
+                            "results": [
+                              {
+                                "statusCode": 200,
+                                "action": {
+                                  "actionType": "sequence",
+                                  "actions": [
+                                    {
+                                      "actionType": "setValue",
+                                      "key": "lastStatus",
+                                      "value": "success"
+                                    },
+                                    {
+                                      "actionType": "setValue",
+                                      "key": "lastMessage",
+                                      "value": "دریافت موفق از API"
+                                    },
+                                    {
+                                      "actionType": "log",
+                                      "message": "screen=stateful_example action=apiSuccess"
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "statusCode": 500,
+                                "action": {
+                                  "actionType": "sequence",
+                                  "actions": [
+                                    {
+                                      "actionType": "setValue",
+                                      "key": "lastStatus",
+                                      "value": "error"
+                                    },
+                                    {
+                                      "actionType": "setValue",
+                                      "key": "lastMessage",
+                                      "value": "خطای سرور در API"
+                                    },
+                                    {
+                                      "actionType": "log",
+                                      "message": "screen=stateful_example action=apiServerError"
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "actionType": "delay",
+                            "milliseconds": 200
+                          },
+                          {
+                            "actionType": "networkRequest",
+                            "url": "https://api.tobank.com/stateful_example_error",
+                            "method": "get",
+                            "results": [
+                              {
+                                "statusCode": 400,
+                                "action": {
+                                  "actionType": "sequence",
+                                  "actions": [
+                                    {
+                                      "actionType": "setValue",
+                                      "key": "lastStatus",
+                                      "value": "error"
+                                    },
+                                    {
+                                      "actionType": "setValue",
+                                      "key": "lastMessage",
+                                      "value": "خطای اعتبارسنجی"
+                                    },
+                                    {
+                                      "actionType": "log",
+                                      "message": "screen=stateful_example action=apiClientError"
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "actionType": "log",
+                            "message": "screen=stateful_example action=runDone durationMs={{now() - runStart}}"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+              },
+              {
+                "type": "container",
+                "margin": {
+                  "left": 16,
+                  "right": 16,
+                  "top": 8,
+                  "bottom": 8
+                },
+                "height": 1,
+                "color": "{{appColors.current.input.borderEnabled}}"
+              },
+              {
+                "type": "form",
+                "autovalidateMode": "onUserInteraction",
+                "child": {
+                  "type": "padding",
+                  "padding": {
+                    "left": 16,
+                    "right": 16,
+                    "top": 12,
+                    "bottom": 16
+                  },
+                  "child": {
+                    "type": "column",
+                    "crossAxisAlignment": "stretch",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "type": "text",
+                        "data": "فرم ورود (تست)",
+                        "textDirection": "rtl",
+                        "style": "{{appStyles.text.pageTitle}}"
+                      },
+                      {
+                        "type": "sizedBox",
+                        "height": 12
+                      },
+                      {
+                        "type": "text",
+                        "data": "{{appStrings.login.validationInstructions}}",
+                        "textDirection": "rtl",
+                        "style": "{{appStyles.text.subtitle}}"
+                      },
+                      {
+                        "type": "sizedBox",
+                        "height": 16
+                      },
+                      {
+                        "crossAxisAlignment": "stretch",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "data": "{{appStrings.login.mobileNumberLabel}}",
+                            "style": "{{appStyles.text.label}}",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "height": 8.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "id": "mobile_number",
+                            "decoration": {
+                              "hintText": "{{appStrings.login.mobileNumberPlaceholder}}",
+                              "hintStyle": {
+                                "type": "custom",
+                                "color": "{{appStyles.input.login.hintStyleColor}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "contentPadding": {
+                                "left": 20.0,
+                                "top": 16.0,
+                                "right": 20.0,
+                                "bottom": 16.0
+                              },
+                              "filled": false,
+                              "fillColor": "{{appStyles.input.login.fillColor}}"
+                            },
+                            "keyboardType": "number",
+                            "textInputAction": "next",
+                            "textAlign": "right",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appStyles.input.login.textStyleColor}}",
+                              "fontSize": 16.0,
+                              "fontWeight": "w600"
+                            },
+                            "textDirection": "rtl",
+                            "validatorRules": [
+                              {
+                                "rule": "^09\\d{9}$",
+                                "message": "{{appStrings.login.mobileNumberError}}"
+                              }
+                            ],
+                            "type": "textFormField",
+                            "onChanged": {
+                              "actionType": "sequence",
+                              "actions": [
+                                {
+                                  "actionType": "setValue",
+                                  "key": "live.mobile_number",
+                                  "value": {
+                                    "actionType": "getFormValue",
+                                    "id": "mobile_number"
+                                  }
+                                },
+                                {
+                                  "actionType": "log",
+                                  "message": "screen=stateful_example action=fieldChanged field=mobile_number value={{live.mobile_number}}"
+                                },
+                                {
+                                  "actionType": "validateFields",
+                                  "resultKey": "parallelEnabled",
+                                  "fields": [
+                                    {
+                                      "id": "mobile_number",
+                                      "rule": "^09\\d{9}$"
+                                    },
+                                    {
+                                      "id": "national_code",
+                                      "rule": "^\\d{10}$"
+                                    },
+                                    {
+                                      "id": "birthdate",
+                                      "rule": "^\\d{4}/\\d{2}/\\d{2}$"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "height": 16.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "data": "{{appStrings.login.nationalCodeTitle}}",
+                            "style": "{{appStyles.text.label}}",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "height": 8.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "id": "national_code",
+                            "decoration": {
+                              "hintText": "{{appStrings.login.nationalCodePlaceholder}}",
+                              "hintStyle": {
+                                "type": "custom",
+                                "color": "{{appStyles.input.login.hintStyleColor}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "contentPadding": {
+                                "left": 20.0,
+                                "top": 16.0,
+                                "right": 20.0,
+                                "bottom": 16.0
+                              },
+                              "filled": false,
+                              "fillColor": "{{appStyles.input.login.fillColor}}"
+                            },
+                            "keyboardType": "number",
+                            "textInputAction": "done",
+                            "textAlign": "right",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appStyles.input.login.textStyleColor}}",
+                              "fontSize": 16.0,
+                              "fontWeight": "w600"
+                            },
+                            "textDirection": "rtl",
+                            "validatorRules": [
+                              {
+                                "rule": "^\\d{10}$",
+                                "message": "{{appStrings.login.nationalCodeError}}"
+                              }
+                            ],
+                            "type": "textFormField",
+                            "onChanged": {
+                              "actionType": "sequence",
+                              "actions": [
+                                {
+                                  "actionType": "setValue",
+                                  "key": "live.national_code",
+                                  "value": {
+                                    "actionType": "getFormValue",
+                                    "id": "national_code"
+                                  }
+                                },
+                                {
+                                  "actionType": "log",
+                                  "message": "screen=stateful_example action=fieldChanged field=national_code value={{live.national_code}}"
+                                },
+                                {
+                                  "actionType": "log",
+                                  "message": "screen=stateful_example action=national_code_input value={{live.national_code}}"
+                                },
+                                {
+                                  "actionType": "validateFields",
+                                  "resultKey": "parallelEnabled",
+                                  "fields": [
+                                    {
+                                      "id": "mobile_number",
+                                      "rule": "^09\\d{9}$"
+                                    },
+                                    {
+                                      "id": "national_code",
+                                      "rule": "^\\d{10}$"
+                                    },
+                                    {
+                                      "id": "birthdate",
+                                      "rule": "^\\d{4}/\\d{2}/\\d{2}$"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "height": 16.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "data": "{{appStrings.login.birthdateLabel}}",
+                            "style": "{{appStyles.text.label}}",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "height": 8.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "type": "gestureDetector",
+                            "onTap": {
+                              "actionType": "sequence",
+                              "actions": [
+                                {
+                                  "actionType": "log",
+                                  "message": "screen=stateful_example action=birthdatePickerOpen"
+                                },
+                                {
+                                  "actionType": "persianDatePicker",
+                                  "formFieldId": "birthdate",
+                                  "firstDate": "1350/01/01",
+                                  "lastDate": "1450/12/29",
+                                  "onDateSelected": {
+                                    "actionType": "validateFields",
+                                    "resultKey": "parallelEnabled",
+                                    "fields": [
+                                      {
+                                        "id": "mobile_number",
+                                        "rule": "^09\\d{9}$"
+                                      },
+                                      {
+                                        "id": "national_code",
+                                        "rule": "^\\d{10}$"
+                                      },
+                                      {
+                                        "id": "birthdate",
+                                        "rule": "^\\d{4}/\\d{2}/\\d{2}$"
+                                      }
+                                    ]
+                                  }
+                                },
+                                {
+                                  "actionType": "setValue",
+                                  "key": "live.birthdate",
+                                  "value": {
+                                    "actionType": "getFormValue",
+                                    "id": "birthdate"
+                                  }
+                                },
+                                {
+                                  "actionType": "log",
+                                  "message": "screen=stateful_example action=birthdateChanged value={{live.birthdate}}"
+                                }
+                              ]
+                            },
+                            "child": {
+                              "id": "birthdate",
+                              "readOnly": true,
+                              "enabled": false,
+                              "decoration": {
+                                "hintText": "{{appStrings.login.birthdatePlaceholder}}",
+                                "hintStyle": {
+                                  "type": "custom",
+                                  "color": "{{appStyles.input.loginDatePicker.hintStyleColor}}",
+                                  "fontSize": 14.0,
+                                  "fontWeight": "w500"
+                                },
+                                "prefixIcon": {
+                                  "padding": {
+                                    "left": 8.0,
+                                    "top": 8.0,
+                                    "right": 8.0,
+                                    "bottom": 8.0
+                                  },
+                                  "child": {
+                                    "src": "assets/icons/ic_calendar.svg",
+                                    "imageType": "asset",
+                                    "color": "{{appStyles.input.loginDatePicker.suffixIconColor}}",
+                                    "width": 24.0,
+                                    "height": 24.0,
+                                    "fit": "scaleDown",
+                                    "type": "image"
+                                  },
+                                  "type": "padding"
+                                },
+                                "contentPadding": {
+                                  "left": 16.0,
+                                  "top": 16.0,
+                                  "right": 16.0,
+                                  "bottom": 16.0
+                                },
+                                "filled": false,
+                                "fillColor": "{{appStyles.input.loginDatePicker.fillColor}}"
+                              },
+                              "keyboardType": "text",
+                              "textAlign": "right",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appStyles.input.loginDatePicker.textStyleColor}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w600"
+                              },
+                              "textDirection": "rtl",
+                              "validatorRules": [
+                                {
+                                  "rule": "^\\d{4}/\\d{2}/\\d{2}$",
+                                  "message": "{{appStrings.login.birthdateError}}"
+                                }
+                              ],
+                              "type": "textFormField"
+                            }
+                          },
+                          {
+                            "height": 24.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "mainAxisAlignment": "center",
+                            "mainAxisSize": "min",
+                            "textDirection": "rtl",
+                            "children": [
+                              {
+                                "data": "{{appStrings.login.agreeWithRulesMessage}}",
+                                "style": "{{appStyles.text.agreementRegular}}",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              },
+                              {
+                                "onPressed": {
+                                  "request": {
+                                    "url": "https://api.tobank.com/screens/tobank_rules",
+                                    "method": "get",
+                                    "actionType": "networkRequest"
+                                  },
+                                  "navigationStyle": "push",
+                                  "actionType": "navigate"
+                                },
+                                "child": {
+                                  "data": "{{appStrings.login.rulesAndRegulations}}",
+                                  "style": "{{appStyles.text.agreementLink}}",
+                                  "textDirection": "rtl",
+                                  "type": "text"
+                                },
+                                "type": "textButton"
+                              },
+                              {
+                                "data": "{{appStrings.login.agreeSuffix}}",
+                                "style": "{{appStyles.text.agreementRegular}}",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "row"
+                          }
+                        ],
+                        "type": "column"
+                      },
+                      {
+                        "type": "sizedBox",
+                        "height": 20
+                      },
+                      {
+                        "type": "reactiveElevatedButton",
+                        "enabledKey": "parallelEnabled",
+                        "enabled": false,
+                        "style": {
+                          "backgroundColor": "{{appStyles.button.primary.backgroundColor}}",
+                          "elevation": 0.0,
+                          "textStyle": {
+                            "type": "custom",
+                            "color": "{{appStyles.button.primary.textStyleColor}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w600"
+                          },
+                          "padding": {
+                            "top": 8.0,
+                            "bottom": 8.0
+                          },
+                          "fixedSize": {
+                            "width": 999999.0,
+                            "height": 52.0
+                          },
+                          "shape": {
+                            "type": "roundedRectangleBorder",
+                            "borderRadius": {
+                              "topLeft": 10.0,
+                              "topRight": 10.0,
+                              "bottomLeft": 10.0,
+                              "bottomRight": 10.0
+                            }
+                          }
+                        },
+                        "disabledStyle": {
+                          "backgroundColor": "#3a3f4b",
+                          "elevation": 0.0,
+                          "textStyle": {
+                            "type": "custom",
+                            "color": "#cbd5e1",
+                            "fontSize": 16.0,
+                            "fontWeight": "w600"
+                          },
+                          "padding": {
+                            "top": 8.0,
+                            "bottom": 8.0
+                          },
+                          "fixedSize": {
+                            "width": 999999.0,
+                            "height": 52.0
+                          },
+                          "shape": {
+                            "type": "roundedRectangleBorder",
+                            "borderRadius": {
+                              "topLeft": 10.0,
+                              "topRight": 10.0,
+                              "bottomLeft": 10.0,
+                              "bottomRight": 10.0
+                            }
+                          }
+                        },
+                        "child": {
+                          "type": "text",
+                          "data": "ارسال موازی (دو درخواست)",
+                          "textDirection": "rtl",
+                          "style": {
+                            "type": "custom",
+                            "color": "#FFFFFF",
+                            "fontSize": 16.0,
+                            "fontWeight": "w600"
+                          }
+                        },
+                        "onPressed": {
+                          "actionType": "sequence",
+                          "actions": [
+                            {
+                              "actionType": "setValue",
+                              "key": "submitAt",
+                              "value": "{{now()}}"
+                            },
+                            {
+                              "actionType": "setValue",
+                              "key": "live.mobile_number",
+                              "value": {
+                                "actionType": "getFormValue",
+                                "id": "mobile_number"
+                              }
+                            },
+                            {
+                              "actionType": "setValue",
+                              "key": "live.national_code",
+                              "value": {
+                                "actionType": "getFormValue",
+                                "id": "national_code"
+                              }
+                            },
+                            {
+                              "actionType": "setValue",
+                              "key": "live.birthdate",
+                              "value": {
+                                "actionType": "getFormValue",
+                                "id": "birthdate"
+                              }
+                            },
+                            {
+                              "actionType": "log",
+                              "message": "screen=stateful_example action=formSubmitParallel start"
+                            },
+                            {
+                              "actionType": "multiAction",
+                              "sync": false,
+                              "actions": [
+                                {
+                                  "actionType": "networkRequest",
+                                  "url": "https://api.tobank.com/stateful_example_parallel_a",
+                                  "method": "get",
+                                  "results": [
+                                    {
+                                      "statusCode": 200,
+                                      "action": {
+                                        "actionType": "sequence",
+                                        "actions": [
+                                          {
+                                            "actionType": "setValue",
+                                            "key": "lastStatus",
+                                            "value": "parallel_a_ok"
+                                          },
+                                          {
+                                            "actionType": "setValue",
+                                            "key": "lastMessage",
+                                            "value": "درخواست A موفق"
+                                          },
+                                          {
+                                            "actionType": "log",
+                                            "message": "screen=stateful_example action=parallelA status=200"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "actionType": "networkRequest",
+                                  "url": "https://api.tobank.com/stateful_example_parallel_b",
+                                  "method": "get",
+                                  "results": [
+                                    {
+                                      "statusCode": 500,
+                                      "action": {
+                                        "actionType": "sequence",
+                                        "actions": [
+                                          {
+                                            "actionType": "setValue",
+                                            "key": "lastStatus",
+                                            "value": "parallel_b_error"
+                                          },
+                                          {
+                                            "actionType": "setValue",
+                                            "key": "lastMessage",
+                                            "value": "درخواست B خطا داشت"
+                                          },
+                                          {
+                                            "actionType": "log",
+                                            "message": "screen=stateful_example action=parallelB status=500"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "actionType": "log",
+                              "message": "screen=stateful_example action=formSubmitParallel queued durationMs={{now() - submitAt}}"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "data": "سناریو: ذخیره مقادیر فرم → اجرای دو درخواست هم‌زمان (A=200، B=500) → به‌روزرسانی آخرین وضعیت و پیام.",
+                        "textDirection": "rtl",
+                        "style": {
+                          "type": "custom",
+                          "fontSize": 12.0,
+                          "color": "{{appColors.current.text.subtitle}}"
+                        }
+                      },
+                      {
+                        "type": "sizedBox",
+                        "height": 12
+                      },
+                      {
+                        "type": "elevatedButton",
+                        "style": {
+                          "backgroundColor": "{{appColors.current.success.color}}",
+                          "elevation": 0.0,
+                          "textStyle": {
+                            "type": "custom",
+                            "color": "#FFFFFF",
+                            "fontSize": 15.0,
+                            "fontWeight": "w600"
+                          },
+                          "padding": {
+                            "top": 8.0,
+                            "bottom": 8.0
+                          },
+                          "fixedSize": {
+                            "width": 999999.0,
+                            "height": 48.0
+                          },
+                          "shape": {
+                            "type": "roundedRectangleBorder",
+                            "borderRadius": {
+                              "topLeft": 10.0,
+                              "topRight": 10.0,
+                              "bottomLeft": 10.0,
+                              "bottomRight": 10.0
+                            }
+                          }
+                        },
+                        "child": {
+                          "type": "text",
+                          "data": "ادامه تست توالی موفق",
+                          "textDirection": "rtl",
+                          "style": {
+                            "type": "custom",
+                            "fontSize": 15.0,
+                            "fontWeight": "w600",
+                            "color": "#FFFFFF"
+                          }
+                        },
+                        "onPressed": {
+                          "actionType": "sequence",
+                          "actions": [
+                            {
+                              "actionType": "setValue",
+                              "key": "flowSuccessStart",
+                              "value": "{{now()}}"
+                            },
+                            {
+                              "actionType": "log",
+                              "message": "screen=stateful_example action=flowSuccessStart"
+                            },
+                            {
+                              "actionType": "delay",
+                              "milliseconds": 2000
+                            },
+                            {
+                              "actionType": "networkRequest",
+                              "url": "https://api.tobank.com/stateful_example_status",
+                              "method": "get",
+                              "results": [
+                                {
+                                  "statusCode": 200,
+                                  "action": {
+                                    "actionType": "sequence",
+                                    "actions": [
+                                      {
+                                        "actionType": "setValue",
+                                        "key": "lastStatus",
+                                        "value": "success"
+                                      },
+                                      {
+                                        "actionType": "setValue",
+                                        "key": "lastMessage",
+                                        "value": "توالی موفق انجام شد"
+                                      },
+                                      {
+                                        "actionType": "log",
+                                        "message": "screen=stateful_example action=flowSuccessApiOk"
+                                      },
+                                      {
+                                        "actionType": "showDialog",
+                                        "widget": {
+                                          "type": "alertDialog",
+                                          "title": {
+                                            "type": "text",
+                                            "data": "موفقیت",
+                                            "textDirection": "rtl",
+                                            "style": {
+                                              "type": "custom",
+                                              "fontSize": 18.0,
+                                              "fontWeight": "w700",
+                                              "color": "{{appColors.current.text.title}}"
+                                            }
+                                          },
+                                          "content": {
+                                            "type": "text",
+                                            "data": "درخواست با موفقیت انجام شد.",
+                                            "textDirection": "rtl",
+                                            "style": {
+                                              "type": "custom",
+                                              "fontSize": 14.0,
+                                              "color": "{{appColors.current.text.subtitle}}"
+                                            }
+                                          },
+                                          "actions": [
+                                            {
+                                              "type": "textButton",
+                                              "child": {
+                                                "type": "text",
+                                                "data": "باشه",
+                                                "textDirection": "rtl"
+                                              },
+                                              "onPressed": {
+                                                "actionType": "closeDialog"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "actionType": "log",
+                              "message": "screen=stateful_example action=flowSuccessDone durationMs={{now() - flowSuccessStart}}"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "data": "سناریو: ۲ ثانیه مکث → درخواست status (200) → نمایش دیالوگ موفقیت → ثبت لاگ و زمان اجرا.",
+                        "textDirection": "rtl",
+                        "style": {
+                          "type": "custom",
+                          "fontSize": 12.0,
+                          "color": "{{appColors.current.text.subtitle}}"
+                        }
+                      },
+                      {
+                        "type": "sizedBox",
+                        "height": 12
+                      },
+                      {
+                        "type": "elevatedButton",
+                        "style": {
+                          "backgroundColor": "{{appColors.current.error.color}}",
+                          "elevation": 0.0,
+                          "textStyle": {
+                            "type": "custom",
+                            "color": "#FFFFFF",
+                            "fontSize": 15.0,
+                            "fontWeight": "w600"
+                          },
+                          "padding": {
+                            "top": 8.0,
+                            "bottom": 8.0
+                          },
+                          "fixedSize": {
+                            "width": 999999.0,
+                            "height": 48.0
+                          },
+                          "shape": {
+                            "type": "roundedRectangleBorder",
+                            "borderRadius": {
+                              "topLeft": 10.0,
+                              "topRight": 10.0,
+                              "bottomLeft": 10.0,
+                              "bottomRight": 10.0
+                            }
+                          }
+                        },
+                        "child": {
+                          "type": "text",
+                          "data": "ادامه تست توالی خطا",
+                          "textDirection": "rtl",
+                          "style": {
+                            "type": "custom",
+                            "fontSize": 15.0,
+                            "fontWeight": "w600",
+                            "color": "#FFFFFF"
+                          }
+                        },
+                        "onPressed": {
+                          "actionType": "sequence",
+                          "actions": [
+                            {
+                              "actionType": "setValue",
+                              "key": "flowErrorStart",
+                              "value": "{{now()}}"
+                            },
+                            {
+                              "actionType": "log",
+                              "message": "screen=stateful_example action=flowErrorStart"
+                            },
+                            {
+                              "actionType": "delay",
+                              "milliseconds": 2000
+                            },
+                            {
+                              "actionType": "networkRequest",
+                              "url": "https://api.tobank.com/stateful_example_error",
+                              "method": "get",
+                              "results": [
+                                {
+                                  "statusCode": 400,
+                                  "action": {
+                                    "actionType": "sequence",
+                                    "actions": [
+                                      {
+                                        "actionType": "setValue",
+                                        "key": "lastStatus",
+                                        "value": "error"
+                                      },
+                                      {
+                                        "actionType": "setValue",
+                                        "key": "lastMessage",
+                                        "value": "توالی خطا انجام شد"
+                                      },
+                                      {
+                                        "actionType": "log",
+                                        "message": "screen=stateful_example action=flowErrorApiBad"
+                                      },
+                                      {
+                                        "actionType": "showSnackBar",
+                                        "duration": {
+                                          "milliseconds": 3000
+                                        },
+                                        "backgroundColor": "#000000",
+                                        "content": {
+                                          "type": "text",
+                                          "data": "خطا در انجام درخواست",
+                                          "textDirection": "rtl",
+                                          "style": {
+                                            "type": "custom",
+                                            "fontSize": 13.0,
+                                            "color": "#FFFFFF"
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "actionType": "log",
+                              "message": "screen=stateful_example action=flowErrorDone durationMs={{now() - flowErrorStart}}"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "data": "سناریو: ۲ ثانیه مکث → درخواست error (400) → نمایش اسنک‌بار خطا → ثبت لاگ و زمان اجرا.",
+                        "textDirection": "rtl",
+                        "style": {
+                          "type": "custom",
+                          "fontSize": 12.0,
+                          "color": "{{appColors.current.text.subtitle}}"
+                        }
+                      },
+                      {
+                        "type": "sizedBox",
+                        "height": 16
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

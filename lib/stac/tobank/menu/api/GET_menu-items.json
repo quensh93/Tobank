@@ -2,33 +2,26 @@
   "GET": {
     "statusCode": 200,
     "data": {
-      "nonLinearFlows": [
-        {
-          "title": "لاگین",
-          "description": "از اسپلش تا تایید کد ورود (با فایل کانفیگ)",
-          "icon": "{{appAssets.icons.login}}",
-          "dartPath": "lib/stac/tobank/flows/login_flow/dart/GET_tobank_login_flow_dart.json",
-          "jsonPath": "lib/stac/tobank/flows/login_flow/json/login_flow.json",
-          "apiPath": "lib/stac/tobank/flows/login_flow/api/GET_tobank_login_flow.json",
-          "widgetType": "tobank_login_flow_dart",
-          "flowSteps": ["tobank_splash_dart", "tobank_onboarding", "tobank_login_dart", "tobank_verify_otp_dart"]
-        }
-      ],
       "linearFlows": [
         {
-          "title": "لاگین (خطی)",
-          "description": "از اسپلش تا تایید کد ورود (بدون فایل کانفیگ)",
+          "title": "\u0644\u0627\u06af\u06cc\u0646 (\u062e\u0637\u06cc)",
+          "description": "\u0627\u0632 \u0627\u0633\u067e\u0644\u0634 \u062a\u0627 \u062a\u0627\u06cc\u06cc\u062f \u06a9\u062f \u0648\u0631\u0648\u062f (\u0628\u062f\u0648\u0646 \u0641\u0627\u06cc\u0644 \u06a9\u0627\u0646\u0641\u06cc\u06af)",
           "icon": "{{appAssets.icons.login}}",
           "dartPath": "lib/stac/tobank/flows/login_flow_linear/dart/login_flow_linear_splash.dart",
           "jsonPath": "lib/stac/tobank/flows/login_flow_linear/json/login_flow_linear_splash.json",
           "apiPath": "lib/stac/tobank/flows/login_flow_linear/api/GET_login_flow_linear_splash.json",
           "widgetType": "tobank_login_flow_linear_splash",
-          "flowSteps": ["tobank_login_flow_linear_splash", "tobank_login_flow_linear_onboarding", "tobank_login_flow_linear_login", "tobank_login_flow_linear_verify_otp"]
+          "flowSteps": [
+            "tobank_login_flow_linear_splash",
+            "tobank_login_flow_linear_onboarding",
+            "tobank_login_flow_linear_login",
+            "tobank_login_flow_linear_verify_otp"
+          ]
         }
       ],
       "completedItems": [
         {
-          "title": "اسپلش",
+          "title": "\u0627\u0633\u067e\u0644\u0634",
           "dartPath": "lib/stac/tobank/splash/dart/tobank_splash.dart",
           "jsonPath": "lib/stac/tobank/splash/json/tobank_splash.json",
           "apiPath": "lib/stac/tobank/splash/api/GET_tobank_splash.json",
@@ -42,14 +35,14 @@
           "widgetType": "tobank_login_dart"
         },
         {
-          "title": "تایید کد ورود",
+          "title": "\u062a\u0627\u06cc\u06cc\u062f \u06a9\u062f \u0648\u0631\u0648\u062f",
           "dartPath": "lib/stac/tobank/login/dart/verify_otp.dart",
           "jsonPath": "lib/stac/tobank/login/json/tobank_verify_otp.json",
           "apiPath": "lib/stac/tobank/login/api/GET_tobank_verify_otp.json",
           "widgetType": "tobank_verify_otp_dart"
         },
         {
-          "title": "آنبردینگ",
+          "title": "\u0622\u0646\u0628\u0631\u062f\u06cc\u0646\u06af",
           "dartPath": "lib/stac/tobank/onboarding/dart/tobank_onboarding.dart",
           "jsonPath": "lib/stac/tobank/onboarding/json/tobank_onboarding.json",
           "apiPath": "lib/stac/tobank/onboarding/api/GET_tobank_onboarding.json",
@@ -58,11 +51,18 @@
       ],
       "incompleteItems": [
         {
-          "title": "تست جمع",
+          "title": "\u062a\u0633\u062a \u062c\u0645\u0639",
           "dartPath": "lib/stac/tobank/sum_test/dart/sum_test.dart",
           "jsonPath": "lib/stac/tobank/sum_test/json/tobank_sum_test.json",
           "apiPath": "lib/stac/tobank/sum_test/api/GET_tobank_sum_test.json",
           "widgetType": "tobank_sum_test"
+        },
+        {
+          "title": "\u062a\u0633\u062a \u0627\u0633\u062a\u06cc\u062a \u0641\u0648\u0644 (New Dart)",
+          "dartPath": "lib/stac/tobank/stateful_example/dart/tobank_stateful_example_dart.dart",
+          "jsonPath": "lib/stac/tobank/stateful_example/json/tobank_stateful_example.json",
+          "apiPath": "lib/stac/tobank/stateful_example/api/GET_tobank_stateful_example.json",
+          "widgetType": "tobank_stateful_example_dart"
         },
         {
           "title": "{{appStrings.menu.items.verifyIdentity}}",

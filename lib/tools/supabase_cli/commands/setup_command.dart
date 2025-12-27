@@ -24,7 +24,7 @@ class SetupCommand extends BaseCommand {
 
   @override
   Future<void> run(ArgResults results) async {
-    final force = results['force'] as bool;
+    // final force = results['force'] as bool;
 
     if (service == null) {
       printError('Supabase service not initialized');

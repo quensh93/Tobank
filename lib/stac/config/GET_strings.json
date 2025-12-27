@@ -27,6 +27,7 @@
         "dialogRequestSentLabel": "درخواست ارسال شده (POST):",
         "dialogResponseReceivedLabel": "پاسخ دریافت شده:",
         "dialogConfirmButton": "تأیید",
+        "dialogRequestResultBody": "کد تایید برای شما ارسال شد",
         "otpSentSuccessMessage": "کد تایید با موفقیت ارسال شد"
       },
       "menu": {
@@ -108,10 +109,10 @@
         "nextButton": "بعدی"
       },
       "splash": {
-      "title": "توبانک",
-      "slogan": "یک شعبه مجازی همراه شماست!",
-      "version": "نسخه"
-    },
+        "title": "توبانک",
+        "slogan": "یک شعبه مجازی همراه شماست!",
+        "version": "نسخه"
+      },
       "register": {
         "title": "ثبت نام",
         "errorLoading": "خطا در بارگذاری فرم ثبت نام"

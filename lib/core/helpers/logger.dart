@@ -1,6 +1,22 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:logger/logger.dart';
 import 'package:ispect/ispect.dart';
 import 'package:flutter/scheduler.dart';
+import 'log_category.dart';
+
+export 'log_category.dart';
+
+/// A conditional print function that respects the global log settings.
+/// Use this instead of print() or debugPrint() for debug logs that should
+/// be disabled when the master log toggle is off.
+void conditionalPrint(String message) {
+  if (Logger.level != Level.off) {
+    // ignore: avoid_print
+    print(message);
+  }
+}
 
 /// Helper class to store log data for deferred processing
 class _LogLine {
@@ -327,38 +343,234 @@ class AppLogger {
         : ISpectLogOutput(fallback: ConsoleOutput()),
   );
 
+  /// Map to store settings for each category
+  static Map<LogCategory, LogCategorySettings> _categorySettings = {
+    for (var category in LogCategory.values)
+      category: const LogCategorySettings(),
+  };
+
+  /// Load log category settings from storage at startup
+  /// This should be called BEFORE any logging happens (in bootstrap before AppInitializer)
+  static Future<void> loadSettingsFromStorage() async {
+    try {
+      final directory = await _getDocumentsDirectory();
+      final filePath = '$directory/debug_panel_settings.json';
+      final file = File(filePath);
+
+      if (await file.exists()) {
+        final jsonString = await file.readAsString();
+        final json = jsonDecode(jsonString) as Map<String, dynamic>;
+
+        // Load master logs enabled
+        final masterLogsEnabled = json['masterLogsEnabled'] as bool? ?? true;
+
+        // Load category settings first to check if all are disabled
+        final logCategorySettingsJson =
+            json['logCategorySettings'] as Map<String, dynamic>?;
+
+        bool allCategoriesDisabled = false;
+
+        if (logCategorySettingsJson != null) {
+          allCategoriesDisabled = true; // Assume true, then check
+          for (final entry in logCategorySettingsJson.entries) {
+            try {
+              final category = LogCategory.values.firstWhere(
+                (e) => e.name == entry.key,
+                orElse: () => LogCategory.general,
+              );
+              final settings = LogCategorySettings.fromJson(
+                entry.value as Map<String, dynamic>,
+              );
+              _categorySettings[category] = settings;
+
+              // Check if any category is enabled
+              if (settings.enabled) {
+                allCategoriesDisabled = false;
+              }
+            } catch (_) {
+              // Skip invalid entries
+            }
+          }
+        }
+
+        // Set global logger level:
+        // - OFF if masterLogsEnabled is false OR all categories are disabled
+        // - ALL otherwise
+        if (!masterLogsEnabled || allCategoriesDisabled) {
+          Logger.level = Level.off;
+        } else {
+          Logger.level = Level.all;
+        }
+      }
+    } catch (_) {
+      // If loading fails, keep defaults (all enabled)
+    }
+  }
+
+  static Future<String> _getDocumentsDirectory() async {
+    // Use path_provider equivalent logic
+    if (Platform.isWindows) {
+      return Platform.environment['USERPROFILE']! + '\\OneDrive\\Documents';
+    } else if (Platform.isMacOS) {
+      return Platform.environment['HOME']! + '/Documents';
+    } else if (Platform.isLinux) {
+      return Platform.environment['HOME']! + '/Documents';
+    } else {
+      // Mobile - use a simple path
+      return '.';
+    }
+  }
+
+  /// Update settings for a specific category
+  static void setCategorySettings(
+    LogCategory category,
+    LogCategorySettings settings,
+  ) {
+    _categorySettings[category] = settings;
+  }
+
+  /// Internal helper to process message based on category settings
+  static dynamic _processMessage(dynamic message, LogCategory category) {
+    // Early bailout if global logging is disabled
+    if (Logger.level == Level.off) return null;
+
+    final settings = _categorySettings[category] ?? const LogCategorySettings();
+
+    // If disabled, return null (caller should check this)
+    if (!settings.enabled) return null;
+
+    // Only truncate if truncateEnabled is true for this category
+    if (settings.truncateEnabled &&
+        message is String &&
+        message.length > settings.maxLength) {
+      return '${message.substring(0, settings.maxLength)}... (truncated ${message.length - settings.maxLength} chars)';
+    }
+
+    return message;
+  }
+
+  // --- Core Methods (Positional Args for Backward Compatibility) ---
+
   /// Log debug message
   static void d(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    _logger.d(message, error: error, stackTrace: stackTrace);
+    final processed = _processMessage(message, LogCategory.general);
+    if (processed != null) {
+      _logger.d(processed, error: error, stackTrace: stackTrace);
+    }
   }
 
   /// Log info message
   static void i(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    _logger.i(message, error: error, stackTrace: stackTrace);
+    final processed = _processMessage(message, LogCategory.general);
+    if (processed != null) {
+      _logger.i(processed, error: error, stackTrace: stackTrace);
+    }
   }
 
   /// Log warning message
   static void w(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    _logger.w(message, error: error, stackTrace: stackTrace);
+    final processed = _processMessage(message, LogCategory.general);
+    if (processed != null) {
+      _logger.w(processed, error: error, stackTrace: stackTrace);
+    }
   }
 
   /// Log error message
   static void e(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    // Handle the case where error is actually a StackTrace
-    if (error is StackTrace) {
-      _logger.e(message, stackTrace: error);
-    } else {
-      _logger.e(message, error: error, stackTrace: stackTrace);
+    final processed = _processMessage(message, LogCategory.general);
+    if (processed != null) {
+      if (error is StackTrace) {
+        _logger.e(processed, stackTrace: error);
+      } else {
+        _logger.e(processed, error: error, stackTrace: stackTrace);
+      }
     }
   }
 
   /// Log fatal message
   static void f(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    // Handle the case where error is actually a StackTrace
-    if (error is StackTrace) {
-      _logger.f(message, stackTrace: error);
-    } else {
-      _logger.f(message, error: error, stackTrace: stackTrace);
+    final processed = _processMessage(message, LogCategory.general);
+    if (processed != null) {
+      if (error is StackTrace) {
+        _logger.f(processed, stackTrace: error);
+      } else {
+        _logger.f(processed, error: error, stackTrace: stackTrace);
+      }
+    }
+  }
+
+  // --- Categorized Methods (dc, ic, wc, ec, fc) ---
+
+  /// Log debug message with category
+  static void dc(
+    LogCategory category,
+    dynamic message, [
+    dynamic error,
+    StackTrace? stackTrace,
+  ]) {
+    final processed = _processMessage(message, category);
+    if (processed != null) {
+      _logger.d(processed, error: error, stackTrace: stackTrace);
+    }
+  }
+
+  /// Log info message with category
+  static void ic(
+    LogCategory category,
+    dynamic message, [
+    dynamic error,
+    StackTrace? stackTrace,
+  ]) {
+    final processed = _processMessage(message, category);
+    if (processed != null) {
+      _logger.i(processed, error: error, stackTrace: stackTrace);
+    }
+  }
+
+  /// Log warning message with category
+  static void wc(
+    LogCategory category,
+    dynamic message, [
+    dynamic error,
+    StackTrace? stackTrace,
+  ]) {
+    final processed = _processMessage(message, category);
+    if (processed != null) {
+      _logger.w(processed, error: error, stackTrace: stackTrace);
+    }
+  }
+
+  /// Log error message with category
+  static void ec(
+    LogCategory category,
+    dynamic message, [
+    dynamic error,
+    StackTrace? stackTrace,
+  ]) {
+    final processed = _processMessage(message, category);
+    if (processed != null) {
+      if (error is StackTrace) {
+        _logger.e(processed, stackTrace: error);
+      } else {
+        _logger.e(processed, error: error, stackTrace: stackTrace);
+      }
+    }
+  }
+
+  /// Log fatal message with category
+  static void fc(
+    LogCategory category,
+    dynamic message, [
+    dynamic error,
+    StackTrace? stackTrace,
+  ]) {
+    final processed = _processMessage(message, category);
+    if (processed != null) {
+      if (error is StackTrace) {
+        _logger.f(processed, stackTrace: error);
+      } else {
+        _logger.f(processed, error: error, stackTrace: stackTrace);
+      }
     }
   }
 }

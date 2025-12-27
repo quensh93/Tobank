@@ -47,7 +47,7 @@ final class DioProvider extends $FunctionalProvider<Dio, Dio, Dio>
   }
 }
 
-String _$dioHash() => r'099d91474eaf1924a5c392a53a04b55e651a9cdc';
+String _$dioHash() => r'15467c21068682f4ad2fe2a2cc42e0ab883b57ca';
 
 @ProviderFor(apiService)
 const apiServiceProvider = ApiServiceProvider._();
@@ -105,7 +105,7 @@ final class GetDataProvider
         $FutureProvider<Either<ApiError, Map<String, dynamic>>> {
   const GetDataProvider._({
     required GetDataFamily super.from,
-    required Map<String, dynamic>? super.argument,
+    required ApiParams? super.argument,
   }) : super(
          retry: null,
          name: r'getDataProvider',
@@ -132,7 +132,7 @@ final class GetDataProvider
 
   @override
   FutureOr<Either<ApiError, Map<String, dynamic>>> create(Ref ref) {
-    final argument = this.argument as Map<String, dynamic>?;
+    final argument = this.argument as ApiParams?;
     return getData(ref, argument);
   }
 
@@ -147,13 +147,13 @@ final class GetDataProvider
   }
 }
 
-String _$getDataHash() => r'9677436518e620d3358fa9038a5884a2ad3a6917';
+String _$getDataHash() => r'ae19276a8d0861aad915d7a98c47ec2d5a0b3c88';
 
 final class GetDataFamily extends $Family
     with
         $FunctionalFamilyOverride<
           FutureOr<Either<ApiError, Map<String, dynamic>>>,
-          Map<String, dynamic>?
+          ApiParams?
         > {
   const GetDataFamily._()
     : super(
@@ -164,7 +164,7 @@ final class GetDataFamily extends $Family
         isAutoDispose: true,
       );
 
-  GetDataProvider call(Map<String, dynamic>? queries) =>
+  GetDataProvider call(ApiParams? queries) =>
       GetDataProvider._(argument: queries, from: this);
 
   @override
@@ -186,7 +186,7 @@ final class PostDataProvider
         $FutureProvider<Either<ApiError, Map<String, dynamic>>> {
   const PostDataProvider._({
     required PostDataFamily super.from,
-    required Map<String, dynamic> super.argument,
+    required ApiParams super.argument,
   }) : super(
          retry: null,
          name: r'postDataProvider',
@@ -213,7 +213,7 @@ final class PostDataProvider
 
   @override
   FutureOr<Either<ApiError, Map<String, dynamic>>> create(Ref ref) {
-    final argument = this.argument as Map<String, dynamic>;
+    final argument = this.argument as ApiParams;
     return postData(ref, argument);
   }
 
@@ -228,13 +228,13 @@ final class PostDataProvider
   }
 }
 
-String _$postDataHash() => r'2544e3eae5795b8d00463425b2ba680ac6818a5a';
+String _$postDataHash() => r'f5c8bbc7e8f6d874673eec31e7790998398906f0';
 
 final class PostDataFamily extends $Family
     with
         $FunctionalFamilyOverride<
           FutureOr<Either<ApiError, Map<String, dynamic>>>,
-          Map<String, dynamic>
+          ApiParams
         > {
   const PostDataFamily._()
     : super(
@@ -245,7 +245,7 @@ final class PostDataFamily extends $Family
         isAutoDispose: true,
       );
 
-  PostDataProvider call(Map<String, dynamic> data) =>
+  PostDataProvider call(ApiParams data) =>
       PostDataProvider._(argument: data, from: this);
 
   @override
@@ -267,7 +267,7 @@ final class PutDataProvider
         $FutureProvider<Either<ApiError, Map<String, dynamic>>> {
   const PutDataProvider._({
     required PutDataFamily super.from,
-    required Map<String, dynamic> super.argument,
+    required ApiParams super.argument,
   }) : super(
          retry: null,
          name: r'putDataProvider',
@@ -294,7 +294,7 @@ final class PutDataProvider
 
   @override
   FutureOr<Either<ApiError, Map<String, dynamic>>> create(Ref ref) {
-    final argument = this.argument as Map<String, dynamic>;
+    final argument = this.argument as ApiParams;
     return putData(ref, argument);
   }
 
@@ -309,13 +309,13 @@ final class PutDataProvider
   }
 }
 
-String _$putDataHash() => r'85f604678d355d07db19c7e1cc13d622057cec91';
+String _$putDataHash() => r'd6c3912d5447c89a6c20063435a7ea07eca85c43';
 
 final class PutDataFamily extends $Family
     with
         $FunctionalFamilyOverride<
           FutureOr<Either<ApiError, Map<String, dynamic>>>,
-          Map<String, dynamic>
+          ApiParams
         > {
   const PutDataFamily._()
     : super(
@@ -326,7 +326,7 @@ final class PutDataFamily extends $Family
         isAutoDispose: true,
       );
 
-  PutDataProvider call(Map<String, dynamic> data) =>
+  PutDataProvider call(ApiParams data) =>
       PutDataProvider._(argument: data, from: this);
 
   @override

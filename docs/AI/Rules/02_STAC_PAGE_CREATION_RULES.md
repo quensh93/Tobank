@@ -310,6 +310,55 @@ StacImage(
 
 ---
 
+### Rule 16: Use StacStatefulWidget for Lifecycle Needs
+**Priority**: HIGH
+
+**Action Required:**
+- Use `StacStatefulWidget` if you need:
+    - Events on screen load (`onInit`)
+    - Events on screen close (`onDispose`)
+    - Events on every build (`onBuild`)
+- Use standard `StacWidget` for static screens.
+
+**Example:**
+```dart
+// Stateful with init logic
+return StacStatefulWidget(
+  onInit: StacLogAction(message: 'Loaded'),
+  child: ...
+);
+```
+
+**Why**: Provides standard hooks for setup/teardown logic.
+
+---
+
+### Rule 17: Use Action Builders, Not Maps
+**Priority**: HIGH
+
+**Action Required:**
+- **NEVER** write raw maps for complex actions like `networkRequest` or `sequence`.
+- **ALWAYS** use `stac_custom_actions.dart` builders.
+- Builders ensure types are correct (e.g., nested `StacAction` in `results`).
+
+**Example:**
+```dart
+// ❌ WRONG (Prone to typos/errors)
+onTap: {
+  'actionType': 'sequence',
+  'actions': [...]
+}
+
+// ✅ CORRECT
+onTap: StacSequenceAction(
+  actions: [...]
+)
+```
+
+**Why**: Prevents runtime serialization errors and "Action Parse Error".
+
+---
+
 ## 🚨 Critical Don'ts for STAC Pages
 
 1. **DON'T** create pages without checking old tobank reference

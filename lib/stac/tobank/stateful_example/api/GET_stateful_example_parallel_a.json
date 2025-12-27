@@ -1,0 +1,9 @@
+{
+  "GET": {
+    "statusCode": 200,
+    "data": {
+      "status": "ok",
+      "message": "parallel_a"
+    }
+  }
+}

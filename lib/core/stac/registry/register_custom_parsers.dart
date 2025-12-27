@@ -12,12 +12,14 @@ import '../parsers/actions/close_dialog_action_parser.dart';
 import '../parsers/actions/theme_toggle_action_parser.dart';
 import '../parsers/actions/calculate_sum_action_parser.dart';
 import '../parsers/actions/log_action_parser.dart';
+import '../parsers/actions/sequence_action_parser.dart';
 import '../parsers/widgets/tobank_onboarding_slider_parser.dart';
 import '../parsers/widgets/timed_splash_parser.dart';
 import '../parsers/widgets/on_mount_action_parser.dart';
 import '../parsers/actions/flow_next_action_parser.dart';
 import '../parsers/widgets/stateful_widget_parser.dart';
-import '../../../../stac/tobank/flows/login_flow/dart/login_flow_screen.dart';
+import '../parsers/widgets/reactive_elevated_button_parser.dart';
+import '../parsers/actions/validate_fields_action_parser.dart';
 
 /// Register all custom STAC parsers with the STAC framework.
 ///
@@ -70,7 +72,10 @@ Future<void> registerCustomParsers() async {
         final success = stacRegistry.register(parser);
         if (success) {
           widgetCount++;
-          AppLogger.d('Registered custom widget parser: $type');
+          AppLogger.dc(
+            LogCategory.registry,
+            'Registered custom widget parser: $type',
+          );
         }
       }
     }
@@ -97,7 +102,10 @@ Future<void> registerCustomParsers() async {
         final success = stacRegistry.registerAction(parser);
         if (success) {
           actionCount++;
-          AppLogger.d('Registered custom action parser: $actionType');
+          AppLogger.dc(
+            LogCategory.registry,
+            'Registered custom action parser: $actionType',
+          );
         }
       }
     }
@@ -135,14 +143,19 @@ Future<void> registerCustomParsers() async {
       ); // override: true as positional parameter
       if (success) {
         actionCount++;
-        AppLogger.i(
+        AppLogger.ic(
+          LogCategory.registry,
           '✅ Registered custom navigate action parser (overriding default)',
         );
       } else {
-        AppLogger.w('⚠️ Failed to register custom navigate action parser');
+        AppLogger.wc(
+          LogCategory.registry,
+          '⚠️ Failed to register custom navigate action parser',
+        );
       }
     } catch (e, stackTrace) {
-      AppLogger.e(
+      AppLogger.ec(
+        LogCategory.registry,
         '❌ Failed to register custom navigate action parser: $e\n$stackTrace',
       );
     }
@@ -157,14 +170,19 @@ Future<void> registerCustomParsers() async {
       ); // override: true
       if (success) {
         actionCount++;
-        AppLogger.i(
+        AppLogger.ic(
+          LogCategory.registry,
           '✅ Registered custom setValue action parser (overriding default)',
         );
       } else {
-        AppLogger.w('⚠️ Failed to register custom setValue action parser');
+        AppLogger.wc(
+          LogCategory.registry,
+          '⚠️ Failed to register custom setValue action parser',
+        );
       }
     } catch (e, stackTrace) {
-      AppLogger.e(
+      AppLogger.ec(
+        LogCategory.registry,
         '❌ Failed to register custom setValue action parser: $e\n$stackTrace',
       );
     }
@@ -173,22 +191,27 @@ Future<void> registerCustomParsers() async {
     // Form values should be stored in registry before navigation instead
 
     // Log summary
-    AppLogger.i(
+    AppLogger.ic(
+      LogCategory.registry,
       '✅ Custom parser registration complete: '
       '$widgetCount widgets, $actionCount actions registered',
     );
 
     if (widgetSkipped > 0 || actionSkipped > 0) {
-      AppLogger.w(
+      AppLogger.wc(
+        LogCategory.registry,
         '⚠️ Skipped $widgetSkipped widgets and $actionSkipped actions due to conflicts',
       );
     }
 
     // Log detailed summary
     final summary = customRegistry.getSummary();
-    AppLogger.d('Custom registry summary: $summary');
+    AppLogger.dc(LogCategory.registry, 'Custom registry summary: $summary');
   } catch (e, stackTrace) {
-    AppLogger.e('❌ Failed to register custom parsers: $e\n$stackTrace');
+    AppLogger.ec(
+      LogCategory.registry,
+      '❌ Failed to register custom parsers: $e\n$stackTrace',
+    );
     rethrow;
   }
 }
@@ -220,16 +243,21 @@ void _registerExampleParsers() {
   // Register log action parser
   CustomComponentRegistry.instance.registerAction(const LogActionParser());
 
+  // Register sequence action parser
+  CustomComponentRegistry.instance.registerAction(const SequenceActionParser());
+
   // Register flow next action parser
   CustomComponentRegistry.instance.registerAction(const FlowNextActionParser());
+
+  // Register validate fields action parser
+  CustomComponentRegistry.instance.registerAction(
+    const ValidateFieldsActionParser(),
+  );
 
   // Register Tobank onboarding slider widget parser
   CustomComponentRegistry.instance.registerWidget(
     const TobankOnboardingSliderParser(),
   );
-
-  // Register Login Flow Overview widget parser
-  CustomComponentRegistry.instance.registerWidget(LoginFlowOverviewParser());
 
   // Register Timed Splash widget parser for auto-navigation splash screens
   CustomComponentRegistry.instance.registerWidget(TimedSplashParser());
@@ -241,6 +269,16 @@ void _registerExampleParsers() {
   // Register StatefulWidget parser for full widget lifecycle management
   // This enables Flutter-like lifecycle methods in STAC widgets
   CustomComponentRegistry.instance.registerWidget(StatefulWidgetParser());
+
+  // Register alias with preferred casing
+  CustomComponentRegistry.instance.registerWidget(
+    const StateFullWidgetParser(),
+  );
+
+  // Register reactive elevated button parser for registry-driven enable/disable
+  CustomComponentRegistry.instance.registerWidget(
+    const ReactiveElevatedButtonParser(),
+  );
 }
 
 /// Unregister all custom parsers from the STAC framework.
@@ -249,7 +287,10 @@ void _registerExampleParsers() {
 /// reset the parser registry.
 Future<void> unregisterCustomParsers() async {
   try {
-    AppLogger.i('🔧 Unregistering custom STAC parsers...');
+    AppLogger.ic(
+      LogCategory.registry,
+      '🔧 Unregistering custom STAC parsers...',
+    );
 
     final customRegistry = CustomComponentRegistry.instance;
 

@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
 import '../../../../../stac/tobank/menu/dart/tobank_menu.dart' as tobank_menu;
 import '../../../pre_launch/providers/theme_controller_provider.dart';
+import '../../../../core/helpers/logger.dart'; // For conditionalPrint
 
 /// Renders the Tobank STAC menu screen directly from the Dart StacWidget.
 ///
@@ -24,7 +25,7 @@ class TobankStacDartScreen extends ConsumerWidget {
       orElse: () => ThemeMode.system,
     );
 
-    debugPrint(
+    conditionalPrint(
       '🎨 TobankStacDartScreen rebuilding with theme: ${themeMode.name}',
     );
 

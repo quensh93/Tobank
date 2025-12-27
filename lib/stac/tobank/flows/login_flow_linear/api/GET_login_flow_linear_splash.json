@@ -2,15 +2,85 @@
   "GET": {
     "statusCode": 200,
     "data": {
-      "type": "onMountAction",
-      "delay": 2000,
-      "action": {
-        "actionType": "navigate",
-        "request": {
-          "url": "https://api.tobank.com/flows/login_flow_linear/login_flow_linear_onboarding",
-          "method": "get"
-        },
-        "navigationStyle": "pushReplacement"
+      "type": "stateFull",
+      "onInit": {
+        "actionType": "sequence",
+        "actions": [
+          {
+            "actionType": "setValue",
+            "key": "splashStartTime",
+            "value": "{{now()}}"
+          },
+          {
+            "actionType": "log",
+            "message": "onInit: splash initialized"
+          },
+          {
+            "actionType": "delay",
+            "duration": 2000
+          },
+          {
+            "actionType": "navigate",
+            "request": {
+              "url": "https://api.tobank.com/flows/login_flow_linear/login_flow_linear_onboarding",
+              "method": "get"
+            },
+            "navigationStyle": "pushReplacement"
+          }
+        ]
+      },
+      "onBuild": {
+        "actionType": "log",
+        "message": "onBuild: splash build"
+      },
+      "onDependenciesChanged": {
+        "actionType": "log",
+        "message": "didChangeDependencies: splash"
+      },
+      "onWidgetUpdated": {
+        "actionType": "log",
+        "message": "didUpdateWidget: splash"
+      },
+      "onReassemble": {
+        "actionType": "log",
+        "message": "reassemble (hot reload): splash"
+      },
+      "onDeactivate": {
+        "actionType": "log",
+        "message": "deactivate: splash"
+      },
+      "onResume": {
+        "actionType": "log",
+        "message": "appLifecycle resumed: splash"
+      },
+      "onPause": {
+        "actionType": "log",
+        "message": "appLifecycle paused: splash"
+      },
+      "onInactive": {
+        "actionType": "log",
+        "message": "appLifecycle inactive: splash"
+      },
+      "onHidden": {
+        "actionType": "log",
+        "message": "appLifecycle hidden: splash"
+      },
+      "onDetached": {
+        "actionType": "log",
+        "message": "appLifecycle detached: splash"
+      },
+      "onDispose": {
+        "actionType": "sequence",
+        "actions": [
+          {
+            "actionType": "log",
+            "message": "onDispose: splash disposed"
+          },
+          {
+            "actionType": "log",
+            "message": "splash duration: {{now() - splashStartTime}}ms"
+          }
+        ]
       },
       "child": {
         "type": "scaffold",

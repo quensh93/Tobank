@@ -37,6 +37,15 @@ Dio setupStacMockDio() {
   dio.interceptors.add(
     InterceptorsWrapper(
       onRequest: (options, handler) async {
+        // Log Request (AppLogger respects category settings)
+        AppLogger.dc(
+          LogCategory.network,
+          '📤 STAC ${options.method} ${options.uri}',
+        );
+        if (options.data != null) {
+          AppLogger.dc(LogCategory.network, '   Request data: ${options.data}');
+        }
+
         try {
           // Extract path from full URL
           // Convert: https://api.tobank.com/menu-labels -> menu-labels
@@ -91,6 +100,7 @@ Dio setupStacMockDio() {
                 'transfer',
                 'transactions',
                 'profile',
+                'stateful_example',
               ];
               for (final folder in featureFolders) {
                 final testPath = 'lib/stac/tobank/$folder/api/$filename';
@@ -185,6 +195,7 @@ Dio setupStacMockDio() {
                 'transfer',
                 'transactions',
                 'profile',
+                'stateful_example',
                 'flows/login_flow',
               ];
               for (final folder in featureFolders) {
@@ -192,7 +203,8 @@ Dio setupStacMockDio() {
                 try {
                   await rootBundle.loadString(testPath);
                   assetPath = testPath;
-                  isScreenJson = true; // Screen JSONs need variable resolution
+                  // Treat stateful_example_* endpoints as data APIs (not screens).
+                  isScreenJson = folder != 'stateful_example';
                   break;
                 } catch (_) {
                   // Continue to next folder
@@ -231,7 +243,9 @@ Dio setupStacMockDio() {
                   isScreenJson = true; // Screen JSON needs variable resolution
                   AppLogger.d('✅ Mock interceptor: Found flow file: $testPath');
                 } catch (e) {
-                  AppLogger.d('⚠️ Mock interceptor: Failed to load $testPath: $e');
+                  AppLogger.d(
+                    '⚠️ Mock interceptor: Failed to load $testPath: $e',
+                  );
                   // Continue
                 }
               }
@@ -240,24 +254,33 @@ Dio setupStacMockDio() {
             // Fallback handling for incorrectly formatted flow URLs
             // Pattern: login_flow_linear_splash/tobank_login_flow_linear_splash
             // Should map to: flows/login_flow_linear/api/GET_login_flow_linear_splash.json
-            if (assetPath == null && path.contains('/') && path.contains('_flow_')) {
+            if (assetPath == null &&
+                path.contains('/') &&
+                path.contains('_flow_')) {
               final pathParts = path.split('/');
               if (pathParts.length == 2) {
-                final firstPart = pathParts[0]; // e.g., 'login_flow_linear_splash'
-                final secondPart = pathParts[1]; // e.g., 'tobank_login_flow_linear_splash'
-                
+                final firstPart =
+                    pathParts[0]; // e.g., 'login_flow_linear_splash'
+                final secondPart =
+                    pathParts[1]; // e.g., 'tobank_login_flow_linear_splash'
+
                 // Extract flow name by removing last segment from first part
                 // login_flow_linear_splash -> login_flow_linear
                 final firstParts = firstPart.split('_');
                 if (firstParts.length > 1) {
-                  final flowNameParts = firstParts.sublist(0, firstParts.length - 1);
-                  final flowName = flowNameParts.join('_'); // e.g., 'login_flow_linear'
-                  
+                  final flowNameParts = firstParts.sublist(
+                    0,
+                    firstParts.length - 1,
+                  );
+                  final flowName = flowNameParts.join(
+                    '_',
+                  ); // e.g., 'login_flow_linear'
+
                   // Remove 'tobank_' prefix from second part to get screen name
                   final screenName = secondPart.startsWith('tobank_')
                       ? secondPart.substring(7) // Remove 'tobank_' prefix
                       : secondPart;
-                  
+
                   final testPath =
                       'lib/stac/tobank/flows/$flowName/api/GET_$screenName.json';
                   try {
@@ -389,6 +412,18 @@ Dio setupStacMockDio() {
                 }
               }
 
+              // Log Response (AppLogger respects category settings)
+              AppLogger.dc(LogCategory.network, '📥 STAC 200 ${options.uri}');
+              final dataStr1 = resolvedJson.toString();
+              if (dataStr1.length < 500) {
+                AppLogger.dc(LogCategory.network, '   Response: $dataStr1');
+              } else {
+                AppLogger.dc(
+                  LogCategory.network,
+                  '   Response: ${dataStr1.substring(0, 500)}... (truncated)',
+                );
+              }
+
               return handler.resolve(
                 Response(
                   requestOptions: options,
@@ -417,6 +452,21 @@ Dio setupStacMockDio() {
               // If targetPath is 'data.menuItems', response should be {"data": {"menuItems": [...]}}
               final wrappedResponse = {'data': innerData};
 
+              // Log Response (AppLogger respects category settings)
+              AppLogger.dc(
+                LogCategory.network,
+                '📥 STAC $statusCode ${options.uri}',
+              );
+              final dataStr2 = wrappedResponse.toString();
+              if (dataStr2.length < 500) {
+                AppLogger.dc(LogCategory.network, '   Response: $dataStr2');
+              } else {
+                AppLogger.dc(
+                  LogCategory.network,
+                  '   Response: ${dataStr2.substring(0, 500)}... (truncated)',
+                );
+              }
+
               return handler.resolve(
                 Response(
                   requestOptions: options,
@@ -432,13 +482,14 @@ Dio setupStacMockDio() {
           } catch (e) {
             // File not found or error loading - let request continue normally
             // This allows real API calls if mock file doesn't exist
-            AppLogger.w(
+            AppLogger.wc(
+              LogCategory.network,
               '⚠️ Mock file not found or error loading: $finalAssetPath - $e',
             );
           }
         } catch (e) {
           // Error in interceptor - let request continue
-          AppLogger.e('Error in mock interceptor: $e');
+          AppLogger.ec(LogCategory.network, 'Error in mock interceptor: $e');
         }
 
         // Continue with normal request if mock file not found
@@ -490,8 +541,12 @@ dynamic resolveVariablesPreservingTypes(dynamic json, StacRegistry registry) {
             variableName.contains('margin') ||
             variableName.contains('elevation') ||
             variableName.contains('borderRadius')) {
-          AppLogger.d('   🔍 Resolving numeric variable: $variableName');
-          AppLogger.d(
+          AppLogger.dc(
+            LogCategory.json,
+            '   🔍 Resolving numeric variable: $variableName',
+          );
+          AppLogger.dc(
+            LogCategory.json,
             '      Retrieved type: ${value.runtimeType}, value: $value',
           );
         }
@@ -501,12 +556,15 @@ dynamic resolveVariablesPreservingTypes(dynamic json, StacRegistry registry) {
         final converted = _convertStringToTypeIfNeeded(value);
 
         // Debug: Log if conversion changed the type (helps identify issues)
+        // Debug: Log if conversion changed the type (helps identify issues)
         if (value is String && converted is! String) {
-          AppLogger.d(
+          AppLogger.dc(
+            LogCategory.json,
             '   🔄 Converted $variableName from String to ${converted.runtimeType}: "$value" -> $converted',
           );
         } else if (value is! String && converted is num) {
-          AppLogger.d(
+          AppLogger.dc(
+            LogCategory.json,
             '   ✅ Preserved numeric type for $variableName: ${converted.runtimeType} = $converted',
           );
         }

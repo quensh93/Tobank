@@ -1,0 +1,9 @@
+﻿{
+  "GET": {
+    "statusCode": 400,
+    "data": {
+      "status": "error",
+      "message": "stateful_example_error"
+    }
+  }
+}

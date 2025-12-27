@@ -1,3 +1,4 @@
+// ignore_for_file: provider_parameters
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../data/providers/api_providers.dart';
@@ -31,7 +32,7 @@ class NetworkLayerTestPage extends ConsumerWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 32),
-              
+
               _buildSection(
                 title: 'GET Request with fpdart',
                 subtitle: 'TaskEither error handling',
@@ -39,9 +40,9 @@ class NetworkLayerTestPage extends ConsumerWidget {
                 color: Colors.blue,
                 onPressed: () => _testGet(context, ref),
               ),
-              
+
               const SizedBox(height: 16),
-              
+
               _buildSection(
                 title: 'POST Request',
                 subtitle: 'Send JSON data',
@@ -49,9 +50,9 @@ class NetworkLayerTestPage extends ConsumerWidget {
                 color: Colors.green,
                 onPressed: () => _testPost(context, ref),
               ),
-              
+
               const SizedBox(height: 16),
-              
+
               _buildSection(
                 title: 'PUT Request',
                 subtitle: 'Update data',
@@ -59,9 +60,9 @@ class NetworkLayerTestPage extends ConsumerWidget {
                 color: Colors.orange,
                 onPressed: () => _testPut(context, ref),
               ),
-              
+
               const SizedBox(height: 16),
-              
+
               _buildSection(
                 title: 'DELETE Request',
                 subtitle: 'Remove data',
@@ -69,9 +70,9 @@ class NetworkLayerTestPage extends ConsumerWidget {
                 color: Colors.red,
                 onPressed: () => _testDelete(context, ref),
               ),
-              
+
               const SizedBox(height: 16),
-              
+
               _buildSection(
                 title: 'Headers Test',
                 subtitle: 'Check request headers',
@@ -79,9 +80,9 @@ class NetworkLayerTestPage extends ConsumerWidget {
                 color: Colors.teal,
                 onPressed: () => _testHeaders(context, ref),
               ),
-              
+
               const SizedBox(height: 16),
-              
+
               _buildSection(
                 title: 'User Agent',
                 subtitle: 'Browser identification',
@@ -89,12 +90,12 @@ class NetworkLayerTestPage extends ConsumerWidget {
                 color: Colors.indigo,
                 onPressed: () => _testUserAgent(context, ref),
               ),
-              
+
               const SizedBox(height: 24),
-              
+
               const Divider(),
               const SizedBox(height: 16),
-              
+
               const Text(
                 'Features Demonstrated:',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -102,8 +103,12 @@ class NetworkLayerTestPage extends ConsumerWidget {
               const SizedBox(height: 8),
               _buildFeatureItem('✅ Retrofit with type-safe HTTP calls'),
               _buildFeatureItem('✅ Dio interceptors (Logging, Error handling)'),
-              _buildFeatureItem('✅ fpdart TaskEither for functional error handling'),
-              _buildFeatureItem('✅ Riverpod providers for dependency injection'),
+              _buildFeatureItem(
+                '✅ fpdart TaskEither for functional error handling',
+              ),
+              _buildFeatureItem(
+                '✅ Riverpod providers for dependency injection',
+              ),
               _buildFeatureItem('✅ Sealed error classes for type-safe errors'),
               _buildFeatureItem('✅ Repository pattern with clean architecture'),
             ],
@@ -126,9 +131,7 @@ class NetworkLayerTestPage extends ConsumerWidget {
         backgroundColor: color,
         foregroundColor: Colors.white,
         padding: const EdgeInsets.all(16),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
       child: Row(
         children: [
@@ -147,10 +150,7 @@ class NetworkLayerTestPage extends ConsumerWidget {
                 ),
                 Text(
                   subtitle,
-                  style: const TextStyle(
-                    fontSize: 12,
-                    color: Colors.white70,
-                  ),
+                  style: const TextStyle(fontSize: 12, color: Colors.white70),
                 ),
               ],
             ),
@@ -164,14 +164,7 @@ class NetworkLayerTestPage extends ConsumerWidget {
   Widget _buildFeatureItem(String text) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 4),
-      child: Row(
-        children: [
-          Text(
-            text,
-            style: const TextStyle(fontSize: 14),
-          ),
-        ],
-      ),
+      child: Row(children: [Text(text, style: const TextStyle(fontSize: 14))]),
     );
   }
 
@@ -179,8 +172,10 @@ class NetworkLayerTestPage extends ConsumerWidget {
     _showLoading(context);
 
     try {
-      final provider = getDataProvider({'test': 'value', 'lang': 'dart'});
-      final result = await ref.read(provider.future).timeout(const Duration(seconds: 10));
+      final provider = getDataProvider(const {'test': 'value', 'lang': 'dart'});
+      final result = await ref
+          .read(provider.future)
+          .timeout(const Duration(seconds: 10));
 
       if (context.mounted) {
         _hideLoading(context);
@@ -198,12 +193,14 @@ class NetworkLayerTestPage extends ConsumerWidget {
     _showLoading(context);
 
     try {
-      final provider = postDataProvider({
+      final provider = postDataProvider(const {
         'name': 'Flutter Test',
         'framework': 'Flutter',
         'language': 'Dart',
       });
-      final result = await ref.read(provider.future).timeout(const Duration(seconds: 10));
+      final result = await ref
+          .read(provider.future)
+          .timeout(const Duration(seconds: 10));
 
       if (context.mounted) {
         _hideLoading(context);
@@ -221,12 +218,14 @@ class NetworkLayerTestPage extends ConsumerWidget {
     _showLoading(context);
 
     try {
-      final provider = putDataProvider({
+      final provider = putDataProvider(const {
         'id': 1,
         'name': 'Updated Name',
         'status': 'updated',
       });
-      final result = await ref.read(provider.future).timeout(const Duration(seconds: 10));
+      final result = await ref
+          .read(provider.future)
+          .timeout(const Duration(seconds: 10));
 
       if (context.mounted) {
         _hideLoading(context);
@@ -244,7 +243,9 @@ class NetworkLayerTestPage extends ConsumerWidget {
     _showLoading(context);
 
     try {
-      final result = await ref.read(deleteDataProvider.future).timeout(const Duration(seconds: 10));
+      final result = await ref
+          .read(deleteDataProvider.future)
+          .timeout(const Duration(seconds: 10));
 
       if (context.mounted) {
         _hideLoading(context);
@@ -262,7 +263,9 @@ class NetworkLayerTestPage extends ConsumerWidget {
     _showLoading(context);
 
     try {
-      final result = await ref.read(getHeadersProvider.future).timeout(const Duration(seconds: 10));
+      final result = await ref
+          .read(getHeadersProvider.future)
+          .timeout(const Duration(seconds: 10));
 
       if (context.mounted) {
         _hideLoading(context);
@@ -280,7 +283,9 @@ class NetworkLayerTestPage extends ConsumerWidget {
     _showLoading(context);
 
     try {
-      final result = await ref.read(getUserAgentProvider.future).timeout(const Duration(seconds: 10));
+      final result = await ref
+          .read(getUserAgentProvider.future)
+          .timeout(const Duration(seconds: 10));
 
       if (context.mounted) {
         _hideLoading(context);
@@ -320,7 +325,11 @@ class NetworkLayerTestPage extends ConsumerWidget {
     Navigator.of(context).pop();
   }
 
-  void _showResult(BuildContext context, Map<String, dynamic> result, String title) {
+  void _showResult(
+    BuildContext context,
+    Map<String, dynamic> result,
+    String title,
+  ) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(

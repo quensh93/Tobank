@@ -31,7 +31,7 @@ class SimpleApiTestPage extends ConsumerWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 32),
-              
+
               // GET test button
               ElevatedButton(
                 onPressed: () => _testGet(context, ref),
@@ -43,7 +43,7 @@ class SimpleApiTestPage extends ConsumerWidget {
                 child: const Text('Test GET'),
               ),
               const SizedBox(height: 16),
-              
+
               // POST test button
               ElevatedButton(
                 onPressed: () => _testPost(context, ref),
@@ -55,7 +55,7 @@ class SimpleApiTestPage extends ConsumerWidget {
                 child: const Text('Test POST'),
               ),
               const SizedBox(height: 16),
-              
+
               // PUT test button
               ElevatedButton(
                 onPressed: () => _testPut(context, ref),
@@ -67,7 +67,7 @@ class SimpleApiTestPage extends ConsumerWidget {
                 child: const Text('Test PUT'),
               ),
               const SizedBox(height: 16),
-              
+
               // DELETE test button
               ElevatedButton(
                 onPressed: () => _testDelete(context, ref),
@@ -79,7 +79,7 @@ class SimpleApiTestPage extends ConsumerWidget {
                 child: const Text('Test DELETE'),
               ),
               const SizedBox(height: 16),
-              
+
               // Headers test button
               ElevatedButton(
                 onPressed: () => _testHeaders(context, ref),
@@ -91,7 +91,7 @@ class SimpleApiTestPage extends ConsumerWidget {
                 child: const Text('Test Headers'),
               ),
               const SizedBox(height: 16),
-              
+
               // User Agent test button
               ElevatedButton(
                 onPressed: () => _testUserAgent(context, ref),
@@ -110,30 +110,55 @@ class SimpleApiTestPage extends ConsumerWidget {
   }
 
   Future<void> _testGet(BuildContext context, WidgetRef ref) async {
-    final either = await ref.read(getDataProvider({'test': 'value', 'foo': 'bar'}).future);
+    final either = await ref.read(
+      getDataProvider(const ApiParams({'test': 'value', 'foo': 'bar'})).future,
+    );
     if (context.mounted) {
       either.fold(
-        (error) => _showError(context, 'GET Error', error.message, error.runtimeType.toString()),
+        (error) => _showError(
+          context,
+          'GET Error',
+          error.message,
+          error.runtimeType.toString(),
+        ),
         (data) => _showResult(context, 'GET Response', data),
       );
     }
   }
 
   Future<void> _testPost(BuildContext context, WidgetRef ref) async {
-    final either = await ref.read(postDataProvider({'name': 'John', 'email': 'john@example.com'}).future);
+    final either = await ref.read(
+      postDataProvider(
+        const ApiParams({'name': 'John', 'email': 'john@example.com'}),
+      ).future,
+    );
     if (context.mounted) {
       either.fold(
-        (error) => _showError(context, 'POST Error', error.message, error.runtimeType.toString()),
+        (error) => _showError(
+          context,
+          'POST Error',
+          error.message,
+          error.runtimeType.toString(),
+        ),
         (data) => _showResult(context, 'POST Response', data),
       );
     }
   }
 
   Future<void> _testPut(BuildContext context, WidgetRef ref) async {
-    final either = await ref.read(putDataProvider({'name': 'Jane', 'updated': true}).future);
+    final either = await ref.read(
+      putDataProvider(
+        const ApiParams({'name': 'Jane', 'updated': true}),
+      ).future,
+    );
     if (context.mounted) {
       either.fold(
-        (error) => _showError(context, 'PUT Error', error.message, error.runtimeType.toString()),
+        (error) => _showError(
+          context,
+          'PUT Error',
+          error.message,
+          error.runtimeType.toString(),
+        ),
         (data) => _showResult(context, 'PUT Response', data),
       );
     }
@@ -143,7 +168,12 @@ class SimpleApiTestPage extends ConsumerWidget {
     final either = await ref.read(deleteDataProvider.future);
     if (context.mounted) {
       either.fold(
-        (error) => _showError(context, 'DELETE Error', error.message, error.runtimeType.toString()),
+        (error) => _showError(
+          context,
+          'DELETE Error',
+          error.message,
+          error.runtimeType.toString(),
+        ),
         (data) => _showResult(context, 'DELETE Response', data),
       );
     }
@@ -153,7 +183,12 @@ class SimpleApiTestPage extends ConsumerWidget {
     final either = await ref.read(getHeadersProvider.future);
     if (context.mounted) {
       either.fold(
-        (error) => _showError(context, 'Headers Error', error.message, error.runtimeType.toString()),
+        (error) => _showError(
+          context,
+          'Headers Error',
+          error.message,
+          error.runtimeType.toString(),
+        ),
         (data) => _showResult(context, 'Headers Response', data),
       );
     }
@@ -163,13 +198,22 @@ class SimpleApiTestPage extends ConsumerWidget {
     final either = await ref.read(getUserAgentProvider.future);
     if (context.mounted) {
       either.fold(
-        (error) => _showError(context, 'User Agent Error', error.message, error.runtimeType.toString()),
+        (error) => _showError(
+          context,
+          'User Agent Error',
+          error.message,
+          error.runtimeType.toString(),
+        ),
         (data) => _showResult(context, 'User Agent Response', data),
       );
     }
   }
 
-  void _showResult(BuildContext context, String title, Map<String, dynamic> data) {
+  void _showResult(
+    BuildContext context,
+    String title,
+    Map<String, dynamic> data,
+  ) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -196,10 +240,15 @@ class SimpleApiTestPage extends ConsumerWidget {
     );
   }
 
-  void _showError(BuildContext context, String title, String error, String errorType) {
+  void _showError(
+    BuildContext context,
+    String title,
+    String error,
+    String errorType,
+  ) {
     final Color color;
     final IconData icon;
-    
+
     // Pattern match on error type
     switch (errorType) {
       case 'NetworkError':
@@ -222,7 +271,7 @@ class SimpleApiTestPage extends ConsumerWidget {
         color = Colors.grey;
         icon = Icons.error_outline;
     }
-    
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -230,9 +279,7 @@ class SimpleApiTestPage extends ConsumerWidget {
           children: [
             Icon(icon, color: color),
             const SizedBox(width: 8),
-            Expanded(
-              child: Text(title),
-            ),
+            Expanded(child: Text(title)),
           ],
         ),
         content: Column(
@@ -247,10 +294,7 @@ class SimpleApiTestPage extends ConsumerWidget {
               ),
               child: Text(
                 'Error Type: $errorType',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: color,
-                ),
+                style: TextStyle(fontWeight: FontWeight.bold, color: color),
               ),
             ),
             const SizedBox(height: 12),

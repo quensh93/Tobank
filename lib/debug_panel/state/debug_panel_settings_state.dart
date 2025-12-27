@@ -2,8 +2,10 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:logger/logger.dart';
 import 'dart:io';
 import 'dart:convert';
+
 import '../../core/helpers/logger.dart';
 import '../themes/debug_panel_theme.dart';
 
@@ -97,8 +99,11 @@ class DebugPanelSettingsState {
     this.isPreviewEnabled = true,
     this.deviceOrientation = Orientation.portrait,
     // Logs settings
+    this.masterLogsEnabled = true,
     this.logsAutoScroll = true,
     this.logsSelectedLevel,
+    this.logMaxLength = 1000,
+    this.logTruncationEnabled = false,
     // Accessibility settings
     this.accessibilitySelectedFilter,
     // Performance settings
@@ -107,6 +112,7 @@ class DebugPanelSettingsState {
     this.performanceSampleSize = 32,
     // Tab selection
     this.selectedTabIndex = 0,
+    this.logCategorySettings = const {},
   });
 
   // Fields
@@ -126,8 +132,11 @@ class DebugPanelSettingsState {
   final bool isPreviewEnabled;
   final Orientation deviceOrientation;
   // Logs settings
+  final bool masterLogsEnabled;
   final bool logsAutoScroll;
   final String? logsSelectedLevel;
+  final int logMaxLength;
+  final bool logTruncationEnabled;
   // Accessibility settings
   final String? accessibilitySelectedFilter;
   // Performance settings
@@ -136,6 +145,7 @@ class DebugPanelSettingsState {
   final int performanceSampleSize;
   // Tab selection
   final int selectedTabIndex;
+  final Map<LogCategory, LogCategorySettings> logCategorySettings;
 
   DebugPanelSettingsState copyWith({
     bool? debugPanelEnabled,
@@ -150,14 +160,18 @@ class DebugPanelSettingsState {
     bool? isFrameVisible,
     bool? isPreviewEnabled,
     Orientation? deviceOrientation,
+    bool? masterLogsEnabled,
     bool? logsAutoScroll,
     String? logsSelectedLevel,
+    int? logMaxLength,
+    bool? logTruncationEnabled,
     String? accessibilitySelectedFilter,
     bool? performanceTrackingEnabled,
     PerformanceLayoutMode? performanceLayoutMode,
     int? performanceSampleSize,
     int? selectedTabIndex,
     bool? supabaseEnabled,
+    Map<LogCategory, LogCategorySettings>? logCategorySettings,
   }) {
     return DebugPanelSettingsState(
       debugPanelEnabled: debugPanelEnabled ?? this.debugPanelEnabled,
@@ -173,8 +187,11 @@ class DebugPanelSettingsState {
       isFrameVisible: isFrameVisible ?? this.isFrameVisible,
       isPreviewEnabled: isPreviewEnabled ?? this.isPreviewEnabled,
       deviceOrientation: deviceOrientation ?? this.deviceOrientation,
+      masterLogsEnabled: masterLogsEnabled ?? this.masterLogsEnabled,
       logsAutoScroll: logsAutoScroll ?? this.logsAutoScroll,
       logsSelectedLevel: logsSelectedLevel ?? this.logsSelectedLevel,
+      logMaxLength: logMaxLength ?? this.logMaxLength,
+      logTruncationEnabled: logTruncationEnabled ?? this.logTruncationEnabled,
       accessibilitySelectedFilter:
           accessibilitySelectedFilter ?? this.accessibilitySelectedFilter,
       performanceTrackingEnabled:
@@ -185,6 +202,7 @@ class DebugPanelSettingsState {
           performanceSampleSize ?? this.performanceSampleSize,
       selectedTabIndex: selectedTabIndex ?? this.selectedTabIndex,
       supabaseEnabled: supabaseEnabled ?? this.supabaseEnabled,
+      logCategorySettings: logCategorySettings ?? this.logCategorySettings,
     );
   }
 
@@ -202,13 +220,18 @@ class DebugPanelSettingsState {
       'isFrameVisible': isFrameVisible,
       'isPreviewEnabled': isPreviewEnabled,
       'deviceOrientation': deviceOrientation.name,
+      'masterLogsEnabled': masterLogsEnabled,
       'logsAutoScroll': logsAutoScroll,
       'logsSelectedLevel': logsSelectedLevel,
+      'logMaxLength': logMaxLength,
+      'logTruncationEnabled': logTruncationEnabled,
       'accessibilitySelectedFilter': accessibilitySelectedFilter,
       'performanceTrackingEnabled': performanceTrackingEnabled,
       'performanceLayoutMode': performanceLayoutMode.name,
       'performanceSampleSize': performanceSampleSize,
       'selectedTabIndex': selectedTabIndex,
+      'logCategorySettings': logCategorySettings
+          .map((key, value) => MapEntry(key.name, value.toJson())),
     };
   }
 
@@ -238,8 +261,11 @@ class DebugPanelSettingsState {
       deviceOrientation: json['deviceOrientation'] == 'landscape'
           ? Orientation.landscape
           : Orientation.portrait,
+      masterLogsEnabled: json['masterLogsEnabled'] as bool? ?? true,
       logsAutoScroll: json['logsAutoScroll'] as bool? ?? true,
       logsSelectedLevel: json['logsSelectedLevel'] as String?,
+      logMaxLength: (json['logMaxLength'] as num?)?.toInt() ?? 1000,
+      logTruncationEnabled: json['logTruncationEnabled'] as bool? ?? false,
       accessibilitySelectedFilter:
           json['accessibilitySelectedFilter'] as String?,
       performanceTrackingEnabled:
@@ -252,6 +278,17 @@ class DebugPanelSettingsState {
           (json['performanceSampleSize'] as num?)?.toInt() ?? 32,
       selectedTabIndex: (json['selectedTabIndex'] as num?)?.toInt() ?? 0,
       supabaseEnabled: json['supabaseEnabled'] as bool? ?? false,
+      logCategorySettings:
+          (json['logCategorySettings'] as Map<String, dynamic>?)?.map(
+                (key, value) => MapEntry(
+                  LogCategory.values.firstWhere(
+                    (e) => e.name == key,
+                    orElse: () => LogCategory.general,
+                  ),
+                  LogCategorySettings.fromJson(value),
+                ),
+              ) ??
+              {},
     );
   }
 }
@@ -300,6 +337,17 @@ class DebugPanelSettingsController extends Notifier<DebugPanelSettingsState> {
         final data = jsonDecode(contents) as Map<String, dynamic>;
         final settings = DebugPanelSettingsState.fromJson(data);
         state = settings;
+        // Sync LogCategory settings
+        settings.logCategorySettings.forEach((category, categorySettings) {
+          AppLogger.setCategorySettings(category, categorySettings);
+        });
+
+        // Sync global Logger state with General category settings for stac_logger
+        final generalSettings =
+            settings.logCategorySettings[LogCategory.general];
+        if (generalSettings != null) {
+          // Logger properties removed as they don't exist on package:logger
+        }
         AppLogger.d('✅ Debug panel settings loaded successfully');
       } else {
         AppLogger.d('📂 No saved debug panel settings found, using defaults');
@@ -407,6 +455,18 @@ class DebugPanelSettingsController extends Notifier<DebugPanelSettingsState> {
     _saveSettings();
   }
 
+  void setLogMaxLength(int length) {
+    state = state.copyWith(logMaxLength: length);
+    // Logger.maxLogLength = length; // Removed
+    _saveSettings();
+  }
+
+  void setLogTruncationEnabled(bool enabled) {
+    state = state.copyWith(logTruncationEnabled: enabled);
+    // Logger.truncateLogs = enabled; // Removed
+    _saveSettings();
+  }
+
   void setAccessibilitySelectedFilter(String? filter) {
     state = state.copyWith(accessibilitySelectedFilter: filter);
     _saveSettings();
@@ -441,6 +501,111 @@ class DebugPanelSettingsController extends Notifier<DebugPanelSettingsState> {
   void setPerformanceSampleSize(int size) {
     state = state.copyWith(performanceSampleSize: size);
     _saveSettings();
+  }
+
+  void setLogCategorySettings(
+      LogCategory category, LogCategorySettings settings) {
+    var newSettings =
+        Map<LogCategory, LogCategorySettings>.from(state.logCategorySettings);
+    newSettings[category] = settings;
+    state = state.copyWith(logCategorySettings: newSettings);
+    // Sync to Logger immediately
+    AppLogger.setCategorySettings(category, settings);
+
+    // If updating General category, sync to global Logger for stac_logger and others
+    // If updating General category, sync to global Logger for stac_logger and others
+    if (category == LogCategory.general) {
+      // Logger properties removed as they don't exist
+    }
+
+    // Check if all categories are now disabled
+    final allDisabled = newSettings.values.every((s) => !s.enabled);
+    if (allDisabled) {
+      Logger.level = Level.off;
+    } else if (state.masterLogsEnabled) {
+      Logger.level = Level.all;
+    }
+
+    _saveSettings();
+  }
+
+  void setMasterLogsEnabled(bool enabled) {
+    // Set global logger level to control ALL logging (including stac_logger)
+    Logger.level = enabled ? Level.all : Level.off;
+
+    state = state.copyWith(masterLogsEnabled: enabled);
+    // When master is toggled, update all categories
+    var newSettings =
+        Map<LogCategory, LogCategorySettings>.from(state.logCategorySettings);
+    for (final category in LogCategory.values) {
+      final current = newSettings[category] ?? const LogCategorySettings();
+      newSettings[category] = current.copyWith(enabled: enabled);
+      AppLogger.setCategorySettings(category, newSettings[category]!);
+    }
+    state = state.copyWith(logCategorySettings: newSettings);
+    _saveSettings();
+  }
+
+  /// Enable all log categories AND restore Logger.level to allow stac_logger
+  void enableAllCategories() {
+    // Restore Logger.level so stac_logger can log
+    if (state.masterLogsEnabled) {
+      Logger.level = Level.all;
+    }
+
+    var newSettings =
+        Map<LogCategory, LogCategorySettings>.from(state.logCategorySettings);
+    for (final category in LogCategory.values) {
+      final current = newSettings[category] ?? const LogCategorySettings();
+      newSettings[category] = current.copyWith(enabled: true);
+      AppLogger.setCategorySettings(category, newSettings[category]!);
+    }
+    state = state.copyWith(logCategorySettings: newSettings);
+    _saveSettings();
+  }
+
+  /// Disable all log categories AND set Logger.level to off to suppress stac_logger
+  void disableAllCategories() {
+    // Set Logger.level to off so stac_logger is also suppressed
+    Logger.level = Level.off;
+
+    var newSettings =
+        Map<LogCategory, LogCategorySettings>.from(state.logCategorySettings);
+    for (final category in LogCategory.values) {
+      final current = newSettings[category] ?? const LogCategorySettings();
+      newSettings[category] = current.copyWith(enabled: false);
+      AppLogger.setCategorySettings(category, newSettings[category]!);
+    }
+    state = state.copyWith(logCategorySettings: newSettings);
+    _saveSettings();
+  }
+
+  void resetLogSettings() {
+    // Restore global logger level
+    Logger.level = Level.all;
+
+    // Reset master toggle
+    state = state.copyWith(
+      masterLogsEnabled: true,
+      logTruncationEnabled: false,
+      logMaxLength: 1000,
+    );
+    // Logger.truncateLogs = false; // Removed
+    // Logger.maxLogLength = 1000; // Removed
+    // Reset all category settings to defaults
+    final defaultSettings = <LogCategory, LogCategorySettings>{};
+    for (final category in LogCategory.values) {
+      const defaultCategorySettings = LogCategorySettings(
+        enabled: true,
+        truncateEnabled: false,
+        maxLength: 1000,
+      );
+      defaultSettings[category] = defaultCategorySettings;
+      AppLogger.setCategorySettings(category, defaultCategorySettings);
+    }
+    state = state.copyWith(logCategorySettings: defaultSettings);
+    _saveSettings();
+    AppLogger.i('🔧 Log settings reset to defaults');
   }
 }
 

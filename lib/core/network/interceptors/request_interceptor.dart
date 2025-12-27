@@ -9,25 +9,23 @@ class RequestInterceptor extends Interceptor {
   RequestInterceptor({this.additionalHeaders = const {}});
 
   @override
-  void onRequest(
-    RequestOptions options,
-    RequestInterceptorHandler handler,
-  ) {
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     // Add platform-specific headers
     options.headers['API-REQUEST-FROM'] = Platform.isIOS ? 'iOS' : 'Android';
-    
+
     // Add any additional headers
     if (additionalHeaders.isNotEmpty) {
       options.headers.addAll(additionalHeaders);
     }
 
     // Log request details
-    AppLogger.d(
-      '${options.method} ${options.path}',
-    );
-    
+    AppLogger.dc(LogCategory.network, '${options.method} ${options.path}');
+
     if (options.queryParameters.isNotEmpty) {
-      AppLogger.d('Query params: ${options.queryParameters}');
+      AppLogger.dc(
+        LogCategory.network,
+        'Query params: ${options.queryParameters}',
+      );
     }
 
     super.onRequest(options, handler);

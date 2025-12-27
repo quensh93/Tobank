@@ -24,7 +24,7 @@ MockApiService mockApiService(Ref ref) {
 @riverpod
 StacApiService stacApiService(Ref ref) {
   final config = ref.watch(apiConfigProvider);
-  
+
   switch (config.mode) {
     case ApiMode.mock:
       return ref.watch(mockApiServiceProvider);
@@ -61,13 +61,13 @@ class MockDataReloadNotifier extends _$MockDataReloadNotifier {
   /// 4. Trigger UI refresh for all dependent widgets
   Future<void> reloadMockData() async {
     final apiService = ref.read(mockApiServiceProvider);
-    
+
     // Clear cache and reload
     await apiService.reloadMockData();
-    
+
     // Increment counter to notify listeners
     state = state + 1;
-    
+
     // Invalidate the API service provider to force rebuild
     ref.invalidate(stacApiServiceProvider);
   }
@@ -92,4 +92,3 @@ bool hasMockDataReloaded(Ref ref) {
 int mockDataReloadCount(Ref ref) {
   return ref.watch(mockDataReloadProvider);
 }
-

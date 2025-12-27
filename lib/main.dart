@@ -9,12 +9,17 @@ import 'core/stac/loaders/tobank/tobank_colors_loader.dart';
 import 'core/stac/loaders/tobank/tobank_assets_loader.dart';
 import 'core/stac/utils/variable_resolver_debug.dart';
 import 'core/bootstrap/bootstrap.dart';
+import 'core/helpers/logger.dart';
 import 'stac/default_stac_options.dart';
 
 void main() async {
   // CRITICAL: Initialize Flutter bindings FIRST
   // Required for rootBundle.loadString() in mock interceptor
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Load log settings from storage BEFORE any logging happens
+  // This ensures disabled log categories are respected from the start
+  await AppLogger.loadSettingsFromStorage();
 
   // Setup Dio with MockInterceptor for STAC dynamicView
   // This allows dynamicView to use mocked API responses from stac/tobank/{feature}/api/

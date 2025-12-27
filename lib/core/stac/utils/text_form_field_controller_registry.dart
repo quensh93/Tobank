@@ -34,14 +34,16 @@ class TextFormFieldControllerRegistry {
   }
 
   /// Update the text value for a field ID
-  bool updateValue(String fieldId, String value) {
+  bool updateValue(String fieldId, String value, {bool warnOnMissing = false}) {
     final controller = _controllers[fieldId];
     if (controller != null) {
       controller.text = value;
       AppLogger.d('Updated TextFormField value for: $fieldId = $value');
       return true;
     }
-    AppLogger.w('No controller found for field: $fieldId');
+    if (warnOnMissing) {
+      AppLogger.w('No controller found for field: $fieldId');
+    }
     return false;
   }
 

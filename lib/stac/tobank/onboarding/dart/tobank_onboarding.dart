@@ -1,42 +1,45 @@
 import 'package:stac_core/stac_core.dart';
+import '../../../../core/stac/builders/stac_stateful_widget.dart';
 import 'stac_tobank_onboarding_slider.dart';
 
 /// Tobank Onboarding Screen
-@StacScreen(screenName: 'tobank_onboarding')
+@StacScreen(screenName: 'tobank_onboarding_dart')
 StacWidget tobankOnboarding() {
-  return StacScaffold(
-    backgroundColor: '{{appColors.current.background.surface}}',
-    body: StacTobankOnboardingSlider(
-      pages: [
-        {
-          'title': '{{appStrings.onboarding.page1.title}}',
-          'description': '{{appStrings.onboarding.page1.description}}',
-          'image': '{{appAssets.onboarding.page1}}',
-          'buttonText': '{{appStrings.onboarding.startButton}}',
+  return StacStatefulWidget(
+    child: StacScaffold(
+      backgroundColor: '{{appColors.current.background.surface}}',
+      body: StacTobankOnboardingSlider(
+        pages: [
+          {
+            'title': '{{appStrings.onboarding.page1.title}}',
+            'description': '{{appStrings.onboarding.page1.description}}',
+            'image': '{{appAssets.onboarding.page1}}',
+            'buttonText': '{{appStrings.onboarding.startButton}}',
+          },
+          {
+            'title': '{{appStrings.onboarding.page2.title}}',
+            'description': '{{appStrings.onboarding.page2.description}}',
+            'image': '{{appAssets.onboarding.page2}}',
+            'buttonText': '{{appStrings.onboarding.startButton}}',
+          },
+          {
+            'title': '{{appStrings.onboarding.page3.title}}',
+            'description': '{{appStrings.onboarding.page3.description}}',
+            'image': '{{appAssets.onboarding.page3}}',
+            'buttonText': '{{appStrings.onboarding.startButton}}',
+          },
+          {
+            'title': '{{appStrings.onboarding.page4.title}}',
+            'description': '{{appStrings.onboarding.page4.description}}',
+            'image': '{{appAssets.onboarding.page4}}',
+            'buttonText': '{{appStrings.onboarding.startButton}}',
+          },
+        ],
+        onFinish: {
+          'actionType': 'flowNext',
+          'fallback': {'actionType': 'navigate', 'navigationStyle': 'pop'},
         },
-        {
-          'title': '{{appStrings.onboarding.page2.title}}',
-          'description': '{{appStrings.onboarding.page2.description}}',
-          'image': '{{appAssets.onboarding.page2}}',
-          'buttonText': '{{appStrings.onboarding.startButton}}',
-        },
-        {
-          'title': '{{appStrings.onboarding.page3.title}}',
-          'description': '{{appStrings.onboarding.page3.description}}',
-          'image': '{{appAssets.onboarding.page3}}',
-          'buttonText': '{{appStrings.onboarding.startButton}}',
-        },
-        {
-          'title': '{{appStrings.onboarding.page4.title}}',
-          'description': '{{appStrings.onboarding.page4.description}}',
-          'image': '{{appAssets.onboarding.page4}}',
-          'buttonText': '{{appStrings.onboarding.startButton}}',
-        },
-      ],
-      onFinish: {
-        'actionType': 'flowNext',
-        'fallback': {'actionType': 'navigate', 'navigationStyle': 'pop'},
-      },
+      ),
     ),
   );
 }

@@ -2,70 +2,73 @@
   "GET": {
     "statusCode": 200,
     "data": {
-      "backgroundColor": "{{appColors.current.background.surface}}",
-      "body": {
-        "children": [
-          {
-            "alignment": "center",
-            "child": {
-              "mainAxisSize": "min",
-              "crossAxisAlignment": "center",
-              "children": [
-                {
-                  "src": "assets/icons/ToBank_Red_1.svg",
-                  "imageType": "asset",
-                  "width": 229.0,
-                  "height": 36.0,
-                  "fit": "contain",
-                  "type": "image"
+      "type": "stateFull",
+      "child": {
+        "backgroundColor": "{{appColors.current.background.surface}}",
+        "body": {
+          "children": [
+            {
+              "alignment": "center",
+              "child": {
+                "mainAxisSize": "min",
+                "crossAxisAlignment": "center",
+                "children": [
+                  {
+                    "src": "assets/icons/ToBank_Red_1.svg",
+                    "imageType": "asset",
+                    "width": 229.0,
+                    "height": 36.0,
+                    "fit": "contain",
+                    "type": "image"
+                  },
+                  {
+                    "height": 27.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{appStrings.splash.slogan}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 20.0,
+                      "fontWeight": "bold",
+                      "fontFamily": "IranYekan"
+                    },
+                    "textDirection": "rtl",
+                    "type": "text"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "align"
+            },
+            {
+              "alignment": "bottomCenter",
+              "child": {
+                "padding": {
+                  "bottom": 49.0
                 },
-                {
-                  "height": 27.0,
-                  "type": "sizedBox"
-                },
-                {
-                  "data": "{{appStrings.splash.slogan}}",
+                "child": {
+                  "data": "{{appStrings.splash.version}} {{appData.version}}",
                   "style": {
                     "type": "custom",
-                    "color": "{{appColors.current.text.title}}",
-                    "fontSize": 20.0,
-                    "fontWeight": "bold",
+                    "color": "{{appColors.current.text.subtitle}}",
+                    "fontSize": 16.0,
+                    "fontWeight": "w400",
                     "fontFamily": "IranYekan"
                   },
                   "textDirection": "rtl",
                   "type": "text"
-                }
-              ],
-              "type": "column"
-            },
-            "type": "align"
-          },
-          {
-            "alignment": "bottomCenter",
-            "child": {
-              "padding": {
-                "bottom": 49.0
-              },
-              "child": {
-                "data": "{{appStrings.splash.version}} {{appData.version}}",
-                "style": {
-                  "type": "custom",
-                  "color": "{{appColors.current.text.subtitle}}",
-                  "fontSize": 16.0,
-                  "fontWeight": "w400",
-                  "fontFamily": "IranYekan"
                 },
-                "textDirection": "rtl",
-                "type": "text"
+                "type": "padding"
               },
-              "type": "padding"
-            },
-            "type": "align"
-          }
-        ],
-        "type": "stack"
-      },
-      "type": "scaffold"
+              "type": "align"
+            }
+          ],
+          "type": "stack"
+        },
+        "type": "scaffold"
+      }
     }
   }
 }

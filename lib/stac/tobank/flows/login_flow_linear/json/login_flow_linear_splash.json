@@ -1,5 +1,5 @@
 {
-  "type": "stateful",
+  "type": "stateFull",
   "onInit": {
     "actionType": "sequence",
     "actions": [
@@ -7,6 +7,10 @@
         "actionType": "setValue",
         "key": "splashStartTime",
         "value": "{{now()}}"
+      },
+      {
+        "actionType": "log",
+        "message": "onInit: splash initialized"
       },
       {
         "actionType": "delay",
@@ -19,9 +23,58 @@
       }
     ]
   },
-  "onDispose": {
+  "onBuild": {
     "actionType": "log",
-    "message": "Splash screen disposed"
+    "message": "onBuild: splash build"
+  },
+  "onDependenciesChanged": {
+    "actionType": "log",
+    "message": "didChangeDependencies: splash"
+  },
+  "onWidgetUpdated": {
+    "actionType": "log",
+    "message": "didUpdateWidget: splash"
+  },
+  "onReassemble": {
+    "actionType": "log",
+    "message": "reassemble (hot reload): splash"
+  },
+  "onDeactivate": {
+    "actionType": "log",
+    "message": "deactivate: splash"
+  },
+  "onResume": {
+    "actionType": "log",
+    "message": "appLifecycle resumed: splash"
+  },
+  "onPause": {
+    "actionType": "log",
+    "message": "appLifecycle paused: splash"
+  },
+  "onInactive": {
+    "actionType": "log",
+    "message": "appLifecycle inactive: splash"
+  },
+  "onHidden": {
+    "actionType": "log",
+    "message": "appLifecycle hidden: splash"
+  },
+  "onDetached": {
+    "actionType": "log",
+    "message": "appLifecycle detached: splash"
+  },
+  "onDispose": {
+    "actionType": "sequence",
+    "actions": [
+      {
+        "actionType": "log",
+        "message": "onDispose: splash disposed"
+      },
+      {
+        "actionType": "log",
+        "message": "splash duration: {{now() - splashStartTime}}ms"
+      }
+    ]
   },
   "child": {
     "type": "scaffold",

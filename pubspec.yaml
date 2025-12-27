@@ -117,10 +117,10 @@ flutter:
     - lib/stac/tobank/auth/api/
     - lib/stac/tobank/sum_test/json/
     - lib/stac/tobank/sum_test/api/
+    - lib/stac/tobank/stateful_example/json/
+    - lib/stac/tobank/stateful_example/api/
     # Flows
-    - lib/stac/tobank/flows/login_flow/dart/
-    - lib/stac/tobank/flows/login_flow/json/
-    - lib/stac/tobank/flows/login_flow/api/
+
     - lib/stac/tobank/flows/login_flow_linear/dart/
     - lib/stac/tobank/flows/login_flow_linear/json/
     - lib/stac/tobank/flows/login_flow_linear/api/
@@ -136,3 +136,5 @@ flutter:
           weight: 700
         - asset: assets/fonts/IRANYekanMobileExtraBold.ttf
           weight: 900
+
+

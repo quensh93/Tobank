@@ -45,7 +45,39 @@ lib/core/stac/
 
 ## 📦 Component Details
 
-### 1. Loaders (`loaders/tobank/`)
+### 1. Builders (`builders/`)
+
+**Purpose**: Dart classes that simplify the creation of complex STAC JSON structures.
+
+#### `stac_stateful_widget.dart`
+
+**Purpose**: Defines a widget that supports lifecycle events, mirroring Flutter's StatefulWidget but defined in JSON.
+
+**Key Features:**
+- **Lifecycle Support**: `onInit`, `onBuild`, `onDispose`.
+- **JSON Serialization**: Converts the Dart object structure into a valid "stateFull" STAC widget JSON.
+
+**Usage:**
+```dart
+StacStatefulWidget(
+  onInit: StacLogAction(message: 'Init'),
+  child: StacScaffold(...),
+)
+```
+
+#### `stac_custom_actions.dart`
+
+**Purpose**: Type-safe Dart builders for custom STAC actions.
+
+**Key Compontents:**
+- `StacSequenceAction`: Chained actions.
+- `StacNetworkRequestAction`: API calls with result handling.
+- `StacCustomSetValueAction` / `StacGetFormValueAction`: Form state management.
+- `StacPersianDatePickerAction`: Date picker integration.
+
+**Why use them?**: They prevent syntax errors in JSON keys and ensure correct nesting of actions.
+
+### 2. Loaders (`loaders/tobank/`)
 
 **Purpose**: Load colors, strings, and styles from JSON files and store in `StacRegistry`.
 

@@ -3,6 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../state/debug_panel_settings_state.dart';
 import '../themes/debug_panel_theme.dart';
 import '../../core/helpers/logger.dart';
+import '../../core/helpers/log_category.dart';
 
 /// Settings tab for debug panel customization
 class SettingsTab extends ConsumerWidget {
@@ -116,6 +117,315 @@ class SettingsTab extends ConsumerWidget {
                         AppLogger.i(
                             '🔧 ISpect draggable panel ${enabled ? "enabled" : "disabled"} from Settings');
                       },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 24),
+
+            // Logging Section
+            _buildSectionHeader(context, 'Logging', Icons.terminal),
+            const SizedBox(height: 12),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Master Log Switch
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Enable Logs',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium
+                                    ?.copyWith(fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                settings.masterLogsEnabled
+                                    ? 'All logging is enabled (STAC + App)'
+                                    : 'All logging is disabled (STAC + App)',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall
+                                    ?.copyWith(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSurface
+                                          .withValues(alpha: 0.6),
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Switch(
+                          value: settings.masterLogsEnabled,
+                          onChanged: (enabled) {
+                            controller.setMasterLogsEnabled(enabled);
+                          },
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    // Enable All / Disable All buttons row
+                    Row(
+                      children: [
+                        Expanded(
+                          child: FilledButton.icon(
+                            onPressed: () {
+                              controller.enableAllCategories();
+                            },
+                            icon: const Icon(Icons.check_circle_outline,
+                                size: 18),
+                            label: const Text('Enable Categories'),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: FilledButton.tonalIcon(
+                            onPressed: () {
+                              controller.disableAllCategories();
+                            },
+                            icon: const Icon(Icons.block, size: 18),
+                            label: const Text('Disable Categories'),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    // Reset Log Settings button
+                    SizedBox(
+                      width: double.infinity,
+                      child: OutlinedButton.icon(
+                        onPressed: () {
+                          controller.resetLogSettings();
+                        },
+                        icon: const Icon(Icons.restore, size: 18),
+                        label: const Text('Reset Log Settings'),
+                      ),
+                    ),
+                    const Divider(height: 24),
+                    // Compact category list header
+                    Text(
+                      'Log Categories (AppLogger only)',
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                            fontWeight: FontWeight.w600,
+                          ),
+                    ),
+                    Text(
+                      'STAC framework logs are controlled by the master switch',
+                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSurface
+                                .withValues(alpha: 0.5),
+                            fontStyle: FontStyle.italic,
+                          ),
+                    ),
+                    const SizedBox(height: 8),
+                    // Responsive grid layout for categories
+                    LayoutBuilder(
+                      builder: (context, constraints) {
+                        // Calculate columns based on width: 2 cols for <300, 3 for <500, 4 for wider
+                        final cols = constraints.maxWidth < 300
+                            ? 2
+                            : (constraints.maxWidth < 500 ? 3 : 4);
+                        final itemWidth =
+                            (constraints.maxWidth - (cols - 1) * 4) / cols;
+                        return Wrap(
+                          spacing: 4,
+                          runSpacing: 2,
+                          children: LogCategory.values.map((category) {
+                            final categorySettings =
+                                settings.logCategorySettings[category] ??
+                                    const LogCategorySettings();
+                            return SizedBox(
+                              width: itemWidth,
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  SizedBox(
+                                    height: 24,
+                                    width: 32,
+                                    child: FittedBox(
+                                      fit: BoxFit.contain,
+                                      child: Switch(
+                                        value: categorySettings.enabled,
+                                        onChanged: (enabled) {
+                                          controller.setLogCategorySettings(
+                                            category,
+                                            categorySettings.copyWith(
+                                                enabled: enabled),
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Text(
+                                      category.name[0].toUpperCase() +
+                                          category.name.substring(1),
+                                      style: TextStyle(
+                                        fontSize: 10,
+                                        color: categorySettings.enabled
+                                            ? null
+                                            : Theme.of(context).disabledColor,
+                                      ),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          }).toList(),
+                        );
+                      },
+                    ),
+                    const SizedBox(height: 16),
+                    // Truncate Settings - collapsible
+                    ExpansionTile(
+                      title: Text(
+                        'Truncate Settings',
+                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                              fontWeight: FontWeight.w600,
+                            ),
+                      ),
+                      tilePadding: EdgeInsets.zero,
+                      childrenPadding: const EdgeInsets.only(top: 8),
+                      children: LogCategory.values.map((category) {
+                        final categorySettings =
+                            settings.logCategorySettings[category] ??
+                                const LogCategorySettings();
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 8),
+                          child: Row(
+                            children: [
+                              // Category name
+                              SizedBox(
+                                width: 70,
+                                child: Text(
+                                  category.name[0].toUpperCase() +
+                                      category.name.substring(1),
+                                  style: const TextStyle(fontSize: 11),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                              // Truncate toggle
+                              SizedBox(
+                                height: 28,
+                                width: 36,
+                                child: FittedBox(
+                                  fit: BoxFit.contain,
+                                  child: Switch(
+                                    value: categorySettings.truncateEnabled,
+                                    onChanged: (truncate) {
+                                      controller.setLogCategorySettings(
+                                        category,
+                                        categorySettings.copyWith(
+                                            truncateEnabled: truncate),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 4),
+                              // Max length control (compact)
+                              Expanded(
+                                child: categorySettings.truncateEnabled
+                                    ? Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          // Decrease button
+                                          InkWell(
+                                            onTap: () {
+                                              final newValue =
+                                                  (categorySettings.maxLength -
+                                                          100)
+                                                      .clamp(100, 5000);
+                                              controller.setLogCategorySettings(
+                                                category,
+                                                categorySettings.copyWith(
+                                                    maxLength: newValue),
+                                              );
+                                            },
+                                            child: Container(
+                                              padding: const EdgeInsets.all(2),
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    color: Theme.of(context)
+                                                        .colorScheme
+                                                        .outline),
+                                                borderRadius:
+                                                    BorderRadius.circular(4),
+                                              ),
+                                              child: const Icon(Icons.remove,
+                                                  size: 12),
+                                            ),
+                                          ),
+                                          const SizedBox(width: 4),
+                                          // Value display
+                                          SizedBox(
+                                            width: 40,
+                                            child: Text(
+                                              '${categorySettings.maxLength}',
+                                              style:
+                                                  const TextStyle(fontSize: 10),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                          const SizedBox(width: 4),
+                                          // Increase button
+                                          InkWell(
+                                            onTap: () {
+                                              final newValue =
+                                                  (categorySettings.maxLength +
+                                                          100)
+                                                      .clamp(100, 5000);
+                                              controller.setLogCategorySettings(
+                                                category,
+                                                categorySettings.copyWith(
+                                                    maxLength: newValue),
+                                              );
+                                            },
+                                            child: Container(
+                                              padding: const EdgeInsets.all(2),
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    color: Theme.of(context)
+                                                        .colorScheme
+                                                        .outline),
+                                                borderRadius:
+                                                    BorderRadius.circular(4),
+                                              ),
+                                              child: const Icon(Icons.add,
+                                                  size: 12),
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    : Text(
+                                        'No truncation',
+                                        style: TextStyle(
+                                          fontSize: 10,
+                                          color:
+                                              Theme.of(context).disabledColor,
+                                        ),
+                                      ),
+                              ),
+                            ],
+                          ),
+                        );
+                      }).toList(),
                     ),
                   ],
                 ),

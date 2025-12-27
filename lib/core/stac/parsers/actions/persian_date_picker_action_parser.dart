@@ -26,16 +26,16 @@ import '../../../widgets/date_picker/date_selector_bottom_sheet.dart';
 class PersianDatePickerActionModel {
   /// The form field ID to update with the selected date
   final String formFieldId;
-  
+
   /// Initial date to show in picker (format: YYYY/MM/DD)
   final String? initialDate;
-  
+
   /// First selectable date (format: YYYY/MM/DD)
   final String? firstDate;
-  
+
   /// Last selectable date (format: YYYY/MM/DD)
   final String? lastDate;
-  
+
   /// Optional action to execute after date is selected
   final Map<String, dynamic>? onDateSelected;
 
@@ -73,7 +73,8 @@ class PersianDatePickerActionModel {
 ///
 /// Shows a Persian (Jalali) date picker dialog and updates the form field
 /// with the selected date in YYYY/MM/DD format.
-class PersianDatePickerActionParser extends StacActionParser<PersianDatePickerActionModel> {
+class PersianDatePickerActionParser
+    extends StacActionParser<PersianDatePickerActionModel> {
   const PersianDatePickerActionParser();
 
   @override
@@ -84,10 +85,21 @@ class PersianDatePickerActionParser extends StacActionParser<PersianDatePickerAc
       PersianDatePickerActionModel.fromJson(json);
 
   @override
-  FutureOr onCall(BuildContext context, PersianDatePickerActionModel model) async {
+  FutureOr onCall(
+    BuildContext context,
+    PersianDatePickerActionModel model,
+  ) async {
     try {
-      AppLogger.i('🗓️ Persian date picker action triggered for field: ${model.formFieldId}');
-      
+      AppLogger.i(
+        '🗓️ Persian date picker action triggered for field: ${model.formFieldId}',
+      );
+      AppLogger.d(
+        '📋 onDateSelected is: ${model.onDateSelected != null ? 'PRESENT' : 'NULL'}',
+      );
+      if (model.onDateSelected != null) {
+        AppLogger.d('📋 onDateSelected content: ${model.onDateSelected}');
+      }
+
       // Format initial date string (YYYY/MM/DD format)
       String initDateString = '';
       if (model.initialDate != null && model.initialDate!.isNotEmpty) {
@@ -95,7 +107,8 @@ class PersianDatePickerActionParser extends StacActionParser<PersianDatePickerAc
         AppLogger.d('Using provided initial date: $initDateString');
       } else {
         final now = Jalali.now();
-        initDateString = '${now.year}/${now.month.toString().padLeft(2, '0')}/${now.day.toString().padLeft(2, '0')}';
+        initDateString =
+            '${now.year}/${now.month.toString().padLeft(2, '0')}/${now.day.toString().padLeft(2, '0')}';
         AppLogger.d('Using current date as initial: $initDateString');
       }
 
@@ -107,7 +120,8 @@ class PersianDatePickerActionParser extends StacActionParser<PersianDatePickerAc
       } else {
         // Default: 100 years ago
         final firstJalali = Jalali(Jalali.now().year - 100, 1, 1);
-        startDateString = '${firstJalali.year}/${firstJalali.month.toString().padLeft(2, '0')}/${firstJalali.day.toString().padLeft(2, '0')}';
+        startDateString =
+            '${firstJalali.year}/${firstJalali.month.toString().padLeft(2, '0')}/${firstJalali.day.toString().padLeft(2, '0')}';
         AppLogger.d('Using default first date: $startDateString');
       }
 
@@ -119,14 +133,20 @@ class PersianDatePickerActionParser extends StacActionParser<PersianDatePickerAc
       } else {
         // Default: today
         final lastJalali = Jalali.now();
-        endDateString = '${lastJalali.year}/${lastJalali.month.toString().padLeft(2, '0')}/${lastJalali.day.toString().padLeft(2, '0')}';
+        endDateString =
+            '${lastJalali.year}/${lastJalali.month.toString().padLeft(2, '0')}/${lastJalali.day.toString().padLeft(2, '0')}';
         AppLogger.d('Using default last date: $endDateString');
       }
 
       // Get title from registry
-      final title = StacRegistry.instance.getValue('appStrings.datePicker.selectBirthDate')?.toString() ?? 
-                   StacRegistry.instance.getValue('appStrings.common.selectDate')?.toString() ?? 
-                   'انتخاب تاریخ';
+      final title =
+          StacRegistry.instance
+              .getValue('appStrings.datePicker.selectBirthDate')
+              ?.toString() ??
+          StacRegistry.instance
+              .getValue('appStrings.common.selectDate')
+              ?.toString() ??
+          'انتخاب تاریخ';
       AppLogger.d('Date picker title: $title');
 
       // Track selected date
@@ -142,8 +162,10 @@ class PersianDatePickerActionParser extends StacActionParser<PersianDatePickerAc
       final isDarkMode = Theme.of(context).brightness == Brightness.dark;
       final screenHeight = MediaQuery.of(context).size.height;
 
-      AppLogger.d('Showing date picker bottom sheet - isDarkMode: $isDarkMode, height: $screenHeight');
-      
+      AppLogger.d(
+        'Showing date picker bottom sheet - isDarkMode: $isDarkMode, height: $screenHeight',
+      );
+
       // Check if Navigator is available
       try {
         Navigator.of(context, rootNavigator: false);
@@ -164,29 +186,36 @@ class PersianDatePickerActionParser extends StacActionParser<PersianDatePickerAc
       AppLogger.d('Calling showModalBottomSheet...');
       AppLogger.d('Context type: ${context.runtimeType}');
       AppLogger.d('Context mounted: ${context.mounted}');
-      
+
       // Add a small delay to ensure the context is ready
       await Future.delayed(const Duration(milliseconds: 100));
-      
+
       if (!context.mounted) {
         AppLogger.e('Context no longer mounted after delay');
         return null;
       }
-      
+
       final result = await showModalBottomSheet<String>(
         elevation: 0,
         context: context,
         isScrollControlled: true,
-        backgroundColor: Colors.transparent, // Make background transparent so we can see the rounded corners
+        backgroundColor: Colors
+            .transparent, // Make background transparent so we can see the rounded corners
         constraints: BoxConstraints(maxHeight: screenHeight * 5 / 6),
         isDismissible: true, // Allow dismissing by tapping outside
         enableDrag: true, // Allow dragging to dismiss
         useSafeArea: true, // Use safe area
         barrierColor: Colors.black54, // Semi-transparent barrier
         builder: (bottomSheetContext) {
-          AppLogger.d('Bottom sheet builder called - building DateSelectorBottomSheet');
-          AppLogger.d('Bottom sheet context: ${bottomSheetContext.runtimeType}');
-          AppLogger.d('Bottom sheet context mounted: ${bottomSheetContext.mounted}');
+          AppLogger.d(
+            'Bottom sheet builder called - building DateSelectorBottomSheet',
+          );
+          AppLogger.d(
+            'Bottom sheet context: ${bottomSheetContext.runtimeType}',
+          );
+          AppLogger.d(
+            'Bottom sheet context mounted: ${bottomSheetContext.mounted}',
+          );
           try {
             // Wrap in GestureDetector to prevent taps from propagating
             final bottomSheetWidget = GestureDetector(
@@ -196,76 +225,108 @@ class PersianDatePickerActionParser extends StacActionParser<PersianDatePickerAc
               child: Container(
                 decoration: BoxDecoration(
                   color: isDarkMode ? const Color(0xFF1c222e) : Colors.white,
-                  borderRadius: const BorderRadius.vertical(top: Radius.circular(8.0)),
-                ),
-                child: DateSelectorBottomSheet(
-            initDateString: initDateString,
-            startDateString: startDateString,
-            endDateString: endDateString,
-            title: title,
-            onDateSelected: (selectedDate) {
-              selectedDateString = selectedDate;
-            },
-            callback: () async {
-              // Format date as YYYY/MM/DD (ensure consistent format)
-              final parts = selectedDateString.split('/');
-              if (parts.length == 3) {
-                final year = parts[0];
-                final month = parts[1].padLeft(2, '0');
-                final day = parts[2].padLeft(2, '0');
-                selectedDateString = '$year/$month/$day';
-              }
-              
-              AppLogger.d('Persian date picker selected: $selectedDateString');
-
-              // Get form scope to update form field directly
-              final formScope = StacFormScope.of(context);
-              if (formScope != null) {
-                // Update formData directly (the map should be mutable)
-                formScope.formData[model.formFieldId] = selectedDateString;
-                AppLogger.d('Updated formData[${model.formFieldId}] = $selectedDateString');
-              }
-
-              // Also update registry for use in other places (e.g., API calls)
-              StacRegistry.instance.setValue('form.${model.formFieldId}', selectedDateString);
-              
-              // Update the TextFormField controller to display the selected date
-              _updateTextFormFieldValue(context, model.formFieldId, selectedDateString);
-              
-              // Use setValue action to ensure the form field updates
-              // This will trigger any necessary rebuilds
-              final setValueActionJson = {
-                'actionType': 'setValue',
-                'values': [
-                  {
-                    'key': 'form.${model.formFieldId}',
-                    'value': selectedDateString,
-                  },
-                ],
-              };
-              await Stac.onCallFromJson(setValueActionJson, context);
-
-              // Execute optional onDateSelected action if provided
-              if (model.onDateSelected != null) {
-                await Stac.onCallFromJson(model.onDateSelected!, context);
-              }
-
-              // Close bottom sheet
-              AppLogger.d('Closing bottom sheet with date: $selectedDateString');
-              Navigator.of(bottomSheetContext).pop(selectedDateString);
-            },
+                  borderRadius: const BorderRadius.vertical(
+                    top: Radius.circular(8.0),
                   ),
                 ),
-              );
+                child: DateSelectorBottomSheet(
+                  initDateString: initDateString,
+                  startDateString: startDateString,
+                  endDateString: endDateString,
+                  title: title,
+                  onDateSelected: (selectedDate) {
+                    selectedDateString = selectedDate;
+                  },
+                  callback: () async {
+                    // Format date as YYYY/MM/DD (ensure consistent format)
+                    final parts = selectedDateString.split('/');
+                    if (parts.length == 3) {
+                      final year = parts[0];
+                      final month = parts[1].padLeft(2, '0');
+                      final day = parts[2].padLeft(2, '0');
+                      selectedDateString = '$year/$month/$day';
+                    }
+
+                    AppLogger.d(
+                      'Persian date picker selected: $selectedDateString',
+                    );
+
+                    // Get form scope to update form field directly
+                    final formScope = StacFormScope.of(context);
+                    if (formScope != null) {
+                      // Update formData directly (the map should be mutable)
+                      formScope.formData[model.formFieldId] =
+                          selectedDateString;
+                      AppLogger.d(
+                        'Updated formData[${model.formFieldId}] = $selectedDateString',
+                      );
+                    }
+
+                    // Also update registry for use in other places (e.g., API calls)
+                    StacRegistry.instance.setValue(
+                      'form.${model.formFieldId}',
+                      selectedDateString,
+                    );
+
+                    // Update the TextFormField controller to display the selected date
+                    _updateTextFormFieldValue(
+                      context,
+                      model.formFieldId,
+                      selectedDateString,
+                    );
+
+                    // Use setValue action to ensure the form field updates
+                    // This will trigger any necessary rebuilds
+                    final setValueActionJson = {
+                      'actionType': 'setValue',
+                      'values': [
+                        {
+                          'key': 'form.${model.formFieldId}',
+                          'value': selectedDateString,
+                        },
+                      ],
+                    };
+                    await Stac.onCallFromJson(setValueActionJson, context);
+
+                    // Execute optional onDateSelected action if provided
+                    if (model.onDateSelected != null) {
+                      AppLogger.i(
+                        '🎯 Executing onDateSelected callback: ${model.onDateSelected}',
+                      );
+                      await Stac.onCallFromJson(model.onDateSelected!, context);
+                      AppLogger.i(
+                        '✅ onDateSelected callback executed successfully',
+                      );
+                    } else {
+                      AppLogger.w(
+                        '⚠️ onDateSelected is null, skipping callback',
+                      );
+                    }
+
+                    // Close bottom sheet
+                    AppLogger.d(
+                      'Closing bottom sheet with date: $selectedDateString',
+                    );
+                    Navigator.of(bottomSheetContext).pop(selectedDateString);
+                  },
+                ),
+              ),
+            );
             AppLogger.d('DateSelectorBottomSheet widget created successfully');
             return bottomSheetWidget;
           } catch (e, stackTrace) {
-            AppLogger.e('Error building DateSelectorBottomSheet: $e', e, stackTrace);
+            AppLogger.e(
+              'Error building DateSelectorBottomSheet: $e',
+              e,
+              stackTrace,
+            );
             return Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: isDarkMode ? const Color(0xFF1c222e) : Colors.white,
-                borderRadius: const BorderRadius.vertical(top: Radius.circular(8.0)),
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(8.0),
+                ),
               ),
               child: Text('Error: $e'),
             );
@@ -290,7 +351,6 @@ class PersianDatePickerActionParser extends StacActionParser<PersianDatePickerAc
     }
   }
 
-
   /// Update the TextFormField controller to display the selected date
   /// Uses the TextFormFieldControllerRegistry to update the controller
   void _updateTextFormFieldValue(
@@ -305,12 +365,16 @@ class PersianDatePickerActionParser extends StacActionParser<PersianDatePickerAc
           // Try to update using the registry first (if controller was registered)
           final registry = TextFormFieldControllerRegistry.instance;
           final updated = registry.updateValue(fieldId, value);
-          
+
           if (updated) {
-            AppLogger.d('✅ Updated TextFormField via registry for: $fieldId = $value');
+            AppLogger.d(
+              '✅ Updated TextFormField via registry for: $fieldId = $value',
+            );
           } else {
             // Fallback: Try to find and update manually
-            AppLogger.w('Controller not found in registry for: $fieldId, trying manual update');
+            AppLogger.w(
+              'Controller not found in registry for: $fieldId, trying manual update',
+            );
             _findAndUpdateControllerManually(context, fieldId, value);
           }
         } catch (e) {
@@ -346,5 +410,7 @@ class PersianDatePickerActionParser extends StacActionParser<PersianDatePickerAc
 
 /// Register the Persian date picker action parser
 void registerPersianDatePickerActionParser() {
-  CustomComponentRegistry.instance.registerAction(const PersianDatePickerActionParser());
+  CustomComponentRegistry.instance.registerAction(
+    const PersianDatePickerActionParser(),
+  );
 }

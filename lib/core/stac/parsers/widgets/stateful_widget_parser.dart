@@ -22,6 +22,13 @@ class StatefulWidgetParser extends StacParser<StatefulWidgetModel> {
   }
 }
 
+class StateFullWidgetParser extends StatefulWidgetParser {
+  const StateFullWidgetParser();
+
+  @override
+  String get type => 'stateFull';
+}
+
 class _StatefulWidgetWrapper extends StatefulWidget {
   final StatefulWidgetModel model;
   final Widget child;
@@ -48,6 +55,30 @@ class _StatefulWidgetWrapperState extends State<_StatefulWidgetWrapper>
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_isMounted) {
+      _executeAction(widget.model.onDependenciesChanged, 'onDependenciesChanged');
+    }
+  }
+
+  @override
+  void didUpdateWidget(covariant _StatefulWidgetWrapper oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (_isMounted) {
+      _executeAction(widget.model.onWidgetUpdated, 'onWidgetUpdated');
+    }
+  }
+
+  @override
+  void reassemble() {
+    super.reassemble();
+    if (_isMounted) {
+      _executeAction(widget.model.onReassemble, 'onReassemble');
+    }
+  }
+
+  @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (!_isMounted) return;
 
@@ -59,32 +90,64 @@ class _StatefulWidgetWrapperState extends State<_StatefulWidgetWrapper>
         _executeAction(widget.model.onPause, 'onPause');
         break;
       case AppLifecycleState.inactive:
+        _executeAction(widget.model.onInactive, 'onInactive');
+        break;
       case AppLifecycleState.hidden:
+        _executeAction(widget.model.onHidden, 'onHidden');
+        break;
       case AppLifecycleState.detached:
+        _executeAction(widget.model.onDetached, 'onDetached');
         break;
     }
   }
 
   @override
+  void deactivate() {
+    if (_isMounted) {
+      _executeAction(widget.model.onDeactivate, 'onDeactivate');
+    }
+    super.deactivate();
+  }
+
+  @override
   void dispose() {
+    // In Flutter it's generally unsafe to use BuildContext in dispose.
+    // We still allow it for logging and lightweight actions, but execute
+    // immediately (not post-frame) and before marking unmounted.
+    _executeAction(widget.model.onDispose, 'onDispose', forceImmediate: true);
     _isMounted = false;
-    _executeAction(widget.model.onDispose, 'onDispose');
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
-  void _executeAction(Map<String, dynamic>? action, String actionName) {
-    if (action != null && _isMounted) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (!_isMounted) return;
-        try {
-          Stac.onCallFromJson(action, context);
-        } catch (e, stackTrace) {
-          debugPrint('Error executing $actionName: $e');
-          debugPrint('Stack trace: $stackTrace');
-        }
-      });
+  void _executeAction(
+    Map<String, dynamic>? action,
+    String actionName, {
+    bool forceImmediate = false,
+  }) {
+    if (action == null) return;
+
+    // For dispose we may need to run even while unmounting.
+    if (!_isMounted && !forceImmediate) return;
+
+    void run() {
+      try {
+        Stac.onCallFromJson(action, context);
+      } catch (e, stackTrace) {
+        debugPrint('Error executing $actionName: $e');
+        debugPrint('Stack trace: $stackTrace');
+      }
     }
+
+    if (forceImmediate) {
+      run();
+      return;
+    }
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!_isMounted) return;
+      run();
+    });
   }
 
   @override
