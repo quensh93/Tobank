@@ -1,3 +1,4 @@
+// ignore_for_file: implementation_imports
 import 'package:flutter/material.dart';
 import 'package:stac/src/parsers/foundation/colors/stac_brightness_parser.dart';
 import 'package:stac/src/parsers/foundation/decoration/stac_input_decoration_parser.dart';
@@ -13,12 +14,9 @@ import 'package:stac/src/parsers/foundation/text/stac_text_direction_parser.dart
 import 'package:stac/src/parsers/foundation/text/stac_text_input_action_parser.dart';
 import 'package:stac/src/parsers/foundation/text/stac_text_input_type_parser.dart';
 import 'package:stac/src/parsers/foundation/text/stac_text_style_parser.dart';
-import 'package:stac/src/parsers/widgets/stac_form/stac_form_scope.dart';
-import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/input_validations.dart';
 import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
-import 'package:stac_framework/stac_framework.dart';
 import '../../../helpers/logger.dart'; // Use AppLogger instead of stac_logger
 import '../../utils/text_form_field_controller_registry.dart';
 
@@ -214,8 +212,10 @@ class _CustomTextFormFieldWidgetState
             // Execute asynchronously to avoid blocking the UI
             Future.microtask(() {
               try {
-                Stac.onCallFromJson(onChangedAction, context);
-                AppLogger.i('✅ onChanged action executed successfully');
+                if (context.mounted) {
+                  Stac.onCallFromJson(onChangedAction, context);
+                  AppLogger.i('✅ onChanged action executed successfully');
+                }
               } catch (e, stackTrace) {
                 AppLogger.e('❌ Error executing onChanged action: $e');
                 AppLogger.e('📋 Stack trace: $stackTrace');

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:persian_datetime_picker/persian_datetime_picker.dart';
 import 'package:shamsi_date/shamsi_date.dart';
 import 'package:stac/stac.dart';
-import 'package:stac/src/parsers/widgets/stac_form/stac_form_scope.dart';
 import '../../registry/custom_component_registry.dart';
 import '../../utils/text_form_field_controller_registry.dart';
 import '../../../helpers/logger.dart';
@@ -293,10 +292,15 @@ class PersianDatePickerActionParser
                       AppLogger.i(
                         '🎯 Executing onDateSelected callback: ${model.onDateSelected}',
                       );
-                      await Stac.onCallFromJson(model.onDateSelected!, context);
-                      AppLogger.i(
-                        '✅ onDateSelected callback executed successfully',
-                      );
+                      if (context.mounted) {
+                        await Stac.onCallFromJson(
+                          model.onDateSelected!,
+                          context,
+                        );
+                        AppLogger.i(
+                          '✅ onDateSelected callback executed successfully',
+                        );
+                      }
                     } else {
                       AppLogger.w(
                         '⚠️ onDateSelected is null, skipping callback',
@@ -307,7 +311,9 @@ class PersianDatePickerActionParser
                     AppLogger.d(
                       'Closing bottom sheet with date: $selectedDateString',
                     );
-                    Navigator.of(bottomSheetContext).pop(selectedDateString);
+                    if (bottomSheetContext.mounted) {
+                      Navigator.of(bottomSheetContext).pop(selectedDateString);
+                    }
                   },
                 ),
               ),

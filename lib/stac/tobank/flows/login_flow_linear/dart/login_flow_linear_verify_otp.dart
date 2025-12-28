@@ -1,6 +1,6 @@
 import 'package:stac_core/stac_core.dart';
-import '../../../../../core/stac/builders/stac_stateful_widget.dart';
-import '../../../../../core/stac/builders/stac_custom_actions.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 
 /// Linear Login Flow - Verify OTP Screen
 ///

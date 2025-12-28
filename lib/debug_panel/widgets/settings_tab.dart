@@ -3,7 +3,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../state/debug_panel_settings_state.dart';
 import '../themes/debug_panel_theme.dart';
 import '../../core/helpers/logger.dart';
-import '../../core/helpers/log_category.dart';
 
 /// Settings tab for debug panel customization
 class SettingsTab extends ConsumerWidget {
@@ -842,7 +841,7 @@ class _SliderWithOverlay extends StatelessWidget {
           ),
         ),
       ],
-      onPopPage: (route, result) => false,
+      onDidRemovePage: (page) {},
     );
   }
 }

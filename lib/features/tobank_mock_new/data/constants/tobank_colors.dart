@@ -1,7 +1,9 @@
 /// Tobank Color Constants
-/// 
+///
 /// This file contains all color constants from the real Tobank app theme.
 /// Use these constants in STAC Dart files to ensure color consistency.
+
+library;
 
 // Light Theme Colors
 class TobankColorsLight {
@@ -98,7 +100,9 @@ class TobankColors {
 
   /// Get text subtitle color based on theme mode
   static String textSubtitleColor(bool isDark) {
-    return isDark ? TobankColorsDark.textSubtitle : TobankColorsLight.textSubtitle;
+    return isDark
+        ? TobankColorsDark.textSubtitle
+        : TobankColorsLight.textSubtitle;
   }
 
   /// Get text hint color based on theme mode

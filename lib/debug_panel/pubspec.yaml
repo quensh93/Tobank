@@ -11,6 +11,10 @@ dependencies:
   flutter:
     sdk: flutter
   hooks_riverpod: ^3.0.3
+  flutter_localizations:
+    sdk: flutter
+  material_color_utilities: ^0.11.0
+  meta: ^1.11.0
   device_frame: ^1.4.0
   slow_net_simulator: ^1.0.0
   path_provider: ^2.1.5
@@ -22,6 +26,8 @@ dependencies:
   re_editor: ^0.8.0
   re_highlight: ^0.0.3
   logger: any
+  universal_io: ^2.3.1
+  shared_preferences: ^2.5.4
 
 dev_dependencies:
   flutter_test:

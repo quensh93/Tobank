@@ -1,13 +1,12 @@
 import 'package:stac_core/stac_core.dart';
-import 'package:stac_core/actions/network_request/stac_network_request.dart';
 
 /// Tobank Home Screen - Main dashboard after login
-/// 
+///
 /// This screen displays:
 /// - Account balance card (from API)
 /// - Quick action buttons (Transfer, Pay Bills, etc.) - labels from API
 /// - Recent transactions list (from API)
-/// 
+///
 /// Uses data binding to load all data from mock API.
 /// Uses STAC theme colors which automatically adapt to light/dark mode.
 @StacScreen(screenName: 'tobank_home')
@@ -66,9 +65,7 @@ StacWidget tobankHome() {
         method: Method.get,
       ),
       targetPath: 'data',
-      loaderWidget: StacCenter(
-        child: StacCircularProgressIndicator(),
-      ),
+      loaderWidget: StacCenter(child: StacCircularProgressIndicator()),
       errorWidget: StacCenter(
         child: StacText(
           data: '{{appStrings.home.errorLoading}}',
@@ -120,9 +117,9 @@ StacWidget tobankHome() {
                 ),
               ),
             ),
-            
+
             StacSizedBox(height: 24),
-            
+
             // Quick Actions Section
             StacText(
               data: '{{quickActionsTitle}}',
@@ -132,9 +129,9 @@ StacWidget tobankHome() {
                 color: '{{appColors.current.text.title}}',
               ),
             ),
-            
+
             StacSizedBox(height: 16),
-            
+
             // Quick Actions Row
             StacRow(
               mainAxisAlignment: StacMainAxisAlignment.spaceEvenly,
@@ -167,7 +164,7 @@ StacWidget tobankHome() {
                     ],
                   ),
                 ),
-                
+
                 // Pay Bills
                 StacExpanded(
                   child: StacColumn(
@@ -196,7 +193,7 @@ StacWidget tobankHome() {
                     ],
                   ),
                 ),
-                
+
                 // Account Overview
                 StacExpanded(
                   child: StacColumn(
@@ -225,7 +222,7 @@ StacWidget tobankHome() {
                     ],
                   ),
                 ),
-                
+
                 // Transaction History
                 StacExpanded(
                   child: StacColumn(
@@ -237,7 +234,8 @@ StacWidget tobankHome() {
                           size: 32,
                         ),
                         onPressed: StacNavigateAction(
-                          assetPath: 'stac/.build/tobank_transaction_history.json',
+                          assetPath:
+                              'stac/.build/tobank_transaction_history.json',
                           navigationStyle: NavigationStyle.push,
                         ),
                       ),
@@ -256,9 +254,9 @@ StacWidget tobankHome() {
                 ),
               ],
             ),
-            
+
             StacSizedBox(height: 32),
-            
+
             // Recent Transactions Section
             StacRow(
               mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
@@ -287,9 +285,9 @@ StacWidget tobankHome() {
                 ),
               ],
             ),
-            
+
             StacSizedBox(height: 16),
-            
+
             // Recent Transactions List - Using StacDynamicView with itemTemplate
             // Note: itemTemplate will be added to JSON after build
             StacDynamicView(
@@ -301,17 +299,22 @@ StacWidget tobankHome() {
               loaderWidget: StacSizedBox(height: 100),
               errorWidget: StacText(
                 data: '{{appStrings.home.errorLoadingTransactions}}',
-                style: StacCustomTextStyle(color: '{{appColors.current.error.color}}'),
+                style: StacCustomTextStyle(
+                  color: '{{appColors.current.error.color}}',
+                ),
               ),
               emptyTemplate: StacText(
                 data: '{{appStrings.home.noTransactionsFound}}',
-                style: StacCustomTextStyle(color: '{{appColors.current.text.subtitle}}'),
+                style: StacCustomTextStyle(
+                  color: '{{appColors.current.text.subtitle}}',
+                ),
               ),
               // Use StacListView - itemTemplate will be added to JSON after build
               template: StacListView(
                 shrinkWrap: true,
                 physics: StacScrollPhysics.never,
-                children: [], // Empty - will be replaced by itemTemplate in JSON
+                children:
+                    [], // Empty - will be replaced by itemTemplate in JSON
               ),
             ),
           ],

@@ -10,7 +10,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:logger/logger.dart';
 
 import 'package:tobank_sdui/core/helpers/logger.dart';
-import 'package:tobank_sdui/core/helpers/log_category.dart';
 
 void main() {
   group('Logger.level Global Control', () {

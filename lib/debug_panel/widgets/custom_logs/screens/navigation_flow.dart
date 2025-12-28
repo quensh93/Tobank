@@ -1,8 +1,9 @@
+// ignore_for_file: avoid_dynamic_calls
 import 'package:flutter/material.dart';
 import 'package:ispect/ispect.dart';
 
 /// Navigation flow screen showing navigation transitions and route history
-/// 
+///
 /// Displays a visual timeline of all navigation transitions captured by
 /// the ISpectNavigatorObserver, including route names, timestamps, and types.
 class ISpectNavigationFlowScreen extends StatefulWidget {
@@ -34,17 +35,17 @@ class ISpectNavigationFlowScreen extends StatefulWidget {
 class _ISpectNavigationFlowScreenState
     extends State<ISpectNavigationFlowScreen> {
   int _lastTransitionCount = 0;
-  
+
   @override
   void initState() {
     super.initState();
     _lastTransitionCount = widget.observer.transitions.length;
-    
+
     // Listen to observer changes for live updates
     if (widget.observer is ChangeNotifier) {
       (widget.observer as ChangeNotifier).addListener(_onObserverChanged);
     }
-    
+
     // Poll for changes as fallback (in case observer doesn't notify)
     _startPolling();
   }
@@ -65,7 +66,7 @@ class _ISpectNavigationFlowScreenState
 
   void _checkForUpdates() {
     if (!mounted) return;
-    
+
     final currentCount = widget.observer.transitions.length;
     if (currentCount != _lastTransitionCount) {
       _lastTransitionCount = currentCount;
@@ -148,7 +149,8 @@ class _ISpectNavigationFlowScreenState
     );
   }
 
-  Widget _buildTransitionsList(BuildContext context, List<dynamic> transitions) {
+  Widget _buildTransitionsList(
+      BuildContext context, List<dynamic> transitions) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
 
@@ -159,7 +161,7 @@ class _ISpectNavigationFlowScreenState
       itemBuilder: (context, index) {
         final transition = transitions[index];
         final isLast = index == transitions.length - 1;
-        
+
         // Parse transition data
         final parsedData = _parseTransition(transition, index);
 
@@ -182,11 +184,11 @@ class _ISpectNavigationFlowScreenState
     try {
       // Try to access RouteTransition properties
       final dynamic t = transition;
-      
+
       // Extract route names from 'from' and 'to' RouteSettings
       String? fromRoute;
       String? toRoute;
-      
+
       try {
         final from = t.from;
         if (from != null) {
@@ -196,7 +198,7 @@ class _ISpectNavigationFlowScreenState
           }
         }
       } catch (_) {}
-      
+
       try {
         final to = t.to;
         if (to != null) {
@@ -206,7 +208,7 @@ class _ISpectNavigationFlowScreenState
           }
         }
       } catch (_) {}
-      
+
       // Extract transition type
       String transitionType = 'Unknown';
       try {
@@ -230,7 +232,7 @@ class _ISpectNavigationFlowScreenState
           }
         }
       }
-      
+
       // Extract timestamp
       DateTime? timestamp;
       try {
@@ -239,10 +241,10 @@ class _ISpectNavigationFlowScreenState
           timestamp = ts;
         }
       } catch (_) {}
-      
+
       // Determine route name (prefer 'to' route, fallback to 'from')
       final routeName = toRoute ?? fromRoute ?? 'Unknown Route';
-      
+
       // Format timestamp
       String timeStr = '#${index + 1}';
       if (timestamp != null) {
@@ -252,7 +254,7 @@ class _ISpectNavigationFlowScreenState
         final millisecond = timestamp.millisecond.toString().padLeft(3, '0');
         timeStr = '$hour:$minute:$second.$millisecond';
       }
-      
+
       return _TransitionData(
         routeName: routeName,
         transitionType: transitionType,
@@ -273,28 +275,29 @@ class _ISpectNavigationFlowScreenState
       if (name != null && name.isNotEmpty) {
         return name;
       }
-      
+
       // Try to get from arguments or other properties
       final arguments = settings.arguments;
       if (arguments != null) {
         return arguments.toString();
       }
     } catch (_) {}
-    
+
     // Fallback: parse from toString
     final str = settings.toString();
     final match = RegExp(r'RouteSettings\("([^"]+)"').firstMatch(str);
     if (match != null) {
       return match.group(1) ?? 'Unknown';
     }
-    
+
     return 'Unknown';
   }
 
   _TransitionData _parseFromString(String transitionStr) {
     // Extract route name
     String routeName = 'Unknown Route';
-    final routeMatch = RegExp(r'RouteSettings\("([^"]+)"').allMatches(transitionStr);
+    final routeMatch =
+        RegExp(r'RouteSettings\("([^"]+)"').allMatches(transitionStr);
     if (routeMatch.isNotEmpty) {
       final matches = routeMatch.toList();
       if (matches.length > 1) {
@@ -304,29 +307,34 @@ class _ISpectNavigationFlowScreenState
         routeName = matches.first.group(1) ?? 'Unknown Route';
       }
     }
-    
+
     // Extract transition type
     String transitionType = 'Unknown';
-    final typeMatch = RegExp(r'type: (TransitionType\.)?(\w+)').firstMatch(transitionStr);
+    final typeMatch =
+        RegExp(r'type: (TransitionType\.)?(\w+)').firstMatch(transitionStr);
     if (typeMatch != null) {
       transitionType = typeMatch.group(2) ?? 'Unknown';
     }
-    
+
     // Extract from/to routes
     String? fromRoute;
     String? toRoute;
-    final fromMatch = RegExp(r'from:.*?RouteSettings\("([^"]+)"').firstMatch(transitionStr);
+    final fromMatch =
+        RegExp(r'from:.*?RouteSettings\("([^"]+)"').firstMatch(transitionStr);
     if (fromMatch != null) {
       fromRoute = fromMatch.group(1);
     }
-    final toMatch = RegExp(r'to:.*?RouteSettings\("([^"]+)"').firstMatch(transitionStr);
+    final toMatch =
+        RegExp(r'to:.*?RouteSettings\("([^"]+)"').firstMatch(transitionStr);
     if (toMatch != null) {
       toRoute = toMatch.group(1);
     }
-    
+
     // Extract timestamp
     String timeStr = '#?';
-    final timeMatch = RegExp(r'timestamp: (\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d+)').firstMatch(transitionStr);
+    final timeMatch =
+        RegExp(r'timestamp: (\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d+)')
+            .firstMatch(transitionStr);
     if (timeMatch != null) {
       try {
         final fullTime = timeMatch.group(1)!;
@@ -337,7 +345,7 @@ class _ISpectNavigationFlowScreenState
         }
       } catch (_) {}
     }
-    
+
     return _TransitionData(
       routeName: toRoute ?? routeName,
       transitionType: transitionType,

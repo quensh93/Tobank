@@ -91,8 +91,9 @@ class DebugPanelSettings {
     return DebugPanelSettings(
       showAppFrame: json['showAppFrame'] ?? true,
       showToolPanel: json['showToolPanel'] ?? true,
-      panelWidth: (json['panelWidth'] ?? 400.0).toDouble(),
-      mobilePanelHeight: (json['mobilePanelHeight'] ?? 300.0).toDouble(),
+      panelWidth: (json['panelWidth'] as num? ?? 400.0).toDouble(),
+      mobilePanelHeight:
+          (json['mobilePanelHeight'] as num? ?? 300.0).toDouble(),
       enableScreenshots: json['enableScreenshots'] ?? true,
       enableLogs: json['enableLogs'] ?? true,
       enableAccessibility: json['enableAccessibility'] ?? true,
@@ -161,7 +162,8 @@ class DebugPanelController extends Notifier<DebugPanelState> {
 }
 
 /// Debug panel provider
-final debugPanelProvider = NotifierProvider<DebugPanelController, DebugPanelState>(
+final debugPanelProvider =
+    NotifierProvider<DebugPanelController, DebugPanelState>(
   () => DebugPanelController(),
 );
 

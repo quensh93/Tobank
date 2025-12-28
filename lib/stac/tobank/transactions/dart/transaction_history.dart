@@ -1,14 +1,13 @@
 import 'package:stac_core/stac_core.dart';
-import 'package:stac_core/actions/network_request/stac_network_request.dart';
 
 /// Tobank Transaction History Screen - List of all transactions
-/// 
+///
 /// This screen displays a list of all user transactions.
-/// 
+///
 /// Uses data binding to load all data from mock API.
 /// Uses Persian text from app_fa.arb.
 /// Uses STAC theme colors which automatically adapt to light/dark mode.
-/// 
+///
 /// Reference: `.tobank_old/lib/ui/dashboard_screen/page/transaction_list_page.dart`
 @StacScreen(screenName: 'tobank_transaction_history')
 StacWidget tobankTransactionHistory() {
@@ -53,9 +52,7 @@ StacWidget tobankTransactionHistory() {
         method: Method.get,
       ),
       targetPath: 'data.transactions',
-      loaderWidget: StacCenter(
-        child: StacCircularProgressIndicator(),
-      ),
+      loaderWidget: StacCenter(child: StacCircularProgressIndicator()),
       errorWidget: StacCenter(
         child: StacText(
           data: '{{appStrings.transactions.errorLoading}}',

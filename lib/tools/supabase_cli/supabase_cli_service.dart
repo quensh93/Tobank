@@ -1,3 +1,4 @@
+// ignore_for_file: avoid_print
 import 'package:supabase/supabase.dart';
 
 /// Service for managing Supabase operations in CLI tool

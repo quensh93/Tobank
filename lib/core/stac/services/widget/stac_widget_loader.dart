@@ -23,6 +23,7 @@ import '../../../../stac/tobank/flows/login_flow_linear/dart/login_flow_linear_v
     as linear_verify_otp_dart;
 import '../../../../stac/tobank/stateful_example/dart/tobank_stateful_example_dart.dart'
     as stateful_example_dart;
+import 'package:tobank_sdui/core/helpers/logger.dart';
 
 /// Service for loading STAC widgets from Dart files.
 ///
@@ -96,29 +97,34 @@ class StacWidgetLoader {
   /// Returns null if widgetType is not registered or loading fails.
   static Map<String, dynamic>? loadWidgetJson(String? widgetType) {
     if (widgetType == null || widgetType.isEmpty) {
-      print('⚠️ StacWidgetLoader: widgetType is null or empty');
+      AppLogger.w('StacWidgetLoader: widgetType is null or empty');
       return null;
     }
 
     final loader = _widgetLoaders[widgetType];
     if (loader == null) {
-      print('⚠️ StacWidgetLoader: No loader found for widgetType: $widgetType');
-      print('📋 Available widgetTypes: ${_widgetLoaders.keys.toList()}');
+      AppLogger.w(
+        'StacWidgetLoader: No loader found for widgetType: $widgetType',
+      );
+      AppLogger.d('Available widgetTypes: ${_widgetLoaders.keys.toList()}');
       return null;
     }
 
     try {
-      print('✅ StacWidgetLoader: Loading widget JSON for: $widgetType');
+      AppLogger.d('StacWidgetLoader: Loading widget JSON for: $widgetType');
       final json = loader();
-      print('✅ StacWidgetLoader: Successfully loaded JSON for: $widgetType');
-      print('📋 JSON keys: ${json.keys.toList()}');
+      AppLogger.d(
+        'StacWidgetLoader: Successfully loaded JSON for: $widgetType',
+      );
+      AppLogger.d('JSON keys: ${json.keys.toList()}');
       return json;
     } catch (e, stackTrace) {
       // Log error but don't throw - allows fallback to other navigation methods
-      print(
-        '❌ StacWidgetLoader: Error loading widget JSON for $widgetType: $e',
+      AppLogger.e(
+        'StacWidgetLoader: Error loading widget JSON for $widgetType',
+        e,
+        stackTrace,
       );
-      print('📋 Stack trace: $stackTrace');
       return null;
     }
   }

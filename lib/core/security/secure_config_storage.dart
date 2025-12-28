@@ -22,7 +22,7 @@ class SecureConfigStorage {
   static const String _apiKeyKey = 'stac_api_key';
   static const String _authTokenKey = 'stac_auth_token';
   static const String _refreshTokenKey = 'stac_refresh_token';
-  static const String _SupabaseConfigKey = 'stac_Supabase_config';
+  static const String _supabaseConfigKey = 'stac_Supabase_config';
   static const String _customApiUrlKey = 'stac_custom_api_url';
   static const String _userCredentialsKey = 'stac_user_credentials';
   static const String _encryptionKeyKey = 'stac_encryption_key';
@@ -34,12 +34,8 @@ class SecureConfigStorage {
     if (_initialized) return;
 
     _storage = const FlutterSecureStorage(
-      aOptions: AndroidOptions(
-        encryptedSharedPreferences: true,
-      ),
-      iOptions: IOSOptions(
-        accessibility: KeychainAccessibility.first_unlock,
-      ),
+      aOptions: AndroidOptions(),
+      iOptions: IOSOptions(accessibility: KeychainAccessibility.first_unlock),
     );
 
     _initialized = true;
@@ -61,7 +57,7 @@ class SecureConfigStorage {
   /// Stores the API key in encrypted storage.
   Future<void> saveApiKey(String apiKey) async {
     _ensureInitialized();
-    
+
     if (apiKey.isEmpty) {
       throw ArgumentError('API key cannot be empty');
     }
@@ -99,7 +95,7 @@ class SecureConfigStorage {
   /// Stores the auth token securely.
   Future<void> saveAuthToken(String token) async {
     _ensureInitialized();
-    
+
     if (token.isEmpty) {
       throw ArgumentError('Auth token cannot be empty');
     }
@@ -126,7 +122,7 @@ class SecureConfigStorage {
   /// Stores the refresh token securely.
   Future<void> saveRefreshToken(String token) async {
     _ensureInitialized();
-    
+
     if (token.isEmpty) {
       throw ArgumentError('Refresh token cannot be empty');
     }
@@ -153,10 +149,7 @@ class SecureConfigStorage {
   /// Removes both auth and refresh tokens.
   Future<void> clearAuthTokens() async {
     _ensureInitialized();
-    await Future.wait([
-      deleteAuthToken(),
-      deleteRefreshToken(),
-    ]);
+    await Future.wait([deleteAuthToken(), deleteRefreshToken()]);
   }
 
   // ==================== Supabase Configuration ====================
@@ -166,13 +159,13 @@ class SecureConfigStorage {
   /// Stores Supabase config (project ID, API key, etc.) securely.
   Future<void> saveSupabaseConfig(Map<String, String> config) async {
     _ensureInitialized();
-    
+
     if (config.isEmpty) {
       throw ArgumentError('Supabase config cannot be empty');
     }
 
     final jsonString = jsonEncode(config);
-    await _storage.write(key: _SupabaseConfigKey, value: jsonString);
+    await _storage.write(key: _supabaseConfigKey, value: jsonString);
   }
 
   /// Get Supabase configuration
@@ -180,8 +173,8 @@ class SecureConfigStorage {
   /// Retrieves the stored Supabase config, or null if not set.
   Future<Map<String, String>?> getSupabaseConfig() async {
     _ensureInitialized();
-    
-    final jsonString = await _storage.read(key: _SupabaseConfigKey);
+
+    final jsonString = await _storage.read(key: _supabaseConfigKey);
     if (jsonString == null) return null;
 
     try {
@@ -196,7 +189,7 @@ class SecureConfigStorage {
   /// Delete Supabase configuration
   Future<void> deleteSupabaseConfig() async {
     _ensureInitialized();
-    await _storage.delete(key: _SupabaseConfigKey);
+    await _storage.delete(key: _supabaseConfigKey);
   }
 
   /// Check if Supabase config exists
@@ -213,7 +206,7 @@ class SecureConfigStorage {
   /// Stores the custom API base URL securely.
   Future<void> saveCustomApiUrl(String url) async {
     _ensureInitialized();
-    
+
     if (url.isEmpty) {
       throw ArgumentError('API URL cannot be empty');
     }
@@ -252,7 +245,7 @@ class SecureConfigStorage {
     required String password,
   }) async {
     _ensureInitialized();
-    
+
     if (username.isEmpty || password.isEmpty) {
       throw ArgumentError('Username and password cannot be empty');
     }
@@ -272,7 +265,7 @@ class SecureConfigStorage {
   /// Retrieves stored credentials, or null if not set.
   Future<Map<String, String>?> getUserCredentials() async {
     _ensureInitialized();
-    
+
     final jsonString = await _storage.read(key: _userCredentialsKey);
     if (jsonString == null) return null;
 
@@ -302,7 +295,7 @@ class SecureConfigStorage {
   /// Stores an encryption key for additional data encryption.
   Future<void> saveEncryptionKey(String key) async {
     _ensureInitialized();
-    
+
     if (key.isEmpty) {
       throw ArgumentError('Encryption key cannot be empty');
     }
@@ -331,7 +324,7 @@ class SecureConfigStorage {
   /// Stores any string value securely with a custom key.
   Future<void> saveSecureValue(String key, String value) async {
     _ensureInitialized();
-    
+
     if (key.isEmpty) {
       throw ArgumentError('Key cannot be empty');
     }
@@ -344,7 +337,7 @@ class SecureConfigStorage {
   /// Retrieves a stored value by key, or null if not set.
   Future<String?> getSecureValue(String key) async {
     _ensureInitialized();
-    
+
     if (key.isEmpty) {
       throw ArgumentError('Key cannot be empty');
     }
@@ -355,7 +348,7 @@ class SecureConfigStorage {
   /// Delete generic secure value
   Future<void> deleteSecureValue(String key) async {
     _ensureInitialized();
-    
+
     if (key.isEmpty) {
       throw ArgumentError('Key cannot be empty');
     }
@@ -380,7 +373,7 @@ class SecureConfigStorage {
   /// Useful for debugging and migration.
   Future<List<String>> getAllKeys() async {
     _ensureInitialized();
-    
+
     final all = await _storage.readAll();
     return all.keys.toList();
   }
@@ -397,21 +390,21 @@ class SecureConfigStorage {
   /// Does NOT include passwords or tokens.
   Future<Map<String, dynamic>> exportConfig() async {
     _ensureInitialized();
-    
+
     final config = <String, dynamic>{};
-    
+
     // Export non-sensitive data only
     final customApiUrl = await getCustomApiUrl();
     if (customApiUrl != null) {
       config['custom_api_url'] = customApiUrl;
     }
-    
+
     final hasApiKey = await this.hasApiKey();
     config['has_api_key'] = hasApiKey;
-    
+
     final hasSupabaseConfig = await this.hasSupabaseConfig();
     config['has_Supabase_config'] = hasSupabaseConfig;
-    
+
     return config;
   }
 
@@ -420,9 +413,9 @@ class SecureConfigStorage {
   /// Returns information about stored items for debugging.
   Future<Map<String, dynamic>> getStorageStats() async {
     _ensureInitialized();
-    
+
     final all = await _storage.readAll();
-    
+
     return {
       'total_items': all.length,
       'has_api_key': await hasApiKey(),

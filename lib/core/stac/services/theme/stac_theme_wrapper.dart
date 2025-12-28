@@ -73,7 +73,7 @@ class StacThemeWrapper {
         ),
         disabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: borderEnabledColor.withOpacity(0.5),
+            color: borderEnabledColor.withValues(alpha: 0.5),
             width: borderWidth,
           ),
           borderRadius: borderRadius,
@@ -103,7 +103,8 @@ class StacThemeWrapper {
     if (currentTheme.inputDecorationTheme.enabledBorder is OutlineInputBorder) {
       final enabledBorder =
           currentTheme.inputDecorationTheme.enabledBorder as OutlineInputBorder;
-      final expectedColor = _hexToColor(borderEnabled) ?? currentTheme.dividerColor;
+      final expectedColor =
+          _hexToColor(borderEnabled) ?? currentTheme.dividerColor;
       // If the border color matches, we're likely already wrapped
       if (enabledBorder.borderSide.color == expectedColor) {
         return child;

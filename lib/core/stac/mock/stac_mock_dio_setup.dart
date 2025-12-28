@@ -360,7 +360,7 @@ Dio setupStacMockDio() {
                     methodData['data'] is Map<String, dynamic>) {
                   widgetJson = methodData['data'] as Map<String, dynamic>;
                   AppLogger.d(
-                    '   📦 Extracted widget JSON from API wrapper (${method}.data)',
+                    '   📦 Extracted widget JSON from API wrapper ($method.data)',
                   );
                 }
               }

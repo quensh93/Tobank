@@ -56,19 +56,12 @@ class MockModeIndicator extends ConsumerWidget {
       decoration: BoxDecoration(
         color: _getModeColor(apiMode).withValues(alpha: 0.1),
         border: Border(
-          bottom: BorderSide(
-            color: _getModeColor(apiMode),
-            width: 2,
-          ),
+          bottom: BorderSide(color: _getModeColor(apiMode), width: 2),
         ),
       ),
       child: Row(
         children: [
-          Icon(
-            _getModeIcon(apiMode),
-            color: _getModeColor(apiMode),
-            size: 20,
-          ),
+          Icon(_getModeIcon(apiMode), color: _getModeColor(apiMode), size: 20),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
@@ -118,19 +111,12 @@ class MockModeIndicator extends ConsumerWidget {
       decoration: BoxDecoration(
         color: _getModeColor(apiMode).withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: _getModeColor(apiMode),
-          width: 1.5,
-        ),
+        border: Border.all(color: _getModeColor(apiMode), width: 1.5),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(
-            _getModeIcon(apiMode),
-            color: _getModeColor(apiMode),
-            size: 16,
-          ),
+          Icon(_getModeIcon(apiMode), color: _getModeColor(apiMode), size: 16),
           const SizedBox(width: 6),
           Text(
             _getModeLabel(apiMode),
@@ -159,10 +145,7 @@ class MockModeIndicator extends ConsumerWidget {
     bool compact = false,
   }) {
     return IconButton(
-      icon: Icon(
-        Icons.refresh,
-        size: compact ? 16 : 20,
-      ),
+      icon: Icon(Icons.refresh, size: compact ? 16 : 20),
       padding: EdgeInsets.zero,
       constraints: BoxConstraints(
         minWidth: compact ? 24 : 32,
@@ -171,7 +154,7 @@ class MockModeIndicator extends ConsumerWidget {
       tooltip: 'Reload mock data',
       onPressed: () async {
         await ref.read(mockDataReloadProvider.notifier).reloadMockData();
-        
+
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
@@ -191,10 +174,7 @@ class MockModeIndicator extends ConsumerWidget {
     bool compact = false,
   }) {
     return PopupMenuButton<ApiMode>(
-      icon: Icon(
-        Icons.swap_horiz,
-        size: compact ? 16 : 20,
-      ),
+      icon: Icon(Icons.swap_horiz, size: compact ? 16 : 20),
       padding: EdgeInsets.zero,
       tooltip: 'Switch API mode',
       onSelected: (mode) {
@@ -203,7 +183,7 @@ class MockModeIndicator extends ConsumerWidget {
             ref.read(apiConfigProvider.notifier).useMockApi();
             break;
           case ApiMode.supabase:
-            // TODO: Prompt for Supabase credentials
+            // [TODO]: Prompt for Supabase credentials
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: Text('Supabase mode not yet implemented'),
@@ -211,7 +191,7 @@ class MockModeIndicator extends ConsumerWidget {
             );
             break;
           case ApiMode.custom:
-            // TODO: Prompt for custom API URL
+            // [TODO]: Prompt for custom API URL
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: Text('Custom API mode not yet implemented'),
@@ -225,11 +205,7 @@ class MockModeIndicator extends ConsumerWidget {
           value: ApiMode.mock,
           child: Row(
             children: [
-              Icon(
-                Icons.storage,
-                color: _getModeColor(ApiMode.mock),
-                size: 18,
-              ),
+              Icon(Icons.storage, color: _getModeColor(ApiMode.mock), size: 18),
               const SizedBox(width: 8),
               const Text('Mock API'),
               if (currentMode == ApiMode.mock) ...[
@@ -261,11 +237,7 @@ class MockModeIndicator extends ConsumerWidget {
           value: ApiMode.custom,
           child: Row(
             children: [
-              Icon(
-                Icons.api,
-                color: _getModeColor(ApiMode.custom),
-                size: 18,
-              ),
+              Icon(Icons.api, color: _getModeColor(ApiMode.custom), size: 18),
               const SizedBox(width: 8),
               const Text('Custom API'),
               if (currentMode == ApiMode.custom) ...[
@@ -367,4 +339,3 @@ class _FloatingMockModeIndicatorState extends State<FloatingMockModeIndicator> {
     );
   }
 }
-

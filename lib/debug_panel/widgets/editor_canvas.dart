@@ -45,7 +45,7 @@ class _EditorCanvasState extends State<EditorCanvas> {
               borderRadius: BorderRadius.circular(8),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withValues(alpha: 0.1),
                   blurRadius: 8,
                   offset: const Offset(0, 2),
                 ),
@@ -79,7 +79,7 @@ class _EditorCanvasState extends State<EditorCanvas> {
               padding: const EdgeInsets.all(48),
               decoration: BoxDecoration(
                 color: isDraggingOver
-                    ? Theme.of(context).primaryColor.withOpacity(0.1)
+                    ? Theme.of(context).primaryColor.withValues(alpha: 0.1)
                     : Colors.white,
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
@@ -138,7 +138,7 @@ class _EditorCanvasState extends State<EditorCanvas> {
             color: isSelected
                 ? Theme.of(context).primaryColor
                 : isDragOver
-                    ? Theme.of(context).primaryColor.withOpacity(0.5)
+                    ? Theme.of(context).primaryColor.withValues(alpha: 0.5)
                     : Colors.transparent,
             width: isSelected ? 2 : 1,
           ),
@@ -160,7 +160,7 @@ class _EditorCanvasState extends State<EditorCanvas> {
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
         color: isSelected
-            ? Theme.of(context).primaryColor.withOpacity(0.1)
+            ? Theme.of(context).primaryColor.withValues(alpha: 0.1)
             : Colors.grey[50],
         borderRadius: const BorderRadius.vertical(top: Radius.circular(4)),
       ),
@@ -236,7 +236,7 @@ class _EditorCanvasState extends State<EditorCanvas> {
             padding: const EdgeInsets.all(24),
             decoration: BoxDecoration(
               color: isDraggingOver
-                  ? Theme.of(context).primaryColor.withOpacity(0.05)
+                  ? Theme.of(context).primaryColor.withValues(alpha: 0.05)
                   : Colors.transparent,
               border: Border.all(
                 color: isDraggingOver
@@ -265,7 +265,7 @@ class _EditorCanvasState extends State<EditorCanvas> {
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             color: isDraggingOver
-                ? Theme.of(context).primaryColor.withOpacity(0.05)
+                ? Theme.of(context).primaryColor.withValues(alpha: 0.05)
                 : Colors.transparent,
             borderRadius:
                 const BorderRadius.vertical(bottom: Radius.circular(4)),
@@ -329,7 +329,7 @@ class _EditorCanvasState extends State<EditorCanvas> {
           margin: const EdgeInsets.symmetric(vertical: 2),
           decoration: BoxDecoration(
             color: isHovering
-                ? Theme.of(context).primaryColor.withOpacity(0.2)
+                ? Theme.of(context).primaryColor.withValues(alpha: 0.2)
                 : Colors.transparent,
             borderRadius: BorderRadius.circular(2),
             border: isHovering

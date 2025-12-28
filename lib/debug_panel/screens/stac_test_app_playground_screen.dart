@@ -757,7 +757,7 @@ class _StacTestAppPlaygroundScreenState
         });
       },
       child: Container(
-        color: Colors.black.withOpacity(0.3),
+        color: Colors.black.withValues(alpha: 0.3),
         child: Center(
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -770,7 +770,7 @@ class _StacTestAppPlaygroundScreenState
               borderRadius: BorderRadius.circular(8),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.2),
+                  color: Colors.black.withValues(alpha: 0.2),
                   blurRadius: 8,
                   offset: const Offset(0, 4),
                 ),
@@ -834,7 +834,7 @@ class _StacTestAppPlaygroundScreenState
                             color: isSelected
                                 ? Theme.of(context)
                                     .primaryColor
-                                    .withOpacity(0.1)
+                                    .withValues(alpha: 0.1)
                                 : null,
                           ),
                           child: Row(
@@ -880,7 +880,7 @@ class _StacTestAppPlaygroundScreenState
         });
       },
       child: Container(
-        color: Colors.black.withOpacity(0.3),
+        color: Colors.black.withValues(alpha: 0.3),
         child: Center(
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -893,7 +893,7 @@ class _StacTestAppPlaygroundScreenState
               borderRadius: BorderRadius.circular(8),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.2),
+                  color: Colors.black.withValues(alpha: 0.2),
                   blurRadius: 8,
                   offset: const Offset(0, 4),
                 ),
@@ -957,7 +957,7 @@ class _StacTestAppPlaygroundScreenState
                             color: isSelected
                                 ? Theme.of(context)
                                     .primaryColor
-                                    .withOpacity(0.1)
+                                    .withValues(alpha: 0.1)
                                 : null,
                           ),
                           child: Row(
@@ -1099,7 +1099,7 @@ class _StacTestAppPlaygroundScreenState
     return GestureDetector(
       onTap: _hideUnsavedDialog,
       child: Container(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         child: Center(
           child: GestureDetector(
             onTap: () {}, // Prevent closing when tapping dialog content
@@ -1109,11 +1109,11 @@ class _StacTestAppPlaygroundScreenState
                 margin: const EdgeInsets.symmetric(horizontal: 24),
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).dialogBackgroundColor,
+                  color: Theme.of(context).colorScheme.surface,
                   borderRadius: BorderRadius.circular(8),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
+                      color: Colors.black.withValues(alpha: 0.2),
                       blurRadius: 8,
                       offset: const Offset(0, 4),
                     ),

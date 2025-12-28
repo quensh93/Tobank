@@ -1,47 +1,44 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:stac/src/parsers/widgets/stac_form/stac_form_scope.dart';
 import 'package:stac/stac.dart';
 import '../../../helpers/logger.dart';
 import '../../utils/registry_notifier.dart';
 
-class _ValidateFieldsActionModel {
+class ValidateFieldsActionModel {
   final String resultKey;
-  final List<_ValidateFieldRule> fields;
+  final List<ValidateFieldRule> fields;
 
-  const _ValidateFieldsActionModel({
+  const ValidateFieldsActionModel({
     required this.resultKey,
     required this.fields,
   });
 
-  factory _ValidateFieldsActionModel.fromJson(Map<String, dynamic> json) {
+  factory ValidateFieldsActionModel.fromJson(Map<String, dynamic> json) {
     final resultKey = json['resultKey'] as String? ?? 'formValid';
     final rawFields = json['fields'] as List? ?? const [];
-    final fields = <_ValidateFieldRule>[];
+    final fields = <ValidateFieldRule>[];
 
     for (final item in rawFields) {
       if (item is Map<String, dynamic>) {
-        fields.add(_ValidateFieldRule.fromJson(item));
+        fields.add(ValidateFieldRule.fromJson(item));
       } else if (item is Map) {
-        fields.add(
-          _ValidateFieldRule.fromJson(Map<String, dynamic>.from(item)),
-        );
+        fields.add(ValidateFieldRule.fromJson(Map<String, dynamic>.from(item)));
       }
     }
 
-    return _ValidateFieldsActionModel(resultKey: resultKey, fields: fields);
+    return ValidateFieldsActionModel(resultKey: resultKey, fields: fields);
   }
 }
 
-class _ValidateFieldRule {
+class ValidateFieldRule {
   final String id;
   final String? rule;
 
-  const _ValidateFieldRule({required this.id, this.rule});
+  const ValidateFieldRule({required this.id, this.rule});
 
-  factory _ValidateFieldRule.fromJson(Map<String, dynamic> json) {
-    return _ValidateFieldRule(
+  factory ValidateFieldRule.fromJson(Map<String, dynamic> json) {
+    return ValidateFieldRule(
       id: json['id'] as String,
       rule: json['rule'] as String?,
     );
@@ -49,18 +46,18 @@ class _ValidateFieldRule {
 }
 
 class ValidateFieldsActionParser
-    extends StacActionParser<_ValidateFieldsActionModel> {
+    extends StacActionParser<ValidateFieldsActionModel> {
   const ValidateFieldsActionParser();
 
   @override
   String get actionType => 'validateFields';
 
   @override
-  _ValidateFieldsActionModel getModel(Map<String, dynamic> json) =>
-      _ValidateFieldsActionModel.fromJson(json);
+  ValidateFieldsActionModel getModel(Map<String, dynamic> json) =>
+      ValidateFieldsActionModel.fromJson(json);
 
   @override
-  FutureOr onCall(BuildContext context, _ValidateFieldsActionModel model) {
+  FutureOr onCall(BuildContext context, ValidateFieldsActionModel model) {
     final formScope = _tryGetFormScope(context);
     if (formScope == null) {
       AppLogger.wc(LogCategory.action, 'validateFields: no form scope found');

@@ -50,21 +50,21 @@ class _LogsScreenState extends State<LogsScreen> {
       onShare: widget.options.onShare,
     );
     _logsViewController.toggleExpandedLogs();
-    
+
     // Initialize controller with current search query
     // Extract search query from filter (it's stored in SearchFilter within filters list)
-    final searchFilters = _logsViewController.filter.filters
-        .whereType<SearchFilter>()
-        .toList();
-    final currentQuery = searchFilters.isNotEmpty ? searchFilters.first.query : '';
+    final searchFilters =
+        _logsViewController.filter.filters.whereType<SearchFilter>().toList();
+    final currentQuery =
+        searchFilters.isNotEmpty ? searchFilters.first.query : '';
     _searchController.text = currentQuery;
-    
+
     // Listen to TextEditingController changes to sync filter immediately
     // This ensures the filter updates even when text is modified programmatically
     // (e.g., via keyboard handler or programmatic clear)
     _searchController.addListener(_onSearchControllerChanged);
   }
-  
+
   void _onSearchControllerChanged() {
     // Sync filter with controller text value
     // This handles both manual typing and programmatic changes (like keyboard handler)
@@ -75,23 +75,23 @@ class _LogsScreenState extends State<LogsScreen> {
   void _onSearchTextChanged(String value) {
     // Cancel previous timer
     _filterDebounceTimer?.cancel();
-    
+
     // For empty search, update immediately without debounce to show logs right away
     if (value.isEmpty) {
       _logsViewController.updateFilterSearchQuery('');
       return;
     }
-    
+
     // Debounce filter updates to prevent interfering with text editing
     // Update filter after user stops typing for 300ms
     _filterDebounceTimer = Timer(const Duration(milliseconds: 300), () {
       if (!mounted) return;
-      
-      final searchFilters = _logsViewController.filter.filters
-          .whereType<SearchFilter>()
-          .toList();
-      final filterQuery = searchFilters.isNotEmpty ? searchFilters.first.query : '';
-      
+
+      final searchFilters =
+          _logsViewController.filter.filters.whereType<SearchFilter>().toList();
+      final filterQuery =
+          searchFilters.isNotEmpty ? searchFilters.first.query : '';
+
       // Only update if different (avoid unnecessary updates)
       if (value != filterQuery) {
         _logsViewController.updateFilterSearchQuery(value);
@@ -115,7 +115,7 @@ class _LogsScreenState extends State<LogsScreen> {
   Widget build(BuildContext context) {
     final iSpect = ISpect.read(context);
     return Scaffold(
-      backgroundColor: iSpect.theme.backgroundColor(context),
+      backgroundColor: context.ispectTheme.scaffoldBackgroundColor,
       body: ListenableBuilder(
         listenable: _logsViewController,
         builder: (_, __) => Row(
@@ -162,7 +162,7 @@ class _LogsScreenState extends State<LogsScreen> {
   }
 
   Color _getDividerColor(ISpectScopeModel iSpect, BuildContext context) =>
-      iSpect.theme.dividerColor(context) ?? context.ispectTheme.dividerColor;
+      context.ispectTheme.dividerColor;
 
   Future<void> _showInfoBottomSheet(BuildContext context) async {
     if (!mounted) return;
@@ -187,7 +187,8 @@ class _LogsScreenState extends State<LogsScreen> {
         if (widget.options.observer != null &&
             widget.options.observer is ISpectNavigatorObserver)
           _buildNavigationFlowAction(context),
-        if (ISpect.logger.fileLogHistory != null) _buildDailySessionsAction(context),
+        if (ISpect.logger.fileLogHistory != null)
+          _buildDailySessionsAction(context),
         _buildLogViewerAction(context),
         ...widget.options.actionItems,
       ];
@@ -289,13 +290,13 @@ class _LogsScreenState extends State<LogsScreen> {
         if (widget.options.onLoadLogContent == null) {
           _showPasteDialog(context);
         } else {
-          _handleLogViewerTap(context);
+          _handleLogViewerTap();
         }
       },
     );
   }
 
-  Future<void> _handleLogViewerTap(BuildContext context) async {
+  Future<void> _handleLogViewerTap() async {
     if (!mounted) return;
     final loader = widget.options.onLoadLogContent;
     if (loader == null) return;
@@ -493,7 +494,7 @@ class _MainLogsView extends StatelessWidget {
           onInfoTap: onInfoTap,
           onToggleTitle: (title, selected) => logsViewController
               .handleTitleFilterToggle(title, isSelected: selected),
-          backgroundColor: iSpectTheme.theme.backgroundColor(context),
+          backgroundColor: context.ispectTheme.scaffoldBackgroundColor,
         ),
         if (filteredLogEntries.isEmpty)
           const SliverFillRemaining(
@@ -539,7 +540,7 @@ class _MainLogsView extends StatelessWidget {
   }
 
   Color _getDividerColor(ISpectScopeModel iSpect, BuildContext context) =>
-      iSpect.theme.dividerColor(context) ?? context.ispectTheme.dividerColor;
+      context.ispectTheme.dividerColor;
 }
 
 /// Detail view widget for displaying selected log data

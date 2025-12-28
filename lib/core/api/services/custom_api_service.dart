@@ -59,8 +59,9 @@ class CustomApiService implements StacApiService {
     this.maxRetries = 3,
     this.initialRetryDelay = const Duration(milliseconds: 500),
     this.timeout = const Duration(seconds: 30),
-  })  : connectivityChecker = connectivityChecker ?? ConnectivityChecker.instance,
-        diskCacheManager = diskCacheManager ?? DiskCacheManager.instance {
+  }) : connectivityChecker =
+           connectivityChecker ?? ConnectivityChecker.instance,
+       diskCacheManager = diskCacheManager ?? DiskCacheManager.instance {
     if (config.mode != ApiMode.custom) {
       throw ArgumentError('CustomApiService requires ApiMode.custom');
     }
@@ -69,7 +70,7 @@ class CustomApiService implements StacApiService {
     }
 
     _initializeDio();
-    
+
     // Initialize disk cache if offline support is enabled
     if (enableOfflineSupport) {
       this.diskCacheManager.initialize().catchError((_) {
@@ -158,7 +159,7 @@ class CustomApiService implements StacApiService {
         // Check connectivity if offline support is enabled
         if (enableOfflineSupport) {
           final isConnected = await connectivityChecker.hasConnection();
-          
+
           if (!isConnected) {
             // Try to load from disk cache
             final cachedData = await diskCacheManager.load(screenName);
@@ -173,7 +174,7 @@ class CustomApiService implements StacApiService {
               }
               return cachedData;
             }
-            
+
             // No cached data available
             throw NetworkException.connection(
               message: 'No internet connection and no cached data available',
@@ -253,7 +254,7 @@ class CustomApiService implements StacApiService {
         timestamp: DateTime.now(),
         expiry: config.cacheExpiry,
       );
-      
+
       // Save to disk cache for offline access
       if (enableOfflineSupport) {
         await diskCacheManager.save(
@@ -278,7 +279,7 @@ class CustomApiService implements StacApiService {
     // Check connectivity if offline support is enabled
     if (enableOfflineSupport) {
       final isConnected = await connectivityChecker.hasConnection();
-      
+
       if (!isConnected) {
         // Try to load from disk cache
         final cachedData = await diskCacheManager.load(cacheKey);
@@ -293,7 +294,7 @@ class CustomApiService implements StacApiService {
           }
           return cachedData;
         }
-        
+
         // No cached data available
         throw NetworkException.connection(
           message: 'No internet connection and no cached data available',
@@ -303,7 +304,10 @@ class CustomApiService implements StacApiService {
 
     // Fetch with retry logic
     final data = await _fetchWithRetry(
-      () => _dio.get<Map<String, dynamic>>('/routes', queryParameters: {'path': route}),
+      () => _dio.get<Map<String, dynamic>>(
+        '/routes',
+        queryParameters: {'path': route},
+      ),
       cacheKey,
     );
 
@@ -320,7 +324,7 @@ class CustomApiService implements StacApiService {
   @override
   Future<void> clearCache() async {
     _cache.clear();
-    
+
     // Also clear disk cache if offline support is enabled
     if (enableOfflineSupport) {
       await diskCacheManager.clear();
@@ -343,6 +347,7 @@ class CustomApiService implements StacApiService {
   /// Fetch configuration JSON (navigation, theme, etc.)
   ///
   /// Fetches configuration files from the API endpoint
+  @override
   Future<Map<String, dynamic>> fetchConfig(String configName) async {
     // Check memory cache first if caching is enabled
     final cacheKey = 'config_$configName';
@@ -353,7 +358,7 @@ class CustomApiService implements StacApiService {
     // Check connectivity if offline support is enabled
     if (enableOfflineSupport) {
       final isConnected = await connectivityChecker.hasConnection();
-      
+
       if (!isConnected) {
         // Try to load from disk cache
         final cachedData = await diskCacheManager.load(cacheKey);
@@ -368,7 +373,7 @@ class CustomApiService implements StacApiService {
           }
           return cachedData;
         }
-        
+
         // No cached data available
         throw NetworkException.connection(
           message: 'No internet connection and no cached data available',
@@ -399,7 +404,9 @@ class CustomApiService implements StacApiService {
         final response = await request();
 
         // Check if response is successful
-        if (response.statusCode == null || response.statusCode! < 200 || response.statusCode! >= 300) {
+        if (response.statusCode == null ||
+            response.statusCode! < 200 ||
+            response.statusCode! >= 300) {
           throw NetworkException.serverError(
             message: 'Server returned status ${response.statusCode}',
             statusCode: response.statusCode,
@@ -583,7 +590,9 @@ class CustomApiService implements StacApiService {
   /// Get offline cache availability
   ///
   /// Returns a map of screen names and whether they're available offline
-  Future<Map<String, bool>> getOfflineAvailability(List<String> screenNames) async {
+  Future<Map<String, bool>> getOfflineAvailability(
+    List<String> screenNames,
+  ) async {
     final availability = <String, bool>{};
 
     for (final screenName in screenNames) {

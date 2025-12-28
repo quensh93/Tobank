@@ -7,6 +7,7 @@ import '../../../../features/pre_launch/providers/theme_controller_provider.dart
 import '../../mock/stac_mock_dio_setup.dart' as mock_setup;
 import '../path/stac_path_normalizer.dart';
 import '../theme/stac_theme_wrapper.dart';
+import 'package:tobank_sdui/core/helpers/logger.dart';
 
 /// Service for resolving widgets from different sources (JSON, network, assets).
 ///
@@ -80,11 +81,15 @@ class StacWidgetResolver {
     // Regular JSON file - load from assets and resolve variables before parsing
     // For asset files, we need to load the content first
     try {
-      print('📦 Attempting to load asset: $normalizedPath');
+      AppLogger.d(
+        'StacWidgetResolver: Attempting to load asset: $normalizedPath',
+      );
       final jsonString = await DefaultAssetBundle.of(
         context,
       ).loadString(normalizedPath);
-      print('✅ Successfully loaded asset: $normalizedPath');
+      AppLogger.d(
+        'StacWidgetResolver: Successfully loaded asset: $normalizedPath',
+      );
       final jsonData = json.decode(jsonString) as Map<String, dynamic>;
 
       return _ThemeReactiveStacWidget(
@@ -104,10 +109,14 @@ class StacWidgetResolver {
         },
       );
     } catch (e) {
-      print('❌ Failed to load asset: $normalizedPath');
-      print('❌ Error: $e');
+      AppLogger.e(
+        'StacWidgetResolver: Failed to load asset: $normalizedPath',
+        e,
+      );
       // If manual loading fails, fallback to Stac.fromAssets
-      print('🔄 Falling back to Stac.fromAssets for: $normalizedPath');
+      AppLogger.i(
+        'StacWidgetResolver: Falling back to Stac.fromAssets for: $normalizedPath',
+      );
       return _ThemeReactiveStacWidget(
         builder: (ctx) {
           final parsedWidget = Stac.fromAssets(normalizedPath);
@@ -147,8 +156,8 @@ class _ThemeReactiveStacWidget extends ConsumerWidget {
       data: (mode) => mode,
       orElse: () => ThemeMode.system,
     );
-    debugPrint(
-      '🎨 _ThemeReactiveStacWidget rebuilding for theme: ${themeMode.name}',
+    AppLogger.d(
+      'ThemeReactiveStacWidget rebuilding for theme: ${themeMode.name}',
     );
 
     return builder(context);

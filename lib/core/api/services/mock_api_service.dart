@@ -58,14 +58,14 @@ class MockApiService implements StacApiService {
           // Convert screen name format (e.g., "home_screen" -> "tobank_home.json")
           String assetPath;
           String jsonString;
-          
+
           // Remove _screen suffix and add tobank_ prefix
           String fileName = screenName.replaceAll('_screen', '');
           if (!fileName.startsWith('tobank_')) {
             fileName = 'tobank_$fileName';
           }
           assetPath = 'lib/stac/.build/$fileName.json';
-          
+
           try {
             jsonString = await rootBundle.loadString(assetPath);
           } catch (_) {
@@ -73,7 +73,7 @@ class MockApiService implements StacApiService {
             assetPath = 'lib/stac/.build/$screenName.json';
             jsonString = await rootBundle.loadString(assetPath);
           }
-          
+
           final data = jsonDecode(jsonString) as Map<String, dynamic>;
 
           // Validate JSON structure before caching
@@ -201,6 +201,7 @@ class MockApiService implements StacApiService {
   ///
   /// Note: Config files are no longer used. This method is kept for compatibility.
   /// Returns empty map as config files have been removed.
+  @override
   Future<Map<String, dynamic>> fetchConfig(String configName) async {
     // Check cache first if caching is enabled
     final cacheKey = 'config_$configName';
@@ -217,7 +218,7 @@ class MockApiService implements StacApiService {
       // Config files have been removed - return empty map
       // This method is kept for compatibility but no longer loads files
       final rawData = <String, dynamic>{};
-      
+
       // Extract data from GET wrapper structure if present
       // Note: Config files are no longer available
       Map<String, dynamic> data;
@@ -354,4 +355,3 @@ class MockApiService implements StacApiService {
     return screenName;
   }
 }
-

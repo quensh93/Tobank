@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
-import 'package:stac/src/parsers/widgets/stac_form/stac_form_scope.dart';
+// import 'package:stac/src/parsers/widgets/stac_form/stac_form_scope.dart';
 import '../../registry/custom_component_registry.dart';
 import '../../utils/text_form_field_controller_registry.dart';
 import '../../../helpers/logger.dart';
@@ -22,10 +22,10 @@ import '../../../helpers/logger.dart';
 class CalculateSumActionModel {
   /// The form field ID for input A
   final String fieldA;
-  
+
   /// The form field ID for input B
   final String fieldB;
-  
+
   /// The form field ID for result (C = A + B)
   final String resultField;
 
@@ -56,7 +56,8 @@ class CalculateSumActionModel {
 /// Calculate Sum Action Parser
 ///
 /// Calculates the sum of two form fields and updates the result field in real-time.
-class CalculateSumActionParser extends StacActionParser<CalculateSumActionModel> {
+class CalculateSumActionParser
+    extends StacActionParser<CalculateSumActionModel> {
   const CalculateSumActionParser();
 
   @override
@@ -67,23 +68,34 @@ class CalculateSumActionParser extends StacActionParser<CalculateSumActionModel>
       CalculateSumActionModel.fromJson(json);
 
   @override
-  FutureOr<dynamic> onCall(BuildContext context, CalculateSumActionModel model) async {
+  FutureOr<dynamic> onCall(
+    BuildContext context,
+    CalculateSumActionModel model,
+  ) async {
     try {
-      AppLogger.i('🧮 Calculate sum action triggered: ${model.fieldA} + ${model.fieldB} = ${model.resultField}');
-      
+      AppLogger.i(
+        '🧮 Calculate sum action triggered: ${model.fieldA} + ${model.fieldB} = ${model.resultField}',
+      );
+
       final formScope = StacFormScope.of(context);
       if (formScope == null) {
         AppLogger.e('❌ Form scope not found, cannot calculate sum');
         return null;
       }
 
-      AppLogger.d('📊 Form scope found, formData keys: ${formScope.formData.keys.toList()}');
+      AppLogger.d(
+        '📊 Form scope found, formData keys: ${formScope.formData.keys.toList()}',
+      );
 
       // Get values from form fields
-      final valueAStr = formScope.formData[model.fieldA]?.toString().trim() ?? '';
-      final valueBStr = formScope.formData[model.fieldB]?.toString().trim() ?? '';
+      final valueAStr =
+          formScope.formData[model.fieldA]?.toString().trim() ?? '';
+      final valueBStr =
+          formScope.formData[model.fieldB]?.toString().trim() ?? '';
 
-      AppLogger.i('📥 Value A (${model.fieldA}): "$valueAStr", Value B (${model.fieldB}): "$valueBStr"');
+      AppLogger.i(
+        '📥 Value A (${model.fieldA}): "$valueAStr", Value B (${model.fieldB}): "$valueBStr"',
+      );
 
       // Parse values as numbers - use 0 if empty or invalid
       final valueA = valueAStr.isEmpty ? 0 : (num.tryParse(valueAStr) ?? 0);
@@ -107,25 +119,28 @@ class CalculateSumActionParser extends StacActionParser<CalculateSumActionModel>
       final registry = TextFormFieldControllerRegistry.instance;
       final updated = registry.updateValue(model.resultField, sumStr);
       if (updated) {
-        AppLogger.i('✅ Updated TextFormField controller for ${model.resultField} = $sumStr');
+        AppLogger.i(
+          '✅ Updated TextFormField controller for ${model.resultField} = $sumStr',
+        );
       } else {
-        AppLogger.w('⚠️ Controller not found in registry for ${model.resultField}');
+        AppLogger.w(
+          '⚠️ Controller not found in registry for ${model.resultField}',
+        );
       }
 
       // Use setValue action to ensure the form field updates
       final setValueActionJson = {
         'actionType': 'setValue',
         'values': [
-          {
-            'key': 'form.${model.resultField}',
-            'value': sumStr,
-          },
+          {'key': 'form.${model.resultField}', 'value': sumStr},
         ],
       };
       AppLogger.d('🔄 Calling setValue action to update form field');
       await Stac.onCallFromJson(setValueActionJson, context);
 
-      AppLogger.i('✅ Successfully updated result field ${model.resultField} with sum: $sumStr');
+      AppLogger.i(
+        '✅ Successfully updated result field ${model.resultField} with sum: $sumStr',
+      );
     } catch (e, stackTrace) {
       AppLogger.e('❌ Error calculating sum: $e\n$stackTrace');
     }
@@ -134,6 +149,7 @@ class CalculateSumActionParser extends StacActionParser<CalculateSumActionModel>
 
 /// Register the calculate sum action parser
 void registerCalculateSumActionParser() {
-  CustomComponentRegistry.instance.registerAction(const CalculateSumActionParser());
+  CustomComponentRegistry.instance.registerAction(
+    const CalculateSumActionParser(),
+  );
 }
-

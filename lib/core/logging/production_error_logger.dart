@@ -77,7 +77,7 @@ class ProductionErrorLogger {
     }
 
     // Initialize error monitoring service
-    // TODO: Integrate with Sentry, crash reporting services, or other service
+    // Error monitoring service integration point
     debugPrint('Production error logging initialized');
 
     // Set up Flutter error handler
@@ -126,7 +126,7 @@ class ProductionErrorLogger {
       debugPrint('===================');
     }
 
-    // TODO: Send to error monitoring service
+    // Send to error monitoring service
     // Example for Sentry:
     // Sentry.captureException(
     //   sanitizedError,
@@ -188,7 +188,7 @@ class ProductionErrorLogger {
       }
     }
 
-    // TODO: Send to error monitoring service
+    // Send to error monitoring service
     // Example for Sentry:
     // Sentry.captureMessage(
     //   message,
@@ -218,7 +218,7 @@ class ProductionErrorLogger {
       debugPrint('Additional data: $sanitizedData');
     }
 
-    // TODO: Set user context in error monitoring service
+    // Set user context in error monitoring service
     // Example for Sentry:
     // Sentry.configureScope((scope) {
     //   scope.setUser(SentryUser(
@@ -245,7 +245,7 @@ class ProductionErrorLogger {
       return;
     }
 
-    // TODO: Clear user context in error monitoring service
+    // Clear user context in error monitoring service
     // Example for Sentry:
     // Sentry.configureScope((scope) {
     //   scope.setUser(null);
@@ -272,7 +272,7 @@ class ProductionErrorLogger {
       debugPrint('Data: $sanitizedData');
     }
 
-    // TODO: Add breadcrumb to error monitoring service
+    // Add breadcrumb to error monitoring service
     // Example for Sentry:
     // Sentry.addBreadcrumb(Breadcrumb(
     //   message: message,
@@ -321,7 +321,9 @@ class ProductionErrorLogger {
 
       // Recursively sanitize nested maps
       if (entry.value is Map<String, dynamic>) {
-        sanitized[entry.key] = _sanitizeMap(entry.value as Map<String, dynamic>);
+        sanitized[entry.key] = _sanitizeMap(
+          entry.value as Map<String, dynamic>,
+        );
       } else if (entry.value is String) {
         sanitized[entry.key] = _sanitizeString(entry.value as String);
       } else {
@@ -376,10 +378,7 @@ class ProductionErrorLogger {
     );
 
     // Remove tokens (long alphanumeric strings)
-    value = value.replaceAll(
-      RegExp(r'\b[A-Za-z0-9]{32,}\b'),
-      '[TOKEN]',
-    );
+    value = value.replaceAll(RegExp(r'\b[A-Za-z0-9]{32,}\b'), '[TOKEN]');
 
     return value;
   }

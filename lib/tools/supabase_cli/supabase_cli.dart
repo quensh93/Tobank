@@ -1,5 +1,5 @@
+// ignore_for_file: avoid_print
 import 'dart:io';
-
 
 import 'commands/delete_command.dart';
 import 'commands/download_command.dart';
@@ -18,7 +18,7 @@ import 'supabase_cli_service.dart';
 ///     SUPABASE_ANON_KEY=your-anon-key
 ///
 ///   Then run:
-///     dart run lib/tools/supabase_cli/supabase_cli.dart <command> [options]
+///     dart run lib/tools/supabase_cli/supabase_cli.dart `<command>` [options]
 void main(List<String> arguments) async {
   try {
     // Check for help/version first

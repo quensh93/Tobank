@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:stac/src/parsers/widgets/stac_form/stac_form_scope.dart';
 import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
 import '../../../helpers/logger.dart';
@@ -13,16 +12,16 @@ import '../../utils/text_form_field_controller_registry.dart';
 ///
 /// This allows form values to be stored in the registry with the "form." prefix
 /// so they can be accessed in dialog widgets using {{form.fieldName}} syntax.
-class _CustomSetValueActionModel {
+class CustomSetValueActionModel {
   final List<Map<String, dynamic>> entries;
   final Map<String, dynamic>? action;
 
-  const _CustomSetValueActionModel({
+  const CustomSetValueActionModel({
     required this.entries,
     required this.action,
   });
 
-  factory _CustomSetValueActionModel.fromJson(Map<String, dynamic> json) {
+  factory CustomSetValueActionModel.fromJson(Map<String, dynamic> json) {
     final entries = <Map<String, dynamic>>[];
 
     final rawValues = json['values'];
@@ -42,32 +41,32 @@ class _CustomSetValueActionModel {
     }
 
     final action = json['action'];
-    return _CustomSetValueActionModel(
+    return CustomSetValueActionModel(
       entries: entries,
       action: action is Map<String, dynamic>
           ? action
           : action is Map
-              ? Map<String, dynamic>.from(action)
-              : null,
+          ? Map<String, dynamic>.from(action)
+          : null,
     );
   }
 }
 
 class CustomSetValueActionParser
-    extends StacActionParser<_CustomSetValueActionModel> {
+    extends StacActionParser<CustomSetValueActionModel> {
   const CustomSetValueActionParser();
 
   @override
   String get actionType => ActionType.setValue.name;
 
   @override
-  _CustomSetValueActionModel getModel(Map<String, dynamic> json) =>
-      _CustomSetValueActionModel.fromJson(json);
+  CustomSetValueActionModel getModel(Map<String, dynamic> json) =>
+      CustomSetValueActionModel.fromJson(json);
 
   @override
   FutureOr<dynamic> onCall(
     BuildContext context,
-    _CustomSetValueActionModel model,
+    CustomSetValueActionModel model,
   ) async {
     var didUpdate = false;
     // Resolve StacGetFormValue actions in values before storing
@@ -110,14 +109,16 @@ class CustomSetValueActionParser
 
       // If a TextFormField controller is registered for this key, update it too.
       if (valueToStore != null) {
-        TextFormFieldControllerRegistry.instance
-            .updateValue(key, valueToStore.toString());
+        TextFormFieldControllerRegistry.instance.updateValue(
+          key,
+          valueToStore.toString(),
+        );
       }
     }
     if (didUpdate) {
       RegistryNotifier.instance.notify();
     }
-    
+
     // Execute the chained action (e.g., network request)
     if (model.action != null) {
       final result = Stac.onCallFromJson(model.action!, context);

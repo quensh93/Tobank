@@ -1,18 +1,17 @@
 import 'package:stac_core/stac_core.dart';
-import 'package:stac_core/actions/network_request/stac_network_request.dart';
 
 /// Tobank Account Overview Screen - Account details and information
-/// 
+///
 /// This screen displays account information including:
 /// - Account number
 /// - Account type
 /// - Balance
 /// - Account holder name
-/// 
+///
 /// Uses data binding to load all data from mock API.
 /// Uses Persian text from app_fa.arb.
 /// Uses STAC theme colors which automatically adapt to light/dark mode.
-/// 
+///
 /// Reference: `.tobank_old/lib/ui/dashboard_screen/page/account_page.dart`
 @StacScreen(screenName: 'tobank_account_overview')
 StacWidget tobankAccountOverview() {
@@ -57,9 +56,7 @@ StacWidget tobankAccountOverview() {
         method: Method.get,
       ),
       targetPath: 'data',
-      loaderWidget: StacCenter(
-        child: StacCircularProgressIndicator(),
-      ),
+      loaderWidget: StacCenter(child: StacCircularProgressIndicator()),
       errorWidget: StacCenter(
         child: StacText(
           data: '{{appStrings.account.errorLoading}}',
@@ -101,9 +98,9 @@ StacWidget tobankAccountOverview() {
                 ),
               ),
             ),
-            
+
             StacSizedBox(height: 16),
-            
+
             // Account Type Card
             StacCard(
               child: StacPadding(
@@ -132,9 +129,9 @@ StacWidget tobankAccountOverview() {
                 ),
               ),
             ),
-            
+
             StacSizedBox(height: 16),
-            
+
             // Balance Card
             StacCard(
               child: StacPadding(
@@ -163,9 +160,9 @@ StacWidget tobankAccountOverview() {
                 ),
               ),
             ),
-            
+
             StacSizedBox(height: 16),
-            
+
             // Account Holder Card
             StacCard(
               child: StacPadding(

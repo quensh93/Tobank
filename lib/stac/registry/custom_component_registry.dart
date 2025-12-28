@@ -1,5 +1,5 @@
-import 'package:stac_framework/stac_framework.dart';
-import 'package:stac_logger/stac_logger.dart';
+import 'package:stac/stac.dart';
+import '../../core/helpers/logger.dart';
 
 /// Custom Component Registry for project-specific STAC widgets and actions.
 ///
@@ -46,16 +46,16 @@ class CustomComponentRegistry {
 
     if (_widgetParsers.containsKey(type)) {
       if (override) {
-        Log.w('Custom widget parser "$type" is being overridden');
+        AppLogger.w('Custom widget parser "$type" is being overridden');
         _widgetParsers[type] = parser;
         return true;
       } else {
-        Log.w('Custom widget parser "$type" is already registered');
+        AppLogger.w('Custom widget parser "$type" is already registered');
         return false;
       }
     } else {
       _widgetParsers[type] = parser;
-      Log.i('Custom widget parser "$type" registered successfully');
+      AppLogger.i('Custom widget parser "$type" registered successfully');
       return true;
     }
   }
@@ -72,16 +72,16 @@ class CustomComponentRegistry {
 
     if (_actionParsers.containsKey(actionType)) {
       if (override) {
-        Log.w('Custom action parser "$actionType" is being overridden');
+        AppLogger.w('Custom action parser "$actionType" is being overridden');
         _actionParsers[actionType] = parser;
         return true;
       } else {
-        Log.w('Custom action parser "$actionType" is already registered');
+        AppLogger.w('Custom action parser "$actionType" is already registered');
         return false;
       }
     } else {
       _actionParsers[actionType] = parser;
-      Log.i('Custom action parser "$actionType" registered successfully');
+      AppLogger.i('Custom action parser "$actionType" registered successfully');
       return true;
     }
   }
@@ -174,7 +174,7 @@ class CustomComponentRegistry {
   bool unregisterWidget(String type) {
     if (_widgetParsers.containsKey(type)) {
       _widgetParsers.remove(type);
-      Log.i('Custom widget parser "$type" unregistered');
+      AppLogger.i('Custom widget parser "$type" unregistered');
       return true;
     }
     return false;
@@ -188,7 +188,7 @@ class CustomComponentRegistry {
   bool unregisterAction(String actionType) {
     if (_actionParsers.containsKey(actionType)) {
       _actionParsers.remove(actionType);
-      Log.i('Custom action parser "$actionType" unregistered');
+      AppLogger.i('Custom action parser "$actionType" unregistered');
       return true;
     }
     return false;
@@ -200,7 +200,7 @@ class CustomComponentRegistry {
   void clearAll() {
     _widgetParsers.clear();
     _actionParsers.clear();
-    Log.i('All custom parsers cleared from registry');
+    AppLogger.i('All custom parsers cleared from registry');
   }
 
   /// Get a summary of registered parsers.

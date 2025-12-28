@@ -47,7 +47,7 @@ class ReactiveElevatedButtonParser
   Widget parse(BuildContext context, ReactiveElevatedButtonModel model) {
     return ValueListenableBuilder<int>(
       valueListenable: RegistryNotifier.instance.listenable,
-      builder: (context, _, __) {
+      builder: (context, _, _) {
         final enabled = _resolveEnabled(model);
         final buttonJson = <String, dynamic>{
           'type': 'elevatedButton',

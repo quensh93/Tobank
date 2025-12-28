@@ -39,6 +39,7 @@ class SequenceActionParser extends StacActionParser<SequenceActionModel> {
   @override
   Future<void> onCall(BuildContext context, SequenceActionModel model) async {
     for (final action in model.actions) {
+      if (!context.mounted) break;
       final result = Stac.onCallFromJson(action, context);
       if (result is Future) {
         await result;

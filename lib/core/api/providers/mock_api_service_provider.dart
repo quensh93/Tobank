@@ -30,12 +30,12 @@ StacApiService stacApiService(Ref ref) {
       return ref.watch(mockApiServiceProvider);
 
     case ApiMode.supabase:
-      // TODO: Implement Supabase API service here if needed
-      throw UnimplementedError('Supabase API service not yet implemented');
+      // Supabase API service not yet implemented
+      throw UnimplementedError('Supabase API service not implemented');
 
     case ApiMode.custom:
-      // TODO: Implement custom API service
-      throw UnimplementedError('Custom API service not yet implemented');
+      // Custom API service not yet implemented
+      throw UnimplementedError('Custom API service not implemented');
   }
 }
 

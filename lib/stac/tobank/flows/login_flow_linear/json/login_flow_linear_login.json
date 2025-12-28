@@ -565,7 +565,7 @@
                 }
               },
               "enabled": false,
-              "enabledKey": "isFormValid",
+              "enabledKey": "isFormValid"
             },
             "type": "padding"
           },

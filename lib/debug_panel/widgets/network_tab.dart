@@ -20,7 +20,8 @@ class NetworkTab extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Network Simulator Section
-            _buildSectionHeader(context, 'Network Simulator', Icons.network_check),
+            _buildSectionHeader(
+                context, 'Network Simulator', Icons.network_check),
             const SizedBox(height: 12),
             Card(
               child: Padding(
@@ -38,7 +39,10 @@ class NetworkTab extends ConsumerWidget {
                             children: [
                               Text(
                                 'Network Simulator',
-                                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium
+                                    ?.copyWith(
                                       fontWeight: FontWeight.w600,
                                     ),
                               ),
@@ -47,8 +51,14 @@ class NetworkTab extends ConsumerWidget {
                                 settings.isEnabled
                                     ? 'Simulating network conditions'
                                     : 'Disabled - Normal network speed',
-                                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                      color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall
+                                    ?.copyWith(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSurface
+                                          .withValues(alpha: 0.6),
                                     ),
                               ),
                             ],
@@ -58,18 +68,19 @@ class NetworkTab extends ConsumerWidget {
                           value: settings.isEnabled,
                           onChanged: (enabled) {
                             controller.setEnabled(enabled);
-                            AppLogger.i('🔄 Network simulator ${enabled ? "enabled" : "disabled"}');
+                            AppLogger.i(
+                                '🔄 Network simulator ${enabled ? "enabled" : "disabled"}');
                           },
                         ),
                       ],
                     ),
-                    
+
                     // Settings are only visible when enabled
                     if (settings.isEnabled) ...[
                       const SizedBox(height: 24),
                       const Divider(),
                       const SizedBox(height: 24),
-                      
+
                       // Network Speed Selection
                       Text(
                         'Network Speed',
@@ -98,20 +109,25 @@ class NetworkTab extends ConsumerWidget {
                           ),
                         ],
                         selected: {settings.networkSpeed},
-                        onSelectionChanged: (Set<NetworkSpeedOption> selection) {
+                        onSelectionChanged:
+                            (Set<NetworkSpeedOption> selection) {
                           controller.setNetworkSpeed(selection.first);
-                          AppLogger.i('🔄 Network speed changed to: ${selection.first.displayName}');
+                          AppLogger.i(
+                              '🔄 Network speed changed to: ${selection.first.displayName}');
                         },
                       ),
                       const SizedBox(height: 8),
                       Text(
                         'Current: ${settings.networkSpeed.displayName}',
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onSurface
+                                  .withValues(alpha: 0.6),
                             ),
                       ),
                       const SizedBox(height: 24),
-                      
+
                       // Failure Probability Slider
                       Text(
                         'Failure Probability: ${(settings.failureProbability * 100).toStringAsFixed(0)}%',
@@ -146,7 +162,10 @@ class NetworkTab extends ConsumerWidget {
                       Text(
                         'Probability of network request failures for testing error handling.',
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onSurface
+                                  .withValues(alpha: 0.6),
                             ),
                       ),
                     ] else ...[
@@ -154,7 +173,10 @@ class NetworkTab extends ConsumerWidget {
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
+                          color: Theme.of(context)
+                              .colorScheme
+                              .surfaceContainerHighest
+                              .withValues(alpha: 0.5),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Row(
@@ -162,14 +184,21 @@ class NetworkTab extends ConsumerWidget {
                             Icon(
                               Icons.info_outline,
                               size: 20,
-                              color: Theme.of(context).colorScheme.onSurfaceVariant,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onSurfaceVariant,
                             ),
                             const SizedBox(width: 12),
                             Expanded(
                               child: Text(
                                 'Enable network simulator to test your app under different network conditions.',
-                                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall
+                                    ?.copyWith(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSurfaceVariant,
                                     ),
                               ),
                             ),
@@ -230,7 +259,8 @@ class NetworkTab extends ConsumerWidget {
     );
   }
 
-  Widget _buildSectionHeader(BuildContext context, String title, IconData icon) {
+  Widget _buildSectionHeader(
+      BuildContext context, String title, IconData icon) {
     return Row(
       children: [
         Icon(
@@ -249,7 +279,8 @@ class NetworkTab extends ConsumerWidget {
     );
   }
 
-  Widget _buildInfoItem(BuildContext context, IconData icon, String title, String description) {
+  Widget _buildInfoItem(
+      BuildContext context, IconData icon, String title, String description) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -273,7 +304,10 @@ class NetworkTab extends ConsumerWidget {
               Text(
                 description,
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
+                      color: Theme.of(context)
+                          .colorScheme
+                          .onSurface
+                          .withValues(alpha: 0.6),
                     ),
               ),
             ],
@@ -315,8 +349,7 @@ class _SliderWithOverlay extends StatelessWidget {
           ),
         ),
       ],
-      onPopPage: (route, result) => false,
+      onDidRemovePage: (page) {},
     );
   }
 }
-

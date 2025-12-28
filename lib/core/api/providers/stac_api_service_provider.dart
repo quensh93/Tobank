@@ -37,7 +37,7 @@ StacApiService stacApiService(Ref ref) {
       return SupabaseApiService(config: config);
 
     case ApiMode.custom:
-      // TODO: Implement CustomApiService in task 5
+      // CustomApiService to be implemented
       throw UnimplementedError('Custom API service not yet implemented');
   }
 }

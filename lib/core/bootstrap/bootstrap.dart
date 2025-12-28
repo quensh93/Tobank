@@ -1,7 +1,7 @@
 // ignore_for_file: missing_provider_scope
 import 'dart:async';
-import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart'; // For kIsWeb
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 // ISpect imports - will be tree-shaken if not used
@@ -73,7 +73,8 @@ Future<void> bootstrap() async {
     AppLogger.i('App starting…');
 
     // Initialize flutter_performance_pulse if Debug Panel is enabled
-    if (DebugPanelConfig.shouldInitializeByFlag) {
+    // Disable on Web as it uses Platform API which is not supported
+    if (!kIsWeb && DebugPanelConfig.shouldInitializeByFlag) {
       AppLogger.i('🚀 Initializing PerformanceMonitor...');
       await pulse.PerformanceMonitor.instance.initialize(
         config: pulse.MonitorConfig(
@@ -120,7 +121,6 @@ Future<void> bootstrap() async {
   } catch (e) {
     AppLogger.e('Bootstrap error: $e');
     // Fallback error handling if bootstrap fails
-    // ignore: missing_provider_scope
     runApp(
       const ProviderScope(
         child: MaterialApp(

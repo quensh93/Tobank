@@ -133,17 +133,30 @@ class _InfoDescription extends StatelessWidget {
     );
   }
 
-  Map<String, List<LogDescription>> _getLogCategories(
+  Map<String, List<dynamic>> _getLogCategories(
     BuildContext context,
     ISpectScopeModel iSpect,
   ) {
-    final descriptions = iSpect.theme.descriptions(context);
+    final dynamic descriptions = iSpect.theme
+        .descriptions(context); // dynamic to bypass analysis mismatch
+    final categories = <String, List<dynamic>>{};
 
-    final categories = <String, List<LogDescription>>{};
-
-    for (final log in descriptions) {
-      final category = _getCategory(log.key, context);
-      categories.putIfAbsent(category, () => []).add(log);
+    if (descriptions is Map) {
+      for (final entry in descriptions.entries) {
+        final category = _getCategory(entry.key, context);
+        final log = {'key': entry.key, 'description': entry.value};
+        categories.putIfAbsent(category, () => []).add(log);
+      }
+    } else if (descriptions is Iterable) {
+      for (final dynamic entry in descriptions) {
+        final entryMap = entry as Map<String, dynamic>;
+        final category = _getCategory(entryMap['key'] as String, context);
+        final log = {
+          'key': entryMap['key'],
+          'description': entryMap['description']
+        };
+        categories.putIfAbsent(category, () => []).add(log);
+      }
     }
 
     return categories;
@@ -195,7 +208,7 @@ class _CategorySection extends StatelessWidget {
   });
 
   final String title;
-  final List<LogDescription> logs;
+  final List<dynamic> logs;
   final ISpectScopeModel iSpect;
 
   @override
@@ -223,13 +236,15 @@ class _CategorySection extends StatelessWidget {
 class _LogItem extends StatelessWidget {
   const _LogItem({required this.log, required this.iSpect});
 
-  final LogDescription log;
+  final dynamic log;
   final ISpectScopeModel iSpect;
 
   @override
   Widget build(BuildContext context) {
     final theme = context.ispectTheme;
-    final typeColor = iSpect.theme.getTypeColor(context, key: log.key);
+    final logMap = log as Map<String, dynamic>;
+    final typeColor =
+        iSpect.theme.getTypeColor(context, key: logMap['key'] as String);
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
@@ -237,11 +252,11 @@ class _LogItem extends StatelessWidget {
         text: TextSpan(
           children: [
             TextSpan(
-              text: '${log.key}: ',
+              text: '${logMap['key']}: ',
               style: TextStyle(color: typeColor, fontWeight: FontWeight.w500),
             ),
             TextSpan(
-              text: log.description,
+              text: logMap['description'] as String,
               style: TextStyle(color: theme.textColor),
             ),
           ],

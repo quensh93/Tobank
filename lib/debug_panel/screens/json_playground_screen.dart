@@ -14,7 +14,8 @@ class JsonPlaygroundScreen extends ConsumerStatefulWidget {
   const JsonPlaygroundScreen({super.key});
 
   @override
-  ConsumerState<JsonPlaygroundScreen> createState() => _JsonPlaygroundScreenState();
+  ConsumerState<JsonPlaygroundScreen> createState() =>
+      _JsonPlaygroundScreenState();
 }
 
 class _JsonPlaygroundScreenState extends ConsumerState<JsonPlaygroundScreen> {
@@ -34,7 +35,7 @@ class _JsonPlaygroundScreenState extends ConsumerState<JsonPlaygroundScreen> {
   }
 
   Future<void> _loadSavedSessions() async {
-    // TODO: Implement session loading when shared_preferences is available
+    // [TODO]: Implement session loading when shared_preferences is available
     setState(() {
       _savedSessions.clear();
     });
@@ -46,7 +47,9 @@ class _JsonPlaygroundScreenState extends ConsumerState<JsonPlaygroundScreen> {
       return;
     }
 
-    _showSnackBar('Session saving not available (shared_preferences not configured)', isError: true);
+    _showSnackBar(
+        'Session saving not available (shared_preferences not configured)',
+        isError: true);
   }
 
   Future<void> _loadSession(PlaygroundSession session) async {
@@ -93,7 +96,8 @@ class _JsonPlaygroundScreenState extends ConsumerState<JsonPlaygroundScreen> {
   }
 
   Future<void> _importFromFile() async {
-    _showSnackBar('File import not available (file_picker not configured)', isError: true);
+    _showSnackBar('File import not available (file_picker not configured)',
+        isError: true);
   }
 
   void _showSnackBar(String message, {bool isError = false}) {
@@ -106,8 +110,6 @@ class _JsonPlaygroundScreenState extends ConsumerState<JsonPlaygroundScreen> {
       ),
     );
   }
-
-
 
   void _showTemplateSelector() {
     final modalContext = _scaffoldContext;
@@ -140,8 +142,9 @@ class _JsonPlaygroundScreenState extends ConsumerState<JsonPlaygroundScreen> {
   void _openInVisualEditor() {
     // Switch to Visual Editor tab (index 4: Device, Logs, Tools, Playground, Visual Editor)
     ref.read(debugPanelSettingsProvider.notifier).setSelectedTabIndex(4);
-    
-    _showSnackBar('Switched to Visual Editor. Import your JSON there to edit visually.');
+
+    _showSnackBar(
+        'Switched to Visual Editor. Import your JSON there to edit visually.');
   }
 
   @override
@@ -157,7 +160,9 @@ class _JsonPlaygroundScreenState extends ConsumerState<JsonPlaygroundScreen> {
                 actions: [
                   // Device frame toggle
                   IconButton(
-                    icon: Icon(_showDeviceFrame ? Icons.phone_android : Icons.phone_android_outlined),
+                    icon: Icon(_showDeviceFrame
+                        ? Icons.phone_android
+                        : Icons.phone_android_outlined),
                     tooltip: 'Toggle device frame',
                     onPressed: () {
                       setState(() {
@@ -241,84 +246,84 @@ class _JsonPlaygroundScreenState extends ConsumerState<JsonPlaygroundScreen> {
                 ],
               ),
               body: LayoutBuilder(
-        builder: (context, constraints) {
-          final isWide = constraints.maxWidth > 800;
+                builder: (context, constraints) {
+                  final isWide = constraints.maxWidth > 800;
 
-          if (isWide) {
-            // Split view for wide screens
-            return Row(
-              children: [
-                Expanded(
-                  child: JsonEditor(
-                    key: ValueKey(_jsonString),
-                    initialJson: _jsonString,
-                    onChanged: (json) {
-                      setState(() {
-                        _jsonString = json;
-                      });
-                    },
-                    onValidationChanged: (isValid) {
-                      setState(() {
-                        _isValid = isValid;
-                      });
-                    },
-                  ),
-                ),
-                Container(
-                  width: 1,
-                  color: Theme.of(context).dividerColor,
-                ),
-                Expanded(
-                  child: PreviewPanel(
-                    jsonString: _jsonString,
-                    showDeviceFrame: _showDeviceFrame,
-                  ),
-                ),
-              ],
-            );
-          } else {
-            // Tabbed view for narrow screens
-            return DefaultTabController(
-              length: 2,
-              child: Column(
-                children: [
-                  const TabBar(
-                    tabs: [
-                      Tab(text: 'Editor', icon: Icon(Icons.code)),
-                      Tab(text: 'Preview', icon: Icon(Icons.preview)),
-                    ],
-                  ),
-                  Expanded(
-                    child: TabBarView(
+                  if (isWide) {
+                    // Split view for wide screens
+                    return Row(
                       children: [
-                        JsonEditor(
-                          key: ValueKey(_jsonString),
-                          initialJson: _jsonString,
-                          onChanged: (json) {
-                            setState(() {
-                              _jsonString = json;
-                            });
-                          },
-                          onValidationChanged: (isValid) {
-                            setState(() {
-                              _isValid = isValid;
-                            });
-                          },
+                        Expanded(
+                          child: JsonEditor(
+                            key: ValueKey(_jsonString),
+                            initialJson: _jsonString,
+                            onChanged: (json) {
+                              setState(() {
+                                _jsonString = json;
+                              });
+                            },
+                            onValidationChanged: (isValid) {
+                              setState(() {
+                                _isValid = isValid;
+                              });
+                            },
+                          ),
                         ),
-                        PreviewPanel(
-                          jsonString: _jsonString,
-                          showDeviceFrame: _showDeviceFrame,
+                        Container(
+                          width: 1,
+                          color: Theme.of(context).dividerColor,
+                        ),
+                        Expanded(
+                          child: PreviewPanel(
+                            jsonString: _jsonString,
+                            showDeviceFrame: _showDeviceFrame,
+                          ),
                         ),
                       ],
-                    ),
-                  ),
-                ],
+                    );
+                  } else {
+                    // Tabbed view for narrow screens
+                    return DefaultTabController(
+                      length: 2,
+                      child: Column(
+                        children: [
+                          const TabBar(
+                            tabs: [
+                              Tab(text: 'Editor', icon: Icon(Icons.code)),
+                              Tab(text: 'Preview', icon: Icon(Icons.preview)),
+                            ],
+                          ),
+                          Expanded(
+                            child: TabBarView(
+                              children: [
+                                JsonEditor(
+                                  key: ValueKey(_jsonString),
+                                  initialJson: _jsonString,
+                                  onChanged: (json) {
+                                    setState(() {
+                                      _jsonString = json;
+                                    });
+                                  },
+                                  onValidationChanged: (isValid) {
+                                    setState(() {
+                                      _isValid = isValid;
+                                    });
+                                  },
+                                ),
+                                PreviewPanel(
+                                  jsonString: _jsonString,
+                                  showDeviceFrame: _showDeviceFrame,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+                },
               ),
             );
-          }
-        },
-      ),
-    );
           },
         ),
       ),
@@ -418,7 +423,8 @@ class _SessionsDrawer extends StatelessWidget {
                     Text(
                       'No saved sessions',
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            color: Theme.of(context).colorScheme.onSurfaceVariant,
+                            color:
+                                Theme.of(context).colorScheme.onSurfaceVariant,
                           ),
                     ),
                   ],

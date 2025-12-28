@@ -27,13 +27,13 @@ class SingleFrameChart extends StatelessWidget {
       return Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          border: Border.all(color: color.withOpacity(0.3)),
+          border: Border.all(color: color.withValues(alpha: 0.3)),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Center(
           child: Text(
             'No data',
-            style: TextStyle(color: textColor.withOpacity(0.5)),
+            style: TextStyle(color: textColor.withValues(alpha: 0.5)),
           ),
         ),
       );
@@ -43,81 +43,82 @@ class SingleFrameChart extends StatelessWidget {
     final max = samples.reduce((a, b) => a > b ? a : b);
     final avg = Duration(
       microseconds: samples.fold<int>(
-        0,
-        (sum, d) => sum + d.inMicroseconds,
-      ) ~/ samples.length,
+            0,
+            (sum, d) => sum + d.inMicroseconds,
+          ) ~/
+          samples.length,
     );
     final fps = 1.0 / (avg.inMicroseconds / 1e6);
 
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        border: Border.all(color: color.withOpacity(0.3)),
+        border: Border.all(color: color.withValues(alpha: 0.3)),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-            // Title and stats row
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+          // Title and stats row
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                  color: textColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+              ),
+              if (showFps)
                 Text(
-                  title,
+                  '${fps.toStringAsFixed(1)} FPS',
                   style: TextStyle(
-                    color: textColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
+                    color: textColor.withValues(alpha: 0.7),
+                    fontSize: 12,
                   ),
                 ),
-                if (showFps)
-                  Text(
-                    '${fps.toStringAsFixed(1)} FPS',
-                    style: TextStyle(
-                      color: textColor.withOpacity(0.7),
-                      fontSize: 12,
-                    ),
-                  ),
-              ],
-            ),
-            const SizedBox(height: 4),
-            // Stats row
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'max ${max.inMicroseconds ~/ 1000} ms',
-                  style: TextStyle(
-                    color: textColor.withOpacity(0.6),
-                    fontSize: 11,
-                  ),
+            ],
+          ),
+          const SizedBox(height: 4),
+          // Stats row
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'max ${max.inMicroseconds ~/ 1000} ms',
+                style: TextStyle(
+                  color: textColor.withValues(alpha: 0.6),
+                  fontSize: 11,
                 ),
-                Text(
-                  'avg ${avg.inMicroseconds ~/ 1000} ms',
-                  style: TextStyle(
-                    color: textColor.withOpacity(0.6),
-                    fontSize: 11,
-                  ),
+              ),
+              Text(
+                'avg ${avg.inMicroseconds ~/ 1000} ms',
+                style: TextStyle(
+                  color: textColor.withValues(alpha: 0.6),
+                  fontSize: 11,
                 ),
-              ],
-            ),
-            const SizedBox(height: 12),
-            // Chart
-            LayoutBuilder(
-              builder: (context, constraints) {
-                return _PerformanceChart(
-                  samples: samples,
-                  targetFrameTime: targetFrameTime,
-                  barRangeMax: barRangeMax,
-                  color: color,
-                  height: 120,
-                );
-              },
-            ),
-          ],
-        ),
-      );
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          // Chart
+          LayoutBuilder(
+            builder: (context, constraints) {
+              return _PerformanceChart(
+                samples: samples,
+                targetFrameTime: targetFrameTime,
+                barRangeMax: barRangeMax,
+                color: color,
+                height: 120,
+              );
+            },
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -182,7 +183,7 @@ class _PerformanceChartPainter extends CustomPainter {
     // Draw a horizontal line to mark the target frame time
     final lineY = size.height * (1 - (targetMs / maxMs).clamp(0.0, 1.0));
     final linePaint = Paint()
-      ..color = Colors.black.withOpacity(0.3)
+      ..color = Colors.black.withValues(alpha: 0.3)
       ..strokeWidth = 1;
     canvas.drawLine(
       Offset(0, lineY),
@@ -214,4 +215,3 @@ class _PerformanceChartPainter extends CustomPainter {
   bool shouldRepaint(_PerformanceChartPainter oldDelegate) =>
       oldDelegate.samples != samples;
 }
-

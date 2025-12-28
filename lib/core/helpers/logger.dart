@@ -71,8 +71,9 @@ bool _isDecorativeLine(String cleanedLine) {
   // Pattern: "#0   LogIO.d (package:stac_logger/src/log_io.dart:16:35)"
   // Also allow file-only lines like "log_io.dart:16" that appear in stack traces
   if (RegExp(r'^#\d+').hasMatch(cleanedLine)) return false;
-  if (RegExp(r'^[a-zA-Z_][a-zA-Z0-9_]*\.dart:\d+$').hasMatch(cleanedLine))
+  if (RegExp(r'^[a-zA-Z_][a-zA-Z0-9_]*\.dart:\d+$').hasMatch(cleanedLine)) {
     return false;
+  }
 
   // Check for box-drawing characters (Unicode box-drawing set)
   // This matches lines like: └───────────────────────────────────────────
@@ -198,6 +199,7 @@ class ISpectLogOutput extends LogOutput {
           switch (logLine.level) {
             case Level.debug:
             case Level.trace:
+            // ignore: deprecated_member_use
             case Level.verbose:
               // Try debug method, fallback to info if not available
               try {
@@ -238,6 +240,7 @@ class ISpectLogOutput extends LogOutput {
               break;
             case Level.error:
             case Level.fatal:
+            // ignore: deprecated_member_use
             case Level.wtf:
               try {
                 ispectLogger.error(logLine.message);
@@ -256,8 +259,9 @@ class ISpectLogOutput extends LogOutput {
                 forwarded = false;
               }
               break;
-            case Level.nothing:
             case Level.off:
+            // ignore: deprecated_member_use
+            case Level.nothing:
               // Level.nothing and Level.off mean no logging - skip this line
               continue;
           }
@@ -344,7 +348,7 @@ class AppLogger {
   );
 
   /// Map to store settings for each category
-  static Map<LogCategory, LogCategorySettings> _categorySettings = {
+  static final Map<LogCategory, LogCategorySettings> _categorySettings = {
     for (var category in LogCategory.values)
       category: const LogCategorySettings(),
   };
@@ -410,11 +414,11 @@ class AppLogger {
   static Future<String> _getDocumentsDirectory() async {
     // Use path_provider equivalent logic
     if (Platform.isWindows) {
-      return Platform.environment['USERPROFILE']! + '\\OneDrive\\Documents';
+      return '${Platform.environment['USERPROFILE']}\\OneDrive\\Documents';
     } else if (Platform.isMacOS) {
-      return Platform.environment['HOME']! + '/Documents';
+      return '${Platform.environment['HOME']}/Documents';
     } else if (Platform.isLinux) {
-      return Platform.environment['HOME']! + '/Documents';
+      return '${Platform.environment['HOME']}/Documents';
     } else {
       // Mobile - use a simple path
       return '.';

@@ -48,7 +48,8 @@ class ISpectSettingsBottomSheet extends StatefulWidget {
   }
 
   @override
-  State<ISpectSettingsBottomSheet> createState() => _ISpectSettingsBottomSheetState();
+  State<ISpectSettingsBottomSheet> createState() =>
+      _ISpectSettingsBottomSheetState();
 }
 
 class _ISpectSettingsBottomSheetState extends State<ISpectSettingsBottomSheet> {
@@ -195,8 +196,7 @@ class _SettingsBody extends StatelessWidget {
                       ),
                       border: Border.fromBorderSide(
                         BorderSide(
-                          color: iSpect.theme.dividerColor(context) ??
-                              context.ispectTheme.dividerColor,
+                          color: context.ispectTheme.dividerColor,
                         ),
                       ),
                     ),
@@ -207,8 +207,7 @@ class _SettingsBody extends StatelessWidget {
                           settings[index],
                           if (index != settings.length - 1)
                             Divider(
-                              color: iSpect.theme.dividerColor(context) ??
-                                  context.ispectTheme.dividerColor,
+                              color: context.ispectTheme.dividerColor,
                               height: 1,
                             ),
                         ],
@@ -227,8 +226,7 @@ class _SettingsBody extends StatelessWidget {
                       borderRadius: const BorderRadius.all(Radius.circular(16)),
                       border: Border.fromBorderSide(
                         BorderSide(
-                          color: iSpect.theme.dividerColor(context) ??
-                              context.ispectTheme.dividerColor,
+                          color: context.ispectTheme.dividerColor,
                         ),
                       ),
                     ),
@@ -319,7 +317,6 @@ class _ActionTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final iSpect = ISpect.read(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -340,8 +337,7 @@ class _ActionTile extends StatelessWidget {
         ),
         if (showDivider)
           Divider(
-            color: iSpect.theme.dividerColor(context) ??
-                context.ispectTheme.dividerColor,
+            color: context.ispectTheme.dividerColor,
             height: 1,
           ),
       ],
@@ -374,7 +370,6 @@ class ISpectSettingsCardItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final iSpect = ISpect.read(context);
     return AnimatedOpacity(
       duration: const Duration(milliseconds: 150),
       opacity: canEdit ? 1 : 0.7,
@@ -382,8 +377,7 @@ class ISpectSettingsCardItem extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 2),
         child: ISpectBaseCard(
           padding: const EdgeInsets.symmetric(horizontal: 4).copyWith(right: 4),
-          color: iSpect.theme.dividerColor(context) ??
-              context.ispectTheme.dividerColor,
+          color: context.ispectTheme.dividerColor,
           backgroundColor: backgroundColor,
           child: Material(
             color: Colors.transparent,
@@ -405,7 +399,8 @@ class ISpectSettingsCardItem extends StatelessWidget {
                   ? Text(
                       subtitle!,
                       style: TextStyle(
-                        color: context.ispectTheme.textColor.withOpacity(0.7),
+                        color: context.ispectTheme.textColor
+                            .withValues(alpha: 0.7),
                         fontSize: 12,
                       ),
                     )

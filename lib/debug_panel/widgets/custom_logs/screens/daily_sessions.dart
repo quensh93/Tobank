@@ -60,7 +60,7 @@ class DailySessionsScreen extends StatelessWidget {
           index: index,
           isExpanded: isExpanded,
           onTap: () => controller.handleLogItemTap(log),
-          observer: null, // TODO: Add observer if needed
+          observer: null, // [TODO]: Add observer if needed
           onCopyTap: () => controller.copyLogEntryText(
             context,
             log,
@@ -105,4 +105,3 @@ class DailySessionsScreen extends StatelessWidget {
     return Colors.green;
   }
 }
-

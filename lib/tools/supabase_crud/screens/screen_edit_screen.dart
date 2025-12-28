@@ -16,10 +16,7 @@ import '../models/screen_metadata.dart';
 class ScreenEditScreen extends HookConsumerWidget {
   final String screenName;
 
-  const ScreenEditScreen({
-    super.key,
-    required this.screenName,
-  });
+  const ScreenEditScreen({super.key, required this.screenName});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -78,13 +75,14 @@ class ScreenEditScreen extends HookConsumerWidget {
       };
     }, []);
 
-    return WillPopScope(
-      onWillPop: () async {
-        if (hasChanges.value) {
-          final shouldPop = await _showUnsavedChangesDialog(context);
-          return shouldPop ?? false;
+    return PopScope(
+      canPop: !hasChanges.value,
+      onPopInvokedWithResult: (didPop, result) async {
+        if (didPop) return;
+        final shouldPop = await _showUnsavedChangesDialog(context);
+        if ((shouldPop ?? false) && context.mounted) {
+          Navigator.of(context).pop();
         }
-        return true;
       },
       child: CrudLayout(
         title: 'Edit: $screenName',
@@ -100,17 +98,17 @@ class ScreenEditScreen extends HookConsumerWidget {
             onPressed: isSaving.value
                 ? null
                 : () => _saveScreen(
-                      context,
-                      ref,
-                      jsonController,
-                      descriptionController,
-                      routeController,
-                      authorController,
-                      tagsController,
-                      isSaving,
-                      hasChanges,
-                      validationError,
-                    ),
+                    context,
+                    ref,
+                    jsonController,
+                    descriptionController,
+                    routeController,
+                    authorController,
+                    tagsController,
+                    isSaving,
+                    hasChanges,
+                    validationError,
+                  ),
             icon: isSaving.value
                 ? const SizedBox(
                     width: 16,
@@ -126,9 +124,7 @@ class ScreenEditScreen extends HookConsumerWidget {
           data: (metadata) {
             final meta = metadata;
             if (meta == null) {
-              return const CrudErrorDisplay(
-                error: 'Screen metadata not found',
-              );
+              return const CrudErrorDisplay(error: 'Screen metadata not found');
             }
             return screenJsonAsync.when(
               data: (json) => _buildEditor(
@@ -141,9 +137,8 @@ class ScreenEditScreen extends HookConsumerWidget {
                 tagsController,
                 validationError,
               ),
-              loading: () => const CrudLoadingIndicator(
-                message: 'Loading screen data...',
-              ),
+              loading: () =>
+                  const CrudLoadingIndicator(message: 'Loading screen data...'),
               error: (error, stack) => CrudErrorDisplay(
                 error: error,
                 onRetry: () {
@@ -152,9 +147,8 @@ class ScreenEditScreen extends HookConsumerWidget {
               ),
             );
           },
-          loading: () => const CrudLoadingIndicator(
-            message: 'Loading screen metadata...',
-          ),
+          loading: () =>
+              const CrudLoadingIndicator(message: 'Loading screen metadata...'),
           error: (error, stack) => CrudErrorDisplay(
             error: error,
             onRetry: () {
@@ -247,14 +241,14 @@ class ScreenEditScreen extends HookConsumerWidget {
                       Icons.access_time,
                     ),
                     ...[
-                    const SizedBox(height: 8),
-                    _buildInfoRow(
-                      context,
-                      'Created',
-                      _formatDate(createdAt),
-                      Icons.calendar_today,
-                    ),
-                  ],
+                      const SizedBox(height: 8),
+                      _buildInfoRow(
+                        context,
+                        'Created',
+                        _formatDate(createdAt),
+                        Icons.calendar_today,
+                      ),
+                    ],
                   ],
                 ),
               ),
@@ -292,15 +286,15 @@ class ScreenEditScreen extends HookConsumerWidget {
         Text(
           '$label: ',
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
+          ),
         ),
         Expanded(
           child: Text(
             value,
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+            style: Theme.of(
+              context,
+            ).textTheme.bodySmall?.copyWith(fontWeight: FontWeight.bold),
           ),
         ),
       ],
@@ -334,13 +328,17 @@ class ScreenEditScreen extends HookConsumerWidget {
           .toList();
 
       // Update screen
-      await ref.read(supabaseCrudServiceProvider).updateScreen(
+      await ref
+          .read(supabaseCrudServiceProvider)
+          .updateScreen(
             id: screenName,
             jsonData: json,
             description: descriptionController.text.isEmpty
                 ? null
                 : descriptionController.text,
-            author: authorController.text.isEmpty ? null : authorController.text,
+            author: authorController.text.isEmpty
+                ? null
+                : authorController.text,
             tags: tags,
           );
 
@@ -397,12 +395,11 @@ class ScreenEditScreen extends HookConsumerWidget {
                 itemBuilder: (context, index) {
                   final version = versions[index];
                   final versionNumber = version['version'] as int? ?? index + 1;
-                  final timestamp = version['timestamp'] as DateTime? ?? DateTime.now();
+                  final timestamp =
+                      version['timestamp'] as DateTime? ?? DateTime.now();
                   final description = version['description'] as String?;
                   return ListTile(
-                    leading: CircleAvatar(
-                      child: Text('v$versionNumber'),
-                    ),
+                    leading: CircleAvatar(child: Text('v$versionNumber')),
                     title: Text(_formatDate(timestamp)),
                     subtitle: description != null ? Text(description) : null,
                     trailing: FilledButton(
@@ -417,6 +414,7 @@ class ScreenEditScreen extends HookConsumerWidget {
                               .rollbackToVersion(screenName, versionNumber);
                           ref.invalidate(screenProvider(screenName));
                           ref.invalidate(screenJsonProvider(screenName));
+                          if (!context.mounted) return;
                           Navigator.of(context).pop();
                         }
                       },
@@ -440,10 +438,7 @@ class ScreenEditScreen extends HookConsumerWidget {
     );
   }
 
-  Future<bool?> _showRollbackConfirmation(
-    BuildContext context,
-    int version,
-  ) {
+  Future<bool?> _showRollbackConfirmation(BuildContext context, int version) {
     return showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
@@ -481,9 +476,7 @@ class ScreenEditScreen extends HookConsumerWidget {
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
-            style: FilledButton.styleFrom(
-              backgroundColor: Colors.red,
-            ),
+            style: FilledButton.styleFrom(backgroundColor: Colors.red),
             child: const Text('Leave'),
           ),
         ],

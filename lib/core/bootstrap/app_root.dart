@@ -18,6 +18,12 @@ import '../../features/tobank_mock_new/data/theme/tobank_theme_loader.dart';
 import '../stac/loaders/tobank/tobank_colors_loader.dart';
 import '../stac/loaders/tobank/tobank_version_loader.dart';
 
+// Test Pages for Routing
+import '../../dummy/stac_test_page.dart';
+import '../../dummy/simple_api_test_page.dart';
+import '../../dummy/news_api_test_page.dart';
+import '../../features/tobank_mock_new/presentation/screens/tobank_stac_dart_screen.dart';
+
 class AppRoot extends ConsumerStatefulWidget {
   const AppRoot({super.key, this.useDevicePreview});
 
@@ -143,6 +149,12 @@ class _AppRootState extends ConsumerState<AppRoot> {
             showSemanticsDebugger: false,
             debugShowMaterialGrid: false,
             navigatorObservers: observer != null ? [observer] : [],
+            routes: {
+              '/stac-test': (context) => const StacTestPage(),
+              '/simple-api-test': (context) => const SimpleApiTestPage(),
+              '/network-layer-test': (context) => const NetworkLayerTestPage(),
+              '/tobank-stac-dart': (context) => const TobankStacDartScreen(),
+            },
             builder: (context, child) {
               // ISpect should work independently of debug panel
               // It wraps the actual app content, not the debug panel
@@ -224,6 +236,12 @@ class _AppRootState extends ConsumerState<AppRoot> {
             showSemanticsDebugger: false,
             debugShowMaterialGrid: false,
             navigatorObservers: observer != null ? [observer] : [],
+            routes: {
+              '/stac-test': (context) => const StacTestPage(),
+              '/simple-api-test': (context) => const SimpleApiTestPage(),
+              '/network-layer-test': (context) => const NetworkLayerTestPage(),
+              '/tobank-stac-dart': (context) => const TobankStacDartScreen(),
+            },
             builder: (context, child) {
               // ISpect should work independently of debug panel
               // It wraps the actual app content, not the debug panel

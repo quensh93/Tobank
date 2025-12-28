@@ -69,6 +69,7 @@ class SupabaseApiService implements StacApiService {
   }
 
   /// Fetch configuration JSON (navigation, theme, etc.).
+  @override
   Future<Map<String, dynamic>> fetchConfig(String configName) async {
     final cacheKey = 'config_$configName';
     final cached = _getCachedData(cacheKey);

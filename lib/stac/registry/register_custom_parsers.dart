@@ -1,4 +1,5 @@
 import 'package:stac/stac.dart';
+import '../../core/helpers/logger.dart';
 import '../../core/stac/parsers/widgets/tobank_onboarding_slider_parser.dart';
 import 'custom_component_registry.dart';
 
@@ -26,7 +27,7 @@ import 'custom_component_registry.dart';
 /// ```
 Future<void> registerCustomParsers() async {
   try {
-    print('🔧 Registering custom STAC parsers...');
+    AppLogger.d('🔧 Registering custom STAC parsers...');
 
     // Register example parsers with custom registry first
     _registerExampleParsers();
@@ -45,7 +46,7 @@ Future<void> registerCustomParsers() async {
         // Check if this would conflict with a built-in parser
         final existingParser = stacRegistry.getParser(type);
         if (existingParser != null) {
-          print(
+          AppLogger.w(
             'Skipping custom widget parser "$type" - conflicts with built-in parser',
           );
           widgetSkipped++;
@@ -56,7 +57,7 @@ Future<void> registerCustomParsers() async {
         final success = stacRegistry.register(parser);
         if (success) {
           widgetCount++;
-          print('Registered custom widget parser: $type');
+          AppLogger.d('Registered custom widget parser: $type');
         }
       }
     }
@@ -72,7 +73,7 @@ Future<void> registerCustomParsers() async {
         // Check if this would conflict with a built-in parser
         final existingParser = stacRegistry.getActionParser(actionType);
         if (existingParser != null) {
-          print(
+          AppLogger.w(
             'Skipping custom action parser "$actionType" - conflicts with built-in parser',
           );
           actionSkipped++;
@@ -83,29 +84,28 @@ Future<void> registerCustomParsers() async {
         final success = stacRegistry.registerAction(parser);
         if (success) {
           actionCount++;
-          print('Registered custom action parser: $actionType');
+          AppLogger.d('Registered custom action parser: $actionType');
         }
       }
     }
 
     // Log summary
-    print(
+    AppLogger.i(
       '✅ Custom parser registration complete: '
       '$widgetCount widgets, $actionCount actions registered',
     );
 
     if (widgetSkipped > 0 || actionSkipped > 0) {
-      print(
+      AppLogger.w(
         '⚠️ Skipped $widgetSkipped widgets and $actionSkipped actions due to conflicts',
       );
     }
 
     // Log detailed summary
     final summary = customRegistry.getSummary();
-    print('Custom registry summary: $summary');
+    AppLogger.d('Custom registry summary: $summary');
   } catch (e, stackTrace) {
-    print('❌ Failed to register custom parsers: $e');
-    print('Stack trace:\n$stackTrace');
+    AppLogger.e('❌ Failed to register custom parsers', e, stackTrace);
     rethrow;
   }
 }
@@ -132,7 +132,7 @@ void _registerExampleParsers() {
 /// reset the parser registry.
 Future<void> unregisterCustomParsers() async {
   try {
-    print('🔧 Unregistering custom STAC parsers...');
+    AppLogger.d('🔧 Unregistering custom STAC parsers...');
 
     final customRegistry = CustomComponentRegistry.instance;
 
@@ -140,10 +140,9 @@ Future<void> unregisterCustomParsers() async {
     // so we can only clear our custom registry
     customRegistry.clearAll();
 
-    print('✅ Custom parsers cleared from custom registry');
+    AppLogger.d('✅ Custom parsers cleared from custom registry');
   } catch (e, stackTrace) {
-    print('❌ Failed to unregister custom parsers: $e');
-    print('Stack trace:\n$stackTrace');
+    AppLogger.e('❌ Failed to unregister custom parsers', e, stackTrace);
     rethrow;
   }
 }

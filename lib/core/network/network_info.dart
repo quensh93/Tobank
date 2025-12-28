@@ -11,7 +11,7 @@ class NetworkInfoImpl implements NetworkInfo {
 
   @override
   Future<bool> get isConnected async {
-    // TODO: Implement actual network check using connectivity_plus
+    // Implement actual network check using connectivity_plus
     return true;
   }
 

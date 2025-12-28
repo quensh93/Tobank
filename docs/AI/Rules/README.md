@@ -15,6 +15,7 @@ For detailed explanations, see these files (but start with QUICK_RULES.md):
 5. **[05_CUSTOM_COMPONENT_RULES.md](./05_CUSTOM_COMPONENT_RULES.md)** - Custom components
 6. **[06_FILE_ORGANIZATION_RULES.md](./06_FILE_ORGANIZATION_RULES.md)** - File organization
 7. **[07_TESTING_VALIDATION_RULES.md](./07_TESTING_VALIDATION_RULES.md)** - Testing
+8. **[08_GIT_COMMIT_RULES.md](./08_GIT_COMMIT_RULES.md)** - Git commit generation
 
 ## 🚨 Critical Rules Summary
 
@@ -27,6 +28,7 @@ For detailed explanations, see these files (but start with QUICK_RULES.md):
 6. ✅ Use string variables (not hardcoded text)
 7. ✅ Preview and test before completing
 8. ✅ Register custom components
+9. ✅ Follow Git Commit Best Practices & Workflow
 
 ### Must Not Do
 1. ❌ Edit `.build/` files manually

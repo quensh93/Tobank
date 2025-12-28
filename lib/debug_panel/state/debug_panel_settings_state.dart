@@ -3,8 +3,10 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:logger/logger.dart';
-import 'dart:io';
+import 'package:universal_io/io.dart' as io;
 import 'dart:convert';
+import 'package:flutter/foundation.dart'; // For kIsWeb
+import 'package:shared_preferences/shared_preferences.dart'; // For Web persistence
 
 import '../../core/helpers/logger.dart';
 import '../themes/debug_panel_theme.dart';
@@ -315,50 +317,69 @@ class DebugPanelSettingsController extends Notifier<DebugPanelSettingsState> {
     });
   }
 
-  Future<File> _getStorageFile() async {
+  Future<io.File> _getStorageFile() async {
     try {
       final directory = await getApplicationDocumentsDirectory();
-      final file = File('${directory.path}/$_storageFileName');
+      final file = io.File('${directory.path}/$_storageFileName');
       AppLogger.d('📁 Storage file path: ${file.path}');
       return file;
     } catch (e) {
       AppLogger.e(
           '❌ Failed to get storage directory: $e, using current directory');
-      return File(_storageFileName);
+      return io.File(_storageFileName);
     }
   }
 
   Future<void> _loadSettings() async {
     try {
-      final file = await _getStorageFile();
-      AppLogger.d('📂 Attempting to load settings from: ${file.path}');
-      if (await file.exists()) {
-        final contents = await file.readAsString();
-        final data = jsonDecode(contents) as Map<String, dynamic>;
+      Map<String, dynamic> data;
+      if (kIsWeb) {
+        final prefs = await SharedPreferences.getInstance();
+        final jsonString = prefs.getString(_storageFileName);
+        if (jsonString != null) {
+          data = jsonDecode(jsonString) as Map<String, dynamic>;
+          AppLogger.d('📂 Loaded settings from SharedPreferences');
+        } else {
+          data = {}; // Will trigger default flow
+        }
+      } else {
+        final file = await _getStorageFile();
+        AppLogger.d('📂 Attempting to load settings from: ${file.path}');
+        if (await file.exists()) {
+          final contents = await file.readAsString();
+          data = jsonDecode(contents) as Map<String, dynamic>;
+        } else {
+          data = {}; // Will trigger default flow
+        }
+      }
+
+      if (data.isNotEmpty) {
         final settings = DebugPanelSettingsState.fromJson(data);
         state = settings;
         // Sync LogCategory settings
         settings.logCategorySettings.forEach((category, categorySettings) {
           AppLogger.setCategorySettings(category, categorySettings);
         });
-
-        // Sync global Logger state with General category settings for stac_logger
-        final generalSettings =
-            settings.logCategorySettings[LogCategory.general];
-        if (generalSettings != null) {
-          // Logger properties removed as they don't exist on package:logger
-        }
         AppLogger.d('✅ Debug panel settings loaded successfully');
       } else {
         AppLogger.d('📂 No saved debug panel settings found, using defaults');
         const defaults = DebugPanelSettingsState();
         if (defaults.deviceId.isEmpty) {
+          // On Web, default is just loaded. On Mobile, we might want to save defaults.
+          // But postponing save is better.
+          // For now, let's just save defaults if not web? Or both.
           WidgetsBinding.instance.addPostFrameCallback((_) async {
-            final file = await _getStorageFile();
-            final data = defaults.toJson();
-            data['deviceId'] = 'iphone-15-pro';
-            final jsonString = jsonEncode(data);
-            await file.writeAsString(jsonString);
+            // Save defaults
+            final dataJson = defaults.toJson();
+            dataJson['deviceId'] = 'iphone-15-pro';
+
+            if (kIsWeb) {
+              final prefs = await SharedPreferences.getInstance();
+              await prefs.setString(_storageFileName, jsonEncode(dataJson));
+            } else {
+              final file = await _getStorageFile();
+              await file.writeAsString(jsonEncode(dataJson));
+            }
           });
         }
       }
@@ -374,12 +395,18 @@ class DebugPanelSettingsController extends Notifier<DebugPanelSettingsState> {
       return;
     }
     try {
-      final file = await _getStorageFile();
       final data = Map<String, dynamic>.from(state.toJson());
       data['savedAt'] = DateTime.now().toIso8601String();
       final jsonString = jsonEncode(data);
       AppLogger.d('💾 Saving settings');
-      await file.writeAsString(jsonString);
+
+      if (kIsWeb) {
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setString(_storageFileName, jsonString);
+      } else {
+        final file = await _getStorageFile();
+        await file.writeAsString(jsonString);
+      }
     } catch (e, stackTrace) {
       AppLogger.e('❌ Failed to save debug panel settings: $e');
       AppLogger.e('❌ Stack trace: $stackTrace');

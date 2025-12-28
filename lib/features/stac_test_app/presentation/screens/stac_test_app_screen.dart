@@ -8,7 +8,7 @@ import '../../data/utils/stac_error_handler.dart';
 import 'dart:io';
 
 /// STAC Test App Screen
-/// 
+///
 /// This is the main screen for the STAC test app. It loads the entry point JSON,
 /// renders screens based on STAC JSON templates, and handles navigation.
 class StacTestAppScreen extends ConsumerStatefulWidget {
@@ -28,10 +28,10 @@ class _StacTestAppScreenState extends ConsumerState<StacTestAppScreen> {
     // Set default entry point path
     _currentEntryPointPath = 'mock/stac_test_app/app_entry_point.json';
     _entryPointDir = 'mock/stac_test_app';
-    
+
     // Register login action parser
     registerLoginActionParser();
-    
+
     // Set up navigation handler for login action
     LoginNavigationHandler.setHandler((screenName) {
       if (mounted) {
@@ -41,7 +41,7 @@ class _StacTestAppScreenState extends ConsumerState<StacTestAppScreen> {
       }
     });
   }
-  
+
   @override
   void dispose() {
     // Clear navigation handler
@@ -55,7 +55,9 @@ class _StacTestAppScreenState extends ConsumerState<StacTestAppScreen> {
     // Set entry point in provider after ref is available
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
-        ref.read(currentEntryPointProvider).setEntryPoint(_currentEntryPointPath ?? '');
+        ref
+            .read(currentEntryPointProvider)
+            .setEntryPoint(_currentEntryPointPath ?? '');
       }
     });
   }
@@ -79,8 +81,9 @@ class _StacTestAppScreenState extends ConsumerState<StacTestAppScreen> {
   Widget _buildContent() {
     // Get entry point path
     final entryPointNotifier = ref.read(currentEntryPointProvider);
-    final entryPointPath = entryPointNotifier.entryPoint ?? _currentEntryPointPath;
-    
+    final entryPointPath =
+        entryPointNotifier.entryPoint ?? _currentEntryPointPath;
+
     // Check for restart trigger
     final restartNotifier = ref.read(restartTriggerProvider);
     if (restartNotifier.trigger > 0) {
@@ -99,7 +102,9 @@ class _StacTestAppScreenState extends ConsumerState<StacTestAppScreen> {
 
     // Load entry point config
     final entryPointAsync = ref.watch(
-      entryPointConfigProvider(entryPointPath ?? 'mock/stac_test_app/app_entry_point.json'),
+      entryPointConfigProvider(
+        entryPointPath ?? 'mock/stac_test_app/app_entry_point.json',
+      ),
     );
 
     return entryPointAsync.when(
@@ -107,7 +112,7 @@ class _StacTestAppScreenState extends ConsumerState<StacTestAppScreen> {
         // Get current screen name (use initial screen if not set)
         final screenNotifier = ref.read(currentScreenProvider);
         final currentScreen = screenNotifier.screen ?? config.initialScreen;
-        
+
         // Set initial screen if not already set
         if (screenNotifier.screen == null) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -116,10 +121,10 @@ class _StacTestAppScreenState extends ConsumerState<StacTestAppScreen> {
             }
           });
         }
-        
+
         // Get screen config
         final screenConfig = config.screens[currentScreen];
-        
+
         if (screenConfig == null) {
           return _buildErrorWidget(
             'Screen "$currentScreen" is not defined in entry point.\n\n'
@@ -140,11 +145,8 @@ class _StacTestAppScreenState extends ConsumerState<StacTestAppScreen> {
           entryPointDir: entryPointDir,
         );
       },
-      loading: () => const Scaffold(
-        body: Center(
-          child: CircularProgressIndicator(),
-        ),
-      ),
+      loading: () =>
+          const Scaffold(body: Center(child: CircularProgressIndicator())),
       error: (error, stackTrace) {
         AppLogger.e('Failed to load entry point', error, stackTrace);
         final userMessage = StacErrorHandler.getUserFriendlyMessage(error);
@@ -187,22 +189,25 @@ class _StacTestAppScreenState extends ConsumerState<StacTestAppScreen> {
           }
           return widget;
         } catch (e, stackTrace) {
-          AppLogger.e('STAC parsing error for screen: $screenName', e, stackTrace);
+          AppLogger.e(
+            'STAC parsing error for screen: $screenName',
+            e,
+            stackTrace,
+          );
           final userMessage = StacErrorHandler.getUserFriendlyMessage(e);
           return _buildErrorWidget(
             'STAC parsing error for screen "$screenName":\n\n$userMessage',
           );
         }
       },
-      loading: () => const Scaffold(
-        body: Center(
-          child: CircularProgressIndicator(),
-        ),
-      ),
+      loading: () =>
+          const Scaffold(body: Center(child: CircularProgressIndicator())),
       error: (error, stackTrace) {
         AppLogger.e('Failed to load screen: $screenName', error, stackTrace);
         final userMessage = StacErrorHandler.getUserFriendlyMessage(error);
-        return _buildErrorWidget('Failed to load screen "$screenName":\n\n$userMessage');
+        return _buildErrorWidget(
+          'Failed to load screen "$screenName":\n\n$userMessage',
+        );
       },
     );
   }
@@ -212,7 +217,7 @@ class _StacTestAppScreenState extends ConsumerState<StacTestAppScreen> {
     // Note: STAC navigation actions are handled by the framework
     // We may need to intercept them to update our state
     // For now, we'll rely on STAC's built-in navigation
-    // TODO: Implement custom navigation handler if needed
+    // [TODO]: Implement custom navigation handler if needed
   }
 
   /// Handle hot reload
@@ -231,33 +236,32 @@ class _StacTestAppScreenState extends ConsumerState<StacTestAppScreen> {
   void _handleRestart() {
     // Reset to initial screen
     final entryPointNotifier = ref.read(currentEntryPointProvider);
-    final entryPointPath = entryPointNotifier.entryPoint ?? _currentEntryPointPath;
-    final entryPointAsync = ref.read(entryPointConfigProvider(entryPointPath ?? '').future);
-    
+    final entryPointPath =
+        entryPointNotifier.entryPoint ?? _currentEntryPointPath;
+    final entryPointAsync = ref.read(
+      entryPointConfigProvider(entryPointPath ?? '').future,
+    );
+
     entryPointAsync.then((config) {
       ref.read(currentScreenProvider).setScreen(config.initialScreen);
       // Don't invalidate here - let the ListenableBuilder handle the rebuild
-      AppLogger.i('🔄 Restart triggered - reset to initial screen: ${config.initialScreen}');
+      AppLogger.i(
+        '🔄 Restart triggered - reset to initial screen: ${config.initialScreen}',
+      );
     });
   }
 
   /// Build error widget
   Widget _buildErrorWidget(String message) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Error'),
-      ),
+      appBar: AppBar(title: const Text('Error')),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(
-                Icons.error_outline,
-                size: 64,
-                color: Colors.red,
-              ),
+              const Icon(Icons.error_outline, size: 64, color: Colors.red),
               const SizedBox(height: 16),
               Text(
                 message,
@@ -290,4 +294,3 @@ class _StacTestAppScreenState extends ConsumerState<StacTestAppScreen> {
     return file.parent.path;
   }
 }
-

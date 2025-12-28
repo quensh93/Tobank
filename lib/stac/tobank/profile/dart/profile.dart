@@ -1,18 +1,17 @@
 import 'package:stac_core/stac_core.dart';
-import 'package:stac_core/actions/network_request/stac_network_request.dart';
 
 /// Tobank Profile Screen - User profile and information
-/// 
+///
 /// This screen displays user profile information including:
 /// - User name
 /// - Mobile number
 /// - Customer number
 /// - Email
-/// 
+///
 /// Uses data binding to load all data from mock API.
 /// Uses Persian text from app_fa.arb.
 /// Uses STAC theme colors which automatically adapt to light/dark mode.
-/// 
+///
 /// Reference: `.tobank_old/lib/ui/dashboard_screen/page/account_page.dart`
 @StacScreen(screenName: 'tobank_profile')
 StacWidget tobankProfile() {
@@ -57,9 +56,7 @@ StacWidget tobankProfile() {
         method: Method.get,
       ),
       targetPath: 'data',
-      loaderWidget: StacCenter(
-        child: StacCircularProgressIndicator(),
-      ),
+      loaderWidget: StacCenter(child: StacCircularProgressIndicator()),
       errorWidget: StacCenter(
         child: StacText(
           data: '{{appStrings.profile.errorLoading}}',
@@ -101,9 +98,9 @@ StacWidget tobankProfile() {
                 ),
               ),
             ),
-            
+
             StacSizedBox(height: 16),
-            
+
             // Mobile Number Card
             StacCard(
               child: StacPadding(
@@ -132,9 +129,9 @@ StacWidget tobankProfile() {
                 ),
               ),
             ),
-            
+
             StacSizedBox(height: 16),
-            
+
             // Customer Number Card
             StacCard(
               child: StacPadding(
@@ -163,9 +160,9 @@ StacWidget tobankProfile() {
                 ),
               ),
             ),
-            
+
             StacSizedBox(height: 16),
-            
+
             // Email Card
             StacCard(
               child: StacPadding(
@@ -194,9 +191,9 @@ StacWidget tobankProfile() {
                 ),
               ),
             ),
-            
+
             StacSizedBox(height: 24),
-            
+
             // Edit Profile Button
             StacElevatedButton(
               onPressed: StacNavigateAction(
@@ -216,9 +213,9 @@ StacWidget tobankProfile() {
                 ),
               ),
             ),
-            
+
             StacSizedBox(height: 16),
-            
+
             // Settings Button
             StacOutlinedButton(
               onPressed: StacNavigateAction(

@@ -1,11 +1,10 @@
 import 'package:stac_core/stac_core.dart';
-import 'package:stac_core/actions/network_request/stac_network_request.dart';
 
 /// Tobank Register Screen - User Registration
-/// 
+///
 /// This screen provides a registration form with name, email, password, and confirm password fields.
 /// Uses data binding to load all text strings from mock API.
-/// 
+///
 /// Uses STAC theme colors which automatically adapt to light/dark mode.
 @StacScreen(screenName: 'tobank_register')
 StacWidget tobankRegister() {
@@ -27,9 +26,7 @@ StacWidget tobankRegister() {
         method: Method.get,
       ),
       targetPath: 'data',
-      loaderWidget: StacCenter(
-        child: StacCircularProgressIndicator(),
-      ),
+      loaderWidget: StacCenter(child: StacCircularProgressIndicator()),
       errorWidget: StacCenter(
         child: StacText(
           data: '{{appStrings.register.errorLoading}}',
@@ -46,7 +43,7 @@ StacWidget tobankRegister() {
             mainAxisAlignment: StacMainAxisAlignment.start,
             children: [
               StacSizedBox(height: 16),
-              
+
               // Title
               StacText(
                 data: '{{title}}',
@@ -57,9 +54,9 @@ StacWidget tobankRegister() {
                 ),
                 textAlign: StacTextAlign.center,
               ),
-              
+
               StacSizedBox(height: 8),
-              
+
               // Subtitle
               StacText(
                 data: '{{subtitle}}',
@@ -70,9 +67,9 @@ StacWidget tobankRegister() {
                 ),
                 textAlign: StacTextAlign.center,
               ),
-              
+
               StacSizedBox(height: 32),
-              
+
               // Full Name Field
               StacText(
                 data: '{{fullNameLabel}}',
@@ -82,9 +79,9 @@ StacWidget tobankRegister() {
                   color: '{{appColors.current.text.title}}',
                 ),
               ),
-              
+
               StacSizedBox(height: 8),
-              
+
               StacTextFormField(
                 id: 'full_name',
                 decoration: StacInputDecoration(
@@ -105,9 +102,9 @@ StacWidget tobankRegister() {
                   color: '{{appColors.current.text.title}}',
                 ),
               ),
-              
+
               StacSizedBox(height: 16),
-              
+
               // Email Field
               StacText(
                 data: '{{emailLabel}}',
@@ -117,9 +114,9 @@ StacWidget tobankRegister() {
                   color: '{{appColors.current.text.title}}',
                 ),
               ),
-              
+
               StacSizedBox(height: 8),
-              
+
               StacTextFormField(
                 id: 'email',
                 decoration: StacInputDecoration(
@@ -140,9 +137,9 @@ StacWidget tobankRegister() {
                   color: '{{appColors.current.text.title}}',
                 ),
               ),
-              
+
               StacSizedBox(height: 16),
-              
+
               // Password Field
               StacText(
                 data: '{{passwordLabel}}',
@@ -152,9 +149,9 @@ StacWidget tobankRegister() {
                   color: '{{appColors.current.text.title}}',
                 ),
               ),
-              
+
               StacSizedBox(height: 8),
-              
+
               StacTextFormField(
                 id: 'password',
                 decoration: StacInputDecoration(
@@ -176,9 +173,9 @@ StacWidget tobankRegister() {
                   color: '{{appColors.current.text.title}}',
                 ),
               ),
-              
+
               StacSizedBox(height: 16),
-              
+
               // Confirm Password Field
               StacText(
                 data: '{{confirmPasswordLabel}}',
@@ -188,9 +185,9 @@ StacWidget tobankRegister() {
                   color: '{{appColors.current.text.title}}',
                 ),
               ),
-              
+
               StacSizedBox(height: 8),
-              
+
               StacTextFormField(
                 id: 'confirm_password',
                 decoration: StacInputDecoration(
@@ -212,9 +209,9 @@ StacWidget tobankRegister() {
                   color: '{{appColors.current.text.title}}',
                 ),
               ),
-              
+
               StacSizedBox(height: 24),
-              
+
               // Register Button
               StacElevatedButton(
                 onPressed: StacMultiAction(
@@ -247,10 +244,7 @@ StacWidget tobankRegister() {
                             'child': {
                               'type': 'text',
                               'data': '{{okButtonText}}',
-                              'style': {
-                                'type': 'custom',
-                                'color': 'primary',
-                              },
+                              'style': {'type': 'custom', 'color': 'primary'},
                             },
                             'onPressed': {
                               'actionType': 'navigate',
@@ -276,9 +270,9 @@ StacWidget tobankRegister() {
                   ),
                 ),
               ),
-              
+
               StacSizedBox(height: 16),
-              
+
               // Login Link
               StacRow(
                 mainAxisAlignment: StacMainAxisAlignment.center,
