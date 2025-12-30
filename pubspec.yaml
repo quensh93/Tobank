@@ -122,6 +122,8 @@ flutter:
     - lib/stac/tobank/sum_test/api/
     - lib/stac/tobank/stateful_example/json/
     - lib/stac/tobank/stateful_example/api/
+    - lib/stac/tobank/image_picker_test/json/
+    - lib/stac/tobank/image_picker_test/api/
     # Flows
 
     - lib/stac/tobank/flows/login_flow_linear/dart/

@@ -13,12 +13,13 @@ class ISpectViewController extends ChangeNotifier {
   ISpectViewController({ISpectShareCallback? onShare}) : _onShare = onShare;
 
   ISpectFilter _filter = ISpectFilter();
-  bool _expandedLogs = true;
+  bool _expandedLogs = false; // Default to collapsed for performance
   bool _isLogOrderReversed = true;
   ISpectLogData? _activeData;
 
   // JSON service for logs export/import
-  final custom.LogsJsonService _logsJsonService = const custom.LogsJsonService();
+  final custom.LogsJsonService _logsJsonService =
+      const custom.LogsJsonService();
 
   final ISpectShareCallback? _onShare;
 
@@ -204,9 +205,24 @@ class ISpectViewController extends ChangeNotifier {
       return _cachedFilteredData;
     }
 
+    // Limit the number of logs filter check to the last 300 items to prevent UI freeze
+    // This is a trade-off: we might miss older logs in search/filter, but performance is prioritized
+    // iterating over thousands of items on every frame/log-update is too expensive.
+    const int maxLogToProcess = 300;
+    final List<ISpectLogData> logsToProcess;
+
+    if (logsData.length > maxLogToProcess) {
+      // Take the last N items.
+      // Note: ISpect logs are usually appended, so last items are newest.
+      logsToProcess = logsData.sublist(logsData.length - maxLogToProcess);
+    } else {
+      logsToProcess = logsData;
+    }
+
     // Apply filter and update cache
-    final filteredData = logsData.where(currentFilter.apply).toList();
-    _updateFilterCache(logsData, currentFilter, currentDataHash, filteredData);
+    final filteredData = logsToProcess.where(currentFilter.apply).toList();
+    _updateFilterCache(
+        logsToProcess, currentFilter, currentDataHash, filteredData);
 
     return filteredData;
   }
@@ -221,7 +237,7 @@ class ISpectViewController extends ChangeNotifier {
     if (_lastAppliedFilter != currentFilter) {
       return false;
     }
-    
+
     return logsData.length == _lastProcessedDataLength &&
         _lastDataHash == currentDataHash;
   }
@@ -261,8 +277,14 @@ class ISpectViewController extends ChangeNotifier {
     }
 
     // Extract and cache titles
+    // Limit to the last 300 items for performance
+    const int maxLogToProcess = 300;
+    final List<ISpectLogData> logsToProcess = logsData.length > maxLogToProcess
+        ? logsData.sublist(logsData.length - maxLogToProcess)
+        : logsData;
+
     final allTitles =
-        logsData.map((data) => data.title).whereType<String>().toList();
+        logsToProcess.map((data) => data.title).whereType<String>().toList();
     final uniqueTitles = allTitles.toSet().toList();
 
     _cachedAllTitles = allTitles;
@@ -396,5 +418,3 @@ class ISpectViewController extends ChangeNotifier {
     return shareCallback;
   }
 }
-
-

@@ -23,6 +23,8 @@ import '../../../../stac/tobank/flows/login_flow_linear/dart/login_flow_linear_v
     as linear_verify_otp_dart;
 import '../../../../stac/tobank/stateful_example/dart/tobank_stateful_example_dart.dart'
     as stateful_example_dart;
+import '../../../../stac/tobank/image_picker_test/dart/image_picker_test.dart'
+    as image_picker_test_dart;
 import 'package:tobank_sdui/core/helpers/logger.dart';
 
 /// Service for loading STAC widgets from Dart files.
@@ -82,6 +84,8 @@ class StacWidgetLoader {
         linear_verify_otp_dart.tobankLoginFlowLinearVerifyOtp().toJson(),
     'tobank_stateful_example_dart': () =>
         stateful_example_dart.tobankStatefulExampleDart().toJson(),
+    'tobank_image_picker_test': () =>
+        image_picker_test_dart.tobankImagePickerTestDart().toJson(),
   };
 
   /// Registers a widget loader for a specific widget type.

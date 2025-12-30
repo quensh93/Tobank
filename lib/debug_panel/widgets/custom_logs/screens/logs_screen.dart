@@ -49,7 +49,8 @@ class _LogsScreenState extends State<LogsScreen> {
     _logsViewController = ISpectViewController(
       onShare: widget.options.onShare,
     );
-    _logsViewController.toggleExpandedLogs();
+    // Note: Do NOT expand logs by default - causes severe performance issues
+    // Users can expand individual logs or toggle expansion via settings
 
     // Initialize controller with current search query
     // Extract search query from filter (it's stored in SearchFilter within filters list)
@@ -120,27 +121,27 @@ class _LogsScreenState extends State<LogsScreen> {
         listenable: _logsViewController,
         builder: (_, __) => Row(
           children: [
+            // Left panel: Log list
             Expanded(
               child: ISpectifyBuilder(
                 iSpectLogger: ISpect.logger,
-                builder: (context, data) => ListenableBuilder(
-                  listenable: _logsViewController,
-                  builder: (_, __) => _MainLogsView(
-                    logsData: data,
-                    iSpectTheme: iSpect,
-                    titleFiltersController: _titleFiltersController,
-                    searchFocusNode: _searchFocusNode,
-                    logsScrollController: _logsScrollController,
-                    logsViewController: _logsViewController,
-                    appBarTitle: widget.appBarTitle,
-                    searchController: _searchController,
-                    onSearchChanged: _onSearchTextChanged,
-                    onSettingsTap: () => _openLogsSettings(context),
-                    onInfoTap: () => _showInfoBottomSheet(context),
-                  ),
+                builder: (context, data) => _MainLogsView(
+                  logsData: data,
+                  iSpectTheme: iSpect,
+                  titleFiltersController: _titleFiltersController,
+                  searchFocusNode: _searchFocusNode,
+                  logsScrollController: _logsScrollController,
+                  logsViewController: _logsViewController,
+                  appBarTitle: widget.appBarTitle,
+                  searchController: _searchController,
+                  onSearchChanged: _onSearchTextChanged,
+                  onSettingsTap: () => _openLogsSettings(context),
+                  onInfoTap: () => _showInfoBottomSheet(context),
+                  onClearTap: () => _clearLogs(),
                 ),
               ),
             ),
+            // Right panel: Detail view (only shown when a log is selected)
             if (_logsViewController.activeData != null) ...[
               VerticalDivider(
                 color: _getDividerColor(iSpect, context),
@@ -167,6 +168,10 @@ class _LogsScreenState extends State<LogsScreen> {
   Future<void> _showInfoBottomSheet(BuildContext context) async {
     if (!mounted) return;
     await const InfoBottomSheet().show(context);
+  }
+
+  void _clearLogs() {
+    _logsViewController.clearLogsHistory(ISpect.logger.clearHistory);
   }
 
   void _openLogsSettings(BuildContext context) {
@@ -367,6 +372,7 @@ class _LogListItem extends StatelessWidget {
     required this.statusIcon,
     required this.statusColor,
     required this.isExpanded,
+    required this.isSelected,
     required this.isLastItem,
     required this.dividerColor,
     required this.onItemTapped,
@@ -380,6 +386,7 @@ class _LogListItem extends StatelessWidget {
   final IconData statusIcon;
   final Color statusColor;
   final bool isExpanded;
+  final bool isSelected;
   final bool isLastItem;
   final Color dividerColor;
   final VoidCallback onItemTapped;
@@ -392,15 +399,34 @@ class _LogListItem extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         RepaintBoundary(
-          child: LogCard(
-            icon: statusIcon,
-            color: statusColor,
-            data: logData,
-            index: itemIndex,
-            isExpanded: isExpanded,
-            onCopyTap: onCopyPressed,
-            onTap: onItemTapped,
-            observer: observer,
+          child: Container(
+            decoration: BoxDecoration(
+              // Clear selection highlight with left border and background
+              color: isSelected
+                  ? Theme.of(context)
+                      .colorScheme
+                      .primary
+                      .withValues(alpha: 0.15)
+                  : null,
+              border: isSelected
+                  ? Border(
+                      left: BorderSide(
+                        color: Theme.of(context).colorScheme.primary,
+                        width: 3,
+                      ),
+                    )
+                  : null,
+            ),
+            child: LogCard(
+              icon: statusIcon,
+              color: statusColor,
+              data: logData,
+              index: itemIndex,
+              isExpanded: isExpanded,
+              onCopyTap: onCopyPressed,
+              onTap: onItemTapped,
+              observer: observer,
+            ),
           ),
         ),
         if (!isLastItem)
@@ -450,6 +476,7 @@ class _MainLogsView extends StatelessWidget {
     required this.logsViewController,
     required this.onSettingsTap,
     required this.onInfoTap,
+    this.onClearTap,
     this.appBarTitle,
     this.searchController,
     this.onSearchChanged,
@@ -463,6 +490,7 @@ class _MainLogsView extends StatelessWidget {
   final ISpectViewController logsViewController;
   final VoidCallback onSettingsTap;
   final VoidCallback onInfoTap;
+  final VoidCallback? onClearTap;
   final String? appBarTitle;
   final TextEditingController? searchController;
   final ValueChanged<String>? onSearchChanged;
@@ -479,7 +507,7 @@ class _MainLogsView extends StatelessWidget {
 
     return CustomScrollView(
       controller: logsScrollController,
-      cacheExtent: 1000,
+      cacheExtent: 200,
       slivers: [
         ISpectAppBar(
           focusNode: searchFocusNode,
@@ -492,6 +520,7 @@ class _MainLogsView extends StatelessWidget {
           onSearchChanged: onSearchChanged,
           onSettingsTap: onSettingsTap,
           onInfoTap: onInfoTap,
+          onClearTap: onClearTap,
           onToggleTitle: (title, selected) => logsViewController
               .handleTitleFilterToggle(title, isSelected: selected),
           backgroundColor: context.ispectTheme.scaffoldBackgroundColor,
@@ -503,13 +532,16 @@ class _MainLogsView extends StatelessWidget {
           ),
         SliverList.builder(
           itemCount: filteredLogEntries.length,
+          addAutomaticKeepAlives: false,
+          addRepaintBoundaries:
+              false, // Already have RepaintBoundary in LogCard
           itemBuilder: (context, index) {
             final logEntry = logsViewController.getLogEntryAtIndex(
               filteredLogEntries,
               index,
             );
             return _LogListItem(
-              key: ValueKey('${logEntry.hashCode}_$index'),
+              key: ValueKey(logEntry.hashCode),
               logData: logEntry,
               itemIndex: index,
               statusIcon:
@@ -520,6 +552,8 @@ class _MainLogsView extends StatelessWidget {
               isExpanded: logsViewController.activeData?.hashCode ==
                       logEntry.hashCode ||
                   logsViewController.expandedLogs,
+              isSelected:
+                  logsViewController.activeData?.hashCode == logEntry.hashCode,
               isLastItem: index == filteredLogEntries.length - 1,
               dividerColor: dividerColor,
               observer: options.observer is ISpectNavigatorObserver

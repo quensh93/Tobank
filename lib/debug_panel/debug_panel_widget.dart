@@ -1,3 +1,5 @@
+import 'dart:ui';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -18,7 +20,7 @@ import 'widgets/visual_editor_tab.dart';
 import 'widgets/color_showcase_screen.dart';
 
 /// Main debug panel widget that wraps the application
-/// 
+///
 /// This widget provides a responsive debug panel with app preview
 /// and debug tools, inspired by device_preview but tailored for
 /// internal debugging needs.
@@ -75,20 +77,22 @@ class _LayoutSelector extends ConsumerWidget {
     final layoutMode = ref.watch(
       debugPanelSettingsProvider.select((state) => state.layoutMode),
     );
-    
-    AppLogger.d('🔄 _LayoutSelector building - Layout mode: ${layoutMode.name}');
-    
+
+    AppLogger.d(
+        '🔄 _LayoutSelector building - Layout mode: ${layoutMode.name}');
+
     return LayoutBuilder(
       key: ValueKey('layout_builder_${layoutMode.name}'),
       builder: (context, constraints) {
         final isSmall = constraints.maxWidth < 700;
-        
-        AppLogger.d('🏗️ Building debug panel layout - Mode: ${layoutMode.name}, isSmall: $isSmall, width: ${constraints.maxWidth}');
-        
+
+        AppLogger.d(
+            '🏗️ Building debug panel layout - Mode: ${layoutMode.name}, isSmall: $isSmall, width: ${constraints.maxWidth}');
+
         // Create widget based on layout mode preference
         Widget layoutWidget;
         String layoutKey;
-        
+
         if (layoutMode == DebugPanelLayoutMode.vertical) {
           layoutWidget = DebugPanelVerticalLayout(
             key: ValueKey('layout_vertical_${layoutMode.name}'),
@@ -108,7 +112,7 @@ class _LayoutSelector extends ConsumerWidget {
           );
           layoutKey = 'large';
         }
-        
+
         AppLogger.d('✅ Returning $layoutKey layout widget');
         return layoutWidget;
       },
@@ -132,7 +136,7 @@ class DebugPanelProvider extends ConsumerWidget {
     final panelSettings = ref.watch(debugPanelSettingsProvider);
     final debugPanelTheme = DebugPanelTheme(themeMode: panelSettings.themeMode);
     final systemBrightness = MediaQuery.of(context).platformBrightness;
-    
+
     return Theme(
       data: debugPanelTheme.themeForBrightness(systemBrightness),
       child: Localizations(
@@ -158,15 +162,17 @@ class DebugPanelLargeLayout extends ConsumerStatefulWidget {
   final Widget child;
 
   @override
-  ConsumerState<DebugPanelLargeLayout> createState() => _DebugPanelLargeLayoutState();
+  ConsumerState<DebugPanelLargeLayout> createState() =>
+      _DebugPanelLargeLayoutState();
 }
 
 class _DebugPanelLargeLayoutState extends ConsumerState<DebugPanelLargeLayout> {
   static const double _minPanelWidth = 0.2; // Minimum 20% width
   static const double _maxPanelWidth = 0.8; // Maximum 80% width
   static const double _minPanelHeight = 300.0; // Minimum height for both panels
-  
-  double? _dragPanelWidth; // Local state during dragging, null when not dragging
+
+  double?
+      _dragPanelWidth; // Local state during dragging, null when not dragging
 
   @override
   Widget build(BuildContext context) {
@@ -174,7 +180,7 @@ class _DebugPanelLargeLayoutState extends ConsumerState<DebugPanelLargeLayout> {
     final controller = ref.read(debugPanelSettingsProvider.notifier);
     // Use local drag state if available, otherwise use saved state
     final leftPanelWidth = _dragPanelWidth ?? settings.leftPanelWidth;
-    
+
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Padding(
@@ -185,12 +191,16 @@ class _DebugPanelLargeLayoutState extends ConsumerState<DebugPanelLargeLayout> {
             final availableHeight = constraints.maxHeight;
             const dividerWidth = 8.0;
             final usableWidth = availableWidth - dividerWidth;
-            
+
+            final leftFlex = settings.areToolsVisible
+                ? (leftPanelWidth * 1000).round()
+                : 1000;
+
             return Row(
               children: [
                 // Left panel (device preview) - full size outer border
                 Expanded(
-                  flex: (leftPanelWidth * 1000).round(), // Convert to flex units
+                  flex: leftFlex,
                   child: ConstrainedBox(
                     constraints: BoxConstraints(
                       minHeight: _minPanelHeight,
@@ -204,76 +214,88 @@ class _DebugPanelLargeLayoutState extends ConsumerState<DebugPanelLargeLayout> {
                   ),
                 ),
                 // Resizable divider
-                GestureDetector(
-                  onPanStart: (_) {
-                    // Initialize drag state with current value
-                    _dragPanelWidth = settings.leftPanelWidth;
-                  },
-                  onPanUpdate: (details) {
-                    final currentWidth = _dragPanelWidth ?? settings.leftPanelWidth;
-                    final delta = details.delta.dx;
-                    final newLeftWidth = (currentWidth * usableWidth + delta) / usableWidth;
-                    final clampedWidth = newLeftWidth.clamp(_minPanelWidth, _maxPanelWidth);
-                    
-                    // Update local state for smooth UI (no save yet)
-                    setState(() {
-                      _dragPanelWidth = clampedWidth;
-                    });
-                  },
-                  onPanEnd: (_) {
-                    // Save only when dragging ends
-                    if (_dragPanelWidth != null) {
-                      controller.setLeftPanelWidth(_dragPanelWidth!);
-                      // Clear drag state
+                if (settings.areToolsVisible) ...[
+                  GestureDetector(
+                    onPanStart: (_) {
+                      // Initialize drag state with current value
+                      _dragPanelWidth = settings.leftPanelWidth;
+                    },
+                    onPanUpdate: (details) {
+                      final currentWidth =
+                          _dragPanelWidth ?? settings.leftPanelWidth;
+                      final delta = details.delta.dx;
+                      final newLeftWidth =
+                          (currentWidth * usableWidth + delta) / usableWidth;
+                      final clampedWidth =
+                          newLeftWidth.clamp(_minPanelWidth, _maxPanelWidth);
+
+                      // Update local state for smooth UI (no save yet)
+                      setState(() {
+                        _dragPanelWidth = clampedWidth;
+                      });
+                    },
+                    onPanEnd: (_) {
+                      // Save only when dragging ends
+                      if (_dragPanelWidth != null) {
+                        controller.setLeftPanelWidth(_dragPanelWidth!);
+                        // Clear drag state
+                        setState(() {
+                          _dragPanelWidth = null;
+                        });
+                      }
+                    },
+                    onPanCancel: () {
+                      // Cancel drag state on cancel
                       setState(() {
                         _dragPanelWidth = null;
                       });
-                    }
-                  },
-                  onPanCancel: () {
-                    // Cancel drag state on cancel
-                    setState(() {
-                      _dragPanelWidth = null;
-                    });
-                  },
-                  child: MouseRegion(
-                    cursor: SystemMouseCursors.resizeColumn,
-                    child: StatefulBuilder(
-                      builder: (context, setState) {
-                        return MouseRegion(
-                          onEnter: (_) => setState(() {}),
-                          onExit: (_) => setState(() {}),
-                          child: AnimatedContainer(
-                            duration: const Duration(milliseconds: 150),
-                            width: dividerWidth,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.15),
-                              borderRadius: BorderRadius.circular(4),
-                            ),
-                            child: Center(
-                              child: Container(
-                                width: 2,
-                                height: 40,
-                                decoration: BoxDecoration(
-                                  color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.4),
-                                  borderRadius: BorderRadius.circular(1),
+                    },
+                    child: MouseRegion(
+                      cursor: SystemMouseCursors.resizeColumn,
+                      child: StatefulBuilder(
+                        builder: (context, setState) {
+                          return MouseRegion(
+                            onEnter: (_) => setState(() {}),
+                            onExit: (_) => setState(() {}),
+                            child: AnimatedContainer(
+                              duration: const Duration(milliseconds: 150),
+                              width: dividerWidth,
+                              decoration: BoxDecoration(
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .outline
+                                    .withValues(alpha: 0.15),
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              child: Center(
+                                child: Container(
+                                  width: 2,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .outline
+                                        .withValues(alpha: 0.4),
+                                    borderRadius: BorderRadius.circular(1),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        );
-                      },
+                          );
+                        },
+                      ),
                     ),
                   ),
-                ),
-                // Right panel (debug panel) - full size
-                Expanded(
-                  flex: ((1 - leftPanelWidth) * 1000).round(), // Convert to flex units
-                  child: const SizedBox(
-                    height: double.infinity, // Full height
-                    child: ToolPanel(),
+                  // Right panel (debug panel) - full size
+                  Expanded(
+                    flex: ((1 - leftPanelWidth) * 1000)
+                        .round(), // Convert to flex units
+                    child: const SizedBox(
+                      height: double.infinity, // Full height
+                      child: ToolPanel(),
+                    ),
                   ),
-                ),
+                ],
               ],
             );
           },
@@ -308,13 +330,15 @@ class DebugPanelSmallLayout extends ConsumerWidget {
               ),
             ),
             // Bottom debug panel
-            const Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              height: DebugPanelConstants.mobilePanelHeight,
-              child: ToolPanel(isMobile: true),
-            ),
+            if (ref.watch(debugPanelSettingsProvider
+                .select((state) => state.areToolsVisible))) // Conditional tools
+              const Positioned(
+                left: 0,
+                right: 0,
+                bottom: 0,
+                height: DebugPanelConstants.mobilePanelHeight,
+                child: ToolPanel(isMobile: true),
+              ),
           ],
         ),
       ),
@@ -332,15 +356,18 @@ class DebugPanelVerticalLayout extends ConsumerStatefulWidget {
   final Widget child;
 
   @override
-  ConsumerState<DebugPanelVerticalLayout> createState() => _DebugPanelVerticalLayoutState();
+  ConsumerState<DebugPanelVerticalLayout> createState() =>
+      _DebugPanelVerticalLayoutState();
 }
 
-class _DebugPanelVerticalLayoutState extends ConsumerState<DebugPanelVerticalLayout> {
+class _DebugPanelVerticalLayoutState
+    extends ConsumerState<DebugPanelVerticalLayout> {
   static const double _minPanelHeight = 0.2; // Minimum 20% height
   static const double _maxPanelHeight = 0.8; // Maximum 80% height
   static const double _minPanelHeightPx = 200.0; // Minimum 200px height
-  
-  double? _dragPanelHeight; // Local state during dragging, null when not dragging
+
+  double?
+      _dragPanelHeight; // Local state during dragging, null when not dragging
 
   @override
   Widget build(BuildContext context) {
@@ -348,7 +375,7 @@ class _DebugPanelVerticalLayoutState extends ConsumerState<DebugPanelVerticalLay
     final controller = ref.read(debugPanelSettingsProvider.notifier);
     // Use local drag state if available, otherwise use saved state
     final topPanelHeight = _dragPanelHeight ?? settings.topPanelHeight;
-    
+
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Padding(
@@ -358,12 +385,16 @@ class _DebugPanelVerticalLayoutState extends ConsumerState<DebugPanelVerticalLay
             final availableHeight = constraints.maxHeight;
             const dividerHeight = 8.0;
             final usableHeight = availableHeight - dividerHeight;
-            
+
+            final topFlex = settings.areToolsVisible
+                ? (topPanelHeight * 1000).round()
+                : 1000;
+
             return Column(
               children: [
                 // Top panel (device preview)
                 Expanded(
-                  flex: (topPanelHeight * 1000).round(),
+                  flex: topFlex,
                   child: ConstrainedBox(
                     constraints: BoxConstraints(
                       minHeight: _minPanelHeightPx,
@@ -376,84 +407,89 @@ class _DebugPanelVerticalLayoutState extends ConsumerState<DebugPanelVerticalLay
                     ),
                   ),
                 ),
-                // Resizable divider
-                GestureDetector(
-                  onPanStart: (_) {
-                    // Initialize drag state with current value
-                    _dragPanelHeight = settings.topPanelHeight;
-                  },
-                  onPanUpdate: (details) {
-                    final currentHeight = _dragPanelHeight ?? settings.topPanelHeight;
-                    final delta = details.delta.dy;
-                    final newTopHeight = (currentHeight * usableHeight + delta) / usableHeight;
-                    final clampedHeight = newTopHeight.clamp(_minPanelHeight, _maxPanelHeight);
-                    
-                    // Update local state for smooth UI (no save yet)
-                    setState(() {
-                      _dragPanelHeight = clampedHeight;
-                    });
-                  },
-                  onPanEnd: (_) {
-                    // Save only when dragging ends
-                    if (_dragPanelHeight != null) {
-                      controller.setTopPanelHeight(_dragPanelHeight!);
-                      // Clear drag state
+                // Resizable divider and tools
+                if (settings.areToolsVisible) ...[
+                  GestureDetector(
+                    onPanStart: (_) {
+                      // Initialize drag state with current value
+                      _dragPanelHeight = settings.topPanelHeight;
+                    },
+                    onPanUpdate: (details) {
+                      final currentHeight =
+                          _dragPanelHeight ?? settings.topPanelHeight;
+                      final delta = details.delta.dy;
+                      final newTopHeight =
+                          (currentHeight * usableHeight + delta) / usableHeight;
+                      final clampedHeight =
+                          newTopHeight.clamp(_minPanelHeight, _maxPanelHeight);
+
+                      // Update local state for smooth UI (no save yet)
+                      setState(() {
+                        _dragPanelHeight = clampedHeight;
+                      });
+                    },
+                    onPanEnd: (_) {
+                      // Save only when dragging ends
+                      if (_dragPanelHeight != null) {
+                        controller.setTopPanelHeight(_dragPanelHeight!);
+                        // Clear drag state
+                        setState(() {
+                          _dragPanelHeight = null;
+                        });
+                      }
+                    },
+                    onPanCancel: () {
+                      // Cancel drag state on cancel
                       setState(() {
                         _dragPanelHeight = null;
                       });
-                    }
-                  },
-                  onPanCancel: () {
-                    // Cancel drag state on cancel
-                    setState(() {
-                      _dragPanelHeight = null;
-                    });
-                  },
-                  child: MouseRegion(
-                    cursor: SystemMouseCursors.resizeUpDown,
-                    child: StatefulBuilder(
-                      builder: (context, setState) {
-                        return MouseRegion(
-                          onEnter: (_) => setState(() {}),
-                          onExit: (_) => setState(() {}),
-                          child: AnimatedContainer(
-                            duration: const Duration(milliseconds: 150),
-                            height: dividerHeight,
-                            width: double.infinity, // Full width divider
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.15),
-                              borderRadius: BorderRadius.circular(4),
-                            ),
-                            child: Center(
-                              child: Container(
-                                width: 40,
-                                height: 2,
-                                decoration: BoxDecoration(
-                                  color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.4),
-                                  borderRadius: BorderRadius.circular(1),
+                    },
+                    child: MouseRegion(
+                      cursor: SystemMouseCursors.resizeUpDown,
+                      child: StatefulBuilder(
+                        builder: (context, setState) {
+                          return MouseRegion(
+                            onEnter: (_) => setState(() {}),
+                            onExit: (_) => setState(() {}),
+                            child: AnimatedContainer(
+                              duration: const Duration(milliseconds: 150),
+                              height: dividerHeight,
+                              width: double.infinity, // Full width divider
+                              decoration: BoxDecoration(
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .outline
+                                    .withValues(alpha: 0.15),
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              child: Center(
+                                child: Container(
+                                  width: 40,
+                                  height: 2,
+                                  decoration: BoxDecoration(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .outline
+                                        .withValues(alpha: 0.4),
+                                    borderRadius: BorderRadius.circular(1),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        );
-                      },
+                          );
+                        },
+                      ),
                     ),
                   ),
-                ),
-                // Bottom panel (debug panel) - full width
-                Expanded(
-                  flex: ((1 - topPanelHeight) * 1000).round(),
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minHeight: _minPanelHeightPx,
-                      maxHeight: availableHeight,
-                    ),
+                  // Bottom panel (debug panel)
+                  Expanded(
+                    flex: ((1 - topPanelHeight) * 1000).round(),
                     child: const SizedBox(
-                      width: double.infinity, // Explicit full width
-                      child: ToolPanel(isVertical: true), // Pass isVertical flag
+                      width: double.infinity, // Full width
+                      child: ToolPanel(isVertical: true),
                     ),
                   ),
-                ),
+                ],
               ],
             );
           },
@@ -475,7 +511,7 @@ class AppFrame extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final deviceState = ref.watch(devicePreviewProvider);
-    
+
     // Use a stable key to preserve the widget tree and prevent navigation resets
     return Container(
       key: const ValueKey('app_frame'),
@@ -490,10 +526,12 @@ class AppFrame extends ConsumerWidget {
         ),
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(14.5), // Adjusted to match container
+        borderRadius:
+            BorderRadius.circular(14.5), // Adjusted to match container
         child: Padding(
           padding: const EdgeInsets.all(16.0), // Add padding inside the frame
-          child: Center( // Center the device frame
+          child: Center(
+            // Center the device frame
             child: RepaintBoundary(
               // Use stable key to preserve widget identity and prevent navigation resets
               key: const ValueKey('app_frame_content'),
@@ -510,7 +548,7 @@ class AppFrame extends ConsumerWidget {
   Widget _buildDevicePreview(BuildContext context, DevicePreviewState state) {
     final device = state.selectedDevice;
     final orientation = state.orientation;
-    
+
     return DeviceFrame(
       device: device,
       screen: child,
@@ -535,8 +573,10 @@ class ToolPanel extends ConsumerStatefulWidget {
   ConsumerState<ToolPanel> createState() => _ToolPanelState();
 }
 
-class _ToolPanelState extends ConsumerState<ToolPanel> with SingleTickerProviderStateMixin {
+class _ToolPanelState extends ConsumerState<ToolPanel>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  final ScrollController _tabBarScrollController = ScrollController();
   bool _isRestoringTab = false;
 
   @override
@@ -550,15 +590,19 @@ class _ToolPanelState extends ConsumerState<ToolPanel> with SingleTickerProvider
   void dispose() {
     _tabController.removeListener(_onTabChanged);
     _tabController.dispose();
+    _tabBarScrollController.dispose();
     super.dispose();
   }
 
   void _onTabChanged() {
     // Only save tab changes if we're not currently restoring a tab
     if (!_isRestoringTab && !_tabController.indexIsChanging) {
-      final currentIndex = ref.read(debugPanelSettingsProvider).selectedTabIndex;
+      final currentIndex =
+          ref.read(debugPanelSettingsProvider).selectedTabIndex;
       if (_tabController.index != currentIndex) {
-        ref.read(debugPanelSettingsProvider.notifier).setSelectedTabIndex(_tabController.index);
+        ref
+            .read(debugPanelSettingsProvider.notifier)
+            .setSelectedTabIndex(_tabController.index);
       }
     }
   }
@@ -566,7 +610,7 @@ class _ToolPanelState extends ConsumerState<ToolPanel> with SingleTickerProvider
   @override
   Widget build(BuildContext context) {
     final settings = ref.watch(debugPanelSettingsProvider);
-    
+
     // Restore saved tab index when settings change
     if (_tabController.index != settings.selectedTabIndex) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -582,134 +626,176 @@ class _ToolPanelState extends ConsumerState<ToolPanel> with SingleTickerProvider
         }
       });
     }
-    
+
     return LayoutBuilder(
-        builder: (context, constraints) {
-          final width = widget.isVertical ? constraints.maxWidth : null;
-          return Container(
-            width: width, // Full width in vertical layout
-            height: double.infinity, // Full height in all layouts
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surface,
-              borderRadius: widget.isVertical
-                  ? const BorderRadius.only(
-                      topLeft: Radius.circular(16),
-                      topRight: Radius.circular(16),
-                    )
-                  : widget.isMobile
-                      ? const BorderRadius.only(
-                          topLeft: Radius.circular(16),
-                          topRight: Radius.circular(16),
-                        )
-                      : const BorderRadius.only(
-                          topLeft: Radius.circular(16),
-                          bottomLeft: Radius.circular(16),
-                        ),
-              border: Border.all(
-                color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.2),
-                width: 1,
-              ),
+      builder: (context, constraints) {
+        final width = widget.isVertical ? constraints.maxWidth : null;
+        return Container(
+          width: width, // Full width in vertical layout
+          height: double.infinity, // Full height in all layouts
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.surface,
+            borderRadius: widget.isVertical
+                ? const BorderRadius.only(
+                    topLeft: Radius.circular(16),
+                    topRight: Radius.circular(16),
+                  )
+                : widget.isMobile
+                    ? const BorderRadius.only(
+                        topLeft: Radius.circular(16),
+                        topRight: Radius.circular(16),
+                      )
+                    : const BorderRadius.only(
+                        topLeft: Radius.circular(16),
+                        bottomLeft: Radius.circular(16),
+                      ),
+            border: Border.all(
+              color:
+                  Theme.of(context).colorScheme.outline.withValues(alpha: 0.2),
+              width: 1,
             ),
-            child: ClipRRect(
-              borderRadius: widget.isVertical
-                  ? const BorderRadius.only(
-                      topLeft: Radius.circular(14.5),
-                      topRight: Radius.circular(14.5),
-                    )
-                  : widget.isMobile
-                      ? const BorderRadius.only(
-                          topLeft: Radius.circular(14.5),
-                          topRight: Radius.circular(14.5),
-                        )
-                      : const BorderRadius.only(
-                          topLeft: Radius.circular(14.5),
-                          bottomLeft: Radius.circular(14.5),
+          ),
+          child: ClipRRect(
+            borderRadius: widget.isVertical
+                ? const BorderRadius.only(
+                    topLeft: Radius.circular(14.5),
+                    topRight: Radius.circular(14.5),
+                  )
+                : widget.isMobile
+                    ? const BorderRadius.only(
+                        topLeft: Radius.circular(14.5),
+                        topRight: Radius.circular(14.5),
+                      )
+                    : const BorderRadius.only(
+                        topLeft: Radius.circular(14.5),
+                        bottomLeft: Radius.circular(14.5),
+                      ),
+            child: Material(
+              elevation: 0,
+              color: Colors.transparent,
+              child: MediaQuery(
+                // Apply text scale ONLY to the debug panel, not the device frame
+                data: MediaQuery.of(context).copyWith(
+                  textScaler: TextScaler.linear(settings.textScaleFactor),
+                ),
+                child: Column(
+                  children: [
+                    // Tab bar with proper padding - using UI size settings
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16.0,
+                        vertical: 4.0,
+                      ),
+                      child: ScrollConfiguration(
+                        behavior: ScrollConfiguration.of(context).copyWith(
+                          dragDevices: {
+                            PointerDeviceKind.touch,
+                            PointerDeviceKind.mouse,
+                          },
                         ),
-              child: Material(
-                elevation: 0,
-                color: Colors.transparent,
-                child: MediaQuery(
-                  // Apply text scale ONLY to the debug panel, not the device frame
-                  data: MediaQuery.of(context).copyWith(
-                    textScaler: TextScaler.linear(settings.textScaleFactor),
-                  ),
-                  child: Column(
-                    children: [
-                        // Tab bar with proper padding - using UI size settings
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 16.0,
-                            vertical: 4.0,
-                          ),
-                          child: TabBar(
-                            controller: _tabController,
-                            tabs: [
+                        child: Listener(
+                          onPointerSignal: (event) {
+                            if (event is PointerScrollEvent) {
+                              final delta = event.scrollDelta.dy;
+                              if (delta == 0) return;
+                              final newOffset =
+                                  _tabBarScrollController.offset + delta;
+                              _tabBarScrollController.jumpTo(
+                                newOffset.clamp(
+                                  _tabBarScrollController
+                                      .position.minScrollExtent,
+                                  _tabBarScrollController
+                                      .position.maxScrollExtent,
+                                ),
+                              );
+                            }
+                          },
+                          child: SingleChildScrollView(
+                            controller: _tabBarScrollController,
+                            scrollDirection: Axis.horizontal,
+                            child: TabBar(
+                              controller: _tabController,
+                              tabs: [
                                 Tab(
-                                  icon: Icon(Icons.phone_android, size: settings.uiSize.iconSize),
+                                  icon: Icon(Icons.phone_android,
+                                      size: settings.uiSize.iconSize),
                                   text: 'Device',
                                 ),
                                 Tab(
-                                  icon: Icon(Icons.bug_report, size: settings.uiSize.iconSize),
+                                  icon: Icon(Icons.bug_report,
+                                      size: settings.uiSize.iconSize),
                                   text: 'Logs',
                                 ),
                                 Tab(
-                                  icon: Icon(Icons.build, size: settings.uiSize.iconSize),
+                                  icon: Icon(Icons.build,
+                                      size: settings.uiSize.iconSize),
                                   text: 'Tools',
                                 ),
                                 Tab(
-                                  icon: Icon(Icons.code, size: settings.uiSize.iconSize),
+                                  icon: Icon(Icons.code,
+                                      size: settings.uiSize.iconSize),
                                   text: 'Playground',
                                 ),
                                 Tab(
-                                  icon: Icon(Icons.design_services, size: settings.uiSize.iconSize),
+                                  icon: Icon(Icons.design_services,
+                                      size: settings.uiSize.iconSize),
                                   text: 'Visual Editor',
                                 ),
                                 Tab(
-                                  icon: Icon(Icons.accessibility, size: settings.uiSize.iconSize),
+                                  icon: Icon(Icons.accessibility,
+                                      size: settings.uiSize.iconSize),
                                   text: 'Accessibility',
                                 ),
                                 Tab(
-                                  icon: Icon(Icons.speed, size: settings.uiSize.iconSize),
+                                  icon: Icon(Icons.speed,
+                                      size: settings.uiSize.iconSize),
                                   text: 'Performance',
                                 ),
                                 Tab(
-                                  icon: Icon(Icons.network_check, size: settings.uiSize.iconSize),
+                                  icon: Icon(Icons.network_check,
+                                      size: settings.uiSize.iconSize),
                                   text: 'Network',
                                 ),
                                 Tab(
-                                  icon: Icon(Icons.settings, size: settings.uiSize.iconSize),
+                                  icon: Icon(Icons.settings,
+                                      size: settings.uiSize.iconSize),
                                   text: 'Settings',
                                 ),
                               ],
                               isScrollable: true,
-                              tabAlignment: widget.isMobile ? TabAlignment.start : TabAlignment.center,
+                              tabAlignment: widget.isMobile
+                                  ? TabAlignment.start
+                                  : TabAlignment.center,
                             ),
                           ),
-                        // Tab content - UI size will be applied within each tab
-                        Expanded(
-                          child: TabBarView(
-                            controller: _tabController,
-                            children: const [
-                              DevicePreviewTab(),
-                              LogsTab(),
-                              ToolsTab(),
-                              PlaygroundTab(),
-                              VisualEditorTab(),
-                              AccessibilityTab(),
-                              PerformanceTab(),
-                              NetworkTab(),
-                              SettingsTab(),
-                            ],
-                          ),
                         ),
-                      ],
+                      ),
                     ),
-                  ),
+                    // Tab content - UI size will be applied within each tab
+                    Expanded(
+                      child: TabBarView(
+                        controller: _tabController,
+                        children: const [
+                          DevicePreviewTab(),
+                          LogsTab(),
+                          ToolsTab(),
+                          PlaygroundTab(),
+                          VisualEditorTab(),
+                          AccessibilityTab(),
+                          PerformanceTab(),
+                          NetworkTab(),
+                          SettingsTab(),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            );
-        }, // End builder function
-      ); // End LayoutBuilder
+            ),
+          ),
+        );
+      }, // End builder function
+    ); // End LayoutBuilder
   }
 }
 
@@ -724,14 +810,15 @@ abstract class DebugTool {
 /// Debug panel constants
 class DebugPanelConstants {
   static const double panelWidth = 400.0;
-  static const double mobilePanelHeight = 200.0; // Further reduced height to prevent overflow
+  static const double mobilePanelHeight =
+      200.0; // Further reduced height to prevent overflow
   static const double breakpoint = 700.0;
 }
 
 /// Tools tab with various development tools
 class ToolsTab extends StatelessWidget {
   const ToolsTab({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -745,7 +832,8 @@ class ToolsTab extends StatelessWidget {
             context,
             icon: Icons.list_alt,
             title: 'STAC Logs',
-            description: 'View STAC operations including screen fetching, JSON parsing, and component rendering',
+            description:
+                'View STAC operations including screen fetching, JSON parsing, and component rendering',
             onTap: () {
               // Navigate the main app (device frame) using the main app's Navigator key
               final navigatorKey = AppRoot.mainAppNavigatorKey;
@@ -765,11 +853,13 @@ class ToolsTab extends StatelessWidget {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.view_stream, size: 64, color: Colors.blue),
+                              Icon(Icons.view_stream,
+                                  size: 64, color: Colors.blue),
                               SizedBox(height: 24),
                               Text(
                                 'STAC Logs',
-                                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                    fontSize: 24, fontWeight: FontWeight.bold),
                               ),
                               SizedBox(height: 16),
                               Text(
@@ -799,7 +889,8 @@ class ToolsTab extends StatelessWidget {
             context,
             icon: Icons.color_lens,
             title: 'Color Showcase',
-            description: 'View all ColorScheme colors applied to Material widgets in a device frame',
+            description:
+                'View all ColorScheme colors applied to Material widgets in a device frame',
             onTap: () {
               // Navigate the main app (device frame) using the main app's Navigator key
               final navigatorKey = AppRoot.mainAppNavigatorKey;
@@ -818,7 +909,8 @@ class ToolsTab extends StatelessWidget {
     );
   }
 
-  Widget _buildSectionHeader(BuildContext context, String title, IconData icon) {
+  Widget _buildSectionHeader(
+      BuildContext context, String title, IconData icon) {
     return Row(
       children: [
         Icon(icon, color: Theme.of(context).colorScheme.primary),
@@ -826,9 +918,9 @@ class ToolsTab extends StatelessWidget {
         Text(
           title,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
-            fontWeight: FontWeight.bold,
-            color: Theme.of(context).colorScheme.primary,
-          ),
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).colorScheme.primary,
+              ),
         ),
       ],
     );
@@ -869,15 +961,16 @@ class ToolsTab extends StatelessWidget {
                     Text(
                       title,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w600,
-                      ),
+                            fontWeight: FontWeight.w600,
+                          ),
                     ),
                     const SizedBox(height: 4),
                     Text(
                       description,
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
-                      ),
+                            color:
+                                Theme.of(context).colorScheme.onSurfaceVariant,
+                          ),
                     ),
                   ],
                 ),
@@ -894,4 +987,3 @@ class ToolsTab extends StatelessWidget {
     );
   }
 }
-

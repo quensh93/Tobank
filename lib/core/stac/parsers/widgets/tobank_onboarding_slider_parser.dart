@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stac/stac.dart';
+import '../../../helpers/logger.dart';
 
 class TobankOnboardingSliderModel {
   final List<OnboardingPageModel> pages;
@@ -136,17 +137,23 @@ class _TobankOnboardingSliderState extends State<_TobankOnboardingSlider> {
   void _onFinish() {
     if (widget.model.onFinish != null) {
       try {
-        debugPrint(
+        AppLogger.dc(
+          LogCategory.action,
           '🔵 Onboarding: Calling onFinish action: ${widget.model.onFinish}',
         );
         Stac.onCallFromJson(widget.model.onFinish!, context);
-        debugPrint('✅ Onboarding: onFinish action completed successfully');
+        AppLogger.dc(
+          LogCategory.action,
+          '✅ Onboarding: onFinish action completed successfully',
+        );
       } catch (e, stackTrace) {
-        debugPrint('❌ Error calling onFinish: $e');
-        debugPrint('Stack trace: $stackTrace');
+        AppLogger.e('❌ Error calling onFinish', e, stackTrace);
       }
     } else {
-      debugPrint('⚠️ Onboarding: No onFinish action defined, popping...');
+      AppLogger.wc(
+        LogCategory.action,
+        '⚠️ Onboarding: No onFinish action defined, popping...',
+      );
       Navigator.of(context).pop();
     }
   }

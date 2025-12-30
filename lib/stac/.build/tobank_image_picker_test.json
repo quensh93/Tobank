@@ -1,0 +1,380 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "sequence",
+    "actions": [
+      {
+        "actionType": "setValue",
+        "values": [
+          {
+            "key": "screenId",
+            "value": "image_picker_test"
+          }
+        ]
+      },
+      {
+        "actionType": "log",
+        "message": "screen=image_picker_test action=onInit"
+      }
+    ]
+  },
+  "onDispose": {
+    "actionType": "log",
+    "message": "screen=image_picker_test action=onDispose"
+  },
+  "child": {
+    "appBar": {
+      "title": {
+        "data": "Ù†Ù…Ø§ÛŒØ´ Ùˆ Ø§Ù¾Ù„ÙˆØ¯ ØªØµÙˆÛŒØ±",
+        "style": {
+          "type": "custom",
+          "color": "{{appColors.current.text.title}}",
+          "fontSize": 18.0,
+          "fontWeight": "bold"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "body": {
+      "child": {
+        "padding": {
+          "left": 16.0,
+          "top": 16.0,
+          "right": 16.0,
+          "bottom": 16.0
+        },
+        "child": {
+          "crossAxisAlignment": "stretch",
+          "textDirection": "rtl",
+          "children": [
+            {
+              "data": "ØªØ³Øª ÙØ§ÛŒÙ„ Ù¾ÛŒÚ©Ø± Ùˆ Ù†Ù…Ø§ÛŒØ´ ØªØµÙˆÛŒØ±",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.title}}",
+                "fontSize": 20.0,
+                "fontWeight": "bold"
+              },
+              "textDirection": "rtl",
+              "type": "text"
+            },
+            {
+              "height": 8.0,
+              "type": "sizedBox"
+            },
+            {
+              "data": "Ø§ÛŒÙ† ØµÙØ­Ù‡ Ø¨Ø±Ø§ÛŒ ØªØ³Øª Ù‚Ø§Ø¨Ù„ÛŒØªâ€ŒÙ‡Ø§ÛŒ Ù¾Ú©ÛŒØ¬ STAC Ø¯Ø± Ø§Ù†ØªØ®Ø§Ø¨ ÙØ§ÛŒÙ„ Ùˆ Ù†Ù…Ø§ÛŒØ´ ØªØµÙˆÛŒØ± Ø·Ø±Ø§Ø­ÛŒ Ø´Ø¯Ù‡ Ø§Ø³Øª. Ù‡Ù…Ú†Ù†ÛŒÙ† Ú†Ø§Ù„Ø´â€ŒÙ‡Ø§ÛŒ Ù…Ø±Ø¨ÙˆØ· Ø¨Ù‡ Blob Ø¯Ø± ÙˆØ¨ Ø±Ø§ Ø¨Ø±Ø±Ø³ÛŒ Ù…ÛŒâ€ŒÚ©Ù†Ø¯.",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.subtitle}}",
+                "fontSize": 14.0
+              },
+              "textDirection": "rtl",
+              "type": "text"
+            },
+            {
+              "height": 24.0,
+              "type": "sizedBox"
+            },
+            {
+              "onPressed": {
+                "actionType": "pickFile",
+                "fileType": "image",
+                "allowMultiple": false,
+                "targetKey": "selectedImage"
+              },
+              "style": {
+                "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                "backgroundColor": "{{appColors.current.primary.color}}",
+                "minimumSize": {
+                  "width": 999999.0,
+                  "height": 52.0
+                },
+                "shape": {
+                  "type": "roundedRectangleBorder",
+                  "borderRadius": {
+                    "topLeft": 12.0,
+                    "topRight": 12.0,
+                    "bottomLeft": 12.0,
+                    "bottomRight": 12.0
+                  }
+                }
+              },
+              "child": {
+                "mainAxisAlignment": "center",
+                "textDirection": "rtl",
+                "children": [
+                  {
+                    "icon": "image",
+                    "iconType": "material",
+                    "size": 24.0,
+                    "color": "{{appColors.current.primary.onPrimary}}",
+                    "type": "icon"
+                  },
+                  {
+                    "width": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "Ø§Ù†ØªØ®Ø§Ø¨ ØªØµÙˆÛŒØ±",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.primary.onPrimary}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w600"
+                    },
+                    "textDirection": "rtl",
+                    "type": "text"
+                  }
+                ],
+                "type": "row"
+              },
+              "type": "filledButton"
+            },
+            {
+              "height": 24.0,
+              "type": "sizedBox"
+            },
+            {
+              "data": "ØªØµÙˆÛŒØ± Ø§Ù†ØªØ®Ø§Ø¨ Ø´Ø¯Ù‡:",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.title}}",
+                "fontSize": 16.0,
+                "fontWeight": "w600"
+              },
+              "textDirection": "rtl",
+              "type": "text"
+            },
+            {
+              "height": 12.0,
+              "type": "sizedBox"
+            },
+            {
+              "type": "registryReactive",
+              "child": {
+                "decoration": {
+                  "color": "{{appColors.current.background.surface}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 2.0
+                  },
+                  "borderRadius": {
+                    "topLeft": 16.0,
+                    "topRight": 16.0,
+                    "bottomLeft": 16.0,
+                    "bottomRight": 16.0
+                  }
+                },
+                "width": 999999.0,
+                "height": 300.0,
+                "child": {
+                  "type": "clipRRect",
+                  "borderRadius": {
+                    "topLeft": 14.0,
+                    "topRight": 14.0,
+                    "bottomLeft": 14.0,
+                    "bottomRight": 14.0
+                  },
+                  "child": {
+                    "type": "image",
+                    "src": "{{selectedImage}}",
+                    "registryKey": "selectedImage",
+                    "fit": "contain",
+                    "width": 999999.0,
+                    "height": 296.0,
+                    "errorBuilder": {
+                      "child": {
+                        "mainAxisSize": "min",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "icon": "image_outlined",
+                            "iconType": "material",
+                            "size": 64.0,
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "type": "icon"
+                          },
+                          {
+                            "height": 16.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "data": "ØªØµÙˆÛŒØ±ÛŒ Ø§Ù†ØªØ®Ø§Ø¨ Ù†Ø´Ø¯Ù‡",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 16.0
+                            },
+                            "textDirection": "rtl",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "column"
+                      },
+                      "type": "center"
+                    }
+                  }
+                },
+                "type": "container"
+              }
+            },
+            {
+              "height": 24.0,
+              "type": "sizedBox"
+            },
+            {
+              "onPressed": {
+                "actionType": "sequence",
+                "actions": [
+                  {
+                    "actionType": "setValue",
+                    "key": "selectedImage",
+                    "value": ""
+                  },
+                  {
+                    "actionType": "log",
+                    "message": "screen=image_picker_test action=clearImage"
+                  }
+                ]
+              },
+              "style": {
+                "foregroundColor": "{{appColors.current.error.color}}",
+                "minimumSize": {
+                  "width": 999999.0,
+                  "height": 48.0
+                },
+                "side": {
+                  "color": "{{appColors.current.error.color}}",
+                  "width": 1.5
+                },
+                "shape": {
+                  "type": "roundedRectangleBorder",
+                  "borderRadius": {
+                    "topLeft": 12.0,
+                    "topRight": 12.0,
+                    "bottomLeft": 12.0,
+                    "bottomRight": 12.0
+                  }
+                }
+              },
+              "child": {
+                "mainAxisAlignment": "center",
+                "textDirection": "rtl",
+                "children": [
+                  {
+                    "icon": "delete_outline",
+                    "iconType": "material",
+                    "size": 20.0,
+                    "color": "{{appColors.current.error.color}}",
+                    "type": "icon"
+                  },
+                  {
+                    "width": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "Ù¾Ø§Ú© Ú©Ø±Ø¯Ù† ØªØµÙˆÛŒØ±",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.error.color}}",
+                      "fontSize": 14.0,
+                      "fontWeight": "w500"
+                    },
+                    "textDirection": "rtl",
+                    "type": "text"
+                  }
+                ],
+                "type": "row"
+              },
+              "type": "outlinedButton"
+            },
+            {
+              "height": 32.0,
+              "type": "sizedBox"
+            },
+            {
+              "padding": {
+                "left": 16.0,
+                "top": 16.0,
+                "right": 16.0,
+                "bottom": 16.0
+              },
+              "decoration": {
+                "color": "{{appColors.current.info.background}}",
+                "border": {
+                  "color": "{{appColors.current.info.color}}",
+                  "width": 1.0
+                },
+                "borderRadius": {
+                  "topLeft": 12.0,
+                  "topRight": 12.0,
+                  "bottomLeft": 12.0,
+                  "bottomRight": 12.0
+                }
+              },
+              "child": {
+                "crossAxisAlignment": "start",
+                "textDirection": "rtl",
+                "children": [
+                  {
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "icon": "info_outline",
+                        "iconType": "material",
+                        "size": 20.0,
+                        "color": "{{appColors.current.info.color}}",
+                        "type": "icon"
+                      },
+                      {
+                        "width": 8.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "data": "ØªÙˆØ¶ÛŒØ­Ø§Øª ØªØ³Øª",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.info.color}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "bold"
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "â€¢ Ø¯Ø± ÙˆØ¨: ØªØµÙˆÛŒØ± Ø¨Ù‡ ØµÙˆØ±Øª Base64 Data URL Ø°Ø®ÛŒØ±Ù‡ Ù…ÛŒâ€ŒØ´ÙˆØ¯\nâ€¢ Ø¯Ø± Ø¯Ø³Ú©ØªØ§Ù¾/Ù…ÙˆØ¨Ø§ÛŒÙ„: Ù…Ø³ÛŒØ± ÙØ§ÛŒÙ„ Ø°Ø®ÛŒØ±Ù‡ Ù…ÛŒâ€ŒØ´ÙˆØ¯\nâ€¢ Ø§ÛŒÙ† ØªØ³Øª Ø¨Ø±Ø§ÛŒ Ø¨Ø±Ø±Ø³ÛŒ Ú†Ø§Ù„Ø´â€ŒÙ‡Ø§ÛŒ Blob Ø¯Ø± STAC Ø§Ø³Øª",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.subtitle}}",
+                      "fontSize": 12.0,
+                      "height": 1.6
+                    },
+                    "textDirection": "rtl",
+                    "type": "text"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "container"
+            }
+          ],
+          "type": "column"
+        },
+        "type": "padding"
+      },
+      "type": "singleChildScrollView"
+    },
+    "type": "scaffold"
+  }
+}

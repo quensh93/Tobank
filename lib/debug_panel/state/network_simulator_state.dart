@@ -1,6 +1,5 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:path_provider/path_provider.dart';
-import 'dart:io';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import 'package:slow_net_simulator/slow_net_simulator.dart';
 import '../../core/helpers/logger.dart';
@@ -91,14 +90,15 @@ class NetworkSimulatorState {
         (e) => e.name == json['networkSpeed'],
         orElse: () => NetworkSpeedOption.hspa3G,
       ),
-      failureProbability: (json['failureProbability'] as num?)?.toDouble() ?? 0.0,
+      failureProbability:
+          (json['failureProbability'] as num?)?.toDouble() ?? 0.0,
     );
   }
 }
 
 /// Network simulator controller
 class NetworkSimulatorController extends Notifier<NetworkSimulatorState> {
-  static const String _storageFileName = 'network_simulator_settings.json';
+  static const String _storageKey = 'network_simulator_settings';
   bool _isLoading = false;
 
   @override
@@ -120,26 +120,17 @@ class NetworkSimulatorController extends Notifier<NetworkSimulatorState> {
     });
   }
 
-  Future<File> _getStorageFile() async {
-    try {
-      final directory = await getApplicationDocumentsDirectory();
-      final file = File('${directory.path}/$_storageFileName');
-      return file;
-    } catch (e) {
-      AppLogger.e('❌ Failed to get storage directory: $e');
-      return File(_storageFileName);
-    }
-  }
-
   Future<void> _loadSettings() async {
     try {
-      final file = await _getStorageFile();
-      if (await file.exists()) {
-        final contents = await file.readAsString();
-        final data = jsonDecode(contents) as Map<String, dynamic>;
+      final prefs = await SharedPreferences.getInstance();
+      final jsonString = prefs.getString(_storageKey);
+
+      if (jsonString != null) {
+        final data = jsonDecode(jsonString) as Map<String, dynamic>;
         final settings = NetworkSimulatorState.fromJson(data);
         state = settings;
-        AppLogger.d('✅ Network simulator settings loaded: ${settings.toJson()}');
+        AppLogger.d(
+            '✅ Network simulator settings loaded: ${settings.toJson()}');
       }
     } catch (e, stackTrace) {
       AppLogger.e('❌ Failed to load network simulator settings: $e');
@@ -154,18 +145,12 @@ class NetworkSimulatorController extends Notifier<NetworkSimulatorState> {
     }
 
     try {
-      final file = await _getStorageFile();
+      final prefs = await SharedPreferences.getInstance();
       final data = Map<String, dynamic>.from(state.toJson());
       data['savedAt'] = DateTime.now().toIso8601String();
       final jsonString = jsonEncode(data);
 
-      final sink = file.openWrite(mode: FileMode.write);
-      try {
-        sink.write(jsonString);
-        await sink.flush();
-      } finally {
-        await sink.close();
-      }
+      await prefs.setString(_storageKey, jsonString);
 
       AppLogger.d('💾 Network simulator settings saved');
       // Apply settings to SlowNetSimulator
@@ -182,13 +167,15 @@ class NetworkSimulatorController extends Notifier<NetworkSimulatorState> {
         speed: state.networkSpeed.toNetworkSpeed(),
         failureProbability: state.failureProbability,
       );
-      AppLogger.d('✅ Network simulator configured: ${state.networkSpeed.displayName}, failure: ${state.failureProbability}');
+      AppLogger.d(
+          '✅ Network simulator configured: ${state.networkSpeed.displayName}, failure: ${state.failureProbability}');
     } else {
       // When disabled, DO NOT configure SlowNetSimulator at all
       // The NetworkSimulatorAdapter will bypass simulation by checking isEnabled()
       // Configuring it even with fastest speed could have side effects
       // Instead, we rely on the adapter's isEnabled() check to bypass
-      AppLogger.d('⚠️ Network simulator disabled - adapter will bypass simulation (no global config applied)');
+      AppLogger.d(
+          '⚠️ Network simulator disabled - adapter will bypass simulation (no global config applied)');
     }
   }
 
@@ -217,4 +204,3 @@ final networkSimulatorProvider =
     NotifierProvider<NetworkSimulatorController, NetworkSimulatorState>(
   NetworkSimulatorController.new,
 );
-

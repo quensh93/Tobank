@@ -197,6 +197,41 @@ Submit PR to STAC repository to fix the parser gap. Cleaner long-term solution.
 
 Create local extension that overrides the parser. More complex but doesn't require fork.
 
+
+---
+
+## Limitation 5: `StacImage` Missing `errorBuilder` & `registryKey` Support
+
+### Problem
+
+The standard `StacImage` class provided by `stac` package often lacks support for advanced properties supported by custom parsers, specifically:
+- `errorBuilder`: To show fallback widgets when image fails to load.
+- `registryKey`: A custom property we added to `CustomImageParser` to bypass STAC's template caching for reactive updates.
+
+### Workaround: Local `StacCustomImage` Class
+
+When using Dart to define STAC UI, you must create a local `StacCustomImage` class (or similar wrapper) that includes these fields, so they are serialized into the JSON.
+
+```dart
+class StacCustomImage extends StacWidget {
+  // ... fields like src, registryKey, errorBuilder
+  
+  @override
+  String get type => 'image'; // Maps to our CustomImageParser
+
+  @override
+  Map<String, dynamic> get jsonData => {
+        'src': src,
+        if (registryKey != null) 'registryKey': registryKey,
+        if (errorBuilder != null) 'errorBuilder': errorBuilder!.toJson(),
+        // ...
+      };
+}
+```
+
+**Why `registryKey` is needed**:
+Even with `StacRegistryReactive` wrapper, the `src` string might be processed by STAC's templating engine *once* and cached. Passing `registryKey` tells the parser to fetch the value fresh from the registry at build time, ensuring the image actually changes.
+
 ---
 
 ## Reference Locations
@@ -210,5 +245,5 @@ Create local extension that overrides the parser. More complex but doesn't requi
 
 ---
 
-**Last Updated**: 2025-12-15  
-**Related Tasks**: `docs/AI/Tasks/add-theme-toggle-to-menu.md`
+**Last Updated**: 2025-12-30
+**Related Tasks**: `docs/AI/Tasks/add-theme-toggle-to-menu.md`, `docs/AI/Tasks/image-picker.md`

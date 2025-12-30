@@ -9,6 +9,7 @@ import 'package:ispect/ispect.dart';
 import 'package:flutter_performance_pulse/flutter_performance_pulse.dart'
     as pulse;
 
+import 'package:logger/logger.dart' as logger_pkg;
 import '../helpers/logger.dart';
 import '../config/ispect_config.dart';
 import '../config/debug_panel_config.dart';
@@ -21,6 +22,25 @@ Future<void> bootstrap() async {
   try {
     // Initialize Flutter bindings FIRST (must be in main zone)
     WidgetsFlutterBinding.ensureInitialized();
+
+    // Override debugPrint to control all logs, including external packages
+    debugPrint = (String? message, {int? wrapWidth}) {
+      // Respect Global Log Setting (synced with Debug Panel)
+      if (logger_pkg.Logger.level == logger_pkg.Level.off) return;
+      if (message != null && message.isNotEmpty) {
+        // Filter out noisy STAC logs that cause lag
+        // These logs print massive JSON objects to the console, causing the UI to freeze
+        if (message.startsWith('[DEBUG]') ||
+            message.contains('Overall dataContext is not a Map')) {
+          return;
+        }
+
+        // Forward to AppLogger.d
+        // Note: AppLogger might forward to ISpect console output logic,
+        // which uses print(), not debugPrint(), so this is safe.
+        AppLogger.d(message);
+      }
+    };
 
     // NOTE: Log settings are already loaded in main.dart before any logging happens
 

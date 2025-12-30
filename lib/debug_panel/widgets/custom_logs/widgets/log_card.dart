@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:ispect/ispect.dart';
 import '../extensions/context.dart';
@@ -31,8 +33,8 @@ class LogCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => RepaintBoundary(
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 150),
+        child: Container(
+          // Removed AnimatedContainer - causes jank during scrolling
           color:
               isExpanded ? color.withValues(alpha: 0.08) : Colors.transparent,
           child: Column(
@@ -276,15 +278,236 @@ class _LogTextContent extends StatelessWidget {
         children: [
           // Show message only if conditions are met
           if (message != null && !isHTTP && errorMessage == null)
-            SelectableText(message!, style: textStyle),
+            _buildFormattedContent(message!, textStyle),
 
           // Show type if available
           if (type != null) SelectableText(type!, style: textStyle),
 
           // Show error message if available
           if (errorMessage != null)
-            SelectableText(errorMessage!, style: textStyle),
+            _buildFormattedContent(errorMessage!, textStyle),
         ],
       );
+
+  /// Build formatted content - detects JSON and formats it nicely
+  Widget _buildFormattedContent(String content, TextStyle style) {
+    // Try to detect and parse JSON in the content
+    final result = _tryExtractJson(content);
+    if (result != null) {
+      final (prefix, jsonData) = result;
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (prefix.isNotEmpty) SelectableText(prefix, style: style),
+          _JsonFormattedText(data: jsonData, baseColor: style.color),
+        ],
+      );
+    }
+    return SelectableText(content, style: style);
+  }
+
+  /// Try to extract JSON from content - handles both pure JSON and embedded JSON
+  /// Returns a tuple of (prefix text, parsed JSON) or null if no JSON found
+  (String, dynamic)? _tryExtractJson(String content) {
+    final trimmed = content.trim();
+
+    // First try: pure JSON (starts with { or [)
+    if ((trimmed.startsWith('{') && trimmed.endsWith('}')) ||
+        (trimmed.startsWith('[') && trimmed.endsWith(']'))) {
+      try {
+        return ('', jsonDecode(trimmed));
+      } catch (_) {
+        // Not valid JSON, continue to embedded search
+      }
+    }
+
+    // Second try: find embedded JSON (e.g., "Response: {data: ...}")
+    final jsonStartIndex = _findJsonStart(trimmed);
+    if (jsonStartIndex >= 0) {
+      final prefix = trimmed.substring(0, jsonStartIndex).trim();
+      final jsonPart = trimmed.substring(jsonStartIndex);
+
+      // Find matching closing bracket
+      final jsonString = _extractBalancedJson(jsonPart);
+      if (jsonString != null) {
+        try {
+          return (prefix, jsonDecode(jsonString));
+        } catch (_) {
+          // Invalid JSON, return null
+        }
+      }
+    }
+
+    return null;
+  }
+
+  /// Find the start index of a JSON object or array in the string
+  int _findJsonStart(String content) {
+    final objectStart = content.indexOf('{');
+    final arrayStart = content.indexOf('[');
+
+    if (objectStart < 0) return arrayStart;
+    if (arrayStart < 0) return objectStart;
+    return objectStart < arrayStart ? objectStart : arrayStart;
+  }
+
+  /// Extract a balanced JSON string (matching braces/brackets)
+  String? _extractBalancedJson(String content) {
+    if (content.isEmpty) return null;
+
+    final openChar = content[0];
+    final closeChar = openChar == '{' ? '}' : ']';
+    if (openChar != '{' && openChar != '[') return null;
+
+    int depth = 0;
+    bool inString = false;
+    bool escape = false;
+
+    for (int i = 0; i < content.length; i++) {
+      final char = content[i];
+
+      if (escape) {
+        escape = false;
+        continue;
+      }
+
+      if (char == '\\' && inString) {
+        escape = true;
+        continue;
+      }
+
+      if (char == '"') {
+        inString = !inString;
+        continue;
+      }
+
+      if (!inString) {
+        if (char == openChar) {
+          depth++;
+        } else if (char == closeChar) {
+          depth--;
+          if (depth == 0) {
+            return content.substring(0, i + 1);
+          }
+        }
+      }
+    }
+
+    return null; // No balanced JSON found
+  }
 }
 
+/// Widget to display JSON with syntax highlighting
+class _JsonFormattedText extends StatelessWidget {
+  const _JsonFormattedText({
+    required this.data,
+    this.baseColor,
+  });
+
+  final dynamic data;
+  final Color? baseColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return SelectableText.rich(
+      _buildJsonSpan(data, 0),
+      style: TextStyle(
+        fontFamily: 'monospace',
+        fontSize: 12,
+        color: baseColor ?? Colors.white,
+      ),
+    );
+  }
+
+  TextSpan _buildJsonSpan(dynamic data, int indent) {
+    if (data is Map) {
+      return _buildMapSpan(data, indent);
+    } else if (data is List) {
+      return _buildListSpan(data, indent);
+    } else {
+      return _buildValueSpan(data);
+    }
+  }
+
+  TextSpan _buildMapSpan(Map data, int indent) {
+    if (data.isEmpty) {
+      return const TextSpan(text: '{}');
+    }
+
+    final children = <TextSpan>[];
+    children.add(const TextSpan(text: '{\n'));
+
+    final entries = data.entries.toList();
+    for (var i = 0; i < entries.length; i++) {
+      final entry = entries[i];
+      final isLast = i == entries.length - 1;
+      final indentStr = '  ' * (indent + 1);
+
+      children.add(TextSpan(text: indentStr));
+      children.add(TextSpan(
+        text: '"${entry.key}"',
+        style: const TextStyle(color: Color(0xFF9CDCFE)), // Light blue for keys
+      ));
+      children.add(const TextSpan(text: ': '));
+      children.add(_buildJsonSpan(entry.value, indent + 1));
+      if (!isLast) children.add(const TextSpan(text: ','));
+      children.add(const TextSpan(text: '\n'));
+    }
+
+    children.add(TextSpan(text: '${'  ' * indent}'));
+    children.add(const TextSpan(text: '}'));
+
+    return TextSpan(children: children);
+  }
+
+  TextSpan _buildListSpan(List data, int indent) {
+    if (data.isEmpty) {
+      return const TextSpan(text: '[]');
+    }
+
+    final children = <TextSpan>[];
+    children.add(const TextSpan(text: '[\n'));
+
+    for (var i = 0; i < data.length; i++) {
+      final isLast = i == data.length - 1;
+      final indentStr = '  ' * (indent + 1);
+
+      children.add(TextSpan(text: indentStr));
+      children.add(_buildJsonSpan(data[i], indent + 1));
+      if (!isLast) children.add(const TextSpan(text: ','));
+      children.add(const TextSpan(text: '\n'));
+    }
+
+    children.add(TextSpan(text: '${'  ' * indent}'));
+    children.add(const TextSpan(text: ']'));
+
+    return TextSpan(children: children);
+  }
+
+  TextSpan _buildValueSpan(dynamic value) {
+    if (value == null) {
+      return const TextSpan(
+        text: 'null',
+        style: TextStyle(color: Color(0xFF569CD6)), // Blue for null
+      );
+    } else if (value is bool) {
+      return TextSpan(
+        text: value.toString(),
+        style: const TextStyle(color: Color(0xFF569CD6)), // Blue for boolean
+      );
+    } else if (value is num) {
+      return TextSpan(
+        text: value.toString(),
+        style: const TextStyle(color: Color(0xFFB5CEA8)), // Green for numbers
+      );
+    } else if (value is String) {
+      return TextSpan(
+        text: '"$value"',
+        style: const TextStyle(color: Color(0xFFCE9178)), // Orange for strings
+      );
+    } else {
+      return TextSpan(text: value.toString());
+    }
+  }
+}

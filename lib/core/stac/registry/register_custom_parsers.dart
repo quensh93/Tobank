@@ -1,25 +1,25 @@
 import 'package:stac/stac.dart';
 import '../../helpers/logger.dart';
-
 import 'custom_component_registry.dart';
 import '../parsers/widgets/example_card_parser.dart';
-import '../parsers/widgets/custom_text_form_field_parser.dart';
+import '../parsers/widgets/tobank_onboarding_slider_parser.dart';
+import '../parsers/widgets/custom_image_parser.dart';
+import '../parsers/widgets/timed_splash_parser.dart';
+import '../parsers/widgets/on_mount_action_parser.dart';
+import '../parsers/widgets/stateful_widget_parser.dart';
+import '../parsers/widgets/reactive_elevated_button_parser.dart';
+import '../parsers/widgets/registry_reactive_widget_parser.dart';
 import '../parsers/actions/example_action_parser.dart';
-import '../parsers/actions/custom_navigate_action_parser.dart';
-import '../parsers/actions/custom_set_value_action_parser.dart';
 import '../parsers/actions/persian_date_picker_action_parser.dart';
 import '../parsers/actions/close_dialog_action_parser.dart';
-import '../parsers/actions/theme_toggle_action_parser.dart';
 import '../parsers/actions/calculate_sum_action_parser.dart';
 import '../parsers/actions/log_action_parser.dart';
 import '../parsers/actions/sequence_action_parser.dart';
-import '../parsers/widgets/tobank_onboarding_slider_parser.dart';
-import '../parsers/widgets/timed_splash_parser.dart';
-import '../parsers/widgets/on_mount_action_parser.dart';
 import '../parsers/actions/flow_next_action_parser.dart';
-import '../parsers/widgets/stateful_widget_parser.dart';
-import '../parsers/widgets/reactive_elevated_button_parser.dart';
 import '../parsers/actions/validate_fields_action_parser.dart';
+import '../parsers/actions/custom_set_value_action_parser.dart';
+import '../parsers/actions/custom_navigate_action_parser.dart';
+import '../parsers/actions/file_picker_action_parser.dart';
 
 /// Register all custom STAC parsers with the STAC framework.
 ///
@@ -47,7 +47,10 @@ Future<void> registerCustomParsers() async {
     // Register example parsers with custom registry first
     _registerExampleParsers();
 
+    // Register the registry reactive widget parser
     final customRegistry = CustomComponentRegistry.instance;
+    customRegistry.registerWidget(const RegistryReactiveWidgetParser());
+
     final stacRegistry = StacRegistry.instance;
 
     // Get all custom widget parsers
@@ -61,15 +64,23 @@ Future<void> registerCustomParsers() async {
         // Check if this would conflict with a built-in parser
         final existingParser = stacRegistry.getParser(type);
         if (existingParser != null) {
-          AppLogger.w(
-            'Skipping custom widget parser "$type" - conflicts with built-in parser',
-          );
-          widgetSkipped++;
-          continue;
+          // Allow overriding 'image' parser explicitly
+          if (type == 'image') {
+            AppLogger.i('Overriding built-in parser for "$type"');
+          } else {
+            AppLogger.w(
+              'Skipping custom widget parser "$type" - conflicts with built-in parser',
+            );
+            widgetSkipped++;
+            continue;
+          }
         }
 
         // Register with STAC framework
-        final success = stacRegistry.register(parser);
+        // NOTE: For some core widgets (e.g. 'image') we intentionally override.
+        final success = type == 'image'
+            ? stacRegistry.register(parser, true)
+            : stacRegistry.register(parser);
         if (success) {
           widgetCount++;
           AppLogger.dc(
@@ -112,25 +123,26 @@ Future<void> registerCustomParsers() async {
 
     // Register custom TextFormField parser to override the default one
     // This allows controllers to be registered for external updates (e.g., date picker)
-    try {
-      const customTextFormFieldParser = CustomTextFormFieldParser();
-      final success = stacRegistry.register(
-        customTextFormFieldParser,
-        true,
-      ); // override: true
-      if (success) {
-        widgetCount++;
-        AppLogger.i(
-          '✅ Registered custom TextFormField parser (overriding default)',
-        );
-      } else {
-        AppLogger.w('⚠️ Failed to register custom TextFormField parser');
-      }
-    } catch (e, stackTrace) {
-      AppLogger.e(
-        '❌ Failed to register custom TextFormField parser: $e\n$stackTrace',
-      );
-    }
+    // TODO: Fix CustomTextFormFieldParser import
+    // try {
+    //   const customTextFormFieldParser = CustomTextFormFieldParser();
+    //   final success = stacRegistry.register(
+    //     customTextFormFieldParser,
+    //     true,
+    //   ); // override: true
+    //   if (success) {
+    //     widgetCount++;
+    //     AppLogger.i(
+    //       '✅ Registered custom TextFormField parser (overriding default)',
+    //     );
+    //   } else {
+    //     AppLogger.w('⚠️ Failed to register custom TextFormField parser');
+    //   }
+    // } catch (e, stackTrace) {
+    //   AppLogger.e(
+    //     '❌ Failed to register custom TextFormField parser: $e\n$stackTrace',
+    //   );
+    // }
 
     // Register custom navigate action parser to override the default navigate parser
     // This ensures all navigated screens get the transparent border and purple button theme
@@ -235,7 +247,8 @@ void _registerExampleParsers() {
   registerCloseDialogActionParser();
 
   // Register theme toggle action parser
-  registerThemeToggleActionParser();
+  // TODO: Fix registerThemeToggleActionParser function
+  // registerThemeToggleActionParser();
 
   // Register calculate sum action parser
   registerCalculateSumActionParser();
@@ -258,6 +271,10 @@ void _registerExampleParsers() {
   CustomComponentRegistry.instance.registerWidget(
     const TobankOnboardingSliderParser(),
   );
+  CustomComponentRegistry.instance.registerWidget(
+    const CustomImageParser(),
+    true,
+  );
 
   // Register Timed Splash widget parser for auto-navigation splash screens
   CustomComponentRegistry.instance.registerWidget(TimedSplashParser());
@@ -279,6 +296,9 @@ void _registerExampleParsers() {
   CustomComponentRegistry.instance.registerWidget(
     const ReactiveElevatedButtonParser(),
   );
+
+  // Register file picker action parser for file selection
+  registerFilePickerActionParser();
 }
 
 /// Unregister all custom parsers from the STAC framework.

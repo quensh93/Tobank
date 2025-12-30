@@ -87,6 +87,7 @@ class DebugPanelSettingsState {
     // Main panel control
     this.debugPanelEnabled = true,
     this.ispectDraggablePanelEnabled = true,
+    this.areToolsVisible = true, // Default to true
     this.textScaleFactor = 1.0,
     this.uiSize = DebugPanelUISize.medium,
     this.layoutMode = DebugPanelLayoutMode.horizontal,
@@ -120,6 +121,7 @@ class DebugPanelSettingsState {
   // Fields
   final bool debugPanelEnabled;
   final bool ispectDraggablePanelEnabled;
+  final bool areToolsVisible;
   final double textScaleFactor;
   final DebugPanelUISize uiSize;
   final DebugPanelLayoutMode layoutMode;
@@ -152,6 +154,7 @@ class DebugPanelSettingsState {
   DebugPanelSettingsState copyWith({
     bool? debugPanelEnabled,
     bool? ispectDraggablePanelEnabled,
+    bool? areToolsVisible,
     double? textScaleFactor,
     DebugPanelUISize? uiSize,
     DebugPanelLayoutMode? layoutMode,
@@ -179,6 +182,7 @@ class DebugPanelSettingsState {
       debugPanelEnabled: debugPanelEnabled ?? this.debugPanelEnabled,
       ispectDraggablePanelEnabled:
           ispectDraggablePanelEnabled ?? this.ispectDraggablePanelEnabled,
+      areToolsVisible: areToolsVisible ?? this.areToolsVisible,
       textScaleFactor: textScaleFactor ?? this.textScaleFactor,
       uiSize: uiSize ?? this.uiSize,
       layoutMode: layoutMode ?? this.layoutMode,
@@ -212,6 +216,7 @@ class DebugPanelSettingsState {
     return {
       'debugPanelEnabled': debugPanelEnabled,
       'ispectDraggablePanelEnabled': ispectDraggablePanelEnabled,
+      'areToolsVisible': areToolsVisible,
       'textScaleFactor': textScaleFactor,
       'uiSize': uiSize.name,
       'layoutMode': layoutMode.name,
@@ -242,6 +247,7 @@ class DebugPanelSettingsState {
       debugPanelEnabled: json['debugPanelEnabled'] as bool? ?? true,
       ispectDraggablePanelEnabled:
           json['ispectDraggablePanelEnabled'] as bool? ?? true,
+      areToolsVisible: json['areToolsVisible'] as bool? ?? true,
       textScaleFactor: (json['textScaleFactor'] as num?)?.toDouble() ?? 1.0,
       uiSize: DebugPanelUISize.values.firstWhere(
         (e) => e.name == json['uiSize'],
@@ -415,12 +421,23 @@ class DebugPanelSettingsController extends Notifier<DebugPanelSettingsState> {
 
   // Setter methods
   void setDebugPanelEnabled(bool enabled) {
+    final oldValue = state.debugPanelEnabled;
+    AppLogger.i('🔧 setDebugPanelEnabled called: $oldValue → $enabled');
+    debugPrint('🔧 setDebugPanelEnabled called: $oldValue → $enabled');
     state = state.copyWith(debugPanelEnabled: enabled);
+    AppLogger.i(
+        '🔧 setDebugPanelEnabled new state: ${state.debugPanelEnabled}');
+    debugPrint('🔧 setDebugPanelEnabled new state: ${state.debugPanelEnabled}');
     _saveSettings();
   }
 
   void setIspectDraggablePanelEnabled(bool enabled) {
     state = state.copyWith(ispectDraggablePanelEnabled: enabled);
+    _saveSettings();
+  }
+
+  void setAreToolsVisible(bool visible) {
+    state = state.copyWith(areToolsVisible: visible);
     _saveSettings();
   }
 

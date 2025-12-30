@@ -5,6 +5,7 @@ import 'package:stac_core/stac_core.dart';
 import '../../services/widget/stac_widget_loader.dart';
 import '../../services/widget/stac_widget_resolver.dart';
 import '../../services/navigation/stac_navigation_service.dart';
+import '../../../helpers/logger.dart';
 
 /// Model for timed splash configuration.
 class TimedSplashModel {
@@ -133,7 +134,10 @@ class _TimedSplashWidgetState extends State<TimedSplashWidget> {
       }
     } else {
       // Fallback: Log warning
-      debugPrint('⚠️ TimedSplash: Could not load widget $nextWidgetType');
+      AppLogger.wc(
+        LogCategory.navigation,
+        '⚠️ TimedSplash: Could not load widget $nextWidgetType',
+      );
     }
   }
 
@@ -154,7 +158,8 @@ class _TimedSplashWidgetState extends State<TimedSplashWidget> {
       if (splashJson != null) {
         // Check if the loaded JSON is itself a timedSplash to prevent recursion
         if (splashJson['type'] == 'timedSplash') {
-          debugPrint(
+          AppLogger.wc(
+            LogCategory.widget,
             '⚠️ TimedSplash: Detected circular reference with splashWidgetType="${widget.model.splashWidgetType}", showing loading indicator instead',
           );
           return const Scaffold(
@@ -187,7 +192,8 @@ class _TimedSplashWidgetState extends State<TimedSplashWidget> {
       if (loaderJson != null && loaderJson['type'] == 'timedSplash') {
         final childFromLoader = loaderJson['child'] as Map<String, dynamic>?;
         if (childFromLoader != null) {
-          debugPrint(
+          AppLogger.dc(
+            LogCategory.widget,
             '✅ TimedSplash: Loaded child from widget loader for ${widget.model.loadChildFromWidgetType}',
           );
           final childWidget = Stac.fromJson(childFromLoader, context);
@@ -199,7 +205,8 @@ class _TimedSplashWidgetState extends State<TimedSplashWidget> {
     }
 
     // Fallback: Show a simple loading indicator
-    debugPrint(
+    AppLogger.wc(
+      LogCategory.widget,
       '⚠️ TimedSplash: child property is missing and could not be loaded from widget loader',
     );
     return const Scaffold(body: Center(child: CircularProgressIndicator()));

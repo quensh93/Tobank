@@ -40,14 +40,14 @@ class LogCategorySettings {
   const LogCategorySettings({
     this.enabled = true,
     this.truncateEnabled = false,
-    this.maxLength = 1000,
+    this.maxLength = 100,
   });
 
   factory LogCategorySettings.fromJson(Map<String, dynamic> json) {
     return LogCategorySettings(
       enabled: json['enabled'] as bool? ?? true,
       truncateEnabled: json['truncateEnabled'] as bool? ?? false,
-      maxLength: (json['maxLength'] as num?)?.toInt() ?? 1000,
+      maxLength: (json['maxLength'] as num?)?.toInt() ?? 100,
     );
   }
 

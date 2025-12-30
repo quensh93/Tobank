@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
+import '../../../helpers/logger.dart';
+import '../../../helpers/log_category.dart';
+import '../../utils/registry_notifier.dart';
 import 'stateful_widget_model.dart';
 
 class StatefulWidgetParser extends StacParser<StatefulWidgetModel> {
@@ -15,10 +19,7 @@ class StatefulWidgetParser extends StacParser<StatefulWidgetModel> {
 
   @override
   Widget parse(BuildContext context, StatefulWidgetModel model) {
-    return _StatefulWidgetWrapper(
-      model: model,
-      child: Stac.fromJson(model.child, context) ?? Container(),
-    );
+    return _StatefulWidgetWrapper(model: model);
   }
 }
 
@@ -31,12 +32,8 @@ class StateFullWidgetParser extends StatefulWidgetParser {
 
 class _StatefulWidgetWrapper extends StatefulWidget {
   final StatefulWidgetModel model;
-  final Widget child;
 
-  const _StatefulWidgetWrapper({
-    required this.model,
-    required this.child,
-  });
+  const _StatefulWidgetWrapper({required this.model});
 
   @override
   _StatefulWidgetWrapperState createState() => _StatefulWidgetWrapperState();
@@ -51,14 +48,34 @@ class _StatefulWidgetWrapperState extends State<_StatefulWidgetWrapper>
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     _isMounted = true;
+    // Listen for registry changes to trigger rebuilds
+    RegistryNotifier.instance.listenable.addListener(_onRegistryChanged);
     _executeAction(widget.model.onInit, 'onInit');
+  }
+
+  void _onRegistryChanged() {
+    if (_isMounted && mounted) {
+      AppLogger.dc(
+        LogCategory.state,
+        'StatefulWidget: Registry changed, triggering rebuild',
+      );
+      final selectedImage = StacRegistry.instance.getValue('selectedImage');
+      AppLogger.dc(
+        LogCategory.state,
+        'StatefulWidget: selectedImage value exists=${selectedImage != null && selectedImage.toString().isNotEmpty}',
+      );
+      setState(() {});
+    }
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     if (_isMounted) {
-      _executeAction(widget.model.onDependenciesChanged, 'onDependenciesChanged');
+      _executeAction(
+        widget.model.onDependenciesChanged,
+        'onDependenciesChanged',
+      );
     }
   }
 
@@ -117,6 +134,7 @@ class _StatefulWidgetWrapperState extends State<_StatefulWidgetWrapper>
     _executeAction(widget.model.onDispose, 'onDispose', forceImmediate: true);
     _isMounted = false;
     WidgetsBinding.instance.removeObserver(this);
+    RegistryNotifier.instance.listenable.removeListener(_onRegistryChanged);
     super.dispose();
   }
 
@@ -134,8 +152,7 @@ class _StatefulWidgetWrapperState extends State<_StatefulWidgetWrapper>
       try {
         Stac.onCallFromJson(action, context);
       } catch (e, stackTrace) {
-        debugPrint('Error executing $actionName: $e');
-        debugPrint('Stack trace: $stackTrace');
+        AppLogger.e('Error executing $actionName', e, stackTrace);
       }
     }
 
@@ -157,6 +174,7 @@ class _StatefulWidgetWrapperState extends State<_StatefulWidgetWrapper>
         _executeAction(widget.model.onBuild, 'onBuild');
       }
     });
-    return widget.child;
+    // Build child fresh each time so template vars get resolved
+    return Stac.fromJson(widget.model.child, context) ?? Container();
   }
 }

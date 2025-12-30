@@ -18,6 +18,7 @@ class ISpectAppBar extends StatefulWidget {
     required this.focusNode,
     this.onSettingsTap,
     this.onInfoTap,
+    this.onClearTap,
     this.backgroundColor,
     this.searchController,
     this.onSearchChanged,
@@ -34,6 +35,7 @@ class ISpectAppBar extends StatefulWidget {
 
   final VoidCallback? onSettingsTap;
   final VoidCallback? onInfoTap;
+  final VoidCallback? onClearTap;
 
   final FocusNode focusNode;
 
@@ -63,21 +65,22 @@ class _ISpectAppBarState extends State<ISpectAppBar> {
     if (!widget.focusNode.hasFocus || widget.searchController == null) {
       return KeyEventResult.ignored;
     }
-    
+
     if (event is KeyDownEvent) {
       // Handle backspace manually
       if (event.logicalKey == LogicalKeyboardKey.backspace) {
         final controller = widget.searchController!;
         final selection = controller.selection;
-        
+
         if (controller.text.isNotEmpty && selection.isValid) {
           final text = controller.text;
           final start = selection.start;
-          
+
           if (selection.isCollapsed) {
             // Normal backspace - delete character before cursor
             if (start > 0) {
-              final newText = text.substring(0, start - 1) + text.substring(start);
+              final newText =
+                  text.substring(0, start - 1) + text.substring(start);
               final newOffset = start - 1;
               controller.value = TextEditingValue(
                 text: newText,
@@ -86,7 +89,8 @@ class _ISpectAppBarState extends State<ISpectAppBar> {
             }
           } else {
             // Selection exists - delete selected text
-            final newText = text.substring(0, selection.start) + text.substring(selection.end);
+            final newText = text.substring(0, selection.start) +
+                text.substring(selection.end);
             controller.value = TextEditingValue(
               text: newText,
               selection: TextSelection.collapsed(offset: selection.start),
@@ -95,11 +99,11 @@ class _ISpectAppBarState extends State<ISpectAppBar> {
           return KeyEventResult.handled;
         }
       }
-      
+
       // Handle Ctrl+A (Select All)
-      if (event.logicalKey == LogicalKeyboardKey.keyA && 
-          (HardwareKeyboard.instance.isControlPressed || 
-           HardwareKeyboard.instance.isMetaPressed)) {
+      if (event.logicalKey == LogicalKeyboardKey.keyA &&
+          (HardwareKeyboard.instance.isControlPressed ||
+              HardwareKeyboard.instance.isMetaPressed)) {
         final controller = widget.searchController!;
         controller.selection = TextSelection(
           baseOffset: 0,
@@ -108,7 +112,7 @@ class _ISpectAppBarState extends State<ISpectAppBar> {
         return KeyEventResult.handled;
       }
     }
-    
+
     return KeyEventResult.ignored;
   }
 
@@ -128,6 +132,16 @@ class _ISpectAppBarState extends State<ISpectAppBar> {
           backgroundColor: widget.backgroundColor ??
               context.ispectTheme.scaffoldBackgroundColor,
           actions: [
+            if (widget.onClearTap != null)
+              UnconstrainedBox(
+                child: IconButton(
+                  onPressed: widget.onClearTap,
+                  tooltip: 'Clear logs',
+                  icon: const Icon(
+                    Icons.delete_outline_rounded,
+                  ),
+                ),
+              ),
             if (widget.onInfoTap != null)
               UnconstrainedBox(
                 child: IconButton(
@@ -291,4 +305,3 @@ class _ISpectAppBarState extends State<ISpectAppBar> {
     widget.onToggleTitle(title, selected);
   }
 }
-

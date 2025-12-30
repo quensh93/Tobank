@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
 import '../../services/widget/stac_widget_loader.dart';
+import '../../../helpers/logger.dart';
 
 /// Model for onMountAction configuration.
 ///
@@ -128,13 +129,19 @@ class _OnMountActionWidgetState extends State<OnMountActionWidget> {
   void _executeAction() {
     // Check if already executed (if executeOnce is true)
     if (widget.model.executeOnce && _hasExecuted) {
-      debugPrint('⚠️ OnMountAction: Action already executed, skipping...');
+      AppLogger.wc(
+        LogCategory.action,
+        '⚠️ OnMountAction: Action already executed, skipping...',
+      );
       return;
     }
 
     // Double-check mounted state
     if (!mounted || !context.mounted) {
-      debugPrint('⚠️ OnMountAction: Widget not mounted, skipping action');
+      AppLogger.wc(
+        LogCategory.action,
+        '⚠️ OnMountAction: Widget not mounted, skipping action',
+      );
       return;
     }
 
@@ -147,7 +154,8 @@ class _OnMountActionWidgetState extends State<OnMountActionWidget> {
         if (mounted && context.mounted) {
           _executeActionInternal();
         } else {
-          debugPrint(
+          AppLogger.wc(
+            LogCategory.action,
             '⚠️ OnMountAction: Widget unmounted during delay, cancelling action',
           );
         }
@@ -161,7 +169,10 @@ class _OnMountActionWidgetState extends State<OnMountActionWidget> {
   void _executeActionInternal() {
     // Final mounted check before execution
     if (!mounted || !context.mounted) {
-      debugPrint('⚠️ OnMountAction: Widget not mounted, skipping action');
+      AppLogger.wc(
+        LogCategory.action,
+        '⚠️ OnMountAction: Widget not mounted, skipping action',
+      );
       return;
     }
 
@@ -169,8 +180,7 @@ class _OnMountActionWidgetState extends State<OnMountActionWidget> {
       // Execute the action using STAC's action execution mechanism
       Stac.onCallFromJson(widget.model.action, context);
     } catch (e, stackTrace) {
-      debugPrint('❌ OnMountAction error: $e');
-      debugPrint('Stack trace: $stackTrace');
+      AppLogger.e('❌ OnMountAction error', e, stackTrace);
       // Don't crash - gracefully fail
       // The action error is logged but doesn't prevent the widget from rendering
     }
@@ -197,13 +207,16 @@ class _OnMountActionWidgetState extends State<OnMountActionWidget> {
     // This handles cases where API JSON doesn't include the child property
     final loadChildFromWidgetType = widget.model.loadChildFromWidgetType;
     if (loadChildFromWidgetType != null) {
-      final loaderJson = StacWidgetLoader.loadWidgetJson(loadChildFromWidgetType);
+      final loaderJson = StacWidgetLoader.loadWidgetJson(
+        loadChildFromWidgetType,
+      );
       if (loaderJson != null) {
         // Check if the loaded JSON is itself an onMountAction to prevent recursion
         if (loaderJson['type'] == 'onMountAction') {
           final childFromLoader = loaderJson['child'] as Map<String, dynamic>?;
           if (childFromLoader != null) {
-            debugPrint(
+            AppLogger.dc(
+              LogCategory.action,
               '✅ OnMountAction: Loaded child from widget loader for $loadChildFromWidgetType',
             );
             final childWidget = Stac.fromJson(childFromLoader, context);
@@ -222,7 +235,8 @@ class _OnMountActionWidgetState extends State<OnMountActionWidget> {
     }
 
     // Fallback: Show a simple loading indicator
-    debugPrint(
+    AppLogger.wc(
+      LogCategory.action,
       '⚠️ OnMountAction: child property is missing and could not be loaded from widget loader',
     );
     return const Scaffold(body: Center(child: CircularProgressIndicator()));
@@ -243,8 +257,7 @@ class _OnMountActionWidgetState extends State<OnMountActionWidget> {
       });
     } else if (json is Map<String, dynamic>) {
       return json.map(
-        (key, value) =>
-            MapEntry(key, _resolveVariablesInJson(value, registry)),
+        (key, value) => MapEntry(key, _resolveVariablesInJson(value, registry)),
       );
     } else if (json is List) {
       return json
@@ -254,4 +267,3 @@ class _OnMountActionWidgetState extends State<OnMountActionWidget> {
     return json;
   }
 }
-

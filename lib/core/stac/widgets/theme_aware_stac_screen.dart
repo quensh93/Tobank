@@ -3,6 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
 import '../../../features/pre_launch/providers/theme_controller_provider.dart';
+import '../../helpers/logger.dart';
 
 /// A wrapper widget that makes any STAC screen reactive to theme changes.
 ///
@@ -25,7 +26,8 @@ class ThemeAwareStacScreen extends ConsumerWidget {
       data: (mode) => mode,
       orElse: () => ThemeMode.system,
     );
-    debugPrint(
+    AppLogger.dc(
+      LogCategory.theme,
       '🎨 ThemeAwareStacScreen rebuilding with theme: ${themeMode.name}',
     );
 

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_performance_pulse/flutter_performance_pulse.dart'
@@ -299,21 +300,31 @@ class _PerformanceTabState extends ConsumerState<PerformanceTab> {
                         ),
                       ),
                       const SizedBox(height: 8),
-                      pulse.PerformanceDashboard(
-                        showFPS: true,
-                        showCPU: true,
-                        showDisk: true,
-                        theme: pulse.DashboardTheme(
-                          backgroundColor:
-                              theme.colorScheme.surfaceContainerHighest,
-                          textColor: theme.colorScheme.onSurface,
-                          warningColor: Colors.orange,
-                          errorColor: Colors.red,
-                          chartLineColor: theme.colorScheme.primary,
-                          chartFillColor:
-                              theme.colorScheme.primary.withValues(alpha: 0.2),
-                        ),
-                      ),
+                      kIsWeb
+                          ? Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'System metrics not supported on Web',
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  color: theme.colorScheme.error,
+                                ),
+                              ),
+                            )
+                          : pulse.PerformanceDashboard(
+                              showFPS: true,
+                              showCPU: true,
+                              showDisk: true,
+                              theme: pulse.DashboardTheme(
+                                backgroundColor:
+                                    theme.colorScheme.surfaceContainerHighest,
+                                textColor: theme.colorScheme.onSurface,
+                                warningColor: Colors.orange,
+                                errorColor: Colors.red,
+                                chartLineColor: theme.colorScheme.primary,
+                                chartFillColor: theme.colorScheme.primary
+                                    .withValues(alpha: 0.2),
+                              ),
+                            ),
                     ],
                   ),
                 ),
@@ -366,21 +377,31 @@ class _PerformanceTabState extends ConsumerState<PerformanceTab> {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  pulse.PerformanceDashboard(
-                    showFPS: true,
-                    showCPU: true,
-                    showDisk: true,
-                    theme: pulse.DashboardTheme(
-                      backgroundColor:
-                          theme.colorScheme.surfaceContainerHighest,
-                      textColor: theme.colorScheme.onSurface,
-                      warningColor: Colors.orange,
-                      errorColor: Colors.red,
-                      chartLineColor: theme.colorScheme.primary,
-                      chartFillColor:
-                          theme.colorScheme.primary.withValues(alpha: 0.2),
-                    ),
-                  ),
+                  kIsWeb
+                      ? Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'System metrics not supported on Web',
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: theme.colorScheme.error,
+                            ),
+                          ),
+                        )
+                      : pulse.PerformanceDashboard(
+                          showFPS: true,
+                          showCPU: true,
+                          showDisk: true,
+                          theme: pulse.DashboardTheme(
+                            backgroundColor:
+                                theme.colorScheme.surfaceContainerHighest,
+                            textColor: theme.colorScheme.onSurface,
+                            warningColor: Colors.orange,
+                            errorColor: Colors.red,
+                            chartLineColor: theme.colorScheme.primary,
+                            chartFillColor: theme.colorScheme.primary
+                                .withValues(alpha: 0.2),
+                          ),
+                        ),
                 ],
               ),
             ),

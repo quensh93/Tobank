@@ -76,6 +76,11 @@ final ispectNavigatorObserverProvider = Provider<ISpectNavigatorObserver?>((
 final ispectPanelButtonsProvider = Provider<List<DraggablePanelButtonItem>>((
   ref,
 ) {
+  return [];
+});
+
+/// Provider for ISpect panel grid items (small icons)
+final ispectPanelItemsProvider = Provider<List<DraggablePanelItem>>((ref) {
   // Access debug panel settings
   final settings = ref.watch(debugPanelSettingsProvider);
   final controller = ref.read(debugPanelSettingsProvider.notifier);
@@ -89,46 +94,140 @@ final ispectPanelButtonsProvider = Provider<List<DraggablePanelButtonItem>>((
   final themeController = ref.read(themeControllerProvider.notifier);
 
   return [
-    // Back Button: Pops the current screen
-    DraggablePanelButtonItem(
+    // Back Button
+    DraggablePanelItem(
       icon: Icons.arrow_back,
-      label: 'Back', // Optional, helps identify if text is shown
+      enableBadge: false,
+      description: 'Back',
       onTap: (context) {
-        // Use global key to ensure we pop the main app navigator
-        // This avoids issues if the panel is in a different context/overlay
         AppRoot.mainAppNavigatorKey.currentState?.maybePop();
       },
     ),
 
-    // Theme Toggle Button
-    DraggablePanelButtonItem(
+    // Theme Toggle
+    DraggablePanelItem(
       icon: themeMode == ThemeMode.dark
           ? Icons.dark_mode
           : themeMode == ThemeMode.light
           ? Icons.light_mode
           : Icons.brightness_auto,
-      label: themeMode == ThemeMode.dark
-          ? 'Dark'
-          : themeMode == ThemeMode.light
-          ? 'Light'
-          : 'Auto',
-      description: 'Tap to toggle theme',
-      onTap: (_) {
+      enableBadge: false,
+      description: 'Theme',
+      onTap: (context) {
         themeController.toggleMode();
       },
     ),
 
-    // Custom debug panel toggle button with icon + label
-    DraggablePanelButtonItem(
-      icon: settings.debugPanelEnabled
-          ? Icons.bug_report
-          : Icons.bug_report_outlined,
-      label: settings.debugPanelEnabled ? 'ON' : 'OFF',
-      description: settings.debugPanelEnabled
-          ? 'Debug Panel: ON - Tap to hide'
-          : 'Debug Panel: OFF - Tap to show',
+    // Tools
+    DraggablePanelItem(
+      icon: Icons.tune,
+      enableBadge: false,
+      description: 'Tools',
       onTap: (_) {
-        controller.setDebugPanelEnabled(!settings.debugPanelEnabled);
+        debugPrint('🔧 Tools button tapped');
+        final context = AppRoot.mainAppNavigatorKey.currentContext;
+        if (context == null) {
+          debugPrint('❌ Context is null, cannot show bottom sheet');
+          return;
+        }
+        debugPrint('✅ Context found, showing bottom sheet');
+
+        showModalBottomSheet(
+          context: context,
+          showDragHandle: true,
+          useSafeArea: true,
+          // Use Consumer to get fresh state every time the bottom sheet opens
+          builder: (sheetContext) => Consumer(
+            builder: (consumerContext, consumerRef, _) {
+              debugPrint('🔧 Bottom sheet Consumer building');
+              // Read CURRENT state inside Consumer (not stale closure)
+              final currentSettings = consumerRef.watch(
+                debugPanelSettingsProvider,
+              );
+              final currentController = consumerRef.read(
+                debugPanelSettingsProvider.notifier,
+              );
+
+              debugPrint(
+                '🔧 Current debugPanelEnabled: ${currentSettings.debugPanelEnabled}',
+              );
+
+              return Container(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(bottom: 16),
+                      child: Text(
+                        'Debug Tools',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    // Debug Panel Toggle (Global)
+                    ListTile(
+                      leading: Icon(
+                        currentSettings.debugPanelEnabled
+                            ? Icons.power_settings_new
+                            : Icons.power_off,
+                        color: currentSettings.debugPanelEnabled
+                            ? Colors.green
+                            : null,
+                      ),
+                      title: const Text('Debug System'),
+                      subtitle: Text(
+                        currentSettings.debugPanelEnabled
+                            ? 'Enabled'
+                            : 'Disabled',
+                      ),
+                      trailing: Switch(
+                        value: currentSettings.debugPanelEnabled,
+                        onChanged: (value) {
+                          debugPrint('🔧 Switch onChanged: $value');
+                          Navigator.pop(sheetContext);
+                          currentController.setDebugPanelEnabled(value);
+                        },
+                      ),
+                      onTap: () {
+                        debugPrint(
+                          '🔧 ListTile onTap: toggling to ${!currentSettings.debugPanelEnabled}',
+                        );
+                        Navigator.pop(sheetContext);
+                        currentController.setDebugPanelEnabled(
+                          !currentSettings.debugPanelEnabled,
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        );
+      },
+    ),
+
+    // Tools Visibility Toggle (eye icon) - shows/hides debug tools but KEEPS device frame
+    // CRITICAL: Read fresh state INSIDE onTap to avoid stale closures
+    DraggablePanelItem(
+      icon: settings.areToolsVisible ? Icons.visibility : Icons.visibility_off,
+      enableBadge: false,
+      description: 'Toggle Tools',
+      onTap: (context) {
+        // Read FRESH state from ProviderScope - don't use captured 'settings'!
+        final container = ProviderScope.containerOf(context);
+        final currentSettings = container.read(debugPanelSettingsProvider);
+        final currentController = container.read(
+          debugPanelSettingsProvider.notifier,
+        );
+
+        debugPrint(
+          '🔧 Tools toggle tapped - current: ${currentSettings.areToolsVisible}',
+        );
+        currentController.setAreToolsVisible(!currentSettings.areToolsVisible);
       },
     ),
   ];

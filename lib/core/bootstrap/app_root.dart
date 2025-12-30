@@ -48,6 +48,13 @@ class _AppRootState extends ConsumerState<AppRoot> {
     _loadThemes();
   }
 
+  @override
+  void dispose() {
+    // If we have any active listeners or controllers, dispose them here
+    // Currently relying on provider/Riverpod cleanup
+    super.dispose();
+  }
+
   Future<void> _loadThemes() async {
     try {
       AppLogger.i('Loading Tobank STAC themes...');
@@ -90,8 +97,11 @@ class _AppRootState extends ConsumerState<AppRoot> {
     // Get debug panel enabled state from settings
     final settings = ref.watch(debugPanelSettingsProvider);
 
-    // Get custom panel buttons for ISpect draggable panel
-    final panelButtons = ref.watch(ispectPanelButtonsProvider);
+    // Get custom panel items for ISpect draggable panel (grid items)
+    final panelItems = ref.watch(ispectPanelItemsProvider);
+    final panelButtons = ref.watch(
+      ispectPanelButtonsProvider,
+    ); // Should be empty now
 
     // Watch theme controller for theme mode changes
     final themeAsync = ref.watch(themeControllerProvider);
@@ -115,8 +125,15 @@ class _AppRootState extends ConsumerState<AppRoot> {
 
     // Show loading indicator while themes are loading
     if (!_themesLoaded) {
-      return const MaterialApp(
-        home: Scaffold(body: Center(child: CircularProgressIndicator())),
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        routes: {
+          '/stac-test': (context) => const StacTestPage(),
+          '/simple-api-test': (context) => const SimpleApiTestPage(),
+          '/network-layer-test': (context) => const NetworkLayerTestPage(),
+          '/tobank-stac-dart': (context) => const TobankStacDartScreen(),
+        },
+        home: const Scaffold(body: Center(child: CircularProgressIndicator())),
       );
     }
 
@@ -175,14 +192,20 @@ class _AppRootState extends ConsumerState<AppRoot> {
 
                   final ispectBuilder = ISpectBuilder(
                     // Use a key based on enabled state to force rebuild when setting changes
-                    key: ValueKey('ispect_builder_$isEnabled'),
+                    key: ValueKey(
+                      'ispect_builder_${isEnabled}_${settings.debugPanelEnabled}',
+                    ),
                     isISpectEnabled:
                         isEnabled, // Control ISpect panel visibility via settings
                     options: ISpectOptions(
                       observer: observer, // Must match navigatorObservers above
                       locale: const Locale('en'),
+                      panelItems: panelItems, // Use panelItems for grid layout
                       panelButtons:
-                          panelButtons, // Add custom debug panel toggle button with ON/OFF label
+                          panelButtons, // Empty list to clear wide buttons
+                      // Disable some default items to prevent overflow (save space)
+                      isInspectorEnabled: false,
+                      isColorPickerEnabled: false,
                     ),
                     child: child ?? const SizedBox.shrink(),
                   );
@@ -262,7 +285,9 @@ class _AppRootState extends ConsumerState<AppRoot> {
 
                   final ispectBuilder = ISpectBuilder(
                     // Use a key based on enabled state to force rebuild when setting changes
-                    key: ValueKey('ispect_builder_$isEnabled'),
+                    key: ValueKey(
+                      'ispect_builder_${isEnabled}_${settings.debugPanelEnabled}',
+                    ),
                     isISpectEnabled:
                         isEnabled, // Control ISpect panel visibility via settings
                     options: ISpectOptions(
@@ -302,6 +327,9 @@ class _AppRootState extends ConsumerState<AppRoot> {
     // Hierarchy: DebugPanel > StacApp/MaterialApp (with ISpectBuilder) > App Content
     // Note: DebugPanel.enabled controls visibility, which is managed by persistent settings
     if (DebugPanelConfig.shouldInitializeByFlag) {
+      // Debug: Log the value being passed to DebugPanel
+      debugPrint('🔧 DebugPanel enabled value: ${settings.debugPanelEnabled}');
+
       return DebugPanel(
         enabled:
             settings.debugPanelEnabled, // Use persistent setting for visibility
