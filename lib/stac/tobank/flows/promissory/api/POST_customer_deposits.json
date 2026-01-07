@@ -1,0 +1,63 @@
+{
+    "POST": {
+        "statusCode": 200,
+        "data": {
+            "data": {
+                "trackingNumber": "a6954c60-a34e-4f00-9975-84e68e9eca11",
+                "registrationDate": 1767526629426,
+                "transactionId": "1457337052906475520",
+                "status": 1,
+                "message": null,
+                "errors": [],
+                "deposits": [
+                    {
+                        "DepositNumber": "110.9992.1765274.1",
+                        "MainCustomerNumber": "1765274",
+                        "DepositTitle": "سپرده حقيقي سپرده سرمايه گذاري كوتاه مدت- توبانک",
+                        "DepositTypeNumber": "9992",
+                        "DepositTypeTitle": "سپرده سرمايه گذاري كوتاه مدت- توبانک- حقيقي",
+                        "CustomerRelationWithDepositPersian": "صاحب سپرده و امضاء",
+                        "CustomerRelationWithDepositEnglish": "depositOwnerAndSignerRelationType",
+                        "DepositState": "openState",
+                        "CurrencyName": "ريال",
+                        "CurrencySwiftCode": "IRR",
+                        "WithdrawRight": "true",
+                        "BranchCode": "110",
+                        "DepositIban": "IR120640011099921765274001",
+                        "shared": false,
+                        "cardInfo": {
+                            "pan": "5054161702844691",
+                            "cardType": 0,
+                            "status": 1,
+                            "depositNumber": "110.9992.1765274.1"
+                        },
+                        "deposite_kind": 1,
+                        "deposite_name": "کوتاه مدت"
+                    },
+                    {
+                        "DepositNumber": "110.9992.1765274.2",
+                        "MainCustomerNumber": "1765274",
+                        "DepositTitle": "سپرده قرض الحسنه پس انداز",
+                        "DepositTypeNumber": "9992",
+                        "DepositTypeTitle": "سپرده قرض الحسنه",
+                        "CustomerRelationWithDepositPersian": "صاحب سپرده",
+                        "CustomerRelationWithDepositEnglish": "depositOwner",
+                        "DepositState": "openState",
+                        "CurrencyName": "ريال",
+                        "CurrencySwiftCode": "IRR",
+                        "WithdrawRight": "true",
+                        "BranchCode": "110",
+                        "DepositIban": "IR880640011099921765274002",
+                        "shared": false,
+                        "cardInfo": null,
+                        "deposite_kind": 1,
+                        "deposite_name": "قرض الحسنه"
+                    }
+                ]
+            },
+            "message": "عملیات با موفقیت انجام شد",
+            "success": true,
+            "code": 0
+        }
+    }
+}

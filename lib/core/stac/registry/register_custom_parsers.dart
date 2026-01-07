@@ -20,6 +20,7 @@ import '../parsers/actions/validate_fields_action_parser.dart';
 import '../parsers/actions/custom_set_value_action_parser.dart';
 import '../parsers/actions/custom_navigate_action_parser.dart';
 import '../parsers/actions/file_picker_action_parser.dart';
+import '../parsers/widgets/custom_text_form_field_parser.dart';
 
 /// Register all custom STAC parsers with the STAC framework.
 ///
@@ -123,26 +124,30 @@ Future<void> registerCustomParsers() async {
 
     // Register custom TextFormField parser to override the default one
     // This allows controllers to be registered for external updates (e.g., date picker)
-    // TODO: Fix CustomTextFormFieldParser import
-    // try {
-    //   const customTextFormFieldParser = CustomTextFormFieldParser();
-    //   final success = stacRegistry.register(
-    //     customTextFormFieldParser,
-    //     true,
-    //   ); // override: true
-    //   if (success) {
-    //     widgetCount++;
-    //     AppLogger.i(
-    //       '✅ Registered custom TextFormField parser (overriding default)',
-    //     );
-    //   } else {
-    //     AppLogger.w('⚠️ Failed to register custom TextFormField parser');
-    //   }
-    // } catch (e, stackTrace) {
-    //   AppLogger.e(
-    //     '❌ Failed to register custom TextFormField parser: $e\n$stackTrace',
-    //   );
-    // }
+    try {
+      const customTextFormFieldParser = CustomTextFormFieldParser();
+      final success = stacRegistry.register(
+        customTextFormFieldParser,
+        true,
+      ); // override: true
+      if (success) {
+        widgetCount++;
+        AppLogger.ic(
+          LogCategory.registry,
+          '✅ Registered custom TextFormField parser (overriding default)',
+        );
+      } else {
+        AppLogger.wc(
+          LogCategory.registry,
+          '⚠️ Failed to register custom TextFormField parser',
+        );
+      }
+    } catch (e, stackTrace) {
+      AppLogger.ec(
+        LogCategory.registry,
+        '❌ Failed to register custom TextFormField parser: $e\n$stackTrace',
+      );
+    }
 
     // Register custom navigate action parser to override the default navigate parser
     // This ensures all navigated screens get the transparent border and purple button theme

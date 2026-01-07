@@ -114,47 +114,48 @@ StacWidget tobankLoginFlowLinearVerifyOtp() {
                       crossAxisAlignment: StacCrossAxisAlignment.start,
                       children: [
                         StacExpanded(
-                          child: StacSizedBox(
-                            height: 56.0,
-                            child: StacRawJsonWidget({
-                              'type': 'textFormField',
-                              'id': 'otp_code',
-                              'textDirection': 'ltr',
-                              'textAlign': 'right',
-                              'maxLength': 5,
-                              'inputFormatters': [
-                                {'type': 'allow', 'rule': '[0-9]'},
-                              ],
-                              'keyboardType': 'number',
-                              'textInputAction': 'done',
-                              'decoration': StacInputDecoration(
+                          child: StacRawJsonWidget({
+                            'type': 'textFormField',
+                            'id': 'otp_code',
+                            'textDirection': 'ltr',
+                            'textAlign': 'right',
+                            'maxLength': 5,
+                            'inputFormatters': [
+                              {'type': 'allow', 'rule': '[0-9]'},
+                            ],
+                            'keyboardType': 'number',
+                            'textInputAction': 'done',
+                            'decoration': {
+                              ...StacInputDecoration(
                                 filled: false,
                                 contentPadding: StacEdgeInsets.symmetric(
                                   horizontal: 16.0,
-                                  vertical: 10.0,
+                                  vertical: 16.0,
                                 ),
                               ).toJson(),
-                              'style': StacCustomTextStyle(
-                                fontSize: 24.0,
-                                fontWeight: StacFontWeight.w600,
-                                fontFamily: 'IranYekan',
-                                letterSpacing: 8.0,
-                                color: '{{appColors.current.text.title}}',
-                              ).toJson(),
-                              'validatorRules': [
-                                {
-                                  'rule': r'^\d{5}$',
-                                  'message': 'کد تایید باید 5 رقم باشد',
-                                },
+                              'helperText': ' ',
+                              'helperStyle': {'type': 'custom', 'height': 0.5},
+                            },
+                            'style': StacCustomTextStyle(
+                              fontSize: 24.0,
+                              fontWeight: StacFontWeight.w600,
+                              fontFamily: 'IranYekan',
+                              letterSpacing: 8.0,
+                              color: '{{appColors.current.text.title}}',
+                            ).toJson(),
+                            'validatorRules': [
+                              {
+                                'rule': r'^\d{5}$',
+                                'message': 'کد تایید باید 5 رقم باشد',
+                              },
+                            ],
+                            'onChanged': StacValidateFieldsAction(
+                              resultKey: 'isFormValid',
+                              fields: [
+                                {'id': 'otp_code', 'rule': r'^\d{5}$'},
                               ],
-                              'onChanged': StacValidateFieldsAction(
-                                resultKey: 'isFormValid',
-                                fields: [
-                                  {'id': 'otp_code', 'rule': r'^\d{5}$'},
-                                ],
-                              ).toJson(),
-                            }),
-                          ),
+                            ).toJson(),
+                          }),
                         ),
                         StacSizedBox(width: 8.0),
                         StacOutlinedButton(
@@ -179,7 +180,7 @@ StacWidget tobankLoginFlowLinearVerifyOtp() {
                             ],
                           ),
                           style: StacButtonStyle(
-                            fixedSize: StacSize(90.0, 40.0),
+                            fixedSize: StacSize(120.0, 60.0),
                             shape: StacRoundedRectangleBorder(
                               borderRadius: StacBorderRadius.all(8.0),
                             ),
@@ -302,7 +303,7 @@ StacWidget tobankLoginFlowLinearVerifyOtp() {
                                       'foregroundColor':
                                           '{{appColors.current.primary.onPrimary}}',
                                       'minimumSize': {
-                                        'width': double.infinity,
+                                        'width': 999999.0,
                                         'height': 48,
                                       },
                                       'shape': {

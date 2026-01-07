@@ -9,213 +9,196 @@
                 "value": false
             },
             "child": {
-                "type": "scaffold",
                 "appBar": {
-                    "type": "appBar",
-                    "centerTitle": true,
                     "title": {
-                        "type": "text",
                         "data": "{{appStrings.verifyOtp.title}}",
                         "style": {
                             "type": "alias",
                             "value": "{{appStyles.appbarStyle}}"
                         },
-                        "textDirection": "rtl"
-                    }
+                        "textDirection": "rtl",
+                        "type": "text"
+                    },
+                    "centerTitle": true,
+                    "type": "appBar"
                 },
                 "body": {
-                    "type": "form",
                     "autovalidateMode": "onUserInteraction",
                     "child": {
-                        "type": "column",
                         "crossAxisAlignment": "stretch",
                         "textDirection": "rtl",
                         "children": [
                             {
-                                "type": "expanded",
                                 "child": {
-                                    "type": "singleChildScrollView",
+                                    "padding": {
+                                        "left": 16.0,
+                                        "top": 16.0,
+                                        "right": 16.0,
+                                        "bottom": 16.0
+                                    },
                                     "child": {
-                                        "type": "column",
                                         "crossAxisAlignment": "stretch",
                                         "textDirection": "rtl",
                                         "children": [
                                             {
-                                                "type": "text",
                                                 "data": "{{appStrings.verifyOtp.receiveVerificationCode}}",
                                                 "style": {
                                                     "type": "custom",
-                                                    "color": "onSurface",
+                                                    "color": "{{appColors.current.text.title}}",
                                                     "fontSize": 20.0,
                                                     "fontWeight": "w600"
                                                 },
-                                                "textDirection": "rtl"
+                                                "textDirection": "rtl",
+                                                "type": "text"
                                             },
                                             {
-                                                "type": "sizedBox",
-                                                "height": 16.0
+                                                "height": 16.0,
+                                                "type": "sizedBox"
                                             },
                                             {
-                                                "type": "text",
                                                 "data": "کد تایید به شماره {{appData.mobile_number}} ارسال شد",
                                                 "style": {
                                                     "type": "custom",
-                                                    "color": "onSurface",
+                                                    "color": "{{appColors.current.text.subtitle}}",
                                                     "fontSize": 14.0,
                                                     "fontWeight": "w500"
                                                 },
-                                                "textDirection": "rtl"
+                                                "textDirection": "rtl",
+                                                "type": "text"
                                             },
                                             {
-                                                "type": "sizedBox",
-                                                "height": 16.0
+                                                "height": 16.0,
+                                                "type": "sizedBox"
                                             },
                                             {
-                                                "type": "row",
                                                 "mainAxisAlignment": "spaceBetween",
                                                 "textDirection": "rtl",
                                                 "children": [
                                                     {
-                                                        "type": "expanded",
                                                         "child": {
-                                                            "type": "text",
                                                             "data": "{{appStrings.verifyOtp.wrongNumber}}",
                                                             "style": {
                                                                 "type": "custom",
-                                                                "color": "onSurface",
+                                                                "color": "{{appColors.current.text.title}}",
                                                                 "fontSize": 16.0,
                                                                 "fontWeight": "w600"
                                                             },
-                                                            "textDirection": "rtl"
-                                                        }
+                                                            "textDirection": "rtl",
+                                                            "type": "text"
+                                                        },
+                                                        "type": "expanded"
                                                     },
                                                     {
-                                                        "type": "textButton",
                                                         "onPressed": {
-                                                            "actionType": "navigate",
-                                                            "navigationStyle": "pop"
+                                                            "navigationStyle": "pop",
+                                                            "actionType": "navigate"
                                                         },
                                                         "child": {
-                                                            "type": "row",
-                                                            "mainAxisSize": "min",
                                                             "mainAxisAlignment": "center",
+                                                            "mainAxisSize": "min",
                                                             "textDirection": "rtl",
                                                             "children": [
                                                                 {
-                                                                    "type": "image",
                                                                     "src": "{{appAssets.icons.edit}}",
                                                                     "imageType": "asset",
-                                                                    "color": "secondary",
+                                                                    "color": "{{appColors.current.secondary.color}}",
                                                                     "width": 16.0,
-                                                                    "height": 16.0
+                                                                    "height": 16.0,
+                                                                    "type": "image"
                                                                 },
                                                                 {
-                                                                    "type": "sizedBox",
-                                                                    "width": 8.0
+                                                                    "width": 8.0,
+                                                                    "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                    "type": "text",
                                                                     "data": "{{appStrings.verifyOtp.edit}}",
                                                                     "style": {
                                                                         "type": "custom",
-                                                                        "color": "secondary",
+                                                                        "color": "{{appColors.current.secondary.color}}",
                                                                         "fontSize": 14.0,
                                                                         "fontWeight": "w600"
                                                                     },
-                                                                    "textDirection": "rtl"
+                                                                    "textDirection": "rtl",
+                                                                    "type": "text"
                                                                 }
-                                                            ]
-                                                        }
+                                                            ],
+                                                            "type": "row"
+                                                        },
+                                                        "type": "textButton"
                                                     }
-                                                ]
+                                                ],
+                                                "type": "row"
                                             },
                                             {
-                                                "type": "sizedBox",
-                                                "height": 24.0
+                                                "height": 24.0,
+                                                "type": "sizedBox"
                                             },
                                             {
-                                                "type": "row",
                                                 "crossAxisAlignment": "start",
                                                 "textDirection": "rtl",
                                                 "children": [
                                                     {
-                                                        "type": "expanded",
                                                         "child": {
-                                                            "type": "sizedBox",
-                                                            "height": 56.0,
-                                                            "child": {
-                                                                "type": "textFormField",
-                                                                "id": "otp_code",
-                                                                "decoration": {
-                                                                    "filled": false,
-                                                                    "contentPadding": {
-                                                                        "left": 16.0,
-                                                                        "top": 10.0,
-                                                                        "right": 16.0,
-                                                                        "bottom": 10.0
-                                                                    }
-                                                                },
-                                                                "style": {
+                                                            "type": "textFormField",
+                                                            "id": "otp_code",
+                                                            "textDirection": "ltr",
+                                                            "textAlign": "right",
+                                                            "maxLength": 5,
+                                                            "inputFormatters": [
+                                                                {
+                                                                    "type": "allow",
+                                                                    "rule": "[0-9]"
+                                                                }
+                                                            ],
+                                                            "keyboardType": "number",
+                                                            "textInputAction": "done",
+                                                            "decoration": {
+                                                                "helperText": " ",
+                                                                "helperStyle": {
                                                                     "type": "custom",
-                                                                    "color": "onSurface",
-                                                                    "fontSize": 24.0,
-                                                                    "fontWeight": "w600",
-                                                                    "letterSpacing": 8.0,
-                                                                    "fontFamily": "IranYekan"
+                                                                    "height": 0.5
                                                                 },
-                                                                "keyboardType": "number",
-                                                                "textInputAction": "done",
-                                                                "textAlign": "right",
-                                                                "textDirection": "ltr",
-                                                                "maxLength": 5,
-                                                                "inputFormatters": [
-                                                                    {
-                                                                        "type": "allow",
-                                                                        "rule": "[0-9]"
-                                                                    }
-                                                                ],
-                                                                "validatorRules": [
-                                                                    {
-                                                                        "rule": "^\\d{5}$",
-                                                                        "message": "کد ۵ رقمی را وارد کنید"
-                                                                    }
-                                                                ],
-                                                                "onChanged": {
-                                                                    "actionType": "validateFields",
-                                                                    "resultKey": "isFormValid",
-                                                                    "fields": [
-                                                                        {
-                                                                            "id": "otp_code",
-                                                                            "rule": "^\\d{5}$"
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            }
-                                                        }
-                                                    },
-                                                    {
-                                                        "type": "sizedBox",
-                                                        "width": 8.0
-                                                    },
-                                                    {
-                                                        "type": "outlinedButton",
-                                                        "style": {
-                                                            "fixedSize": {
-                                                                "width": 90.0,
-                                                                "height": 40.0
+                                                                "contentPadding": {
+                                                                    "left": 16.0,
+                                                                    "top": 16.0,
+                                                                    "right": 16.0,
+                                                                    "bottom": 16.0
+                                                                },
+                                                                "filled": false
                                                             },
-                                                            "shape": {
-                                                                "type": "roundedRectangleBorder",
-                                                                "borderRadius": {
-                                                                    "topLeft": 8.0,
-                                                                    "topRight": 8.0,
-                                                                    "bottomLeft": 8.0,
-                                                                    "bottomRight": 8.0
+                                                            "style": {
+                                                                "type": "custom",
+                                                                "color": "{{appColors.current.text.title}}",
+                                                                "fontSize": 24.0,
+                                                                "fontWeight": "w600",
+                                                                "letterSpacing": 8.0,
+                                                                "fontFamily": "IranYekan"
+                                                            },
+                                                            "validatorRules": [
+                                                                {
+                                                                    "rule": "^\\d{5}$",
+                                                                    "message": "کد تایید باید 5 رقم باشد"
                                                                 }
+                                                            ],
+                                                            "onChanged": {
+                                                                "actionType": "validateFields",
+                                                                "resultKey": "isFormValid",
+                                                                "fields": [
+                                                                    {
+                                                                        "id": "otp_code",
+                                                                        "rule": "^\\d{5}$"
+                                                                    }
+                                                                ]
                                                             }
                                                         },
+                                                        "type": "expanded"
+                                                    },
+                                                    {
+                                                        "width": 8.0,
+                                                        "type": "sizedBox"
+                                                    },
+                                                    {
                                                         "onPressed": {
-                                                            "actionType": "networkRequest",
                                                             "url": "https://api.tobank.com/resend-otp",
                                                             "method": "post",
                                                             "contentType": "application/json",
@@ -229,38 +212,58 @@
                                                                 {
                                                                     "statusCode": 200,
                                                                     "action": {
-                                                                        "actionType": "setValue",
                                                                         "values": [
                                                                             {
                                                                                 "key": "form.otp_code",
                                                                                 "value": ""
                                                                             }
-                                                                        ]
+                                                                        ],
+                                                                        "actionType": "setValue"
                                                                     }
                                                                 }
-                                                            ]
+                                                            ],
+                                                            "actionType": "networkRequest"
+                                                        },
+                                                        "style": {
+                                                            "fixedSize": {
+                                                                "width": 120.0,
+                                                                "height": 60.0
+                                                            },
+                                                            "shape": {
+                                                                "type": "roundedRectangleBorder",
+                                                                "borderRadius": {
+                                                                    "topLeft": 8.0,
+                                                                    "topRight": 8.0,
+                                                                    "bottomLeft": 8.0,
+                                                                    "bottomRight": 8.0
+                                                                }
+                                                            }
                                                         },
                                                         "child": {
-                                                            "type": "text",
                                                             "data": "{{appStrings.verifyOtp.sendAgain}}",
                                                             "style": {
                                                                 "type": "custom",
-                                                                "color": "secondary",
+                                                                "color": "{{appColors.current.secondary.color}}",
                                                                 "fontSize": 14.0,
                                                                 "fontWeight": "w600",
                                                                 "fontFamily": "IranYekan"
                                                             },
-                                                            "textDirection": "rtl"
-                                                        }
+                                                            "textDirection": "rtl",
+                                                            "type": "text"
+                                                        },
+                                                        "type": "outlinedButton"
                                                     }
-                                                ]
+                                                ],
+                                                "type": "row"
                                             }
-                                        ]
-                                    }
-                                }
+                                        ],
+                                        "type": "column"
+                                    },
+                                    "type": "singleChildScrollView"
+                                },
+                                "type": "expanded"
                             },
                             {
-                                "type": "padding",
                                 "padding": {
                                     "left": 16.0,
                                     "top": 16.0,
@@ -271,46 +274,7 @@
                                     "type": "reactiveElevatedButton",
                                     "enabledKey": "isFormValid",
                                     "enabled": false,
-                                    "style": {
-                                        "backgroundColor": "{{appStyles.button.primary.backgroundColor}}",
-                                        "elevation": 0.0,
-                                        "textStyle": {
-                                            "type": "custom",
-                                            "color": "{{appStyles.button.primary.textStyleColor}}",
-                                            "fontSize": 16.0,
-                                            "fontWeight": "w600"
-                                        },
-                                        "padding": {
-                                            "top": 8.0,
-                                            "bottom": 8.0
-                                        },
-                                        "fixedSize": {
-                                            "width": 999999.0,
-                                            "height": 56.0
-                                        },
-                                        "shape": {
-                                            "type": "roundedRectangleBorder",
-                                            "borderRadius": {
-                                                "topLeft": 10.0,
-                                                "topRight": 10.0,
-                                                "bottomLeft": 10.0,
-                                                "bottomRight": 10.0
-                                            }
-                                        }
-                                    },
-                                    "child": {
-                                        "type": "text",
-                                        "data": "{{appStrings.verifyOtp.continueLabel}}",
-                                        "style": {
-                                            "type": "custom",
-                                            "color": "{{appStyles.button.primary.textStyleColor}}",
-                                            "fontSize": 16.0,
-                                            "fontWeight": "w600"
-                                        },
-                                        "textDirection": "rtl"
-                                    },
                                     "onPressed": {
-                                        "actionType": "setValue",
                                         "values": [
                                             {
                                                 "key": "form.otp_code",
@@ -321,7 +285,6 @@
                                             }
                                         ],
                                         "action": {
-                                            "actionType": "networkRequest",
                                             "url": "https://api.tobank.com/verify-otp",
                                             "method": "post",
                                             "contentType": "application/json",
@@ -339,7 +302,6 @@
                                                 {
                                                     "statusCode": 200,
                                                     "action": {
-                                                        "actionType": "showDialog",
                                                         "widget": {
                                                             "type": "alertDialog",
                                                             "title": {
@@ -369,13 +331,13 @@
                                                                         "type": "image",
                                                                         "src": "{{appAssets.icons.success}}",
                                                                         "imageType": "asset",
-                                                                        "width": 80.0,
-                                                                        "height": 80.0,
+                                                                        "width": 80,
+                                                                        "height": 80,
                                                                         "color": "{{appColors.current.success.color}}"
                                                                     },
                                                                     {
                                                                         "type": "sizedBox",
-                                                                        "height": 20.0
+                                                                        "height": 20
                                                                     },
                                                                     {
                                                                         "type": "text",
@@ -392,7 +354,7 @@
                                                                     },
                                                                     {
                                                                         "type": "sizedBox",
-                                                                        "height": 12.0
+                                                                        "height": 12
                                                                     },
                                                                     {
                                                                         "type": "text",
@@ -407,7 +369,7 @@
                                                                     },
                                                                     {
                                                                         "type": "sizedBox",
-                                                                        "height": 24.0
+                                                                        "height": 24
                                                                     },
                                                                     {
                                                                         "type": "sizedBox",
@@ -419,15 +381,15 @@
                                                                                 "foregroundColor": "{{appColors.current.primary.onPrimary}}",
                                                                                 "minimumSize": {
                                                                                     "width": 999999.0,
-                                                                                    "height": 48.0
+                                                                                    "height": 48
                                                                                 },
                                                                                 "shape": {
                                                                                     "type": "roundedRectangle",
                                                                                     "borderRadius": {
-                                                                                        "topLeft": 12.0,
-                                                                                        "topRight": 12.0,
-                                                                                        "bottomLeft": 12.0,
-                                                                                        "bottomRight": 12.0
+                                                                                        "topLeft": 12,
+                                                                                        "topRight": 12,
+                                                                                        "bottomLeft": 12,
+                                                                                        "bottomRight": 12
                                                                                     }
                                                                                 }
                                                                             },
@@ -449,8 +411,11 @@
                                                                                         "actionType": "closeDialog"
                                                                                     },
                                                                                     {
-                                                                                        "actionType": "navigate",
-                                                                                        "navigationStyle": "popAll"
+                                                                                        "actionType": "flowNext",
+                                                                                        "fallback": {
+                                                                                            "actionType": "navigate",
+                                                                                            "navigationStyle": "popAll"
+                                                                                        }
                                                                                     }
                                                                                 ]
                                                                             }
@@ -458,21 +423,66 @@
                                                                     }
                                                                 ]
                                                             }
-                                                        }
+                                                        },
+                                                        "actionType": "showDialog"
                                                     }
                                                 }
-                                            ]
+                                            ],
+                                            "actionType": "networkRequest"
+                                        },
+                                        "actionType": "setValue"
+                                    },
+                                    "style": {
+                                        "backgroundColor": "{{appStyles.button.primary.backgroundColor}}",
+                                        "elevation": 0.0,
+                                        "textStyle": {
+                                            "type": "custom",
+                                            "color": "{{appStyles.button.primary.textStyleColor}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w600"
+                                        },
+                                        "padding": {
+                                            "top": 8.0,
+                                            "bottom": 8.0
+                                        },
+                                        "fixedSize": {
+                                            "width": 999999.0,
+                                            "height": 56.0
+                                        },
+                                        "shape": {
+                                            "type": "roundedRectangleBorder",
+                                            "borderRadius": {
+                                                "topLeft": 10.0,
+                                                "topRight": 10.0,
+                                                "bottomLeft": 10.0,
+                                                "bottomRight": 10.0
+                                            }
                                         }
+                                    },
+                                    "child": {
+                                        "data": "{{appStrings.verifyOtp.continueLabel}}",
+                                        "style": {
+                                            "type": "custom",
+                                            "color": "{{appStyles.button.primary.textStyleColor}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w600"
+                                        },
+                                        "textDirection": "rtl",
+                                        "type": "text"
                                     }
-                                }
+                                },
+                                "type": "padding"
                             },
                             {
-                                "type": "sizedBox",
-                                "height": 24.0
+                                "height": 24.0,
+                                "type": "sizedBox"
                             }
-                        ]
-                    }
-                }
+                        ],
+                        "type": "column"
+                    },
+                    "type": "form"
+                },
+                "type": "scaffold"
             }
         }
     }

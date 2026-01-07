@@ -1,0 +1,138 @@
+{
+    "GET": {
+        "statusCode": 200,
+        "data": {
+            "data": {
+                "type": "scaffold",
+                "appBar": {
+                    "type": "appBar",
+                    "title": {
+                        "type": "text",
+                        "data": "تایید نهایی",
+                        "textDirection": "rtl",
+                        "style": {
+                            "type": "custom",
+                            "fontSize": 18,
+                            "fontWeight": "bold",
+                            "color": "{{appColors.current.text.title}}"
+                        }
+                    },
+                    "centerTitle": true
+                },
+                "body": {
+                    "type": "padding",
+                    "padding": {
+                        "all": 16
+                    },
+                    "child": {
+                        "type": "column",
+                        "crossAxisAlignment": "stretch",
+                        "children": [
+                            {
+                                "type": "container",
+                                "padding": {
+                                    "all": 16
+                                },
+                                "decoration": {
+                                    "color": "{{appColors.current.background.surfaceContainer}}",
+                                    "borderRadius": {
+                                        "all": 12
+                                    },
+                                    "border": {
+                                        "color": "{{appColors.current.input.borderEnabled}}",
+                                        "width": 1
+                                    }
+                                },
+                                "child": {
+                                    "type": "column",
+                                    "children": [
+                                        {
+                                            "type": "text",
+                                            "data": "مبلغ سفته: {{form.amount}} ریال",
+                                            "textDirection": "rtl"
+                                        },
+                                        {
+                                            "type": "sizedBox",
+                                            "height": 8
+                                        },
+                                        {
+                                            "type": "text",
+                                            "data": "هزینه صدور: {{appData.feeAmount}} ریال",
+                                            "textDirection": "rtl"
+                                        },
+                                        {
+                                            "type": "sizedBox",
+                                            "height": 8
+                                        },
+                                        {
+                                            "type": "text",
+                                            "data": "مالیات: {{appData.taxAmount}} ریال",
+                                            "textDirection": "rtl"
+                                        },
+                                        {
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "type": "text",
+                                            "data": "مبلغ قابل پرداخت: {{appData.totalAmount}} ریال",
+                                            "textDirection": "rtl",
+                                            "style": {
+                                                "type": "custom",
+                                                "fontWeight": "bold",
+                                                "fontSize": 16
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "spacer"
+                            },
+                            {
+                                "type": "filledButton",
+                                "style": {
+                                    "backgroundColor": "{{appColors.current.primary.color}}",
+                                    "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                                    "minimumSize": {
+                                        "width": 999999,
+                                        "height": 56
+                                    },
+                                    "shape": {
+                                        "type": "roundedRectangle",
+                                        "borderRadius": {
+                                            "all": 12
+                                        }
+                                    }
+                                },
+                                "child": {
+                                    "type": "text",
+                                    "data": "تایید و پرداخت",
+                                    "style": {
+                                        "type": "custom",
+                                        "fontSize": 18,
+                                        "fontWeight": "bold"
+                                    }
+                                },
+                                "onPressed": {
+                                    "actionType": "networkRequest",
+                                    "url": "https://api.tobank.com/promissory_request",
+                                    "method": "post",
+                                    "results": [
+                                        {
+                                            "statusCode": 200,
+                                            "action": {
+                                                "actionType": "navigate",
+                                                "widgetType": "promissory_payment",
+                                                "assetPath": "lib/stac/tobank/flows/promissory/api/GET_promissory_payment.json"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

@@ -130,6 +130,12 @@ flutter:
     - lib/stac/tobank/flows/login_flow_linear/json/
     - lib/stac/tobank/flows/login_flow_linear/api/
 
+    # Promissory Flow
+    - lib/stac/tobank/flows/promissory/dart/
+    - lib/stac/tobank/flows/promissory/json/
+    - lib/stac/tobank/flows/promissory/api/
+
+
 
   fonts:
     - family: IranYekan

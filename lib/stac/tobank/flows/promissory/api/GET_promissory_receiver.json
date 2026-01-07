@@ -1,0 +1,233 @@
+{
+    "GET": {
+        "statusCode": 200,
+        "data": {
+            "data": {
+                "type": "stateful",
+                "onInit": {
+                    "actionType": "setValue",
+                    "values": [
+                        {
+                            "key": "isReceiverValid",
+                            "value": false
+                        }
+                    ]
+                },
+                "child": {
+                    "type": "scaffold",
+                    "appBar": {
+                        "type": "appBar",
+                        "title": {
+                            "type": "text",
+                            "data": "مشخصات گیرنده (ذینفع)",
+                            "textDirection": "rtl",
+                            "style": {
+                                "type": "custom",
+                                "fontSize": 18,
+                                "fontWeight": "bold",
+                                "color": "{{appColors.current.text.title}}"
+                            }
+                        },
+                        "centerTitle": true
+                    },
+                    "body": {
+                        "type": "form",
+                        "autovalidateMode": "onUserInteraction",
+                        "child": {
+                            "type": "padding",
+                            "padding": {
+                                "all": 16
+                            },
+                            "child": {
+                                "type": "column",
+                                "crossAxisAlignment": "stretch",
+                                "children": [
+                                    {
+                                        "type": "textFormField",
+                                        "id": "receiverNationalCode",
+                                        "keyboardType": "number",
+                                        "style": {
+                                            "type": "custom",
+                                            "fontFamily": "IranYekan"
+                                        },
+                                        "decoration": {
+                                            "labelText": "کد ملی گیرنده",
+                                            "border": {
+                                                "type": "outline"
+                                            }
+                                        },
+                                        "validatorRules": [
+                                            {
+                                                "rule": "^\\d{10}$",
+                                                "message": "کد ملی باید ۱۰ رقم باشد"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "sizedBox",
+                                        "height": 16
+                                    },
+                                    {
+                                        "type": "textFormField",
+                                        "id": "receiverMobile",
+                                        "keyboardType": "phone",
+                                        "style": {
+                                            "type": "custom",
+                                            "fontFamily": "IranYekan"
+                                        },
+                                        "decoration": {
+                                            "labelText": "شماره موبایل گیرنده",
+                                            "hintText": "0912...",
+                                            "border": {
+                                                "type": "outline"
+                                            }
+                                        },
+                                        "validatorRules": [
+                                            {
+                                                "rule": "^09\\d{9}$",
+                                                "message": "شماره موبایل صحیح نیست"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "sizedBox",
+                                        "height": 16
+                                    },
+                                    {
+                                        "type": "textFormField",
+                                        "id": "receiverBirthDate",
+                                        "style": {
+                                            "type": "custom",
+                                            "fontFamily": "IranYekan"
+                                        },
+                                        "decoration": {
+                                            "labelText": "تاریخ تولد گیرنده",
+                                            "hintText": "1370-01-01",
+                                            "border": {
+                                                "type": "outline"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "sizedBox",
+                                        "height": 24
+                                    },
+                                    {
+                                        "type": "outlinedButton",
+                                        "style": {
+                                            "minimumSize": {
+                                                "width": 999999,
+                                                "height": 48
+                                            }
+                                        },
+                                        "child": {
+                                            "type": "text",
+                                            "data": "استعلام گیرنده",
+                                            "style": {
+                                                "type": "custom",
+                                                "fontWeight": "bold"
+                                            }
+                                        },
+                                        "onPressed": {
+                                            "actionType": "networkRequest",
+                                            "url": "https://api.tobank.com/dest_user_info",
+                                            "method": "post",
+                                            "body": {
+                                                "birth_date": "{{form.receiverBirthDate}}",
+                                                "national_code": "{{form.receiverNationalCode}}",
+                                                "mobile": "{{form.receiverMobile}}"
+                                            },
+                                            "results": [
+                                                {
+                                                    "statusCode": 200,
+                                                    "action": {
+                                                        "actionType": "multiAction",
+                                                        "actions": [
+                                                            {
+                                                                "actionType": "setValue",
+                                                                "values": [
+                                                                    {
+                                                                        "key": "isReceiverValid",
+                                                                        "value": true
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "actionType": "showDialog",
+                                                                "widget": {
+                                                                    "type": "alertDialog",
+                                                                    "title": {
+                                                                        "type": "text",
+                                                                        "data": "تایید نام گیرنده",
+                                                                        "textDirection": "rtl"
+                                                                    },
+                                                                    "content": {
+                                                                        "type": "text",
+                                                                        "data": "نام دریافت شده: {{data.data.first_name}} {{data.data.last_name}}",
+                                                                        "textDirection": "rtl"
+                                                                    },
+                                                                    "actions": [
+                                                                        {
+                                                                            "type": "textButton",
+                                                                            "child": {
+                                                                                "type": "text",
+                                                                                "data": "بستن"
+                                                                            },
+                                                                            "onPressed": {
+                                                                                "actionType": "closeDialog"
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "spacer"
+                                    },
+                                    {
+                                        "type": "reactiveElevatedButton",
+                                        "enabledKey": "isReceiverValid",
+                                        "enabled": false,
+                                        "style": {
+                                            "backgroundColor": "{{appColors.current.primary.color}}",
+                                            "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                                            "minimumSize": {
+                                                "width": 999999,
+                                                "height": 56
+                                            },
+                                            "shape": {
+                                                "type": "roundedRectangle",
+                                                "borderRadius": {
+                                                    "all": 12
+                                                }
+                                            }
+                                        },
+                                        "child": {
+                                            "type": "text",
+                                            "data": "ادامه",
+                                            "style": {
+                                                "type": "custom",
+                                                "fontSize": 18,
+                                                "fontWeight": "bold"
+                                            }
+                                        },
+                                        "onPressed": {
+                                            "actionType": "navigate",
+                                            "widgetType": "promissory_data",
+                                            "assetPath": "lib/stac/tobank/flows/promissory/api/GET_promissory_data.json"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

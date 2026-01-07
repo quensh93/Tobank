@@ -1,0 +1,150 @@
+{
+    "GET": {
+        "statusCode": 200,
+        "data": {
+            "data": {
+                "type": "scaffold",
+                "appBar": {
+                    "type": "appBar",
+                    "title": {
+                        "type": "text",
+                        "data": "سفته الکترونیکی",
+                        "textDirection": "rtl",
+                        "style": {
+                            "type": "custom",
+                            "fontSize": 20,
+                            "fontWeight": "bold",
+                            "color": "{{appColors.current.text.title}}"
+                        }
+                    },
+                    "centerTitle": true
+                },
+                "body": {
+                    "type": "padding",
+                    "padding": {
+                        "all": 16
+                    },
+                    "child": {
+                        "type": "column",
+                        "crossAxisAlignment": "stretch",
+                        "mainAxisAlignment": "center",
+                        "children": [
+                            {
+                                "type": "image",
+                                "src": "{{appAssets.icons.wallet}}",
+                                "imageType": "asset",
+                                "width": 120,
+                                "height": 120,
+                                "color": "{{appColors.current.primary.color}}"
+                            },
+                            {
+                                "type": "sizedBox",
+                                "height": 32
+                            },
+                            {
+                                "type": "text",
+                                "data": "خدمات سفته الکترونیکی",
+                                "textDirection": "rtl",
+                                "textAlign": "center",
+                                "style": {
+                                    "type": "custom",
+                                    "fontSize": 24,
+                                    "fontWeight": "bold",
+                                    "color": "{{appColors.current.text.title}}"
+                                }
+                            },
+                            {
+                                "type": "sizedBox",
+                                "height": 16
+                            },
+                            {
+                                "type": "text",
+                                "data": "صدور، ضمانت و مشاهده سفته‌های الکترونیکی به صورت کاملا آنلاین",
+                                "textDirection": "rtl",
+                                "textAlign": "center",
+                                "style": {
+                                    "type": "custom",
+                                    "fontSize": 16,
+                                    "color": "{{appColors.current.text.subtitle}}"
+                                }
+                            },
+                            {
+                                "type": "sizedBox",
+                                "height": 48
+                            },
+                            {
+                                "type": "filledButton",
+                                "style": {
+                                    "backgroundColor": "{{appColors.current.primary.color}}",
+                                    "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                                    "minimumSize": {
+                                        "width": 999999,
+                                        "height": 56
+                                    },
+                                    "shape": {
+                                        "type": "roundedRectangle",
+                                        "borderRadius": {
+                                            "all": 12
+                                        }
+                                    }
+                                },
+                                "child": {
+                                    "type": "text",
+                                    "data": "درخواست صدور سفته",
+                                    "style": {
+                                        "type": "custom",
+                                        "fontSize": 18,
+                                        "fontWeight": "bold"
+                                    }
+                                },
+                                "onPressed": {
+                                    "actionType": "navigate",
+                                    "widgetType": "promissory_rules",
+                                    "assetPath": "lib/stac/tobank/flows/promissory/api/GET_promissory_rules.json"
+                                }
+                            },
+                            {
+                                "type": "sizedBox",
+                                "height": 16
+                            },
+                            {
+                                "type": "outlinedButton",
+                                "style": {
+                                    "foregroundColor": "{{appColors.current.primary.color}}",
+                                    "side": {
+                                        "color": "{{appColors.current.primary.color}}",
+                                        "width": 2
+                                    },
+                                    "minimumSize": {
+                                        "width": 999999,
+                                        "height": 56
+                                    },
+                                    "shape": {
+                                        "type": "roundedRectangle",
+                                        "borderRadius": {
+                                            "all": 12
+                                        }
+                                    }
+                                },
+                                "child": {
+                                    "type": "text",
+                                    "data": "سفته‌های من",
+                                    "style": {
+                                        "type": "custom",
+                                        "fontSize": 18,
+                                        "fontWeight": "bold"
+                                    }
+                                },
+                                "onPressed": {
+                                    "actionType": "showResult",
+                                    "title": "به زودی",
+                                    "content": "این بخش در حال توسعه است."
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

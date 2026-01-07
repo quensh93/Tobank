@@ -1,0 +1,16 @@
+{
+    "POST": {
+        "statusCode": 200,
+        "data": {
+            "success": true,
+            "message": "",
+            "data": {
+                "id": 67890,
+                "isSuccess": true,
+                "amount": 163500,
+                "message": "پرداخت با موفقیت انجام شد"
+            },
+            "code": 0
+        }
+    }
+}

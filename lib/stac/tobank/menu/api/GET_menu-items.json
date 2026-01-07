@@ -17,6 +17,25 @@
             "tobank_login_flow_linear_login",
             "tobank_login_flow_linear_verify_otp"
           ]
+        },
+        {
+          "title": "سفته",
+          "description": "صدور سفته الکترونیکی",
+          "icon": "{{appAssets.icons.wallet}}",
+          "dartPath": "lib/stac/tobank/flows/promissory/dart/promissory_intro.dart",
+          "jsonPath": "lib/stac/tobank/flows/promissory/json/promissory_intro.json",
+          "apiPath": "lib/stac/tobank/flows/promissory/api/GET_promissory_intro.json",
+          "widgetType": "promissory_intro",
+          "flowSteps": [
+            "promissory_intro",
+            "promissory_rules",
+            "promissory_issuer",
+            "promissory_receiver",
+            "promissory_data",
+            "promissory_confirm",
+            "promissory_payment",
+            "promissory_success"
+          ]
         }
       ],
       "completedItems": [

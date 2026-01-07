@@ -1,0 +1,135 @@
+{
+    "GET": {
+        "statusCode": 200,
+        "data": {
+            "data": {
+                "type": "scaffold",
+                "appBar": {
+                    "type": "appBar",
+                    "title": {
+                        "type": "text",
+                        "data": "قوانین و مقررات",
+                        "textDirection": "rtl",
+                        "style": {
+                            "type": "custom",
+                            "fontSize": 20,
+                            "fontWeight": "bold",
+                            "color": "{{appColors.current.text.title}}"
+                        }
+                    },
+                    "centerTitle": true
+                },
+                "body": {
+                    "type": "stack",
+                    "mainAxisSize": "max",
+                    "children": [
+                        {
+                            "type": "padding",
+                            "padding": {
+                                "left": 16,
+                                "right": 16,
+                                "top": 16,
+                                "bottom": 80
+                            },
+                            "child": {
+                                "type": "singleChildScrollView",
+                                "child": {
+                                    "type": "dynamicView",
+                                    "request": {
+                                        "url": "https://api.tobank.com/rules",
+                                        "method": "get",
+                                        "actionType": "networkRequest"
+                                    },
+                                    "targetPath": "data.data.content",
+                                    "loadingWidget": {
+                                        "type": "center",
+                                        "child": {
+                                            "type": "circularProgressIndicator"
+                                        }
+                                    },
+                                    "template": {
+                                        "type": "text",
+                                        "data": "{{data.data.content}}",
+                                        "textDirection": "rtl",
+                                        "style": {
+                                            "type": "custom",
+                                            "fontSize": 16,
+                                            "height": 1.6,
+                                            "color": "{{appColors.current.text.description}}"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "type": "positioned",
+                            "bottom": 0,
+                            "left": 0,
+                            "right": 0,
+                            "child": {
+                                "type": "container",
+                                "padding": {
+                                    "all": 16
+                                },
+                                "decoration": {
+                                    "color": "{{appColors.current.background.surface}}",
+                                    "boxShadow": [
+                                        {
+                                            "color": "#1A000000",
+                                            "blurRadius": 10,
+                                            "offset": {
+                                                "dy": -2,
+                                                "dx": 0
+                                            }
+                                        }
+                                    ]
+                                },
+                                "child": {
+                                    "type": "filledButton",
+                                    "style": {
+                                        "backgroundColor": "{{appColors.current.primary.color}}",
+                                        "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                                        "minimumSize": {
+                                            "width": 999999,
+                                            "height": 56
+                                        },
+                                        "shape": {
+                                            "type": "roundedRectangle",
+                                            "borderRadius": {
+                                                "all": 12
+                                            }
+                                        }
+                                    },
+                                    "child": {
+                                        "type": "text",
+                                        "data": "قبول قوانین و ادامه",
+                                        "style": {
+                                            "type": "custom",
+                                            "fontSize": 18,
+                                            "fontWeight": "bold"
+                                        }
+                                    },
+                                    "onPressed": {
+                                        "actionType": "networkRequest",
+                                        "url": "https://api.tobank.com/check_sana",
+                                        "method": "get",
+                                        "results": [
+                                            {
+                                                "statusCode": 200,
+                                                "action": {
+                                                    "actionType": "navigate",
+                                                    "widgetType": "promissory_issuer",
+                                                    "assetPath": "lib/stac/tobank/flows/promissory/api/GET_promissory_issuer.json"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

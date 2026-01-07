@@ -1,0 +1,117 @@
+{
+    "GET": {
+        "statusCode": 200,
+        "data": {
+            "data": {
+                "type": "scaffold",
+                "appBar": {
+                    "type": "appBar",
+                    "title": {
+                        "type": "text",
+                        "data": "انتخاب روش پرداخت",
+                        "textDirection": "rtl",
+                        "style": {
+                            "type": "custom",
+                            "fontSize": 18,
+                            "fontWeight": "bold",
+                            "color": "{{appColors.current.text.title}}"
+                        }
+                    },
+                    "centerTitle": true
+                },
+                "body": {
+                    "type": "padding",
+                    "padding": {
+                        "all": 16
+                    },
+                    "child": {
+                        "type": "column",
+                        "crossAxisAlignment": "stretch",
+                        "children": [
+                            {
+                                "type": "container",
+                                "margin": {
+                                    "bottom": 16
+                                },
+                                "decoration": {
+                                    "color": "{{appColors.current.background.surfaceContainer}}",
+                                    "borderRadius": {
+                                        "all": 12
+                                    },
+                                    "border": {
+                                        "color": "{{appColors.current.input.borderEnabled}}",
+                                        "width": 1
+                                    }
+                                },
+                                "child": {
+                                    "type": "listTile",
+                                    "title": {
+                                        "type": "text",
+                                        "data": "پرداخت از طریق کیف پول",
+                                        "textDirection": "rtl"
+                                    },
+                                    "subtitle": {
+                                        "type": "text",
+                                        "data": "موجودی: کافی",
+                                        "textDirection": "rtl"
+                                    },
+                                    "leading": {
+                                        "type": "icon",
+                                        "data": "account_balance_wallet",
+                                        "color": "{{appColors.current.primary.color}}"
+                                    },
+                                    "onTap": {
+                                        "actionType": "networkRequest",
+                                        "url": "https://api.tobank.com/promissory_fee",
+                                        "method": "post",
+                                        "results": [
+                                            {
+                                                "statusCode": 200,
+                                                "action": {
+                                                    "actionType": "navigate",
+                                                    "widgetType": "promissory_success",
+                                                    "assetPath": "lib/stac/tobank/flows/promissory/api/GET_promissory_success.json"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "container",
+                                "decoration": {
+                                    "color": "{{appColors.current.background.surfaceContainer}}",
+                                    "borderRadius": {
+                                        "all": 12
+                                    },
+                                    "border": {
+                                        "color": "{{appColors.current.input.borderEnabled}}",
+                                        "width": 1
+                                    }
+                                },
+                                "child": {
+                                    "type": "listTile",
+                                    "title": {
+                                        "type": "text",
+                                        "data": "پرداخت اینترنتی (شاپرک)",
+                                        "textDirection": "rtl"
+                                    },
+                                    "leading": {
+                                        "type": "icon",
+                                        "data": "language",
+                                        "color": "{{appColors.current.secondary.color}}"
+                                    },
+                                    "onTap": {
+                                        "actionType": "showResult",
+                                        "title": "در حال توسعه",
+                                        "content": "این روش پرداخت فعلا غیرفعال است."
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

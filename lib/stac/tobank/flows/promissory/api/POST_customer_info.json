@@ -1,0 +1,28 @@
+{
+    "POST": {
+        "statusCode": 200,
+        "data": {
+            "data": {
+                "trackingNumber": "d714481d-e19f-445e-a339-374e517db007",
+                "registrationDate": 1767526620167,
+                "transactionId": "1457337014071422977",
+                "status": 1,
+                "nationalCode": "1272125191",
+                "firstName": "علي",
+                "lastName": "سينائي اصل",
+                "gender": 1,
+                "customerNumber": "1765274",
+                "shahabCodeAcquired": true,
+                "digitalBankingCustomer": true,
+                "loyaltyCode": "91633120",
+                "address": "اصفهان - شهر ناشناخته - کوچه شهیدرضازلالی22 - پلاک 12",
+                "postalCode": "8153887146",
+                "customerStatus": 1,
+                "ekycProvider": 1
+            },
+            "message": "عملیات با موفقیت انجام شد",
+            "success": true,
+            "code": 0
+        }
+    }
+}

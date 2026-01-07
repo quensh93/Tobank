@@ -14,9 +14,11 @@ class CustomStacImage {
     this.height,
     this.fit,
     this.errorBuilder,
+    this.color,
   });
 
   final String src;
+
   /// If set, the image src will be read fresh from StacRegistry at render time.
   /// This bypasses STAC's template caching and ensures the latest value is used.
   final String? registryKey;
@@ -24,6 +26,7 @@ class CustomStacImage {
   final double? height;
   final BoxFit? fit;
   final Map<String, dynamic>? errorBuilder;
+  final String? color;
 
   factory CustomStacImage.fromJson(Map<String, dynamic> json) {
     return CustomStacImage(
@@ -38,6 +41,7 @@ class CustomStacImage {
             )
           : null,
       errorBuilder: json['errorBuilder'] as Map<String, dynamic>?,
+      color: json['color']?.toString(),
     );
   }
 }
@@ -71,7 +75,8 @@ class CustomImageParser extends StacParser<CustomStacImage> {
 
     final imageKey = ValueKey<String>(effectiveSrc);
 
-    final isLocalFilePath = !kIsWeb &&
+    final isLocalFilePath =
+        !kIsWeb &&
         effectiveSrc.isNotEmpty &&
         !effectiveSrc.startsWith('assets/') &&
         !effectiveSrc.startsWith('http') &&
@@ -81,7 +86,7 @@ class CustomImageParser extends StacParser<CustomStacImage> {
 
     AppLogger.dc(
       LogCategory.widget,
-      'CustomImageParser: src="${model.src}" effectiveSrc="$effectiveSrc" registryKey="${model.registryKey}" local=$isLocalFilePath svg=$isSvg',
+      'CustomImageParser: src="${model.src}" effectiveSrc="$effectiveSrc" registryKey="${model.registryKey}" local=$isLocalFilePath svg=$isSvg color=${model.color}',
     );
     // Also log the resolved value from registry for debugging
     final resolved = StacRegistry.instance.getValue('selectedImage');
@@ -89,6 +94,11 @@ class CustomImageParser extends StacParser<CustomStacImage> {
       LogCategory.widget,
       'CustomImageParser: registry[selectedImage]="$resolved"',
     );
+
+    // Resolve color
+    final color = _parseColor(model.color);
+    // Default blend mode for icons
+    final blendMode = color != null ? BlendMode.srcIn : null;
 
     // 1. Check for Data URI (Base64) - Common on Web
     if (effectiveSrc.startsWith('data:')) {
@@ -103,6 +113,8 @@ class CustomImageParser extends StacParser<CustomStacImage> {
             width: model.width,
             height: model.height,
             fit: model.fit,
+            color: color,
+            colorBlendMode: blendMode,
             errorBuilder: _buildErrorBuilder(context, model),
           );
         }
@@ -117,6 +129,8 @@ class CustomImageParser extends StacParser<CustomStacImage> {
             width: model.width,
             height: model.height,
             fit: model.fit,
+            color: color,
+            colorBlendMode: blendMode,
             errorBuilder: _buildErrorBuilder(context, model),
           );
         }
@@ -135,6 +149,9 @@ class CustomImageParser extends StacParser<CustomStacImage> {
           width: model.width,
           height: model.height,
           fit: model.fit ?? BoxFit.contain,
+          colorFilter: color != null
+              ? ColorFilter.mode(color, BlendMode.srcIn)
+              : null,
           // SvgPicture doesn't support errorBuilder directly in the same way,
           // but we can wrap it or use a different loader if needed.
           // However, asset SVGs should generally exist.
@@ -146,6 +163,8 @@ class CustomImageParser extends StacParser<CustomStacImage> {
         width: model.width,
         height: model.height,
         fit: model.fit,
+        color: color,
+        colorBlendMode: blendMode,
         errorBuilder: _buildErrorBuilder(context, model),
       );
     }
@@ -163,6 +182,8 @@ class CustomImageParser extends StacParser<CustomStacImage> {
         width: model.width,
         height: model.height,
         fit: model.fit,
+        color: color,
+        colorBlendMode: blendMode,
         errorBuilder: _buildErrorBuilder(context, model),
       );
     }
@@ -176,6 +197,9 @@ class CustomImageParser extends StacParser<CustomStacImage> {
           width: model.width,
           height: model.height,
           fit: model.fit ?? BoxFit.contain,
+          colorFilter: color != null
+              ? ColorFilter.mode(color, BlendMode.srcIn)
+              : null,
           // placeholderBuilder: (context) => const CircularProgressIndicator(),
         );
       }
@@ -185,6 +209,8 @@ class CustomImageParser extends StacParser<CustomStacImage> {
         width: model.width,
         height: model.height,
         fit: model.fit,
+        color: color,
+        colorBlendMode: blendMode,
         errorBuilder: _buildErrorBuilder(context, model),
       );
     }
@@ -209,5 +235,21 @@ class CustomImageParser extends StacParser<CustomStacImage> {
       return Stac.fromJson(model.errorBuilder!, context) ?? const SizedBox();
     }
     return const SizedBox();
+  }
+
+  Color? _parseColor(String? colorString) {
+    if (colorString == null || colorString.isEmpty) return null;
+    try {
+      var hex = colorString.replaceAll('#', '');
+      if (hex.length == 6) {
+        hex = 'FF$hex';
+      }
+      if (hex.length == 8) {
+        return Color(int.parse(hex, radix: 16));
+      }
+    } catch (e) {
+      AppLogger.w('Failed to parse color: $colorString');
+    }
+    return null;
   }
 }

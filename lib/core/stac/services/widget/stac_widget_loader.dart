@@ -25,6 +25,23 @@ import '../../../../stac/tobank/stateful_example/dart/tobank_stateful_example_da
     as stateful_example_dart;
 import '../../../../stac/tobank/image_picker_test/dart/image_picker_test.dart'
     as image_picker_test_dart;
+// Promissory Flow imports
+import '../../../../stac/tobank/flows/promissory/dart/promissory_intro.dart'
+    as promissory_intro_dart;
+import '../../../../stac/tobank/flows/promissory/dart/promissory_rules.dart'
+    as promissory_rules_dart;
+import '../../../../stac/tobank/flows/promissory/dart/promissory_issuer.dart'
+    as promissory_issuer_dart;
+import '../../../../stac/tobank/flows/promissory/dart/promissory_receiver.dart'
+    as promissory_receiver_dart;
+import '../../../../stac/tobank/flows/promissory/dart/promissory_data.dart'
+    as promissory_data_dart;
+import '../../../../stac/tobank/flows/promissory/dart/promissory_confirm.dart'
+    as promissory_confirm_dart;
+import '../../../../stac/tobank/flows/promissory/dart/promissory_payment.dart'
+    as promissory_payment_dart;
+import '../../../../stac/tobank/flows/promissory/dart/promissory_success.dart'
+    as promissory_success_dart;
 import 'package:tobank_sdui/core/helpers/logger.dart';
 
 /// Service for loading STAC widgets from Dart files.
@@ -86,6 +103,20 @@ class StacWidgetLoader {
         stateful_example_dart.tobankStatefulExampleDart().toJson(),
     'tobank_image_picker_test': () =>
         image_picker_test_dart.tobankImagePickerTestDart().toJson(),
+    // Promissory Flow - Linear flow screens
+    'promissory_intro': () => promissory_intro_dart.promissoryIntro().toJson(),
+    'promissory_rules': () => promissory_rules_dart.promissoryRules().toJson(),
+    'promissory_issuer': () =>
+        promissory_issuer_dart.promissoryIssuer().toJson(),
+    'promissory_receiver': () =>
+        promissory_receiver_dart.promissoryReceiver().toJson(),
+    'promissory_data': () => promissory_data_dart.promissoryData().toJson(),
+    'promissory_confirm': () =>
+        promissory_confirm_dart.promissoryConfirm().toJson(),
+    'promissory_payment': () =>
+        promissory_payment_dart.promissoryPayment().toJson(),
+    'promissory_success': () =>
+        promissory_success_dart.promissorySuccess().toJson(),
   };
 
   /// Registers a widget loader for a specific widget type.

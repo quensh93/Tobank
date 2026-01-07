@@ -134,34 +134,30 @@
                         "children": [
                           {
                             "child": {
-                              "height": 56.0,
-                              "child": {
-                                "id": "otp_code",
-                                "decoration": {
-                                  "contentPadding": {
-                                    "left": 16.0,
-                                    "top": 10.0,
-                                    "right": 16.0,
-                                    "bottom": 10.0
-                                  },
-                                  "filled": false
+                              "id": "otp_code",
+                              "decoration": {
+                                "contentPadding": {
+                                  "left": 16.0,
+                                  "top": 16.0,
+                                  "right": 16.0,
+                                  "bottom": 16.0
                                 },
-                                "keyboardType": "number",
-                                "textInputAction": "done",
-                                "style": {
-                                  "type": "custom",
-                                  "color": "onSurface",
-                                  "fontSize": 24.0,
-                                  "fontWeight": "w600",
-                                  "letterSpacing": 8.0,
-                                  "fontFamily": "IranYekan"
-                                },
-                                "textAlign": "right",
-                                "textDirection": "ltr",
-                                "maxLength": 5,
-                                "type": "textFormField"
+                                "filled": false
                               },
-                              "type": "sizedBox"
+                              "keyboardType": "number",
+                              "textInputAction": "done",
+                              "style": {
+                                "type": "custom",
+                                "color": "onSurface",
+                                "fontSize": 24.0,
+                                "fontWeight": "w600",
+                                "letterSpacing": 8.0,
+                                "fontFamily": "IranYekan"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "ltr",
+                              "maxLength": 5,
+                              "type": "textFormField"
                             },
                             "type": "expanded"
                           },
@@ -198,8 +194,8 @@
                             },
                             "style": {
                               "fixedSize": {
-                                "width": 90.0,
-                                "height": 40.0
+                                "width": 140.0,
+                                "height": 56.0
                               },
                               "shape": {
                                 "type": "roundedRectangleBorder",
