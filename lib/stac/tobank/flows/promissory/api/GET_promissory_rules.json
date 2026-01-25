@@ -1,135 +1,271 @@
 {
-    "GET": {
-        "statusCode": 200,
-        "data": {
-            "data": {
-                "type": "scaffold",
-                "appBar": {
-                    "type": "appBar",
-                    "title": {
-                        "type": "text",
-                        "data": "قوانین و مقررات",
-                        "textDirection": "rtl",
-                        "style": {
-                            "type": "custom",
-                            "fontSize": 20,
-                            "fontWeight": "bold",
-                            "color": "{{appColors.current.text.title}}"
-                        }
-                    },
-                    "centerTitle": true
-                },
-                "body": {
-                    "type": "stack",
-                    "mainAxisSize": "max",
-                    "children": [
-                        {
-                            "type": "padding",
-                            "padding": {
-                                "left": 16,
-                                "right": 16,
-                                "top": 16,
-                                "bottom": 80
-                            },
-                            "child": {
-                                "type": "singleChildScrollView",
-                                "child": {
-                                    "type": "dynamicView",
-                                    "request": {
-                                        "url": "https://api.tobank.com/rules",
-                                        "method": "get",
-                                        "actionType": "networkRequest"
-                                    },
-                                    "targetPath": "data.data.content",
-                                    "loadingWidget": {
-                                        "type": "center",
-                                        "child": {
-                                            "type": "circularProgressIndicator"
-                                        }
-                                    },
-                                    "template": {
-                                        "type": "text",
-                                        "data": "{{data.data.content}}",
-                                        "textDirection": "rtl",
-                                        "style": {
-                                            "type": "custom",
-                                            "fontSize": 16,
-                                            "height": 1.6,
-                                            "color": "{{appColors.current.text.description}}"
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        {
-                            "type": "positioned",
-                            "bottom": 0,
-                            "left": 0,
-                            "right": 0,
-                            "child": {
-                                "type": "container",
-                                "padding": {
-                                    "all": 16
-                                },
-                                "decoration": {
-                                    "color": "{{appColors.current.background.surface}}",
-                                    "boxShadow": [
-                                        {
-                                            "color": "#1A000000",
-                                            "blurRadius": 10,
-                                            "offset": {
-                                                "dy": -2,
-                                                "dx": 0
-                                            }
-                                        }
-                                    ]
-                                },
-                                "child": {
-                                    "type": "filledButton",
-                                    "style": {
-                                        "backgroundColor": "{{appColors.current.primary.color}}",
-                                        "foregroundColor": "{{appColors.current.primary.onPrimary}}",
-                                        "minimumSize": {
-                                            "width": 999999,
-                                            "height": 56
-                                        },
-                                        "shape": {
-                                            "type": "roundedRectangle",
-                                            "borderRadius": {
-                                                "all": 12
-                                            }
-                                        }
-                                    },
-                                    "child": {
-                                        "type": "text",
-                                        "data": "قبول قوانین و ادامه",
-                                        "style": {
-                                            "type": "custom",
-                                            "fontSize": 18,
-                                            "fontWeight": "bold"
-                                        }
-                                    },
-                                    "onPressed": {
-                                        "actionType": "networkRequest",
-                                        "url": "https://api.tobank.com/check_sana",
-                                        "method": "get",
-                                        "results": [
-                                            {
-                                                "statusCode": 200,
-                                                "action": {
-                                                    "actionType": "navigate",
-                                                    "widgetType": "promissory_issuer",
-                                                    "assetPath": "lib/stac/tobank/flows/promissory/api/GET_promissory_issuer.json"
-                                                }
-                                            }
-                                        ]
-                                    }
-                                }
-                            }
-                        }
-                    ]
-                }
+  "GET": {
+    "statusCode": 200,
+    "data": {
+      "type": "stateFull",
+      "onInit": {
+        "actionType": "setValue",
+        "key": "isRulesAccepted",
+        "value": false
+      },
+      "child": {
+        "type": "scaffold",
+        "appBar": {
+          "type": "appBar",
+          "leading": {
+            "type": "iconButton",
+            "onPressed": {
+              "navigationStyle": "pop",
+              "actionType": "navigate"
+            },
+            "icon": {
+              "type": "image",
+              "src": "assets/icons/ic_right_arrow.svg",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 24.0,
+              "height": 24.0
             }
+          },
+          "title": {
+            "type": "text",
+            "data": "{{appStrings.promissory.rulesTitle}}",
+            "style": {
+              "type": "alias",
+              "value": "{{appStyles.appbarStyle}}"
+            },
+            "textDirection": "rtl"
+          },
+          "centerTitle": true
+        },
+        "body": {
+          "type": "column",
+          "crossAxisAlignment": "stretch",
+          "children": [
+            {
+              "type": "sizedBox",
+              "height": 16.0
+            },
+            {
+              "type": "expanded",
+              "child": {
+                "type": "padding",
+                "padding": {
+                  "left": 16.0,
+                  "right": 16.0
+                },
+                "child": {
+                  "type": "container",
+                  "decoration": {
+                    "color": "{{appColors.current.background.surfaceContainer}}",
+                    "border": {
+                      "color": "{{appColors.current.input.borderEnabled}}",
+                      "width": 1.0
+                    },
+                    "borderRadius": {
+                      "topLeft": 12.0,
+                      "topRight": 12.0,
+                      "bottomLeft": 12.0,
+                      "bottomRight": 12.0
+                    }
+                  },
+                  "child": {
+                    "type": "column",
+                    "crossAxisAlignment": "stretch",
+                    "children": [
+                      {
+                        "type": "padding",
+                        "padding": {
+                          "left": 16.0,
+                          "top": 16.0,
+                          "right": 16.0,
+                          "bottom": 16.0
+                        },
+                        "child": {
+                          "type": "text",
+                          "data": "{{appStrings.promissory.rulesCardTitle}}",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w700"
+                          },
+                          "textDirection": "rtl"
+                        }
+                      },
+                      {
+                        "type": "container",
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "height": 1.0
+                      },
+                      {
+                        "type": "expanded",
+                        "child": {
+                          "type": "singleChildScrollView",
+                          "padding": {
+                            "left": 16.0,
+                            "top": 16.0,
+                            "right": 16.0,
+                            "bottom": 16.0
+                          },
+                          "child": {
+                            "type": "text",
+                            "data": "{{appStrings.promissory.rulesContent}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w500",
+                              "height": 1.8
+                            },
+                            "textDirection": "rtl"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "type": "sizedBox",
+              "height": 24.0
+            },
+            {
+              "type": "padding",
+              "padding": {
+                "left": 16.0,
+                "right": 16.0
+              },
+              "child": {
+                "type": "gestureDetector",
+                "child": {
+                  "type": "container",
+                  "padding": {
+                    "top": 8.0,
+                    "bottom": 8.0
+                  },
+                  "color": "transparent",
+                  "child": {
+                    "type": "row",
+                    "crossAxisAlignment": "center",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "type": "container",
+                        "decoration": {
+                          "color": "{{isRulesAccepted ? appColors.current.primary.color : \"transparent\"}}",
+                          "border": {
+                            "color": "{{isRulesAccepted ? appColors.current.primary.color : appColors.current.text.subtitle}}",
+                            "width": 2.0
+                          },
+                          "borderRadius": {
+                            "topLeft": 6.0,
+                            "topRight": 6.0,
+                            "bottomLeft": 6.0,
+                            "bottomRight": 6.0
+                          }
+                        },
+                        "width": 24.0,
+                        "height": 24.0,
+                        "child": {
+                          "type": "center",
+                          "child": {
+                            "type": "image",
+                            "src": "assets/icons/ic_check.svg",
+                            "color": "{{isRulesAccepted ? \"#FFFFFF\" : \"transparent\"}}",
+                            "width": 16.0,
+                            "height": 16.0
+                          }
+                        }
+                      },
+                      {
+                        "type": "sizedBox",
+                        "width": 12.0
+                      },
+                      {
+                        "type": "expanded",
+                        "child": {
+                          "type": "text",
+                          "data": "{{appStrings.promissory.acceptRulesLabel}}",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w500",
+                            "height": 1.4
+                          },
+                          "textDirection": "rtl"
+                        }
+                      }
+                    ]
+                  }
+                },
+                "onTap": {
+                  "actionType": "setValue",
+                  "key": "isRulesAccepted",
+                  "value": "{{!isRulesAccepted}}"
+                }
+              }
+            },
+            {
+              "type": "sizedBox",
+              "height": 24.0
+            },
+            {
+              "type": "padding",
+              "padding": {
+                "left": 16.0,
+                "right": 16.0
+              },
+              "child": {
+                "enabledKey": "isRulesAccepted",
+                "onPressed": {
+                  "actionType": "navigate",
+                  "navigationStyle": "push",
+                  "request": {
+                    "url": "https://api.tobank.com/flows/promissory/promissory_issuer",
+                    "method": "get"
+                  }
+                },
+                "style": {
+                  "backgroundColor": "{{appColors.current.primary.color}}",
+                  "elevation": 0.0,
+                  "fixedSize": {
+                    "width": 999999.0,
+                    "height": 56.0
+                  },
+                  "shape": {
+                    "type": "roundedRectangleBorder",
+                    "borderRadius": {
+                      "topLeft": 12.0,
+                      "topRight": 12.0,
+                      "bottomLeft": 12.0,
+                      "bottomRight": 12.0
+                    }
+                  }
+                },
+                "child": {
+                  "type": "text",
+                  "data": "{{appStrings.common.continue}}",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.primary.onPrimary}}",
+                    "fontSize": 18.0,
+                    "fontWeight": "bold"
+                  },
+                  "textDirection": "rtl"
+                },
+                "type": "reactiveElevatedButton"
+              }
+            },
+            {
+              "type": "sizedBox",
+              "height": 16.0
+            }
+          ]
         }
+      }
     }
+  }
 }

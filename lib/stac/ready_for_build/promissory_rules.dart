@@ -93,43 +93,48 @@ StacWidget promissoryRules() {
           ),
           StacSizedBox(height: 24),
           // Checkbox Row
-          // Checkbox Row
           StacPadding(
             padding: StacEdgeInsets.symmetric(horizontal: 16),
-            child: StacContainer(
-              color: 'transparent',
-              padding: StacEdgeInsets.symmetric(vertical: 8),
-              child: StacRow(
-                textDirection: StacTextDirection.rtl,
-                crossAxisAlignment: StacCrossAxisAlignment.center,
-                children: [
-                  // Standard Checkbox
-                  StacRawJsonWidget({
-                    'type': 'checkBox',
-                    'value': '{{isRulesAccepted}}',
-                    'onChanged': {
-                      'actionType': 'setValue',
-                      'key': 'isRulesAccepted',
-                      'value': '{{!isRulesAccepted}}',
-                    },
-                    'activeColor': '{{appColors.current.primary.color}}',
-                    'side': {
-                      'color': '{{appColors.current.text.subtitle}}',
-                      'width': 2.0,
-                    },
-                    'shape': StacRoundedRectangleBorder(
-                      borderRadius: StacBorderRadius.all(4),
-                    ).toJson(),
-                  }),
-                  StacSizedBox(width: 12),
-                  // Label
-                  StacExpanded(
-                    child: StacGestureDetector(
-                      onTap: StacRawJsonAction({
-                        'actionType': 'setValue',
-                        'key': 'isRulesAccepted',
-                        'value': '{{!isRulesAccepted}}',
-                      }),
+            child: StacGestureDetector(
+              onTap: StacRawJsonAction({
+                'actionType': 'setValue',
+                'key': 'isRulesAccepted',
+                'value': '{{!isRulesAccepted}}',
+              }),
+              child: StacContainer(
+                color: 'transparent',
+                padding: StacEdgeInsets.symmetric(vertical: 8),
+                child: StacRow(
+                  textDirection: StacTextDirection.rtl,
+                  crossAxisAlignment: StacCrossAxisAlignment.center,
+                  children: [
+                    // Custom Checkbox
+                    StacContainer(
+                      width: 24,
+                      height: 24,
+                      decoration: StacBoxDecoration(
+                        color:
+                            '{{isRulesAccepted ? appColors.current.primary.color : "transparent"}}',
+                        borderRadius: StacBorderRadius.all(6),
+                        border: StacBorder.all(
+                          color:
+                              '{{isRulesAccepted ? appColors.current.primary.color : appColors.current.text.subtitle}}',
+                          width: 2,
+                        ),
+                      ),
+                      child: StacCenter(
+                        child: StacImage(
+                          src: 'assets/icons/ic_check.svg',
+                          color:
+                              '{{isRulesAccepted ? "#FFFFFF" : "transparent"}}',
+                          width: 16,
+                          height: 16,
+                        ),
+                      ),
+                    ),
+                    StacSizedBox(width: 12),
+                    // Label
+                    StacExpanded(
                       child: StacText(
                         data: '{{appStrings.promissory.acceptRulesLabel}}',
                         textDirection: StacTextDirection.rtl,
@@ -141,8 +146,8 @@ StacWidget promissoryRules() {
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

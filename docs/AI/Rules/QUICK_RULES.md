@@ -13,6 +13,7 @@
 1. **Create Dart** → `lib/stac/tobank/{feature}/dart/{feature}.dart`
 2. **Preview in app** → Test before building
 3. **🚨🚨🚨 CRITICAL: Build JSON MUST WORK** → Run `stac build`
+   - **Copy file to `ready_for_build`** → Only files in `lib/stac/ready_for_build/` are built
    - **🚨 IF BUILD FAILS, STOP EVERYTHING AND FIX IT FIRST**
    - **This is THE WHOLE POINT of using Dart STAC syntax** - to generate JSON from Dart
    - **NEVER manually update JSON files** - Always use `stac build` to generate from Dart
@@ -96,6 +97,7 @@ Before completing any task:
 **Build Fails?** → **🚨🚨🚨 STOP EVERYTHING - FIX BUILD FIRST!**
 - **This is CRITICAL** - The entire workflow depends on `stac build` working
 - **Do NOT manually edit JSON** - Fix the build issue instead
+- **Check file is in `ready_for_build`** - Only files there are built
 - Check `@StacScreen` annotation exists and is correct
 - Check `default_stac_options.dart` in `lib/` exists
 - Check Flutter SDK/dependencies are correct

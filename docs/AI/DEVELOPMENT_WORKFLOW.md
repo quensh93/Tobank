@@ -125,16 +125,30 @@ StacWidget tobank{FeatureName}Dart() {
 
 **The entire workflow depends on `stac build` working. If it fails, STOP EVERYTHING and fix it first.**
 
-**Run STAC build command:**
+**Selective Build Workflow:**
 
-```bash
-stac build
-```
+To avoid building all files every time, we use a selective build approach:
+
+1. **Copy the Dart file** you want to build to the `ready_for_build` folder:
+   ```bash
+   # Copy the file
+   cp lib/stac/tobank/flows/promissory/dart/promissory_intro.dart lib/stac/ready_for_build/
+   
+   # Or create a symlink (Windows)
+   mklink lib\stac\ready_for_build\promissory_intro.dart lib\stac\tobank\flows\promissory\dart\promissory_intro.dart
+   ```
+
+2. **Run STAC build command:**
+   ```bash
+   stac build
+   ```
 
 **What happens:**
-- Reads Dart files from `lib/stac/tobank/`
+- Reads Dart files **only from** `lib/stac/ready_for_build/`
 - Generates JSON in `lib/stac/.build/`
-- Output: `tobank_{feature_name}.json`
+- Output: `{screen_name}.json` (based on `@StacScreen(screenName: '...')` annotation)
+
+**Note:** If the file has relative imports, maintain the folder structure in `ready_for_build/` or adjust imports accordingly.
 
 **🚨 If build fails - MANDATORY ACTIONS:**
 1. **STOP everything immediately** - Do NOT manually edit JSON
