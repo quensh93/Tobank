@@ -154,7 +154,7 @@
                       "onTap": {
                         "actionType": "setValue",
                         "key": "isRulesAccepted",
-                        "value": "{{!isRulesAccepted}}"
+                        "value": "{{isRulesAccepted ? false : true}}"
                       },
                       "child": {
                         "type": "container",
@@ -176,11 +176,15 @@
                         "child": {
                           "type": "center",
                           "child": {
-                            "type": "image",
-                            "src": "assets/icons/ic_check.svg",
-                            "color": "{{isRulesAccepted ? \"#FFFFFF\" : \"transparent\"}}",
-                            "width": 16.0,
-                            "height": 16.0
+                            "type": "opacity",
+                            "opacity": "{{isRulesAccepted ? 1.0 : 0.0}}",
+                            "child": {
+                              "type": "image",
+                              "src": "assets/icons/ic_check.svg",
+                              "color": "#FFFFFF",
+                              "width": 16.0,
+                              "height": 16.0
+                            }
                           }
                         }
                       }
@@ -196,7 +200,7 @@
                         "onTap": {
                           "actionType": "setValue",
                           "key": "isRulesAccepted",
-                          "value": "{{!isRulesAccepted}}"
+                          "value": "{{isRulesAccepted ? false : true}}"
                         },
                         "child": {
                           "type": "text",

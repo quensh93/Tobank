@@ -174,7 +174,135 @@ class _StatefulWidgetWrapperState extends State<_StatefulWidgetWrapper>
         _executeAction(widget.model.onBuild, 'onBuild');
       }
     });
-    // Build child fresh each time so template vars get resolved
-    return Stac.fromJson(widget.model.child, context) ?? Container();
+    // Resolve all template expressions (including ternary) before parsing
+    final resolvedJson = _resolveExpressionsInJson(widget.model.child);
+    return Stac.fromJson(resolvedJson, context) ?? Container();
+  }
+
+  /// Resolves all {{...}} expressions in JSON, including ternary and negation.
+  dynamic _resolveExpressionsInJson(dynamic json) {
+    if (json is String) {
+      return _resolveTemplateString(json);
+    } else if (json is Map<String, dynamic>) {
+      return json.map(
+        (key, value) => MapEntry(key, _resolveExpressionsInJson(value)),
+      );
+    } else if (json is Map) {
+      return Map<String, dynamic>.from(
+        json,
+      ).map((key, value) => MapEntry(key, _resolveExpressionsInJson(value)));
+    } else if (json is List) {
+      return json.map((item) => _resolveExpressionsInJson(item)).toList();
+    }
+    return json;
+  }
+
+  /// Resolves template expressions in a string.
+  dynamic _resolveTemplateString(String text) {
+    if (!text.contains('{{') || !text.contains('}}')) return text;
+
+    final matches = RegExp(r'\{\{([^}]+)\}\}').allMatches(text).toList();
+    if (matches.isEmpty) return text;
+
+    // If the entire string is a single {{expr}}, return the evaluated value (preserving type)
+    if (matches.length == 1 && matches.first.group(0) == text) {
+      final expr = matches.first.group(1)?.trim();
+      if (expr == null || expr.isEmpty) return text;
+      final result = _evalExpression(expr);
+      return result ?? text;
+    }
+
+    // Otherwise, do string interpolation
+    return text.replaceAllMapped(RegExp(r'\{\{([^}]+)\}\}'), (match) {
+      final expr = match.group(1)?.trim();
+      if (expr == null || expr.isEmpty) return match.group(0) ?? '';
+      final value = _evalExpression(expr);
+      return value?.toString() ?? match.group(0) ?? '';
+    });
+  }
+
+  /// Evaluates an expression string.
+  dynamic _evalExpression(String expr) {
+    // Handle ternary expression: "condition ? trueValue : falseValue"
+    final ternaryMatch = RegExp(
+      r'^(.+?)\s*\?\s*(.+?)\s*:\s*(.+)$',
+    ).firstMatch(expr);
+    if (ternaryMatch != null) {
+      final conditionExpr = ternaryMatch.group(1)!.trim();
+      final trueValue = ternaryMatch.group(2)!.trim();
+      final falseValue = ternaryMatch.group(3)!.trim();
+
+      final conditionResult = _evalCondition(conditionExpr);
+      final resultExpr = conditionResult ? trueValue : falseValue;
+
+      return _parseValue(resultExpr);
+    }
+
+    // Handle negation: "!variableName"
+    if (expr.startsWith('!')) {
+      final varName = expr.substring(1).trim();
+      final value = StacRegistry.instance.getValue(varName);
+      return !_toBool(value);
+    }
+
+    // Simple variable lookup
+    return StacRegistry.instance.getValue(expr);
+  }
+
+  /// Evaluates a condition expression and returns a boolean.
+  bool _evalCondition(String conditionExpr) {
+    if (conditionExpr.startsWith('!')) {
+      final varName = conditionExpr.substring(1).trim();
+      final value = StacRegistry.instance.getValue(varName);
+      return !_toBool(value);
+    }
+    final value = StacRegistry.instance.getValue(conditionExpr);
+    return _toBool(value);
+  }
+
+  /// Converts a value to boolean.
+  bool _toBool(dynamic value) {
+    if (value == null) return false;
+    if (value is bool) return value;
+    if (value is String) {
+      final lower = value.toLowerCase();
+      return lower == 'true' || lower == '1';
+    }
+    if (value is num) return value != 0;
+    return false;
+  }
+
+  /// Parses a string value to its appropriate type.
+  dynamic _parseValue(String value) {
+    if (value == 'true') return true;
+    if (value == 'false') return false;
+    if (value == 'null') return null;
+
+    final intVal = int.tryParse(value);
+    if (intVal != null) return intVal;
+
+    final doubleVal = double.tryParse(value);
+    if (doubleVal != null) return doubleVal;
+
+    // Check if it's a registry variable or nested expression
+    if (value.contains('{{')) {
+      return _resolveTemplateString(value);
+    }
+
+    // Try registry lookup for simple variable names
+    if (!value.contains(' ') &&
+        !value.startsWith('"') &&
+        !value.startsWith("'")) {
+      final registryValue = StacRegistry.instance.getValue(value);
+      if (registryValue != null) return registryValue;
+    }
+
+    // Strip quotes if present
+    if ((value.startsWith('"') && value.endsWith('"')) ||
+        (value.startsWith("'") && value.endsWith("'"))) {
+      return value.substring(1, value.length - 1);
+    }
+
+    return value;
   }
 }

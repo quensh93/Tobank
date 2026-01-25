@@ -102,24 +102,40 @@ StacWidget promissoryRules() {
                 textDirection: StacTextDirection.rtl,
                 crossAxisAlignment: StacCrossAxisAlignment.center,
                 children: [
-                  // Standard Checkbox
-                  StacRawJsonWidget({
-                    'type': 'checkBox',
-                    'value': '{{isRulesAccepted}}',
-                    'onChanged': {
+                  // Custom Checkbox
+                  StacGestureDetector(
+                    onTap: StacRawJsonAction({
                       'actionType': 'setValue',
                       'key': 'isRulesAccepted',
-                      'value': '{{!isRulesAccepted}}',
-                    },
-                    'activeColor': '{{appColors.current.primary.color}}',
-                    'side': {
-                      'color': '{{appColors.current.text.subtitle}}',
-                      'width': 2.0,
-                    },
-                    'shape': StacRoundedRectangleBorder(
-                      borderRadius: StacBorderRadius.all(4),
-                    ).toJson(),
-                  }),
+                      'value': '{{isRulesAccepted ? false : true}}',
+                    }),
+                    child: StacContainer(
+                      width: 24,
+                      height: 24,
+                      decoration: StacBoxDecoration(
+                        color:
+                            '{{isRulesAccepted ? appColors.current.primary.color : "transparent"}}',
+                        borderRadius: StacBorderRadius.all(6),
+                        border: StacBorder.all(
+                          color:
+                              '{{isRulesAccepted ? appColors.current.primary.color : appColors.current.text.subtitle}}',
+                          width: 2,
+                        ),
+                      ),
+                      child: StacCenter(
+                        child: StacRawJsonWidget({
+                          'type': 'opacity',
+                          'opacity': '{{isRulesAccepted ? 1.0 : 0.0}}',
+                          'child': StacImage(
+                            src: 'assets/icons/ic_check.svg',
+                            color: '#FFFFFF',
+                            width: 16,
+                            height: 16,
+                          ).toJson(),
+                        }),
+                      ),
+                    ),
+                  ),
                   StacSizedBox(width: 12),
                   // Label
                   StacExpanded(
@@ -127,7 +143,7 @@ StacWidget promissoryRules() {
                       onTap: StacRawJsonAction({
                         'actionType': 'setValue',
                         'key': 'isRulesAccepted',
-                        'value': '{{!isRulesAccepted}}',
+                        'value': '{{isRulesAccepted ? false : true}}',
                       }),
                       child: StacText(
                         data: '{{appStrings.promissory.acceptRulesLabel}}',

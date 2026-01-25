@@ -107,7 +107,7 @@ StacWidget promissoryRules() {
                     onTap: StacRawJsonAction({
                       'actionType': 'setValue',
                       'key': 'isRulesAccepted',
-                      'value': '{{!isRulesAccepted}}',
+                      'value': '{{isRulesAccepted ? false : true}}',
                     }),
                     child: StacContainer(
                       width: 24,
@@ -123,13 +123,16 @@ StacWidget promissoryRules() {
                         ),
                       ),
                       child: StacCenter(
-                        child: StacImage(
-                          src: 'assets/icons/ic_check.svg',
-                          color:
-                              '{{isRulesAccepted ? "#FFFFFF" : "transparent"}}',
-                          width: 16,
-                          height: 16,
-                        ),
+                        child: StacRawJsonWidget({
+                          'type': 'opacity',
+                          'opacity': '{{isRulesAccepted ? 1.0 : 0.0}}',
+                          'child': StacImage(
+                            src: 'assets/icons/ic_check.svg',
+                            color: '#FFFFFF',
+                            width: 16,
+                            height: 16,
+                          ).toJson(),
+                        }),
                       ),
                     ),
                   ),
@@ -140,7 +143,7 @@ StacWidget promissoryRules() {
                       onTap: StacRawJsonAction({
                         'actionType': 'setValue',
                         'key': 'isRulesAccepted',
-                        'value': '{{!isRulesAccepted}}',
+                        'value': '{{isRulesAccepted ? false : true}}',
                       }),
                       child: StacText(
                         data: '{{appStrings.promissory.acceptRulesLabel}}',

@@ -162,7 +162,86 @@ class CustomSetValueActionParser
       return DateTime.now().millisecondsSinceEpoch;
     }
 
+    // Handle ternary expression: "condition ? trueValue : falseValue"
+    final ternaryMatch = RegExp(
+      r'^(.+?)\s*\?\s*(.+?)\s*:\s*(.+)$',
+    ).firstMatch(expr);
+    if (ternaryMatch != null) {
+      final conditionExpr = ternaryMatch.group(1)!.trim();
+      final trueValue = ternaryMatch.group(2)!.trim();
+      final falseValue = ternaryMatch.group(3)!.trim();
+
+      final conditionResult = _evalCondition(conditionExpr);
+      final resultExpr = conditionResult ? trueValue : falseValue;
+
+      // Parse the result value
+      return _parseValue(resultExpr);
+    }
+
+    // Handle negation: "!variableName"
+    if (expr.startsWith('!')) {
+      final varName = expr.substring(1).trim();
+      final value = StacRegistry.instance.getValue(varName);
+      return !_toBool(value);
+    }
+
     return StacRegistry.instance.getValue(expr);
+  }
+
+  /// Evaluates a condition expression and returns a boolean
+  bool _evalCondition(String conditionExpr) {
+    // Handle negation in condition
+    if (conditionExpr.startsWith('!')) {
+      final varName = conditionExpr.substring(1).trim();
+      final value = StacRegistry.instance.getValue(varName);
+      return !_toBool(value);
+    }
+
+    // Simple variable lookup
+    final value = StacRegistry.instance.getValue(conditionExpr);
+    return _toBool(value);
+  }
+
+  /// Converts a value to boolean
+  bool _toBool(dynamic value) {
+    if (value == null) return false;
+    if (value is bool) return value;
+    if (value is String) {
+      final lower = value.toLowerCase();
+      return lower == 'true' || lower == '1';
+    }
+    if (value is num) return value != 0;
+    return false;
+  }
+
+  /// Parses a string value to its appropriate type
+  dynamic _parseValue(String value) {
+    if (value == 'true') return true;
+    if (value == 'false') return false;
+    if (value == 'null') return null;
+
+    // Try parsing as number
+    final intVal = int.tryParse(value);
+    if (intVal != null) return intVal;
+
+    final doubleVal = double.tryParse(value);
+    if (doubleVal != null) return doubleVal;
+
+    // Check if it's a registry variable
+    if (!value.contains(' ') &&
+        !value.startsWith('"') &&
+        !value.startsWith("'")) {
+      final registryValue = StacRegistry.instance.getValue(value);
+      if (registryValue != null) return registryValue;
+    }
+
+    // Return as string (strip quotes if present)
+    if ((value.startsWith('"') && value.endsWith('"')) ||
+        (value.startsWith("'") && value.endsWith("'"))) {
+      return value.substring(1, value.length - 1);
+    }
+
+    return value;
   }
 
   StacFormScope? _tryGetFormScope(BuildContext context) {
