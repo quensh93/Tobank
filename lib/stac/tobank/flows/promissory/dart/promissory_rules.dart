@@ -171,7 +171,7 @@ StacWidget promissoryRules() {
               // 'enabled': false, // Removed hardcoded false
               'onPressed': {
                 'actionType': 'navigate',
-                'widgetType': 'promissory_issuer',
+                'widgetType': 'request_promissory_deposit',
                 'navigationStyle': 'push',
               },
               'style': StacButtonStyle(

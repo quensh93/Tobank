@@ -132,17 +132,17 @@
             "right": 16.0
           },
           "child": {
+            "padding": {
+              "top": 8.0,
+              "bottom": 8.0
+            },
+            "color": "transparent",
             "child": {
-              "padding": {
-                "top": 8.0,
-                "bottom": 8.0
-              },
-              "color": "transparent",
-              "child": {
-                "crossAxisAlignment": "center",
-                "textDirection": "rtl",
-                "children": [
-                  {
+              "crossAxisAlignment": "center",
+              "textDirection": "rtl",
+              "children": [
+                {
+                  "child": {
                     "decoration": {
                       "color": "{{isRulesAccepted ? appColors.current.primary.color : \"transparent\"}}",
                       "border": {
@@ -160,21 +160,33 @@
                     "height": 24.0,
                     "child": {
                       "child": {
-                        "src": "assets/icons/ic_check.svg",
-                        "color": "{{isRulesAccepted ? \"#FFFFFF\" : \"transparent\"}}",
-                        "width": 16.0,
-                        "height": 16.0,
-                        "type": "image"
+                        "type": "opacity",
+                        "opacity": "{{isRulesAccepted ? 1.0 : 0.0}}",
+                        "child": {
+                          "src": "assets/icons/ic_check.svg",
+                          "color": "#FFFFFF",
+                          "width": 16.0,
+                          "height": 16.0,
+                          "type": "image"
+                        }
                       },
                       "type": "center"
                     },
                     "type": "container"
                   },
-                  {
-                    "width": 12.0,
-                    "type": "sizedBox"
+                  "onTap": {
+                    "actionType": "setValue",
+                    "key": "isRulesAccepted",
+                    "value": "{{isRulesAccepted ? false : true}}"
                   },
-                  {
+                  "type": "gestureDetector"
+                },
+                {
+                  "width": 12.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "child": {
                     "child": {
                       "data": "{{appStrings.promissory.acceptRulesLabel}}",
                       "style": {
@@ -187,19 +199,19 @@
                       "textDirection": "rtl",
                       "type": "text"
                     },
-                    "type": "expanded"
-                  }
-                ],
-                "type": "row"
-              },
-              "type": "container"
+                    "onTap": {
+                      "actionType": "setValue",
+                      "key": "isRulesAccepted",
+                      "value": "{{isRulesAccepted ? false : true}}"
+                    },
+                    "type": "gestureDetector"
+                  },
+                  "type": "expanded"
+                }
+              ],
+              "type": "row"
             },
-            "onTap": {
-              "actionType": "setValue",
-              "key": "isRulesAccepted",
-              "value": "{{!isRulesAccepted}}"
-            },
-            "type": "gestureDetector"
+            "type": "container"
           },
           "type": "padding"
         },
