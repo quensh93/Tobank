@@ -1,6 +1,8 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
-import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart'
+    hide StacPersianDatePickerAction;
+import 'package:tobank_sdui/core/stac/parsers/actions/persian_date_picker_action_model.dart';
 
 /// Promissory Flow - Receiver Information Page
 ///
@@ -16,8 +18,7 @@ StacWidget promissoryReceiver() {
         // Receiver type: true = Individual, false = Legal
         StacCustomSetValueAction(key: 'isIndividualSelected', value: true),
         StacCustomSetValueAction(key: 'isLegalSelected', value: false),
-        StacCustomSetValueAction(key: 'isGardeshgariSelected', value: false),
-        StacCustomSetValueAction(key: 'hasReceiverData', value: false),
+        StacCustomSetValueAction(key: 'isReceiverFormValid', value: false),
       ],
     ),
     child: StacScaffold(
@@ -39,111 +40,269 @@ StacWidget promissoryReceiver() {
           ),
         ),
       ),
-      body: StacColumn(
-        crossAxisAlignment: StacCrossAxisAlignment.stretch,
-        children: [
-          StacExpanded(
-            child: StacSingleChildScrollView(
-              padding: StacEdgeInsets.symmetric(horizontal: 16),
-              child: StacColumn(
-                crossAxisAlignment: StacCrossAxisAlignment.stretch,
-                children: [
-                  StacSizedBox(height: 16),
-                  // Title
-                  StacText(
-                    data: 'اطلاعات ذینفع (دریافت‌کننده)',
-                    textDirection: StacTextDirection.rtl,
-                    style: StacCustomTextStyle(
-                      fontSize: 16,
-                      fontWeight: StacFontWeight.w700,
-                      color: '{{appColors.current.text.title}}',
+      body: StacForm(
+        autovalidateMode: StacAutovalidateMode.onUserInteraction,
+        child: StacColumn(
+          crossAxisAlignment: StacCrossAxisAlignment.stretch,
+          children: [
+            StacExpanded(
+              child: StacSingleChildScrollView(
+                padding: StacEdgeInsets.symmetric(horizontal: 16),
+                child: StacColumn(
+                  crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                  textDirection: StacTextDirection.rtl,
+                  children: [
+                    StacSizedBox(height: 16),
+                    // Title
+                    StacText(
+                      data: 'اطلاعات ذینفع (دریافت‌کننده)',
+                      textDirection: StacTextDirection.rtl,
+                      style: StacCustomTextStyle(
+                        fontSize: 16,
+                        fontWeight: StacFontWeight.w700,
+                        color: '{{appColors.current.text.title}}',
+                      ),
                     ),
-                  ),
-                  StacSizedBox(height: 16),
+                    StacSizedBox(height: 16),
 
-                  // Receiver Type Selection Row
-                  StacRow(
-                    textDirection: StacTextDirection.rtl,
-                    children: [
-                      // Individual Button
-                      StacExpanded(
-                        child: _buildReceiverTypeButton(
-                          title: 'حقیقی',
-                          selectedKey: 'isIndividualSelected',
-                          otherKey: 'isLegalSelected',
+                    // Receiver Type Selection Row
+                    StacRow(
+                      textDirection: StacTextDirection.rtl,
+                      children: [
+                        // Individual Button
+                        StacExpanded(
+                          child: _buildReceiverTypeButton(
+                            title: 'حقیقی',
+                            selectedKey: 'isIndividualSelected',
+                            otherKey: 'isLegalSelected',
+                          ),
                         ),
-                      ),
-                      StacSizedBox(width: 8),
-                      // Legal Button
-                      StacExpanded(
-                        child: _buildReceiverTypeButton(
-                          title: 'حقوقی',
-                          selectedKey: 'isLegalSelected',
-                          otherKey: 'isIndividualSelected',
+                        StacSizedBox(width: 8),
+                        // Legal Button
+                        StacExpanded(
+                          child: _buildReceiverTypeButton(
+                            title: 'حقوقی',
+                            selectedKey: 'isLegalSelected',
+                            otherKey: 'isIndividualSelected',
+                          ),
                         ),
+                      ],
+                    ),
+                    StacSizedBox(height: 16),
+
+                    // Individual Form Fields
+                    // National Code Field
+                    StacText(
+                      data: 'کد ملی',
+                      textDirection: StacTextDirection.rtl,
+                      style: StacCustomTextStyle(
+                        fontSize: 14,
+                        fontWeight: StacFontWeight.w600,
+                        color: '{{appColors.current.text.title}}',
                       ),
-                    ],
-                  ),
-                  StacSizedBox(height: 16),
+                    ),
+                    StacSizedBox(height: 8),
+                    StacRawJsonWidget({
+                      'type': 'textFormField',
+                      'id': 'receiver_national_code',
+                      'textDirection': 'rtl',
+                      'textAlign': 'right',
+                      'maxLength': 10,
+                      'inputFormatters': [
+                        {'type': 'allow', 'rule': '[0-9]'},
+                      ],
+                      'decoration': StacInputDecoration(
+                        hintText: 'کد ملی ذینفع را وارد نمایید',
+                        filled: false,
+                        contentPadding: StacEdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 16,
+                        ),
+                      ).toJson(),
+                      'keyboardType': 'number',
+                      'textInputAction': 'next',
+                      'validatorRules': [
+                        {
+                          'rule': r'^\d{10}$',
+                          'message': 'کد ملی معتبر وارد نمایید',
+                        },
+                      ],
+                      'onChanged': StacValidateFieldsAction(
+                        resultKey: 'isReceiverFormValid',
+                        fields: [
+                          {'id': 'receiver_national_code', 'rule': r'^\d{10}$'},
+                          {'id': 'receiver_mobile', 'rule': r'^09\d{9}$'},
+                          {
+                            'id': 'receiver_birthdate',
+                            'rule': r'^\d{4}/\d{2}/\d{2}$',
+                          },
+                        ],
+                      ).toJson(),
+                    }),
+                    StacSizedBox(height: 16),
 
-                  // Individual Form (shown when isIndividualSelected is true)
-                  StacRawJsonWidget({
-                    'type': 'opacity',
-                    'opacity': '{{isIndividualSelected ? 1.0 : 0.0}}',
-                    'child': StacRawJsonWidget({
-                      'type': 'visibility',
-                      'visible': '{{isIndividualSelected}}',
-                      'child': _buildIndividualForm().toJson(),
-                    }).toJson(),
-                  }),
+                    // Mobile Number Field
+                    StacText(
+                      data: 'شماره همراه',
+                      textDirection: StacTextDirection.rtl,
+                      style: StacCustomTextStyle(
+                        fontSize: 14,
+                        fontWeight: StacFontWeight.w600,
+                        color: '{{appColors.current.text.title}}',
+                      ),
+                    ),
+                    StacSizedBox(height: 8),
+                    StacRawJsonWidget({
+                      'type': 'textFormField',
+                      'id': 'receiver_mobile',
+                      'textDirection': 'rtl',
+                      'textAlign': 'right',
+                      'maxLength': 11,
+                      'inputFormatters': [
+                        {'type': 'allow', 'rule': '[0-9]'},
+                      ],
+                      'decoration': StacInputDecoration(
+                        hintText: 'شماره همراه ذینفع را وارد نمایید',
+                        filled: false,
+                        contentPadding: StacEdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 16,
+                        ),
+                      ).toJson(),
+                      'keyboardType': 'phone',
+                      'textInputAction': 'next',
+                      'validatorRules': [
+                        {
+                          'rule': r'^09\d{9}$',
+                          'message': 'شماره همراه معتبر وارد نمایید',
+                        },
+                      ],
+                      'onChanged': StacValidateFieldsAction(
+                        resultKey: 'isReceiverFormValid',
+                        fields: [
+                          {'id': 'receiver_national_code', 'rule': r'^\d{10}$'},
+                          {'id': 'receiver_mobile', 'rule': r'^09\d{9}$'},
+                          {
+                            'id': 'receiver_birthdate',
+                            'rule': r'^\d{4}/\d{2}/\d{2}$',
+                          },
+                        ],
+                      ).toJson(),
+                    }),
+                    StacSizedBox(height: 16),
 
-                  // Legal Form (shown when isLegalSelected is true)
-                  StacRawJsonWidget({
-                    'type': 'opacity',
-                    'opacity': '{{isLegalSelected ? 1.0 : 0.0}}',
-                    'child': StacRawJsonWidget({
-                      'type': 'visibility',
-                      'visible': '{{isLegalSelected}}',
-                      'child': _buildLegalForm().toJson(),
-                    }).toJson(),
-                  }),
-
-                  StacSizedBox(height: 40),
-                ],
+                    // Birthdate Field
+                    StacText(
+                      data: 'تاریخ تولد',
+                      textDirection: StacTextDirection.rtl,
+                      style: StacCustomTextStyle(
+                        fontSize: 14,
+                        fontWeight: StacFontWeight.w600,
+                        color: '{{appColors.current.text.title}}',
+                      ),
+                    ),
+                    StacSizedBox(height: 8),
+                    StacGestureDetector(
+                      onTap: StacPersianDatePickerAction(
+                        formFieldId: 'receiver_birthdate',
+                        firstDate: '1350/01/01',
+                        lastDate: '1450/12/29',
+                        onDateSelected: StacValidateFieldsAction(
+                          resultKey: 'isReceiverFormValid',
+                          fields: [
+                            {
+                              'id': 'receiver_national_code',
+                              'rule': r'^\d{10}$',
+                            },
+                            {'id': 'receiver_mobile', 'rule': r'^09\d{9}$'},
+                            {
+                              'id': 'receiver_birthdate',
+                              'rule': r'^\d{4}/\d{2}/\d{2}$',
+                            },
+                          ],
+                        ).toJson(),
+                      ),
+                      child: StacTextFormField(
+                        id: 'receiver_birthdate',
+                        readOnly: true,
+                        enabled: false,
+                        textDirection: StacTextDirection.rtl,
+                        textAlign: StacTextAlign.right,
+                        decoration: StacInputDecoration(
+                          hintText: 'تاریخ تولد ذینفع را انتخاب نمایید',
+                          hintStyle: StacCustomTextStyle(
+                            color: '{{appColors.current.text.subtitle}}',
+                            fontSize: 14,
+                            fontWeight: StacFontWeight.w500,
+                          ),
+                          filled: false,
+                          contentPadding: StacEdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 16,
+                          ),
+                          prefixIcon: StacPadding(
+                            padding: StacEdgeInsets.all(8),
+                            child: StacImage(
+                              src: 'assets/icons/ic_calendar.svg',
+                              imageType: StacImageType.asset,
+                              width: 24,
+                              height: 24,
+                              fit: StacBoxFit.scaleDown,
+                              color: '{{appColors.current.text.subtitle}}',
+                            ),
+                          ),
+                        ),
+                        keyboardType: StacTextInputType.text,
+                        style: StacCustomTextStyle(
+                          fontSize: 16,
+                          fontWeight: StacFontWeight.w600,
+                          color: '{{appColors.current.text.title}}',
+                        ),
+                        validatorRules: [
+                          StacFormFieldValidator(
+                            rule: r'^\d{4}/\d{2}/\d{2}$',
+                            message: 'تاریخ تولد را انتخاب نمایید',
+                          ),
+                        ],
+                      ),
+                    ),
+                    StacSizedBox(height: 40),
+                  ],
+                ),
               ),
             ),
-          ),
-          // Continue Button
-          StacPadding(
-            padding: StacEdgeInsets.all(16),
-            child: StacRawJsonWidget({
-              'type': 'reactiveElevatedButton',
-              'enabledKey': 'hasReceiverData',
-              'onPressed': {
-                'actionType': 'navigate',
-                'widgetType': 'promissory_data',
-                'navigationStyle': 'push',
-              },
-              'style': StacButtonStyle(
-                backgroundColor: '{{appColors.current.primary.color}}',
-                elevation: 0,
-                fixedSize: StacSize(999999, 56),
-                shape: StacRoundedRectangleBorder(
-                  borderRadius: StacBorderRadius.all(12),
-                ),
-              ).toJson(),
-              'child': StacText(
-                data: '{{appStrings.common.continue}}',
-                textDirection: StacTextDirection.rtl,
-                style: StacCustomTextStyle(
-                  fontSize: 18,
-                  fontWeight: StacFontWeight.bold,
-                  color: '{{appColors.current.primary.onPrimary}}',
-                ),
-              ).toJson(),
-            }),
-          ),
-        ],
+            // Continue Button
+            StacPadding(
+              padding: StacEdgeInsets.all(16),
+              child: StacRawJsonWidget({
+                'type': 'reactiveElevatedButton',
+                'enabledKey': 'isReceiverFormValid',
+                'onPressed': {
+                  'actionType': 'navigate',
+                  'widgetType': 'promissory_data',
+                  'navigationStyle': 'push',
+                },
+                'style': StacButtonStyle(
+                  backgroundColor: '{{appColors.current.primary.color}}',
+                  elevation: 0,
+                  fixedSize: StacSize(999999, 56),
+                  shape: StacRoundedRectangleBorder(
+                    borderRadius: StacBorderRadius.all(12),
+                  ),
+                ).toJson(),
+                'child': StacText(
+                  data: '{{appStrings.common.continue}}',
+                  textDirection: StacTextDirection.rtl,
+                  style: StacCustomTextStyle(
+                    fontSize: 18,
+                    fontWeight: StacFontWeight.bold,
+                    color: '{{appColors.current.primary.onPrimary}}',
+                  ),
+                ).toJson(),
+              }),
+            ),
+          ],
+        ),
       ),
     ),
   );
@@ -187,258 +346,6 @@ StacWidget _buildReceiverTypeButton({
         ),
       ),
     ),
-  );
-}
-
-/// Builds the Individual receiver form
-StacWidget _buildIndividualForm() {
-  return StacColumn(
-    crossAxisAlignment: StacCrossAxisAlignment.stretch,
-    children: [
-      // National Code Field
-      StacText(
-        data: 'کد ملی',
-        textDirection: StacTextDirection.rtl,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          fontWeight: StacFontWeight.w600,
-          color: '{{appColors.current.text.title}}',
-        ),
-      ),
-      StacSizedBox(height: 8),
-      StacTextFormField(
-        id: 'receiver_national_code',
-        keyboardType: StacTextInputType.number,
-        textInputAction: StacTextInputAction.next,
-        textDirection: StacTextDirection.ltr,
-        textAlign: StacTextAlign.right,
-        maxLength: 10,
-        decoration: StacInputDecoration(
-          hintText: 'کد ملی ذینفع را وارد نمایید',
-          filled: false,
-          contentPadding: StacEdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 16,
-          ),
-        ),
-      ),
-      StacSizedBox(height: 16),
-
-      // Mobile Number Field
-      StacText(
-        data: 'شماره همراه',
-        textDirection: StacTextDirection.rtl,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          fontWeight: StacFontWeight.w600,
-          color: '{{appColors.current.text.title}}',
-        ),
-      ),
-      StacSizedBox(height: 8),
-      StacTextFormField(
-        id: 'receiver_mobile',
-        keyboardType: StacTextInputType.phone,
-        textInputAction: StacTextInputAction.next,
-        textDirection: StacTextDirection.ltr,
-        textAlign: StacTextAlign.right,
-        maxLength: 11,
-        decoration: StacInputDecoration(
-          hintText: 'شماره همراه ذینفع را وارد نمایید',
-          filled: false,
-          contentPadding: StacEdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 16,
-          ),
-        ),
-      ),
-      StacSizedBox(height: 16),
-
-      // Birthdate Field
-      StacText(
-        data: 'تاریخ تولد',
-        textDirection: StacTextDirection.rtl,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          fontWeight: StacFontWeight.w600,
-          color: '{{appColors.current.text.title}}',
-        ),
-      ),
-      StacSizedBox(height: 8),
-      StacGestureDetector(
-        onTap: StacRawJsonAction({
-          'actionType': 'showDatePicker',
-          'resultKey': 'receiverBirthdate',
-        }),
-        child: StacContainer(
-          padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
-          decoration: StacBoxDecoration(
-            color: '{{appColors.current.background.surfaceContainer}}',
-            borderRadius: StacBorderRadius.all(10),
-            border: StacBorder.all(
-              color: '{{appColors.current.input.borderEnabled}}',
-              width: 1,
-            ),
-          ),
-          child: StacRow(
-            textDirection: StacTextDirection.rtl,
-            mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-            children: [
-              StacText(
-                data:
-                    '{{receiverBirthdate ?? "تاریخ تولد ذینفع را انتخاب نمایید"}}',
-                textDirection: StacTextDirection.rtl,
-                style: StacCustomTextStyle(
-                  fontSize: 14,
-                  fontWeight: StacFontWeight.w500,
-                  color: '{{appColors.current.text.subtitle}}',
-                ),
-              ),
-              StacImage(
-                src: 'assets/icons/ic_calendar.svg',
-                imageType: StacImageType.asset,
-                width: 24,
-                height: 24,
-                color: '{{appColors.current.text.subtitle}}',
-              ),
-            ],
-          ),
-        ),
-      ),
-    ],
-  );
-}
-
-/// Builds the Legal receiver form
-StacWidget _buildLegalForm() {
-  return StacColumn(
-    crossAxisAlignment: StacCrossAxisAlignment.stretch,
-    children: [
-      // Bank Selection Toggle
-      StacRow(
-        textDirection: StacTextDirection.rtl,
-        children: [
-          // Toggle Switch
-          StacGestureDetector(
-            onTap: StacRawJsonAction({
-              'actionType': 'setValue',
-              'key': 'isGardeshgariSelected',
-              'value': '{{isGardeshgariSelected ? false : true}}',
-            }),
-            child: StacContainer(
-              width: 44,
-              height: 24,
-              decoration: StacBoxDecoration(
-                color:
-                    '{{isGardeshgariSelected ? appColors.current.primary.color : appColors.current.background.surfaceContainer}}',
-                borderRadius: StacBorderRadius.all(12),
-                border: StacBorder.all(
-                  color:
-                      '{{isGardeshgariSelected ? appColors.current.primary.color : appColors.current.input.borderEnabled}}',
-                  width: 1,
-                ),
-              ),
-              child: StacRow(
-                textDirection: StacTextDirection.ltr,
-                mainAxisAlignment: StacMainAxisAlignment.start,
-                children: [
-                  // Left spacer (visible when ON)
-                  StacRawJsonWidget({
-                    'type': 'sizedBox',
-                    'width': '{{isGardeshgariSelected ? 20.0 : 2.0}}',
-                  }),
-                  // Toggle circle
-                  StacContainer(
-                    width: 20,
-                    height: 20,
-                    decoration: StacBoxDecoration(
-                      shape: StacBoxShape.circle,
-                      color: '#FFFFFF',
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          StacSizedBox(width: 8),
-          StacImage(
-            src: 'assets/icons/ic_bank.svg',
-            imageType: StacImageType.asset,
-            width: 24,
-            height: 24,
-            color: '{{appColors.current.text.title}}',
-          ),
-          StacSizedBox(width: 8),
-          StacExpanded(
-            child: StacText(
-              data: 'انتخاب بانک به عنوان ذینفع',
-              textDirection: StacTextDirection.rtl,
-              style: StacCustomTextStyle(
-                fontSize: 14,
-                fontWeight: StacFontWeight.w600,
-                color: '{{appColors.current.text.title}}',
-              ),
-            ),
-          ),
-        ],
-      ),
-      StacSizedBox(height: 16),
-
-      // National ID Field
-      StacText(
-        data: 'شناسه ملی',
-        textDirection: StacTextDirection.rtl,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          fontWeight: StacFontWeight.w600,
-          color: '{{appColors.current.text.title}}',
-        ),
-      ),
-      StacSizedBox(height: 8),
-      StacTextFormField(
-        id: 'receiver_national_id',
-        keyboardType: StacTextInputType.number,
-        textInputAction: StacTextInputAction.next,
-        textDirection: StacTextDirection.ltr,
-        textAlign: StacTextAlign.right,
-        maxLength: 11,
-        decoration: StacInputDecoration(
-          hintText: 'شناسه ملی شرکت را وارد نمایید',
-          filled: false,
-          contentPadding: StacEdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 16,
-          ),
-        ),
-      ),
-      StacSizedBox(height: 16),
-
-      // Contact Number Field
-      StacText(
-        data: 'شماره تماس',
-        textDirection: StacTextDirection.rtl,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          fontWeight: StacFontWeight.w600,
-          color: '{{appColors.current.text.title}}',
-        ),
-      ),
-      StacSizedBox(height: 8),
-      StacTextFormField(
-        id: 'receiver_contact',
-        keyboardType: StacTextInputType.phone,
-        textInputAction: StacTextInputAction.done,
-        textDirection: StacTextDirection.ltr,
-        textAlign: StacTextAlign.right,
-        decoration: StacInputDecoration(
-          hintText: 'شماره تماس شرکت را وارد نمایید',
-          filled: false,
-          contentPadding: StacEdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 16,
-          ),
-        ),
-      ),
-    ],
   );
 }
 
