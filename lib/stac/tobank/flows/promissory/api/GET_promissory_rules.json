@@ -236,7 +236,7 @@
                   "actionType": "navigate",
                   "navigationStyle": "push",
                   "request": {
-                    "url": "https://api.tobank.com/flows/promissory/promissory_issuer",
+                    "url": "https://api.tobank.com/flows/promissory/request_promissory_deposit",
                     "method": "get"
                   }
                 },

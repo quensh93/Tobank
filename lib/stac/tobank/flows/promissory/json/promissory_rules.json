@@ -233,7 +233,7 @@
             "onPressed": {
               "actionType": "navigate",
               "navigationStyle": "push",
-              "assetPath": "lib/stac/tobank/flows/promissory/json/promissory_issuer.json"
+              "assetPath": "lib/stac/tobank/flows/promissory/json/request_promissory_deposit.json"
             },
             "style": {
               "backgroundColor": "{{appColors.current.primary.color}}",
