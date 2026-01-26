@@ -36,8 +36,8 @@ StacWidget requestPromissoryDepositPage() {
   ];
 
   return StacStatefulWidget(
-    // On build, restore selection state from form.selected_deposit_id
-    onBuild: StacRawJsonAction({
+    // On init, restore selection state from form.selected_deposit_id
+    onInit: StacRawJsonAction({
       'actionType': 'sequence',
       'actions': [
         // Restore selection states based on saved deposit ID in form

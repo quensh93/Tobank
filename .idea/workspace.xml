@@ -10,9 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="work on promissory pages">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/dart/promissory_receiver.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/dart/promissory_receiver.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/dart/request_promissory_deposit_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/dart/request_promissory_deposit_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +103,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769338561335</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="work on promissory pages">
+      <option name="closed" value="true" />
+      <created>1769422928735</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1769422928735</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
