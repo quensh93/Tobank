@@ -21,6 +21,7 @@ import '../parsers/actions/custom_set_value_action_parser.dart';
 import '../parsers/actions/custom_navigate_action_parser.dart';
 import '../parsers/actions/file_picker_action_parser.dart';
 import '../parsers/widgets/custom_text_form_field_parser.dart';
+import '../parsers/widgets/promissory_real_loader_parser.dart';
 
 /// Register all custom STAC parsers with the STAC framework.
 ///
@@ -300,6 +301,11 @@ void _registerExampleParsers() {
   // Register reactive elevated button parser for registry-driven enable/disable
   CustomComponentRegistry.instance.registerWidget(
     const ReactiveElevatedButtonParser(),
+  );
+
+  // Register Promissory Real Loader parser
+  CustomComponentRegistry.instance.registerWidget(
+    const PromissoryRealLoaderParser(),
   );
 
   // Register file picker action parser for file selection

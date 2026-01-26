@@ -42,6 +42,9 @@ import '../../../../stac/tobank/flows/promissory/dart/promissory_payment.dart'
     as promissory_payment_dart;
 import '../../../../stac/tobank/flows/promissory/dart/promissory_success.dart'
     as promissory_success_dart;
+// Promissory Real (API) import
+import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_screen.dart'
+    as promissory_real_dart;
 import 'package:tobank_sdui/core/helpers/logger.dart';
 
 /// Service for loading STAC widgets from Dart files.
@@ -117,6 +120,10 @@ class StacWidgetLoader {
         promissory_payment_dart.promissoryPayment().toJson(),
     'promissory_success': () =>
         promissory_success_dart.promissorySuccess().toJson(),
+    // Promissory Real (Real API) - fetches SDUI from real backend
+    'promissory_real_intro': () =>
+        promissory_real_dart.promissoryRealIntro().toJson(),
+    'promissory_real_loader': () => {'type': 'promissory_real_loader'},
   };
 
   /// Registers a widget loader for a specific widget type.
