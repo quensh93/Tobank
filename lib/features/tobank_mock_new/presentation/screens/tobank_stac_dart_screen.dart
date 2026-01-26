@@ -46,7 +46,13 @@ class TobankStacDartScreen extends ConsumerWidget {
 
           if (!hasStaticChildren) {
             if (node['itemTemplate'] == null) {
-              node['itemTemplate'] = _buildMenuItemCard().toJson();
+              // Check if this is a special list that needs single button template
+              if (node['restorationId'] == 'singleButtonList') {
+                node['itemTemplate'] = _buildSingleButtonMenuItemCard()
+                    .toJson();
+              } else {
+                node['itemTemplate'] = _buildMenuItemCard().toJson();
+              }
             }
             node['shrinkWrap'] = true;
             node['physics'] = 'never';
@@ -73,6 +79,53 @@ class TobankStacDartScreen extends ConsumerWidget {
     final rendered = Stac.fromJson(json, context) ?? const SizedBox.shrink();
 
     return rendered;
+  }
+
+  /// Build menu item card template with a single "Run" button
+  /// Used for API flows that don't have Dart/JSON/API variants
+  StacWidget _buildSingleButtonMenuItemCard() {
+    return StacContainer(
+      margin: StacEdgeInsets.only(left: 8.0, top: 4.0, right: 8.0, bottom: 4.0),
+      decoration: StacBoxDecoration(
+        color: '{{appColors.current.background.surfaceContainer}}',
+        border: StacBorder(
+          width: 1.5,
+          color: '{{appColors.current.input.borderEnabled}}',
+        ),
+        borderRadius: StacBorderRadius.all(8.0),
+      ),
+      child: StacPadding(
+        padding: StacEdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
+        child: StacRow(
+          mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+          crossAxisAlignment: StacCrossAxisAlignment.center,
+          textDirection: StacTextDirection.rtl,
+          children: [
+            // Title on right side
+            StacExpanded(
+              child: StacText(
+                data: '{{title}}',
+                textDirection: StacTextDirection.rtl,
+                textAlign: StacTextAlign.right,
+                style: StacCustomTextStyle(
+                  fontSize: 15.0,
+                  fontWeight: StacFontWeight.w500,
+                  color: '{{appColors.current.text.title}}',
+                ),
+              ),
+            ),
+            StacSizedBox(width: 8.0),
+            // Single "Run" button on left side
+            _buildButtonWidget(
+              label: 'Run',
+              path: '',
+              widgetType: '{{widgetType}}',
+              buttonType: 'dart',
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   /// Build menu item card template with title and 3 buttons (dart, json, api) in one row

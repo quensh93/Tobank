@@ -89,6 +89,24 @@ StacWidget tobankMenuDart() {
           template: StacListView(padding: StacEdgeInsets.all(0), children: []),
         ),
 
+        // API Flows Items (Single Button) - Load from API
+        StacDynamicView(
+          request: StacNetworkRequest(
+            url: 'https://api.tobank.com/menu-items',
+            method: Method.get,
+          ),
+          targetPath: 'data.apiFlows',
+          loaderWidget: StacSizedBox(),
+          errorWidget: StacSizedBox(),
+          emptyTemplate: StacSizedBox(),
+          // restorationId is used as a flag to inject the single-button template
+          template: StacListView(
+            padding: StacEdgeInsets.all(0),
+            restorationId: 'singleButtonList',
+            children: [],
+          ),
+        ),
+
         StacSizedBox(height: 24),
 
         // ============================================

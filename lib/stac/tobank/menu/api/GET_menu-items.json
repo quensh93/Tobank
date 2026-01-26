@@ -38,6 +38,17 @@
           ]
         }
       ],
+      "apiFlows": [
+        {
+          "title": "سفته (API واقعی)",
+          "description": "صدور سفته با استفاده از API واقعی",
+          "icon": "{{appAssets.icons.wallet}}",
+          "widgetType": "promissory_real_intro",
+          "flowSteps": [
+            "promissory_real_intro"
+          ]
+        }
+      ],
       "completedItems": [
         {
           "title": "\u0627\u0633\u067e\u0644\u0634",
