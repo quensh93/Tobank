@@ -359,6 +359,18 @@ Dio setupStacMockDio() {
                 if (methodData.containsKey('data') &&
                     methodData['data'] is Map<String, dynamic>) {
                   widgetJson = methodData['data'] as Map<String, dynamic>;
+
+                  // Defensive check: If the extracted JSON has a 'data' key but no 'type',
+                  // it might be double-wrapped or mis-extracted. Unwrap it.
+                  if (widgetJson.containsKey('data') &&
+                      !widgetJson.containsKey('type') &&
+                      widgetJson['data'] is Map) {
+                    widgetJson = widgetJson['data'] as Map<String, dynamic>;
+                    AppLogger.w(
+                      '⚠️ Mock interceptor: Performed double unwrapping for $path',
+                    );
+                  }
+
                   AppLogger.d(
                     '   📦 Extracted widget JSON from API wrapper ($method.data)',
                   );
