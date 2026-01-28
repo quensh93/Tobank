@@ -1,141 +1,316 @@
 import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 
 /// Promissory Flow - Success Page
 ///
 /// This screen displays the successful promissory issuance result:
 /// 1. Success icon and message
-/// 2. Promissory details
-/// 3. Return to home button
+/// 2. Promissory ID
+/// 3. Transaction details (amount, type, time, payment method, tracking number)
+/// 4. PDF section with preview and share options
+/// 5. Return to home button
 ///
 /// Reference: docs/promissory_docs/promissory_transaction_detail_page.dart
 @StacScreen(screenName: 'promissory_success')
 StacWidget promissorySuccess() {
-  return StacScaffold(
-    appBar: StacAppBar(
-      title: StacText(
-        data: '{{appStrings.promissory.successTitle}}',
-        textDirection: StacTextDirection.rtl,
-        style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
-      ),
-      centerTitle: true,
-      automaticallyImplyLeading: false,
+  return StacStatefulWidget(
+    // Load transaction details on init
+    onInit: StacNetworkRequestAction(
+      url: 'https://api.tobank.com/promissory_finalize',
+      method: 'post',
+      results: [
+        {
+          'statusCode': 200,
+          'action': StacCustomSetValueAction(
+            values: [
+              {'key': 'promissoryId', 'value': '{{data.data.promissoryId}}'},
+              {'key': 'transactionAmount', 'value': '{{data.data.amount}}'},
+              {
+                'key': 'transactionType',
+                'value': '{{appStrings.promissory.promissory}}',
+              },
+              {
+                'key': 'transactionTime',
+                'value': '{{data.data.transactionTime}}',
+              },
+              {'key': 'paymentMethod', 'value': '{{form.payment_method}}'},
+              {
+                'key': 'trackingNumber',
+                'value': '{{data.data.trackingNumber}}',
+              },
+            ],
+          ).toJson(),
+        },
+      ],
     ),
-    body: StacColumn(
-      crossAxisAlignment: StacCrossAxisAlignment.stretch,
-      children: [
-        StacExpanded(
-          child: StacSingleChildScrollView(
-            padding: StacEdgeInsets.all(16),
-            child: StacColumn(
-              crossAxisAlignment: StacCrossAxisAlignment.center,
-              children: [
-                StacSizedBox(height: 24),
-                // Success Icon
-                StacContainer(
-                  width: 100,
-                  height: 100,
-                  decoration: StacBoxDecoration(
-                    color: '{{appColors.current.success.color}}20',
-                    borderRadius: StacBorderRadius.all(50),
+    child: StacScaffold(
+      appBar: StacAppBar(
+        title: StacText(
+          data: '{{appStrings.promissory.successTitle}}',
+          textDirection: StacTextDirection.rtl,
+          style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
+        ),
+        centerTitle: true,
+        automaticallyImplyLeading: false,
+      ),
+      body: StacColumn(
+        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+        textDirection: StacTextDirection.rtl,
+        children: [
+          StacExpanded(
+            child: StacSingleChildScrollView(
+              padding: StacEdgeInsets.all(16),
+              child: StacColumn(
+                crossAxisAlignment: StacCrossAxisAlignment.center,
+                textDirection: StacTextDirection.rtl,
+                children: [
+                  StacSizedBox(height: 24),
+                  // Success Icon
+                  StacContainer(
+                    width: 80,
+                    height: 80,
+                    decoration: StacBoxDecoration(
+                      color: '{{appColors.current.success.color}}20',
+                      borderRadius: StacBorderRadius.all(40),
+                    ),
+                    child: StacCenter(
+                      child: StacImage(
+                        src: 'assets/icons/ic_check_circle.svg',
+                        imageType: StacImageType.asset,
+                        width: 56,
+                        height: 56,
+                        color: '{{appColors.current.success.color}}',
+                      ),
+                    ),
                   ),
-                  child: StacCenter(
-                    child: StacImage(
-                      src: 'assets/icons/ic_check_circle.svg',
-                      imageType: StacImageType.asset,
-                      width: 60,
-                      height: 60,
+                  StacSizedBox(height: 16),
+
+                  // Success Message
+                  StacText(
+                    data: '{{appStrings.promissory.paymentSuccessful}}',
+                    textDirection: StacTextDirection.rtl,
+                    textAlign: StacTextAlign.center,
+                    style: StacCustomTextStyle(
+                      fontSize: 18,
+                      fontWeight: StacFontWeight.bold,
                       color: '{{appColors.current.success.color}}',
                     ),
                   ),
-                ),
-                StacSizedBox(height: 24),
-
-                // Success Message
-                StacText(
-                  data: '{{appStrings.promissory.successMessage}}',
-                  textDirection: StacTextDirection.rtl,
-                  textAlign: StacTextAlign.center,
-                  style: StacCustomTextStyle(
-                    fontSize: 20,
-                    fontWeight: StacFontWeight.bold,
-                    color: '{{appColors.current.text.title}}',
-                  ),
-                ),
-                StacSizedBox(height: 8),
-                StacText(
-                  data: '{{appStrings.promissory.successDescription}}',
-                  textDirection: StacTextDirection.rtl,
-                  textAlign: StacTextAlign.center,
-                  style: StacCustomTextStyle(
-                    fontSize: 14,
-                    color: '{{appColors.current.text.subtitle}}',
-                  ),
-                ),
-                StacSizedBox(height: 32),
-
-                // Details Card
-                StacContainer(
-                  width: 999999,
-                  decoration: StacBoxDecoration(
-                    color: '{{appColors.current.background.surfaceContainer}}',
-                    borderRadius: StacBorderRadius.all(12),
-                    border: StacBorder.all(
-                      color: '{{appColors.current.input.borderEnabled}}',
-                      width: 1,
+                  StacSizedBox(height: 8),
+                  StacText(
+                    data: '{{appStrings.promissory.successMessage}}',
+                    textDirection: StacTextDirection.rtl,
+                    textAlign: StacTextAlign.center,
+                    style: StacCustomTextStyle(
+                      fontSize: 14,
+                      fontWeight: StacFontWeight.w600,
+                      color: '{{appColors.current.text.subtitle}}',
                     ),
                   ),
-                  padding: StacEdgeInsets.all(16),
-                  child: StacColumn(
-                    children: [
-                      _buildDetailRow(
-                        '{{appStrings.promissory.amountLabel}}',
-                        '{{form.promissory_amount}} {{appStrings.common.rial}}',
+                  StacSizedBox(height: 8),
+                  // Promissory ID
+                  // StacText(
+                  //   data:
+                  //       '{{appStrings.promissory.promissoryIdLabel}}: {{promissoryId}}',
+                  //   textDirection: StacTextDirection.rtl,
+                  //   textAlign: StacTextAlign.center,
+                  //   style: StacCustomTextStyle(
+                  //     fontSize: 16,
+                  //     color: '{{appColors.current.text.title}}',
+                  //   ),
+                  // ),
+                  StacSizedBox(height: 24),
+
+                  // Transaction Details Card
+                  StacContainer(
+                    width: 999999,
+                    decoration: StacBoxDecoration(
+                      color:
+                          '{{appColors.current.background.surfaceContainer}}',
+                      borderRadius: StacBorderRadius.all(8),
+                      border: StacBorder.all(
+                        color: '{{appColors.current.input.borderEnabled}}',
+                        width: 1,
                       ),
-                      StacSizedBox(height: 12),
-                      _buildDetailRow(
-                        '{{appStrings.promissory.dueDateLabel}}',
-                        '{{form.promissory_due_date}}',
-                      ),
-                      StacSizedBox(height: 12),
-                      _buildDetailRow(
-                        '{{appStrings.promissory.status}}',
-                        '{{appStrings.promissory.statusIssued}}',
-                      ),
-                    ],
+                    ),
+                    padding: StacEdgeInsets.all(16),
+                    child: StacColumn(
+                      crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                      textDirection: StacTextDirection.rtl,
+                      children: [
+                        _buildDetailRow(
+                          '{{appStrings.promissory.paidAmount}}',
+                          '{{transactionAmount}} {{appStrings.common.rial}}',
+                        ),
+                        StacSizedBox(height: 16),
+                        _buildDivider(),
+                        StacSizedBox(height: 16),
+                        _buildDetailRow(
+                          '{{appStrings.promissory.transactionType}}',
+                          '{{transactionType}}',
+                        ),
+                        StacSizedBox(height: 16),
+                        _buildDivider(),
+                        StacSizedBox(height: 16),
+                        _buildDetailRow(
+                          '{{appStrings.promissory.transactionTime}}',
+                          '{{transactionTime}}',
+                        ),
+                        StacSizedBox(height: 16),
+                        _buildDivider(),
+                        StacSizedBox(height: 16),
+                        _buildDetailRow(
+                          '{{appStrings.promissory.paidVia}}',
+                          '{{paymentMethod}}',
+                        ),
+                        StacSizedBox(height: 16),
+                        _buildDivider(),
+                        StacSizedBox(height: 16),
+                        _buildDetailRow(
+                          '{{appStrings.promissory.trackingNumber}}',
+                          '{{trackingNumber}}',
+                        ),
+                      ],
+                    ),
                   ),
+                  StacSizedBox(height: 16),
+
+                  // PDF Section
+                  StacContainer(
+                    width: 999999,
+                    margin: StacEdgeInsets.symmetric(horizontal: 0),
+                    decoration: StacBoxDecoration(
+                      borderRadius: StacBorderRadius.all(8),
+                      border: StacBorder.all(
+                        color: '{{appColors.current.input.borderEnabled}}',
+                        width: 1,
+                      ),
+                    ),
+                    padding: StacEdgeInsets.all(16),
+                    child: StacColumn(
+                      crossAxisAlignment: StacCrossAxisAlignment.start,
+                      textDirection: StacTextDirection.rtl,
+                      children: [
+                        // PDF Header Row
+                        StacRow(
+                          textDirection: StacTextDirection.rtl,
+                          mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: StacCrossAxisAlignment.center,
+                          children: [
+                            StacRow(
+                              textDirection: StacTextDirection.rtl,
+                              children: [
+                                StacImage(
+                                  src: 'assets/icons/ic_pdf.svg',
+                                  imageType: StacImageType.asset,
+                                  width: 32,
+                                  height: 32,
+                                  color: '{{appColors.current.text.title}}',
+                                ),
+                                StacSizedBox(width: 8),
+                                StacText(
+                                  data: '{{appStrings.promissory.promissory}}',
+                                  textDirection: StacTextDirection.rtl,
+                                  style: StacCustomTextStyle(
+                                    fontSize: 16,
+                                    fontWeight: StacFontWeight.w600,
+                                    color: '{{appColors.current.text.title}}',
+                                  ),
+                                ),
+                              ],
+                            ),
+                            StacRow(
+                              textDirection: StacTextDirection.rtl,
+                              children: [
+                                // Preview Button
+                                StacGestureDetector(
+                                  onTap: StacRawJsonAction({
+                                    'actionType': 'log',
+                                    'message': 'Preview PDF',
+                                  }),
+                                  child: StacPadding(
+                                    padding: StacEdgeInsets.all(8),
+                                    child: StacImage(
+                                      src: 'assets/icons/ic_eye.svg',
+                                      imageType: StacImageType.asset,
+                                      width: 24,
+                                      height: 24,
+                                      color: '{{appColors.current.text.title}}',
+                                    ),
+                                  ),
+                                ),
+                                StacSizedBox(width: 8),
+                                // Share Button
+                                StacGestureDetector(
+                                  onTap: StacRawJsonAction({
+                                    'actionType': 'log',
+                                    'message': 'Share PDF',
+                                  }),
+                                  child: StacPadding(
+                                    padding: StacEdgeInsets.all(8),
+                                    child: StacImage(
+                                      src: 'assets/icons/ic_share.svg',
+                                      imageType: StacImageType.asset,
+                                      width: 24,
+                                      height: 24,
+                                      color: '{{appColors.current.text.title}}',
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        StacSizedBox(height: 8),
+                        _buildDivider(),
+                        StacSizedBox(height: 8),
+                        StacText(
+                          data: '{{appStrings.promissory.downloadMessage}}',
+                          textDirection: StacTextDirection.rtl,
+                          style: StacCustomTextStyle(
+                            fontSize: 14,
+                            fontWeight: StacFontWeight.w500,
+                            color: '{{appColors.current.text.subtitle}}',
+                            height: 1.6,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          // Return to Home Button
+          StacPadding(
+            padding: StacEdgeInsets.all(16),
+            child: StacFilledButton(
+              style: StacButtonStyle(
+                backgroundColor: '{{appColors.current.primary.color}}',
+                elevation: 0,
+                fixedSize: StacSize(999999, 56),
+                shape: StacRoundedRectangleBorder(
+                  borderRadius: StacBorderRadius.all(12),
                 ),
-              ],
-            ),
-          ),
-        ),
-        // Return to Home Button
-        StacPadding(
-          padding: StacEdgeInsets.all(16),
-          child: StacFilledButton(
-            style: StacButtonStyle(
-              backgroundColor: '{{appColors.current.primary.color}}',
-              elevation: 0,
-              fixedSize: StacSize(999999, 56),
-              shape: StacRoundedRectangleBorder(
-                borderRadius: StacBorderRadius.all(12),
               ),
-            ),
-            onPressed: StacRawJsonAction({
-              'actionType': 'navigate',
-              'widgetType': 'tobank_menu_dart',
-              'navigationStyle': 'pushAndRemoveUntil',
-            }),
-            child: StacText(
-              data: '{{appStrings.promissory.returnToHome}}',
-              style: StacCustomTextStyle(
-                fontSize: 18,
-                fontWeight: StacFontWeight.bold,
-                color: '{{appColors.current.primary.onPrimary}}',
+              onPressed: StacRawJsonAction({
+                'actionType': 'navigate',
+                'navigationStyle': 'popToRoot',
+              }),
+              child: StacText(
+                data: '{{appStrings.promissory.myPromissoryNotes}}',
+                textDirection: StacTextDirection.rtl,
+                style: StacCustomTextStyle(
+                  fontSize: 18,
+                  fontWeight: StacFontWeight.bold,
+                  color: '{{appColors.current.primary.onPrimary}}',
+                ),
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     ),
   );
 }
@@ -145,25 +320,40 @@ StacWidget _buildDetailRow(String label, String value) {
   return StacRow(
     textDirection: StacTextDirection.rtl,
     mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+    crossAxisAlignment: StacCrossAxisAlignment.start,
     children: [
-      StacText(
-        data: label,
-        textDirection: StacTextDirection.rtl,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          color: '{{appColors.current.text.subtitle}}',
+      StacExpanded(
+        child: StacText(
+          data: label,
+          textDirection: StacTextDirection.rtl,
+          style: StacCustomTextStyle(
+            fontSize: 14,
+            color: '{{appColors.current.text.subtitle}}',
+          ),
         ),
       ),
-      StacText(
-        data: value,
-        textDirection: StacTextDirection.ltr,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          fontWeight: StacFontWeight.w600,
-          color: '{{appColors.current.text.title}}',
+      StacSizedBox(width: 16),
+      StacExpanded(
+        child: StacText(
+          data: value,
+          textDirection: StacTextDirection.ltr,
+          textAlign: StacTextAlign.left,
+          style: StacCustomTextStyle(
+            fontSize: 14,
+            fontWeight: StacFontWeight.w600,
+            color: '{{appColors.current.text.title}}',
+          ),
         ),
       ),
     ],
+  );
+}
+
+/// Helper: Divider
+StacWidget _buildDivider() {
+  return StacContainer(
+    height: 1,
+    color: '{{appColors.current.input.borderEnabled}}',
   );
 }
 

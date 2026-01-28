@@ -199,7 +199,7 @@
         "payAndSign": "پرداخت و امضای سفته",
         "paymentError": "خطا در پرداخت هزینه سفته",
         "successTitle": "صدور سفته",
-        "successMessage": "سفته با موفقیت صادر شد!",
+        "successMessage": "سفته با موفقیت صادر شد",
         "successDescription": "سفته الکترونیکی با موفقیت صادر و ثبت گردید.",
         "promissoryId": "شناسه سفته",
         "issuer": "صادرکننده",
@@ -208,7 +208,15 @@
         "statusIssued": "صادر شده",
         "downloadPdf": "دانلود فایل PDF",
         "pdfDownloaded": "فایل PDF با موفقیت دانلود شد.",
-        "returnToHome": "بازگشت به صفحه اصلی"
+        "returnToHome": "بازگشت به صفحه اصلی",
+        "paymentSuccessful" : "پرداخت موفق",
+        "paidAmount" : "مبلغ پرداختی",
+        "transactionType" : "نوع تراکنش",
+        "transactionTime" : "زمان تراکنش",
+        "paidVia" : "پرداخت از طریق",
+        "promissory" : "سفته",
+        "downloadMessage" : "کاربر گرامی سفته شما در بخش سفته‌های من نیز قابل دانلود است",
+        "trackingNumber" : "شماره پیگیری"
       }
     }
   }
