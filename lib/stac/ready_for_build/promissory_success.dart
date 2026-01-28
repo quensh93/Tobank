@@ -28,7 +28,7 @@ StacWidget promissorySuccess() {
               {'key': 'transactionAmount', 'value': '{{data.data.amount}}'},
               {
                 'key': 'transactionType',
-                'value': '{{appStrings.promissory.transactionType}}',
+                'value': '{{appStrings.promissory.promissory}}',
               },
               {
                 'key': 'transactionTime',

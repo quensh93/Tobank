@@ -38,21 +38,58 @@ StacWidget promissoryConfirm() {
             child: StacColumn(
               crossAxisAlignment: StacCrossAxisAlignment.stretch,
               children: [
+                // Promissory Details Section
+                _buildSummaryCard(
+                  title: '{{appStrings.promissory.detailsTitle}}',
+                  items: [
+                    _buildSummaryItem(
+                      '{{appStrings.promissory.amountLabel}}',
+                      '{{form.promissory_amount}} {{appStrings.common.rial}}',
+                    ),
+                    StacSizedBox(height: 4),
+                    _buildSummaryItem(
+                      '{{appStrings.promissory.payDate}}',
+                      '{{form.promissory_due_date}}',
+                    ),
+                    StacSizedBox(height: 4),
+
+                    _buildTitleWithValue(
+                      '{{appStrings.promissory.descriptionLabel}}',
+                      '{{form.description}}',
+                    ),
+                    StacSizedBox(height: 4),
+
+                    _buildTitleWithValue(
+                      '{{appStrings.promissory.paymentPlaceLabel}}',
+                      '{{form.promissory_payment_place}}',
+                    ),
+                  ],
+                ),
+
+                StacSizedBox(height: 16),
+
                 // Issuer Section
                 _buildSummaryCard(
                   title: '{{appStrings.promissory.issuerInfoTitle}}',
                   items: [
-                    _buildSummaryItem(
-                      '{{appStrings.promissory.fullName}}',
-                      '{{userData.fullName}}',
-                    ),
+
                     _buildSummaryItem(
                       '{{appStrings.promissory.nationalCode}}',
                       '{{userData.nationalCode}}',
                     ),
                     _buildSummaryItem(
-                      '{{appStrings.promissory.depositShaba}}',
-                      '{{selectedDeposit.depositIban}}',
+                      '{{appStrings.promissory.fullName}}',
+                      '{{userData.fullName}}',
+                    ),
+                    _buildSummaryItem(
+                      '{{appStrings.promissory.issuerPhoneNumber}}',
+                      '{{userData.issuerPhoneNumber}}',
+                    ),
+                    StacSizedBox(height: 4),
+
+                    _buildTitleWithValue(
+                      '{{appStrings.promissory.addressResidence}}',
+                      '{{form.addressResidence}}',
                     ),
                   ],
                 ),
@@ -70,28 +107,15 @@ StacWidget promissoryConfirm() {
                       '{{appStrings.promissory.mobileNumber}}',
                       '{{form.receiver_mobile}}',
                     ),
+                    _buildSummaryItem(
+                      '{{appStrings.promissory.fullName}}',
+                      '{{userData.fullName}}',
+                    ),
                   ],
                 ),
-                StacSizedBox(height: 16),
 
-                // Promissory Details Section
-                _buildSummaryCard(
-                  title: '{{appStrings.promissory.detailsTitle}}',
-                  items: [
-                    _buildSummaryItem(
-                      '{{appStrings.promissory.amountLabel}}',
-                      '{{form.promissory_amount}} {{appStrings.common.rial}}',
-                    ),
-                    _buildSummaryItem(
-                      '{{appStrings.promissory.dueDateLabel}}',
-                      '{{form.promissory_due_date}}',
-                    ),
-                    _buildSummaryItem(
-                      '{{appStrings.promissory.paymentPlaceLabel}}',
-                      '{{form.promissory_payment_place}}',
-                    ),
-                  ],
-                ),
+
+
               ],
             ),
           ),
@@ -155,7 +179,14 @@ StacWidget _buildSummaryCard({
             color: '{{appColors.current.text.title}}',
           ),
         ),
-        StacSizedBox(height: 12),
+        StacSizedBox(height: 8),
+        StacContainer(
+          height: 1,
+          decoration: StacBoxDecoration(
+            color: '{{appColors.current.input.borderEnabled}}',
+          ),
+        ),
+        StacSizedBox(height: 8),
         ...items,
       ],
     ),
@@ -189,6 +220,33 @@ StacWidget _buildSummaryItem(String label, String value) {
         ),
       ],
     ),
+  );
+}
+
+/// Helper: Title with value stacked vertically
+StacWidget _buildTitleWithValue(String title, String value) {
+  return StacColumn(
+    crossAxisAlignment: StacCrossAxisAlignment.end,
+    children: [
+      StacText(
+        data: title,
+        textDirection: StacTextDirection.rtl,
+        style: StacCustomTextStyle(
+          fontSize: 14,
+          color: '{{appColors.current.text.subtitle}}',
+        ),
+      ),
+      StacSizedBox(height: 5),
+      StacText(
+        data: value,
+        textDirection: StacTextDirection.rtl,
+        style: StacCustomTextStyle(
+          fontSize: 15,
+          fontWeight: StacFontWeight.w600,
+          color: '{{appColors.current.text.title}}',
+        ),
+      ),
+    ],
   );
 }
 

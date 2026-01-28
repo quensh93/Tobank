@@ -45,42 +45,102 @@ StacWidget promissoryPayment() {
               child: StacColumn(
                 crossAxisAlignment: StacCrossAxisAlignment.stretch,
                 children: [
-                  // Amount to pay card
+                  // Issuance summary and payable amount
+                  StacColumn(
+                    children: [
+                      StacContainer(
+                        decoration: StacBoxDecoration(
+                          color: '{{appColors.current.background.surfaceContainer}}',
+                          borderRadius: StacBorderRadius.all(40),
+                          border: StacBorder.all(
+                            color: '{{appColors.current.input.borderEnabled}}',
+                            width: 0.5,
+                          ),
+                        ),
+                        padding: StacEdgeInsets.all(12),
+                        child: StacImage(
+                          src: 'assets/icons/ic_promissory_request.svg',
+                          imageType: StacImageType.asset,
+                          width: 40,
+                          height: 40,
+                          color: '{{appColors.current.primary.color}}',
+                        ),
+                      ),
+                      StacSizedBox(height: 16),
+                      StacText(
+                        data: '{{appStrings.promissory.issuanceTitle}}',
+                        textDirection: StacTextDirection.rtl,
+                        style: StacCustomTextStyle(
+                          fontSize: 14,
+                          fontWeight: StacFontWeight.w600,
+                          color: '{{appColors.current.text.title}}',
+                        ),
+                      ),
+                      StacSizedBox(height: 16),
+                      StacRow(
+                        textDirection: StacTextDirection.rtl,
+                        mainAxisAlignment: StacMainAxisAlignment.spaceAround,
+                        children: [
+                          StacText(
+                            data: '{{appStrings.promissory.payableAmount}}',
+                            textDirection: StacTextDirection.rtl,
+                            style: StacCustomTextStyle(
+                              fontSize: 14,
+                              fontWeight: StacFontWeight.w500,
+                              color: '{{appColors.current.text.title}}',
+                            ),
+                          ),
+                          StacRow(
+                            textDirection: StacTextDirection.ltr,
+                            children: [
+                              StacText(
+                                data: '{{appData.totalAmount}}',
+                                style: StacCustomTextStyle(
+                                  fontSize: 16,
+                                  fontWeight: StacFontWeight.w900,
+                                  color: '{{appColors.current.text.title}}',
+                                ),
+                              ),
+                              StacSizedBox(width: 4),
+                              StacText(
+                                data: '{{appStrings.common.rial}}',
+                                textDirection: StacTextDirection.rtl,
+                                style: StacCustomTextStyle(
+                                  fontSize: 16,
+                                  color: '{{appColors.current.text.title}}',
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  StacSizedBox(height: 16),
+                  // Fee breakdown card
                   StacContainer(
                     padding: StacEdgeInsets.all(16),
                     decoration: StacBoxDecoration(
-                      color: '{{appColors.current.primary.color}}10',
-                      borderRadius: StacBorderRadius.all(12),
+                      color: '{{appColors.current.background.surfaceContainer}}',
+                      borderRadius: StacBorderRadius.all(8),
+                      border: StacBorder.all(
+                        color: '{{appColors.current.input.borderEnabled}}',
+                        width: 0.5,
+                      ),
                     ),
                     child: StacColumn(
                       children: [
-                        StacText(
-                          data: '{{appStrings.promissory.payableAmount}}',
-                          textDirection: StacTextDirection.rtl,
-                          style: StacCustomTextStyle(
-                            fontSize: 14,
-                            color: '{{appColors.current.text.subtitle}}',
-                          ),
-                        ),
-                        StacSizedBox(height: 8),
-                        StacText(
-                          data:
-                              '{{form.promissory_amount}} {{appStrings.common.rial}}',
-                          textDirection: StacTextDirection.ltr,
-                          style: StacCustomTextStyle(
-                            fontSize: 24,
-                            fontWeight: StacFontWeight.bold,
-                            color: '{{appColors.current.primary.color}}',
-                          ),
-                        ),
+                        _buildKVRow('{{appStrings.promissory.stampDuty}}', '{{appData.taxAmount}} {{appStrings.common.rial}}'),
+                        StacSizedBox(height: 16),
+                        _buildKVRow('{{appStrings.promissory.issuanceFee}}', '{{appData.feeAmount}} {{appStrings.common.rial}}'),
                       ],
                     ),
                   ),
-                  StacSizedBox(height: 24),
+                  StacSizedBox(height: 16),
 
                   // Payment Methods Title
                   StacText(
-                    data: '{{appStrings.promissory.selectPaymentMethod}}',
+                    data: '{{appStrings.promissory.paymentMethod}}',
                     textDirection: StacTextDirection.rtl,
                     style: StacCustomTextStyle(
                       fontSize: 16,
@@ -109,13 +169,7 @@ StacWidget promissoryPayment() {
                   ),
                   StacSizedBox(height: 12),
 
-                  // Gateway Payment Option
-                  _buildPaymentOption(
-                    id: 'gateway',
-                    icon: 'assets/icons/ic_card.svg',
-                    title: '{{appStrings.promissory.gatewayPayment}}',
-                    subtitle: '{{appStrings.promissory.gatewayPaymentDesc}}',
-                  ),
+                  // Navigate to deposit selection when tapping deposit option
                 ],
               ),
             ),
@@ -133,9 +187,42 @@ StacWidget promissoryPayment() {
                 ),
               ),
               onPressed: StacRawJsonAction({
-                'actionType': 'navigate',
-                'widgetType': 'promissory_success',
-                'navigationStyle': 'pushReplacement',
+                'actionType': 'dialog',
+                'widget': {
+                  'type': 'alertDialog',
+                  'title': {
+                    'type': 'text',
+                    'data': '{{appStrings.promissory.payConfirmTitle}}',
+                    'textDirection': 'rtl'
+                  },
+                  'content': {
+                    'type': 'text',
+                    'data': '{{appStrings.promissory.payConfirmMessage}}',
+                    'textDirection': 'rtl'
+                  },
+                  'actions': [
+                    {
+                      'type': 'textButton',
+                      'onPressed': {'actionType': 'closeDialog'},
+                      'child': {'type': 'text', 'data': '{{appStrings.common.cancel}}', 'textDirection': 'rtl'}
+                    },
+                    {
+                      'type': 'textButton',
+                      'onPressed': {
+                        'actionType': 'sequence',
+                        'actions': [
+                          {'actionType': 'closeDialog'},
+                          {
+                            'actionType': 'navigate',
+                            'widgetType': 'promissory_success',
+                            'navigationStyle': 'pushReplacement'
+                          }
+                        ]
+                      },
+                      'child': {'type': 'text', 'data': '{{appStrings.common.confirm}}', 'textDirection': 'rtl'}
+                    }
+                  ]
+                }
               }),
               child: StacText(
                 data: '{{appStrings.promissory.payAndSign}}',
@@ -153,6 +240,33 @@ StacWidget promissoryPayment() {
   );
 }
 
+/// Helper: KV row (rtl label, ltr value)
+StacWidget _buildKVRow(String label, String value) {
+  return StacRow(
+    textDirection: StacTextDirection.rtl,
+    mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+    children: [
+      StacText(
+        data: label,
+        textDirection: StacTextDirection.rtl,
+        style: StacCustomTextStyle(
+          fontSize: 14,
+          color: '{{appColors.current.text.subtitle}}',
+        ),
+      ),
+      StacText(
+        data: value,
+        textDirection: StacTextDirection.ltr,
+        style: StacCustomTextStyle(
+          fontSize: 14,
+          fontWeight: StacFontWeight.w600,
+          color: '{{appColors.current.text.title}}',
+        ),
+      ),
+    ],
+  );
+}
+
 /// Helper: Payment option card
 StacWidget _buildPaymentOption({
   required String id,
@@ -161,11 +275,16 @@ StacWidget _buildPaymentOption({
   required String subtitle,
 }) {
   return StacGestureDetector(
-    onTap: StacRawJsonAction({
-      'actionType': 'setValue',
-      'key': 'selectedPaymentMethod',
-      'value': id,
-    }),
+    onTap: id == 'deposit'
+        ? StacSequenceAction(actions: [
+            StacCustomSetValueAction(key: 'selectedPaymentMethod', value: id),
+            {
+              'actionType': 'navigate',
+              'widgetType': 'promissory_deposit_select',
+              'navigationStyle': 'push'
+            }
+          ])
+        : StacCustomSetValueAction(key: 'selectedPaymentMethod', value: id),
     child: StacContainer(
       padding: StacEdgeInsets.all(16),
       decoration: StacBoxDecoration(
@@ -217,6 +336,65 @@ StacWidget _buildPaymentOption({
         ],
       ),
     ),
+  );
+}
+
+/// Helper: Deposit item styled like screenshot
+StacWidget _buildDepositItem({
+  required String title,
+  required String depositNumber,
+  required String iban,
+  required String balance,
+  required String cardNumber,
+  required bool selected,
+}) {
+  return StacColumn(
+    crossAxisAlignment: StacCrossAxisAlignment.stretch,
+    children: [
+      StacRow(
+        textDirection: StacTextDirection.rtl,
+        children: [
+          StacExpanded(
+            child: StacText(
+              data: title,
+              textDirection: StacTextDirection.rtl,
+              style: StacCustomTextStyle(
+                fontSize: 14,
+                fontWeight: StacFontWeight.w600,
+                color: '{{appColors.current.text.title}}',
+              ),
+            ),
+          ),
+          StacContainer(
+            width: 18,
+            height: 18,
+            decoration: StacBoxDecoration(
+              borderRadius: StacBorderRadius.all(18),
+              border: StacBorder.all(
+                color: '{{appColors.current.input.borderEnabled}}',
+                width: 1,
+              ),
+              color: selected ? '{{appColors.current.primary.color}}' : 'transparent',
+            ),
+          ),
+        ],
+      ),
+      StacSizedBox(height: 12),
+      StacContainer(
+        height: 1,
+        decoration: StacBoxDecoration(
+          color: '{{appColors.current.input.borderEnabled}}',
+        ),
+      ),
+      StacSizedBox(height: 12),
+      _buildKVRow('شماره سپرده', depositNumber),
+      StacSizedBox(height: 12),
+      _buildKVRow('شماره شبا', iban),
+      StacSizedBox(height: 12),
+      _buildKVRow('موجودی', balance),
+      StacSizedBox(height: 12),
+      _buildKVRow('شماره کارت', cardNumber),
+    ],
   );
 }
 
