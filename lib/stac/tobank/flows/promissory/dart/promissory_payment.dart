@@ -1,6 +1,7 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
+import 'package:tobank_sdui/core/stac/parsers/actions/close_dialog_action_parser.dart';
 
 /// Promissory Flow - Payment Method Page
 ///
@@ -13,10 +14,10 @@ import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 @StacScreen(screenName: 'promissory_payment')
 StacWidget promissoryPayment() {
   return StacStatefulWidget(
-    onInit: StacCustomSetValueAction(
-      key: 'selectedPaymentMethod',
-      value: 'wallet',
-    ),
+    onInit: StacSequenceAction(actions: [
+      StacCustomSetValueAction(key: 'selectedPaymentMethod', value: ''),
+      StacCustomSetValueAction(key: 'isPayEnabled', value: false),
+    ]),
     child: StacScaffold(
       appBar: StacAppBar(
         title: StacText(
@@ -177,62 +178,63 @@ StacWidget promissoryPayment() {
           // Pay Button
           StacPadding(
             padding: StacEdgeInsets.all(16),
-            child: StacFilledButton(
-              style: StacButtonStyle(
+            child: StacRawJsonWidget({
+              'type': 'reactiveElevatedButton',
+              'enabledKey': 'isPayEnabled',
+              'enabled': false,
+              'onPressed': StacDialogAction(
+                widget: StacAlertDialog(
+                  title: StacText(
+                    data: '{{appStrings.promissory.payConfirmTitle}}',
+                    textDirection: StacTextDirection.rtl,
+                  ),
+                  content: StacText(
+                    data: '{{appStrings.promissory.payConfirmMessage}}',
+                    textDirection: StacTextDirection.rtl,
+                  ),
+                  actions: [
+                    StacTextButton(
+                      onPressed: StacCloseDialogAction(),
+                      child: StacText(
+                        data: '{{appStrings.common.cancel}}',
+                        textDirection: StacTextDirection.rtl,
+                      ),
+                    ),
+                    StacTextButton(
+                      onPressed: StacSequenceAction(actions: [
+                        StacCloseDialogAction(),
+                        {
+                          'actionType': 'navigate',
+                          'widgetType': 'promissory_success',
+                          'navigationStyle': 'pushReplacement',
+                        }
+                      ]),
+                      child: StacText(
+                        data: '{{appStrings.common.confirm}}',
+                        textDirection: StacTextDirection.rtl,
+                      ),
+                    ),
+                  ],
+                ).toJson(),
+              ).toJson(),
+              'style': StacButtonStyle(
                 backgroundColor: '{{appColors.current.primary.color}}',
                 elevation: 0,
                 fixedSize: StacSize(999999, 56),
                 shape: StacRoundedRectangleBorder(
                   borderRadius: StacBorderRadius.all(12),
                 ),
-              ),
-              onPressed: StacRawJsonAction({
-                'actionType': 'dialog',
-                'widget': {
-                  'type': 'alertDialog',
-                  'title': {
-                    'type': 'text',
-                    'data': '{{appStrings.promissory.payConfirmTitle}}',
-                    'textDirection': 'rtl'
-                  },
-                  'content': {
-                    'type': 'text',
-                    'data': '{{appStrings.promissory.payConfirmMessage}}',
-                    'textDirection': 'rtl'
-                  },
-                  'actions': [
-                    {
-                      'type': 'textButton',
-                      'onPressed': {'actionType': 'closeDialog'},
-                      'child': {'type': 'text', 'data': '{{appStrings.common.cancel}}', 'textDirection': 'rtl'}
-                    },
-                    {
-                      'type': 'textButton',
-                      'onPressed': {
-                        'actionType': 'sequence',
-                        'actions': [
-                          {'actionType': 'closeDialog'},
-                          {
-                            'actionType': 'navigate',
-                            'widgetType': 'promissory_success',
-                            'navigationStyle': 'pushReplacement'
-                          }
-                        ]
-                      },
-                      'child': {'type': 'text', 'data': '{{appStrings.common.confirm}}', 'textDirection': 'rtl'}
-                    }
-                  ]
-                }
-              }),
-              child: StacText(
+              ).toJson(),
+              'child': StacText(
                 data: '{{appStrings.promissory.payAndSign}}',
+                textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 18,
                   fontWeight: StacFontWeight.bold,
                   color: '{{appColors.current.primary.onPrimary}}',
                 ),
-              ),
-            ),
+              ).toJson(),
+            }),
           ),
         ],
       ),
@@ -278,13 +280,27 @@ StacWidget _buildPaymentOption({
     onTap: id == 'deposit'
         ? StacSequenceAction(actions: [
             StacCustomSetValueAction(key: 'selectedPaymentMethod', value: id),
+            StacValidateFieldsAction(
+              resultKey: 'isPayEnabled',
+              fields: [
+                {'id': 'selectedPaymentMethod', 'rule': r'.+'},
+              ],
+            ),
             {
               'actionType': 'navigate',
               'widgetType': 'promissory_deposit_select',
               'navigationStyle': 'push'
             }
           ])
-        : StacCustomSetValueAction(key: 'selectedPaymentMethod', value: id),
+        : StacSequenceAction(actions: [
+            StacCustomSetValueAction(key: 'selectedPaymentMethod', value: id),
+            StacValidateFieldsAction(
+              resultKey: 'isPayEnabled',
+              fields: [
+                {'id': 'selectedPaymentMethod', 'rule': r'.+'},
+              ],
+            ),
+          ]),
     child: StacContainer(
       padding: StacEdgeInsets.all(16),
       decoration: StacBoxDecoration(
@@ -408,6 +424,18 @@ class StacAliasTextStyle implements StacTextStyle {
   Map<String, dynamic> toJson() => {'type': 'alias', 'value': alias};
 }
 
+/// Raw JSON widget helper for complex widgets
+class StacRawJsonWidget implements StacWidget {
+  final Map<String, dynamic> json;
+  StacRawJsonWidget(this.json);
+  @override
+  Map<String, dynamic> get jsonData => json;
+  @override
+  Map<String, dynamic> toJson() => json;
+  @override
+  String get type => json['type'] as String;
+  String? get id => json['id'] as String?;
+}
 /// Raw JSON action helper for simple actions
 class StacRawJsonAction extends StacAction {
   final Map<String, dynamic> json;
