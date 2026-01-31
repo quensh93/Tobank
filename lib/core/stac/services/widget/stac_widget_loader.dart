@@ -138,7 +138,6 @@ class StacWidgetLoader {
         .toJson(),
     'promissory_real_login_form': () => {'type': 'promissory_real_login_form'},
     'promissory_real_deposits': () => {'type': 'promissory_real_deposits'},
-    'request_promissory_deposit': () => {'type': 'promissory_real_deposits'},
   };
 
   /// Registers a widget loader for a specific widget type.

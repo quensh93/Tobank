@@ -300,7 +300,7 @@ StacWidget _buildPaymentOption({
               StacCustomSetValueAction(key: 'isPayEnabled', value: true),
               {
                 'actionType': 'navigate',
-                'widgetType': 'promissory_deposit_select',
+                'widgetType': 'request_promissory_deposit',
                 'navigationStyle': 'push',
               },
             ],
