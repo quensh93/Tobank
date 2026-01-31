@@ -181,11 +181,41 @@ class CustomSetValueActionParser
     // Handle negation: "!variableName"
     if (expr.startsWith('!')) {
       final varName = expr.substring(1).trim();
-      final value = StacRegistry.instance.getValue(varName);
+      final value = _getNestedValue(varName);
       return !_toBool(value);
     }
 
-    return StacRegistry.instance.getValue(expr);
+    // Handle nested paths like "data.data.nationalCode"
+    return _getNestedValue(expr);
+  }
+
+  /// Gets a value from registry, supporting nested paths like "data.data.nationalCode"
+  dynamic _getNestedValue(String path) {
+    final parts = path.split('.');
+    if (parts.isEmpty) return null;
+
+    // Get the root value from registry
+    dynamic value = StacRegistry.instance.getValue(parts[0]);
+    if (value == null) return null;
+
+    // Navigate through nested structure
+    for (int i = 1; i < parts.length; i++) {
+      if (value is Map) {
+        value = value[parts[i]];
+      } else if (value is List && int.tryParse(parts[i]) != null) {
+        final index = int.parse(parts[i]);
+        if (index >= 0 && index < value.length) {
+          value = value[index];
+        } else {
+          return null;
+        }
+      } else {
+        return null;
+      }
+      if (value == null) return null;
+    }
+
+    return value;
   }
 
   /// Evaluates a condition expression and returns a boolean

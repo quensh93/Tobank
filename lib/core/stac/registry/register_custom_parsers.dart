@@ -19,6 +19,7 @@ import '../parsers/actions/flow_next_action_parser.dart';
 import '../parsers/actions/validate_fields_action_parser.dart';
 import '../parsers/actions/custom_set_value_action_parser.dart';
 import '../parsers/actions/custom_navigate_action_parser.dart';
+import '../parsers/actions/custom_network_request_action_parser.dart';
 import '../parsers/actions/file_picker_action_parser.dart';
 import '../parsers/widgets/custom_text_form_field_parser.dart';
 import '../parsers/widgets/promissory_real_loader_parser.dart';
@@ -205,6 +206,33 @@ Future<void> registerCustomParsers() async {
       AppLogger.ec(
         LogCategory.registry,
         '❌ Failed to register custom setValue action parser: $e\n$stackTrace',
+      );
+    }
+
+    // Register custom networkRequest action parser to override the default networkRequest parser
+    // This stores response data in registry so {{data.data.*}} variables can be resolved
+    try {
+      const customNetworkRequestParser = CustomNetworkRequestActionParser();
+      final success = stacRegistry.registerAction(
+        customNetworkRequestParser,
+        true,
+      ); // override: true
+      if (success) {
+        actionCount++;
+        AppLogger.ic(
+          LogCategory.registry,
+          '✅ Registered custom networkRequest action parser (overriding default)',
+        );
+      } else {
+        AppLogger.wc(
+          LogCategory.registry,
+          '⚠️ Failed to register custom networkRequest action parser',
+        );
+      }
+    } catch (e, stackTrace) {
+      AppLogger.ec(
+        LogCategory.registry,
+        '❌ Failed to register custom networkRequest action parser: $e\n$stackTrace',
       );
     }
 

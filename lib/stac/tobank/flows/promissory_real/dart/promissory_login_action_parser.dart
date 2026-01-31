@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
+import 'package:tobank_sdui/core/api/auth/auth_manager.dart';
 import 'package:tobank_sdui/core/helpers/logger.dart';
 import 'promissory_real_auth_service.dart';
 
@@ -40,7 +41,32 @@ class PromissoryLoginActionParser
       "cif": "123",
     };
 
-    await service.login(context, staticData);
+    final loginSuccess = await service.login(context, staticData);
+
+    // After successful login, save national code and access token to STAC registry
+    // so they can be used in networkRequest actions
+    if (loginSuccess) {
+      final authManager = AuthManager();
+      await authManager.initialize();
+      
+      final nationalCode = await authManager.getNationalCode();
+      if (nationalCode != null && nationalCode.isNotEmpty) {
+        StacRegistry.instance.setValue('userData.nationalCode', nationalCode);
+        AppLogger.ic(
+          LogCategory.registry,
+          'National code saved to STAC registry: $nationalCode',
+        );
+      }
+
+      final accessToken = await authManager.getAccessToken();
+      if (accessToken != null && accessToken.isNotEmpty) {
+        StacRegistry.instance.setValue('auth.accessToken', accessToken);
+        AppLogger.ic(
+          LogCategory.registry,
+          'Access token saved to STAC registry',
+        );
+      }
+    }
 
     return null;
   }

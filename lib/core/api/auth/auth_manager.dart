@@ -18,6 +18,9 @@ class AuthManager {
   /// Token expiry timestamp key in secure storage
   static const String _tokenExpiryKey = 'stac_token_expiry';
 
+  /// National code key in secure storage
+  static const String _nationalCodeKey = 'stac_national_code';
+
   /// Cached access token (in memory for performance)
   String? _cachedAccessToken;
 
@@ -26,6 +29,9 @@ class AuthManager {
 
   /// Token expiry timestamp
   DateTime? _tokenExpiry;
+
+  /// Cached national code
+  String? _cachedNationalCode;
 
   /// Token refresh callback
   /// Should return a new access token and optionally a new refresh token
@@ -45,6 +51,7 @@ class AuthManager {
   Future<void> initialize() async {
     _cachedAccessToken = await _storage.read(key: _accessTokenKey);
     _cachedRefreshToken = await _storage.read(key: _refreshTokenKey);
+    _cachedNationalCode = await _storage.read(key: _nationalCodeKey);
 
     final expiryString = await _storage.read(key: _tokenExpiryKey);
     if (expiryString != null) {
@@ -72,6 +79,21 @@ class AuthManager {
   /// Get the current refresh token
   Future<String?> getRefreshToken() async {
     return _cachedRefreshToken;
+  }
+
+  /// Get the current national code
+  Future<String?> getNationalCode() async {
+    if (_cachedNationalCode != null) {
+      return _cachedNationalCode;
+    }
+    _cachedNationalCode = await _storage.read(key: _nationalCodeKey);
+    return _cachedNationalCode;
+  }
+
+  /// Save national code
+  Future<void> saveNationalCode(String nationalCode) async {
+    _cachedNationalCode = nationalCode;
+    await _storage.write(key: _nationalCodeKey, value: nationalCode);
   }
 
   /// Check if user is authenticated
@@ -111,10 +133,12 @@ class AuthManager {
     _cachedAccessToken = null;
     _cachedRefreshToken = null;
     _tokenExpiry = null;
+    _cachedNationalCode = null;
 
     await _storage.delete(key: _accessTokenKey);
     await _storage.delete(key: _refreshTokenKey);
     await _storage.delete(key: _tokenExpiryKey);
+    await _storage.delete(key: _nationalCodeKey);
   }
 
   /// Refresh the access token using the refresh token

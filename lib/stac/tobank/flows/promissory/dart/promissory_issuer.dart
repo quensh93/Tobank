@@ -1,15 +1,64 @@
 import 'package:stac_core/stac_core.dart';
+import '../../../../../core/stac/builders/stac_stateful_widget.dart';
+import '../../../../../core/stac/builders/stac_custom_actions.dart';
 
 /// Promissory Flow - Issuer Information Page
 ///
 /// This screen displays the issuer (صادرکننده) information.
-/// Data is loaded from state and displayed in read-only format:
+/// Data is loaded from API when screen loads, then displayed in read-only format:
 /// 1. Issuer Information Card (national code, mobile, name, IBAN)
 /// 2. Residence Information Card (postal code, address)
 ///
 /// Reference: docs/promissory_docs/request_promissory_issuer_page.dart
 @StacScreen(screenName: 'promissory_issuer')
 StacWidget promissoryIssuer() {
+  return StacStatefulWidget(
+    // Fetch customer info when screen loads using standard networkRequest action
+    // Note: userData.nationalCode and auth.accessToken should be in registry from login
+    onInit: StacNetworkRequestAction(
+      url: 'http://192.168.107.22:8280/api/digitalbanking/customers/v1.0/info/{{userData.nationalCode}}',
+      method: 'get',
+      headers: {
+        'accept': '*/*',
+        'app-platform': 'android',
+        'app-store': 'application/json',
+        'app-version': '456',
+        'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
+        'serviceauthorization': 'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
+        'authorization': 'Bearer {{auth.accessToken}}',
+      },
+      results: [
+        {
+          'statusCode': 200,
+          'action': StacCustomSetValueAction(
+            values: [
+              {'key': 'userData.nationalCode', 'value': '{{data.data.nationalCode}}'},
+              {'key': 'userData.contactNumber', 'value': '{{data.data.contactNumber}}'},
+              {'key': 'userData.mobile', 'value': '{{data.data.cellphoneNumber}}'},
+              {'key': 'userData.lastName', 'value': '{{data.data.lastName}}'},
+              {'key': 'userData.fatherName', 'value': '{{data.data.fatherName}}'},
+              {'key': 'userData.fullName', 'value': '{{data.data.firstName}} {{data.data.lastName}}'},
+              {'key': 'userData.postalCode', 'value': '{{data.data.postCode}}'},
+              {'key': 'userData.address', 'value': '{{data.data.address}}'},
+              {'key': 'selectedDeposit.depositIban', 'value': '{{form.selected_shaba_number}}'},
+            ],
+          ).toJson(),
+        },
+        {
+          'statusCode': 401,
+          'action': StacRawJsonAction({
+            'actionType': 'log',
+            'message': 'Authentication failed. Please login again.',
+          }).toJson(),
+        },
+      ],
+    ),
+    child: _buildIssuerScaffold(),
+  );
+}
+
+/// Builds the issuer information scaffold
+StacWidget _buildIssuerScaffold() {
   return StacScaffold(
     appBar: StacAppBar(
       title: StacText(
@@ -201,22 +250,28 @@ StacWidget _buildKeyValueRow({required String key, required String value}) {
     textDirection: StacTextDirection.rtl,
     mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
     children: [
-      StacText(
-        data: key,
-        textDirection: StacTextDirection.rtl,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          fontWeight: StacFontWeight.w500,
-          color: '{{appColors.current.text.subtitle}}',
+      StacExpanded(
+        child: StacText(
+          data: key,
+          textDirection: StacTextDirection.rtl,
+          style: StacCustomTextStyle(
+            fontSize: 14,
+            fontWeight: StacFontWeight.w500,
+            color: '{{appColors.current.text.subtitle}}',
+          ),
         ),
       ),
-      StacText(
-        data: value,
-        textDirection: StacTextDirection.ltr,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          fontWeight: StacFontWeight.w600,
-          color: '{{appColors.current.text.title}}',
+      StacSizedBox(width: 16),
+      StacExpanded(
+        child: StacText(
+          data: value,
+          textDirection: StacTextDirection.ltr,
+          textAlign: StacTextAlign.left,
+          style: StacCustomTextStyle(
+            fontSize: 14,
+            fontWeight: StacFontWeight.w600,
+            color: '{{appColors.current.text.title}}',
+          ),
         ),
       ),
     ],

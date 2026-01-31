@@ -36,13 +36,18 @@ class PromissoryRealService {
   // Constants
   static const String _baseUrl =
       'http://192.168.107.22:8280/api/digitalbanking';
-  static const String _customerId = '1824413'; // Static for now as requested
 
   // Headers
   static const Map<String, String> _defaultHeaders = {
-    'accept': 'application/json',
-    // Authorization header will be added dynamically or via interceptor if configured
-    // But since we are using a raw Dio instance here, we will add it manually
+    // Match login headers (some gateways are picky about names/casing)
+    'accept': '*/*',
+    'app-platform': 'android',
+    'app-store': 'application/json',
+    'app-version': '456',
+    'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
+    'serviceauthorization':
+        'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
+    // Authorization header will be added dynamically.
   };
 
   /// Fetch deposits list for the customer
@@ -54,7 +59,13 @@ class PromissoryRealService {
       return null;
     }
 
-    final url = '$_baseUrl/deposits/v1.0/customer/$_customerId';
+    final nationalCode = await _authManager.getNationalCode();
+    if (nationalCode == null || nationalCode.isEmpty) {
+      AppLogger.ec(LogCategory.network, 'No national code found');
+      return null;
+    }
+
+    final url = '$_baseUrl/deposits/v1.0/customer/$nationalCode';
 
     try {
       String authHeader = token;
@@ -99,6 +110,55 @@ class PromissoryRealService {
       return null;
     } catch (e) {
       AppLogger.ec(LogCategory.network, 'Get Deposits Exception', e);
+      return null;
+    }
+  }
+
+  /// Fetch customer information by national code
+  Future<Map<String, dynamic>?> getCustomerInfo(
+    BuildContext context,
+    String nationalCode,
+  ) async {
+    await _authManager.initialize();
+    final token = await _authManager.getAccessToken();
+    if (token == null) {
+      AppLogger.ec(LogCategory.network, 'No access token found');
+      return null;
+    }
+
+    final url = '$_baseUrl/customers/v1.0/info/$nationalCode';
+
+    try {
+      String authHeader = token;
+      if (!token.toLowerCase().startsWith('bearer ')) {
+        authHeader = 'Bearer $token';
+      }
+
+      final options = Options(
+        headers: {..._defaultHeaders, 'authorization': authHeader},
+        sendTimeout: const Duration(seconds: 30),
+        receiveTimeout: const Duration(seconds: 30),
+      );
+
+      _logCurl(url, options);
+
+      final response = await _dio.get(url, options: options);
+
+      AppLogger.ic(
+        LogCategory.network,
+        'Get Customer Info Response: ${response.statusCode}',
+      );
+
+      if (response.statusCode == 200) {
+        final data = response.data;
+        if (data is Map && data['status']?['code'] == 'esb-200') {
+          return data['data'] as Map<String, dynamic>?;
+        }
+      }
+
+      return null;
+    } catch (e) {
+      AppLogger.ec(LogCategory.network, 'Get Customer Info Exception', e);
       return null;
     }
   }
