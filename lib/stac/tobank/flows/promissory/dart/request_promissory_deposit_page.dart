@@ -12,50 +12,47 @@ import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 ///
 /// Reference: docs/promissory_docs/request_promissory_deposit_bottom_sheet.dart
 @StacScreen(screenName: 'request_promissory_deposit')
-StacWidget requestPromissoryDepositPage() {
-  // Define deposit data as a constant list (matches deposits_data.json)
-  const deposits = [
-    {
-      'id': 'dep_001',
-      'title': 'حساب جاری اصلی',
-      'depositNumber': '۱۲۳۴۵۶۷۸۹۰',
-      'shabaNumber': 'IR۱۲۱۰۱۲۳۴۵۶۷۸۹۰۱۲۳۴۵۶۷۸۹۰۱',
-    },
-    {
-      'id': 'dep_002',
-      'title': 'حساب پس‌انداز',
-      'depositNumber': '۰۹۸۷۶۵۰۴۳۲۱',
-      'shabaNumber': 'IR۱۲۱۰۰۰۹۸۷۶۵۰۴۳۲۱۰۹۸۷۶۵۰۴۳۲۱۰',
-    },
-    {
-      'id': 'dep_003',
-      'title': 'حساب قرض‌الحسنه',
-      'depositNumber': '۱۱۲۲۳۳۴۴۵۵',
-      'shabaNumber': 'IR۱۲۱۰۱۱۲۲۳۳۴۴۵۵۰۱۱۲۲۳۳۴۴۵۵۶',
-    },
-  ];
+StacWidget requestPromissoryDepositPage({List<Map<String, String>>? deposits}) {
+  // Define deposit data (matches deposits_data.json)
+  // Use provided deposits if available, otherwise fallback to static list
+  final effectiveDeposits =
+      deposits ??
+      const [
+        {
+          'id': 'dep_001',
+          'title': 'حساب جاری اصلی',
+          'depositNumber': '۱۲۳۴۵۶۷۸۹۰',
+          'shabaNumber': 'IR۱۲۱۰۱۲۳۴۵۶۷۸۹۰۱۲۳۴۵۶۷۸۹۰۱',
+        },
+        {
+          'id': 'dep_002',
+          'title': 'حساب پس‌انداز',
+          'depositNumber': '۰۹۸۷۶۵۰۴۳۲۱',
+          'shabaNumber': 'IR۱۲۱۰۰۰۹۸۷۶۵۰۴۳۲۱۰۹۸۷۶۵۰۴۳۲۱۰',
+        },
+        {
+          'id': 'dep_003',
+          'title': 'حساب قرض‌الحسنه',
+          'depositNumber': '۱۱۲۲۳۳۴۴۵۵',
+          'shabaNumber': 'IR۱۲۱۰۱۱۲۲۳۳۴۴۵۵۰۱۱۲۲۳۳۴۴۵۵۶',
+        },
+      ];
 
   return StacStatefulWidget(
     // On init, restore selection state from form.selected_deposit_id
     onInit: StacRawJsonAction({
       'actionType': 'sequence',
       'actions': [
-        // Restore selection states based on saved deposit ID in form
-        {
-          'actionType': 'setValue',
-          'key': 'isDeposit0Selected',
-          'value': '{{form.selected_deposit_id == "dep_001"}}',
-        },
-        {
-          'actionType': 'setValue',
-          'key': 'isDeposit1Selected',
-          'value': '{{form.selected_deposit_id == "dep_002"}}',
-        },
-        {
-          'actionType': 'setValue',
-          'key': 'isDeposit2Selected',
-          'value': '{{form.selected_deposit_id == "dep_003"}}',
-        },
+        // Restore selection states dynamically
+        ...effectiveDeposits.asMap().entries.map((entry) {
+          final index = entry.key;
+          final id = entry.value['id'];
+          return {
+            'actionType': 'setValue',
+            'key': 'isDeposit${index}Selected',
+            'value': '{{form.selected_deposit_id == "$id"}}',
+          };
+        }),
         // Set hasSelection if any deposit is selected
         {
           'actionType': 'setValue',
@@ -111,14 +108,25 @@ StacWidget requestPromissoryDepositPage() {
                 child: StacColumn(
                   crossAxisAlignment: StacCrossAxisAlignment.stretch,
                   children: [
-                    // Deposit Card 1
-                    _buildDepositCard(index: 0, deposit: deposits[0]),
-                    StacSizedBox(height: 16),
-                    // Deposit Card 2
-                    _buildDepositCard(index: 1, deposit: deposits[1]),
-                    StacSizedBox(height: 16),
-                    // Deposit Card 3
-                    _buildDepositCard(index: 2, deposit: deposits[2]),
+                    // Dynamic Deposit List
+                    ...effectiveDeposits
+                        .asMap()
+                        .entries
+                        .map(
+                          (entry) => StacColumn(
+                            crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                            children: [
+                              _buildDepositCard(
+                                index: entry.key,
+                                deposit: entry.value,
+                                totalCount: effectiveDeposits.length,
+                              ),
+                              if (entry.key < effectiveDeposits.length - 1)
+                                StacSizedBox(height: 16),
+                            ],
+                          ),
+                        )
+                        .toList(),
                   ],
                 ),
               ),
@@ -166,20 +174,26 @@ StacWidget requestPromissoryDepositPage() {
 StacWidget _buildDepositCard({
   required int index,
   required Map<String, String> deposit,
+  required int totalCount,
 }) {
   final String id = deposit['id']!;
   final String title = deposit['title']!;
   final String depositNumber = deposit['depositNumber']!;
-  final String shabaNumber = deposit['shabaNumber']!;
+  // Safely handle optional shabaNumber or empty string
+  final String shabaNumber = deposit['shabaNumber'] ?? '';
   final String selectedKey = 'isDeposit${index}Selected';
 
   return StacGestureDetector(
     onTap: StacMultiAction(
       actions: [
-        // Reset all selections
-        StacCustomSetValueAction(key: 'isDeposit0Selected', value: false),
-        StacCustomSetValueAction(key: 'isDeposit1Selected', value: false),
-        StacCustomSetValueAction(key: 'isDeposit2Selected', value: false),
+        // Reset all selections dynamically
+        ...List.generate(
+          totalCount,
+          (i) => StacCustomSetValueAction(
+            key: 'isDeposit${i}Selected',
+            value: false,
+          ),
+        ),
         // Set this one as selected
         StacCustomSetValueAction(key: selectedKey, value: true),
         // Enable button
@@ -221,13 +235,15 @@ StacWidget _buildDepositCard({
             crossAxisAlignment: StacCrossAxisAlignment.center,
             children: [
               // Title (on right in RTL)
-              StacText(
-                data: title,
-                textDirection: StacTextDirection.rtl,
-                style: StacCustomTextStyle(
-                  fontSize: 16,
-                  fontWeight: StacFontWeight.w600,
-                  color: '{{appColors.current.text.title}}',
+              StacExpanded(
+                child: StacText(
+                  data: title,
+                  textDirection: StacTextDirection.rtl,
+                  style: StacCustomTextStyle(
+                    fontSize: 16,
+                    fontWeight: StacFontWeight.w600,
+                    color: '{{appColors.current.text.title}}',
+                  ),
                 ),
               ),
               // Radio Button (on left in RTL)

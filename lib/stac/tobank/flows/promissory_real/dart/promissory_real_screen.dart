@@ -88,6 +88,48 @@ StacWidget promissoryRealIntro() {
               ),
             ),
           ),
+          const StacSizedBox(height: 16),
+          StacFilledButton(
+            onPressed: StacRawJsonAction({
+              'actionType': 'promissory_real_login',
+            }),
+            style: StacButtonStyle(
+              backgroundColor:
+                  '{{appColors.current.button.primary.backgroundColor}}',
+              foregroundColor:
+                  '{{appColors.current.button.primary.foregroundColor}}',
+              padding: StacEdgeInsets.symmetric(horizontal: 32, vertical: 16),
+            ),
+            child: StacText(
+              data: 'Static Login (Nooshin)',
+              style: StacTextStyle(
+                fontSize: 16,
+                fontWeight: StacFontWeight.w600,
+              ),
+            ),
+          ),
+          const StacSizedBox(height: 16),
+          StacFilledButton(
+            onPressed: StacRawJsonAction({
+              'actionType': 'navigate',
+              'widgetType': 'promissory_real_login_form',
+              'navigationStyle': 'push',
+            }),
+            style: StacButtonStyle(
+              backgroundColor:
+                  '{{appColors.current.button.primary.backgroundColor}}',
+              foregroundColor:
+                  '{{appColors.current.button.primary.foregroundColor}}',
+              padding: StacEdgeInsets.symmetric(horizontal: 32, vertical: 16),
+            ),
+            child: StacText(
+              data: 'Dynamic Login',
+              style: StacTextStyle(
+                fontSize: 16,
+                fontWeight: StacFontWeight.w600,
+              ),
+            ),
+          ),
         ],
       ),
     ),

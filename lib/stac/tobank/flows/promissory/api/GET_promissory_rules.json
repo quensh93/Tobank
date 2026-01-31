@@ -235,7 +235,7 @@
                 "onPressed": {
                   "actionType": "navigate",
                   "navigationStyle": "push",
-                  "widgetType": "request_promissory_deposit"
+                  "widgetType": "promissory_real_deposits"
                 },
                 "style": {
                   "backgroundColor": "{{appColors.current.primary.color}}",

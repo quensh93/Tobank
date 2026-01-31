@@ -201,7 +201,7 @@
                   "actionType": "navigate",
                   "navigationStyle": "push",
                   "request": {
-                    "url": "https://api.tobank.com/flows/promissory/promissory_rules",
+                    "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/flutter_key_1.flutter_promissory_key_2/1",
                     "method": "get"
                   }
                 },

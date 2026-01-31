@@ -126,8 +126,9 @@ class StacWidgetLoader {
     'promissory_real_intro': () =>
         promissory_real_dart.promissoryRealIntro().toJson(),
     'promissory_real_loader': () => {'type': 'promissory_real_loader'},
-    'request_promissory_deposit': () =>
-        request_promissory_deposit_dart.requestPromissoryDepositPage().toJson(),
+    'promissory_real_login_form': () => {'type': 'promissory_real_login_form'},
+    'promissory_real_deposits': () => {'type': 'promissory_real_deposits'},
+    'request_promissory_deposit': () => {'type': 'promissory_real_deposits'},
   };
 
   /// Registers a widget loader for a specific widget type.
