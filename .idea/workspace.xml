@@ -9,8 +9,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="work on all promissory pages">
+    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="fix load request in dart flow">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/request_promissory_deposit_page.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/dart/promissory_intro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/dart/promissory_intro.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769841766625</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fix load request in dart flow">
+      <option name="closed" value="true" />
+      <created>1769846028526</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1769846028526</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -151,6 +161,7 @@
     <MESSAGE value="work on promissory pages" />
     <MESSAGE value="fix reload deposit page problem" />
     <MESSAGE value="work on all promissory pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="work on all promissory pages" />
+    <MESSAGE value="fix load request in dart flow" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix load request in dart flow" />
   </component>
 </project>

@@ -142,12 +142,8 @@ StacWidget promissoryIntro() {
                       '{{appStrings.promissory.requestPromissoryDesc}}',
                   onTap: StacRawJsonAction({
                     'actionType': 'navigate',
+                    'widgetType': 'promissory_rules',
                     'navigationStyle': 'push',
-                    'request': {
-                      'url':
-                          'https://api.tobank.com/flows/promissory/promissory_rules',
-                      'method': 'get',
-                    },
                   }),
                 ),
                 StacSizedBox(height: 12),

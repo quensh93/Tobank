@@ -215,6 +215,7 @@ StacWidget promissoryPayment() {
                       onPressed: StacSequenceAction(
                         actions: [
                           StacRawJsonAction({'actionType': 'closeDialog'}),
+
                           {
                             'actionType': 'navigate',
                             'widgetType': 'promissory_sign',
@@ -300,7 +301,7 @@ StacWidget _buildPaymentOption({
               StacCustomSetValueAction(key: 'isPayEnabled', value: true),
               {
                 'actionType': 'navigate',
-                'widgetType': 'request_promissory_deposit',
+                'widgetType': 'promissory_deposit_select',
                 'navigationStyle': 'push',
               },
             ],
