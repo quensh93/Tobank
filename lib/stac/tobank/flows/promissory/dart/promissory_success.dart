@@ -202,7 +202,7 @@ StacWidget promissorySuccess() {
                               textDirection: StacTextDirection.rtl,
                               children: [
                                 StacImage(
-                                  src: 'assets/icons/ic_pdf.svg',
+                                  src: 'assets/icons/ic_pdf_file.svg',
                                   imageType: StacImageType.asset,
                                   width: 32,
                                   height: 32,
@@ -232,7 +232,7 @@ StacWidget promissorySuccess() {
                                   child: StacPadding(
                                     padding: StacEdgeInsets.all(8),
                                     child: StacImage(
-                                      src: 'assets/icons/ic_eye.svg',
+                                      src: 'assets/icons/ic_show.svg',
                                       imageType: StacImageType.asset,
                                       width: 24,
                                       height: 24,

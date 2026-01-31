@@ -1,7 +1,6 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
-import 'package:tobank_sdui/core/stac/parsers/actions/close_dialog_action_parser.dart';
 
 /// Promissory Flow - Payment Method Page
 ///
@@ -14,10 +13,12 @@ import 'package:tobank_sdui/core/stac/parsers/actions/close_dialog_action_parser
 @StacScreen(screenName: 'promissory_payment')
 StacWidget promissoryPayment() {
   return StacStatefulWidget(
-    onInit: StacSequenceAction(actions: [
-      StacCustomSetValueAction(key: 'selectedPaymentMethod', value: ''),
-      StacCustomSetValueAction(key: 'isPayEnabled', value: false),
-    ]),
+    onInit: StacSequenceAction(
+      actions: [
+        StacCustomSetValueAction(key: 'selectedPaymentMethod', value: ''),
+        StacCustomSetValueAction(key: 'isPayEnabled', value: false),
+      ],
+    ),
     child: StacScaffold(
       appBar: StacAppBar(
         title: StacText(
@@ -51,7 +52,8 @@ StacWidget promissoryPayment() {
                     children: [
                       StacContainer(
                         decoration: StacBoxDecoration(
-                          color: '{{appColors.current.background.surfaceContainer}}',
+                          color:
+                              '{{appColors.current.background.surfaceContainer}}',
                           borderRadius: StacBorderRadius.all(40),
                           border: StacBorder.all(
                             color: '{{appColors.current.input.borderEnabled}}',
@@ -122,7 +124,8 @@ StacWidget promissoryPayment() {
                   StacContainer(
                     padding: StacEdgeInsets.all(16),
                     decoration: StacBoxDecoration(
-                      color: '{{appColors.current.background.surfaceContainer}}',
+                      color:
+                          '{{appColors.current.background.surfaceContainer}}',
                       borderRadius: StacBorderRadius.all(8),
                       border: StacBorder.all(
                         color: '{{appColors.current.input.borderEnabled}}',
@@ -131,9 +134,15 @@ StacWidget promissoryPayment() {
                     ),
                     child: StacColumn(
                       children: [
-                        _buildKVRow('{{appStrings.promissory.stampDuty}}', '{{appData.taxAmount}} {{appStrings.common.rial}}'),
+                        _buildKVRow(
+                          '{{appStrings.promissory.stampDuty}}',
+                          '{{appData.taxAmount}} {{appStrings.common.rial}}',
+                        ),
                         StacSizedBox(height: 16),
-                        _buildKVRow('{{appStrings.promissory.issuanceFee}}', '{{appData.feeAmount}} {{appStrings.common.rial}}'),
+                        _buildKVRow(
+                          '{{appStrings.promissory.issuanceFee}}',
+                          '{{appData.feeAmount}} {{appStrings.common.rial}}',
+                        ),
                       ],
                     ),
                   ),
@@ -194,21 +203,25 @@ StacWidget promissoryPayment() {
                   ),
                   actions: [
                     StacTextButton(
-                      onPressed: StacCloseDialogAction(),
+                      onPressed: StacRawJsonAction({
+                        'actionType': 'closeDialog',
+                      }),
                       child: StacText(
                         data: '{{appStrings.common.cancel}}',
                         textDirection: StacTextDirection.rtl,
                       ),
                     ),
                     StacTextButton(
-                      onPressed: StacSequenceAction(actions: [
-                        StacCloseDialogAction(),
-                        {
-                          'actionType': 'navigate',
-                          'widgetType': 'promissory_success',
-                          'navigationStyle': 'pushReplacement',
-                        }
-                      ]),
+                      onPressed: StacSequenceAction(
+                        actions: [
+                          StacRawJsonAction({'actionType': 'closeDialog'}),
+                          {
+                            'actionType': 'navigate',
+                            'widgetType': 'promissory_sign',
+                            'navigationStyle': 'pushReplacement',
+                          },
+                        ],
+                      ),
                       child: StacText(
                         data: '{{appStrings.common.confirm}}',
                         textDirection: StacTextDirection.rtl,
@@ -248,14 +261,17 @@ StacWidget _buildKVRow(String label, String value) {
     textDirection: StacTextDirection.rtl,
     mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
     children: [
-      StacText(
-        data: label,
-        textDirection: StacTextDirection.rtl,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          color: '{{appColors.current.text.subtitle}}',
+      StacExpanded(
+        child: StacText(
+          data: label,
+          textDirection: StacTextDirection.rtl,
+          style: StacCustomTextStyle(
+            fontSize: 14,
+            color: '{{appColors.current.text.subtitle}}',
+          ),
         ),
       ),
+      StacSizedBox(width: 8),
       StacText(
         data: value,
         textDirection: StacTextDirection.ltr,
@@ -278,36 +294,31 @@ StacWidget _buildPaymentOption({
 }) {
   return StacGestureDetector(
     onTap: id == 'deposit'
-        ? StacSequenceAction(actions: [
-            StacCustomSetValueAction(key: 'selectedPaymentMethod', value: id),
-            StacValidateFieldsAction(
-              resultKey: 'isPayEnabled',
-              fields: [
-                {'id': 'selectedPaymentMethod', 'rule': r'.+'},
-              ],
-            ),
-            {
-              'actionType': 'navigate',
-              'widgetType': 'promissory_deposit_select',
-              'navigationStyle': 'push'
-            }
-          ])
-        : StacSequenceAction(actions: [
-            StacCustomSetValueAction(key: 'selectedPaymentMethod', value: id),
-            StacValidateFieldsAction(
-              resultKey: 'isPayEnabled',
-              fields: [
-                {'id': 'selectedPaymentMethod', 'rule': r'.+'},
-              ],
-            ),
-          ]),
+        ? StacSequenceAction(
+            actions: [
+              StacCustomSetValueAction(key: 'selectedPaymentMethod', value: id),
+              StacCustomSetValueAction(key: 'isPayEnabled', value: true),
+              {
+                'actionType': 'navigate',
+                'widgetType': 'promissory_deposit_select',
+                'navigationStyle': 'push',
+              },
+            ],
+          )
+        : StacSequenceAction(
+            actions: [
+              StacCustomSetValueAction(key: 'selectedPaymentMethod', value: id),
+              StacCustomSetValueAction(key: 'isPayEnabled', value: true),
+            ],
+          ),
     child: StacContainer(
       padding: StacEdgeInsets.all(16),
       decoration: StacBoxDecoration(
         color: '{{appColors.current.background.surfaceContainer}}',
         borderRadius: StacBorderRadius.all(12),
         border: StacBorder.all(
-          color: '{{appColors.current.input.borderEnabled}}',
+          color:
+              '{{selectedPaymentMethod == "$id" ? appColors.current.primary.color : appColors.current.input.borderEnabled}}',
           width: 1,
         ),
       ),
@@ -355,65 +366,6 @@ StacWidget _buildPaymentOption({
   );
 }
 
-/// Helper: Deposit item styled like screenshot
-StacWidget _buildDepositItem({
-  required String title,
-  required String depositNumber,
-  required String iban,
-  required String balance,
-  required String cardNumber,
-  required bool selected,
-}) {
-  return StacColumn(
-    crossAxisAlignment: StacCrossAxisAlignment.stretch,
-    children: [
-      StacRow(
-        textDirection: StacTextDirection.rtl,
-        children: [
-          StacExpanded(
-            child: StacText(
-              data: title,
-              textDirection: StacTextDirection.rtl,
-              style: StacCustomTextStyle(
-                fontSize: 14,
-                fontWeight: StacFontWeight.w600,
-                color: '{{appColors.current.text.title}}',
-              ),
-            ),
-          ),
-          StacContainer(
-            width: 18,
-            height: 18,
-            decoration: StacBoxDecoration(
-              borderRadius: StacBorderRadius.all(18),
-              border: StacBorder.all(
-                color: '{{appColors.current.input.borderEnabled}}',
-                width: 1,
-              ),
-              color: selected ? '{{appColors.current.primary.color}}' : 'transparent',
-            ),
-          ),
-        ],
-      ),
-      StacSizedBox(height: 12),
-      StacContainer(
-        height: 1,
-        decoration: StacBoxDecoration(
-          color: '{{appColors.current.input.borderEnabled}}',
-        ),
-      ),
-      StacSizedBox(height: 12),
-      _buildKVRow('شماره سپرده', depositNumber),
-      StacSizedBox(height: 12),
-      _buildKVRow('شماره شبا', iban),
-      StacSizedBox(height: 12),
-      _buildKVRow('موجودی', balance),
-      StacSizedBox(height: 12),
-      _buildKVRow('شماره کارت', cardNumber),
-    ],
-  );
-}
-
 /// Custom class to support alias text styles
 class StacAliasTextStyle implements StacTextStyle {
   final String alias;
@@ -436,6 +388,7 @@ class StacRawJsonWidget implements StacWidget {
   String get type => json['type'] as String;
   String? get id => json['id'] as String?;
 }
+
 /// Raw JSON action helper for simple actions
 class StacRawJsonAction extends StacAction {
   final Map<String, dynamic> json;

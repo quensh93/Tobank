@@ -140,7 +140,7 @@ StacWidget requestPromissoryDepositPage({List<Map<String, String>>? deposits}) {
                 'enabledKey': 'hasSelection',
                 'onPressed': {
                   'actionType': 'navigate',
-                  'widgetType': 'promissory_receiver',
+                  'widgetType': 'promissory_issuer',
                   'navigationStyle': 'push',
                 },
                 'style': StacButtonStyle(

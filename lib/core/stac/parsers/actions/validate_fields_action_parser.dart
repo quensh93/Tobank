@@ -34,13 +34,15 @@ class ValidateFieldsActionModel {
 class ValidateFieldRule {
   final String id;
   final String? rule;
+  final String? optional;
 
-  const ValidateFieldRule({required this.id, this.rule});
+  const ValidateFieldRule({required this.id, this.rule, this.optional});
 
   factory ValidateFieldRule.fromJson(Map<String, dynamic> json) {
     return ValidateFieldRule(
       id: json['id'] as String,
       rule: json['rule'] as String?,
+      optional: json['optional'] as String?,
     );
   }
 }
@@ -66,6 +68,13 @@ class ValidateFieldsActionParser
 
     var isValid = true;
     for (final field in model.fields) {
+      // Check if field is optional based on condition
+      if (field.optional != null) {
+        final isOptional =
+            StacRegistry.instance.getValue(field.optional!) == true;
+        if (isOptional) continue;
+      }
+
       final value = formScope.formData[field.id]?.toString() ?? '';
       if (value.isEmpty) {
         isValid = false;

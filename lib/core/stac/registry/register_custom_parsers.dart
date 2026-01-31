@@ -8,6 +8,7 @@ import '../parsers/widgets/timed_splash_parser.dart';
 import '../parsers/widgets/on_mount_action_parser.dart';
 import '../parsers/widgets/stateful_widget_parser.dart';
 import '../parsers/widgets/reactive_elevated_button_parser.dart';
+import '../parsers/widgets/reactive_switch_parser.dart';
 import '../parsers/widgets/registry_reactive_widget_parser.dart';
 import '../parsers/actions/example_action_parser.dart';
 import '../parsers/actions/persian_date_picker_action_parser.dart';
@@ -305,6 +306,9 @@ void _registerExampleParsers() {
   CustomComponentRegistry.instance.registerWidget(
     const ReactiveElevatedButtonParser(),
   );
+
+  // Register reactive switch parser for registry-driven switch toggle
+  CustomComponentRegistry.instance.registerWidget(const ReactiveSwitchParser());
 
   // Register Promissory Real Loader parser
   CustomComponentRegistry.instance.registerWidget(
