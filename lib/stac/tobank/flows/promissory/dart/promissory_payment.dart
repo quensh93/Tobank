@@ -71,7 +71,7 @@ StacWidget promissoryPayment() {
                           color: '{{appColors.current.primary.color}}',
                         ),
                       ),
-                      StacSizedBox(height: 16),
+                      StacSizedBox(height: 12),
                       StacText(
                         data: '{{appStrings.promissory.issuanceTitle}}',
                         textDirection: StacTextDirection.rtl,
@@ -81,7 +81,7 @@ StacWidget promissoryPayment() {
                           color: '{{appColors.current.text.title}}',
                         ),
                       ),
-                      StacSizedBox(height: 16),
+                      StacSizedBox(height: 20),
                       StacRow(
                         textDirection: StacTextDirection.rtl,
                         mainAxisAlignment: StacMainAxisAlignment.spaceAround,
@@ -171,7 +171,7 @@ StacWidget promissoryPayment() {
                     icon: 'assets/icons/ic_wallet.svg',
                     title: '{{appStrings.promissory.walletPayment}}',
                     subtitle:
-                        '{{appStrings.promissory.walletBalance}}: {{wallet.balance}} {{appStrings.common.rial}}',
+                        '{{wallet.balance}} {{appStrings.common.rial}}',
                   ),
                   StacSizedBox(height: 12),
 
@@ -181,7 +181,7 @@ StacWidget promissoryPayment() {
                     isSelectedVar: 'isDepositSelected',
                     icon: 'assets/icons/ic_branch.svg',
                     title: '{{appStrings.promissory.depositPayment}}',
-                    subtitle: '{{appStrings.promissory.fromLinkedDeposit}}',
+
                   ),
                   StacSizedBox(height: 12),
 
@@ -339,7 +339,7 @@ StacWidget _buildPaymentOption({
   required String id,
   required String icon,
   required String title,
-  required String subtitle,
+   String subtitle = '',
   String? isSelectedVar,
   String activeColor = 'appColors.current.primary.color', // Removed braces
 }) {
@@ -386,21 +386,23 @@ StacWidget _buildPaymentOption({
             height: 32,
             color: '{{appColors.current.primary.color}}',
           ),
+          StacSizedBox(width: 6),
+          StacText(
+            data: title,
+            textDirection: StacTextDirection.rtl,
+            style: StacCustomTextStyle(
+              fontSize: 16,
+              fontWeight: StacFontWeight.w600,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
           StacSizedBox(width: 12),
           // Text
           StacExpanded(
             child: StacColumn(
               crossAxisAlignment: StacCrossAxisAlignment.start,
               children: [
-                StacText(
-                  data: title,
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 16,
-                    fontWeight: StacFontWeight.w600,
-                    color: '{{appColors.current.text.title}}',
-                  ),
-                ),
+
                 StacSizedBox(height: 4),
                 StacText(
                   data: subtitle,

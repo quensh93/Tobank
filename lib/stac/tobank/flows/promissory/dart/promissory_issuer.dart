@@ -133,7 +133,7 @@ StacWidget promissoryIssuer() {
                     ),
                     padding: StacEdgeInsets.all(16),
                     child: StacColumn(
-                      crossAxisAlignment: StacCrossAxisAlignment.start,
+                      crossAxisAlignment: StacCrossAxisAlignment.end,
                       children: [
                         StacText(
                           data:

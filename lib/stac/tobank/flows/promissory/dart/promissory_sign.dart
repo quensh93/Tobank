@@ -45,57 +45,29 @@ StacWidget promissorySign() {
               textDirection: StacTextDirection.rtl,
               children: [
                 // Instructions
-                StacText(
-                  data: '{{appStrings.promissory.signInstructions}}',
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 16,
-                    fontWeight: StacFontWeight.w600,
-                    color: '{{appColors.current.text.title}}',
-                  ),
-                ),
-                StacSizedBox(height: 16),
-
                 // PDF Preview Container
                 StacContainer(
                   width: 999999,
                   height: 500,
-                  decoration: StacBoxDecoration(
-                    color: '{{appColors.current.background.surfaceContainer}}',
-                    borderRadius: StacBorderRadius.all(8),
-                    border: StacBorder.all(
-                      color: '{{appColors.current.input.borderEnabled}}',
-                      width: 1,
-                    ),
-                  ),
+
                   child: StacCenter(
                     child: StacColumn(
                       mainAxisAlignment: StacMainAxisAlignment.center,
                       children: [
                         StacImage(
-                          src: 'assets/icons/ic_pdf_file.svg',
+                          src: 'assets/icons/sign-pdf.svg',
                           imageType: StacImageType.asset,
-                          width: 64,
-                          height: 64,
-                          color: '{{appColors.current.text.subtitle}}',
+                          width: 145,
+                          height: 145,
                         ),
                         StacSizedBox(height: 16),
-                        StacText(
-                          data: '{{appStrings.promissory.pdfPreview}}',
-                          textDirection: StacTextDirection.rtl,
-                          style: StacCustomTextStyle(
-                            fontSize: 14,
-                            color: '{{appColors.current.text.subtitle}}',
-                          ),
-                        ),
-                        StacSizedBox(height: 8),
                         StacText(
                           data:
                               '{{appStrings.promissory.signInstructionsDetail}}',
                           textDirection: StacTextDirection.rtl,
                           textAlign: StacTextAlign.center,
                           style: StacCustomTextStyle(
-                            fontSize: 12,
+                            fontSize: 14,
                             color: '{{appColors.current.text.subtitle}}',
                           ),
                         ),
@@ -105,57 +77,6 @@ StacWidget promissorySign() {
                 ),
                 StacSizedBox(height: 24),
 
-                // Signature Area Info
-                StacContainer(
-                  width: 999999,
-                  padding: StacEdgeInsets.all(16),
-                  decoration: StacBoxDecoration(
-                    color: '{{appColors.current.background.surfaceContainer}}',
-                    borderRadius: StacBorderRadius.all(8),
-                    border: StacBorder.all(
-                      color: '{{appColors.current.primary.color}}',
-                      width: 1,
-                    ),
-                  ),
-                  child: StacColumn(
-                    crossAxisAlignment: StacCrossAxisAlignment.start,
-                    textDirection: StacTextDirection.rtl,
-                    children: [
-                      StacRow(
-                        textDirection: StacTextDirection.rtl,
-                        children: [
-                          StacImage(
-                            src: 'assets/icons/ic_info.svg',
-                            imageType: StacImageType.asset,
-                            width: 20,
-                            height: 20,
-                            color: '{{appColors.current.primary.color}}',
-                          ),
-                          StacSizedBox(width: 8),
-                          StacText(
-                            data: '{{appStrings.promissory.signInfoTitle}}',
-                            textDirection: StacTextDirection.rtl,
-                            style: StacCustomTextStyle(
-                              fontSize: 14,
-                              fontWeight: StacFontWeight.w600,
-                              color: '{{appColors.current.primary.color}}',
-                            ),
-                          ),
-                        ],
-                      ),
-                      StacSizedBox(height: 8),
-                      StacText(
-                        data: '{{appStrings.promissory.signInfoMessage}}',
-                        textDirection: StacTextDirection.rtl,
-                        style: StacCustomTextStyle(
-                          fontSize: 12,
-                          color: '{{appColors.current.text.subtitle}}',
-                          height: 1.5,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
               ],
             ),
           ),

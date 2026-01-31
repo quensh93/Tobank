@@ -148,7 +148,7 @@
         "sanaCheckError": "خطا در بررسی وضعیت ثنا. لطفا مجددا تلاش کنید.",
         "issuerTitle": "اطلاعات صادرکننده",
         "issuerInfoTitle": "اطلاعات صادرکننده",
-        "issuerResidenceTitle": "اطلاعات سکونت صادرکننده",
+        "issuerResidenceTitle": "اطلاعات محل اقامت صادرکننده",
         "nationalCode": "کد ملی",
         "mobileNumber": "شماره همراه",
         "fullName": "نام و نام خانوادگی",
@@ -194,13 +194,17 @@
         "payableAmount": "مبلغ قابل پرداخت",
         "selectPaymentMethod": "روش پرداخت را انتخاب نمایید",
         "walletPayment": "کیف پول",
+        "issuanceTitle" : "صدور سفته",
         "walletBalance": "موجودی کیف پول",
         "depositPayment": "سپرده",
+        "stampDuty": "حق تمبر",
+        "issuanceFee": "کارمزد صدور",
         "fromLinkedDeposit": "از سپرده متصل به سفته",
         "gatewayPayment": "درگاه اینترنتی",
         "gatewayPaymentDesc": "پرداخت آنلاین از طریق درگاه بانکی",
         "payAndSign": "پرداخت و امضای سفته",
         "paymentError": "خطا در پرداخت هزینه سفته",
+        "paymentMethod": "روش پرداخت",
         "successTitle": "صدور سفته",
         "successMessage": "سفته با موفقیت صادر شد",
         "successDescription": "سفته الکترونیکی با موفقیت صادر و ثبت گردید.",
@@ -208,6 +212,7 @@
         "issuer": "صادرکننده",
         "receiver": "ذینفع",
         "status": "وضعیت",
+        "signTitle": "امضا سفته",
         "statusIssued": "صادر شده",
         "downloadPdf": "دانلود فایل PDF",
         "pdfDownloaded": "فایل PDF با موفقیت دانلود شد.",
@@ -219,7 +224,8 @@
         "paidVia" : "پرداخت از طریق",
         "promissory" : "سفته",
         "downloadMessage" : "کاربر گرامی سفته شما در بخش سفته‌های من نیز قابل دانلود است",
-        "trackingNumber" : "شماره پیگیری"
+        "trackingNumber" : "شماره پیگیری",
+        "signInstructionsDetail": "با انتخاب گزینه امضای سفته، امضاء شما پایین تصویر سفته به صورت الکترونیکی ثبت می\u200Cشود و این عمل به منزله تایید درخواست و ثبت نهایی فرآیند است."
       }
     }
   }

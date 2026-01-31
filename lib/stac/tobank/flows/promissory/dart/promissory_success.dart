@@ -205,8 +205,7 @@ StacWidget promissorySuccess() {
                                   src: 'assets/icons/ic_pdf_file.svg',
                                   imageType: StacImageType.asset,
                                   width: 32,
-                                  height: 32,
-                                  color: '{{appColors.current.text.title}}',
+                                  height: 32
                                 ),
                                 StacSizedBox(width: 8),
                                 StacText(
@@ -279,33 +278,6 @@ StacWidget promissorySuccess() {
                     ),
                   ),
                 ],
-              ),
-            ),
-          ),
-          // Return to Home Button
-          StacPadding(
-            padding: StacEdgeInsets.all(16),
-            child: StacFilledButton(
-              style: StacButtonStyle(
-                backgroundColor: '{{appColors.current.primary.color}}',
-                elevation: 0,
-                fixedSize: StacSize(999999, 56),
-                shape: StacRoundedRectangleBorder(
-                  borderRadius: StacBorderRadius.all(12),
-                ),
-              ),
-              onPressed: StacRawJsonAction({
-                'actionType': 'navigate',
-                'navigationStyle': 'popToRoot',
-              }),
-              child: StacText(
-                data: '{{appStrings.promissory.myPromissoryNotes}}',
-                textDirection: StacTextDirection.rtl,
-                style: StacCustomTextStyle(
-                  fontSize: 18,
-                  fontWeight: StacFontWeight.bold,
-                  color: '{{appColors.current.primary.onPrimary}}',
-                ),
               ),
             ),
           ),
