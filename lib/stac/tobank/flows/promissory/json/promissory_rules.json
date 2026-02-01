@@ -26,7 +26,7 @@
       },
       "title": {
         "type": "text",
-        "data": "{{appStrings.promissory.rulesTitle}}",
+        "data": "{{appStrings.promissory.rulesTitle}} JSON",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"

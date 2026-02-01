@@ -110,7 +110,7 @@
               "onTap": {
                 "actionType": "navigate",
                 "widgetType": "{{widgetType}}",
-                "assetPath": "{{apiPath}}"
+                "assetPath": "{{jsonPath}}"
               },
               "title": {
                 "type": "text",

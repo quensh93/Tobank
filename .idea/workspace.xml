@@ -9,7 +9,23 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="fix load request in dart flow" />
+    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="fix problem in payment page">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/stac/parsers/actions/custom_navigate_action_parser.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/parsers/actions/custom_navigate_action_parser.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_rules.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/request_promissory_deposit.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/HOW_TO_USE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_intro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_intro.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_rules.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_success.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_success.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/request_promissory_deposit_page.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/api/GET_promissory_confirm.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/api/GET_promissory_confirm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_intro.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_intro.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_rules.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_rules.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/request_promissory_deposit.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/request_promissory_deposit.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/menu/api/GET_tobank_menu.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/menu/api/GET_tobank_menu.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,7 +157,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769849941680</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fix problem in payment page">
+      <option name="closed" value="true" />
+      <created>1769857253789</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1769857253789</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -166,6 +190,7 @@
     <MESSAGE value="fix reload deposit page problem" />
     <MESSAGE value="work on all promissory pages" />
     <MESSAGE value="fix load request in dart flow" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix load request in dart flow" />
+    <MESSAGE value="fix problem in payment page" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix problem in payment page" />
   </component>
 </project>

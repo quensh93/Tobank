@@ -6,21 +6,66 @@ import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 ///
 /// This screen allows the user to select a deposit for the promissory note.
 /// Converted from BottomSheet to Page as requested.
-/// Uses mock data for deposits.
+///
+/// Deposits are stored in: api/deposits_data.json
+/// Selected deposit is saved to form.* for persistence.
 ///
 /// Reference: docs/promissory_docs/request_promissory_deposit_bottom_sheet.dart
-@StacScreen(screenName: 'request_promissory_deposit')
-StacWidget requestPromissoryDepositPage() {
+@StacScreen(screenName: 'promissory_deposit_select')
+StacWidget promissoryDepositSelectPage() {
+  // Define deposit data as a constant list (matches deposits_data.json)
+  const deposits = [
+    {
+      'id': 'dep_001',
+      'title': 'حساب جاری اصلی',
+      'depositNumber': '۱۲۳۴۵۶۷۸۹۰',
+      'shabaNumber': 'IR۱۲۱۰۱۲۳۴۵۶۷۸۹۰۱۲۳۴۵۶۷۸۹۰۱',
+    },
+    {
+      'id': 'dep_002',
+      'title': 'حساب پس‌انداز',
+      'depositNumber': '۰۹۸۷۶۵۰۴۳۲۱',
+      'shabaNumber': 'IR۱۲۱۰۰۰۹۸۷۶۵۰۴۳۲۱۰۹۸۷۶۵۰۴۳۲۱۰',
+    },
+    {
+      'id': 'dep_003',
+      'title': 'حساب قرض‌الحسنه',
+      'depositNumber': '۱۱۲۲۳۳۴۴۵۵',
+      'shabaNumber': 'IR۱۲۱۰۱۱۲۲۳۳۴۴۵۵۰۱۱۲۲۳۳۴۴۵۵۶',
+    },
+  ];
+
   return StacStatefulWidget(
-    onInit: StacMultiAction(
-      actions: [
-        StacCustomSetValueAction(key: 'selectedDepositId', value: ''),
-        StacCustomSetValueAction(key: 'isDeposit1Selected', value: false),
-        StacCustomSetValueAction(key: 'isDeposit2Selected', value: false),
-        StacCustomSetValueAction(key: 'isDeposit3Selected', value: false),
-        StacCustomSetValueAction(key: 'hasSelection', value: false),
+    // On init, restore selection state from form.selected_deposit_id
+    // On init, restore selection state from form.selected_deposit_id
+    // On init, restore selection state from form.selected_deposit_id
+    onInit: StacRawJsonAction({
+      'actionType': 'sequence',
+      'actions': [
+        // Restore selection states based on saved deposit ID in form
+        {
+          'actionType': 'setValue',
+          'key': 'isDeposit0Selected',
+          'value': '{{form.selected_deposit_id == "dep_001"}}',
+        },
+        {
+          'actionType': 'setValue',
+          'key': 'isDeposit1Selected',
+          'value': '{{form.selected_deposit_id == "dep_002"}}',
+        },
+        {
+          'actionType': 'setValue',
+          'key': 'isDeposit2Selected',
+          'value': '{{form.selected_deposit_id == "dep_003"}}',
+        },
+        // Set hasSelection if any deposit is selected
+        {
+          'actionType': 'setValue',
+          'key': 'hasSelection',
+          'value': '{{form.selected_deposit_id ? true : false}}',
+        },
       ],
-    ),
+    }),
     child: StacScaffold(
       appBar: StacAppBar(
         title: StacText(
@@ -40,116 +85,121 @@ StacWidget requestPromissoryDepositPage() {
           ),
         ),
       ),
-      body: StacColumn(
-        crossAxisAlignment: StacCrossAxisAlignment.stretch,
-        children: [
-          StacSizedBox(height: 24),
-          // Title
-          StacPadding(
-            padding: StacEdgeInsets.symmetric(horizontal: 16),
-            child: StacText(
-              data: 'سپرده خود را جهت صدور سفته انتخاب کنید',
-              textDirection: StacTextDirection.rtl,
-              style: StacCustomTextStyle(
-                fontSize: 16,
-                fontWeight: StacFontWeight.w600,
-                color: '{{appColors.current.text.title}}',
-              ),
-            ),
-          ),
-          StacSizedBox(height: 16),
-
-          // Deposit List
-          StacExpanded(
-            child: StacSingleChildScrollView(
-              padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: StacColumn(
-                crossAxisAlignment: StacCrossAxisAlignment.stretch,
-                children: [
-                  // Mock Deposit 1
-                  _buildDepositCard(
-                    selectedKey: 'isDeposit1Selected',
-                    title: 'حساب جاری اصلی',
-                    depositNumber: '۱۲۳۴۵۶۷۸۹۰',
-                    shabaNumber: 'IR۱۲۱۰۱۲۳۴۵۶۷۸۹۰۱۲۳۴۵۶۷۸۹۰۱',
-                  ),
-                  StacSizedBox(height: 16),
-
-                  // Mock Deposit 2
-                  _buildDepositCard(
-                    selectedKey: 'isDeposit2Selected',
-                    title: 'حساب پس‌انداز',
-                    depositNumber: '۰۹۸۷۶۵۰۴۳۲۱',
-                    shabaNumber: 'IR۱۲۱۰۰۰۹۸۷۶۵۰۴۳۲۱۰۹۸۷۶۵۰۴۳۲۱۰',
-                  ),
-                  StacSizedBox(height: 16),
-
-                  // Mock Deposit 3
-                  _buildDepositCard(
-                    selectedKey: 'isDeposit3Selected',
-                    title: 'حساب قرض‌الحسنه',
-                    depositNumber: '۱۱۲۲۳۳۴۴۵۵',
-                    shabaNumber: 'IR۱۲۱۰۱۱۲۲۳۳۴۴۵۵۰۱۱۲۲۳۳۴۴۵۵۶',
-                  ),
-                ],
-              ),
-            ),
-          ),
-
-          // Continue Button
-          StacPadding(
-            padding: StacEdgeInsets.all(16),
-            child: StacRawJsonWidget({
-              'type': 'reactiveElevatedButton',
-              'enabledKey': 'hasSelection',
-              'onPressed': {
-                'actionType': 'navigate',
-                'widgetType': 'promissory_issuer',
-                'navigationStyle': 'push',
-              },
-              'style': StacButtonStyle(
-                backgroundColor: '{{appColors.current.primary.color}}',
-                elevation: 0,
-                fixedSize: StacSize(999999, 56),
-                shape: StacRoundedRectangleBorder(
-                  borderRadius: StacBorderRadius.all(12),
-                ),
-              ).toJson(),
-              'child': StacText(
-                data: '{{appStrings.common.continue}}',
+      body: StacForm(
+        autovalidateMode: StacAutovalidateMode.disabled,
+        child: StacColumn(
+          crossAxisAlignment: StacCrossAxisAlignment.stretch,
+          children: [
+            StacSizedBox(height: 24),
+            // Title
+            StacPadding(
+              padding: StacEdgeInsets.symmetric(horizontal: 16),
+              child: StacText(
+                data: 'سپرده خود را جهت صدور سفته انتخاب کنید',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
-                  fontSize: 18,
-                  fontWeight: StacFontWeight.bold,
-                  color: '{{appColors.current.primary.onPrimary}}',
+                  fontSize: 16,
+                  fontWeight: StacFontWeight.w600,
+                  color: '{{appColors.current.text.title}}',
                 ),
-              ).toJson(),
-            }),
-          ),
-        ],
+              ),
+            ),
+            StacSizedBox(height: 16),
+
+            // Deposit List
+            StacExpanded(
+              child: StacSingleChildScrollView(
+                padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                child: StacColumn(
+                  crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                  children: [
+                    // Deposit Card 1
+                    _buildDepositCard(index: 0, deposit: deposits[0]),
+                    StacSizedBox(height: 16),
+                    // Deposit Card 2
+                    _buildDepositCard(index: 1, deposit: deposits[1]),
+                    StacSizedBox(height: 16),
+                    // Deposit Card 3
+                    _buildDepositCard(index: 2, deposit: deposits[2]),
+                  ],
+                ),
+              ),
+            ),
+
+            // Continue Button
+            StacPadding(
+              padding: StacEdgeInsets.all(16),
+              child: StacRawJsonWidget({
+                'type': 'reactiveElevatedButton',
+                'enabledKey': 'hasSelection',
+                'onPressed': {
+                  'actionType': 'navigate',
+                  'widgetType': 'promissory_sign',
+                  'navigationStyle': 'push',
+                },
+                'style': StacButtonStyle(
+                  backgroundColor: '{{appColors.current.primary.color}}',
+                  elevation: 0,
+                  fixedSize: StacSize(999999, 56),
+                  shape: StacRoundedRectangleBorder(
+                    borderRadius: StacBorderRadius.all(12),
+                  ),
+                ).toJson(),
+                'child': StacText(
+                  data: '{{appStrings.common.continue}}',
+                  textDirection: StacTextDirection.rtl,
+                  style: StacCustomTextStyle(
+                    fontSize: 18,
+                    fontWeight: StacFontWeight.bold,
+                    color: '{{appColors.current.primary.onPrimary}}',
+                  ),
+                ).toJson(),
+              }),
+            ),
+          ],
+        ),
       ),
     ),
   );
 }
 
-/// Builds a deposit item card widget using boolean selection keys
+/// Builds a deposit item card widget
+/// Saves selection to form.* prefix for persistence
 StacWidget _buildDepositCard({
-  required String selectedKey,
-  required String title,
-  required String depositNumber,
-  required String shabaNumber,
+  required int index,
+  required Map<String, String> deposit,
 }) {
+  final String id = deposit['id']!;
+  final String title = deposit['title']!;
+  final String depositNumber = deposit['depositNumber']!;
+  final String shabaNumber = deposit['shabaNumber']!;
+  final String selectedKey = 'isDeposit${index}Selected';
+
   return StacGestureDetector(
     onTap: StacMultiAction(
       actions: [
         // Reset all selections
+        StacCustomSetValueAction(key: 'isDeposit0Selected', value: false),
         StacCustomSetValueAction(key: 'isDeposit1Selected', value: false),
         StacCustomSetValueAction(key: 'isDeposit2Selected', value: false),
-        StacCustomSetValueAction(key: 'isDeposit3Selected', value: false),
         // Set this one as selected
         StacCustomSetValueAction(key: selectedKey, value: true),
         // Enable button
         StacCustomSetValueAction(key: 'hasSelection', value: true),
+        // Save deposit info to form.* for persistence (like login page)
+        StacCustomSetValueAction(key: 'form.selected_deposit_id', value: id),
+        StacCustomSetValueAction(
+          key: 'form.selected_deposit_title',
+          value: title,
+        ),
+        StacCustomSetValueAction(
+          key: 'form.selected_deposit_number',
+          value: depositNumber,
+        ),
+        StacCustomSetValueAction(
+          key: 'form.selected_shaba_number',
+          value: shabaNumber,
+        ),
       ],
     ),
     child: StacContainer(

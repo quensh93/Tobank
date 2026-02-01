@@ -1,0 +1,142 @@
+{
+    "appBar": {
+        "leading": {
+            "onPressed": {
+                "navigationStyle": "pop",
+                "actionType": "navigate"
+            },
+            "icon": {
+                "src": "assets/icons/ic_right_arrow.svg",
+                "imageType": "asset",
+                "color": "{{appColors.current.text.title}}",
+                "width": 24.0,
+                "height": 24.0,
+                "type": "image"
+            },
+            "type": "iconButton"
+        },
+        "title": {
+            "data": "{{appStrings.promissory.signTitle}} JSON",
+            "style": {
+                "type": "alias",
+                "value": "{{appStyles.appbarStyle}}"
+            },
+            "textDirection": "rtl",
+            "type": "text"
+        },
+        "centerTitle": true,
+        "type": "appBar"
+    },
+    "body": {
+        "crossAxisAlignment": "stretch",
+        "textDirection": "rtl",
+        "children": [
+            {
+                "child": {
+                    "padding": {
+                        "left": 16.0,
+                        "top": 16.0,
+                        "right": 16.0,
+                        "bottom": 16.0
+                    },
+                    "child": {
+                        "crossAxisAlignment": "stretch",
+                        "textDirection": "rtl",
+                        "children": [
+                            {
+                                "width": 999999.0,
+                                "height": 500.0,
+                                "child": {
+                                    "child": {
+                                        "mainAxisAlignment": "center",
+                                        "children": [
+                                            {
+                                                "src": "assets/icons/sign-pdf.svg",
+                                                "imageType": "asset",
+                                                "width": 145.0,
+                                                "height": 145.0,
+                                                "type": "image"
+                                            },
+                                            {
+                                                "height": 16.0,
+                                                "type": "sizedBox"
+                                            },
+                                            {
+                                                "data": "{{appStrings.promissory.signInstructionsDetail}}",
+                                                "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.subtitle}}",
+                                                    "fontSize": 14.0
+                                                },
+                                                "textAlign": "center",
+                                                "textDirection": "rtl",
+                                                "type": "text"
+                                            }
+                                        ],
+                                        "type": "column"
+                                    },
+                                    "type": "center"
+                                },
+                                "type": "container"
+                            },
+                            {
+                                "height": 24.0,
+                                "type": "sizedBox"
+                            }
+                        ],
+                        "type": "column"
+                    },
+                    "type": "singleChildScrollView"
+                },
+                "type": "expanded"
+            },
+            {
+                "padding": {
+                    "left": 16.0,
+                    "top": 16.0,
+                    "right": 16.0,
+                    "bottom": 16.0
+                },
+                "child": {
+                    "onPressed": {
+                        "actionType": "navigate",
+                        "assetPath": "lib/stac/tobank/flows/promissory/json/promissory_success.json",
+                        "navigationStyle": "pushReplacement"
+                    },
+                    "style": {
+                        "backgroundColor": "{{appColors.current.primary.color}}",
+                        "elevation": 0.0,
+                        "fixedSize": {
+                            "width": 999999.0,
+                            "height": 56.0
+                        },
+                        "shape": {
+                            "type": "roundedRectangleBorder",
+                            "borderRadius": {
+                                "topLeft": 12.0,
+                                "topRight": 12.0,
+                                "bottomLeft": 12.0,
+                                "bottomRight": 12.0
+                            }
+                        }
+                    },
+                    "child": {
+                        "data": "امضا و نهایی کردن",
+                        "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.primary.onPrimary}}",
+                            "fontSize": 18.0,
+                            "fontWeight": "bold"
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                    },
+                    "type": "filledButton"
+                },
+                "type": "padding"
+            }
+        ],
+        "type": "column"
+    },
+    "type": "scaffold"
+}

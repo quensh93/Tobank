@@ -16,7 +16,7 @@
       "type": "iconButton"
     },
     "title": {
-      "data": "{{appStrings.promissory.title}} JSON",
+      "data": "{{appStrings.promissory.title}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -284,7 +284,7 @@
                 },
                 "onTap": {
                   "actionType": "navigate",
-                  "assetPath": "lib/stac/tobank/flows/promissory/json/promissory_rules.json",
+                  "widgetType": "promissory_rules",
                   "navigationStyle": "push"
                 },
                 "type": "gestureDetector"

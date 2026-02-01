@@ -109,15 +109,17 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
             '⚠️ Navigation: Could not parse JSON path pattern, trying alternative method',
           );
           // Fallback: simple string replacement
-          if (resolvedAssetPath.contains('/json/')) {
-            resolvedAssetPath = resolvedAssetPath.replaceAll(
-              '/json/',
-              '/api/GET_',
-            );
-            AppLogger.d(
-              '✅ Navigation: Converted using string replacement: $resolvedAssetPath',
-            );
-          }
+          // COMMENTED OUT: This was blindly converting paths like .../flows/.../json/... to .../flows/.../api/GET_...
+          // which causes the wrong file to be loaded if the user intends to load the JSON file directly.
+          // if (resolvedAssetPath.contains('/json/')) {
+          //   resolvedAssetPath = resolvedAssetPath.replaceAll(
+          //     '/json/',
+          //     '/api/GET_',
+          //   );
+          //   AppLogger.d(
+          //     '✅ Navigation: Converted using string replacement: $resolvedAssetPath',
+          //   );
+          // }
         }
       }
     }
