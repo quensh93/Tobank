@@ -1,4 +1,3 @@
-import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
@@ -8,213 +7,37 @@ import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 /// This screen allows the user to select a deposit for the promissory note.
 /// Converted from BottomSheet to Page as requested.
 ///
-/// Deposits can be:
-/// 1. Provided as parameter (for static/mock data)
-/// 2. Read from registry (deposits.rawData) - for real API data
-/// 3. Fallback to static list if neither is available
-///
+/// Deposits are stored in: api/deposits_data.json
 /// Selected deposit is saved to form.* for persistence.
 ///
 /// Reference: docs/promissory_docs/request_promissory_deposit_bottom_sheet.dart
 @StacScreen(screenName: 'request_promissory_deposit')
 StacWidget requestPromissoryDepositPage({List<Map<String, String>>? deposits}) {
-  // If deposits are provided, use them directly (for static/mock data)
-  if (deposits != null) {
-    return _buildDepositPageWithData(deposits);
-  }
-  
-  // For real API data, we need to make the child reactive
-  // The problem: _buildReactiveDepositContent() is called once, so it reads
-  // from registry at that moment. When registry changes, the widget rebuilds,
-  // but _buildReactiveDepositContent() is NOT called again.
-  //
-  // SOLUTION: We need to make the child JSON contain a template variable that
-  // conditionally changes the structure. But since _buildReactiveDepositContent()
-  // returns a widget, not JSON with template variables, we need a different approach.
-  //
-  // The real solution: Make the child use a template variable that forces
-  // re-evaluation. We can do this by using a StacRawJsonWidget with a template
-  // variable in the key, and making the child JSON structure depend on that variable.
-  //
-  // But wait - the child JSON is still static because _buildReactiveDepositContent()
-  // is called once. So we need to make _buildReactiveDepositContent() return
-  // JSON with template variables, not a widget.
-  //
-  // Actually, the simplest solution: Make the child a StacStatefulWidget that
-  // rebuilds, and use onBuild to trigger a rebuild of the child when deposits.isLoaded changes.
-  // But onBuild runs after build, so that won't help.
-  //
-  // REAL SOLUTION: We need to make the child JSON contain a template variable
-  // that conditionally changes the structure. Since we can't do that with a Dart function,
-  // we need to use a different approach: Make the child use a template variable that
-  // conditionally shows different widgets based on deposits.isLoaded.
-  //
-  // But we can't do that either because _buildReactiveDepositContent() returns a widget.
-  //
-  // FINAL SOLUTION: We need to make _buildReactiveDepositContent() return JSON
-  // with template variables, not a widget. But that's complex.
-  //
-  // SIMPLER SOLUTION: Use a StacStatefulWidget that rebuilds, and make the child
-  // use a template variable that forces re-evaluation. We can do this by using
-  // a StacRawJsonWidget with a template variable in the key.
-  return StacStatefulWidget(
-    // The child will be re-parsed on each rebuild
-    // We need to ensure it reads fresh data from registry
-    child: _buildReactiveDepositContent(),
-  );
-}
+  // Define deposit data (matches deposits_data.json)
+  // Use provided deposits if available, otherwise fallback to static list
+  final effectiveDeposits =
+      deposits ??
+      const [
+        {
+          'id': 'dep_001',
+          'title': 'حساب جاری اصلی',
+          'depositNumber': '۱۲۳۴۵۶۷۸۹۰',
+          'shabaNumber': 'IR۱۲۱۰۱۲۳۴۵۶۷۸۹۰۱۲۳۴۵۶۷۸۹۰۱',
+        },
+        {
+          'id': 'dep_002',
+          'title': 'حساب پس‌انداز',
+          'depositNumber': '۰۹۸۷۶۵۰۴۳۲۱',
+          'shabaNumber': 'IR۱۲۱۰۰۰۹۸۷۶۵۰۴۳۲۱۰۹۸۷۶۵۰۴۳۲۱۰',
+        },
+        {
+          'id': 'dep_003',
+          'title': 'حساب قرض‌الحسنه',
+          'depositNumber': '۱۱۲۲۳۳۴۴۵۵',
+          'shabaNumber': 'IR۱۲۱۰۱۱۲۲۳۳۴۴۵۵۰۱۱۲۲۳۳۴۴۵۵۶',
+        },
+      ];
 
-/// Builds reactive deposit content that reads from registry
-/// Returns a StacStatefulWidget that rebuilds when registry changes
-/// The child will be re-parsed on each rebuild, and we use a helper function
-/// that reads from registry to build the appropriate widget
-StacWidget _buildReactiveDepositContent() {
-  // Return a StacStatefulWidget that rebuilds when registry changes
-  // The child is built by a function that reads from registry
-  // Since the child is evaluated once, we need to ensure it reads fresh data
-  // The solution: Use a StacStatefulWidget with onBuild that triggers a rebuild
-  // and make the child use template variables that force re-evaluation
-  return StacStatefulWidget(
-    // onBuild will be called on each rebuild, but that's not enough
-    // We need the child to actually read fresh data
-    // The solution: Make the child a StacStatefulWidget that also rebuilds
-    child: StacStatefulWidget(
-      // This inner widget will rebuild when registry changes
-      // The child will be re-parsed, but we need to ensure it reads fresh data
-      child: _buildDepositContentFromRegistry(),
-    ),
-  );
-}
-
-/// Builds deposit content by reading from registry
-/// CRITICAL: This function is called ONCE when the widget is created
-/// When the registry changes and the widget rebuilds, this function is NOT called again
-/// because the child property is evaluated once
-/// 
-/// SOLUTION: We need to make the child JSON contain a template variable that
-/// conditionally changes the structure. But since this function returns a widget,
-/// not JSON with template variables, we need a different approach.
-/// 
-/// The real solution: Make the child use a template variable that forces
-/// the parser to re-evaluate. But we can't do that with a Dart function.
-/// 
-/// WORKAROUND: Use a StacStatefulWidget with onBuild that updates a trigger key,
-/// and make the child depend on that trigger key via a template variable
-StacWidget _buildDepositContentFromRegistry() {
-  // Read from registry to determine what to show
-  // NOTE: This is called ONCE when the widget is created
-  final registry = StacRegistry.instance;
-  final rawData = registry.getValue('deposits.rawData');
-  final isLoaded = registry.getValue('deposits.isLoaded') == true;
-  
-  // If data is loaded, build the page with data
-  if (isLoaded && rawData is List && rawData.isNotEmpty) {
-    final transformedDeposits = rawData.map<Map<String, String>>((item) {
-      if (item is Map) {
-        return {
-          'id': item['depositNumber']?.toString() ?? '',
-          'title': item['depositTitle']?.toString() ?? 'سپرده',
-          'depositNumber': item['depositNumber']?.toString() ?? '',
-          'shabaNumber': item['depositIban']?.toString() ?? '',
-        };
-      }
-      return {
-        'id': '',
-        'title': 'سپرده',
-        'depositNumber': '',
-        'shabaNumber': '',
-      };
-    }).toList();
-    return _buildDepositPageWithData(transformedDeposits);
-  }
-  
-  // Show loading state - wrapped in StacStatefulWidget so it rebuilds
-  return StacStatefulWidget(
-    // Use onBuild to update a trigger key when deposits.isLoaded changes
-    // This will cause the widget to rebuild
-
-    child: StacScaffold(
-      appBar: StacAppBar(
-        title: StacText(
-          data: 'انتخاب سپرده',
-          textDirection: StacTextDirection.rtl,
-          style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
-        ),
-        centerTitle: true,
-        leading: StacIconButton(
-          onPressed: StacNavigateAction(navigationStyle: NavigationStyle.pop),
-          icon: StacImage(
-            src: 'assets/icons/ic_right_arrow.svg',
-            imageType: StacImageType.asset,
-            width: 24,
-            height: 24,
-            color: '{{appColors.current.text.title}}',
-          ),
-        ),
-      ),
-      body: StacCenter(
-        child: StacColumn(
-          mainAxisSize: StacMainAxisSize.min,
-          children: [
-            StacCircularProgressIndicator(),
-            StacSizedBox(height: 16),
-            StacText(
-              data: 'در حال دریافت لیست سپرده‌ها...',
-              textDirection: StacTextDirection.rtl,
-              style: StacCustomTextStyle(
-                fontSize: 16,
-                color: '{{appColors.current.text.subtitle}}',
-              ),
-            ),
-          ],
-        ),
-      ),
-    ),
-  );
-}
-
-/// Builds the deposit page with the provided deposits data
-StacWidget _buildDepositPageWithData(List<Map<String, String>> effectiveDeposits) {
-  // If no deposits available, show loading state
-  if (effectiveDeposits.isEmpty) {
-    return StacScaffold(
-      appBar: StacAppBar(
-        title: StacText(
-          data: 'انتخاب سپرده',
-          textDirection: StacTextDirection.rtl,
-          style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
-        ),
-        centerTitle: true,
-        leading: StacIconButton(
-          onPressed: StacNavigateAction(navigationStyle: NavigationStyle.pop),
-          icon: StacImage(
-            src: 'assets/icons/ic_right_arrow.svg',
-            imageType: StacImageType.asset,
-            width: 24,
-            height: 24,
-            color: '{{appColors.current.text.title}}',
-          ),
-        ),
-      ),
-      body: StacCenter(
-        child: StacColumn(
-          mainAxisSize: StacMainAxisSize.min,
-          children: [
-            StacCircularProgressIndicator(),
-            StacSizedBox(height: 16),
-            StacText(
-              data: 'در حال دریافت لیست سپرده‌ها...',
-              textDirection: StacTextDirection.rtl,
-              style: StacCustomTextStyle(
-                fontSize: 16,
-                color: '{{appColors.current.text.subtitle}}',
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
   return StacStatefulWidget(
     // On init, restore selection state from form.selected_deposit_id
     onInit: StacRawJsonAction({
