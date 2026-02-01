@@ -104,12 +104,15 @@ class CustomSetValueActionParser
       }
 
       // Store the resolved value in registry
-      AppLogger.dc(
-        LogCategory.action,
-        'CustomSetValueAction: storing key="$key" value="$valueToStore"',
-      );
-      StacRegistry.instance.setValue(key, valueToStore);
-      didUpdate = true;
+      final existingValue = StacRegistry.instance.getValue(key);
+      if (existingValue != valueToStore) {
+        AppLogger.dc(
+          LogCategory.action,
+          'CustomSetValueAction: storing key="$key" value="$valueToStore"',
+        );
+        StacRegistry.instance.setValue(key, valueToStore);
+        didUpdate = true;
+      }
 
       // If a TextFormField controller is registered for this key, update it too.
       if (valueToStore != null) {

@@ -2,8 +2,6 @@ import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 
-import '../../../../../core/stac/parsers/actions/close_dialog_action_parser.dart';
-
 @StacScreen(screenName: 'promissory_deposit_select')
 StacWidget promissoryDepositSelect() {
   return StacStatefulWidget(

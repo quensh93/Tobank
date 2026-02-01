@@ -60,7 +60,11 @@ class PromissoryLoginActionParser
 
       final accessToken = await authManager.getAccessToken();
       if (accessToken != null && accessToken.isNotEmpty) {
-        StacRegistry.instance.setValue('auth.accessToken', accessToken);
+        final bearerToken = accessToken.toLowerCase().startsWith('bearer ')
+            ? accessToken
+            : 'Bearer $accessToken';
+        StacRegistry.instance.setValue('auth.accessToken', bearerToken);
+        StacRegistry.instance.setValue('auth.accessTokenRaw', accessToken);
         AppLogger.ic(
           LogCategory.registry,
           'Access token saved to STAC registry',

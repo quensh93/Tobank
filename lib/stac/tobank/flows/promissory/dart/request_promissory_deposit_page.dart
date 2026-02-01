@@ -132,11 +132,7 @@ StacWidget _buildDepositContentFromRegistry() {
   return StacStatefulWidget(
     // Use onBuild to update a trigger key when deposits.isLoaded changes
     // This will cause the widget to rebuild
-    onBuild: StacRawJsonAction({
-      'actionType': 'setValue',
-      'key': '_deposits_content_trigger',
-      'value': '{{deposits.isLoaded}}',
-    }),
+
     child: StacScaffold(
       appBar: StacAppBar(
         title: StacText(

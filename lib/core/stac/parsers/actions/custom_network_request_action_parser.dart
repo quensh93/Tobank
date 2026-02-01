@@ -27,7 +27,8 @@ class CustomNetworkRequestActionParser
     Response<dynamic>? response;
 
     try {
-      response = await StacNetworkService.request(context, model);
+      final resolvedModel = _resolveNetworkRequestTemplates(model);
+      response = await StacNetworkService.request(context, resolvedModel);
     } on DioException catch (e) {
       response = e.response;
       Log.e(e.response);
@@ -35,7 +36,20 @@ class CustomNetworkRequestActionParser
 
     // Store response data in registry so {{data.data.*}} variables can be resolved
     if (response?.data != null) {
-      StacRegistry.instance.setValue('data', response!.data);
+      final responseData = response!.data;
+      StacRegistry.instance.setValue('data', responseData);
+
+      dynamic payload;
+      if (responseData is Map) {
+        payload = responseData['data'];
+        if (payload == null && responseData['result'] is Map) {
+          payload = (responseData['result'] as Map)['data'];
+        }
+      }
+      if (payload != null) {
+        StacRegistry.instance.setValue('data_payload', payload);
+      }
+
       RegistryNotifier.instance.notify();
       AppLogger.dc(
         LogCategory.network,
@@ -62,6 +76,53 @@ class CustomNetworkRequestActionParser
     }
 
     return null;
+  }
+
+  StacNetworkRequest _resolveNetworkRequestTemplates(StacNetworkRequest model) {
+    final resolvedUrl = _resolveTemplates(model.url);
+
+    Map<String, String>? resolvedHeaders;
+    final headers = model.headers;
+    if (headers != null) {
+      resolvedHeaders = headers.map((key, value) {
+        return MapEntry(key, _resolveTemplates(value));
+      });
+    }
+
+    if (resolvedHeaders != null) {
+      final authValue = resolvedHeaders.entries
+          .firstWhere(
+            (e) => e.key.toLowerCase() == 'authorization',
+            orElse: () => const MapEntry('', ''),
+          )
+          .value;
+      final hasAuth = authValue.trim().isNotEmpty;
+      AppLogger.dc(
+        LogCategory.network,
+        'STAC request headers resolved (hasAuthorization=$hasAuth): '
+            '${resolvedHeaders.map((k, v) => MapEntry(k, k.toLowerCase() == 'authorization' ? '***' : v))}',
+      );
+    }
+
+    return StacNetworkRequest(
+      url: resolvedUrl,
+      method: model.method,
+      headers: resolvedHeaders,
+      body: model.body,
+    );
+  }
+
+  String _resolveTemplates(String input) {
+    if (!input.contains('{{') || !input.contains('}}')) return input;
+
+    return input.replaceAllMapped(RegExp(r'\{\{([^}]+)\}\}'), (match) {
+      final expr = match.group(1)?.trim();
+      if (expr == null || expr.isEmpty) return match.group(0) ?? '';
+
+      final value = StacRegistry.instance.getValue(expr);
+      if (value == null) return '';
+      return value.toString();
+    });
   }
 }
 
