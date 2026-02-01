@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 import 'package:stac/stac.dart';
@@ -312,7 +313,7 @@ Dio setupStacMockDio() {
             AppLogger.d(
               '🔍 Mock interceptor: Looking for file: $finalAssetPath',
             );
-            final jsonString = await rootBundle.loadString(finalAssetPath);
+            final jsonString = await _loadAssetString(finalAssetPath);
 
             // DEBUG: Check for light/current references in the raw JSON string
             if (finalAssetPath.contains('GET_styles.json')) {
@@ -511,6 +512,15 @@ Dio setupStacMockDio() {
   );
 
   return dio;
+}
+
+Future<String> _loadAssetString(String assetPath) async {
+  try {
+    return await rootBundle.loadString(assetPath);
+  } catch (_) {
+    // Fallback to file system for cases where AssetBundle isn't ready/updated (hot restart).
+    return File(assetPath).readAsString();
+  }
 }
 
 /// Resolve variables in JSON while preserving value types (numbers, bools, etc.)

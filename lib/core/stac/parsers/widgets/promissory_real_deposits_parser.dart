@@ -13,6 +13,8 @@ class PromissoryRealDepositsParser extends StacParser<Map<String, dynamic>> {
 
   @override
   Widget parse(BuildContext context, Map<String, dynamic> model) {
-    return const PromissoryRealDepositsScreen();
+    // Call the STAC function to get the widget
+    final stacWidget = promissoryRealDeposits();
+    return Stac.fromJson(stacWidget.toJson(), context) ?? const SizedBox.shrink();
   }
 }

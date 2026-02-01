@@ -20,7 +20,7 @@ class PromissoryRealAuthService {
     'content-type': 'application/json',
     'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
     'serviceauthorization':
-        'Basic QzFVb3ZyYUVSQ0NRYm9ZcUhhcFVqZk9McWZNYTpXU1N4WUFWUThPUFVjS0FTZHJNaUhIX2NmWE10UmNCWW5wNGdoT2ZKQTdRYQ==',
+        'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
   };
 
   final Dio _dio = Dio();
@@ -94,8 +94,24 @@ class PromissoryRealAuthService {
         }
 
         if (token != null && token.isNotEmpty) {
-          await _authManager.saveTokens(accessToken: token);
+          final cleanedToken = token.trim();
+          final normalizedToken = cleanedToken.toLowerCase().startsWith('bearer ')
+              ? cleanedToken.substring(7).trim()
+              : cleanedToken;
+          await _authManager.saveTokens(accessToken: normalizedToken);
           AppLogger.ic(LogCategory.network, 'Token Saved successfully.');
+
+          final resolvedNationalId =
+              _extractNationalIdFromResponse(data) ??
+              _extractNationalIdFromToken(normalizedToken) ??
+              body['nationalId']?.toString();
+          if (resolvedNationalId != null && resolvedNationalId.isNotEmpty) {
+            await _authManager.saveNationalCode(resolvedNationalId);
+            AppLogger.ic(
+              LogCategory.network,
+              'National code saved successfully.',
+            );
+          }
 
           if (context.mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -147,6 +163,49 @@ class PromissoryRealAuthService {
         );
       }
       return false;
+    }
+  }
+
+  String? _extractNationalIdFromResponse(dynamic data) {
+    if (data is! Map) return null;
+
+    Map? result = data['result'] is Map ? data['result'] as Map : null;
+    Map? resultData =
+        result != null && result['data'] is Map ? result['data'] as Map : null;
+
+    final candidates = <dynamic>[data, result, resultData]
+        .where((item) => item != null)
+        .cast<Map>();
+
+    for (final map in candidates) {
+      final value =
+          map['nationalId'] ?? map['national_id'] ?? map['nationalCode'] ??
+          map['national_code'] ?? map['natCode'] ?? map['nat_code'];
+      if (value != null && value.toString().isNotEmpty) {
+        return value.toString();
+      }
+    }
+
+    return null;
+  }
+
+  String? _extractNationalIdFromToken(String token) {
+    final parts = token.split('.');
+    if (parts.length < 2) return null;
+
+    try {
+      final payload = parts[1];
+      final normalized = base64Url.normalize(payload);
+      final decoded = utf8.decode(base64Url.decode(normalized));
+      final json = jsonDecode(decoded);
+      if (json is! Map) return null;
+
+      final value =
+          json['nationalId'] ?? json['national_id'] ?? json['nationalCode'] ??
+          json['national_code'] ?? json['natCode'] ?? json['nat_code'];
+      return value?.toString();
+    } catch (_) {
+      return null;
     }
   }
 

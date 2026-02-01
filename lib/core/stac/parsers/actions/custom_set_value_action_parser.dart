@@ -104,12 +104,15 @@ class CustomSetValueActionParser
       }
 
       // Store the resolved value in registry
-      AppLogger.dc(
-        LogCategory.action,
-        'CustomSetValueAction: storing key="$key" value="$valueToStore"',
-      );
-      StacRegistry.instance.setValue(key, valueToStore);
-      didUpdate = true;
+      final existingValue = StacRegistry.instance.getValue(key);
+      if (existingValue != valueToStore) {
+        AppLogger.dc(
+          LogCategory.action,
+          'CustomSetValueAction: storing key="$key" value="$valueToStore"',
+        );
+        StacRegistry.instance.setValue(key, valueToStore);
+        didUpdate = true;
+      }
 
       // If a TextFormField controller is registered for this key, update it too.
       if (valueToStore != null) {
@@ -162,6 +165,22 @@ class CustomSetValueActionParser
       return DateTime.now().millisecondsSinceEpoch;
     }
 
+    // replace(value, from, to)
+    // Examples:
+    //   {{replace(form.receiver_birthdate,'/','')}} -> "13610629"
+    final replaceMatch = RegExp(
+      r"^replace\(\s*([^,]+)\s*,\s*'([^']*)'\s*,\s*'([^']*)'\s*\)$",
+    ).firstMatch(expr);
+    if (replaceMatch != null) {
+      final valueExpr = replaceMatch.group(1)!.trim();
+      final from = replaceMatch.group(2)!;
+      final to = replaceMatch.group(3)!;
+
+      final value = _evalExpression(valueExpr);
+      if (value == null) return null;
+      return value.toString().replaceAll(from, to);
+    }
+
     // Handle ternary expression: "condition ? trueValue : falseValue"
     final ternaryMatch = RegExp(
       r'^(.+?)\s*\?\s*(.+?)\s*:\s*(.+)$',
@@ -181,11 +200,41 @@ class CustomSetValueActionParser
     // Handle negation: "!variableName"
     if (expr.startsWith('!')) {
       final varName = expr.substring(1).trim();
-      final value = StacRegistry.instance.getValue(varName);
+      final value = _getNestedValue(varName);
       return !_toBool(value);
     }
 
-    return StacRegistry.instance.getValue(expr);
+    // Handle nested paths like "data.data.nationalCode"
+    return _getNestedValue(expr);
+  }
+
+  /// Gets a value from registry, supporting nested paths like "data.data.nationalCode"
+  dynamic _getNestedValue(String path) {
+    final parts = path.split('.');
+    if (parts.isEmpty) return null;
+
+    // Get the root value from registry
+    dynamic value = StacRegistry.instance.getValue(parts[0]);
+    if (value == null) return null;
+
+    // Navigate through nested structure
+    for (int i = 1; i < parts.length; i++) {
+      if (value is Map) {
+        value = value[parts[i]];
+      } else if (value is List && int.tryParse(parts[i]) != null) {
+        final index = int.parse(parts[i]);
+        if (index >= 0 && index < value.length) {
+          value = value[index];
+        } else {
+          return null;
+        }
+      } else {
+        return null;
+      }
+      if (value == null) return null;
+    }
+
+    return value;
   }
 
   /// Evaluates a condition expression and returns a boolean

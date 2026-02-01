@@ -1,123 +1,66 @@
-import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
-import 'package:stac_core/stac_core.dart' hide StacTheme;
-import '../../../../../core/helpers/logger.dart';
+import 'package:stac_core/stac_core.dart';
+import '../../../../../core/stac/builders/stac_stateful_widget.dart';
+import '../../../../../core/stac/builders/stac_custom_actions.dart';
 import '../../promissory/dart/request_promissory_deposit_page.dart';
-import 'promissory_real_service.dart';
 
+/// Promissory Flow - Real Deposits Selection Page
+///
+/// This screen fetches deposits from the real API and displays them for selection.
+/// Uses pure STAC Dart syntax with networkRequest action to fetch data.
+///
+/// Reference: lib/stac/tobank/flows/promissory/dart/request_promissory_deposit_page.dart
 @StacScreen(screenName: 'promissory_real_deposits')
-class PromissoryRealDepositsScreen extends StatefulWidget {
-  const PromissoryRealDepositsScreen({super.key});
-
-  @override
-  State<PromissoryRealDepositsScreen> createState() =>
-      _PromissoryRealDepositsScreenState();
-}
-
-class _PromissoryRealDepositsScreenState
-    extends State<PromissoryRealDepositsScreen> {
-  final PromissoryRealService _service = PromissoryRealService();
-  bool _isLoading = true;
-  String? _errorMessage;
-  List<Map<String, String>>? _deposits;
-
-  @override
-  void initState() {
-    super.initState();
-    _fetchDeposits();
-  }
-
-  Future<void> _fetchDeposits() async {
-    setState(() {
-      _isLoading = true;
-      _errorMessage = null;
-    });
-
-    try {
-      final deposits = await _service.getDeposits(context);
-
-      if (mounted) {
-        setState(() {
-          _isLoading = false;
-          if (deposits != null) {
-            _deposits = deposits;
-          } else {
-            _errorMessage = 'Failed to load deposits';
-          }
-        });
-      }
-    } catch (e) {
-      if (mounted) {
-        setState(() {
-          _isLoading = false;
-          _errorMessage = e.toString();
-        });
-      }
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    if (_isLoading) {
-      return const Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CircularProgressIndicator(),
-              SizedBox(height: 16),
-              Text('در حال دریافت لیست سپرده‌ها...'),
+StacWidget promissoryRealDeposits() {
+  return StacStatefulWidget(
+    // Fetch deposits when screen loads using standard networkRequest action
+    // Note: userData.nationalCode and auth.accessToken should be in registry from login
+    onInit: StacNetworkRequestAction(
+      url: 'http://192.168.107.22:8280/api/digitalbanking/deposits/v1.0/customer/{{userData.nationalCode}}',
+      method: 'get',
+      headers: {
+        'accept': '*/*',
+        'app-platform': 'android',
+        'app-store': 'application/json',
+        'app-version': '456',
+        'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
+        'serviceauthorization': 'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
+        'authorization': '{{auth.accessToken}}',
+      },
+      results: [
+        {
+          'statusCode': 200,
+          'action': StacCustomSetValueAction(
+            values: [
+              // Store deposits list in registry
+              // The API returns: { "data": [ { "depositNumber": "...", "depositTitle": "...", "depositIban": "..." } ] }
+              // We transform it to the format expected by requestPromissoryDepositPage
+              // Format: [ { "id": "...", "title": "...", "depositNumber": "...", "shabaNumber": "..." } ]
+              // Note: The transformation happens in _buildDepositsContent which reads from registry
+              {'key': 'deposits.rawData', 'value': '{{data_payload}}'},
+              // Also store a flag to indicate deposits are loaded
+              {'key': 'deposits.isLoaded', 'value': true},
+              {'key': 'deposits.error', 'value': null},
             ],
-          ),
-        ),
-      );
-    }
-
-    if (_errorMessage != null) {
-      return Scaffold(
-        appBar: AppBar(
-          title: const Text('خطا'),
-          centerTitle: true,
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(Icons.error_outline, size: 60, color: Colors.orange),
-              const SizedBox(height: 16),
-              Text(
-                'خطا در دریافت اطلاعات:\n$_errorMessage',
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 24),
-              ElevatedButton(
-                onPressed: _fetchDeposits,
-                child: const Text('تلاش مجدد'),
-              ),
-            ],
-          ),
-        ),
-      );
-    }
-
-    if (_deposits != null) {
-      // Build the SDUI widget dynamically with the fetched data
-      try {
-        final sduiWidget = requestPromissoryDepositPage(deposits: _deposits!);
-        final sduiJson = sduiWidget.toJson();
-
-        // Render efficiently using Stac
-        return Stac.fromJson(sduiJson, context) ?? const SizedBox.shrink();
-      } catch (e) {
-        AppLogger.ec(LogCategory.widget, 'Error building deposits SDUI', e);
-        return const Scaffold(body: Center(child: Text('Error rendering UI')));
-      }
-    }
-
-    return const Scaffold(body: Center(child: Text('No data available')));
-  }
+          ).toJson(),
+        },
+        {
+          'statusCode': 403,
+          'action': StacCustomSetValueAction(values: const [
+            {'key': 'deposits.isLoaded', 'value': true},
+            {'key': 'deposits.rawData', 'value': null},
+            {'key': 'deposits.error', 'value': 'Access forbidden. Please check your permissions.'},
+          ]).toJson(),
+        },
+        {
+          'statusCode': 401,
+          'action': StacCustomSetValueAction(values: const [
+            {'key': 'deposits.isLoaded', 'value': true},
+            {'key': 'deposits.rawData', 'value': null},
+            {'key': 'deposits.error', 'value': 'Authentication failed. Please login again.'},
+          ]).toJson(),
+        },
+      ],
+    ),
+    child: StacRawJsonWidget(const {'type': 'promissory_real_deposits_content'}),
+  );
 }

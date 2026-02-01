@@ -19,6 +19,8 @@ class _PromissoryRealLoginScreenState extends State<PromissoryRealLoginScreen> {
   final _mobileNumberController = TextEditingController();
   final _nationalIdController = TextEditingController();
   final _birthDateController = TextEditingController();
+  final _gpayTokenController = TextEditingController();
+  final _cifController = TextEditingController();
 
   final PromissoryRealAuthService _authService = PromissoryRealAuthService();
   bool _isLoading = false;
@@ -28,6 +30,8 @@ class _PromissoryRealLoginScreenState extends State<PromissoryRealLoginScreen> {
     _mobileNumberController.dispose();
     _nationalIdController.dispose();
     _birthDateController.dispose();
+    _gpayTokenController.dispose();
+    _cifController.dispose();
     super.dispose();
   }
 
@@ -38,19 +42,15 @@ class _PromissoryRealLoginScreenState extends State<PromissoryRealLoginScreen> {
       _isLoading = true;
     });
 
-    // Hardcoded static values for removed inputs
-    const String staticGpayToken = "1234";
-    const String staticCif = "123";
-
     final data = {
       "nationalId": _nationalIdController.text,
       "mobileNumber": _mobileNumberController.text,
-      "gpayToken": staticGpayToken,
+      "gpayToken": _gpayTokenController.text,
       "birthDate": _birthDateController.text.replaceAll(
         '/',
         '',
       ), // Ensure format matches API expectation if needed
-      "cif": staticCif,
+      "cif": _cifController.text,
     };
 
     final success = await _authService.login(context, data);
@@ -135,6 +135,50 @@ class _PromissoryRealLoginScreenState extends State<PromissoryRealLoginScreen> {
                       return 'کد ملی الزامی است';
                     if (!RegExp(r'^\d{10}$').hasMatch(value))
                       return 'کد ملی باید 10 رقم باشد';
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 16),
+
+                // GPay Token
+                const Text('GPay Token'),
+                const SizedBox(height: 8),
+                TextFormField(
+                  controller: _gpayTokenController,
+                  decoration: const InputDecoration(
+                    hintText: 'مثال: 1234',
+                    border: OutlineInputBorder(),
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 12,
+                    ),
+                  ),
+                  keyboardType: TextInputType.number,
+                  validator: (value) {
+                    if (value == null || value.isEmpty)
+                      return 'GPay Token الزامی است';
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 16),
+
+                // CIF
+                const Text('CIF'),
+                const SizedBox(height: 8),
+                TextFormField(
+                  controller: _cifController,
+                  decoration: const InputDecoration(
+                    hintText: 'مثال: 123',
+                    border: OutlineInputBorder(),
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 12,
+                    ),
+                  ),
+                  keyboardType: TextInputType.number,
+                  validator: (value) {
+                    if (value == null || value.isEmpty)
+                      return 'CIF الزامی است';
                     return null;
                   },
                 ),

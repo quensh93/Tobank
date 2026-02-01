@@ -1,4 +1,4 @@
-// ignore_for_file: implementation_imports
+﻿// ignore_for_file: implementation_imports
 import 'package:flutter/material.dart';
 import 'package:stac/src/parsers/foundation/colors/stac_brightness_parser.dart';
 import 'package:stac/src/parsers/foundation/decoration/stac_input_decoration_parser.dart';
@@ -34,11 +34,11 @@ class CustomTextFormFieldParser extends StacParser<StacTextFormField> {
     final hasOnTap = json.containsKey('onTap');
     final hasOnChanged = json.containsKey('onChanged');
     if (hasOnTap) {
-      AppLogger.d('📝 TextFormField JSON contains onTap: ${json['onTap']}');
+      AppLogger.d('ðŸ“ TextFormField JSON contains onTap: ${json['onTap']}');
     }
     if (hasOnChanged) {
       AppLogger.d(
-        '📝 TextFormField JSON contains onChanged: ${json['onChanged']}',
+        'ðŸ“ TextFormField JSON contains onChanged: ${json['onChanged']}',
       );
     }
 
@@ -51,7 +51,7 @@ class CustomTextFormFieldParser extends StacParser<StacTextFormField> {
       json,
     ); // Create a copy to preserve onTap and onChanged
     AppLogger.d(
-      '💾 Stored JSON for TextFormField id=${json['id']}, hasOnTap=$hasOnTap, hasOnChanged=$hasOnChanged, key=$key',
+      'ðŸ’¾ Stored JSON for TextFormField id=${json['id']}, hasOnTap=$hasOnTap, hasOnChanged=$hasOnChanged, key=$key',
     );
     return model;
   }
@@ -94,23 +94,23 @@ class CustomTextFormFieldParser extends StacParser<StacTextFormField> {
       final hasOnTap = rawJson.containsKey('onTap');
       final hasOnChanged = rawJson.containsKey('onChanged');
       AppLogger.d(
-        '🔍 Retrieved JSON for TextFormField id=${model.id}, hasOnTap=$hasOnTap, hasOnChanged=$hasOnChanged',
+        'ðŸ” Retrieved JSON for TextFormField id=${model.id}, hasOnTap=$hasOnTap, hasOnChanged=$hasOnChanged',
       );
       if (hasOnTap) {
-        AppLogger.d('✅ Found onTap action: ${rawJson['onTap']}');
+        AppLogger.d('âœ… Found onTap action: ${rawJson['onTap']}');
       }
       if (hasOnChanged) {
-        AppLogger.d('✅ Found onChanged action: ${rawJson['onChanged']}');
+        AppLogger.d('âœ… Found onChanged action: ${rawJson['onChanged']}');
       }
       if (!hasOnTap && !hasOnChanged) {
         AppLogger.w(
-          '⚠️ Neither onTap nor onChanged found in retrieved JSON. Keys: ${rawJson.keys.toList()}',
+          'âš ï¸ Neither onTap nor onChanged found in retrieved JSON. Keys: ${rawJson.keys.toList()}',
         );
       }
     } else {
-      AppLogger.w('⚠️ No cached JSON found for TextFormField id=${model.id}');
+      AppLogger.w('âš ï¸ No cached JSON found for TextFormField id=${model.id}');
       AppLogger.w(
-        '📊 Cache size: ${_jsonCache.length}, Keys: ${_jsonCache.keys.toList()}',
+        'ðŸ“Š Cache size: ${_jsonCache.length}, Keys: ${_jsonCache.keys.toList()}',
       );
     }
 
@@ -184,52 +184,66 @@ class _CustomTextFormFieldWidgetState
 
   @override
   Widget build(BuildContext context) {
+    final onTapAction = widget.rawJson?['onTap'] as Map<String, dynamic>?;
+
+    final obscuringCharacter = _normalizeObscuringCharacter(
+      widget.model.obscuringCharacter,
+    );
+
     final textField = TextFormField(
       controller: _controller,
       focusNode: _focusNode,
+      onTap: onTapAction == null
+          ? null
+          : () {
+              AppLogger.d(
+                '👆 TextFormField tapped! Executing onTap action: $onTapAction',
+              );
+              Stac.onCallFromJson(onTapAction, context);
+            },
       onChanged: (value) {
         AppLogger.i(
-          '🔄 TextFormField onChanged triggered for id=${widget.model.id}, value="$value"',
+          'ðŸ”„ TextFormField onChanged triggered for id=${widget.model.id}, value="$value"',
         );
         if (widget.model.id != null) {
           widget.formScope?.formData[widget.model.id!] = value;
-          AppLogger.d('📝 Updated formData[${widget.model.id}] = "$value"');
+          AppLogger.d('ðŸ“ Updated formData[${widget.model.id}] = "$value"');
         }
 
         // Check if onChanged action is provided in raw JSON
         if (widget.rawJson != null) {
           AppLogger.d(
-            '🔍 Checking for onChanged in raw JSON for id=${widget.model.id}',
+            'ðŸ” Checking for onChanged in raw JSON for id=${widget.model.id}',
           );
-          AppLogger.d('📋 Raw JSON keys: ${widget.rawJson!.keys.toList()}');
+          AppLogger.d('ðŸ“‹ Raw JSON keys: ${widget.rawJson!.keys.toList()}');
           final onChangedAction =
               widget.rawJson?['onChanged'] as Map<String, dynamic>?;
           if (onChangedAction != null) {
             AppLogger.i(
-              '✅ onChanged action found! Executing calculateSum action...',
+              'âœ… onChanged action found! Executing calculateSum action...',
             );
-            AppLogger.d('📋 Action JSON: $onChangedAction');
+            AppLogger.d('ðŸ“‹ Action JSON: $onChangedAction');
             // Execute asynchronously to avoid blocking the UI
             Future.microtask(() {
               try {
                 if (context.mounted) {
                   Stac.onCallFromJson(onChangedAction, context);
-                  AppLogger.i('✅ onChanged action executed successfully');
+                  AppLogger.i('âœ… onChanged action executed successfully');
                 }
               } catch (e, stackTrace) {
-                AppLogger.e('❌ Error executing onChanged action: $e');
-                AppLogger.e('📋 Stack trace: $stackTrace');
+                AppLogger.e('âŒ Error executing onChanged action: $e');
+                AppLogger.e('ðŸ“‹ Stack trace: $stackTrace');
               }
             });
           } else {
             AppLogger.w(
-              '⚠️ No onChanged action found in raw JSON for id=${widget.model.id}',
+              'âš ï¸ No onChanged action found in raw JSON for id=${widget.model.id}',
             );
-            AppLogger.w('📋 Available keys: ${widget.rawJson!.keys.toList()}');
+            AppLogger.w('ðŸ“‹ Available keys: ${widget.rawJson!.keys.toList()}');
           }
         } else {
           AppLogger.e(
-            '❌ rawJson is null for id=${widget.model.id}, cannot check onChanged',
+            'âŒ rawJson is null for id=${widget.model.id}, cannot check onChanged',
           );
         }
       },
@@ -243,7 +257,7 @@ class _CustomTextFormFieldWidgetState
       showCursor: widget.model.showCursor,
       autofocus: widget.model.autofocus ?? false,
       autovalidateMode: widget.model.autovalidateMode?.parse,
-      obscuringCharacter: widget.model.obscuringCharacter ?? '•',
+      obscuringCharacter: obscuringCharacter,
       maxLines: widget.model.maxLines ?? 1,
       minLines: widget.model.minLines,
       maxLength: widget.model.maxLength,
@@ -287,34 +301,21 @@ class _CustomTextFormFieldWidgetState
     // Check if onTap or onChanged action is provided in raw JSON
     if (widget.rawJson != null) {
       AppLogger.d(
-        '🔍 Checking for onTap/onChanged in TextFormField id=${widget.model.id}',
+        'ðŸ” Checking for onTap/onChanged in TextFormField id=${widget.model.id}',
       );
-      AppLogger.d('📋 Raw JSON keys: ${widget.rawJson!.keys.toList()}');
-    }
-
-    final onTapAction = widget.rawJson?['onTap'] as Map<String, dynamic>?;
-    if (onTapAction != null) {
-      AppLogger.d(
-        '✅ onTap action found! Wrapping TextFormField in GestureDetector',
-      );
-      // Wrap in GestureDetector with opaque behavior to ensure taps are received
-      return GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: () {
-          AppLogger.d(
-            '👆 TextFormField tapped! Executing onTap action: $onTapAction',
-          );
-          Stac.onCallFromJson(onTapAction, context);
-        },
-        child: textField,
-      );
-    } else {
-      AppLogger.w(
-        '⚠️ No onTap action found for TextFormField id=${widget.model.id}',
-      );
+      AppLogger.d('ðŸ“‹ Raw JSON keys: ${widget.rawJson!.keys.toList()}');
     }
 
     return textField;
+  }
+
+  String _normalizeObscuringCharacter(String? value) {
+    final fallback = '•';
+    if (value == null || value.isEmpty) return fallback;
+
+    // Flutter asserts that obscuringCharacter must be exactly 1 character.
+    // Some inputs may be mojibake like "â€¢" (length 2) due to encoding.
+    return value.characters.first;
   }
 
   String? _validate(String? value, StacTextFormField model) {
