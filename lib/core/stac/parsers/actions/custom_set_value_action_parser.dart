@@ -165,6 +165,22 @@ class CustomSetValueActionParser
       return DateTime.now().millisecondsSinceEpoch;
     }
 
+    // replace(value, from, to)
+    // Examples:
+    //   {{replace(form.receiver_birthdate,'/','')}} -> "13610629"
+    final replaceMatch = RegExp(
+      r"^replace\(\s*([^,]+)\s*,\s*'([^']*)'\s*,\s*'([^']*)'\s*\)$",
+    ).firstMatch(expr);
+    if (replaceMatch != null) {
+      final valueExpr = replaceMatch.group(1)!.trim();
+      final from = replaceMatch.group(2)!;
+      final to = replaceMatch.group(3)!;
+
+      final value = _evalExpression(valueExpr);
+      if (value == null) return null;
+      return value.toString().replaceAll(from, to);
+    }
+
     // Handle ternary expression: "condition ? trueValue : falseValue"
     final ternaryMatch = RegExp(
       r'^(.+?)\s*\?\s*(.+?)\s*:\s*(.+)$',

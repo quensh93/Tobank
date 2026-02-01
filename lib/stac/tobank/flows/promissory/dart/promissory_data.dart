@@ -44,6 +44,52 @@ StacWidget promissoryData() {
                 child: StacColumn(
                   crossAxisAlignment: StacCrossAxisAlignment.stretch,
                   children: [
+                    // Receiver summary card (from Step 5 + identity API)
+                    StacContainer(
+                      padding: StacEdgeInsets.all(16),
+                      decoration: StacBoxDecoration(
+                        color: '{{appColors.current.background.surfaceContainer}}',
+                        borderRadius: StacBorderRadius.all(12),
+                        border: StacBorder.all(
+                          color: '{{appColors.current.input.borderEnabled}}',
+                          width: 1,
+                        ),
+                      ),
+                      child: StacColumn(
+                        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                        children: [
+                          StacText(
+                            data: 'اطلاعات دریافت‌کننده',
+                            textDirection: StacTextDirection.rtl,
+                            style: StacCustomTextStyle(
+                              fontSize: 14,
+                              fontWeight: StacFontWeight.w700,
+                              color: '{{appColors.current.text.title}}',
+                            ),
+                          ),
+                          StacSizedBox(height: 12),
+                          _buildInfoRow(
+                            label: 'کد ملی',
+                            value: '{{receiver.nationalCode}}',
+                            valueDirection: StacTextDirection.ltr,
+                          ),
+                          StacSizedBox(height: 10),
+                          _buildInfoRow(
+                            label: 'شماره موبایل',
+                            value: '{{receiver.mobile}}',
+                            valueDirection: StacTextDirection.ltr,
+                          ),
+                          StacSizedBox(height: 10),
+                          _buildInfoRow(
+                            label: 'نام و نام‌خانوادگی',
+                            value: '{{receiverIdentity.fullName}}',
+                            valueDirection: StacTextDirection.rtl,
+                          ),
+                        ],
+                      ),
+                    ),
+                    StacSizedBox(height: 16),
+
                     // Amount Field
                     StacText(
                       data: '{{appStrings.promissory.amountLabel}}',
@@ -229,6 +275,40 @@ class StacAliasTextStyle implements StacTextStyle {
   StacTextStyleType get type => StacTextStyleType.custom;
   @override
   Map<String, dynamic> toJson() => {'type': 'alias', 'value': alias};
+}
+
+StacWidget _buildInfoRow({
+  required String label,
+  required String value,
+  required StacTextDirection valueDirection,
+}) {
+  return StacRow(
+    textDirection: StacTextDirection.rtl,
+    mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+    children: [
+      StacText(
+        data: label,
+        textDirection: StacTextDirection.rtl,
+        style: StacCustomTextStyle(
+          fontSize: 13,
+          fontWeight: StacFontWeight.w500,
+          color: '{{appColors.current.text.subtitle}}',
+        ),
+      ),
+      StacExpanded(
+        child: StacText(
+          data: value,
+          textDirection: valueDirection,
+          textAlign: StacTextAlign.left,
+          style: StacCustomTextStyle(
+            fontSize: 13,
+            fontWeight: StacFontWeight.w600,
+            color: '{{appColors.current.text.title}}',
+          ),
+        ),
+      ),
+    ],
+  );
 }
 
 /// Raw JSON widget helper

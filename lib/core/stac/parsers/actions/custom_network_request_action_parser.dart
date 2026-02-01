@@ -113,9 +113,12 @@ class CustomNetworkRequestActionParser
   }
 
   String _resolveTemplates(String input) {
-    if (!input.contains('{{') || !input.contains('}}')) return input;
+    final decodedInput = _tryDecodeUriComponent(input);
+    if (!decodedInput.contains('{{') || !decodedInput.contains('}}')) {
+      return decodedInput;
+    }
 
-    return input.replaceAllMapped(RegExp(r'\{\{([^}]+)\}\}'), (match) {
+    return decodedInput.replaceAllMapped(RegExp(r'\{\{([^}]+)\}\}'), (match) {
       final expr = match.group(1)?.trim();
       if (expr == null || expr.isEmpty) return match.group(0) ?? '';
 
@@ -123,6 +126,15 @@ class CustomNetworkRequestActionParser
       if (value == null) return '';
       return value.toString();
     });
+  }
+
+  String _tryDecodeUriComponent(String input) {
+    try {
+      // StacNetworkService may percent-encode the URL early; decode to allow {{...}} resolution.
+      return Uri.decodeFull(input);
+    } catch (_) {
+      return input;
+    }
   }
 }
 

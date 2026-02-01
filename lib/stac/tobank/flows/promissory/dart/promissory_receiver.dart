@@ -1,4 +1,4 @@
-import 'package:stac_core/stac_core.dart';
+﻿import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart'
     hide StacPersianDatePickerAction;
@@ -202,8 +202,48 @@ StacWidget promissoryReceiver() {
                       ),
                     ),
                     StacSizedBox(height: 8),
-                    StacGestureDetector(
-                      onTap: StacPersianDatePickerAction(
+                    StacRawJsonWidget({
+                      'type': 'textFormField',
+                      'id': 'receiver_birthdate',
+                      'readOnly': true,
+                      'showCursor': false,
+                      'textDirection': 'rtl',
+                      'textAlign': 'right',
+                      'decoration': StacInputDecoration(
+                        hintText:
+                            'تاریخ تولد ذینفع را انتخاب نمایید',
+                        hintStyle: StacCustomTextStyle(
+                          color: '{{appColors.current.text.subtitle}}',
+                          fontSize: 14,
+                          fontWeight: StacFontWeight.w500,
+                        ),
+                        filled: false,
+                        contentPadding: StacEdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 16,
+                        ),
+                        prefixIcon: StacPadding(
+                          padding: StacEdgeInsets.all(8),
+                          child: StacImage(
+                            src: 'assets/icons/ic_calendar.svg',
+                            imageType: StacImageType.asset,
+                            width: 24,
+                            height: 24,
+                            fit: StacBoxFit.scaleDown,
+                            color: '{{appColors.current.text.subtitle}}',
+                          ),
+                        ),
+                      ).toJson(),
+                      'keyboardType': 'text',
+                      'textInputAction': 'done',
+                      'validatorRules': [
+                        {
+                          'rule': r'^\d{4}/\d{2}/\d{2}$',
+                          'message':
+                              'تاریخ تولد را انتخاب نمایید',
+                        },
+                      ],
+                      'onTap': StacPersianDatePickerAction(
                         formFieldId: 'receiver_birthdate',
                         firstDate: '1350/01/01',
                         lastDate: '1450/12/29',
@@ -221,51 +261,8 @@ StacWidget promissoryReceiver() {
                             },
                           ],
                         ).toJson(),
-                      ),
-                      child: StacTextFormField(
-                        id: 'receiver_birthdate',
-                        readOnly: true,
-                        enabled: false,
-                        textDirection: StacTextDirection.rtl,
-                        textAlign: StacTextAlign.right,
-                        decoration: StacInputDecoration(
-                          hintText: 'تاریخ تولد ذینفع را انتخاب نمایید',
-                          hintStyle: StacCustomTextStyle(
-                            color: '{{appColors.current.text.subtitle}}',
-                            fontSize: 14,
-                            fontWeight: StacFontWeight.w500,
-                          ),
-                          filled: false,
-                          contentPadding: StacEdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 16,
-                          ),
-                          prefixIcon: StacPadding(
-                            padding: StacEdgeInsets.all(8),
-                            child: StacImage(
-                              src: 'assets/icons/ic_calendar.svg',
-                              imageType: StacImageType.asset,
-                              width: 24,
-                              height: 24,
-                              fit: StacBoxFit.scaleDown,
-                              color: '{{appColors.current.text.subtitle}}',
-                            ),
-                          ),
-                        ),
-                        keyboardType: StacTextInputType.text,
-                        style: StacCustomTextStyle(
-                          fontSize: 16,
-                          fontWeight: StacFontWeight.w600,
-                          color: '{{appColors.current.text.title}}',
-                        ),
-                        validatorRules: [
-                          StacFormFieldValidator(
-                            rule: r'^\d{4}/\d{2}/\d{2}$',
-                            message: 'تاریخ تولد را انتخاب نمایید',
-                          ),
-                        ],
-                      ),
-                    ),
+                      ).toJson(),
+                    }),
                     StacSizedBox(height: 40),
                   ],
                 ),
@@ -278,9 +275,94 @@ StacWidget promissoryReceiver() {
                 'type': 'reactiveElevatedButton',
                 'enabledKey': 'isReceiverFormValid',
                 'onPressed': {
-                  'actionType': 'navigate',
-                  'widgetType': 'promissory_data',
-                  'navigationStyle': 'push',
+                  'actionType': 'sequence',
+                  'actions': [
+                    // Copy form values into registry for use in URL templating
+                    {
+                      'actionType': 'setValue',
+                      'values': [
+                        {
+                          'key': 'receiver.nationalCode',
+                          'value': {
+                            'actionType': 'getFormValue',
+                            'id': 'receiver_national_code',
+                          },
+                        },
+                        {
+                          'key': 'receiver.mobile',
+                          'value': {
+                            'actionType': 'getFormValue',
+                            'id': 'receiver_mobile',
+                          },
+                        },
+                        {
+                          'key': 'receiver.birthDate',
+                          'value': {
+                            'actionType': 'getFormValue',
+                            'id': 'receiver_birthdate',
+                          },
+                        },
+                        {
+                          'key': 'receiver.birthDateCompact',
+                          'value': "{{replace(receiver.birthDate,'/','')}}",
+                        },
+                      ],
+                    },
+                    // Call identity API (real) then navigate on success
+                    {
+                      'actionType': 'networkRequest',
+                      'url':
+                          'http://192.168.107.22:8280/api/digitalbanking/customers/v1.0/identity/{{receiver.nationalCode}}/{{receiver.birthDateCompact}}',
+                      'method': 'get',
+                      'headers': {
+                        'accept': '*/*',
+                        'app-platform': 'android',
+                        'app-store': 'application/json',
+                        'app-version': '456',
+                        'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
+                        'serviceauthorization':
+                            'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
+                        'authorization': '{{auth.accessToken}}',
+                      },
+                      'results': [
+                        {
+                          'statusCode': 200,
+                          'action': {
+                            'actionType': 'sequence',
+                            'actions': [
+                              {
+                                'actionType': 'setValue',
+                                'values': [
+                                  {'key': 'receiverIdentity.raw', 'value': '{{data.data}}'},
+                                  {'key': 'receiverIdentity.name', 'value': '{{data.data.name}}'},
+                                  {'key': 'receiverIdentity.family', 'value': '{{data.data.family}}'},
+                                  {
+                                    'key': 'receiverIdentity.fullName',
+                                    'value': '{{data.data.name}} {{data.data.family}}',
+                                  },
+                                  {'key': 'receiverIdentity.fatherName', 'value': '{{data.data.fatherName}}'},
+                                  {'key': 'receiverIdentity.gender', 'value': '{{data.data.gender}}'},
+                                  {'key': 'receiverIdentity.nationalId', 'value': '{{data.data.nationalId}}'},
+                                ],
+                              },
+                              {
+                                'actionType': 'navigate',
+                                'widgetType': 'promissory_data',
+                                'navigationStyle': 'push',
+                              },
+                            ],
+                          },
+                        },
+                        {
+                          'statusCode': 401,
+                          'action': {
+                            'actionType': 'log',
+                            'message': 'Authentication failed. Please login again.',
+                          },
+                        },
+                      ],
+                    },
+                  ],
                 },
                 'style': StacButtonStyle(
                   backgroundColor: '{{appColors.current.primary.color}}',

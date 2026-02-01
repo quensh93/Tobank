@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:stac/stac.dart';
 import '../../../../core/helpers/logger.dart';
@@ -16,7 +17,7 @@ class TobankThemeLoader {
       const themePath = 'lib/stac/design_system/tobank_theme_light.json';
       AppLogger.i('Loading Tobank light theme from: $themePath');
       
-      final jsonStr = await rootBundle.loadString(themePath);
+      final jsonStr = await _loadAssetString(themePath);
       final Map<String, dynamic> themeMap = json.decode(jsonStr) as Map<String, dynamic>;
       
       final theme = StacTheme.fromJson(themeMap);
@@ -34,7 +35,7 @@ class TobankThemeLoader {
       const themePath = 'lib/stac/design_system/tobank_theme_dark.json';
       AppLogger.i('Loading Tobank dark theme from: $themePath');
       
-      final jsonStr = await rootBundle.loadString(themePath);
+      final jsonStr = await _loadAssetString(themePath);
       final Map<String, dynamic> themeMap = json.decode(jsonStr) as Map<String, dynamic>;
       
       final theme = StacTheme.fromJson(themeMap);
@@ -49,5 +50,13 @@ class TobankThemeLoader {
   /// Load theme based on brightness
   static Future<StacTheme> loadTheme({required bool isDark}) async {
     return isDark ? loadDarkTheme() : loadLightTheme();
+  }
+}
+
+Future<String> _loadAssetString(String assetPath) async {
+  try {
+    return await rootBundle.loadString(assetPath);
+  } catch (_) {
+    return File(assetPath).readAsString();
   }
 }

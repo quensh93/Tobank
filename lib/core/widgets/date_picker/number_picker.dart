@@ -206,48 +206,61 @@ class NumberPicker extends StatelessWidget {
           width: listViewWidth,
           child: Stack(
             children: <Widget>[
-              ListView.builder(
-                scrollDirection: scrollDirection,
+              PrimaryScrollController(
                 controller: intScrollController,
-                itemExtent: itemExtent,
-                physics: enabled ? const ClampingScrollPhysics() : const NeverScrollableScrollPhysics(),
-                itemCount: listItemCount,
-                cacheExtent: _calculateCacheExtent(listItemCount),
-                itemBuilder: (BuildContext context, int index) {
-                  final int value = _intValueFromIndex(index);
+                child: ListView.builder(
+                  scrollDirection: scrollDirection,
+                  controller: intScrollController,
+                  itemExtent: itemExtent,
+                  physics: enabled
+                      ? const ClampingScrollPhysics()
+                      : const NeverScrollableScrollPhysics(),
+                  itemCount: listItemCount,
+                  cacheExtent: _calculateCacheExtent(listItemCount),
+                  itemBuilder: (BuildContext context, int index) {
+                    final int value = _intValueFromIndex(index);
 
-                  //define special style for selected (middle) element
-                  final TextStyle itemStyle =
-                      value == selectedIntValue && highlightSelectedValue ? selectedStyle : defaultStyle;
+                    //define special style for selected (middle) element
+                    final TextStyle itemStyle = value == selectedIntValue &&
+                            highlightSelectedValue
+                        ? selectedStyle
+                        : defaultStyle;
 
-                  final bool isExtra = index == 0 || index == listItemCount - 1;
+                    final bool isExtra =
+                        index == 0 || index == listItemCount - 1;
 
-                  return isExtra
-                      ? Container() //empty first and last element
-                      : Card(
-                          elevation: value == selectedIntValue && highlightSelectedValue ? 2 : 0,
-                          color: value == selectedIntValue && highlightSelectedValue
-                              ? Theme.of(context).colorScheme.surface
-                              : Colors.transparent,
-                          margin: EdgeInsets.zero,
-                          shadowColor: Colors.transparent,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                            side: BorderSide(
-                              color: value == selectedIntValue && highlightSelectedValue
-                                  ? Theme.of(context).dividerColor
-                                  : Colors.transparent,
-                              width: 0.5,
+                    return isExtra
+                        ? Container() //empty first and last element
+                        : Card(
+                            elevation: value == selectedIntValue &&
+                                    highlightSelectedValue
+                                ? 2
+                                : 0,
+                            color: value == selectedIntValue &&
+                                    highlightSelectedValue
+                                ? Theme.of(context).colorScheme.surface
+                                : Colors.transparent,
+                            margin: EdgeInsets.zero,
+                            shadowColor: Colors.transparent,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                              side: BorderSide(
+                                color: value == selectedIntValue &&
+                                        highlightSelectedValue
+                                    ? Theme.of(context).dividerColor
+                                    : Colors.transparent,
+                                width: 0.5,
+                              ),
                             ),
-                          ),
-                          child: Center(
-                            child: Text(
-                              getDisplayedValue(value),
-                              style: itemStyle,
+                            child: Center(
+                              child: Text(
+                                getDisplayedValue(value),
+                                style: itemStyle,
+                              ),
                             ),
-                          ),
-                        );
-                },
+                          );
+                  },
+                ),
               ),
               _NumberPickerSelectedItemDecoration(
                 axis: scrollDirection,
