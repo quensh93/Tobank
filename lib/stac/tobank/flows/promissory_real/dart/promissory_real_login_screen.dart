@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart' hide StacTheme;
-import 'promissory_real_auth_service.dart';
+import '../service/promissory_real_auth_service.dart';
 
 @StacScreen(screenName: 'promissory_real_login_form')
 class PromissoryRealLoginScreen extends StatefulWidget {
@@ -177,8 +177,7 @@ class _PromissoryRealLoginScreenState extends State<PromissoryRealLoginScreen> {
                   ),
                   keyboardType: TextInputType.number,
                   validator: (value) {
-                    if (value == null || value.isEmpty)
-                      return 'CIF الزامی است';
+                    if (value == null || value.isEmpty) return 'CIF الزامی است';
                     return null;
                   },
                 ),
