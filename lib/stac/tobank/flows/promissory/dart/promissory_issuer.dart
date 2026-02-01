@@ -25,7 +25,7 @@ StacWidget promissoryIssuer() {
         'app-version': '456',
         'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
         'serviceauthorization': 'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
-        'authorization': 'Bearer {{auth.accessToken}}',
+        'authorization': '{{auth.accessToken}}',
       },
       results: [
         {
