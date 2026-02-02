@@ -51,6 +51,20 @@ import '../../../../stac/tobank/flows/promissory/dart/promissory_deposit_select.
     as promissory_deposit_select_dart;
 import '../../../../stac/tobank/flows/promissory/dart/request_promissory_deposit_page.dart'
     as request_promissory_deposit_page_dart;
+import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_receiver_screen.dart'
+    as promissory_real_receiver_dart;
+import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_data_screen.dart'
+    as promissory_real_data_dart;
+import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_confirm_screen.dart'
+    as promissory_real_confirm_dart;
+import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_payment_screen.dart'
+    as promissory_real_payment_dart;
+import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_sign_screen.dart'
+    as promissory_real_sign_dart;
+import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_success_screen.dart'
+    as promissory_real_success_dart;
+import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_deposits_screen.dart'
+    as promissory_real_deposits_dart;
 import 'package:tobank_sdui/core/helpers/logger.dart';
 
 /// Service for loading STAC widgets from Dart files.
@@ -137,7 +151,20 @@ class StacWidgetLoader {
         .requestPromissoryDepositPage()
         .toJson(),
     'promissory_real_login_form': () => {'type': 'promissory_real_login_form'},
-    'promissory_real_deposits': () => {'type': 'promissory_real_deposits'},
+    'promissory_real_deposits': () =>
+        promissory_real_deposits_dart.promissoryRealDeposits().toJson(),
+    'promissory_real_receiver': () =>
+        promissory_real_receiver_dart.promissoryRealReceiver().toJson(),
+    'promissory_real_data': () =>
+        promissory_real_data_dart.promissoryRealData().toJson(),
+    'promissory_real_confirm': () =>
+        promissory_real_confirm_dart.promissoryRealConfirm().toJson(),
+    'promissory_real_payment': () =>
+        promissory_real_payment_dart.promissoryRealPayment().toJson(),
+    'promissory_real_sign': () =>
+        promissory_real_sign_dart.promissoryRealSign().toJson(),
+    'promissory_real_success': () =>
+        promissory_real_success_dart.promissoryRealSuccess().toJson(),
   };
 
   /// Registers a widget loader for a specific widget type.

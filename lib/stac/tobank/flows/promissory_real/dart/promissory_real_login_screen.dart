@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart' hide StacTheme;
+import '../../../../../core/stac/services/widget/stac_widget_loader.dart';
+import '../../../../../core/stac/services/widget/stac_widget_resolver.dart';
 import '../service/promissory_real_auth_service.dart';
 
 @StacScreen(screenName: 'promissory_real_login_form')
@@ -62,6 +64,23 @@ class _PromissoryRealLoginScreenState extends State<PromissoryRealLoginScreen> {
 
       if (success) {
         // Success handled in service (SnackBar + Token Save)
+        // Navigate to Promissory Real Receiver Screen
+        if (context.mounted) {
+          final widgetJson = StacWidgetLoader.loadWidgetJson(
+            'promissory_real_receiver',
+          );
+          if (widgetJson != null) {
+            final widget = StacWidgetResolver.resolveFromJson(
+              context,
+              widgetJson,
+            );
+            if (widget != null && context.mounted) {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (context) => widget));
+            }
+          }
+        }
       }
     }
   }

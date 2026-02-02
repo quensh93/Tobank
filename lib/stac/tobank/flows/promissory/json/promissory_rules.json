@@ -232,8 +232,9 @@
             "enabledKey": "isRulesAccepted",
             "onPressed": {
               "actionType": "navigate",
+              "widgetType": "promissory_real_deposits",
               "navigationStyle": "push",
-              "assetPath": "lib/stac/tobank/flows/promissory/json/request_promissory_deposit.json"
+              "_revert_instruction": "TEMPORARY: To revert to Mock flow, REMOVE 'widgetType' and ADD 'assetPath': 'lib/stac/tobank/flows/promissory/json/request_promissory_deposit.json'"
             },
             "style": {
               "backgroundColor": "{{appColors.current.primary.color}}",

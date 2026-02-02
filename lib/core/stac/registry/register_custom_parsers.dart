@@ -24,7 +24,7 @@ import '../parsers/actions/custom_network_request_action_parser.dart';
 import '../parsers/actions/file_picker_action_parser.dart';
 import '../parsers/widgets/custom_text_form_field_parser.dart';
 import '../parsers/widgets/promissory_real_loader_parser.dart';
-import '../../../../stac/tobank/flows/promissory_real/dart/promissory_login_action_parser.dart';
+import '../../../../stac/tobank/flows/promissory_real/service/promissory_login_action_parser.dart';
 import '../parsers/widgets/promissory_real_login_parser.dart';
 import '../parsers/widgets/promissory_real_deposits_parser.dart';
 import '../parsers/widgets/promissory_real_deposits_content_parser.dart';

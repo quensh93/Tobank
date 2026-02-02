@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:ispect/ispect.dart';
 import 'package:ispectify_dio/ispectify_dio.dart';
@@ -39,35 +40,32 @@ class ConfigApiService {
     this.timeout = const Duration(seconds: 30),
     Dio? dio,
   }) : baseUrl = baseUrl ?? defaultBaseUrl {
-    _dio = dio ?? _createDio();
-  }
+    if (dio != null) {
+      // Use provided dio
+      _dio = dio;
+    } else {
+      // Configure internal dio
+      _dio = Dio();
+      _dio.options.baseUrl = this.baseUrl;
+      _dio.options.connectTimeout = timeout;
+      _dio.options.receiveTimeout = timeout;
+      _dio.options.sendTimeout = timeout;
 
-  /// Create and configure Dio instance
-  Dio _createDio() {
-    final dio = Dio(
-      BaseOptions(
-        baseUrl: baseUrl,
-        connectTimeout: timeout,
-        receiveTimeout: timeout,
-        sendTimeout: timeout,
-        headers: {'Content-Type': 'application/json', 'Accept': '*/*'},
-      ),
-    );
-
-    // Add ISpect logging interceptor for Debug Panel
-    dio.interceptors.add(
-      ISpectDioInterceptor(
-        logger: ISpect.logger,
-        settings: const ISpectDioInterceptorSettings(
-          printRequestHeaders: true,
-          printResponseHeaders: true,
-          printRequestData: true,
-          printResponseData: true,
-        ),
-      ),
-    );
-
-    return dio;
+      // Add ISpect if needed (mimicking auth service pattern, or just skipping to be safe)
+      try {
+        _dio.interceptors.add(
+          ISpectDioInterceptor(
+            logger: ISpect.logger,
+            settings: const ISpectDioInterceptorSettings(
+              printRequestHeaders: true,
+              printResponseHeaders: true,
+              printRequestData: true,
+              printResponseData: true,
+            ),
+          ),
+        );
+      } catch (_) {}
+    }
   }
 
   /// Fetch SDUI configuration from the API
@@ -93,11 +91,38 @@ class ConfigApiService {
       dimension: dimension ?? const {'app': 'mobile'},
     );
 
+    final url = '$baseUrl${request.endpoint}';
+    final requestBody = request.toRequestBody();
+
+    // Explicit headers matching CURL
+    final headers = {'Content-Type': 'application/json', 'Accept': '*/*'};
+
     try {
-      final response = await _dio.post<Map<String, dynamic>>(
-        request.endpoint,
-        data: request.toRequestBody(),
-        queryParameters: request.toQueryParams(),
+      AppLogger.d('🔍 ConfigApiService: Fetching SDUI config...');
+      AppLogger.d('🔍 Full URL: $url');
+
+      // Manual CURL logging matching exactly what we are about to send
+      final jsonBody = jsonEncode(requestBody);
+      String curl = 'curl --request POST --url $url';
+      headers.forEach((k, v) => curl += " --header '$k: $v'");
+      curl += " --data '$jsonBody'";
+      AppLogger.d('🐛 MANUAL CURL: $curl');
+
+      final options = Options(
+        headers: headers,
+        sendTimeout: timeout,
+        receiveTimeout: timeout,
+      );
+
+      // Using jsonEncode to be absolutely sure about the body format
+      final response = await _dio.post(
+        request.endpoint, // Dio appends this to baseUrl
+        data: jsonBody,
+        options: options,
+      );
+
+      AppLogger.d(
+        '✅ ConfigApiService: Response received: ${response.statusCode}',
       );
 
       if (response.data == null) {

@@ -9,8 +9,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="create all pages json files and complete json flow">
+    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="just add some dart files for promissory ( not working )">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/api/config_api/config_api_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/api/config_api/config_api_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/stac/registry/register_custom_parsers.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/registry/register_custom_parsers.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/stac/services/widget/stac_widget_loader.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/services/widget/stac_widget_loader.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_rules.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_rules.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_deposits_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_deposits_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_login_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_login_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +166,23 @@
       <option name="project" value="LOCAL" />
       <updated>1769932930377</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fetch sinai files - all mjp files worked">
+      <option name="closed" value="true" />
+      <created>1769939577770</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1769939577770</updated>
+    </task>
+    <task id="LOCAL-00010" summary="just add some dart files for promissory ( not working )">
+      <option name="closed" value="true" />
+      <created>1769941146092</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1769941146092</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -186,6 +209,8 @@
     <MESSAGE value="fix load request in dart flow" />
     <MESSAGE value="fix problem in payment page" />
     <MESSAGE value="create all pages json files and complete json flow" />
-    <option name="LAST_COMMIT_MESSAGE" value="create all pages json files and complete json flow" />
+    <MESSAGE value="fetch sinai files - all mjp files worked" />
+    <MESSAGE value="just add some dart files for promissory ( not working )" />
+    <option name="LAST_COMMIT_MESSAGE" value="just add some dart files for promissory ( not working )" />
   </component>
 </project>

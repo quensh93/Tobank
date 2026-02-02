@@ -15,15 +15,18 @@ StacWidget promissoryRealDeposits() {
     // Fetch deposits when screen loads using standard networkRequest action
     // Note: userData.nationalCode and auth.accessToken should be in registry from login
     onInit: StacNetworkRequestAction(
-      url: 'http://192.168.107.22:8280/api/digitalbanking/deposits/v1.0/customer/{{userData.nationalCode}}',
+      url:
+          'http://192.168.107.22:8280/api/digitalbanking/deposits/v1.0/customer/{{userData.nationalCode}}',
       method: 'get',
       headers: {
-        'accept': '*/*',
+        'accept': 'application/json',
+        'content-type': 'application/json',
         'app-platform': 'android',
         'app-store': 'application/json',
         'app-version': '456',
         'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
-        'serviceauthorization': 'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
+        'serviceauthorization':
+            'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
         'authorization': '{{auth.accessToken}}',
       },
       results: [
@@ -45,22 +48,61 @@ StacWidget promissoryRealDeposits() {
         },
         {
           'statusCode': 403,
-          'action': StacCustomSetValueAction(values: const [
-            {'key': 'deposits.isLoaded', 'value': true},
-            {'key': 'deposits.rawData', 'value': null},
-            {'key': 'deposits.error', 'value': 'Access forbidden. Please check your permissions.'},
-          ]).toJson(),
+          'action': StacCustomSetValueAction(
+            values: const [
+              {'key': 'deposits.isLoaded', 'value': true},
+              {'key': 'deposits.rawData', 'value': null},
+              {
+                'key': 'deposits.error',
+                'value': 'Access forbidden. Please check your permissions.',
+              },
+            ],
+          ).toJson(),
         },
         {
           'statusCode': 401,
-          'action': StacCustomSetValueAction(values: const [
-            {'key': 'deposits.isLoaded', 'value': true},
-            {'key': 'deposits.rawData', 'value': null},
-            {'key': 'deposits.error', 'value': 'Authentication failed. Please login again.'},
-          ]).toJson(),
+          'action': StacCustomSetValueAction(
+            values: const [
+              {'key': 'deposits.isLoaded', 'value': true},
+              {'key': 'deposits.rawData', 'value': null},
+              {
+                'key': 'deposits.error',
+                'value': 'Authentication failed. Please login again.',
+              },
+            ],
+          ).toJson(),
+        },
+        {
+          'statusCode': 520,
+          'action': StacCustomSetValueAction(
+            values: const [
+              {'key': 'deposits.isLoaded', 'value': true},
+              {'key': 'deposits.rawData', 'value': null},
+              {
+                'key': 'deposits.error',
+                'value':
+                    'Server Error (520): Unknown Response from Gateway. Please try again later.',
+              },
+            ],
+          ).toJson(),
+        },
+        {
+          'statusCode': 500,
+          'action': StacCustomSetValueAction(
+            values: const [
+              {'key': 'deposits.isLoaded', 'value': true},
+              {'key': 'deposits.rawData', 'value': null},
+              {
+                'key': 'deposits.error',
+                'value': 'Internal Server Error. Please try again later.',
+              },
+            ],
+          ).toJson(),
         },
       ],
     ),
-    child: StacRawJsonWidget(const {'type': 'promissory_real_deposits_content'}),
+    child: StacRawJsonWidget(const {
+      'type': 'promissory_real_deposits_content',
+    }),
   );
 }
