@@ -63,8 +63,8 @@ import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_sign_
     as promissory_real_sign_dart;
 import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_success_screen.dart'
     as promissory_real_success_dart;
-import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_deposits_screen.dart'
-    as promissory_real_deposits_dart;
+import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_issuer_screen.dart'
+    as promissory_real_issuer_dart;
 import 'package:tobank_sdui/core/helpers/logger.dart';
 
 /// Service for loading STAC widgets from Dart files.
@@ -151,8 +151,9 @@ class StacWidgetLoader {
         .requestPromissoryDepositPage()
         .toJson(),
     'promissory_real_login_form': () => {'type': 'promissory_real_login_form'},
-    'promissory_real_deposits': () =>
-        promissory_real_deposits_dart.promissoryRealDeposits().toJson(),
+    'promissory_real_deposits': () => {'type': 'promissory_real_deposits'},
+    'promissory_real_issuer': () =>
+        promissory_real_issuer_dart.promissoryRealIssuer().toJson(),
     'promissory_real_receiver': () =>
         promissory_real_receiver_dart.promissoryRealReceiver().toJson(),
     'promissory_real_data': () =>

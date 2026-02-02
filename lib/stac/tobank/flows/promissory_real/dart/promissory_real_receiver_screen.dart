@@ -292,6 +292,13 @@ StacWidget promissoryRealReceiver() {
                           },
                         },
                         {
+                          'key': 'form.receiver_national_code',
+                          'value': {
+                            'actionType': 'getFormValue',
+                            'id': 'receiver_national_code',
+                          },
+                        },
+                        {
                           'key': 'receiver.mobile',
                           'value': {
                             'actionType': 'getFormValue',
@@ -299,7 +306,21 @@ StacWidget promissoryRealReceiver() {
                           },
                         },
                         {
+                          'key': 'form.receiver_mobile',
+                          'value': {
+                            'actionType': 'getFormValue',
+                            'id': 'receiver_mobile',
+                          },
+                        },
+                        {
                           'key': 'receiver.birthDate',
+                          'value': {
+                            'actionType': 'getFormValue',
+                            'id': 'receiver_birthdate',
+                          },
+                        },
+                        {
+                          'key': 'form.receiver_birthdate',
                           'value': {
                             'actionType': 'getFormValue',
                             'id': 'receiver_birthdate',

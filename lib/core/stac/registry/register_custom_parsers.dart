@@ -27,7 +27,6 @@ import '../parsers/widgets/promissory_real_loader_parser.dart';
 import '../../../../stac/tobank/flows/promissory_real/service/promissory_login_action_parser.dart';
 import '../parsers/widgets/promissory_real_login_parser.dart';
 import '../parsers/widgets/promissory_real_deposits_parser.dart';
-import '../parsers/widgets/promissory_real_deposits_content_parser.dart';
 
 /// Register all custom STAC parsers with the STAC framework.
 ///
@@ -352,11 +351,6 @@ void _registerExampleParsers() {
   // Register Promissory Real Deposits parser
   CustomComponentRegistry.instance.registerWidget(
     const PromissoryRealDepositsParser(),
-  );
-
-  // Register Promissory Real Deposits content parser (reacts to registry values)
-  CustomComponentRegistry.instance.registerWidget(
-    const PromissoryRealDepositsContentParser(),
   );
 
   // Register Promissory Login Action parser

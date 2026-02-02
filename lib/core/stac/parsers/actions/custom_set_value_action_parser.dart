@@ -210,6 +210,10 @@ class CustomSetValueActionParser
 
   /// Gets a value from registry, supporting nested paths like "data.data.nationalCode"
   dynamic _getNestedValue(String path) {
+    // First try the exact key as-is (supports dotted keys stored flat)
+    final directValue = StacRegistry.instance.getValue(path);
+    if (directValue != null) return directValue;
+
     final parts = path.split('.');
     if (parts.isEmpty) return null;
 
