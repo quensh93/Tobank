@@ -119,7 +119,7 @@ final class StacApiServiceProvider
   }
 }
 
-String _$stacApiServiceHash() => r'6fad46ad175e6b22083bef9e99117300cd38b312';
+String _$stacApiServiceHash() => r'adcdd955d228ffbedcf4b5939bfba7817715fde4';
 
 /// Hot reload notifier for mock data
 ///

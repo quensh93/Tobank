@@ -1,4 +1,5 @@
 import 'package:stac_core/stac_core.dart';
+import '../../../../../core/stac/builders/stac_common_builders.dart';
 import '../../../../../core/stac/builders/stac_stateful_widget.dart';
 import '../../../../../core/stac/builders/stac_custom_actions.dart'
     hide StacPersianDatePickerAction;
@@ -13,7 +14,7 @@ import '../../../../../core/stac/parsers/actions/persian_date_picker_action_mode
 @StacScreen(screenName: 'promissory_real_receiver')
 StacWidget promissoryRealReceiver() {
   return StacStatefulWidget(
-    onInit: StacMultiAction(
+    onInit: StacSequenceAction(
       actions: [
         // Receiver type: true = Individual, false = Legal
         StacCustomSetValueAction(key: 'isIndividualSelected', value: true),
@@ -24,7 +25,7 @@ StacWidget promissoryRealReceiver() {
     child: StacScaffold(
       appBar: StacAppBar(
         title: StacText(
-          data: 'اطلاعات ذینفع',
+          data: '{{appStrings.promissory.receiverTitle}}',
           textDirection: StacTextDirection.rtl,
           style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
         ),
@@ -55,7 +56,7 @@ StacWidget promissoryRealReceiver() {
                     StacSizedBox(height: 16),
                     // Title
                     StacText(
-                      data: 'اطلاعات ذینفع (دریافت‌کننده)',
+                      data: '{{appStrings.promissory.receiverSubtitle}}',
                       textDirection: StacTextDirection.rtl,
                       style: StacCustomTextStyle(
                         fontSize: 16,
@@ -71,19 +72,89 @@ StacWidget promissoryRealReceiver() {
                       children: [
                         // Individual Button
                         StacExpanded(
-                          child: _buildReceiverTypeButton(
-                            title: 'حقیقی',
-                            selectedKey: 'isIndividualSelected',
-                            otherKey: 'isLegalSelected',
+                          child: StacGestureDetector(
+                            onTap: StacSequenceAction(
+                              actions: [
+                                StacCustomSetValueAction(
+                                  key: 'isIndividualSelected',
+                                  value: true,
+                                ),
+                                StacCustomSetValueAction(
+                                  key: 'isLegalSelected',
+                                  value: false,
+                                ),
+                              ],
+                            ),
+                            child: StacContainer(
+                              padding: StacEdgeInsets.symmetric(vertical: 12),
+                              decoration: StacBoxDecoration(
+                                color:
+                                    '{{isIndividualSelected ? appColors.current.primary.color : appColors.current.background.surfaceContainer}}',
+                                borderRadius: StacBorderRadius.all(8),
+                                border: StacBorder.all(
+                                  color:
+                                      '{{isIndividualSelected ? appColors.current.primary.color : appColors.current.input.borderEnabled}}',
+                                  width: 1,
+                                ),
+                              ),
+                              child: StacCenter(
+                                child: StacText(
+                                  data:
+                                      '{{appStrings.promissory.receiverTypeIndividual}}',
+                                  textDirection: StacTextDirection.rtl,
+                                  style: StacCustomTextStyle(
+                                    fontSize: 14,
+                                    fontWeight: StacFontWeight.w600,
+                                    color:
+                                        '{{isIndividualSelected ? appColors.current.primary.onPrimary : appColors.current.text.title}}',
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                         StacSizedBox(width: 8),
                         // Legal Button
                         StacExpanded(
-                          child: _buildReceiverTypeButton(
-                            title: 'حقوقی',
-                            selectedKey: 'isLegalSelected',
-                            otherKey: 'isIndividualSelected',
+                          child: StacGestureDetector(
+                            onTap: StacSequenceAction(
+                              actions: [
+                                StacCustomSetValueAction(
+                                  key: 'isLegalSelected',
+                                  value: true,
+                                ),
+                                StacCustomSetValueAction(
+                                  key: 'isIndividualSelected',
+                                  value: false,
+                                ),
+                              ],
+                            ),
+                            child: StacContainer(
+                              padding: StacEdgeInsets.symmetric(vertical: 12),
+                              decoration: StacBoxDecoration(
+                                color:
+                                    '{{isLegalSelected ? appColors.current.primary.color : appColors.current.background.surfaceContainer}}',
+                                borderRadius: StacBorderRadius.all(8),
+                                border: StacBorder.all(
+                                  color:
+                                      '{{isLegalSelected ? appColors.current.primary.color : appColors.current.input.borderEnabled}}',
+                                  width: 1,
+                                ),
+                              ),
+                              child: StacCenter(
+                                child: StacText(
+                                  data:
+                                      '{{appStrings.promissory.receiverTypeLegal}}',
+                                  textDirection: StacTextDirection.rtl,
+                                  style: StacCustomTextStyle(
+                                    fontSize: 14,
+                                    fontWeight: StacFontWeight.w600,
+                                    color:
+                                        '{{isLegalSelected ? appColors.current.primary.onPrimary : appColors.current.text.title}}',
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -93,7 +164,7 @@ StacWidget promissoryRealReceiver() {
                     // Individual Form Fields
                     // National Code Field
                     StacText(
-                      data: 'کد ملی',
+                      data: '{{appStrings.promissory.nationalCode}}',
                       textDirection: StacTextDirection.rtl,
                       style: StacCustomTextStyle(
                         fontSize: 14,
@@ -112,7 +183,8 @@ StacWidget promissoryRealReceiver() {
                         {'type': 'allow', 'rule': '[0-9]'},
                       ],
                       'decoration': StacInputDecoration(
-                        hintText: 'کد ملی ذینفع را وارد نمایید',
+                        hintText:
+                            '{{appStrings.promissory.enterReceiverNationalCode}}',
                         filled: false,
                         contentPadding: StacEdgeInsets.symmetric(
                           horizontal: 16,
@@ -124,7 +196,8 @@ StacWidget promissoryRealReceiver() {
                       'validatorRules': [
                         {
                           'rule': r'^\d{10}$',
-                          'message': 'کد ملی معتبر وارد نمایید',
+                          'message':
+                              '{{appStrings.promissory.nationalCodeError}}',
                         },
                       ],
                       'onChanged': StacValidateFieldsAction(
@@ -143,7 +216,7 @@ StacWidget promissoryRealReceiver() {
 
                     // Mobile Number Field
                     StacText(
-                      data: 'شماره همراه',
+                      data: '{{appStrings.promissory.mobileNumber}}',
                       textDirection: StacTextDirection.rtl,
                       style: StacCustomTextStyle(
                         fontSize: 14,
@@ -162,7 +235,8 @@ StacWidget promissoryRealReceiver() {
                         {'type': 'allow', 'rule': '[0-9]'},
                       ],
                       'decoration': StacInputDecoration(
-                        hintText: 'شماره همراه ذینفع را وارد نمایید',
+                        hintText:
+                            '{{appStrings.promissory.enterReceiverMobile}}',
                         filled: false,
                         contentPadding: StacEdgeInsets.symmetric(
                           horizontal: 16,
@@ -174,7 +248,8 @@ StacWidget promissoryRealReceiver() {
                       'validatorRules': [
                         {
                           'rule': r'^09\d{9}$',
-                          'message': 'شماره همراه معتبر وارد نمایید',
+                          'message':
+                              '{{appStrings.promissory.mobileNumberError}}',
                         },
                       ],
                       'onChanged': StacValidateFieldsAction(
@@ -193,7 +268,7 @@ StacWidget promissoryRealReceiver() {
 
                     // Birthdate Field
                     StacText(
-                      data: 'تاریخ تولد',
+                      data: '{{appStrings.promissory.birthdate}}',
                       textDirection: StacTextDirection.rtl,
                       style: StacCustomTextStyle(
                         fontSize: 14,
@@ -229,7 +304,8 @@ StacWidget promissoryRealReceiver() {
                         textDirection: StacTextDirection.rtl,
                         textAlign: StacTextAlign.right,
                         decoration: StacInputDecoration(
-                          hintText: 'تاریخ تولد ذینفع را انتخاب نمایید',
+                          hintText:
+                              '{{appStrings.promissory.selectReceiverBirthdate}}',
                           hintStyle: StacCustomTextStyle(
                             color: '{{appColors.current.text.subtitle}}',
                             fontSize: 14,
@@ -261,7 +337,8 @@ StacWidget promissoryRealReceiver() {
                         validatorRules: [
                           StacFormFieldValidator(
                             rule: r'^\d{4}/\d{2}/\d{2}$',
-                            message: 'تاریخ تولد را انتخاب نمایید',
+                            message:
+                                '{{appStrings.promissory.selectBirthdateError}}',
                           ),
                         ],
                       ),
@@ -271,15 +348,24 @@ StacWidget promissoryRealReceiver() {
                 ),
               ),
             ),
-            // Continue Button (With Real API Call)
+            // Continue Button (With Real API Call and Loading State)
             StacPadding(
               padding: StacEdgeInsets.all(16),
               child: StacRawJsonWidget({
                 'type': 'reactiveElevatedButton',
                 'enabledKey': 'isReceiverFormValid',
+                'loadingKey': 'receiver.isLoading',
                 'onPressed': {
                   'actionType': 'sequence',
                   'actions': [
+                    // Set loading state to true
+                    {
+                      'actionType': 'setValue',
+                      'values': [
+                        {'key': 'receiver.isLoading', 'value': true},
+                        {'key': 'receiver.error', 'value': null},
+                      ],
+                    },
                     // Copy form values into registry for use in URL templating
                     {
                       'actionType': 'setValue',
@@ -357,6 +443,7 @@ StacWidget promissoryRealReceiver() {
                               {
                                 'actionType': 'setValue',
                                 'values': [
+                                  {'key': 'receiver.isLoading', 'value': false},
                                   {
                                     'key': 'receiverIdentity.raw',
                                     'value': '{{data.data}}',
@@ -398,11 +485,76 @@ StacWidget promissoryRealReceiver() {
                           },
                         },
                         {
+                          'statusCode': 422,
+                          'action': {
+                            'actionType': 'sequence',
+                            'actions': [
+                              {
+                                'actionType': 'setValue',
+                                'values': [
+                                  {'key': 'receiver.isLoading', 'value': false},
+                                  {
+                                    'key': 'receiver.error',
+                                    'value':
+                                        '{{appStrings.promissory.invalidDataError}}',
+                                  },
+                                ],
+                              },
+                              {
+                                'actionType': 'customSnackBar',
+                                'message':
+                                    '{{appStrings.promissory.invalidDataErrorDetail}}',
+                                'backgroundColor': '#D32F2F',
+                                'duration': 4000,
+                              },
+                            ],
+                          },
+                        },
+                        {
                           'statusCode': 401,
                           'action': {
-                            'actionType': 'log',
-                            'message':
-                                'Authentication failed. Please login again.',
+                            'actionType': 'sequence',
+                            'actions': [
+                              {
+                                'actionType': 'setValue',
+                                'values': [
+                                  {'key': 'receiver.isLoading', 'value': false},
+                                ],
+                              },
+                              {
+                                'actionType': 'customSnackBar',
+                                'message':
+                                    '{{appStrings.promissory.sessionExpiredError}}',
+                                'backgroundColor': '#D32F2F',
+                                'duration': 4000,
+                              },
+                            ],
+                          },
+                        },
+                        {
+                          'statusCode': -1, // Fallback for any other errors
+                          'action': {
+                            'actionType': 'sequence',
+                            'actions': [
+                              {
+                                'actionType': 'setValue',
+                                'values': [
+                                  {'key': 'receiver.isLoading', 'value': false},
+                                  {
+                                    'key': 'receiver.error',
+                                    'value':
+                                        '{{appStrings.promissory.serverConnectionError}}',
+                                  },
+                                ],
+                              },
+                              {
+                                'actionType': 'customSnackBar',
+                                'message':
+                                    '{{appStrings.promissory.serverConnectionErrorDetail}}',
+                                'backgroundColor': '#D32F2F',
+                                'duration': 4000,
+                              },
+                            ],
                           },
                         },
                       ],
@@ -433,84 +585,4 @@ StacWidget promissoryRealReceiver() {
       ),
     ),
   );
-}
-
-/// Builds a receiver type selection button (Individual or Legal)
-StacWidget _buildReceiverTypeButton({
-  required String title,
-  required String selectedKey,
-  required String otherKey,
-}) {
-  return StacGestureDetector(
-    onTap: StacMultiAction(
-      actions: [
-        StacCustomSetValueAction(key: selectedKey, value: true),
-        StacCustomSetValueAction(key: otherKey, value: false),
-      ],
-    ),
-    child: StacContainer(
-      padding: StacEdgeInsets.symmetric(vertical: 12),
-      decoration: StacBoxDecoration(
-        color:
-            '{{$selectedKey ? appColors.current.primary.color : appColors.current.background.surfaceContainer}}',
-        borderRadius: StacBorderRadius.all(8),
-        border: StacBorder.all(
-          color:
-              '{{$selectedKey ? appColors.current.primary.color : appColors.current.input.borderEnabled}}',
-          width: 1,
-        ),
-      ),
-      child: StacCenter(
-        child: StacText(
-          data: title,
-          textDirection: StacTextDirection.rtl,
-          style: StacCustomTextStyle(
-            fontSize: 14,
-            fontWeight: StacFontWeight.w600,
-            color:
-                '{{$selectedKey ? appColors.current.primary.onPrimary : appColors.current.text.title}}',
-          ),
-        ),
-      ),
-    ),
-  );
-}
-
-/// Custom class to support alias text styles
-class StacAliasTextStyle implements StacTextStyle {
-  final String alias;
-  const StacAliasTextStyle(this.alias);
-  @override
-  StacTextStyleType get type => StacTextStyleType.custom;
-  @override
-  Map<String, dynamic> toJson() => {'type': 'alias', 'value': alias};
-}
-
-/// Raw JSON widget helper
-class StacRawJsonWidget implements StacWidget {
-  final Map<String, dynamic> json;
-  StacRawJsonWidget(this.json);
-
-  @override
-  Map<String, dynamic> get jsonData => json;
-
-  @override
-  Map<String, dynamic> toJson() => json;
-
-  @override
-  String get type => json['type'] as String;
-
-  String? get id => json['id'] as String?;
-}
-
-/// Raw JSON action helper
-class StacRawJsonAction extends StacAction {
-  final Map<String, dynamic> json;
-  StacRawJsonAction(this.json);
-
-  @override
-  String get actionType => json['actionType'] as String;
-
-  @override
-  Map<String, dynamic> toJson() => json;
 }

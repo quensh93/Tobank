@@ -25,8 +25,10 @@ import '../parsers/actions/file_picker_action_parser.dart';
 import '../parsers/widgets/custom_text_form_field_parser.dart';
 import '../parsers/widgets/promissory_real_loader_parser.dart';
 import '../../../../stac/tobank/flows/promissory_real/service/promissory_login_action_parser.dart';
-import '../parsers/widgets/promissory_real_login_parser.dart';
+
 import '../parsers/widgets/promissory_real_deposits_parser.dart';
+import '../parsers/widgets/promissory_real_issuer_parser.dart';
+import '../parsers/actions/show_snackbar_action_parser.dart';
 
 /// Register all custom STAC parsers with the STAC framework.
 ///
@@ -343,15 +345,17 @@ void _registerExampleParsers() {
     const PromissoryRealLoaderParser(),
   );
 
-  // Register Promissory Real Login Form parser
+  // Register Promissory Real Deposits List parser
   CustomComponentRegistry.instance.registerWidget(
-    const PromissoryRealLoginParser(),
+    const PromissoryRealDepositsListParser(),
   );
 
-  // Register Promissory Real Deposits parser
+  // Register Promissory Real Issuer parser (handles loading/error states)
   CustomComponentRegistry.instance.registerWidget(
-    const PromissoryRealDepositsParser(),
+    const PromissoryRealIssuerParser(),
   );
+
+  // Note: PromissoryRealPaymentDepositsParser removed as it uses the same list component
 
   // Register Promissory Login Action parser
   CustomComponentRegistry.instance.registerAction(
@@ -360,6 +364,11 @@ void _registerExampleParsers() {
 
   // Register file picker action parser for file selection
   registerFilePickerActionParser();
+
+  // Register showSnackBar action parser for notifications
+  CustomComponentRegistry.instance.registerAction(
+    const ShowSnackBarActionParser(),
+  );
 }
 
 /// Unregister all custom parsers from the STAC framework.

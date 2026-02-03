@@ -1,266 +1,430 @@
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
-import 'package:stac_core/stac_core.dart' hide StacTheme;
-import '../../../../../core/stac/services/widget/stac_widget_loader.dart';
-import '../../../../../core/stac/services/widget/stac_widget_resolver.dart';
-import '../service/promissory_real_auth_service.dart';
+import 'package:stac_core/stac_core.dart';
+import '../../../../../core/stac/builders/stac_common_builders.dart';
+import '../../../../../core/stac/builders/stac_stateful_widget.dart';
+import '../../../../../core/stac/builders/stac_custom_actions.dart'
+    hide StacPersianDatePickerAction;
+import '../../../../../core/stac/parsers/actions/persian_date_picker_action_model.dart';
 
 @StacScreen(screenName: 'promissory_real_login_form')
-class PromissoryRealLoginScreen extends StatefulWidget {
-  const PromissoryRealLoginScreen({super.key});
-
-  @override
-  State<PromissoryRealLoginScreen> createState() =>
-      _PromissoryRealLoginScreenState();
-}
-
-class _PromissoryRealLoginScreenState extends State<PromissoryRealLoginScreen> {
-  final _formKey = GlobalKey<FormState>();
-
-  // Controllers - Only needed inputs based on request
-  final _mobileNumberController = TextEditingController();
-  final _nationalIdController = TextEditingController();
-  final _birthDateController = TextEditingController();
-  final _gpayTokenController = TextEditingController();
-  final _cifController = TextEditingController();
-
-  final PromissoryRealAuthService _authService = PromissoryRealAuthService();
-  bool _isLoading = false;
-
-  @override
-  void dispose() {
-    _mobileNumberController.dispose();
-    _nationalIdController.dispose();
-    _birthDateController.dispose();
-    _gpayTokenController.dispose();
-    _cifController.dispose();
-    super.dispose();
-  }
-
-  Future<void> _submitFormat() async {
-    if (!_formKey.currentState!.validate()) return;
-
-    setState(() {
-      _isLoading = true;
-    });
-
-    final data = {
-      "nationalId": _nationalIdController.text,
-      "mobileNumber": _mobileNumberController.text,
-      "gpayToken": _gpayTokenController.text,
-      "birthDate": _birthDateController.text.replaceAll(
-        '/',
-        '',
-      ), // Ensure format matches API expectation if needed
-      "cif": _cifController.text,
-    };
-
-    final success = await _authService.login(context, data);
-
-    if (mounted) {
-      setState(() {
-        _isLoading = false;
-      });
-
-      if (success) {
-        // Success handled in service (SnackBar + Token Save)
-        // Navigate to Promissory Real Receiver Screen
-        if (context.mounted) {
-          final widgetJson = StacWidgetLoader.loadWidgetJson(
-            'promissory_real_receiver',
-          );
-          if (widgetJson != null) {
-            final widget = StacWidgetResolver.resolveFromJson(
-              context,
-              widgetJson,
-            );
-            if (widget != null && context.mounted) {
-              Navigator.of(
-                context,
-              ).push(MaterialPageRoute(builder: (context) => widget));
-            }
-          }
-        }
-      }
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // Basic theme colors simulation since we are not fully in STAC JSON context here
-    // but we can try to use Theme.of(context) which StacApp should have set up.
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('ورود دستی (Dynamic)'),
+StacWidget promissoryRealLoginForm() {
+  return StacStatefulWidget(
+    onInit: StacCustomSetValueAction(key: 'isLoginFormValid', value: false),
+    child: StacScaffold(
+      appBar: StacAppBar(
+        title: StacText(
+          data: '{{appStrings.promissory.loginDynamic}}',
+          style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
+        ),
         centerTitle: true,
       ),
-      body: Directionality(
-        textDirection: TextDirection.rtl,
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16.0),
-          child: Form(
-            key: _formKey,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const Text(
-                  'لطفا اطلاعات زیر را وارد کنید',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 24),
-
-                // Mobile Number
-                const Text('شماره موبایل'),
-                const SizedBox(height: 8),
-                TextFormField(
-                  controller: _mobileNumberController,
-                  decoration: const InputDecoration(
-                    hintText: 'مثال: 09123456789',
-                    border: OutlineInputBorder(),
-                    contentPadding: EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 12,
+      body: StacForm(
+        autovalidateMode: StacAutovalidateMode.onUserInteraction,
+        child: StacColumn(
+          crossAxisAlignment: StacCrossAxisAlignment.stretch,
+          textDirection: StacTextDirection.rtl,
+          children: [
+            StacExpanded(
+              child: StacSingleChildScrollView(
+                padding: StacEdgeInsets.all(16),
+                child: StacColumn(
+                  crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                  textDirection: StacTextDirection.rtl,
+                  children: [
+                    StacText(
+                      data: '{{appStrings.promissory.enterInfoBelow}}',
+                      textDirection: StacTextDirection.rtl,
+                      style: StacCustomTextStyle(
+                        fontSize: 16,
+                        fontWeight: StacFontWeight.bold,
+                        color: '{{appColors.current.text.title}}',
+                      ),
                     ),
-                  ),
-                  keyboardType: TextInputType.phone,
-                  validator: (value) {
-                    if (value == null || value.isEmpty)
-                      return 'شماره موبایل الزامی است';
-                    if (!RegExp(r'^09\d{9}$').hasMatch(value))
-                      return 'فرمت شماره موبایل صحیح نیست';
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 16),
+                    StacSizedBox(height: 24),
 
-                // National Code
-                const Text('کد ملی'),
-                const SizedBox(height: 8),
-                TextFormField(
-                  controller: _nationalIdController,
-                  decoration: const InputDecoration(
-                    hintText: 'کد ملی 10 رقمی',
-                    border: OutlineInputBorder(),
-                    contentPadding: EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 12,
+                    // Mobile Number
+                    StacText(
+                      data: '{{appStrings.promissory.issuerPhoneNumber}}',
+                      textDirection: StacTextDirection.rtl,
+                      style: StacAliasTextStyle('{{appStyles.text.label}}'),
                     ),
-                  ),
-                  keyboardType: TextInputType.number,
-                  validator: (value) {
-                    if (value == null || value.isEmpty)
-                      return 'کد ملی الزامی است';
-                    if (!RegExp(r'^\d{10}$').hasMatch(value))
-                      return 'کد ملی باید 10 رقم باشد';
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 16),
+                    StacSizedBox(height: 8),
+                    StacRawJsonWidget({
+                      'type': 'textFormField',
+                      'id': 'mobile_number',
+                      'textDirection': 'rtl',
+                      'textAlign': 'right',
+                      'maxLength': 11,
+                      'inputFormatters': [
+                        {'type': 'allow', 'rule': '[0-9]'},
+                      ],
+                      'decoration': StacInputDecoration(
+                        hintText: '{{appStrings.promissory.mobileExample}}',
+                        filled: false,
+                        contentPadding: StacEdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
+                      ).toJson(),
+                      'keyboardType': 'phone',
+                      'textInputAction': 'next',
+                      'validatorRules': [
+                        {
+                          'rule': r'^09\d{9}$',
+                          'message':
+                              '{{appStrings.promissory.mobileFormatError}}',
+                        },
+                      ],
+                      'onChanged': StacValidateFieldsAction(
+                        resultKey: 'isLoginFormValid',
+                        fields: [
+                          {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
+                          {'id': 'national_code', 'rule': r'^\d{10}$'},
+                          {'id': 'gpay_token', 'rule': r'.+'},
+                          {'id': 'cif', 'rule': r'.+'},
+                          {'id': 'birthdate', 'rule': r'.+'},
+                        ],
+                      ).toJson(),
+                    }),
+                    StacSizedBox(height: 16),
 
-                // GPay Token
-                const Text('GPay Token'),
-                const SizedBox(height: 8),
-                TextFormField(
-                  controller: _gpayTokenController,
-                  decoration: const InputDecoration(
-                    hintText: 'مثال: 1234',
-                    border: OutlineInputBorder(),
-                    contentPadding: EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 12,
+                    // National Code
+                    StacText(
+                      data: '{{appStrings.promissory.nationalCode}}',
+                      textDirection: StacTextDirection.rtl,
+                      style: StacAliasTextStyle('{{appStyles.text.label}}'),
                     ),
-                  ),
-                  keyboardType: TextInputType.number,
-                  validator: (value) {
-                    if (value == null || value.isEmpty)
-                      return 'GPay Token الزامی است';
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 16),
+                    StacSizedBox(height: 8),
+                    StacRawJsonWidget({
+                      'type': 'textFormField',
+                      'id': 'national_code',
+                      'textDirection': 'rtl',
+                      'textAlign': 'right',
+                      'maxLength': 10,
+                      'inputFormatters': [
+                        {'type': 'allow', 'rule': '[0-9]'},
+                      ],
+                      'decoration': StacInputDecoration(
+                        hintText:
+                            '{{appStrings.promissory.nationalCode10Digit}}',
+                        filled: false,
+                        contentPadding: StacEdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
+                      ).toJson(),
+                      'keyboardType': 'number',
+                      'textInputAction': 'next',
+                      'validatorRules': [
+                        {
+                          'rule': r'^\d{10}$',
+                          'message':
+                              '{{appStrings.promissory.nationalCodeLengthError}}',
+                        },
+                      ],
+                      'onChanged': StacValidateFieldsAction(
+                        resultKey: 'isLoginFormValid',
+                        fields: [
+                          {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
+                          {'id': 'national_code', 'rule': r'^\d{10}$'},
+                          {'id': 'gpay_token', 'rule': r'.+'},
+                          {'id': 'cif', 'rule': r'.+'},
+                          {'id': 'birthdate', 'rule': r'.+'},
+                        ],
+                      ).toJson(),
+                    }),
+                    StacSizedBox(height: 16),
 
-                // CIF
-                const Text('CIF'),
-                const SizedBox(height: 8),
-                TextFormField(
-                  controller: _cifController,
-                  decoration: const InputDecoration(
-                    hintText: 'مثال: 123',
-                    border: OutlineInputBorder(),
-                    contentPadding: EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 12,
+                    // GPay Token
+                    StacText(
+                      data: 'GPay Token',
+                      textDirection: StacTextDirection.rtl,
+                      style: StacAliasTextStyle('{{appStyles.text.label}}'),
                     ),
-                  ),
-                  keyboardType: TextInputType.number,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) return 'CIF الزامی است';
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 16),
+                    StacSizedBox(height: 8),
+                    StacRawJsonWidget({
+                      'type': 'textFormField',
+                      'id': 'gpay_token',
+                      'textDirection': 'ltr',
+                      'textAlign': 'left',
+                      'decoration': StacInputDecoration(
+                        hintText: '{{appStrings.promissory.gpayTokenExample}}',
+                        filled: false,
+                        contentPadding: StacEdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
+                      ).toJson(),
+                      'keyboardType': 'text',
+                      'textInputAction': 'next',
+                      'validatorRules': [
+                        {
+                          'rule': r'.+',
+                          'message':
+                              '{{appStrings.promissory.gpayTokenRequired}}',
+                        },
+                      ],
+                      'onChanged': StacValidateFieldsAction(
+                        resultKey: 'isLoginFormValid',
+                        fields: [
+                          {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
+                          {'id': 'national_code', 'rule': r'^\d{10}$'},
+                          {'id': 'gpay_token', 'rule': r'.+'},
+                          {'id': 'cif', 'rule': r'.+'},
+                          {'id': 'birthdate', 'rule': r'.+'},
+                        ],
+                      ).toJson(),
+                    }),
+                    StacSizedBox(height: 16),
 
-                // Birth Date
-                const Text('تاریخ تولد'),
-                const SizedBox(height: 8),
-                TextFormField(
-                  controller: _birthDateController,
-                  decoration: const InputDecoration(
-                    hintText: 'مثال: 13700101',
-                    border: OutlineInputBorder(),
-                    contentPadding: EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 12,
+                    // CIF
+                    StacText(
+                      data: 'CIF',
+                      textDirection: StacTextDirection.rtl,
+                      style: StacAliasTextStyle('{{appStyles.text.label}}'),
                     ),
-                    helperText: 'فرمت: سال ماه روز (۸ رقم پیوسته)',
-                  ),
-                  keyboardType: TextInputType.number,
-                  validator: (value) {
-                    if (value == null || value.isEmpty)
-                      return 'تاریخ تولد الزامی است';
-                    // Basic length check for yyyymmdd
-                    if (value.length != 8)
-                      return 'تاریخ تولد باید ۸ رقم باشد (مثال: 13750101)';
-                    return null;
-                  },
-                ),
+                    StacSizedBox(height: 8),
+                    StacRawJsonWidget({
+                      'type': 'textFormField',
+                      'id': 'cif',
+                      'textDirection': 'ltr',
+                      'textAlign': 'left',
+                      'decoration': StacInputDecoration(
+                        hintText: '{{appStrings.promissory.cifExample}}',
+                        filled: false,
+                        contentPadding: StacEdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
+                      ).toJson(),
+                      'keyboardType': 'text',
+                      'textInputAction': 'next',
+                      'validatorRules': [
+                        {
+                          'rule': r'.+',
+                          'message': '{{appStrings.promissory.cifRequired}}',
+                        },
+                      ],
+                      'onChanged': StacValidateFieldsAction(
+                        resultKey: 'isLoginFormValid',
+                        fields: [
+                          {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
+                          {'id': 'national_code', 'rule': r'^\d{10}$'},
+                          {'id': 'gpay_token', 'rule': r'.+'},
+                          {'id': 'cif', 'rule': r'.+'},
+                          {'id': 'birthdate', 'rule': r'.+'},
+                        ],
+                      ).toJson(),
+                    }),
+                    StacSizedBox(height: 16),
 
-                const SizedBox(height: 32),
-
-                ElevatedButton(
-                  onPressed: _isLoading ? null : _submitFormat,
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    backgroundColor: Colors.blueAccent, // Or theme color
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                    // Birth Date (Using Date Picker Action)
+                    StacText(
+                      data: '{{appStrings.promissory.birthdate}}',
+                      textDirection: StacTextDirection.rtl,
+                      style: StacAliasTextStyle('{{appStyles.text.label}}'),
                     ),
-                  ),
-                  child: _isLoading
-                      ? const SizedBox(
-                          width: 24,
-                          height: 24,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                            color: Colors.white,
+                    StacSizedBox(height: 8),
+                    StacGestureDetector(
+                      onTap: StacPersianDatePickerAction(
+                        formFieldId: 'birthdate',
+                        firstDate: '1300/01/01',
+                        lastDate: '1450/12/29',
+                        onDateSelected: StacValidateFieldsAction(
+                          resultKey: 'isLoginFormValid',
+                          fields: [
+                            {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
+                            {'id': 'national_code', 'rule': r'^\d{10}$'},
+                            {'id': 'gpay_token', 'rule': r'.+'},
+                            {'id': 'cif', 'rule': r'.+'},
+                            {'id': 'birthdate', 'rule': r'.+'},
+                          ],
+                        ).toJson(),
+                      ),
+                      child: StacTextFormField(
+                        id: 'birthdate',
+                        readOnly: true,
+                        enabled: false,
+                        textDirection: StacTextDirection.rtl,
+                        textAlign: StacTextAlign.right,
+                        decoration: StacInputDecoration(
+                          hintText: '{{appStrings.promissory.birthdate}}',
+                          filled: false,
+                          contentPadding: StacEdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 12,
                           ),
-                        )
-                      : const Text(
-                          'ورود و ذخیره توکن',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                          prefixIcon: StacPadding(
+                            padding: StacEdgeInsets.all(8),
+                            child: StacImage(
+                              src: 'assets/icons/ic_calendar.svg',
+                              imageType: StacImageType.asset,
+                              width: 24,
+                              height: 24,
+                              fit: StacBoxFit.scaleDown,
+                              color: '{{appColors.current.text.subtitle}}',
+                            ),
                           ),
                         ),
+                        keyboardType: StacTextInputType.text,
+                        validatorRules: [
+                          StacFormFieldValidator(
+                            rule: r'.+',
+                            message:
+                                '{{appStrings.promissory.birthdateRequired}}',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
+            StacPadding(
+              padding: StacEdgeInsets.all(16),
+              child: StacRawJsonWidget({
+                'type': 'reactiveElevatedButton',
+                'enabledKey': 'isLoginFormValid',
+                'onPressed': StacSequenceAction(
+                  actions: [
+                    // Copy form values to use in body
+                    StacCustomSetValueAction(
+                      values: [
+                        {
+                          'key': 'login.mobile',
+                          'value': StacRawJsonAction({
+                            'actionType': 'getFormValue',
+                            'id': 'mobile_number',
+                          }).toJson(),
+                        },
+                        {
+                          'key': 'login.nationalCode',
+                          'value': StacRawJsonAction({
+                            'actionType': 'getFormValue',
+                            'id': 'national_code',
+                          }).toJson(),
+                        },
+                        {
+                          'key': 'login.gpayToken',
+                          'value': StacRawJsonAction({
+                            'actionType': 'getFormValue',
+                            'id': 'gpay_token',
+                          }).toJson(),
+                        },
+                        {
+                          'key': 'login.cif',
+                          'value': StacRawJsonAction({
+                            'actionType': 'getFormValue',
+                            'id': 'cif',
+                          }).toJson(),
+                        },
+                        {
+                          'key': 'login.birthDate',
+                          'value': StacRawJsonAction({
+                            'actionType': 'getFormValue',
+                            'id': 'birthdate',
+                          }).toJson(),
+                        },
+                        // Format birthdate: remove slashes
+                        {
+                          'key': 'login.birthDateClean',
+                          'value': '{{replace(login.birthDate,"/","")}}',
+                        },
+                      ],
+                    ),
+                    StacNetworkRequestAction(
+                      url:
+                          'http://192.168.107.22:8280/api/digitalbanking/logins/v1.0/tobank/users',
+                      method: 'post',
+                      headers: {
+                        'accept': '*/*',
+                        'app-platform': 'android',
+                        'app-store': 'application/json',
+                        'app-version': '456',
+                        'authorization':
+                            'Bearer null', // As in original service
+                        'content-type': 'application/json',
+                        'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
+                        'serviceauthorization':
+                            'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
+                      },
+                      data: {
+                        'nationalId': '{{login.nationalCode}}',
+                        'mobileNumber': '{{login.mobile}}',
+                        'gpayToken': '{{login.gpayToken}}',
+                        'birthDate': '{{login.birthDateClean}}',
+                        'cif': '{{login.cif}}',
+                      },
+                      results: [
+                        {
+                          'statusCode': 200,
+                          'action': StacSequenceAction(
+                            actions: [
+                              StacCustomSetValueAction(
+                                values: [
+                                  {
+                                    'key': 'auth.accessToken',
+                                    'value': '{{data.access_token}}',
+                                  },
+                                  {
+                                    'key': 'userData.nationalCode',
+                                    'value': '{{login.nationalCode}}',
+                                  },
+                                ],
+                              ),
+                              StacRawJsonAction({
+                                'actionType': 'showSnackBar',
+                                'content': {
+                                  'type': 'text',
+                                  'data':
+                                      '{{appStrings.promissory.loginSuccess}}',
+                                },
+                              }),
+                              StacRawJsonAction({
+                                'actionType': 'navigate',
+                                'widgetType': 'promissory_real_receiver',
+                                'navigationStyle': 'push',
+                              }),
+                            ],
+                          ),
+                        },
+                        {
+                          'statusCode': 'default',
+                          'action': StacRawJsonAction({
+                            'actionType': 'showSnackBar',
+                            'content': {
+                              'type': 'text',
+                              'data': '{{appStrings.promissory.loginError}}',
+                            },
+                          }),
+                        },
+                      ],
+                    ),
+                  ],
+                ),
+                'style': StacButtonStyle(
+                  backgroundColor: '{{appColors.current.primary.color}}',
+                  elevation: 0,
+                  fixedSize: StacSize(999999, 56),
+                  shape: StacRoundedRectangleBorder(
+                    borderRadius: StacBorderRadius.all(8),
+                  ),
+                ).toJson(),
+                'child': StacText(
+                  data: '{{appStrings.promissory.loginSaveToken}}',
+                  textDirection: StacTextDirection.rtl,
+                  style: StacCustomTextStyle(
+                    fontSize: 16,
+                    fontWeight: StacFontWeight.bold,
+                    color: '{{appColors.current.primary.onPrimary}}',
+                  ),
+                ).toJson(),
+              }),
+            ),
+          ],
         ),
       ),
-    );
-  }
+    ),
+  );
 }

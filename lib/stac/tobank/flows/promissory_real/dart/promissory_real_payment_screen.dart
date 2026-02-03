@@ -1,4 +1,5 @@
 import 'package:stac_core/stac_core.dart';
+import '../../../../../core/stac/builders/stac_common_builders.dart';
 import '../../../../../core/stac/builders/stac_stateful_widget.dart';
 import '../../../../../core/stac/builders/stac_custom_actions.dart';
 
@@ -137,14 +138,58 @@ StacWidget promissoryRealPayment() {
                     ),
                     child: StacColumn(
                       children: [
-                        _buildKVRow(
-                          '{{appStrings.promissory.stampDuty}}',
-                          '{{appData.taxAmount}} {{appStrings.common.rial}}',
+                        StacRow(
+                          textDirection: StacTextDirection.rtl,
+                          mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+                          children: [
+                            StacExpanded(
+                              child: StacText(
+                                data: '{{appStrings.promissory.stampDuty}}',
+                                textDirection: StacTextDirection.rtl,
+                                style: StacCustomTextStyle(
+                                  fontSize: 14,
+                                  color: '{{appColors.current.text.subtitle}}',
+                                ),
+                              ),
+                            ),
+                            StacSizedBox(width: 8),
+                            StacText(
+                              data: '2500 {{appStrings.common.rial}}',
+                              textDirection: StacTextDirection.ltr,
+                              style: StacCustomTextStyle(
+                                fontSize: 14,
+                                fontWeight: StacFontWeight.w600,
+                                color: '{{appColors.current.text.title}}',
+                              ),
+                            ),
+                          ],
                         ),
                         StacSizedBox(height: 16),
-                        _buildKVRow(
-                          '{{appStrings.promissory.issuanceFee}}',
-                          '{{appData.feeAmount}} {{appStrings.common.rial}}',
+                        StacRow(
+                          textDirection: StacTextDirection.rtl,
+                          mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+                          children: [
+                            StacExpanded(
+                              child: StacText(
+                                data: '{{appStrings.promissory.issuanceFee}}',
+                                textDirection: StacTextDirection.rtl,
+                                style: StacCustomTextStyle(
+                                  fontSize: 14,
+                                  color: '{{appColors.current.text.subtitle}}',
+                                ),
+                              ),
+                            ),
+                            StacSizedBox(width: 8),
+                            StacText(
+                              data: '8900 {{appStrings.common.rial}}',
+                              textDirection: StacTextDirection.ltr,
+                              style: StacCustomTextStyle(
+                                fontSize: 14,
+                                fontWeight: StacFontWeight.w600,
+                                color: '{{appColors.current.text.title}}',
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -164,23 +209,163 @@ StacWidget promissoryRealPayment() {
                   StacSizedBox(height: 16),
 
                   // Wallet Payment Option
-                  _buildPaymentOption(
-                    id: 'wallet',
-                    isSelectedVar: 'isWalletSelected',
-                    activeColor:
-                        'appColors.current.primary.color', // Fixed color reference
-                    icon: 'assets/icons/ic_wallet.svg',
-                    title: '{{appStrings.promissory.walletPayment}}',
-                    subtitle: '{{wallet.balance}} {{appStrings.common.rial}}',
+                  StacGestureDetector(
+                    onTap: StacSequenceAction(
+                      actions: [
+                        StacCustomSetValueAction(
+                          key: 'selectedPaymentMethod',
+                          value: 'wallet',
+                        ),
+                        StacCustomSetValueAction(
+                          key: 'isPayEnabled',
+                          value: true,
+                        ),
+                        StacCustomSetValueAction(
+                          key: 'isDepositSelected',
+                          value: false,
+                        ),
+                        StacCustomSetValueAction(
+                          key: 'isWalletSelected',
+                          value: true,
+                        ),
+                      ],
+                    ),
+                    child: StacContainer(
+                      padding: StacEdgeInsets.all(16),
+                      decoration: StacBoxDecoration(
+                        color:
+                            '{{appColors.current.background.surfaceContainer}}',
+                        borderRadius: StacBorderRadius.all(12),
+                        border: StacBorder.all(
+                          color:
+                              '{{isWalletSelected ? appColors.current.primary.color : appColors.current.input.borderEnabled}}',
+                          width: 1,
+                        ),
+                      ),
+                      child: StacRow(
+                        textDirection: StacTextDirection.rtl,
+                        children: [
+                          // Icon
+                          StacImage(
+                            src: 'assets/icons/ic_wallet.svg',
+                            imageType: StacImageType.asset,
+                            width: 32,
+                            height: 32,
+                            color: '{{appColors.current.primary.color}}',
+                          ),
+                          StacSizedBox(width: 6),
+                          StacText(
+                            data: '{{appStrings.promissory.walletPayment}}',
+                            textDirection: StacTextDirection.rtl,
+                            style: StacCustomTextStyle(
+                              fontSize: 16,
+                              fontWeight: StacFontWeight.w600,
+                              color: '{{appColors.current.text.title}}',
+                            ),
+                          ),
+                          StacSizedBox(width: 12),
+                          // Text
+                          StacExpanded(
+                            child: StacColumn(
+                              crossAxisAlignment: StacCrossAxisAlignment.start,
+                              children: [
+                                StacSizedBox(height: 4),
+                                StacText(
+                                  data: '23700000 {{appStrings.common.rial}}',
+                                  textDirection: StacTextDirection.rtl,
+                                  style: StacCustomTextStyle(
+                                    fontSize: 12,
+                                    color:
+                                        '{{appColors.current.text.subtitle}}',
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
+
                   StacSizedBox(height: 12),
 
                   // Deposit Payment Option
-                  _buildPaymentOption(
-                    id: 'deposit',
-                    isSelectedVar: 'isDepositSelected',
-                    icon: 'assets/icons/ic_branch.svg',
-                    title: '{{appStrings.promissory.depositPayment}}',
+                  StacGestureDetector(
+                    onTap: StacSequenceAction(
+                      actions: [
+                        StacCustomSetValueAction(
+                          key: 'selectedPaymentMethod',
+                          value: 'deposit',
+                        ),
+                        StacCustomSetValueAction(
+                          key: 'isPayEnabled',
+                          value: true,
+                        ),
+                        StacCustomSetValueAction(
+                          key: 'isWalletSelected',
+                          value: false,
+                        ),
+                        StacCustomSetValueAction(
+                          key: 'isDepositSelected',
+                          value: true,
+                        ),
+                      ],
+                    ),
+                    child: StacContainer(
+                      padding: StacEdgeInsets.all(16),
+                      decoration: StacBoxDecoration(
+                        color:
+                            '{{appColors.current.background.surfaceContainer}}',
+                        borderRadius: StacBorderRadius.all(12),
+                        border: StacBorder.all(
+                          color:
+                              '{{isDepositSelected ? appColors.current.primary.color : appColors.current.input.borderEnabled}}',
+                          width: 1,
+                        ),
+                      ),
+                      child: StacRow(
+                        textDirection: StacTextDirection.rtl,
+                        children: [
+                          // Icon
+                          StacImage(
+                            src: 'assets/icons/ic_branch.svg',
+                            imageType: StacImageType.asset,
+                            width: 32,
+                            height: 32,
+                            color: '{{appColors.current.primary.color}}',
+                          ),
+                          StacSizedBox(width: 6),
+                          StacText(
+                            data: '{{appStrings.promissory.depositPayment}}',
+                            textDirection: StacTextDirection.rtl,
+                            style: StacCustomTextStyle(
+                              fontSize: 16,
+                              fontWeight: StacFontWeight.w600,
+                              color: '{{appColors.current.text.title}}',
+                            ),
+                          ),
+                          StacSizedBox(width: 12),
+                          // Text
+                          StacExpanded(
+                            child: StacColumn(
+                              crossAxisAlignment: StacCrossAxisAlignment.start,
+                              children: [
+                                StacSizedBox(height: 4),
+                                StacText(
+                                  data: '',
+                                  textDirection: StacTextDirection.rtl,
+                                  style: StacCustomTextStyle(
+                                    fontSize: 12,
+                                    color:
+                                        '{{appColors.current.text.subtitle}}',
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                   StacSizedBox(height: 12),
                 ],
@@ -199,8 +384,9 @@ StacWidget promissoryRealPayment() {
                 'type': 'reactiveElevatedButton',
                 'enabledKey': 'isPayEnabled',
                 'enabled': false,
-                'onPressed': StacDialogAction(
-                  widget: StacAlertDialog(
+                'onPressed': StacRawJsonAction({
+                  'actionType': 'showDialog',
+                  'widget': StacAlertDialog(
                     title: StacText(
                       data: '{{appStrings.promissory.payConfirmTitle}}',
                       textDirection: StacTextDirection.rtl,
@@ -238,7 +424,7 @@ StacWidget promissoryRealPayment() {
                       ),
                     ],
                   ).toJson(),
-                ).toJson(),
+                }).toJson(),
                 'style': StacButtonStyle(
                   backgroundColor: '{{appColors.current.primary.color}}',
                   elevation: 0,
@@ -274,7 +460,7 @@ StacWidget promissoryRealPayment() {
                 'onPressed': {
                   'actionType': 'navigate',
                   'widgetType':
-                      'promissory_real_deposits', // Updated Navigation (Assuming this screen exists)
+                      'promissory_real_payment_deposits', // Updated Navigation (Assuming this screen exists)
                   'navigationStyle': 'push',
                 },
                 'style': StacButtonStyle(
@@ -301,155 +487,4 @@ StacWidget promissoryRealPayment() {
       ),
     ),
   );
-}
-
-/// Helper: KV row (rtl label, ltr value)
-StacWidget _buildKVRow(String label, String value) {
-  return StacRow(
-    textDirection: StacTextDirection.rtl,
-    mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-    children: [
-      StacExpanded(
-        child: StacText(
-          data: label,
-          textDirection: StacTextDirection.rtl,
-          style: StacCustomTextStyle(
-            fontSize: 14,
-            color: '{{appColors.current.text.subtitle}}',
-          ),
-        ),
-      ),
-      StacSizedBox(width: 8),
-      StacText(
-        data: value,
-        textDirection: StacTextDirection.ltr,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          fontWeight: StacFontWeight.w600,
-          color: '{{appColors.current.text.title}}',
-        ),
-      ),
-    ],
-  );
-}
-
-/// Helper: Payment option card
-StacWidget _buildPaymentOption({
-  required String id,
-  required String icon,
-  required String title,
-  String subtitle = '',
-  String? isSelectedVar,
-  String activeColor = 'appColors.current.primary.color',
-}) {
-  return StacGestureDetector(
-    onTap: id == 'deposit'
-        ? StacSequenceAction(
-            actions: [
-              StacCustomSetValueAction(key: 'selectedPaymentMethod', value: id),
-              StacCustomSetValueAction(key: 'isPayEnabled', value: true),
-              StacCustomSetValueAction(key: 'isWalletSelected', value: false),
-              if (isSelectedVar != null)
-                StacCustomSetValueAction(key: isSelectedVar, value: true),
-            ],
-          )
-        : StacSequenceAction(
-            actions: [
-              StacCustomSetValueAction(key: 'selectedPaymentMethod', value: id),
-              StacCustomSetValueAction(key: 'isPayEnabled', value: true),
-              StacCustomSetValueAction(key: 'isDepositSelected', value: false),
-              if (isSelectedVar != null)
-                StacCustomSetValueAction(key: isSelectedVar, value: true),
-            ],
-          ),
-    child: StacContainer(
-      padding: StacEdgeInsets.all(16),
-      decoration: StacBoxDecoration(
-        color: '{{appColors.current.background.surfaceContainer}}',
-        borderRadius: StacBorderRadius.all(12),
-        border: StacBorder.all(
-          color: isSelectedVar != null
-              ? '{{$isSelectedVar ? $activeColor : appColors.current.input.borderEnabled}}'
-              : '{{appColors.current.input.borderEnabled}}',
-          width: 1,
-        ),
-      ),
-      child: StacRow(
-        textDirection: StacTextDirection.rtl,
-        children: [
-          // Icon
-          StacImage(
-            src: icon,
-            imageType: StacImageType.asset,
-            width: 32,
-            height: 32,
-            color: '{{appColors.current.primary.color}}',
-          ),
-          StacSizedBox(width: 6),
-          StacText(
-            data: title,
-            textDirection: StacTextDirection.rtl,
-            style: StacCustomTextStyle(
-              fontSize: 16,
-              fontWeight: StacFontWeight.w600,
-              color: '{{appColors.current.text.title}}',
-            ),
-          ),
-          StacSizedBox(width: 12),
-          // Text
-          StacExpanded(
-            child: StacColumn(
-              crossAxisAlignment: StacCrossAxisAlignment.start,
-              children: [
-                StacSizedBox(height: 4),
-                StacText(
-                  data: subtitle,
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 12,
-                    color: '{{appColors.current.text.subtitle}}',
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
-}
-
-/// Custom class to support alias text styles
-class StacAliasTextStyle implements StacTextStyle {
-  final String alias;
-  const StacAliasTextStyle(this.alias);
-  @override
-  StacTextStyleType get type => StacTextStyleType.custom;
-  @override
-  Map<String, dynamic> toJson() => {'type': 'alias', 'value': alias};
-}
-
-/// Raw JSON widget helper for complex widgets
-class StacRawJsonWidget implements StacWidget {
-  final Map<String, dynamic> json;
-  StacRawJsonWidget(this.json);
-  @override
-  Map<String, dynamic> get jsonData => json;
-  @override
-  Map<String, dynamic> toJson() => json;
-  @override
-  String get type => json['type'] as String;
-  String? get id => json['id'] as String?;
-}
-
-/// Raw JSON action helper for simple actions
-class StacRawJsonAction extends StacAction {
-  final Map<String, dynamic> json;
-  StacRawJsonAction(this.json);
-
-  @override
-  String get actionType => json['actionType'] as String;
-
-  @override
-  Map<String, dynamic> toJson() => json;
 }

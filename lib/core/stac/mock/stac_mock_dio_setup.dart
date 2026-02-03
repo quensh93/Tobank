@@ -169,6 +169,27 @@ Dio setupStacMockDio() {
                 } catch (_) {
                   // Continue to feature folders
                 }
+              } else if (parts.first == 'promissory') {
+                // Special handling for promissory_real flow APIs
+                // Pattern: promissory/sign/asset -> lib/stac/tobank/flows/promissory_real/api/GET_sign_asset.json
+                final lastPart = parts.last;
+                final filename = '${method}_$lastPart.json';
+                final testPath =
+                    'lib/stac/tobank/flows/promissory_real/api/$filename';
+                try {
+                  await rootBundle.loadString(testPath);
+                  assetPath = testPath;
+                  isScreenJson = false; // These are data APIs
+                } catch (_) {
+                  // Fallback: Check file system directly (for dev/hot reload)
+                  try {
+                    final file = File(testPath);
+                    if (await file.exists()) {
+                      assetPath = testPath;
+                      isScreenJson = false;
+                    }
+                  } catch (_) {}
+                }
               }
             }
 

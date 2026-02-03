@@ -28,10 +28,18 @@ class CustomNetworkRequestActionParser
 
     try {
       final resolvedModel = _resolveNetworkRequestTemplates(model);
-      response = await StacNetworkService.request(context, resolvedModel);
+      response = await StacNetworkService.request(
+        context,
+        resolvedModel,
+      ).timeout(const Duration(seconds: 15));
+    } on TimeoutException {
+      AppLogger.wc(LogCategory.network, 'Network request timed out');
+      response = null; // Will trigger fallback to status code -1
     } on DioException catch (e) {
       response = e.response;
       Log.e(e.response);
+    } catch (e) {
+      Log.e(e);
     }
 
     // Store response data in registry so {{data.data.*}} variables can be resolved
@@ -57,22 +65,29 @@ class CustomNetworkRequestActionParser
       );
     }
 
-    if (response?.statusCode != null) {
-      try {
-        final result = model.results.firstWhere(
-          (element) => element.statusCode == response?.statusCode,
-        );
+    final statusCode = response?.statusCode ?? -1;
 
-        if (context.mounted) {
-          return Stac.onCallFromJson(result.action, context);
-        }
-      } catch (e) {
-        // No matching status code found in results
-        AppLogger.wc(
-          LogCategory.network,
-          'No result handler for status code ${response?.statusCode}',
-        );
+    try {
+      // First try to find exact match
+      var result = model.results.firstWhere(
+        (element) => element.statusCode == statusCode,
+        orElse: () {
+          // If not found, try to find fallback handler (-1)
+          return model.results.firstWhere(
+            (element) => element.statusCode == -1,
+          );
+        },
+      );
+
+      if (context.mounted) {
+        return Stac.onCallFromJson(result.action, context);
       }
+    } catch (e) {
+      // No handler found (neither exact nor fallback)
+      AppLogger.wc(
+        LogCategory.network,
+        'No result handler for status code $statusCode',
+      );
     }
 
     return null;
@@ -100,7 +115,7 @@ class CustomNetworkRequestActionParser
       AppLogger.dc(
         LogCategory.network,
         'STAC request headers resolved (hasAuthorization=$hasAuth): '
-            '${resolvedHeaders.map((k, v) => MapEntry(k, k.toLowerCase() == 'authorization' ? '***' : v))}',
+        '${resolvedHeaders.map((k, v) => MapEntry(k, k.toLowerCase() == 'authorization' ? '***' : v))}',
       );
     }
 
@@ -137,4 +152,3 @@ class CustomNetworkRequestActionParser
     }
   }
 }
-

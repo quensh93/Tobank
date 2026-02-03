@@ -1,4 +1,5 @@
 import 'package:stac_core/stac_core.dart';
+import '../../../../../core/stac/builders/stac_common_builders.dart';
 import '../../../../../core/stac/builders/stac_stateful_widget.dart';
 import '../../../../../core/stac/builders/stac_custom_actions.dart';
 
@@ -14,7 +15,8 @@ StacWidget promissoryRealSuccess() {
       values: [
         {
           'key': 'transactionType',
-          'value': 'صدور سفته', // Hardcoded or from strings
+          'value':
+              '{{appStrings.promissory.issuanceTitle}}', // Use localized string
         },
         // We assume 'paymentMethod' is already set or we map 'selectedPaymentMethod'
         {'key': 'paymentMethod', 'value': '{{selectedPaymentMethod}}'},
@@ -166,11 +168,10 @@ StacWidget promissoryRealSuccess() {
                               textDirection: StacTextDirection.rtl,
                               children: [
                                 StacImage(
-                                  src: 'assets/icons/ic_pdf.svg',
+                                  src: 'assets/icons/ic_pdf_file.svg',
                                   imageType: StacImageType.asset,
                                   width: 32,
                                   height: 32,
-                                  color: '{{appColors.current.text.title}}',
                                 ),
                                 StacSizedBox(width: 8),
                                 StacText(
@@ -196,7 +197,7 @@ StacWidget promissoryRealSuccess() {
                                   child: StacPadding(
                                     padding: StacEdgeInsets.all(8),
                                     child: StacImage(
-                                      src: 'assets/icons/ic_eye.svg',
+                                      src: 'assets/icons/ic_show.svg',
                                       imageType: StacImageType.asset,
                                       width: 24,
                                       height: 24,
@@ -246,33 +247,6 @@ StacWidget promissoryRealSuccess() {
               ),
             ),
           ),
-          // Return to Home Button
-          StacPadding(
-            padding: StacEdgeInsets.all(16),
-            child: StacFilledButton(
-              style: StacButtonStyle(
-                backgroundColor: '{{appColors.current.primary.color}}',
-                elevation: 0,
-                fixedSize: StacSize(999999, 56),
-                shape: StacRoundedRectangleBorder(
-                  borderRadius: StacBorderRadius.all(12),
-                ),
-              ),
-              onPressed: StacRawJsonAction({
-                'actionType': 'navigate',
-                'navigationStyle': 'popToRoot',
-              }),
-              child: StacText(
-                data: '{{appStrings.promissory.myPromissoryNotes}}',
-                textDirection: StacTextDirection.rtl,
-                style: StacCustomTextStyle(
-                  fontSize: 18,
-                  fontWeight: StacFontWeight.bold,
-                  color: '{{appColors.current.primary.onPrimary}}',
-                ),
-              ),
-            ),
-          ),
         ],
       ),
     ),
@@ -319,26 +293,4 @@ StacWidget _buildDivider() {
     height: 1,
     color: '{{appColors.current.input.borderEnabled}}',
   );
-}
-
-/// Custom class to support alias text styles
-class StacAliasTextStyle implements StacTextStyle {
-  final String alias;
-  const StacAliasTextStyle(this.alias);
-  @override
-  StacTextStyleType get type => StacTextStyleType.custom;
-  @override
-  Map<String, dynamic> toJson() => {'type': 'alias', 'value': alias};
-}
-
-/// Raw JSON action helper for simple actions
-class StacRawJsonAction extends StacAction {
-  final Map<String, dynamic> json;
-  StacRawJsonAction(this.json);
-
-  @override
-  String get actionType => json['actionType'] as String;
-
-  @override
-  Map<String, dynamic> toJson() => json;
 }

@@ -59,19 +59,24 @@ import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_confi
     as promissory_real_confirm_dart;
 import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_payment_screen.dart'
     as promissory_real_payment_dart;
+import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_payment_deposits_screen.dart'
+    as promissory_real_payment_deposits_dart;
 import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_sign_screen.dart'
     as promissory_real_sign_dart;
 import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_success_screen.dart'
     as promissory_real_success_dart;
 import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_issuer_screen.dart'
     as promissory_real_issuer_dart;
+import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_deposits_screen.dart'
+    as promissory_real_deposits_dart;
+import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_login_screen.dart'
+    as promissory_real_login_dart;
 import 'package:tobank_sdui/core/helpers/logger.dart';
 
 /// Service for loading STAC widgets from Dart files.
 ///
 /// Follows Single Responsibility Principle - only responsible for loading
 /// widget JSON from Dart widget definitions.
-///
 /// Follows Open/Closed Principle - new widget types can be registered
 /// without modifying this class.
 class StacWidgetLoader {
@@ -150,8 +155,10 @@ class StacWidgetLoader {
     'request_promissory_deposit': () => request_promissory_deposit_page_dart
         .requestPromissoryDepositPage()
         .toJson(),
-    'promissory_real_login_form': () => {'type': 'promissory_real_login_form'},
-    'promissory_real_deposits': () => {'type': 'promissory_real_deposits'},
+    'promissory_real_login_form': () =>
+        promissory_real_login_dart.promissoryRealLoginForm().toJson(),
+    'promissory_real_deposits': () =>
+        promissory_real_deposits_dart.promissoryRealDeposits().toJson(),
     'promissory_real_issuer': () =>
         promissory_real_issuer_dart.promissoryRealIssuer().toJson(),
     'promissory_real_receiver': () =>
@@ -162,6 +169,10 @@ class StacWidgetLoader {
         promissory_real_confirm_dart.promissoryRealConfirm().toJson(),
     'promissory_real_payment': () =>
         promissory_real_payment_dart.promissoryRealPayment().toJson(),
+    'promissory_real_payment_deposits': () =>
+        promissory_real_payment_deposits_dart
+            .promissoryRealPaymentDeposits()
+            .toJson(),
     'promissory_real_sign': () =>
         promissory_real_sign_dart.promissoryRealSign().toJson(),
     'promissory_real_success': () =>

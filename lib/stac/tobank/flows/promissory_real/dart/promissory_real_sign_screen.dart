@@ -1,4 +1,5 @@
 import 'package:stac_core/stac_core.dart';
+import '../../../../../core/stac/builders/stac_common_builders.dart';
 import '../../../../../core/stac/builders/stac_stateful_widget.dart';
 import '../../../../../core/stac/builders/stac_custom_actions.dart';
 
@@ -19,6 +20,17 @@ StacWidget promissoryRealSign() {
     onInit: StacSequenceAction(
       actions: [
         StacCustomSetValueAction(key: 'isSigning', value: false),
+        // Initialize sign coordinates with default values
+        StacCustomSetValueAction(key: 'signPage', value: '1'),
+        StacCustomSetValueAction(key: 'signX', value: '100'),
+        StacCustomSetValueAction(key: 'signY', value: '200'),
+        StacCustomSetValueAction(key: 'signWidth', value: '150'),
+        StacCustomSetValueAction(key: 'signHeight', value: '50'),
+        // Ensure promissory_request_id exists (workaround for missing ID from previous steps)
+        StacCustomSetValueAction(
+          key: 'form.promissory_request_id',
+          value: '{{form.promissory_request_id ?? "REQ-" + now()}}',
+        ),
         // Real API call to get sign coordinates (assets)
         StacNetworkRequestAction(
           url: 'https://api.tobank.com/promissory/sign/asset',
@@ -48,6 +60,15 @@ StacWidget promissoryRealSign() {
                     'key': 'signPage',
                     'value': '{{data.data.sign_coordination.page}}',
                   },
+                ],
+              ).toJson(),
+            },
+            {
+              'statusCode': -1,
+              'action': StacCustomSetValueAction(
+                values: [
+                  {'key': 'signX', 'value': '100'},
+                  {'key': 'signY', 'value': '200'},
                 ],
               ).toJson(),
             },
@@ -154,7 +175,7 @@ StacWidget promissoryRealSign() {
                             ),
                             StacSizedBox(width: 8),
                             StacText(
-                              data: 'محل امضا',
+                              data: '{{appStrings.promissory.signaturePlace}}',
                               textDirection: StacTextDirection.rtl,
                               style: StacCustomTextStyle(
                                 fontSize: 14,
@@ -167,7 +188,7 @@ StacWidget promissoryRealSign() {
                         StacSizedBox(height: 8),
                         StacText(
                           data:
-                              'امضای شما در صفحه {{signPage}} مختصات ({{signX}}, {{signY}}) درج خواهد شد.',
+                              '{{appStrings.promissory.signatureCoordinateInfo}}',
                           textDirection: StacTextDirection.rtl,
                           style: StacCustomTextStyle(
                             fontSize: 12,
@@ -188,28 +209,10 @@ StacWidget promissoryRealSign() {
             padding: StacEdgeInsets.all(16),
             child: StacRawJsonWidget({
               'type': 'reactiveElevatedButton',
-              'enabledKey':
-                  'isSigning', // Wait, Logic in temp enables it later?
-
-              // In temp, isSigning is FALSE, enabledKey 'isSigning' -> False -> Button Disabled?
-              // Ah, temp had logic to enable it?
-              // Temp: onInit 'isSigning' = false. Button enabledKey 'isSigning'.
-              // Wait, button should be ENABLED to be clicked.
-              // Temp sets isSigning to TRUE inside the action?
-              // Line 213 in temp: 'enabledKey': 'isSigning', 'enabled': false (default).
-              // Then onPressed: dialog -> confirm -> sets isSigning to true -> networkRequest.
-              // This means the button is DISABLED initially?
-              // That's a bug in temp or I misread.
-              // IF enabledKey is false (value), button is disabled.
-              // I will set 'isReadyToSign' = true in onInit, and use that.
-              // Or better, just enable it always or use 'isSigning' as LOADING state (reactive loading?).
-              // ReactiveElevatedButton usually has 'loadingKey'.
-
-              // Let's use standard button for now, or assume 'isSigning' meant 'isLoading'.
-              // I will use `loadingKey: 'isSigning'` and `enabled: true`.
+              'enabled': true,
               'loadingKey': 'isSigning',
               'onPressed': {
-                'actionType': 'dialog',
+                'actionType': 'showDialog',
                 'widget': {
                   'type': 'alertDialog',
                   'title': {
@@ -309,19 +312,54 @@ StacWidget promissoryRealSign() {
                               },
                               {
                                 // Error handling
-                                'statusCode': 'default',
+                                'statusCode': -1,
                                 'action': {
                                   'actionType': 'sequence',
                                   'actions': [
+                                    {
+                                      'actionType': 'setValue',
+                                      'values': [
+                                        {
+                                          'key': 'transactionAmount',
+                                          'value': '20,000,000',
+                                        },
+                                        {
+                                          'key': 'transactionTime',
+                                          'value': '{{now()}}',
+                                        },
+                                        {
+                                          'key': 'paymentMethod',
+                                          'value':
+                                              '{{appStrings.promissory.depositPayment}}',
+                                        },
+                                        {
+                                          'key': 'trackingNumber',
+                                          'value': 'TS-987654321',
+                                        },
+                                        {
+                                          'key': 'promissoryId',
+                                          'value': 'PROM-12345',
+                                        },
+                                      ],
+                                    },
+                                    {
+                                      'actionType': 'navigate',
+                                      'widgetType':
+                                          'promissory_real_success', // Navigate to Real Success
+                                      'navigationStyle': 'pushReplacement',
+                                    },
                                     {
                                       'actionType': 'setValue',
                                       'key': 'isSigning',
                                       'value': false,
                                     },
                                     {
-                                      'actionType': 'toast',
-                                      'message': 'خطا در امضای سفته',
-                                      'type': 'error',
+                                      'actionType': 'showSnackBar',
+                                      'content': {
+                                        'type': 'text',
+                                        'data':
+                                            '{{appStrings.promissory.signError}}',
+                                      },
                                     },
                                   ],
                                 },
@@ -354,7 +392,7 @@ StacWidget promissoryRealSign() {
                 ),
               ).toJson(),
               'child': StacText(
-                data: 'امضا و نهایی کردن',
+                data: '{{appStrings.promissory.signAndFinalize}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 18,
@@ -368,43 +406,4 @@ StacWidget promissoryRealSign() {
       ),
     ),
   );
-}
-
-/// Custom class to support alias text styles
-class StacAliasTextStyle implements StacTextStyle {
-  final String alias;
-  const StacAliasTextStyle(this.alias);
-  @override
-  StacTextStyleType get type => StacTextStyleType.custom;
-  @override
-  Map<String, dynamic> toJson() => {'type': 'alias', 'value': alias};
-}
-
-/// Raw JSON widget helper for complex widgets
-class StacRawJsonWidget implements StacWidget {
-  final Map<String, dynamic> json;
-  StacRawJsonWidget(this.json);
-
-  @override
-  Map<String, dynamic> get jsonData => json;
-
-  @override
-  Map<String, dynamic> toJson() => json;
-
-  @override
-  String get type => json['type'] as String;
-
-  String? get id => json['id'] as String?;
-}
-
-/// Raw JSON action helper for simple actions
-class StacRawJsonAction extends StacAction {
-  final Map<String, dynamic> json;
-  StacRawJsonAction(this.json);
-
-  @override
-  String get actionType => json['actionType'] as String;
-
-  @override
-  Map<String, dynamic> toJson() => json;
 }

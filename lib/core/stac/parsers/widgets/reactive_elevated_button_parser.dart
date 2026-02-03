@@ -4,17 +4,21 @@ import '../../utils/registry_notifier.dart';
 
 class ReactiveElevatedButtonModel {
   final String? enabledKey;
+  final String? loadingKey;
   final bool? enabled;
   final Map<String, dynamic>? onPressed;
   final Map<String, dynamic>? child;
+  final Map<String, dynamic>? loadingChild;
   final Map<String, dynamic>? style;
   final Map<String, dynamic>? disabledStyle;
 
   const ReactiveElevatedButtonModel({
     this.enabledKey,
+    this.loadingKey,
     this.enabled,
     this.onPressed,
     this.child,
+    this.loadingChild,
     this.style,
     this.disabledStyle,
   });
@@ -22,9 +26,11 @@ class ReactiveElevatedButtonModel {
   factory ReactiveElevatedButtonModel.fromJson(Map<String, dynamic> json) {
     return ReactiveElevatedButtonModel(
       enabledKey: json['enabledKey'] as String?,
+      loadingKey: json['loadingKey'] as String?,
       enabled: json['enabled'] as bool?,
       onPressed: json['onPressed'] as Map<String, dynamic>?,
       child: json['child'] as Map<String, dynamic>?,
+      loadingChild: json['loadingChild'] as Map<String, dynamic>?,
       style: json['style'] as Map<String, dynamic>?,
       disabledStyle: json['disabledStyle'] as Map<String, dynamic>?,
     );
@@ -47,16 +53,41 @@ class ReactiveElevatedButtonParser
   Widget parse(BuildContext context, ReactiveElevatedButtonModel model) {
     return ValueListenableBuilder<int>(
       valueListenable: RegistryNotifier.instance.listenable,
-      builder: (context, _, _) {
+      builder: (context, _, __) {
         final enabled = _resolveEnabled(model);
+        final isLoading = _resolveLoading(model);
+
+        // When loading, show a loading indicator instead of normal child
+        Map<String, dynamic>? childWidget;
+        if (isLoading) {
+          childWidget =
+              model.loadingChild ??
+              {
+                'type': 'sizedBox',
+                'width': 24,
+                'height': 24,
+                'child': {
+                  'type': 'circularProgressIndicator',
+                  'strokeWidth': 2.5,
+                  'color': '#FFFFFF',
+                },
+              };
+        } else {
+          childWidget = model.child;
+        }
+
         final buttonJson = <String, dynamic>{
           'type': 'elevatedButton',
-          if (model.child != null) 'child': model.child,
-          if (enabled) 'onPressed': model.onPressed,
-          if (enabled && model.style != null) 'style': model.style,
-          if (!enabled && model.disabledStyle != null)
+          if (childWidget != null) 'child': childWidget,
+          // Disable button when loading or not enabled
+          if (enabled && !isLoading) 'onPressed': model.onPressed,
+          if ((enabled && !isLoading) && model.style != null)
+            'style': model.style,
+          if ((!enabled || isLoading) && model.disabledStyle != null)
             'style': model.disabledStyle,
-          if (!enabled && model.disabledStyle == null && model.style != null)
+          if ((!enabled || isLoading) &&
+              model.disabledStyle == null &&
+              model.style != null)
             'style': model.style,
         };
         return Stac.fromJson(buttonJson, context) ?? const SizedBox.shrink();
@@ -76,5 +107,19 @@ class ReactiveElevatedButtonParser
       return normalized == 'true' || normalized == '1' || normalized == 'yes';
     }
     return model.enabled ?? false;
+  }
+
+  bool _resolveLoading(ReactiveElevatedButtonModel model) {
+    if (model.loadingKey == null || model.loadingKey!.isEmpty) {
+      return false;
+    }
+    final value = StacRegistry.instance.getValue(model.loadingKey!);
+    if (value is bool) return value;
+    if (value is num) return value != 0;
+    if (value is String) {
+      final normalized = value.toLowerCase().trim();
+      return normalized == 'true' || normalized == '1' || normalized == 'yes';
+    }
+    return false;
   }
 }

@@ -1,0 +1,10 @@
+{
+    "POST": {
+        "statusCode": 200,
+        "data": {
+            "promissoryId": "PR-12345678",
+            "transactionTime": "1403/11/14 12:45",
+            "trackingNumber": "TRK-987654321"
+        }
+    }
+}

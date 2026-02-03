@@ -1,4 +1,5 @@
 import 'package:stac_core/stac_core.dart';
+import '../../../../../core/stac/builders/stac_common_builders.dart';
 import '../../../../../core/stac/builders/stac_stateful_widget.dart';
 import '../../../../../core/stac/builders/stac_custom_actions.dart'
     hide StacPersianDatePickerAction;
@@ -25,7 +26,7 @@ StacWidget promissoryRealData() {
     child: StacScaffold(
       appBar: StacAppBar(
         title: StacText(
-          data: 'اطلاعات سفته',
+          data: '{{appStrings.promissory.dataTitle}}',
           textDirection: StacTextDirection.rtl,
           style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
         ),
@@ -56,12 +57,117 @@ StacWidget promissoryRealData() {
                       textDirection: StacTextDirection.rtl,
                       children: [
                         // Receiver Info Summary Card
-                        _buildReceiverInfoCard(),
+                        StacContainer(
+                          decoration: StacBoxDecoration(
+                            color:
+                                '{{appColors.current.background.surfaceContainer}}',
+                            borderRadius: StacBorderRadius.all(12),
+                            border: StacBorder.all(
+                              color:
+                                  '{{appColors.current.input.borderEnabled}}',
+                              width: 1,
+                            ),
+                          ),
+                          padding: StacEdgeInsets.all(16),
+                          child: StacColumn(
+                            crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                            children: [
+                              StacText(
+                                data:
+                                    '{{appStrings.promissory.receiverDetails}}',
+                                textDirection: StacTextDirection.rtl,
+                                style: StacCustomTextStyle(
+                                  fontSize: 16,
+                                  fontWeight: StacFontWeight.w700,
+                                  color: '{{appColors.current.text.title}}',
+                                ),
+                              ),
+                              StacSizedBox(height: 12),
+                              StacRow(
+                                textDirection: StacTextDirection.rtl,
+                                mainAxisAlignment:
+                                    StacMainAxisAlignment.spaceBetween,
+                                children: [
+                                  StacText(
+                                    data:
+                                        '{{appStrings.promissory.nationalCode}}',
+                                    textDirection: StacTextDirection.rtl,
+                                    style: StacCustomTextStyle(
+                                      fontSize: 14,
+                                      color:
+                                          '{{appColors.current.text.subtitle}}',
+                                    ),
+                                  ),
+                                  StacText(
+                                    data: '{{form.receiver_national_code}}',
+                                    style: StacCustomTextStyle(
+                                      fontSize: 14,
+                                      fontWeight: StacFontWeight.w600,
+                                      color: '{{appColors.current.text.title}}',
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              StacSizedBox(height: 8),
+                              StacRow(
+                                textDirection: StacTextDirection.rtl,
+                                mainAxisAlignment:
+                                    StacMainAxisAlignment.spaceBetween,
+                                children: [
+                                  StacText(
+                                    data:
+                                        '{{appStrings.promissory.mobileNumber}}',
+                                    textDirection: StacTextDirection.rtl,
+                                    style: StacCustomTextStyle(
+                                      fontSize: 14,
+                                      color:
+                                          '{{appColors.current.text.subtitle}}',
+                                    ),
+                                  ),
+                                  StacText(
+                                    data: '{{form.receiver_mobile}}',
+                                    style: StacCustomTextStyle(
+                                      fontSize: 14,
+                                      fontWeight: StacFontWeight.w600,
+                                      color: '{{appColors.current.text.title}}',
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              StacSizedBox(height: 8),
+                              // USING RECEIVER IDENTITY FROM REGISTRY
+                              StacRow(
+                                textDirection: StacTextDirection.rtl,
+                                mainAxisAlignment:
+                                    StacMainAxisAlignment.spaceBetween,
+                                children: [
+                                  StacText(
+                                    data: '{{appStrings.promissory.fullName}}',
+                                    textDirection: StacTextDirection.rtl,
+                                    style: StacCustomTextStyle(
+                                      fontSize: 14,
+                                      color:
+                                          '{{appColors.current.text.subtitle}}',
+                                    ),
+                                  ),
+                                  StacText(
+                                    data: '{{receiverIdentity.fullName}}',
+                                    style: StacCustomTextStyle(
+                                      fontSize: 14,
+                                      fontWeight: StacFontWeight.w600,
+                                      color: '{{appColors.current.text.title}}',
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
                         StacSizedBox(height: 24),
 
                         // Amount Field
                         StacText(
-                          data: 'مبلغ سفته',
+                          data: '{{appStrings.promissory.amountLabel}}',
                           textDirection: StacTextDirection.rtl,
                           style: StacCustomTextStyle(
                             fontSize: 14,
@@ -76,7 +182,7 @@ StacWidget promissoryRealData() {
                           'textDirection': 'rtl',
                           'textAlign': 'right',
                           'decoration': StacInputDecoration(
-                            hintText: 'مبلغ را وارد نمایید',
+                            hintText: '{{appStrings.promissory.enterAmount}}',
                             filled: false,
                             contentPadding: StacEdgeInsets.symmetric(
                               horizontal: 16,
@@ -85,7 +191,7 @@ StacWidget promissoryRealData() {
                             suffixIcon: StacPadding(
                               padding: StacEdgeInsets.all(12),
                               child: StacText(
-                                data: 'ریال',
+                                data: '{{appStrings.common.rial}}',
                                 style: StacCustomTextStyle(
                                   color: '{{appColors.current.text.subtitle}}',
                                   fontSize: 12,
@@ -98,15 +204,28 @@ StacWidget promissoryRealData() {
                             {'type': 'allow', 'rule': '[0-9]'},
                           ],
                           'validatorRules': [
-                            {'rule': 'required', 'message': 'مبلغ الزامی است'},
+                            {
+                              'rule': r'^\d+$',
+                              'message':
+                                  '{{appStrings.promissory.amountRequired}}',
+                            },
                           ],
-                          'onChanged': _getFullValidationAction().toJson(),
+                          'onChanged': StacValidateFieldsAction(
+                            resultKey: 'isDataFormValid',
+                            fields: [
+                              {'id': 'promissory_amount', 'rule': r'^\d+$'},
+                              {
+                                'id': 'promissory_due_date',
+                                'rule': r'^\d{4}/\d{2}/\d{2}$',
+                              },
+                            ],
+                          ).toJson(),
                         }),
                         StacSizedBox(height: 16),
 
                         // Due Date Field
                         StacText(
-                          data: 'تاریخ سررسید',
+                          data: '{{appStrings.promissory.dueDateLabel}}',
                           textDirection: StacTextDirection.rtl,
                           style: StacCustomTextStyle(
                             fontSize: 14,
@@ -120,7 +239,16 @@ StacWidget promissoryRealData() {
                             formFieldId: 'promissory_due_date',
                             firstDate: '1403/01/01', // Example constraint
                             lastDate: '1450/12/29',
-                            onDateSelected: _getFullValidationAction().toJson(),
+                            onDateSelected: StacValidateFieldsAction(
+                              resultKey: 'isDataFormValid',
+                              fields: [
+                                {'id': 'promissory_amount', 'rule': r'^\d+$'},
+                                {
+                                  'id': 'promissory_due_date',
+                                  'rule': r'^\d{4}/\d{2}/\d{2}$',
+                                },
+                              ],
+                            ).toJson(),
                           ),
                           child: StacTextFormField(
                             id: 'promissory_due_date',
@@ -129,7 +257,7 @@ StacWidget promissoryRealData() {
                             textDirection: StacTextDirection.rtl,
                             textAlign: StacTextAlign.right,
                             decoration: StacInputDecoration(
-                              hintText: 'انتخاب تاریخ',
+                              hintText: '{{appStrings.promissory.selectDate}}',
                               filled: false,
                               contentPadding: StacEdgeInsets.symmetric(
                                 horizontal: 16,
@@ -143,8 +271,9 @@ StacWidget promissoryRealData() {
                             ),
                             validatorRules: [
                               StacFormFieldValidator(
-                                rule: 'required',
-                                message: 'تاریخ سررسید الزامی است',
+                                rule: r'^\d{4}/\d{2}/\d{2}$',
+                                message:
+                                    '{{appStrings.promissory.dueDateRequired}}',
                               ),
                             ],
                           ),
@@ -153,7 +282,8 @@ StacWidget promissoryRealData() {
 
                         // Description Field (Optional)
                         StacText(
-                          data: 'بابت (اختیاری)',
+                          data:
+                              '{{appStrings.promissory.amountOptionalSuffix}}',
                           textDirection: StacTextDirection.rtl,
                           style: StacCustomTextStyle(
                             fontSize: 14,
@@ -167,7 +297,8 @@ StacWidget promissoryRealData() {
                           textDirection: StacTextDirection.rtl,
                           textAlign: StacTextAlign.right,
                           decoration: StacInputDecoration(
-                            hintText: 'توضیحات...',
+                            hintText:
+                                '{{appStrings.promissory.descriptionHint}}',
                             filled: false,
                             contentPadding: StacEdgeInsets.symmetric(
                               horizontal: 16,
@@ -179,7 +310,8 @@ StacWidget promissoryRealData() {
 
                         // Payment Place Field (Optional)
                         StacText(
-                          data: 'محل پرداخت (اختیاری)',
+                          data:
+                              '{{appStrings.promissory.paymentPlaceOptional}}',
                           textDirection: StacTextDirection.rtl,
                           style: StacCustomTextStyle(
                             fontSize: 14,
@@ -193,7 +325,8 @@ StacWidget promissoryRealData() {
                           textDirection: StacTextDirection.rtl,
                           textAlign: StacTextAlign.right,
                           decoration: StacInputDecoration(
-                            hintText: 'محل پرداخت...',
+                            hintText:
+                                '{{appStrings.promissory.paymentPlaceHint}}',
                             filled: false,
                             contentPadding: StacEdgeInsets.symmetric(
                               horizontal: 16,
@@ -211,8 +344,7 @@ StacWidget promissoryRealData() {
                   child: StacRawJsonWidget({
                     'type': 'reactiveElevatedButton',
                     'enabledKey': 'isDataFormValid',
-                    'loadingKey': 'isIdentityLoading',
-                    'onPressed': StacMultiAction(
+                    'onPressed': StacSequenceAction(
                       actions: [
                         // Save form data to registry
                         StacCustomSetValueAction(
@@ -237,145 +369,16 @@ StacWidget promissoryRealData() {
                             id: 'promissory_payment_place',
                           ),
                         ),
-                        // Ensure compact birth date exists for identity request
+                        // Ensure compact birth date exists for later steps
                         StacCustomSetValueAction(
                           key: 'receiver.birthDateCompact',
                           value: "{{replace(receiver.birthDate,'/','')}}",
                         ),
-                        StacCustomSetValueAction(
-                          key: 'isIdentityLoading',
-                          value: true,
-                        ),
-                        StacCustomSetValueAction(
-                          key: 'isDataFormValid',
-                          value: false,
-                        ),
-                        // Fetch receiver identity before navigating
-                        StacNetworkRequestAction(
-                          url:
-                              'http://192.168.107.22:8280/api/digitalbanking/customers/v1.0/identity/{{receiver.nationalCode}}/{{receiver.birthDateCompact}}',
-                          method: 'get',
-                          headers: {
-                            'accept': 'application/json',
-                            'app-platform': 'android',
-                            'app-store': 'application/json',
-                            'app-version': '456',
-                            'device-uuid':
-                                '5109ab4c-77ca-4f0c-9858-da4df58031d2',
-                            'serviceauthorization':
-                                'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
-                            'authorization': '{{auth.accessToken}}',
-                          },
-                          results: [
-                            {
-                              'statusCode': 200,
-                              'action': StacRawJsonAction({
-                                'actionType': 'sequence',
-                                'actions': [
-                                  {
-                                    'actionType': 'setValue',
-                                    'key': 'isIdentityLoading',
-                                    'value': false,
-                                  },
-                                  {
-                                    'actionType': 'setValue',
-                                    'key': 'isDataFormValid',
-                                    'value': true,
-                                  },
-                                  {
-                                    'actionType': 'setValue',
-                                    'values': [
-                                      {
-                                        'key': 'receiverIdentity.raw',
-                                        'value': '{{data.data}}',
-                                      },
-                                      {
-                                        'key': 'receiverIdentity.name',
-                                        'value': '{{data.data.name}}',
-                                      },
-                                      {
-                                        'key': 'receiverIdentity.family',
-                                        'value': '{{data.data.family}}',
-                                      },
-                                      {
-                                        'key': 'receiverIdentity.fullName',
-                                        'value':
-                                            '{{data.data.name}} {{data.data.family}}',
-                                      },
-                                      {
-                                        'key': 'receiverIdentity.fatherName',
-                                        'value': '{{data.data.fatherName}}',
-                                      },
-                                      {
-                                        'key': 'receiverIdentity.gender',
-                                        'value': '{{data.data.gender}}',
-                                      },
-                                      {
-                                        'key': 'receiverIdentity.nationalId',
-                                        'value': '{{data.data.nationalId}}',
-                                      },
-                                      {
-                                        'key': 'receiverIdentity.birthDate',
-                                        'value': '{{data.data.birthDate}}',
-                                      },
-                                    ],
-                                  },
-                                  {
-                                    'actionType': 'navigate',
-                                    'widgetType': 'promissory_real_confirm',
-                                    'navigationStyle': 'push',
-                                  },
-                                ],
-                              }).toJson(),
-                            },
-                            {
-                              'statusCode': 401,
-                              'action': StacRawJsonAction({
-                                'actionType': 'sequence',
-                                'actions': [
-                                  {
-                                    'actionType': 'setValue',
-                                    'key': 'isIdentityLoading',
-                                    'value': false,
-                                  },
-                                  {
-                                    'actionType': 'setValue',
-                                    'key': 'isDataFormValid',
-                                    'value': true,
-                                  },
-                                  {
-                                    'actionType': 'log',
-                                    'message':
-                                        'Authentication failed. Please login again.',
-                                  },
-                                ],
-                              }).toJson(),
-                            },
-                            {
-                              'statusCode': 'default',
-                              'action': StacRawJsonAction({
-                                'actionType': 'sequence',
-                                'actions': [
-                                  {
-                                    'actionType': 'setValue',
-                                    'key': 'isIdentityLoading',
-                                    'value': false,
-                                  },
-                                  {
-                                    'actionType': 'setValue',
-                                    'key': 'isDataFormValid',
-                                    'value': true,
-                                  },
-                                  {
-                                    'actionType': 'log',
-                                    'message':
-                                        'Failed to fetch receiver identity. Please try again.',
-                                  },
-                                ],
-                              }).toJson(),
-                            },
-                          ],
-                        ),
+                        StacRawJsonAction({
+                          'actionType': 'navigate',
+                          'widgetType': 'promissory_real_confirm',
+                          'navigationStyle': 'push',
+                        }),
                       ],
                     ).toJson(),
                     'style': StacButtonStyle(
@@ -388,7 +391,7 @@ StacWidget promissoryRealData() {
                     ).toJson(),
                     'child': StacText(
                       data:
-                          "{{isIdentityLoading ? 'در حال دریافت...' : 'ادامه'}}",
+                          "{{isIdentityLoading ? appStrings.promissory.loadingText : appStrings.common.continue}}",
                       textDirection: StacTextDirection.rtl,
                       style: StacCustomTextStyle(
                         fontSize: 18,
@@ -405,114 +408,4 @@ StacWidget promissoryRealData() {
       ),
     ),
   );
-}
-
-StacAction _getFullValidationAction() {
-  return StacValidateFieldsAction(
-    resultKey: 'isDataFormValid',
-    fields: [
-      {'id': 'promissory_amount', 'rule': 'required'},
-      {'id': 'promissory_due_date', 'rule': 'required'},
-    ],
-  );
-}
-
-/// Helper: Receiver Info Card
-StacWidget _buildReceiverInfoCard() {
-  return StacContainer(
-    decoration: StacBoxDecoration(
-      color: '{{appColors.current.background.surfaceContainer}}',
-      borderRadius: StacBorderRadius.all(12),
-      border: StacBorder.all(
-        color: '{{appColors.current.input.borderEnabled}}',
-        width: 1,
-      ),
-    ),
-    padding: StacEdgeInsets.all(16),
-    child: StacColumn(
-      crossAxisAlignment: StacCrossAxisAlignment.stretch,
-      children: [
-        StacText(
-          data: 'مشخصات ذینفع',
-          textDirection: StacTextDirection.rtl,
-          style: StacCustomTextStyle(
-            fontSize: 16,
-            fontWeight: StacFontWeight.w700,
-            color: '{{appColors.current.text.title}}',
-          ),
-        ),
-        StacSizedBox(height: 12),
-        _buildInfoRow('کد ملی', '{{form.receiver_national_code}}'),
-        StacSizedBox(height: 8),
-        _buildInfoRow('شماره همراه', '{{form.receiver_mobile}}'),
-        StacSizedBox(height: 8),
-        // USING RECEIVER IDENTITY FROM REGISTRY
-        _buildInfoRow('نام و نام خانوادگی', '{{receiverIdentity.fullName}}'),
-      ],
-    ),
-  );
-}
-
-StacWidget _buildInfoRow(String label, String value) {
-  return StacRow(
-    textDirection: StacTextDirection.rtl,
-    mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-    children: [
-      StacText(
-        data: label,
-        textDirection: StacTextDirection.rtl,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          color: '{{appColors.current.text.subtitle}}',
-        ),
-      ),
-      StacText(
-        data: value,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          fontWeight: StacFontWeight.w600,
-          color: '{{appColors.current.text.title}}',
-        ),
-      ),
-    ],
-  );
-}
-
-/// Custom class to support alias text styles
-class StacAliasTextStyle implements StacTextStyle {
-  final String alias;
-  const StacAliasTextStyle(this.alias);
-  @override
-  StacTextStyleType get type => StacTextStyleType.custom;
-  @override
-  Map<String, dynamic> toJson() => {'type': 'alias', 'value': alias};
-}
-
-/// Raw JSON widget helper
-class StacRawJsonWidget implements StacWidget {
-  final Map<String, dynamic> json;
-  StacRawJsonWidget(this.json);
-
-  @override
-  Map<String, dynamic> get jsonData => json;
-
-  @override
-  Map<String, dynamic> toJson() => json;
-
-  @override
-  String get type => json['type'] as String;
-
-  String? get id => json['id'] as String?;
-}
-
-/// Raw JSON action helper
-class StacRawJsonAction extends StacAction {
-  final Map<String, dynamic> json;
-  StacRawJsonAction(this.json);
-
-  @override
-  String get actionType => json['actionType'] as String;
-
-  @override
-  Map<String, dynamic> toJson() => json;
 }

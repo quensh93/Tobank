@@ -28,7 +28,7 @@ StacWidget promissorySuccess() {
               {'key': 'transactionAmount', 'value': '{{data.data.amount}}'},
               {
                 'key': 'transactionType',
-                'value': '{{appStrings.promissory.transactionType}}',
+                'value': '{{appStrings.promissory.issuanceTitle}}',
               },
               {
                 'key': 'transactionTime',
@@ -205,7 +205,7 @@ StacWidget promissorySuccess() {
                                   src: 'assets/icons/ic_pdf_file.svg',
                                   imageType: StacImageType.asset,
                                   width: 32,
-                                  height: 32
+                                  height: 32,
                                 ),
                                 StacSizedBox(width: 8),
                                 StacText(
@@ -226,7 +226,8 @@ StacWidget promissorySuccess() {
                                 StacGestureDetector(
                                   onTap: StacRawJsonAction({
                                     'actionType': 'log',
-                                    'message': 'Preview PDF',
+                                    'message':
+                                        '{{appStrings.promissory.previewPdf}}',
                                   }),
                                   child: StacPadding(
                                     padding: StacEdgeInsets.all(8),
@@ -244,7 +245,8 @@ StacWidget promissorySuccess() {
                                 StacGestureDetector(
                                   onTap: StacRawJsonAction({
                                     'actionType': 'log',
-                                    'message': 'Share PDF',
+                                    'message':
+                                        '{{appStrings.promissory.sharePdf}}',
                                   }),
                                   child: StacPadding(
                                     padding: StacEdgeInsets.all(8),

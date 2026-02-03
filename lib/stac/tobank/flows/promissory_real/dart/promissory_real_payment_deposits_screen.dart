@@ -3,8 +3,8 @@ import '../../../../../core/stac/builders/stac_common_builders.dart';
 import '../../../../../core/stac/builders/stac_stateful_widget.dart';
 import '../../../../../core/stac/builders/stac_custom_actions.dart';
 
-@StacScreen(screenName: 'promissory_real_deposits')
-StacWidget promissoryRealDeposits() {
+@StacScreen(screenName: 'promissory_real_payment_deposits')
+StacWidget promissoryRealPaymentDeposits() {
   final fetchDepositsAction = StacSequenceAction(
     actions: [
       StacCustomSetValueAction(
@@ -34,7 +34,10 @@ StacWidget promissoryRealDeposits() {
             'statusCode': 200,
             'action': StacCustomSetValueAction(
               values: const [
-                {'key': 'deposits.rawData', 'value': '{{data_payload}}'},
+                {
+                  'key': 'deposits.rawData',
+                  'value': '{{data_payload.deposits}}',
+                },
                 {'key': 'deposits.isLoaded', 'value': true},
                 {'key': 'deposits.error', 'value': null},
               ],
@@ -118,7 +121,7 @@ StacWidget promissoryRealDeposits() {
       'type': 'promissory_real_deposits_list',
       'onContinue': {
         'actionType': 'navigate',
-        'widgetType': 'promissory_real_issuer',
+        'widgetType': 'promissory_real_sign',
         'navigationStyle': 'push',
       },
       'onRetry': fetchDepositsAction.toJson(),
