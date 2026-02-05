@@ -38,7 +38,7 @@
         "type": "iconButton"
       },
       "title": {
-        "data": "اطلاعات ذینفع",
+        "data": "{{appStrings.promissory.receiverTitle}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -69,7 +69,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "اطلاعات ذینفع (دریافت‌کننده)",
+                    "data": "{{appStrings.promissory.receiverSubtitle}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -108,7 +108,7 @@
                             },
                             "child": {
                               "child": {
-                                "data": "حقیقی",
+                                "data": "{{appStrings.promissory.receiverTypeIndividual}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{isIndividualSelected ? appColors.current.primary.onPrimary : appColors.current.text.title}}",
@@ -167,7 +167,7 @@
                             },
                             "child": {
                               "child": {
-                                "data": "حقوقی",
+                                "data": "{{appStrings.promissory.receiverTypeLegal}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{isLegalSelected ? appColors.current.primary.onPrimary : appColors.current.text.title}}",
@@ -208,7 +208,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "کد ملی",
+                    "data": "{{appStrings.promissory.nationalCode}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -235,7 +235,7 @@
                       }
                     ],
                     "decoration": {
-                      "hintText": "کد ملی ذینفع را وارد نمایید",
+                      "hintText": "{{appStrings.promissory.enterReceiverNationalCode}}",
                       "contentPadding": {
                         "left": 16.0,
                         "top": 16.0,
@@ -249,7 +249,7 @@
                     "validatorRules": [
                       {
                         "rule": "^\\d{10}$",
-                        "message": "کد ملی معتبر وارد نمایید"
+                        "message": "{{appStrings.promissory.nationalCodeError}}"
                       }
                     ],
                     "onChanged": {
@@ -276,7 +276,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "شماره همراه",
+                    "data": "{{appStrings.promissory.mobileNumber}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -303,7 +303,7 @@
                       }
                     ],
                     "decoration": {
-                      "hintText": "شماره همراه ذینفع را وارد نمایید",
+                      "hintText": "{{appStrings.promissory.enterReceiverMobile}}",
                       "contentPadding": {
                         "left": 16.0,
                         "top": 16.0,
@@ -317,7 +317,7 @@
                     "validatorRules": [
                       {
                         "rule": "^09\\d{9}$",
-                        "message": "شماره همراه معتبر وارد نمایید"
+                        "message": "{{appStrings.promissory.mobileNumberError}}"
                       }
                     ],
                     "onChanged": {
@@ -344,7 +344,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "تاریخ تولد",
+                    "data": "{{appStrings.promissory.birthdate}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -362,7 +362,7 @@
                     "child": {
                       "id": "receiver_birthdate",
                       "decoration": {
-                        "hintText": "تاریخ تولد ذینفع را انتخاب نمایید",
+                        "hintText": "{{appStrings.promissory.selectReceiverBirthdate}}",
                         "hintStyle": {
                           "type": "custom",
                           "color": "{{appColors.current.text.subtitle}}",
@@ -409,7 +409,7 @@
                       "validatorRules": [
                         {
                           "rule": "^\\d{4}/\\d{2}/\\d{2}$",
-                          "message": "تاریخ تولد را انتخاب نمایید"
+                          "message": "{{appStrings.promissory.selectBirthdateError}}"
                         }
                       ],
                       "type": "textFormField"
@@ -461,10 +461,217 @@
             "child": {
               "type": "reactiveElevatedButton",
               "enabledKey": "isReceiverFormValid",
+              "loadingKey": "receiver.isLoading",
               "onPressed": {
-                "actionType": "navigate",
-                "widgetType": "promissory_data",
-                "navigationStyle": "push"
+                "actionType": "sequence",
+                "actions": [
+                  {
+                    "actionType": "setValue",
+                    "values": [
+                      {
+                        "key": "receiver.isLoading",
+                        "value": true
+                      },
+                      {
+                        "key": "receiver.error"
+                      }
+                    ]
+                  },
+                  {
+                    "actionType": "setValue",
+                    "values": [
+                      {
+                        "key": "receiver.nationalCode",
+                        "value": {
+                          "actionType": "getFormValue",
+                          "id": "receiver_national_code"
+                        }
+                      },
+                      {
+                        "key": "form.receiver_national_code",
+                        "value": {
+                          "actionType": "getFormValue",
+                          "id": "receiver_national_code"
+                        }
+                      },
+                      {
+                        "key": "receiver.mobile",
+                        "value": {
+                          "actionType": "getFormValue",
+                          "id": "receiver_mobile"
+                        }
+                      },
+                      {
+                        "key": "form.receiver_mobile",
+                        "value": {
+                          "actionType": "getFormValue",
+                          "id": "receiver_mobile"
+                        }
+                      },
+                      {
+                        "key": "receiver.birthDate",
+                        "value": {
+                          "actionType": "getFormValue",
+                          "id": "receiver_birthdate"
+                        }
+                      },
+                      {
+                        "key": "form.receiver_birthdate",
+                        "value": {
+                          "actionType": "getFormValue",
+                          "id": "receiver_birthdate"
+                        }
+                      },
+                      {
+                        "key": "receiver.birthDateCompact",
+                        "value": "{{replace(receiver.birthDate,'/','')}}"
+                      }
+                    ]
+                  },
+                  {
+                    "actionType": "networkRequest",
+                    "url": "http://192.168.107.22:8280/api/digitalbanking/customers/v1.0/identity/{{receiver.nationalCode}}/{{receiver.birthDateCompact}}",
+                    "method": "get",
+                    "headers": {
+                      "accept": "*/*",
+                      "app-platform": "android",
+                      "app-store": "application/json",
+                      "app-version": "456",
+                      "device-uuid": "5109ab4c-77ca-4f0c-9858-da4df58031d2",
+                      "serviceauthorization": "Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==",
+                      "authorization": "{{auth.accessToken}}"
+                    },
+                    "results": [
+                      {
+                        "statusCode": 200,
+                        "action": {
+                          "actionType": "sequence",
+                          "actions": [
+                            {
+                              "actionType": "setValue",
+                              "values": [
+                                {
+                                  "key": "receiver.isLoading",
+                                  "value": false
+                                },
+                                {
+                                  "key": "receiverIdentity.raw",
+                                  "value": "{{data.data}}"
+                                },
+                                {
+                                  "key": "receiverIdentity.name",
+                                  "value": "{{data.data.name}}"
+                                },
+                                {
+                                  "key": "receiverIdentity.family",
+                                  "value": "{{data.data.family}}"
+                                },
+                                {
+                                  "key": "receiverIdentity.fullName",
+                                  "value": "{{data.data.name}} {{data.data.family}}"
+                                },
+                                {
+                                  "key": "receiverIdentity.fatherName",
+                                  "value": "{{data.data.fatherName}}"
+                                },
+                                {
+                                  "key": "receiverIdentity.gender",
+                                  "value": "{{data.data.gender}}"
+                                },
+                                {
+                                  "key": "receiverIdentity.nationalId",
+                                  "value": "{{data.data.nationalId}}"
+                                }
+                              ]
+                            },
+                            {
+                              "actionType": "navigate",
+                              "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_data.json",
+                              "navigationStyle": "push"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "statusCode": 422,
+                        "action": {
+                          "actionType": "sequence",
+                          "actions": [
+                            {
+                              "actionType": "setValue",
+                              "values": [
+                                {
+                                  "key": "receiver.isLoading",
+                                  "value": false
+                                },
+                                {
+                                  "key": "receiver.error",
+                                  "value": "{{appStrings.promissory.invalidDataError}}"
+                                }
+                              ]
+                            },
+                            {
+                              "actionType": "customSnackBar",
+                              "message": "{{appStrings.promissory.invalidDataErrorDetail}}",
+                              "backgroundColor": "#D32F2F",
+                              "duration": 4000
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "statusCode": 401,
+                        "action": {
+                          "actionType": "sequence",
+                          "actions": [
+                            {
+                              "actionType": "setValue",
+                              "values": [
+                                {
+                                  "key": "receiver.isLoading",
+                                  "value": false
+                                }
+                              ]
+                            },
+                            {
+                              "actionType": "customSnackBar",
+                              "message": "{{appStrings.promissory.sessionExpiredError}}",
+                              "backgroundColor": "#D32F2F",
+                              "duration": 4000
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "statusCode": -1,
+                        "action": {
+                          "actionType": "sequence",
+                          "actions": [
+                            {
+                              "actionType": "setValue",
+                              "values": [
+                                {
+                                  "key": "receiver.isLoading",
+                                  "value": false
+                                },
+                                {
+                                  "key": "receiver.error",
+                                  "value": "{{appStrings.promissory.serverConnectionError}}"
+                                }
+                              ]
+                            },
+                            {
+                              "actionType": "customSnackBar",
+                              "message": "{{appStrings.promissory.serverConnectionErrorDetail}}",
+                              "backgroundColor": "#D32F2F",
+                              "duration": 4000
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                ]
               },
               "style": {
                 "backgroundColor": "{{appColors.current.primary.color}}",

@@ -377,7 +377,7 @@
                             "type": "text"
                           },
                           {
-                            "data": "{{userData.issuerPhoneNumber}}",
+                            "data": "{{userData.mobile}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -414,7 +414,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "{{form.addressResidence}}",
+                          "data": "{{userData.address}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -572,7 +572,7 @@
                             "type": "text"
                           },
                           {
-                            "data": "{{userData.fullName}}",
+                            "data": "{{receiverIdentity.fullName}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -609,7 +609,7 @@
         "child": {
           "onPressed": {
             "actionType": "navigate",
-            "widgetType": "promissory_payment",
+            "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_payment.json",
             "navigationStyle": "push"
           },
           "style": {

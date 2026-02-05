@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
 import '../../../helpers/logger.dart';
+import '../../../helpers/log_category.dart';
 import '../../utils/registry_notifier.dart';
 import '../../utils/text_form_field_controller_registry.dart';
 
@@ -76,8 +77,27 @@ class CustomSetValueActionParser
 
       dynamic valueToStore = entry['value'];
 
+      // CRITICAL FIX: For certain keys that depend on network response data,
+      // always fetch fresh value from registry instead of using pre-resolved value.
+      // This is necessary because STAC framework pre-processes templates at parse time,
+      // which can result in stale values being used for keys like deposits.rawData.
+      if (_shouldFetchFreshFromRegistry(key, valueToStore)) {
+        final freshValue = StacRegistry.instance.getValue('data_payload');
+        if (freshValue != null) {
+          AppLogger.dc(
+            LogCategory.stacAction,
+            '🔄 Fetching fresh data_payload for key="$key" (${freshValue.runtimeType})',
+          );
+          valueToStore = freshValue;
+        } else {
+          AppLogger.wc(
+            LogCategory.stacAction,
+            '⚠️ data_payload is null when trying to set "$key"',
+          );
+        }
+      }
       // Resolve {{ }} templates inside plain strings (e.g. "{{now()}}")
-      if (valueToStore is String) {
+      else if (valueToStore is String) {
         valueToStore = _resolveTemplates(valueToStore);
       }
 
@@ -107,7 +127,7 @@ class CustomSetValueActionParser
       final existingValue = StacRegistry.instance.getValue(key);
       if (existingValue != valueToStore) {
         AppLogger.dc(
-          LogCategory.action,
+          LogCategory.stacAction,
           'CustomSetValueAction: storing key="$key" value="$valueToStore"',
         );
         StacRegistry.instance.setValue(key, valueToStore);
@@ -136,6 +156,50 @@ class CustomSetValueActionParser
     }
 
     return null;
+  }
+
+  /// Determines if we should fetch fresh value from registry instead of using
+  /// the pre-resolved value from STAC framework.
+  /// 
+  /// This is necessary because STAC pre-processes templates at JSON parse time,
+  /// which can result in stale values being used when the registry was updated
+  /// between parse time and execution time (e.g., after a network response).
+  bool _shouldFetchFreshFromRegistry(String key, dynamic currentValue) {
+    // Keys that store network response data and depend on data_payload
+    const keysNeedingFreshData = [
+      'deposits.rawData',
+    ];
+    
+    // Check if this key needs fresh data
+    if (!keysNeedingFreshData.contains(key)) {
+      return false;
+    }
+    
+    // If the current value is a Map with identity-related fields,
+    // it's likely stale data from a previous API call
+    if (currentValue is Map) {
+      // These fields indicate identity verification data, not deposit data
+      if (currentValue.containsKey('birthDate') ||
+          currentValue.containsKey('nationalId') ||
+          currentValue.containsKey('fatherName')) {
+        AppLogger.dc(
+          LogCategory.stacAction,
+          '⚠️ Detected stale identity data in "$key", will fetch fresh data_payload',
+        );
+        return true;
+      }
+    }
+    
+    // Also fetch fresh if data_payload exists and is a List (deposit data)
+    final freshPayload = StacRegistry.instance.getValue('data_payload');
+    if (freshPayload is List && freshPayload.isNotEmpty) {
+      // Check if the fresh data is different from current
+      if (currentValue is! List) {
+        return true;
+      }
+    }
+    
+    return false;
   }
 
   dynamic _resolveTemplates(String message) {
@@ -212,6 +276,16 @@ class CustomSetValueActionParser
   dynamic _getNestedValue(String path) {
     // First try the exact key as-is (supports dotted keys stored flat)
     final directValue = StacRegistry.instance.getValue(path);
+    
+    // Debug: log when resolving data_payload
+    if (path == 'data_payload' || path.startsWith('data_payload.')) {
+      final preview = directValue?.toString() ?? 'null';
+      AppLogger.dc(
+        LogCategory.stacAction,
+        '📖 Resolving $path: ${directValue?.runtimeType ?? 'null'} = ${preview.length > 80 ? preview.substring(0, 80) + '...' : preview}',
+      );
+    }
+    
     if (directValue != null) return directValue;
 
     final parts = path.split('.');

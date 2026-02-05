@@ -1,23 +1,28 @@
 import 'package:stac_core/stac_core.dart';
 
-@StacScreen(screenName: 'promissory_real_deposits')
-StacWidget promissoryRealDeposits() {
-  final fetchDepositsAction = StacSequenceAction(
+/// Promissory Real Flow - Issuer Information Screen
+///
+/// This screen displays the issuer (صادرکننده) information.
+/// It uses a custom parser (promissory_real_issuer_view) that handles:
+/// - Loading state (shows spinner while fetching data)
+/// - Error state (shows error message with retry button)
+/// - Success state (shows issuer data)
+@StacScreen(screenName: 'promissory_real_issuer')
+StacWidget promissoryRealIssuer() {
+  final fetchAction = StacSequenceAction(
     actions: [
       StacCustomSetValueAction(
         values: const [
-          {'key': 'deposits.isLoaded', 'value': false},
-          {'key': 'deposits.rawData', 'value': null},
-          {'key': 'deposits.error', 'value': null},
+          {'key': 'issuer.isLoaded', 'value': false},
+          {'key': 'issuer.error', 'value': null},
         ],
       ),
       StacNetworkRequestAction(
         url:
-            'http://192.168.107.22:8280/api/digitalbanking/deposits/v1.0/customer/{{userData.nationalCode}}',
+            'http://192.168.107.22:8280/api/digitalbanking/customers/v1.0/info/{{userData.nationalCode}}',
         method: 'get',
         headers: {
-          'accept': 'application/json',
-          'content-type': 'application/json',
+          'accept': '*/*',
           'app-platform': 'android',
           'app-store': 'application/json',
           'app-version': '456',
@@ -30,23 +35,39 @@ StacWidget promissoryRealDeposits() {
           {
             'statusCode': 200,
             'action': StacCustomSetValueAction(
-              values: const [
-                {'key': 'deposits.rawData', 'value': '{{data_payload}}'},
-                {'key': 'deposits.isLoaded', 'value': true},
-                {'key': 'deposits.error', 'value': null},
-              ],
-            ).toJson(),
-          },
-          {
-            'statusCode': 403,
-            'action': StacCustomSetValueAction(
-              values: const [
-                {'key': 'deposits.isLoaded', 'value': true},
-                {'key': 'deposits.rawData', 'value': null},
+              values: [
                 {
-                  'key': 'deposits.error',
-                  'value': 'Access forbidden. Please check your permissions.',
+                  'key': 'userData.nationalCode',
+                  'value': '{{data.data.nationalCode}}',
                 },
+                {
+                  'key': 'userData.contactNumber',
+                  'value': '{{data.data.contactNumber}}',
+                },
+                {
+                  'key': 'userData.mobile',
+                  'value': '{{data.data.cellphoneNumber}}',
+                },
+                {'key': 'userData.lastName', 'value': '{{data.data.lastName}}'},
+                {
+                  'key': 'userData.fatherName',
+                  'value': '{{data.data.fatherName}}',
+                },
+                {
+                  'key': 'userData.fullName',
+                  'value': '{{data.data.firstName}} {{data.data.lastName}}',
+                },
+                {
+                  'key': 'userData.postalCode',
+                  'value': '{{data.data.postCode}}',
+                },
+                {'key': 'userData.address', 'value': '{{data.data.address}}'},
+                {
+                  'key': 'selectedDeposit.depositIban',
+                  'value': '{{form.selected_shaba_number}}',
+                },
+                {'key': 'issuer.isLoaded', 'value': true},
+                {'key': 'issuer.error', 'value': null},
               ],
             ).toJson(),
           },
@@ -54,50 +75,21 @@ StacWidget promissoryRealDeposits() {
             'statusCode': 401,
             'action': StacCustomSetValueAction(
               values: const [
-                {'key': 'deposits.isLoaded', 'value': true},
-                {'key': 'deposits.rawData', 'value': null},
+                {'key': 'issuer.isLoaded', 'value': true},
                 {
-                  'key': 'deposits.error',
+                  'key': 'issuer.error',
                   'value': 'Authentication failed. Please login again.',
                 },
               ],
             ).toJson(),
           },
           {
-            'statusCode': 520,
+            'statusCode': -1, // Fallback for network errors/timeouts
             'action': StacCustomSetValueAction(
               values: const [
-                {'key': 'deposits.isLoaded', 'value': true},
-                {'key': 'deposits.rawData', 'value': null},
+                {'key': 'issuer.isLoaded', 'value': true},
                 {
-                  'key': 'deposits.error',
-                  'value':
-                      'Server Error (520): Unknown Response from Gateway. Please try again later.',
-                },
-              ],
-            ).toJson(),
-          },
-          {
-            'statusCode': 500,
-            'action': StacCustomSetValueAction(
-              values: const [
-                {'key': 'deposits.isLoaded', 'value': true},
-                {'key': 'deposits.rawData', 'value': null},
-                {
-                  'key': 'deposits.error',
-                  'value': 'Internal Server Error. Please try again later.',
-                },
-              ],
-            ).toJson(),
-          },
-          {
-            'statusCode': -1,
-            'action': StacCustomSetValueAction(
-              values: const [
-                {'key': 'deposits.isLoaded', 'value': true},
-                {'key': 'deposits.rawData', 'value': null},
-                {
-                  'key': 'deposits.error',
+                  'key': 'issuer.error',
                   'value':
                       '{{appStrings.promissory.serverConnectionErrorDetail}}',
                 },
@@ -109,16 +101,17 @@ StacWidget promissoryRealDeposits() {
     ],
   );
 
+  // Use the custom parser that handles loading/error/success states
   return StacStatefulWidget(
-    onInit: fetchDepositsAction,
+    onInit: fetchAction,
     child: StacRawJsonWidget({
-      'type': 'promissory_real_deposits_list',
+      'type': 'promissory_real_issuer_view',
       'onContinue': {
         'actionType': 'navigate',
-        'widgetType': 'promissory_real_issuer',
+        'widgetType': 'promissory_real_receiver',
         'navigationStyle': 'push',
       },
-      'onRetry': fetchDepositsAction.toJson(),
+      'onRetry': fetchAction.toJson(),
     }),
   );
 }

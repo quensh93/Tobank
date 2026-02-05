@@ -1,5 +1,4 @@
 import 'package:stac_core/stac_core.dart' hide StacTheme;
-import '../../../../../core/stac/builders/stac_common_builders.dart';
 
 /// Promissory Real Screen - SDUI screen loaded from real API
 ///
@@ -155,4 +154,20 @@ StacWidget promissoryRealIntro() {
       ),
     ),
   );
+}
+
+// ==========================================
+// Local Helper Classes (Inlined to avoid import issues)
+// ==========================================
+
+/// Raw JSON action helper
+class StacRawJsonAction extends StacAction {
+  final Map<String, dynamic> json;
+  StacRawJsonAction(this.json);
+
+  @override
+  String get actionType => json['actionType'] as String;
+
+  @override
+  Map<String, dynamic> toJson() => json;
 }

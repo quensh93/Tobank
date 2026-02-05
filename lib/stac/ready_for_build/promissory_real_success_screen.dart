@@ -1,45 +1,22 @@
 import 'package:stac_core/stac_core.dart';
 
-/// Promissory Flow - Success Page
+/// Promissory Real Flow - Success Page
 ///
-/// This screen displays the successful promissory issuance result:
-/// 1. Success icon and message
-/// 2. Promissory ID
-/// 3. Transaction details (amount, type, time, payment method, tracking number)
-/// 4. PDF section with preview and share options
-/// 5. Return to home button
-///
-/// Reference: docs/promissory_docs/promissory_transaction_detail_page.dart
-@StacScreen(screenName: 'promissory_success')
-StacWidget promissorySuccess() {
+/// This screen displays the successful promissory issuance result.
+/// Data is populated into the registry by the previous 'Sign' screen.
+@StacScreen(screenName: 'promissory_real_success')
+StacWidget promissoryRealSuccess() {
   return StacStatefulWidget(
-    // Load transaction details on init
-    onInit: StacNetworkRequestAction(
-      url: 'https://api.tobank.com/promissory_finalize',
-      method: 'post',
-      results: [
+    // Set static/helper values on init
+    onInit: StacCustomSetValueAction(
+      values: [
         {
-          'statusCode': 200,
-          'action': StacCustomSetValueAction(
-            values: [
-              {'key': 'promissoryId', 'value': '{{data.data.promissoryId}}'},
-              {'key': 'transactionAmount', 'value': '{{data.data.amount}}'},
-              {
-                'key': 'transactionType',
-                'value': '{{appStrings.promissory.issuanceTitle}}',
-              },
-              {
-                'key': 'transactionTime',
-                'value': '{{data.data.transactionTime}}',
-              },
-              {'key': 'paymentMethod', 'value': '{{form.payment_method}}'},
-              {
-                'key': 'trackingNumber',
-                'value': '{{data.data.trackingNumber}}',
-              },
-            ],
-          ).toJson(),
+          'key': 'transactionType',
+          'value':
+              '{{appStrings.promissory.issuanceTitle}}', // Use localized string
         },
+        // We assume 'paymentMethod' is already set or we map 'selectedPaymentMethod'
+        {'key': 'paymentMethod', 'value': '{{selectedPaymentMethod}}'},
       ],
     ),
     child: StacScaffold(
@@ -106,18 +83,6 @@ StacWidget promissorySuccess() {
                       color: '{{appColors.current.text.subtitle}}',
                     ),
                   ),
-                  StacSizedBox(height: 8),
-                  // Promissory ID
-                  // StacText(
-                  //   data:
-                  //       '{{appStrings.promissory.promissoryIdLabel}}: {{promissoryId}}',
-                  //   textDirection: StacTextDirection.rtl,
-                  //   textAlign: StacTextAlign.center,
-                  //   style: StacCustomTextStyle(
-                  //     fontSize: 16,
-                  //     color: '{{appColors.current.text.title}}',
-                  //   ),
-                  // ),
                   StacSizedBox(height: 24),
 
                   // Transaction Details Card
@@ -224,8 +189,7 @@ StacWidget promissorySuccess() {
                                 StacGestureDetector(
                                   onTap: StacRawJsonAction({
                                     'actionType': 'log',
-                                    'message':
-                                        '{{appStrings.promissory.previewPdf}}',
+                                    'message': 'Preview PDF',
                                   }),
                                   child: StacPadding(
                                     padding: StacEdgeInsets.all(8),
@@ -243,8 +207,7 @@ StacWidget promissorySuccess() {
                                 StacGestureDetector(
                                   onTap: StacRawJsonAction({
                                     'actionType': 'log',
-                                    'message':
-                                        '{{appStrings.promissory.sharePdf}}',
+                                    'message': 'Share PDF',
                                   }),
                                   child: StacPadding(
                                     padding: StacEdgeInsets.all(8),
@@ -329,11 +292,6 @@ StacWidget _buildDivider() {
   );
 }
 
-
-
-
-
-
 // ==========================================
 // Local Helper Classes (Inlined to avoid import issues)
 // ==========================================
@@ -403,22 +361,6 @@ class StacStatefulWidget extends StacWidget {
   }
 }
 
-/// Raw JSON widget helper
-class StacRawJsonWidget implements StacWidget {
-  final Map<String, dynamic> json;
-  StacRawJsonWidget(this.json);
-
-  @override
-  Map<String, dynamic> get jsonData => json;
-
-  @override
-  Map<String, dynamic> toJson() => json;
-
-  @override
-  String get type => json['type'] as String;
-  String? get id => json['id'] as String?;
-}
-
 /// Raw JSON action helper
 class StacRawJsonAction extends StacAction {
   final Map<String, dynamic> json;
@@ -431,81 +373,16 @@ class StacRawJsonAction extends StacAction {
   Map<String, dynamic> toJson() => json;
 }
 
-/// Builder for 'sequence' action.
-class StacSequenceAction extends StacAction {
-  final List<dynamic> actions;
-
-  const StacSequenceAction({required this.actions});
-
-  @override
-  String get actionType => 'sequence';
+/// Helper class to support alias text styles
+class StacAliasTextStyle implements StacTextStyle {
+  final String alias;
+  const StacAliasTextStyle(this.alias);
 
   @override
-  Map<String, dynamic> toJson() {
-    return {
-      'actionType': 'sequence',
-      'actions': actions.map((a) {
-        if (a is StacAction) return a.toJson();
-        if (a is Map) return a;
-        try {
-          return a.toJson();
-        } catch (_) {
-          return a;
-        }
-      }).toList(),
-    };
-  }
-}
-
-/// Alias for StacSequenceAction as some files use StacMultiAction
-typedef StacMultiAction = StacSequenceAction;
-
-/// Builder for 'networkRequest' action.
-class StacNetworkRequestAction extends StacAction {
-  final String url;
-  final String method;
-  final Map<String, dynamic>? data;
-  final Map<String, dynamic>? headers;
-  final List<dynamic>? results;
-
-  const StacNetworkRequestAction({
-    required this.url,
-    this.method = 'get',
-    this.data,
-    this.headers,
-    this.results,
-  });
+  StacTextStyleType get type => StacTextStyleType.custom;
 
   @override
-  String get actionType => 'networkRequest';
-
-  @override
-  Map<String, dynamic> toJson() {
-    return {
-      'actionType': 'networkRequest',
-      'url': url,
-      'method': method,
-      if (data != null) 'data': data,
-      if (headers != null) 'headers': headers,
-      if (results != null)
-        'results': results!.map((r) {
-          if (r is Map) {
-            // Check if any values inside the map are StacAction objects and serialize them
-            return r.map((key, value) {
-              if (value is StacAction) {
-                return MapEntry(key, value.toJson());
-              }
-              return MapEntry(key, value);
-            }).cast<String, dynamic>();
-          }
-          try {
-            return (r as dynamic).toJson();
-          } catch (_) {
-            return r;
-          }
-        }).toList(),
-    };
-  }
+  Map<String, dynamic> toJson() => {'type': 'alias', 'value': alias};
 }
 
 /// Builder for 'setValue' action.
@@ -525,107 +402,9 @@ class StacCustomSetValueAction extends StacAction {
       return {'actionType': 'setValue', 'values': values};
     }
     dynamic processedValue = value;
-    if (value is StacGetFormValueAction) {
-      processedValue = value.toJson();
-    } else if (value is StacAction) {
+    if (value is StacAction) {
       processedValue = value.toJson();
     }
     return {'actionType': 'setValue', 'key': key, 'value': processedValue};
-  }
-}
-
-/// Helper for 'getFormValue' action used inside setValue
-class StacGetFormValueAction {
-  final String id;
-
-  const StacGetFormValueAction({required this.id});
-
-  Map<String, dynamic> toJson() {
-    return {'actionType': 'getFormValue', 'id': id};
-  }
-}
-
-/// Custom class to support alias text styles
-class StacAliasTextStyle implements StacTextStyle {
-  final String alias;
-  const StacAliasTextStyle(this.alias);
-  @override
-  StacTextStyleType get type => StacTextStyleType.custom;
-  @override
-  Map<String, dynamic> toJson() => {'type': 'alias', 'value': alias};
-}
-
-/// Builder for 'validateFields' action.
-class StacValidateFieldsAction extends StacAction {
-  final String resultKey;
-  final List<Map<String, dynamic>> fields;
-
-  const StacValidateFieldsAction({
-    required this.resultKey,
-    required this.fields,
-  });
-
-  @override
-  String get actionType => 'validateFields';
-
-  @override
-  Map<String, dynamic> toJson() {
-    return {
-      'actionType': 'validateFields',
-      'resultKey': resultKey,
-      'fields': fields,
-    };
-  }
-}
-
-/// StacAction wrapper for Persian Date Picker
-class StacPersianDatePickerAction extends StacAction {
-  const StacPersianDatePickerAction({
-    required this.formFieldId,
-    this.initialDate,
-    this.firstDate,
-    this.lastDate,
-    this.onDateSelected,
-  });
-
-  final String formFieldId;
-  final String? initialDate;
-  final String? firstDate;
-  final String? lastDate;
-  final dynamic onDateSelected;
-
-  @override
-  String get actionType => 'persianDatePicker';
-
-  @override
-  Map<String, dynamic> toJson() {
-    return {
-      'actionType': 'persianDatePicker',
-      'formFieldId': formFieldId,
-      if (initialDate != null) 'initialDate': initialDate,
-      if (firstDate != null) 'firstDate': firstDate,
-      if (lastDate != null) 'lastDate': lastDate,
-      if (onDateSelected != null) 'onDateSelected': onDateSelected is StacAction ? onDateSelected.toJson() : onDateSelected,
-    };
-  }
-}
-
-/// Builder for 'log' action.
-class StacLogAction extends StacAction {
-  final String message;
-  final String? level;
-
-  const StacLogAction({required this.message, this.level});
-
-  @override
-  String get actionType => 'log';
-
-  @override
-  Map<String, dynamic> toJson() {
-    return {
-      'actionType': 'log',
-      'message': message,
-      if (level != null) 'level': level,
-    };
   }
 }

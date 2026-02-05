@@ -434,14 +434,28 @@ class AppLogger {
   }
 
   /// Internal helper to process message based on category settings
+  /// 
+  /// Priority order:
+  /// 1. LogOverrides.masterEnabled (if false, all logs disabled)
+  /// 2. LogConfig overrides for specific category (hardcoded in code)
+  /// 3. Debug panel settings (user-configurable at runtime)
   static dynamic _processMessage(dynamic message, LogCategory category) {
     // Early bailout if global logging is disabled
     if (Logger.level == Level.off) return null;
 
+    // Check hardcoded master override first
+    if (LogConfig.masterEnabled == false) return null;
+
     final settings = _categorySettings[category] ?? const LogCategorySettings();
 
-    // If disabled, return null (caller should check this)
-    if (!settings.enabled) return null;
+    // Check hardcoded override first
+    final override = LogConfig.getOverride(category);
+    if (override != null) {
+      if (!override) return null; // Hardcoded to disabled
+    } else {
+      // Use debug panel settings
+      if (!settings.enabled) return null;
+    }
 
     // Only truncate if truncateEnabled is true for this category
     if (settings.truncateEnabled &&

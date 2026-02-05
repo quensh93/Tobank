@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stac/stac.dart';
 import 'package:universal_io/io.dart' show File;
 import '../../../helpers/logger.dart';
+import '../../../helpers/log_category.dart';
 
 class CustomStacImage {
   const CustomStacImage({
@@ -65,7 +66,7 @@ class CustomImageParser extends StacParser<CustomStacImage> {
       final freshValue = StacRegistry.instance.getValue(model.registryKey!);
       effectiveSrc = freshValue?.toString() ?? '';
       AppLogger.dc(
-        LogCategory.widget,
+        LogCategory.stacWidget,
         'CustomImageParser: Using registryKey="${model.registryKey}" -> effectiveSrc="$effectiveSrc"',
       );
     }
@@ -85,13 +86,13 @@ class CustomImageParser extends StacParser<CustomStacImage> {
             RegExp(r'^[a-zA-Z]:\\').hasMatch(effectiveSrc));
 
     AppLogger.dc(
-      LogCategory.widget,
+      LogCategory.stacWidget,
       'CustomImageParser: src="${model.src}" effectiveSrc="$effectiveSrc" registryKey="${model.registryKey}" local=$isLocalFilePath svg=$isSvg color=${model.color}',
     );
     // Also log the resolved value from registry for debugging
     final resolved = StacRegistry.instance.getValue('selectedImage');
     AppLogger.dc(
-      LogCategory.widget,
+      LogCategory.stacWidget,
       'CustomImageParser: registry[selectedImage]="$resolved"',
     );
 

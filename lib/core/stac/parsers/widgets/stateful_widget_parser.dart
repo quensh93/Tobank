@@ -56,12 +56,12 @@ class _StatefulWidgetWrapperState extends State<_StatefulWidgetWrapper>
   void _onRegistryChanged() {
     if (_isMounted && mounted) {
       AppLogger.dc(
-        LogCategory.state,
+        LogCategory.stacRegistry,
         'StatefulWidget: Registry changed, triggering rebuild',
       );
       final selectedImage = StacRegistry.instance.getValue('selectedImage');
       AppLogger.dc(
-        LogCategory.state,
+        LogCategory.stacRegistry,
         'StatefulWidget: selectedImage value exists=${selectedImage != null && selectedImage.toString().isNotEmpty}',
       );
       setState(() {});

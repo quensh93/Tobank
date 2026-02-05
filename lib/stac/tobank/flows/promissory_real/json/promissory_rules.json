@@ -229,7 +229,7 @@
             "enabledKey": "isRulesAccepted",
             "onPressed": {
               "actionType": "navigate",
-              "widgetType": "request_promissory_deposit",
+              "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_deposits.json",
               "navigationStyle": "push"
             },
             "style": {

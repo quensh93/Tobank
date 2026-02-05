@@ -8,6 +8,7 @@ import '../../mock/stac_mock_dio_setup.dart' as mock_setup;
 import '../path/stac_path_normalizer.dart';
 import '../theme/stac_theme_wrapper.dart';
 import 'package:tobank_sdui/core/helpers/logger.dart';
+import 'package:tobank_sdui/core/helpers/log_category.dart';
 
 /// Service for resolving widgets from different sources (JSON, network, assets).
 ///
@@ -81,13 +82,15 @@ class StacWidgetResolver {
     // Regular JSON file - load from assets and resolve variables before parsing
     // For asset files, we need to load the content first
     try {
-      AppLogger.d(
+      AppLogger.dc(
+        LogCategory.stacNavigation,
         'StacWidgetResolver: Attempting to load asset: $normalizedPath',
       );
       final jsonString = await DefaultAssetBundle.of(
         context,
       ).loadString(normalizedPath);
-      AppLogger.d(
+      AppLogger.dc(
+        LogCategory.stacNavigation,
         'StacWidgetResolver: Successfully loaded asset: $normalizedPath',
       );
       final jsonData = json.decode(jsonString) as Map<String, dynamic>;
@@ -114,7 +117,8 @@ class StacWidgetResolver {
         e,
       );
       // If manual loading fails, fallback to Stac.fromAssets
-      AppLogger.i(
+      AppLogger.ic(
+        LogCategory.stacNavigation,
         'StacWidgetResolver: Falling back to Stac.fromAssets for: $normalizedPath',
       );
       return _ThemeReactiveStacWidget(
@@ -156,7 +160,8 @@ class _ThemeReactiveStacWidget extends ConsumerWidget {
       data: (mode) => mode,
       orElse: () => ThemeMode.system,
     );
-    AppLogger.d(
+    AppLogger.dc(
+      LogCategory.stacTheme,
       'ThemeReactiveStacWidget rebuilding for theme: ${themeMode.name}',
     );
 

@@ -7,6 +7,7 @@ import '../../services/widget/stac_widget_loader.dart';
 import '../../services/widget/stac_widget_resolver.dart';
 import '../../services/navigation/stac_navigation_service.dart';
 import '../../../helpers/logger.dart';
+import '../../../helpers/log_category.dart';
 
 /// Custom navigation action parser with enhanced functionality.
 ///
@@ -38,7 +39,8 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
 
     final widgetType = json['widgetType'];
 
-    AppLogger.d(
+    AppLogger.dc(
+      LogCategory.stacNavigation,
       '🔍 Navigation getModel: widgetType=$widgetType, assetPath=$assetPathValue, hasAssetPath=$hasAssetPath',
     );
 
@@ -47,7 +49,8 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
     if (hasAssetPath && widgetType is String) {
       // Don't remove widgetType yet - we'll check assetPath first in onCall
       // But mark that we prefer assetPath by keeping it
-      AppLogger.d(
+      AppLogger.dc(
+        LogCategory.stacNavigation,
         '✅ Navigation: Preferring assetPath over widgetType. assetPath=$assetPathValue (may be variable)',
       );
     } else if (widgetType is String && !hasAssetPath) {
@@ -61,7 +64,7 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
         // Store widgetType in widgetJson so we can use it in onCall to construct API path
         json['widgetJson']!['_originalWidgetType'] = widgetType;
         // Don't remove widgetType yet - we might need it in onCall
-        AppLogger.d('✅ Navigation: Loaded widget from widgetType: $widgetType');
+        AppLogger.dc(LogCategory.stacNavigation, '✅ Navigation: Loaded widget from widgetType: $widgetType');
       }
     }
     return StacNavigateAction.fromJson(json);
@@ -71,7 +74,8 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
   FutureOr onCall(BuildContext context, StacNavigateAction model) async {
     Widget? widget;
 
-    AppLogger.d(
+    AppLogger.dc(
+      LogCategory.stacNavigation,
       '🔍 Navigation onCall: widgetJson=${model.widgetJson != null}, request=${model.request != null}, assetPath=${model.assetPath}',
     );
 
@@ -89,7 +93,8 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
         !resolvedAssetPath.contains('{{')) {
       // Check if this is a JSON path (contains /json/) instead of API path
       if (resolvedAssetPath.contains('/json/')) {
-        AppLogger.w(
+        AppLogger.wc(
+          LogCategory.stacNavigation,
           '⚠️ Navigation: assetPath points to JSON file, converting to API path',
         );
         // Convert: lib/stac/tobank/sum_test/json/tobank_sum_test.json
@@ -101,11 +106,13 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
           final feature = jsonMatch.group(1)!;
           final filename = jsonMatch.group(2)!;
           resolvedAssetPath = 'lib/stac/tobank/$feature/api/GET_$filename.json';
-          AppLogger.d(
+          AppLogger.dc(
+            LogCategory.stacNavigation,
             '✅ Navigation: Converted JSON path to API path: $resolvedAssetPath',
           );
         } else {
-          AppLogger.w(
+          AppLogger.wc(
+            LogCategory.stacNavigation,
             '⚠️ Navigation: Could not parse JSON path pattern, trying alternative method',
           );
           // Fallback: simple string replacement
@@ -128,7 +135,8 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
     if (resolvedAssetPath == null ||
         resolvedAssetPath.isEmpty ||
         resolvedAssetPath == 'null') {
-      AppLogger.w(
+      AppLogger.wc(
+        LogCategory.stacNavigation,
         '⚠️ Navigation: assetPath is null/empty. Constructing from widgetType...',
       );
 
@@ -146,7 +154,8 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
         // Try to infer from the screen structure or use a fallback
         // Since we're in onCall, we don't have direct access to the original widgetType
         // But we can try to construct API path for known patterns
-        AppLogger.w(
+        AppLogger.wc(
+          LogCategory.stacNavigation,
           '⚠️ Navigation: widgetType not found in widgetJson, cannot construct API path',
         );
       } else if (widgetType.startsWith('tobank_')) {
@@ -183,27 +192,31 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
           resolvedAssetPath =
               'lib/stac/tobank/$withoutPrefix/api/GET_tobank_$withoutPrefix.json';
         }
-        AppLogger.d(
+        AppLogger.dc(
+          LogCategory.stacNavigation,
           '✅ Navigation: Constructed assetPath from widgetType: $resolvedAssetPath',
         );
       }
 
       if (resolvedAssetPath == null) {
-        AppLogger.w(
+        AppLogger.wc(
+          LogCategory.stacNavigation,
           '⚠️ Navigation: Could not construct assetPath, falling back to widgetJson',
         );
       }
     } else if (resolvedAssetPath.contains('{{')) {
       // Still a variable string - cannot resolve from menu item data in onCall
-      AppLogger.w(
+      AppLogger.wc(
+        LogCategory.stacNavigation,
         '⚠️ Navigation: assetPath is still a variable: $resolvedAssetPath',
       );
-      AppLogger.w(
+      AppLogger.wc(
+        LogCategory.stacNavigation,
         '⚠️ Navigation: Cannot resolve {{apiPath}} from menu item data in onCall',
       );
       resolvedAssetPath = null;
     } else {
-      AppLogger.d('✅ Navigation: assetPath is resolved: $resolvedAssetPath');
+      AppLogger.dc(LogCategory.stacNavigation, '✅ Navigation: assetPath is resolved: $resolvedAssetPath');
     }
 
     // Check for special flow config widget types first
@@ -249,7 +262,8 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
           resolvedAssetPath =
               'lib/stac/tobank/$withoutPrefix/api/GET_tobank_$withoutPrefix.json';
         }
-        AppLogger.d(
+        AppLogger.dc(
+          LogCategory.stacNavigation,
           '✅ Navigation: Constructed API path from widgetType in onCall: $resolvedAssetPath',
         );
       }
@@ -258,12 +272,12 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
     // Resolve widget from different sources using the resolver service
     if (model.widgetJson != null) {
       // Check if this is a flow config type by examining the widgetJson
-      AppLogger.d('✅ Navigation: Using pre-loaded widgetJson (Dart builder)');
+      AppLogger.dc(LogCategory.stacNavigation, '✅ Navigation: Using pre-loaded widgetJson (Dart builder)');
       widget = StacWidgetResolver.resolveFromJson(context, model.widgetJson);
     } else if (resolvedAssetPath != null &&
         resolvedAssetPath.isNotEmpty &&
         resolvedAssetPath != 'null') {
-      AppLogger.d('✅ Navigation: Using assetPath: $resolvedAssetPath');
+      AppLogger.dc(LogCategory.stacNavigation, '✅ Navigation: Using assetPath: $resolvedAssetPath');
       widget = await StacWidgetResolver.resolveFromAssetPath(
         context,
         resolvedAssetPath,

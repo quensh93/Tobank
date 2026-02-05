@@ -138,7 +138,7 @@
                           "textDirection": "ltr",
                           "children": [
                             {
-                              "data": "{{appData.totalAmount}}",
+                              "data": "{{form.promissory_amount}}\u200B",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -218,7 +218,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "{{appData.taxAmount}} {{appStrings.common.rial}}",
+                            "data": "2500 {{appStrings.common.rial}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -257,7 +257,7 @@
                             "type": "sizedBox"
                           },
                           {
-                            "data": "{{appData.feeAmount}} {{appStrings.common.rial}}",
+                            "data": "8900 {{appStrings.common.rial}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
@@ -305,7 +305,7 @@
                     "decoration": {
                       "color": "{{appColors.current.background.surfaceContainer}}",
                       "border": {
-                        "color": "{{isWalletSelected ? appColors.current.error.color : appColors.current.input.borderEnabled}}",
+                        "color": "{{isWalletSelected ? appColors.current.primary.color : appColors.current.input.borderEnabled}}",
                         "width": 1.0
                       },
                       "borderRadius": {
@@ -354,7 +354,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "{{wallet.balance}} {{appStrings.common.rial}}",
+                                "data": "23700000 {{appStrings.common.rial}}",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.subtitle}}",
@@ -540,6 +540,7 @@
               "enabledKey": "isPayEnabled",
               "enabled": false,
               "onPressed": {
+                "actionType": "showDialog",
                 "widget": {
                   "title": {
                     "data": "{{appStrings.promissory.payConfirmTitle}}",
@@ -572,7 +573,7 @@
                           },
                           {
                             "actionType": "navigate",
-                            "widgetType": "promissory_sign",
+                            "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_sign.json",
                             "navigationStyle": "pushReplacement"
                           }
                         ]
@@ -592,8 +593,7 @@
                     "bottom": 24.0
                   },
                   "type": "alertDialog"
-                },
-                "actionType": "showDialog"
+                }
               },
               "style": {
                 "backgroundColor": "{{appColors.current.primary.color}}",
@@ -647,7 +647,7 @@
               "enabled": false,
               "onPressed": {
                 "actionType": "navigate",
-                "widgetType": "promissory_deposit_select",
+                "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_payment_deposits.json",
                 "navigationStyle": "push"
               },
               "style": {

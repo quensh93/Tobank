@@ -40,7 +40,7 @@
               "values": [
                 {
                   "key": "deposits.rawData",
-                  "value": "{{data_payload}}"
+                  "value": "{{data_payload.deposits}}"
                 },
                 {
                   "key": "deposits.isLoaded",
@@ -155,7 +155,7 @@
     "type": "promissory_real_deposits_list",
     "onContinue": {
       "actionType": "navigate",
-      "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_issuer.json",
+      "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_sign.json",
       "navigationStyle": "push"
     },
     "onRetry": {
@@ -198,7 +198,7 @@
                 "values": [
                   {
                     "key": "deposits.rawData",
-                    "value": "{{data_payload}}"
+                    "value": "{{data_payload.deposits}}"
                   },
                   {
                     "key": "deposits.isLoaded",

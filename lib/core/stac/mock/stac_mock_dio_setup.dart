@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:stac/stac.dart';
 import '../loaders/tobank/tobank_styles_loader.dart';
 import '../../helpers/logger.dart';
+import '../../helpers/log_category.dart';
 
 /// Sets up Dio instance with custom mock interceptor for STAC dynamicView
 ///
@@ -38,13 +39,15 @@ Dio setupStacMockDio() {
   dio.interceptors.add(
     InterceptorsWrapper(
       onRequest: (options, handler) async {
-        // Log Request (AppLogger respects category settings)
-        AppLogger.dc(
-          LogCategory.network,
-          '📤 STAC ${options.method} ${options.uri}',
-        );
-        if (options.data != null) {
-          AppLogger.dc(LogCategory.network, '   Request data: ${options.data}');
+        // Log cURL Request (single line for easy copy-paste)
+        try {
+          final curl = _cURLRepresentation(options);
+          AppLogger.dc(LogCategory.network, '📤 CURL: $curl');
+        } catch (e) {
+          AppLogger.dc(
+            LogCategory.network,
+            '📤 STAC ${options.method} ${options.uri}',
+          );
         }
 
         try {
@@ -263,9 +266,10 @@ Dio setupStacMockDio() {
                   await rootBundle.loadString(testPath);
                   assetPath = testPath;
                   isScreenJson = true; // Screen JSON needs variable resolution
-                  AppLogger.d('✅ Mock interceptor: Found flow file: $testPath');
+                  AppLogger.dc(LogCategory.stacMock, '✅ Mock interceptor: Found flow file: $testPath');
                 } catch (e) {
-                  AppLogger.d(
+                  AppLogger.dc(
+                    LogCategory.stacMock,
                     '⚠️ Mock interceptor: Failed to load $testPath: $e',
                   );
                   // Continue
@@ -321,7 +325,8 @@ Dio setupStacMockDio() {
 
           // Try to load the mock file
           if (assetPath == null) {
-            AppLogger.w(
+            AppLogger.wc(
+              LogCategory.stacMock,
               '⚠️ Mock interceptor: No asset path found for URL: ${options.uri}',
             );
             return handler.next(options);
@@ -331,7 +336,8 @@ Dio setupStacMockDio() {
           final finalAssetPath = assetPath;
 
           try {
-            AppLogger.d(
+            AppLogger.dc(
+              LogCategory.stacMock,
               '🔍 Mock interceptor: Looking for file: $finalAssetPath',
             );
             final jsonString = await _loadAssetString(finalAssetPath);
@@ -368,7 +374,8 @@ Dio setupStacMockDio() {
             // For screen JSONs, return the JSON directly (it's already a STAC screen JSON)
             // BUT: Pre-resolve variables to preserve numeric types (STAC's resolver converts everything to strings)
             if (isScreenJson) {
-              AppLogger.d(
+              AppLogger.dc(
+                LogCategory.stacMock,
                 '✅ Mock interceptor: Returning screen JSON for $method $path',
               );
 
@@ -388,12 +395,14 @@ Dio setupStacMockDio() {
                       !widgetJson.containsKey('type') &&
                       widgetJson['data'] is Map) {
                     widgetJson = widgetJson['data'] as Map<String, dynamic>;
-                    AppLogger.w(
+                    AppLogger.wc(
+                      LogCategory.stacMock,
                       '⚠️ Mock interceptor: Performed double unwrapping for $path',
                     );
                   }
 
-                  AppLogger.d(
+                  AppLogger.dc(
+                    LogCategory.stacMock,
                     '   📦 Extracted widget JSON from API wrapper ($method.data)',
                   );
                 }
@@ -403,10 +412,12 @@ Dio setupStacMockDio() {
               final sampleVar = StacRegistry.instance.getValue(
                 'appStyles.text.pageTitle.fontSize',
               );
-              AppLogger.d(
+              AppLogger.dc(
+                LogCategory.stacMock,
                 '   🔍 Sample variable from registry: appStyles.text.pageTitle.fontSize',
               );
-              AppLogger.d(
+              AppLogger.dc(
+                LogCategory.stacMock,
                 '      Type: ${sampleVar.runtimeType}, Value: $sampleVar',
               );
 
@@ -425,7 +436,8 @@ Dio setupStacMockDio() {
                   'fontSize',
                 ]);
                 if (sampleStyle != null) {
-                  AppLogger.d(
+                  AppLogger.dc(
+                    LogCategory.stacMock,
                     '   🔍 Sample resolved fontSize type: ${sampleStyle.runtimeType}, value: $sampleStyle',
                   );
                 }
@@ -440,7 +452,8 @@ Dio setupStacMockDio() {
                   'left',
                 ]);
                 if (samplePadding != null) {
-                  AppLogger.d(
+                  AppLogger.dc(
+                    LogCategory.stacMock,
                     '   🔍 Sample padding.left type: ${samplePadding.runtimeType}, value: $samplePadding',
                   );
                 }
@@ -478,7 +491,8 @@ Dio setupStacMockDio() {
               // If targetPath is 'data.menuItems', response should be {"data": {"menuItems": [...]}}
               // Our mock files have: {"GET": {"data": {"menuItems": [...]}}}
               // So we need to wrap innerData in {"data": innerData} to match targetPath expectations
-              AppLogger.d(
+              AppLogger.dc(
+                LogCategory.stacMock,
                 '✅ Mock interceptor: Returning response for $method $path (status: $statusCode)',
               );
 
@@ -509,7 +523,8 @@ Dio setupStacMockDio() {
                 ),
               );
             } else {
-              AppLogger.w(
+              AppLogger.wc(
+                LogCategory.stacMock,
                 '⚠️ Mock interceptor: Method $method not found in $finalAssetPath',
               );
             }
@@ -528,6 +543,30 @@ Dio setupStacMockDio() {
 
         // Continue with normal request if mock file not found
         handler.next(options);
+      },
+      onResponse: (response, handler) {
+        final responseJson = response.data is Map || response.data is List
+            ? json.encode(response.data)
+            : response.data.toString();
+        AppLogger.dc(
+          LogCategory.network,
+          '📥 RESPONSE ${response.statusCode} ${response.requestOptions.uri}: $responseJson',
+        );
+        handler.next(response);
+      },
+      onError: (DioException e, handler) {
+        AppLogger.ec(
+          LogCategory.network,
+          '❌ STAC Error: ${e.message} path: ${e.requestOptions.uri}',
+        );
+        if (e.response != null) {
+          AppLogger.ec(
+            LogCategory.network,
+            '   Status: ${e.response?.statusCode}',
+          );
+          AppLogger.ec(LogCategory.network, '   Data: ${e.response?.data}');
+        }
+        handler.next(e);
       },
     ),
   );
@@ -596,7 +635,35 @@ dynamic resolveVariablesPreservingTypes(dynamic json, StacRegistry registry) {
 
         // If value is a string that looks like a number, convert it back to a number
         // This handles cases where StacRegistry might have stored numbers as strings
-        final converted = _convertStringToTypeIfNeeded(value);
+        // CRITICAL FIX: Skip conversion for known string fields (mobile, national codes, IDs)
+        dynamic converted = value;
+        bool shouldConvert = true;
+        
+        final lowerName = variableName.toLowerCase();
+        if (lowerName.contains('mobile') || 
+            lowerName.contains('nationalcode') || 
+            lowerName.contains('id') || // careful with 'width'/'valid'
+            lowerName.endsWith('code')) {
+             // Heuristic: fields with these names are likely strings (identifiers)
+             // But 'width', 'valid' contain 'id', so be careful. 
+             // Let's be more specific:
+             if (lowerName.contains('mobile') || 
+                 lowerName.contains('phone') ||
+                 lowerName.contains('national') ||
+                 (lowerName.contains('code') && !lowerName.contains('color')) ||
+                 variableName.endsWith('Id') || // Typical ID field
+                 variableName == 'id') {
+               shouldConvert = false;
+               AppLogger.dc(
+                  LogCategory.json,
+                  '   🛡️ Skipping numeric conversion for identifier: $variableName',
+                );
+             }
+        }
+
+        if (shouldConvert) {
+           converted = _convertStringToTypeIfNeeded(value);
+        }
 
         // Debug: Log if conversion changed the type (helps identify issues)
         // Debug: Log if conversion changed the type (helps identify issues)
@@ -669,7 +736,14 @@ dynamic _convertStringToTypeIfNeeded(dynamic value) {
   }
 
   // If it's a string, try to convert it back to a number or bool
+  // If it's a string, try to convert it back to a number or bool
   if (value is String) {
+    // CRITICAL FIX: Do NOT convert strings starting with '0' (length > 1) to numbers
+    // This preserves phone numbers (09...) and national codes (00...) as strings
+    if (value.startsWith('0') && value.length > 1) {
+      return value;
+    }
+
     // Try to parse as integer first
     final intValue = int.tryParse(value);
     if (intValue != null) {
@@ -709,4 +783,37 @@ dynamic _getNestedValue(Map map, List<String> keys) {
     }
   }
   return current;
+}
+
+/// Generate a copy-pasteable cURL command from request options
+String _cURLRepresentation(RequestOptions options) {
+  final components = <String>['curl -i'];
+  if (options.method.toUpperCase() != 'GET') {
+    components.add('-X ${options.method}');
+  }
+
+  options.headers.forEach((k, v) {
+    if (k != 'Cookie') {
+      components.add('-H "$k: $v"');
+    }
+  });
+
+  if (options.data != null) {
+    try {
+      if (options.data is FormData) {
+        components.add('-d "[FormData]"');
+      } else if (options.data is Map || options.data is List) {
+        final data = json.encode(options.data);
+        components.add("-d '$data'");
+      } else {
+        components.add("-d '${options.data}'");
+      }
+    } catch (_) {
+      components.add("-d '${options.data}'");
+    }
+  }
+
+  components.add('"${options.uri.toString()}"');
+
+  return components.join(' ');
 }
