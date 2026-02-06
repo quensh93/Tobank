@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:logger/logger.dart';
 import 'package:ispect/ispect.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/scheduler.dart';
 import 'log_category.dart';
 
@@ -319,39 +320,98 @@ class BorderlessLogOutput extends LogOutput {
   }
 }
 
-/// Check if simple logger mode is enabled via environment variable
-///
-/// Usage: flutter run --dart-define=SIMPLE_LOGGER=true
-/// This removes decorative borders from logs, making them easier to copy for AI agents
-bool get _isSimpleLoggerMode {
-  const simpleMode = String.fromEnvironment(
-    'SIMPLE_LOGGER',
-    defaultValue: 'false',
-  );
-  return simpleMode.toLowerCase() == 'true';
-}
-
 /// Centralized logger for the application
 class AppLogger {
-  static final Logger _logger = Logger(
-    printer: PrettyPrinter(
-      methodCount: 0, // Disable stack traces for normal logs (cleaner output)
-      errorMethodCount: 8, // Keep stack traces for errors
-      lineLength: 120,
-      colors: true,
-      printEmojis: true,
-      dateTimeFormat: DateTimeFormat.onlyTimeAndSinceStart,
-    ),
-    output: _isSimpleLoggerMode
-        ? ISpectLogOutput(fallback: BorderlessLogOutput(ConsoleOutput()))
-        : ISpectLogOutput(fallback: ConsoleOutput()),
-  );
-
+  // Note: We no longer use Logger from the logger package directly.
+  // AppLogger now writes to stdout directly via _output() to bypass Logger.level.
+  // This allows us to set Logger.level=off to silence stac_logger while
+  // AppLogger continues to work based on LogConfig settings.
   /// Map to store settings for each category
   static final Map<LogCategory, LogCategorySettings> _categorySettings = {
     for (var category in LogCategory.values)
       category: const LogCategorySettings(),
   };
+
+  static bool _isInternalLog = false;
+
+  /// Initialize logger and override Flutter's debugPrint
+  /// This must be called early in main() to capture all logs.
+  static void overrideFlutterDebugPrint() {
+    // CRITICAL: Set Logger.level to off IMMEDIATELY to silence stac_logger
+    // stac_logger uses print() directly and checks Logger.level, not debugPrint.
+    // Setting this early prevents the noisy "is being overridden" warnings.
+    Logger.level = Level.off;
+    
+    debugPrint = (String? message, {int? wrapWidth}) {
+       // Note: We don't check Logger.level here because we want to filter
+       // external logs, not silence everything.
+       
+       if (message != null && message.isNotEmpty) {
+        // RE-ENTRANCY GUARD:
+        if (_isInternalLog) {
+          stdout.writeln(message);
+          return;
+        }
+
+        // Clean message for filtering (strip ANSI)
+        final cleanMessage = _stripAnsiCodes(message);
+
+        // --- STAC SUPPRESSION FILTERS ---
+        
+        // 1. Box Drawing Lines (The structural clutter)
+        // Matches lines starting with ┌, ├, └, or │
+        if (cleanMessage.startsWith('┌') || 
+            cleanMessage.startsWith('├') || 
+            cleanMessage.startsWith('└') || 
+            cleanMessage.startsWith('│')) {
+          
+          // But wait! We (AppLogger) might also use box chars if PrettyPrinter is enabled?
+          // No, we disabled PrettyPrinter borders or use BorderlessLogOutput.
+          // However, stac_logger logs ALWAYS start with these.
+          
+          // Check for specific noisy contents INSIDE the box line
+          if (cleanMessage.contains('LogIO') || 
+              cleanMessage.contains('package:stac_logger') ||
+              cleanMessage.contains('is being overridden') ||
+              cleanMessage.contains('Overall dataContext is not a Map') ||
+              cleanMessage.contains('data: [')) {
+            return; // SUPPRESS
+          }
+
+          // Also suppress purely structural lines (empty box lines)
+          // e.g. "│" or "├──" or "└─────"
+          if (RegExp(r'^[┌└├│─\s┄]+$').hasMatch(cleanMessage)) {
+             return; // SUPPRESS
+          }
+          
+          // If it starts with a box char but isn't one of the above,
+          // it might be a valid log inside a box?
+          // The user's logs show: "│ 🐛 data: [...]"
+          // This starts with │. It contains "data: [". So it gets suppressed by check above.
+          // PROCEED.
+        }
+
+        // 2. Direct message noise (if printed without box)
+        if (cleanMessage.contains('[DEBUG]') ||
+            cleanMessage.contains('Overall dataContext is not a Map') ||
+            cleanMessage.contains('is being overridden') || 
+            cleanMessage.contains('LogIO')) {
+          return; // SUPPRESS
+        }
+
+        // --- FORWARD TO APP LOGGER ---
+        // If it survived the filters, forward it to Flutter category.
+        // This puts it into LogCategory.flutter which can be enabled/disabled separately.
+        
+        // Check for exception indicators to bypass truncation
+        final bool isException = cleanMessage.contains('EXCEPTION CAUGHT') || 
+                               cleanMessage.contains('Stack trace') ||
+                               cleanMessage.startsWith('🦋');
+
+        AppLogger.dc(LogCategory.flutter, message, null, null, isException);
+      }
+    };
+  }
 
   /// Load log category settings from storage at startup
   /// This should be called BEFORE any logging happens (in bootstrap before AppInitializer)
@@ -398,12 +458,27 @@ class AppLogger {
         }
 
         // Set global logger level:
-        // - OFF if masterLogsEnabled is false OR all categories are disabled
-        // - ALL otherwise
-        if (!masterLogsEnabled || allCategoriesDisabled) {
-          Logger.level = Level.off;
-        } else {
-          Logger.level = Level.all;
+        switch (LogConfig.masterLogControl) {
+          case MasterLogControl.forceDisabled:
+            Logger.level = Level.off;
+            break;
+          case MasterLogControl.forceEnabled:
+            Logger.level = Level.all;
+            break;
+          case MasterLogControl.panel:
+            // Use debug panel/storage settings completely
+            if (!masterLogsEnabled || allCategoriesDisabled) {
+              Logger.level = Level.off;
+            } else {
+              Logger.level = Level.all;
+            }
+            break;
+          case MasterLogControl.manual:
+            // In manual mode, allow logs by default (Level.all) so code overrides can work
+            // Use logic similar to 'forceEnabled' regarding the level, 
+            // filtering happens in _processMessage
+            Logger.level = Level.all;
+            break;
         }
       }
     } catch (_) {
@@ -436,15 +511,16 @@ class AppLogger {
   /// Internal helper to process message based on category settings
   /// 
   /// Priority order:
-  /// 1. LogOverrides.masterEnabled (if false, all logs disabled)
+  /// 1. LogConfig.masterLogControl (if forceDisabled, all logs disabled)
   /// 2. LogConfig overrides for specific category (hardcoded in code)
   /// 3. Debug panel settings (user-configurable at runtime)
-  static dynamic _processMessage(dynamic message, LogCategory category) {
-    // Early bailout if global logging is disabled
-    if (Logger.level == Level.off) return null;
-
-    // Check hardcoded master override first
-    if (LogConfig.masterEnabled == false) return null;
+  static dynamic _processMessage(dynamic message, LogCategory category, {bool bypassTruncation = false}) {
+    // Early bailout if global logging is disabled via code
+    if (LogConfig.masterLogControl == MasterLogControl.forceDisabled) return null;
+    
+    // NOTE: We deliberately do NOT check Logger.level here.
+    // Logger.level is set to Level.off to silence external loggers (stac_logger),
+    // but AppLogger should continue to work based on LogConfig settings.
 
     final settings = _categorySettings[category] ?? const LogCategorySettings();
 
@@ -452,67 +528,170 @@ class AppLogger {
     final override = LogConfig.getOverride(category);
     if (override != null) {
       if (!override) return null; // Hardcoded to disabled
+      // If override == true, we proceed (category is enabled via code)
     } else {
-      // Use debug panel settings
+      // No hardcoded override (LogState.sync) - use debug panel settings
       if (!settings.enabled) return null;
     }
 
-    // Only truncate if truncateEnabled is true for this category
-    if (settings.truncateEnabled &&
-        message is String &&
-        message.length > settings.maxLength) {
-      return '${message.substring(0, settings.maxLength)}... (truncated ${message.length - settings.maxLength} chars)';
+    // Prepend emoji FIRST (before truncation) so truncated messages still show category
+    String processedMessage = message.toString();
+    if (!processedMessage.trim().startsWith(category.emoji)) {
+      processedMessage = '${category.emoji} $processedMessage';
     }
 
-    return message;
+    // Truncation Logic
+    // 0. Bypass Truncation (for errors/fatals)
+    if (bypassTruncation) {
+      return processedMessage;
+    }
+
+    // 1. Global safety net (hardcoded config)
+    // This prevents massive logs from crashing the app regardless of UI settings
+    if (LogConfig.truncateLogs && processedMessage.length > LogConfig.maxLogLength) {
+      return '${processedMessage.substring(0, LogConfig.maxLogLength)}... (truncated ${processedMessage.length - LogConfig.maxLogLength} chars)';
+    }
+
+    // 2. Runtime category settings (UI controlled)
+    // This allows granular control per category via Debug Panel
+    if (settings.truncateEnabled && processedMessage.length > settings.maxLength) {
+      return '${processedMessage.substring(0, settings.maxLength)}... (truncated ${processedMessage.length - settings.maxLength} chars)';
+    }
+
+    return processedMessage;
+  }
+
+  /// Direct output to stdout, bypassing Logger.level check
+  /// This allows AppLogger to work even when Logger.level=off (which silences stac_logger)
+  /// 
+  /// Android logcat has a ~4000 character limit per line, so we chunk long messages
+  static void _output(dynamic message) {
+    try {
+      _isInternalLog = true;
+      final messageStr = message.toString();
+
+      // Android logcat limit is ~4000 chars, use 3800 to be safe
+      const int maxChunkSize = 3800;
+
+      if (messageStr.length <= maxChunkSize) {
+        // Short message - print directly
+        // Use stdout to bypass Zone interception (ISpect auto-capture)
+        stdout.writeln(messageStr);
+      } else {
+        // Long message - chunk it
+        int start = 0;
+        int chunkIndex = 0;
+        while (start < messageStr.length) {
+          final end = (start + maxChunkSize < messageStr.length)
+              ? start + maxChunkSize
+              : messageStr.length;
+          final chunk = messageStr.substring(start, end);
+
+          if (chunkIndex == 0) {
+            stdout.writeln(chunk);
+          } else {
+            stdout.writeln('   ...$chunk');
+          }
+
+          start = end;
+          chunkIndex++;
+        }
+      }
+    } finally {
+      _isInternalLog = false;
+    }
   }
 
   // --- Core Methods (Positional Args for Backward Compatibility) ---
 
   /// Log debug message
-  static void d(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    final processed = _processMessage(message, LogCategory.general);
+  static void d(dynamic message, [dynamic error, StackTrace? stackTrace, bool bypassTruncation = false]) {
+    final processed = _processMessage(message, LogCategory.general, bypassTruncation: bypassTruncation);
     if (processed != null) {
-      _logger.d(processed, error: error, stackTrace: stackTrace);
+      _output(processed);
+      if (error != null) _output('Error: $error');
+      if (stackTrace != null) _output(stackTrace);
+      
+      // ISpect
+      if (_categorySettings[LogCategory.general]?.ispectEnabled ?? true) {
+        var fullMsg = processed;
+        if (error != null) fullMsg += '\nError: $error';
+        if (stackTrace != null) fullMsg += '\n$stackTrace';
+        try { ISpect.logger.debug(fullMsg); } catch (_) {}
+      }
     }
   }
 
   /// Log info message
-  static void i(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    final processed = _processMessage(message, LogCategory.general);
+  static void i(dynamic message, [dynamic error, StackTrace? stackTrace, bool bypassTruncation = false]) {
+    final processed = _processMessage(message, LogCategory.general, bypassTruncation: bypassTruncation);
     if (processed != null) {
-      _logger.i(processed, error: error, stackTrace: stackTrace);
+      _output(processed);
+      if (error != null) _output('Error: $error');
+      if (stackTrace != null) _output(stackTrace);
+
+      // ISpect
+      if (_categorySettings[LogCategory.general]?.ispectEnabled ?? true) {
+        var fullMsg = processed;
+        if (error != null) fullMsg += '\nError: $error';
+        if (stackTrace != null) fullMsg += '\n$stackTrace';
+        try { ISpect.logger.info(fullMsg); } catch (_) {}
+      }
     }
   }
 
   /// Log warning message
-  static void w(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    final processed = _processMessage(message, LogCategory.general);
+  static void w(dynamic message, [dynamic error, StackTrace? stackTrace, bool bypassTruncation = false]) {
+    final processed = _processMessage(message, LogCategory.general, bypassTruncation: bypassTruncation);
     if (processed != null) {
-      _logger.w(processed, error: error, stackTrace: stackTrace);
+      _output('[WARN] $processed');
+      if (error != null) _output('Error: $error');
+      if (stackTrace != null) _output(stackTrace);
+
+      // ISpect
+      if (_categorySettings[LogCategory.general]?.ispectEnabled ?? true) {
+        var fullMsg = processed;
+        if (error != null) fullMsg += '\nError: $error';
+        if (stackTrace != null) fullMsg += '\n$stackTrace';
+        try { ISpect.logger.warning(fullMsg); } catch (_) {}
+      }
     }
   }
 
   /// Log error message
   static void e(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    final processed = _processMessage(message, LogCategory.general);
+    final processed = _processMessage(message, LogCategory.general, bypassTruncation: true);
     if (processed != null) {
-      if (error is StackTrace) {
-        _logger.e(processed, stackTrace: error);
-      } else {
-        _logger.e(processed, error: error, stackTrace: stackTrace);
+      _output('[ERROR] $processed');
+      if (error != null) _output('Error: $error');
+      final st = (error is StackTrace) ? error : stackTrace;
+      if (st != null) _output(st);
+
+      // ISpect
+      if (_categorySettings[LogCategory.general]?.ispectEnabled ?? true) {
+        var fullMsg = processed;
+        if (error != null) fullMsg += '\nError: $error';
+        if (st != null) fullMsg += '\n$st';
+        try { ISpect.logger.error(fullMsg); } catch (_) {}
       }
     }
   }
 
   /// Log fatal message
   static void f(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    final processed = _processMessage(message, LogCategory.general);
+    final processed = _processMessage(message, LogCategory.general, bypassTruncation: true);
     if (processed != null) {
-      if (error is StackTrace) {
-        _logger.f(processed, stackTrace: error);
-      } else {
-        _logger.f(processed, error: error, stackTrace: stackTrace);
+      _output('[FATAL] $processed');
+      if (error != null) _output('Error: $error');
+      final st = (error is StackTrace) ? error : stackTrace;
+      if (st != null) _output(st);
+
+      // ISpect
+      if (_categorySettings[LogCategory.general]?.ispectEnabled ?? true) {
+        var fullMsg = processed;
+        if (error != null) fullMsg += '\nError: $error';
+        if (st != null) fullMsg += '\n$st';
+        try { ISpect.logger.critical(fullMsg); } catch (_) {}
       }
     }
   }
@@ -525,10 +704,21 @@ class AppLogger {
     dynamic message, [
     dynamic error,
     StackTrace? stackTrace,
+    bool bypassTruncation = false,
   ]) {
-    final processed = _processMessage(message, category);
+    final processed = _processMessage(message, category, bypassTruncation: bypassTruncation);
     if (processed != null) {
-      _logger.d(processed, error: error, stackTrace: stackTrace);
+      _output(processed);
+      if (error != null) _output('Error: $error');
+      if (stackTrace != null) _output(stackTrace);
+
+      // ISpect
+      if (_categorySettings[category]?.ispectEnabled ?? true) {
+         var fullMsg = processed;
+        if (error != null) fullMsg += '\nError: $error';
+        if (stackTrace != null) fullMsg += '\n$stackTrace';
+        try { ISpect.logger.debug(fullMsg); } catch (_) {}
+      }
     }
   }
 
@@ -538,10 +728,21 @@ class AppLogger {
     dynamic message, [
     dynamic error,
     StackTrace? stackTrace,
+    bool bypassTruncation = false,
   ]) {
-    final processed = _processMessage(message, category);
+    final processed = _processMessage(message, category, bypassTruncation: bypassTruncation);
     if (processed != null) {
-      _logger.i(processed, error: error, stackTrace: stackTrace);
+      _output(processed);
+      if (error != null) _output('Error: $error');
+      if (stackTrace != null) _output(stackTrace);
+
+      // ISpect
+      if (_categorySettings[category]?.ispectEnabled ?? true) {
+         var fullMsg = processed;
+        if (error != null) fullMsg += '\nError: $error';
+        if (stackTrace != null) fullMsg += '\n$stackTrace';
+        try { ISpect.logger.info(fullMsg); } catch (_) {}
+      }
     }
   }
 
@@ -551,10 +752,21 @@ class AppLogger {
     dynamic message, [
     dynamic error,
     StackTrace? stackTrace,
+    bool bypassTruncation = false,
   ]) {
-    final processed = _processMessage(message, category);
+    final processed = _processMessage(message, category, bypassTruncation: bypassTruncation);
     if (processed != null) {
-      _logger.w(processed, error: error, stackTrace: stackTrace);
+      _output('[WARN] $processed');
+      if (error != null) _output('Error: $error');
+      if (stackTrace != null) _output(stackTrace);
+
+      // ISpect
+      if (_categorySettings[category]?.ispectEnabled ?? true) {
+         var fullMsg = processed;
+        if (error != null) fullMsg += '\nError: $error';
+        if (stackTrace != null) fullMsg += '\n$stackTrace';
+        try { ISpect.logger.warning(fullMsg); } catch (_) {}
+      }
     }
   }
 
@@ -565,12 +777,19 @@ class AppLogger {
     dynamic error,
     StackTrace? stackTrace,
   ]) {
-    final processed = _processMessage(message, category);
+    final processed = _processMessage(message, category, bypassTruncation: true);
     if (processed != null) {
-      if (error is StackTrace) {
-        _logger.e(processed, stackTrace: error);
-      } else {
-        _logger.e(processed, error: error, stackTrace: stackTrace);
+      _output('[ERROR] $processed');
+      if (error != null) _output('Error: $error');
+      final st = (error is StackTrace) ? error : stackTrace;
+      if (st != null) _output(st);
+
+      // ISpect
+      if (_categorySettings[category]?.ispectEnabled ?? true) {
+        var fullMsg = processed;
+        if (error != null) fullMsg += '\nError: $error';
+        if (st != null) fullMsg += '\n$st';
+        try { ISpect.logger.error(fullMsg); } catch (_) {}
       }
     }
   }
@@ -582,12 +801,19 @@ class AppLogger {
     dynamic error,
     StackTrace? stackTrace,
   ]) {
-    final processed = _processMessage(message, category);
+    final processed = _processMessage(message, category, bypassTruncation: true);
     if (processed != null) {
-      if (error is StackTrace) {
-        _logger.f(processed, stackTrace: error);
-      } else {
-        _logger.f(processed, error: error, stackTrace: stackTrace);
+      _output('[FATAL] $processed');
+      if (error != null) _output('Error: $error');
+      final st = (error is StackTrace) ? error : stackTrace;
+      if (st != null) _output(st);
+
+      // ISpect
+      if (_categorySettings[category]?.ispectEnabled ?? true) {
+        var fullMsg = processed;
+        if (error != null) fullMsg += '\nError: $error';
+        if (st != null) fullMsg += '\n$st';
+        try { ISpect.logger.critical(fullMsg); } catch (_) {}
       }
     }
   }

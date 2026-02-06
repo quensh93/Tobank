@@ -62,14 +62,17 @@ class PromissoryRealAuthService {
 
       final response = await _dio.post(_url, options: options, data: body);
 
-      AppLogger.ic(
+      AppLogger.dc(
         LogCategory.network,
-        'Login Response: ${response.statusCode}',
+        'RESPONSE ${response.statusCode} $_url',
       );
+      
+      // Log response body - let AppLogger handle truncation based on LogConfig
+      final responseStr = response.data?.toString() ?? '';
+      AppLogger.dc(LogCategory.network, '   Body: $responseStr');
 
       if (response.statusCode == 200) {
         final data = response.data;
-        AppLogger.d('Login Response Data: $data');
 
         String? token;
         if (data is Map) {
@@ -211,13 +214,15 @@ class PromissoryRealAuthService {
 
   void _logCurl(String url, Options options, {dynamic data}) {
     String curl = 'curl --request POST';
-    curl += ' --url $url';
+    curl += ' --url "$url"';
     options.headers?.forEach((key, value) {
-      curl += ' --header \'$key: $value\'';
+      // Hide authorization value for security
+      final safeValue = key.toLowerCase().contains('authorization') ? '***' : value;
+      curl += ' -H "$key: $safeValue"';
     });
     if (data != null) {
-      curl += ' --data \'${jsonEncode(data)}\'';
+      curl += ' -d \'${jsonEncode(data)}\'';
     }
-    AppLogger.d('🐛 CURL: $curl');
+    AppLogger.dc(LogCategory.network, 'CURL: $curl');
   }
 }

@@ -129,6 +129,15 @@ class DevicePreviewController extends Notifier<DevicePreviewState> {
     settingsController.setPreviewEnabled(newValue);
   }
 
+  /// Set preview enabled explicitly
+  void setPreviewEnabled(bool enabled) {
+    if (state.isPreviewEnabled == enabled) return;
+    state = state.copyWith(isPreviewEnabled: enabled);
+    // Save to centralized settings
+    final settingsController = ref.read(debugPanelSettingsProvider.notifier);
+    settingsController.setPreviewEnabled(enabled);
+  }
+
   /// Rotate device orientation
   void rotate() {
     final newOrientation = state.orientation == Orientation.portrait

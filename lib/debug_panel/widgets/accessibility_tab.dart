@@ -20,9 +20,9 @@ class AccessibilityTab extends ConsumerWidget {
           _buildSectionHeader(context, 'Accessibility Audit'),
           const SizedBox(height: 8),
           _buildAuditControls(context, state, controller),
-          
+
           const SizedBox(height: 16),
-          
+
           // Audit Results Section
           _buildSectionHeader(context, 'Audit Results'),
           const SizedBox(height: 8),
@@ -45,7 +45,11 @@ class AccessibilityTab extends ConsumerWidget {
     );
   }
 
-  Widget _buildAuditControls(BuildContext context, AccessibilityState state, AccessibilityController controller) {
+  Widget _buildAuditControls(
+    BuildContext context,
+    AccessibilityState state,
+    AccessibilityController controller,
+  ) {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -56,30 +60,36 @@ class AccessibilityTab extends ConsumerWidget {
               children: [
                 Expanded(
                   child: ElevatedButton.icon(
-                    onPressed: state.isAuditing ? null : () => controller.startAudit(),
-                    icon: state.isAuditing 
+                    onPressed: state.isAuditing
+                        ? null
+                        : () => controller.startAudit(),
+                    icon: state.isAuditing
                         ? const SizedBox(
                             width: 16,
                             height: 16,
                             child: CircularProgressIndicator(strokeWidth: 2),
                           )
                         : const Icon(Icons.search),
-                    label: Text(state.isAuditing ? 'Auditing...' : 'Start Audit'),
+                    label: Text(
+                      state.isAuditing ? 'Auditing...' : 'Start Audit',
+                    ),
                   ),
                 ),
                 const SizedBox(width: 8),
                 Expanded(
                   child: OutlinedButton.icon(
-                    onPressed: state.issues.isEmpty ? null : controller.clearResults,
+                    onPressed: state.issues.isEmpty
+                        ? null
+                        : controller.clearResults,
                     icon: const Icon(Icons.clear),
                     label: const Text('Clear Results'),
                   ),
                 ),
               ],
             ),
-            
+
             const SizedBox(height: 16),
-            
+
             // Filter Controls
             Row(
               children: [
@@ -89,7 +99,10 @@ class AccessibilityTab extends ConsumerWidget {
                     decoration: const InputDecoration(
                       labelText: 'Filter by Type',
                       border: OutlineInputBorder(),
-                      contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 8,
+                      ),
                     ),
                     items: AccessibilityIssueType.values.map((type) {
                       return DropdownMenuItem(
@@ -99,7 +112,12 @@ class AccessibilityTab extends ConsumerWidget {
                           children: [
                             Icon(_getIssueTypeIcon(type), size: 16),
                             const SizedBox(width: 8),
-                            Text(_getIssueTypeName(type)),
+                            Flexible(
+                              child: Text(
+                                _getIssueTypeName(type),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
                           ],
                         ),
                       );
@@ -117,7 +135,10 @@ class AccessibilityTab extends ConsumerWidget {
                     decoration: const InputDecoration(
                       labelText: 'Search Issues',
                       border: OutlineInputBorder(),
-                      contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 8,
+                      ),
                       prefixIcon: Icon(Icons.search),
                     ),
                     onChanged: controller.setSearchFilter,
@@ -125,9 +146,9 @@ class AccessibilityTab extends ConsumerWidget {
                 ),
               ],
             ),
-            
+
             const SizedBox(height: 16),
-            
+
             // Quick Actions
             Wrap(
               spacing: 8,
@@ -204,7 +225,7 @@ class AccessibilityTab extends ConsumerWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              state.issues.isEmpty 
+              state.issues.isEmpty
                   ? 'Run an accessibility audit to check your app'
                   : 'Great! No accessibility issues detected',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
@@ -218,7 +239,9 @@ class AccessibilityTab extends ConsumerWidget {
 
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.2)),
+        border: Border.all(
+          color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.2),
+        ),
         borderRadius: BorderRadius.circular(8),
       ),
       child: ListView.builder(
@@ -233,7 +256,7 @@ class AccessibilityTab extends ConsumerWidget {
 
   Widget _buildIssueItem(BuildContext context, AccessibilityIssue issue) {
     final severityColor = _getSeverityColor(context, issue.severity);
-    
+
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -258,9 +281,9 @@ class AccessibilityTab extends ConsumerWidget {
               Expanded(
                 child: Text(
                   issue.title,
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
                 ),
               ),
               Container(
@@ -280,33 +303,35 @@ class AccessibilityTab extends ConsumerWidget {
               ),
             ],
           ),
-          
+
           const SizedBox(height: 8),
-          
+
           // Issue description
           Text(
             issue.description,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
-          
+
           // Issue details
           if (issue.details.isNotEmpty) ...[
             const SizedBox(height: 8),
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
+                color: Theme.of(
+                  context,
+                ).colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
                 borderRadius: BorderRadius.circular(4),
               ),
               child: Text(
                 issue.details,
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  fontFamily: 'monospace',
-                ),
+                style: Theme.of(
+                  context,
+                ).textTheme.bodySmall?.copyWith(fontFamily: 'monospace'),
               ),
             ),
           ],
-          
+
           // Suggested fix
           if (issue.suggestedFix.isNotEmpty) ...[
             const SizedBox(height: 8),
@@ -370,7 +395,10 @@ class AccessibilityTab extends ConsumerWidget {
     }
   }
 
-  Color _getSeverityColor(BuildContext context, AccessibilitySeverity severity) {
+  Color _getSeverityColor(
+    BuildContext context,
+    AccessibilitySeverity severity,
+  ) {
     final colorScheme = Theme.of(context).colorScheme;
     switch (severity) {
       case AccessibilitySeverity.low:

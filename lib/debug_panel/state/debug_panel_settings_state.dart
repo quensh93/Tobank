@@ -105,8 +105,8 @@ class DebugPanelSettingsState {
     this.masterLogsEnabled = true,
     this.logsAutoScroll = true,
     this.logsSelectedLevel,
-    this.logMaxLength = 1000,
-    this.logTruncationEnabled = false,
+    this.logMaxLength = 100000,
+    this.logTruncationEnabled = true,
     // Accessibility settings
     this.accessibilitySelectedFilter,
     // Performance settings
@@ -272,8 +272,8 @@ class DebugPanelSettingsState {
       masterLogsEnabled: json['masterLogsEnabled'] as bool? ?? true,
       logsAutoScroll: json['logsAutoScroll'] as bool? ?? true,
       logsSelectedLevel: json['logsSelectedLevel'] as String?,
-      logMaxLength: (json['logMaxLength'] as num?)?.toInt() ?? 1000,
-      logTruncationEnabled: json['logTruncationEnabled'] as bool? ?? false,
+      logMaxLength: (json['logMaxLength'] as num?)?.toInt() ?? 100000,
+      logTruncationEnabled: json['logTruncationEnabled'] as bool? ?? true,
       accessibilitySelectedFilter:
           json['accessibilitySelectedFilter'] as String?,
       performanceTrackingEnabled:
@@ -631,8 +631,8 @@ class DebugPanelSettingsController extends Notifier<DebugPanelSettingsState> {
     // Reset master toggle
     state = state.copyWith(
       masterLogsEnabled: true,
-      logTruncationEnabled: false,
-      logMaxLength: 1000,
+      logTruncationEnabled: true,
+      logMaxLength: 100000,
     );
     // Logger.truncateLogs = false; // Removed
     // Logger.maxLogLength = 1000; // Removed
@@ -641,8 +641,8 @@ class DebugPanelSettingsController extends Notifier<DebugPanelSettingsState> {
     for (final category in LogCategory.values) {
       const defaultCategorySettings = LogCategorySettings(
         enabled: true,
-        truncateEnabled: false,
-        maxLength: 1000,
+        truncateEnabled: true,
+        maxLength: 100000,
       );
       defaultSettings[category] = defaultCategorySettings;
       AppLogger.setCategorySettings(category, defaultCategorySettings);
@@ -650,6 +650,30 @@ class DebugPanelSettingsController extends Notifier<DebugPanelSettingsState> {
     state = state.copyWith(logCategorySettings: defaultSettings);
     _saveSettings();
     AppLogger.i('🔧 Log settings reset to defaults');
+  }
+
+  void setAllLogTruncationEnabled(bool enabled) {
+    var newSettings =
+        Map<LogCategory, LogCategorySettings>.from(state.logCategorySettings);
+    for (final category in LogCategory.values) {
+      final current = newSettings[category] ?? const LogCategorySettings();
+      newSettings[category] = current.copyWith(truncateEnabled: enabled);
+      AppLogger.setCategorySettings(category, newSettings[category]!);
+    }
+    state = state.copyWith(logCategorySettings: newSettings);
+    _saveSettings();
+  }
+
+  void setAllLogMaxLength(int length) {
+    var newSettings =
+        Map<LogCategory, LogCategorySettings>.from(state.logCategorySettings);
+    for (final category in LogCategory.values) {
+      final current = newSettings[category] ?? const LogCategorySettings();
+      newSettings[category] = current.copyWith(maxLength: length);
+      AppLogger.setCategorySettings(category, newSettings[category]!);
+    }
+    state = state.copyWith(logCategorySettings: newSettings);
+    _saveSettings();
   }
 }
 

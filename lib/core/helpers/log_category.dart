@@ -37,6 +37,9 @@ enum LogCategory {
   /// State management logs (non-STAC)
   state,
 
+  /// Flutter framework logs (debugPrint forwarded logs)
+  flutter,
+
   // ═══════════════════════════════════════════════════════════════════════════
   // STAC-SPECIFIC CATEGORIES (for granular control)
   // ═══════════════════════════════════════════════════════════════════════════
@@ -59,31 +62,98 @@ enum LogCategory {
   /// STAC Mock interceptor (mock file loading, fallback to real)
   stacMock,
 
-  /// STAC Variable resolution (template substitution)
+  /// STAC Variable resolution (template substitution like {{data.data.name}})
   stacVariable,
+
+  /// STAC Data handling (response structure, data_payload, registry storage)
+  stacData,
+}
+
+extension LogCategoryEmoji on LogCategory {
+  String get emoji {
+    switch (this) {
+      case LogCategory.general:
+        return '🐛';
+      case LogCategory.network:
+        return '🌐';
+      case LogCategory.json:
+        return '📄';
+      case LogCategory.registry:
+        return '📦';
+      case LogCategory.theme:
+        return '🎨';
+      case LogCategory.string:
+        return '🌍';
+      case LogCategory.action:
+        return '⚡';
+      case LogCategory.widget:
+        return '🧩';
+      case LogCategory.navigation:
+        return '🧭';
+      case LogCategory.state:
+        return '💾';
+      case LogCategory.flutter:
+        return '🦋';
+      case LogCategory.stacNavigation:
+        return '🗺️';
+      case LogCategory.stacWidget:
+        return '🏗️';
+      case LogCategory.stacRegistry:
+        return '♻️';
+      case LogCategory.stacAction:
+        return '🎬';
+      case LogCategory.stacTheme:
+        return '🎭';
+      case LogCategory.stacMock:
+        return '🧪';
+      case LogCategory.stacVariable:
+        return '💲';
+      case LogCategory.stacData:
+        return '📦';
+    }
+  }
+}
+
+/// Helper enum for easier configuration in log_config.dart
+enum LogState {
+  /// Always show logs for this category (overrides debug panel)
+  enabled,
+  
+  /// Always hide logs for this category (overrides debug panel)
+  disabled,
+  
+  /// Check debug panel settings (user can toggle in app)
+  sync,
 }
 
 /// Settings for a specific log category
 class LogCategorySettings {
   final bool enabled;
   final bool truncateEnabled;
+  final bool ispectEnabled; // New field
   final int maxLength;
   /// If true, this setting was hardcoded and cannot be changed from UI
   final bool isHardcoded;
+  /// Emoji for the category
+    final String? emoji;
 
   const LogCategorySettings({
     this.enabled = true,
-    this.truncateEnabled = false,
-    this.maxLength = 100,
+    this.truncateEnabled = true, // Default to true to prevent massive logs
+    this.ispectEnabled = true, // Default true
+    this.maxLength = 800, // Reasonable default limit
     this.isHardcoded = false,
+    this.emoji,
   });
 
   factory LogCategorySettings.fromJson(Map<String, dynamic> json) {
     return LogCategorySettings(
       enabled: json['enabled'] as bool? ?? true,
       truncateEnabled: json['truncateEnabled'] as bool? ?? false,
+      ispectEnabled: json['ispectEnabled'] as bool? ?? true,
       maxLength: (json['maxLength'] as num?)?.toInt() ?? 100,
       isHardcoded: json['isHardcoded'] as bool? ?? false,
+      emoji: json['emoji'] as String?,
     );
   }
 
@@ -91,22 +161,28 @@ class LogCategorySettings {
     return {
       'enabled': enabled,
       'truncateEnabled': truncateEnabled,
+      'ispectEnabled': ispectEnabled,
       'maxLength': maxLength,
       'isHardcoded': isHardcoded,
+      'emoji': emoji,
     };
   }
 
   LogCategorySettings copyWith({
     bool? enabled,
     bool? truncateEnabled,
+    bool? ispectEnabled,
     int? maxLength,
     bool? isHardcoded,
+    String? emoji,
   }) {
     return LogCategorySettings(
       enabled: enabled ?? this.enabled,
       truncateEnabled: truncateEnabled ?? this.truncateEnabled,
+      ispectEnabled: ispectEnabled ?? this.ispectEnabled,
       maxLength: maxLength ?? this.maxLength,
       isHardcoded: isHardcoded ?? this.isHardcoded,
+      emoji: emoji ?? this.emoji,
     );
   }
 }

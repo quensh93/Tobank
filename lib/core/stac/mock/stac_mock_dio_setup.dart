@@ -39,14 +39,14 @@ Dio setupStacMockDio() {
   dio.interceptors.add(
     InterceptorsWrapper(
       onRequest: (options, handler) async {
-        // Log cURL Request (single line for easy copy-paste)
+        // Log cURL Request for mock interceptor
         try {
           final curl = _cURLRepresentation(options);
-          AppLogger.dc(LogCategory.network, '📤 CURL: $curl');
+          AppLogger.dc(LogCategory.stacMock, 'CURL: $curl');
         } catch (e) {
           AppLogger.dc(
-            LogCategory.network,
-            '📤 STAC ${options.method} ${options.uri}',
+            LogCategory.stacMock,
+            'STAC ${options.method} ${options.uri}',
           );
         }
 
@@ -266,11 +266,11 @@ Dio setupStacMockDio() {
                   await rootBundle.loadString(testPath);
                   assetPath = testPath;
                   isScreenJson = true; // Screen JSON needs variable resolution
-                  AppLogger.dc(LogCategory.stacMock, '✅ Mock interceptor: Found flow file: $testPath');
+                  AppLogger.dc(LogCategory.stacMock, 'Mock interceptor: Found flow file: $testPath');
                 } catch (e) {
                   AppLogger.dc(
                     LogCategory.stacMock,
-                    '⚠️ Mock interceptor: Failed to load $testPath: $e',
+                    'Mock interceptor: Failed to load $testPath: $e',
                   );
                   // Continue
                 }
@@ -327,7 +327,7 @@ Dio setupStacMockDio() {
           if (assetPath == null) {
             AppLogger.wc(
               LogCategory.stacMock,
-              '⚠️ Mock interceptor: No asset path found for URL: ${options.uri}',
+              'Mock interceptor: No asset path found for URL: ${options.uri}',
             );
             return handler.next(options);
           }
@@ -338,7 +338,7 @@ Dio setupStacMockDio() {
           try {
             AppLogger.dc(
               LogCategory.stacMock,
-              '🔍 Mock interceptor: Looking for file: $finalAssetPath',
+              'Mock interceptor: Looking for file: $finalAssetPath',
             );
             final jsonString = await _loadAssetString(finalAssetPath);
 
@@ -376,7 +376,7 @@ Dio setupStacMockDio() {
             if (isScreenJson) {
               AppLogger.dc(
                 LogCategory.stacMock,
-                '✅ Mock interceptor: Returning screen JSON for $method $path',
+                'Mock interceptor: Returning screen JSON for $method $path',
               );
 
               // Check if JSON is wrapped in API format (e.g., {"GET": {"data": {...}}})
@@ -397,7 +397,7 @@ Dio setupStacMockDio() {
                     widgetJson = widgetJson['data'] as Map<String, dynamic>;
                     AppLogger.wc(
                       LogCategory.stacMock,
-                      '⚠️ Mock interceptor: Performed double unwrapping for $path',
+                      'Mock interceptor: Performed double unwrapping for $path',
                     );
                   }
 
@@ -459,14 +459,14 @@ Dio setupStacMockDio() {
                 }
               }
 
-              // Log Response (AppLogger respects category settings)
-              AppLogger.dc(LogCategory.network, '📥 STAC 200 ${options.uri}');
+              // Log Response (Mock - served from local JSON file)
+              AppLogger.dc(LogCategory.stacMock, 'MOCK 200 ${options.uri}');
               final dataStr1 = resolvedJson.toString();
               if (dataStr1.length < 500) {
-                AppLogger.dc(LogCategory.network, '   Response: $dataStr1');
+                AppLogger.dc(LogCategory.stacMock, '   Response: $dataStr1');
               } else {
                 AppLogger.dc(
-                  LogCategory.network,
+                  LogCategory.stacMock,
                   '   Response: ${dataStr1.substring(0, 500)}... (truncated)',
                 );
               }
@@ -493,24 +493,24 @@ Dio setupStacMockDio() {
               // So we need to wrap innerData in {"data": innerData} to match targetPath expectations
               AppLogger.dc(
                 LogCategory.stacMock,
-                '✅ Mock interceptor: Returning response for $method $path (status: $statusCode)',
+                'Mock interceptor: Returning response for $method $path (status: $statusCode)',
               );
 
               // Wrap the data to match targetPath structure
               // If targetPath is 'data.menuItems', response should be {"data": {"menuItems": [...]}}
               final wrappedResponse = {'data': innerData};
 
-              // Log Response (AppLogger respects category settings)
+              // Log Response (Mock - served from local JSON file)
               AppLogger.dc(
-                LogCategory.network,
-                '📥 STAC $statusCode ${options.uri}',
+                LogCategory.stacMock,
+                'MOCK $statusCode ${options.uri}',
               );
               final dataStr2 = wrappedResponse.toString();
               if (dataStr2.length < 500) {
-                AppLogger.dc(LogCategory.network, '   Response: $dataStr2');
+                AppLogger.dc(LogCategory.stacMock, '   Response: $dataStr2');
               } else {
                 AppLogger.dc(
-                  LogCategory.network,
+                  LogCategory.stacMock,
                   '   Response: ${dataStr2.substring(0, 500)}... (truncated)',
                 );
               }
@@ -525,20 +525,20 @@ Dio setupStacMockDio() {
             } else {
               AppLogger.wc(
                 LogCategory.stacMock,
-                '⚠️ Mock interceptor: Method $method not found in $finalAssetPath',
+                'Mock interceptor: Method $method not found in $finalAssetPath',
               );
             }
           } catch (e) {
             // File not found or error loading - let request continue normally
             // This allows real API calls if mock file doesn't exist
-            AppLogger.wc(
-              LogCategory.network,
-              '⚠️ Mock file not found or error loading: $finalAssetPath - $e',
+            AppLogger.dc(
+              LogCategory.stacMock,
+              'Mock file not found, falling back to real network: $finalAssetPath',
             );
           }
         } catch (e) {
           // Error in interceptor - let request continue
-          AppLogger.ec(LogCategory.network, 'Error in mock interceptor: $e');
+          AppLogger.ec(LogCategory.stacMock, 'Error in mock interceptor: $e');
         }
 
         // Continue with normal request if mock file not found
@@ -550,14 +550,14 @@ Dio setupStacMockDio() {
             : response.data.toString();
         AppLogger.dc(
           LogCategory.network,
-          '📥 RESPONSE ${response.statusCode} ${response.requestOptions.uri}: $responseJson',
+          'RESPONSE ${response.statusCode} ${response.requestOptions.uri}: $responseJson',
         );
         handler.next(response);
       },
       onError: (DioException e, handler) {
         AppLogger.ec(
           LogCategory.network,
-          '❌ STAC Error: ${e.message} path: ${e.requestOptions.uri}',
+          'STAC Error: ${e.message} path: ${e.requestOptions.uri}',
         );
         if (e.response != null) {
           AppLogger.ec(

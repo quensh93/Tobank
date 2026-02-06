@@ -162,5 +162,5 @@ void registerFilePickerActionParser() {
   CustomComponentRegistry.instance.registerAction(
     const FilePickerActionParser(),
   );
-  AppLogger.dc(LogCategory.action, 'Registered FilePickerActionParser');
+  AppLogger.dc(LogCategory.registry, 'Registered FilePickerActionParser');
 }

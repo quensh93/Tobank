@@ -20,10 +20,14 @@ void main() async {
   // Load log settings from storage BEFORE any logging happens
   // This ensures disabled log categories are respected from the start
   await AppLogger.loadSettingsFromStorage();
+  
+  // Override logging early to catch initialization logs
+  AppLogger.overrideFlutterDebugPrint();
 
   // Setup Dio with MockInterceptor for STAC dynamicView
   // This allows dynamicView to use mocked API responses from stac/tobank/{feature}/api/
   final stacDio = setupStacMockDio();
+
 
   // Initialize STAC framework with options and mocked Dio
   await Stac.initialize(options: defaultStacOptions, dio: stacDio);

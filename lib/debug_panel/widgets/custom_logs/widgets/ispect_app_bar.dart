@@ -22,6 +22,7 @@ class ISpectAppBar extends StatefulWidget {
     this.backgroundColor,
     this.searchController,
     this.onSearchChanged,
+    this.leading,
     super.key,
   });
 
@@ -36,6 +37,7 @@ class ISpectAppBar extends StatefulWidget {
   final VoidCallback? onSettingsTap;
   final VoidCallback? onInfoTap;
   final VoidCallback? onClearTap;
+  final Widget? leading;
 
   final FocusNode focusNode;
 
@@ -126,8 +128,8 @@ class _ISpectAppBarState extends State<ISpectAppBar> {
           expandedHeight: !value ? 110 : 160,
           collapsedHeight: 60,
           toolbarHeight: 60,
-          automaticallyImplyLeading: false,
-          leading: null,
+          automaticallyImplyLeading: true,
+          leading: widget.leading,
           scrolledUnderElevation: 0,
           backgroundColor: widget.backgroundColor ??
               context.ispectTheme.scaffoldBackgroundColor,

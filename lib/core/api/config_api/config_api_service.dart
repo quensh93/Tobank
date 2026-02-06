@@ -98,15 +98,15 @@ class ConfigApiService {
     final headers = {'Content-Type': 'application/json', 'Accept': '*/*'};
 
     try {
-      AppLogger.d('🔍 ConfigApiService: Fetching SDUI config...');
-      AppLogger.d('🔍 Full URL: $url');
+      AppLogger.dc(LogCategory.network, 'Fetching SDUI config...');
+      AppLogger.dc(LogCategory.network, 'URL: $url');
 
       // Manual CURL logging matching exactly what we are about to send
       final jsonBody = jsonEncode(requestBody);
       String curl = 'curl --request POST --url $url';
       headers.forEach((k, v) => curl += " --header '$k: $v'");
       curl += " --data '$jsonBody'";
-      AppLogger.d('🐛 MANUAL CURL: $curl');
+      AppLogger.dc(LogCategory.network, 'CURL: $curl');
 
       final options = Options(
         headers: headers,
@@ -121,9 +121,18 @@ class ConfigApiService {
         options: options,
       );
 
-      AppLogger.d(
-        '✅ ConfigApiService: Response received: ${response.statusCode}',
+      AppLogger.dc(
+        LogCategory.network,
+        'RESPONSE ${response.statusCode}: SDUI config received',
       );
+      
+      // Log response body
+      try {
+        final responseStr = jsonEncode(response.data);
+        AppLogger.dc(LogCategory.network, '   Body: $responseStr');
+      } catch (e) {
+        AppLogger.dc(LogCategory.network, '   Body: (Error encoding response: $e)');
+      }
 
       if (response.data == null) {
         throw ConfigApiException('Response data is null');

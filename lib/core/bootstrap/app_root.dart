@@ -1,3 +1,4 @@
+import 'dart:ui'; // For PointerDeviceKind
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -41,6 +42,8 @@ class _AppRootState extends ConsumerState<AppRoot> {
   StacTheme? _lightTheme;
   StacTheme? _darkTheme;
   bool _themesLoaded = false;
+
+
 
   @override
   void initState() {
@@ -140,6 +143,7 @@ class _AppRootState extends ConsumerState<AppRoot> {
     // Use StacApp if themes loaded successfully, otherwise fallback to MaterialApp
     final app = _lightTheme != null && _darkTheme != null
         ? StacApp(
+            scrollBehavior: MyScrollBehavior(), // Enable mouse scrolling with custom behavior
             navigatorKey: AppRoot.mainAppNavigatorKey,
             debugShowCheckedModeBanner: false,
             theme: _lightTheme!,
@@ -165,7 +169,9 @@ class _AppRootState extends ConsumerState<AppRoot> {
             showPerformanceOverlay: false,
             showSemanticsDebugger: false,
             debugShowMaterialGrid: false,
-            navigatorObservers: observer != null ? [observer] : [],
+            navigatorObservers: observer != null
+                ? [observer, observer.ispectObserver]
+                : [],
             routes: {
               '/stac-test': (context) => const StacTestPage(),
               '/simple-api-test': (context) => const SimpleApiTestPage(),
@@ -198,14 +204,19 @@ class _AppRootState extends ConsumerState<AppRoot> {
                     isISpectEnabled:
                         isEnabled, // Control ISpect panel visibility via settings
                     options: ISpectOptions(
-                      observer: observer, // Must match navigatorObservers above
+                      observer: observer
+                          .ispectObserver, // Pass inner ISpect observer
                       locale: const Locale('en'),
                       panelItems: panelItems, // Use panelItems for grid layout
                       panelButtons:
                           panelButtons, // Empty list to clear wide buttons
+                      actionItems: [], // Clear default action items
                       // Disable some default items to prevent overflow (save space)
                       isInspectorEnabled: false,
                       isColorPickerEnabled: false,
+                      isLogPageEnabled: false,
+                      isPerformanceEnabled: true,
+                      
                     ),
                     child: child ?? const SizedBox.shrink(),
                   );
@@ -233,6 +244,7 @@ class _AppRootState extends ConsumerState<AppRoot> {
             },
           )
         : MaterialApp(
+            scrollBehavior: MyScrollBehavior(), // Enable mouse scrolling with custom behavior
             navigatorKey: AppRoot.mainAppNavigatorKey,
             debugShowCheckedModeBanner: false,
             theme: buildTheme(brightness: Brightness.light),
@@ -258,7 +270,9 @@ class _AppRootState extends ConsumerState<AppRoot> {
             showPerformanceOverlay: false,
             showSemanticsDebugger: false,
             debugShowMaterialGrid: false,
-            navigatorObservers: observer != null ? [observer] : [],
+            navigatorObservers: observer != null
+                ? [observer, observer.ispectObserver]
+                : [],
             routes: {
               '/stac-test': (context) => const StacTestPage(),
               '/simple-api-test': (context) => const SimpleApiTestPage(),
@@ -291,7 +305,8 @@ class _AppRootState extends ConsumerState<AppRoot> {
                     isISpectEnabled:
                         isEnabled, // Control ISpect panel visibility via settings
                     options: ISpectOptions(
-                      observer: observer, // Must match navigatorObservers above
+                      observer: observer
+                          .ispectObserver, // Pass inner ISpect observer
                       locale: const Locale('en'),
                       panelButtons:
                           panelButtons, // Add custom debug panel toggle button with ON/OFF label
@@ -354,4 +369,15 @@ class _AppRootState extends ConsumerState<AppRoot> {
       TobankColorsLoader.setCurrentTheme(themeString);
     }
   }
+}
+
+class MyScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.stylus,
+        PointerDeviceKind.trackpad,
+        PointerDeviceKind.unknown,
+      };
 }

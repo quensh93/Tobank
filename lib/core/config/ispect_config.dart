@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:ispect/ispect.dart';
 import '../bootstrap/app_root.dart';
+import '../helpers/logger.dart';
 import '../../debug_panel/state/debug_panel_settings_state.dart';
+import '../../debug_panel/state/device_preview_state.dart';
+import '../../debug_panel/widgets/custom_logs/screens/logs_screen.dart';
 import '../../features/pre_launch/providers/theme_controller_provider.dart';
 
 /// ISpect configuration for conditional initialization
@@ -58,19 +61,74 @@ class ISpectConfig {
 /// Provider to share the ISpectNavigatorObserver instance
 /// This ensures all parts of the app use the same observer instance
 /// that's tracking navigation in MaterialApp.navigatorObservers
-final ispectNavigatorObserverProvider = Provider<ISpectNavigatorObserver?>((
-  ref,
-) {
-  if (!ISpectConfig.shouldInitialize) {
-    return null;
+final ispectNavigatorObserverProvider =
+    Provider<ConsoleLoggingNavigatorObserver?>((ref) {
+      if (!ISpectConfig.shouldInitialize) {
+        return null;
+      }
+      // Wrap ISpect's observer with our console-logging observer
+      final ispectObserver = ISpectNavigatorObserver(
+        isLogModals: true,
+        isLogPages: true,
+        isLogGestures: false,
+        isLogOtherTypes: true,
+      );
+      return ConsoleLoggingNavigatorObserver(ispectObserver);
+    });
+
+/// A NavigatorObserver that logs navigation events to console.
+/// ISpect's observer is added separately to navigatorObservers list.
+class ConsoleLoggingNavigatorObserver extends NavigatorObserver {
+  final ISpectNavigatorObserver _ispectObserver;
+
+  ConsoleLoggingNavigatorObserver(this._ispectObserver);
+
+  // Expose ISpect observer so it can be added to navigatorObservers
+  ISpectNavigatorObserver get ispectObserver => _ispectObserver;
+
+  @override
+  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
+    // Only log to console - ISpect observer handles its own logging
+    _logNavigation('PUSH', route, previousRoute);
   }
-  return ISpectNavigatorObserver(
-    isLogModals: true,
-    isLogPages: true,
-    isLogGestures: false,
-    isLogOtherTypes: true,
-  );
-});
+
+  @override
+  void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
+    _logNavigation('POP', previousRoute, route);
+  }
+
+  @override
+  void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) {
+    AppLogger.dc(
+      LogCategory.navigation,
+      'REPLACE ${oldRoute?.settings.name ?? 'unknown'} → ${newRoute?.settings.name ?? 'unknown'}',
+    );
+  }
+
+  @override
+  void didRemove(Route<dynamic> route, Route<dynamic>? previousRoute) {
+    AppLogger.dc(
+      LogCategory.navigation,
+      'REMOVE ${route.settings.name ?? 'unknown'}',
+    );
+  }
+
+  void _logNavigation(
+    String action,
+    Route<dynamic>? toRoute,
+    Route<dynamic>? fromRoute,
+  ) {
+    final to =
+        toRoute?.settings.name ?? toRoute?.runtimeType.toString() ?? 'unknown';
+    final from = fromRoute?.settings.name ?? fromRoute?.runtimeType.toString();
+
+    if (from != null) {
+      AppLogger.dc(LogCategory.navigation, '$action $from → $to');
+    } else {
+      AppLogger.dc(LogCategory.navigation, '$action → $to');
+    }
+  }
+}
 
 /// Provider for ISpect panel buttons with custom debug panel toggle
 final ispectPanelButtonsProvider = Provider<List<DraggablePanelButtonItem>>((
@@ -81,10 +139,6 @@ final ispectPanelButtonsProvider = Provider<List<DraggablePanelButtonItem>>((
 
 /// Provider for ISpect panel grid items (small icons)
 final ispectPanelItemsProvider = Provider<List<DraggablePanelItem>>((ref) {
-  // Access debug panel settings
-  final settings = ref.watch(debugPanelSettingsProvider);
-  final controller = ref.read(debugPanelSettingsProvider.notifier);
-
   // Watch theme controller for current theme
   final themeAsync = ref.watch(themeControllerProvider);
   final themeMode = themeAsync.maybeWhen(
@@ -94,6 +148,23 @@ final ispectPanelItemsProvider = Provider<List<DraggablePanelItem>>((ref) {
   final themeController = ref.read(themeControllerProvider.notifier);
 
   return [
+    // Custom Logs Screen - Opens our custom LogsScreen with all Debug Panel settings
+    DraggablePanelItem(
+      icon: Icons.bug_report,
+      enableBadge: false,
+      description: 'Logs',
+      onTap: (context) {
+        final observer = ref.read(ispectNavigatorObserverProvider);
+        // Use main app navigator key since draggable panel context has no Navigator
+        AppRoot.mainAppNavigatorKey.currentState?.push(
+          MaterialPageRoute(
+            settings: const RouteSettings(name: 'Custom Logs Screen'),
+            builder: (ctx) => _CustomLogsPage(observer: observer),
+          ),
+        );
+      },
+    ),
+
     // Back Button
     DraggablePanelItem(
       icon: Icons.arrow_back,
@@ -152,56 +223,108 @@ final ispectPanelItemsProvider = Provider<List<DraggablePanelItem>>((ref) {
                 '🔧 Current debugPanelEnabled: ${currentSettings.debugPanelEnabled}',
               );
 
+              final deviceState = consumerRef.watch(devicePreviewProvider);
+              final deviceController = consumerRef.read(
+                devicePreviewProvider.notifier,
+              );
+
               return Container(
                 padding: const EdgeInsets.only(bottom: 16),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 16),
-                      child: Text(
-                        'Debug Tools',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(bottom: 16),
+                        child: Text(
+                          'Debug Tools',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                    ),
-                    // Debug Panel Toggle (Global)
-                    ListTile(
-                      leading: Icon(
-                        currentSettings.debugPanelEnabled
-                            ? Icons.power_settings_new
-                            : Icons.power_off,
-                        color: currentSettings.debugPanelEnabled
-                            ? Colors.green
-                            : null,
+                      // Device Preview Toggle
+                      ListTile(
+                        leading: Icon(
+                          deviceState.isPreviewEnabled
+                              ? Icons.phone_android
+                              : Icons.phone_android_outlined,
+                          color: deviceState.isPreviewEnabled
+                              ? Colors.blue
+                              : null,
+                        ),
+                        title: const Text('Device Preview'),
+                        subtitle: Text(
+                          deviceState.isPreviewEnabled ? 'On' : 'Off',
+                        ),
+                        trailing: Switch(
+                          value: deviceState.isPreviewEnabled,
+                          onChanged: (value) {
+                            deviceController.setPreviewEnabled(value);
+                            if (value && !currentSettings.debugPanelEnabled) {
+                              currentController.setDebugPanelEnabled(true);
+                              currentController.setAreToolsVisible(false);
+                            }
+                          },
+                        ),
                       ),
-                      title: const Text('Debug System'),
-                      subtitle: Text(
-                        currentSettings.debugPanelEnabled
-                            ? 'Enabled'
-                            : 'Disabled',
+
+                      // Draggable Panel (Bottom Sheet) Toggle
+                      ListTile(
+                        leading: Icon(
+                          currentSettings.areToolsVisible
+                              ? Icons.vertical_align_bottom
+                              : Icons.vertical_align_bottom_sharp, // Variant
+                          color: currentSettings.areToolsVisible
+                              ? Colors.orange
+                              : null,
+                        ),
+                        title: const Text('Draggable Panel'),
+                        subtitle: Text(
+                          currentSettings.areToolsVisible
+                              ? 'Visible'
+                              : 'Hidden',
+                        ),
+                        trailing: Switch(
+                          value: currentSettings.areToolsVisible,
+                          onChanged: (value) {
+                            currentController.setAreToolsVisible(value);
+                            if (value && !currentSettings.debugPanelEnabled) {
+                              currentController.setDebugPanelEnabled(true);
+                            }
+                          },
+                        ),
                       ),
-                      trailing: Switch(
-                        value: currentSettings.debugPanelEnabled,
-                        onChanged: (value) {
-                          debugPrint('🔧 Switch onChanged: $value');
-                          Navigator.pop(sheetContext);
-                          currentController.setDebugPanelEnabled(value);
-                        },
+
+                      // Debug Panel Toggle (Global)
+                      ListTile(
+                        leading: Icon(
+                          currentSettings.debugPanelEnabled
+                              ? Icons.power_settings_new
+                              : Icons.power_off,
+                          color: currentSettings.debugPanelEnabled
+                              ? Colors.green
+                              : null,
+                        ),
+                        title: const Text('Debug System'),
+                        subtitle: Text(
+                          currentSettings.debugPanelEnabled
+                              ? 'Enabled'
+                              : 'Disabled',
+                        ),
+                        trailing: Switch(
+                          value: currentSettings.debugPanelEnabled,
+                          onChanged: (value) {
+                            currentController.setDebugPanelEnabled(value);
+                            if (value) {
+                              currentController.setAreToolsVisible(true);
+                            }
+                          },
+                        ),
                       ),
-                      onTap: () {
-                        debugPrint(
-                          '🔧 ListTile onTap: toggling to ${!currentSettings.debugPanelEnabled}',
-                        );
-                        Navigator.pop(sheetContext);
-                        currentController.setDebugPanelEnabled(
-                          !currentSettings.debugPanelEnabled,
-                        );
-                      },
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               );
             },
@@ -209,26 +332,53 @@ final ispectPanelItemsProvider = Provider<List<DraggablePanelItem>>((ref) {
         );
       },
     ),
-
-    // Tools Visibility Toggle (eye icon) - shows/hides debug tools but KEEPS device frame
-    // CRITICAL: Read fresh state INSIDE onTap to avoid stale closures
-    DraggablePanelItem(
-      icon: settings.areToolsVisible ? Icons.visibility : Icons.visibility_off,
-      enableBadge: false,
-      description: 'Toggle Tools',
-      onTap: (context) {
-        // Read FRESH state from ProviderScope - don't use captured 'settings'!
-        final container = ProviderScope.containerOf(context);
-        final currentSettings = container.read(debugPanelSettingsProvider);
-        final currentController = container.read(
-          debugPanelSettingsProvider.notifier,
-        );
-
-        debugPrint(
-          '🔧 Tools toggle tapped - current: ${currentSettings.areToolsVisible}',
-        );
-        currentController.setAreToolsVisible(!currentSettings.areToolsVisible);
-      },
-    ),
   ];
 });
+
+/// Custom Logs Page that wraps our LogsScreen with ISpect context
+/// This is opened from the ISpect draggable panel's "Logs" button
+class _CustomLogsPage extends StatelessWidget {
+  const _CustomLogsPage({required this.observer});
+
+  final ConsoleLoggingNavigatorObserver? observer;
+
+  @override
+  Widget build(BuildContext context) {
+    return Localizations(
+      locale: const Locale('en'),
+      delegates: ISpectLocalizations.delegates(),
+      child: ISpectBuilder(
+        isISpectEnabled: false, // No nested draggable panel
+        options: ISpectOptions(
+          observer: observer?.ispectObserver,
+          locale: const Locale('en'),
+        ),
+        child: ScaffoldMessenger(
+          child: Builder(
+            builder: (builderContext) {
+              try {
+                final ispectScope = ISpect.read(builderContext);
+                return LogsScreen(
+                  options: ispectScope.options,
+                  appBarTitle: 'Custom Logs',
+                );
+              } catch (e) {
+                // Fallback if ISpect context not available
+                return Scaffold(
+                  appBar: AppBar(
+                    title: const Text('Logs Error'),
+                    leading: IconButton(
+                      icon: const Icon(Icons.arrow_back),
+                      onPressed: () => Navigator.of(context).pop(),
+                    ),
+                  ),
+                  body: Center(child: Text('Error loading logs: $e')),
+                );
+              }
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}

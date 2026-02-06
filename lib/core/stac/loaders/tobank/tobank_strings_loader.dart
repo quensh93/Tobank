@@ -41,14 +41,14 @@ class TobankStringsLoader {
     }
 
     if (_loaded && !forceReload) {
-      AppLogger.dc(LogCategory.string, '✅ Strings already loaded, skipping');
+      AppLogger.dc(LogCategory.string, 'Strings already loaded, skipping');
       return;
     }
 
     try {
       AppLogger.ic(
         LogCategory.string,
-        '📥 Loading localization strings from $_stringsUrl...',
+        'Loading localization strings from $_stringsUrl...',
       );
 
       final response = await dio.get(_stringsUrl);
@@ -66,7 +66,7 @@ class TobankStringsLoader {
       );
 
       if (response.data == null || response.data['data'] == null) {
-        AppLogger.ec(LogCategory.string, '❌ Strings response data is null!');
+        AppLogger.ec(LogCategory.string, 'Strings response data is null!');
         return;
       }
 
@@ -79,7 +79,7 @@ class TobankStringsLoader {
       _loaded = true;
       AppLogger.ic(
         LogCategory.string,
-        '✅ Localization strings loaded and cached in StacRegistry',
+        'Localization strings loaded and cached in StacRegistry',
       );
       AppLogger.dc(
         LogCategory.string,
@@ -113,19 +113,19 @@ class TobankStringsLoader {
       if (sample1 == null) {
         AppLogger.wc(
           LogCategory.string,
-          '⚠️ WARNING: appStrings.login.validationTitle is NULL in registry!',
+          'WARNING: appStrings.login.validationTitle is NULL in registry!',
         );
       }
       if (sample2 == null) {
         AppLogger.wc(
           LogCategory.string,
-          '⚠️ WARNING: appStrings.menu.appBarTitle is NULL in registry!',
+          'WARNING: appStrings.menu.appBarTitle is NULL in registry!',
         );
       }
     } catch (e, stackTrace) {
       AppLogger.ec(
         LogCategory.string,
-        '❌ Failed to load localization strings',
+        'Failed to load localization strings',
         e,
         stackTrace,
       );
@@ -168,7 +168,7 @@ class TobankStringsLoader {
     _storedKeys.clear();
     AppLogger.dc(
       LogCategory.string,
-      '🗑️ Cleared $count string keys from registry',
+      'Cleared $count string keys from registry',
     );
   }
 
@@ -176,7 +176,7 @@ class TobankStringsLoader {
   static void clearCache() {
     _clearStoredKeys();
     _loaded = false;
-    AppLogger.ic(LogCategory.string, '🗑️ Strings cache cleared');
+    AppLogger.ic(LogCategory.string, 'Strings cache cleared');
   }
 
   /// Check if strings are loaded

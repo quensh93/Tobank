@@ -44,19 +44,19 @@ class TobankStylesLoader {
     }
 
     if (_loaded && !forceReload) {
-      AppLogger.d('✅ Styles already loaded, skipping');
+      AppLogger.d('Styles already loaded, skipping');
       return;
     }
 
     try {
-      AppLogger.i('📥 Loading component styles from $_stylesUrl...');
+      AppLogger.i('Loading component styles from $_stylesUrl...');
 
       final response = await dio.get(_stylesUrl);
       AppLogger.d('   Response received: ${response.statusCode}');
       AppLogger.d('   Response data type: ${response.data.runtimeType}');
 
       if (response.data == null || response.data['data'] == null) {
-        AppLogger.e('❌ Styles response data is null!');
+        AppLogger.e('Styles response data is null!');
         return;
       }
 
@@ -68,21 +68,21 @@ class TobankStylesLoader {
         stylesData,
         sampleStyleKey.split('.'),
       );
-      AppLogger.i('🔍 RAW STYLES DATA VERIFICATION:');
+      AppLogger.i('RAW STYLES DATA VERIFICATION:');
       AppLogger.i('   Sample key: $sampleStyleKey');
       AppLogger.i('   Sample value: $sampleStyleValue');
       AppLogger.i('   Value type: ${sampleStyleValue.runtimeType}');
       if (sampleStyleValue is String &&
           sampleStyleValue.contains('appColors')) {
         AppLogger.w(
-          '   ⚠️ WARNING: Value contains appColors reference: $sampleStyleValue',
+          '   WARNING: Value contains appColors reference: $sampleStyleValue',
         );
         if (sampleStyleValue.contains('light')) {
           AppLogger.e(
-            '   ❌ ERROR: Found appColors.light reference! Should be appColors.current!',
+            '   ERROR: Found appColors.light reference! Should be appColors.current!',
           );
         } else if (sampleStyleValue.contains('current')) {
-          AppLogger.i('   ✅ Good: Found appColors.current reference');
+          AppLogger.i('   Good: Found appColors.current reference');
         }
       }
 
@@ -99,7 +99,7 @@ class TobankStylesLoader {
         'appColors.current.button.primary.foregroundColor',
       );
 
-      AppLogger.i('🔍 PRE-RESOLUTION VERIFICATION:');
+      AppLogger.i('PRE-RESOLUTION VERIFICATION:');
       AppLogger.i('   Current theme: $currentTheme');
       AppLogger.i(
         '   appColors.current.text.title = $testColor1 (expected: ${currentTheme == 'dark' ? '#f9fafb' : '#101828'})',
@@ -113,7 +113,7 @@ class TobankStylesLoader {
 
       if (testColor1 == null || testColor2 == null || testColor3 == null) {
         AppLogger.e(
-          '❌ CRITICAL: Color aliases are missing! Cannot resolve styles correctly.',
+          'CRITICAL: Color aliases are missing! Cannot resolve styles correctly.',
         );
         AppLogger.e(
           '   This will cause incorrect theme colors to be stored in styles.',
@@ -129,7 +129,7 @@ class TobankStylesLoader {
       _storeStyles(resolvedStylesData, _prefix);
 
       _loaded = true;
-      AppLogger.i('✅ Component styles loaded and cached in StacRegistry');
+      AppLogger.i('Component styles loaded and cached in StacRegistry');
       AppLogger.d('   Total keys stored: ${_storedKeys.length}');
 
       // Debug: Verify sample values (check actual properties that exist)
@@ -155,7 +155,7 @@ class TobankStylesLoader {
         'appColors.current.text.title',
       );
 
-      AppLogger.d('   📊 Theme: $currentTheme');
+      AppLogger.d('   Theme: $currentTheme');
       AppLogger.d(
         '   Sample 1: appStyles.button.primary.backgroundColor = $sample1',
       );
@@ -171,21 +171,21 @@ class TobankStylesLoader {
 
       if (sample1 == null) {
         AppLogger.w(
-          '⚠️ WARNING: appStyles.button.primary.backgroundColor is NULL in registry!',
+          'WARNING: appStyles.button.primary.backgroundColor is NULL in registry!',
         );
       }
       if (sample2 == null) {
         AppLogger.w(
-          '⚠️ WARNING: appStyles.input.login.hintStyleColor is NULL in registry!',
+          'WARNING: appStyles.input.login.hintStyleColor is NULL in registry!',
         );
       }
       if (sample3 == null) {
         AppLogger.w(
-          '⚠️ WARNING: appStyles.text.pageTitle.color is NULL in registry!',
+          'WARNING: appStyles.text.pageTitle.color is NULL in registry!',
         );
       }
     } catch (e, stackTrace) {
-      AppLogger.e('❌ Failed to load component styles', e, stackTrace);
+      AppLogger.e('Failed to load component styles', e, stackTrace);
       // Don't throw - app can still work with fallback styles
     }
   }
@@ -227,14 +227,14 @@ class TobankStylesLoader {
       StacRegistry.instance.removeValue(key);
     }
     _storedKeys.clear();
-    AppLogger.d('🗑️ Cleared $count style keys from registry');
+    AppLogger.d('Cleared $count style keys from registry');
   }
 
   /// Clear cached styles (useful for testing or theme switching)
   static void clearCache() {
     _clearStoredKeys();
     _loaded = false;
-    AppLogger.i('🗑️ Styles cache cleared');
+    AppLogger.i('Styles cache cleared');
   }
 
   /// Check if styles are loaded
@@ -284,7 +284,7 @@ class TobankStylesLoader {
         // CRITICAL: Check if we're resolving the wrong theme
         if (variableName.contains('.light.') && currentTheme == 'dark') {
           AppLogger.e(
-            '   ❌ CRITICAL ERROR: Resolving appColors.light.* in DARK theme mode!',
+            '   CRITICAL ERROR: Resolving appColors.light.* in DARK theme mode!',
           );
           AppLogger.e('      Original string was: $data');
           AppLogger.e(
@@ -298,7 +298,7 @@ class TobankStylesLoader {
           // Use the correct value instead
           if (correctValue != null) {
             AppLogger.w(
-              '   🔧 FIXING: Using correct value $correctValue instead of $value',
+              '   FIXING: Using correct value $correctValue instead of $value',
             );
             return correctValue;
           }
@@ -312,10 +312,10 @@ class TobankStylesLoader {
               ? expectedDark
               : expectedLight;
           if (value.toString() == expected) {
-            AppLogger.d('      ✅ Matches expected $currentTheme theme color');
+            AppLogger.d('      Matches expected $currentTheme theme color');
           } else {
             AppLogger.w(
-              '      ⚠️ MISMATCH! Expected $expected for $currentTheme, got $value',
+              '      MISMATCH! Expected $expected for $currentTheme, got $value',
             );
             // Also check what the light and dark values are
             final lightValue = StacRegistry.instance.getValue(
@@ -334,10 +334,10 @@ class TobankStylesLoader {
               ? expectedDark
               : expectedLight;
           if (value.toString() == expected) {
-            AppLogger.d('      ✅ Matches expected $currentTheme theme color');
+            AppLogger.d('      Matches expected $currentTheme theme color');
           } else {
             AppLogger.w(
-              '      ⚠️ MISMATCH! Expected $expected for $currentTheme, got $value',
+              '      MISMATCH! Expected $expected for $currentTheme, got $value',
             );
           }
         } else if (variableName.contains(
@@ -349,10 +349,10 @@ class TobankStylesLoader {
               ? expectedDark
               : expectedLight;
           if (value.toString() == expected) {
-            AppLogger.d('      ✅ Matches expected $currentTheme theme color');
+            AppLogger.d('      Matches expected $currentTheme theme color');
           } else {
             AppLogger.w(
-              '      ⚠️ MISMATCH! Expected $expected for $currentTheme, got $value',
+              '      MISMATCH! Expected $expected for $currentTheme, got $value',
             );
           }
         }
@@ -360,7 +360,7 @@ class TobankStylesLoader {
         if (value != null) {
           return value; // Return the actual color value
         }
-        AppLogger.w('⚠️ Color variable not found: $variableName');
+        AppLogger.w('Color variable not found: $variableName');
         return data; // Variable not found, return original
       }
 

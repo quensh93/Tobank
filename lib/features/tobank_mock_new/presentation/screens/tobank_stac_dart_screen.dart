@@ -25,8 +25,9 @@ class TobankStacDartScreen extends ConsumerWidget {
       orElse: () => ThemeMode.system,
     );
 
-    conditionalPrint(
-      '🎨 TobankStacDartScreen rebuilding with theme: ${themeMode.name}',
+    AppLogger.dc(
+      LogCategory.theme,
+      'TobankStacDartScreen rebuilding with theme: ${themeMode.name}',
     );
 
     final stacWidget = tobank_menu.tobankMenuDart();

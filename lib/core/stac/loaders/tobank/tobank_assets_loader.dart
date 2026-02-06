@@ -28,18 +28,18 @@ class TobankAssetsLoader {
     }
 
     if (_loaded && !forceReload) {
-      AppLogger.d('✅ Assets already loaded, skipping');
+      AppLogger.d('Assets already loaded, skipping');
       return;
     }
 
     try {
-      AppLogger.i('📥 Loading assets from $_assetsUrl...');
+      AppLogger.i('Loading assets from $_assetsUrl...');
 
       final response = await dio.get(_assetsUrl);
       AppLogger.d('   Response received: ${response.statusCode}');
 
       if (response.data == null || response.data['data'] == null) {
-        AppLogger.e('❌ Assets response data is null!');
+        AppLogger.e('Assets response data is null!');
         return;
       }
 
@@ -50,10 +50,10 @@ class TobankAssetsLoader {
       _flattenAndStore(assetsData, _prefix);
 
       _loaded = true;
-      AppLogger.i('✅ Assets loaded and cached in StacRegistry');
+      AppLogger.i('Assets loaded and cached in StacRegistry');
       AppLogger.d('   Total keys stored: ${_storedKeys.length}');
     } catch (e, stackTrace) {
-      AppLogger.e('❌ Failed to load assets', e, stackTrace);
+      AppLogger.e('Failed to load assets', e, stackTrace);
     }
   }
 

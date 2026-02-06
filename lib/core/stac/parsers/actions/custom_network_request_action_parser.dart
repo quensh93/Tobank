@@ -57,34 +57,34 @@ class CustomNetworkRequestActionParser
           payload = (responseData['result'] as Map)['data'];
         }
         AppLogger.dc(
-          LogCategory.network,
-          '📦 Response structure: data=${responseData['data']?.runtimeType}, result=${responseData['result']?.runtimeType}',
+          LogCategory.stacData,
+          'Response structure: data=${responseData['data']?.runtimeType}, result=${responseData['result']?.runtimeType}',
         );
       } else if (responseData is List) {
         // If response is already an array, use it directly
         payload = responseData;
         AppLogger.dc(
-          LogCategory.network,
-          '📦 Response is List directly, length=${responseData.length}',
+          LogCategory.stacData,
+          'Response is List directly, length=${responseData.length}',
         );
       }
       if (payload != null) {
         StacRegistry.instance.setValue('data_payload', payload);
         final previewStr = payload.toString();
         AppLogger.dc(
-          LogCategory.network,
-          '📦 Set data_payload (${payload.runtimeType}): ${previewStr.length > 100 ? previewStr.substring(0, 100) + '...' : previewStr}',
+          LogCategory.stacData,
+          'Set data_payload (${payload.runtimeType}): ${previewStr.length > 100 ? previewStr.substring(0, 100) + '...' : previewStr}',
         );
       } else {
         AppLogger.wc(
-          LogCategory.network,
+          LogCategory.stacData,
           '⚠️ data_payload not set - payload is null. ResponseData type: ${responseData.runtimeType}',
         );
       }
 
       RegistryNotifier.instance.notify();
       AppLogger.dc(
-        LogCategory.network,
+        LogCategory.stacData,
         'Network response data stored in registry under "data" key',
       );
     }
@@ -109,24 +109,24 @@ class CustomNetworkRequestActionParser
         if (dpCheck != null) {
           final preview = dpCheck.toString();
           AppLogger.dc(
-            LogCategory.network,
-            '🔍 Before result action: data_payload (${dpCheck.runtimeType}) = ${preview.length > 80 ? preview.substring(0, 80) + '...' : preview}',
+            LogCategory.stacData,
+            'Before result action: data_payload (${dpCheck.runtimeType}) = ${preview.length > 80 ? preview.substring(0, 80) + '...' : preview}',
           );
         } else {
-          AppLogger.wc(LogCategory.network, '⚠️ Before result action: data_payload is NULL!');
+          AppLogger.wc(LogCategory.stacData, '⚠️ Before result action: data_payload is NULL!');
         }
         
         // Debug: Log the action type and structure
         final action = result.action;
         AppLogger.dc(
-          LogCategory.network,
-          '🔍 result.action type: ${action.runtimeType}',
+          LogCategory.stacData,
+          'result.action type: ${action.runtimeType}',
         );
         
         // Pre-resolve {{data_payload}} in the action JSON to prevent STAC framework 
         // from using stale cached values
         final resolvedAction = _resolveActionTemplates(action);
-        AppLogger.dc(LogCategory.network, '✓ Resolved action templates');
+        AppLogger.dc(LogCategory.stacData, 'Resolved action templates');
         return Stac.onCallFromJson(resolvedAction, context);
       }
     } catch (e) {
@@ -161,7 +161,7 @@ class CustomNetworkRequestActionParser
       final hasAuth = authValue.trim().isNotEmpty;
       AppLogger.dc(
         LogCategory.network,
-        'STAC request headers resolved (hasAuthorization=$hasAuth): '
+        'Request headers resolved (hasAuthorization=$hasAuth): '
         '${resolvedHeaders.map((k, v) => MapEntry(k, k.toLowerCase() == 'authorization' ? '***' : v))}',
       );
     }
@@ -218,8 +218,8 @@ class CustomNetworkRequestActionParser
       // Log ALL string values that contain {{ to debug
       if (value.contains('{{')) {
         AppLogger.dc(
-          LogCategory.network,
-          '🔎 Processing template string: "$value"',
+          LogCategory.stacVariable,
+          'Processing template: "$value"',
         );
       }
       
@@ -230,13 +230,13 @@ class CustomNetworkRequestActionParser
         if (expr != null && expr.isNotEmpty) {
           final resolved = StacRegistry.instance.getValue(expr);
           AppLogger.dc(
-            LogCategory.network,
-            '🔎 Resolved {{$expr}}: ${resolved != null ? resolved.runtimeType : 'NULL'}',
+            LogCategory.stacVariable,
+            'Resolved {{$expr}}: ${resolved != null ? resolved.runtimeType : 'NULL'}',
           );
           if (resolved != null) {
             AppLogger.dc(
-              LogCategory.network,
-              '✓ Resolved {{$expr}} to ${resolved.runtimeType}',
+              LogCategory.stacVariable,
+              'Resolved {{$expr}} to ${resolved.runtimeType}',
             );
             return resolved; // Return the actual value, not string
           }

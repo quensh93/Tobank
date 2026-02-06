@@ -55,18 +55,14 @@ class _DebugPanelState extends ConsumerState<DebugPanel> {
 
     return DebugPanelProvider(
       tools: widget.tools,
-      child: _LayoutSelector(
-        child: widget.child,
-      ),
+      child: _LayoutSelector(child: widget.child),
     );
   }
 }
 
 /// Widget that selects the appropriate layout based on settings and constraints
 class _LayoutSelector extends ConsumerWidget {
-  const _LayoutSelector({
-    required this.child,
-  });
+  const _LayoutSelector({required this.child});
 
   final Widget child;
 
@@ -79,7 +75,8 @@ class _LayoutSelector extends ConsumerWidget {
     );
 
     AppLogger.d(
-        '🔄 _LayoutSelector building - Layout mode: ${layoutMode.name}');
+      '🔄 _LayoutSelector building - Layout mode: ${layoutMode.name}',
+    );
 
     return LayoutBuilder(
       key: ValueKey('layout_builder_${layoutMode.name}'),
@@ -87,7 +84,8 @@ class _LayoutSelector extends ConsumerWidget {
         final isSmall = constraints.maxWidth < 700;
 
         AppLogger.d(
-            '🏗️ Building debug panel layout - Mode: ${layoutMode.name}, isSmall: $isSmall, width: ${constraints.maxWidth}');
+          '🏗️ Building debug panel layout - Mode: ${layoutMode.name}, isSmall: $isSmall, width: ${constraints.maxWidth}',
+        );
 
         // Create widget based on layout mode preference
         Widget layoutWidget;
@@ -154,10 +152,7 @@ class DebugPanelProvider extends ConsumerWidget {
 
 /// Responsive layout for large screens (desktop/tablet)
 class DebugPanelLargeLayout extends ConsumerStatefulWidget {
-  const DebugPanelLargeLayout({
-    super.key,
-    required this.child,
-  });
+  const DebugPanelLargeLayout({super.key, required this.child});
 
   final Widget child;
 
@@ -172,7 +167,7 @@ class _DebugPanelLargeLayoutState extends ConsumerState<DebugPanelLargeLayout> {
   static const double _minPanelHeight = 300.0; // Minimum height for both panels
 
   double?
-      _dragPanelWidth; // Local state during dragging, null when not dragging
+  _dragPanelWidth; // Local state during dragging, null when not dragging
 
   @override
   Widget build(BuildContext context) {
@@ -226,8 +221,10 @@ class _DebugPanelLargeLayoutState extends ConsumerState<DebugPanelLargeLayout> {
                       final delta = details.delta.dx;
                       final newLeftWidth =
                           (currentWidth * usableWidth + delta) / usableWidth;
-                      final clampedWidth =
-                          newLeftWidth.clamp(_minPanelWidth, _maxPanelWidth);
+                      final clampedWidth = newLeftWidth.clamp(
+                        _minPanelWidth,
+                        _maxPanelWidth,
+                      );
 
                       // Update local state for smooth UI (no save yet)
                       setState(() {
@@ -261,10 +258,9 @@ class _DebugPanelLargeLayoutState extends ConsumerState<DebugPanelLargeLayout> {
                               duration: const Duration(milliseconds: 150),
                               width: dividerWidth,
                               decoration: BoxDecoration(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .outline
-                                    .withValues(alpha: 0.15),
+                                color: Theme.of(
+                                  context,
+                                ).colorScheme.outline.withValues(alpha: 0.15),
                                 borderRadius: BorderRadius.circular(4),
                               ),
                               child: Center(
@@ -272,9 +268,7 @@ class _DebugPanelLargeLayoutState extends ConsumerState<DebugPanelLargeLayout> {
                                   width: 2,
                                   height: 40,
                                   decoration: BoxDecoration(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .outline
+                                    color: Theme.of(context).colorScheme.outline
                                         .withValues(alpha: 0.4),
                                     borderRadius: BorderRadius.circular(1),
                                   ),
@@ -306,41 +300,309 @@ class _DebugPanelLargeLayoutState extends ConsumerState<DebugPanelLargeLayout> {
 }
 
 /// Responsive layout for small screens (mobile)
-class DebugPanelSmallLayout extends ConsumerWidget {
-  const DebugPanelSmallLayout({
-    super.key,
-    required this.child,
-  });
+/// Implements a true Bottom Sheet behavior using Stack
+class DebugPanelSmallLayout extends ConsumerStatefulWidget {
+  const DebugPanelSmallLayout({super.key, required this.child});
 
   final Widget child;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<DebugPanelSmallLayout> createState() =>
+      _DebugPanelSmallLayoutState();
+}
+
+class _DebugPanelSmallLayoutState extends ConsumerState<DebugPanelSmallLayout> {
+  bool _isExpanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final areToolsVisible = ref.watch(
+      debugPanelSettingsProvider.select((state) => state.areToolsVisible),
+    );
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    // Calculated heights
+    final double collapsedHeight =
+        60 +
+        MediaQuery.of(context).padding.bottom +
+        40; // 60 tab + padding + 40 handle (Total ~100 + padding)
+    final double expandedHeight = screenHeight * 0.85; // Cover 85% of screen
+
     return Directionality(
       textDirection: TextDirection.ltr,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0), // Reduced from 16.0 to 8.0
-        child: Stack(
-          children: [
-            // App preview area
+      child: Stack(
+        children: [
+          // 1. App Layer
+          // Reserve space at the bottom for the collapsed panel so it doesn't overlap the device frame
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: areToolsVisible ? collapsedHeight : 0,
+            child: AppFrame(
+              key: const ValueKey('app_frame_small'),
+              child: widget.child,
+            ),
+          ),
+
+          // 2. Dimming Layer (optional, when expanded)
+          if (_isExpanded && areToolsVisible)
             Positioned.fill(
-              child: AppFrame(
-                key: const ValueKey('app_frame_small'),
-                child: child,
+              child: GestureDetector(
+                onTap: () => setState(() => _isExpanded = false),
+                child: Container(color: Colors.black.withOpacity(0.5)),
               ),
             ),
-            // Bottom debug panel
-            if (ref.watch(debugPanelSettingsProvider
-                .select((state) => state.areToolsVisible))) // Conditional tools
-              const Positioned(
-                left: 0,
-                right: 0,
-                bottom: 0,
-                height: DebugPanelConstants.mobilePanelHeight,
-                child: ToolPanel(isMobile: true),
+
+          // 3. Bottom Sheet Debug Panel
+          if (areToolsVisible)
+            AnimatedPositioned(
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeOutCubic,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              height: _isExpanded ? expandedHeight : collapsedHeight,
+              child: _MobileBottomSheetPanel(
+                isExpanded: _isExpanded,
+                onToggle: () => setState(() => _isExpanded = !_isExpanded),
+                onClose: () => setState(() => _isExpanded = false),
               ),
-          ],
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Mobile bottom sheet panel with drag handle and expandable content
+class _MobileBottomSheetPanel extends ConsumerStatefulWidget {
+  const _MobileBottomSheetPanel({
+    required this.isExpanded,
+    required this.onToggle,
+    required this.onClose,
+  });
+
+  final bool isExpanded;
+  final VoidCallback onToggle;
+  final VoidCallback onClose;
+
+  @override
+  ConsumerState<_MobileBottomSheetPanel> createState() =>
+      _MobileBottomSheetPanelState();
+}
+
+class _MobileBottomSheetPanelState
+    extends ConsumerState<_MobileBottomSheetPanel>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+  final ScrollController _tabBarScrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 9, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    _tabBarScrollController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final settings = ref.watch(debugPanelSettingsProvider);
+
+    // Sync tab index
+    if (_tabController.index != settings.selectedTabIndex) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && _tabController.index != settings.selectedTabIndex) {
+          _tabController.animateTo(settings.selectedTabIndex);
+        }
+      });
+    }
+
+    return Container(
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surface,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
         ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.2),
+            blurRadius: 10,
+            spreadRadius: 2,
+            offset: const Offset(0, -2),
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              // Drag Handle Area
+              GestureDetector(
+                onTap: widget.onToggle,
+                onVerticalDragEnd: (details) {
+                  // Swipe up to expand, swipe down to collapse
+                  if (details.primaryVelocity != null) {
+                    if (details.primaryVelocity! < -100 && !widget.isExpanded) {
+                      widget.onToggle(); // Expand
+                    } else if (details.primaryVelocity! > 100 &&
+                        widget.isExpanded) {
+                      widget.onClose(); // Collapse
+                    }
+                  }
+                },
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  color: Colors.transparent, // Hit test
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Balance spacer
+                      if (widget.isExpanded) const SizedBox(width: 48),
+                      // Drag indicator
+                      Container(
+                        width: 48,
+                        height: 5,
+                        decoration: BoxDecoration(
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.onSurfaceVariant.withValues(alpha: 0.4),
+                          borderRadius: BorderRadius.circular(2.5),
+                        ),
+                      ),
+                      // Close button when expanded
+                      if (widget.isExpanded)
+                        SizedBox(
+                          width: 48,
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 16),
+                              child: InkWell(
+                                onTap: widget.onClose,
+                                borderRadius: BorderRadius.circular(12),
+                                child: const Icon(
+                                  Icons.keyboard_arrow_down,
+                                  size: 24,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+
+              // Tabs - Always visible
+              ScrollConfiguration(
+                behavior: ScrollConfiguration.of(context).copyWith(
+                  dragDevices: {
+                    PointerDeviceKind.touch,
+                    PointerDeviceKind.mouse,
+                    PointerDeviceKind.stylus,
+                    PointerDeviceKind.trackpad,
+                    PointerDeviceKind.unknown,
+                  },
+                ),
+                child: Listener(
+                  onPointerSignal: (event) {
+                    if (event is PointerScrollEvent) {
+                      final delta = event.scrollDelta.dy;
+                      if (delta == 0) return;
+                      final newOffset = _tabBarScrollController.offset + delta;
+                      _tabBarScrollController.jumpTo(
+                        newOffset.clamp(
+                          _tabBarScrollController.position.minScrollExtent,
+                          _tabBarScrollController.position.maxScrollExtent,
+                        ),
+                      );
+                    }
+                  },
+                  child: SingleChildScrollView(
+                    controller: _tabBarScrollController,
+                    scrollDirection: Axis.horizontal,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: TabBar(
+                        controller: _tabController,
+                        isScrollable: true,
+                        tabAlignment: TabAlignment.start,
+                        labelPadding: const EdgeInsets.symmetric(horizontal: 12),
+                        onTap: (index) {
+                          ref
+                              .read(debugPanelSettingsProvider.notifier)
+                              .setSelectedTabIndex(index);
+                          // Auto-expand when tapping a tab if collapsed
+                          if (!widget.isExpanded) {
+                            widget.onToggle();
+                          }
+                        },
+                        tabs: [
+                          _buildTab(Icons.phone_android, 'Device', settings),
+                          _buildTab(Icons.bug_report, 'Logs', settings),
+                          _buildTab(Icons.build, 'Tools', settings),
+                          _buildTab(Icons.code, 'Playground', settings),
+                          _buildTab(Icons.design_services, 'Visual', settings),
+                          _buildTab(Icons.accessibility, 'A11y', settings),
+                          _buildTab(Icons.speed, 'Perf', settings),
+                          _buildTab(Icons.network_check, 'Network', settings),
+                          _buildTab(Icons.settings, 'Settings', settings),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              // Expanded Content
+              if (widget.isExpanded)
+                Expanded(
+                  child: TabBarView(
+                    controller: _tabController,
+                    children: const [
+                      DevicePreviewTab(),
+                      LogsTab(),
+                      ToolsTab(),
+                      PlaygroundTab(),
+                      VisualEditorTab(),
+                      AccessibilityTab(),
+                      PerformanceTab(),
+                      NetworkTab(),
+                      SettingsTab(),
+                    ],
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Tab _buildTab(IconData icon, String label, dynamic state) {
+    return Tab(
+      height: 48,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: state.uiSize.iconSize),
+          if (widget.isExpanded) ...[const SizedBox(width: 8), Text(label)],
+        ],
       ),
     );
   }
@@ -348,10 +610,7 @@ class DebugPanelSmallLayout extends ConsumerWidget {
 
 /// Vertical layout (top-bottom) for debug panel
 class DebugPanelVerticalLayout extends ConsumerStatefulWidget {
-  const DebugPanelVerticalLayout({
-    super.key,
-    required this.child,
-  });
+  const DebugPanelVerticalLayout({super.key, required this.child});
 
   final Widget child;
 
@@ -367,7 +626,7 @@ class _DebugPanelVerticalLayoutState
   static const double _minPanelHeightPx = 200.0; // Minimum 200px height
 
   double?
-      _dragPanelHeight; // Local state during dragging, null when not dragging
+  _dragPanelHeight; // Local state during dragging, null when not dragging
 
   @override
   Widget build(BuildContext context) {
@@ -420,8 +679,10 @@ class _DebugPanelVerticalLayoutState
                       final delta = details.delta.dy;
                       final newTopHeight =
                           (currentHeight * usableHeight + delta) / usableHeight;
-                      final clampedHeight =
-                          newTopHeight.clamp(_minPanelHeight, _maxPanelHeight);
+                      final clampedHeight = newTopHeight.clamp(
+                        _minPanelHeight,
+                        _maxPanelHeight,
+                      );
 
                       // Update local state for smooth UI (no save yet)
                       setState(() {
@@ -456,10 +717,9 @@ class _DebugPanelVerticalLayoutState
                               height: dividerHeight,
                               width: double.infinity, // Full width divider
                               decoration: BoxDecoration(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .outline
-                                    .withValues(alpha: 0.15),
+                                color: Theme.of(
+                                  context,
+                                ).colorScheme.outline.withValues(alpha: 0.15),
                                 borderRadius: BorderRadius.circular(4),
                               ),
                               child: Center(
@@ -467,9 +727,7 @@ class _DebugPanelVerticalLayoutState
                                   width: 40,
                                   height: 2,
                                   decoration: BoxDecoration(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .outline
+                                    color: Theme.of(context).colorScheme.outline
                                         .withValues(alpha: 0.4),
                                     borderRadius: BorderRadius.circular(1),
                                   ),
@@ -501,10 +759,7 @@ class _DebugPanelVerticalLayoutState
 
 /// App frame that shows the current app state with device preview
 class AppFrame extends ConsumerWidget {
-  const AppFrame({
-    super.key,
-    required this.child,
-  });
+  const AppFrame({super.key, required this.child});
 
   final Widget child;
 
@@ -526,8 +781,9 @@ class AppFrame extends ConsumerWidget {
         ),
       ),
       child: ClipRRect(
-        borderRadius:
-            BorderRadius.circular(14.5), // Adjusted to match container
+        borderRadius: BorderRadius.circular(
+          14.5,
+        ), // Adjusted to match container
         child: Padding(
           padding: const EdgeInsets.all(16.0), // Add padding inside the frame
           child: Center(
@@ -597,8 +853,9 @@ class _ToolPanelState extends ConsumerState<ToolPanel>
   void _onTabChanged() {
     // Only save tab changes if we're not currently restoring a tab
     if (!_isRestoringTab && !_tabController.indexIsChanging) {
-      final currentIndex =
-          ref.read(debugPanelSettingsProvider).selectedTabIndex;
+      final currentIndex = ref
+          .read(debugPanelSettingsProvider)
+          .selectedTabIndex;
       if (_tabController.index != currentIndex) {
         ref
             .read(debugPanelSettingsProvider.notifier)
@@ -641,17 +898,18 @@ class _ToolPanelState extends ConsumerState<ToolPanel>
                     topRight: Radius.circular(16),
                   )
                 : widget.isMobile
-                    ? const BorderRadius.only(
-                        topLeft: Radius.circular(16),
-                        topRight: Radius.circular(16),
-                      )
-                    : const BorderRadius.only(
-                        topLeft: Radius.circular(16),
-                        bottomLeft: Radius.circular(16),
-                      ),
+                ? const BorderRadius.only(
+                    topLeft: Radius.circular(16),
+                    topRight: Radius.circular(16),
+                  )
+                : const BorderRadius.only(
+                    topLeft: Radius.circular(16),
+                    bottomLeft: Radius.circular(16),
+                  ),
             border: Border.all(
-              color:
-                  Theme.of(context).colorScheme.outline.withValues(alpha: 0.2),
+              color: Theme.of(
+                context,
+              ).colorScheme.outline.withValues(alpha: 0.2),
               width: 1,
             ),
           ),
@@ -662,14 +920,14 @@ class _ToolPanelState extends ConsumerState<ToolPanel>
                     topRight: Radius.circular(14.5),
                   )
                 : widget.isMobile
-                    ? const BorderRadius.only(
-                        topLeft: Radius.circular(14.5),
-                        topRight: Radius.circular(14.5),
-                      )
-                    : const BorderRadius.only(
-                        topLeft: Radius.circular(14.5),
-                        bottomLeft: Radius.circular(14.5),
-                      ),
+                ? const BorderRadius.only(
+                    topLeft: Radius.circular(14.5),
+                    topRight: Radius.circular(14.5),
+                  )
+                : const BorderRadius.only(
+                    topLeft: Radius.circular(14.5),
+                    bottomLeft: Radius.circular(14.5),
+                  ),
             child: Material(
               elevation: 0,
               color: Colors.transparent,
@@ -703,9 +961,11 @@ class _ToolPanelState extends ConsumerState<ToolPanel>
                               _tabBarScrollController.jumpTo(
                                 newOffset.clamp(
                                   _tabBarScrollController
-                                      .position.minScrollExtent,
+                                      .position
+                                      .minScrollExtent,
                                   _tabBarScrollController
-                                      .position.maxScrollExtent,
+                                      .position
+                                      .maxScrollExtent,
                                 ),
                               );
                             }
@@ -717,48 +977,66 @@ class _ToolPanelState extends ConsumerState<ToolPanel>
                               controller: _tabController,
                               tabs: [
                                 Tab(
-                                  icon: Icon(Icons.phone_android,
-                                      size: settings.uiSize.iconSize),
+                                  icon: Icon(
+                                    Icons.phone_android,
+                                    size: settings.uiSize.iconSize,
+                                  ),
                                   text: 'Device',
                                 ),
                                 Tab(
-                                  icon: Icon(Icons.bug_report,
-                                      size: settings.uiSize.iconSize),
+                                  icon: Icon(
+                                    Icons.bug_report,
+                                    size: settings.uiSize.iconSize,
+                                  ),
                                   text: 'Logs',
                                 ),
                                 Tab(
-                                  icon: Icon(Icons.build,
-                                      size: settings.uiSize.iconSize),
+                                  icon: Icon(
+                                    Icons.build,
+                                    size: settings.uiSize.iconSize,
+                                  ),
                                   text: 'Tools',
                                 ),
                                 Tab(
-                                  icon: Icon(Icons.code,
-                                      size: settings.uiSize.iconSize),
+                                  icon: Icon(
+                                    Icons.code,
+                                    size: settings.uiSize.iconSize,
+                                  ),
                                   text: 'Playground',
                                 ),
                                 Tab(
-                                  icon: Icon(Icons.design_services,
-                                      size: settings.uiSize.iconSize),
+                                  icon: Icon(
+                                    Icons.design_services,
+                                    size: settings.uiSize.iconSize,
+                                  ),
                                   text: 'Visual Editor',
                                 ),
                                 Tab(
-                                  icon: Icon(Icons.accessibility,
-                                      size: settings.uiSize.iconSize),
+                                  icon: Icon(
+                                    Icons.accessibility,
+                                    size: settings.uiSize.iconSize,
+                                  ),
                                   text: 'Accessibility',
                                 ),
                                 Tab(
-                                  icon: Icon(Icons.speed,
-                                      size: settings.uiSize.iconSize),
+                                  icon: Icon(
+                                    Icons.speed,
+                                    size: settings.uiSize.iconSize,
+                                  ),
                                   text: 'Performance',
                                 ),
                                 Tab(
-                                  icon: Icon(Icons.network_check,
-                                      size: settings.uiSize.iconSize),
+                                  icon: Icon(
+                                    Icons.network_check,
+                                    size: settings.uiSize.iconSize,
+                                  ),
                                   text: 'Network',
                                 ),
                                 Tab(
-                                  icon: Icon(Icons.settings,
-                                      size: settings.uiSize.iconSize),
+                                  icon: Icon(
+                                    Icons.settings,
+                                    size: settings.uiSize.iconSize,
+                                  ),
                                   text: 'Settings',
                                 ),
                               ],
@@ -844,22 +1122,25 @@ class ToolsTab extends StatelessWidget {
                 navigator.push(
                   MaterialPageRoute(
                     builder: (_) => Scaffold(
-                      appBar: AppBar(
-                        title: const Text('STAC Logs'),
-                      ),
+                      appBar: AppBar(title: const Text('STAC Logs')),
                       body: const Center(
                         child: Padding(
                           padding: EdgeInsets.all(24.0),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.view_stream,
-                                  size: 64, color: Colors.blue),
+                              Icon(
+                                Icons.view_stream,
+                                size: 64,
+                                color: Colors.blue,
+                              ),
                               SizedBox(height: 24),
                               Text(
                                 'STAC Logs',
                                 style: TextStyle(
-                                    fontSize: 24, fontWeight: FontWeight.bold),
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                               SizedBox(height: 16),
                               Text(
@@ -910,7 +1191,10 @@ class ToolsTab extends StatelessWidget {
   }
 
   Widget _buildSectionHeader(
-      BuildContext context, String title, IconData icon) {
+    BuildContext context,
+    String title,
+    IconData icon,
+  ) {
     return Row(
       children: [
         Icon(icon, color: Theme.of(context).colorScheme.primary),
@@ -918,9 +1202,9 @@ class ToolsTab extends StatelessWidget {
         Text(
           title,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).colorScheme.primary,
-              ),
+            fontWeight: FontWeight.bold,
+            color: Theme.of(context).colorScheme.primary,
+          ),
         ),
       ],
     );
@@ -961,16 +1245,15 @@ class ToolsTab extends StatelessWidget {
                     Text(
                       title,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.w600,
-                          ),
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                     const SizedBox(height: 4),
                     Text(
                       description,
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color:
-                                Theme.of(context).colorScheme.onSurfaceVariant,
-                          ),
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      ),
                     ),
                   ],
                 ),

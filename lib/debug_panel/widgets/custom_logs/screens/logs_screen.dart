@@ -175,7 +175,7 @@ class _LogsScreenState extends State<LogsScreen> {
   }
 
   void _openLogsSettings(BuildContext context) {
-    ISpectSettingsBottomSheet(
+    CustomISpectSettingsBottomSheet(
       iSpectLogger: ValueNotifier(ISpect.logger),
       options: widget.options,
       controller: _logsViewController,
@@ -511,6 +511,10 @@ class _MainLogsView extends StatelessWidget {
       slivers: [
         ISpectAppBar(
           focusNode: searchFocusNode,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
           title: appBarTitle,
           titlesController: titleFiltersController,
           titles: allTitlesNullable,

@@ -34,6 +34,24 @@ class ISpectViewController extends ChangeNotifier {
   int _lastProcessedDataLength = 0;
   ISpectFilter? _lastAppliedFilter;
   int? _lastDataHash;
+  
+  // Custom Key (Level) Filtering
+  final Set<String> _disabledLogKeys = {};
+  
+  Set<String> get disabledLogKeys => _disabledLogKeys;
+  
+  bool isLogKeyEnabled(String key) => !_disabledLogKeys.contains(key);
+  
+  void toggleLogKey(String key) {
+    if (_disabledLogKeys.contains(key)) {
+      _disabledLogKeys.remove(key);
+    } else {
+      _disabledLogKeys.add(key);
+    }
+    // Invalidate cache because filter condition changed
+    _invalidateFilterCache(); 
+    notifyListeners();
+  }
 
   // Titles cache
   List<String>? _cachedAllTitles;
@@ -220,7 +238,10 @@ class ISpectViewController extends ChangeNotifier {
     }
 
     // Apply filter and update cache
-    final filteredData = logsToProcess.where(currentFilter.apply).toList();
+    final filteredData = logsToProcess.where((log) {
+      if (_disabledLogKeys.contains(log.key)) return false;
+      return currentFilter.apply(log);
+    }).toList();
     _updateFilterCache(
         logsToProcess, currentFilter, currentDataHash, filteredData);
 

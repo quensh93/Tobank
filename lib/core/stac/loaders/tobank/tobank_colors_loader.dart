@@ -50,14 +50,14 @@ class TobankColorsLoader {
     }
 
     if (_loaded && !forceReload) {
-      AppLogger.dc(LogCategory.theme, '✅ Colors already loaded, skipping');
+      AppLogger.dc(LogCategory.theme, 'Colors already loaded, skipping');
       return;
     }
 
     try {
       AppLogger.ic(
         LogCategory.theme,
-        '📥 Loading color schema from $_colorsUrl...',
+        'Loading color schema from $_colorsUrl...',
       );
 
       final response = await dio.get(_colorsUrl);
@@ -71,7 +71,7 @@ class TobankColorsLoader {
       );
 
       if (response.data == null || response.data['data'] == null) {
-        AppLogger.ec(LogCategory.theme, '❌ Colors response data is null!');
+        AppLogger.ec(LogCategory.theme, 'Colors response data is null!');
         return;
       }
 
@@ -92,7 +92,7 @@ class TobankColorsLoader {
       _loaded = true;
       AppLogger.ic(
         LogCategory.theme,
-        '✅ Color schema loaded and cached in StacRegistry',
+        'Color schema loaded and cached in StacRegistry',
       );
       AppLogger.dc(
         LogCategory.theme,
@@ -147,12 +147,12 @@ class TobankColorsLoader {
             currentBackgroundSurface == '#202633') {
           AppLogger.ic(
             LogCategory.theme,
-            '   ✅ Dark theme colors verified correctly',
+            '   Dark theme colors verified correctly',
           );
         } else {
           AppLogger.wc(
             LogCategory.theme,
-            '   ⚠️ WARNING: Dark theme colors do not match expected values!',
+            '   WARNING: Dark theme colors do not match expected values!',
           );
           AppLogger.wc(
             LogCategory.theme,
@@ -168,12 +168,12 @@ class TobankColorsLoader {
             currentBackgroundSurface == '#fafafc') {
           AppLogger.ic(
             LogCategory.theme,
-            '   ✅ Light theme colors verified correctly',
+            '   Light theme colors verified correctly',
           );
         } else {
           AppLogger.wc(
             LogCategory.theme,
-            '   ⚠️ WARNING: Light theme colors do not match expected values!',
+            '   WARNING: Light theme colors do not match expected values!',
           );
           AppLogger.wc(
             LogCategory.theme,
@@ -189,31 +189,31 @@ class TobankColorsLoader {
       if (sample1 == null) {
         AppLogger.wc(
           LogCategory.theme,
-          '⚠️ WARNING: appColors.current.button.primary.backgroundColor is NULL in registry!',
+          'WARNING: appColors.current.button.primary.backgroundColor is NULL in registry!',
         );
       }
       if (sample2 == null) {
         AppLogger.wc(
           LogCategory.theme,
-          '⚠️ WARNING: appColors.current.text.title is NULL in registry!',
+          'WARNING: appColors.current.text.title is NULL in registry!',
         );
       }
       if (sample3Light == null) {
         AppLogger.wc(
           LogCategory.theme,
-          '⚠️ WARNING: appColors.light.button.primary.backgroundColor is NULL in registry!',
+          'WARNING: appColors.light.button.primary.backgroundColor is NULL in registry!',
         );
       }
       if (sample3Dark == null) {
         AppLogger.wc(
           LogCategory.theme,
-          '⚠️ WARNING: appColors.dark.button.primary.backgroundColor is NULL in registry!',
+          'WARNING: appColors.dark.button.primary.backgroundColor is NULL in registry!',
         );
       }
     } catch (e, stackTrace) {
       AppLogger.ec(
         LogCategory.theme,
-        '❌ Failed to load color schema',
+        'Failed to load color schema',
         e,
         stackTrace,
       );
@@ -298,7 +298,7 @@ class TobankColorsLoader {
     } catch (e) {
       AppLogger.wc(
         LogCategory.theme,
-        '⚠️ Could not detect theme, defaulting to light: $e',
+        'Could not detect theme, defaulting to light: $e',
       );
       return 'light'; // Default to light if detection fails
     }
@@ -319,7 +319,7 @@ class TobankColorsLoader {
     if (!colorsData.containsKey(currentTheme)) {
       AppLogger.wc(
         LogCategory.theme,
-        '⚠️ Theme "$currentTheme" not found in colors data, skipping alias creation',
+        'Theme "$currentTheme" not found in colors data, skipping alias creation',
       );
       return;
     }
@@ -358,7 +358,7 @@ class TobankColorsLoader {
           } else {
             AppLogger.wc(
               LogCategory.theme,
-              '⚠️ Source key not found: $sourceKey',
+              'Source key not found: $sourceKey',
             );
           }
         }
@@ -370,7 +370,7 @@ class TobankColorsLoader {
 
     AppLogger.ic(
       LogCategory.theme,
-      '✅ Created $aliasCount color aliases for current theme ($currentTheme)',
+      'Created $aliasCount color aliases for current theme ($currentTheme)',
     );
     AppLogger.dc(
       LogCategory.theme,
@@ -384,7 +384,7 @@ class TobankColorsLoader {
     if (!_loaded || _cachedColorsData == null) {
       AppLogger.wc(
         LogCategory.theme,
-        '⚠️ Colors not loaded; cannot update current theme aliases to $newTheme',
+        'Colors not loaded; cannot update current theme aliases to $newTheme',
       );
       return;
     }
@@ -399,7 +399,7 @@ class TobankColorsLoader {
     StacRegistry.instance.setValue('appTheme.current', newTheme);
     AppLogger.ic(
       LogCategory.theme,
-      '✅ Synced appColors.current.* aliases to theme: $newTheme',
+      'Synced appColors.current.* aliases to theme: $newTheme',
     );
   }
 
@@ -420,7 +420,7 @@ class TobankColorsLoader {
 
     AppLogger.dc(
       LogCategory.theme,
-      '🗑️ Cleared $count color keys and $aliasCount aliases from registry',
+      'Cleared $count color keys and $aliasCount aliases from registry',
     );
   }
 
@@ -428,6 +428,6 @@ class TobankColorsLoader {
   static void clearCache() {
     _clearStoredKeys();
     _loaded = false;
-    AppLogger.ic(LogCategory.theme, '🗑️ Colors schema cache cleared');
+    AppLogger.ic(LogCategory.theme, 'Colors schema cache cleared');
   }
 }
