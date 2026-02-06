@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'dart:io';
+import 'package:universal_io/io.dart';
 
 import 'package:logger/logger.dart';
 import 'package:ispect/ispect.dart';
@@ -487,6 +487,9 @@ class AppLogger {
   }
 
   static Future<String> _getDocumentsDirectory() async {
+    if (kIsWeb) {
+      return '.';
+    }
     // Use path_provider equivalent logic
     if (Platform.isWindows) {
       return '${Platform.environment['USERPROFILE']}\\OneDrive\\Documents';
@@ -566,6 +569,13 @@ class AppLogger {
   /// 
   /// Android logcat has a ~4000 character limit per line, so we chunk long messages
   static void _output(dynamic message) {
+    // Web support: stdout is not available on web, use simple print
+    if (kIsWeb) {
+      // ignore: avoid_print
+      print(message);
+      return;
+    }
+
     try {
       _isInternalLog = true;
       final messageStr = message.toString();
@@ -597,6 +607,10 @@ class AppLogger {
           chunkIndex++;
         }
       }
+    } catch (e) {
+      // Fallback for any stdout errors
+      // ignore: avoid_print
+      print(message);
     } finally {
       _isInternalLog = false;
     }
