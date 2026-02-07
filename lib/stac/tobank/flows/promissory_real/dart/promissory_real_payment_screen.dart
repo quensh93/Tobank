@@ -100,7 +100,7 @@ StacWidget promissoryRealPayment() {
                             children: [
                               // Use form.promissory_amount as totalAmount fallback
                               StacText(
-                                data: '{{form.promissory_amount}}',
+                                data: '{{promissory.fees.total}}',
                                 style: StacCustomTextStyle(
                                   fontSize: 16,
                                   fontWeight: StacFontWeight.w900,
@@ -154,7 +154,8 @@ StacWidget promissoryRealPayment() {
                             ),
                             StacSizedBox(width: 8),
                             StacText(
-                              data: '2500 {{appStrings.common.rial}}',
+                              data:
+                                  '{{promissory.fees.stampFee}} {{appStrings.common.rial}}',
                               textDirection: StacTextDirection.ltr,
                               style: StacCustomTextStyle(
                                 fontSize: 14,
@@ -181,7 +182,8 @@ StacWidget promissoryRealPayment() {
                             ),
                             StacSizedBox(width: 8),
                             StacText(
-                              data: '8900 {{appStrings.common.rial}}',
+                              data:
+                                  '{{promissory.fees.wage}} {{appStrings.common.rial}}',
                               textDirection: StacTextDirection.ltr,
                               style: StacCustomTextStyle(
                                 fontSize: 14,

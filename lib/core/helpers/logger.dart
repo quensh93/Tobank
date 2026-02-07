@@ -341,12 +341,12 @@ class AppLogger {
     // stac_logger uses print() directly and checks Logger.level, not debugPrint.
     // Setting this early prevents the noisy "is being overridden" warnings.
     Logger.level = Level.off;
-    
+
     debugPrint = (String? message, {int? wrapWidth}) {
-       // Note: We don't check Logger.level here because we want to filter
-       // external logs, not silence everything.
-       
-       if (message != null && message.isNotEmpty) {
+      // Note: We don't check Logger.level here because we want to filter
+      // external logs, not silence everything.
+
+      if (message != null && message.isNotEmpty) {
         // RE-ENTRANCY GUARD:
         if (_isInternalLog) {
           stdout.writeln(message);
@@ -357,20 +357,19 @@ class AppLogger {
         final cleanMessage = _stripAnsiCodes(message);
 
         // --- STAC SUPPRESSION FILTERS ---
-        
+
         // 1. Box Drawing Lines (The structural clutter)
         // Matches lines starting with ┌, ├, └, or │
-        if (cleanMessage.startsWith('┌') || 
-            cleanMessage.startsWith('├') || 
-            cleanMessage.startsWith('└') || 
+        if (cleanMessage.startsWith('┌') ||
+            cleanMessage.startsWith('├') ||
+            cleanMessage.startsWith('└') ||
             cleanMessage.startsWith('│')) {
-          
           // But wait! We (AppLogger) might also use box chars if PrettyPrinter is enabled?
           // No, we disabled PrettyPrinter borders or use BorderlessLogOutput.
           // However, stac_logger logs ALWAYS start with these.
-          
+
           // Check for specific noisy contents INSIDE the box line
-          if (cleanMessage.contains('LogIO') || 
+          if (cleanMessage.contains('LogIO') ||
               cleanMessage.contains('package:stac_logger') ||
               cleanMessage.contains('is being overridden') ||
               cleanMessage.contains('Overall dataContext is not a Map') ||
@@ -381,9 +380,9 @@ class AppLogger {
           // Also suppress purely structural lines (empty box lines)
           // e.g. "│" or "├──" or "└─────"
           if (RegExp(r'^[┌└├│─\s┄]+$').hasMatch(cleanMessage)) {
-             return; // SUPPRESS
+            return; // SUPPRESS
           }
-          
+
           // If it starts with a box char but isn't one of the above,
           // it might be a valid log inside a box?
           // The user's logs show: "│ 🐛 data: [...]"
@@ -394,7 +393,7 @@ class AppLogger {
         // 2. Direct message noise (if printed without box)
         if (cleanMessage.contains('[DEBUG]') ||
             cleanMessage.contains('Overall dataContext is not a Map') ||
-            cleanMessage.contains('is being overridden') || 
+            cleanMessage.contains('is being overridden') ||
             cleanMessage.contains('LogIO')) {
           return; // SUPPRESS
         }
@@ -402,11 +401,12 @@ class AppLogger {
         // --- FORWARD TO APP LOGGER ---
         // If it survived the filters, forward it to Flutter category.
         // This puts it into LogCategory.flutter which can be enabled/disabled separately.
-        
+
         // Check for exception indicators to bypass truncation
-        final bool isException = cleanMessage.contains('EXCEPTION CAUGHT') || 
-                               cleanMessage.contains('Stack trace') ||
-                               cleanMessage.startsWith('🦋');
+        final bool isException =
+            cleanMessage.contains('EXCEPTION CAUGHT') ||
+            cleanMessage.contains('Stack trace') ||
+            cleanMessage.startsWith('🦋');
 
         AppLogger.dc(LogCategory.flutter, message, null, null, isException);
       }
@@ -475,7 +475,7 @@ class AppLogger {
             break;
           case MasterLogControl.manual:
             // In manual mode, allow logs by default (Level.all) so code overrides can work
-            // Use logic similar to 'forceEnabled' regarding the level, 
+            // Use logic similar to 'forceEnabled' regarding the level,
             // filtering happens in _processMessage
             Logger.level = Level.all;
             break;
@@ -512,15 +512,20 @@ class AppLogger {
   }
 
   /// Internal helper to process message based on category settings
-  /// 
+  ///
   /// Priority order:
   /// 1. LogConfig.masterLogControl (if forceDisabled, all logs disabled)
   /// 2. LogConfig overrides for specific category (hardcoded in code)
   /// 3. Debug panel settings (user-configurable at runtime)
-  static dynamic _processMessage(dynamic message, LogCategory category, {bool bypassTruncation = false}) {
+  static dynamic _processMessage(
+    dynamic message,
+    LogCategory category, {
+    bool bypassTruncation = false,
+  }) {
     // Early bailout if global logging is disabled via code
-    if (LogConfig.masterLogControl == MasterLogControl.forceDisabled) return null;
-    
+    if (LogConfig.masterLogControl == MasterLogControl.forceDisabled)
+      return null;
+
     // NOTE: We deliberately do NOT check Logger.level here.
     // Logger.level is set to Level.off to silence external loggers (stac_logger),
     // but AppLogger should continue to work based on LogConfig settings.
@@ -551,13 +556,15 @@ class AppLogger {
 
     // 1. Global safety net (hardcoded config)
     // This prevents massive logs from crashing the app regardless of UI settings
-    if (LogConfig.truncateLogs && processedMessage.length > LogConfig.maxLogLength) {
+    if (LogConfig.truncateLogs &&
+        processedMessage.length > LogConfig.maxLogLength) {
       return '${processedMessage.substring(0, LogConfig.maxLogLength)}... (truncated ${processedMessage.length - LogConfig.maxLogLength} chars)';
     }
 
     // 2. Runtime category settings (UI controlled)
     // This allows granular control per category via Debug Panel
-    if (settings.truncateEnabled && processedMessage.length > settings.maxLength) {
+    if (settings.truncateEnabled &&
+        processedMessage.length > settings.maxLength) {
       return '${processedMessage.substring(0, settings.maxLength)}... (truncated ${processedMessage.length - settings.maxLength} chars)';
     }
 
@@ -566,79 +573,60 @@ class AppLogger {
 
   /// Direct output to stdout, bypassing Logger.level check
   /// This allows AppLogger to work even when Logger.level=off (which silences stac_logger)
-  /// 
+  ///
   /// Android logcat has a ~4000 character limit per line, so we chunk long messages
   static void _output(dynamic message) {
-    // Web support: stdout is not available on web, use simple print
-    if (kIsWeb) {
-      // ignore: avoid_print
-      print(message);
-      return;
-    }
+    // Always use print() instead of stdout.writeln() to ensure logs are captured
+    // by the Flutter tool's output buffer on all platforms (Android/iOS/Web).
+    // stdout.writeln() can be swallowed or delayed on Windows hosts.
 
-    try {
-      _isInternalLog = true;
-      final messageStr = message.toString();
-
-      // Android logcat limit is ~4000 chars, use 3800 to be safe
-      const int maxChunkSize = 3800;
-
-      if (messageStr.length <= maxChunkSize) {
-        // Short message - print directly
-        // Use stdout to bypass Zone interception (ISpect auto-capture)
-        stdout.writeln(messageStr);
-      } else {
-        // Long message - chunk it
-        int start = 0;
-        int chunkIndex = 0;
-        while (start < messageStr.length) {
-          final end = (start + maxChunkSize < messageStr.length)
-              ? start + maxChunkSize
-              : messageStr.length;
-          final chunk = messageStr.substring(start, end);
-
-          if (chunkIndex == 0) {
-            stdout.writeln(chunk);
-          } else {
-            stdout.writeln('   ...$chunk');
-          }
-
-          start = end;
-          chunkIndex++;
-        }
-      }
-    } catch (e) {
-      // Fallback for any stdout errors
-      // ignore: avoid_print
-      print(message);
-    } finally {
-      _isInternalLog = false;
-    }
+    // ignore: avoid_print
+    print(message);
   }
 
   // --- Core Methods (Positional Args for Backward Compatibility) ---
 
   /// Log debug message
-  static void d(dynamic message, [dynamic error, StackTrace? stackTrace, bool bypassTruncation = false]) {
-    final processed = _processMessage(message, LogCategory.general, bypassTruncation: bypassTruncation);
+  static void d(
+    dynamic message, [
+    dynamic error,
+    StackTrace? stackTrace,
+    bool bypassTruncation = false,
+  ]) {
+    final processed = _processMessage(
+      message,
+      LogCategory.general,
+      bypassTruncation: bypassTruncation,
+    );
     if (processed != null) {
       _output(processed);
       if (error != null) _output('Error: $error');
       if (stackTrace != null) _output(stackTrace);
-      
+
       // ISpect
       if (_categorySettings[LogCategory.general]?.ispectEnabled ?? true) {
         var fullMsg = processed;
         if (error != null) fullMsg += '\nError: $error';
         if (stackTrace != null) fullMsg += '\n$stackTrace';
-        try { ISpect.logger.debug(fullMsg); } catch (_) {}
+        try {
+          ISpect.logger.debug(fullMsg);
+        } catch (_) {}
       }
     }
   }
 
   /// Log info message
-  static void i(dynamic message, [dynamic error, StackTrace? stackTrace, bool bypassTruncation = false]) {
-    final processed = _processMessage(message, LogCategory.general, bypassTruncation: bypassTruncation);
+  static void i(
+    dynamic message, [
+    dynamic error,
+    StackTrace? stackTrace,
+    bool bypassTruncation = false,
+  ]) {
+    final processed = _processMessage(
+      message,
+      LogCategory.general,
+      bypassTruncation: bypassTruncation,
+    );
     if (processed != null) {
       _output(processed);
       if (error != null) _output('Error: $error');
@@ -649,14 +637,25 @@ class AppLogger {
         var fullMsg = processed;
         if (error != null) fullMsg += '\nError: $error';
         if (stackTrace != null) fullMsg += '\n$stackTrace';
-        try { ISpect.logger.info(fullMsg); } catch (_) {}
+        try {
+          ISpect.logger.info(fullMsg);
+        } catch (_) {}
       }
     }
   }
 
   /// Log warning message
-  static void w(dynamic message, [dynamic error, StackTrace? stackTrace, bool bypassTruncation = false]) {
-    final processed = _processMessage(message, LogCategory.general, bypassTruncation: bypassTruncation);
+  static void w(
+    dynamic message, [
+    dynamic error,
+    StackTrace? stackTrace,
+    bool bypassTruncation = false,
+  ]) {
+    final processed = _processMessage(
+      message,
+      LogCategory.general,
+      bypassTruncation: bypassTruncation,
+    );
     if (processed != null) {
       _output('[WARN] $processed');
       if (error != null) _output('Error: $error');
@@ -667,14 +666,20 @@ class AppLogger {
         var fullMsg = processed;
         if (error != null) fullMsg += '\nError: $error';
         if (stackTrace != null) fullMsg += '\n$stackTrace';
-        try { ISpect.logger.warning(fullMsg); } catch (_) {}
+        try {
+          ISpect.logger.warning(fullMsg);
+        } catch (_) {}
       }
     }
   }
 
   /// Log error message
   static void e(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    final processed = _processMessage(message, LogCategory.general, bypassTruncation: true);
+    final processed = _processMessage(
+      message,
+      LogCategory.general,
+      bypassTruncation: true,
+    );
     if (processed != null) {
       _output('[ERROR] $processed');
       if (error != null) _output('Error: $error');
@@ -686,14 +691,20 @@ class AppLogger {
         var fullMsg = processed;
         if (error != null) fullMsg += '\nError: $error';
         if (st != null) fullMsg += '\n$st';
-        try { ISpect.logger.error(fullMsg); } catch (_) {}
+        try {
+          ISpect.logger.error(fullMsg);
+        } catch (_) {}
       }
     }
   }
 
   /// Log fatal message
   static void f(dynamic message, [dynamic error, StackTrace? stackTrace]) {
-    final processed = _processMessage(message, LogCategory.general, bypassTruncation: true);
+    final processed = _processMessage(
+      message,
+      LogCategory.general,
+      bypassTruncation: true,
+    );
     if (processed != null) {
       _output('[FATAL] $processed');
       if (error != null) _output('Error: $error');
@@ -705,7 +716,9 @@ class AppLogger {
         var fullMsg = processed;
         if (error != null) fullMsg += '\nError: $error';
         if (st != null) fullMsg += '\n$st';
-        try { ISpect.logger.critical(fullMsg); } catch (_) {}
+        try {
+          ISpect.logger.critical(fullMsg);
+        } catch (_) {}
       }
     }
   }
@@ -720,7 +733,11 @@ class AppLogger {
     StackTrace? stackTrace,
     bool bypassTruncation = false,
   ]) {
-    final processed = _processMessage(message, category, bypassTruncation: bypassTruncation);
+    final processed = _processMessage(
+      message,
+      category,
+      bypassTruncation: bypassTruncation,
+    );
     if (processed != null) {
       _output(processed);
       if (error != null) _output('Error: $error');
@@ -728,10 +745,12 @@ class AppLogger {
 
       // ISpect
       if (_categorySettings[category]?.ispectEnabled ?? true) {
-         var fullMsg = processed;
+        var fullMsg = processed;
         if (error != null) fullMsg += '\nError: $error';
         if (stackTrace != null) fullMsg += '\n$stackTrace';
-        try { ISpect.logger.debug(fullMsg); } catch (_) {}
+        try {
+          ISpect.logger.debug(fullMsg);
+        } catch (_) {}
       }
     }
   }
@@ -744,7 +763,11 @@ class AppLogger {
     StackTrace? stackTrace,
     bool bypassTruncation = false,
   ]) {
-    final processed = _processMessage(message, category, bypassTruncation: bypassTruncation);
+    final processed = _processMessage(
+      message,
+      category,
+      bypassTruncation: bypassTruncation,
+    );
     if (processed != null) {
       _output(processed);
       if (error != null) _output('Error: $error');
@@ -752,10 +775,12 @@ class AppLogger {
 
       // ISpect
       if (_categorySettings[category]?.ispectEnabled ?? true) {
-         var fullMsg = processed;
+        var fullMsg = processed;
         if (error != null) fullMsg += '\nError: $error';
         if (stackTrace != null) fullMsg += '\n$stackTrace';
-        try { ISpect.logger.info(fullMsg); } catch (_) {}
+        try {
+          ISpect.logger.info(fullMsg);
+        } catch (_) {}
       }
     }
   }
@@ -768,7 +793,11 @@ class AppLogger {
     StackTrace? stackTrace,
     bool bypassTruncation = false,
   ]) {
-    final processed = _processMessage(message, category, bypassTruncation: bypassTruncation);
+    final processed = _processMessage(
+      message,
+      category,
+      bypassTruncation: bypassTruncation,
+    );
     if (processed != null) {
       _output('[WARN] $processed');
       if (error != null) _output('Error: $error');
@@ -776,10 +805,12 @@ class AppLogger {
 
       // ISpect
       if (_categorySettings[category]?.ispectEnabled ?? true) {
-         var fullMsg = processed;
+        var fullMsg = processed;
         if (error != null) fullMsg += '\nError: $error';
         if (stackTrace != null) fullMsg += '\n$stackTrace';
-        try { ISpect.logger.warning(fullMsg); } catch (_) {}
+        try {
+          ISpect.logger.warning(fullMsg);
+        } catch (_) {}
       }
     }
   }
@@ -791,7 +822,11 @@ class AppLogger {
     dynamic error,
     StackTrace? stackTrace,
   ]) {
-    final processed = _processMessage(message, category, bypassTruncation: true);
+    final processed = _processMessage(
+      message,
+      category,
+      bypassTruncation: true,
+    );
     if (processed != null) {
       _output('[ERROR] $processed');
       if (error != null) _output('Error: $error');
@@ -803,7 +838,9 @@ class AppLogger {
         var fullMsg = processed;
         if (error != null) fullMsg += '\nError: $error';
         if (st != null) fullMsg += '\n$st';
-        try { ISpect.logger.error(fullMsg); } catch (_) {}
+        try {
+          ISpect.logger.error(fullMsg);
+        } catch (_) {}
       }
     }
   }
@@ -815,7 +852,11 @@ class AppLogger {
     dynamic error,
     StackTrace? stackTrace,
   ]) {
-    final processed = _processMessage(message, category, bypassTruncation: true);
+    final processed = _processMessage(
+      message,
+      category,
+      bypassTruncation: true,
+    );
     if (processed != null) {
       _output('[FATAL] $processed');
       if (error != null) _output('Error: $error');
@@ -827,7 +868,9 @@ class AppLogger {
         var fullMsg = processed;
         if (error != null) fullMsg += '\nError: $error';
         if (st != null) fullMsg += '\n$st';
-        try { ISpect.logger.critical(fullMsg); } catch (_) {}
+        try {
+          ISpect.logger.critical(fullMsg);
+        } catch (_) {}
       }
     }
   }

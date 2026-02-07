@@ -379,11 +379,83 @@ StacWidget promissoryRealData() {
                           key: 'receiver.birthDateCompact',
                           value: "{{replace(receiver.birthDate,'/','')}}",
                         ),
-                        StacRawJsonAction({
-                          'actionType': 'navigate',
-                          'widgetType': 'promissory_real_confirm',
-                          'navigationStyle': 'push',
-                        }),
+                        // Fetch Fees API Call
+                        StacCustomSetValueAction(
+                          key: 'isIdentityLoading',
+                          value: true,
+                        ),
+                        StacNetworkRequestAction(
+                          url:
+                              'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/fees?amount={{form.promissory_amount}}',
+                          method: 'get',
+                          headers: {
+                            'accept': 'application/json',
+                            'authorization': '{{auth.accessToken}}',
+                          },
+                          results: [
+                            {
+                              'statusCode': 200,
+                              'action': StacSequenceAction(
+                                actions: [
+                                  StacCustomSetValueAction(
+                                    values: [
+                                      {
+                                        'key': 'promissory.fees.stampFee',
+                                        'value': '{{data_payload.stampFee}}',
+                                      },
+                                      {
+                                        'key': 'promissory.fees.wage',
+                                        'value': '{{data_payload.wage}}',
+                                      },
+                                      {
+                                        'key': 'promissory.fees.total',
+                                        'value': '{{data_payload.total}}',
+                                      },
+                                      {
+                                        'key': 'isIdentityLoading',
+                                        'value': false,
+                                      },
+                                    ],
+                                  ),
+                                  StacRawJsonAction({
+                                    'actionType': 'navigate',
+                                    'widgetType': 'promissory_real_confirm',
+                                    'navigationStyle': 'push',
+                                  }),
+                                ],
+                              ).toJson(),
+                            },
+                            {
+                              'statusCode': -1, // Fallback for errors
+                              'action': StacSequenceAction(
+                                actions: [
+                                  StacCustomSetValueAction(
+                                    key: 'isIdentityLoading',
+                                    value: false,
+                                  ),
+                                  StacRawJsonAction({
+                                    'actionType': 'showDialog',
+                                    'widget': StacAlertDialog(
+                                      title: StacText(data: 'خطا'),
+                                      content: StacText(
+                                        data:
+                                            'خطا در دریافت اطلاعات کارمزد. لطفا مجددا تلاش کنید.',
+                                      ),
+                                      actions: [
+                                        StacTextButton(
+                                          onPressed: StacRawJsonAction({
+                                            'actionType': 'closeDialog',
+                                          }),
+                                          child: StacText(data: 'باشه'),
+                                        ),
+                                      ],
+                                    ).toJson(),
+                                  }),
+                                ],
+                              ).toJson(),
+                            },
+                          ],
+                        ),
                       ],
                     ).toJson(),
                     'style': StacButtonStyle(

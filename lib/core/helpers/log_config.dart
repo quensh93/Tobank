@@ -21,12 +21,12 @@ enum MasterLogControl {
 
   /// Ignore this file's overrides, use Debug Panel settings for EVERYTHING
   panel,
-  
+
   /// Force ALL logs ON (use with caution)
   forceEnabled,
-  
+
   /// Force ALL logs OFF (emergency silence)
-  forceDisabled
+  forceDisabled,
 }
 
 /// Hardcoded log overrides that take precedence over debug panel settings.
@@ -34,55 +34,55 @@ class LogConfig {
   // ═══════════════════════════════════════════════════════════════════════════
   // MASTER SWITCH
   // ═══════════════════════════════════════════════════════════════════════════
-  
+
   /// Master log control
   /// - manual: Use logic below (mix of hardcoded + sync)
   /// - panel: Force ALL logs to use debug panel settings
   /// - forceEnabled: Force ALL logs ON (use with caution)
   /// - forceDisabled: Force ALL logs OFF (emergency silence)
-  static const MasterLogControl masterLogControl = MasterLogControl.panel;
+  static const MasterLogControl masterLogControl = MasterLogControl.manual;
 
   // ═══════════════════════════════════════════════════════════════════════════
   // TRUNCATION SETTINGS
   // ═══════════════════════════════════════════════════════════════════════════
-  
+
   /// Globally enable/disable log truncation
   static const bool truncateLogs = true;
-  
+
   /// Max characters per log message before truncation
   static const int maxLogLength = 100000;
 
   // ═══════════════════════════════════════════════════════════════════════════
   // GENERAL CATEGORIES
   // ═══════════════════════════════════════════════════════════════════════════
-  
+
   /// 🐛 General application logs (very noisy - disabled by default)
   static const LogState general = LogState.disabled;
-  
+
   /// 🌐 Network logs (cURL commands, responses)
   static const LogState network = LogState.enabled;
-  
+
   /// 📄 JSON parsing logs
   static const LogState json = LogState.sync;
-  
+
   /// 📦 Registry operations (getValue, setValue)
   static const LogState registry = LogState.disabled;
-  
+
   /// 🎨 Theme changes
   static const LogState theme = LogState.disabled;
-  
+
   /// 🌍 String/localization loading
   static const LogState string = LogState.disabled;
-  
+
   /// ⚡ Generic action logs
   static const LogState action = LogState.sync;
-  
+
   /// 🧩 Generic widget logs
   static const LogState widget = LogState.sync;
-  
+
   /// 🧭 Generic navigation logs
   static const LogState navigation = LogState.enabled;
-  
+
   /// 💾 State management logs
   static const LogState state = LogState.sync;
 
@@ -92,29 +92,29 @@ class LogConfig {
   // ═══════════════════════════════════════════════════════════════════════════
   // STAC-SPECIFIC CATEGORIES ( Usually noisy - disabled by default )
   // ═══════════════════════════════════════════════════════════════════════════
-  
+
   /// 🗺️ STAC Navigation (CustomNavigateAction logs)
   static const LogState stacNavigation = LogState.enabled;
-  
+
   /// 🏗️ STAC Widget (CustomImageParser and similar widget logs)
   static const LogState stacWidget = LogState.disabled;
-  
+
   /// ♻️ STAC Registry ("Registry changed, triggering rebuild" logs)
   static const LogState stacRegistry = LogState.disabled;
-  
+
   /// 🎬 STAC Action (CustomSetValueAction logs)
   /// Set to LogState.disabled to silence "is being overridden" warnings if mapped correctly
-  static const LogState stacAction = LogState.disabled; 
-  
+  static const LogState stacAction = LogState.disabled;
+
   /// 🎭 STAC Theme (ThemeReactiveStacWidget, StacThemeWrapper)
   static const LogState stacTheme = LogState.disabled;
-  
+
   /// 🧪 STAC Mock interceptor (mock file loading, CURL for mock API calls)
   static const LogState stacMock = LogState.disabled;
-  
+
   /// 💲 STAC Variable resolution (template substitution like {{data.data.name}})
   static const LogState stacVariable = LogState.disabled;
-  
+
   /// 📦 STAC Data (response structure, data_payload, registry storage)
   static const LogState stacData = LogState.disabled;
 
@@ -195,7 +195,7 @@ class LogConfig {
 
   /// Check if a category has a hardcoded override (is locked)
   static bool isHardcoded(LogCategory category) {
-    if (masterLogControl == MasterLogControl.forceEnabled || 
+    if (masterLogControl == MasterLogControl.forceEnabled ||
         masterLogControl == MasterLogControl.forceDisabled) {
       return true;
     }
