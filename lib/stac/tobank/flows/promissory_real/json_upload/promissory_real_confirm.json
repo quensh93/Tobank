@@ -609,8 +609,21 @@
         "child": {
           "onPressed": {
             "actionType": "navigate",
-            "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_payment.json",
-            "navigationStyle": "push"
+            "navigationStyle": "push",
+            "request": {
+              "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.promissory_real_payment/1",
+              "method": "post",
+              "headers": {
+                "Content-Type": "application/json",
+                "Accept": "*/*"
+              },
+              "body": {
+                "operator": "is",
+                "dimension": {
+                  "app": "mobile"
+                }
+              }
+            }
           },
           "style": {
             "backgroundColor": "{{appColors.current.primary.color}}",

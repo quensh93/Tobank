@@ -10,17 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="merged with mjp works">
-      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_intro.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_confirm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_deposits.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_issuer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_payment.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_payment_deposits.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_receiver.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_sign.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_success.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_rules.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_intro.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_intro.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_confirm.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_confirm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_deposits.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_deposits.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_issuer.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_issuer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_payment.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_payment.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_payment_deposits.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_payment_deposits.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_receiver.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_receiver.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_sign.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_sign.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_rules.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_rules.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +98,12 @@
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload" />
+      <recent name="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real" />
+    </key>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="" />
@@ -194,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770454548076</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="merged with mjp works">
+      <option name="closed" value="true" />
+      <created>1770454983000</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1770454983000</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
