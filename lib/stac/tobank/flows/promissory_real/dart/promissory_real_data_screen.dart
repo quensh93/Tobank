@@ -254,6 +254,11 @@ StacWidget promissoryRealData() {
                             id: 'promissory_due_date',
                             readOnly: true,
                             enabled: false,
+                            style: StacCustomTextStyle(
+                              fontSize: 14,
+                              fontWeight: StacFontWeight.w600,
+                              color: '{{appColors.current.text.title}}',
+                            ),
                             textDirection: StacTextDirection.rtl,
                             textAlign: StacTextAlign.right,
                             decoration: StacInputDecoration(

@@ -316,6 +316,12 @@
                           "textDirection": "rtl",
                           "readOnly": true,
                           "enabled": false,
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w600"
+                          },
                           "validatorRules": [
                             {
                               "rule": "^\\d{4}/\\d{2}/\\d{2}$",
