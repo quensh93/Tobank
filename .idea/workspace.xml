@@ -9,14 +9,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="just add some dart files for promissory ( not working )">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/stac/parsers/actions/custom_network_request_action_parser.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/parsers/actions/custom_network_request_action_parser.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/stac/parsers/widgets/promissory_real_loader_parser.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/parsers/widgets/promissory_real_loader_parser.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/stac/services/widget/stac_widget_resolver.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/services/widget/stac_widget_resolver.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_screen.dart" afterDir="false" />
+    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="merged with mjp works">
+      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_intro.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_confirm.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_deposits.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_issuer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_payment.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_payment_deposits.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_receiver.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_sign.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_success.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload/promissory_rules.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +94,7 @@
     "io.flutter.project.isFirstOpen": "true",
     "io.flutter.reload.alreadyRun": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/arsham1/development/Arsham/dynamic_tobank/lib/stac/tobank/flows/promissory_real/json_upload",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
@@ -181,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769941146092</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="merged with mjp works">
+      <option name="closed" value="true" />
+      <created>1770454548076</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1770454548076</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -210,6 +223,7 @@
     <MESSAGE value="create all pages json files and complete json flow" />
     <MESSAGE value="fetch sinai files - all mjp files worked" />
     <MESSAGE value="just add some dart files for promissory ( not working )" />
-    <option name="LAST_COMMIT_MESSAGE" value="just add some dart files for promissory ( not working )" />
+    <MESSAGE value="merged with mjp works" />
+    <option name="LAST_COMMIT_MESSAGE" value="merged with mjp works" />
   </component>
 </project>
