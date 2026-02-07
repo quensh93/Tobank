@@ -28,18 +28,10 @@ class CustomNetworkRequestActionParser
 
     try {
       final resolvedModel = _resolveNetworkRequestTemplates(model);
-      response = await StacNetworkService.request(
-        context,
-        resolvedModel,
-      ).timeout(const Duration(seconds: 15));
-    } on TimeoutException {
-      AppLogger.wc(LogCategory.network, 'Network request timed out');
-      response = null; // Will trigger fallback to status code -1
+      response = await StacNetworkService.request(context, resolvedModel);
     } on DioException catch (e) {
       response = e.response;
       Log.e(e.response);
-    } catch (e) {
-      Log.e(e);
     }
 
     // Store response data in registry so {{data.data.*}} variables can be resolved
@@ -47,94 +39,40 @@ class CustomNetworkRequestActionParser
       final responseData = response!.data;
       StacRegistry.instance.setValue('data', responseData);
 
-      // Always clear old data_payload first to prevent stale data
-      StacRegistry.instance.removeValue('data_payload');
-
       dynamic payload;
       if (responseData is Map) {
         payload = responseData['data'];
         if (payload == null && responseData['result'] is Map) {
           payload = (responseData['result'] as Map)['data'];
         }
-        AppLogger.dc(
-          LogCategory.stacData,
-          'Response structure: data=${responseData['data']?.runtimeType}, result=${responseData['result']?.runtimeType}',
-        );
-      } else if (responseData is List) {
-        // If response is already an array, use it directly
-        payload = responseData;
-        AppLogger.dc(
-          LogCategory.stacData,
-          'Response is List directly, length=${responseData.length}',
-        );
       }
       if (payload != null) {
         StacRegistry.instance.setValue('data_payload', payload);
-        final previewStr = payload.toString();
-        AppLogger.dc(
-          LogCategory.stacData,
-          'Set data_payload (${payload.runtimeType}): ${previewStr.length > 100 ? previewStr.substring(0, 100) + '...' : previewStr}',
-        );
-      } else {
-        AppLogger.wc(
-          LogCategory.stacData,
-          '⚠️ data_payload not set - payload is null. ResponseData type: ${responseData.runtimeType}',
-        );
       }
 
       RegistryNotifier.instance.notify();
       AppLogger.dc(
-        LogCategory.stacData,
+        LogCategory.network,
         'Network response data stored in registry under "data" key',
       );
     }
 
-    final statusCode = response?.statusCode ?? -1;
-
-    try {
-      // First try to find exact match
-      var result = model.results.firstWhere(
-        (element) => element.statusCode == statusCode,
-        orElse: () {
-          // If not found, try to find fallback handler (-1)
-          return model.results.firstWhere(
-            (element) => element.statusCode == -1,
-          );
-        },
-      );
-
-      if (context.mounted) {
-        // Debug: verify data_payload is still correct before calling result action
-        final dpCheck = StacRegistry.instance.getValue('data_payload');
-        if (dpCheck != null) {
-          final preview = dpCheck.toString();
-          AppLogger.dc(
-            LogCategory.stacData,
-            'Before result action: data_payload (${dpCheck.runtimeType}) = ${preview.length > 80 ? preview.substring(0, 80) + '...' : preview}',
-          );
-        } else {
-          AppLogger.wc(LogCategory.stacData, '⚠️ Before result action: data_payload is NULL!');
-        }
-        
-        // Debug: Log the action type and structure
-        final action = result.action;
-        AppLogger.dc(
-          LogCategory.stacData,
-          'result.action type: ${action.runtimeType}',
+    if (response?.statusCode != null) {
+      try {
+        final result = model.results.firstWhere(
+          (element) => element.statusCode == response?.statusCode,
         );
-        
-        // Pre-resolve {{data_payload}} in the action JSON to prevent STAC framework 
-        // from using stale cached values
-        final resolvedAction = _resolveActionTemplates(action);
-        AppLogger.dc(LogCategory.stacData, 'Resolved action templates');
-        return Stac.onCallFromJson(resolvedAction, context);
+
+        if (context.mounted) {
+          return Stac.onCallFromJson(result.action, context);
+        }
+      } catch (e) {
+        // No matching status code found in results
+        AppLogger.wc(
+          LogCategory.network,
+          'No result handler for status code ${response?.statusCode}',
+        );
       }
-    } catch (e) {
-      // No handler found (neither exact nor fallback)
-      AppLogger.wc(
-        LogCategory.network,
-        'No result handler for status code $statusCode',
-      );
     }
 
     return null;
@@ -161,7 +99,7 @@ class CustomNetworkRequestActionParser
       final hasAuth = authValue.trim().isNotEmpty;
       AppLogger.dc(
         LogCategory.network,
-        'Request headers resolved (hasAuthorization=$hasAuth): '
+        'STAC request headers resolved (hasAuthorization=$hasAuth): '
         '${resolvedHeaders.map((k, v) => MapEntry(k, k.toLowerCase() == 'authorization' ? '***' : v))}',
       );
     }
@@ -197,65 +135,5 @@ class CustomNetworkRequestActionParser
     } catch (_) {
       return input;
     }
-  }
-
-  /// Recursively resolve {{template}} placeholders in action JSON
-  /// This ensures we use fresh registry values instead of stale cached ones
-  Map<String, dynamic> _resolveActionTemplates(Map<String, dynamic> action) {
-    return _resolveMapTemplates(action);
-  }
-
-  Map<String, dynamic> _resolveMapTemplates(Map<String, dynamic> map) {
-    final result = <String, dynamic>{};
-    for (final entry in map.entries) {
-      result[entry.key] = _resolveValueTemplates(entry.value);
-    }
-    return result;
-  }
-
-  dynamic _resolveValueTemplates(dynamic value) {
-    if (value is String) {
-      // Log ALL string values that contain {{ to debug
-      if (value.contains('{{')) {
-        AppLogger.dc(
-          LogCategory.stacVariable,
-          'Processing template: "$value"',
-        );
-      }
-      
-      // Check if the entire string is a single {{expr}}
-      final match = RegExp(r'^{{([^}]+)}}$').firstMatch(value);
-      if (match != null) {
-        final expr = match.group(1)?.trim();
-        if (expr != null && expr.isNotEmpty) {
-          final resolved = StacRegistry.instance.getValue(expr);
-          AppLogger.dc(
-            LogCategory.stacVariable,
-            'Resolved {{$expr}}: ${resolved != null ? resolved.runtimeType : 'NULL'}',
-          );
-          if (resolved != null) {
-            AppLogger.dc(
-              LogCategory.stacVariable,
-              'Resolved {{$expr}} to ${resolved.runtimeType}',
-            );
-            return resolved; // Return the actual value, not string
-          }
-        }
-      }
-      // For partial templates or no match, do string interpolation
-      return value.replaceAllMapped(RegExp(r'\{\{([^}]+)\}\}'), (m) {
-        final expr = m.group(1)?.trim();
-        if (expr == null || expr.isEmpty) return m.group(0) ?? '';
-        final resolved = StacRegistry.instance.getValue(expr);
-        return resolved?.toString() ?? m.group(0) ?? '';
-      });
-    } else if (value is Map<String, dynamic>) {
-      return _resolveMapTemplates(value);
-    } else if (value is Map) {
-      return _resolveMapTemplates(Map<String, dynamic>.from(value));
-    } else if (value is List) {
-      return value.map((item) => _resolveValueTemplates(item)).toList();
-    }
-    return value;
   }
 }
