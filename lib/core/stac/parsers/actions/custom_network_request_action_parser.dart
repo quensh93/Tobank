@@ -20,8 +20,14 @@ class CustomNetworkRequestActionParser
   String get actionType => ActionType.networkRequest.name;
 
   @override
-  StacNetworkRequest getModel(Map<String, dynamic> json) =>
-      StacNetworkRequest.fromJson(json);
+  StacNetworkRequest getModel(Map<String, dynamic> json) {
+    // Support 'data' as an alias for 'body'
+    // STAC commonly uses 'data' for the payload in JSON, but 'body' in the model.
+    if (json['body'] == null && json['data'] != null) {
+      json['body'] = json['data'];
+    }
+    return StacNetworkRequest.fromJson(json);
+  }
 
   @override
   FutureOr onCall(BuildContext context, StacNetworkRequest model) async {
@@ -91,22 +97,11 @@ class CustomNetworkRequestActionParser
             LogCategory.stacData,
             'Before result action: data_payload (${dpCheck.runtimeType}) = ${preview.length > 80 ? preview.substring(0, 80) + '...' : preview}',
           );
-        } else {
-          AppLogger.wc(
-            LogCategory.stacData,
-            '⚠️ Before result action: data_payload is NULL!',
-          );
         }
 
-        // Debug: Log the action type and structure
-        final action = result.action;
-        AppLogger.dc(
-          LogCategory.stacData,
-          'result.action type: ${action.runtimeType}',
-        );
-
         // Pre-resolve {{data_payload}} in the action JSON to prevent STAC framework
-        // from using stale cached values
+        // from using stale cached values.
+        final action = result.action;
         final resolvedAction = _resolveActionTemplates(action);
         AppLogger.dc(LogCategory.stacData, 'Resolved action templates');
         return Stac.onCallFromJson(resolvedAction, context);
@@ -123,8 +118,10 @@ class CustomNetworkRequestActionParser
   }
 
   StacNetworkRequest _resolveNetworkRequestTemplates(StacNetworkRequest model) {
+    // Resolve URL templates
     final resolvedUrl = _resolveTemplates(model.url);
 
+    // Resolve Headers templates
     Map<String, String>? resolvedHeaders;
     final headers = model.headers;
     if (headers != null) {
@@ -140,24 +137,61 @@ class CustomNetworkRequestActionParser
             orElse: () => const MapEntry('', ''),
           )
           .value;
-      final hasAuth = authValue.trim().isNotEmpty;
+      final hasAuth = authValue.trim().isNotEmpty && authValue != 'Bearer null';
       AppLogger.dc(
         LogCategory.network,
-        'STAC request headers resolved (hasAuthorization=$hasAuth): '
-        '${resolvedHeaders.map((k, v) => MapEntry(k, k.toLowerCase() == 'authorization' ? '***' : v))}',
+        'STAC request headers resolved (hasAuthorization=$hasAuth)',
       );
+    }
+
+    // Resolve Body templates (Recursively)
+    dynamic resolvedBody;
+    if (model.body != null) {
+      resolvedBody = _resolveValueTemplates(model.body);
     }
 
     return StacNetworkRequest(
       url: resolvedUrl,
       method: model.method,
       headers: resolvedHeaders,
-      body: model.body,
+      body: resolvedBody,
     );
   }
 
   String _resolveTemplates(String input) {
-    final decodedInput = _tryDecodeUriComponent(input);
+    String decodedInput = _tryDecodeUriComponent(input);
+
+    // Support replace function: {{replace(key, 'old', 'new')}}
+    // Regex matches: {{replace( key , 'old' , 'new' )}}
+    // Groups: 1=key, 2=old, 3=new
+    // Handles single quotes and optional whitespace
+    final replaceInfoRegex = RegExp(
+      r"\{\{replace\(([^,]+?)\s*,\s*[']([^']*)[']\s*,\s*[']([^']*)[']\s*\)\}\}",
+    );
+
+    if (replaceInfoRegex.hasMatch(decodedInput)) {
+      decodedInput = decodedInput.replaceAllMapped(replaceInfoRegex, (match) {
+        final key = match.group(1)?.trim();
+        final from = match.group(2);
+        final to = match.group(3);
+
+        if (key == null) return match.group(0) ?? '';
+
+        // Resolve the key's value from registry
+        // The key might be simple (login.birthDate) or template-like.
+        // If it's just 'login.birthDate' (no curly braces), getValue should handle it if your registry supports dot notation
+        // Or we might need to wrap it in {{}} if getValue expects expression.
+        // Assuming StacRegistry.instance.getValue takes the key name.
+
+        final val = StacRegistry.instance.getValue(key)?.toString() ?? '';
+
+        if (from != null && to != null) {
+          return val.replaceAll(from, to);
+        }
+        return val;
+      });
+    }
+
     if (!decodedInput.contains('{{') || !decodedInput.contains('}}')) {
       return decodedInput;
     }
@@ -182,7 +216,6 @@ class CustomNetworkRequestActionParser
   }
 
   /// Recursively resolve {{template}} placeholders in action JSON
-  /// This ensures we use fresh registry values instead of stale cached ones
   Map<String, dynamic> _resolveActionTemplates(Map<String, dynamic> action) {
     return _resolveMapTemplates(action);
   }
@@ -197,37 +230,31 @@ class CustomNetworkRequestActionParser
 
   dynamic _resolveValueTemplates(dynamic value) {
     if (value is String) {
-      // Log ALL string values that contain {{ to debug
-      if (value.contains('{{')) {
-        AppLogger.dc(LogCategory.stacVariable, 'Processing template: "$value"');
+      // Check for replace function FIRST
+      if (value.contains('{{replace(')) {
+        return _resolveTemplates(value);
       }
 
       // Check if the entire string is a single {{expr}}
+      // This preserves types (e.g. if {{key}} is a Map, return Map, not "Map")
       final match = RegExp(r'^{{([^}]+)}}$').firstMatch(value);
       if (match != null) {
         final expr = match.group(1)?.trim();
+        // If it looks like a function call (contains '('), delegate to _resolveTemplates which returns String
+        if (expr != null && expr.contains('(')) {
+          return _resolveTemplates(value);
+        }
+
         if (expr != null && expr.isNotEmpty) {
           final resolved = StacRegistry.instance.getValue(expr);
-          AppLogger.dc(
-            LogCategory.stacVariable,
-            'Resolved {{$expr}}: ${resolved != null ? resolved.runtimeType : 'NULL'}',
-          );
+          // If resolved is not null, return it directly (preserving type)
           if (resolved != null) {
-            AppLogger.dc(
-              LogCategory.stacVariable,
-              'Resolved {{$expr}} to ${resolved.runtimeType}',
-            );
-            return resolved; // Return the actual value, not string
+            return resolved;
           }
         }
       }
-      // For partial templates or no match, do string interpolation
-      return value.replaceAllMapped(RegExp(r'\{\{([^}]+)\}\}'), (m) {
-        final expr = m.group(1)?.trim();
-        if (expr == null || expr.isEmpty) return m.group(0) ?? '';
-        final resolved = StacRegistry.instance.getValue(expr);
-        return resolved?.toString() ?? m.group(0) ?? '';
-      });
+      // For partial matches or if not found, use string interpolation
+      return _resolveTemplates(value);
     } else if (value is Map<String, dynamic>) {
       return _resolveMapTemplates(value);
     } else if (value is Map) {
