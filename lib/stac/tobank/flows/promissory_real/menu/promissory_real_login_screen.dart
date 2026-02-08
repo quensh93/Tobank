@@ -388,11 +388,6 @@ StacWidget promissoryRealLoginForm() {
                                       '{{appStrings.promissory.loginSuccess}}',
                                 },
                               }),
-                              StacRawJsonAction({
-                                'actionType': 'navigate',
-                                'widgetType': 'promissory_real_receiver',
-                                'navigationStyle': 'push',
-                              }),
                             ],
                           ).toJson(),
                         ),
