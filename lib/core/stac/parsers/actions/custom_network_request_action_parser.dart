@@ -29,7 +29,6 @@ class CustomNetworkRequestActionParser
 
     try {
       final resolvedModel = _resolveNetworkRequestTemplates(model);
-<<<<<<< HEAD
 
       // Log cURL for debugging
       _logCurl(resolvedModel);
@@ -41,9 +40,6 @@ class CustomNetworkRequestActionParser
     } on TimeoutException {
       AppLogger.wc(LogCategory.network, 'Network request timed out');
       response = null; // Will trigger fallback to status code -1
-=======
-      response = await StacNetworkService.request(context, resolvedModel);
->>>>>>> origin/real_api_confrim_screen
     } on DioException catch (e) {
       response = e.response;
       Log.e(e.response);
@@ -72,7 +68,6 @@ class CustomNetworkRequestActionParser
       );
     }
 
-<<<<<<< HEAD
     final statusCode = response?.statusCode ?? -1;
 
     try {
@@ -115,24 +110,13 @@ class CustomNetworkRequestActionParser
         final resolvedAction = _resolveActionTemplates(action);
         AppLogger.dc(LogCategory.stacData, 'Resolved action templates');
         return Stac.onCallFromJson(resolvedAction, context);
-=======
-    if (response?.statusCode != null) {
-      try {
-        final result = model.results.firstWhere(
-          (element) => element.statusCode == response?.statusCode,
-        );
-
-        if (context.mounted) {
-          return Stac.onCallFromJson(result.action, context);
-        }
-      } catch (e) {
-        // No matching status code found in results
-        AppLogger.wc(
-          LogCategory.network,
-          'No result handler for status code ${response?.statusCode}',
-        );
->>>>>>> origin/real_api_confrim_screen
       }
+    } catch (e) {
+      // No matching status code found in results or other error
+      AppLogger.wc(
+        LogCategory.network,
+        'No result handler for status code ${response?.statusCode} or error executing action: $e',
+      );
     }
 
     return null;
@@ -196,7 +180,6 @@ class CustomNetworkRequestActionParser
       return input;
     }
   }
-<<<<<<< HEAD
 
   /// Recursively resolve {{template}} placeholders in action JSON
   /// This ensures we use fresh registry values instead of stale cached ones
@@ -281,6 +264,4 @@ class CustomNetworkRequestActionParser
       AppLogger.ec(LogCategory.network, 'Failed to generate cURL log', e);
     }
   }
-=======
->>>>>>> origin/real_api_confrim_screen
 }
