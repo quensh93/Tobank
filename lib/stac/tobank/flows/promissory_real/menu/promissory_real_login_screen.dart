@@ -372,7 +372,8 @@ StacWidget promissoryRealLoginForm() {
                                 values: [
                                   {
                                     'key': 'auth.accessToken',
-                                    'value': '{{data.access_token}}',
+                                    'value':
+                                        '{{data.result.data.access_token}}',
                                   },
                                   {
                                     'key': 'userData.nationalCode',
