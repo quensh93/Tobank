@@ -42,16 +42,106 @@ class StacWidgetResolver {
 
   /// Resolves a widget from a network request.
   /// Returns the widget wrapped with theme-awareness.
+  /// Resolves a widget from a network request.
+  /// Returns the widget wrapped with theme-awareness.
   static Widget resolveFromNetwork(
     BuildContext context,
     StacNetworkRequest request,
   ) {
     return _ThemeReactiveStacWidget(
       builder: (ctx) {
-        final parsedWidget = Stac.fromNetwork(context: ctx, request: request);
-        return StacThemeWrapper.wrapWithTheme(ctx, parsedWidget);
+        // Use FutureBuilder to handle manual request and extraction
+        // This is necessary because some APIs return nested JSON (e.g. data.content[0].value)
+        // and Stac.fromNetwork expects the widget definition at the root.
+        return FutureBuilder<dynamic>(
+          future: StacNetworkService.request(ctx, request),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Scaffold(
+                body: Center(child: CircularProgressIndicator()),
+              );
+            }
+            if (snapshot.hasError) {
+              AppLogger.e('StacWidgetResolver: Network error', snapshot.error);
+              return Scaffold(
+                appBar: AppBar(title: const Text('Error')),
+                body: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text('Error: ${snapshot.error}'),
+                  ),
+                ),
+              );
+            }
+            if (!snapshot.hasData || snapshot.data == null) {
+              return const Scaffold(body: SizedBox.shrink());
+            }
+
+            final response = snapshot.data;
+            final data = response.data;
+
+            // Extract the actual widget JSON from nested structure if needed
+            final widgetJson = _extractWidgetJson(data);
+
+            if (widgetJson == null || widgetJson.isEmpty) {
+              AppLogger.w(
+                'StacWidgetResolver: No widget data found in response',
+              );
+              return const Center(child: Text('No widget data found'));
+            }
+
+            // Resolve variables presesrving types
+            final resolvedJson = mock_setup.resolveVariablesPreservingTypes(
+              widgetJson,
+              StacRegistry.instance,
+            );
+
+            // Parse the widget
+            final parsedWidget = Stac.fromJson(resolvedJson, ctx);
+            return StacThemeWrapper.wrapWithTheme(
+              ctx,
+              parsedWidget ?? const SizedBox.shrink(),
+            );
+          },
+        );
       },
     );
+  }
+
+  /// Extracts widget JSON from various nested structures
+  static Map<String, dynamic>? _extractWidgetJson(dynamic data) {
+    if (data is! Map<String, dynamic>) {
+      return null;
+    }
+
+    // Check for IPAAM/Builder structure: data -> content -> [0] -> value
+    if (data.containsKey('data') && data['data'] is Map) {
+      final innerData = data['data'];
+      if (innerData.containsKey('content') && innerData['content'] is List) {
+        final content = innerData['content'] as List;
+        if (content.isNotEmpty && content.first is Map) {
+          final item = content.first as Map;
+          if (item.containsKey('value') && item['value'] is Map) {
+            return item['value'] as Map<String, dynamic>;
+          }
+        }
+      }
+    }
+
+    // Default: Check if the root has "type" (standard STAC)
+    if (data.containsKey('type')) {
+      return data;
+    }
+
+    // Default 2: Check standard API wrapper: data -> (widget)
+    if (data.containsKey('data') &&
+        data['data'] is Map &&
+        (data['data'] as Map).containsKey('type')) {
+      return data['data'] as Map<String, dynamic>;
+    }
+
+    // If we have a map but no type, return it anyway (Stac.fromJson might handle it or fail gracefully)
+    return data;
   }
 
   /// Resolves a widget from an asset path.

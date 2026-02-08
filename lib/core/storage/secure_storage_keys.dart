@@ -1,5 +1,5 @@
 /// Enum-based key management for secure storage
-/// 
+///
 /// This enum provides type-safe, centralized key management for secure storage.
 /// Benefits:
 /// - Type safety: Compile-time checking prevents typos
@@ -13,7 +13,7 @@ enum SecureStorageKeys {
   token,
   refreshToken,
   isLogin,
-  
+
   // User profile keys
   username,
   fullName,
@@ -21,38 +21,41 @@ enum SecureStorageKeys {
   lastName,
   email,
   phoneNumber,
-  
+
   // Device keys
   fcmToken,
   deviceId,
-  
+
   // API keys
   apiKey,
   apiSecret,
-  
+
   // App settings (sensitive)
   biometricEnabled,
   autoLoginEnabled,
-  
+
   // Session keys
   sessionId,
   lastLoginTime,
-  
+
   // Security keys
   pinCode,
   biometricData,
-  
+
   // Custom keys (add more as needed)
   customKey1,
   customKey2,
   customKey3,
+
+  // Auth
+  password,
 }
 
 /// Extension to provide additional functionality for SecureStorageKeys
 extension SecureStorageKeysExtension on SecureStorageKeys {
   /// Get the string representation of the key
   String get key => name;
-  
+
   /// Get a human-readable description of the key
   String get description {
     switch (this) {
@@ -102,9 +105,11 @@ extension SecureStorageKeysExtension on SecureStorageKeys {
         return 'Custom Key 2';
       case SecureStorageKeys.customKey3:
         return 'Custom Key 3';
+      case SecureStorageKeys.password:
+        return 'Password';
     }
   }
-  
+
   /// Check if this key is considered highly sensitive
   bool get isHighlySensitive {
     switch (this) {
@@ -114,12 +119,13 @@ extension SecureStorageKeysExtension on SecureStorageKeys {
       case SecureStorageKeys.apiSecret:
       case SecureStorageKeys.pinCode:
       case SecureStorageKeys.biometricData:
+      case SecureStorageKeys.password:
         return true;
       default:
         return false;
     }
   }
-  
+
   /// Check if this key should be cleared on logout
   bool get shouldClearOnLogout {
     switch (this) {
@@ -128,6 +134,7 @@ extension SecureStorageKeysExtension on SecureStorageKeys {
       case SecureStorageKeys.isLogin:
       case SecureStorageKeys.sessionId:
       case SecureStorageKeys.lastLoginTime:
+      case SecureStorageKeys.password:
         return true;
       default:
         return false;

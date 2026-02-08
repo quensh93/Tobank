@@ -89,7 +89,7 @@ StacWidget promissoryRealDebugMenu() {
               ),
             ),
           ),
-           StacSizedBox(height: 16),
+          StacSizedBox(height: 16),
           // 3. Load from API
           StacOutlinedButton(
             onPressed: StacRawJsonAction({
@@ -121,10 +121,29 @@ StacWidget promissoryRealDebugMenu() {
           ),
           StacSizedBox(height: 16),
 
-        
-
           // 4. Static Login
           StacOutlinedButton(
+            onPressed: StacRawJsonAction({
+              'actionType': 'navigate',
+              'widgetType': 'promissory_real_loader',
+              'navigationStyle': 'pushReplacement',
+            }),
+            style: StacButtonStyle(
+              backgroundColor: '#FF5722',
+              foregroundColor: '#FFFFFF',
+              padding: StacEdgeInsets.symmetric(horizontal: 32, vertical: 16),
+            ),
+            child: StacText(
+              data: 'API JSON',
+              style: StacTextStyle(
+                fontSize: 16,
+                fontWeight: StacFontWeight.w600,
+              ),
+            ),
+          ),
+
+          const StacSizedBox(height: 16),
+          StacFilledButton(
             onPressed: StacRawJsonAction({
               'actionType': 'promissory_real_login',
             }),

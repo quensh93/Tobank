@@ -29,6 +29,7 @@ class CustomNetworkRequestActionParser
 
     try {
       final resolvedModel = _resolveNetworkRequestTemplates(model);
+<<<<<<< HEAD
 
       // Log cURL for debugging
       _logCurl(resolvedModel);
@@ -40,11 +41,12 @@ class CustomNetworkRequestActionParser
     } on TimeoutException {
       AppLogger.wc(LogCategory.network, 'Network request timed out');
       response = null; // Will trigger fallback to status code -1
+=======
+      response = await StacNetworkService.request(context, resolvedModel);
+>>>>>>> origin/real_api_confrim_screen
     } on DioException catch (e) {
       response = e.response;
       Log.e(e.response);
-    } catch (e) {
-      Log.e(e);
     }
 
     // Store response data in registry so {{data.data.*}} variables can be resolved
@@ -52,48 +54,25 @@ class CustomNetworkRequestActionParser
       final responseData = response!.data;
       StacRegistry.instance.setValue('data', responseData);
 
-      // Always clear old data_payload first to prevent stale data
-      StacRegistry.instance.removeValue('data_payload');
-
       dynamic payload;
       if (responseData is Map) {
         payload = responseData['data'];
         if (payload == null && responseData['result'] is Map) {
           payload = (responseData['result'] as Map)['data'];
         }
-        AppLogger.dc(
-          LogCategory.stacData,
-          'Response structure: data=${responseData['data']?.runtimeType}, result=${responseData['result']?.runtimeType}',
-        );
-      } else if (responseData is List) {
-        // If response is already an array, use it directly
-        payload = responseData;
-        AppLogger.dc(
-          LogCategory.stacData,
-          'Response is List directly, length=${responseData.length}',
-        );
       }
       if (payload != null) {
         StacRegistry.instance.setValue('data_payload', payload);
-        final previewStr = payload.toString();
-        AppLogger.dc(
-          LogCategory.stacData,
-          'Set data_payload (${payload.runtimeType}): ${previewStr.length > 100 ? previewStr.substring(0, 100) + '...' : previewStr}',
-        );
-      } else {
-        AppLogger.wc(
-          LogCategory.stacData,
-          '⚠️ data_payload not set - payload is null. ResponseData type: ${responseData.runtimeType}',
-        );
       }
 
       RegistryNotifier.instance.notify();
       AppLogger.dc(
-        LogCategory.stacData,
+        LogCategory.network,
         'Network response data stored in registry under "data" key',
       );
     }
 
+<<<<<<< HEAD
     final statusCode = response?.statusCode ?? -1;
 
     try {
@@ -136,13 +115,24 @@ class CustomNetworkRequestActionParser
         final resolvedAction = _resolveActionTemplates(action);
         AppLogger.dc(LogCategory.stacData, 'Resolved action templates');
         return Stac.onCallFromJson(resolvedAction, context);
+=======
+    if (response?.statusCode != null) {
+      try {
+        final result = model.results.firstWhere(
+          (element) => element.statusCode == response?.statusCode,
+        );
+
+        if (context.mounted) {
+          return Stac.onCallFromJson(result.action, context);
+        }
+      } catch (e) {
+        // No matching status code found in results
+        AppLogger.wc(
+          LogCategory.network,
+          'No result handler for status code ${response?.statusCode}',
+        );
+>>>>>>> origin/real_api_confrim_screen
       }
-    } catch (e) {
-      // No handler found (neither exact nor fallback)
-      AppLogger.wc(
-        LogCategory.network,
-        'No result handler for status code $statusCode',
-      );
     }
 
     return null;
@@ -169,7 +159,7 @@ class CustomNetworkRequestActionParser
       final hasAuth = authValue.trim().isNotEmpty;
       AppLogger.dc(
         LogCategory.network,
-        'Request headers resolved (hasAuthorization=$hasAuth): '
+        'STAC request headers resolved (hasAuthorization=$hasAuth): '
         '${resolvedHeaders.map((k, v) => MapEntry(k, k.toLowerCase() == 'authorization' ? '***' : v))}',
       );
     }
@@ -206,6 +196,7 @@ class CustomNetworkRequestActionParser
       return input;
     }
   }
+<<<<<<< HEAD
 
   /// Recursively resolve {{template}} placeholders in action JSON
   /// This ensures we use fresh registry values instead of stale cached ones
@@ -290,4 +281,6 @@ class CustomNetworkRequestActionParser
       AppLogger.ec(LogCategory.network, 'Failed to generate cURL log', e);
     }
   }
+=======
+>>>>>>> origin/real_api_confrim_screen
 }

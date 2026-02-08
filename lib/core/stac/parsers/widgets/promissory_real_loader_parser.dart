@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
-import '../../../api/config_api/config_api.dart';
-import '../../../helpers/logger.dart';
+import 'package:tobank_sdui/core/api/config_api/config_api.dart';
+import 'package:tobank_sdui/core/helpers/logger.dart';
 
 class PromissoryRealLoaderParser extends StacParser<Map<String, dynamic>> {
   const PromissoryRealLoaderParser();
