@@ -79,8 +79,6 @@ StacWidget promissoryRealLoginForm() {
                         fields: [
                           {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
                           {'id': 'national_code', 'rule': r'^\d{10}$'},
-                          {'id': 'gpay_token', 'rule': r'.+'},
-                          {'id': 'cif', 'rule': r'.+'},
                           {'id': 'birthdate', 'rule': r'.+'},
                         ],
                       ).toJson(),
@@ -126,8 +124,6 @@ StacWidget promissoryRealLoginForm() {
                         fields: [
                           {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
                           {'id': 'national_code', 'rule': r'^\d{10}$'},
-                          {'id': 'gpay_token', 'rule': r'.+'},
-                          {'id': 'cif', 'rule': r'.+'},
                           {'id': 'birthdate', 'rule': r'.+'},
                         ],
                       ).toJson(),
@@ -144,6 +140,7 @@ StacWidget promissoryRealLoginForm() {
                     StacRawJsonWidget({
                       'type': 'textFormField',
                       'id': 'gpay_token',
+                      'initialValue': '1234',
                       'textDirection': 'ltr',
                       'textAlign': 'left',
                       'decoration': StacInputDecoration(
@@ -156,20 +153,11 @@ StacWidget promissoryRealLoginForm() {
                       ).toJson(),
                       'keyboardType': 'text',
                       'textInputAction': 'next',
-                      'validatorRules': [
-                        {
-                          'rule': r'.+',
-                          'message':
-                              '{{appStrings.promissory.gpayTokenRequired}}',
-                        },
-                      ],
                       'onChanged': StacValidateFieldsAction(
                         resultKey: 'isLoginFormValid',
                         fields: [
                           {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
                           {'id': 'national_code', 'rule': r'^\d{10}$'},
-                          {'id': 'gpay_token', 'rule': r'.+'},
-                          {'id': 'cif', 'rule': r'.+'},
                           {'id': 'birthdate', 'rule': r'.+'},
                         ],
                       ).toJson(),
@@ -186,6 +174,7 @@ StacWidget promissoryRealLoginForm() {
                     StacRawJsonWidget({
                       'type': 'textFormField',
                       'id': 'cif',
+                      'initialValue': '123',
                       'textDirection': 'ltr',
                       'textAlign': 'left',
                       'decoration': StacInputDecoration(
@@ -198,19 +187,11 @@ StacWidget promissoryRealLoginForm() {
                       ).toJson(),
                       'keyboardType': 'text',
                       'textInputAction': 'next',
-                      'validatorRules': [
-                        {
-                          'rule': r'.+',
-                          'message': '{{appStrings.promissory.cifRequired}}',
-                        },
-                      ],
                       'onChanged': StacValidateFieldsAction(
                         resultKey: 'isLoginFormValid',
                         fields: [
                           {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
                           {'id': 'national_code', 'rule': r'^\d{10}$'},
-                          {'id': 'gpay_token', 'rule': r'.+'},
-                          {'id': 'cif', 'rule': r'.+'},
                           {'id': 'birthdate', 'rule': r'.+'},
                         ],
                       ).toJson(),
@@ -234,8 +215,6 @@ StacWidget promissoryRealLoginForm() {
                           fields: [
                             {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
                             {'id': 'national_code', 'rule': r'^\d{10}$'},
-                            {'id': 'gpay_token', 'rule': r'.+'},
-                            {'id': 'cif', 'rule': r'.+'},
                             {'id': 'birthdate', 'rule': r'.+'},
                           ],
                         ).toJson(),
