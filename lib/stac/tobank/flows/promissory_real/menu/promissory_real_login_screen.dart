@@ -355,11 +355,22 @@ StacWidget promissoryRealLoginForm() {
                                         '{{data.result.data.access_token}}',
                                   },
                                   {
+                                    'key': 'auth.accessTokenRaw',
+                                    'value':
+                                        "{{replace(data.result.data.access_token,'Bearer ','')}}",
+                                  },
+                                  {
                                     'key': 'userData.nationalCode',
                                     'value': '{{login.nationalCode}}',
                                   },
                                 ],
                               ),
+                              StacRawJsonAction({
+                                'actionType': 'auth_persist',
+                                'accessToken':
+                                    '{{data.result.data.access_token}}',
+                                'nationalCode': '{{login.nationalCode}}',
+                              }),
                               StacRawJsonAction({
                                 'actionType': 'showSnackBar',
                                 'content': {

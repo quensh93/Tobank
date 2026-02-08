@@ -200,10 +200,53 @@ class CustomNetworkRequestActionParser
       final expr = match.group(1)?.trim();
       if (expr == null || expr.isEmpty) return match.group(0) ?? '';
 
-      final value = StacRegistry.instance.getValue(expr);
+      final value = _getNestedValue(expr);
       if (value == null) return '';
+
+      // If resolved value is a complex object, return it as JSON string if inside other text,
+      // but _resolveValueTemplates should handle it correctly if it's the entire value.
+      if (value is Map || value is List) {
+        try {
+          return jsonEncode(value);
+        } catch (_) {
+          return value.toString();
+        }
+      }
       return value.toString();
     });
+  }
+
+  /// Gets a value from registry, supporting nested paths like "data.result.data.accessToken"
+  dynamic _getNestedValue(String path) {
+    // First try the exact key as-is (supports dotted keys stored flat)
+    final directValue = StacRegistry.instance.getValue(path);
+    if (directValue != null) return directValue;
+
+    final parts = path.split('.');
+    if (parts.isEmpty) return null;
+
+    // Get the root value from registry
+    dynamic value = StacRegistry.instance.getValue(parts[0]);
+    if (value == null) return null;
+
+    // Navigate through nested structure
+    for (int i = 1; i < parts.length; i++) {
+      if (value is Map) {
+        value = value[parts[i]];
+      } else if (value is List && int.tryParse(parts[i]) != null) {
+        final index = int.parse(parts[i]);
+        if (index >= 0 && index < value.length) {
+          value = value[index];
+        } else {
+          return null;
+        }
+      } else {
+        return null;
+      }
+      if (value == null) return null;
+    }
+
+    return value;
   }
 
   String _tryDecodeUriComponent(String input) {
