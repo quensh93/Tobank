@@ -252,120 +252,142 @@ StacWidget promissoryRealSign() {
                         'actionType': 'sequence',
                         'actions': [
                           {'actionType': 'closeDialog'},
-                          {
-                            'actionType': 'setValue',
-                            'key': 'isSigning',
-                            'value': true,
-                          },
-                          {
-                            'actionType': 'networkRequest',
-                            'url':
-                                'https://api.tobank.com/promissory/publish/finalize',
-                            'method': 'post',
-                            'data': {
-                              'id':
-                                  '{{form.promissory_request_id}}', // Using ID from form
-                              'signedPdf': '{{form.signed_pdf}}',
-                            },
-                            'results': [
-                              {
-                                'statusCode': 200,
-                                'action': {
-                                  'actionType': 'sequence',
-                                  'actions': [
-                                    {
-                                      'actionType': 'setValue',
-                                      'key': 'isSigning',
-                                      'value': false,
-                                    },
-                                    {
-                                      'actionType': 'setValue',
-                                      'values': [
-                                        {
-                                          'key': 'promissoryId',
-                                          'value': '{{data.data.promissoryId}}',
-                                        },
-                                        {
-                                          'key': 'transactionAmount',
-                                          'value': '{{form.promissory_amount}}',
-                                        },
-                                        {
-                                          'key': 'transactionTime',
-                                          'value':
-                                              '{{data.data.transactionTime}}',
-                                        },
-                                        {
-                                          'key': 'trackingNumber',
-                                          'value':
-                                              '{{data.data.trackingNumber}}',
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      'actionType': 'navigate',
-                                      'widgetType':
-                                          'promissory_real_success', // Navigate to Real Success
-                                      'navigationStyle': 'pushReplacement',
-                                    },
-                                  ],
+                          StacFingerPrintAction(
+                            title: 'تایید با اثر انگشت',
+                            description:
+                                'برای امضای سفته لطفا هویت خود را تایید کنید',
+                            userId: '{{form.national_code}}',
+                            onSuccess: {
+                              'actionType': 'sequence',
+                              'actions': [
+                                {
+                                  'actionType': 'setValue',
+                                  'key': 'isSigning',
+                                  'value': true,
                                 },
-                              },
-                              {
-                                // Error handling
-                                'statusCode': -1,
-                                'action': {
-                                  'actionType': 'sequence',
-                                  'actions': [
+                                {
+                                  'actionType': 'networkRequest',
+                                  'url':
+                                      'https://api.tobank.com/promissory/publish/finalize',
+                                  'method': 'post',
+                                  'data': {
+                                    'id':
+                                        '{{form.promissory_request_id}}', // Using ID from form
+                                    'signedPdf': '{{form.signed_pdf}}',
+                                  },
+                                  'results': [
                                     {
-                                      'actionType': 'setValue',
-                                      'values': [
-                                        {
-                                          'key': 'transactionAmount',
-                                          'value': '20,000,000',
-                                        },
-                                        {
-                                          'key': 'transactionTime',
-                                          'value': '{{now()}}',
-                                        },
-                                        {
-                                          'key': 'paymentMethod',
-                                          'value':
-                                              '{{appStrings.promissory.depositPayment}}',
-                                        },
-                                        {
-                                          'key': 'trackingNumber',
-                                          'value': 'TS-987654321',
-                                        },
-                                        {
-                                          'key': 'promissoryId',
-                                          'value': 'PROM-12345',
-                                        },
-                                      ],
+                                      'statusCode': 200,
+                                      'action': {
+                                        'actionType': 'sequence',
+                                        'actions': [
+                                          {
+                                            'actionType': 'setValue',
+                                            'key': 'isSigning',
+                                            'value': false,
+                                          },
+                                          {
+                                            'actionType': 'setValue',
+                                            'values': [
+                                              {
+                                                'key': 'promissoryId',
+                                                'value':
+                                                    '{{data.data.promissoryId}}',
+                                              },
+                                              {
+                                                'key': 'transactionAmount',
+                                                'value':
+                                                    '{{form.promissory_amount}}',
+                                              },
+                                              {
+                                                'key': 'transactionTime',
+                                                'value':
+                                                    '{{data.data.transactionTime}}',
+                                              },
+                                              {
+                                                'key': 'trackingNumber',
+                                                'value':
+                                                    '{{data.data.trackingNumber}}',
+                                              },
+                                            ],
+                                          },
+                                          {
+                                            'actionType': 'navigate',
+                                            'widgetType':
+                                                'promissory_real_success', // Navigate to Real Success
+                                            'navigationStyle':
+                                                'pushReplacement',
+                                          },
+                                        ],
+                                      },
                                     },
                                     {
-                                      'actionType': 'navigate',
-                                      'widgetType':
-                                          'promissory_real_success', // Navigate to Real Success
-                                      'navigationStyle': 'pushReplacement',
-                                    },
-                                    {
-                                      'actionType': 'setValue',
-                                      'key': 'isSigning',
-                                      'value': false,
-                                    },
-                                    {
-                                      'actionType': 'showSnackBar',
-                                      'content': {
-                                        'type': 'text',
-                                        'data':
-                                            '{{appStrings.promissory.signError}}',
+                                      // Error handling
+                                      'statusCode': -1,
+                                      'action': {
+                                        'actionType': 'sequence',
+                                        'actions': [
+                                          {
+                                            'actionType': 'setValue',
+                                            'values': [
+                                              {
+                                                'key': 'transactionAmount',
+                                                'value': '20,000,000',
+                                              },
+                                              {
+                                                'key': 'transactionTime',
+                                                'value': '{{now()}}',
+                                              },
+                                              {
+                                                'key': 'paymentMethod',
+                                                'value':
+                                                    '{{appStrings.promissory.depositPayment}}',
+                                              },
+                                              {
+                                                'key': 'trackingNumber',
+                                                'value': 'TS-987654321',
+                                              },
+                                              {
+                                                'key': 'promissoryId',
+                                                'value': 'PROM-12345',
+                                              },
+                                            ],
+                                          },
+                                          {
+                                            'actionType': 'navigate',
+                                            'widgetType':
+                                                'promissory_real_success', // Navigate to Real Success
+                                            'navigationStyle':
+                                                'pushReplacement',
+                                          },
+                                          {
+                                            'actionType': 'setValue',
+                                            'key': 'isSigning',
+                                            'value': false,
+                                          },
+                                          {
+                                            'actionType': 'showSnackBar',
+                                            'content': {
+                                              'type': 'text',
+                                              'data':
+                                                  '{{appStrings.promissory.signError}}',
+                                            },
+                                          },
+                                        ],
                                       },
                                     },
                                   ],
                                 },
+                              ],
+                            },
+                            onFailure: {
+                              'actionType': 'showSnackBar',
+                              'content': {
+                                'type': 'text',
+                                'data': 'احراز هویت انجام نشد. لطفا تلاش کنید.',
                               },
-                            ],
-                          },
+                            },
+                          ).toJson(),
                         ],
                       },
                       'child': {

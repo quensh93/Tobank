@@ -1,7 +1,9 @@
 import 'package:stac_core/stac_core.dart';
 
 // Re-export StacCloseDialogAction for convenience
-export '../parsers/actions/close_dialog_action_parser.dart' show StacCloseDialogAction;
+export '../parsers/actions/close_dialog_action_parser.dart'
+    show StacCloseDialogAction;
+export 'stac_finger_print_action.dart';
 
 /// Builder for 'sequence' action.
 /// Executes a list of actions in order (awaiting Futures).
