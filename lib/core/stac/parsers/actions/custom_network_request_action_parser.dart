@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +29,10 @@ class CustomNetworkRequestActionParser
 
     try {
       final resolvedModel = _resolveNetworkRequestTemplates(model);
+
+      // Log cURL for debugging
+      _logCurl(resolvedModel);
+
       response = await StacNetworkService.request(
         context,
         resolvedModel,
@@ -113,17 +118,20 @@ class CustomNetworkRequestActionParser
             'Before result action: data_payload (${dpCheck.runtimeType}) = ${preview.length > 80 ? preview.substring(0, 80) + '...' : preview}',
           );
         } else {
-          AppLogger.wc(LogCategory.stacData, '⚠️ Before result action: data_payload is NULL!');
+          AppLogger.wc(
+            LogCategory.stacData,
+            '⚠️ Before result action: data_payload is NULL!',
+          );
         }
-        
+
         // Debug: Log the action type and structure
         final action = result.action;
         AppLogger.dc(
           LogCategory.stacData,
           'result.action type: ${action.runtimeType}',
         );
-        
-        // Pre-resolve {{data_payload}} in the action JSON to prevent STAC framework 
+
+        // Pre-resolve {{data_payload}} in the action JSON to prevent STAC framework
         // from using stale cached values
         final resolvedAction = _resolveActionTemplates(action);
         AppLogger.dc(LogCategory.stacData, 'Resolved action templates');
@@ -217,12 +225,9 @@ class CustomNetworkRequestActionParser
     if (value is String) {
       // Log ALL string values that contain {{ to debug
       if (value.contains('{{')) {
-        AppLogger.dc(
-          LogCategory.stacVariable,
-          'Processing template: "$value"',
-        );
+        AppLogger.dc(LogCategory.stacVariable, 'Processing template: "$value"');
       }
-      
+
       // Check if the entire string is a single {{expr}}
       final match = RegExp(r'^{{([^}]+)}}$').firstMatch(value);
       if (match != null) {
@@ -257,5 +262,32 @@ class CustomNetworkRequestActionParser
       return value.map((item) => _resolveValueTemplates(item)).toList();
     }
     return value;
+  }
+
+  void _logCurl(StacNetworkRequest request) {
+    try {
+      String curl = 'curl --request ${request.method.name.toUpperCase()}';
+      curl += ' --url "${request.url}"';
+
+      request.headers?.forEach((key, value) {
+        // Hide authorization value for security
+        final safeValue = key.toLowerCase().contains('authorization')
+            ? '***'
+            : value;
+        curl += ' -H "$key: $safeValue"';
+      });
+
+      if (request.body != null) {
+        if (request.body is String) {
+          curl += ' -d \'${request.body}\'';
+        } else {
+          curl += ' -d \'${jsonEncode(request.body)}\'';
+        }
+      }
+
+      AppLogger.dc(LogCategory.network, 'CURL: $curl');
+    } catch (e) {
+      AppLogger.ec(LogCategory.network, 'Failed to generate cURL log', e);
+    }
   }
 }

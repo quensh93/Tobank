@@ -7,6 +7,7 @@ import 'base_card.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../../core/helpers/log_category.dart';
 import '../../../../core/helpers/logger.dart';
+import 'package:logger/logger.dart';
 import '../../../state/debug_panel_settings_state.dart';
 import 'column_builder.dart';
 
@@ -127,6 +128,77 @@ class _CustomISpectSettingsBottomSheetState
                   inactiveThumbColor: Colors.white,
                   inactiveTrackColor: Colors.grey.shade600,
                 ),
+              ),
+            ),
+          ],
+        ),
+      ),
+
+      const SizedBox(height: 16),
+
+      // ════════════════════════════════════════════════════════════════════════
+      // STAC LOGGER LEVEL
+      // ════════════════════════════════════════════════════════════════════════
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Row(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Framework Log Level',
+                  style: TextStyle(
+                    color: context.ispectTheme.textColor,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14,
+                  ),
+                ),
+                Text(
+                  'Controls internal STAC logs',
+                  style: TextStyle(
+                    color: context.ispectTheme.textColor.withOpacity(0.5),
+                    fontSize: 11,
+                  ),
+                ),
+              ],
+            ),
+            const Spacer(),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 0),
+              decoration: BoxDecoration(
+                color: context.ispectTheme.cardColor,
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(
+                  color: context.ispectTheme.dividerColor.withOpacity(0.5),
+                ),
+              ),
+              child: DropdownButton<Level>(
+                value: appSettings.stacLoggerLevel,
+                underline: const SizedBox(),
+                dropdownColor: context.ispectTheme.scaffoldBackgroundColor,
+                icon: Icon(
+                  Icons.arrow_drop_down,
+                  color: context.ispectTheme.textColor,
+                ),
+                items: Level.values.map((level) {
+                  return DropdownMenuItem<Level>(
+                    value: level,
+                    child: Text(
+                      level.name.toUpperCase(),
+                      style: TextStyle(
+                        color: context.ispectTheme.textColor,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  );
+                }).toList(),
+                onChanged: (Level? newLevel) {
+                  if (newLevel != null) {
+                    appController.setStacLoggerLevel(newLevel);
+                  }
+                },
               ),
             ),
           ],
@@ -258,8 +330,7 @@ class _CustomISpectSettingsBottomSheetState
                           value: LogCategory.values.every(
                             (c) =>
                                 appSettings
-                                    .logCategorySettings[c]
-                                    ?.truncateEnabled ??
+                                    .logCategorySettings[c]?.truncateEnabled ??
                                 false,
                           ),
                           onChanged: (enabled) =>
@@ -285,12 +356,8 @@ class _CustomISpectSettingsBottomSheetState
                     const SizedBox(width: 4),
                     InkWell(
                       onTap: () {
-                        final currentRef =
-                            appSettings
-                                .logCategorySettings
-                                .values
-                                .firstOrNull
-                                ?.maxLength ??
+                        final currentRef = appSettings.logCategorySettings
+                                .values.firstOrNull?.maxLength ??
                             1000;
                         appController.setAllLogMaxLength(
                           (currentRef - 100).clamp(100, 100000),
@@ -315,12 +382,8 @@ class _CustomISpectSettingsBottomSheetState
                     ),
                     InkWell(
                       onTap: () {
-                        final currentRef =
-                            appSettings
-                                .logCategorySettings
-                                .values
-                                .firstOrNull
-                                ?.maxLength ??
+                        final currentRef = appSettings.logCategorySettings
+                                .values.firstOrNull?.maxLength ??
                             1000;
                         appController.setAllLogMaxLength(
                           (currentRef + 100).clamp(100, 100000),
@@ -467,8 +530,7 @@ class _CustomISpectSettingsBottomSheetState
                           child: Switch(
                             value: LogCategory.values.every(
                               (c) =>
-                                  appSettings
-                                      .logCategorySettings[c]
+                                  appSettings.logCategorySettings[c]
                                       ?.truncateEnabled ??
                                   false,
                             ),
@@ -516,8 +578,7 @@ class _CustomISpectSettingsBottomSheetState
                           children: [
                             InkWell(
                               onTap: () {
-                                final currentRef =
-                                    appSettings
+                                final currentRef = appSettings
                                         .logCategorySettings
                                         .values
                                         .firstOrNull
@@ -551,8 +612,7 @@ class _CustomISpectSettingsBottomSheetState
                             ),
                             InkWell(
                               onTap: () {
-                                final currentRef =
-                                    appSettings
+                                final currentRef = appSettings
                                         .logCategorySettings
                                         .values
                                         .firstOrNull
@@ -616,7 +676,7 @@ class _CustomISpectSettingsBottomSheetState
               children: LogCategory.values.map((category) {
                 final categorySettings =
                     appSettings.logCategorySettings[category] ??
-                    const LogCategorySettings();
+                        const LogCategorySettings();
                 final isEnabled = categorySettings.enabled;
 
                 return Container(
@@ -817,7 +877,7 @@ class _CustomISpectSettingsBottomSheetState
               children: LogCategory.values.map((category) {
                 final categorySettings =
                     appSettings.logCategorySettings[category] ??
-                    const LogCategorySettings();
+                        const LogCategorySettings();
                 final isEnabled = categorySettings.enabled;
 
                 return Container(
@@ -869,7 +929,7 @@ class _CustomISpectSettingsBottomSheetState
                                     color: isEnabled
                                         ? context.ispectTheme.textColor
                                         : context.ispectTheme.textColor
-                                              .withOpacity(0.4),
+                                            .withOpacity(0.4),
                                   ),
                                 ),
                               ],
@@ -913,7 +973,7 @@ class _CustomISpectSettingsBottomSheetState
                                     color: categorySettings.ispectEnabled
                                         ? Colors.blue
                                         : context.ispectTheme.textColor
-                                              .withOpacity(0.4),
+                                            .withOpacity(0.4),
                                   ),
                                   const SizedBox(width: 4),
                                   Text(
@@ -960,7 +1020,7 @@ class _CustomISpectSettingsBottomSheetState
                                     color: categorySettings.truncateEnabled
                                         ? Colors.teal
                                         : context.ispectTheme.textColor
-                                              .withOpacity(0.4),
+                                            .withOpacity(0.4),
                                   ),
                                   const SizedBox(width: 4),
                                   Text(
@@ -1178,7 +1238,7 @@ class _CustomISpectSettingsBottomSheetState
                         color: isEnabled
                             ? color.withOpacity(0.2)
                             : context.ispectTheme.colorScheme.surface
-                                  .withOpacity(0.3),
+                                .withOpacity(0.3),
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(
                           color: isEnabled
@@ -1412,66 +1472,67 @@ class _SettingsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => DecoratedBox(
-    decoration: BoxDecoration(
-      color: context.ispectTheme.scaffoldBackgroundColor,
-      borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
-    ),
-    child: Scrollbar(
-      thumbVisibility: true,
-      controller: scrollController,
-      interactive: true,
-      child: CustomScrollView(
-        controller: scrollController,
-        slivers: [
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            sliver: SliverToBoxAdapter(
-              child: _Header(title: context.ispectL10n.settings),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 16, top: 8),
-              child: Column(children: settings),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16,
-              ).copyWith(bottom: 16),
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: context.ispectTheme.cardColor,
-                  borderRadius: const BorderRadius.all(Radius.circular(16)),
-                  border: Border.fromBorderSide(
-                    BorderSide(color: context.ispectTheme.dividerColor),
-                  ),
-                ),
-                child: ISpectColumnBuilder(
-                  itemCount: actions.length,
-                  itemBuilder: (_, index) {
-                    final action = actions[index];
-                    return _ActionTile(
-                      action: action,
-                      showDivider: index != actions.length - 1,
-                    );
-                  },
+        decoration: BoxDecoration(
+          color: context.ispectTheme.scaffoldBackgroundColor,
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+        ),
+        child: Scrollbar(
+          thumbVisibility: true,
+          controller: scrollController,
+          interactive: true,
+          child: CustomScrollView(
+            controller: scrollController,
+            slivers: [
+              SliverPadding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                sliver: SliverToBoxAdapter(
+                  child: _Header(title: context.ispectL10n.settings),
                 ),
               ),
-            ),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 16, top: 8),
+                  child: Column(children: settings),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                  ).copyWith(bottom: 16),
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: context.ispectTheme.cardColor,
+                      borderRadius: const BorderRadius.all(Radius.circular(16)),
+                      border: Border.fromBorderSide(
+                        BorderSide(color: context.ispectTheme.dividerColor),
+                      ),
+                    ),
+                    child: ISpectColumnBuilder(
+                      itemCount: actions.length,
+                      itemBuilder: (_, index) {
+                        final action = actions[index];
+                        return _ActionTile(
+                          action: action,
+                          showDivider: index != actions.length - 1,
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              ),
+              const SliverFillRemaining(
+                hasScrollBody: false,
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: 32),
+                  child: _HowToReachMeWidget(),
+                ),
+              ),
+            ],
           ),
-          const SliverFillRemaining(
-            hasScrollBody: false,
-            child: Padding(
-              padding: EdgeInsets.only(bottom: 32),
-              child: _HowToReachMeWidget(),
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
+        ),
+      );
 }
 
 class _HowToReachMeWidget extends StatelessWidget {
@@ -1479,22 +1540,22 @@ class _HowToReachMeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Column(
-    mainAxisAlignment: MainAxisAlignment.end,
-    children: [
-      Flexible(
-        child: Text.rich(
-          TextSpan(
-            text: 'ISpect',
-            style: context.ispectTheme.textTheme.titleLarge?.copyWith(
-              color: context.ispectTheme.colorScheme.primary,
-              fontWeight: FontWeight.bold,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Flexible(
+            child: Text.rich(
+              TextSpan(
+                text: 'ISpect',
+                style: context.ispectTheme.textTheme.titleLarge?.copyWith(
+                  color: context.ispectTheme.colorScheme.primary,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              textAlign: TextAlign.center,
             ),
           ),
-          textAlign: TextAlign.center,
-        ),
-      ),
-    ],
-  );
+        ],
+      );
 }
 
 class _Header extends StatelessWidget {

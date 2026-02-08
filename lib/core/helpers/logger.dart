@@ -337,10 +337,9 @@ class AppLogger {
   /// Initialize logger and override Flutter's debugPrint
   /// This must be called early in main() to capture all logs.
   static void overrideFlutterDebugPrint() {
-    // CRITICAL: Set Logger.level to off IMMEDIATELY to silence stac_logger
-    // stac_logger uses print() directly and checks Logger.level, not debugPrint.
-    // Setting this early prevents the noisy "is being overridden" warnings.
-    Logger.level = Level.off;
+    // CRITICAL: Set Logger.level based on LogConfig or saved settings.
+    // stac_logger uses print() directly and checks this level.
+    Logger.level = LogConfig.stacLoggerLevel;
 
     debugPrint = (String? message, {int? wrapWidth}) {
       // Note: We don't check Logger.level here because we want to filter

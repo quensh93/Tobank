@@ -12,6 +12,7 @@
 //
 // ═══════════════════════════════════════════════════════════════════════════════
 
+import 'package:logger/logger.dart';
 import 'log_category.dart';
 
 /// Master control for log behavior
@@ -41,6 +42,13 @@ class LogConfig {
   /// - forceEnabled: Force ALL logs ON (use with caution)
   /// - forceDisabled: Force ALL logs OFF (emergency silence)
   static const MasterLogControl masterLogControl = MasterLogControl.manual;
+
+  /// Default Logging Level for STAC internal framework (stac_logger)
+  /// Controls which internal logs (from package:stac_logger) are shown.
+  /// Level.error is recommended to see critical failures.
+  /// Level.off silences everything.
+  /// Level.all shows everything (very noisy).
+  static const Level stacLoggerLevel = Level.error;
 
   // ═══════════════════════════════════════════════════════════════════════════
   // TRUNCATION SETTINGS

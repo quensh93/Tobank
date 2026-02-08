@@ -8,6 +8,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart'; // For kIsWeb
 import 'package:shared_preferences/shared_preferences.dart'; // For Web persistence
 
+import '../../core/helpers/log_config.dart';
 import '../../core/helpers/logger.dart';
 import '../themes/debug_panel_theme.dart';
 
@@ -116,6 +117,8 @@ class DebugPanelSettingsState {
     // Tab selection
     this.selectedTabIndex = 0,
     this.logCategorySettings = const {},
+    // STAC Logger Level
+    this.stacLoggerLevel = LogConfig.stacLoggerLevel,
   });
 
   // Fields
@@ -150,6 +153,7 @@ class DebugPanelSettingsState {
   // Tab selection
   final int selectedTabIndex;
   final Map<LogCategory, LogCategorySettings> logCategorySettings;
+  final Level stacLoggerLevel;
 
   DebugPanelSettingsState copyWith({
     bool? debugPanelEnabled,
@@ -177,6 +181,7 @@ class DebugPanelSettingsState {
     int? selectedTabIndex,
     bool? supabaseEnabled,
     Map<LogCategory, LogCategorySettings>? logCategorySettings,
+    Level? stacLoggerLevel,
   }) {
     return DebugPanelSettingsState(
       debugPanelEnabled: debugPanelEnabled ?? this.debugPanelEnabled,
@@ -209,6 +214,7 @@ class DebugPanelSettingsState {
       selectedTabIndex: selectedTabIndex ?? this.selectedTabIndex,
       supabaseEnabled: supabaseEnabled ?? this.supabaseEnabled,
       logCategorySettings: logCategorySettings ?? this.logCategorySettings,
+      stacLoggerLevel: stacLoggerLevel ?? this.stacLoggerLevel,
     );
   }
 
@@ -239,6 +245,7 @@ class DebugPanelSettingsState {
       'selectedTabIndex': selectedTabIndex,
       'logCategorySettings': logCategorySettings
           .map((key, value) => MapEntry(key.name, value.toJson())),
+      'stacLoggerLevel': stacLoggerLevel.name,
     };
   }
 
@@ -297,6 +304,12 @@ class DebugPanelSettingsState {
                 ),
               ) ??
               {},
+      stacLoggerLevel: json['stacLoggerLevel'] != null
+          ? Level.values.firstWhere(
+              (e) => e.name == json['stacLoggerLevel'],
+              orElse: () => LogConfig.stacLoggerLevel,
+            )
+          : LogConfig.stacLoggerLevel,
     );
   }
 }
@@ -366,6 +379,12 @@ class DebugPanelSettingsController extends Notifier<DebugPanelSettingsState> {
         settings.logCategorySettings.forEach((category, categorySettings) {
           AppLogger.setCategorySettings(category, categorySettings);
         });
+        // Sync Logger Level
+        if (settings.masterLogsEnabled) {
+          Logger.level = settings.stacLoggerLevel;
+        } else {
+          Logger.level = Level.off;
+        }
         AppLogger.d('✅ Debug panel settings loaded successfully');
       } else {
         AppLogger.d('📂 No saved debug panel settings found, using defaults');
@@ -567,7 +586,7 @@ class DebugPanelSettingsController extends Notifier<DebugPanelSettingsState> {
     if (allDisabled) {
       Logger.level = Level.off;
     } else if (state.masterLogsEnabled) {
-      Logger.level = Level.all;
+      Logger.level = state.stacLoggerLevel;
     }
 
     _saveSettings();
@@ -575,7 +594,7 @@ class DebugPanelSettingsController extends Notifier<DebugPanelSettingsState> {
 
   void setMasterLogsEnabled(bool enabled) {
     // Set global logger level to control ALL logging (including stac_logger)
-    Logger.level = enabled ? Level.all : Level.off;
+    Logger.level = enabled ? state.stacLoggerLevel : Level.off;
 
     state = state.copyWith(masterLogsEnabled: enabled);
     // When master is toggled, update all categories
@@ -594,7 +613,7 @@ class DebugPanelSettingsController extends Notifier<DebugPanelSettingsState> {
   void enableAllCategories() {
     // Restore Logger.level so stac_logger can log
     if (state.masterLogsEnabled) {
-      Logger.level = Level.all;
+      Logger.level = state.stacLoggerLevel;
     }
 
     var newSettings =
@@ -626,11 +645,12 @@ class DebugPanelSettingsController extends Notifier<DebugPanelSettingsState> {
 
   void resetLogSettings() {
     // Restore global logger level
-    Logger.level = Level.all;
+    Logger.level = LogConfig.stacLoggerLevel;
 
     // Reset master toggle
     state = state.copyWith(
       masterLogsEnabled: true,
+      stacLoggerLevel: LogConfig.stacLoggerLevel,
       logTruncationEnabled: true,
       logMaxLength: 100000,
     );
@@ -673,6 +693,14 @@ class DebugPanelSettingsController extends Notifier<DebugPanelSettingsState> {
       AppLogger.setCategorySettings(category, newSettings[category]!);
     }
     state = state.copyWith(logCategorySettings: newSettings);
+    _saveSettings();
+  }
+
+  void setStacLoggerLevel(Level level) {
+    state = state.copyWith(stacLoggerLevel: level);
+    if (state.masterLogsEnabled) {
+      Logger.level = level;
+    }
     _saveSettings();
   }
 }

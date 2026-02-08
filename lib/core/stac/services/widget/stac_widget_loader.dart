@@ -45,7 +45,7 @@ import '../../../../stac/tobank/flows/promissory/dart/promissory_success.dart'
 import '../../../../stac/tobank/flows/promissory/dart/promissory_sign.dart'
     as promissory_sign_dart;
 // Promissory Real (API) import
-import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_screen.dart'
+import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_intro.dart'
     as promissory_real_dart;
 import '../../../../stac/tobank/flows/promissory/dart/promissory_deposit_select.dart'
     as promissory_deposit_select_dart;
@@ -69,8 +69,12 @@ import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_issue
     as promissory_real_issuer_dart;
 import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_deposits_screen.dart'
     as promissory_real_deposits_dart;
-import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_login_screen.dart'
+import '../../../../stac/tobank/flows/promissory_real/menu/promissory_real_login_screen.dart'
     as promissory_real_login_dart;
+import '../../../../stac/tobank/flows/promissory_real/menu/promissory_real_menu.dart'
+    as promissory_real_debug_dart;
+import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_rules.dart'
+    as promissory_real_rules_dart;
 import 'package:tobank_sdui/core/helpers/logger.dart';
 
 /// Service for loading STAC widgets from Dart files.
@@ -147,16 +151,20 @@ class StacWidgetLoader {
         promissory_success_dart.promissorySuccess().toJson(),
     'promissory_sign': () => promissory_sign_dart.promissorySign().toJson(),
     // Promissory Real (Real API) - fetches SDUI from real backend
-    'promissory_real_intro': () =>
-        promissory_real_dart.promissoryRealIntro().toJson(),
+    'promissory_real_menu': () =>
+        promissory_real_debug_dart.promissoryRealDebugMenu().toJson(),
     'promissory_real_loader': () => {'type': 'promissory_real_loader'},
     'promissory_deposit_select': () =>
         promissory_deposit_select_dart.promissoryDepositSelectPage().toJson(),
     'request_promissory_deposit': () => request_promissory_deposit_page_dart
         .requestPromissoryDepositPage()
         .toJson(),
+    'promissory_real_intro': () =>
+        promissory_real_dart.promissoryRealIntro().toJson(),
     'promissory_real_login_form': () =>
         promissory_real_login_dart.promissoryRealLoginForm().toJson(),
+    'promissory_real_rules': () =>
+        promissory_real_rules_dart.promissoryRealRules().toJson(),
     'promissory_real_deposits': () =>
         promissory_real_deposits_dart.promissoryRealDeposits().toJson(),
     'promissory_real_issuer': () =>

@@ -43,7 +43,7 @@
           "title": "سفته (API واقعی)",
           "description": "صدور سفته با استفاده از API واقعی",
           "icon": "{{appAssets.icons.wallet}}",
-          "widgetType": "promissory_real_intro",
+          "widgetType": "promissory_real_menu",
           "flowSteps": [
             "promissory_real_intro"
           ]

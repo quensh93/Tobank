@@ -255,7 +255,7 @@
         "introTitle": "سفته (API واقعی)",
         "connectingServer": "در حال اتصال به سرور...",
         "loadFromApiDesc": "این صفحه SDUI را از API واقعی دریافت می‌کند",
-        "loadFromApi": "بارگذاری از API",
+        "loadFromJsonApi": "Load From Json Api",
         "signatureCoordinateInfo": "امضای شما در صفحه {{signPage}} مختصات ({{signX}}, {{signY}}) درج خواهد شد.",
         "enterReceiverNationalCode": "کد ملی ذینفع را وارد نمایید",
         "enterReceiverMobile": "شماره همراه ذینفع را وارد نمایید",

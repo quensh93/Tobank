@@ -63,7 +63,7 @@ class _PromissoryRealLoaderScreenState
 
     try {
       final sduiJson = await _configApiService.fetchSduiConfig(
-        pathKey: 'flutter_key_1.flutter_promissory_key_1',
+        pathKey: 'ipaam.builder.form.form.promissory_intro',
         build: 1,
       );
 

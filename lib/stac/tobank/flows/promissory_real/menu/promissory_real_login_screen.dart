@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
 import '../../../../../core/stac/builders/stac_common_builders.dart';
 import '../../../../../core/stac/builders/stac_stateful_widget.dart';
@@ -329,10 +327,19 @@ StacWidget promissoryRealLoginForm() {
                         // Format birthdate: remove slashes
                         {
                           'key': 'login.birthDateClean',
-                          'value': '{{replace(login.birthDate,"/","")}}',
+                          'value': "{{replace(login.birthDate,'/','')}}",
                         },
                       ],
                     ),
+                    StacRawJsonAction({
+                      'actionType': 'showSnackBar',
+                      'content': {
+                        'type': 'text',
+                        'data':
+                            "Debug: NC:{{login.nationalCode}}, Mob:{{login.mobile}}, BD:{{replace(login.birthDate,'/','')}}",
+                      },
+                      'backgroundColor': '#FF9800',
+                    }),
                     StacNetworkRequestAction(
                       url:
                           'http://192.168.107.22:8280/api/digitalbanking/logins/v1.0/tobank/users',
@@ -357,9 +364,9 @@ StacWidget promissoryRealLoginForm() {
                         'cif': '{{login.cif}}',
                       },
                       results: [
-                        {
-                          'statusCode': 200,
-                          'action': StacSequenceAction(
+                        StacNetworkResult(
+                          statusCode: 200,
+                          action: StacSequenceAction(
                             actions: [
                               StacCustomSetValueAction(
                                 values: [
@@ -387,22 +394,12 @@ StacWidget promissoryRealLoginForm() {
                                 'navigationStyle': 'push',
                               }),
                             ],
-                          ),
-                        },
-                        {
-                          'statusCode': 'default',
-                          'action': StacRawJsonAction({
-                            'actionType': 'showSnackBar',
-                            'content': {
-                              'type': 'text',
-                              'data': '{{appStrings.promissory.loginError}}',
-                            },
-                          }),
-                        },
+                          ).toJson(),
+                        ),
                       ],
                     ),
                   ],
-                ),
+                ).toJson(),
                 'style': StacButtonStyle(
                   backgroundColor: '{{appColors.current.primary.color}}',
                   elevation: 0,
