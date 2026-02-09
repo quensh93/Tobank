@@ -26,13 +26,19 @@ class PromissoryRealDepositsListParser
 class PromissoryRealDepositsListModel {
   final Map<String, dynamic>? onContinue;
   final Map<String, dynamic>? onRetry;
+  final String? loadingKey;
 
-  const PromissoryRealDepositsListModel({this.onContinue, this.onRetry});
+  const PromissoryRealDepositsListModel({
+    this.onContinue,
+    this.onRetry,
+    this.loadingKey,
+  });
 
   factory PromissoryRealDepositsListModel.fromJson(Map<String, dynamic> json) {
     return PromissoryRealDepositsListModel(
       onContinue: json['onContinue'] as Map<String, dynamic>?,
       onRetry: json['onRetry'] as Map<String, dynamic>?,
+      loadingKey: json['loadingKey'] as String?,
     );
   }
 }
@@ -341,7 +347,9 @@ class _PromissoryRealDepositsListWidget extends StatelessWidget {
                     ),
                   ).toJson(),
                   'child': StacText(
-                    data: '{{appStrings.common.continue}}',
+                    data: model.loadingKey != null
+                        ? '{{${model.loadingKey} ? "لطفا صبر کنید..." : appStrings.common.continue}}'
+                        : '{{appStrings.common.continue}}',
                     textDirection: StacTextDirection.rtl,
                     style: StacCustomTextStyle(
                       fontSize: 18,
@@ -392,6 +400,14 @@ class _PromissoryRealDepositsListWidget extends StatelessWidget {
           ),
           StacCustomSetValueAction(
             key: 'form.selected_shaba_number',
+            value: shabaNumber,
+          ),
+          StacCustomSetValueAction(
+            key: 'selectedDeposit.depositNumber',
+            value: depositNumber,
+          ),
+          StacCustomSetValueAction(
+            key: 'selectedDeposit.depositIban',
             value: shabaNumber,
           ),
         ],

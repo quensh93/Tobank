@@ -548,8 +548,10 @@ class AppLogger {
     }
 
     // Truncation Logic
-    // 0. Bypass Truncation (for errors/fatals)
-    if (bypassTruncation) {
+    // 0. Bypass Truncation (for errors/fatals OR if globally disabled in manual mode)
+    if (bypassTruncation ||
+        (LogConfig.masterLogControl == MasterLogControl.manual &&
+            !LogConfig.truncateLogs)) {
       return processedMessage;
     }
 

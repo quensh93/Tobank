@@ -161,6 +161,33 @@ class CustomNetworkRequestActionParser
   String _resolveTemplates(String input) {
     String decodedInput = _tryDecodeUriComponent(input);
 
+    // Support removeLeadingZero function: {{removeLeadingZero(key)}}
+    final removeLeadingZeroRegex = RegExp(
+      r"\{\{removeLeadingZero\(([^)]+?)\)\}\}",
+    );
+
+    if (removeLeadingZeroRegex.hasMatch(decodedInput)) {
+      try {
+        decodedInput = decodedInput.replaceAllMapped(removeLeadingZeroRegex, (
+          match,
+        ) {
+          final key = match.group(1)?.trim();
+          if (key == null) return match.group(0) ?? '';
+
+          // Resolve the key's value from registry
+          // Use _getNestedValue to support dotted keys like "userData.mobile"
+          final val = _getNestedValue(key)?.toString() ?? '';
+
+          if (val.startsWith('0')) {
+            return val.substring(1);
+          }
+          return val;
+        });
+      } catch (e, stack) {
+        AppLogger.ec(LogCategory.network, 'Error in removeLeadingZero: $e', e);
+      }
+    }
+
     // Support replace function: {{replace(key, 'old', 'new')}}
     // Regex matches: {{replace( key , 'old' , 'new' )}}
     // Groups: 1=key, 2=old, 3=new
@@ -178,12 +205,8 @@ class CustomNetworkRequestActionParser
         if (key == null) return match.group(0) ?? '';
 
         // Resolve the key's value from registry
-        // The key might be simple (login.birthDate) or template-like.
-        // If it's just 'login.birthDate' (no curly braces), getValue should handle it if your registry supports dot notation
-        // Or we might need to wrap it in {{}} if getValue expects expression.
-        // Assuming StacRegistry.instance.getValue takes the key name.
-
-        final val = StacRegistry.instance.getValue(key)?.toString() ?? '';
+        // Use _getNestedValue to support dotted keys like "userData.birthDate"
+        final val = _getNestedValue(key)?.toString() ?? '';
 
         if (from != null && to != null) {
           return val.replaceAll(from, to);
@@ -283,6 +306,16 @@ class CustomNetworkRequestActionParser
       final match = RegExp(r'^{{([^}]+)}}$').firstMatch(value);
       if (match != null) {
         final expr = match.group(1)?.trim();
+        // Support toInt function: {{toInt(key)}}
+        if (expr != null && expr.startsWith('toInt(') && expr.endsWith(')')) {
+          final key = expr.substring(6, expr.length - 1).trim();
+          final val = _getNestedValue(key);
+          if (val != null) {
+            return int.tryParse(val.toString()) ?? val;
+          }
+          return 0;
+        }
+
         // If it looks like a function call (contains '('), delegate to _resolveTemplates which returns String
         if (expr != null && expr.contains('(')) {
           return _resolveTemplates(value);
@@ -310,26 +343,81 @@ class CustomNetworkRequestActionParser
 
   void _logCurl(StacNetworkRequest request) {
     try {
-      String curl = 'curl --request ${request.method.name.toUpperCase()}';
-      curl += ' --url "${request.url}"';
+      final buffer = StringBuffer();
+      buffer.write('curl --request ${request.method.name.toUpperCase()}');
+      buffer.write(' --url "${request.url}"');
 
       request.headers?.forEach((key, value) {
-        // Hide authorization value for security
-        final safeValue = key.toLowerCase().contains('authorization')
-            ? '***'
-            : value;
-        curl += ' -H "$key: $safeValue"';
+        final lowerKey = key.toLowerCase();
+        if (lowerKey == 'authorization' || lowerKey == 'serviceauthorization') {
+          buffer.write(" --header '$key: [token]'");
+        } else {
+          buffer.write(" --header '$key: $value'");
+        }
       });
 
       if (request.body != null) {
+        String jsonBody;
         if (request.body is String) {
-          curl += ' -d \'${request.body}\'';
+          jsonBody = request.body as String;
         } else {
-          curl += ' -d \'${jsonEncode(request.body)}\'';
+          jsonBody = jsonEncode(request.body);
         }
+        final escapedBody = jsonBody.replaceAll("'", "'\\''");
+        buffer.write(" --data '$escapedBody'");
       }
 
-      AppLogger.dc(LogCategory.network, 'CURL: $curl');
+      final curl = buffer.toString();
+
+      // 1. Raw Logging (Chunked)
+      // We manually split this into chunks to guarantee it bypasses Android's 4KB limit
+      // nicely while still looking like a "raw" block in the console.
+      try {
+        // ignore: avoid_print
+        print('🌐 RAW CURL START -----------------------------------------');
+
+        const int rawChunkSize = 900;
+        for (int i = 0; i < curl.length; i += rawChunkSize) {
+          int end = (i + rawChunkSize < curl.length)
+              ? i + rawChunkSize
+              : curl.length;
+          // ignore: avoid_print
+          print(curl.substring(i, end));
+        }
+
+        // ignore: avoid_print
+        print('🌐 RAW CURL END -------------------------------------------');
+      } catch (_) {}
+
+      // 2. Chunked logging for safety (fallback)
+      const int chunkSize = 800;
+
+      if (curl.length <= chunkSize) {
+        AppLogger.dc(LogCategory.network, 'CURL: $curl', null, null, true);
+      } else {
+        // Initial chunk
+        AppLogger.dc(
+          LogCategory.network,
+          'CURL (Part 1/${(curl.length / chunkSize).ceil()}): ${curl.substring(0, chunkSize)}',
+          null,
+          null,
+          true,
+        );
+
+        // Subsequent chunks
+        for (int i = chunkSize; i < curl.length; i += chunkSize) {
+          int end = (i + chunkSize < curl.length) ? i + chunkSize : curl.length;
+          final partNum = (i / chunkSize).floor() + 1;
+          final totalParts = (curl.length / chunkSize).ceil();
+          AppLogger.dc(
+            LogCategory.network,
+            'CURL (Part $partNum/$totalParts): ${curl.substring(i, end)}',
+            null,
+            null,
+            true,
+          );
+        }
+      }
     } catch (e) {
       AppLogger.ec(LogCategory.network, 'Failed to generate cURL log', e);
     }

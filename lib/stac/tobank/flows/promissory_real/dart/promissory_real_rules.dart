@@ -12,7 +12,12 @@ import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 @StacScreen(screenName: 'promissory_real_rules')
 StacWidget promissoryRealRules() {
   return StacStatefulWidget(
-    onInit: StacCustomSetValueAction(key: 'isRulesAccepted', value: false),
+    onInit: StacCustomSetValueAction(
+      values: [
+        {'key': 'isRulesAccepted', 'value': false},
+        {'key': 'isSanaLoading', 'value': false},
+      ],
+    ),
     child: StacScaffold(
       appBar: StacAppBar(
         title: StacText(
@@ -168,11 +173,99 @@ StacWidget promissoryRealRules() {
             child: StacRawJsonWidget({
               'type': 'reactiveElevatedButton',
               'enabledKey': 'isRulesAccepted',
-              // 'enabled': false, // Removed hardcoded false
+              'loadingKey': 'isSanaLoading',
               'onPressed': {
-                'actionType': 'navigate',
-                'widgetType': 'promissory_real_deposits',
-                'navigationStyle': 'push',
+                'actionType': 'sequence',
+                'actions': [
+                  {
+                    'actionType': 'setValue',
+                    'key': 'isSanaLoading',
+                    'value': true,
+                  },
+                  {
+                    'actionType': 'networkRequest',
+                    'url':
+                        'http://192.168.107.22:8280/api/digitalbanking/governance/v1.0/sana/{{userData.nationalCode}}/1',
+                    'method': 'get',
+                    'headers': {
+                      'accept': 'application/json',
+                      'authorization': '{{auth.accessToken}}',
+                    },
+                    'results': [
+                      {
+                        'statusCode': 200,
+                        'action': {
+                          'actionType': 'sequence',
+                          'actions': [
+                            {
+                              'actionType': 'setValue',
+                              'key': 'isSanaLoading',
+                              'value': false,
+                            },
+                            {
+                              'actionType': 'navigate',
+                              'widgetType': 'promissory_real_deposits',
+                              'navigationStyle': 'push',
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        'statusCode': 500,
+                        'action': {
+                          'actionType': 'sequence',
+                          'actions': [
+                            {
+                              'actionType': 'setValue',
+                              'key': 'isSanaLoading',
+                              'value': false,
+                            },
+                            {
+                              'actionType': 'showSnackBar',
+                              'backgroundColor': '#D32F2F',
+                              'content': {
+                                'type': 'text',
+                                'data': 'خطای سرور رخ داده است',
+                                'style': {
+                                  'type': 'custom',
+                                  'color': '#FFFFFF',
+                                  'fontSize': 14,
+                                },
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        'statusCode': -1,
+                        'action': {
+                          'actionType': 'sequence',
+                          'actions': [
+                            {
+                              'actionType': 'setValue',
+                              'key': 'isSanaLoading',
+                              'value': false,
+                            },
+                            {
+                              'actionType': 'showSnackBar',
+                              'backgroundColor': '#D32F2F',
+                              'content': {
+                                'type': 'text',
+                                'data':
+                                    '{{data.status.message.0 ?? "خطایی رخ داده است"}}',
+                                'style': {
+                                  'type': 'custom',
+                                  'color': '#FFFFFF',
+                                  'fontSize': 14,
+                                },
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                ],
               },
               'style': StacButtonStyle(
                 backgroundColor: '{{appColors.current.primary.color}}',

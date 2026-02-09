@@ -266,7 +266,10 @@ Dio setupStacMockDio() {
                   await rootBundle.loadString(testPath);
                   assetPath = testPath;
                   isScreenJson = true; // Screen JSON needs variable resolution
-                  AppLogger.dc(LogCategory.stacMock, 'Mock interceptor: Found flow file: $testPath');
+                  AppLogger.dc(
+                    LogCategory.stacMock,
+                    'Mock interceptor: Found flow file: $testPath',
+                  );
                 } catch (e) {
                   AppLogger.dc(
                     LogCategory.stacMock,
@@ -638,31 +641,31 @@ dynamic resolveVariablesPreservingTypes(dynamic json, StacRegistry registry) {
         // CRITICAL FIX: Skip conversion for known string fields (mobile, national codes, IDs)
         dynamic converted = value;
         bool shouldConvert = true;
-        
+
         final lowerName = variableName.toLowerCase();
-        if (lowerName.contains('mobile') || 
-            lowerName.contains('nationalcode') || 
+        if (lowerName.contains('mobile') ||
+            lowerName.contains('nationalcode') ||
             lowerName.contains('id') || // careful with 'width'/'valid'
             lowerName.endsWith('code')) {
-             // Heuristic: fields with these names are likely strings (identifiers)
-             // But 'width', 'valid' contain 'id', so be careful. 
-             // Let's be more specific:
-             if (lowerName.contains('mobile') || 
-                 lowerName.contains('phone') ||
-                 lowerName.contains('national') ||
-                 (lowerName.contains('code') && !lowerName.contains('color')) ||
-                 variableName.endsWith('Id') || // Typical ID field
-                 variableName == 'id') {
-               shouldConvert = false;
-               AppLogger.dc(
-                  LogCategory.json,
-                  '   🛡️ Skipping numeric conversion for identifier: $variableName',
-                );
-             }
+          // Heuristic: fields with these names are likely strings (identifiers)
+          // But 'width', 'valid' contain 'id', so be careful.
+          // Let's be more specific:
+          if (lowerName.contains('mobile') ||
+              lowerName.contains('phone') ||
+              lowerName.contains('national') ||
+              (lowerName.contains('code') && !lowerName.contains('color')) ||
+              variableName.endsWith('Id') || // Typical ID field
+              variableName == 'id') {
+            shouldConvert = false;
+            AppLogger.dc(
+              LogCategory.json,
+              '   🛡️ Skipping numeric conversion for identifier: $variableName',
+            );
+          }
         }
 
         if (shouldConvert) {
-           converted = _convertStringToTypeIfNeeded(value);
+          converted = _convertStringToTypeIfNeeded(value);
         }
 
         // Debug: Log if conversion changed the type (helps identify issues)
