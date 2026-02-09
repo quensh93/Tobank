@@ -57,6 +57,7 @@ dependencies:
   dio_mocked_responses: ^1.6.5
   persian_datetime_picker: ^3.2.0
   flutter_svg: ^2.2.3
+  syncfusion_flutter_pdf: ^28.2.1
 
 
 

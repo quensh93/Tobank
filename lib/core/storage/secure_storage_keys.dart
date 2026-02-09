@@ -41,6 +41,7 @@ enum SecureStorageKeys {
   // Security keys
   pinCode,
   biometricData,
+  signatureImage,
 
   // Custom keys (add more as needed)
   customKey1,
@@ -99,6 +100,9 @@ extension SecureStorageKeysExtension on SecureStorageKeys {
         return 'PIN Code';
       case SecureStorageKeys.biometricData:
         return 'Biometric Data';
+      case SecureStorageKeys.signatureImage:
+        return 'Signature Image';
+
       case SecureStorageKeys.customKey1:
         return 'Custom Key 1';
       case SecureStorageKeys.customKey2:

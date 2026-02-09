@@ -9,25 +9,40 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="completed pages jsons">
+    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="add fingerprint and load json files">
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_25_26,_11_27 AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_28_26,_12_24 PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_31_26,_10_11 AM_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/kotlin/com/example/tobank_sdui/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/kotlin/com/example/tobank_sdui/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/stac/builders/stac_custom_actions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/builders/stac_custom_actions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/stac/parsers/actions/log_action_parser.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/parsers/actions/log_action_parser.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/core/stac/registry/register_custom_parsers.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/registry/register_custom_parsers.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/core/storage/secure_storage_keys.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/storage/secure_storage_keys.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/storage/storage_util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/storage/storage_util.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/utils/app_util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/utils/app_util.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_confirm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_deposits.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_intro.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_issuer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_login_form.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_payment.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_payment_deposits.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_receiver.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_sign.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_success.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_confirm_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_data_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_issuer_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_login_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_payment_deposits_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_payment_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_receiver_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_sign_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_sign_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_success_screen.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_sign_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_sign_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,25 +101,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Flutter.main.dart.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "real__api__confrim__screen",
-    "io.flutter.project.isFirstOpen": "true",
-    "io.flutter.reload.alreadyRun": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/arsham1/development/Arsham/dynamic_tobank/lib/stac/tobank/flows/promissory_real/json_upload",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Flutter.main.dart.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;fee&quot;,
+    &quot;io.flutter.project.isFirstOpen&quot;: &quot;true&quot;,
+    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/arsham1/development/Arsham/dynamic_tobank/lib/stac/tobank/flows/promissory_real/json_upload&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload" />

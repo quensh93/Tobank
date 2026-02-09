@@ -36,22 +36,43 @@ class LogActionParser extends StacActionParser<LogActionModel> {
 
     switch (level) {
       case 'debug':
-        AppLogger.dc(LogCategory.action, message);
+        _logChunked(message, (msg) => AppLogger.dc(LogCategory.action, msg));
         break;
       case 'warning':
       case 'warn':
-        AppLogger.wc(LogCategory.action, message);
+        _logChunked(message, (msg) => AppLogger.wc(LogCategory.action, msg));
         break;
       case 'error':
-        AppLogger.ec(LogCategory.action, message);
+        _logChunked(message, (msg) => AppLogger.ec(LogCategory.action, msg));
         break;
       case 'info':
       default:
-        AppLogger.ic(LogCategory.action, message);
+        _logChunked(message, (msg) => AppLogger.ic(LogCategory.action, msg));
         break;
     }
-
     return null;
+  }
+
+  void _logChunked(String message, Function(String) logFunction) {
+    const int chunkSize = 2000;
+    if (message.length <= chunkSize) {
+      logFunction(message);
+      return;
+    }
+
+    final int totalLength = message.length;
+    int start = 0;
+    logFunction('--- START OF LONG MESSAGE ---');
+    while (start < totalLength) {
+      final int end = (start + chunkSize < totalLength)
+          ? start + chunkSize
+          : totalLength;
+      final String chunk = message.substring(start, end);
+      // Log raw chunk without prefix to allow easy copying of full string
+      logFunction(chunk);
+      start += chunkSize;
+    }
+    logFunction('--- END OF LONG MESSAGE ---');
   }
 
   String _resolveTemplates(String message) {

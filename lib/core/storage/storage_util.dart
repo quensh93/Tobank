@@ -11,4 +11,15 @@ class StorageUtil {
   static Future<void> setPassword(String password) async {
     await SecureStorageService.write(SecureStorageKeys.password, password);
   }
+
+  static Future<String?> getBase64UserSignatureImage() async {
+    return await SecureStorageService.read(SecureStorageKeys.signatureImage);
+  }
+
+  static Future<void> setBase64UserSignatureImage(String base64Image) async {
+    await SecureStorageService.write(
+      SecureStorageKeys.signatureImage,
+      base64Image,
+    );
+  }
 }

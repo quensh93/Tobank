@@ -1444,6 +1444,20 @@
             </list>
           </value>
         </entry>
+        <entry key="syncfusion_flutter_core">
+          <value>
+            <list>
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/syncfusion_flutter_core-28.2.12/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="syncfusion_flutter_pdf">
+          <value>
+            <list>
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/syncfusion_flutter_pdf-28.2.12/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="synchronized">
           <value>
             <list>
@@ -1928,6 +1942,8 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/supabase-2.10.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/supabase_flutter-2.12.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/super_sliver_list-0.4.1/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/syncfusion_flutter_core-28.2.12/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/syncfusion_flutter_pdf-28.2.12/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/synchronized-3.4.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/talker-5.1.13/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/talker_flutter-5.1.13/lib" />
