@@ -12,7 +12,7 @@ StacWidget promissoryRealConfirm() {
   return StacScaffold(
     appBar: StacAppBar(
       title: StacText(
-        data: '{{appStrings.promissory.confirmTitle}}',
+        data: '{{appStrings.promissory.issuanceTitle}}',
         textDirection: StacTextDirection.rtl,
         style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
       ),
@@ -240,6 +240,33 @@ StacWidget promissoryRealConfirm() {
                           mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
                           children: [
                             StacText(
+                              data:
+                              '{{appStrings.promissory.issuerPhoneNumber}}',
+                              textDirection: StacTextDirection.rtl,
+                              style: StacCustomTextStyle(
+                                fontSize: 14,
+                                color: '{{appColors.current.text.subtitle}}',
+                              ),
+                            ),
+                            StacText(
+                              data: '{{userData.mobile}}',
+                              textDirection: StacTextDirection.ltr,
+                              style: StacCustomTextStyle(
+                                fontSize: 14,
+                                fontWeight: StacFontWeight.w600,
+                                color: '{{appColors.current.text.title}}',
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      StacPadding(
+                        padding: StacEdgeInsets.only(bottom: 8),
+                        child: StacRow(
+                          textDirection: StacTextDirection.rtl,
+                          mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+                          children: [
+                            StacText(
                               data: '{{appStrings.promissory.fullName}}',
                               textDirection: StacTextDirection.rtl,
                               style: StacCustomTextStyle(
@@ -259,33 +286,7 @@ StacWidget promissoryRealConfirm() {
                           ],
                         ),
                       ),
-                      StacPadding(
-                        padding: StacEdgeInsets.only(bottom: 8),
-                        child: StacRow(
-                          textDirection: StacTextDirection.rtl,
-                          mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-                          children: [
-                            StacText(
-                              data:
-                                  '{{appStrings.promissory.issuerPhoneNumber}}',
-                              textDirection: StacTextDirection.rtl,
-                              style: StacCustomTextStyle(
-                                fontSize: 14,
-                                color: '{{appColors.current.text.subtitle}}',
-                              ),
-                            ),
-                            StacText(
-                              data: '{{userData.mobile}}',
-                              textDirection: StacTextDirection.ltr,
-                              style: StacCustomTextStyle(
-                                fontSize: 14,
-                                fontWeight: StacFontWeight.w600,
-                                color: '{{appColors.current.text.title}}',
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+
                       StacSizedBox(height: 4),
                       StacColumn(
                         crossAxisAlignment: StacCrossAxisAlignment.end,

@@ -289,7 +289,7 @@ class _PromissoryRealDepositsListWidget extends StatelessWidget {
               StacPadding(
                 padding: StacEdgeInsets.symmetric(horizontal: 16),
                 child: StacText(
-                  data: 'سپرده خود را جهت صدور سفته انتخاب کنید',
+                  data: 'سپرده خود را جهت پرداخت انتخاب کنید',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 16,
@@ -402,7 +402,7 @@ class _PromissoryRealDepositsListWidget extends StatelessWidget {
           borderRadius: StacBorderRadius.all(8),
           border: StacBorder.all(
             color:
-                '{{$selectedKey ? appColors.current.primary.color : appColors.current.input.borderEnabled}}',
+                '{{$selectedKey ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}',
             width: 1,
           ),
         ),
@@ -433,7 +433,7 @@ class _PromissoryRealDepositsListWidget extends StatelessWidget {
                     shape: StacBoxShape.circle,
                     border: StacBorder.all(
                       color:
-                          '{{$selectedKey ? appColors.current.primary.color : appColors.current.text.subtitle}}',
+                          '{{$selectedKey ? appColors.current.secondary.color : appColors.current.text.subtitle}}',
                       width: 2,
                     ),
                   ),
@@ -446,7 +446,7 @@ class _PromissoryRealDepositsListWidget extends StatelessWidget {
                         height: 12,
                         decoration: StacBoxDecoration(
                           shape: StacBoxShape.circle,
-                          color: '{{appColors.current.primary.color}}',
+                          color: '{{appColors.current.secondary.color}}',
                         ),
                       ).toJson(),
                     }),
@@ -478,7 +478,7 @@ class _PromissoryRealDepositsListWidget extends StatelessWidget {
                   style: StacCustomTextStyle(
                     fontSize: 14,
                     fontWeight: StacFontWeight.w500,
-                    color: '{{appColors.current.text.subtitle}}',
+                    color: '{{appColors.current.text.title}}',
                   ),
                 ),
               ],
@@ -503,7 +503,7 @@ class _PromissoryRealDepositsListWidget extends StatelessWidget {
                     style: StacCustomTextStyle(
                       fontSize: 14,
                       fontWeight: StacFontWeight.w500,
-                      color: '{{appColors.current.text.subtitle}}',
+                      color: '{{appColors.current.text.title}}',
                     ),
                   ),
                 ),

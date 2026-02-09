@@ -68,7 +68,7 @@ StacWidget promissoryRealPayment() {
                           imageType: StacImageType.asset,
                           width: 40,
                           height: 40,
-                          color: '{{appColors.current.primary.color}}',
+
                         ),
                       ),
                       StacSizedBox(height: 12),
@@ -96,7 +96,7 @@ StacWidget promissoryRealPayment() {
                             ),
                           ),
                           StacRow(
-                            textDirection: StacTextDirection.ltr,
+                            textDirection: StacTextDirection.rtl,
                             children: [
                               // Use form.promissory_amount as totalAmount fallback
                               StacText(
@@ -156,7 +156,7 @@ StacWidget promissoryRealPayment() {
                             StacText(
                               data:
                                   '{{promissory.fees.stampFee}} {{appStrings.common.rial}}',
-                              textDirection: StacTextDirection.ltr,
+                              textDirection: StacTextDirection.rtl,
                               style: StacCustomTextStyle(
                                 fontSize: 14,
                                 fontWeight: StacFontWeight.w600,
@@ -184,7 +184,7 @@ StacWidget promissoryRealPayment() {
                             StacText(
                               data:
                                   '{{promissory.fees.wage}} {{appStrings.common.rial}}',
-                              textDirection: StacTextDirection.ltr,
+                              textDirection: StacTextDirection.rtl,
                               style: StacCustomTextStyle(
                                 fontSize: 14,
                                 fontWeight: StacFontWeight.w600,
@@ -236,11 +236,11 @@ StacWidget promissoryRealPayment() {
                       padding: StacEdgeInsets.all(16),
                       decoration: StacBoxDecoration(
                         color:
-                            '{{appColors.current.background.surfaceContainer}}',
+                        '{{isWalletSelected ? appColors.current.lightSecondery.color : appColors.current.background.surfaceContainer}}',
                         borderRadius: StacBorderRadius.all(12),
                         border: StacBorder.all(
                           color:
-                              '{{isWalletSelected ? appColors.current.primary.color : appColors.current.input.borderEnabled}}',
+                              '{{isWalletSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}',
                           width: 1,
                         ),
                       ),
@@ -248,12 +248,17 @@ StacWidget promissoryRealPayment() {
                         textDirection: StacTextDirection.rtl,
                         children: [
                           // Icon
-                          StacImage(
-                            src: 'assets/icons/ic_wallet.svg',
-                            imageType: StacImageType.asset,
-                            width: 32,
-                            height: 32,
-                            color: '{{appColors.current.primary.color}}',
+                          StacContainer(
+                            decoration: StacBoxDecoration(
+                              color: '{{appColors.current.background.surfaceContainer}}',
+                              borderRadius: StacBorderRadius.all(25)
+                            ),
+                            child: StacImage(
+                              src: 'assets/icons/ic_wallet.svg',
+                              imageType: StacImageType.asset,
+                              width: 32,
+                              height: 32,
+                            ),
                           ),
                           StacSizedBox(width: 6),
                           StacText(
@@ -273,7 +278,7 @@ StacWidget promissoryRealPayment() {
                               children: [
                                 StacSizedBox(height: 4),
                                 StacText(
-                                  data: '23700000 {{appStrings.common.rial}}',
+                                  data: '2370000 {{appStrings.common.rial}}',
                                   textDirection: StacTextDirection.rtl,
                                   style: StacCustomTextStyle(
                                     fontSize: 12,
@@ -317,11 +322,11 @@ StacWidget promissoryRealPayment() {
                       padding: StacEdgeInsets.all(16),
                       decoration: StacBoxDecoration(
                         color:
-                            '{{appColors.current.background.surfaceContainer}}',
+                        '{{isDepositSelected ? appColors.current.lightSecondery.color : appColors.current.background.surfaceContainer}}',
                         borderRadius: StacBorderRadius.all(12),
                         border: StacBorder.all(
                           color:
-                              '{{isDepositSelected ? appColors.current.primary.color : appColors.current.input.borderEnabled}}',
+                              '{{isDepositSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}',
                           width: 1,
                         ),
                       ),
@@ -329,12 +334,17 @@ StacWidget promissoryRealPayment() {
                         textDirection: StacTextDirection.rtl,
                         children: [
                           // Icon
-                          StacImage(
-                            src: 'assets/icons/ic_branch.svg',
-                            imageType: StacImageType.asset,
-                            width: 32,
-                            height: 32,
-                            color: '{{appColors.current.primary.color}}',
+                          StacContainer(
+                            decoration: StacBoxDecoration(
+                                color: '{{appColors.current.background.surfaceContainer}}',
+                                borderRadius: StacBorderRadius.all(25)
+                            ),
+                            child: StacImage(
+                              src: 'assets/icons/ic_gateway.svg',
+                              imageType: StacImageType.asset,
+                              width: 32,
+                              height: 32,
+                            ),
                           ),
                           StacSizedBox(width: 6),
                           StacText(

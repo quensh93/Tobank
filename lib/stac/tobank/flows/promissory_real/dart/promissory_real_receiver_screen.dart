@@ -25,7 +25,7 @@ StacWidget promissoryRealReceiver() {
     child: StacScaffold(
       appBar: StacAppBar(
         title: StacText(
-          data: '{{appStrings.promissory.receiverTitle}}',
+          data: '{{appStrings.promissory.issuanceTitle}}',
           textDirection: StacTextDirection.rtl,
           style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
         ),
@@ -56,7 +56,7 @@ StacWidget promissoryRealReceiver() {
                     StacSizedBox(height: 16),
                     // Title
                     StacText(
-                      data: '{{appStrings.promissory.receiverSubtitle}}',
+                      data: '{{appStrings.promissory.receiveInfo}}',
                       textDirection: StacTextDirection.rtl,
                       style: StacCustomTextStyle(
                         fontSize: 16,
@@ -88,26 +88,59 @@ StacWidget promissoryRealReceiver() {
                             child: StacContainer(
                               padding: StacEdgeInsets.symmetric(vertical: 12),
                               decoration: StacBoxDecoration(
-                                color:
-                                    '{{isIndividualSelected ? appColors.current.primary.color : appColors.current.background.surfaceContainer}}',
                                 borderRadius: StacBorderRadius.all(8),
                                 border: StacBorder.all(
                                   color:
-                                      '{{isIndividualSelected ? appColors.current.primary.color : appColors.current.input.borderEnabled}}',
+                                      '{{isIndividualSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}',
                                   width: 1,
                                 ),
                               ),
-                              child: StacCenter(
-                                child: StacText(
-                                  data:
-                                      '{{appStrings.promissory.receiverTypeIndividual}}',
+                              child: StacPadding(
+                                padding: StacEdgeInsets.symmetric(horizontal: 16 , vertical: 6),
+                                child: StacRow(
                                   textDirection: StacTextDirection.rtl,
-                                  style: StacCustomTextStyle(
-                                    fontSize: 14,
-                                    fontWeight: StacFontWeight.w600,
-                                    color:
-                                        '{{isIndividualSelected ? appColors.current.primary.onPrimary : appColors.current.text.title}}',
-                                  ),
+                                  crossAxisAlignment: StacCrossAxisAlignment.center,
+                                  children: [
+                                    // Radio indicator
+                                    StacContainer(
+                                      width: 20,
+                                      height: 20,
+                                      decoration: StacBoxDecoration(
+                                        color: 'transparent',
+                                        borderRadius: StacBorderRadius.all(9999),
+                                        border: StacBorder.all(
+                                          color:
+                                              '{{isIndividualSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}',
+                                          width: 2,
+                                        ),
+                                      ),
+                                      child: StacCenter(
+                                        child: StacContainer(
+                                          width: 10,
+                                          height: 10,
+                                          decoration: StacBoxDecoration(
+                                            color:
+                                                '{{isIndividualSelected ? appColors.current.secondary.color : "transparent"}}',
+                                            borderRadius: StacBorderRadius.all(9999),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    StacSizedBox(width: 8),
+                                    // Label
+                                    StacExpanded(
+                                      child: StacText(
+                                        data:
+                                            '{{appStrings.promissory.receiverTypeIndividual}}',
+                                        textDirection: StacTextDirection.rtl,
+                                        style: StacCustomTextStyle(
+                                          fontSize: 14,
+                                          fontWeight: StacFontWeight.w600,
+                                          color: '{{appColors.current.text.title}}',
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -132,26 +165,59 @@ StacWidget promissoryRealReceiver() {
                             child: StacContainer(
                               padding: StacEdgeInsets.symmetric(vertical: 12),
                               decoration: StacBoxDecoration(
-                                color:
-                                    '{{isLegalSelected ? appColors.current.primary.color : appColors.current.background.surfaceContainer}}',
                                 borderRadius: StacBorderRadius.all(8),
                                 border: StacBorder.all(
                                   color:
-                                      '{{isLegalSelected ? appColors.current.primary.color : appColors.current.input.borderEnabled}}',
+                                      '{{isLegalSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}',
                                   width: 1,
                                 ),
                               ),
-                              child: StacCenter(
-                                child: StacText(
-                                  data:
-                                      '{{appStrings.promissory.receiverTypeLegal}}',
+                              child: StacPadding(
+                                padding: StacEdgeInsets.symmetric(horizontal: 16 , vertical: 6),
+                                child: StacRow(
                                   textDirection: StacTextDirection.rtl,
-                                  style: StacCustomTextStyle(
-                                    fontSize: 14,
-                                    fontWeight: StacFontWeight.w600,
-                                    color:
-                                        '{{isLegalSelected ? appColors.current.primary.onPrimary : appColors.current.text.title}}',
-                                  ),
+                                  crossAxisAlignment: StacCrossAxisAlignment.center,
+                                  children: [
+                                    // Radio indicator
+                                    StacContainer(
+                                      width: 20,
+                                      height: 20,
+                                      decoration: StacBoxDecoration(
+                                        color: 'transparent',
+                                        borderRadius: StacBorderRadius.all(9999),
+                                        border: StacBorder.all(
+                                          color:
+                                              '{{isLegalSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}',
+                                          width: 2,
+                                        ),
+                                      ),
+                                      child: StacCenter(
+                                        child: StacContainer(
+                                          width: 10,
+                                          height: 10,
+                                          decoration: StacBoxDecoration(
+                                            color:
+                                                '{{isLegalSelected ? appColors.current.secondary.color : "transparent"}}',
+                                            borderRadius: StacBorderRadius.all(9999),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    StacSizedBox(width: 8),
+                                    // Label
+                                    StacExpanded(
+                                      child: StacText(
+                                        data:
+                                            '{{appStrings.promissory.receiverTypeLegal}}',
+                                        textDirection: StacTextDirection.rtl,
+                                        style: StacCustomTextStyle(
+                                          fontSize: 14,
+                                          fontWeight: StacFontWeight.w600,
+                                          color: '{{appColors.current.text.title}}',
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -183,8 +249,9 @@ StacWidget promissoryRealReceiver() {
                         {'type': 'allow', 'rule': '[0-9]'},
                       ],
                       'decoration': StacInputDecoration(
+
                         hintText:
-                            '{{appStrings.promissory.enterReceiverNationalCode}}',
+                            '{{appStrings.promissory.enterNationalCode}}',
                         filled: false,
                         contentPadding: StacEdgeInsets.symmetric(
                           horizontal: 16,
@@ -236,7 +303,7 @@ StacWidget promissoryRealReceiver() {
                       ],
                       'decoration': StacInputDecoration(
                         hintText:
-                            '{{appStrings.promissory.enterReceiverMobile}}',
+                            '{{appStrings.promissory.enterMobileNumber}}',
                         filled: false,
                         contentPadding: StacEdgeInsets.symmetric(
                           horizontal: 16,
@@ -305,10 +372,10 @@ StacWidget promissoryRealReceiver() {
                         textAlign: StacTextAlign.right,
                         decoration: StacInputDecoration(
                           hintText:
-                              '{{appStrings.promissory.selectReceiverBirthdate}}',
+                              '{{appStrings.promissory.selectBirthdate}}',
                           hintStyle: StacCustomTextStyle(
                             color: '{{appColors.current.text.subtitle}}',
-                            fontSize: 14,
+                            fontSize: 15,
                             fontWeight: StacFontWeight.w500,
                           ),
                           filled: false,
