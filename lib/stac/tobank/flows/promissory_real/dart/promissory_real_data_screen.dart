@@ -21,7 +21,6 @@ StacWidget promissoryRealData() {
       values: [
         {'key': 'isDataFormValid', 'value': false},
         {'key': 'isIdentityLoading', 'value': false},
-        {'key': 'isOnDemand', 'value': false},
       ],
     ),
     child: StacScaffold(
@@ -185,10 +184,19 @@ StacWidget promissoryRealData() {
                                   {
                                     'rule': r'^\d+$',
                                     'message':
-                                        '{{appStrings.promissory.amountRequired}}',
+                                    '{{appStrings.promissory.amountRequired}}',
                                   },
                                 ],
-                                'onChanged': _getFullValidationAction().toJson(),
+                                'onChanged': StacValidateFieldsAction(
+                                  resultKey: 'isDataFormValid',
+                                  fields: [
+                                    {'id': 'promissory_amount', 'rule': r'^\d+$'},
+                                    {
+                                      'id': 'promissory_due_date',
+                                      'rule': r'^\d{4}/\d{2}/\d{2}$',
+                                    },
+                                  ],
+                                ).toJson(),
                               }),
                               StacSizedBox(height: 16),
 
@@ -234,53 +242,55 @@ StacWidget promissoryRealData() {
                                 ],
                               ),
                               StacSizedBox(height: 8),
-                              StacRawJsonWidget({
-                                'type': 'visibility',
-                                'visible': '{{!isOnDemand}}',
-                                'child': StacGestureDetector(
-                                  onTap: StacPersianDatePickerAction(
-                                    formFieldId: 'promissory_due_date',
-                                    firstDate: '1403/01/01',
-                                    lastDate: '1450/12/29',
-                                    onDateSelected:
-                                        _getFullValidationAction().toJson(),
-                                  ),
-                                  child: StacTextFormField(
-                                    id: 'promissory_due_date',
-                                    readOnly: true,
-                                    enabled: false,
-                                    style: StacCustomTextStyle(
-                                      fontSize: 14,
-                                      fontWeight: StacFontWeight.w600,
-                                      color: '{{appColors.current.text.title}}',
-                                    ),
-                                    textDirection: StacTextDirection.rtl,
-                                    textAlign: StacTextAlign.right,
-                                    decoration: StacInputDecoration(
-                                      hintText:
-                                          '{{appStrings.promissory.selectDate}}',
-                                      filled: false,
-                                      contentPadding: StacEdgeInsets.symmetric(
-                                        horizontal: 16,
-                                        vertical: 16,
-                                      ),
-                                      prefixIcon: StacIcon(
-                                        icon: StacIcons.calendar_today,
-                                        color:
-                                            '{{appColors.current.text.subtitle}}',
-                                        size: 20,
-                                      ),
-                                    ),
-                                    validatorRules: [
-                                      StacFormFieldValidator(
-                                        rule: r'^\d{4}/\d{2}/\d{2}$',
-                                        message:
-                                            '{{appStrings.promissory.dueDateRequired}}',
-                                      ),
+                              StacGestureDetector(
+                                onTap: StacPersianDatePickerAction(
+                                  formFieldId: 'promissory_due_date',
+                                  firstDate: '1403/01/01', // Example constraint
+                                  lastDate: '1450/12/29',
+                                  onDateSelected: StacValidateFieldsAction(
+                                    resultKey: 'isDataFormValid',
+                                    fields: [
+                                      {'id': 'promissory_amount', 'rule': r'^\d+$'},
+                                      {
+                                        'id': 'promissory_due_date',
+                                        'rule': r'^\d{4}/\d{2}/\d{2}$',
+                                      },
                                     ],
+                                  ).toJson(),
+                                ),
+                                child: StacTextFormField(
+                                  id: 'promissory_due_date',
+                                  readOnly: true,
+                                  enabled: false,
+                                  style: StacCustomTextStyle(
+                                    fontSize: 14,
+                                    fontWeight: StacFontWeight.w600,
+                                    color: '{{appColors.current.text.title}}',
                                   ),
-                                ).toJson(),
-                              }),
+                                  textDirection: StacTextDirection.rtl,
+                                  textAlign: StacTextAlign.right,
+                                  decoration: StacInputDecoration(
+                                    hintText: '{{appStrings.promissory.selectDate}}',
+                                    filled: false,
+                                    contentPadding: StacEdgeInsets.symmetric(
+                                      horizontal: 16,
+                                      vertical: 16,
+                                    ),
+                                    prefixIcon: StacIcon(
+                                      icon: StacIcons.calendar_today,
+                                      color: '{{appColors.current.text.subtitle}}',
+                                      size: 20,
+                                    ),
+                                  ),
+                                  validatorRules: [
+                                    StacFormFieldValidator(
+                                      rule: r'^\d{4}/\d{2}/\d{2}$',
+                                      message:
+                                      '{{appStrings.promissory.dueDateRequired}}',
+                                    ),
+                                  ],
+                                ),
+                              ),
 
 
                               // Due Date Picker (Hidden if On Demand is true)
