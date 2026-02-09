@@ -160,21 +160,19 @@ class CustomSetValueActionParser
 
   /// Determines if we should fetch fresh value from registry instead of using
   /// the pre-resolved value from STAC framework.
-  /// 
+  ///
   /// This is necessary because STAC pre-processes templates at JSON parse time,
   /// which can result in stale values being used when the registry was updated
   /// between parse time and execution time (e.g., after a network response).
   bool _shouldFetchFreshFromRegistry(String key, dynamic currentValue) {
     // Keys that store network response data and depend on data_payload
-    const keysNeedingFreshData = [
-      'deposits.rawData',
-    ];
-    
+    const keysNeedingFreshData = ['deposits.rawData'];
+
     // Check if this key needs fresh data
     if (!keysNeedingFreshData.contains(key)) {
       return false;
     }
-    
+
     // If the current value is a Map with identity-related fields,
     // it's likely stale data from a previous API call
     if (currentValue is Map) {
@@ -189,7 +187,7 @@ class CustomSetValueActionParser
         return true;
       }
     }
-    
+
     // Also fetch fresh if data_payload exists and is a List (deposit data)
     final freshPayload = StacRegistry.instance.getValue('data_payload');
     if (freshPayload is List && freshPayload.isNotEmpty) {
@@ -198,7 +196,7 @@ class CustomSetValueActionParser
         return true;
       }
     }
-    
+
     return false;
   }
 
@@ -227,6 +225,22 @@ class CustomSetValueActionParser
   dynamic _evalExpression(String expr) {
     if (expr == 'now()') {
       return DateTime.now().millisecondsSinceEpoch;
+    }
+
+    // removeLeadingZero(value)
+    // Examples:
+    //   {{removeLeadingZero(userData.mobile)}} -> "912..."
+    final removeLeadingZeroMatch = RegExp(
+      r"^removeLeadingZero\(\s*(.+)\s*\)$",
+    ).firstMatch(expr);
+    if (removeLeadingZeroMatch != null) {
+      final valueExpr = removeLeadingZeroMatch.group(1)!.trim();
+      final value = _evalExpression(valueExpr)?.toString();
+      if (value == null) return null;
+      if (value.startsWith('0')) {
+        return value.substring(1);
+      }
+      return value;
     }
 
     // replace(value, from, to)
@@ -276,7 +290,7 @@ class CustomSetValueActionParser
   dynamic _getNestedValue(String path) {
     // First try the exact key as-is (supports dotted keys stored flat)
     final directValue = StacRegistry.instance.getValue(path);
-    
+
     // Debug: log when resolving data_payload
     if (path == 'data_payload' || path.startsWith('data_payload.')) {
       final preview = directValue?.toString() ?? 'null';
@@ -285,7 +299,7 @@ class CustomSetValueActionParser
         '📖 Resolving $path: ${directValue?.runtimeType ?? 'null'} = ${preview.length > 80 ? preview.substring(0, 80) + '...' : preview}',
       );
     }
-    
+
     if (directValue != null) return directValue;
 
     final parts = path.split('.');

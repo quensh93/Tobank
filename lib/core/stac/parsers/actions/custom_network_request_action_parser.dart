@@ -161,6 +161,32 @@ class CustomNetworkRequestActionParser
   String _resolveTemplates(String input) {
     String decodedInput = _tryDecodeUriComponent(input);
 
+    // Support removeLeadingZero function: {{removeLeadingZero(key)}}
+    final removeLeadingZeroRegex = RegExp(
+      r"\{\{removeLeadingZero\(([^)]+?)\)\}\}",
+    );
+
+    if (removeLeadingZeroRegex.hasMatch(decodedInput)) {
+      try {
+        decodedInput = decodedInput.replaceAllMapped(removeLeadingZeroRegex, (
+          match,
+        ) {
+          final key = match.group(1)?.trim();
+          if (key == null) return match.group(0) ?? '';
+
+          // Resolve the key's value from registry
+          final val = StacRegistry.instance.getValue(key)?.toString() ?? '';
+
+          if (val.startsWith('0')) {
+            return val.substring(1);
+          }
+          return val;
+        });
+      } catch (e, stack) {
+        AppLogger.ec(LogCategory.network, 'Error in removeLeadingZero: $e', e);
+      }
+    }
+
     // Support replace function: {{replace(key, 'old', 'new')}}
     // Regex matches: {{replace( key , 'old' , 'new' )}}
     // Groups: 1=key, 2=old, 3=new
@@ -283,6 +309,16 @@ class CustomNetworkRequestActionParser
       final match = RegExp(r'^{{([^}]+)}}$').firstMatch(value);
       if (match != null) {
         final expr = match.group(1)?.trim();
+        // Support toInt function: {{toInt(key)}}
+        if (expr != null && expr.startsWith('toInt(') && expr.endsWith(')')) {
+          final key = expr.substring(6, expr.length - 1).trim();
+          final val = _getNestedValue(key);
+          if (val != null) {
+            return int.tryParse(val.toString()) ?? val;
+          }
+          return 0;
+        }
+
         // If it looks like a function call (contains '('), delegate to _resolveTemplates which returns String
         if (expr != null && expr.contains('(')) {
           return _resolveTemplates(value);
@@ -322,14 +358,36 @@ class CustomNetworkRequestActionParser
       });
 
       if (request.body != null) {
+        // Use single quotes for body (better for Postman/PowerShell)
+        // Encode to JSON and escape any existing single quotes
+        String jsonBody;
         if (request.body is String) {
-          curl += ' -d \'${request.body}\'';
+          jsonBody = request.body as String;
         } else {
-          curl += ' -d \'${jsonEncode(request.body)}\'';
+          jsonBody = jsonEncode(request.body);
         }
+        // Escape single quotes: ' becomes '\''
+        final escapedBody = jsonBody.replaceAll("'", "'\\''");
+        curl += " -d '$escapedBody'";
       }
 
-      AppLogger.dc(LogCategory.network, 'CURL: $curl');
+      // Log in chunks to avoid truncation
+      const int chunkSize = 1000;
+      if (curl.length <= chunkSize) {
+        AppLogger.dc(LogCategory.network, 'CURL: $curl');
+      } else {
+        AppLogger.dc(
+          LogCategory.network,
+          'CURL (Split 1/${(curl.length / chunkSize).ceil()}): ${curl.substring(0, chunkSize)}',
+        );
+        for (int i = chunkSize; i < curl.length; i += chunkSize) {
+          int end = (i + chunkSize < curl.length) ? i + chunkSize : curl.length;
+          AppLogger.dc(
+            LogCategory.network,
+            'CURL (Split ${(i / chunkSize).ceil() + 1}/${(curl.length / chunkSize).ceil()}): ${curl.substring(i, end)}',
+          );
+        }
+      }
     } catch (e) {
       AppLogger.ec(LogCategory.network, 'Failed to generate cURL log', e);
     }

@@ -12,6 +12,7 @@ StacWidget promissoryRealPaymentDeposits() {
           {'key': 'deposits.isLoaded', 'value': false},
           {'key': 'deposits.rawData', 'value': null},
           {'key': 'deposits.error', 'value': null},
+          {'key': 'isDraftLoading', 'value': false},
         ],
       ),
       StacNetworkRequestAction(
@@ -119,10 +120,156 @@ StacWidget promissoryRealPaymentDeposits() {
     onInit: fetchDepositsAction,
     child: StacRawJsonWidget({
       'type': 'promissory_real_deposits_list',
+      'loadingKey': 'isDraftLoading',
       'onContinue': {
-        'actionType': 'navigate',
-        'widgetType': 'promissory_real_sign',
-        'navigationStyle': 'push',
+        'actionType': 'sequence',
+        'actions': [
+          {'actionType': 'setValue', 'key': 'isDraftLoading', 'value': true},
+          {'actionType': 'setValue', 'key': 'hasSelection', 'value': false},
+          {
+            'actionType': 'networkRequest',
+            'url':
+                'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/draft',
+            'method': 'post',
+            'headers': {
+              'accept': 'application/json',
+              'authorization': '{{auth.accessToken}}',
+              'content-type': 'application/json',
+            },
+            'data': {
+              'issuerType': 'I',
+              'sourceAccount': '{{selectedDeposit.depositNumber}}',
+              'issuerBirthDate': '{{userData.birthDate}}',
+              'issuerNN': '{{userData.nationalCode}}',
+              'issuerSanaCheck': true,
+              'issuerCellphone': '{{removeLeadingZero(userData.mobile)}}',
+              'issuerFullName': '{{userData.fullName}}',
+              'issuerAccountNumber': '{{selectedDeposit.depositIban}}',
+              'issuerAddress': '{{userData.address}}',
+              'issuerPostalCode': '{{userData.postalCode}}',
+              'recipientType': 'I',
+              'recipientBirthDate': '{{receiver.birthDate}}',
+              'recipientNationalId': '{{receiver.nationalCode}}',
+              'recipientCellphone': '{{removeLeadingZero(receiver.mobile)}}',
+              'recipientFullName': '{{receiverIdentity.fullName}}',
+              'paymentPlace': 'تهران، آرشام',
+              'amount': '{{toInt(form.promissory_amount)}}',
+              'dueDate': '',
+              'description': '{{form.description}}',
+              'transferable': true,
+            },
+            'results': [
+              {
+                'statusCode': 200,
+                'action': {
+                  'actionType': 'sequence',
+                  'actions': [
+                    {
+                      'actionType': 'setValue',
+                      'values': [
+                        {'key': 'isDraftLoading', 'value': false},
+                        {'key': 'hasSelection', 'value': true},
+                        {
+                          'key': 'promissory.draft.id',
+                          'value': '{{data.data.id}}',
+                        },
+                        {
+                          'key': 'form.promissory_id',
+                          'value': '{{data.data.id}}',
+                        },
+                        {
+                          'key': 'promissory.draft.unSignedPdfId',
+                          'value': '{{data.data.unSignedPdfId}}',
+                        },
+                        {
+                          'key': 'form.promissory_unsigned_pdf_id',
+                          'value': '{{data.data.unSignedPdfId}}',
+                        },
+                        {
+                          'key': 'promissory.draft.requestId',
+                          'value': '{{data.data.requestId}}',
+                        },
+                        {
+                          'key': 'form.promissory_request_id',
+                          'value': '{{data.data.requestId}}',
+                        },
+                        {
+                          'key': 'promissory.draft.promissoryId',
+                          'value': '{{data.data.promissoryId}}',
+                        },
+                        {
+                          'key': 'promissory.draft.full_response',
+                          'value': '{{data}}',
+                        },
+                      ],
+                    },
+                    {
+                      'actionType': 'navigate',
+                      'widgetType': 'promissory_real_sign',
+                      'navigationStyle': 'push',
+                    },
+                  ],
+                },
+              },
+              {
+                'statusCode': 422,
+                'action': {
+                  'actionType': 'sequence',
+                  'actions': [
+                    {
+                      'actionType': 'setValue',
+                      'values': [
+                        {'key': 'isDraftLoading', 'value': false},
+                        {'key': 'hasSelection', 'value': true},
+                      ],
+                    },
+                    {
+                      'actionType': 'showSnackBar',
+                      'backgroundColor': '#D32F2F',
+                      'content': {
+                        'type': 'text',
+                        'data': '{{data.status.message.0}}',
+                        'style': {
+                          'type': 'custom',
+                          'color': '#FFFFFF',
+                          'fontSize': 14,
+                        },
+                      },
+                    },
+                  ],
+                },
+              },
+              {
+                'statusCode': -1,
+                'action': {
+                  'actionType': 'sequence',
+                  'actions': [
+                    {
+                      'actionType': 'setValue',
+                      'values': [
+                        {'key': 'isDraftLoading', 'value': false},
+                        {'key': 'hasSelection', 'value': true},
+                      ],
+                    },
+                    {
+                      'actionType': 'showSnackBar',
+                      'backgroundColor': '#D32F2F',
+                      'content': {
+                        'type': 'text',
+                        'data': '{{data.status.message.0}}',
+                        'style': {
+                          'type': 'custom',
+                          'color': '#FFFFFF',
+                          'fontSize': 14,
+                        },
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        ],
       },
       'onRetry': fetchDepositsAction.toJson(),
     }),

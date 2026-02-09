@@ -55,7 +55,7 @@ class LogConfig {
   // ═══════════════════════════════════════════════════════════════════════════
 
   /// Globally enable/disable log truncation
-  static const bool truncateLogs = true;
+  static const bool truncateLogs = false;
 
   /// Max characters per log message before truncation
   static const int maxLogLength = 100000;

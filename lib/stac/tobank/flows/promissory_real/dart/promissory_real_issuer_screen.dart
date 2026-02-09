@@ -61,6 +61,10 @@ StacWidget promissoryRealIssuer() {
                   'value': '{{data.data.firstName}} {{data.data.lastName}}',
                 },
                 {
+                  'key': 'userData.birthDate',
+                  'value': '{{data.data.birthDate}}',
+                },
+                {
                   'key': 'userData.postalCode',
                   'value': '{{data.data.postCode}}',
                 },
