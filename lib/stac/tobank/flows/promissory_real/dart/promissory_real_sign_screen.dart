@@ -283,6 +283,7 @@ StacWidget promissoryRealSign() {
                                   'actionType': 'log',
                                   'message': 'Signed PDF: {{form.signed_pdf}}',
                                 },
+
                                 // Commented out - can be re-enabled later:
                                 // {
                                 //   'actionType': 'saveFile',
@@ -292,11 +293,23 @@ StacWidget promissoryRealSign() {
                                 {
                                   'actionType': 'networkRequest',
                                   'url':
-                                      'https://api.tobank.com/promissory/publish/finalize',
+                                      'http://192.168.107.22:8280/api/digitalbanking/files/v1.0/promissory/upload/base64',
                                   'method': 'post',
+                                  'headers': {
+                                    'accept': '*/*',
+                                    'app-platform': 'android',
+                                    'app-store': 'application/json',
+                                    'app-version': '456',
+                                    'device-uuid':
+                                        '5109ab4c-77ca-4f0c-9858-da4df58031d2',
+                                    'serviceauthorization':
+                                        'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
+                                    'authorization': '{{auth.accessToken}}',
+                                  },
                                   'data': {
-                                    'id': '{{form.promissory_request_id}}',
-                                    'signedPdf': '{{form.signed_pdf}}',
+                                    "fileName": "promisorry.txt",
+                                    "contentType": "text/plain",
+                                    "base64": "{{form.signed_pdf}}",
                                   },
                                   'results': [
                                     {
@@ -306,40 +319,103 @@ StacWidget promissoryRealSign() {
                                         'actions': [
                                           {
                                             'actionType': 'setValue',
-                                            'key': 'isSigning',
-                                            'value': false,
+                                            'key': 'form.signed_pdf_id',
+                                            'value': '{{data_payload.id}}',
                                           },
                                           {
-                                            'actionType': 'setValue',
-                                            'values': [
+                                            'actionType': 'networkRequest',
+                                            'url':
+                                                'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/finalize/{{form.promissory_id}}',
+                                            'method': 'post',
+                                            'headers': {
+                                              'accept': '*/*',
+                                              'app-platform': 'android',
+                                              'app-store': 'application/json',
+                                              'app-version': '456',
+                                              'device-uuid':
+                                                  '5109ab4c-77ca-4f0c-9858-da4df58031d2',
+                                              'serviceauthorization':
+                                                  'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
+                                              'authorization':
+                                                  '{{auth.accessToken}}',
+                                            },
+                                            'data': {
+                                              'signedPdfId':
+                                                  '{{form.signed_pdf_id}}',
+                                            },
+                                            'results': [
                                               {
-                                                'key': 'promissoryId',
-                                                'value':
-                                                    '{{data.data.promissoryId}}',
+                                                'statusCode': 200,
+                                                'action': {
+                                                  'actionType': 'sequence',
+                                                  'actions': [
+                                                    {
+                                                      'actionType': 'setValue',
+                                                      'key': 'isSigning',
+                                                      'value': false,
+                                                    },
+                                                    {
+                                                      'actionType': 'setValue',
+                                                      'values': [
+                                                        {
+                                                          'key': 'promissoryId',
+                                                          'value':
+                                                              '{{data.data.promissoryId}}',
+                                                        },
+                                                        {
+                                                          'key':
+                                                              'transactionAmount',
+                                                          'value':
+                                                              '{{form.promissory_amount}}',
+                                                        },
+                                                        {
+                                                          'key':
+                                                              'transactionTime',
+                                                          'value':
+                                                              '{{data.data.transactionTime}}',
+                                                        },
+                                                        {
+                                                          'key':
+                                                              'trackingNumber',
+                                                          'value':
+                                                              '{{data.data.trackingNumber}}',
+                                                        },
+                                                      ],
+                                                    },
+                                                    {
+                                                      'actionType': 'navigate',
+                                                      'widgetType':
+                                                          'promissory_real_success',
+                                                      'navigationStyle':
+                                                          'pushReplacement',
+                                                    },
+                                                  ],
+                                                },
                                               },
                                               {
-                                                'key': 'transactionAmount',
-                                                'value':
-                                                    '{{form.promissory_amount}}',
-                                              },
-                                              {
-                                                'key': 'transactionTime',
-                                                'value':
-                                                    '{{data.data.transactionTime}}',
-                                              },
-                                              {
-                                                'key': 'trackingNumber',
-                                                'value':
-                                                    '{{data.data.trackingNumber}}',
+                                                // Error handling
+                                                'statusCode': -1,
+                                                'action': {
+                                                  'actionType': 'sequence',
+                                                  'actions': [
+                                                    {
+                                                      'actionType': 'setValue',
+                                                      'key': 'isSigning',
+                                                      'value': false,
+                                                    },
+                                                    {
+                                                      'actionType':
+                                                          'showSnackBar',
+                                                      'content': {
+                                                        'type': 'text',
+                                                        'data':
+                                                            'finalize failed',
+                                                      },
+                                                    },
+                                                  ],
+                                                },
                                               },
                                             ],
-                                          },
-                                          {
-                                            'actionType': 'navigate',
-                                            'widgetType':
-                                                'promissory_real_success',
-                                            'navigationStyle':
-                                                'pushReplacement',
                                           },
                                         ],
                                       },
@@ -352,39 +428,6 @@ StacWidget promissoryRealSign() {
                                         'actions': [
                                           {
                                             'actionType': 'setValue',
-                                            'values': [
-                                              {
-                                                'key': 'transactionAmount',
-                                                'value': '20,000,000',
-                                              },
-                                              {
-                                                'key': 'transactionTime',
-                                                'value': '{{now()}}',
-                                              },
-                                              {
-                                                'key': 'paymentMethod',
-                                                'value':
-                                                    '{{appStrings.promissory.depositPayment}}',
-                                              },
-                                              {
-                                                'key': 'trackingNumber',
-                                                'value': 'TS-987654321',
-                                              },
-                                              {
-                                                'key': 'promissoryId',
-                                                'value': 'PROM-12345',
-                                              },
-                                            ],
-                                          },
-                                          {
-                                            'actionType': 'navigate',
-                                            'widgetType':
-                                                'promissory_real_success',
-                                            'navigationStyle':
-                                                'pushReplacement',
-                                          },
-                                          {
-                                            'actionType': 'setValue',
                                             'key': 'isSigning',
                                             'value': false,
                                           },
@@ -392,8 +435,7 @@ StacWidget promissoryRealSign() {
                                             'actionType': 'showSnackBar',
                                             'content': {
                                               'type': 'text',
-                                              'data':
-                                                  '{{appStrings.promissory.signError}}',
+                                              'data': 'upload failed',
                                             },
                                           },
                                         ],
