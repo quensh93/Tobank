@@ -44,7 +44,10 @@ Integrate the "Promissory Draft" API into the `promissory_real_payment_deposits_
 #### `promissory_real_payment_deposits_screen.dart`
 - [x] **Save Selected Deposit**: Ensure `selectedDeposit.depositNumber` and `selectedDeposit.depositIban` are saved when a user selects a deposit (Handled in `promissory_real_deposits_parser.dart`).
 - [x] **Implement Network Request**: Add `StacNetworkRequestAction` to the `onContinue` action.
-- [x] **Request Body Configuration**: (Same as correctly identified json)
+- [x] **Request Body Configuration**:
+    - [x] `issuerBirthDate`: `{{replace(userData.birthDate, '/', '')}}` (Remove slashes)
+    - [x] `recipientBirthDate`: `{{replace(receiver.birthDate, '/', '')}}` (Remove slashes)
+    - [x] `dueDate`: `{{replace(form.promissory_due_date, '/', '')}}` (Remove slashes)
 - [x] **Response Handling (Success 200)**:
     - [x] **Save All Response Data**: Store IDs and full response.
     - [x] **Navigation**: Navigate to `promissory_real_sign`.
@@ -59,3 +62,4 @@ Integrate the "Promissory Draft" API into the `promissory_real_payment_deposits_
 - `lib/stac/tobank/flows/promissory_real/dart/promissory_real_confirm_screen.dart`
 - `lib/stac/tobank/flows/promissory_real/dart/promissory_real_issuer_screen.dart`
 - `lib/core/stac/parsers/widgets/promissory_real_deposits_parser.dart`
+- `lib/core/stac/parsers/actions/custom_network_request_action_parser.dart` (Updated to support nested keys in helpers)

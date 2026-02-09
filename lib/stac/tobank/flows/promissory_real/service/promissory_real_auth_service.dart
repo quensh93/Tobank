@@ -66,7 +66,7 @@ class PromissoryRealAuthService {
         LogCategory.network,
         'RESPONSE ${response.statusCode} $_url',
       );
-      
+
       // Log response body - let AppLogger handle truncation based on LogConfig
       final responseStr = response.data?.toString() ?? '';
       AppLogger.dc(LogCategory.network, '   Body: $responseStr');
@@ -98,7 +98,8 @@ class PromissoryRealAuthService {
 
         if (token != null && token.isNotEmpty) {
           final cleanedToken = token.trim();
-          final normalizedToken = cleanedToken.toLowerCase().startsWith('bearer ')
+          final normalizedToken =
+              cleanedToken.toLowerCase().startsWith('bearer ')
               ? cleanedToken.substring(7).trim()
               : cleanedToken;
           await _authManager.saveTokens(accessToken: normalizedToken);
@@ -173,17 +174,24 @@ class PromissoryRealAuthService {
     if (data is! Map) return null;
 
     Map? result = data['result'] is Map ? data['result'] as Map : null;
-    Map? resultData =
-        result != null && result['data'] is Map ? result['data'] as Map : null;
+    Map? resultData = result != null && result['data'] is Map
+        ? result['data'] as Map
+        : null;
 
-    final candidates = <dynamic>[data, result, resultData]
-        .where((item) => item != null)
-        .cast<Map>();
+    final candidates = <dynamic>[
+      data,
+      result,
+      resultData,
+    ].where((item) => item != null).cast<Map>();
 
     for (final map in candidates) {
       final value =
-          map['nationalId'] ?? map['national_id'] ?? map['nationalCode'] ??
-          map['national_code'] ?? map['natCode'] ?? map['nat_code'];
+          map['nationalId'] ??
+          map['national_id'] ??
+          map['nationalCode'] ??
+          map['national_code'] ??
+          map['natCode'] ??
+          map['nat_code'];
       if (value != null && value.toString().isNotEmpty) {
         return value.toString();
       }
@@ -204,8 +212,12 @@ class PromissoryRealAuthService {
       if (json is! Map) return null;
 
       final value =
-          json['nationalId'] ?? json['national_id'] ?? json['nationalCode'] ??
-          json['national_code'] ?? json['natCode'] ?? json['nat_code'];
+          json['nationalId'] ??
+          json['national_id'] ??
+          json['nationalCode'] ??
+          json['national_code'] ??
+          json['natCode'] ??
+          json['nat_code'];
       return value?.toString();
     } catch (_) {
       return null;
@@ -217,7 +229,9 @@ class PromissoryRealAuthService {
     curl += ' --url "$url"';
     options.headers?.forEach((key, value) {
       // Hide authorization value for security
-      final safeValue = key.toLowerCase().contains('authorization') ? '***' : value;
+      final safeValue = key.toLowerCase().contains('authorization')
+          ? '***'
+          : value;
       curl += ' -H "$key: $safeValue"';
     });
     if (data != null) {
