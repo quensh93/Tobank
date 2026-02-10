@@ -599,12 +599,13 @@ StacWidget _buildInfoRow({required String label, required String value}) {
 
 
 StacValidateFieldsAction _getFullValidationAction() {
-  final isOnDemand = StacRegistry.instance.getValue('isOnDemand') == true;
-  final fields = <Map<String, String>>[
+  final fields = <Map<String, dynamic>>[
     {'id': 'promissory_amount', 'rule': r'^\d+$'},
-    if (!isOnDemand)
-      {'id': 'promissory_due_date', 'rule': r'^\d{4}/\d{2}/\d{2}$'},
-    {'id': 'promissory_payment_place', 'rule': r'^.{1,200}$'},
+    {
+      'id': 'promissory_due_date',
+      'rule': r'^\d{4}/\d{2}/\d{2}$',
+      'optional': 'isOnDemand'
+    },
   ];
   return StacValidateFieldsAction(
     resultKey: 'isDataFormValid',

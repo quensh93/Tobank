@@ -452,6 +452,30 @@ StacWidget promissoryRealReceiver() {
                                     'id': 'legal_receiver_bank_switch',
                                     'valueKey': 'isLegalReceiverTourismBank',
                                     'activeColor': '{{appColors.current.secondary.color}}',
+                                    'onChanged': StacSequenceAction(
+                                      actions: [
+                                        StacCustomSetValueAction(
+                                          values: [
+                                            {
+                                              'key': 'legal_national_id',
+                                              'value': '{{userData.nationalCode}}',
+                                              'condition': 'isLegalReceiverTourismBank',
+                                            },
+                                            {
+                                              'key': 'legal_contact_number',
+                                              'value': '{{login.mobile}}',
+                                              'condition': 'isLegalReceiverTourismBank',
+                                            },
+                                          ],
+                                        ),
+                                        StacValidateFieldsAction(
+                                          resultKey: 'isReceiverFormValid',
+                                          fields: [
+                                             {'id': 'legal_national_id', 'rule': r'^\d{10}$'},
+                                          ],
+                                        ),
+                                      ],
+                                    ).toJson(),
                                   }),
                                 ],
                               ),
@@ -473,7 +497,7 @@ StacWidget promissoryRealReceiver() {
                             'id': 'legal_national_id',
                             'textDirection': 'rtl',
                             'textAlign': 'right',
-                            'maxLength': 11,
+                            'maxLength': 10,
                             'inputFormatters': [
                               {'type': 'allow', 'rule': '[0-9]'},
                             ],
@@ -489,15 +513,14 @@ StacWidget promissoryRealReceiver() {
                             'textInputAction': 'next',
                             'validatorRules': [
                               {
-                                'rule': r'^\d{11}$',
+                                'rule': r'^\d{10}$',
                                 'message': 'شناسه ملی معتبر نیست',
                               },
                             ],
                             'onChanged': StacValidateFieldsAction(
                               resultKey: 'isReceiverFormValid',
                               fields: [
-                                {'id': 'legal_national_id', 'rule': r'^\d{11}$'},
-                                {'id': 'legal_contact_number', 'rule': r'^09\d{9}$'},
+                                {'id': 'legal_national_id', 'rule': r'^\d{10}$'},
                               ],
                             ).toJson(),
                           }),
@@ -531,17 +554,10 @@ StacWidget promissoryRealReceiver() {
                             ).toJson(),
                             'keyboardType': 'phone',
                             'textInputAction': 'done',
-                            'validatorRules': [
-                              {
-                                'rule': r'^09\\d{9}$',
-                                'message': '{{appStrings.promissory.mobileNumberError}}',
-                              },
-                            ],
                             'onChanged': StacValidateFieldsAction(
                               resultKey: 'isReceiverFormValid',
                               fields: [
                                 {'id': 'legal_national_id', 'rule': r'^\d{10}$'},
-                                {'id': 'legal_contact_number', 'rule': r'^09\d{10}$'},
                               ],
                             ).toJson(),
                           }),
