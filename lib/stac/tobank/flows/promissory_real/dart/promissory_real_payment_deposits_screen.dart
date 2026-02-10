@@ -170,36 +170,12 @@ StacWidget promissoryRealPaymentDeposits() {
                         {'key': 'isDraftLoading', 'value': false},
                         {'key': 'hasSelection', 'value': true},
                         {
-                          'key': 'promissory.draft.id',
-                          'value': '{{data.data.id}}',
+                          'key': 'form.unsigned_pdf_id',
+                          'value': '{{data_payload.unSignedPdfId}}',
                         },
                         {
                           'key': 'form.promissory_id',
-                          'value': '{{data.data.id}}',
-                        },
-                        {
-                          'key': 'promissory.draft.unSignedPdfId',
-                          'value': '{{data.data.unSignedPdfId}}',
-                        },
-                        {
-                          'key': 'form.promissory_unsigned_pdf_id',
-                          'value': '{{data.data.unSignedPdfId}}',
-                        },
-                        {
-                          'key': 'promissory.draft.requestId',
-                          'value': '{{data.data.requestId}}',
-                        },
-                        {
-                          'key': 'form.promissory_request_id',
-                          'value': '{{data.data.requestId}}',
-                        },
-                        {
-                          'key': 'promissory.draft.promissoryId',
-                          'value': '{{data.data.promissoryId}}',
-                        },
-                        {
-                          'key': 'promissory.draft.full_response',
-                          'value': '{{data}}',
+                          'value': '{{data_payload.id}}',
                         },
                       ],
                     },
