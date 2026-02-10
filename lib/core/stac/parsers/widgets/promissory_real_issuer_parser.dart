@@ -74,7 +74,7 @@ class _PromissoryRealIssuerWidget extends StatelessWidget {
     return StacScaffold(
       appBar: StacAppBar(
         title: StacText(
-          data: '{{appStrings.promissory.issuerTitle}}',
+          data: '{{appStrings.promissory.selectDepositTitle}}',
           textDirection: StacTextDirection.rtl,
           style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
         ),
@@ -117,7 +117,7 @@ class _PromissoryRealIssuerWidget extends StatelessWidget {
     return StacScaffold(
       appBar: StacAppBar(
         title: StacText(
-          data: '{{appStrings.promissory.issuerTitle}}',
+          data: '{{appStrings.promissory.issuanceTitle}}',
           textDirection: StacTextDirection.rtl,
           style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
         ),
@@ -178,7 +178,7 @@ class _PromissoryRealIssuerWidget extends StatelessWidget {
     return StacScaffold(
       appBar: StacAppBar(
         title: StacText(
-          data: '{{appStrings.promissory.issuerTitle}}',
+          data: '{{appStrings.promissory.issuanceTitle}}',
           textDirection: StacTextDirection.rtl,
           style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
         ),
@@ -299,7 +299,7 @@ class _PromissoryRealIssuerWidget extends StatelessWidget {
                         ),
                         StacSizedBox(height: 16),
                         StacText(
-                          data: '{{appStrings.promissory.residenceAddress}}',
+                          data: '{{appStrings.promissory.residencesAddress}}',
                           textDirection: StacTextDirection.rtl,
                           style: StacCustomTextStyle(
                             fontSize: 14,

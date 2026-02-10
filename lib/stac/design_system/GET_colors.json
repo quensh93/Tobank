@@ -116,6 +116,9 @@
         },
         "warning": {
           "color": "#f9a200"
+        },
+        "lightSecondery" : {
+          "color": "#00babac9"
         }
       }
     }

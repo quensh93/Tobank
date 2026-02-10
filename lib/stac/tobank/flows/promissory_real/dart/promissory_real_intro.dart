@@ -31,59 +31,59 @@ StacWidget promissoryRealIntro() {
         StacSizedBox(height: 16),
         StacPadding(
           padding: StacEdgeInsets.symmetric(horizontal: 16),
-          child: StacContainer(
-            decoration: StacBoxDecoration(
-              color: '{{appColors.current.background.surfaceContainer}}',
-              borderRadius: StacBorderRadius.all(8),
-            ),
-            child: StacRow(
-              textDirection: StacTextDirection.rtl,
-              children: [
-                StacExpanded(
-                  child: StacContainer(
-                    padding: StacEdgeInsets.symmetric(vertical: 12),
-                    decoration: StacBoxDecoration(
-                      color: '{{appColors.current.primary.color}}',
-                      borderRadius: StacBorderRadius.all(8),
+          child: StacRow(
+            textDirection: StacTextDirection.rtl,
+            children: [
+              StacExpanded(
+                child: StacColumn(
+                  children: [
+                    StacText(
+                      data: '{{appStrings.promissory.servicesTab}}',
+                      textDirection: StacTextDirection.rtl,
+                      style: StacCustomTextStyle(
+                        fontSize: 14,
+                        fontWeight: StacFontWeight.w700,
+                        color: '{{appColors.current.text.title}}',
+                      ),
                     ),
-                    child: StacCenter(
-                      child: StacText(
-                        data: '{{appStrings.promissory.servicesTab}}',
-                        textDirection: StacTextDirection.rtl,
-                        style: StacCustomTextStyle(
-                          fontSize: 14,
-                          fontWeight: StacFontWeight.w600,
-                          color: '{{appColors.current.primary.onPrimary}}',
-                        ),
+                    StacSizedBox(height: 8),
+                    StacContainer(
+                      width: 40,
+                      height: 3,
+                      decoration: StacBoxDecoration(
+                        color: '#D32F2F',
+                        borderRadius: StacBorderRadius.all(2),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              StacContainer(
+                width: 1,
+                height: 24,
+                color: '{{appColors.current.input.borderEnabled}}',
+              ),
+              StacExpanded(
+                child: StacGestureDetector(
+                  onTap: StacRawJsonAction({
+                    'actionType': 'showResult',
+                    'title': '{{appStrings.common.comingSoon}}',
+                    'content': '{{appStrings.promissory.myNotesComingSoon}}',
+                  }),
+                  child: StacCenter(
+                    child: StacText(
+                      data: '{{appStrings.promissory.myNotesTab}}',
+                      textDirection: StacTextDirection.rtl,
+                      style: StacCustomTextStyle(
+                        fontSize: 14,
+                        fontWeight: StacFontWeight.w500,
+                        color: '{{appColors.current.text.subtitle}}',
                       ),
                     ),
                   ),
                 ),
-                StacExpanded(
-                  child: StacGestureDetector(
-                    onTap: StacRawJsonAction({
-                      'actionType': 'showResult',
-                      'title': '{{appStrings.common.comingSoon}}',
-                      'content': '{{appStrings.promissory.myNotesComingSoon}}',
-                    }),
-                    child: StacContainer(
-                      padding: StacEdgeInsets.symmetric(vertical: 12),
-                      child: StacCenter(
-                        child: StacText(
-                          data: '{{appStrings.promissory.myNotesTab}}',
-                          textDirection: StacTextDirection.rtl,
-                          style: StacCustomTextStyle(
-                            fontSize: 14,
-                            fontWeight: StacFontWeight.w500,
-                            color: '{{appColors.current.text.subtitle}}',
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
         StacSizedBox(height: 16),
@@ -190,16 +190,15 @@ StacWidget _buildServiceCard({
             width: 48,
             height: 48,
             decoration: StacBoxDecoration(
-              color: '{{appColors.current.primary.color}}20',
               borderRadius: StacBorderRadius.all(8),
             ),
             child: StacCenter(
               child: StacImage(
                 src: icon,
                 imageType: StacImageType.asset,
-                width: 24,
-                height: 24,
-                color: '{{appColors.current.primary.color}}',
+                width: 30,
+                height: 30,
+
               ),
             ),
           ),

@@ -76,7 +76,6 @@ StacWidget promissorySign() {
                   ),
                 ),
                 StacSizedBox(height: 24),
-
               ],
             ),
           ),

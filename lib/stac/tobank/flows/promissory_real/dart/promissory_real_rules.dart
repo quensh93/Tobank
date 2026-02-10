@@ -21,7 +21,7 @@ StacWidget promissoryRealRules() {
     child: StacScaffold(
       appBar: StacAppBar(
         title: StacText(
-          data: '{{appStrings.promissory.rulesTitle}}',
+          data: '{{appStrings.promissory.requestPromissory}}',
           textDirection: StacTextDirection.rtl,
           style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
         ),
@@ -80,7 +80,7 @@ StacWidget promissoryRealRules() {
                       child: StacSingleChildScrollView(
                         padding: StacEdgeInsets.all(16),
                         child: StacText(
-                          data: '{{appStrings.promissory.rulesContent}}',
+                          data: '{{appStrings.promissory.rulesContentPromissory}}',
                           textDirection: StacTextDirection.rtl,
                           style: StacCustomTextStyle(
                             fontSize: 14,
@@ -96,18 +96,26 @@ StacWidget promissoryRealRules() {
               ),
             ),
           ),
-          StacSizedBox(height: 24),
+          StacSizedBox(height: 20),
           // Checkbox Row
           StacPadding(
-            padding: StacEdgeInsets.symmetric(horizontal: 16),
+            padding: StacEdgeInsets.symmetric(horizontal: 16 , vertical: 4),
             child: StacContainer(
-              color: 'transparent',
-              padding: StacEdgeInsets.symmetric(vertical: 8),
+              decoration: StacBoxDecoration(
+                color: '{{appColors.current.background.surfaceContainer}}',
+                borderRadius: StacBorderRadius.all(8),
+                border: StacBorder.all(
+                  color: '{{appColors.current.input.borderEnabled}}',
+                  width: 1,
+                ),
+              ),
+              padding: StacEdgeInsets.symmetric(vertical: 16),
               child: StacRow(
                 textDirection: StacTextDirection.rtl,
                 crossAxisAlignment: StacCrossAxisAlignment.center,
                 children: [
                   // Custom Checkbox
+                  StacSizedBox(width: 8),
                   StacGestureDetector(
                     onTap: StacRawJsonAction({
                       'actionType': 'setValue',
@@ -115,15 +123,15 @@ StacWidget promissoryRealRules() {
                       'value': '{{isRulesAccepted ? false : true}}',
                     }),
                     child: StacContainer(
-                      width: 24,
-                      height: 24,
+                      width: 21,
+                      height: 21,
                       decoration: StacBoxDecoration(
                         color:
-                            '{{isRulesAccepted ? appColors.current.primary.color : "transparent"}}',
-                        borderRadius: StacBorderRadius.all(6),
+                            '{{isRulesAccepted ? appColors.current.secondary.color : "transparent"}}',
+                        borderRadius: StacBorderRadius.all(3),
                         border: StacBorder.all(
                           color:
-                              '{{isRulesAccepted ? appColors.current.primary.color : appColors.current.text.subtitle}}',
+                              '{{isRulesAccepted ? appColors.current.secondary.color : appColors.current.text.subtitle}}',
                           width: 2,
                         ),
                       ),
@@ -134,8 +142,8 @@ StacWidget promissoryRealRules() {
                           'child': StacImage(
                             src: 'assets/icons/ic_check.svg',
                             color: '#FFFFFF',
-                            width: 16,
-                            height: 16,
+                            width: 19,
+                            height: 19,
                           ).toJson(),
                         }),
                       ),

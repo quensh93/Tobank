@@ -11,11 +11,17 @@ StacWidget promissoryRealLoginForm() {
     onInit: StacCustomSetValueAction(key: 'isLoginFormValid', value: false),
     child: StacScaffold(
       appBar: StacAppBar(
-        title: StacText(
-          data: '{{appStrings.promissory.loginDynamic}}',
-          style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
+        title: StacRow(
+          mainAxisAlignment: StacMainAxisAlignment.end,
+          children: [
+            StacText(
+              data: '{{appStrings.login.validationTitle}}',
+              style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
+            ),
+          ]
         ),
-        centerTitle: true,
+        centerTitle: false,
+
       ),
       body: StacForm(
         autovalidateMode: StacAutovalidateMode.onUserInteraction,
@@ -31,11 +37,11 @@ StacWidget promissoryRealLoginForm() {
                   textDirection: StacTextDirection.rtl,
                   children: [
                     StacText(
-                      data: '{{appStrings.promissory.enterInfoBelow}}',
+                      data: '{{appStrings.login.validationInstructions}}',
                       textDirection: StacTextDirection.rtl,
                       style: StacCustomTextStyle(
-                        fontSize: 16,
-                        fontWeight: StacFontWeight.bold,
+                        fontSize: 15,
+                        fontWeight: StacFontWeight.w400,
                         color: '{{appColors.current.text.title}}',
                       ),
                     ),
@@ -43,7 +49,7 @@ StacWidget promissoryRealLoginForm() {
 
                     // Mobile Number
                     StacText(
-                      data: '{{appStrings.promissory.issuerPhoneNumber}}',
+                      data: '{{appStrings.promissory.cellphoneNumber}}',
                       textDirection: StacTextDirection.rtl,
                       style: StacAliasTextStyle('{{appStyles.text.label}}'),
                     ),
@@ -58,7 +64,7 @@ StacWidget promissoryRealLoginForm() {
                         {'type': 'allow', 'rule': '[0-9]'},
                       ],
                       'decoration': StacInputDecoration(
-                        hintText: '{{appStrings.promissory.mobileExample}}',
+                        hintText: '{{appStrings.promissory.enterCellphoneNumber}}',
                         filled: false,
                         contentPadding: StacEdgeInsets.symmetric(
                           horizontal: 16,
@@ -103,7 +109,7 @@ StacWidget promissoryRealLoginForm() {
                       ],
                       'decoration': StacInputDecoration(
                         hintText:
-                            '{{appStrings.promissory.nationalCode10Digit}}',
+                            '{{appStrings.promissory.enterNationalCodee}}',
                         filled: false,
                         contentPadding: StacEdgeInsets.symmetric(
                           horizontal: 16,
@@ -131,72 +137,82 @@ StacWidget promissoryRealLoginForm() {
                     StacSizedBox(height: 16),
 
                     // GPay Token
-                    StacText(
-                      data: 'GPay Token',
-                      textDirection: StacTextDirection.rtl,
-                      style: StacAliasTextStyle('{{appStyles.text.label}}'),
+
+                    // StacText(
+                    //   data: 'GPay Token',
+                    //   textDirection: StacTextDirection.rtl,
+                    //   style: StacAliasTextStyle('{{appStyles.text.label}}'),
+                    // ),
+                    // StacSizedBox(height: 8),
+
+                    StacVisibility(
+                        visible: false,
+                        child:  StacRawJsonWidget({
+                          'type': 'textFormField',
+                          'id': 'gpay_token',
+                          'initialValue': '1234',
+                          'textDirection': 'ltr',
+                          'textAlign': 'left',
+                          'decoration': StacInputDecoration(
+                            hintText: '{{appStrings.promissory.gpayTokenExample}}',
+                            filled: false,
+                            contentPadding: StacEdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 12,
+                            ),
+                          ).toJson(),
+                          'keyboardType': 'text',
+                          'textInputAction': 'next',
+                          'onChanged': StacValidateFieldsAction(
+                            resultKey: 'isLoginFormValid',
+                            fields: [
+                              {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
+                              {'id': 'national_code', 'rule': r'^\d{10}$'},
+                              {'id': 'birthdate', 'rule': r'.+'},
+                            ],
+                          ).toJson(),
+                        }),
                     ),
-                    StacSizedBox(height: 8),
-                    StacRawJsonWidget({
-                      'type': 'textFormField',
-                      'id': 'gpay_token',
-                      'initialValue': '1234',
-                      'textDirection': 'ltr',
-                      'textAlign': 'left',
-                      'decoration': StacInputDecoration(
-                        hintText: '{{appStrings.promissory.gpayTokenExample}}',
-                        filled: false,
-                        contentPadding: StacEdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 12,
-                        ),
-                      ).toJson(),
-                      'keyboardType': 'text',
-                      'textInputAction': 'next',
-                      'onChanged': StacValidateFieldsAction(
-                        resultKey: 'isLoginFormValid',
-                        fields: [
-                          {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
-                          {'id': 'national_code', 'rule': r'^\d{10}$'},
-                          {'id': 'birthdate', 'rule': r'.+'},
-                        ],
-                      ).toJson(),
-                    }),
+
                     StacSizedBox(height: 16),
 
                     // CIF
-                    StacText(
-                      data: 'CIF',
-                      textDirection: StacTextDirection.rtl,
-                      style: StacAliasTextStyle('{{appStyles.text.label}}'),
+                    // StacText(
+                    //   data: 'CIF',
+                    //   textDirection: StacTextDirection.rtl,
+                    //   style: StacAliasTextStyle('{{appStyles.text.label}}'),
+                    // ),
+                    // StacSizedBox(height: 8),
+                    StacVisibility(
+                        visible: false,
+                        child:   StacRawJsonWidget({
+                          'type': 'textFormField',
+                          'id': 'cif',
+                          'initialValue': '123',
+                          'textDirection': 'ltr',
+                          'textAlign': 'left',
+                          'decoration': StacInputDecoration(
+                            hintText: '{{appStrings.promissory.cifExample}}',
+                            filled: false,
+                            contentPadding: StacEdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 12,
+                            ),
+                          ).toJson(),
+                          'keyboardType': 'text',
+                          'textInputAction': 'next',
+                          'onChanged': StacValidateFieldsAction(
+                            resultKey: 'isLoginFormValid',
+                            fields: [
+                              {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
+                              {'id': 'national_code', 'rule': r'^\d{10}$'},
+                              {'id': 'birthdate', 'rule': r'.+'},
+                            ],
+                          ).toJson(),
+                        }),
                     ),
-                    StacSizedBox(height: 8),
-                    StacRawJsonWidget({
-                      'type': 'textFormField',
-                      'id': 'cif',
-                      'initialValue': '123',
-                      'textDirection': 'ltr',
-                      'textAlign': 'left',
-                      'decoration': StacInputDecoration(
-                        hintText: '{{appStrings.promissory.cifExample}}',
-                        filled: false,
-                        contentPadding: StacEdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 12,
-                        ),
-                      ).toJson(),
-                      'keyboardType': 'text',
-                      'textInputAction': 'next',
-                      'onChanged': StacValidateFieldsAction(
-                        resultKey: 'isLoginFormValid',
-                        fields: [
-                          {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
-                          {'id': 'national_code', 'rule': r'^\d{10}$'},
-                          {'id': 'birthdate', 'rule': r'.+'},
-                        ],
-                      ).toJson(),
-                    }),
-                    StacSizedBox(height: 16),
+
+                    // StacSizedBox(height: 16),
 
                     // Birth Date (Using Date Picker Action)
                     StacText(
@@ -226,7 +242,7 @@ StacWidget promissoryRealLoginForm() {
                         textDirection: StacTextDirection.rtl,
                         textAlign: StacTextAlign.right,
                         decoration: StacInputDecoration(
-                          hintText: '{{appStrings.promissory.birthdate}}',
+                          hintText: '{{appStrings.promissory.selectBirth}}',
                           filled: false,
                           contentPadding: StacEdgeInsets.symmetric(
                             horizontal: 16,
@@ -240,7 +256,7 @@ StacWidget promissoryRealLoginForm() {
                               width: 24,
                               height: 24,
                               fit: StacBoxFit.scaleDown,
-                              color: '{{appColors.current.text.subtitle}}',
+                              color: '{{appColors.current.secondary.color}}',
                             ),
                           ),
                         ),
@@ -378,6 +394,11 @@ StacWidget promissoryRealLoginForm() {
                                   'data':
                                       '{{appStrings.promissory.loginSuccess}}',
                                 },
+                              }),
+                              StacRawJsonAction({
+                                'actionType': 'navigate',
+                                'widgetType': 'promissory_real_loader',
+                                'navigationStyle': 'pushReplacement',
                               }),
                             ],
                           ).toJson(),

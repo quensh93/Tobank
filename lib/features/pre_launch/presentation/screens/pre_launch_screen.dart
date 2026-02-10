@@ -8,6 +8,7 @@ import '../../../../dummy/stac_test_page.dart';
 import '../../../../dummy/simple_api_test_page.dart';
 import '../../../../dummy/news_api_test_page.dart';
 import '../../../tobank_mock_new/presentation/screens/tobank_stac_dart_screen.dart';
+import '../../../tobank_mock_new/presentation/screens/promissory_real_flow_screen.dart';
 import '../../providers/theme_controller_provider.dart';
 import '../widgets/menu_card.dart';
 import '../widgets/debug_tool_item.dart';
@@ -121,6 +122,12 @@ class _PreLaunchScreenState extends ConsumerState<PreLaunchScreen> {
           title: 'Tobank SDUI',
           subtitle: 'Render Tobank login via Dart StacWidget',
           onTap: () => _navigateToPage(const TobankStacDartScreen(), '/tobank-stac-dart'),
+        ),
+        MenuCard(
+          icon: Icons.view_carousel,
+          title: 'Promissory Real Flow',
+          subtitle: 'Onboarding -> Login -> Flow',
+          onTap: () => _navigateToPage(const PromissoryRealFlowScreen(), '/promissory-real-flow'),
         ),
       ],
     );

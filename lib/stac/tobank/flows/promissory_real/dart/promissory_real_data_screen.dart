@@ -1,3 +1,4 @@
+import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
 import '../../../../../core/stac/builders/stac_common_builders.dart';
 import '../../../../../core/stac/builders/stac_stateful_widget.dart';
@@ -21,6 +22,7 @@ StacWidget promissoryRealData() {
       values: [
         {'key': 'isDataFormValid', 'value': false},
         {'key': 'isIdentityLoading', 'value': false},
+        {'key': 'isOnDemand', 'value': false},
       ],
     ),
     child: StacScaffold(
@@ -73,8 +75,7 @@ StacWidget promissoryRealData() {
                             crossAxisAlignment: StacCrossAxisAlignment.stretch,
                             children: [
                               StacText(
-                                data:
-                                    '{{appStrings.promissory.receiverDetails}}',
+                                data: 'اطلاعات دریافت‌کننده',
                                 textDirection: StacTextDirection.rtl,
                                 style: StacCustomTextStyle(
                                   fontSize: 16,
@@ -83,262 +84,343 @@ StacWidget promissoryRealData() {
                                 ),
                               ),
                               StacSizedBox(height: 12),
-                              StacRow(
-                                textDirection: StacTextDirection.rtl,
-                                mainAxisAlignment:
-                                    StacMainAxisAlignment.spaceBetween,
-                                children: [
-                                  StacText(
-                                    data:
-                                        '{{appStrings.promissory.nationalCode}}',
-                                    textDirection: StacTextDirection.rtl,
-                                    style: StacCustomTextStyle(
-                                      fontSize: 14,
-                                      color:
-                                          '{{appColors.current.text.subtitle}}',
-                                    ),
-                                  ),
-                                  StacText(
-                                    data: '{{form.receiver_national_code}}',
-                                    style: StacCustomTextStyle(
-                                      fontSize: 14,
-                                      fontWeight: StacFontWeight.w600,
-                                      color: '{{appColors.current.text.title}}',
-                                    ),
-                                  ),
-                                ],
+                              // National Code
+                              _buildInfoRow(
+                                label: 'کد ملی', value: '{{form.receiver_national_code}}',
                               ),
                               StacSizedBox(height: 8),
-                              StacRow(
-                                textDirection: StacTextDirection.rtl,
-                                mainAxisAlignment:
-                                    StacMainAxisAlignment.spaceBetween,
-                                children: [
-                                  StacText(
-                                    data:
-                                        '{{appStrings.promissory.mobileNumber}}',
-                                    textDirection: StacTextDirection.rtl,
-                                    style: StacCustomTextStyle(
-                                      fontSize: 14,
-                                      color:
-                                          '{{appColors.current.text.subtitle}}',
-                                    ),
-                                  ),
-                                  StacText(
-                                    data: '{{form.receiver_mobile}}',
-                                    style: StacCustomTextStyle(
-                                      fontSize: 14,
-                                      fontWeight: StacFontWeight.w600,
-                                      color: '{{appColors.current.text.title}}',
-                                    ),
-                                  ),
-                                ],
-                              ),
+                              // Mobile Number
+                              _buildInfoRow(label: 'شماره موبایل', value: '{{form.receiver_mobile}}'),
                               StacSizedBox(height: 8),
-                              // USING RECEIVER IDENTITY FROM REGISTRY
-                              StacRow(
-                                textDirection: StacTextDirection.rtl,
-                                mainAxisAlignment:
-                                    StacMainAxisAlignment.spaceBetween,
-                                children: [
-                                  StacText(
-                                    data: '{{appStrings.promissory.fullName}}',
-                                    textDirection: StacTextDirection.rtl,
-                                    style: StacCustomTextStyle(
-                                      fontSize: 14,
-                                      color:
-                                          '{{appColors.current.text.subtitle}}',
-                                    ),
-                                  ),
-                                  StacText(
-                                    data: '{{receiverIdentity.fullName}}',
-                                    style: StacCustomTextStyle(
-                                      fontSize: 14,
-                                      fontWeight: StacFontWeight.w600,
-                                      color: '{{appColors.current.text.title}}',
-                                    ),
-                                  ),
-                                ],
+                              // Full Name (from receiver inquiry)
+                              _buildInfoRow(
+                                label: 'نام و نام خانوادگی',
+                                value: '{{receiverIdentity.fullName}}',
                               ),
                             ],
                           ),
                         ),
                         StacSizedBox(height: 24),
 
-                        // Amount Field
-                        StacText(
-                          data: '{{appStrings.promissory.amountLabel}}',
-                          textDirection: StacTextDirection.rtl,
-                          style: StacCustomTextStyle(
-                            fontSize: 14,
-                            fontWeight: StacFontWeight.w600,
-                            color: '{{appColors.current.text.title}}',
-                          ),
-                        ),
-                        StacSizedBox(height: 8),
-                        StacRawJsonWidget({
-                          'type': 'textFormField',
-                          'id': 'promissory_amount',
-                          'textDirection': 'rtl',
-                          'textAlign': 'right',
-                          'decoration': StacInputDecoration(
-                            hintText: '{{appStrings.promissory.enterAmount}}',
-                            filled: false,
-                            contentPadding: StacEdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 16,
+                        StacContainer(
+                          decoration: StacBoxDecoration(
+                            color:
+                            '{{appColors.current.background.surfaceContainer}}',
+                            borderRadius: StacBorderRadius.all(8),
+                            border: StacBorder.all(
+                              color: '{{appColors.current.input.borderEnabled}}',
+                              width: 0.5,
                             ),
-                            suffixIcon: StacPadding(
-                              padding: StacEdgeInsets.all(12),
-                              child: StacText(
-                                data: '{{appStrings.common.rial}}',
+                          ),
+                          padding: StacEdgeInsets.all(16),
+                          child: StacColumn(
+                            crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                            children: [
+                              // Section Title
+                              StacText(
+                                data: 'اطلاعات سفته',
+                                textDirection: StacTextDirection.rtl,
                                 style: StacCustomTextStyle(
-                                  color: '{{appColors.current.text.subtitle}}',
-                                  fontSize: 12,
+                                  fontSize: 16,
+                                  fontWeight: StacFontWeight.w700,
+                                  color: '{{appColors.current.text.title}}',
                                 ),
                               ),
-                            ),
-                          ).toJson(),
-                          'keyboardType': 'number',
-                          'inputFormatters': [
-                            {'type': 'allow', 'rule': '[0-9]'},
-                          ],
-                          'validatorRules': [
-                            {
-                              'rule': r'^\d+$',
-                              'message':
-                                  '{{appStrings.promissory.amountRequired}}',
-                            },
-                          ],
-                          'onChanged': StacValidateFieldsAction(
-                            resultKey: 'isDataFormValid',
-                            fields: [
-                              {'id': 'promissory_amount', 'rule': r'^\d+$'},
-                              {
-                                'id': 'promissory_due_date',
-                                'rule': r'^\d{4}/\d{2}/\d{2}$',
-                              },
+                              StacSizedBox(height: 16),
+
+                              // Amount Field with Label and Hint
+                              StacRow(
+                                textDirection: StacTextDirection.rtl,
+                                mainAxisAlignment:
+                                StacMainAxisAlignment.spaceBetween,
+                                children: [
+                                  StacText(
+                                    data: 'مبلغ تعهد',
+                                    textDirection: StacTextDirection.rtl,
+                                    style: StacCustomTextStyle(
+                                      fontSize: 14,
+                                      fontWeight: StacFontWeight.w600,
+                                      color: '{{appColors.current.text.title}}',
+                                    ),
+                                  ),
+                                  StacText(
+                                    data: '',
+                                    textDirection: StacTextDirection.rtl,
+                                    style: StacCustomTextStyle(
+                                      fontSize: 13,
+                                      fontWeight: StacFontWeight.w600,
+                                      color: '{{appColors.current.text.subtitle}}',
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              StacSizedBox(height: 8),
+                              StacRawJsonWidget({
+                                'type': 'textFormField',
+                                'id': 'promissory_amount',
+                                'textDirection': 'rtl',
+                                'textAlign': 'right',
+                                'decoration': StacInputDecoration(
+                                  hintText: '{{appStrings.promissory.enterAmountt}}',
+                                  hintStyle: StacTextStyle(
+                                    fontSize: 12,
+                                    fontWeight: StacFontWeight.w600,
+                                    color: '{{appColors.current.text.subtitle}}',
+                                  ),
+                                  filled: false,
+                                  contentPadding: StacEdgeInsets.symmetric(
+                                    horizontal: 16,
+                                    vertical: 16,
+                                  ),
+                                ).toJson(),
+                                'keyboardType': 'number',
+                                'inputFormatters': [
+                                  {'type': 'allow', 'rule': '[0-9]'},
+                                ],
+                                'validatorRules': [
+                                  {
+                                    'rule': r'^\d+$',
+                                    'message':
+                                    '{{appStrings.promissory.amountRequired}}',
+                                  },
+                                ],
+                                'onChanged': _getFullValidationAction().toJson(),
+                              }),
+                              StacSizedBox(height: 16),
+
+                              // Due Date Toggle
+                              StacRow(
+                                textDirection: StacTextDirection.rtl,
+                                mainAxisAlignment:
+                                StacMainAxisAlignment.spaceBetween,
+                                children: [
+                                  StacText(
+                                    data: 'تاریخ پرداخت سفته',
+                                    textDirection: StacTextDirection.rtl,
+                                    style: StacCustomTextStyle(
+                                      fontSize: 14,
+                                      fontWeight: StacFontWeight.w600,
+                                      color: '{{appColors.current.text.title}}',
+                                    ),
+                                  ),
+                                  StacRow(
+                                    textDirection: StacTextDirection.rtl,
+                                    mainAxisSize: StacMainAxisSize.min,
+                                    children: [
+                                      StacText(
+                                        data: 'عندالمطالبه',
+                                        textDirection: StacTextDirection.rtl,
+                                        style: StacCustomTextStyle(
+                                          fontSize: 12,
+                                          fontWeight: StacFontWeight.w500,
+                                        ),
+                                      ),
+                                      StacSizedBox(width: 8),
+                                      StacRawJsonWidget({
+                                        'type': 'reactiveSwitch',
+                                        'id': 'dueDateSwitch',
+                                        'valueKey': 'isOnDemand',
+                                        'activeColor':
+                                        '{{appColors.current.secondary.color}}',
+                                        'onChanged': _getFullValidationAction()
+                                            .toJson(),
+                                      }),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              StacSizedBox(height: 8),
+                              StacRawJsonWidget({
+                                'type': 'visibility',
+                                'visible': '{{!isOnDemand}}',
+                                'child': StacGestureDetector(
+                                  onTap: StacPersianDatePickerAction(
+                                    formFieldId: 'promissory_due_date',
+                                    firstDate: '1403/01/01', // Example constraint
+                                    lastDate: '1450/12/29',
+                                    onDateSelected: _getFullValidationAction().toJson(),
+                                  ),
+                                  child: StacTextFormField(
+                                    id: 'promissory_due_date',
+                                    readOnly: true,
+                                    enabled: false,
+                                    style: StacCustomTextStyle(
+                                      fontSize: 13,
+                                      fontWeight: StacFontWeight.w600,
+                                      color: '{{appColors.current.text.title}}',
+                                    ),
+                                    textDirection: StacTextDirection.rtl,
+                                    textAlign: StacTextAlign.right,
+                                    decoration: StacInputDecoration(
+                                      hintText: '{{appStrings.promissory.selectDate}}',
+                                      hintStyle: StacTextStyle(
+                                        fontSize: 12,
+                                        fontWeight: StacFontWeight.w600,
+                                        color: '{{appColors.current.text.hint}}',
+                                      ),
+                                      filled: false,
+                                      contentPadding: StacEdgeInsets.symmetric(
+                                        horizontal: 16,
+                                        vertical: 16,
+                                      ),
+                                      prefixIcon: StacIcon(
+                                        icon: StacIcons.calendar_today,
+                                        color: '{{appColors.current.text.subtitle}}',
+                                        size: 20,
+                                      ),
+                                    ),
+                                    validatorRules: [
+                                      StacFormFieldValidator(
+                                        rule: r'^\d{4}/\d{2}/\d{2}$',
+                                        message: '{{appStrings.promissory.dueDateRequired}}',
+                                      ),
+                                    ],
+                                  ),
+                                ).toJson(),
+                              }),
+
+
+                              // Due Date Picker (Hidden if On Demand is true)
+                              // StacRawJsonWidget({
+                              //   'type': 'visibility',
+                              //   'visible': '{{!isOnDemand}}',
+                              //   'child': StacGestureDetector(
+                              //     onTap: StacPersianDatePickerAction(
+                              //       formFieldId: 'promissory_due_date',
+                              //       firstDate: '1403/01/01',
+                              //       lastDate: '1420/12/29',
+                              //       onDateSelected: _getFullValidationAction()
+                              //           .toJson(),
+                              //     ),
+                              //     child: StacTextFormField(
+                              //       id: 'promissory_due_date',
+                              //       readOnly: true,
+                              //       enabled: false,
+                              //       textDirection: StacTextDirection.ltr,
+                              //       textAlign: StacTextAlign.right,
+                              //       decoration: StacInputDecoration(
+                              //         hintText:
+                              //         'تاریخ سررسید سفته را انتخاب نمایید',
+                              //         filled: false,
+                              //         contentPadding: StacEdgeInsets.symmetric(
+                              //           horizontal: 16,
+                              //           vertical: 16,
+                              //         ),
+                              //         prefixIcon: StacPadding(
+                              //           padding: StacEdgeInsets.all(8),
+                              //           child: StacImage(
+                              //             src: 'assets/icons/ic_calendar.svg',
+                              //             imageType: StacImageType.asset,
+                              //             width: 24,
+                              //             height: 24,
+                              //             color:
+                              //             '{{appColors.current.text.subtitle}}',
+                              //           ),
+                              //         ),
+                              //       ),
+                              //       validatorRules: [
+                              //         StacFormFieldValidator(
+                              //           rule: r'^\d{4}/\d{2}/\d{2}$',
+                              //           message: 'تاریخ سررسید را انتخاب نمایید',
+                              //         ),
+                              //       ],
+                              //     ),
+                              //   ).toJson(),
+                              // }),
+                              StacSizedBox(height: 16),
+
+                              // Transferable Toggle
+                              StacRow(
+                                textDirection: StacTextDirection.rtl,
+                                mainAxisAlignment:
+                                StacMainAxisAlignment.spaceBetween,
+                                children: [
+                                  StacExpanded(
+                                    child: StacText(
+                                      data: 'امکان انتقال به شخص ثالث',
+                                      textDirection: StacTextDirection.rtl,
+                                      style: StacCustomTextStyle(
+                                        fontSize: 14,
+                                        fontWeight: StacFontWeight.w600,
+                                        color: '{{appColors.current.text.title}}',
+                                      ),
+                                    ),
+                                  ),
+                                  StacRawJsonWidget({
+                                    'type': 'reactiveSwitch',
+                                    'id': 'transferableSwitch',
+                                    'valueKey': 'isTransferable',
+                                    'activeColor':
+                                    '{{appColors.current.secondary.color}}',
+                                  }),
+                                ],
+                              ),
+                              StacSizedBox(height: 16),
+
+                              // Payment Place Field (Optional)
+                              StacText(
+                                data:
+                                '{{appStrings.promissory.paymentPlaceOptional}}',
+                                textDirection: StacTextDirection.rtl,
+                                style: StacCustomTextStyle(
+                                  fontSize: 14,
+                                  fontWeight: StacFontWeight.w600,
+                                  color: '{{appColors.current.text.title}}',
+                                ),
+                              ),
+                              StacSizedBox(height: 8),
+                              StacTextFormField(
+                                id: 'promissory_payment_place',
+                                textDirection: StacTextDirection.rtl,
+                                textAlign: StacTextAlign.right,
+                                minLines: 3,
+                                maxLines: 5,
+                                decoration: StacInputDecoration(
+                                  hintText:
+                                  '{{appStrings.promissory.paymentPlaceHint}}',
+                                  filled: false,
+                                  contentPadding: StacEdgeInsets.symmetric(
+                                    horizontal: 16,
+                                    vertical: 16,
+                                  ),
+                                ),
+                              ),
+                              StacSizedBox(height: 16),
+
+                              // Description Field (Optional)
+                              StacText(
+                                data:
+                                '{{appStrings.promissory.amountOptionalSuffix}}',
+                                textDirection: StacTextDirection.rtl,
+                                style: StacCustomTextStyle(
+                                  fontSize: 14,
+                                  fontWeight: StacFontWeight.w600,
+                                  color: '{{appColors.current.text.title}}',
+                                ),
+                              ),
+                              StacSizedBox(height: 8),
+                              StacTextFormField(
+                                id: 'description',
+                                textDirection: StacTextDirection.rtl,
+                                textAlign: StacTextAlign.right,
+                                minLines: 3,
+                                maxLines: 5,
+                                decoration: StacInputDecoration(
+                                  hintText:
+                                  '{{appStrings.promissory.descriptionHint}}',
+                                  filled: false,
+                                  contentPadding: StacEdgeInsets.symmetric(
+                                    horizontal: 16,
+                                    vertical: 16,
+                                  ),
+                                ),
+                              ),
+                              StacSizedBox(height: 16),
                             ],
-                          ).toJson(),
-                        }),
-                        StacSizedBox(height: 16),
+                          ),
+                        ),
 
-                        // Due Date Field
-                        StacText(
-                          data: '{{appStrings.promissory.dueDateLabel}}',
-                          textDirection: StacTextDirection.rtl,
-                          style: StacCustomTextStyle(
-                            fontSize: 14,
-                            fontWeight: StacFontWeight.w600,
-                            color: '{{appColors.current.text.title}}',
-                          ),
-                        ),
-                        StacSizedBox(height: 8),
-                        StacGestureDetector(
-                          onTap: StacPersianDatePickerAction(
-                            formFieldId: 'promissory_due_date',
-                            firstDate: '1403/01/01', // Example constraint
-                            lastDate: '1450/12/29',
-                            onDateSelected: StacValidateFieldsAction(
-                              resultKey: 'isDataFormValid',
-                              fields: [
-                                {'id': 'promissory_amount', 'rule': r'^\d+$'},
-                                {
-                                  'id': 'promissory_due_date',
-                                  'rule': r'^\d{4}/\d{2}/\d{2}$',
-                                },
-                              ],
-                            ).toJson(),
-                          ),
-                          child: StacTextFormField(
-                            id: 'promissory_due_date',
-                            readOnly: true,
-                            enabled: false,
-                            style: StacCustomTextStyle(
-                              fontSize: 14,
-                              fontWeight: StacFontWeight.w600,
-                              color: '{{appColors.current.text.title}}',
-                            ),
-                            textDirection: StacTextDirection.rtl,
-                            textAlign: StacTextAlign.right,
-                            decoration: StacInputDecoration(
-                              hintText: '{{appStrings.promissory.selectDate}}',
-                              filled: false,
-                              contentPadding: StacEdgeInsets.symmetric(
-                                horizontal: 16,
-                                vertical: 16,
-                              ),
-                              prefixIcon: StacIcon(
-                                icon: StacIcons.calendar_today,
-                                color: '{{appColors.current.text.subtitle}}',
-                                size: 20,
-                              ),
-                            ),
-                            validatorRules: [
-                              StacFormFieldValidator(
-                                rule: r'^\d{4}/\d{2}/\d{2}$',
-                                message:
-                                    '{{appStrings.promissory.dueDateRequired}}',
-                              ),
-                            ],
-                          ),
-                        ),
-                        StacSizedBox(height: 16),
 
-                        // Description Field (Optional)
-                        StacText(
-                          data:
-                              '{{appStrings.promissory.amountOptionalSuffix}}',
-                          textDirection: StacTextDirection.rtl,
-                          style: StacCustomTextStyle(
-                            fontSize: 14,
-                            fontWeight: StacFontWeight.w600,
-                            color: '{{appColors.current.text.title}}',
-                          ),
-                        ),
-                        StacSizedBox(height: 8),
-                        StacTextFormField(
-                          id: 'description',
-                          textDirection: StacTextDirection.rtl,
-                          textAlign: StacTextAlign.right,
-                          decoration: StacInputDecoration(
-                            hintText:
-                                '{{appStrings.promissory.descriptionHint}}',
-                            filled: false,
-                            contentPadding: StacEdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 16,
-                            ),
-                          ),
-                        ),
-                        StacSizedBox(height: 16),
-
-                        // Payment Place Field (Optional)
-                        StacText(
-                          data:
-                              '{{appStrings.promissory.paymentPlaceOptional}}',
-                          textDirection: StacTextDirection.rtl,
-                          style: StacCustomTextStyle(
-                            fontSize: 14,
-                            fontWeight: StacFontWeight.w600,
-                            color: '{{appColors.current.text.title}}',
-                          ),
-                        ),
-                        StacSizedBox(height: 8),
-                        StacTextFormField(
-                          id: 'promissory_payment_place',
-                          textDirection: StacTextDirection.rtl,
-                          textAlign: StacTextAlign.right,
-                          decoration: StacInputDecoration(
-                            hintText:
-                                '{{appStrings.promissory.paymentPlaceHint}}',
-                            filled: false,
-                            contentPadding: StacEdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 16,
-                            ),
-                          ),
-                        ),
                       ],
                     ),
                   ),
@@ -484,5 +566,49 @@ StacWidget promissoryRealData() {
         ),
       ),
     ),
+  );
+}
+
+
+/// Builds a key-value row for displaying information
+StacWidget _buildInfoRow({required String label, required String value}) {
+  return StacRow(
+    textDirection: StacTextDirection.rtl,
+    mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+    children: [
+      StacText(
+        data: label,
+        textDirection: StacTextDirection.rtl,
+        style: StacCustomTextStyle(
+          fontSize: 14,
+          color: '{{appColors.current.text.subtitle}}',
+        ),
+      ),
+      StacText(
+        data: value,
+        textDirection: StacTextDirection.ltr,
+        style: StacCustomTextStyle(
+          fontSize: 14,
+          fontWeight: StacFontWeight.w600,
+          color: '{{appColors.current.text.title}}',
+        ),
+      ),
+    ],
+  );
+}
+
+
+StacValidateFieldsAction _getFullValidationAction() {
+  final fields = <Map<String, dynamic>>[
+    {'id': 'promissory_amount', 'rule': r'^\d+$'},
+    {
+      'id': 'promissory_due_date',
+      'rule': r'^\d{4}/\d{2}/\d{2}$',
+      'optional': 'isOnDemand'
+    },
+  ];
+  return StacValidateFieldsAction(
+    resultKey: 'isDataFormValid',
+    fields: fields,
   );
 }

@@ -25,7 +25,7 @@ StacWidget promissoryRealReceiver() {
     child: StacScaffold(
       appBar: StacAppBar(
         title: StacText(
-          data: '{{appStrings.promissory.receiverTitle}}',
+          data: '{{appStrings.promissory.issuanceTitle}}',
           textDirection: StacTextDirection.rtl,
           style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
         ),
@@ -56,7 +56,7 @@ StacWidget promissoryRealReceiver() {
                     StacSizedBox(height: 16),
                     // Title
                     StacText(
-                      data: '{{appStrings.promissory.receiverSubtitle}}',
+                      data: '{{appStrings.promissory.receiveInfo}}',
                       textDirection: StacTextDirection.rtl,
                       style: StacCustomTextStyle(
                         fontSize: 16,
@@ -83,31 +83,68 @@ StacWidget promissoryRealReceiver() {
                                   key: 'isLegalSelected',
                                   value: false,
                                 ),
+                                StacCustomSetValueAction(
+                                  key: 'isReceiverFormValid',
+                                  value: false,
+                                ),
                               ],
                             ),
                             child: StacContainer(
                               padding: StacEdgeInsets.symmetric(vertical: 12),
                               decoration: StacBoxDecoration(
-                                color:
-                                    '{{isIndividualSelected ? appColors.current.primary.color : appColors.current.background.surfaceContainer}}',
                                 borderRadius: StacBorderRadius.all(8),
                                 border: StacBorder.all(
                                   color:
-                                      '{{isIndividualSelected ? appColors.current.primary.color : appColors.current.input.borderEnabled}}',
+                                      '{{isIndividualSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}',
                                   width: 1,
                                 ),
                               ),
-                              child: StacCenter(
-                                child: StacText(
-                                  data:
-                                      '{{appStrings.promissory.receiverTypeIndividual}}',
+                              child: StacPadding(
+                                padding: StacEdgeInsets.symmetric(horizontal: 16 , vertical: 6),
+                                child: StacRow(
                                   textDirection: StacTextDirection.rtl,
-                                  style: StacCustomTextStyle(
-                                    fontSize: 14,
-                                    fontWeight: StacFontWeight.w600,
-                                    color:
-                                        '{{isIndividualSelected ? appColors.current.primary.onPrimary : appColors.current.text.title}}',
-                                  ),
+                                  crossAxisAlignment: StacCrossAxisAlignment.center,
+                                  children: [
+                                    // Radio indicator
+                                    StacContainer(
+                                      width: 20,
+                                      height: 20,
+                                      decoration: StacBoxDecoration(
+                                        color: 'transparent',
+                                        borderRadius: StacBorderRadius.all(9999),
+                                        border: StacBorder.all(
+                                          color:
+                                              '{{isIndividualSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}',
+                                          width: 2,
+                                        ),
+                                      ),
+                                      child: StacCenter(
+                                        child: StacContainer(
+                                          width: 10,
+                                          height: 10,
+                                          decoration: StacBoxDecoration(
+                                            color:
+                                                '{{isIndividualSelected ? appColors.current.secondary.color : "transparent"}}',
+                                            borderRadius: StacBorderRadius.all(9999),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    StacSizedBox(width: 8),
+                                    // Label
+                                    StacExpanded(
+                                      child: StacText(
+                                        data:
+                                            '{{appStrings.promissory.receiverTypeIndividual}}',
+                                        textDirection: StacTextDirection.rtl,
+                                        style: StacCustomTextStyle(
+                                          fontSize: 14,
+                                          fontWeight: StacFontWeight.w600,
+                                          color: '{{appColors.current.text.title}}',
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -127,223 +164,407 @@ StacWidget promissoryRealReceiver() {
                                   key: 'isIndividualSelected',
                                   value: false,
                                 ),
+                                StacCustomSetValueAction(
+                                  key: 'isReceiverFormValid',
+                                  value: false,
+                                ),
                               ],
                             ),
                             child: StacContainer(
                               padding: StacEdgeInsets.symmetric(vertical: 12),
                               decoration: StacBoxDecoration(
-                                color:
-                                    '{{isLegalSelected ? appColors.current.primary.color : appColors.current.background.surfaceContainer}}',
                                 borderRadius: StacBorderRadius.all(8),
                                 border: StacBorder.all(
                                   color:
-                                      '{{isLegalSelected ? appColors.current.primary.color : appColors.current.input.borderEnabled}}',
+                                      '{{isLegalSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}',
                                   width: 1,
                                 ),
                               ),
-                              child: StacCenter(
+                              child: StacPadding(
+                                padding: StacEdgeInsets.symmetric(horizontal: 16 , vertical: 6),
+                                child: StacRow(
+                                  textDirection: StacTextDirection.rtl,
+                                  crossAxisAlignment: StacCrossAxisAlignment.center,
+                                  children: [
+                                    // Radio indicator
+                                    StacContainer(
+                                      width: 20,
+                                      height: 20,
+                                      decoration: StacBoxDecoration(
+                                        color: 'transparent',
+                                        borderRadius: StacBorderRadius.all(9999),
+                                        border: StacBorder.all(
+                                          color:
+                                              '{{isLegalSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}',
+                                          width: 2,
+                                        ),
+                                      ),
+                                      child: StacCenter(
+                                        child: StacContainer(
+                                          width: 10,
+                                          height: 10,
+                                          decoration: StacBoxDecoration(
+                                            color:
+                                                '{{isLegalSelected ? appColors.current.secondary.color : "transparent"}}',
+                                            borderRadius: StacBorderRadius.all(9999),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    StacSizedBox(width: 8),
+                                    // Label
+                                    StacExpanded(
+                                      child: StacText(
+                                        data:
+                                            '{{appStrings.promissory.receiverTypeLegal}}',
+                                        textDirection: StacTextDirection.rtl,
+                                        style: StacCustomTextStyle(
+                                          fontSize: 14,
+                                          fontWeight: StacFontWeight.w600,
+                                          color: '{{appColors.current.text.title}}',
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    StacSizedBox(height: 16),
+                    StacRawJsonWidget({
+                      'type': 'visibility',
+                      'visible': '[[isIndividualSelected]]',
+                      'child': StacColumn(
+                        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                        children: [
+                          StacText(
+                            data: '{{appStrings.promissory.nationalCode}}',
+                            textDirection: StacTextDirection.rtl,
+                            style: StacCustomTextStyle(
+                              fontSize: 14,
+                              fontWeight: StacFontWeight.w600,
+                              color: '{{appColors.current.text.title}}',
+                            ),
+                          ),
+                          StacSizedBox(height: 8),
+                          StacRawJsonWidget({
+                            'type': 'textFormField',
+                            'id': 'receiver_national_code',
+                            'textDirection': 'rtl',
+                            'textAlign': 'right',
+                            'maxLength': 10,
+                            'inputFormatters': [
+                              {'type': 'allow', 'rule': '[0-9]'},
+                            ],
+                            'decoration': StacInputDecoration(
+                              hintText: '{{appStrings.promissory.enterNationalCode}}',
+                              filled: false,
+                              contentPadding: StacEdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 16,
+                              ),
+                            ).toJson(),
+                            'keyboardType': 'number',
+                            'textInputAction': 'next',
+                            'validatorRules': [
+                              {
+                                'rule': r'^\d{10}$',
+                                'message': '{{appStrings.promissory.nationalCodeError}}',
+                              },
+                            ],
+                            'onChanged': StacValidateFieldsAction(
+                              resultKey: 'isReceiverFormValid',
+                              fields: [
+                                {'id': 'receiver_national_code', 'rule': r'^\d{10}$'},
+                                {'id': 'receiver_mobile', 'rule': r'^09\d{9}$'},
+                                {
+                                  'id': 'receiver_birthdate',
+                                  'rule': r'^\d{4}/\d{2}/\d{2}$',
+                                },
+                              ],
+                            ).toJson(),
+                          }),
+                          StacSizedBox(height: 16),
+                          StacText(
+                            data: '{{appStrings.promissory.mobileNumber}}',
+                            textDirection: StacTextDirection.rtl,
+                            style: StacCustomTextStyle(
+                              fontSize: 14,
+                              fontWeight: StacFontWeight.w600,
+                              color: '{{appColors.current.text.title}}',
+                            ),
+                          ),
+                          StacSizedBox(height: 8),
+                          StacRawJsonWidget({
+                            'type': 'textFormField',
+                            'id': 'receiver_mobile',
+                            'textDirection': 'rtl',
+                            'textAlign': 'right',
+                            'maxLength': 11,
+                            'inputFormatters': [
+                              {'type': 'allow', 'rule': '[0-9]'},
+                            ],
+                            'decoration': StacInputDecoration(
+                              hintText: '{{appStrings.promissory.enterMobileNumber}}',
+                              filled: false,
+                              contentPadding: StacEdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 16,
+                              ),
+                            ).toJson(),
+                            'keyboardType': 'phone',
+                            'textInputAction': 'next',
+                            'validatorRules': [
+                              {
+                                'rule': r'^09\d{9}$',
+                                'message': '{{appStrings.promissory.mobileNumberError}}',
+                              },
+                            ],
+                            'onChanged': StacValidateFieldsAction(
+                              resultKey: 'isReceiverFormValid',
+                              fields: [
+                                {'id': 'receiver_national_code', 'rule': r'^\d{10}$'},
+                                {'id': 'receiver_mobile', 'rule': r'^09\d{9}$'},
+                                {
+                                  'id': 'receiver_birthdate',
+                                  'rule': r'^\d{4}/\d{2}/\d{2}$',
+                                },
+                              ],
+                            ).toJson(),
+                          }),
+                          StacSizedBox(height: 16),
+                          StacText(
+                            data: '{{appStrings.promissory.birthdate}}',
+                            textDirection: StacTextDirection.rtl,
+                            style: StacCustomTextStyle(
+                              fontSize: 14,
+                              fontWeight: StacFontWeight.w600,
+                              color: '{{appColors.current.text.title}}',
+                            ),
+                          ),
+                          StacSizedBox(height: 8),
+                          StacGestureDetector(
+                            onTap: StacPersianDatePickerAction(
+                              formFieldId: 'receiver_birthdate',
+                              firstDate: '1350/01/01',
+                              lastDate: '1450/12/29',
+                              onDateSelected: StacValidateFieldsAction(
+                                resultKey: 'isReceiverFormValid',
+                                fields: [
+                                  {
+                                    'id': 'receiver_national_code',
+                                    'rule': r'^\d{10}$',
+                                  },
+                                  {'id': 'receiver_mobile', 'rule': r'^09\d{9}$'},
+                                  {
+                                    'id': 'receiver_birthdate',
+                                    'rule': r'^\d{4}/\d{2}/\d{2}$',
+                                  },
+                                ],
+                              ).toJson(),
+                            ),
+                            child: StacTextFormField(
+                              id: 'receiver_birthdate',
+                              readOnly: true,
+                              enabled: false,
+                              textDirection: StacTextDirection.rtl,
+                              textAlign: StacTextAlign.right,
+                              decoration: StacInputDecoration(
+                                hintText: '{{appStrings.promissory.selectBirthdate}}',
+                                hintStyle: StacCustomTextStyle(
+                                  color: '{{appColors.current.text.subtitle}}',
+                                  fontSize: 15,
+                                  fontWeight: StacFontWeight.w500,
+                                ),
+                                filled: false,
+                                contentPadding: StacEdgeInsets.symmetric(
+                                  horizontal: 16,
+                                  vertical: 16,
+                                ),
+                                prefixIcon: StacPadding(
+                                  padding: StacEdgeInsets.all(8),
+                                  child: StacImage(
+                                    src: 'assets/icons/ic_calendar.svg',
+                                    imageType: StacImageType.asset,
+                                    width: 24,
+                                    height: 24,
+                                    fit: StacBoxFit.scaleDown,
+                                    color: '{{appColors.current.text.subtitle}}',
+                                  ),
+                                ),
+                              ),
+                              keyboardType: StacTextInputType.text,
+                              style: StacCustomTextStyle(
+                                fontSize: 16,
+                                fontWeight: StacFontWeight.w600,
+                                color: '{{appColors.current.text.title}}',
+                              ),
+                              validatorRules: [
+                                StacFormFieldValidator(
+                                  rule: r'^\d{4}/\d{2}/\d{2}$',
+                                  message: '{{appStrings.promissory.selectBirthdateError}}',
+                                ),
+                              ],
+                            ),
+                          ),
+                          StacSizedBox(height: 40),
+                        ],
+                      ).toJson(),
+                    }),
+                    StacRawJsonWidget({
+                      'type': 'visibility',
+                      'visible': '[[isLegalSelected]]',
+                      'child': StacColumn(
+                        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                        children: [
+                          StacRow(
+                            textDirection: StacTextDirection.rtl,
+                            mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+                            children: [
+                              StacExpanded(
                                 child: StacText(
-                                  data:
-                                      '{{appStrings.promissory.receiverTypeLegal}}',
+                                  data: 'انتخاب بانک گردشگری به عنوان دریافت‌کننده',
                                   textDirection: StacTextDirection.rtl,
                                   style: StacCustomTextStyle(
                                     fontSize: 14,
                                     fontWeight: StacFontWeight.w600,
-                                    color:
-                                        '{{isLegalSelected ? appColors.current.primary.onPrimary : appColors.current.text.title}}',
+                                    color: '{{appColors.current.text.title}}',
                                   ),
                                 ),
                               ),
+                              StacRow(
+                                textDirection: StacTextDirection.rtl,
+                                mainAxisSize: StacMainAxisSize.min,
+                                children: [
+                                  StacImage(
+                                    src: 'assets/icons/ic_gardeshgari.svg',
+                                    imageType: StacImageType.asset,
+                                    width: 24,
+                                    height: 24,
+                                    fit: StacBoxFit.scaleDown,
+                                  ),
+                                  StacSizedBox(width: 8),
+                                  StacRawJsonWidget({
+                                    'type': 'reactiveSwitch',
+                                    'id': 'legal_receiver_bank_switch',
+                                    'valueKey': 'isLegalReceiverTourismBank',
+                                    'activeColor': '{{appColors.current.secondary.color}}',
+                                    'onChanged': StacSequenceAction(
+                                      actions: [
+                                        StacCustomSetValueAction(
+                                          values: [
+                                            {
+                                              'key': 'legal_national_id',
+                                              'value': '{{userData.nationalCode}}',
+                                              'condition': 'isLegalReceiverTourismBank',
+                                            },
+                                            {
+                                              'key': 'legal_contact_number',
+                                              'value': '{{login.mobile}}',
+                                              'condition': 'isLegalReceiverTourismBank',
+                                            },
+                                          ],
+                                        ),
+                                        StacValidateFieldsAction(
+                                          resultKey: 'isReceiverFormValid',
+                                          fields: [
+                                             {'id': 'legal_national_id', 'rule': r'^\d{10}$'},
+                                          ],
+                                        ),
+                                      ],
+                                    ).toJson(),
+                                  }),
+                                ],
+                              ),
+                            ],
+                          ),
+                          StacSizedBox(height: 16),
+                          StacText(
+                            data: 'شناسه ملی',
+                            textDirection: StacTextDirection.rtl,
+                            style: StacCustomTextStyle(
+                              fontSize: 14,
+                              fontWeight: StacFontWeight.w600,
+                              color: '{{appColors.current.text.title}}',
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    StacSizedBox(height: 16),
-
-                    // Individual Form Fields
-                    // National Code Field
-                    StacText(
-                      data: '{{appStrings.promissory.nationalCode}}',
-                      textDirection: StacTextDirection.rtl,
-                      style: StacCustomTextStyle(
-                        fontSize: 14,
-                        fontWeight: StacFontWeight.w600,
-                        color: '{{appColors.current.text.title}}',
-                      ),
-                    ),
-                    StacSizedBox(height: 8),
-                    StacRawJsonWidget({
-                      'type': 'textFormField',
-                      'id': 'receiver_national_code',
-                      'textDirection': 'rtl',
-                      'textAlign': 'right',
-                      'maxLength': 10,
-                      'inputFormatters': [
-                        {'type': 'allow', 'rule': '[0-9]'},
-                      ],
-                      'decoration': StacInputDecoration(
-                        hintText:
-                            '{{appStrings.promissory.enterReceiverNationalCode}}',
-                        filled: false,
-                        contentPadding: StacEdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 16,
-                        ),
-                      ).toJson(),
-                      'keyboardType': 'number',
-                      'textInputAction': 'next',
-                      'validatorRules': [
-                        {
-                          'rule': r'^\d{10}$',
-                          'message':
-                              '{{appStrings.promissory.nationalCodeError}}',
-                        },
-                      ],
-                      'onChanged': StacValidateFieldsAction(
-                        resultKey: 'isReceiverFormValid',
-                        fields: [
-                          {'id': 'receiver_national_code', 'rule': r'^\d{10}$'},
-                          {'id': 'receiver_mobile', 'rule': r'^09\d{9}$'},
-                          {
-                            'id': 'receiver_birthdate',
-                            'rule': r'^\d{4}/\d{2}/\d{2}$',
-                          },
+                          StacSizedBox(height: 8),
+                          StacRawJsonWidget({
+                            'type': 'textFormField',
+                            'id': 'legal_national_id',
+                            'textDirection': 'rtl',
+                            'textAlign': 'right',
+                            'maxLength': 10,
+                            'inputFormatters': [
+                              {'type': 'allow', 'rule': '[0-9]'},
+                            ],
+                            'decoration': StacInputDecoration(
+                              hintText: 'شناسه ملی دریافت‌کننده را وارد کنید',
+                              filled: false,
+                              contentPadding: StacEdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 16,
+                              ),
+                            ).toJson(),
+                            'keyboardType': 'number',
+                            'textInputAction': 'next',
+                            'validatorRules': [
+                              {
+                                'rule': r'^\d{10}$',
+                                'message': 'شناسه ملی معتبر نیست',
+                              },
+                            ],
+                            'onChanged': StacValidateFieldsAction(
+                              resultKey: 'isReceiverFormValid',
+                              fields: [
+                                {'id': 'legal_national_id', 'rule': r'^\d{10}$'},
+                              ],
+                            ).toJson(),
+                          }),
+                          StacSizedBox(height: 16),
+                          StacText(
+                            data: 'شماره تماس',
+                            textDirection: StacTextDirection.rtl,
+                            style: StacCustomTextStyle(
+                              fontSize: 14,
+                              fontWeight: StacFontWeight.w600,
+                              color: '{{appColors.current.text.title}}',
+                            ),
+                          ),
+                          StacSizedBox(height: 8),
+                          StacRawJsonWidget({
+                            'type': 'textFormField',
+                            'id': 'legal_contact_number',
+                            'textDirection': 'rtl',
+                            'textAlign': 'right',
+                            'maxLength': 11,
+                            'inputFormatters': [
+                              {'type': 'allow', 'rule': '[0-9]'},
+                            ],
+                            'decoration': StacInputDecoration(
+                              hintText: 'شماره تماس دریافت‌کننده را وارد نمایید',
+                              filled: false,
+                              contentPadding: StacEdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 16,
+                              ),
+                            ).toJson(),
+                            'keyboardType': 'phone',
+                            'textInputAction': 'done',
+                            'onChanged': StacValidateFieldsAction(
+                              resultKey: 'isReceiverFormValid',
+                              fields: [
+                                {'id': 'legal_national_id', 'rule': r'^\d{10}$'},
+                              ],
+                            ).toJson(),
+                          }),
+                          StacSizedBox(height: 40),
                         ],
                       ).toJson(),
                     }),
-                    StacSizedBox(height: 16),
-
-                    // Mobile Number Field
-                    StacText(
-                      data: '{{appStrings.promissory.mobileNumber}}',
-                      textDirection: StacTextDirection.rtl,
-                      style: StacCustomTextStyle(
-                        fontSize: 14,
-                        fontWeight: StacFontWeight.w600,
-                        color: '{{appColors.current.text.title}}',
-                      ),
-                    ),
-                    StacSizedBox(height: 8),
-                    StacRawJsonWidget({
-                      'type': 'textFormField',
-                      'id': 'receiver_mobile',
-                      'textDirection': 'rtl',
-                      'textAlign': 'right',
-                      'maxLength': 11,
-                      'inputFormatters': [
-                        {'type': 'allow', 'rule': '[0-9]'},
-                      ],
-                      'decoration': StacInputDecoration(
-                        hintText:
-                            '{{appStrings.promissory.enterReceiverMobile}}',
-                        filled: false,
-                        contentPadding: StacEdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 16,
-                        ),
-                      ).toJson(),
-                      'keyboardType': 'phone',
-                      'textInputAction': 'next',
-                      'validatorRules': [
-                        {
-                          'rule': r'^09\d{9}$',
-                          'message':
-                              '{{appStrings.promissory.mobileNumberError}}',
-                        },
-                      ],
-                      'onChanged': StacValidateFieldsAction(
-                        resultKey: 'isReceiverFormValid',
-                        fields: [
-                          {'id': 'receiver_national_code', 'rule': r'^\d{10}$'},
-                          {'id': 'receiver_mobile', 'rule': r'^09\d{9}$'},
-                          {
-                            'id': 'receiver_birthdate',
-                            'rule': r'^\d{4}/\d{2}/\d{2}$',
-                          },
-                        ],
-                      ).toJson(),
-                    }),
-                    StacSizedBox(height: 16),
-
-                    // Birthdate Field
-                    StacText(
-                      data: '{{appStrings.promissory.birthdate}}',
-                      textDirection: StacTextDirection.rtl,
-                      style: StacCustomTextStyle(
-                        fontSize: 14,
-                        fontWeight: StacFontWeight.w600,
-                        color: '{{appColors.current.text.title}}',
-                      ),
-                    ),
-                    StacSizedBox(height: 8),
-                    StacGestureDetector(
-                      onTap: StacPersianDatePickerAction(
-                        formFieldId: 'receiver_birthdate',
-                        firstDate: '1350/01/01',
-                        lastDate: '1450/12/29',
-                        onDateSelected: StacValidateFieldsAction(
-                          resultKey: 'isReceiverFormValid',
-                          fields: [
-                            {
-                              'id': 'receiver_national_code',
-                              'rule': r'^\d{10}$',
-                            },
-                            {'id': 'receiver_mobile', 'rule': r'^09\d{9}$'},
-                            {
-                              'id': 'receiver_birthdate',
-                              'rule': r'^\d{4}/\d{2}/\d{2}$',
-                            },
-                          ],
-                        ).toJson(),
-                      ),
-                      child: StacTextFormField(
-                        id: 'receiver_birthdate',
-                        readOnly: true,
-                        enabled: false,
-                        textDirection: StacTextDirection.rtl,
-                        textAlign: StacTextAlign.right,
-                        decoration: StacInputDecoration(
-                          hintText:
-                              '{{appStrings.promissory.selectReceiverBirthdate}}',
-                          hintStyle: StacCustomTextStyle(
-                            color: '{{appColors.current.text.subtitle}}',
-                            fontSize: 14,
-                            fontWeight: StacFontWeight.w500,
-                          ),
-                          filled: false,
-                          contentPadding: StacEdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 16,
-                          ),
-                          prefixIcon: StacPadding(
-                            padding: StacEdgeInsets.all(8),
-                            child: StacImage(
-                              src: 'assets/icons/ic_calendar.svg',
-                              imageType: StacImageType.asset,
-                              width: 24,
-                              height: 24,
-                              fit: StacBoxFit.scaleDown,
-                              color: '{{appColors.current.text.subtitle}}',
-                            ),
-                          ),
-                        ),
-                        keyboardType: StacTextInputType.text,
-                        style: StacCustomTextStyle(
-                          fontSize: 16,
-                          fontWeight: StacFontWeight.w600,
-                          color: '{{appColors.current.text.title}}',
-                        ),
-                        validatorRules: [
-                          StacFormFieldValidator(
-                            rule: r'^\d{4}/\d{2}/\d{2}$',
-                            message:
-                                '{{appStrings.promissory.selectBirthdateError}}',
-                          ),
-                        ],
-                      ),
-                    ),
-                    StacSizedBox(height: 40),
                   ],
                 ),
               ),

@@ -72,6 +72,14 @@ class CustomSetValueActionParser
     var didUpdate = false;
     // Resolve StacGetFormValue actions in values before storing
     for (final entry in model.entries) {
+      // Check condition if present
+      if (entry['condition'] != null) {
+        final conditionExpr = entry['condition'] as String;
+        if (!_evalCondition(conditionExpr)) {
+          continue;
+        }
+      }
+
       final key = entry['key'] as String?;
       if (key == null || key.isEmpty) continue;
 
