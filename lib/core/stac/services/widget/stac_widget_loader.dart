@@ -75,6 +75,10 @@ import '../../../../stac/tobank/flows/promissory_real/menu/promissory_real_menu.
     as promissory_real_debug_dart;
 import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_rules.dart'
     as promissory_real_rules_dart;
+import '../../../../stac/tobank/flows/promissory_real/onboarding/promissory_real_onboarding.dart'
+    as promissory_real_onboarding_dart;
+import '../../../../stac/tobank/flows/promissory_real/splash/promissory_real_splash.dart'
+    as promissory_real_splash_dart;
 import 'package:tobank_sdui/core/helpers/logger.dart';
 
 /// Service for loading STAC widgets from Dart files.
@@ -185,6 +189,10 @@ class StacWidgetLoader {
         promissory_real_sign_dart.promissoryRealSign().toJson(),
     'promissory_real_success': () =>
         promissory_real_success_dart.promissoryRealSuccess().toJson(),
+    'promissory_real_onboarding': () =>
+        promissory_real_onboarding_dart.promissoryRealOnboarding().toJson(),
+    'promissory_real_splash': () =>
+        promissory_real_splash_dart.promissoryRealSplash().toJson(),
   };
 
   /// Registers a widget loader for a specific widget type.

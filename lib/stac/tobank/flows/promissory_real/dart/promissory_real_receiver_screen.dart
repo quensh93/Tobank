@@ -236,7 +236,7 @@ StacWidget promissoryRealReceiver() {
                     StacSizedBox(height: 16),
                     StacRawJsonWidget({
                       'type': 'visibility',
-                      'visible': '{{isIndividualSelected}}',
+                      'visible': '[[isIndividualSelected]]',
                       'child': StacColumn(
                         crossAxisAlignment: StacCrossAxisAlignment.stretch,
                         children: [
@@ -416,7 +416,7 @@ StacWidget promissoryRealReceiver() {
                     }),
                     StacRawJsonWidget({
                       'type': 'visibility',
-                      'visible': '{{isLegalSelected}}',
+                      'visible': '[[isLegalSelected]]',
                       'child': StacColumn(
                         crossAxisAlignment: StacCrossAxisAlignment.stretch,
                         children: [

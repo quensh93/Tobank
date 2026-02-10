@@ -28,6 +28,7 @@ import '../../../../stac/tobank/flows/promissory_real/service/promissory_login_a
 
 import '../parsers/widgets/promissory_real_deposits_parser.dart';
 import '../parsers/widgets/promissory_real_issuer_parser.dart';
+import '../parsers/widgets/custom_visibility_parser.dart';
 import '../parsers/actions/show_snackbar_action_parser.dart';
 import '../parsers/actions/finger_print_action_parser.dart';
 import '../parsers/actions/auth_persist_action_parser.dart';
@@ -75,8 +76,11 @@ Future<void> registerCustomParsers() async {
         // Check if this would conflict with a built-in parser
         final existingParser = stacRegistry.getParser(type);
         if (existingParser != null) {
-          // Allow overriding 'image' parser explicitly
-          if (type == 'image') {
+          // Allow overriding specific parsers explicitly
+          if (type == 'image' ||
+              type == 'visibility' ||
+              type == 'stateful' ||
+              type == 'stateFull') {
             AppLogger.i('Overriding built-in parser for "$type"');
           } else {
             AppLogger.w(
@@ -89,7 +93,10 @@ Future<void> registerCustomParsers() async {
 
         // Register with STAC framework
         // NOTE: For some core widgets (e.g. 'image') we intentionally override.
-        final success = type == 'image'
+        final success = (type == 'image' ||
+                type == 'visibility' ||
+                type == 'stateful' ||
+                type == 'stateFull')
             ? stacRegistry.register(parser, true)
             : stacRegistry.register(parser);
         if (success) {
@@ -318,6 +325,12 @@ void _registerExampleParsers() {
     true,
   );
 
+  // Register custom visibility parser to handle dynamic 'visible' property
+  CustomComponentRegistry.instance.registerWidget(
+    const CustomVisibilityParser(),
+    true,
+  );
+
   // Register Timed Splash widget parser for auto-navigation splash screens
   CustomComponentRegistry.instance.registerWidget(TimedSplashParser());
 
@@ -327,11 +340,12 @@ void _registerExampleParsers() {
 
   // Register StatefulWidget parser for full widget lifecycle management
   // This enables Flutter-like lifecycle methods in STAC widgets
-  CustomComponentRegistry.instance.registerWidget(StatefulWidgetParser());
+  CustomComponentRegistry.instance.registerWidget(StatefulWidgetParser(), true);
 
   // Register alias with preferred casing
   CustomComponentRegistry.instance.registerWidget(
     const StateFullWidgetParser(),
+    true,
   );
 
   // Register reactive elevated button parser for registry-driven enable/disable

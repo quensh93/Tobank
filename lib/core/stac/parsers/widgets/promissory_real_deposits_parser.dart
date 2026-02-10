@@ -89,12 +89,14 @@ class _PromissoryRealDepositsListWidget extends StatelessWidget {
           final depositNumber = item['depositNumber']?.toString() ?? '';
           final depositTitle = item['depositTitle']?.toString() ?? 'سپرده';
           final depositIban = item['depositIban']?.toString() ?? '';
+          final availableAmount = item['availableAmount']?.toString() ?? '';
 
           return {
             'id': depositNumber,
             'title': depositTitle,
             'depositNumber': depositNumber,
             'shabaNumber': depositIban,
+            'availableAmount': availableAmount,
           };
         }
         return {
@@ -102,6 +104,7 @@ class _PromissoryRealDepositsListWidget extends StatelessWidget {
           'title': 'سپرده',
           'depositNumber': '',
           'shabaNumber': '',
+          'availableAmount': '',
         };
       }).toList();
     } catch (_) {
@@ -367,6 +370,8 @@ class _PromissoryRealDepositsListWidget extends StatelessWidget {
     final String title = deposit['title'] ?? '';
     final String depositNumber = deposit['depositNumber'] ?? '';
     final String shabaNumber = deposit['shabaNumber'] ?? '';
+    final String availableAmount = deposit['availableAmount'] ?? '';
+    final String formattedAmount = _formatAmount(availableAmount);
     final String selectedKey = 'isDeposit${index}Selected';
 
     return StacGestureDetector(
@@ -509,10 +514,59 @@ class _PromissoryRealDepositsListWidget extends StatelessWidget {
                 ),
               ],
             ),
+            StacSizedBox(height: 8),
+            StacRow(
+              textDirection: StacTextDirection.rtl,
+              children: [
+                StacText(
+                  data: 'موجودی: ',
+                  textDirection: StacTextDirection.rtl,
+                  style: StacCustomTextStyle(
+                    fontSize: 14,
+                    fontWeight: StacFontWeight.w400,
+                    color: '{{appColors.current.text.subtitle}}',
+                  ),
+                ),
+                StacText(
+                  data: formattedAmount,
+                  textDirection: StacTextDirection.rtl,
+                  style: StacCustomTextStyle(
+                    fontSize: 14,
+                    fontWeight: StacFontWeight.w600,
+                    color: '{{appColors.current.text.title}}',
+                  ),
+                ),
+                StacSizedBox(width: 4),
+                StacText(
+                  data: '{{appStrings.common.rial}}',
+                  textDirection: StacTextDirection.rtl,
+                  style: StacCustomTextStyle(
+                    fontSize: 14,
+                    color: '{{appColors.current.text.title}}',
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
     );
+  }
+
+  String _formatAmount(String value) {
+    final s = value.replaceAll(RegExp(r'[^0-9]'), '');
+    if (s.isEmpty) return '0';
+    final buffer = StringBuffer();
+    var count = 0;
+    for (var i = s.length - 1; i >= 0; i--) {
+      buffer.write(s[i]);
+      count++;
+      if (i > 0 && count % 3 == 0) {
+        buffer.write('.');
+      }
+    }
+    final reversed = buffer.toString().split('').reversed.join();
+    return reversed;
   }
 }
 

@@ -1,3 +1,4 @@
+import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
 import '../../../../../core/stac/builders/stac_common_builders.dart';
 import '../../../../../core/stac/builders/stac_stateful_widget.dart';
@@ -21,6 +22,7 @@ StacWidget promissoryRealData() {
       values: [
         {'key': 'isDataFormValid', 'value': false},
         {'key': 'isIdentityLoading', 'value': false},
+        {'key': 'isOnDemand', 'value': false},
       ],
     ),
     child: StacScaffold(
@@ -73,7 +75,7 @@ StacWidget promissoryRealData() {
                             crossAxisAlignment: StacCrossAxisAlignment.stretch,
                             children: [
                               StacText(
-                                data: 'اطلاعات ذینفع (دریافت‌کننده)',
+                                data: 'اطلاعات دریافت‌کننده',
                                 textDirection: StacTextDirection.rtl,
                                 style: StacCustomTextStyle(
                                   fontSize: 16,
@@ -88,7 +90,7 @@ StacWidget promissoryRealData() {
                               ),
                               StacSizedBox(height: 8),
                               // Mobile Number
-                              _buildInfoRow(label: 'شماره همراه', value: '{{form.receiver_mobile}}'),
+                              _buildInfoRow(label: 'شماره موبایل', value: '{{form.receiver_mobile}}'),
                               StacSizedBox(height: 8),
                               // Full Name (from receiver inquiry)
                               _buildInfoRow(
@@ -145,8 +147,8 @@ StacWidget promissoryRealData() {
                                     data: '',
                                     textDirection: StacTextDirection.rtl,
                                     style: StacCustomTextStyle(
-                                      fontSize: 12,
-                                      fontWeight: StacFontWeight.w400,
+                                      fontSize: 13,
+                                      fontWeight: StacFontWeight.w600,
                                       color: '{{appColors.current.text.subtitle}}',
                                     ),
                                   ),
@@ -159,21 +161,16 @@ StacWidget promissoryRealData() {
                                 'textDirection': 'rtl',
                                 'textAlign': 'right',
                                 'decoration': StacInputDecoration(
-                                  hintText: '{{appStrings.promissory.enterAmount}}',
+                                  hintText: '{{appStrings.promissory.enterAmountt}}',
+                                  hintStyle: StacTextStyle(
+                                    fontSize: 12,
+                                    fontWeight: StacFontWeight.w600,
+                                    color: '{{appColors.current.text.subtitle}}',
+                                  ),
                                   filled: false,
                                   contentPadding: StacEdgeInsets.symmetric(
                                     horizontal: 16,
                                     vertical: 16,
-                                  ),
-                                  suffixIcon: StacPadding(
-                                    padding: StacEdgeInsets.all(12),
-                                    child: StacText(
-                                      data: '{{appStrings.common.rial}}',
-                                      style: StacCustomTextStyle(
-                                        color: '{{appColors.current.text.subtitle}}',
-                                        fontSize: 12,
-                                      ),
-                                    ),
                                   ),
                                 ).toJson(),
                                 'keyboardType': 'number',
@@ -187,16 +184,7 @@ StacWidget promissoryRealData() {
                                     '{{appStrings.promissory.amountRequired}}',
                                   },
                                 ],
-                                'onChanged': StacValidateFieldsAction(
-                                  resultKey: 'isDataFormValid',
-                                  fields: [
-                                    {'id': 'promissory_amount', 'rule': r'^\d+$'},
-                                    {
-                                      'id': 'promissory_due_date',
-                                      'rule': r'^\d{4}/\d{2}/\d{2}$',
-                                    },
-                                  ],
-                                ).toJson(),
+                                'onChanged': _getFullValidationAction().toJson(),
                               }),
                               StacSizedBox(height: 16),
 
@@ -242,55 +230,54 @@ StacWidget promissoryRealData() {
                                 ],
                               ),
                               StacSizedBox(height: 8),
-                              StacGestureDetector(
-                                onTap: StacPersianDatePickerAction(
-                                  formFieldId: 'promissory_due_date',
-                                  firstDate: '1403/01/01', // Example constraint
-                                  lastDate: '1450/12/29',
-                                  onDateSelected: StacValidateFieldsAction(
-                                    resultKey: 'isDataFormValid',
-                                    fields: [
-                                      {'id': 'promissory_amount', 'rule': r'^\d+$'},
-                                      {
-                                        'id': 'promissory_due_date',
-                                        'rule': r'^\d{4}/\d{2}/\d{2}$',
-                                      },
+                              StacRawJsonWidget({
+                                'type': 'visibility',
+                                'visible': '{{!isOnDemand}}',
+                                'child': StacGestureDetector(
+                                  onTap: StacPersianDatePickerAction(
+                                    formFieldId: 'promissory_due_date',
+                                    firstDate: '1403/01/01', // Example constraint
+                                    lastDate: '1450/12/29',
+                                    onDateSelected: _getFullValidationAction().toJson(),
+                                  ),
+                                  child: StacTextFormField(
+                                    id: 'promissory_due_date',
+                                    readOnly: true,
+                                    enabled: false,
+                                    style: StacCustomTextStyle(
+                                      fontSize: 13,
+                                      fontWeight: StacFontWeight.w600,
+                                      color: '{{appColors.current.text.title}}',
+                                    ),
+                                    textDirection: StacTextDirection.rtl,
+                                    textAlign: StacTextAlign.right,
+                                    decoration: StacInputDecoration(
+                                      hintText: '{{appStrings.promissory.selectDate}}',
+                                      hintStyle: StacTextStyle(
+                                        fontSize: 12,
+                                        fontWeight: StacFontWeight.w600,
+                                        color: '{{appColors.current.text.hint}}',
+                                      ),
+                                      filled: false,
+                                      contentPadding: StacEdgeInsets.symmetric(
+                                        horizontal: 16,
+                                        vertical: 16,
+                                      ),
+                                      prefixIcon: StacIcon(
+                                        icon: StacIcons.calendar_today,
+                                        color: '{{appColors.current.text.subtitle}}',
+                                        size: 20,
+                                      ),
+                                    ),
+                                    validatorRules: [
+                                      StacFormFieldValidator(
+                                        rule: r'^\d{4}/\d{2}/\d{2}$',
+                                        message: '{{appStrings.promissory.dueDateRequired}}',
+                                      ),
                                     ],
-                                  ).toJson(),
-                                ),
-                                child: StacTextFormField(
-                                  id: 'promissory_due_date',
-                                  readOnly: true,
-                                  enabled: false,
-                                  style: StacCustomTextStyle(
-                                    fontSize: 14,
-                                    fontWeight: StacFontWeight.w600,
-                                    color: '{{appColors.current.text.title}}',
                                   ),
-                                  textDirection: StacTextDirection.rtl,
-                                  textAlign: StacTextAlign.right,
-                                  decoration: StacInputDecoration(
-                                    hintText: '{{appStrings.promissory.selectDate}}',
-                                    filled: false,
-                                    contentPadding: StacEdgeInsets.symmetric(
-                                      horizontal: 16,
-                                      vertical: 16,
-                                    ),
-                                    prefixIcon: StacIcon(
-                                      icon: StacIcons.calendar_today,
-                                      color: '{{appColors.current.text.subtitle}}',
-                                      size: 20,
-                                    ),
-                                  ),
-                                  validatorRules: [
-                                    StacFormFieldValidator(
-                                      rule: r'^\d{4}/\d{2}/\d{2}$',
-                                      message:
-                                      '{{appStrings.promissory.dueDateRequired}}',
-                                    ),
-                                  ],
-                                ),
-                              ),
+                                ).toJson(),
+                              }),
 
 
                               // Due Date Picker (Hidden if On Demand is true)
@@ -612,23 +599,15 @@ StacWidget _buildInfoRow({required String label, required String value}) {
 
 
 StacValidateFieldsAction _getFullValidationAction() {
+  final isOnDemand = StacRegistry.instance.getValue('isOnDemand') == true;
+  final fields = <Map<String, String>>[
+    {'id': 'promissory_amount', 'rule': r'^\d+$'},
+    if (!isOnDemand)
+      {'id': 'promissory_due_date', 'rule': r'^\d{4}/\d{2}/\d{2}$'},
+    {'id': 'promissory_payment_place', 'rule': r'^.{1,200}$'},
+  ];
   return StacValidateFieldsAction(
     resultKey: 'isDataFormValid',
-    fields: [
-      {'id': 'promissory_amount', 'rule': r'^\d+$'},
-      {
-        'id': 'promissory_due_date',
-        // Make rule conditional or always validate but rely on visibility?
-        // In STAC, validation runs on form fields. If field is hidden, it's removed?
-        // Visibility widget just hides it effectively in Flutter, but STAC form might still see it.
-        // Let's use a regex that matches if optional is true logic, but here we can just use a simple
-        // approach: validate it. If user hides it, we should probably clear it or ignore it.
-        // For now, let's keep basic validation.
-        'rule': r'^\d{4}/\d{2}/\d{2}$',
-        'optional':
-        'isOnDemand', // If isOnDemand is true, this field is optional
-      },
-      {'id': 'promissory_payment_place', 'rule': r'^.{1,200}$'},
-    ],
+    fields: fields,
   );
 }

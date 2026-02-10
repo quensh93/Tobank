@@ -1,3 +1,4 @@
+import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
 import '../../../../../core/stac/builders/stac_common_builders.dart';
 import '../../../../../core/stac/builders/stac_stateful_widget.dart';
@@ -100,7 +101,9 @@ StacWidget promissoryRealPayment() {
                             children: [
                               // Use form.promissory_amount as totalAmount fallback
                               StacText(
-                                data: '{{promissory.fees.total}}',
+                                data: _fmt(StacRegistry.instance
+                                    .getValue('promissory.fees.total')
+                                    ?.toString()),
                                 style: StacCustomTextStyle(
                                   fontSize: 16,
                                   fontWeight: StacFontWeight.w900,
@@ -155,7 +158,7 @@ StacWidget promissoryRealPayment() {
                             StacSizedBox(width: 8),
                             StacText(
                               data:
-                                  '{{promissory.fees.stampFee}} {{appStrings.common.rial}}',
+                                  '${_fmt(StacRegistry.instance.getValue('promissory.fees.stampFee')?.toString())} {{appStrings.common.rial}}',
                               textDirection: StacTextDirection.rtl,
                               style: StacCustomTextStyle(
                                 fontSize: 14,
@@ -183,7 +186,7 @@ StacWidget promissoryRealPayment() {
                             StacSizedBox(width: 8),
                             StacText(
                               data:
-                                  '{{promissory.fees.wage}} {{appStrings.common.rial}}',
+                                  '${_fmt(StacRegistry.instance.getValue('promissory.fees.wage')?.toString())} {{appStrings.common.rial}}',
                               textDirection: StacTextDirection.rtl,
                               style: StacCustomTextStyle(
                                 fontSize: 14,
@@ -278,7 +281,8 @@ StacWidget promissoryRealPayment() {
                               children: [
                                 StacSizedBox(height: 4),
                                 StacText(
-                                  data: '2370000 {{appStrings.common.rial}}',
+                                  data:
+                                      '${_fmt(StacRegistry.instance.getValue('wallet.balance')?.toString())} {{appStrings.common.rial}}',
                                   textDirection: StacTextDirection.rtl,
                                   style: StacCustomTextStyle(
                                     fontSize: 12,
@@ -499,4 +503,24 @@ StacWidget promissoryRealPayment() {
       ),
     ),
   );
+}
+
+String _fmt(String? value) {
+  final s = (value ?? '').replaceAll(RegExp(r'[^0-9]'), '');
+  if (s.isEmpty) return '0';
+  final buffer = StringBuffer();
+  var count = 0;
+  for (var i = s.length - 1; i >= 0; i--) {
+    buffer.write(s[i]);
+    count++;
+    if (i > 0 && count % 3 == 0) {
+      buffer.write('.');
+    }
+  }
+  return buffer.toString().split('').reversed.join();
+}
+
+String _fmtKey(String key) {
+  final value = StacRegistry.instance.getValue(key);
+  return _fmt(value?.toString());
 }
