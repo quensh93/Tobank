@@ -9,9 +9,20 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="create upload endpoint and finalize endpoint">
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_payment_deposits_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_payment_deposits_screen.dart" afterDir="false" />
+    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="get promissory from server and finalize">
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build/reports/problems/problems-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/android/build/reports/problems/problems-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/stac/parsers/actions/promissory_sign_action_parser.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/parsers/actions/promissory_sign_action_parser.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/storage/secure_storage_keys.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/storage/secure_storage_keys.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/storage/storage_util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/storage/storage_util.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_intro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_intro.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_sign_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_sign_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +234,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770638201528</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="get promissory from server and finalize">
+      <option name="closed" value="true" />
+      <created>1770722490659</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1770722490659</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -256,6 +275,7 @@
     <MESSAGE value="completed pages jsons" />
     <MESSAGE value="add fingerprint and load json files" />
     <MESSAGE value="create upload endpoint and finalize endpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="create upload endpoint and finalize endpoint" />
+    <MESSAGE value="get promissory from server and finalize" />
+    <option name="LAST_COMMIT_MESSAGE" value="get promissory from server and finalize" />
   </component>
 </project>

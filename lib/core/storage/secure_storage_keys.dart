@@ -42,6 +42,11 @@ enum SecureStorageKeys {
   pinCode,
   biometricData,
   signatureImage,
+  encryptionWebKeyPair,
+  authInfoData,
+  customerKeyPair,
+  ekycPreRegistrationModel,
+  userCertificate,
 
   // Custom keys (add more as needed)
   customKey1,
@@ -102,6 +107,16 @@ extension SecureStorageKeysExtension on SecureStorageKeys {
         return 'Biometric Data';
       case SecureStorageKeys.signatureImage:
         return 'Signature Image';
+      case SecureStorageKeys.encryptionWebKeyPair:
+        return 'Encryption Web Key Pair';
+      case SecureStorageKeys.authInfoData:
+        return 'Auth Info Data';
+      case SecureStorageKeys.customerKeyPair:
+        return 'Customer Key Pair';
+      case SecureStorageKeys.ekycPreRegistrationModel:
+        return 'Ekyc Pre Registration Model';
+      case SecureStorageKeys.userCertificate:
+        return 'User Certificate';
 
       case SecureStorageKeys.customKey1:
         return 'Custom Key 1';

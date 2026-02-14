@@ -6,7 +6,10 @@ import '../../../helpers/logger.dart';
 import '../../../services/biometric/biometric_service.dart';
 import '../../builders/stac_promissory_sign_action.dart';
 import '../../../../model/common/sign_document_data.dart';
-import '../../../../stac/tobank/flows/promissory_real/utils/promissory_sign_util.dart';
+// import '../../../../stac/tobank/flows/promissory_real/utils/promissory_sign_util.dart'; // Deprecated
+import '../../../../features/signing/signing_service.dart';
+import '../../../../core/storage/storage_util.dart';
+import '../../../../model/common/auth_info_data.dart';
 
 class PromissorySignActionParser
     extends StacActionParser<StacPromissorySignAction> {
@@ -243,16 +246,35 @@ class PromissorySignActionParser
           model.unsignedContract ?? "MOCK_PDF_BASE64";
 
       AppLogger.i(
-        'PromissorySignActionParser: Calling PromissorySignUtil.signDocument',
+        'PromissorySignActionParser: Calling SigningService.signDocument',
       );
       debugPrint(
-        'PromissorySignActionParser: Calling PromissorySignUtil.signDocument',
+        'PromissorySignActionParser: Calling SigningService.signDocument',
       );
 
-      final String? result = await PromissorySignUtil.signDocument(
-        unsignedContract: unsignedContract!,
-        signLocation: signLocations,
-        promissoryTitle: model.promissoryTitle ?? "سفته",
+      // Gather prerequisites
+      final String? signatureBase64 =
+          await StorageUtil.getBase64UserSignatureImage();
+      final AuthInfoData? authInfo =
+          await StorageUtil.getAuthInfoDataSecureStorage();
+      final String? userCertificate = await StorageUtil.getUserCertificate();
+      final String mobile = authInfo?.mobile ?? '09120000000'; // Fallback
+
+      // Prepare Data
+      final SignDocumentData signDocumentData = SignDocumentData(
+        documentBase64: unsignedContract!,
+        reason: '${model.promissoryTitle ?? "سفته"}_request',
+        signLocations: signLocations,
+      );
+
+      // Call Signing Service
+      final String? result = await SigningService.signDocument(
+        data: signDocumentData,
+        signatureImageBase64: signatureBase64,
+        userCertificate: userCertificate,
+        keyAlias: mobile,
+        fullName: 'User Name', // TODO: Fetch from profile
+        dateString: DateTime.now().toString(), // Use appropriate formatter
       );
 
       if (result != null) {
@@ -270,7 +292,7 @@ class PromissorySignActionParser
           await Stac.onCallFromJson(model.onSuccess!, context);
           return true;
         }
-        return true; // Success even if no onSuccess action
+        return true;
       } else {
         AppLogger.w(
           'PromissorySignActionParser: Signing failed (result is null)',

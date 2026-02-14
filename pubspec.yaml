@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.8
   collection: ^1.18.0
+  basic_utils: ^5.7.0
   hooks_riverpod: ^3.0.3
   flutter_hooks:
   riverpod_annotation: ^3.0.3
@@ -57,7 +58,9 @@ dependencies:
   dio_mocked_responses: ^1.6.5
   persian_datetime_picker: ^3.2.0
   flutter_svg: ^2.2.3
-  syncfusion_flutter_pdf: ^28.2.1
+  syncfusion_flutter_pdf: ^28.2.9
+  secure_plugin:
+    path: secure_plugin
 
 
 
