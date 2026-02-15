@@ -289,7 +289,15 @@ class CustomNetworkRequestActionParser
   Map<String, dynamic> _resolveMapTemplates(Map<String, dynamic> map) {
     final result = <String, dynamic>{};
     for (final entry in map.entries) {
-      result[entry.key] = _resolveValueTemplates(entry.value);
+      // Don't resolve 'results' inside nested networkRequest actions.
+      // Each networkRequest's result handlers must be resolved only when
+      // THAT request completes, so their {{data_payload.*}} references
+      // pick up the fresh response data instead of stale outer-request data.
+      if (entry.key == 'results' && map['actionType'] == 'networkRequest') {
+        result[entry.key] = entry.value; // Keep raw templates
+      } else {
+        result[entry.key] = _resolveValueTemplates(entry.value);
+      }
     }
     return result;
   }

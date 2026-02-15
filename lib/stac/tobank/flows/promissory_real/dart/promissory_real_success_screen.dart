@@ -128,14 +128,14 @@ StacWidget promissoryRealSuccess() {
                         StacSizedBox(height: 16),
                         _buildDetailRow(
                           '{{appStrings.promissory.paidVia}}',
-                          '{{paymentMethod}}',
+                          '{{serverSignedPdfId}}',
                         ),
                         StacSizedBox(height: 16),
                         _buildDivider(),
                         StacSizedBox(height: 16),
                         _buildDetailRow(
                           '{{appStrings.promissory.trackingNumber}}',
-                          '{{trackingNumber}}',
+                          '{{requestId}}',
                         ),
                       ],
                     ),
