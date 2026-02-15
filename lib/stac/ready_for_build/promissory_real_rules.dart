@@ -1,19 +1,10 @@
 import 'package:stac_core/stac_core.dart';
-import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
-import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 
-/// Promissory Flow - Rules Page
-///
-/// This screen displays the rules and terms for promissory note issuance.
-/// Users must read the rules content (loaded from API), check the acceptance
-/// checkbox, and press Continue to proceed.
-///
-/// Reference: docs/promissory_docs/request_promissory_rule_page.dart
 @StacScreen(screenName: 'promissory_real_rules')
 StacWidget promissoryRealRules() {
   return StacStatefulWidget(
     onInit: StacCustomSetValueAction(
-      values: [
+      values: const [
         {'key': 'isRulesAccepted', 'value': false},
         {'key': 'isSanaLoading', 'value': false},
       ],
@@ -41,7 +32,6 @@ StacWidget promissoryRealRules() {
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
           StacSizedBox(height: 16),
-          // Rules Card with Scrollable Content
           StacExpanded(
             child: StacPadding(
               padding: StacEdgeInsets.symmetric(horizontal: 16),
@@ -57,7 +47,6 @@ StacWidget promissoryRealRules() {
                 child: StacColumn(
                   crossAxisAlignment: StacCrossAxisAlignment.stretch,
                   children: [
-                    // Title
                     StacPadding(
                       padding: StacEdgeInsets.all(16),
                       child: StacText(
@@ -70,12 +59,10 @@ StacWidget promissoryRealRules() {
                         ),
                       ),
                     ),
-                    // Divider
                     StacContainer(
                       height: 1,
                       color: '{{appColors.current.input.borderEnabled}}',
                     ),
-                    // Scrollable Content
                     StacExpanded(
                       child: StacSingleChildScrollView(
                         padding: StacEdgeInsets.all(16),
@@ -98,7 +85,6 @@ StacWidget promissoryRealRules() {
             ),
           ),
           StacSizedBox(height: 20),
-          // Checkbox Row
           StacPadding(
             padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 4),
             child: StacContainer(
@@ -115,7 +101,6 @@ StacWidget promissoryRealRules() {
                 textDirection: StacTextDirection.rtl,
                 crossAxisAlignment: StacCrossAxisAlignment.center,
                 children: [
-                  // Custom Checkbox
                   StacSizedBox(width: 8),
                   StacGestureDetector(
                     onTap: StacRawJsonAction({
@@ -151,7 +136,6 @@ StacWidget promissoryRealRules() {
                     ),
                   ),
                   StacSizedBox(width: 12),
-                  // Label
                   StacExpanded(
                     child: StacGestureDetector(
                       onTap: StacRawJsonAction({
@@ -176,7 +160,6 @@ StacWidget promissoryRealRules() {
             ),
           ),
           StacSizedBox(height: 24),
-          // Continue Button
           StacPadding(
             padding: StacEdgeInsets.symmetric(horizontal: 16),
             child: StacRawJsonWidget({
@@ -213,7 +196,7 @@ StacWidget promissoryRealRules() {
                             },
                             {
                               'actionType': 'navigate',
-                              'widgetType': 'promissory_real_deposits',
+                              'widgetType': 'promissory_real_issuer',
                               'navigationStyle': 'push',
                             },
                           ],
@@ -302,7 +285,6 @@ StacWidget promissoryRealRules() {
   );
 }
 
-/// Custom class to support alias text styles
 class StacAliasTextStyle implements StacTextStyle {
   final String alias;
   const StacAliasTextStyle(this.alias);
@@ -312,31 +294,107 @@ class StacAliasTextStyle implements StacTextStyle {
   Map<String, dynamic> toJson() => {'type': 'alias', 'value': alias};
 }
 
-/// Raw JSON widget helper
 class StacRawJsonWidget implements StacWidget {
   final Map<String, dynamic> json;
   StacRawJsonWidget(this.json);
-
   @override
   Map<String, dynamic> get jsonData => json;
-
   @override
   Map<String, dynamic> toJson() => json;
-
   @override
   String get type => json['type'] as String;
-
   String? get id => json['id'] as String?;
 }
 
-/// Raw JSON action helper
 class StacRawJsonAction extends StacAction {
   final Map<String, dynamic> json;
   StacRawJsonAction(this.json);
-
   @override
   String get actionType => json['actionType'] as String;
-
   @override
   Map<String, dynamic> toJson() => json;
+}
+
+class StacStatefulWidget extends StacWidget {
+  final dynamic onInit;
+  final dynamic onBuild;
+  final dynamic onDependenciesChanged;
+  final dynamic onWidgetUpdated;
+  final dynamic onReassemble;
+  final dynamic onDeactivate;
+  final dynamic onDispose;
+  final dynamic onResume;
+  final dynamic onPause;
+  final dynamic onInactive;
+  final dynamic onHidden;
+  final dynamic onDetached;
+  final StacWidget child;
+
+  const StacStatefulWidget({
+    this.onInit,
+    this.onBuild,
+    this.onDependenciesChanged,
+    this.onWidgetUpdated,
+    this.onReassemble,
+    this.onDeactivate,
+    this.onDispose,
+    this.onResume,
+    this.onPause,
+    this.onInactive,
+    this.onHidden,
+    this.onDetached,
+    required this.child,
+  });
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      'type': 'stateFull',
+      if (onInit != null) 'onInit': _actionToJson(onInit),
+      if (onBuild != null) 'onBuild': _actionToJson(onBuild),
+      if (onDependenciesChanged != null)
+        'onDependenciesChanged': _actionToJson(onDependenciesChanged),
+      if (onWidgetUpdated != null)
+        'onWidgetUpdated': _actionToJson(onWidgetUpdated),
+      if (onReassemble != null) 'onReassemble': _actionToJson(onReassemble),
+      if (onDeactivate != null) 'onDeactivate': _actionToJson(onDeactivate),
+      if (onDispose != null) 'onDispose': _actionToJson(onDispose),
+      if (onResume != null) 'onResume': _actionToJson(onResume),
+      if (onPause != null) 'onPause': _actionToJson(onPause),
+      if (onInactive != null) 'onInactive': _actionToJson(onInactive),
+      if (onHidden != null) 'onHidden': _actionToJson(onHidden),
+      if (onDetached != null) 'onDetached': _actionToJson(onDetached),
+      'child': child.toJson(),
+    };
+  }
+
+  dynamic _actionToJson(dynamic action) {
+    if (action == null) return null;
+    if (action is Map) return action;
+    try {
+      return action.toJson();
+    } catch (e) {
+      return action;
+    }
+  }
+}
+
+class StacCustomSetValueAction extends StacAction {
+  final String? key;
+  final dynamic value;
+  final List<Map<String, dynamic>>? values;
+  const StacCustomSetValueAction({this.key, this.value, this.values});
+  @override
+  String get actionType => 'setValue';
+  @override
+  Map<String, dynamic> toJson() {
+    if (values != null) {
+      return {'actionType': 'setValue', 'values': values};
+    }
+    dynamic processedValue = value;
+    if (value is StacAction) {
+      processedValue = value.toJson();
+    }
+    return {'actionType': 'setValue', 'key': key, 'value': processedValue};
+  }
 }

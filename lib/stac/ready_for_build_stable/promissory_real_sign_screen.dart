@@ -213,15 +213,41 @@ StacWidget promissoryRealSign() {
                 'widget': {
                   'type': 'alertDialog',
                   'title': {
-                    'type': 'text',
-                    'data': '{{appStrings.promissory.signConfirmationTitle}}',
-                    'textDirection': 'rtl',
-                    'style': {
-                      'type': 'custom',
-                      'fontSize': 18,
-                      'fontWeight': 'bold',
-                      'color': '{{appColors.current.text.title}}',
-                    },
+                    'type': 'column',
+                    'mainAxisAlignment': 'center',
+                    'children': [
+                      {
+                        'type': 'container',
+                        'width': 48,
+                        'height': 48,
+                        'decoration': {
+                          'type': 'boxDecoration',
+                          'color': '{{appColors.current.primary.color}}',
+                          'borderRadius': {'type': 'borderRadius', 'all': 40}
+                        },
+                        'child': {
+                          'type': 'image',
+                          'src': 'assets/icons/ic_info.svg',
+                          'imageType': 'asset',
+                          'width': 12,
+                          'height': 12,
+                          'color': '{{appColors.current.primary.onPrimary}}'
+                        }
+                      },
+                      {'type': 'sizedBox', 'height': 12},
+                      {
+                        'type': 'text',
+                        'data': '{{appStrings.promissory.signConfirmationTitle}}',
+                        'textDirection': 'rtl',
+                        'textAlign': 'center',
+                        'style': {
+                          'type': 'custom',
+                          'fontSize': 16,
+                          'fontWeight': 'bold',
+                          'color': '{{appColors.current.text.title}}'
+                        }
+                      }
+                    ]
                   },
                   'content': {
                     'type': 'text',
@@ -235,16 +261,40 @@ StacWidget promissoryRealSign() {
                   },
                   'actions': [
                     {
-                      'type': 'textButton',
-                      'onPressed': {'actionType': 'closeDialog'},
-                      'child': {
-                        'type': 'text',
-                        'data': '{{appStrings.common.cancel}}',
-                        'textDirection': 'rtl',
+                      'type': 'container',
+                      'decoration': {
+                        'type': 'boxDecoration',
+                        'color': '#FFFFFF',
+                        'borderRadius': {'type': 'borderRadius', 'all': 12},
+                        'border': {'type': 'border', 'color': '#000000', 'width': 1}
                       },
+                      'child': {
+                        'type': 'elevatedButton',
+                        'onPressed': {'actionType': 'closeDialog'},
+                        'style': StacButtonStyle(
+                          backgroundColor: '#FFFFFF',
+                          foregroundColor: '{{appColors.current.text.title}}',
+                          fixedSize: StacSize(120, 44),
+                          shape: StacRoundedRectangleBorder(
+                            borderRadius: StacBorderRadius.all(12),
+                          ),
+                          elevation: 0,
+                        ).toJson(),
+                        'child': {
+                          'type': 'text',
+                          'data': '{{appStrings.common.cancel}}',
+                          'textDirection': 'rtl',
+                          'style': {
+                            'type': 'custom',
+                            'fontSize': 16,
+                            'fontWeight': 'bold',
+                            'color': '{{appColors.current.text.title}}'
+                          }
+                        }
+                      }
                     },
                     {
-                      'type': 'textButton',
+                      'type': 'elevatedButton',
                       'onPressed': {
                         'actionType': 'sequence',
                         'actions': [
@@ -252,17 +302,15 @@ StacWidget promissoryRealSign() {
                           {
                             'actionType': 'setValue',
                             'key': 'isSigning',
-                            'value': true,
+                            'value': true
                           },
                           {
                             'actionType': 'networkRequest',
-                            'url':
-                                'https://api.tobank.com/promissory/publish/finalize',
+                            'url': 'https://api.tobank.com/promissory/publish/finalize',
                             'method': 'post',
                             'data': {
-                              'id':
-                                  '{{form.promissory_request_id}}', // Using ID from form
-                              'signedPdf': '{{form.signed_pdf}}',
+                              'id': '{{form.promissory_request_id}}',
+                              'signedPdf': '{{form.signed_pdf}}'
                             },
                             'results': [
                               {
@@ -270,101 +318,48 @@ StacWidget promissoryRealSign() {
                                 'action': {
                                   'actionType': 'sequence',
                                   'actions': [
-                                    {
-                                      'actionType': 'setValue',
-                                      'key': 'isSigning',
-                                      'value': false,
-                                    },
-                                    {
-                                      'actionType': 'setValue',
-                                      'values': [
-                                        {
-                                          'key': 'promissoryId',
-                                          'value': '{{data.data.promissoryId}}',
-                                        },
-                                        {
-                                          'key': 'transactionAmount',
-                                          'value': '{{form.promissory_amount}}',
-                                        },
-                                        {
-                                          'key': 'transactionTime',
-                                          'value':
-                                              '{{data.data.transactionTime}}',
-                                        },
-                                        {
-                                          'key': 'trackingNumber',
-                                          'value':
-                                              '{{data.data.trackingNumber}}',
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      'actionType': 'navigate',
-                                      'widgetType':
-                                          'promissory_real_success', // Navigate to Real Success
-                                      'navigationStyle': 'pushReplacement',
-                                    },
-                                  ],
-                                },
+                                    {'actionType': 'setValue','key': 'isSigning','value': false},
+                                    {'actionType': 'setValue','values': [
+                                      {'key': 'promissoryId','value': '{{data.data.promissoryId}}'},
+                                      {'key': 'transactionAmount','value': '{{form.promissory_amount}}'},
+                                      {'key': 'transactionTime','value': '{{data.data.transactionTime}}'},
+                                      {'key': 'trackingNumber','value': '{{data.data.trackingNumber}}'}
+                                    ]},
+                                    {'actionType': 'navigate','widgetType': 'promissory_real_success','navigationStyle': 'pushReplacement'}
+                                  ]
+                                }
                               },
                               {
-                                // Error handling
                                 'statusCode': -1,
                                 'action': {
                                   'actionType': 'sequence',
                                   'actions': [
-                                    {
-                                      'actionType': 'setValue',
-                                      'values': [
-                                        {
-                                          'key': 'transactionAmount',
-                                          'value': '20,000,000',
-                                        },
-                                        {
-                                          'key': 'transactionTime',
-                                          'value': '{{now()}}',
-                                        },
-                                        {
-                                          'key': 'paymentMethod',
-                                          'value':
-                                              '{{appStrings.promissory.depositPayment}}',
-                                        },
-                                        {
-                                          'key': 'trackingNumber',
-                                          'value': 'TS-987654321',
-                                        },
-                                        {
-                                          'key': 'promissoryId',
-                                          'value': 'PROM-12345',
-                                        },
-                                      ],
-                                    },
-                                    {
-                                      'actionType': 'navigate',
-                                      'widgetType':
-                                          'promissory_real_success', // Navigate to Real Success
-                                      'navigationStyle': 'pushReplacement',
-                                    },
-                                    {
-                                      'actionType': 'setValue',
-                                      'key': 'isSigning',
-                                      'value': false,
-                                    },
-                                    {
-                                      'actionType': 'showSnackBar',
-                                      'content': {
-                                        'type': 'text',
-                                        'data':
-                                            '{{appStrings.promissory.signError}}',
-                                      },
-                                    },
-                                  ],
-                                },
-                              },
-                            ],
-                          },
-                        ],
+                                    {'actionType': 'setValue','values': [
+                                      {'key': 'transactionAmount','value': '20,000,000'},
+                                      {'key': 'transactionTime','value': '{{now()}}'},
+                                      {'key': 'paymentMethod','value': '{{appStrings.promissory.depositPayment}}'},
+                                      {'key': 'trackingNumber','value': 'TS-987654321'},
+                                      {'key': 'promissoryId','value': 'PROM-12345'}
+                                    ]},
+                                    {'actionType': 'navigate','widgetType': 'promissory_real_success','navigationStyle': 'pushReplacement'},
+                                    {'actionType': 'setValue','key': 'isSigning','value': false},
+                                    {'actionType': 'showSnackBar','content': {'type': 'text','data': '{{appStrings.promissory.signError}}'}}
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        ]
                       },
+                      'style': StacButtonStyle(
+                        backgroundColor: '{{appColors.current.primary.color}}',
+                        foregroundColor: '{{appColors.current.primary.onPrimary}}',
+                        fixedSize: StacSize(120, 44),
+                        shape: StacRoundedRectangleBorder(
+                          borderRadius: StacBorderRadius.all(12),
+                        ),
+                        elevation: 0,
+                      ).toJson(),
                       'child': {
                         'type': 'text',
                         'data': '{{appStrings.common.confirm}}',
@@ -373,10 +368,10 @@ StacWidget promissoryRealSign() {
                           'type': 'custom',
                           'fontSize': 16,
                           'fontWeight': 'bold',
-                          'color': '{{appColors.current.primary.color}}',
-                        },
-                      },
-                    },
+                          'color': '{{appColors.current.primary.onPrimary}}'
+                        }
+                      }
+                    }
                   ],
                 },
               },

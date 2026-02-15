@@ -1,16 +1,5 @@
-import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
-import '../../../../../core/stac/builders/stac_common_builders.dart';
-import '../../../../../core/stac/builders/stac_stateful_widget.dart';
-import '../../../../../core/stac/builders/stac_custom_actions.dart';
 
-/// Promissory Real Flow - Payment Method Page
-///
-/// This screen allows users to select payment method:
-/// 1. Wallet payment
-/// 2. Deposit payment
-///
-/// Note: Integrating with Real API flow logic.
 @StacScreen(screenName: 'promissory_real_payment')
 StacWidget promissoryRealPayment() {
   return StacStatefulWidget(
@@ -50,13 +39,11 @@ StacWidget promissoryRealPayment() {
               child: StacColumn(
                 crossAxisAlignment: StacCrossAxisAlignment.stretch,
                 children: [
-                  // Issuance summary and payable amount
                   StacColumn(
                     children: [
                       StacContainer(
                         decoration: StacBoxDecoration(
-                          color:
-                              '{{appColors.current.background.surfaceContainer}}',
+                          color: '{{appColors.current.background.surfaceContainer}}',
                           borderRadius: StacBorderRadius.all(40),
                           border: StacBorder.all(
                             color: '{{appColors.current.input.borderEnabled}}',
@@ -69,7 +56,6 @@ StacWidget promissoryRealPayment() {
                           imageType: StacImageType.asset,
                           width: 40,
                           height: 40,
-
                         ),
                       ),
                       StacSizedBox(height: 12),
@@ -99,11 +85,8 @@ StacWidget promissoryRealPayment() {
                           StacRow(
                             textDirection: StacTextDirection.rtl,
                             children: [
-                              // Use form.promissory_amount as totalAmount fallback
                               StacText(
-                                data: _fmt(StacRegistry.instance
-                                    .getValue('promissory.fees.total')
-                                    ?.toString()),
+                                data: '{{promissory.fees.total}}',
                                 style: StacCustomTextStyle(
                                   fontSize: 16,
                                   fontWeight: StacFontWeight.w900,
@@ -126,13 +109,10 @@ StacWidget promissoryRealPayment() {
                     ],
                   ),
                   StacSizedBox(height: 16),
-
-                  // Fees - Using appData fallback (might be empty/0 but safer than error)
                   StacContainer(
                     padding: StacEdgeInsets.all(16),
                     decoration: StacBoxDecoration(
-                      color:
-                          '{{appColors.current.background.surfaceContainer}}',
+                      color: '{{appColors.current.background.surfaceContainer}}',
                       borderRadius: StacBorderRadius.all(8),
                       border: StacBorder.all(
                         color: '{{appColors.current.input.borderEnabled}}',
@@ -157,8 +137,7 @@ StacWidget promissoryRealPayment() {
                             ),
                             StacSizedBox(width: 8),
                             StacText(
-                              data:
-                                  '${_fmt(StacRegistry.instance.getValue('promissory.fees.stampFee')?.toString())} {{appStrings.common.rial}}',
+                              data: '{{promissory.fees.stampFee}} {{appStrings.common.rial}}',
                               textDirection: StacTextDirection.rtl,
                               style: StacCustomTextStyle(
                                 fontSize: 14,
@@ -185,8 +164,7 @@ StacWidget promissoryRealPayment() {
                             ),
                             StacSizedBox(width: 8),
                             StacText(
-                              data:
-                                  '${_fmt(StacRegistry.instance.getValue('promissory.fees.wage')?.toString())} {{appStrings.common.rial}}',
+                              data: '{{promissory.fees.wage}} {{appStrings.common.rial}}',
                               textDirection: StacTextDirection.rtl,
                               style: StacCustomTextStyle(
                                 fontSize: 14,
@@ -200,8 +178,6 @@ StacWidget promissoryRealPayment() {
                     ),
                   ),
                   StacSizedBox(height: 16),
-
-                  // Payment Methods Title
                   StacText(
                     data: '{{appStrings.promissory.paymentMethod}}',
                     textDirection: StacTextDirection.rtl,
@@ -212,8 +188,6 @@ StacWidget promissoryRealPayment() {
                     ),
                   ),
                   StacSizedBox(height: 16),
-
-                  // Wallet Payment Option
                   StacGestureDetector(
                     onTap: StacSequenceAction(
                       actions: [
@@ -239,7 +213,7 @@ StacWidget promissoryRealPayment() {
                       padding: StacEdgeInsets.all(16),
                       decoration: StacBoxDecoration(
                         color:
-                        '{{isWalletSelected ? appColors.current.lightSecondery.color : appColors.current.background.surfaceContainer}}',
+                            '{{isWalletSelected ? appColors.current.lightSecondery.color : appColors.current.background.surfaceContainer}}',
                         borderRadius: StacBorderRadius.all(12),
                         border: StacBorder.all(
                           color:
@@ -250,12 +224,10 @@ StacWidget promissoryRealPayment() {
                       child: StacRow(
                         textDirection: StacTextDirection.rtl,
                         children: [
-                          // Icon
                           StacContainer(
                             decoration: StacBoxDecoration(
-                              color: '{{appColors.current.background.surfaceContainer}}',
-                              borderRadius: StacBorderRadius.all(25)
-                            ),
+                                color: '{{appColors.current.background.surfaceContainer}}',
+                                borderRadius: StacBorderRadius.all(25)),
                             child: StacImage(
                               src: 'assets/icons/ic_wallet.svg',
                               imageType: StacImageType.asset,
@@ -274,20 +246,17 @@ StacWidget promissoryRealPayment() {
                             ),
                           ),
                           StacSizedBox(width: 12),
-                          // Text
                           StacExpanded(
                             child: StacColumn(
                               crossAxisAlignment: StacCrossAxisAlignment.start,
                               children: [
                                 StacSizedBox(height: 4),
                                 StacText(
-                                  data:
-                                      '${_fmt(StacRegistry.instance.getValue('wallet.balance')?.toString())} {{appStrings.common.rial}}',
+                                  data: '{{wallet.balance}} {{appStrings.common.rial}}',
                                   textDirection: StacTextDirection.rtl,
                                   style: StacCustomTextStyle(
                                     fontSize: 12,
-                                    color:
-                                        '{{appColors.current.text.subtitle}}',
+                                    color: '{{appColors.current.text.subtitle}}',
                                   ),
                                 ),
                               ],
@@ -297,10 +266,7 @@ StacWidget promissoryRealPayment() {
                       ),
                     ),
                   ),
-
                   StacSizedBox(height: 12),
-
-                  // Deposit Payment Option
                   StacGestureDetector(
                     onTap: StacSequenceAction(
                       actions: [
@@ -326,7 +292,7 @@ StacWidget promissoryRealPayment() {
                       padding: StacEdgeInsets.all(16),
                       decoration: StacBoxDecoration(
                         color:
-                        '{{isDepositSelected ? appColors.current.lightSecondery.color : appColors.current.background.surfaceContainer}}',
+                            '{{isDepositSelected ? appColors.current.lightSecondery.color : appColors.current.background.surfaceContainer}}',
                         borderRadius: StacBorderRadius.all(12),
                         border: StacBorder.all(
                           color:
@@ -337,12 +303,10 @@ StacWidget promissoryRealPayment() {
                       child: StacRow(
                         textDirection: StacTextDirection.rtl,
                         children: [
-                          // Icon
                           StacContainer(
                             decoration: StacBoxDecoration(
                                 color: '{{appColors.current.background.surfaceContainer}}',
-                                borderRadius: StacBorderRadius.all(25)
-                            ),
+                                borderRadius: StacBorderRadius.all(25)),
                             child: StacImage(
                               src: 'assets/icons/ic_gateway.svg',
                               imageType: StacImageType.asset,
@@ -361,7 +325,6 @@ StacWidget promissoryRealPayment() {
                             ),
                           ),
                           StacSizedBox(width: 12),
-                          // Text
                           StacExpanded(
                             child: StacColumn(
                               crossAxisAlignment: StacCrossAxisAlignment.start,
@@ -372,8 +335,7 @@ StacWidget promissoryRealPayment() {
                                   textDirection: StacTextDirection.rtl,
                                   style: StacCustomTextStyle(
                                     fontSize: 12,
-                                    color:
-                                        '{{appColors.current.text.subtitle}}',
+                                    color: '{{appColors.current.text.subtitle}}',
                                   ),
                                 ),
                               ],
@@ -388,7 +350,6 @@ StacWidget promissoryRealPayment() {
               ),
             ),
           ),
-          // Pay Button (Wallet Action - Default)
           StacRawJsonWidget({
             'type': 'container',
             'height': '{{isDepositSelected ? 0 : 88}}',
@@ -458,7 +419,6 @@ StacWidget promissoryRealPayment() {
                           'type': 'elevatedButton',
                           'onPressed': {'actionType': 'closeDialog'},
                           'style': StacButtonStyle(
-
                             foregroundColor: '{{appColors.current.text.title}}',
                             fixedSize: StacSize(120, 44),
                             shape: StacRoundedRectangleBorder(
@@ -536,7 +496,6 @@ StacWidget promissoryRealPayment() {
               }),
             ).toJson(),
           }),
-          // Pay Button (Deposit Action)
           StacRawJsonWidget({
             'type': 'container',
             'height': '{{isDepositSelected ? 88 : 0}}',
@@ -550,8 +509,7 @@ StacWidget promissoryRealPayment() {
                 'enabled': false,
                 'onPressed': {
                   'actionType': 'navigate',
-                  'widgetType':
-                      'promissory_real_payment_deposits', // Updated Navigation (Assuming this screen exists)
+                  'widgetType': 'promissory_real_payment_deposits',
                   'navigationStyle': 'push',
                 },
                 'style': StacButtonStyle(
@@ -595,7 +553,135 @@ String _fmt(String? value) {
   return buffer.toString().split('').reversed.join();
 }
 
-String _fmtKey(String key) {
-  final value = StacRegistry.instance.getValue(key);
-  return _fmt(value?.toString());
+class StacAliasTextStyle implements StacTextStyle {
+  final String alias;
+  const StacAliasTextStyle(this.alias);
+  @override
+  StacTextStyleType get type => StacTextStyleType.custom;
+  @override
+  Map<String, dynamic> toJson() => {'type': 'alias', 'value': alias};
+}
+
+class StacRawJsonWidget implements StacWidget {
+  final Map<String, dynamic> json;
+  StacRawJsonWidget(this.json);
+  @override
+  Map<String, dynamic> get jsonData => json;
+  @override
+  Map<String, dynamic> toJson() => json;
+  @override
+  String get type => json['type'] as String;
+  String? get id => json['id'] as String?;
+}
+
+class StacRawJsonAction extends StacAction {
+  final Map<String, dynamic> json;
+  StacRawJsonAction(this.json);
+  @override
+  String get actionType => json['actionType'] as String;
+  @override
+  Map<String, dynamic> toJson() => json;
+}
+
+class StacSequenceAction extends StacAction {
+  final List<dynamic> actions;
+  const StacSequenceAction({required this.actions});
+  @override
+  String get actionType => 'sequence';
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      'actionType': 'sequence',
+      'actions': actions.map((a) {
+        if (a is StacAction) return a.toJson();
+        if (a is Map) return a;
+        try {
+          return a.toJson();
+        } catch (_) {
+          return a;
+        }
+      }).toList(),
+    };
+  }
+}
+
+class StacCustomSetValueAction extends StacAction {
+  final String? key;
+  final dynamic value;
+  final List<Map<String, dynamic>>? values;
+  const StacCustomSetValueAction({this.key, this.value, this.values});
+  @override
+  String get actionType => 'setValue';
+  @override
+  Map<String, dynamic> toJson() {
+    if (values != null) {
+      return {'actionType': 'setValue', 'values': values};
+    }
+    dynamic processedValue = value;
+    if (value is StacAction) {
+      processedValue = value.toJson();
+    }
+    return {'actionType': 'setValue', 'key': key, 'value': processedValue};
+  }
+}
+
+class StacStatefulWidget extends StacWidget {
+  final dynamic onInit;
+  final dynamic onBuild;
+  final dynamic onDependenciesChanged;
+  final dynamic onWidgetUpdated;
+  final dynamic onReassemble;
+  final dynamic onDeactivate;
+  final dynamic onDispose;
+  final dynamic onResume;
+  final dynamic onPause;
+  final dynamic onInactive;
+  final dynamic onHidden;
+  final dynamic onDetached;
+  final StacWidget child;
+  const StacStatefulWidget({
+    this.onInit,
+    this.onBuild,
+    this.onDependenciesChanged,
+    this.onWidgetUpdated,
+    this.onReassemble,
+    this.onDeactivate,
+    this.onDispose,
+    this.onResume,
+    this.onPause,
+    this.onInactive,
+    this.onHidden,
+    this.onDetached,
+    required this.child,
+  });
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      'type': 'stateFull',
+      if (onInit != null) 'onInit': _actionToJson(onInit),
+      if (onBuild != null) 'onBuild': _actionToJson(onBuild),
+      if (onDependenciesChanged != null)
+        'onDependenciesChanged': _actionToJson(onDependenciesChanged),
+      if (onWidgetUpdated != null)
+        'onWidgetUpdated': _actionToJson(onWidgetUpdated),
+      if (onReassemble != null) 'onReassemble': _actionToJson(onReassemble),
+      if (onDeactivate != null) 'onDeactivate': _actionToJson(onDeactivate),
+      if (onDispose != null) 'onDispose': _actionToJson(onDispose),
+      if (onResume != null) 'onResume': _actionToJson(onResume),
+      if (onPause != null) 'onPause': _actionToJson(onPause),
+      if (onInactive != null) 'onInactive': _actionToJson(onInactive),
+      if (onHidden != null) 'onHidden': _actionToJson(onHidden),
+      if (onDetached != null) 'onDetached': _actionToJson(onDetached),
+      'child': child.toJson(),
+    };
+  }
+  dynamic _actionToJson(dynamic action) {
+    if (action == null) return null;
+    if (action is Map) return action;
+    try {
+      return action.toJson();
+    } catch (e) {
+      return action;
+    }
+  }
 }

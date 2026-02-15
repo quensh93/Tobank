@@ -1,7 +1,7 @@
 import 'package:stac_core/stac_core.dart';
 
-@StacScreen(screenName: 'promissory_real_deposits')
-StacWidget promissoryRealDeposits() {
+@StacScreen(screenName: 'promissory_real_payment_deposits')
+StacWidget promissoryRealPaymentDeposits() {
   final fetchDepositsAction = StacSequenceAction(
     actions: [
       StacCustomSetValueAction(
@@ -9,6 +9,7 @@ StacWidget promissoryRealDeposits() {
           {'key': 'deposits.isLoaded', 'value': false},
           {'key': 'deposits.rawData', 'value': null},
           {'key': 'deposits.error', 'value': null},
+          {'key': 'isDraftLoading', 'value': false},
         ],
       ),
       StacNetworkRequestAction(
@@ -31,7 +32,10 @@ StacWidget promissoryRealDeposits() {
             'statusCode': 200,
             'action': StacCustomSetValueAction(
               values: const [
-                {'key': 'deposits.rawData', 'value': '{{data_payload}}'},
+                {
+                  'key': 'deposits.rawData',
+                  'value': '{{data_payload.deposits}}',
+                },
                 {'key': 'deposits.isLoaded', 'value': true},
                 {'key': 'deposits.error', 'value': null},
               ],
@@ -98,8 +102,7 @@ StacWidget promissoryRealDeposits() {
                 {'key': 'deposits.rawData', 'value': null},
                 {
                   'key': 'deposits.error',
-                  'value':
-                      '{{appStrings.promissory.serverConnectionErrorDetail}}',
+                  'value': '{{appStrings.promissory.serverConnectionErrorDetail}}',
                 },
               ],
             ).toJson(),
@@ -113,14 +116,148 @@ StacWidget promissoryRealDeposits() {
     onInit: fetchDepositsAction,
     child: StacRawJsonWidget({
       'type': 'promissory_real_deposits_list',
+      'loadingKey': 'isDraftLoading',
       'onContinue': {
-        'actionType': 'navigate',
-        'widgetType': 'promissory_real_issuer',
-        'navigationStyle': 'push',
+        'actionType': 'sequence',
+        'actions': [
+          {'actionType': 'setValue', 'key': 'isDraftLoading', 'value': true},
+          {'actionType': 'setValue', 'key': 'hasSelection', 'value': true},
+          {
+            'actionType': 'networkRequest',
+            'url':
+                'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/draft',
+            'method': 'post',
+            'headers': {
+              'accept': 'application/json',
+              'authorization': '{{auth.accessToken}}',
+              'content-type': 'application/json',
+            },
+            'data': {
+              'issuerType': 'I',
+              'sourceAccount': '{{selectedDeposit.depositNumber}}',
+              'issuerBirthDate': "{{replace(userData.birthDate, '/', '')}}",
+              'issuerNN': '{{userData.nationalCode}}',
+              'issuerSanaCheck': true,
+              'issuerCellphone': '{{removeLeadingZero(userData.mobile)}}',
+              'issuerFullName': '{{userData.fullName}}',
+              'issuerAccountNumber': '{{selectedDeposit.depositIban}}',
+              'issuerAddress': '{{userData.address}}',
+              'issuerPostalCode': '{{userData.postalCode}}',
+              'recipientType': 'I',
+              'recipientBirthDate': "{{replace(receiver.birthDate, '/', '')}}",
+              'recipientNationalId': '{{receiver.nationalCode}}',
+              'recipientCellphone': '{{removeLeadingZero(receiver.mobile)}}',
+              'recipientFullName': '{{receiverIdentity.fullName}}',
+              'paymentPlace': 'تهران، آرشام',
+              'amount': '{{toInt(form.promissory_amount)}}',
+              'dueDate': "{{replace(form.promissory_due_date, '/', '')}}",
+              'description': '{{form.description}}',
+              'transferable': true,
+            },
+            'results': [
+              {
+                'statusCode': 200,
+                'action': {
+                  'actionType': 'sequence',
+                  'actions': [
+                    {
+                      'actionType': 'setValue',
+                      'values': [
+                        {'key': 'isDraftLoading', 'value': false},
+                        {'key': 'hasSelection', 'value': true},
+                        {
+                          'key': 'form.unsigned_pdf_id',
+                          'value': '{{data_payload.unSignedPdfId}}',
+                        },
+                        {
+                          'key': 'form.promissory_id',
+                          'value': '{{data_payload.id}}',
+                        },
+                      ],
+                    },
+                    {
+                      'actionType': 'navigate',
+                      'widgetType': 'promissory_real_sign',
+                      'navigationStyle': 'push',
+                    },
+                  ],
+                },
+              },
+              {
+                'statusCode': 422,
+                'action': {
+                  'actionType': 'sequence',
+                  'actions': [
+                    {
+                      'actionType': 'setValue',
+                      'values': [
+                        {'key': 'isDraftLoading', 'value': false},
+                        {'key': 'hasSelection', 'value': true},
+                      ],
+                    },
+                    {
+                      'actionType': 'showSnackBar',
+                      'backgroundColor': '#D32F2F',
+                      'content': {
+                        'type': 'text',
+                        'data': '{{data.status.message.0}}',
+                        'style': {
+                          'type': 'custom',
+                          'color': '#FFFFFF',
+                          'fontSize': 14,
+                        },
+                      },
+                    },
+                  ],
+                },
+              },
+              {
+                'statusCode': -1,
+                'action': {
+                  'actionType': 'sequence',
+                  'actions': [
+                    {
+                      'actionType': 'setValue',
+                      'values': [
+                        {'key': 'isDraftLoading', 'value': false},
+                        {'key': 'hasSelection', 'value': true},
+                      ],
+                    },
+                    {
+                      'actionType': 'showSnackBar',
+                      'backgroundColor': '#D32F2F',
+                      'content': {
+                        'type': 'text',
+                        'data': '{{data.status.message.0}}',
+                        'style': {
+                          'type': 'custom',
+                          'color': '#FFFFFF',
+                          'fontSize': 14,
+                        },
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        ],
       },
       'onRetry': fetchDepositsAction.toJson(),
     }),
   );
+}
+
+class StacRawJsonWidget implements StacWidget {
+  final Map<String, dynamic> json;
+  StacRawJsonWidget(this.json);
+  @override
+  Map<String, dynamic> get jsonData => json;
+  @override
+  Map<String, dynamic> toJson() => json;
+  @override
+  String get type => json['type'] as String;
+  String? get id => json['id'] as String?;
 }
 
 class StacStatefulWidget extends StacWidget {
@@ -137,7 +274,6 @@ class StacStatefulWidget extends StacWidget {
   final dynamic onHidden;
   final dynamic onDetached;
   final StacWidget child;
-
   const StacStatefulWidget({
     this.onInit,
     this.onBuild,
@@ -153,7 +289,6 @@ class StacStatefulWidget extends StacWidget {
     this.onDetached,
     required this.child,
   });
-
   @override
   Map<String, dynamic> toJson() {
     return {
@@ -175,7 +310,6 @@ class StacStatefulWidget extends StacWidget {
       'child': child.toJson(),
     };
   }
-
   dynamic _actionToJson(dynamic action) {
     if (action == null) return null;
     if (action is Map) return action;
@@ -185,18 +319,6 @@ class StacStatefulWidget extends StacWidget {
       return action;
     }
   }
-}
-
-class StacRawJsonWidget implements StacWidget {
-  final Map<String, dynamic> json;
-  StacRawJsonWidget(this.json);
-  @override
-  Map<String, dynamic> get jsonData => json;
-  @override
-  Map<String, dynamic> toJson() => json;
-  @override
-  String get type => json['type'] as String;
-  String? get id => json['id'] as String?;
 }
 
 class StacSequenceAction extends StacAction {
@@ -221,49 +343,6 @@ class StacSequenceAction extends StacAction {
   }
 }
 
-class StacNetworkRequestAction extends StacAction {
-  final String url;
-  final String method;
-  final Map<String, dynamic>? data;
-  final Map<String, dynamic>? headers;
-  final List<dynamic>? results;
-  const StacNetworkRequestAction({
-    required this.url,
-    this.method = 'get',
-    this.data,
-    this.headers,
-    this.results,
-  });
-  @override
-  String get actionType => 'networkRequest';
-  @override
-  Map<String, dynamic> toJson() {
-    return {
-      'actionType': 'networkRequest',
-      'url': url,
-      'method': method,
-      if (data != null) 'data': data,
-      if (headers != null) 'headers': headers,
-      if (results != null)
-        'results': results!.map((r) {
-          if (r is Map) {
-            return r.map((key, value) {
-              if (value is StacAction) {
-                return MapEntry(key, value.toJson());
-              }
-              return MapEntry(key, value);
-            }).cast<String, dynamic>();
-          }
-          try {
-            return (r as dynamic).toJson();
-          } catch (_) {
-            return r;
-          }
-        }).toList(),
-    };
-  }
-}
-
 class StacCustomSetValueAction extends StacAction {
   final String? key;
   final dynamic value;
@@ -281,5 +360,33 @@ class StacCustomSetValueAction extends StacAction {
       processedValue = value.toJson();
     }
     return {'actionType': 'setValue', 'key': key, 'value': processedValue};
+  }
+}
+
+class StacNetworkRequestAction extends StacAction {
+  final String url;
+  final String method;
+  final Map<String, dynamic>? headers;
+  final Map<String, dynamic>? data;
+  final List<Map<String, dynamic>>? results;
+  const StacNetworkRequestAction({
+    required this.url,
+    required this.method,
+    this.headers,
+    this.data,
+    this.results,
+  });
+  @override
+  String get actionType => 'networkRequest';
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      'actionType': 'networkRequest',
+      'url': url,
+      'method': method,
+      if (headers != null) 'headers': headers,
+      if (data != null) 'data': data,
+      if (results != null) 'results': results,
+    };
   }
 }

@@ -232,6 +232,7 @@
         "payConfirmTitle": "پرداخت مبلغ سفته",
         "payConfirmMessage": "آیا از پرداخت مبلغ مورد نظر اطمینان دارید؟",
         "signConfirmationTitle": "از پرداخت هزینه صدور سفته مطمئن هستید؟",
+        "signTitledialog": "آیا از امضا سفته اطمینان دارید؟",
         "signConfirmationMessage": "در صورت لغو سفته امضا نشده، مبلغ تمبر به حساب شما برنمی‌گردد",
         "signaturePlace": "محل امضا",
         "signatureCoordinateInfo": "امضای شما در صفحه {{signPage}} مختصات ({{signX}}, {{signY}}) درج خواهد شد.",

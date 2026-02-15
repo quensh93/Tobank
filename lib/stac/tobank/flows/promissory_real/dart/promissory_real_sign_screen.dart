@@ -92,124 +92,54 @@ StacWidget promissoryRealSign() {
           ),
         ),
       ),
-      // Body always shows content
-      body: StacRawJsonWidget({
-        // Single Child Scroll View as root body to ensure everything scrolls
-        'type': 'singleChildScrollView',
-        'padding': 16,
-        'child': {
-          'type': 'column',
-          'crossAxisAlignment': 'stretch',
-          'textDirection': 'rtl',
-          'children': [
-            // Instructions
-            {
-              'type': 'container',
-              'width': 999999,
-              'height': 500,
-              'decoration': {
-                'color': '{{appColors.current.background.surfaceContainer}}',
-                'borderRadius': 8,
-                'border': {
-                  'color': '{{appColors.current.input.borderEnabled}}',
-                  'width': 1,
-                },
-              },
-              'child': {
-                'type': 'center',
-                'child': {
-                  'type': 'column',
-                  'mainAxisAlignment': 'center',
-                  'children': [
-                    {
-                      'type': 'image',
-                      'src': 'assets/icons/sign-pdf.svg',
-                      'imageType': 'asset',
-                      'width': 145,
-                      'height': 145,
-                    },
-                    {'type': 'sizedBox', 'height': 16},
-                    {
-                      'type': 'text',
-                      'data':
-                          '{{appStrings.promissory.signInstructionsDetail}}',
-                      'textDirection': 'rtl',
-                      'textAlign': 'center',
-                      'style': {
-                        'type': 'custom',
-                        'fontSize': 14,
-                        'color': '{{appColors.current.text.subtitle}}',
-                      },
-                    },
+      body: StacColumn(
+        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+        textDirection: StacTextDirection.rtl,
+        children: [
+          StacExpanded(
+            child: StacSingleChildScrollView(
+              padding: StacEdgeInsets.all(16),
+              child: StacCenter(
+                child: StacColumn(
+                  crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                  textDirection: StacTextDirection.rtl,
+                  children: [
+                    StacContainer(
+                      width: 999999,
+                      height: 500,
+                      child: StacCenter(
+                        child: StacColumn(
+                          mainAxisAlignment: StacMainAxisAlignment.center,
+                          children: [
+                            StacImage(
+                              src: 'assets/icons/sign-pdf.svg',
+                              imageType: StacImageType.asset,
+                              width: 145,
+                              height: 145,
+                            ),
+                            StacSizedBox(height: 16),
+                            StacText(
+                              data:
+                                  '{{appStrings.promissory.signInstructionsDetail}}',
+                              textDirection: StacTextDirection.rtl,
+                              textAlign: StacTextAlign.center,
+                              style: StacCustomTextStyle(
+                                fontSize: 14,
+                                color: '{{appColors.current.text.subtitle}}',
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
-                },
-              },
-            },
-            {'type': 'sizedBox', 'height': 24},
-
-            // Signature Area Info
-            {
-              'type': 'container',
-              'width': 999999,
-              'padding': 16,
-              'decoration': {
-                'color': '{{appColors.current.background.surfaceContainer}}',
-                'borderRadius': 8,
-                'border': {
-                  'color': '{{appColors.current.primary.color}}',
-                  'width': 1,
-                },
-              },
-              'child': {
-                'type': 'column',
-                'crossAxisAlignment': 'start',
-                'textDirection': 'rtl',
-                'children': [
-                  {
-                    'type': 'row',
-                    'textDirection': 'rtl',
-                    'children': [
-                      {
-                        'type': 'image',
-                        'src': 'assets/icons/ic_info.svg',
-                        'imageType': 'asset',
-                        'width': 20,
-                        'height': 20,
-                        'color': '{{appColors.current.primary.color}}',
-                      },
-                      {'type': 'sizedBox', 'width': 8},
-                      {
-                        'type': 'text',
-                        'data': '{{appStrings.promissory.signaturePlace}}',
-                        'textDirection': 'rtl',
-                        'style': {
-                          'type': 'custom',
-                          'fontSize': 14,
-                          'fontWeight': 'w600',
-                          'color': '{{appColors.current.primary.color}}',
-                        },
-                      },
-                    ],
-                  },
-                  {'type': 'sizedBox', 'height': 8},
-                  {
-                    'type': 'text',
-                    'data': '{{appStrings.promissory.signatureCoordinateInfo}}',
-                    'textDirection': 'rtl',
-                    'style': {
-                      'type': 'custom',
-                      'fontSize': 12,
-                      'color': '{{appColors.current.text.subtitle}}',
-                      'height': 1.5,
-                    },
-                  },
-                ],
-              },
-            },
-            {'type': 'sizedBox', 'height': 32},
-
-            // Sign and Finalize Button (Now inside scroll view)
-            {
+                ),
+              ),
+            ),
+          ),
+          StacPadding(
+            padding: StacEdgeInsets.all(16),
+            child: StacRawJsonWidget({
               'type': 'reactiveElevatedButton',
               'enabled': true,
               'loadingKey': 'isSigning',
@@ -218,38 +148,72 @@ StacWidget promissoryRealSign() {
                 'widget': {
                   'type': 'alertDialog',
                   'title': {
-                    'type': 'text',
-                    'data': '{{appStrings.promissory.signConfirmationTitle}}',
-                    'textDirection': 'rtl',
-                    'style': {
-                      'type': 'custom',
-                      'fontSize': 18,
-                      'fontWeight': 'bold',
-                      'color': '{{appColors.current.text.title}}',
-                    },
-                  },
-                  'content': {
-                    'type': 'text',
-                    'data': '{{appStrings.promissory.signConfirmationMessage}}',
-                    'textDirection': 'rtl',
-                    'style': {
-                      'type': 'custom',
-                      'fontSize': 14,
-                      'color': '{{appColors.current.text.subtitle}}',
-                    },
+                    'type': 'column',
+                    'mainAxisAlignment': 'center',
+                    'children': [
+                      {
+                        'type': 'container',
+                        'width': 48,
+                        'height': 48,
+                        'decoration': {
+                        },
+                        'child': {
+                          'type': 'image',
+                          'src': 'assets/icons/ic_info.svg',
+                          'imageType': 'asset',
+                          'width': 12,
+                          'height': 12,
+                          'color': '{{appColors.current.primary.color}}'
+                        }
+                      },
+                      {'type': 'sizedBox', 'height': 12},
+                      {
+                        'type': 'text',
+                        'data': '{{appStrings.promissory.signTitledialog}}',
+                        'textDirection': 'rtl',
+                        'textAlign': 'center',
+                        'style': {
+                          'type': 'custom',
+                          'fontSize': 16,
+                          'fontWeight': 'bold',
+                          'color': '{{appColors.current.text.title}}'
+                        }
+                      }
+                    ]
                   },
                   'actions': [
                     {
-                      'type': 'textButton',
-                      'onPressed': {'actionType': 'closeDialog'},
+                      'type': 'container',
+                      'decoration': StacBoxDecoration(
+                        borderRadius: StacBorderRadius.all(12),
+                        border: StacBorder.all(color: '#000000', width: 0.8),
+                      ).toJson(),
                       'child': {
-                        'type': 'text',
-                        'data': '{{appStrings.common.cancel}}',
-                        'textDirection': 'rtl',
-                      },
+                        'type': 'elevatedButton',
+                        'onPressed': {'actionType': 'closeDialog'},
+                        'style': StacButtonStyle(
+                          foregroundColor: '{{appColors.current.text.title}}',
+                          fixedSize: StacSize(120, 44),
+                          shape: StacRoundedRectangleBorder(
+                            borderRadius: StacBorderRadius.all(12),
+                          ),
+                          elevation: 0,
+                        ).toJson(),
+                        'child': {
+                          'type': 'text',
+                          'data': '{{appStrings.common.cancel}}',
+                          'textDirection': 'rtl',
+                          'style': {
+                            'type': 'custom',
+                            'fontSize': 16,
+                            'fontWeight': 'bold',
+                            'color': '{{appColors.current.text.title}}'
+                          }
+                        }
+                      }
                     },
                     {
-                      'type': 'textButton',
+                      'type': 'elevatedButton',
                       'onPressed': {
                         'actionType': 'sequence',
                         'actions': [
@@ -265,187 +229,107 @@ StacWidget promissoryRealSign() {
                               "y_ios": 450,
                               "width_ios": 150,
                               "height_ios": 50,
-                              "page": 0,
+                              "page": 0
                             },
                             promissoryTitle: 'سفته',
                             onSuccess: {
                               'actionType': 'sequence',
                               'actions': [
-                                {
-                                  'actionType': 'setValue',
-                                  'key': 'isSigning',
-                                  'value': true,
-                                },
-                                // Commented out - can be re-enabled later:
-                                {
-                                  'actionType': 'saveFile',
-                                  'fileName': 'signed_promissory.txt',
-                                  'content': '{{form.signed_pdf}}',
-                                },
+                                {'actionType': 'setValue','key':'isSigning','value':true},
                                 {
                                   'actionType': 'networkRequest',
-                                  'url':
-                                      'http://192.168.107.22:8280/api/digitalbanking/files/v1.0/promissory/upload/base64',
-                                  'method': 'post',
+                                  'url':'http://192.168.107.22:8280/api/digitalbanking/files/v1.0/promissory/upload/base64',
+                                  'method':'post',
                                   'headers': {
                                     'accept': '*/*',
                                     'app-platform': 'android',
                                     'app-store': 'application/json',
                                     'app-version': '456',
-                                    'device-uuid':
-                                        '5109ab4c-77ca-4f0c-9858-da4df58031d2',
-                                    'serviceauthorization':
-                                        'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
-                                    'authorization': '{{auth.accessToken}}',
+                                    'device-uuid':'5109ab4c-77ca-4f0c-9858-da4df58031d2',
+                                    'serviceauthorization':'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
+                                    'authorization':'{{auth.accessToken}}'
                                   },
-                                  'data': {
-                                    "fileName": "promisorry.pdf",
-                                    "contentType": "application/pdf",
-                                    "base64": "{{form.signed_pdf}}",
-                                  },
+                                  'data': {"fileName":"promisorry.pdf","contentType":"application/pdf","base64":"{{form.signed_pdf}}"},
                                   'results': [
                                     {
                                       'statusCode': 200,
                                       'action': {
                                         'actionType': 'sequence',
                                         'actions': [
+                                          {'actionType':'setValue','key':'form.signed_pdf_id','value':'{{data.data.id}}'},
                                           {
-                                            'actionType': 'setValue',
-                                            'key': 'form.signed_pdf_id',
-                                            'value':
-                                                '{{data.data.id}}', // FIXED: Use data.data.id
-                                          },
-                                          {
-                                            'actionType': 'networkRequest',
-                                            'url':
-                                                'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/finalize/{{form.promissory_id}}',
-                                            'method': 'post',
+                                            'actionType':'networkRequest',
+                                            'url':'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/finalize/{{form.promissory_id}}',
+                                            'method':'post',
                                             'headers': {
                                               'accept': '*/*',
                                               'app-platform': 'android',
                                               'app-store': 'application/json',
                                               'app-version': '456',
-                                              'device-uuid':
-                                                  '5109ab4c-77ca-4f0c-9858-da4df58031d2',
-                                              'serviceauthorization':
-                                                  'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
-                                              'authorization':
-                                                  '{{auth.accessToken}}',
+                                              'device-uuid':'5109ab4c-77ca-4f0c-9858-da4df58031d2',
+                                              'serviceauthorization':'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
+                                              'authorization':'{{auth.accessToken}}'
                                             },
-                                            'data': {
-                                              'signedPdfId':
-                                                  '{{form.signed_pdf_id}}',
-                                            },
+                                            'data': {'signedPdfId':'{{form.signed_pdf_id}}'},
                                             'results': [
                                               {
                                                 'statusCode': 200,
                                                 'action': {
                                                   'actionType': 'sequence',
                                                   'actions': [
-                                                    {
-                                                      'actionType': 'setValue',
-                                                      'key': 'isSigning',
-                                                      'value': false,
-                                                    },
-                                                    {
-                                                      'actionType': 'setValue',
-                                                      'values': [
-                                                        {
-                                                          'key': 'promissoryId',
-                                                          'value':
-                                                              '{{data.data.promissoryId}}',
-                                                        },
-                                                        {
-                                                          'key':
-                                                              'transactionAmount',
-                                                          'value':
-                                                              '{{form.promissory_amount}}',
-                                                        },
-                                                        {
-                                                          'key':
-                                                              'transactionTime',
-                                                          'value':
-                                                              '{{data.data.transactionTime}}',
-                                                        },
-                                                        {
-                                                          'key':
-                                                              'trackingNumber',
-                                                          'value':
-                                                              '{{data.data.trackingNumber}}',
-                                                        },
-                                                      ],
-                                                    },
-                                                    {
-                                                      'actionType': 'navigate',
-                                                      'widgetType':
-                                                          'promissory_real_success',
-                                                      'navigationStyle':
-                                                          'pushReplacement',
-                                                    },
-                                                  ],
-                                                },
+                                                    {'actionType':'setValue','key':'isSigning','value':false},
+                                                    {'actionType':'setValue','values':[
+                                                      {'key':'promissoryId','value':'{{data.data.promissoryId}}'},
+                                                      {'key':'transactionAmount','value':'{{form.promissory_amount}}'},
+                                                      {'key':'transactionTime','value':'{{data.data.transactionTime}}'},
+                                                      {'key':'trackingNumber','value':'{{data.data.trackingNumber}}'}
+                                                    ]},
+                                                    {'actionType':'navigate','widgetType':'promissory_real_success','navigationStyle':'pushReplacement'}
+                                                  ]
+                                                }
                                               },
                                               {
                                                 'statusCode': -1,
                                                 'action': {
                                                   'actionType': 'sequence',
                                                   'actions': [
-                                                    {
-                                                      'actionType': 'setValue',
-                                                      'key': 'isSigning',
-                                                      'value': false,
-                                                    },
-                                                    {
-                                                      'actionType':
-                                                          'showSnackBar',
-                                                      'content': {
-                                                        'type': 'text',
-                                                        'data':
-                                                            'finalize failed',
-                                                      },
-                                                    },
-                                                  ],
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        ],
-                                      },
+                                                    {'actionType':'setValue','key':'isSigning','value':false},
+                                                    {'actionType':'showSnackBar','content':{'type':'text','data':'finalize failed'}}
+                                                  ]
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
                                     },
                                     {
                                       'statusCode': -1,
                                       'action': {
                                         'actionType': 'sequence',
                                         'actions': [
-                                          {
-                                            'actionType': 'setValue',
-                                            'key': 'isSigning',
-                                            'value': false,
-                                          },
-                                          {
-                                            'actionType': 'showSnackBar',
-                                            'content': {
-                                              'type': 'text',
-                                              'data': 'upload failed',
-                                            },
-                                          },
-                                        ],
-                                      },
-                                    },
-                                  ],
-                                },
-                              ],
+                                          {'actionType':'setValue','key':'isSigning','value':false},
+                                          {'actionType':'showSnackBar','content':{'type':'text','data':'upload failed'}}
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
                             },
-                            onFailure: {
-                              'actionType': 'showSnackBar',
-                              'content': {
-                                'type': 'text',
-                                'data': '{{appStrings.promissory.signError}}',
-                              },
-                            },
-                          ).toJson(),
-                        ],
+                            onFailure: {'actionType':'showSnackBar','content':{'type':'text','data':'{{appStrings.promissory.signError}}'}}
+                          ).toJson()
+                        ]
                       },
+                      'style': StacButtonStyle(
+                        backgroundColor: '{{appColors.current.primary.color}}',
+                        foregroundColor: '{{appColors.current.primary.onPrimary}}',
+                        fixedSize: StacSize(120, 44),
+                        shape: StacRoundedRectangleBorder(
+                          borderRadius: StacBorderRadius.all(12),
+                        ),
+                        elevation: 0,
+                      ).toJson(),
                       'child': {
                         'type': 'text',
                         'data': '{{appStrings.common.confirm}}',
@@ -454,19 +338,34 @@ StacWidget promissoryRealSign() {
                           'type': 'custom',
                           'fontSize': 16,
                           'fontWeight': 'bold',
-                          'color': '{{appColors.current.primary.onPrimary}}',
-                        },
-                      },
-                    },
+                          'color': '{{appColors.current.primary.onPrimary}}'
+                        }
+                      }
+                    }
                   ],
                 },
               },
-            },
-            // Bottom spacing in scroll view
-            {'type': 'sizedBox', 'height': 32},
-          ],
-        },
-      }),
+              'style': StacButtonStyle(
+                backgroundColor: '{{appColors.current.primary.color}}',
+                elevation: 0,
+                fixedSize: StacSize(999999, 56),
+                shape: StacRoundedRectangleBorder(
+                  borderRadius: StacBorderRadius.all(12),
+                ),
+              ).toJson(),
+              'child': StacText(
+                data: 'امضا سفته',
+                textDirection: StacTextDirection.rtl,
+                style: StacCustomTextStyle(
+                  fontSize: 18,
+                  fontWeight: StacFontWeight.bold,
+                  color: '{{appColors.current.primary.onPrimary}}',
+                ),
+              ).toJson(),
+            }),
+          ),
+        ],
+      ),
     ),
   );
 }
