@@ -716,10 +716,20 @@ dynamic resolveVariablesPreservingTypes(dynamic json, StacRegistry registry) {
         }
       }
     }
-    return json.map(
+    final resolved = json.map(
       (key, value) =>
           MapEntry(key, resolveVariablesPreservingTypes(value, registry)),
     );
+    // CRITICAL FIX: Text widgets require "data" to be a String.
+    // After variable resolution and numeric conversion, the "data" field
+    // may become an int/double (e.g. promissory.fees.total: "200100" -> 200100).
+    // StacText.fromJson does `json['data'] as String` which crashes on non-String types.
+    if (resolved['type'] == 'text' &&
+        resolved.containsKey('data') &&
+        resolved['data'] is! String) {
+      resolved['data'] = resolved['data'].toString();
+    }
+    return resolved;
   } else if (json is List) {
     return json
         .map((item) => resolveVariablesPreservingTypes(item, registry))
