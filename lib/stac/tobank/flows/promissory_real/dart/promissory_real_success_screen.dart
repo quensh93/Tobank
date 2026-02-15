@@ -128,7 +128,7 @@ StacWidget promissoryRealSuccess() {
                         StacSizedBox(height: 16),
                         _buildDetailRow(
                           '{{appStrings.promissory.paidVia}}',
-                          '{{serverSignedPdfId}}',
+                          'حساب بانکی',
                         ),
                         StacSizedBox(height: 16),
                         _buildDivider(),
