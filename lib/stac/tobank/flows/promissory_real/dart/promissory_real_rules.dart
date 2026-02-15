@@ -80,7 +80,8 @@ StacWidget promissoryRealRules() {
                       child: StacSingleChildScrollView(
                         padding: StacEdgeInsets.all(16),
                         child: StacText(
-                          data: '{{appStrings.promissory.rulesContentPromissory}}',
+                          data:
+                              '{{appStrings.promissory.rulesContentPromissory}}',
                           textDirection: StacTextDirection.rtl,
                           style: StacCustomTextStyle(
                             fontSize: 14,
@@ -99,7 +100,7 @@ StacWidget promissoryRealRules() {
           StacSizedBox(height: 20),
           // Checkbox Row
           StacPadding(
-            padding: StacEdgeInsets.symmetric(horizontal: 16 , vertical: 4),
+            padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 4),
             child: StacContainer(
               decoration: StacBoxDecoration(
                 color: '{{appColors.current.background.surfaceContainer}}',
@@ -212,7 +213,7 @@ StacWidget promissoryRealRules() {
                             },
                             {
                               'actionType': 'navigate',
-                              'widgetType': 'promissory_real_deposits',
+                              'widgetType': 'promissory_real_issuer',
                               'navigationStyle': 'push',
                             },
                           ],

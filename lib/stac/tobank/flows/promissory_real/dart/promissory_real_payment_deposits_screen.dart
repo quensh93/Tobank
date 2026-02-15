@@ -125,7 +125,7 @@ StacWidget promissoryRealPaymentDeposits() {
         'actionType': 'sequence',
         'actions': [
           {'actionType': 'setValue', 'key': 'isDraftLoading', 'value': true},
-          {'actionType': 'setValue', 'key': 'hasSelection', 'value': false},
+          {'actionType': 'setValue', 'key': 'hasSelection', 'value': true},
           {
             'actionType': 'networkRequest',
             'url':
