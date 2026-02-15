@@ -8,6 +8,7 @@ import '../../builders/stac_promissory_sign_action.dart';
 import '../../../../model/common/sign_document_data.dart';
 // import '../../../../stac/tobank/flows/promissory_real/utils/promissory_sign_util.dart'; // Deprecated
 import '../../../../features/signing/signing_service.dart';
+import 'package:secure_plugin/secure_plugin.dart' as secure;
 import '../../../../core/storage/storage_util.dart';
 import '../../../../model/common/auth_info_data.dart';
 
@@ -228,7 +229,7 @@ class PromissorySignActionParser
             android: SignRect(x: x, y: y, width: w, height: h),
             ios: SignRect(x: xIos, y: yIos, width: wIos, height: hIos),
             signPageIndex: page,
-            digitalSignatureRequired: false, // Visual signature only
+            digitalSignatureRequired: true, // Both visual + digital signature
           ),
         );
       } else {
@@ -237,7 +238,7 @@ class PromissorySignActionParser
             android: SignRect(x: 450, y: 450, width: 150, height: 50),
             ios: SignRect(x: 450, y: 450, width: 150, height: 50),
             signPageIndex: 0,
-            digitalSignatureRequired: false, // Visual signature only
+            digitalSignatureRequired: true, // Both visual + digital signature
           ),
         );
       }
@@ -259,6 +260,43 @@ class PromissorySignActionParser
           await StorageUtil.getAuthInfoDataSecureStorage();
       final String? userCertificate = await StorageUtil.getUserCertificate();
       final String mobile = authInfo?.mobile ?? '09120000000'; // Fallback
+
+      // Ensure RSA key pair exists in Android KeyStore
+      final String keyAlias = mobile;
+      final enrollResult = await secure.SecurePlugin.isEnroll(
+        phoneNumber: keyAlias,
+      );
+      AppLogger.i(
+        'PromissorySignActionParser: isEnroll result: ${enrollResult.isSuccess}, message: ${enrollResult.message}',
+      );
+      debugPrint(
+        'PromissorySignActionParser: isEnroll result: ${enrollResult.isSuccess}',
+      );
+
+      if (enrollResult.isSuccess != true) {
+        // Key does not exist, generate it
+        AppLogger.i(
+          'PromissorySignActionParser: Key not found, generating new key pair...',
+        );
+        debugPrint(
+          'PromissorySignActionParser: Key not found, generating new key pair...',
+        );
+        final genResult = await secure.SecurePlugin.generateKeys(
+          phoneNumber: keyAlias,
+          nameEnglish: 'User',
+        );
+        AppLogger.i(
+          'PromissorySignActionParser: generateKeys result: ${genResult.isSuccess}, message: ${genResult.message}',
+        );
+        debugPrint(
+          'PromissorySignActionParser: generateKeys result: ${genResult.isSuccess}',
+        );
+        if (genResult.isSuccess != true) {
+          throw Exception(
+            'Failed to generate signing key: ${genResult.message}',
+          );
+        }
+      }
 
       // Prepare Data
       final SignDocumentData signDocumentData = SignDocumentData(

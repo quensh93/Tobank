@@ -198,7 +198,6 @@ StacWidget _buildServiceCard({
                 imageType: StacImageType.asset,
                 width: 30,
                 height: 30,
-
               ),
             ),
           ),

@@ -8,7 +8,7 @@ import 'package:syncfusion_flutter_pdf/pdf.dart';
 import 'package:collection/collection.dart'; // For firstWhereOrNull
 
 // Local imports
-import '../../core/plugins/secure_plugin.dart';
+import 'package:secure_plugin/secure_plugin.dart';
 // import '../../core/plugins/secure_web_plugin.dart'; // Uncomment if web needed and file exists
 
 import '../../model/common/sign_document_data.dart';
@@ -127,8 +127,7 @@ class SigningService {
       // return await _digitalSignYektaWeb(...);
       throw UnimplementedError("Web signing needs SecureWebPlugin");
     } else if (Platform.isAndroid) {
-      // Android Native Plugin call
-      // We use the mock SecurePlugin we imported
+      // Android Native Plugin call via MethodChannel
       final result = await SecurePlugin.newSignPdf(
         phoneNumber: keyAlias,
         pdfBase64: documentBase64,
@@ -142,7 +141,7 @@ class SigningService {
         signatureWidth: location.android.width.toInt(),
         signatureHeight: location.android.height.toInt(),
         signaturePage: location.signPageIndex,
-        signatureNameFamily: 'User Name', // Pass user english name if available
+        signatureNameFamily: 'mahdi jamshidpour', // Pass user english name if available
       );
       return result.isSuccess == true ? result.data : null;
     } else {
