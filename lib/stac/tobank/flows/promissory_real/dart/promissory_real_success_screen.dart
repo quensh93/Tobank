@@ -191,8 +191,9 @@ StacWidget promissoryRealSuccess() {
                                 // Preview Button
                                 StacGestureDetector(
                                   onTap: StacRawJsonAction({
-                                    'actionType': 'log',
-                                    'message': 'Preview PDF',
+                                    'actionType': 'navigate',
+                                    'widgetType': 'promissory_real_preview',
+                                    'navigationStyle': 'push',
                                   }),
                                   child: StacPadding(
                                     padding: StacEdgeInsets.all(8),

@@ -285,7 +285,10 @@
         "descriptionHint": "توضیحات صدور سفته را وارد نمایید",
         "paymentPlaceHint": "آدرس محل پرداخت را بنویسید (تا ۲۰۰ کاراکتر)",
         "loadingText": "در حال دریافت...",
-        "issuanceTitle": "صدور سفته"
+        "issuanceTitle": "صدور سفته",
+        "previewScreenTitle": "نمایش سفته",
+        "saveButton": "ذخیره",
+        "shareButton": "اشتراک گذاری"
       }
     }
   }

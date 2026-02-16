@@ -26,6 +26,7 @@ import '../parsers/widgets/custom_text_form_field_parser.dart';
 import '../parsers/widgets/promissory_real_loader_parser.dart';
 import '../../../../stac/tobank/flows/promissory_real/service/promissory_login_action_parser.dart';
 import '../parsers/actions/save_file_action_parser.dart';
+import '../parsers/actions/share_file_action_parser.dart';
 
 import '../parsers/widgets/promissory_real_deposits_parser.dart';
 import '../parsers/widgets/promissory_real_issuer_parser.dart';
@@ -34,6 +35,7 @@ import '../parsers/actions/show_snackbar_action_parser.dart';
 import '../parsers/actions/finger_print_action_parser.dart';
 import '../parsers/actions/auth_persist_action_parser.dart';
 import '../parsers/actions/promissory_sign_action_parser.dart';
+import '../parsers/widgets/pdf_preview_parser.dart';
 
 /// Register all custom STAC parsers with the STAC framework.
 ///
@@ -95,7 +97,8 @@ Future<void> registerCustomParsers() async {
 
         // Register with STAC framework
         // NOTE: For some core widgets (e.g. 'image') we intentionally override.
-        final success = (type == 'image' ||
+        final success =
+            (type == 'image' ||
                 type == 'visibility' ||
                 type == 'stateful' ||
                 type == 'stateFull')
@@ -405,6 +408,14 @@ void _registerExampleParsers() {
 
   // Register saveFile action parser
   CustomComponentRegistry.instance.registerAction(const SaveFileActionParser());
+
+  // Register shareFile action parser for sharing files via share_plus
+  CustomComponentRegistry.instance.registerAction(
+    const ShareFileActionParser(),
+  );
+
+  // Register pdfPreview widget parser for rendering base64 PDFs
+  CustomComponentRegistry.instance.registerWidget(const PdfPreviewParser());
 }
 
 /// Unregister all custom parsers from the STAC framework.
