@@ -9,11 +9,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="get promissory from server and finalize">
+    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="merge with ali works">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/stac/parsers/widgets/promissory_real_issuer_parser.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/stac/registry/register_custom_parsers.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/registry/register_custom_parsers.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_issuer_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_issuer_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_sign_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_sign_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_success_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart/promissory_real_success_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +92,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart" />
       <recent name="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload" />
       <recent name="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real" />
     </key>
@@ -289,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771231542024</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="merge with ali works">
+      <option name="closed" value="true" />
+      <created>1771304033021</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1771304033021</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -323,6 +331,7 @@
     <MESSAGE value="add fingerprint and load json files" />
     <MESSAGE value="create upload endpoint and finalize endpoint" />
     <MESSAGE value="get promissory from server and finalize" />
-    <option name="LAST_COMMIT_MESSAGE" value="get promissory from server and finalize" />
+    <MESSAGE value="merge with ali works" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge with ali works" />
   </component>
 </project>

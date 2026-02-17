@@ -207,23 +207,6 @@ StacWidget promissoryRealSuccess() {
                                   ),
                                 ),
                                 StacSizedBox(width: 8),
-                                // Share Button
-                                StacGestureDetector(
-                                  onTap: StacRawJsonAction({
-                                    'actionType': 'log',
-                                    'message': 'Share PDF',
-                                  }),
-                                  child: StacPadding(
-                                    padding: StacEdgeInsets.all(8),
-                                    child: StacImage(
-                                      src: 'assets/icons/ic_share.svg',
-                                      imageType: StacImageType.asset,
-                                      width: 24,
-                                      height: 24,
-                                      color: '{{appColors.current.text.title}}',
-                                    ),
-                                  ),
-                                ),
                               ],
                             ),
                           ],

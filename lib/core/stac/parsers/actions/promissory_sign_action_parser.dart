@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
 
 import '../../../helpers/logger.dart';
-import '../../../services/biometric/biometric_service.dart';
 import '../../builders/stac_promissory_sign_action.dart';
 import '../../../../model/common/sign_document_data.dart';
 // import '../../../../stac/tobank/flows/promissory_real/utils/promissory_sign_util.dart'; // Deprecated
@@ -33,169 +32,28 @@ class PromissorySignActionParser
   FutureOr onCall(BuildContext context, StacPromissorySignAction model) async {
     AppLogger.i('PromissorySignActionParser: onCall started');
 
-    // 1. Check Biometric Availability & Authenticate
-    bool isAvailable = await BiometricService.isAvailable();
-    AppLogger.i(
-      'PromissorySignActionParser: Biometric available: $isAvailable',
-    );
-
-    if (!isAvailable) {
-      if (context.mounted && model.onFailure != null) {
-        Stac.onCallFromJson(model.onFailure!, context);
-      }
-      return;
-    }
-
-    // Show BottomSheet explanation
     if (!context.mounted) return;
 
-    await showModalBottomSheet(
-      context: context,
-      isDismissible: true,
-      enableDrag: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (sheetContext) {
-        // Use StatefulBuilder to manage local loading state
-        bool isLoading = false;
+    try {
+      // Directly perform signing — the user has already confirmed via the dialog
+      final success = await _performSigningAndSuccess(context, model);
 
-        return StatefulBuilder(
-          builder: (context, setState) {
-            // Helper to update state safely
-            void setLoading(bool value) {
-              setState(() {
-                isLoading = value;
-              });
-            }
+      if (!success && context.mounted && model.onFailure != null) {
+        Stac.onCallFromJson(model.onFailure!, context);
+      }
+    } catch (e, s) {
+      AppLogger.e('PromissorySignActionParser: Error during flow: $e\n$s');
+      debugPrint('PromissorySignActionParser: Error during flow: $e');
 
-            return Container(
-              padding: const EdgeInsets.all(24),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Icon(Icons.fingerprint, size: 64, color: Colors.blue),
-                  const SizedBox(height: 16),
-                  const Text(
-                    'تایید امضا',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 8),
-                  const Text(
-                    'لطفا برای ثبت امضا از اثر انگشت استفاده کنید',
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 24),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: isLoading
-                          ? null
-                          : () async {
-                              setLoading(true);
-                              AppLogger.i(
-                                'PromissorySignActionParser: Fingerprint confirm button pressed',
-                              );
-                              debugPrint(
-                                'PromissorySignActionParser: Fingerprint confirm button pressed',
-                              );
-
-                              try {
-                                // 1. Trigger Authentication
-                                AppLogger.i(
-                                  'PromissorySignActionParser: Triggering biometric auth',
-                                );
-                                debugPrint(
-                                  'PromissorySignActionParser: Triggering biometric auth',
-                                );
-
-                                bool authenticated =
-                                    await BiometricService.authenticate(
-                                      reason: 'تایید امضای سفته',
-                                    );
-                                AppLogger.i(
-                                  'PromissorySignActionParser: Biometric auth result: $authenticated',
-                                );
-                                debugPrint(
-                                  'PromissorySignActionParser: Biometric auth result: $authenticated',
-                                );
-
-                                if (!authenticated) {
-                                  // Auth Failed
-                                  if (sheetContext.mounted)
-                                    Navigator.pop(sheetContext);
-
-                                  AppLogger.w(
-                                    'PromissorySignActionParser: Biometric auth failed',
-                                  );
-                                  debugPrint(
-                                    'PromissorySignActionParser: Biometric auth failed',
-                                  );
-
-                                  // Show Error on Parent Context
-                                  if (context.mounted) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                        content: Text('احراز هویت انجام نشد'),
-                                      ),
-                                    );
-                                  }
-                                  return;
-                                }
-
-                                // 2. Perform Signing (if auth success)
-                                if (sheetContext.mounted) {
-                                  // We use sheetContext for the action.
-                                  // If it returns false (failure), we will close the sheet here.
-                                  // If it returns true (success), it might have already navigated,
-                                  // or we close the sheet.
-                                  await _performSigningAndSuccess(
-                                    sheetContext,
-                                    model,
-                                  );
-
-                                  if (sheetContext.mounted) {
-                                    Navigator.pop(sheetContext);
-                                  }
-                                }
-                              } catch (e, s) {
-                                // Exception in Flow
-                                if (sheetContext.mounted)
-                                  Navigator.pop(sheetContext);
-
-                                AppLogger.e(
-                                  'PromissorySignActionParser: Error during flow: $e\n$s',
-                                );
-                                debugPrint(
-                                  'PromissorySignActionParser: Error during flow: $e',
-                                );
-
-                                if (context.mounted) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(content: Text('خطا: $e')),
-                                  );
-                                }
-                              }
-                            },
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                      ),
-                      child: isLoading
-                          ? const SizedBox(
-                              height: 24,
-                              width: 24,
-                              child: CircularProgressIndicator(strokeWidth: 2),
-                            )
-                          : const Text('تایید'),
-                    ),
-                  ),
-                ],
-              ),
-            );
-          },
-        );
-      },
-    );
+      if (context.mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('خطا: $e')));
+        if (model.onFailure != null) {
+          Stac.onCallFromJson(model.onFailure!, context);
+        }
+      }
+    }
   }
 
   /// Returns true if signing and onSuccess were successful/executed.
