@@ -1,0 +1,75 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "sequence",
+    "actions": [
+      {
+        "actionType": "delay",
+        "duration": 2000
+      },
+      {
+        "actionType": "navigate",
+        "navigationStyle": "push",
+        "request": {
+          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.login_real_onboarding/1",
+          "method": "post",
+          "headers": {
+            "Content-Type": "application/json",
+            "Accept": "*/*"
+          },
+          "body": {
+            "operator": "is",
+            "dimension": {
+              "app": "mobile"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "child": {
+    "backgroundColor": "#FFFFFF",
+    "body": {
+      "child": {
+        "decoration": {
+          "borderRadius": {
+            "topLeft": 24.0,
+            "topRight": 24.0,
+            "bottomLeft": 24.0,
+            "bottomRight": 24.0
+          },
+          "boxShadow": [
+            {
+              "color": "#1A000000",
+              "blurRadius": 90.0,
+              "offset": {
+                "dx": 0.0,
+                "dy": 4.0
+              }
+            }
+          ]
+        },
+        "child": {
+          "borderRadius": {
+            "topLeft": 24.0,
+            "topRight": 24.0,
+            "bottomLeft": 24.0,
+            "bottomRight": 24.0
+          },
+          "child": {
+            "src": "assets/icons/ic_tobank_logo.svg",
+            "imageType": "asset",
+            "width": 150.0,
+            "height": 150.0,
+            "fit": "contain",
+            "type": "image"
+          },
+          "type": "clipRRect"
+        },
+        "type": "container"
+      },
+      "type": "center"
+    },
+    "type": "scaffold"
+  }
+}

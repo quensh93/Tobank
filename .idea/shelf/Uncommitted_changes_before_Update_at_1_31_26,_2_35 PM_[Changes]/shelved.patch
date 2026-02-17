@@ -1,0 +1,58 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AndroidLayouts\">\n    <shared>\n      <config />\n    </shared>\n  </component>\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"NONE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"44d13ef4-e440-4bbe-b624-422653eddbaf\" name=\"Changes\" comment=\"fix load request in dart flow\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/lib/stac/ready_for_build/request_promissory_deposit_page.dart\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/lib/stac/tobank/flows/promissory/dart/promissory_intro.dart\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/lib/stac/tobank/flows/promissory/dart/promissory_intro.dart\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ClangdSettings\">\n    <option name=\"formatViaClangd\" value=\"false\" />\n  </component>\n  <component name=\"FileEditorManager\">\n    <leaf>\n      <file leaf-file-name=\"main.dart\" pinned=\"false\" current-in-tab=\"true\">\n        <entry file=\"file://$PROJECT_DIR$/lib/main.dart\">\n          <provider selected=\"true\" editor-type-id=\"text-editor\">\n            <state relative-caret-position=\"0\">\n              <caret line=\"0\" column=\"0\" lean-forward=\"false\" selection-start-line=\"0\" selection-start-column=\"0\" selection-end-line=\"0\" selection-end-column=\"0\" />\n            </state>\n          </provider>\n        </entry>\n      </file>\n    </leaf>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"mjp\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\">{\n  &quot;lastFilter&quot;: {\n    &quot;state&quot;: &quot;OPEN&quot;,\n    &quot;assignee&quot;: &quot;mahdijamshidpour&quot;\n  }\n}</component>\n  <component name=\"GithubPullRequestsUISettings\">{\n  &quot;selectedUrlAndAccountId&quot;: {\n    &quot;url&quot;: &quot;https://github.com/quensh93/Tobank.git&quot;,\n    &quot;accountId&quot;: &quot;6282ab1f-fd0a-4adc-8c86-5e8a84f8cdb2&quot;\n  }\n}</component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 7\n}</component>\n  <component name=\"ProjectId\" id=\"37uvlngP03G4yRnkQYfTulrrBXV\" />\n  <component name=\"ProjectView\">\n    <navigator currentView=\"ProjectPane\" proportions=\"\" version=\"1\" />\n    <panes>\n      <pane id=\"ProjectPane\">\n        <option name=\"show-excluded-files\" value=\"false\" />\n      </pane>\n    </panes>\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;Flutter.main.dart.executor&quot;: &quot;Run&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,\n    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,\n    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,\n    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\n    &quot;io.flutter.project.isFirstOpen&quot;: &quot;true&quot;,\n    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\n    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;\n  }\n}</component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"44d13ef4-e440-4bbe-b624-422653eddbaf\" name=\"Changes\" comment=\"\" />\n      <created>1767765923598</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1767765923598</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"work on promissory pages\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1769338561335</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1769338561335</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"work on promissory pages\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1769422928735</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1769422928735</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"fix reload deposit page problem\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1769424507619</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1769424507619</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"work on all promissory pages\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1769841766625</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1769841766625</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"fix load request in dart flow\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1769846028526</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1769846028526</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"6\" />\n    <servers />\n  </component>\n  <component name=\"ToolWindowManager\">\n    <editor active=\"true\" />\n    <layout>\n      <window_info id=\"Project\" active=\"false\" anchor=\"left\" auto_hide=\"false\" internal_type=\"DOCKED\" type=\"DOCKED\" visible=\"true\" show_stripe_button=\"true\" weight=\"0.25\" sideWeight=\"0.5\" order=\"0\" side_tool=\"false\" content_ui=\"combo\" />\n    </layout>\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"work on promissory pages\" />\n    <MESSAGE value=\"fix reload deposit page problem\" />\n    <MESSAGE value=\"work on all promissory pages\" />\n    <MESSAGE value=\"fix load request in dart flow\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"fix load request in dart flow\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 39c6941d6cd6ba0747b3fb948fb293e9d9b95fde)
++++ b/.idea/workspace.xml	(date 1769857497639)
+@@ -9,11 +9,7 @@
+     <option name="autoReloadType" value="NONE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="fix load request in dart flow">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/request_promissory_deposit_page.dart" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/dart/promissory_intro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/dart/promissory_intro.dart" afterDir="false" />
+-    </list>
++    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="complete sign / payment and success page" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -137,7 +133,23 @@
+       <option name="project" value="LOCAL" />
+       <updated>1769846028526</updated>
+     </task>
+-    <option name="localTasksCounter" value="6" />
++    <task id="LOCAL-00006" summary="complete sign / payment and success page">
++      <option name="closed" value="true" />
++      <created>1769857378448</created>
++      <option name="number" value="00006" />
++      <option name="presentableId" value="LOCAL-00006" />
++      <option name="project" value="LOCAL" />
++      <updated>1769857378448</updated>
++    </task>
++    <task id="LOCAL-00007" summary="complete sign / payment and success page">
++      <option name="closed" value="true" />
++      <created>1769857383521</created>
++      <option name="number" value="00007" />
++      <option name="presentableId" value="LOCAL-00007" />
++      <option name="project" value="LOCAL" />
++      <updated>1769857383521</updated>
++    </task>
++    <option name="localTasksCounter" value="8" />
+     <servers />
+   </component>
+   <component name="ToolWindowManager">
+@@ -162,6 +174,7 @@
+     <MESSAGE value="fix reload deposit page problem" />
+     <MESSAGE value="work on all promissory pages" />
+     <MESSAGE value="fix load request in dart flow" />
+-    <option name="LAST_COMMIT_MESSAGE" value="fix load request in dart flow" />
++    <MESSAGE value="complete sign / payment and success page" />
++    <option name="LAST_COMMIT_MESSAGE" value="complete sign / payment and success page" />
+   </component>
+ </project>
+\ No newline at end of file
