@@ -625,23 +625,33 @@
                                         "values": [
                                           {
                                             "key": "legal_national_id",
-                                            "value": "{{userData.nationalCode}}",
+                                            "value": "10320435268",
                                             "condition": "isLegalReceiverTourismBank"
                                           },
                                           {
                                             "key": "legal_contact_number",
-                                            "value": "{{login.mobile}}",
+                                            "value": "02123952395",
                                             "condition": "isLegalReceiverTourismBank"
-                                          }
-                                        ]
-                                      },
-                                      {
-                                        "actionType": "validateFields",
-                                        "resultKey": "isReceiverFormValid",
-                                        "fields": [
+                                          },
                                           {
-                                            "id": "legal_national_id",
-                                            "rule": "^\\d{10}$"
+                                            "key": "legal_national_id",
+                                            "value": "",
+                                            "condition": "!isLegalReceiverTourismBank"
+                                          },
+                                          {
+                                            "key": "legal_contact_number",
+                                            "value": "",
+                                            "condition": "!isLegalReceiverTourismBank"
+                                          },
+                                          {
+                                            "key": "isReceiverFormValid",
+                                            "value": true,
+                                            "condition": "isLegalReceiverTourismBank"
+                                          },
+                                          {
+                                            "key": "isReceiverFormValid",
+                                            "value": false,
+                                            "condition": "!isLegalReceiverTourismBank"
                                           }
                                         ]
                                       }
@@ -678,7 +688,7 @@
                           "id": "legal_national_id",
                           "textDirection": "rtl",
                           "textAlign": "right",
-                          "maxLength": 10,
+                          "maxLength": 11,
                           "inputFormatters": [
                             {
                               "type": "allow",
@@ -699,7 +709,7 @@
                           "textInputAction": "next",
                           "validatorRules": [
                             {
-                              "rule": "^\\d{10}$",
+                              "rule": "^\\d{10,}$",
                               "message": "شناسه ملی معتبر نیست"
                             }
                           ],
@@ -709,7 +719,11 @@
                             "fields": [
                               {
                                 "id": "legal_national_id",
-                                "rule": "^\\d{10}$"
+                                "rule": "^\\d{10,}$"
+                              },
+                              {
+                                "id": "legal_contact_number",
+                                "rule": "^\\d{10,}$"
                               }
                             ]
                           }
@@ -757,13 +771,23 @@
                           },
                           "keyboardType": "phone",
                           "textInputAction": "done",
+                          "validatorRules": [
+                            {
+                              "rule": "^\\d{10,}$",
+                              "message": "شماره تماس معتبر نیست"
+                            }
+                          ],
                           "onChanged": {
                             "actionType": "validateFields",
                             "resultKey": "isReceiverFormValid",
                             "fields": [
                               {
                                 "id": "legal_national_id",
-                                "rule": "^\\d{10}$"
+                                "rule": "^\\d{10,}$"
+                              },
+                              {
+                                "id": "legal_contact_number",
+                                "rule": "^\\d{10,}$"
                               }
                             ]
                           }

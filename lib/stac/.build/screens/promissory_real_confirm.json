@@ -109,14 +109,14 @@
                             "type": "text"
                           },
                           {
-                            "data": "{{form.promissory_amount}} {{appStrings.common.rial}}",
+                            "data": "{{form.promissory_amount_display}} {{appStrings.common.rial}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
                               "fontSize": 14.0,
                               "fontWeight": "w600"
                             },
-                            "textDirection": "ltr",
+                            "textDirection": "rtl",
                             "type": "text"
                           }
                         ],
@@ -147,14 +147,14 @@
                             "type": "text"
                           },
                           {
-                            "data": "{{form.promissory_due_date}}",
+                            "data": "{{form.promissory_due_date_display}}",
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
                               "fontSize": 14.0,
                               "fontWeight": "w600"
                             },
-                            "textDirection": "ltr",
+                            "textDirection": "rtl",
                             "type": "text"
                           }
                         ],

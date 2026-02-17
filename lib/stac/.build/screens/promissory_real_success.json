@@ -158,7 +158,7 @@
                           },
                           {
                             "child": {
-                              "data": "{{transactionAmount}} {{appStrings.common.rial}}",
+                              "data": "{{transactionAmountDisplay}} {{appStrings.common.rial}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -166,7 +166,7 @@
                                 "fontWeight": "w600"
                               },
                               "textAlign": "left",
-                              "textDirection": "ltr",
+                              "textDirection": "rtl",
                               "type": "text"
                             },
                             "type": "expanded"
@@ -179,9 +179,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "decoration": {
-                          "color": "{{appColors.current.input.borderEnabled}}"
-                        },
+                        "color": "{{appColors.current.input.borderEnabled}}",
                         "height": 1.0,
                         "type": "container"
                       },
@@ -221,7 +219,7 @@
                                 "fontWeight": "w600"
                               },
                               "textAlign": "left",
-                              "textDirection": "ltr",
+                              "textDirection": "rtl",
                               "type": "text"
                             },
                             "type": "expanded"
@@ -234,9 +232,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "decoration": {
-                          "color": "{{appColors.current.input.borderEnabled}}"
-                        },
+                        "color": "{{appColors.current.input.borderEnabled}}",
                         "height": 1.0,
                         "type": "container"
                       },
@@ -276,7 +272,7 @@
                                 "fontWeight": "w600"
                               },
                               "textAlign": "left",
-                              "textDirection": "ltr",
+                              "textDirection": "rtl",
                               "type": "text"
                             },
                             "type": "expanded"
@@ -289,9 +285,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "decoration": {
-                          "color": "{{appColors.current.input.borderEnabled}}"
-                        },
+                        "color": "{{appColors.current.input.borderEnabled}}",
                         "height": 1.0,
                         "type": "container"
                       },
@@ -331,7 +325,7 @@
                                 "fontWeight": "w600"
                               },
                               "textAlign": "left",
-                              "textDirection": "ltr",
+                              "textDirection": "rtl",
                               "type": "text"
                             },
                             "type": "expanded"
@@ -344,9 +338,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "decoration": {
-                          "color": "{{appColors.current.input.borderEnabled}}"
-                        },
+                        "color": "{{appColors.current.input.borderEnabled}}",
                         "height": 1.0,
                         "type": "container"
                       },
@@ -386,7 +378,7 @@
                                 "fontWeight": "w600"
                               },
                               "textAlign": "left",
-                              "textDirection": "ltr",
+                              "textDirection": "rtl",
                               "type": "text"
                             },
                             "type": "expanded"
@@ -411,6 +403,7 @@
                     "bottom": 16.0
                   },
                   "decoration": {
+                    "color": "{{appColors.current.background.surfaceContainer}}",
                     "border": {
                       "color": "{{appColors.current.input.borderEnabled}}",
                       "width": 1.0
@@ -486,38 +479,28 @@
                                   "type": "padding"
                                 },
                                 "onTap": {
-                                  "actionType": "log",
-                                  "message": "Preview PDF"
+                                  "actionType": "navigate",
+                                  "navigationStyle": "push",
+                                  "request": {
+                                    "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.promissory_real_preview/1",
+                                    "method": "post",
+                                    "headers": {
+                                      "Content-Type": "application/json",
+                                      "Accept": "*/*"
+                                    },
+                                    "body": {
+                                      "operator": "is",
+                                      "dimension": {
+                                        "app": "mobile"
+                                      }
+                                    }
+                                  }
                                 },
                                 "type": "gestureDetector"
                               },
                               {
                                 "width": 8.0,
                                 "type": "sizedBox"
-                              },
-                              {
-                                "child": {
-                                  "padding": {
-                                    "left": 8.0,
-                                    "top": 8.0,
-                                    "right": 8.0,
-                                    "bottom": 8.0
-                                  },
-                                  "child": {
-                                    "src": "assets/icons/ic_share.svg",
-                                    "imageType": "asset",
-                                    "color": "{{appColors.current.text.title}}",
-                                    "width": 24.0,
-                                    "height": 24.0,
-                                    "type": "image"
-                                  },
-                                  "type": "padding"
-                                },
-                                "onTap": {
-                                  "actionType": "log",
-                                  "message": "Share PDF"
-                                },
-                                "type": "gestureDetector"
                               }
                             ],
                             "type": "row"
@@ -530,9 +513,7 @@
                         "type": "sizedBox"
                       },
                       {
-                        "decoration": {
-                          "color": "{{appColors.current.input.borderEnabled}}"
-                        },
+                        "color": "{{appColors.current.input.borderEnabled}}",
                         "height": 1.0,
                         "type": "container"
                       },

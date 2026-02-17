@@ -302,7 +302,7 @@
                       "bottom": 16.0
                     },
                     "decoration": {
-                      "color": "{{isWalletSelected ? appColors.current.lightSecondery.color : appColors.current.background.surfaceContainer}}",
+                      "color": "{{appColors.current.background.surfaceContainer}}",
                       "border": {
                         "color": "{{isWalletSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}",
                         "width": 1.0
@@ -423,7 +423,7 @@
                       "bottom": 16.0
                     },
                     "decoration": {
-                      "color": "{{isDepositSelected ? appColors.current.lightSecondery.color : appColors.current.background.surfaceContainer}}",
+                      "color": "{{appColors.current.background.surfaceContainer}}",
                       "border": {
                         "color": "{{isDepositSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}",
                         "width": 1.0

@@ -253,23 +253,110 @@
           "child": {
             "type": "reactiveElevatedButton",
             "enabledKey": "isRulesAccepted",
+            "loadingKey": "isSanaLoading",
             "onPressed": {
-              "actionType": "navigate",
-              "navigationStyle": "push",
-              "request": {
-                "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.promissory_real_deposits/1",
-                "method": "post",
-                "headers": {
-                  "Content-Type": "application/json",
-                  "Accept": "*/*"
+              "actionType": "sequence",
+              "actions": [
+                {
+                  "actionType": "setValue",
+                  "key": "isSanaLoading",
+                  "value": true
                 },
-                "body": {
-                  "operator": "is",
-                  "dimension": {
-                    "app": "mobile"
-                  }
+                {
+                  "actionType": "networkRequest",
+                  "url": "http://192.168.107.22:8280/api/digitalbanking/governance/v1.0/sana/{{userData.nationalCode}}/1",
+                  "method": "get",
+                  "headers": {
+                    "accept": "application/json",
+                    "authorization": "{{auth.accessToken}}"
+                  },
+                  "results": [
+                    {
+                      "statusCode": 200,
+                      "action": {
+                        "actionType": "sequence",
+                        "actions": [
+                          {
+                            "actionType": "setValue",
+                            "key": "isSanaLoading",
+                            "value": false
+                          },
+                          {
+                            "actionType": "navigate",
+                            "navigationStyle": "push",
+                            "request": {
+                              "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.promissory_real_deposits/1",
+                              "method": "post",
+                              "headers": {
+                                "Content-Type": "application/json",
+                                "Accept": "*/*"
+                              },
+                              "body": {
+                                "operator": "is",
+                                "dimension": {
+                                  "app": "mobile"
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "statusCode": 500,
+                      "action": {
+                        "actionType": "sequence",
+                        "actions": [
+                          {
+                            "actionType": "setValue",
+                            "key": "isSanaLoading",
+                            "value": false
+                          },
+                          {
+                            "actionType": "showSnackBar",
+                            "backgroundColor": "#D32F2F",
+                            "content": {
+                              "type": "text",
+                              "data": "خطای سرور رخ داده است",
+                              "style": {
+                                "type": "custom",
+                                "color": "#FFFFFF",
+                                "fontSize": 14
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "statusCode": -1,
+                      "action": {
+                        "actionType": "sequence",
+                        "actions": [
+                          {
+                            "actionType": "setValue",
+                            "key": "isSanaLoading",
+                            "value": false
+                          },
+                          {
+                            "actionType": "showSnackBar",
+                            "backgroundColor": "#D32F2F",
+                            "content": {
+                              "type": "text",
+                              "data": "{{data.status.message.0 ?? \"خطایی رخ داده است\"}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "#FFFFFF",
+                                "fontSize": 14
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
                 }
-              }
+              ]
             },
             "style": {
               "backgroundColor": "{{appColors.current.primary.color}}",

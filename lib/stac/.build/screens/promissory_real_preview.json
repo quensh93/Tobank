@@ -215,7 +215,7 @@
                           "onPressed": {
                             "actionType": "navigate",
                             "widgetType": "promissory_real_preview",
-                            "navigationStyle": "push"
+                            "navigationStyle": "pushReplacement"
                           },
                           "style": {
                             "backgroundColor": "#D32F2F",

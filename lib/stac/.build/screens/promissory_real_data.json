@@ -280,6 +280,8 @@
                               "id": "promissory_amount",
                               "textDirection": "rtl",
                               "textAlign": "right",
+                              "formatThousands": true,
+                              "thousandsSeparator": ",",
                               "decoration": {
                                 "hintText": "{{appStrings.promissory.enterAmountt}}",
                                 "hintStyle": {
@@ -315,7 +317,7 @@
                                 "fields": [
                                   {
                                     "id": "promissory_amount",
-                                    "rule": "^\\d+$"
+                                    "rule": "^[\\d,]+$"
                                   },
                                   {
                                     "id": "promissory_due_date",
@@ -373,7 +375,7 @@
                                         "fields": [
                                           {
                                             "id": "promissory_amount",
-                                            "rule": "^\\d+$"
+                                            "rule": "^[\\d,]+$"
                                           },
                                           {
                                             "id": "promissory_due_date",
@@ -451,7 +453,7 @@
                                     "fields": [
                                       {
                                         "id": "promissory_amount",
-                                        "rule": "^\\d+$"
+                                        "rule": "^[\\d,]+$"
                                       },
                                       {
                                         "id": "promissory_due_date",
@@ -608,11 +610,29 @@
                       },
                       {
                         "actionType": "setValue",
+                        "key": "form.promissory_amount_display",
+                        "value": {
+                          "actionType": "getFormValue",
+                          "id": "promissory_amount"
+                        }
+                      },
+                      {
+                        "actionType": "setValue",
+                        "key": "form.promissory_amount",
+                        "value": "{{replace(form.promissory_amount,',','')}}"
+                      },
+                      {
+                        "actionType": "setValue",
                         "key": "form.promissory_due_date",
                         "value": {
                           "actionType": "getFormValue",
                           "id": "promissory_due_date"
                         }
+                      },
+                      {
+                        "actionType": "setValue",
+                        "key": "form.promissory_due_date_display",
+                        "value": "{{isOnDemand ? 'عندالمطالبه' : form.promissory_due_date}}"
                       },
                       {
                         "actionType": "setValue",
@@ -642,7 +662,7 @@
                       },
                       {
                         "actionType": "networkRequest",
-                        "url": "http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/fees?amount={{form.promissory_amount}}",
+                        "url": "http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/fees?amount={{replace(form.promissory_amount,',','')}}",
                         "method": "get",
                         "headers": {
                           "accept": "application/json",
@@ -693,7 +713,6 @@
                                     }
                                   }
                                 }
-
                               ]
                             }
                           },
