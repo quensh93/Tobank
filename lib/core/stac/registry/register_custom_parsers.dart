@@ -29,7 +29,6 @@ import '../parsers/actions/save_file_action_parser.dart';
 import '../parsers/actions/share_file_action_parser.dart';
 
 import '../parsers/widgets/promissory_real_deposits_parser.dart';
-import '../parsers/widgets/promissory_real_issuer_parser.dart';
 import '../parsers/widgets/custom_visibility_parser.dart';
 import '../parsers/actions/show_snackbar_action_parser.dart';
 import '../parsers/actions/finger_print_action_parser.dart';
@@ -369,11 +368,6 @@ void _registerExampleParsers() {
   // Register Promissory Real Deposits List parser
   CustomComponentRegistry.instance.registerWidget(
     const PromissoryRealDepositsListParser(),
-  );
-
-  // Register Promissory Real Issuer parser (handles loading/error states)
-  CustomComponentRegistry.instance.registerWidget(
-    const PromissoryRealIssuerParser(),
   );
 
   // Note: PromissoryRealPaymentDepositsParser removed as it uses the same list component
