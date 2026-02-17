@@ -160,6 +160,8 @@ StacWidget promissoryRealData() {
                                 'id': 'promissory_amount',
                                 'textDirection': 'rtl',
                                 'textAlign': 'right',
+                                'formatThousands': true,
+                                'thousandsSeparator': ',',
                                 'decoration': StacInputDecoration(
                                   hintText: '{{appStrings.promissory.enterAmountt}}',
                                   hintStyle: StacTextStyle(
@@ -440,11 +442,21 @@ StacWidget promissoryRealData() {
                             id: 'promissory_amount',
                           ),
                         ),
+                        // Sanitize amount (remove separators) for downstream usage
+                        StacCustomSetValueAction(
+                          key: 'form.promissory_amount',
+                          value: "{{replace(form.promissory_amount,',','')}}",
+                        ),
                         StacCustomSetValueAction(
                           key: 'form.promissory_due_date',
                           value: StacGetFormValueAction(
                             id: 'promissory_due_date',
                           ),
+                        ),
+                        StacCustomSetValueAction(
+                          key: 'form.promissory_due_date_display',
+                          value:
+                              "{{isOnDemand ? 'عندالمطالبه' : form.promissory_due_date}}",
                         ),
                         StacCustomSetValueAction(
                           key: 'form.description',
@@ -468,7 +480,7 @@ StacWidget promissoryRealData() {
                         ),
                         StacNetworkRequestAction(
                           url:
-                              'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/fees?amount={{form.promissory_amount}}',
+                              "http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/fees?amount={{replace(form.promissory_amount,',','')}}",
                           method: 'get',
                           headers: {
                             'accept': 'application/json',
@@ -600,7 +612,7 @@ StacWidget _buildInfoRow({required String label, required String value}) {
 
 StacValidateFieldsAction _getFullValidationAction() {
   final fields = <Map<String, dynamic>>[
-    {'id': 'promissory_amount', 'rule': r'^\d+$'},
+    {'id': 'promissory_amount', 'rule': r'^[\d,]+$'},
     {
       'id': 'promissory_due_date',
       'rule': r'^\d{4}/\d{2}/\d{2}$',

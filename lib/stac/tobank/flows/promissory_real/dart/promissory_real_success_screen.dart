@@ -1,3 +1,4 @@
+import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
 import '../../../../../core/stac/builders/stac_common_builders.dart';
 import '../../../../../core/stac/builders/stac_stateful_widget.dart';
@@ -107,7 +108,7 @@ StacWidget promissoryRealSuccess() {
                       children: [
                         _buildDetailRow(
                           '{{appStrings.promissory.paidAmount}}',
-                          '{{transactionAmount}} {{appStrings.common.rial}}',
+                          '${_fmtAmount(StacRegistry.instance.getValue('transactionAmount')?.toString())} {{appStrings.common.rial}}',
                         ),
                         StacSizedBox(height: 16),
                         _buildDivider(),
@@ -147,6 +148,7 @@ StacWidget promissoryRealSuccess() {
                     width: 999999,
                     margin: StacEdgeInsets.symmetric(horizontal: 0),
                     decoration: StacBoxDecoration(
+                      color:     '{{appColors.current.background.surfaceContainer}}',
                       borderRadius: StacBorderRadius.all(8),
                       border: StacBorder.all(
                         color: '{{appColors.current.input.borderEnabled}}',
@@ -258,7 +260,7 @@ StacWidget _buildDetailRow(String label, String value) {
       StacExpanded(
         child: StacText(
           data: value,
-          textDirection: StacTextDirection.ltr,
+          textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.left,
           style: StacCustomTextStyle(
             fontSize: 14,
@@ -277,4 +279,19 @@ StacWidget _buildDivider() {
     height: 1,
     color: '{{appColors.current.input.borderEnabled}}',
   );
+}
+
+String _fmtAmount(String? value) {
+  final s = (value ?? '').replaceAll(RegExp(r'[^0-9]'), '');
+  if (s.isEmpty) return '0';
+  final buffer = StringBuffer();
+  var count = 0;
+  for (var i = s.length - 1; i >= 0; i--) {
+    buffer.write(s[i]);
+    count++;
+    if (i > 0 && count % 3 == 0) {
+      buffer.write(',');
+    }
+  }
+  return buffer.toString().split('').reversed.join();
 }

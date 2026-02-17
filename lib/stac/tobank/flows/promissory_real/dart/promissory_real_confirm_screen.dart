@@ -1,3 +1,4 @@
+import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
 import '../../../../../core/stac/builders/stac_common_builders.dart';
 
@@ -84,8 +85,8 @@ StacWidget promissoryRealConfirm() {
                             ),
                             StacText(
                               data:
-                                  '{{form.promissory_amount}} {{appStrings.common.rial}}',
-                              textDirection: StacTextDirection.ltr,
+                                  '${_fmtAmount(StacRegistry.instance.getValue('form.promissory_amount')?.toString())} {{appStrings.common.rial}}',
+                              textDirection: StacTextDirection.rtl,
                               style: StacCustomTextStyle(
                                 fontSize: 14,
                                 fontWeight: StacFontWeight.w600,
@@ -111,8 +112,8 @@ StacWidget promissoryRealConfirm() {
                               ),
                             ),
                             StacText(
-                              data: '{{form.promissory_due_date}}',
-                              textDirection: StacTextDirection.ltr,
+                              data: '{{form.promissory_due_date_display}}',
+                              textDirection: StacTextDirection.rtl,
                               style: StacCustomTextStyle(
                                 fontSize: 14,
                                 fontWeight: StacFontWeight.w600,
@@ -463,4 +464,19 @@ StacWidget promissoryRealConfirm() {
       ],
     ),
   );
+}
+
+String _fmtAmount(String? value) {
+  final s = (value ?? '').replaceAll(RegExp(r'[^0-9]'), '');
+  if (s.isEmpty) return '0';
+  final buffer = StringBuffer();
+  var count = 0;
+  for (var i = s.length - 1; i >= 0; i--) {
+    buffer.write(s[i]);
+    count++;
+    if (i > 0 && count % 3 == 0) {
+      buffer.write(',');
+    }
+  }
+  return buffer.toString().split('').reversed.join();
 }

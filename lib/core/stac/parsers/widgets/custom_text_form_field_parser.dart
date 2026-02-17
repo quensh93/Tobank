@@ -1,4 +1,4 @@
-﻿// ignore_for_file: implementation_imports
+// ignore_for_file: implementation_imports
 import 'package:flutter/material.dart';
 import 'package:stac/src/parsers/foundation/colors/stac_brightness_parser.dart';
 import 'package:stac/src/parsers/foundation/decoration/stac_input_decoration_parser.dart';
@@ -157,6 +157,14 @@ class _CustomTextFormFieldWidgetState
 
     _controller = TextEditingController(text: widget.model.initialValue);
     _obscureText = widget.model.obscureText ?? false;
+    if (_shouldFormatThousands && _controller.text.isNotEmpty) {
+      final formatted = _formatThousands(_controller.text, _thousandsSeparator);
+      if (formatted != _controller.text) {
+        _controller.text = formatted;
+        _controller.selection =
+            TextSelection.collapsed(offset: _controller.text.length);
+      }
+    }
 
     // Register the controller in the registry if field has an ID
     if (widget.model.id != null) {
@@ -169,6 +177,37 @@ class _CustomTextFormFieldWidgetState
       widget.formScope?.formData[widget.model.id!] =
           widget.model.initialValue ?? '';
     }
+  }
+
+  bool get _shouldFormatThousands {
+    final rj = widget.rawJson;
+    if (rj == null) return false;
+    final formatFlag = rj['formatThousands'];
+    if (formatFlag is bool && formatFlag) return true;
+    return rj.containsKey('thousandsSeparator');
+  }
+
+  String get _thousandsSeparator {
+    final rj = widget.rawJson;
+    if (rj == null) return ',';
+    final sep = rj['thousandsSeparator'];
+    if (sep is String && sep.isNotEmpty) return sep;
+    return ',';
+  }
+
+  String _formatThousands(String value, String sep) {
+    final digits = value.replaceAll(RegExp(r'[^0-9]'), '');
+    if (digits.isEmpty) return '';
+    final buffer = StringBuffer();
+    var count = 0;
+    for (int i = digits.length - 1; i >= 0; i--) {
+      buffer.write(digits[i]);
+      count++;
+      if (i > 0 && count % 3 == 0) {
+        buffer.write(sep);
+      }
+    }
+    return buffer.toString().split('').reversed.join();
   }
 
   @override
@@ -205,9 +244,24 @@ class _CustomTextFormFieldWidgetState
         AppLogger.i(
           'ðŸ”„ TextFormField onChanged triggered for id=${widget.model.id}, value="$value"',
         );
+        if (_shouldFormatThousands) {
+          final formatted = _formatThousands(value, _thousandsSeparator);
+          if (formatted != value) {
+            _controller.value = _controller.value.copyWith(
+              text: formatted,
+              selection: TextSelection.collapsed(offset: formatted.length),
+              composing: TextRange.empty,
+            );
+            if (widget.model.id != null) {
+              widget.formScope?.formData[widget.model.id!] = formatted;
+            }
+          }
+        }
         if (widget.model.id != null) {
-          widget.formScope?.formData[widget.model.id!] = value;
-          AppLogger.d('ðŸ“ Updated formData[${widget.model.id}] = "$value"');
+          final stored =
+              _shouldFormatThousands ? _controller.text : value;
+          widget.formScope?.formData[widget.model.id!] = stored;
+          AppLogger.d('ðŸ“ Updated formData[${widget.model.id}] = "$stored"');
         }
 
         // Check if onChanged action is provided in raw JSON
@@ -294,7 +348,11 @@ class _CustomTextFormFieldWidgetState
           )
           .toList(),
       validator: (value) {
-        return _validate(value, widget.model);
+        String? v = value;
+        if (_shouldFormatThousands && v != null) {
+          v = v.replaceAll(RegExp(r'[^0-9]'), '');
+        }
+        return _validate(v, widget.model);
       },
     );
 
