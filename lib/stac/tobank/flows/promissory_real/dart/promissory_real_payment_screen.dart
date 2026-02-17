@@ -239,7 +239,7 @@ StacWidget promissoryRealPayment() {
                       padding: StacEdgeInsets.all(16),
                       decoration: StacBoxDecoration(
                         color:
-                        '{{isWalletSelected ? appColors.current.lightSecondery.color : appColors.current.background.surfaceContainer}}',
+                        '{{appColors.current.background.surfaceContainer}}',
                         borderRadius: StacBorderRadius.all(12),
                         border: StacBorder.all(
                           color:
@@ -326,7 +326,7 @@ StacWidget promissoryRealPayment() {
                       padding: StacEdgeInsets.all(16),
                       decoration: StacBoxDecoration(
                         color:
-                        '{{isDepositSelected ? appColors.current.lightSecondery.color : appColors.current.background.surfaceContainer}}',
+                        '{{appColors.current.background.surfaceContainer}}',
                         borderRadius: StacBorderRadius.all(12),
                         border: StacBorder.all(
                           color:

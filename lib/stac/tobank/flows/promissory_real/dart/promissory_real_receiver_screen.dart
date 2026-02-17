@@ -458,20 +458,34 @@ StacWidget promissoryRealReceiver() {
                                           values: [
                                             {
                                               'key': 'legal_national_id',
-                                              'value': '{{userData.nationalCode}}',
+                                              'value': '10320435268',
                                               'condition': 'isLegalReceiverTourismBank',
                                             },
                                             {
                                               'key': 'legal_contact_number',
-                                              'value': '{{login.mobile}}',
+                                              'value': '02123952395',
                                               'condition': 'isLegalReceiverTourismBank',
                                             },
-                                          ],
-                                        ),
-                                        StacValidateFieldsAction(
-                                          resultKey: 'isReceiverFormValid',
-                                          fields: [
-                                             {'id': 'legal_national_id', 'rule': r'^\d{10}$'},
+                                            {
+                                              'key': 'legal_national_id',
+                                              'value': '',
+                                              'condition': '!isLegalReceiverTourismBank',
+                                            },
+                                            {
+                                              'key': 'legal_contact_number',
+                                              'value': '',
+                                              'condition': '!isLegalReceiverTourismBank',
+                                            },
+                                            {
+                                              'key': 'isReceiverFormValid',
+                                              'value': true,
+                                              'condition': 'isLegalReceiverTourismBank',
+                                            },
+                                            {
+                                              'key': 'isReceiverFormValid',
+                                              'value': false,
+                                              'condition': '!isLegalReceiverTourismBank',
+                                            },
                                           ],
                                         ),
                                       ],
@@ -497,7 +511,7 @@ StacWidget promissoryRealReceiver() {
                             'id': 'legal_national_id',
                             'textDirection': 'rtl',
                             'textAlign': 'right',
-                            'maxLength': 10,
+                            'maxLength': 11,
                             'inputFormatters': [
                               {'type': 'allow', 'rule': '[0-9]'},
                             ],
@@ -513,14 +527,15 @@ StacWidget promissoryRealReceiver() {
                             'textInputAction': 'next',
                             'validatorRules': [
                               {
-                                'rule': r'^\d{10}$',
+                                'rule': r'^\d{10,}$',
                                 'message': 'شناسه ملی معتبر نیست',
                               },
                             ],
                             'onChanged': StacValidateFieldsAction(
                               resultKey: 'isReceiverFormValid',
                               fields: [
-                                {'id': 'legal_national_id', 'rule': r'^\d{10}$'},
+                                {'id': 'legal_national_id', 'rule': r'^\d{10,}$'},
+                                {'id': 'legal_contact_number', 'rule': r'^\d{10,}$'},
                               ],
                             ).toJson(),
                           }),
@@ -554,10 +569,17 @@ StacWidget promissoryRealReceiver() {
                             ).toJson(),
                             'keyboardType': 'phone',
                             'textInputAction': 'done',
+                            'validatorRules': [
+                              {
+                                'rule': r'^\d{10,}$',
+                                'message': 'شماره تماس معتبر نیست',
+                              },
+                            ],
                             'onChanged': StacValidateFieldsAction(
                               resultKey: 'isReceiverFormValid',
                               fields: [
-                                {'id': 'legal_national_id', 'rule': r'^\d{10}$'},
+                                {'id': 'legal_national_id', 'rule': r'^\d{10,}$'},
+                                {'id': 'legal_contact_number', 'rule': r'^\d{10,}$'},
                               ],
                             ).toJson(),
                           }),
