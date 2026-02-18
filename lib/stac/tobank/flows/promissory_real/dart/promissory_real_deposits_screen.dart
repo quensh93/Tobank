@@ -12,6 +12,8 @@ StacWidget promissoryRealDeposits() {
           {'key': 'deposits.isLoaded', 'value': false},
           {'key': 'deposits.rawData', 'value': null},
           {'key': 'deposits.error', 'value': null},
+          {'key': 'selectedDepositId', 'value': null},
+          {'key': 'hasSelection', 'value': false},
         ],
       ),
       StacNetworkRequestAction(
@@ -112,16 +114,401 @@ StacWidget promissoryRealDeposits() {
     ],
   );
 
+  final onContinueAction = StacAction.fromJson({
+    'actionType': 'navigate',
+    'widgetType': 'promissory_real_issuer',
+    'navigationStyle': 'push',
+  });
+
   return StacStatefulWidget(
     onInit: fetchDepositsAction,
-    child: StacRawJsonWidget({
-      'type': 'promissory_real_deposits_list',
-      'onContinue': {
+    child: StacScaffold(
+      appBar: _buildAppBar(),
+      body: StacColumn(
+        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+        children: [
+          StacSizedBox(height: 24.0),
+          StacPadding(
+            padding: const StacEdgeInsets.symmetric(horizontal: 16.0),
+            child: StacText(
+              data: 'سپرده خود را جهت پرداخت انتخاب کنید',
+              textDirection: StacTextDirection.rtl,
+              style: StacTextStyle(
+                fontSize: 16.0,
+                fontWeight: StacFontWeight.w600,
+                color: '{{appColors.current.text.title}}',
+              ),
+            ),
+          ),
+          StacSizedBox(height: 16.0),
+          // ----- REACTIVE LIST VIEW -----
+          // Since there is no StacReactiveListView class yet, we use StacRawJsonWidget
+          StacExpanded(
+            child: StacRawJsonWidget({
+              'type': 'reactiveListView',
+              'dataKey': 'deposits.rawData',
+              'dataPath': 'data',
+              'isLoadedKey': 'deposits.isLoaded',
+              'errorKey': 'deposits.error',
+              'itemIdField': 'depositNumber',
+              'selectedIdKey': 'selectedDepositId',
+              'padding': {
+                'left': 16.0,
+                'right': 16.0,
+                'top': 8.0,
+                'bottom': 8.0,
+              },
+              'separator': StacSizedBox(height: 16.0).toJson(),
+              'loadingWidget': StacCenter(
+                child: StacColumn(
+                  mainAxisSize: StacMainAxisSize.min,
+                  children: [
+                    StacCircularProgressIndicator(),
+                    StacSizedBox(height: 16.0),
+                    StacText(
+                      data: 'در حال دریافت لیست سپرده‌ها...',
+                      textDirection: StacTextDirection.rtl,
+                      style: StacTextStyle(
+                        fontSize: 16.0,
+                        color: '{{appColors.current.text.subtitle}}',
+                      ),
+                    ),
+                  ],
+                ),
+              ).toJson(),
+              'errorWidget': _buildErrorContent(fetchDepositsAction).toJson(),
+              'emptyWidget': StacCenter(
+                child: StacText(
+                  data: 'سپرده‌ای یافت نشد',
+                  textDirection: StacTextDirection.rtl,
+                  style: StacTextStyle(
+                    fontSize: 14.0,
+                    color: '{{appColors.current.text.subtitle}}',
+                  ),
+                ),
+              ).toJson(),
+              'onItemTap': StacSequenceAction(
+                actions: [
+                  StacCustomSetValueAction(
+                    values: const [
+                      {
+                        'key': 'selectedDepositId',
+                        'value': '{{item.depositNumber}}',
+                      },
+                    ],
+                  ),
+                  StacCustomSetValueAction(
+                    values: const [
+                      {'key': 'hasSelection', 'value': true},
+                    ],
+                  ),
+                  StacCustomSetValueAction(
+                    values: const [
+                      {
+                        'key': 'form.selected_deposit_id',
+                        'value': '{{item.depositNumber}}',
+                      },
+                    ],
+                  ),
+                  StacCustomSetValueAction(
+                    values: const [
+                      {
+                        'key': 'form.selected_deposit_title',
+                        'value': '{{item.depositTitle}}',
+                      },
+                    ],
+                  ),
+                  StacCustomSetValueAction(
+                    values: const [
+                      {
+                        'key': 'form.selected_deposit_number',
+                        'value': '{{item.depositNumber}}',
+                      },
+                    ],
+                  ),
+                  StacCustomSetValueAction(
+                    values: const [
+                      {
+                        'key': 'form.selected_shaba_number',
+                        'value': '{{item.depositIban}}',
+                      },
+                    ],
+                  ),
+                  StacCustomSetValueAction(
+                    values: const [
+                      {
+                        'key': 'selectedDeposit.depositNumber',
+                        'value': '{{item.depositNumber}}',
+                      },
+                    ],
+                  ),
+                  StacCustomSetValueAction(
+                    values: const [
+                      {
+                        'key': 'selectedDeposit.depositIban',
+                        'value': '{{item.depositIban}}',
+                      },
+                    ],
+                  ),
+                ],
+              ).toJson(),
+              'itemTemplate': _buildDepositCardTemplate().toJson(),
+            }),
+          ),
+          // ----- CONTINUE BUTTON -----
+          StacPadding(
+            padding: const StacEdgeInsets.all(16.0),
+            child: StacRawJsonWidget({
+              'type': 'reactiveElevatedButton',
+              'enabledKey': 'hasSelection',
+              'onPressed': onContinueAction.toJson(),
+              'style': {
+                'type': 'buttonStyle',
+                'backgroundColor': '{{appColors.current.primary.color}}',
+                'elevation': 0.0,
+                'fixedSize': StacSize(
+                  999999.0,
+                  56.0,
+                ).toJson(), // generic infinite logic
+                'shape': {
+                  'type': 'roundedRectangleBorder',
+                  'borderRadius': {'type': 'all', 'value': 12.0},
+                },
+              },
+              'child': StacText(
+                data: '{{appStrings.common.continue}}',
+                textDirection: StacTextDirection.rtl,
+                style: StacTextStyle(
+                  fontSize: 18.0,
+                  fontWeight: StacFontWeight.bold,
+                  color: '{{appColors.current.primary.onPrimary}}',
+                ),
+              ).toJson(),
+            }),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+StacAppBar _buildAppBar() {
+  return StacAppBar(
+    centerTitle: true,
+    title: StacText(
+      data: 'انتخاب سپرده',
+      textDirection: StacTextDirection.rtl,
+      style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
+    ),
+    leading: StacIconButton(
+      onPressed: StacRawJsonAction({
         'actionType': 'navigate',
-        'widgetType': 'promissory_real_issuer',
-        'navigationStyle': 'push',
-      },
-      'onRetry': fetchDepositsAction.toJson(),
-    }),
+        'navigationStyle': 'pop',
+      }),
+      icon: StacImage(
+        src: 'assets/icons/ic_right_arrow.svg',
+        imageType: StacImageType.asset,
+        width: 24.0,
+        height: 24.0,
+        color: '{{appColors.current.text.title}}',
+      ),
+    ),
+  );
+}
+
+StacWidget _buildErrorContent(StacSequenceAction onRetryAction) {
+  return StacCenter(
+    child: StacColumn(
+      mainAxisAlignment: StacMainAxisAlignment.center,
+      children: [
+        StacPadding(
+          padding: const StacEdgeInsets.all(16.0),
+          child: StacText(
+            data: '{{error}}',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.center,
+            style: StacTextStyle(
+              fontSize: 14.0,
+              color: '{{appColors.current.text.subtitle}}',
+            ),
+          ),
+        ),
+        StacSizedBox(height: 16.0),
+        StacElevatedButton(
+          onPressed: onRetryAction,
+          style: StacButtonStyle(
+            backgroundColor: '{{appColors.current.primary.color}}',
+            shape: StacRoundedRectangleBorder(
+              borderRadius: StacBorderRadius.all(12.0),
+            ),
+          ),
+          child: StacText(
+            data: 'تلاش مجدد',
+            style: StacTextStyle(
+              color: 'white',
+              fontWeight: StacFontWeight.bold,
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+StacWidget _buildDepositCardTemplate() {
+  return StacContainer(
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surfaceContainer}}',
+      borderRadius: StacBorderRadius.all(8.0),
+      border: StacBorder.all(
+        color:
+            '{{isSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}',
+        width: 1.0,
+      ),
+    ),
+    padding: const StacEdgeInsets.all(16.0),
+    child: StacColumn(
+      crossAxisAlignment: StacCrossAxisAlignment.stretch,
+      children: [
+        // Title row with radio indicator
+        StacRow(
+          textDirection: StacTextDirection.rtl,
+          mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+          crossAxisAlignment: StacCrossAxisAlignment.center,
+          children: [
+            StacExpanded(
+              child: StacText(
+                data: '{{item.depositTitle}}',
+                textDirection: StacTextDirection.rtl,
+                style: StacTextStyle(
+                  fontSize: 16.0,
+                  fontWeight: StacFontWeight.w600,
+                  color: '{{appColors.current.text.title}}',
+                ),
+              ),
+            ),
+            // Radio indicator
+            StacContainer(
+              width: 24.0,
+              height: 24.0,
+              decoration: StacBoxDecoration(
+                shape: StacBoxShape.circle,
+                border: StacBorder.all(
+                  color:
+                      '{{isSelected ? appColors.current.secondary.color : appColors.current.text.subtitle}}',
+                  width: 2.0,
+                ),
+              ),
+              child: StacCenter(
+                child: StacRawJsonWidget({
+                  'type': 'opacity',
+                  'opacity': '{{isSelected ? 1.0 : 0.0}}',
+                  'child': StacContainer(
+                    width: 12.0,
+                    height: 12.0,
+                    decoration: StacBoxDecoration(
+                      shape: StacBoxShape.circle,
+                      color: '{{appColors.current.secondary.color}}',
+                    ),
+                  ).toJson(),
+                }),
+              ),
+            ),
+          ],
+        ),
+        StacSizedBox(height: 12.0),
+        // Divider
+        StacContainer(
+          height: 1.0,
+          color: '{{appColors.current.input.borderEnabled}}',
+        ),
+        StacSizedBox(height: 12.0),
+        // Deposit number
+        StacRow(
+          textDirection: StacTextDirection.rtl,
+          children: [
+            StacText(
+              data: 'شماره سپرده: ',
+              textDirection: StacTextDirection.rtl,
+              style: StacTextStyle(
+                fontSize: 14.0,
+                fontWeight: StacFontWeight.w400,
+                color: '{{appColors.current.text.subtitle}}',
+              ),
+            ),
+            StacText(
+              data: '{{item.depositNumber}}',
+              textDirection: StacTextDirection.rtl,
+              style: StacTextStyle(
+                fontSize: 14.0,
+                fontWeight: StacFontWeight.w500,
+                color: '{{appColors.current.text.title}}',
+              ),
+            ),
+          ],
+        ),
+        StacSizedBox(height: 8.0),
+        // Shaba number
+        StacRow(
+          textDirection: StacTextDirection.rtl,
+          children: [
+            StacText(
+              data: 'شماره شبا: ',
+              textDirection: StacTextDirection.rtl,
+              style: StacTextStyle(
+                fontSize: 14.0,
+                fontWeight: StacFontWeight.w400,
+                color: '{{appColors.current.text.subtitle}}',
+              ),
+            ),
+            StacExpanded(
+              child: StacText(
+                data: '{{item.depositIban}}',
+                textDirection: StacTextDirection.rtl,
+                style: StacTextStyle(
+                  fontSize: 14.0,
+                  fontWeight: StacFontWeight.w500,
+                  color: '{{appColors.current.text.title}}',
+                ),
+              ),
+            ),
+          ],
+        ),
+        StacSizedBox(height: 8.0),
+        // Available amount
+        StacRow(
+          textDirection: StacTextDirection.rtl,
+          children: [
+            StacText(
+              data: 'موجودی: ',
+              textDirection: StacTextDirection.rtl,
+              style: StacTextStyle(
+                fontSize: 14.0,
+                fontWeight: StacFontWeight.w400,
+                color: '{{appColors.current.text.subtitle}}',
+              ),
+            ),
+            StacText(
+              data: '{{item.availableAmount}}',
+              textDirection: StacTextDirection.rtl,
+              style: StacTextStyle(
+                fontSize: 14.0,
+                fontWeight: StacFontWeight.w600,
+                color: '{{appColors.current.text.title}}',
+              ),
+            ),
+            StacSizedBox(width: 4.0),
+            StacText(
+              data: '{{appStrings.common.rial}}',
+              textDirection: StacTextDirection.rtl,
+              style: StacTextStyle(
+                fontSize: 14.0,
+                color: '{{appColors.current.text.title}}',
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
   );
 }

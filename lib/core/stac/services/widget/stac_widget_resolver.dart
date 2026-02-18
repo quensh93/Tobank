@@ -7,8 +7,8 @@ import '../../../../features/pre_launch/providers/theme_controller_provider.dart
 import '../../mock/stac_mock_dio_setup.dart' as mock_setup;
 import '../path/stac_path_normalizer.dart';
 import '../theme/stac_theme_wrapper.dart';
+import '../../utils/reactive_button_action_tunneler.dart';
 import 'package:tobank_sdui/core/helpers/logger.dart';
-import 'package:tobank_sdui/core/helpers/log_category.dart';
 
 /// Service for resolving widgets from different sources (JSON, network, assets).
 ///
@@ -29,10 +29,14 @@ class StacWidgetResolver {
       return null;
     }
 
+    final tunneledJson = Map<String, dynamic>.from(
+      tunnelReactiveButtonActions(widgetJson) as Map,
+    );
+
     // Wrap in theme-reactive builder that rebuilds when theme changes
     return _ThemeReactiveStacWidget(
       builder: (ctx) {
-        final parsedWidget = Stac.fromJson(widgetJson, ctx);
+        final parsedWidget = Stac.fromJson(tunneledJson, ctx);
         return parsedWidget != null
             ? StacThemeWrapper.wrapWithTheme(ctx, parsedWidget)
             : const SizedBox.shrink();
@@ -90,9 +94,12 @@ class StacWidgetResolver {
               return const Center(child: Text('No widget data found'));
             }
 
-            // Resolve variables presesrving types
+            // Tunnel reactive button actions before any variable resolution.
+            final tunneledJson = tunnelReactiveButtonActions(widgetJson);
+
+            // Resolve variables preserving types
             final resolvedJson = mock_setup.resolveVariablesPreservingTypes(
-              widgetJson,
+              tunneledJson,
               StacRegistry.instance,
             );
 
@@ -187,9 +194,12 @@ class StacWidgetResolver {
 
       return _ThemeReactiveStacWidget(
         builder: (ctx) {
+          // Tunnel reactive button actions before any variable resolution.
+          final tunneledJson = tunnelReactiveButtonActions(jsonData);
+
           // Resolve variables preserving types (especially for numeric values)
           final resolvedJson = mock_setup.resolveVariablesPreservingTypes(
-            jsonData,
+            tunneledJson,
             StacRegistry.instance,
           );
 

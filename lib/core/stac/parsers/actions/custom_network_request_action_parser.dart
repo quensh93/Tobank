@@ -36,6 +36,18 @@ class CustomNetworkRequestActionParser
     try {
       final resolvedModel = _resolveNetworkRequestTemplates(model);
 
+      // Log deposit selection debug info for draft API calls
+      if (resolvedModel.url.contains('draft') && resolvedModel.body is Map) {
+        final body = resolvedModel.body as Map;
+        AppLogger.dc(
+          LogCategory.network,
+          '🔍 DRAFT-CHECK: body.sourceAccount=${body['sourceAccount']}, '
+          'body.issuerAccountNumber=${body['issuerAccountNumber']}, '
+          'registry.selectedDeposit.depositNumber=${StacRegistry.instance.getValue('selectedDeposit.depositNumber')}, '
+          'registry.selectedDeposit.depositIban=${StacRegistry.instance.getValue('selectedDeposit.depositIban')}',
+        );
+      }
+
       // Log cURL for debugging
       _logCurl(resolvedModel);
 
@@ -147,6 +159,16 @@ class CustomNetworkRequestActionParser
     // Resolve Body templates (Recursively)
     dynamic resolvedBody;
     if (model.body != null) {
+      // Log pre-resolution body for draft calls to check if templates survive
+      if (model.url.contains('draft') && model.body is Map) {
+        final rawBody = model.body as Map;
+        AppLogger.dc(
+          LogCategory.network,
+          '🔍 DRAFT PRE-RESOLVE: sourceAccount=${rawBody['sourceAccount']}, '
+          'issuerAccountNumber=${rawBody['issuerAccountNumber']} '
+          '(hasTemplates=${rawBody['sourceAccount']?.toString().contains('{{') ?? false})',
+        );
+      }
       resolvedBody = _resolveValueTemplates(model.body);
     }
 

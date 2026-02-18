@@ -27,7 +27,7 @@ import '../parsers/widgets/promissory_real_loader_parser.dart';
 import '../../../../stac/tobank/flows/promissory_real/service/promissory_login_action_parser.dart';
 import '../parsers/actions/save_file_action_parser.dart';
 
-import '../parsers/widgets/promissory_real_deposits_parser.dart';
+import '../parsers/widgets/reactive_list_view_parser.dart';
 
 import '../parsers/widgets/custom_visibility_parser.dart';
 import '../parsers/actions/show_snackbar_action_parser.dart';
@@ -364,9 +364,9 @@ void _registerExampleParsers() {
     const PromissoryRealLoaderParser(),
   );
 
-  // Register Promissory Real Deposits List parser
+  // Register generic ReactiveListView parser for reactive data lists
   CustomComponentRegistry.instance.registerWidget(
-    const PromissoryRealDepositsListParser(),
+    const ReactiveListViewParser(),
   );
 
   // Note: PromissoryRealPaymentDepositsParser removed as it uses the same list component
