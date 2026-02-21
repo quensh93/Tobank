@@ -63,7 +63,7 @@ class _PromissoryRealLoaderScreenState
 
     try {
       final sduiJson = await _configApiService.fetchSduiConfig(
-        pathKey: 'ipaam.builder.form.form.promissory_intro',
+        pathKey: 'ipaam.builder.form.form.login_real_splash',
         build: 1,
       );
 

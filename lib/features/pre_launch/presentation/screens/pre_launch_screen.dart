@@ -9,15 +9,17 @@ import '../../../../dummy/simple_api_test_page.dart';
 import '../../../../dummy/news_api_test_page.dart';
 import '../../../tobank_mock_new/presentation/screens/tobank_stac_dart_screen.dart';
 import '../../../tobank_mock_new/presentation/screens/promissory_real_flow_screen.dart';
+import '../../../../core/stac/parsers/widgets/promissory_real_loader_parser.dart';
 import '../../providers/theme_controller_provider.dart';
 import '../widgets/menu_card.dart';
 import '../widgets/debug_tool_item.dart';
 
 /// Server token constant for development/testing
-const String serverToken = 'wCgGVu&kbWHxkAkLzvptAa@VcLak+NCbGBcXK!eb7Q@#R8WzfsfdsfdfdsfdsfdssfdsfdZ5BZ7Qr';
+const String serverToken =
+    'wCgGVu&kbWHxkAkLzvptAa@VcLak+NCbGBcXK!eb7Q@#R8WzfsfdsfdfdsfdsfdssfdsfdZ5BZ7Qr';
 
 /// Pre Launch Screen - Initial entry point for the application
-/// 
+///
 /// Provides developers with quick access to test pages and debug tools.
 /// Features organized sections for Main Menu (test pages) and Debug Tools.
 class PreLaunchScreen extends ConsumerStatefulWidget {
@@ -35,15 +37,15 @@ class _PreLaunchScreenState extends ConsumerState<PreLaunchScreen> {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final themeAsync = ref.watch(themeControllerProvider);
-    
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pre Launch Screen'),
         actions: [
           IconButton(
             icon: Icon(
-              themeAsync.value == ThemeMode.dark 
-                  ? Icons.light_mode 
+              themeAsync.value == ThemeMode.dark
+                  ? Icons.light_mode
                   : Icons.dark_mode,
             ),
             onPressed: () async {
@@ -64,9 +66,9 @@ class _PreLaunchScreenState extends ConsumerState<PreLaunchScreen> {
                 _buildSectionTitle('Main Menu', theme),
                 const SizedBox(height: 16),
                 _buildMainMenuGrid(),
-                
+
                 const SizedBox(height: 40),
-                
+
                 // Debug Tools Section
                 _buildSectionTitle('Debug Tools', theme),
                 const SizedBox(height: 16),
@@ -83,9 +85,7 @@ class _PreLaunchScreenState extends ConsumerState<PreLaunchScreen> {
   Widget _buildSectionTitle(String title, ThemeData theme) {
     return Text(
       title,
-      style: theme.textTheme.titleLarge?.copyWith(
-        fontWeight: FontWeight.w600,
-      ),
+      style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),
     );
   }
 
@@ -109,25 +109,44 @@ class _PreLaunchScreenState extends ConsumerState<PreLaunchScreen> {
           icon: Icons.api,
           title: 'HTTPBin API Test',
           subtitle: 'API testing',
-          onTap: () => _navigateToPage(const SimpleApiTestPage(), '/simple-api-test'),
+          onTap: () =>
+              _navigateToPage(const SimpleApiTestPage(), '/simple-api-test'),
         ),
         MenuCard(
           icon: Icons.network_check,
           title: 'Network Layer Test',
           subtitle: 'Network layer testing',
-          onTap: () => _navigateToPage(const NetworkLayerTestPage(), '/network-layer-test'),
+          onTap: () => _navigateToPage(
+            const NetworkLayerTestPage(),
+            '/network-layer-test',
+          ),
         ),
         MenuCard(
           icon: Icons.code,
           title: 'Tobank SDUI',
           subtitle: 'Render Tobank login via Dart StacWidget',
-          onTap: () => _navigateToPage(const TobankStacDartScreen(), '/tobank-stac-dart'),
+          onTap: () => _navigateToPage(
+            const TobankStacDartScreen(),
+            '/tobank-stac-dart',
+          ),
         ),
         MenuCard(
           icon: Icons.view_carousel,
           title: 'Promissory Real Flow',
-          subtitle: 'Onboarding -> Login -> Flow',
-          onTap: () => _navigateToPage(const PromissoryRealFlowScreen(), '/promissory-real-flow'),
+          subtitle: 'DART',
+          onTap: () => _navigateToPage(
+            const PromissoryRealFlowScreen(),
+            '/promissory-real-flow',
+          ),
+        ),
+        MenuCard(
+          icon: Icons.view_carousel,
+          title: 'Promissory Real Flow',
+          subtitle: 'JSON',
+          onTap: () => _navigateToPage(
+            const PromissoryRealLoaderScreen(),
+            '/promissory_real_loader',
+          ),
         ),
       ],
     );
@@ -208,14 +227,14 @@ class _PreLaunchScreenState extends ConsumerState<PreLaunchScreen> {
   Future<void> _copyUserToken() async {
     try {
       final token = await _storage.read(key: 'auth_token');
-      
+
       if (token == null || token.isEmpty) {
         if (!mounted) return;
         _showSnackBar('No user token found in storage');
         AppLogger.w('No user token found in storage');
         return;
       }
-      
+
       await Clipboard.setData(ClipboardData(text: token));
       if (!mounted) return;
       _showSnackBar('User token copied to clipboard');
@@ -244,7 +263,7 @@ class _PreLaunchScreenState extends ConsumerState<PreLaunchScreen> {
   /// Delete all data from secure storage
   Future<void> _deleteStorage() async {
     final scaffoldMessenger = ScaffoldMessenger.of(context);
-    
+
     try {
       await _storage.deleteAll();
       AppLogger.i('All secure storage deleted');
@@ -260,7 +279,7 @@ class _PreLaunchScreenState extends ConsumerState<PreLaunchScreen> {
   /// Delete user tokens (auth_token and refresh_token)
   Future<void> _deleteUserToken() async {
     final scaffoldMessenger = ScaffoldMessenger.of(context);
-    
+
     try {
       await _storage.delete(key: 'auth_token');
       await _storage.delete(key: 'refresh_token');
@@ -285,7 +304,7 @@ class _PreLaunchScreenState extends ConsumerState<PreLaunchScreen> {
   /// Show dialog to manually set user token
   Future<void> _setUserTokenManual() async {
     final controller = TextEditingController();
-    
+
     final result = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
@@ -310,43 +329,43 @@ class _PreLaunchScreenState extends ConsumerState<PreLaunchScreen> {
         ],
       ),
     );
-    
+
     if (result == true && controller.text.isNotEmpty) {
       if (!mounted) return;
       final scaffoldMessenger = ScaffoldMessenger.of(context);
-      
+
       try {
         await _storage.write(key: 'auth_token', value: controller.text);
         AppLogger.i('User token saved manually');
         if (!mounted) return;
-        _showSnackBarWithMessenger(scaffoldMessenger, 'Token saved successfully');
+        _showSnackBarWithMessenger(
+          scaffoldMessenger,
+          'Token saved successfully',
+        );
       } catch (e) {
         AppLogger.e('Failed to save token: $e');
         if (!mounted) return;
         _showSnackBarWithMessenger(scaffoldMessenger, 'Error saving token');
       }
     }
-    
+
     controller.dispose();
   }
 
   /// Show SnackBar with message
   void _showSnackBar(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        duration: const Duration(seconds: 2),
-      ),
+      SnackBar(content: Text(message), duration: const Duration(seconds: 2)),
     );
   }
 
   /// Show SnackBar using captured ScaffoldMessenger (for async operations)
-  void _showSnackBarWithMessenger(ScaffoldMessengerState messenger, String message) {
+  void _showSnackBarWithMessenger(
+    ScaffoldMessengerState messenger,
+    String message,
+  ) {
     messenger.showSnackBar(
-      SnackBar(
-        content: Text(message),
-        duration: const Duration(seconds: 2),
-      ),
+      SnackBar(content: Text(message), duration: const Duration(seconds: 2)),
     );
   }
 }

@@ -10,26 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="fix sign page an success page problems">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_9_26,_3_26 PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_9_26__3_26PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_confirm.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_data.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_deposits.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_intro.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_issuer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_payment.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_payment_deposits.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_preview.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_receiver.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_rules.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_sign.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_success.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/dart/login_flow_linear_login.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/dart/login_flow_linear_login.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/stac/parsers/widgets/promissory_real_loader_parser.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/parsers/widgets/promissory_real_loader_parser.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/features/pre_launch/presentation/screens/pre_launch_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/pre_launch/presentation/screens/pre_launch_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/login_real_onboarding.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/login_real_validation.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/login_real_onboarding_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/login_real_validation_screen.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/menu/promissory_real_login_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/menu/promissory_real_login_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/login/dart/tobank_login.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/login/dart/tobank_login.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/stateful_example/dart/tobank_stateful_example_dart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/stateful_example/dart/tobank_stateful_example_dart.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -322,7 +310,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771309919076</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="fix sign page an success page problems">
+      <option name="closed" value="true" />
+      <created>1771652215929</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1771652215929</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
