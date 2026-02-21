@@ -1,10 +1,10 @@
 import 'package:stac_core/stac_core.dart';
-import '../../../../../core/stac/builders/stac_common_builders.dart';
-import '../../../../../core/stac/builders/stac_stateful_widget.dart';
-import '../../../../../core/stac/builders/stac_custom_actions.dart';
+import '../../core/stac/builders/stac_common_builders.dart';
+import '../../core/stac/builders/stac_stateful_widget.dart';
+import '../../core/stac/builders/stac_custom_actions.dart';
 
-@StacScreen(screenName: 'promissory_real_deposits')
-StacWidget promissoryRealDeposits() {
+@StacScreen(screenName: 'promissory_real_payment_deposits')
+StacWidget promissoryRealPaymentDeposits() {
   final fetchDepositsAction = StacSequenceAction(
     actions: [
       StacCustomSetValueAction(
@@ -14,6 +14,14 @@ StacWidget promissoryRealDeposits() {
           {'key': 'deposits.error', 'value': null},
           {'key': 'selectedDepositId', 'value': null},
           {'key': 'hasSelection', 'value': false},
+          {'key': 'isDraftLoading', 'value': false},
+          // Clear stale deposit selection from previous screen
+          {'key': 'selectedDeposit.depositNumber', 'value': null},
+          {'key': 'selectedDeposit.depositIban', 'value': null},
+          {'key': 'form.selected_deposit_id', 'value': null},
+          {'key': 'form.selected_deposit_title', 'value': null},
+          {'key': 'form.selected_deposit_number', 'value': null},
+          {'key': 'form.selected_shaba_number', 'value': null},
         ],
       ),
       StacNetworkRequestAction(
@@ -34,11 +42,19 @@ StacWidget promissoryRealDeposits() {
         results: [
           {
             'statusCode': 200,
-            'action': StacCustomSetValueAction(
-              values: const [
-                {'key': 'deposits.rawData', 'value': '{{data_payload}}'},
-                {'key': 'deposits.isLoaded', 'value': true},
-                {'key': 'deposits.error', 'value': null},
+            'action': StacSequenceAction(
+              actions: [
+                StacLogAction(
+                  message:
+                      'DEBUG: payment deposits fetch success. payload={{data_payload}}',
+                ).toJson(),
+                StacCustomSetValueAction(
+                  values: const [
+                    {'key': 'deposits.rawData', 'value': '{{data_payload}}'},
+                    {'key': 'deposits.isLoaded', 'value': true},
+                    {'key': 'deposits.error', 'value': null},
+                  ],
+                ).toJson(),
               ],
             ).toJson(),
           },
@@ -114,10 +130,132 @@ StacWidget promissoryRealDeposits() {
     ],
   );
 
-  final onContinueAction = StacAction.fromJson({
-    'actionType': 'navigate',
-    'widgetType': 'promissory_real_issuer',
-    'navigationStyle': 'push',
+  // --- onContinue: Draft API call (PRESERVED from original) ---
+  final onContinueAction = StacRawJsonAction({
+    'actionType': 'sequence',
+    'actions': [
+      {'actionType': 'setValue', 'key': 'isDraftLoading', 'value': true},
+      {'actionType': 'setValue', 'key': 'hasSelection', 'value': true},
+      {
+        'actionType': 'networkRequest',
+        'url':
+            'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/draft',
+        'method': 'post',
+        'headers': {
+          'accept': 'application/json',
+          'authorization': '{{auth.accessToken}}',
+          'content-type': 'application/json',
+        },
+        'data': {
+          'issuerType': 'I',
+          'sourceAccount': '{{selectedDeposit.depositNumber}}',
+          'issuerBirthDate': "{{replace(userData.birthDate, '/', '')}}",
+          'issuerNN': '{{userData.nationalCode}}',
+          'issuerSanaCheck': true,
+          'issuerCellphone': '{{removeLeadingZero(userData.mobile)}}',
+          'issuerFullName': '{{userData.fullName}}',
+          'issuerAccountNumber': '{{selectedDeposit.depositIban}}',
+          'issuerAddress': '{{userData.address}}',
+          'issuerPostalCode': '{{userData.postalCode}}',
+          'recipientType': 'I',
+          'recipientBirthDate': "{{replace(receiver.birthDate, '/', '')}}",
+          'recipientNationalId': '{{receiver.nationalCode}}',
+          'recipientCellphone': '{{removeLeadingZero(receiver.mobile)}}',
+          'recipientFullName': '{{receiverIdentity.fullName}}',
+          'paymentPlace': 'تهران، آرشام',
+          'amount': '{{toInt(form.promissory_amount)}}',
+          'dueDate': "{{replace(form.promissory_due_date, '/', '')}}",
+          'description': '{{form.description}}',
+          'transferable': true,
+        },
+        'results': [
+          {
+            'statusCode': 200,
+            'action': {
+              'actionType': 'sequence',
+              'actions': [
+                {
+                  'actionType': 'setValue',
+                  'values': [
+                    {'key': 'isDraftLoading', 'value': false},
+                    {'key': 'hasSelection', 'value': true},
+                    {
+                      'key': 'form.unsigned_pdf_id',
+                      'value': '{{data_payload.unSignedPdfId}}',
+                    },
+                    {
+                      'key': 'form.promissory_id',
+                      'value': '{{data_payload.id}}',
+                    },
+                  ],
+                },
+                {
+                  'actionType': 'navigate',
+                  'widgetType': 'promissory_real_sign',
+                  'navigationStyle': 'push',
+                },
+              ],
+            },
+          },
+          {
+            'statusCode': 422,
+            'action': {
+              'actionType': 'sequence',
+              'actions': [
+                {
+                  'actionType': 'setValue',
+                  'values': [
+                    {'key': 'isDraftLoading', 'value': false},
+                    {'key': 'hasSelection', 'value': true},
+                  ],
+                },
+                {
+                  'actionType': 'showSnackBar',
+                  'backgroundColor': '#D32F2F',
+                  'content': {
+                    'type': 'text',
+                    'data': '{{data.status.message.0}}',
+                    'style': {
+                      'type': 'custom',
+                      'color': '#FFFFFF',
+                      'fontSize': 14,
+                    },
+                  },
+                },
+              ],
+            },
+          },
+          {
+            'statusCode': -1,
+            'action': {
+              'actionType': 'sequence',
+              'actions': [
+                {
+                  'actionType': 'setValue',
+                  'values': [
+                    {'key': 'isDraftLoading', 'value': false},
+                    {'key': 'hasSelection', 'value': true},
+                  ],
+                },
+                {
+                  'actionType': 'showSnackBar',
+                  'backgroundColor': '#D32F2F',
+                  'content': {
+                    'type': 'text',
+                    'data': '{{data.status.message.0}}',
+                    'style': {
+                      'type': 'custom',
+                      'color': '#FFFFFF',
+                      'fontSize': 14,
+                    },
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    ],
   });
 
   return StacStatefulWidget(
@@ -142,7 +280,6 @@ StacWidget promissoryRealDeposits() {
           ),
           StacSizedBox(height: 16.0),
           // ----- REACTIVE LIST VIEW -----
-          // Since there is no StacReactiveListView class yet, we use StacRawJsonWidget
           StacExpanded(
             child: StacRawJsonWidget({
               'type': 'reactiveListView',
@@ -255,21 +392,19 @@ StacWidget promissoryRealDeposits() {
               'itemTemplate': _buildDepositCardTemplate().toJson(),
             }),
           ),
-          // ----- CONTINUE BUTTON -----
+          // ----- CONTINUE BUTTON (with draft API call + loading state) -----
           StacPadding(
             padding: const StacEdgeInsets.all(16.0),
             child: StacRawJsonWidget({
               'type': 'reactiveElevatedButton',
               'enabledKey': 'hasSelection',
+              'loadingKey': 'isDraftLoading',
               'onPressed': onContinueAction.toJson(),
               'style': {
                 'type': 'buttonStyle',
                 'backgroundColor': '{{appColors.current.primary.color}}',
                 'elevation': 0.0,
-                'fixedSize': StacSize(
-                  999999.0,
-                  56.0,
-                ).toJson(), // generic infinite logic
+                'fixedSize': StacSize(999999.0, 56.0).toJson(),
                 'shape': {
                   'type': 'roundedRectangleBorder',
                   'borderRadius': {'type': 'all', 'value': 12.0},
@@ -296,7 +431,7 @@ StacAppBar _buildAppBar() {
   return StacAppBar(
     centerTitle: true,
     title: StacText(
-      data: 'انتخاب سپرده',
+      data: 'انتخاب سپرده پرداخت',
       textDirection: StacTextDirection.rtl,
       style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
     ),

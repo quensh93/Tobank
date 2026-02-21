@@ -303,6 +303,7 @@ try {
 - **Files**:
   - `custom_text_form_field_parser.dart`
   - `example_card_parser.dart`
+  - `reactive_list_view_parser.dart` — Generic reactive data list with selection support ([docs](../App_Docs/stac_docs/widgets_reactive_listview.md))
 
 ### Registration
 - **Location**: `lib/core/stac/registry/register_custom_parsers.dart`

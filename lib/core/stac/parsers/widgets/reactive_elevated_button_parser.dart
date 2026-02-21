@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
 import '../../utils/registry_notifier.dart';
@@ -24,11 +25,24 @@ class ReactiveElevatedButtonModel {
   });
 
   factory ReactiveElevatedButtonModel.fromJson(Map<String, dynamic> json) {
+    var onPressed = json['onPressed'] as Map<String, dynamic>?;
+
+    if (json['rawOnPressed'] is String) {
+      try {
+        final raw = json['rawOnPressed'] as String;
+        final unescaped = raw.replaceAll('__STAC_OPEN__', '{{');
+        final decoded = jsonDecode(unescaped);
+        if (decoded is Map<String, dynamic>) {
+          onPressed = decoded;
+        }
+      } catch (_) {}
+    }
+
     return ReactiveElevatedButtonModel(
       enabledKey: json['enabledKey'] as String?,
       loadingKey: json['loadingKey'] as String?,
       enabled: json['enabled'] as bool?,
-      onPressed: json['onPressed'] as Map<String, dynamic>?,
+      onPressed: onPressed,
       child: json['child'] as Map<String, dynamic>?,
       loadingChild: json['loadingChild'] as Map<String, dynamic>?,
       style: json['style'] as Map<String, dynamic>?,
@@ -76,11 +90,20 @@ class ReactiveElevatedButtonParser
           childWidget = model.child;
         }
 
+        // Build the button WITHOUT onPressed — we handle the tap ourselves
+        // to ensure templates like {{selectedDeposit.depositNumber}} are
+        // resolved from current registry values at PRESS TIME, not build time.
+        // If we pass onPressed through the standard elevatedButton parser,
+        // Stac.fromJson → StacElevatedButton.fromJson → StacAction.fromJson
+        // would bake the template-resolved values into a StacAction object
+        // at BUILD time, causing stale data when the user changes selection.
         final buttonJson = <String, dynamic>{
           'type': 'elevatedButton',
           if (childWidget != null) 'child': childWidget,
-          // Disable button when loading or not enabled
-          if (enabled && !isLoading) 'onPressed': model.onPressed,
+          // Always pass a no-op onPressed so the button looks enabled
+          // (null onPressed makes ElevatedButton appear disabled/grayed out)
+          if (enabled && !isLoading)
+            'onPressed': {'actionType': 'sequence', 'actions': []},
           if ((enabled && !isLoading) && model.style != null)
             'style': model.style,
           if ((!enabled || isLoading) && model.disabledStyle != null)
@@ -90,7 +113,20 @@ class ReactiveElevatedButtonParser
               model.style != null)
             'style': model.style,
         };
-        return Stac.fromJson(buttonJson, context) ?? const SizedBox.shrink();
+        final buttonWidget =
+            Stac.fromJson(buttonJson, context) ?? const SizedBox.shrink();
+
+        // Wrap with GestureDetector to handle the tap with deferred
+        // template resolution via Stac.onCallFromJson
+        if (enabled && !isLoading && model.onPressed != null) {
+          return GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () => Stac.onCallFromJson(model.onPressed, context),
+            child: AbsorbPointer(child: buttonWidget),
+          );
+        }
+
+        return buttonWidget;
       },
     );
   }

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
 import '../../../helpers/logger.dart';
-import '../../../helpers/log_category.dart';
 import '../../utils/registry_notifier.dart';
 import '../../utils/text_form_field_controller_registry.dart';
 
@@ -304,7 +303,7 @@ class CustomSetValueActionParser
       final preview = directValue?.toString() ?? 'null';
       AppLogger.dc(
         LogCategory.stacAction,
-        '📖 Resolving $path: ${directValue?.runtimeType ?? 'null'} = ${preview.length > 80 ? preview.substring(0, 80) + '...' : preview}',
+        '📖 Resolving $path: ${directValue?.runtimeType ?? 'null'} = ${preview.length > 80 ? '${preview.substring(0, 80)}...' : preview}',
       );
     }
 
@@ -313,28 +312,45 @@ class CustomSetValueActionParser
     final parts = path.split('.');
     if (parts.isEmpty) return null;
 
+    // Try longest dotted-key prefix first.
+    // Example:
+    //   responses.fetchCustomerInfo.payload.nationalCode
+    // with flat registry key:
+    //   responses.fetchCustomerInfo.payload (Map)
+    for (int i = parts.length - 1; i > 0; i--) {
+      final prefix = parts.sublist(0, i).join('.');
+      final prefixValue = StacRegistry.instance.getValue(prefix);
+      if (prefixValue != null) {
+        return _walkNestedValue(prefixValue, parts.sublist(i));
+      }
+    }
+
     // Get the root value from registry
     dynamic value = StacRegistry.instance.getValue(parts[0]);
     if (value == null) return null;
 
     // Navigate through nested structure
-    for (int i = 1; i < parts.length; i++) {
-      if (value is Map) {
-        value = value[parts[i]];
-      } else if (value is List && int.tryParse(parts[i]) != null) {
-        final index = int.parse(parts[i]);
-        if (index >= 0 && index < value.length) {
-          value = value[index];
+    return _walkNestedValue(value, parts.sublist(1));
+  }
+
+  dynamic _walkNestedValue(dynamic value, List<String> remainingParts) {
+    dynamic current = value;
+    for (final part in remainingParts) {
+      if (current is Map) {
+        current = current[part];
+      } else if (current is List && int.tryParse(part) != null) {
+        final index = int.parse(part);
+        if (index >= 0 && index < current.length) {
+          current = current[index];
         } else {
           return null;
         }
       } else {
         return null;
       }
-      if (value == null) return null;
+      if (current == null) return null;
     }
-
-    return value;
+    return current;
   }
 
   /// Evaluates a condition expression and returns a boolean

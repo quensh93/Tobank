@@ -4,8 +4,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 import 'package:stac/stac.dart';
 import '../loaders/tobank/tobank_styles_loader.dart';
+import '../utils/reactive_button_action_tunneler.dart';
 import '../../helpers/logger.dart';
-import '../../helpers/log_category.dart';
 
 /// Sets up Dio instance with custom mock interceptor for STAC dynamicView
 ///
@@ -424,9 +424,14 @@ Dio setupStacMockDio() {
                 '      Type: ${sampleVar.runtimeType}, Value: $sampleVar',
               );
 
+              // Tunnel reactive button actions before variable resolution.
+              final tunneledWidgetJson = tunnelReactiveButtonActions(
+                widgetJson,
+              );
+
               // Pre-resolve variables to preserve types (especially for numeric style values)
               final resolvedJson = resolveVariablesPreservingTypes(
-                widgetJson,
+                tunneledWidgetJson,
                 StacRegistry.instance,
               );
 

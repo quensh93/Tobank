@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
 import '../../../../../core/stac/builders/stac_common_builders.dart';
 import '../../../../../core/stac/builders/stac_stateful_widget.dart';
@@ -28,6 +26,7 @@ StacWidget promissoryRealIssuer() {
         url:
             'http://192.168.107.22:8280/api/digitalbanking/customers/v1.0/info/{{userData.nationalCode}}',
         method: 'get',
+        dataBind: 'fetchCustomerInfo',
         headers: {
           'accept': '*/*',
           'app-platform': 'android',
@@ -41,45 +40,64 @@ StacWidget promissoryRealIssuer() {
         results: [
           {
             'statusCode': 200,
-            'action': StacCustomSetValueAction(
-              values: [
-                {
-                  'key': 'userData.nationalCode',
-                  'value': '{{data.data.nationalCode}}',
-                },
-                {
-                  'key': 'userData.contactNumber',
-                  'value': '{{data.data.contactNumber}}',
-                },
-                {
-                  'key': 'userData.mobile',
-                  'value': '{{data.data.cellphoneNumber}}',
-                },
-                {'key': 'userData.lastName', 'value': '{{data.data.lastName}}'},
-                {
-                  'key': 'userData.fatherName',
-                  'value': '{{data.data.fatherName}}',
-                },
-                {
-                  'key': 'userData.fullName',
-                  'value': '{{data.data.firstName}} {{data.data.lastName}}',
-                },
-                {
-                  'key': 'userData.birthDate',
-                  'value': '{{data.data.birthDate}}',
-                },
-                {
-                  'key': 'userData.postalCode',
-                  'value': '{{data.data.postCode}}',
-                },
-                {'key': 'userData.address', 'value': '{{data.data.address}}'},
-                {
-                  'key': 'selectedDeposit.depositIban',
-                  'value': '{{form.selected_shaba_number}}',
-                },
-                {'key': 'issuer.isLoading', 'value': false},
-                {'key': 'issuer.hasError', 'value': false},
-                {'key': 'issuer.showContent', 'value': true},
+            'action': StacSequenceAction(
+              actions: [
+                StacLogAction(
+                  message:
+                      '❌❌❌ DEBUG:={{responses.fetchCustomerInfo.data.natinalCode}}',
+                ).toJson(),
+                StacCustomSetValueAction(
+                  values: [
+                    {
+                      'key': 'userData.nationalCode',
+                      'value':
+                          '{{responses.fetchCustomerInfo.data.nationalCode}}',
+                    },
+                    {
+                      'key': 'userData.contactNumber',
+                      'value':
+                          '{{responses.fetchCustomerInfo.data.contactNumber}}',
+                    },
+                    {
+                      'key': 'userData.mobile',
+                      'value':
+                          '{{responses.fetchCustomerInfo.data.cellphoneNumber}}',
+                    },
+                    {
+                      'key': 'userData.lastName',
+                      'value': '{{responses.fetchCustomerInfo.data.lastName}}',
+                    },
+                    {
+                      'key': 'userData.fatherName',
+                      'value':
+                          '{{responses.fetchCustomerInfo.data.fatherName}}',
+                    },
+                    {
+                      'key': 'userData.fullName',
+                      'value':
+                          '{{responses.fetchCustomerInfo.data.firstName}} {{responses.fetchCustomerInfo.data.lastName}}',
+                    },
+                    {
+                      'key': 'userData.birthDate',
+                      'value': '{{responses.fetchCustomerInfo.data.birthDate}}',
+                    },
+                    {
+                      'key': 'userData.postalCode',
+                      'value': '{{responses.fetchCustomerInfo.data.postCode}}',
+                    },
+                    {
+                      'key': 'userData.address',
+                      'value': '{{responses.fetchCustomerInfo.data.address}}',
+                    },
+                    {
+                      'key': 'selectedDeposit.depositIban',
+                      'value': '{{form.selected_shaba_number}}',
+                    },
+                    {'key': 'issuer.isLoading', 'value': false},
+                    {'key': 'issuer.hasError', 'value': false},
+                    {'key': 'issuer.showContent', 'value': true},
+                  ],
+                ).toJson(),
               ],
             ).toJson(),
           },

@@ -213,7 +213,7 @@ StacWidget promissoryRealRules() {
                             },
                             {
                               'actionType': 'navigate',
-                              'widgetType': 'promissory_real_deposits',
+                              'widgetType': 'promissory_real_issuer',
                               'navigationStyle': 'push',
                             },
                           ],

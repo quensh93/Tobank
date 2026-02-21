@@ -36,18 +36,30 @@ class LogActionParser extends StacActionParser<LogActionModel> {
 
     switch (level) {
       case 'debug':
-        _logChunked(message, (msg) => AppLogger.dc(LogCategory.action, msg));
+        _logChunked(
+          message,
+          (msg) => AppLogger.dc(LogCategory.stacAction, msg),
+        );
         break;
       case 'warning':
       case 'warn':
-        _logChunked(message, (msg) => AppLogger.wc(LogCategory.action, msg));
+        _logChunked(
+          message,
+          (msg) => AppLogger.wc(LogCategory.stacAction, msg),
+        );
         break;
       case 'error':
-        _logChunked(message, (msg) => AppLogger.ec(LogCategory.action, msg));
+        _logChunked(
+          message,
+          (msg) => AppLogger.ec(LogCategory.stacAction, msg),
+        );
         break;
       case 'info':
       default:
-        _logChunked(message, (msg) => AppLogger.ic(LogCategory.action, msg));
+        _logChunked(
+          message,
+          (msg) => AppLogger.ic(LogCategory.stacAction, msg),
+        );
         break;
     }
     return null;

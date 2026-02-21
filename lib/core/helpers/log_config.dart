@@ -71,7 +71,7 @@ class LogConfig {
   static const LogState network = LogState.enabled;
 
   /// 📄 JSON parsing logs
-  static const LogState json = LogState.sync;
+  static const LogState json = LogState.disabled;
 
   /// 📦 Registry operations (getValue, setValue)
   static const LogState registry = LogState.disabled;
@@ -86,7 +86,7 @@ class LogConfig {
   static const LogState action = LogState.sync;
 
   /// 🧩 Generic widget logs
-  static const LogState widget = LogState.sync;
+  static const LogState widget = LogState.disabled;
 
   /// 🧭 Generic navigation logs
   static const LogState navigation = LogState.enabled;
@@ -105,14 +105,14 @@ class LogConfig {
   static const LogState stacNavigation = LogState.enabled;
 
   /// 🏗️ STAC Widget (CustomImageParser and similar widget logs)
-  static const LogState stacWidget = LogState.disabled;
+  static const LogState stacWidget = LogState.enabled;
 
   /// ♻️ STAC Registry ("Registry changed, triggering rebuild" logs)
   static const LogState stacRegistry = LogState.disabled;
 
   /// 🎬 STAC Action (CustomSetValueAction logs)
   /// Set to LogState.disabled to silence "is being overridden" warnings if mapped correctly
-  static const LogState stacAction = LogState.disabled;
+  static const LogState stacAction = LogState.enabled;
 
   /// 🎭 STAC Theme (ThemeReactiveStacWidget, StacThemeWrapper)
   static const LogState stacTheme = LogState.disabled;

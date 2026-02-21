@@ -1,8 +1,7 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
-import 'package:stac_core/stac_core.dart';
 import '../../../helpers/logger.dart';
-import '../../../helpers/log_category.dart';
 import '../../utils/registry_notifier.dart';
 import 'stateful_widget_model.dart';
 
@@ -179,18 +178,90 @@ class _StatefulWidgetWrapperState extends State<_StatefulWidgetWrapper>
     return Stac.fromJson(resolvedJson, context) ?? Container();
   }
 
+  /// Keys in a reactiveListView widget whose templates must NOT be resolved
+  /// by the StatefulWidgetParser. ReactiveListViewParser resolves these itself
+  /// (they contain {{item.*}} / {{isSelected}} / {{error}} placeholders).
+  static const _reactiveListViewProtectedKeys = {
+    'itemTemplate',
+    'onItemTap',
+    'errorWidget',
+    'emptyWidget',
+    'loadingWidget',
+  };
+
+  /// Keys in a reactiveElevatedButton widget whose templates must NOT be
+  /// resolved by the StatefulWidgetParser at build time. Action templates like
+  /// {{selectedDeposit.depositNumber}} must be resolved at EXECUTION time
+  /// (by CustomNetworkRequestActionParser / CustomSetValueActionParser)
+  /// so they always use the latest registry values.
+  static const _reactiveElevatedButtonProtectedKeys = {
+    'onPressed',
+    'rawOnPressed',
+  };
+
   /// Resolves all {{...}} expressions in JSON, including ternary and negation.
+  ///
+  /// When a `reactiveListView` widget is encountered, its template-carrying
+  /// keys (itemTemplate, onItemTap, etc.) are kept as-is so that
+  /// [ReactiveListViewParser] can resolve them with per-item data.
+  ///
+  /// When a `reactiveElevatedButton` widget is encountered, its action payload
+  /// (`onPressed`/`rawOnPressed`) is kept raw so action parsers resolve
+  /// templates at execution time using the latest registry values.
   dynamic _resolveExpressionsInJson(dynamic json) {
     if (json is String) {
       return _resolveTemplateString(json);
     } else if (json is Map<String, dynamic>) {
-      return json.map(
-        (key, value) => MapEntry(key, _resolveExpressionsInJson(value)),
-      );
+      final widgetType = json['type'];
+      final isReactiveListView = widgetType == 'reactiveListView';
+      final isReactiveElevatedButton = widgetType == 'reactiveElevatedButton';
+      return json.map((key, value) {
+        // Skip resolution for reactive list view template keys
+        if (isReactiveListView &&
+            _reactiveListViewProtectedKeys.contains(key)) {
+          return MapEntry(key, value);
+        }
+        // Skip resolution for reactive elevated button action keys
+        if (isReactiveElevatedButton &&
+            _reactiveElevatedButtonProtectedKeys.contains(key)) {
+          if (key == 'onPressed') {
+            try {
+              final jsonStr = jsonEncode(value);
+              final escaped = jsonStr.replaceAll('{{', '__STAC_OPEN__');
+              return MapEntry('rawOnPressed', escaped);
+            } catch (_) {
+              return MapEntry(key, value);
+            }
+          }
+          return MapEntry(key, value);
+        }
+        return MapEntry(key, _resolveExpressionsInJson(value));
+      });
     } else if (json is Map) {
-      return Map<String, dynamic>.from(
-        json,
-      ).map((key, value) => MapEntry(key, _resolveExpressionsInJson(value)));
+      final typed = Map<String, dynamic>.from(json);
+      final widgetType = typed['type'];
+      final isReactiveListView = widgetType == 'reactiveListView';
+      final isReactiveElevatedButton = widgetType == 'reactiveElevatedButton';
+      return typed.map((key, value) {
+        if (isReactiveListView &&
+            _reactiveListViewProtectedKeys.contains(key)) {
+          return MapEntry(key, value);
+        }
+        if (isReactiveElevatedButton &&
+            _reactiveElevatedButtonProtectedKeys.contains(key)) {
+          if (key == 'onPressed') {
+            try {
+              final jsonStr = jsonEncode(value);
+              final escaped = jsonStr.replaceAll('{{', '__STAC_OPEN__');
+              return MapEntry('rawOnPressed', escaped);
+            } catch (_) {
+              return MapEntry(key, value);
+            }
+          }
+          return MapEntry(key, value);
+        }
+        return MapEntry(key, _resolveExpressionsInJson(value));
+      });
     } else if (json is List) {
       return json.map((item) => _resolveExpressionsInJson(item)).toList();
     }

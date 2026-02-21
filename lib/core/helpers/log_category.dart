@@ -2,7 +2,7 @@
 export 'log_config.dart';
 
 /// Category of the log message to support granular control
-/// 
+///
 /// Categories are organized hierarchically:
 /// - General categories (general, network, json, etc.)
 /// - STAC-specific categories (stacNavigation, stacWidget, stacRegistry, etc.)
@@ -118,10 +118,10 @@ extension LogCategoryEmoji on LogCategory {
 enum LogState {
   /// Always show logs for this category (overrides debug panel)
   enabled,
-  
+
   /// Always hide logs for this category (overrides debug panel)
   disabled,
-  
+
   /// Check debug panel settings (user can toggle in app)
   sync,
 }
@@ -132,10 +132,12 @@ class LogCategorySettings {
   final bool truncateEnabled;
   final bool ispectEnabled; // New field
   final int maxLength;
+
   /// If true, this setting was hardcoded and cannot be changed from UI
   final bool isHardcoded;
+
   /// Emoji for the category
-    final String? emoji;
+  final String? emoji;
 
   const LogCategorySettings({
     this.enabled = true,
@@ -149,9 +151,9 @@ class LogCategorySettings {
   factory LogCategorySettings.fromJson(Map<String, dynamic> json) {
     return LogCategorySettings(
       enabled: json['enabled'] as bool? ?? true,
-      truncateEnabled: json['truncateEnabled'] as bool? ?? false,
+      truncateEnabled: json['truncateEnabled'] as bool? ?? true,
       ispectEnabled: json['ispectEnabled'] as bool? ?? true,
-      maxLength: (json['maxLength'] as num?)?.toInt() ?? 100,
+      maxLength: (json['maxLength'] as num?)?.toInt() ?? 800,
       isHardcoded: json['isHardcoded'] as bool? ?? false,
       emoji: json['emoji'] as String?,
     );

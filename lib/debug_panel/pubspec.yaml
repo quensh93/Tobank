@@ -13,8 +13,8 @@ dependencies:
   hooks_riverpod: ^3.0.3
   flutter_localizations:
     sdk: flutter
-  material_color_utilities: ^0.11.0
   meta: ^1.11.0
+  material_color_utilities: ^0.13.0
   device_frame: ^1.4.0
   slow_net_simulator: ^1.0.0
   path_provider: ^2.1.5
