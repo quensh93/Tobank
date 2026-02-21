@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
-import 'package:stac_core/stac_core.dart';
 import '../../registry/custom_component_registry.dart';
 import '../../../helpers/logger.dart';
+import '../../builders/close_dialog_action.dart';
 
 /// Close Dialog Action Model
 ///
@@ -19,59 +19,32 @@ class CloseDialogActionModel {
   /// Optional result to return when closing the dialog
   final dynamic result;
 
-  const CloseDialogActionModel({
-    this.result,
-  });
+  const CloseDialogActionModel({this.result});
 
   factory CloseDialogActionModel.fromJson(Map<String, dynamic> json) {
-    return CloseDialogActionModel(
-      result: json['result'],
-    );
+    return CloseDialogActionModel(result: json['result']);
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'actionType': 'closeDialog',
-      if (result != null) 'result': result,
-    };
-  }
-}
-
-/// StacAction wrapper for CloseDialogActionModel
-class StacCloseDialogAction extends StacAction {
-  const StacCloseDialogAction({
-    this.result,
-  });
-
-  final dynamic result;
-
-  @override
-  String get actionType => 'closeDialog';
-
-  @override
-  Map<String, dynamic> toJson() {
-    return {
-      'actionType': 'closeDialog',
-      if (result != null) 'result': result,
-    };
+    return {'actionType': 'closeDialog', if (result != null) 'result': result};
   }
 }
 
 /// Close Dialog Action Parser
 ///
 /// Closes the current dialog by calling Navigator.pop(context)
-class CloseDialogActionParser extends StacActionParser<CloseDialogActionModel> {
+class CloseDialogActionParser extends StacActionParser<StacCloseDialogAction> {
   const CloseDialogActionParser();
 
   @override
   String get actionType => 'closeDialog';
 
   @override
-  CloseDialogActionModel getModel(Map<String, dynamic> json) =>
-      CloseDialogActionModel.fromJson(json);
+  StacCloseDialogAction getModel(Map<String, dynamic> json) =>
+      StacCloseDialogAction(result: json['result']);
 
   @override
-  FutureOr onCall(BuildContext context, CloseDialogActionModel model) async {
+  FutureOr onCall(BuildContext context, StacCloseDialogAction model) async {
     try {
       AppLogger.d('Closing dialog...');
       Navigator.of(context).pop(model.result);
@@ -84,5 +57,7 @@ class CloseDialogActionParser extends StacActionParser<CloseDialogActionModel> {
 
 /// Register the close dialog action parser
 void registerCloseDialogActionParser() {
-  CustomComponentRegistry.instance.registerAction(const CloseDialogActionParser());
+  CustomComponentRegistry.instance.registerAction(
+    const CloseDialogActionParser(),
+  );
 }

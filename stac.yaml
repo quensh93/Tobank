@@ -4,7 +4,7 @@ project:
   description: "STAC Demo Project"
 
 build:
-  source: lib/stac/tobank
+  source: lib/stac/ready_for_build
   output: lib/stac/.build
   validate: true
 

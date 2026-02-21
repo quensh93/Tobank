@@ -37,6 +37,7 @@ StacWidget promissoryRealSign() {
           url:
               'http://192.168.107.22:8280/api/digitalbanking/files/v1.0/{{form.unsigned_pdf_id}}/download/base64',
           method: 'get',
+          dataBind: 'fetchUnsignedPdf',
           headers: {
             'accept': 'application/json',
             'content-type': 'application/json',
@@ -55,8 +56,7 @@ StacWidget promissoryRealSign() {
                 values: [
                   {
                     'key': 'form.unsigned_pdf',
-                    'value':
-                        '{{data.data.base64}}', // Correctly mapped from registry 'data'
+                    'value': '{{responses.fetchUnsignedPdf.payload.base64}}',
                   },
                 ],
               ).toJson(),
@@ -247,6 +247,7 @@ StacWidget promissoryRealSign() {
                                 // },
                                 {
                                   'actionType': 'networkRequest',
+                                  'dataBind': 'uploadSignedPdf',
                                   'url':
                                       'http://192.168.107.22:8280/api/digitalbanking/files/v1.0/promissory/upload/base64',
                                   'method': 'post',
@@ -274,6 +275,7 @@ StacWidget promissoryRealSign() {
                                         'actions': [
                                           {
                                             'actionType': 'networkRequest',
+                                            'dataBind': 'finalizePromissory',
                                             'url':
                                                 'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/finalize/{{form.promissory_id}}',
                                             'method': 'post',
@@ -291,7 +293,7 @@ StacWidget promissoryRealSign() {
                                             },
                                             'data': {
                                               'signedPdfId':
-                                                  '{{data_payload.id}}',
+                                                  '{{responses.uploadSignedPdf.payload.id}}',
                                             },
                                             'results': [
                                               {
@@ -310,7 +312,7 @@ StacWidget promissoryRealSign() {
                                                         {
                                                           'key': 'promissoryId',
                                                           'value':
-                                                              '{{data.data.promissoryId}}',
+                                                              '{{responses.finalizePromissory.payload.promissoryId}}',
                                                         },
                                                         {
                                                           'key':
@@ -328,18 +330,18 @@ StacWidget promissoryRealSign() {
                                                           'key':
                                                               'serverSignedPdfId',
                                                           'value':
-                                                              '{{data.data.serverSignedPdfId}}',
+                                                              '{{responses.finalizePromissory.payload.serverSignedPdfId}}',
                                                         },
                                                         {
                                                           'key': 'requestId',
                                                           'value':
-                                                              '{{data.data.requestId}}',
+                                                              '{{responses.finalizePromissory.payload.requestId}}',
                                                         },
                                                         {
                                                           'key':
                                                               'trackingNumber',
                                                           'value':
-                                                              '{{data.data.trackingNumber}}',
+                                                              '{{responses.finalizePromissory.payload.trackingNumber}}',
                                                         },
                                                       ],
                                                     },

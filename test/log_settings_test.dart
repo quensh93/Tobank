@@ -46,8 +46,8 @@ void main() {
     test('Default settings have enabled=true', () {
       const settings = LogCategorySettings();
       expect(settings.enabled, isTrue);
-      expect(settings.truncateEnabled, isFalse);
-      expect(settings.maxLength, equals(1000));
+      expect(settings.truncateEnabled, isTrue);
+      expect(settings.maxLength, equals(800));
     });
 
     test('Can create disabled settings', () {

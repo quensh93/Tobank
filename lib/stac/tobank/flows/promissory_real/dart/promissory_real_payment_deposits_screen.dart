@@ -42,11 +42,19 @@ StacWidget promissoryRealPaymentDeposits() {
         results: [
           {
             'statusCode': 200,
-            'action': StacCustomSetValueAction(
-              values: const [
-                {'key': 'deposits.rawData', 'value': '{{data_payload}}'},
-                {'key': 'deposits.isLoaded', 'value': true},
-                {'key': 'deposits.error', 'value': null},
+            'action': StacSequenceAction(
+              actions: [
+                StacLogAction(
+                  message:
+                      'DEBUG: payment deposits fetch success. payload={{data_payload}}',
+                ).toJson(),
+                StacCustomSetValueAction(
+                  values: const [
+                    {'key': 'deposits.rawData', 'value': '{{data_payload}}'},
+                    {'key': 'deposits.isLoaded', 'value': true},
+                    {'key': 'deposits.error', 'value': null},
+                  ],
+                ).toJson(),
               ],
             ).toJson(),
           },

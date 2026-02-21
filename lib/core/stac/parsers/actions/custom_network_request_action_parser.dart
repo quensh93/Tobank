@@ -5,36 +5,52 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
-import 'package:stac_framework/stac_framework.dart';
-import 'package:stac_logger/stac_logger.dart';
 import '../../../helpers/logger.dart';
 import '../../utils/registry_notifier.dart';
+
+class CustomNetworkRequestActionModel {
+  final StacNetworkRequest request;
+  final String? dataBind;
+
+  const CustomNetworkRequestActionModel({required this.request, this.dataBind});
+}
 
 /// Custom network request parser that stores response data in registry
 /// so that {{data.data.*}} variables can be resolved in results actions.
 class CustomNetworkRequestActionParser
-    extends StacActionParser<StacNetworkRequest> {
+    extends StacActionParser<CustomNetworkRequestActionModel> {
   const CustomNetworkRequestActionParser();
 
   @override
   String get actionType => ActionType.networkRequest.name;
 
   @override
-  StacNetworkRequest getModel(Map<String, dynamic> json) {
+  CustomNetworkRequestActionModel getModel(Map<String, dynamic> json) {
     // Support 'data' as an alias for 'body'
     // STAC commonly uses 'data' for the payload in JSON, but 'body' in the model.
     if (json['body'] == null && json['data'] != null) {
       json['body'] = json['data'];
     }
-    return StacNetworkRequest.fromJson(json);
+
+    final dataBindRaw = json['dataBind'] ?? json['data_bind'];
+    final dataBind = dataBindRaw?.toString().trim();
+
+    return CustomNetworkRequestActionModel(
+      request: StacNetworkRequest.fromJson(json),
+      dataBind: (dataBind == null || dataBind.isEmpty) ? null : dataBind,
+    );
   }
 
   @override
-  FutureOr onCall(BuildContext context, StacNetworkRequest model) async {
+  FutureOr onCall(
+    BuildContext context,
+    CustomNetworkRequestActionModel model,
+  ) async {
     Response<dynamic>? response;
 
     try {
-      final resolvedModel = _resolveNetworkRequestTemplates(model);
+      final request = model.request;
+      final resolvedModel = _resolveNetworkRequestTemplates(request);
 
       // Log deposit selection debug info for draft API calls
       if (resolvedModel.url.contains('draft') && resolvedModel.body is Map) {
@@ -60,29 +76,28 @@ class CustomNetworkRequestActionParser
       response = null; // Will trigger fallback to status code -1
     } on DioException catch (e) {
       response = e.response;
-      Log.e(e.response);
+      AppLogger.ec(
+        LogCategory.network,
+        'Network request failed with DioException',
+        e,
+      );
     }
 
-    // Store response data in registry so {{data.data.*}} variables can be resolved
+    // Store response data in registry so {{data.data.*}} variables can be resolved,
+    // and optionally under a dedicated dataBind namespace.
     if (response?.data != null) {
-      final responseData = response!.data;
-      StacRegistry.instance.setValue('data', responseData);
-
-      dynamic payload;
-      if (responseData is Map) {
-        payload = responseData['data'];
-        if (payload == null && responseData['result'] is Map) {
-          payload = (responseData['result'] as Map)['data'];
-        }
-      }
-      if (payload != null) {
-        StacRegistry.instance.setValue('data_payload', payload);
-      }
-
+      storeResponseInRegistry(
+        responseData: response!.data,
+        statusCode: response.statusCode ?? -1,
+        headers: _extractHeaders(response),
+        dataBind: model.dataBind,
+      );
       RegistryNotifier.instance.notify();
       AppLogger.dc(
         LogCategory.network,
-        'Network response data stored in registry under "data" key',
+        model.dataBind == null
+            ? 'Network response data stored in registry under legacy keys'
+            : 'Network response data stored in registry under legacy keys and responses.${model.dataBind}',
       );
     }
 
@@ -90,11 +105,11 @@ class CustomNetworkRequestActionParser
 
     try {
       // First try to find exact match
-      var result = model.results.firstWhere(
+      var result = model.request.results.firstWhere(
         (element) => element.statusCode == statusCode,
         orElse: () {
           // If not found, try to find fallback handler (-1)
-          return model.results.firstWhere(
+          return model.request.results.firstWhere(
             (element) => element.statusCode == -1,
           );
         },
@@ -107,7 +122,7 @@ class CustomNetworkRequestActionParser
           final preview = dpCheck.toString();
           AppLogger.dc(
             LogCategory.stacData,
-            'Before result action: data_payload (${dpCheck.runtimeType}) = ${preview.length > 80 ? preview.substring(0, 80) + '...' : preview}',
+            'Before result action: data_payload (${dpCheck.runtimeType}) = ${preview.length > 80 ? '${preview.substring(0, 80)}...' : preview}',
           );
         }
 
@@ -127,6 +142,61 @@ class CustomNetworkRequestActionParser
     }
 
     return null;
+  }
+
+  @visibleForTesting
+  void storeResponseInRegistry({
+    required dynamic responseData,
+    required int statusCode,
+    Map<String, dynamic>? headers,
+    String? dataBind,
+  }) {
+    StacRegistry.instance.setValue('data', responseData);
+
+    final payload = _extractPayload(responseData);
+    if (payload != null) {
+      StacRegistry.instance.setValue('data_payload', payload);
+    }
+
+    final bind = dataBind?.trim();
+    if (bind == null || bind.isEmpty) {
+      return;
+    }
+
+    final base = 'responses.$bind';
+    final normalizedData = payload ?? responseData;
+    StacRegistry.instance.setValue('$base.raw', responseData);
+    StacRegistry.instance.setValue('$base.payload', normalizedData);
+    StacRegistry.instance.setValue('$base.data', normalizedData);
+    StacRegistry.instance.setValue('$base.statusCode', statusCode);
+    StacRegistry.instance.setValue(
+      '$base.headers',
+      headers ?? <String, dynamic>{},
+    );
+    StacRegistry.instance.setValue(
+      '$base.ok',
+      statusCode >= 200 && statusCode < 300,
+    );
+    StacRegistry.instance.setValue(
+      '$base.timestamp',
+      DateTime.now().millisecondsSinceEpoch,
+    );
+  }
+
+  dynamic _extractPayload(dynamic responseData) {
+    dynamic payload;
+    if (responseData is Map) {
+      payload = responseData['data'];
+      if (payload == null && responseData['result'] is Map) {
+        payload = (responseData['result'] as Map)['data'];
+      }
+    }
+    return payload;
+  }
+
+  Map<String, dynamic> _extractHeaders(Response<dynamic> response) {
+    final rawHeaders = response.headers.map;
+    return rawHeaders.map((key, value) => MapEntry(key, value));
   }
 
   StacNetworkRequest _resolveNetworkRequestTemplates(StacNetworkRequest model) {
@@ -205,7 +275,7 @@ class CustomNetworkRequestActionParser
           }
           return val;
         });
-      } catch (e, stack) {
+      } catch (e) {
         AppLogger.ec(LogCategory.network, 'Error in removeLeadingZero: $e', e);
       }
     }
@@ -270,28 +340,45 @@ class CustomNetworkRequestActionParser
     final parts = path.split('.');
     if (parts.isEmpty) return null;
 
+    // Try longest dotted-key prefix first.
+    // Example:
+    //   path = responses.fetchCustomerInfo.payload.nationalCode
+    //   registry key = responses.fetchCustomerInfo.payload (Map)
+    for (int i = parts.length - 1; i > 0; i--) {
+      final prefix = parts.sublist(0, i).join('.');
+      final prefixValue = StacRegistry.instance.getValue(prefix);
+      if (prefixValue != null) {
+        return _walkNestedValue(prefixValue, parts.sublist(i));
+      }
+    }
+
     // Get the root value from registry
     dynamic value = StacRegistry.instance.getValue(parts[0]);
     if (value == null) return null;
 
     // Navigate through nested structure
-    for (int i = 1; i < parts.length; i++) {
-      if (value is Map) {
-        value = value[parts[i]];
-      } else if (value is List && int.tryParse(parts[i]) != null) {
-        final index = int.parse(parts[i]);
-        if (index >= 0 && index < value.length) {
-          value = value[index];
+    return _walkNestedValue(value, parts.sublist(1));
+  }
+
+  dynamic _walkNestedValue(dynamic value, List<String> remainingParts) {
+    dynamic current = value;
+    for (final part in remainingParts) {
+      if (current is Map) {
+        current = current[part];
+      } else if (current is List && int.tryParse(part) != null) {
+        final index = int.parse(part);
+        if (index >= 0 && index < current.length) {
+          current = current[index];
         } else {
           return null;
         }
       } else {
         return null;
       }
-      if (value == null) return null;
-    }
 
-    return value;
+      if (current == null) return null;
+    }
+    return current;
   }
 
   String _tryDecodeUriComponent(String input) {
