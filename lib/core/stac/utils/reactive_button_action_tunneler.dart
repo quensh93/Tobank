@@ -6,12 +6,11 @@ const String _escapeToken = '__STAC_OPEN__';
 const String _templateOpenToken = '{{';
 
 /// Protects reactiveElevatedButton onPressed payloads from early template
-/// resolution by tunneling the action JSON into [rawOnPressed].
+/// resolution by recursively escaping '{{' into '__STAC_OPEN__' in the action Map.
 ///
 /// Rules:
 /// - If widget `type` is `reactiveElevatedButton` and `onPressed` exists,
-///   move it to `rawOnPressed` as escaped JSON.
-/// - If `rawOnPressed` already exists, leave it unchanged (idempotent).
+///   recursively escape all templates within the `onPressed` Map.
 /// - Recursively processes nested maps/lists.
 dynamic tunnelReactiveButtonActions(dynamic json) {
   if (json is List) {
@@ -19,8 +18,8 @@ dynamic tunnelReactiveButtonActions(dynamic json) {
   }
 
   if (json is Map) {
-    final source = Map<String, dynamic>.from(json);
-    final isReactiveButton = source['type'] == 'reactiveElevatedButton';
+    final Map<String, dynamic> source = Map<String, dynamic>.from(json);
+    final bool isReactiveButton = source['type'] == 'reactiveElevatedButton';
 
     final transformed = <String, dynamic>{};
 
@@ -28,29 +27,27 @@ dynamic tunnelReactiveButtonActions(dynamic json) {
       final key = entry.key;
       final value = entry.value;
 
+      // Handle legacy rawOnPressed if it exists.
       if (isReactiveButton && key == _rawOnPressedKey) {
         transformed[key] = value;
         continue;
       }
 
       if (isReactiveButton && key == _onPressedKey) {
-        // Already tunneled: ignore legacy key so raw payload stays authoritative.
+        // Already tunneled via rawOnPressed: ignore legacy key.
         if (source[_rawOnPressedKey] is String) {
           continue;
         }
 
-        try {
-          final jsonString = jsonEncode(value);
-          transformed[_rawOnPressedKey] = jsonString.replaceAll(
-            _templateOpenToken,
-            _escapeToken,
-          );
-          continue;
-        } catch (_) {
-          // Fallback for non-encodable payloads.
-          transformed[key] = value;
+        // If it's a Map, escape templates recursively.
+        if (value is Map<String, dynamic>) {
+          transformed[key] = _escapeTemplatesRecursive(value);
           continue;
         }
+
+        // Fallback: if value is already a string or other type, just keep it.
+        transformed[key] = value;
+        continue;
       }
 
       transformed[key] = tunnelReactiveButtonActions(value);
@@ -60,4 +57,19 @@ dynamic tunnelReactiveButtonActions(dynamic json) {
   }
 
   return json;
+}
+
+dynamic _escapeTemplatesRecursive(dynamic value) {
+  if (value is String) {
+    return value.replaceAll(_templateOpenToken, _escapeToken);
+  }
+  if (value is List) {
+    return value.map(_escapeTemplatesRecursive).toList();
+  }
+  if (value is Map) {
+    return value.map(
+      (k, v) => MapEntry(k as String, _escapeTemplatesRecursive(v)),
+    );
+  }
+  return value;
 }

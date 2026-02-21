@@ -1,4 +1,5 @@
 import 'package:stac_core/stac_core.dart';
+export 'stac_registry.dart';
 
 /// Raw JSON widget helper
 /// Use this when you need to construct a widget from a raw JSON map
