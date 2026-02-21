@@ -9,32 +9,27 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="fix ui">
+    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="fix sign page an success page problems">
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_9_26,_3_26 PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_9_26__3_26PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/login_real_onboarding.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/.build/screens/login_real_onboarding.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/login_real_splash.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/.build/screens/login_real_splash.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/login_real_validation.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/.build/screens/login_real_validation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_confirm.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_confirm.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_issuer.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_issuer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_payment.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_payment.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_preview.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_preview.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_receiver.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_receiver.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_rules.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_rules.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_sign.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_sign.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_success.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_success.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_confirm_screen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_data_screen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_deposits_screen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_intro.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_issuer_screen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_payment_deposits_screen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_payment_screen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_preview_screen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_receiver_screen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_rules.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_sign_screen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/promissory_real_success_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_confirm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_deposits.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_intro.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_issuer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_payment.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_payment_deposits.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_preview.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_receiver.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_rules.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_sign.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/promissory_real_success.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/dart/login_flow_linear_login.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/dart/login_flow_linear_login.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/menu/promissory_real_login_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/menu/promissory_real_login_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/login/dart/tobank_login.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/login/dart/tobank_login.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/stateful_example/dart/tobank_stateful_example_dart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/stateful_example/dart/tobank_stateful_example_dart.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,17 +113,6 @@
       <recent name="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload" />
       <recent name="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/lib" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" IS_LOCATION_SIMULATION_SUPPORTED="false" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" DEVELOPMENT_TEAM="${TEAM_ID}" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
-      <embedded_app_extension_list />
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -330,23 +314,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771304033021</updated>
     </task>
-    <task id="LOCAL-00025" summary="fix ui">
+    <task id="LOCAL-00025" summary="fix sign page an success page problems">
       <option name="closed" value="true" />
-      <created>1771310207002</created>
+      <created>1771309919076</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1771310207002</updated>
+      <updated>1771309919076</updated>
     </task>
-    <task id="LOCAL-00026" summary="fix ui">
-      <option name="closed" value="true" />
-      <created>1771320526565</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1771320526565</updated>
-    </task>
-    <option name="localTasksCounter" value="27" />
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -381,7 +357,7 @@
     <MESSAGE value="create upload endpoint and finalize endpoint" />
     <MESSAGE value="get promissory from server and finalize" />
     <MESSAGE value="merge with ali works" />
-    <MESSAGE value="fix ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix ui" />
+    <MESSAGE value="fix sign page an success page problems" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix sign page an success page problems" />
   </component>
 </project>
