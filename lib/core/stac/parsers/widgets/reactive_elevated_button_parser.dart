@@ -27,6 +27,7 @@ class ReactiveElevatedButtonModel {
   factory ReactiveElevatedButtonModel.fromJson(Map<String, dynamic> json) {
     var onPressed = json['onPressed'] as Map<String, dynamic>?;
 
+    // Handle legacy rawOnPressed (stringified JSON)
     if (json['rawOnPressed'] is String) {
       try {
         final raw = json['rawOnPressed'] as String;
@@ -36,6 +37,9 @@ class ReactiveElevatedButtonModel {
           onPressed = decoded;
         }
       } catch (_) {}
+    } else if (onPressed != null) {
+      // Handle modern onPressed (Map with escaped templates)
+      onPressed = _unescapeTemplatesRecursive(onPressed);
     }
 
     return ReactiveElevatedButtonModel(
@@ -48,6 +52,21 @@ class ReactiveElevatedButtonModel {
       style: json['style'] as Map<String, dynamic>?,
       disabledStyle: json['disabledStyle'] as Map<String, dynamic>?,
     );
+  }
+
+  static dynamic _unescapeTemplatesRecursive(dynamic value) {
+    if (value is String) {
+      return value.replaceAll('__STAC_OPEN__', '{{');
+    }
+    if (value is List) {
+      return value.map(_unescapeTemplatesRecursive).toList();
+    }
+    if (value is Map) {
+      return value.map(
+        (k, v) => MapEntry(k as String, _unescapeTemplatesRecursive(v)),
+      );
+    }
+    return value;
   }
 }
 

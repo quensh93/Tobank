@@ -74,10 +74,10 @@ To use custom elements in your DSL files (e.g., `lib/stac/ready_for_build/my_scr
 **Example (Valid DSL File):**
 ```dart
 import 'package:stac_core/stac_core.dart';
-// EXACTLY correct: Importing pure Dart builders
-import '../../core/stac/builders/stac_common_builders.dart';
-import '../../core/stac/builders/stac_stateful_widget.dart';
-import '../../core/stac/builders/stac_custom_actions.dart';
+// EXACTLY correct: Importing pure Dart builders using robust package paths
+import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 
 @StacScreen(screenName: 'my_screen')
 StacWidget myScreen() {
@@ -119,6 +119,6 @@ When generating, refactoring, or creating DSL files or custom parsers for the To
 
 1. [ ] **No Flutter in Builders:** Ensure custom models in `lib/core/stac/builders/` import *only* `package:stac_core/stac_core.dart`. 
 2. [ ] **No Parsers in DSL:** Ensure DSL files in `lib/stac/ready_for_build/` **never** import `package:flutter/...` or parser files from `lib/core/stac/parsers/`.
-3. [ ] **Import Builders:** DSL files should import `package:stac_core/stac_core.dart` and the necessary pure-Dart models from `lib/core/stac/builders/`.
+3. [ ] **Use Package Imports:** DSL files should use **package imports** (`package:tobank_sdui/...`) to import builders. This prevents fragile relative paths from breaking when files are copied to the build folder.
 4. [ ] **Wall of Separation:** If `stac build` crashes with "Method not found", check if your builder is accidentally exporting a parser or importing flutter code!
 5. [ ] **Naming:** Leave `@StacScreen(screenName: '...')` annotations perfectly intact.
