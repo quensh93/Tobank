@@ -9,15 +9,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="fix sign page an success page problems">
+    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="make login page staclly and complete login flow jsons and upload json files to panel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/stac/parsers/widgets/promissory_real_loader_parser.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/parsers/widgets/promissory_real_loader_parser.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/features/pre_launch/presentation/screens/pre_launch_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/pre_launch/presentation/screens/pre_launch_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/login_real_onboarding.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/login_real_validation.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/login_real_onboarding_screen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/ready_for_build/login_real_validation_screen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/menu/promissory_real_login_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/menu/promissory_real_login_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +37,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="mjp" />
+        <entry key="$PROJECT_DIR$" value="fee" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,25 +70,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Flutter.main.dart.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;fee&quot;,
-    &quot;io.flutter.project.isFirstOpen&quot;: &quot;true&quot;,
-    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/arsham1/development/Arsham/dynamic_tobank/lib/stac/tobank/flows/promissory_real/dart&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Flutter.main.dart.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "demo__2__stable",
+    "io.flutter.project.isFirstOpen": "true",
+    "io.flutter.reload.alreadyRun": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/arsham1/development/Arsham/dynamic_tobank/lib/stac/tobank/flows/promissory_real/dart",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart" />
@@ -318,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771652215929</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="make login page staclly and complete login flow jsons and upload json files to panel">
+      <option name="closed" value="true" />
+      <created>1771661477881</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1771661477881</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -354,6 +356,7 @@
     <MESSAGE value="get promissory from server and finalize" />
     <MESSAGE value="merge with ali works" />
     <MESSAGE value="fix sign page an success page problems" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix sign page an success page problems" />
+    <MESSAGE value="make login page staclly and complete login flow jsons and upload json files to panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="make login page staclly and complete login flow jsons and upload json files to panel" />
   </component>
 </project>

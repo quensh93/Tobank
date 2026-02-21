@@ -152,6 +152,7 @@ class _PreLaunchScreenState extends ConsumerState<PreLaunchScreen> {
     );
   }
 
+
   /// Build Debug Tools list
   Widget _buildDebugToolsList(ColorScheme colorScheme) {
     return Container(
