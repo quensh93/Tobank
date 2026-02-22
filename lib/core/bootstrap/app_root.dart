@@ -24,11 +24,22 @@ import '../../dummy/stac_test_page.dart';
 import '../../dummy/simple_api_test_page.dart';
 import '../../dummy/news_api_test_page.dart';
 import '../../features/tobank_mock_new/presentation/screens/tobank_stac_dart_screen.dart';
+import '../../features/tobank_mock_new/presentation/screens/promissory_real_flow_screen.dart';
 
 class AppRoot extends ConsumerStatefulWidget {
   const AppRoot({super.key, this.useDevicePreview});
 
   final bool? useDevicePreview; // if null, auto from kDebugMode
+
+  /// If true, app starts directly from Promissory Real Flow
+  /// (splash -> onboarding -> ...). If false, app starts normally.
+  ///
+  /// Usage:
+  /// flutter run --dart-define=START_APP_FROM_PROMISSORY_REAL_FLOW=true
+  static const bool startFromPromissoryRealFlow = bool.fromEnvironment(
+    'START_APP_FROM_PROMISSORY_REAL_FLOW',
+    defaultValue: true,
+  );
 
   // Global key for the main app's Navigator - allows debug panel to navigate the main app
   static final GlobalKey<NavigatorState> mainAppNavigatorKey =
@@ -42,8 +53,6 @@ class _AppRootState extends ConsumerState<AppRoot> {
   StacTheme? _lightTheme;
   StacTheme? _darkTheme;
   bool _themesLoaded = false;
-
-
 
   @override
   void initState() {
@@ -91,7 +100,9 @@ class _AppRootState extends ConsumerState<AppRoot> {
 
   @override
   Widget build(BuildContext context) {
-    final homeWidget = const PreLaunchScreen();
+    final Widget homeWidget = AppRoot.startFromPromissoryRealFlow
+        ? const PromissoryRealFlowScreen()
+        : const PreLaunchScreen();
 
     // Get the shared observer instance from provider
     // This observer is created once and shared across the app
@@ -143,7 +154,8 @@ class _AppRootState extends ConsumerState<AppRoot> {
     // Use StacApp if themes loaded successfully, otherwise fallback to MaterialApp
     final app = _lightTheme != null && _darkTheme != null
         ? StacApp(
-            scrollBehavior: MyScrollBehavior(), // Enable mouse scrolling with custom behavior
+            scrollBehavior:
+                MyScrollBehavior(), // Enable mouse scrolling with custom behavior
             navigatorKey: AppRoot.mainAppNavigatorKey,
             debugShowCheckedModeBanner: false,
             theme: _lightTheme!,
@@ -204,8 +216,8 @@ class _AppRootState extends ConsumerState<AppRoot> {
                     isISpectEnabled:
                         isEnabled, // Control ISpect panel visibility via settings
                     options: ISpectOptions(
-                      observer: observer
-                          .ispectObserver, // Pass inner ISpect observer
+                      observer:
+                          observer.ispectObserver, // Pass inner ISpect observer
                       locale: const Locale('en'),
                       panelItems: panelItems, // Use panelItems for grid layout
                       panelButtons:
@@ -216,7 +228,6 @@ class _AppRootState extends ConsumerState<AppRoot> {
                       isColorPickerEnabled: false,
                       isLogPageEnabled: false,
                       isPerformanceEnabled: true,
-                      
                     ),
                     child: child ?? const SizedBox.shrink(),
                   );
@@ -244,7 +255,8 @@ class _AppRootState extends ConsumerState<AppRoot> {
             },
           )
         : MaterialApp(
-            scrollBehavior: MyScrollBehavior(), // Enable mouse scrolling with custom behavior
+            scrollBehavior:
+                MyScrollBehavior(), // Enable mouse scrolling with custom behavior
             navigatorKey: AppRoot.mainAppNavigatorKey,
             debugShowCheckedModeBanner: false,
             theme: buildTheme(brightness: Brightness.light),
@@ -305,8 +317,8 @@ class _AppRootState extends ConsumerState<AppRoot> {
                     isISpectEnabled:
                         isEnabled, // Control ISpect panel visibility via settings
                     options: ISpectOptions(
-                      observer: observer
-                          .ispectObserver, // Pass inner ISpect observer
+                      observer:
+                          observer.ispectObserver, // Pass inner ISpect observer
                       locale: const Locale('en'),
                       panelButtons:
                           panelButtons, // Add custom debug panel toggle button with ON/OFF label
@@ -374,10 +386,10 @@ class _AppRootState extends ConsumerState<AppRoot> {
 class MyScrollBehavior extends MaterialScrollBehavior {
   @override
   Set<PointerDeviceKind> get dragDevices => {
-        PointerDeviceKind.touch,
-        PointerDeviceKind.mouse,
-        PointerDeviceKind.stylus,
-        PointerDeviceKind.trackpad,
-        PointerDeviceKind.unknown,
-      };
+    PointerDeviceKind.touch,
+    PointerDeviceKind.mouse,
+    PointerDeviceKind.stylus,
+    PointerDeviceKind.trackpad,
+    PointerDeviceKind.unknown,
+  };
 }
