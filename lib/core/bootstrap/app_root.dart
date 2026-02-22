@@ -24,15 +24,15 @@ import '../../dummy/stac_test_page.dart';
 import '../../dummy/simple_api_test_page.dart';
 import '../../dummy/news_api_test_page.dart';
 import '../../features/tobank_mock_new/presentation/screens/tobank_stac_dart_screen.dart';
-import '../../features/tobank_mock_new/presentation/screens/promissory_real_flow_screen.dart';
+import '../stac/parsers/widgets/promissory_real_loader_parser.dart';
 
 class AppRoot extends ConsumerStatefulWidget {
   const AppRoot({super.key, this.useDevicePreview});
 
   final bool? useDevicePreview; // if null, auto from kDebugMode
 
-  /// If true, app starts directly from Promissory Real Flow
-  /// (splash -> onboarding -> ...). If false, app starts normally.
+  /// If true, app starts directly from Promissory Real Flow (JSON).
+  /// If false, app starts normally.
   ///
   /// Usage:
   /// flutter run --dart-define=START_APP_FROM_PROMISSORY_REAL_FLOW=true
@@ -101,7 +101,7 @@ class _AppRootState extends ConsumerState<AppRoot> {
   @override
   Widget build(BuildContext context) {
     final Widget homeWidget = AppRoot.startFromPromissoryRealFlow
-        ? const PromissoryRealFlowScreen()
+        ? const PromissoryRealLoaderScreen()
         : const PreLaunchScreen();
 
     // Get the shared observer instance from provider
