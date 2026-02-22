@@ -23,4 +23,3 @@ enum FileFormat {
         FileFormat.auto => 'text/plain',
       };
 }
-

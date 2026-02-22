@@ -78,7 +78,7 @@ class AccessibilityController extends Notifier<AccessibilityState> {
   AccessibilityState build() {
     // WATCH the settings provider so we rebuild when settings are loaded
     final settings = ref.watch(debugPanelSettingsProvider);
-    
+
     // Convert string to AccessibilityIssueType
     AccessibilityIssueType? initialFilter;
     if (settings.accessibilitySelectedFilter != null) {
@@ -90,7 +90,7 @@ class AccessibilityController extends Notifier<AccessibilityState> {
         initialFilter = null;
       }
     }
-    
+
     return AccessibilityState(
       issues: [],
       filteredIssues: [],
@@ -113,8 +113,12 @@ class AccessibilityController extends Notifier<AccessibilityState> {
     // Apply search filter
     if (state.searchFilter.isNotEmpty) {
       filtered = filtered.where((issue) {
-        return issue.title.toLowerCase().contains(state.searchFilter.toLowerCase()) ||
-               issue.description.toLowerCase().contains(state.searchFilter.toLowerCase());
+        return issue.title
+                .toLowerCase()
+                .contains(state.searchFilter.toLowerCase()) ||
+            issue.description
+                .toLowerCase()
+                .contains(state.searchFilter.toLowerCase());
       }).toList();
     }
 
@@ -124,13 +128,13 @@ class AccessibilityController extends Notifier<AccessibilityState> {
   /// Start accessibility audit
   Future<void> startAudit() async {
     state = state.copyWith(isAuditing: true);
-    
+
     // Simulate audit process
     await Future.delayed(const Duration(seconds: 2));
-    
+
     // Generate sample issues for demonstration
     final sampleIssues = _generateSampleIssues();
-    
+
     state = state.copyWith(
       issues: sampleIssues,
       filteredIssues: _applyFilters(sampleIssues),
@@ -177,7 +181,7 @@ class AccessibilityController extends Notifier<AccessibilityState> {
         suggestedFix: 'Use darker text color or lighter background',
       ),
     ];
-    
+
     _addIssues(contrastIssues);
   }
 
@@ -193,7 +197,7 @@ class AccessibilityController extends Notifier<AccessibilityState> {
         suggestedFix: 'Add Semantics widget or tooltip',
       ),
     ];
-    
+
     _addIssues(labelIssues);
   }
 
@@ -209,7 +213,7 @@ class AccessibilityController extends Notifier<AccessibilityState> {
         suggestedFix: 'Increase padding or minimum size',
       ),
     ];
-    
+
     _addIssues(touchIssues);
   }
 
@@ -225,7 +229,7 @@ class AccessibilityController extends Notifier<AccessibilityState> {
         suggestedFix: 'Implement proper focus management',
       ),
     ];
-    
+
     _addIssues(navigationIssues);
   }
 
@@ -284,6 +288,7 @@ class AccessibilityController extends Notifier<AccessibilityState> {
 }
 
 /// Accessibility state provider
-final accessibilityStateProvider = NotifierProvider<AccessibilityController, AccessibilityState>(
+final accessibilityStateProvider =
+    NotifierProvider<AccessibilityController, AccessibilityState>(
   AccessibilityController.new,
 );

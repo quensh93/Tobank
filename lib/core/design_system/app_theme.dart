@@ -7,7 +7,9 @@ import 'semantic_colors.dart';
 ThemeData buildTheme({required Brightness brightness}) {
   final scheme = brightness == Brightness.dark ? darkScheme : lightScheme;
   final textTheme = buildTextTheme(brightness: brightness);
-  final semantics = brightness == Brightness.dark ? darkSemanticColors : lightSemanticColors;
+  final semantics = brightness == Brightness.dark
+      ? darkSemanticColors
+      : lightSemanticColors;
 
   return ThemeData(
     useMaterial3: true,

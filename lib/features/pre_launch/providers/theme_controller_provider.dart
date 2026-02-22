@@ -14,11 +14,11 @@ class ThemeController extends _$ThemeController {
   Future<ThemeMode> build() async {
     // Load saved theme mode from secure storage
     final savedMode = await _storage.read(key: _themeModeKey);
-    
+
     if (savedMode == null) {
       return ThemeMode.system;
     }
-    
+
     switch (savedMode) {
       case 'light':
         return ThemeMode.light;
@@ -32,7 +32,7 @@ class ThemeController extends _$ThemeController {
   /// Set the theme mode and persist it to storage
   Future<void> setMode(ThemeMode mode) async {
     state = AsyncValue.data(mode);
-    
+
     String modeString;
     switch (mode) {
       case ThemeMode.light:
@@ -45,15 +45,15 @@ class ThemeController extends _$ThemeController {
         modeString = 'system';
         break;
     }
-    
+
     await _storage.write(key: _themeModeKey, value: modeString);
   }
 
   /// Toggle between light and dark mode
   Future<void> toggleMode() async {
     final currentMode = state.value ?? ThemeMode.system;
-    final newMode = currentMode == ThemeMode.light 
-        ? ThemeMode.dark 
+    final newMode = currentMode == ThemeMode.light
+        ? ThemeMode.dark
         : ThemeMode.light;
     await setMode(newMode);
   }

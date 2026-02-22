@@ -125,13 +125,16 @@ class ConfigApiService {
         LogCategory.network,
         'RESPONSE ${response.statusCode}: SDUI config received',
       );
-      
+
       // Log response body
       try {
         final responseStr = jsonEncode(response.data);
         AppLogger.dc(LogCategory.network, '   Body: $responseStr');
       } catch (e) {
-        AppLogger.dc(LogCategory.network, '   Body: (Error encoding response: $e)');
+        AppLogger.dc(
+          LogCategory.network,
+          '   Body: (Error encoding response: $e)',
+        );
       }
 
       if (response.data == null) {

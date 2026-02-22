@@ -18,19 +18,19 @@ part 'custom-action-example.g.dart';
 class AnalyticsActionModel {
   /// Event name to track
   final String eventName;
-  
+
   /// Event category (e.g., 'user_interaction', 'navigation', 'purchase')
   final String category;
-  
+
   /// Event parameters/properties
   final Map<String, dynamic>? parameters;
-  
+
   /// Whether to track user ID with the event
   final bool includeUserId;
-  
+
   /// Whether to track timestamp
   final bool includeTimestamp;
-  
+
   /// Optional callback action to execute after tracking
   final Map<String, dynamic>? onComplete;
 
@@ -70,20 +70,20 @@ class AnalyticsActionParser extends StacActionParser<AnalyticsActionModel> {
     try {
       // Log the action start
       print('📊 Tracking analytics event: ${model.eventName}');
-      
+
       // Build event data
       final eventData = _buildEventData(model);
-      
+
       // Track the event
       await _trackEvent(model.eventName, model.category, eventData);
-      
+
       // Log success
       StacLogger.logComponentRender(
         componentType: 'analyticsAction',
         properties: model.toJson(),
         duration: Duration.zero,
       );
-      
+
       // Execute callback action if provided
       if (model.onComplete != null) {
         await _executeCallback(context, model.onComplete!);
@@ -96,7 +96,7 @@ class AnalyticsActionParser extends StacActionParser<AnalyticsActionModel> {
         suggestion: 'Check analytics service configuration',
         stackTrace: stackTrace,
       );
-      
+
       // Don't throw - analytics failures shouldn't break the app
       print('⚠️ Analytics tracking failed: $e');
     }
@@ -104,12 +104,12 @@ class AnalyticsActionParser extends StacActionParser<AnalyticsActionModel> {
 
   Map<String, dynamic> _buildEventData(AnalyticsActionModel model) {
     final data = <String, dynamic>{};
-    
+
     // Add custom parameters
     if (model.parameters != null) {
       data.addAll(model.parameters!);
     }
-    
+
     // Add user ID if requested
     if (model.includeUserId) {
       // Get user ID from your auth service
@@ -117,15 +117,15 @@ class AnalyticsActionParser extends StacActionParser<AnalyticsActionModel> {
       // data['user_id'] = userId;
       data['user_id'] = 'demo_user_123'; // Example
     }
-    
+
     // Add timestamp if requested
     if (model.includeTimestamp) {
       data['timestamp'] = DateTime.now().toIso8601String();
     }
-    
+
     // Add category
     data['category'] = model.category;
-    
+
     return data;
   }
 
@@ -136,24 +136,24 @@ class AnalyticsActionParser extends StacActionParser<AnalyticsActionModel> {
   ) async {
     // Integrate with your analytics service
     // Examples:
-    
+
     // Firebase Analytics:
     // await FirebaseAnalytics.instance.logEvent(
     //   name: eventName,
     //   parameters: data,
     // );
-    
+
     // Mixpanel:
     // await Mixpanel.track(eventName, properties: data);
-    
+
     // Custom Analytics:
     // await AnalyticsService.instance.track(eventName, data);
-    
+
     // For demonstration:
     print('📊 Event tracked: $eventName');
     print('   Category: $category');
     print('   Data: $data');
-    
+
     // Simulate network delay
     await Future.delayed(const Duration(milliseconds: 100));
   }
@@ -202,22 +202,25 @@ class ScreenViewActionParser extends StacActionParser<ScreenViewActionModel> {
   }
 
   @override
-  Future<void> execute(BuildContext context, ScreenViewActionModel model) async {
+  Future<void> execute(
+    BuildContext context,
+    ScreenViewActionModel model,
+  ) async {
     print('📱 Screen view: ${model.screenName}');
-    
+
     // Track screen view
     // await FirebaseAnalytics.instance.logScreenView(
     //   screenName: model.screenName,
     //   screenClass: model.screenClass,
     // );
-    
+
     // Or custom implementation
     final data = {
       'screen_name': model.screenName,
       if (model.screenClass != null) 'screen_class': model.screenClass,
       if (model.parameters != null) ...model.parameters!,
     };
-    
+
     print('   Data: $data');
   }
 }
@@ -227,7 +230,7 @@ class ScreenViewActionParser extends StacActionParser<ScreenViewActionModel> {
 // ============================================================================
 
 /// Register the custom action parsers in your app initialization
-/// 
+///
 /// Example in main.dart:
 /// ```dart
 /// void main() {
@@ -235,7 +238,7 @@ class ScreenViewActionParser extends StacActionParser<ScreenViewActionModel> {
 ///   final registry = CustomComponentRegistry.instance;
 ///   registry.registerAction(AnalyticsActionParser());
 ///   registry.registerAction(ScreenViewActionParser());
-///   
+///
 ///   runApp(MyApp());
 /// }
 /// ```
@@ -338,14 +341,14 @@ class ScreenViewActionParser extends StacActionParser<ScreenViewActionModel> {
 ///         category: 'user_interaction',
 ///         parameters: {'button_id': 'submit'},
 ///       );
-///       
+///
 ///       final json = model.toJson();
-///       
+///
 ///       expect(json['eventName'], 'button_clicked');
 ///       expect(json['category'], 'user_interaction');
 ///       expect(json['parameters'], {'button_id': 'submit'});
 ///     });
-///     
+///
 ///     test('should deserialize from JSON correctly', () {
 ///       final json = {
 ///         'eventName': 'button_clicked',
@@ -354,15 +357,15 @@ class ScreenViewActionParser extends StacActionParser<ScreenViewActionModel> {
 ///         'includeUserId': true,
 ///         'includeTimestamp': true,
 ///       };
-///       
+///
 ///       final model = AnalyticsActionModel.fromJson(json);
-///       
+///
 ///       expect(model.eventName, 'button_clicked');
 ///       expect(model.category, 'user_interaction');
 ///       expect(model.includeUserId, true);
 ///     });
 ///   });
-///   
+///
 ///   group('AnalyticsActionParser', () {
 ///     test('should execute analytics tracking', () async {
 ///       final parser = AnalyticsActionParser();
@@ -370,24 +373,24 @@ class ScreenViewActionParser extends StacActionParser<ScreenViewActionModel> {
 ///         eventName: 'test_event',
 ///         category: 'test',
 ///       );
-///       
+///
 ///       // Mock context
 ///       final context = MockBuildContext();
-///       
+///
 ///       // Should not throw
 ///       await expectLater(
 ///         parser.execute(context, model),
 ///         completes,
 ///       );
 ///     });
-///     
+///
 ///     test('should handle errors gracefully', () async {
 ///       final parser = AnalyticsActionParser();
 ///       final model = AnalyticsActionModel(
 ///         eventName: 'test_event',
 ///         category: 'test',
 ///       );
-///       
+///
 ///       // Even if tracking fails, should not throw
 ///       await expectLater(
 ///         parser.execute(null, model), // Invalid context

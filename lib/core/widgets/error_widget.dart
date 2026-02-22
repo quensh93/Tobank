@@ -5,11 +5,7 @@ class CustomErrorWidget extends StatelessWidget {
   final String message;
   final VoidCallback? onRetry;
 
-  const CustomErrorWidget({
-    super.key,
-    required this.message,
-    this.onRetry,
-  });
+  const CustomErrorWidget({super.key, required this.message, this.onRetry});
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +15,7 @@ class CustomErrorWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.error_outline,
-              size: 64,
-              color: Colors.red[300],
-            ),
+            Icon(Icons.error_outline, size: 64, color: Colors.red[300]),
             const SizedBox(height: 16),
             Text(
               'Oops! Something went wrong',

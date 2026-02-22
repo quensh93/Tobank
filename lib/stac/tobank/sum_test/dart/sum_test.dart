@@ -28,7 +28,7 @@ StacWidget tobankSumTestDart() {
           textDirection: StacTextDirection.rtl,
           children: [
             StacSizedBox(height: 24),
-            
+
             // Input A
             StacText(
               data: 'A',
@@ -62,9 +62,9 @@ StacWidget tobankSumTestDart() {
               ),
               // onChanged action will be added in JSON manually
             ),
-            
+
             StacSizedBox(height: 24),
-            
+
             // Input B
             StacText(
               data: 'B',
@@ -98,9 +98,9 @@ StacWidget tobankSumTestDart() {
               ),
               // onChanged action will be added in JSON manually
             ),
-            
+
             StacSizedBox(height: 24),
-            
+
             // Result C
             StacText(
               data: 'C (نتیجه)',
@@ -134,7 +134,7 @@ StacWidget tobankSumTestDart() {
                 color: '{{appColors.current.text.title}}',
               ),
             ),
-            
+
             StacSizedBox(height: 24),
           ],
         ),
@@ -142,4 +142,3 @@ StacWidget tobankSumTestDart() {
     ),
   );
 }
-

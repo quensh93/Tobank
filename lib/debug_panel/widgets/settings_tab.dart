@@ -122,8 +122,6 @@ class SettingsTab extends ConsumerWidget {
               ),
             ),
 
-
-
             const SizedBox(height: 24),
 
             // Data Source Section

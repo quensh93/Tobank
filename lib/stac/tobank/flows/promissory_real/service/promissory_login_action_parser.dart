@@ -48,7 +48,7 @@ class PromissoryLoginActionParser
     if (loginSuccess) {
       final authManager = AuthManager();
       await authManager.initialize();
-      
+
       final nationalCode = await authManager.getNationalCode();
       if (nationalCode != null && nationalCode.isNotEmpty) {
         StacRegistry.instance.setValue('userData.nationalCode', nationalCode);

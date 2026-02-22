@@ -4,6 +4,7 @@
 /// or runtime configuration. Feature flags allow for gradual rollout of
 /// features and A/B testing.
 library;
+
 ///
 /// Example usage:
 /// ```dart
@@ -379,8 +380,8 @@ class FeatureFlags {
       isVisualEditorEnabled:
           isVisualEditorEnabled ?? this.isVisualEditorEnabled,
       isStacLogsEnabled: isStacLogsEnabled ?? this.isStacLogsEnabled,
-      isPerformanceMonitoringEnabled: isPerformanceMonitoringEnabled ??
-          this.isPerformanceMonitoringEnabled,
+      isPerformanceMonitoringEnabled:
+          isPerformanceMonitoringEnabled ?? this.isPerformanceMonitoringEnabled,
       isMockApiEnabled: isMockApiEnabled ?? this.isMockApiEnabled,
       isSupabaseApiEnabled: isSupabaseApiEnabled ?? this.isSupabaseApiEnabled,
       isCustomApiEnabled: isCustomApiEnabled ?? this.isCustomApiEnabled,

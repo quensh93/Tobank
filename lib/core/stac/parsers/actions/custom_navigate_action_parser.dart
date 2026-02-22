@@ -7,7 +7,6 @@ import '../../services/widget/stac_widget_loader.dart';
 import '../../services/widget/stac_widget_resolver.dart';
 import '../../services/navigation/stac_navigation_service.dart';
 import '../../../helpers/logger.dart';
-import '../../../helpers/log_category.dart';
 
 /// Custom navigation action parser with enhanced functionality.
 ///
@@ -38,6 +37,18 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
         assetPathValue.toString() != 'null';
 
     final widgetType = json['widgetType'];
+    final routeName = json['routeName'];
+    final navigationStyleValue = json['navigationStyle']?.toString();
+    final isPushStyleRoute =
+        navigationStyleValue == null ||
+        navigationStyleValue == NavigationStyle.push.name ||
+        navigationStyleValue == NavigationStyle.pushReplacement.name ||
+        navigationStyleValue == NavigationStyle.pushAndRemoveAll.name;
+    final canUseRouteAsWidgetType =
+        routeName is String &&
+        routeName.isNotEmpty &&
+        !routeName.startsWith('/') &&
+        isPushStyleRoute;
 
     AppLogger.dc(
       LogCategory.stacNavigation,
@@ -64,7 +75,23 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
         // Store widgetType in widgetJson so we can use it in onCall to construct API path
         json['widgetJson']!['_originalWidgetType'] = widgetType;
         // Don't remove widgetType yet - we might need it in onCall
-        AppLogger.dc(LogCategory.stacNavigation, '✅ Navigation: Loaded widget from widgetType: $widgetType');
+        AppLogger.dc(
+          LogCategory.stacNavigation,
+          '✅ Navigation: Loaded widget from widgetType: $widgetType',
+        );
+      }
+    } else if (canUseRouteAsWidgetType && !hasAssetPath) {
+      // Support typed StacNavigateAction(routeName: 'stac_screen_name')
+      // by treating routeName as a Dart STAC widget key when possible.
+      final routeWidgetJson = StacWidgetLoader.loadWidgetJson(routeName);
+      if (routeWidgetJson != null) {
+        json = Map<String, dynamic>.from(json);
+        json['widgetJson'] = routeWidgetJson;
+        json['widgetJson']!['_originalWidgetType'] = routeName;
+        AppLogger.dc(
+          LogCategory.stacNavigation,
+          'Navigation: Loaded widget from routeName: $routeName',
+        );
       }
     }
     return StacNavigateAction.fromJson(json);
@@ -216,7 +243,10 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
       );
       resolvedAssetPath = null;
     } else {
-      AppLogger.dc(LogCategory.stacNavigation, '✅ Navigation: assetPath is resolved: $resolvedAssetPath');
+      AppLogger.dc(
+        LogCategory.stacNavigation,
+        '✅ Navigation: assetPath is resolved: $resolvedAssetPath',
+      );
     }
 
     // Check for special flow config widget types first
@@ -272,12 +302,18 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
     // Resolve widget from different sources using the resolver service
     if (model.widgetJson != null) {
       // Check if this is a flow config type by examining the widgetJson
-      AppLogger.dc(LogCategory.stacNavigation, '✅ Navigation: Using pre-loaded widgetJson (Dart builder)');
+      AppLogger.dc(
+        LogCategory.stacNavigation,
+        '✅ Navigation: Using pre-loaded widgetJson (Dart builder)',
+      );
       widget = StacWidgetResolver.resolveFromJson(context, model.widgetJson);
     } else if (resolvedAssetPath != null &&
         resolvedAssetPath.isNotEmpty &&
         resolvedAssetPath != 'null') {
-      AppLogger.dc(LogCategory.stacNavigation, '✅ Navigation: Using assetPath: $resolvedAssetPath');
+      AppLogger.dc(
+        LogCategory.stacNavigation,
+        '✅ Navigation: Using assetPath: $resolvedAssetPath',
+      );
       widget = await StacWidgetResolver.resolveFromAssetPath(
         context,
         resolvedAssetPath,

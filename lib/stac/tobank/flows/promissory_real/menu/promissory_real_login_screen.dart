@@ -1,24 +1,26 @@
 import 'package:stac_core/stac_core.dart';
-import '../../../../../core/stac/builders/stac_common_builders.dart';
-import '../../../../../core/stac/builders/stac_stateful_widget.dart';
-import '../../../../../core/stac/builders/stac_custom_actions.dart'
-    hide StacPersianDatePickerAction;
-import '../../../../../core/stac/parsers/actions/persian_date_picker_action_model.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 
-@StacScreen(screenName: 'promissory_real_login_form')
+@StacScreen(screenName: 'promissory_real_login_form_dart')
 StacWidget promissoryRealLoginForm() {
   return StacStatefulWidget(
-    onInit: StacCustomSetValueAction(key: 'isLoginFormValid', value: false),
+    onInit: const StacCustomSetValueAction(
+      key: 'isLoginFormValid',
+      value: false,
+    ),
     child: StacScaffold(
       appBar: StacAppBar(
         title: StacRow(
           mainAxisAlignment: StacMainAxisAlignment.end,
           children: [
             StacText(
+              // اعتبارسنجی
               data: '{{appStrings.login.validationTitle}}',
               style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
             ),
-          ]
+          ],
         ),
         centerTitle: false,
       ),
@@ -36,6 +38,7 @@ StacWidget promissoryRealLoginForm() {
                   textDirection: StacTextDirection.rtl,
                   children: [
                     StacText(
+                      // توضیحات اعتبارسنجی
                       data: '{{appStrings.login.validationInstructions}}',
                       textDirection: StacTextDirection.rtl,
                       style: StacCustomTextStyle(
@@ -45,386 +48,21 @@ StacWidget promissoryRealLoginForm() {
                       ),
                     ),
                     StacSizedBox(height: 24),
-
-                    // Mobile Number
-                    StacText(
-                      data: '{{appStrings.promissory.cellphoneNumber}}',
-                      textDirection: StacTextDirection.rtl,
-                      style: StacAliasTextStyle('{{appStyles.text.label}}'),
-                    ),
-                    StacSizedBox(height: 8),
-                    StacRawJsonWidget({
-                      'type': 'textFormField',
-                      'id': 'mobile_number',
-                      'textDirection': 'rtl',
-                      'textAlign': 'right',
-                      'maxLength': 11,
-                      'inputFormatters': [
-                        {'type': 'allow', 'rule': '[0-9]'},
-                      ],
-                      'decoration': StacInputDecoration(
-                        hintText:
-                            '{{appStrings.promissory.enterCellphoneNumber}}',
-                        filled: false,
-                        contentPadding: StacEdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 12,
-                        ),
-                      ).toJson(),
-                      'keyboardType': 'phone',
-                      'textInputAction': 'next',
-                      'validatorRules': [
-                        {
-                          'rule': r'^09\d{9}$',
-                          'message':
-                              '{{appStrings.promissory.mobileFormatError}}',
-                        },
-                      ],
-                      'onChanged': StacValidateFieldsAction(
-                        resultKey: 'isLoginFormValid',
-                        fields: [
-                          {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
-                          {'id': 'national_code', 'rule': r'^\d{10}$'},
-                          {'id': 'birthdate', 'rule': r'.+'},
-                        ],
-                      ).toJson(),
-                    }),
+                    _buildMobileNumberField(),
                     StacSizedBox(height: 16),
-
-                    // National Code
-                    StacText(
-                      data: '{{appStrings.promissory.nationalCode}}',
-                      textDirection: StacTextDirection.rtl,
-                      style: StacAliasTextStyle('{{appStyles.text.label}}'),
-                    ),
-                    StacSizedBox(height: 8),
-                    StacRawJsonWidget({
-                      'type': 'textFormField',
-                      'id': 'national_code',
-                      'textDirection': 'rtl',
-                      'textAlign': 'right',
-                      'maxLength': 10,
-                      'inputFormatters': [
-                        {'type': 'allow', 'rule': '[0-9]'},
-                      ],
-                      'decoration': StacInputDecoration(
-                        hintText:
-                            '{{appStrings.promissory.enterNationalCodee}}',
-                        filled: false,
-                        contentPadding: StacEdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 12,
-                        ),
-                      ).toJson(),
-                      'keyboardType': 'number',
-                      'textInputAction': 'next',
-                      'validatorRules': [
-                        {
-                          'rule': r'^\d{10}$',
-                          'message':
-                              '{{appStrings.promissory.nationalCodeLengthError}}',
-                        },
-                      ],
-                      'onChanged': StacValidateFieldsAction(
-                        resultKey: 'isLoginFormValid',
-                        fields: [
-                          {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
-                          {'id': 'national_code', 'rule': r'^\d{10}$'},
-                          {'id': 'birthdate', 'rule': r'.+'},
-                        ],
-                      ).toJson(),
-                    }),
+                    _buildNationalCodeField(),
                     StacSizedBox(height: 16),
-
-                    // GPay Token
-
-                    // StacText(
-                    //   data: 'GPay Token',
-                    //   textDirection: StacTextDirection.rtl,
-                    //   style: StacAliasTextStyle('{{appStyles.text.label}}'),
-                    // ),
-                    // StacSizedBox(height: 8),
-                    StacVisibility(
-                      visible: false,
-                      child: StacRawJsonWidget({
-                        'type': 'textFormField',
-                        'id': 'gpay_token',
-                        'initialValue': '1234',
-                        'textDirection': 'ltr',
-                        'textAlign': 'left',
-                        'decoration': StacInputDecoration(
-                          hintText:
-                              '{{appStrings.promissory.gpayTokenExample}}',
-                          filled: false,
-                          contentPadding: StacEdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 12,
-                          ),
-                        ).toJson(),
-                        'keyboardType': 'text',
-                        'textInputAction': 'next',
-                        'onChanged': StacValidateFieldsAction(
-                          resultKey: 'isLoginFormValid',
-                          fields: [
-                            {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
-                            {'id': 'national_code', 'rule': r'^\d{10}$'},
-                            {'id': 'birthdate', 'rule': r'.+'},
-                          ],
-                        ).toJson(),
-                      }),
-                    ),
-
+                    _buildHiddenGpayField(),
                     StacSizedBox(height: 16),
-
-                    // CIF
-                    // StacText(
-                    //   data: 'CIF',
-                    //   textDirection: StacTextDirection.rtl,
-                    //   style: StacAliasTextStyle('{{appStyles.text.label}}'),
-                    // ),
-                    // StacSizedBox(height: 8),
-                    StacVisibility(
-                      visible: false,
-                      child: StacRawJsonWidget({
-                        'type': 'textFormField',
-                        'id': 'cif',
-                        'initialValue': '123',
-                        'textDirection': 'ltr',
-                        'textAlign': 'left',
-                        'decoration': StacInputDecoration(
-                          hintText: '{{appStrings.promissory.cifExample}}',
-                          filled: false,
-                          contentPadding: StacEdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 12,
-                          ),
-                        ).toJson(),
-                        'keyboardType': 'text',
-                        'textInputAction': 'next',
-                        'onChanged': StacValidateFieldsAction(
-                          resultKey: 'isLoginFormValid',
-                          fields: [
-                            {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
-                            {'id': 'national_code', 'rule': r'^\d{10}$'},
-                            {'id': 'birthdate', 'rule': r'.+'},
-                          ],
-                        ).toJson(),
-                      }),
-                    ),
-
-                    // StacSizedBox(height: 16),
-
-                    // Birth Date (Using Date Picker Action)
-                    StacText(
-                      data: '{{appStrings.promissory.birthdate}}',
-                      textDirection: StacTextDirection.rtl,
-                      style: StacAliasTextStyle('{{appStyles.text.label}}'),
-                    ),
-                    StacSizedBox(height: 8),
-                    StacGestureDetector(
-                      onTap: StacPersianDatePickerAction(
-                        formFieldId: 'birthdate',
-                        firstDate: '1300/01/01',
-                        lastDate: '1450/12/29',
-                        onDateSelected: StacValidateFieldsAction(
-                          resultKey: 'isLoginFormValid',
-                          fields: [
-                            {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
-                            {'id': 'national_code', 'rule': r'^\d{10}$'},
-                            {'id': 'birthdate', 'rule': r'.+'},
-                          ],
-                        ).toJson(),
-                      ),
-                      child: StacTextFormField(
-                        id: 'birthdate',
-                        readOnly: true,
-                        enabled: false,
-                        textDirection: StacTextDirection.rtl,
-                        textAlign: StacTextAlign.right,
-                        decoration: StacInputDecoration(
-                          hintText: '{{appStrings.promissory.selectBirth}}',
-                          filled: false,
-                          contentPadding: StacEdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 12,
-                          ),
-                          prefixIcon: StacPadding(
-                            padding: StacEdgeInsets.all(8),
-                            child: StacImage(
-                              src: 'assets/icons/ic_calendar.svg',
-                              imageType: StacImageType.asset,
-                              width: 24,
-                              height: 24,
-                              fit: StacBoxFit.scaleDown,
-                              color: '{{appColors.current.secondary.color}}',
-                            ),
-                          ),
-                        ),
-                        keyboardType: StacTextInputType.text,
-                        validatorRules: [
-                          StacFormFieldValidator(
-                            rule: r'.+',
-                            message:
-                                '{{appStrings.promissory.birthdateRequired}}',
-                          ),
-                        ],
-                      ),
-                    ),
+                    _buildHiddenCifField(),
+                    _buildBirthDateField(),
                   ],
                 ),
               ),
             ),
             StacPadding(
               padding: StacEdgeInsets.all(16),
-              child: StacRawJsonWidget({
-                'type': 'reactiveElevatedButton',
-                'enabledKey': 'isLoginFormValid',
-                'onPressed': StacSequenceAction(
-                  actions: [
-                    // Copy form values to use in body
-                    StacCustomSetValueAction(
-                      values: [
-                        {
-                          'key': 'login.mobile',
-                          'value': StacRawJsonAction({
-                            'actionType': 'getFormValue',
-                            'id': 'mobile_number',
-                          }).toJson(),
-                        },
-                        {
-                          'key': 'login.nationalCode',
-                          'value': StacRawJsonAction({
-                            'actionType': 'getFormValue',
-                            'id': 'national_code',
-                          }).toJson(),
-                        },
-                        {
-                          'key': 'login.gpayToken',
-                          'value': StacRawJsonAction({
-                            'actionType': 'getFormValue',
-                            'id': 'gpay_token',
-                          }).toJson(),
-                        },
-                        {
-                          'key': 'login.cif',
-                          'value': StacRawJsonAction({
-                            'actionType': 'getFormValue',
-                            'id': 'cif',
-                          }).toJson(),
-                        },
-                        {
-                          'key': 'login.birthDate',
-                          'value': StacRawJsonAction({
-                            'actionType': 'getFormValue',
-                            'id': 'birthdate',
-                          }).toJson(),
-                        },
-                        // Format birthdate: remove slashes
-                        {
-                          'key': 'login.birthDateClean',
-                          'value': "{{replace(login.birthDate,'/','')}}",
-                        },
-                      ],
-                    ),
-                    StacRawJsonAction({
-                      'actionType': 'showSnackBar',
-                      'content': {
-                        'type': 'text',
-                        'data':
-                            "Debug: NC:{{login.nationalCode}}, Mob:{{login.mobile}}, BD:{{replace(login.birthDate,'/','')}}",
-                      },
-                      'backgroundColor': '#FF9800',
-                    }),
-                    StacNetworkRequestAction(
-                      url:
-                          'http://192.168.107.22:8280/api/digitalbanking/logins/v1.0/tobank/users',
-                      method: 'post',
-                      headers: {
-                        'accept': '*/*',
-                        'app-platform': 'android',
-                        'app-store': 'application/json',
-                        'app-version': '456',
-                        'authorization':
-                            'Bearer null', // As in original service
-                        'content-type': 'application/json',
-                        'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
-                        'serviceauthorization':
-                            'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
-                      },
-                      data: {
-                        'nationalId': '{{login.nationalCode}}',
-                        'mobileNumber': '{{login.mobile}}',
-                        'gpayToken': '{{login.gpayToken}}',
-                        'birthDate': '{{login.birthDateClean}}',
-                        'cif': '{{login.cif}}',
-                      },
-                      results: [
-                        StacNetworkResult(
-                          statusCode: 200,
-                          action: StacSequenceAction(
-                            actions: [
-                              StacCustomSetValueAction(
-                                values: [
-                                  {
-                                    'key': 'auth.accessToken',
-                                    'value':
-                                        '{{data.result.data.access_token}}',
-                                  },
-                                  {
-                                    'key': 'auth.accessTokenRaw',
-                                    'value':
-                                        "{{replace(data.result.data.access_token,'Bearer ','')}}",
-                                  },
-                                  {
-                                    'key': 'userData.nationalCode',
-                                    'value': '{{login.nationalCode}}',
-                                  },
-                                ],
-                              ),
-                              StacRawJsonAction({
-                                'actionType': 'auth_persist',
-                                'accessToken':
-                                    '{{data.result.data.access_token}}',
-                                'nationalCode': '{{login.nationalCode}}',
-                              }),
-                              StacRawJsonAction({
-                                'actionType': 'showSnackBar',
-                                'content': {
-                                  'type': 'text',
-                                  'data':
-                                      '{{appStrings.promissory.loginSuccess}}',
-                                },
-                              }),
-                              StacRawJsonAction({
-                                'actionType': 'navigate',
-                                'widgetType': 'promissory_real_loader',
-                                'navigationStyle': 'pushReplacement',
-                              }),
-                            ],
-                          ).toJson(),
-                        ),
-                      ],
-                    ),
-                  ],
-                ).toJson(),
-                'style': StacButtonStyle(
-                  backgroundColor: '{{appColors.current.primary.color}}',
-                  elevation: 0,
-                  fixedSize: StacSize(999999, 56),
-                  shape: StacRoundedRectangleBorder(
-                    borderRadius: StacBorderRadius.all(8),
-                  ),
-                ).toJson(),
-                'child': StacText(
-                  data: '{{appStrings.promissory.loginSaveToken}}',
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 16,
-                    fontWeight: StacFontWeight.bold,
-                    color: '{{appColors.current.primary.onPrimary}}',
-                  ),
-                ).toJson(),
-              }),
+              child: _buildSubmitButton(),
             ),
           ],
         ),
@@ -432,3 +70,370 @@ StacWidget promissoryRealLoginForm() {
     ),
   );
 }
+
+StacWidget _buildMobileNumberField() {
+  return StacColumn(
+    crossAxisAlignment: StacCrossAxisAlignment.stretch,
+    textDirection: StacTextDirection.rtl,
+    children: [
+      StacText(
+        // شماره همراه
+        data: '{{appStrings.promissory.cellphoneNumber}}',
+        textDirection: StacTextDirection.rtl,
+        style: StacAliasTextStyle('{{appStyles.text.label}}'),
+      ),
+      StacSizedBox(height: 8),
+      StacCustomTextFormField(
+        id: 'mobile_number',
+        textDirection: 'rtl',
+        textAlign: 'right',
+        maxLength: 11,
+        inputFormatters: const [
+          {'type': 'allow', 'rule': '[0-9]'},
+        ],
+        decoration: StacInputDecoration(
+          // شماره همراه خود را وارد نمایید
+          hintText: '{{appStrings.promissory.enterCellphoneNumber}}',
+          filled: false,
+          contentPadding: StacEdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 12,
+          ),
+        ).toJson(),
+        keyboardType: 'phone',
+        textInputAction: 'next',
+        validatorRules: const [
+          {
+            'rule': r'^09\d{9}$',
+            // فرمت شماره موبایل صحیح نیست
+            'message': '{{appStrings.promissory.mobileFormatError}}',
+          },
+        ],
+        onChanged: _loginValidationAction(),
+      ),
+    ],
+  );
+}
+
+StacWidget _buildNationalCodeField() {
+  return StacColumn(
+    crossAxisAlignment: StacCrossAxisAlignment.stretch,
+    textDirection: StacTextDirection.rtl,
+    children: [
+      StacText(
+        // کد ملی
+        data: '{{appStrings.promissory.nationalCode}}',
+        textDirection: StacTextDirection.rtl,
+        style: StacAliasTextStyle('{{appStyles.text.label}}'),
+      ),
+      StacSizedBox(height: 8),
+      StacCustomTextFormField(
+        id: 'national_code',
+        textDirection: 'rtl',
+        textAlign: 'right',
+        maxLength: 10,
+        inputFormatters: const [
+          {'type': 'allow', 'rule': '[0-9]'},
+        ],
+        decoration: StacInputDecoration(
+          // کد ملی خود را بدون خط تیره وارد نمایید
+          hintText: '{{appStrings.promissory.enterNationalCodee}}',
+          filled: false,
+          contentPadding: StacEdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 12,
+          ),
+        ).toJson(),
+        keyboardType: 'number',
+        textInputAction: 'next',
+        validatorRules: const [
+          {
+            'rule': r'^\d{10}$',
+            // کد ملی باید 10 رقم باشد
+            'message': '{{appStrings.promissory.nationalCodeLengthError}}',
+          },
+        ],
+        onChanged: _loginValidationAction(),
+      ),
+    ],
+  );
+}
+
+StacWidget _buildHiddenGpayField() {
+  return StacVisibility(
+    visible: false,
+    child: StacCustomTextFormField(
+      id: 'gpay_token',
+      textDirection: 'ltr',
+      textAlign: 'left',
+      decoration: StacInputDecoration(
+        // مثال: 1234
+        hintText: '{{appStrings.promissory.gpayTokenExample}}',
+        filled: false,
+        contentPadding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      ).toJson(),
+      keyboardType: 'text',
+      textInputAction: 'next',
+      onChanged: _loginValidationAction(),
+    ),
+  );
+}
+
+StacWidget _buildHiddenCifField() {
+  return StacVisibility(
+    visible: false,
+    child: StacCustomTextFormField(
+      id: 'cif',
+      textDirection: 'ltr',
+      textAlign: 'left',
+      decoration: StacInputDecoration(
+        // مثال: 123
+        hintText: '{{appStrings.promissory.cifExample}}',
+        filled: false,
+        contentPadding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      ).toJson(),
+      keyboardType: 'text',
+      textInputAction: 'next',
+      onChanged: _loginValidationAction(),
+    ),
+  );
+}
+
+StacWidget _buildBirthDateField() {
+  return StacColumn(
+    crossAxisAlignment: StacCrossAxisAlignment.stretch,
+    textDirection: StacTextDirection.rtl,
+    children: [
+      StacText(
+        // تاریخ تولد
+        data: '{{appStrings.promissory.birthdate}}',
+        textDirection: StacTextDirection.rtl,
+        style: StacAliasTextStyle('{{appStyles.text.label}}'),
+      ),
+      StacSizedBox(height: 8),
+      StacGestureDetector(
+        onTap: StacPersianDatePickerAction(
+          formFieldId: 'birthdate',
+          firstDate: '1300/01/01',
+          lastDate: '1450/12/29',
+          onDateSelected: _loginValidationAction().toJson(),
+        ),
+        child: StacTextFormField(
+          id: 'birthdate',
+          readOnly: true,
+          enabled: false,
+          style: StacCustomTextStyle(
+            fontSize: 14,
+            fontWeight: StacFontWeight.w500,
+            color: '{{appColors.current.text.title}}',
+          ),
+          textDirection: StacTextDirection.rtl,
+          textAlign: StacTextAlign.right,
+          decoration: StacInputDecoration(
+            // تاریخ تولد خود را انتخاب نمایید
+            hintText: '{{appStrings.promissory.selectBirth}}',
+            hintStyle: StacCustomTextStyle(
+              fontSize: 14,
+              fontWeight: StacFontWeight.w500,
+              color: '{{appColors.current.text.hint}}',
+            ),
+            filled: false,
+            contentPadding: StacEdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 12,
+            ),
+            prefixIcon: StacPadding(
+              padding: StacEdgeInsets.all(8),
+              child: StacImage(
+                src: 'assets/icons/ic_calendar.svg',
+                imageType: StacImageType.asset,
+                width: 24,
+                height: 24,
+                fit: StacBoxFit.scaleDown,
+                color: '{{appColors.current.secondary.color}}',
+              ),
+            ),
+          ),
+          keyboardType: StacTextInputType.text,
+          validatorRules: const [
+            StacFormFieldValidator(
+              rule: r'.+',
+              // تاریخ تولد الزامی است
+              message: '{{appStrings.promissory.birthdateRequired}}',
+            ),
+          ],
+        ),
+      ),
+    ],
+  );
+}
+
+StacWidget _buildSubmitButton() {
+  return StacCustomReactiveElevatedButton(
+    enabledKey: 'isLoginFormValid',
+    onPressed: StacSequenceAction(
+      actions: [
+        StacCustomSetValueAction(
+          values: [
+            {
+              'key': 'login.mobile',
+              'value': const StacGetFormValueAction(
+                id: 'mobile_number',
+              ).toJson(),
+            },
+            {
+              'key': 'login.nationalCode',
+              'value': const StacGetFormValueAction(
+                id: 'national_code',
+              ).toJson(),
+            },
+            {
+              'key': 'login.gpayToken',
+              'value': const StacGetFormValueAction(id: 'gpay_token').toJson(),
+            },
+            {
+              'key': 'login.cif',
+              'value': const StacGetFormValueAction(id: 'cif').toJson(),
+            },
+            {
+              'key': 'login.birthDate',
+              'value': const StacGetFormValueAction(id: 'birthdate').toJson(),
+            },
+            {
+              'key': 'login.birthDateClean',
+              'value': "{{replace(login.birthDate,'/','')}}",
+            },
+          ],
+        ),
+        StacNetworkRequestAction(
+          url:
+              'http://192.168.107.22:8280/api/digitalbanking/logins/v1.0/tobank/users',
+          method: 'post',
+          headers: const {
+            'accept': '*/*',
+            'app-platform': 'android',
+            'app-store': 'application/json',
+            'app-version': '456',
+            'authorization': 'Bearer null',
+            'content-type': 'application/json',
+            'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
+            'serviceauthorization':
+                'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
+          },
+          data: const {
+            'nationalId': '{{login.nationalCode}}',
+            'mobileNumber': '{{login.mobile}}',
+            'gpayToken': '{{login.gpayToken}}',
+            'birthDate': '{{login.birthDateClean}}',
+            'cif': '{{login.cif}}',
+          },
+          results: [
+            StacNetworkResult(
+              statusCode: 200,
+              action: StacSequenceAction(
+                actions: [
+                  StacCustomSetValueAction(
+                    values: const [
+                      {
+                        'key': 'auth.accessToken',
+                        'value': '{{data.result.data.access_token}}',
+                      },
+                      {
+                        'key': 'auth.accessTokenRaw',
+                        'value':
+                            "{{replace(data.result.data.access_token,'Bearer ','')}}",
+                      },
+                      {
+                        'key': 'userData.nationalCode',
+                        'value': '{{login.nationalCode}}',
+                      },
+                    ],
+                  ),
+                  const StacAuthPersistAction(
+                    accessToken: '{{data.result.data.access_token}}',
+                    nationalCode: '{{login.nationalCode}}',
+                  ),
+                  StacShowSnackBarAction(
+                    content: StacText(
+                      // ورود موفقیت‌آمیز بود
+                      data: '{{appStrings.promissory.loginSuccess}}',
+                    ).toJson(),
+                  ),
+                  const StacNavigateAction(
+                    routeName: 'promissory_real_intro',
+                    navigationStyle: NavigationStyle.pushReplacement,
+                  ),
+                ],
+              ).toJson(),
+            ),
+          ],
+        ),
+      ],
+    ).toJson(),
+    style: StacButtonStyle(
+      backgroundColor: '{{appColors.current.primary.color}}',
+      elevation: 0,
+      fixedSize: StacSize(999999, 56),
+      shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(8)),
+    ).toJson(),
+    child: StacText(
+      // ورود و ذخیره توکن
+      data: '{{appStrings.promissory.loginSaveToken}}',
+      textDirection: StacTextDirection.rtl,
+      style: StacCustomTextStyle(
+        fontSize: 16,
+        fontWeight: StacFontWeight.bold,
+        color: '{{appColors.current.primary.onPrimary}}',
+      ),
+    ).toJson(),
+  );
+}
+
+StacValidateFieldsAction _loginValidationAction() {
+  return const StacValidateFieldsAction(
+    resultKey: 'isLoginFormValid',
+    fields: [
+      {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
+      {'id': 'national_code', 'rule': r'^\d{10}$'},
+      {'id': 'birthdate', 'rule': r'.+'},
+    ],
+  );
+}
+
+class StacShowSnackBarAction extends StacAction {
+  const StacShowSnackBarAction({required this.content, this.backgroundColor});
+
+  final Map<String, dynamic> content;
+  final String? backgroundColor;
+
+  @override
+  String get actionType => 'showSnackBar';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': 'showSnackBar',
+    'content': content,
+    if (backgroundColor != null) 'backgroundColor': backgroundColor,
+  };
+}
+
+class StacAuthPersistAction extends StacAction {
+  const StacAuthPersistAction({
+    required this.accessToken,
+    required this.nationalCode,
+  });
+
+  final String accessToken;
+  final String nationalCode;
+
+  @override
+  String get actionType => 'auth_persist';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': 'auth_persist',
+    'accessToken': accessToken,
+    'nationalCode': nationalCode,
+  };
+}
+

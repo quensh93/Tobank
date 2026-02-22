@@ -40,7 +40,11 @@ class DiskCacheManager {
   }
 
   /// Save data to disk cache
-  Future<void> save(String key, Map<String, dynamic> data, {Duration? expiry}) async {
+  Future<void> save(
+    String key,
+    Map<String, dynamic> data, {
+    Duration? expiry,
+  }) async {
     await _ensureInitialized();
 
     try {

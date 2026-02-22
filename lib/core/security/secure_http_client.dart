@@ -55,21 +55,23 @@ class SecureHttpClient {
   }
 
   /// Build security headers for requests
-  static Map<String, String> _buildSecurityHeaders(Map<String, String> customHeaders) {
+  static Map<String, String> _buildSecurityHeaders(
+    Map<String, String> customHeaders,
+  ) {
     return {
       // Content type
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      
+
       // Security headers
       'X-Content-Type-Options': 'nosniff',
       'X-Frame-Options': 'DENY',
       'X-XSS-Protection': '1; mode=block',
       'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
-      
+
       // API version
       'X-API-Version': '1.0',
-      
+
       // Custom headers (can override defaults)
       ...customHeaders,
     };
@@ -82,25 +84,25 @@ class SecureHttpClient {
   ) {
     (dio.httpClientAdapter as IOHttpClientAdapter).createHttpClient = () {
       final client = HttpClient();
-      
+
       // Configure certificate validation
       client.badCertificateCallback = (cert, host, port) {
         // Get certificate SHA-256 fingerprint
         final certFingerprint = _getCertificateFingerprint(cert);
-        
+
         // Check if certificate matches any pinned certificates
         final isValid = pinnedCertificates.contains(certFingerprint);
-        
+
         if (!isValid) {
           // Log certificate pinning failure
           AppLogger.e('❌ Certificate pinning failed for $host:$port');
           AppLogger.e('   Expected one of: ${pinnedCertificates.join(", ")}');
           AppLogger.e('   Received: $certFingerprint');
         }
-        
+
         return isValid;
       };
-      
+
       return client;
     };
   }
@@ -109,13 +111,13 @@ class SecureHttpClient {
   static void _enforceValidCertificates(Dio dio) {
     (dio.httpClientAdapter as IOHttpClientAdapter).createHttpClient = () {
       final client = HttpClient();
-      
+
       // Reject all invalid certificates
       client.badCertificateCallback = (cert, host, port) {
         AppLogger.e('❌ Invalid certificate for $host:$port');
         return false;
       };
-      
+
       return client;
     };
   }
@@ -150,12 +152,13 @@ class SecureHttpClient {
             return handler.reject(
               DioException(
                 requestOptions: options,
-                error: 'Insecure URL detected: ${options.uri}. Only HTTPS is allowed.',
+                error:
+                    'Insecure URL detected: ${options.uri}. Only HTTPS is allowed.',
                 type: DioExceptionType.badResponse,
               ),
             );
           }
-          
+
           return handler.next(options);
         },
         onResponse: (response, handler) {
@@ -177,22 +180,22 @@ class SecureHttpClient {
   /// Validate response headers for security issues
   static void _validateResponseHeaders(Response response) {
     final headers = response.headers;
-    
+
     // Check for security headers
     final warnings = <String>[];
-    
+
     if (!headers.map.containsKey('strict-transport-security')) {
       warnings.add('Missing Strict-Transport-Security header');
     }
-    
+
     if (!headers.map.containsKey('x-content-type-options')) {
       warnings.add('Missing X-Content-Type-Options header');
     }
-    
+
     if (!headers.map.containsKey('x-frame-options')) {
       warnings.add('Missing X-Frame-Options header');
     }
-    
+
     if (warnings.isNotEmpty) {
       AppLogger.w('⚠️ Security warnings for ${response.requestOptions.uri}:');
       for (final warning in warnings) {

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
-import '../../../../../stac/tobank/flows/promissory_real/splash/promissory_real_splash.dart' as splash;
+import '../../../../../stac/tobank/flows/promissory_real/splash/promissory_real_splash.dart'
+    as splash;
 import '../../../pre_launch/providers/theme_controller_provider.dart';
 import '../../../../core/helpers/logger.dart';
 
@@ -24,7 +25,6 @@ class PromissoryRealFlowScreen extends ConsumerWidget {
       LogCategory.theme,
       'PromissoryRealFlowScreen rebuilding with theme: ${themeMode.name}',
     );
-
 
     final stacWidget = splash.promissoryRealSplash();
     final json = stacWidget.toJson();

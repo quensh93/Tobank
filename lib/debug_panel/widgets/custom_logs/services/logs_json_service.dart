@@ -274,4 +274,3 @@ class LogsJsonService {
     return null;
   }
 }
-

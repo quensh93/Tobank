@@ -108,7 +108,9 @@ class CustomTextFormFieldParser extends StacParser<StacTextFormField> {
         );
       }
     } else {
-      AppLogger.w('âš ï¸ No cached JSON found for TextFormField id=${model.id}');
+      AppLogger.w(
+        'âš ï¸ No cached JSON found for TextFormField id=${model.id}',
+      );
       AppLogger.w(
         'ðŸ“Š Cache size: ${_jsonCache.length}, Keys: ${_jsonCache.keys.toList()}',
       );
@@ -161,8 +163,9 @@ class _CustomTextFormFieldWidgetState
       final formatted = _formatThousands(_controller.text, _thousandsSeparator);
       if (formatted != _controller.text) {
         _controller.text = formatted;
-        _controller.selection =
-            TextSelection.collapsed(offset: _controller.text.length);
+        _controller.selection = TextSelection.collapsed(
+          offset: _controller.text.length,
+        );
       }
     }
 
@@ -258,8 +261,7 @@ class _CustomTextFormFieldWidgetState
           }
         }
         if (widget.model.id != null) {
-          final stored =
-              _shouldFormatThousands ? _controller.text : value;
+          final stored = _shouldFormatThousands ? _controller.text : value;
           widget.formScope?.formData[widget.model.id!] = stored;
           AppLogger.d('ðŸ“ Updated formData[${widget.model.id}] = "$stored"');
         }
@@ -293,7 +295,9 @@ class _CustomTextFormFieldWidgetState
             AppLogger.w(
               'âš ï¸ No onChanged action found in raw JSON for id=${widget.model.id}',
             );
-            AppLogger.w('ðŸ“‹ Available keys: ${widget.rawJson!.keys.toList()}');
+            AppLogger.w(
+              'ðŸ“‹ Available keys: ${widget.rawJson!.keys.toList()}',
+            );
           }
         } else {
           AppLogger.e(

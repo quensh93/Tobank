@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 /// Visual Editor Screen (Disabled)
-/// 
+///
 /// This screen is currently disabled as it requires additional dependencies
 /// and complex widget tree manipulation that's not yet implemented.
 class VisualEditorScreen extends StatelessWidget {

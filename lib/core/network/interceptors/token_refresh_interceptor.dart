@@ -30,7 +30,7 @@ class TokenRefreshInterceptor extends Interceptor {
 
         try {
           AppLogger.i('Refreshing access token...');
-          
+
           final newToken = await refreshToken();
 
           if (newToken != null && newToken.isNotEmpty) {
@@ -47,11 +47,9 @@ class TokenRefreshInterceptor extends Interceptor {
 
             try {
               final response = await dio.fetch(
-                err.requestOptions.copyWith(
-                  headers: options.headers,
-                ),
+                err.requestOptions.copyWith(headers: options.headers),
               );
-              
+
               AppLogger.i('Token refreshed successfully, retrying request');
               return handler.resolve(response);
             } on DioException catch (e) {
@@ -62,7 +60,7 @@ class TokenRefreshInterceptor extends Interceptor {
             // Token refresh failed, navigate to login
             AppLogger.e('Token refresh failed, navigating to login');
             await onTokenExpired();
-            
+
             return handler.reject(
               DioException(
                 requestOptions: err.requestOptions,
@@ -73,7 +71,7 @@ class TokenRefreshInterceptor extends Interceptor {
         } catch (e) {
           AppLogger.e('Exception during token refresh', e);
           await onTokenExpired();
-          
+
           return handler.reject(
             DioException(
               requestOptions: err.requestOptions,

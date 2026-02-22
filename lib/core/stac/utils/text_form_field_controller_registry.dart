@@ -4,13 +4,13 @@ import '../../helpers/logger.dart';
 /// Registry to store TextEditingController references for TextFormFields
 /// This allows external code to update TextFormField values programmatically
 class TextFormFieldControllerRegistry {
-  static final TextFormFieldControllerRegistry _instance = 
+  static final TextFormFieldControllerRegistry _instance =
       TextFormFieldControllerRegistry._internal();
-  
+
   factory TextFormFieldControllerRegistry() => _instance;
-  
+
   static TextFormFieldControllerRegistry get instance => _instance;
-  
+
   TextFormFieldControllerRegistry._internal();
 
   /// Map of field IDs to their TextEditingControllers

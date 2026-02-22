@@ -170,8 +170,7 @@ StacWidget promissoryPayment() {
                         'appColors.current.error.color', // Removed braces
                     icon: 'assets/icons/ic_wallet.svg',
                     title: '{{appStrings.promissory.walletPayment}}',
-                    subtitle:
-                        '{{wallet.balance}} {{appStrings.common.rial}}',
+                    subtitle: '{{wallet.balance}} {{appStrings.common.rial}}',
                   ),
                   StacSizedBox(height: 12),
 
@@ -181,7 +180,6 @@ StacWidget promissoryPayment() {
                     isSelectedVar: 'isDepositSelected',
                     icon: 'assets/icons/ic_branch.svg',
                     title: '{{appStrings.promissory.depositPayment}}',
-
                   ),
                   StacSizedBox(height: 12),
 
@@ -339,7 +337,7 @@ StacWidget _buildPaymentOption({
   required String id,
   required String icon,
   required String title,
-   String subtitle = '',
+  String subtitle = '',
   String? isSelectedVar,
   String activeColor = 'appColors.current.primary.color', // Removed braces
 }) {
@@ -402,7 +400,6 @@ StacWidget _buildPaymentOption({
             child: StacColumn(
               crossAxisAlignment: StacCrossAxisAlignment.start,
               children: [
-
                 StacSizedBox(height: 4),
                 StacText(
                   data: subtitle,

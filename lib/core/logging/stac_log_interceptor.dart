@@ -53,10 +53,7 @@ class StacLogInterceptor {
         screenName: screenName,
         suggestion: 'Check network connection and API configuration',
         stackTrace: stackTrace,
-        additionalMetadata: {
-          'source': source.name,
-          ...?additionalMetadata,
-        },
+        additionalMetadata: {'source': source.name, ...?additionalMetadata},
       );
 
       rethrow;

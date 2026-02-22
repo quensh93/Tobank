@@ -18,15 +18,15 @@ class DebugPanelTheme {
     ColorScheme? lightColorScheme,
     ColorScheme? darkColorScheme,
   })  : lightColorScheme = lightColorScheme ??
-        ColorScheme.fromSeed(
-          seedColor: const Color(0xFF6366F1), // Indigo
-          brightness: Brightness.light,
-        ),
+            ColorScheme.fromSeed(
+              seedColor: const Color(0xFF6366F1), // Indigo
+              brightness: Brightness.light,
+            ),
         darkColorScheme = darkColorScheme ??
-        ColorScheme.fromSeed(
-          seedColor: const Color(0xFF6366F1), // Indigo
-          brightness: Brightness.dark,
-        );
+            ColorScheme.fromSeed(
+              seedColor: const Color(0xFF6366F1), // Indigo
+              brightness: Brightness.dark,
+            );
 
   /// Create Material 3 theme data for light mode
   ThemeData get lightTheme => ThemeData(
@@ -79,7 +79,8 @@ class DebugPanelTheme {
         ),
         tabBarTheme: TabBarThemeData(
           labelColor: lightColorScheme.primary,
-          unselectedLabelColor: lightColorScheme.onSurface.withValues(alpha: 0.6),
+          unselectedLabelColor:
+              lightColorScheme.onSurface.withValues(alpha: 0.6),
           indicatorColor: lightColorScheme.primary,
           dividerColor: lightColorScheme.outline.withValues(alpha: 0.2),
           indicatorSize: TabBarIndicatorSize.tab,
@@ -180,7 +181,8 @@ class DebugPanelTheme {
         ),
         tabBarTheme: TabBarThemeData(
           labelColor: darkColorScheme.primary,
-          unselectedLabelColor: darkColorScheme.onSurface.withValues(alpha: 0.6),
+          unselectedLabelColor:
+              darkColorScheme.onSurface.withValues(alpha: 0.6),
           indicatorColor: darkColorScheme.primary,
           dividerColor: darkColorScheme.outline.withValues(alpha: 0.2),
           indicatorSize: TabBarIndicatorSize.tab,
@@ -255,4 +257,3 @@ class DebugPanelTheme {
     );
   }
 }
-

@@ -8,7 +8,7 @@ part 'api_service.g.dart';
 abstract class ApiService {
   factory ApiService(Dio dio, {String? baseUrl}) = _ApiService;
 
-    // GET endpoints - returns JSON data
+  // GET endpoints - returns JSON data
   @GET('/get')
   Future<dynamic> getData(@Queries() Map<String, dynamic> queries);
 

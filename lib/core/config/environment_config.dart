@@ -4,6 +4,7 @@
 /// staging, and production environments. Use dart-define to select the
 /// environment at build time.
 library;
+
 ///
 /// Example:
 /// ```bash

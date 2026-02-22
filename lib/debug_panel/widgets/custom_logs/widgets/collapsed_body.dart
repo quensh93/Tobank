@@ -194,4 +194,3 @@ class DecoratedLeadingIcon extends StatelessWidget {
         ),
       );
 }
-

@@ -102,22 +102,14 @@ class Radii extends ThemeExtension<Radii> {
 }
 
 class Durations extends ThemeExtension<Durations> {
-  const Durations({
-    this.fast = 150,
-    this.normal = 300,
-    this.slow = 500,
-  });
+  const Durations({this.fast = 150, this.normal = 300, this.slow = 500});
 
   final int fast;
   final int normal;
   final int slow;
 
   @override
-  ThemeExtension<Durations> copyWith({
-    int? fast,
-    int? normal,
-    int? slow,
-  }) {
+  ThemeExtension<Durations> copyWith({int? fast, int? normal, int? slow}) {
     return Durations(
       fast: fast ?? this.fast,
       normal: normal ?? this.normal,

@@ -11,13 +11,15 @@ class FrameTimingDataCollector extends StatefulWidget {
   });
 
   /// Callback function that receives the collected frame timing data.
-  final Function(List<Duration> uiSamples, List<Duration> rasterSamples, List<Duration> latencySamples) onDataCollected;
+  final Function(List<Duration> uiSamples, List<Duration> rasterSamples,
+      List<Duration> latencySamples) onDataCollected;
 
   /// Number of recent frames to collect.
   final int sampleSize;
 
   @override
-  State<FrameTimingDataCollector> createState() => _FrameTimingDataCollectorState();
+  State<FrameTimingDataCollector> createState() =>
+      _FrameTimingDataCollectorState();
 }
 
 class _FrameTimingDataCollectorState extends State<FrameTimingDataCollector> {
@@ -64,12 +66,12 @@ class _FrameTimingDataCollectorState extends State<FrameTimingDataCollector> {
       setState(() {
         _samples = updated;
         _pendingSetState = false;
-        
+
         // Calculate and provide samples to callback
         final uiSamples = [for (final e in _samples) e.buildDuration];
         final rasterSamples = [for (final e in _samples) e.rasterDuration];
         final latencySamples = [for (final e in _samples) e.totalSpan];
-        
+
         widget.onDataCollected(uiSamples, rasterSamples, latencySamples);
       });
     });
@@ -80,4 +82,3 @@ class _FrameTimingDataCollectorState extends State<FrameTimingDataCollector> {
     return const SizedBox.shrink();
   }
 }
-

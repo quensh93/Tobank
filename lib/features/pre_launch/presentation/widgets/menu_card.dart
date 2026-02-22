@@ -49,11 +49,7 @@ class MenuCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(
-                icon,
-                size: 24,
-                color: colorScheme.primary,
-              ),
+              Icon(icon, size: 24, color: colorScheme.primary),
               const SizedBox(height: 8),
               Flexible(
                 child: Text(

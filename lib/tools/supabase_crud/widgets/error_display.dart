@@ -7,11 +7,7 @@ class CrudErrorDisplay extends StatelessWidget {
   final Object error;
   final VoidCallback? onRetry;
 
-  const CrudErrorDisplay({
-    super.key,
-    required this.error,
-    this.onRetry,
-  });
+  const CrudErrorDisplay({super.key, required this.error, this.onRetry});
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +19,7 @@ class CrudErrorDisplay extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.error_outline,
-              size: 64,
-              color: theme.colorScheme.error,
-            ),
+            Icon(Icons.error_outline, size: 64, color: theme.colorScheme.error),
             const SizedBox(height: 16),
             Text(
               'Something went wrong',

@@ -4,7 +4,7 @@ import 'package:slow_net_simulator/slow_net_simulator.dart';
 import '../../core/helpers/logger.dart';
 
 /// Dio HttpClientAdapter that wraps requests with SlowNetSimulator
-/// 
+///
 /// This adapter wraps all HTTP requests with SlowNetSimulator.simulate()
 /// to apply network speed simulation and failure probability.
 class NetworkSimulatorAdapter implements HttpClientAdapter {
@@ -24,7 +24,7 @@ class NetworkSimulatorAdapter implements HttpClientAdapter {
   ) async {
     if (isEnabled()) {
       AppLogger.d('🌐 Wrapping request with network simulator: ${options.uri}');
-      
+
       // Wrap the request with SlowNetSimulator.simulate()
       return await SlowNetSimulator.simulate(() async {
         try {
@@ -48,4 +48,3 @@ class NetworkSimulatorAdapter implements HttpClientAdapter {
     _adapter.close(force: force);
   }
 }
-

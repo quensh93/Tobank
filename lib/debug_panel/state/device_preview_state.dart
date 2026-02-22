@@ -36,7 +36,7 @@ DeviceInfo? _deviceFromId(String deviceId) {
     Devices.android.mediumTablet,
     Devices.android.largeTablet,
   ];
-  
+
   for (final device in allDevices) {
     if (_deviceToId(device) == deviceId) {
       return device;
@@ -80,7 +80,7 @@ class DevicePreviewController extends Notifier<DevicePreviewState> {
   DevicePreviewState build() {
     // WATCH the settings provider so we rebuild when settings are loaded
     final settings = ref.watch(debugPanelSettingsProvider);
-    
+
     // Try to load device from settings
     DeviceInfo initialDevice = Devices.ios.iPhone15Pro;
     final savedDevice = _deviceFromId(settings.deviceId);
@@ -90,11 +90,12 @@ class DevicePreviewController extends Notifier<DevicePreviewState> {
       // Only update settings if deviceId is empty (first time)
       // Do this after build completes to avoid modifying providers during initialization
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        final settingsController = ref.read(debugPanelSettingsProvider.notifier);
+        final settingsController =
+            ref.read(debugPanelSettingsProvider.notifier);
         settingsController.setDeviceId(_deviceToId(initialDevice));
       });
     }
-    
+
     return DevicePreviewState(
       selectedDevice: initialDevice,
       isFrameVisible: settings.isFrameVisible,
@@ -151,6 +152,7 @@ class DevicePreviewController extends Notifier<DevicePreviewState> {
 }
 
 /// Device preview provider
-final devicePreviewProvider = NotifierProvider<DevicePreviewController, DevicePreviewState>(
+final devicePreviewProvider =
+    NotifierProvider<DevicePreviewController, DevicePreviewState>(
   DevicePreviewController.new,
 );

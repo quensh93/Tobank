@@ -9,11 +9,7 @@ import 'dart:convert';
 /// Displays detailed information about a STAC log entry including
 /// JSON data with syntax highlighting and performance metrics.
 class StacLogViewer extends StatelessWidget {
-  const StacLogViewer({
-    super.key,
-    required this.logEntry,
-    this.onClose,
-  });
+  const StacLogViewer({super.key, required this.logEntry, this.onClose});
 
   final StacLogEntry logEntry;
   final VoidCallback? onClose;
@@ -29,7 +25,7 @@ class StacLogViewer extends StatelessWidget {
           // Header
           _buildHeader(context),
           const Divider(height: 1),
-          
+
           // Content
           Expanded(
             child: SingleChildScrollView(
@@ -40,27 +36,25 @@ class StacLogViewer extends StatelessWidget {
                   // Overview section
                   _buildOverviewSection(context),
                   const SizedBox(height: 24),
-                  
+
                   // Performance metrics
                   _buildPerformanceSection(context),
                   const SizedBox(height: 24),
-                  
+
                   // Error details (if error)
                   if (logEntry.isError) ...[
                     _buildErrorSection(context),
                     const SizedBox(height: 24),
                   ],
-                  
+
                   // Metadata section
                   if (logEntry.metadata.isNotEmpty) ...[
                     _buildMetadataSection(context),
                     const SizedBox(height: 24),
                   ],
-                  
+
                   // JSON data (if available)
-                  if (_hasJsonData()) ...[
-                    _buildJsonSection(context),
-                  ],
+                  if (_hasJsonData()) ...[_buildJsonSection(context)],
                 ],
               ),
             ),
@@ -125,7 +119,7 @@ class StacLogViewer extends StatelessWidget {
   /// Build overview section with basic information
   Widget _buildOverviewSection(BuildContext context) {
     final dateFormat = DateFormat('yyyy-MM-dd HH:mm:ss.SSS');
-    
+
     return _buildSection(
       context,
       title: 'Overview',
@@ -175,7 +169,9 @@ class StacLogViewer extends StatelessWidget {
           value: logEntry.formattedDuration,
           icon: Icons.timer,
           color: logEntry.isSlow ? Colors.orange : Colors.green,
-          subtitle: logEntry.isSlow ? 'Slow operation detected' : 'Normal performance',
+          subtitle: logEntry.isSlow
+              ? 'Slow operation detected'
+              : 'Normal performance',
         ),
         if (logEntry.metadata.containsKey('size_kb'))
           _buildMetricCard(
@@ -279,9 +275,7 @@ class StacLogViewer extends StatelessWidget {
                       const SizedBox(height: 4),
                       Text(
                         logEntry.suggestion!,
-                        style: TextStyle(
-                          color: Colors.blue[900],
-                        ),
+                        style: TextStyle(color: Colors.blue[900]),
                       ),
                     ],
                   ),
@@ -329,9 +323,7 @@ class StacLogViewer extends StatelessWidget {
                     Expanded(
                       child: Text(
                         entry.value.toString(),
-                        style: const TextStyle(
-                          fontFamily: 'monospace',
-                        ),
+                        style: const TextStyle(fontFamily: 'monospace'),
                       ),
                     ),
                   ],
@@ -447,7 +439,11 @@ class StacLogViewer extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, size: 16, color: Theme.of(context).colorScheme.onSurfaceVariant),
+          Icon(
+            icon,
+            size: 16,
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
+          ),
           const SizedBox(width: 8),
           SizedBox(
             width: 120,
@@ -466,7 +462,8 @@ class StacLogViewer extends StatelessWidget {
                   child: Text(
                     value,
                     style: TextStyle(
-                      color: valueColor ?? Theme.of(context).colorScheme.onSurface,
+                      color:
+                          valueColor ?? Theme.of(context).colorScheme.onSurface,
                       fontFamily: copyable ? 'monospace' : null,
                     ),
                   ),

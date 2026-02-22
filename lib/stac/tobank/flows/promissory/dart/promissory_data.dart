@@ -440,7 +440,8 @@ StacWidget _buildReceiverInfoCard() {
         StacSizedBox(height: 12),
         // National Code
         _buildInfoRow(
-          label: 'کد ملی', value: '{{form.receiver_national_code}}',
+          label: 'کد ملی',
+          value: '{{form.receiver_national_code}}',
         ),
         StacSizedBox(height: 8),
         // Mobile Number

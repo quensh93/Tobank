@@ -98,8 +98,8 @@ class ScreenListScreen extends HookConsumerWidget {
                   Icon(
                     sortBy.value == ScreenSortBy.name
                         ? (sortAscending.value
-                            ? Icons.arrow_upward
-                            : Icons.arrow_downward)
+                              ? Icons.arrow_upward
+                              : Icons.arrow_downward)
                         : Icons.sort_by_alpha,
                     size: 20,
                   ),
@@ -115,8 +115,8 @@ class ScreenListScreen extends HookConsumerWidget {
                   Icon(
                     sortBy.value == ScreenSortBy.updatedAt
                         ? (sortAscending.value
-                            ? Icons.arrow_upward
-                            : Icons.arrow_downward)
+                              ? Icons.arrow_upward
+                              : Icons.arrow_downward)
                         : Icons.access_time,
                     size: 20,
                   ),
@@ -132,8 +132,8 @@ class ScreenListScreen extends HookConsumerWidget {
                   Icon(
                     sortBy.value == ScreenSortBy.version
                         ? (sortAscending.value
-                            ? Icons.arrow_upward
-                            : Icons.arrow_downward)
+                              ? Icons.arrow_upward
+                              : Icons.arrow_downward)
                         : Icons.numbers,
                     size: 20,
                   ),
@@ -205,14 +205,15 @@ class ScreenListScreen extends HookConsumerWidget {
                           searchQuery.value.isNotEmpty
                               ? 'Try a different search term'
                               : 'Create your first screen to get started',
-                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                color: Colors.grey,
-                              ),
+                          style: Theme.of(
+                            context,
+                          ).textTheme.bodyMedium?.copyWith(color: Colors.grey),
                         ),
                         if (searchQuery.value.isEmpty) ...[
                           const SizedBox(height: 24),
                           ElevatedButton.icon(
-                            onPressed: () => CrudNavigation.toCreateScreen(context),
+                            onPressed: () =>
+                                CrudNavigation.toCreateScreen(context),
                             icon: const Icon(Icons.add),
                             label: const Text('Create Screen'),
                           ),
@@ -233,10 +234,8 @@ class ScreenListScreen extends HookConsumerWidget {
                       final screen = screens[index];
                       return ScreenCard(
                         screen: screen,
-                        onTap: () => CrudNavigation.toEditScreen(
-                          context,
-                          screen.name,
-                        ),
+                        onTap: () =>
+                            CrudNavigation.toEditScreen(context, screen.name),
                         onDelete: () async {
                           final confirmed = await _showDeleteConfirmation(
                             context,
@@ -254,9 +253,8 @@ class ScreenListScreen extends HookConsumerWidget {
                   ),
                 );
               },
-              loading: () => const CrudLoadingIndicator(
-                message: 'Loading screens...',
-              ),
+              loading: () =>
+                  const CrudLoadingIndicator(message: 'Loading screens...'),
               error: (error, stack) => CrudErrorDisplay(
                 error: error,
                 onRetry: () {
@@ -290,9 +288,7 @@ class ScreenListScreen extends HookConsumerWidget {
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
-            style: FilledButton.styleFrom(
-              backgroundColor: Colors.red,
-            ),
+            style: FilledButton.styleFrom(backgroundColor: Colors.red),
             child: const Text('Delete'),
           ),
         ],
@@ -302,8 +298,4 @@ class ScreenListScreen extends HookConsumerWidget {
 }
 
 /// Sort options for screens
-enum ScreenSortBy {
-  name,
-  updatedAt,
-  version,
-}
+enum ScreenSortBy { name, updatedAt, version }

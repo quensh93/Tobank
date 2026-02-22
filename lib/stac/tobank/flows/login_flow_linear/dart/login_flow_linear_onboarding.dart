@@ -45,4 +45,3 @@ StacWidget tobankLoginFlowLinearOnboarding() {
     ),
   );
 }
-

@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 
 /// Error handler for STAC Test App operations
-/// 
+///
 /// Provides user-friendly error messages and error categorization
 class StacErrorHandler {
   /// Get user-friendly error message from exception
@@ -78,7 +78,7 @@ class StacErrorHandler {
   /// Handle network errors
   static String _handleNetworkError(DioException error) {
     final url = error.requestOptions.path;
-    
+
     if (error.type == DioExceptionType.connectionTimeout ||
         error.type == DioExceptionType.receiveTimeout) {
       return 'Network timeout: Failed to load from URL\n\n$url\n\nPlease check your internet connection and try again.';
@@ -112,9 +112,7 @@ class StacErrorHandler {
 
     final screens = json['screens'];
     if (screens is! Map || screens.isEmpty) {
-      throw EntryPointValidationException(
-        'Entry point has no screens defined',
-      );
+      throw EntryPointValidationException('Entry point has no screens defined');
     }
 
     final initialScreen = json['initial_screen'] as String;
@@ -202,4 +200,3 @@ class ScreenValidationException implements Exception {
   @override
   String toString() => message;
 }
-

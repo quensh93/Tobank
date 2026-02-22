@@ -47,11 +47,7 @@ class DebugToolItem extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         child: Row(
           children: [
-            Icon(
-              icon,
-              size: 20,
-              color: colorScheme.primary,
-            ),
+            Icon(icon, size: 20, color: colorScheme.primary),
             const SizedBox(width: 16),
             Expanded(
               child: Column(

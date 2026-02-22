@@ -8,7 +8,7 @@ void main() {
   group('DebugPanel', () {
     testWidgets('renders child when enabled', (WidgetTester tester) async {
       const testWidget = Text('Test Widget');
-      
+
       await tester.pumpWidget(
         const MaterialApp(
           home: DebugPanel(
@@ -21,9 +21,10 @@ void main() {
       expect(find.text('Test Widget'), findsOneWidget);
     });
 
-    testWidgets('renders only child when disabled', (WidgetTester tester) async {
+    testWidgets('renders only child when disabled',
+        (WidgetTester tester) async {
       const testWidget = Text('Test Widget');
-      
+
       await tester.pumpWidget(
         const MaterialApp(
           home: DebugPanel(
@@ -38,9 +39,10 @@ void main() {
       expect(find.byType(ToolPanel), findsNothing);
     });
 
-    testWidgets('shows device preview tab by default', (WidgetTester tester) async {
+    testWidgets('shows device preview tab by default',
+        (WidgetTester tester) async {
       const testWidget = Text('Test Widget');
-      
+
       await tester.pumpWidget(
         const MaterialApp(
           home: DebugPanel(

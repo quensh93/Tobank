@@ -7,7 +7,7 @@ class ErrorInterceptor extends Interceptor {
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
     final statusCode = err.response?.statusCode;
-    
+
     // Log the error
     AppLogger.e(
       'API Error: ${err.type} - Status: $statusCode',
@@ -58,7 +58,7 @@ class ErrorInterceptor extends Interceptor {
 
   void _handleBadResponse(DioException err, ErrorInterceptorHandler handler) {
     final statusCode = err.response?.statusCode;
-    
+
     switch (statusCode) {
       case 400:
         AppLogger.w('Bad Request: 400');
@@ -77,7 +77,7 @@ class ErrorInterceptor extends Interceptor {
       default:
         AppLogger.w('HTTP Error: $statusCode');
     }
-    
+
     handler.next(err);
   }
 
@@ -100,7 +100,7 @@ class ErrorInterceptor extends Interceptor {
     } else {
       AppLogger.e('Unknown error: ${err.error}');
     }
-    
+
     handler.next(err);
   }
 

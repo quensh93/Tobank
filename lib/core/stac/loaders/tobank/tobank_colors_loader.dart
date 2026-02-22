@@ -356,10 +356,7 @@ class TobankColorsLoader {
               );
             }
           } else {
-            AppLogger.wc(
-              LogCategory.theme,
-              'Source key not found: $sourceKey',
-            );
+            AppLogger.wc(LogCategory.theme, 'Source key not found: $sourceKey');
           }
         }
       });

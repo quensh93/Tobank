@@ -24,10 +24,7 @@ class SupabaseCrudApp extends StatelessWidget {
             brightness: Brightness.light,
           ),
           useMaterial3: true,
-          appBarTheme: const AppBarTheme(
-            centerTitle: false,
-            elevation: 2,
-          ),
+          appBarTheme: const AppBarTheme(centerTitle: false, elevation: 2),
           cardTheme: CardThemeData(
             elevation: 2,
             shape: RoundedRectangleBorder(
@@ -35,9 +32,7 @@ class SupabaseCrudApp extends StatelessWidget {
             ),
           ),
           inputDecorationTheme: InputDecorationTheme(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
             filled: true,
           ),
         ),
@@ -47,10 +42,7 @@ class SupabaseCrudApp extends StatelessWidget {
             brightness: Brightness.dark,
           ),
           useMaterial3: true,
-          appBarTheme: const AppBarTheme(
-            centerTitle: false,
-            elevation: 2,
-          ),
+          appBarTheme: const AppBarTheme(centerTitle: false, elevation: 2),
           cardTheme: CardThemeData(
             elevation: 2,
             shape: RoundedRectangleBorder(
@@ -58,9 +50,7 @@ class SupabaseCrudApp extends StatelessWidget {
             ),
           ),
           inputDecorationTheme: InputDecorationTheme(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
             filled: true,
           ),
         ),

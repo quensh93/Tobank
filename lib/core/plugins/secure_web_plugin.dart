@@ -72,7 +72,7 @@
 //         // Get userId from storage for auto-registration if needed
 //         final authInfoData = await StorageUtil.getAuthInfoDataSecureStorage();
 //         final userId = authInfoData?.mobile ?? 'user';
-        
+
 //         final isAuthenticated = await web_biometric.WebBiometricService.authenticate(
 //           reason: reason ??
 //               'لطفا جهت تایید از اثر انگشت یا رمز ورود خود استفاده نمایید',
@@ -215,7 +215,7 @@
 //         // In mobile: biometric is requested directly without credential check
 //         // In Web: if credential doesn't exist, auto-register then authenticate
 //         final userId = 'user'; // Can be improved to get from mainController if available
-        
+
 //         final isAuthenticated = await web_biometric.WebBiometricService.authenticate(
 //           reason: reason ??
 //               'لطفا جهت تایید امضای دیجیتال از اثر انگشت یا رمز ورود خود استفاده نمایید',

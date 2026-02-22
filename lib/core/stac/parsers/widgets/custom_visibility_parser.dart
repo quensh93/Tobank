@@ -67,7 +67,7 @@ class CustomVisibilityParser extends StacParser<CustomVisibilityModel> {
             // But if specified and null, usually false?
             // Documentation says "Defaults to true".
             // If the variable is missing, what should happen?
-            isVisible = false; 
+            isVisible = false;
           }
         } else if (model.visible == null) {
           isVisible = true; // Default
@@ -77,7 +77,7 @@ class CustomVisibilityParser extends StacParser<CustomVisibilityModel> {
           visible: isVisible,
           replacement: model.replacement != null
               ? Stac.fromJson(model.replacement!, context) ??
-                  const SizedBox.shrink()
+                    const SizedBox.shrink()
               : const SizedBox.shrink(),
           maintainState: model.maintainState,
           maintainAnimation: model.maintainAnimation,
@@ -99,7 +99,7 @@ class CustomVisibilityParser extends StacParser<CustomVisibilityModel> {
     // Check for template syntax {{key}}
     if (value.startsWith('{{') && value.endsWith('}}')) {
       key = value.substring(2, value.length - 2).trim();
-    } 
+    }
     // Check for custom escape syntax [[key]] to bypass Stac resolution
     else if (value.startsWith('[[') && value.endsWith(']]')) {
       key = value.substring(2, value.length - 2).trim();
@@ -119,10 +119,10 @@ class CustomVisibilityParser extends StacParser<CustomVisibilityModel> {
         // Treat null or non-bool as false, so negation is true
         return registryValue == null || registryValue == false;
       }
-      
+
       return registryValue;
     }
-    
+
     // Simple fallback for boolean strings
     if (value.toLowerCase() == 'true') return true;
     if (value.toLowerCase() == 'false') return false;

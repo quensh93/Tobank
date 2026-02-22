@@ -52,14 +52,14 @@ class ExampleActionModel {
   }
 
   List<Object?> get props => [
-        message,
-        duration,
-        backgroundColor,
-        textColor,
-        showAction,
-        actionText,
-        onActionPressed,
-      ];
+    message,
+    duration,
+    backgroundColor,
+    textColor,
+    showAction,
+    actionText,
+    onActionPressed,
+  ];
 }
 
 /// Example Action Parser
@@ -81,10 +81,7 @@ class ExampleActionParser extends StacActionParser<ExampleActionModel> {
     final textColor = _parseColor(model.textColor ?? '#FFFFFF');
 
     final snackBar = SnackBar(
-      content: Text(
-        model.message,
-        style: TextStyle(color: textColor),
-      ),
+      content: Text(model.message, style: TextStyle(color: textColor)),
       backgroundColor: bgColor,
       duration: Duration(seconds: model.duration ?? 2),
       action: (model.showAction ?? false)
@@ -93,10 +90,7 @@ class ExampleActionParser extends StacActionParser<ExampleActionModel> {
               textColor: textColor,
               onPressed: () {
                 if (model.onActionPressed != null) {
-                  Stac.onCallFromJson(
-                    model.onActionPressed!,
-                    context,
-                  );
+                  Stac.onCallFromJson(model.onActionPressed!, context);
                 }
               },
             )

@@ -3,17 +3,14 @@ import 'package:slow_net_simulator/slow_net_simulator.dart';
 import '../../core/helpers/logger.dart';
 
 /// Wrapper for Dio that automatically applies network simulation when enabled
-/// 
+///
 /// This class wraps all Dio request methods to apply SlowNetSimulator
 /// when the simulator is enabled. When disabled, it bypasses simulation.
 class DioWithSimulator {
   final Dio _dio;
   final bool Function() isEnabled;
 
-  DioWithSimulator({
-    required Dio dio,
-    required this.isEnabled,
-  }) : _dio = dio;
+  DioWithSimulator({required Dio dio, required this.isEnabled}) : _dio = dio;
 
   /// Get the underlying Dio instance (for interceptors, etc.)
   Dio get dio => _dio;
@@ -160,4 +157,3 @@ class DioWithSimulator {
     );
   }
 }
-

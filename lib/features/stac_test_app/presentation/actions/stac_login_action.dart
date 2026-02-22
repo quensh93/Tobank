@@ -10,9 +10,6 @@ class StacLoginAction {
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'actionType': 'loginAction',
-    };
+    return {'actionType': 'loginAction'};
   }
 }
-

@@ -18,28 +18,30 @@ class RequestPromissoryDataPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-//locale
+    //locale
     final locale = AppLocalizations.of(context)!;
     return GetBuilder<RequestPromissoryController>(
       builder: (controller) {
-        final isIndividual = controller.selectedReceiverType == PromissoryCustomerType.individual;
+        final isIndividual =
+            controller.selectedReceiverType ==
+            PromissoryCustomerType.individual;
         return SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const SizedBox(
-                  height: 16.0,
-                ),
+                const SizedBox(height: 16.0),
                 Card(
                   elevation: Get.isDarkMode ? 1 : 0,
                   margin: EdgeInsets.zero,
                   shadowColor: Colors.transparent,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0),
-                    side: BorderSide(color: context.theme.dividerColor, width: 0.5),
+                    side: BorderSide(
+                      color: context.theme.dividerColor,
+                      width: 0.5,
+                    ),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
@@ -50,34 +52,33 @@ class RequestPromissoryDataPage extends StatelessWidget {
                           locale.recipient_information,
                           style: ThemeUtil.titleStyle,
                         ),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
+                        const SizedBox(height: 16.0),
                         KeyValueWidget(
-                          keyString: isIndividual ?locale.national_code_title : locale.national_code,
-                          valueString: controller.receiverNationalCodeController.text,
+                          keyString: isIndividual
+                              ? locale.national_code_title
+                              : locale.national_code,
+                          valueString:
+                              controller.receiverNationalCodeController.text,
                         ),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
+                        const SizedBox(height: 16.0),
                         KeyValueWidget(
-                          keyString: isIndividual ?  locale.mobile_number : locale.phone_number,
+                          keyString: isIndividual
+                              ? locale.mobile_number
+                              : locale.phone_number,
                           valueString: controller.receiverMobileController.text,
                         ),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
+                        const SizedBox(height: 16.0),
                         KeyValueWidget(
-                          keyString: isIndividual ? locale.full_name : locale.name,
+                          keyString: isIndividual
+                              ? locale.full_name
+                              : locale.name,
                           valueString: controller.receiverName ?? '',
                         ),
                       ],
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 16.0,
-                ),
+                const SizedBox(height: 16.0),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.0),
@@ -88,30 +89,35 @@ class RequestPromissoryDataPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                         Text(
+                        Text(
                           locale.promissory_note_info,
-                          style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16.0),
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16.0,
+                          ),
                         ),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
+                        const SizedBox(height: 16.0),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                             Text(
+                            Text(
                               locale.commitment_amount,
-                              style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 14.0),
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.0,
+                              ),
                             ),
                             Text(
                               controller.getAmountDetail(),
                               style: TextStyle(
-                                  color: ThemeUtil.textSubtitleColor, fontWeight: FontWeight.w600, fontSize: 12.0),
+                                color: ThemeUtil.textSubtitleColor,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 12.0,
+                              ),
                             ),
                           ],
                         ),
-                        const SizedBox(
-                          height: 8.0,
-                        ),
+                        const SizedBox(height: 8.0),
                         TextField(
                           onChanged: (value) {
                             controller.validateAmountValue(value);
@@ -125,8 +131,10 @@ class RequestPromissoryDataPage extends StatelessWidget {
                             fontFamily: 'IranYekan',
                           ),
                           inputFormatters: <TextInputFormatter>[
-                            LengthLimitingTextInputFormatter(Constants.amountLength),
-                            FilteringTextInputFormatter.digitsOnly
+                            LengthLimitingTextInputFormatter(
+                              Constants.amountLength,
+                            ),
+                            FilteringTextInputFormatter.digitsOnly,
                           ],
                           textDirection: TextDirection.ltr,
                           textInputAction: TextInputAction.next,
@@ -148,7 +156,8 @@ class RequestPromissoryDataPage extends StatelessWidget {
                               vertical: 16.0,
                             ),
                             suffixIcon: TextFieldClearIconWidget(
-                              isVisible: controller.amountController.text.isNotEmpty,
+                              isVisible:
+                                  controller.amountController.text.isNotEmpty,
                               clearFunction: () {
                                 controller.clearAmountTextField();
                               },
@@ -156,11 +165,9 @@ class RequestPromissoryDataPage extends StatelessWidget {
                           ),
                         ),
                         if (controller.isAmountValid)
-                           Column(
+                          Column(
                             children: [
-                              const SizedBox(
-                                height: 4.0,
-                              ),
+                              const SizedBox(height: 4.0),
                               Text(
                                 locale.minimum_commitment_twenty_million,
                                 style: const TextStyle(
@@ -175,12 +182,10 @@ class RequestPromissoryDataPage extends StatelessWidget {
                             isValid: controller.isAmountValid,
                             errorText: locale.valid_amount_error,
                           ),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
+                        const SizedBox(height: 16.0),
                         Row(
                           children: [
-                             Expanded(
+                            Expanded(
                               child: Text(
                                 locale.payment_promissory_date,
                                 style: const TextStyle(
@@ -189,13 +194,14 @@ class RequestPromissoryDataPage extends StatelessWidget {
                                 ),
                               ),
                             ),
-                             Text(
+                            Text(
                               locale.due_on_demand,
-                              style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 14.0),
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.0,
+                              ),
                             ),
-                            const SizedBox(
-                              width: 12.0,
-                            ),
+                            const SizedBox(width: 12.0),
                             Container(
                               color: Colors.transparent,
                               width: 36.0,
@@ -204,21 +210,19 @@ class RequestPromissoryDataPage extends StatelessWidget {
                                 scale: 0.7,
                                 transformHitTests: false,
                                 child: CupertinoSwitch(
-                                    activeColor: context.theme.colorScheme.secondary,
-                                    value: controller.isOnTime,
-                                    onChanged: (dynamic value) {
-                                      controller.setIsOnTime(value);
-                                    }),
+                                  activeColor:
+                                      context.theme.colorScheme.secondary,
+                                  value: controller.isOnTime,
+                                  onChanged: (dynamic value) {
+                                    controller.setIsOnTime(value);
+                                  },
+                                ),
                               ),
-                            )
+                            ),
                           ],
                         ),
-                        const Divider(
-                          thickness: 1,
-                        ),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
+                        const Divider(thickness: 1),
+                        const SizedBox(height: 16.0),
                         if (controller.isOnTime)
                           Container()
                         else
@@ -248,23 +252,28 @@ class RequestPromissoryDataPage extends StatelessWidget {
                                         fontWeight: FontWeight.w400,
                                         fontSize: 14.0,
                                       ),
-                                      errorText: controller.isDateValid ? null : locale.enter_select_payment_date,
+                                      errorText: controller.isDateValid
+                                          ? null
+                                          : locale.enter_select_payment_date,
                                       border: const OutlineInputBorder(
                                         borderSide: BorderSide.none,
                                         borderRadius: BorderRadius.all(
                                           Radius.circular(10.0),
                                         ),
                                       ),
-                                      contentPadding: const EdgeInsets.symmetric(
-                                        horizontal: 16.0,
-                                        vertical: 16.0,
-                                      ),
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
+                                            horizontal: 16.0,
+                                            vertical: 16.0,
+                                          ),
                                       suffixIcon: Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: SvgIcon(
                                           SvgIcons.calendar,
-                                          colorFilter:
-                                              ColorFilter.mode(context.theme.iconTheme.color!, BlendMode.srcIn),
+                                          colorFilter: ColorFilter.mode(
+                                            context.theme.iconTheme.color!,
+                                            BlendMode.srcIn,
+                                          ),
                                           size: 24,
                                         ),
                                       ),
@@ -274,9 +283,7 @@ class RequestPromissoryDataPage extends StatelessWidget {
                               ],
                             ),
                           ),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
+                        const SizedBox(height: 16.0),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -294,7 +301,8 @@ class RequestPromissoryDataPage extends StatelessWidget {
                                 scale: 0.7,
                                 transformHitTests: false,
                                 child: CupertinoSwitch(
-                                  activeColor: context.theme.colorScheme.secondary,
+                                  activeColor:
+                                      context.theme.colorScheme.secondary,
                                   value: controller.isTransferable,
                                   onChanged: (bool value) {
                                     controller.setIsTransferable(value);
@@ -304,16 +312,12 @@ class RequestPromissoryDataPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
+                        const SizedBox(height: 16.0),
                         Text(
                           locale.payment_address,
                           style: ThemeUtil.titleStyle,
                         ),
-                        const SizedBox(
-                          height: 8.0,
-                        ),
+                        const SizedBox(height: 8.0),
                         TextField(
                           controller: controller.paymentAddressController,
                           enabled: isIndividual,
@@ -341,8 +345,9 @@ class RequestPromissoryDataPage extends StatelessWidget {
                               fontSize: 14.0,
                             ),
                             hintText: locale.payment_address_hint,
-                            errorText:
-                                controller.isPaymentAddressValid ? null : locale.payment_address_error,
+                            errorText: controller.isPaymentAddressValid
+                                ? null
+                                : locale.payment_address_error,
                             border: const OutlineInputBorder(
                               borderSide: BorderSide.none,
                               borderRadius: BorderRadius.all(
@@ -354,7 +359,10 @@ class RequestPromissoryDataPage extends StatelessWidget {
                               vertical: 16.0,
                             ),
                             suffixIcon: TextFieldClearIconWidget(
-                              isVisible: controller.paymentAddressController.text.isNotEmpty,
+                              isVisible: controller
+                                  .paymentAddressController
+                                  .text
+                                  .isNotEmpty,
                               clearFunction: () {
                                 controller.paymentAddressController.clear();
                                 controller.update();
@@ -362,16 +370,12 @@ class RequestPromissoryDataPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
+                        const SizedBox(height: 16.0),
                         Text(
                           locale.description_title,
                           style: ThemeUtil.titleStyle,
                         ),
-                        const SizedBox(
-                          height: 8.0,
-                        ),
+                        const SizedBox(height: 8.0),
                         TextField(
                           controller: controller.descriptionController,
                           textDirection: TextDirection.rtl,
@@ -394,7 +398,9 @@ class RequestPromissoryDataPage extends StatelessWidget {
                               fontWeight: FontWeight.w400,
                               fontSize: 14.0,
                             ),
-                            errorText: controller.isDescriptionValid ? null : locale.issue_description_error,
+                            errorText: controller.isDescriptionValid
+                                ? null
+                                : locale.issue_description_error,
                             border: const OutlineInputBorder(
                               borderSide: BorderSide.none,
                               borderRadius: BorderRadius.all(
@@ -406,7 +412,10 @@ class RequestPromissoryDataPage extends StatelessWidget {
                               vertical: 16.0,
                             ),
                             suffixIcon: TextFieldClearIconWidget(
-                              isVisible: controller.descriptionController.text.isNotEmpty,
+                              isVisible: controller
+                                  .descriptionController
+                                  .text
+                                  .isNotEmpty,
                               clearFunction: () {
                                 controller.descriptionController.clear();
                                 controller.update();
@@ -418,9 +427,7 @@ class RequestPromissoryDataPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 40,
-                ),
+                const SizedBox(height: 40),
                 ContinueButtonWidget(
                   callback: () {
                     controller.validateDataPage();
@@ -428,9 +435,7 @@ class RequestPromissoryDataPage extends StatelessWidget {
                   isLoading: controller.isLoading,
                   buttonTitle: locale.continue_label,
                 ),
-                const SizedBox(
-                  height: 16.0,
-                ),
+                const SizedBox(height: 16.0),
               ],
             ),
           ),

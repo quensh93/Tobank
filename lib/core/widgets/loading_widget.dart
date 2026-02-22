@@ -5,11 +5,7 @@ class LoadingWidget extends StatelessWidget {
   final String? message;
   final bool center;
 
-  const LoadingWidget({
-    super.key,
-    this.message,
-    this.center = true,
-  });
+  const LoadingWidget({super.key, this.message, this.center = true});
 
   @override
   Widget build(BuildContext context) {
@@ -56,9 +52,7 @@ class LoadingOverlay extends StatelessWidget {
         if (isLoading)
           Container(
             color: Colors.black.withValues(alpha: 0.3),
-            child: const Center(
-              child: CircularProgressIndicator(),
-            ),
+            child: const Center(child: CircularProgressIndicator()),
           ),
       ],
     );

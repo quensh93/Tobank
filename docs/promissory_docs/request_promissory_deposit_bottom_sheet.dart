@@ -7,13 +7,11 @@ import '../../../../../widget/button/continue_button_widget.dart';
 import '../../../common/promissory_deposit_item_widget.dart';
 
 class RequestPromissoryDepositBottomSheet extends StatelessWidget {
-  const RequestPromissoryDepositBottomSheet({
-    super.key,
-  });
+  const RequestPromissoryDepositBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
-//locale
+    //locale
     final locale = AppLocalizations.of(context)!;
     return Directionality(
       textDirection: TextDirection.rtl,
@@ -30,10 +28,13 @@ class RequestPromissoryDepositBottomSheet extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                          width: 36,
-                          height: 4,
-                          decoration:
-                              BoxDecoration(color: context.theme.dividerColor, borderRadius: BorderRadius.circular(4))),
+                        width: 36,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          color: context.theme.dividerColor,
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 24.0),
@@ -47,12 +48,12 @@ class RequestPromissoryDepositBottomSheet extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Image.asset(
-                          Get.isDarkMode ? 'assets/images/empty_list_dark.png' : 'assets/images/empty_list.png',
+                          Get.isDarkMode
+                              ? 'assets/images/empty_list_dark.png'
+                              : 'assets/images/empty_list.png',
                           height: 100,
                         ),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
+                        const SizedBox(height: 16.0),
                         Text(
                           locale.no_deposit_found_personal_branch,
                           textAlign: TextAlign.center,
@@ -67,27 +68,24 @@ class RequestPromissoryDepositBottomSheet extends StatelessWidget {
                     )
                   else
                     ListView.separated(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        padding: const EdgeInsets.symmetric(vertical: 16.0),
-                        itemBuilder: (context, index) {
-                          return PromissoryDepositItemWidget(
-                            deposit: controller.depositList[index],
-                            selectedDeposit: controller.selectedDeposit,
-                            setSelectedDepositFunction: (deposit) {
-                              controller.setSelectedDeposit(deposit);
-                            },
-                          );
-                        },
-                        separatorBuilder: (context, index) {
-                          return const SizedBox(
-                            height: 16,
-                          );
-                        },
-                        itemCount: controller.depositList.length),
-                  const SizedBox(
-                    height: 16.0,
-                  ),
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      padding: const EdgeInsets.symmetric(vertical: 16.0),
+                      itemBuilder: (context, index) {
+                        return PromissoryDepositItemWidget(
+                          deposit: controller.depositList[index],
+                          selectedDeposit: controller.selectedDeposit,
+                          setSelectedDepositFunction: (deposit) {
+                            controller.setSelectedDeposit(deposit);
+                          },
+                        );
+                      },
+                      separatorBuilder: (context, index) {
+                        return const SizedBox(height: 16);
+                      },
+                      itemCount: controller.depositList.length,
+                    ),
+                  const SizedBox(height: 16.0),
                   ContinueButtonWidget(
                     callback: () {
                       controller.validateDepositPage();

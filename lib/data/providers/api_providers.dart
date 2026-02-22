@@ -35,8 +35,8 @@ Dio dio(Ref ref) {
   // Wrap the HTTP client adapter with NetworkSimulatorAdapter
   // This wraps all requests with SlowNetSimulator.simulate() when enabled
   final existingAdapter = dio.httpClientAdapter;
-  final defaultAdapter = existingAdapter is IOHttpClientAdapter 
-      ? existingAdapter 
+  final defaultAdapter = existingAdapter is IOHttpClientAdapter
+      ? existingAdapter
       : IOHttpClientAdapter();
   dio.httpClientAdapter = NetworkSimulatorAdapter(
     adapter: defaultAdapter,
@@ -111,11 +111,8 @@ Future<Map<String, dynamic>> getData(
 ) async {
   final repository = ref.read(userRepositoryProvider);
   final result = await repository.getData(queries).run();
-  
-  return result.fold(
-    (error) => throw Exception(error.message),
-    (data) => data,
-  );
+
+  return result.fold((error) => throw Exception(error.message), (data) => data);
 }
 
 /// Post data provider
@@ -126,26 +123,17 @@ Future<Map<String, dynamic>> postData(
 ) async {
   final repository = ref.read(userRepositoryProvider);
   final result = await repository.postData(data).run();
-  
-  return result.fold(
-    (error) => throw Exception(error.message),
-    (data) => data,
-  );
+
+  return result.fold((error) => throw Exception(error.message), (data) => data);
 }
 
 /// Put data provider
 @riverpod
-Future<Map<String, dynamic>> putData(
-  Ref ref,
-  Map<String, dynamic> data,
-) async {
+Future<Map<String, dynamic>> putData(Ref ref, Map<String, dynamic> data) async {
   final repository = ref.read(userRepositoryProvider);
   final result = await repository.putData(data).run();
-  
-  return result.fold(
-    (error) => throw Exception(error.message),
-    (data) => data,
-  );
+
+  return result.fold((error) => throw Exception(error.message), (data) => data);
 }
 
 /// Delete data provider
@@ -153,11 +141,8 @@ Future<Map<String, dynamic>> putData(
 Future<Map<String, dynamic>> deleteData(Ref ref) async {
   final repository = ref.read(userRepositoryProvider);
   final result = await repository.deleteData().run();
-  
-  return result.fold(
-    (error) => throw Exception(error.message),
-    (data) => data,
-  );
+
+  return result.fold((error) => throw Exception(error.message), (data) => data);
 }
 
 /// Get headers provider
@@ -165,11 +150,8 @@ Future<Map<String, dynamic>> deleteData(Ref ref) async {
 Future<Map<String, dynamic>> getHeaders(Ref ref) async {
   final repository = ref.read(userRepositoryProvider);
   final result = await repository.getHeaders().run();
-  
-  return result.fold(
-    (error) => throw Exception(error.message),
-    (data) => data,
-  );
+
+  return result.fold((error) => throw Exception(error.message), (data) => data);
 }
 
 /// Get user agent provider
@@ -177,9 +159,6 @@ Future<Map<String, dynamic>> getHeaders(Ref ref) async {
 Future<Map<String, dynamic>> getUserAgent(Ref ref) async {
   final repository = ref.read(userRepositoryProvider);
   final result = await repository.getUserAgent().run();
-  
-  return result.fold(
-    (error) => throw Exception(error.message),
-    (data) => data,
-  );
+
+  return result.fold((error) => throw Exception(error.message), (data) => data);
 }

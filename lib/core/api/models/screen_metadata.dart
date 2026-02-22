@@ -37,9 +37,8 @@ class ScreenMetadata {
       version: json['version'] as int,
       updatedAt: DateTime.parse(json['updated_at'] as String),
       description: json['description'] as String?,
-      tags: (json['tags'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
+      tags:
+          (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList() ??
           [],
     );
   }

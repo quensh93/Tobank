@@ -409,7 +409,8 @@ class _NavigationEditorState extends State<NavigationEditor> {
             ],
             onChanged: (value) {
               if (value != null) {
-                final updatedParams = Map<String, String>.from(route.parameters);
+                final updatedParams =
+                    Map<String, String>.from(route.parameters);
                 updatedParams[paramName] = value;
                 _updateRoute(route, route.copyWith(parameters: updatedParams));
               }

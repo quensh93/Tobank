@@ -43,18 +43,26 @@ class NumberPicker extends StatelessWidget {
     this.unselectedColor,
     this.isShowMonthName = false,
     this.isJalali = false,
-  })  : assert(maxValue >= minValue),
-        // assert(initialValue >= minValue && initialValue <= maxValue),
-        assert(step > 0),
-        selectedIntValue = (initialValue < minValue) ? minValue : ((initialValue > maxValue) ? maxValue : initialValue),
-        selectedDecimalValue = -1,
-        decimalPlaces = 0,
-        intScrollController = ScrollController(
-          initialScrollOffset: (((initialValue < minValue) ? minValue : ((initialValue > maxValue) ? maxValue : initialValue)) - minValue) ~/ step * itemExtent,
-        ),
-        decimalScrollController = null,
-        listViewHeight = 3 * itemExtent,
-        integerItemCount = (maxValue - minValue) ~/ step + 1 {
+  }) : assert(maxValue >= minValue),
+       // assert(initialValue >= minValue && initialValue <= maxValue),
+       assert(step > 0),
+       selectedIntValue = (initialValue < minValue)
+           ? minValue
+           : ((initialValue > maxValue) ? maxValue : initialValue),
+       selectedDecimalValue = -1,
+       decimalPlaces = 0,
+       intScrollController = ScrollController(
+         initialScrollOffset:
+             (((initialValue < minValue)
+                     ? minValue
+                     : ((initialValue > maxValue) ? maxValue : initialValue)) -
+                 minValue) ~/
+             step *
+             itemExtent,
+       ),
+       decimalScrollController = null,
+       listViewHeight = 3 * itemExtent,
+       integerItemCount = (maxValue - minValue) ~/ step + 1 {
     // Don't call onChanged in constructor to avoid triggering rebuilds during initialization
     // onChanged(selectedIntValue);
   }
@@ -163,7 +171,11 @@ class NumberPicker extends StatelessWidget {
   /// Used to animate decimal number picker to selected value
   void animateDecimalAndInteger(double valueToSelect) {
     animateInt(valueToSelect.floor());
-    animateDecimal(((valueToSelect - valueToSelect.floorToDouble()) * math.pow(10, decimalPlaces)).round());
+    animateDecimal(
+      ((valueToSelect - valueToSelect.floorToDouble()) *
+              math.pow(10, decimalPlaces))
+          .round(),
+    );
   }
 
   //
@@ -181,7 +193,10 @@ class NumberPicker extends StatelessWidget {
   Widget _integerListView(ThemeData themeData) {
     TextStyle defaultStyle;
     TextStyle selectedStyle;
-    defaultStyle = themeData.textTheme.bodyLarge!.copyWith(fontFamily: fontFamily, color: unselectedColor);
+    defaultStyle = themeData.textTheme.bodyLarge!.copyWith(
+      fontFamily: fontFamily,
+      color: unselectedColor,
+    );
     selectedStyle = TextStyle(
       color: selectedColor ?? themeData.colorScheme.secondary,
       fontFamily: fontFamily,
@@ -221,8 +236,8 @@ class NumberPicker extends StatelessWidget {
                     final int value = _intValueFromIndex(index);
 
                     //define special style for selected (middle) element
-                    final TextStyle itemStyle = value == selectedIntValue &&
-                            highlightSelectedValue
+                    final TextStyle itemStyle =
+                        value == selectedIntValue && highlightSelectedValue
                         ? selectedStyle
                         : defaultStyle;
 
@@ -232,11 +247,13 @@ class NumberPicker extends StatelessWidget {
                     return isExtra
                         ? Container() //empty first and last element
                         : Card(
-                            elevation: value == selectedIntValue &&
+                            elevation:
+                                value == selectedIntValue &&
                                     highlightSelectedValue
                                 ? 2
                                 : 0,
-                            color: value == selectedIntValue &&
+                            color:
+                                value == selectedIntValue &&
                                     highlightSelectedValue
                                 ? Theme.of(context).colorScheme.surface
                                 : Colors.transparent,
@@ -245,7 +262,8 @@ class NumberPicker extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8.0),
                               side: BorderSide(
-                                color: value == selectedIntValue &&
+                                color:
+                                    value == selectedIntValue &&
                                         highlightSelectedValue
                                     ? Theme.of(context).dividerColor
                                     : Colors.transparent,
@@ -278,7 +296,9 @@ class NumberPicker extends StatelessWidget {
     if (isShowMonthName == true) {
       return value.getMonthName(isJalali == true);
     } else {
-      final text = zeroPad ? value.toString().padLeft(maxValue.toString().length, '0') : value.toString();
+      final text = zeroPad
+          ? value.toString().padLeft(maxValue.toString().length, '0')
+          : value.toString();
       return textMapper != null ? textMapper!(text) : text;
     }
   }
@@ -296,8 +316,12 @@ class NumberPicker extends StatelessWidget {
   bool _onIntegerNotification(Notification notification) {
     if (notification is ScrollNotification) {
       //calculate
-      int intIndexOfMiddleElement = (notification.metrics.pixels / itemExtent).round();
-      intIndexOfMiddleElement = intIndexOfMiddleElement.clamp(0, integerItemCount - 1);
+      int intIndexOfMiddleElement = (notification.metrics.pixels / itemExtent)
+          .round();
+      intIndexOfMiddleElement = intIndexOfMiddleElement.clamp(
+        0,
+        integerItemCount - 1,
+      );
       int intValueInTheMiddle = _intValueFromIndex(intIndexOfMiddleElement + 1);
       intValueInTheMiddle = _normalizeIntegerMiddleValue(intValueInTheMiddle);
 
@@ -371,7 +395,11 @@ class NumberPicker extends StatelessWidget {
   ///e.g. decimalPlaces = 1, value = 4  >>> result = 0.4
   ///     decimalPlaces = 2, value = 12 >>> result = 0.12
   double _toDecimal(int decimalValueAsInteger) {
-    return double.parse((decimalValueAsInteger * math.pow(10, -decimalPlaces)).toStringAsFixed(decimalPlaces));
+    return double.parse(
+      (decimalValueAsInteger * math.pow(10, -decimalPlaces)).toStringAsFixed(
+        decimalPlaces,
+      ),
+    );
   }
 
   ///scroll to selected value
@@ -410,4 +438,3 @@ class _NumberPickerSelectedItemDecoration extends StatelessWidget {
 
   bool get isVertical => axis == Axis.vertical;
 }
-

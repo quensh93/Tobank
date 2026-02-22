@@ -17,7 +17,9 @@ class StacLogsTab extends ConsumerStatefulWidget {
 
 class _StacLogsTabState extends ConsumerState<StacLogsTab> {
   // Filter states
-  final Set<StacOperationType> _selectedOperationTypes = StacOperationType.values.toSet();
+  final Set<StacOperationType> _selectedOperationTypes = StacOperationType
+      .values
+      .toSet();
   final Set<ApiSource> _selectedApiSources = ApiSource.values.toSet();
   String _searchQuery = '';
   DateTime? _startDate;
@@ -36,11 +38,11 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
         // Statistics bar
         _buildStatisticsBar(stats),
         const Divider(height: 1),
-        
+
         // Filter bar
         _buildFilterBar(),
         const Divider(height: 1),
-        
+
         // Logs list
         Expanded(
           child: logs.isEmpty
@@ -52,7 +54,7 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
                       flex: _selectedLogEntry == null ? 1 : 2,
                       child: _buildLogsList(logs),
                     ),
-                    
+
                     // Detail view (if log selected)
                     if (_selectedLogEntry != null) ...[
                       const VerticalDivider(width: 1),
@@ -175,7 +177,10 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
               ),
-              contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 12,
+              ),
             ),
             onChanged: (value) {
               setState(() {
@@ -184,7 +189,7 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
             },
           ),
           const SizedBox(height: 12),
-          
+
           // Filter chips
           Wrap(
             spacing: 8,
@@ -214,9 +219,9 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
                   ),
                 );
               }),
-              
+
               const SizedBox(width: 8),
-              
+
               // API source filters
               ...ApiSource.values.map((source) {
                 final isSelected = _selectedApiSources.contains(source);
@@ -248,7 +253,7 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
       itemBuilder: (context, index) {
         final log = logs[index];
         final isSelected = _selectedLogEntry?.id == log.id;
-        
+
         return _buildLogListItem(log, isSelected);
       },
     );
@@ -258,7 +263,7 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
   Widget _buildLogListItem(StacLogEntry log, bool isSelected) {
     final color = _getOperationTypeColor(log.operationType);
     final timeFormat = DateFormat('HH:mm:ss.SSS');
-    
+
     return InkWell(
       onTap: () {
         setState(() {
@@ -269,14 +274,11 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         decoration: BoxDecoration(
           color: isSelected
-              ? Theme.of(context).colorScheme.primaryContainer.withValues(alpha: 0.3)
+              ? Theme.of(
+                  context,
+                ).colorScheme.primaryContainer.withValues(alpha: 0.3)
               : null,
-          border: Border(
-            left: BorderSide(
-              color: color,
-              width: 4,
-            ),
-          ),
+          border: Border(left: BorderSide(color: color, width: 4)),
         ),
         child: Row(
           children: [
@@ -294,7 +296,7 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
               ),
             ),
             const SizedBox(width: 12),
-            
+
             // Log details
             Expanded(
               child: Column(
@@ -313,9 +315,14 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
                       const SizedBox(width: 8),
                       if (log.source != null)
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 6,
+                            vertical: 2,
+                          ),
                           decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.secondaryContainer,
+                            color: Theme.of(
+                              context,
+                            ).colorScheme.secondaryContainer,
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: Text(
@@ -323,7 +330,9 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
                             style: TextStyle(
                               fontSize: 10,
                               fontWeight: FontWeight.bold,
-                              color: Theme.of(context).colorScheme.onSecondaryContainer,
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.onSecondaryContainer,
                             ),
                           ),
                         ),
@@ -341,7 +350,10 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
                       ),
                       const SizedBox(width: 12),
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 6,
+                          vertical: 2,
+                        ),
                         decoration: BoxDecoration(
                           color: log.isSlow
                               ? Colors.orange.withValues(alpha: 0.2)
@@ -353,24 +365,22 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
                           style: TextStyle(
                             fontSize: 11,
                             fontWeight: FontWeight.w600,
-                            color: log.isSlow ? Colors.orange[700] : Colors.green[700],
+                            color: log.isSlow
+                                ? Colors.orange[700]
+                                : Colors.green[700],
                           ),
                         ),
                       ),
                       if (log.isError) ...[
                         const SizedBox(width: 8),
-                        Icon(
-                          Icons.error,
-                          size: 16,
-                          color: Colors.red,
-                        ),
+                        Icon(Icons.error, size: 16, color: Colors.red),
                       ],
                     ],
                   ),
                 ],
               ),
             ),
-            
+
             // Chevron icon
             Icon(
               isSelected ? Icons.chevron_right : Icons.chevron_left,
@@ -428,43 +438,37 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
             ],
           ),
           const SizedBox(height: 24),
-          
+
           // Metadata
-          _buildDetailSection(
-            'Details',
-            [
-              _buildDetailRow('Timestamp', DateFormat('yyyy-MM-dd HH:mm:ss.SSS').format(log.timestamp)),
-              _buildDetailRow('Duration', log.formattedDuration),
-              if (log.source != null)
-                _buildDetailRow('Source', log.source!.name.toUpperCase()),
-              _buildDetailRow('Operation ID', log.id),
-            ],
-          ),
-          
+          _buildDetailSection('Details', [
+            _buildDetailRow(
+              'Timestamp',
+              DateFormat('yyyy-MM-dd HH:mm:ss.SSS').format(log.timestamp),
+            ),
+            _buildDetailRow('Duration', log.formattedDuration),
+            if (log.source != null)
+              _buildDetailRow('Source', log.source!.name.toUpperCase()),
+            _buildDetailRow('Operation ID', log.id),
+          ]),
+
           // Error details (if error)
           if (log.isError) ...[
             const SizedBox(height: 24),
-            _buildDetailSection(
-              'Error Information',
-              [
-                if (log.error != null)
-                  _buildDetailRow('Error', log.error!, isError: true),
-                if (log.suggestion != null)
-                  _buildDetailRow('Suggestion', log.suggestion!, isInfo: true),
-              ],
-            ),
+            _buildDetailSection('Error Information', [
+              if (log.error != null)
+                _buildDetailRow('Error', log.error!, isError: true),
+              if (log.suggestion != null)
+                _buildDetailRow('Suggestion', log.suggestion!, isInfo: true),
+            ]),
           ],
-          
+
           // Additional metadata
           if (log.metadata.isNotEmpty) ...[
             const SizedBox(height: 24),
             _buildDetailSection(
               'Metadata',
               log.metadata.entries.map((entry) {
-                return _buildDetailRow(
-                  entry.key,
-                  entry.value.toString(),
-                );
+                return _buildDetailRow(entry.key, entry.value.toString());
               }).toList(),
             ),
           ],
@@ -479,9 +483,9 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
       children: [
         Text(
           title,
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(
+            context,
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 12),
         Container(
@@ -499,7 +503,12 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
     );
   }
 
-  Widget _buildDetailRow(String label, String value, {bool isError = false, bool isInfo = false}) {
+  Widget _buildDetailRow(
+    String label,
+    String value, {
+    bool isError = false,
+    bool isInfo = false,
+  }) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Row(
@@ -522,8 +531,8 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
                 color: isError
                     ? Colors.red
                     : isInfo
-                        ? Colors.blue
-                        : Theme.of(context).colorScheme.onSurface,
+                    ? Colors.blue
+                    : Theme.of(context).colorScheme.onSurface,
               ),
             ),
           ),
@@ -565,7 +574,9 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
     var logs = StacLogger.instance.logEntries;
 
     // Filter by operation type
-    logs = logs.where((log) => _selectedOperationTypes.contains(log.operationType)).toList();
+    logs = logs
+        .where((log) => _selectedOperationTypes.contains(log.operationType))
+        .toList();
 
     // Filter by API source
     logs = logs.where((log) {
@@ -577,8 +588,9 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
     if (_searchQuery.isNotEmpty) {
       logs = logs.where((log) {
         return log.screenName.toLowerCase().contains(_searchQuery) ||
-            log.metadata.values.any((value) =>
-                value.toString().toLowerCase().contains(_searchQuery));
+            log.metadata.values.any(
+              (value) => value.toString().toLowerCase().contains(_searchQuery),
+            );
       }).toList();
     }
 
@@ -602,7 +614,9 @@ class _StacLogsTabState extends ConsumerState<StacLogsTab> {
       context: context,
       builder: (context) => AlertDialog(
         title: const Text('Clear All Logs'),
-        content: const Text('Are you sure you want to clear all STAC logs? This action cannot be undone.'),
+        content: const Text(
+          'Are you sure you want to clear all STAC logs? This action cannot be undone.',
+        ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),

@@ -72,7 +72,6 @@ StacWidget promissoryConfirm() {
                 _buildSummaryCard(
                   title: '{{appStrings.promissory.issuerInfoTitle}}',
                   items: [
-
                     _buildSummaryItem(
                       '{{appStrings.promissory.nationalCode}}',
                       '{{userData.nationalCode}}',
@@ -113,9 +112,6 @@ StacWidget promissoryConfirm() {
                     ),
                   ],
                 ),
-
-
-
               ],
             ),
           ),

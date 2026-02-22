@@ -39,9 +39,9 @@ class AccessibilityTab extends ConsumerWidget {
     return Text(
       title,
       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-        fontWeight: FontWeight.bold,
-        color: Theme.of(context).colorScheme.primary,
-      ),
+            fontWeight: FontWeight.bold,
+            color: Theme.of(context).colorScheme.primary,
+          ),
     );
   }
 
@@ -60,9 +60,8 @@ class AccessibilityTab extends ConsumerWidget {
               children: [
                 Expanded(
                   child: ElevatedButton.icon(
-                    onPressed: state.isAuditing
-                        ? null
-                        : () => controller.startAudit(),
+                    onPressed:
+                        state.isAuditing ? null : () => controller.startAudit(),
                     icon: state.isAuditing
                         ? const SizedBox(
                             width: 16,
@@ -78,9 +77,8 @@ class AccessibilityTab extends ConsumerWidget {
                 const SizedBox(width: 8),
                 Expanded(
                   child: OutlinedButton.icon(
-                    onPressed: state.issues.isEmpty
-                        ? null
-                        : controller.clearResults,
+                    onPressed:
+                        state.issues.isEmpty ? null : controller.clearResults,
                     icon: const Icon(Icons.clear),
                     label: const Text('Clear Results'),
                   ),
@@ -198,8 +196,8 @@ class AccessibilityTab extends ConsumerWidget {
             Text(
               'This may take a few moments',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: Theme.of(context).colorScheme.outline,
-              ),
+                    color: Theme.of(context).colorScheme.outline,
+                  ),
             ),
           ],
         ),
@@ -220,8 +218,8 @@ class AccessibilityTab extends ConsumerWidget {
             Text(
               state.issues.isEmpty ? 'No audit results' : 'No issues found',
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                color: Theme.of(context).colorScheme.outline,
-              ),
+                    color: Theme.of(context).colorScheme.outline,
+                  ),
             ),
             const SizedBox(height: 8),
             Text(
@@ -229,8 +227,8 @@ class AccessibilityTab extends ConsumerWidget {
                   ? 'Run an accessibility audit to check your app'
                   : 'Great! No accessibility issues detected',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: Theme.of(context).colorScheme.outline,
-              ),
+                    color: Theme.of(context).colorScheme.outline,
+                  ),
             ),
           ],
         ),
@@ -348,9 +346,9 @@ class AccessibilityTab extends ConsumerWidget {
                   child: Text(
                     'Suggested fix: ${issue.suggestedFix}',
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontStyle: FontStyle.italic,
-                    ),
+                          color: Theme.of(context).colorScheme.primary,
+                          fontStyle: FontStyle.italic,
+                        ),
                   ),
                 ),
               ],

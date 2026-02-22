@@ -1,7 +1,9 @@
-import 'package:stac_core/stac_core.dart';
-import '../../../../../core/stac/builders/stac_common_builders.dart';
-import '../../../../../core/stac/builders/stac_stateful_widget.dart';
-import '../../../../../core/stac/builders/stac_custom_actions.dart';
+﻿import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
+import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_app_bar.dart';
+
 
 @StacScreen(screenName: 'promissory_real_payment_deposits')
 StacWidget promissoryRealPaymentDeposits() {
@@ -120,6 +122,7 @@ StacWidget promissoryRealPaymentDeposits() {
                 {
                   'key': 'deposits.error',
                   'value':
+                      // خطا در برقراری ارتباط با سرور. لطفا مجددا تلاش کنید.
                       '{{appStrings.promissory.serverConnectionErrorDetail}}',
                 },
               ],
@@ -131,22 +134,20 @@ StacWidget promissoryRealPaymentDeposits() {
   );
 
   // --- onContinue: Draft API call (PRESERVED from original) ---
-  final onContinueAction = StacRawJsonAction({
-    'actionType': 'sequence',
-    'actions': [
-      {'actionType': 'setValue', 'key': 'isDraftLoading', 'value': true},
-      {'actionType': 'setValue', 'key': 'hasSelection', 'value': true},
-      {
-        'actionType': 'networkRequest',
-        'url':
+  final onContinueAction = StacSequenceAction(
+    actions: [
+      StacCustomSetValueAction(key: 'isDraftLoading', value: true),
+      StacCustomSetValueAction(key: 'hasSelection', value: true),
+      StacNetworkRequestAction(
+        url:
             'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/draft',
-        'method': 'post',
-        'headers': {
+        method: 'post',
+        headers: {
           'accept': 'application/json',
           'authorization': '{{auth.accessToken}}',
           'content-type': 'application/json',
         },
-        'data': {
+        data: {
           'issuerType': 'I',
           'sourceAccount': '{{selectedDeposit.depositNumber}}',
           'issuerBirthDate': "{{replace(userData.birthDate, '/', '')}}",
@@ -162,40 +163,34 @@ StacWidget promissoryRealPaymentDeposits() {
           'recipientNationalId': '{{receiver.nationalCode}}',
           'recipientCellphone': '{{removeLeadingZero(receiver.mobile)}}',
           'recipientFullName': '{{receiverIdentity.fullName}}',
-          'paymentPlace': 'تهران، آرشام',
+          'paymentPlace': '{{form.promissory_payment_place}}',
           'amount': '{{toInt(form.promissory_amount)}}',
           'dueDate': "{{replace(form.promissory_due_date, '/', '')}}",
           'description': '{{form.description}}',
           'transferable': true,
         },
-        'results': [
+        results: [
           {
             'statusCode': 200,
-            'action': {
-              'actionType': 'sequence',
-              'actions': [
-                {
-                  'actionType': 'setValue',
-                  'values': [
+            'action': StacSequenceAction(
+              actions: [
+                StacCustomSetValueAction(
+                  values: const [
                     {'key': 'isDraftLoading', 'value': false},
                     {'key': 'hasSelection', 'value': true},
                     {
                       'key': 'form.unsigned_pdf_id',
                       'value': '{{data_payload.unSignedPdfId}}',
                     },
-                    {
-                      'key': 'form.promissory_id',
-                      'value': '{{data_payload.id}}',
-                    },
+                    {'key': 'form.promissory_id', 'value': '{{data_payload.id}}'},
                   ],
-                },
-                {
-                  'actionType': 'navigate',
-                  'widgetType': 'promissory_real_sign',
-                  'navigationStyle': 'push',
-                },
+                ).toJson(),
+                const StacNavigateAction(
+                  routeName: 'promissory_real_sign',
+                  navigationStyle: NavigationStyle.push,
+                ).toJson(),
               ],
-            },
+            ).toJson(),
           },
           {
             'statusCode': 422,
@@ -254,14 +249,16 @@ StacWidget promissoryRealPaymentDeposits() {
             },
           },
         ],
-      },
+      ),
     ],
-  });
-
+  );
   return StacStatefulWidget(
     onInit: fetchDepositsAction,
     child: StacScaffold(
-      appBar: _buildAppBar(),
+      appBar: buildPromissoryAppBar(
+        // انتخاب سپرده پرداخت
+        title: '{{appStrings.promissory.selectPaymentDepositTitle}}',
+      ),
       body: StacColumn(
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
@@ -269,7 +266,8 @@ StacWidget promissoryRealPaymentDeposits() {
           StacPadding(
             padding: const StacEdgeInsets.symmetric(horizontal: 16.0),
             child: StacText(
-              data: 'سپرده خود را جهت پرداخت انتخاب کنید',
+              // سپرده مورد نظر برای صدور سفته را انتخاب نمایید:
+              data: '{{appStrings.promissory.selectDepositForPromissory}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
                 fontSize: 16.0,
@@ -281,29 +279,29 @@ StacWidget promissoryRealPaymentDeposits() {
           StacSizedBox(height: 16.0),
           // ----- REACTIVE LIST VIEW -----
           StacExpanded(
-            child: StacRawJsonWidget({
-              'type': 'reactiveListView',
-              'dataKey': 'deposits.rawData',
-              'dataPath': 'data',
-              'isLoadedKey': 'deposits.isLoaded',
-              'errorKey': 'deposits.error',
-              'itemIdField': 'depositNumber',
-              'selectedIdKey': 'selectedDepositId',
-              'padding': {
+            child: StacCustomReactiveListView(
+              dataKey: 'deposits.rawData',
+              dataPath: 'data',
+              isLoadedKey: 'deposits.isLoaded',
+              errorKey: 'deposits.error',
+              itemIdField: 'depositNumber',
+              selectedIdKey: 'selectedDepositId',
+              padding: const {
                 'left': 16.0,
                 'right': 16.0,
                 'top': 8.0,
                 'bottom': 8.0,
               },
-              'separator': StacSizedBox(height: 16.0).toJson(),
-              'loadingWidget': StacCenter(
+              separator: StacSizedBox(height: 16.0).toJson(),
+              loadingWidget: StacCenter(
                 child: StacColumn(
                   mainAxisSize: StacMainAxisSize.min,
                   children: [
                     StacCircularProgressIndicator(),
                     StacSizedBox(height: 16.0),
                     StacText(
-                      data: 'در حال دریافت لیست سپرده‌ها...',
+                      // در حال دریافت لیست سپرده‌ها...
+                      data: '{{appStrings.promissory.loadingDeposits}}',
                       textDirection: StacTextDirection.rtl,
                       style: StacTextStyle(
                         fontSize: 16.0,
@@ -313,10 +311,11 @@ StacWidget promissoryRealPaymentDeposits() {
                   ],
                 ),
               ).toJson(),
-              'errorWidget': _buildErrorContent(fetchDepositsAction).toJson(),
-              'emptyWidget': StacCenter(
+              errorWidget: _buildErrorContent(fetchDepositsAction).toJson(),
+              emptyWidget: StacCenter(
                 child: StacText(
-                  data: 'سپرده‌ای یافت نشد',
+                  // سپرده‌ای یافت نشد. لطفا از طریق شعبه اقدام نمایید.
+                  data: '{{appStrings.promissory.noDepositFound}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacTextStyle(
                     fontSize: 14.0,
@@ -324,7 +323,7 @@ StacWidget promissoryRealPaymentDeposits() {
                   ),
                 ),
               ).toJson(),
-              'onItemTap': StacSequenceAction(
+              onItemTap: StacSequenceAction(
                 actions: [
                   StacCustomSetValueAction(
                     values: const [
@@ -388,29 +387,27 @@ StacWidget promissoryRealPaymentDeposits() {
                     ],
                   ),
                 ],
-              ).toJson(),
-              'itemTemplate': _buildDepositCardTemplate().toJson(),
-            }),
+              ),
+              itemTemplate: _buildDepositCardTemplate().toJson(),
+            ),
           ),
           // ----- CONTINUE BUTTON (with draft API call + loading state) -----
           StacPadding(
             padding: const StacEdgeInsets.all(16.0),
-            child: StacRawJsonWidget({
-              'type': 'reactiveElevatedButton',
-              'enabledKey': 'hasSelection',
-              'loadingKey': 'isDraftLoading',
-              'onPressed': onContinueAction.toJson(),
-              'style': {
-                'type': 'buttonStyle',
-                'backgroundColor': '{{appColors.current.primary.color}}',
-                'elevation': 0.0,
-                'fixedSize': StacSize(999999.0, 56.0).toJson(),
-                'shape': {
-                  'type': 'roundedRectangleBorder',
-                  'borderRadius': {'type': 'all', 'value': 12.0},
-                },
-              },
-              'child': StacText(
+            child: StacCustomReactiveElevatedButton(
+              enabledKey: 'hasSelection',
+              loadingKey: 'isDraftLoading',
+              onPressed: onContinueAction,
+              style: StacButtonStyle(
+                backgroundColor: '{{appColors.current.primary.color}}',
+                elevation: 0.0,
+                fixedSize: StacSize(999999.0, 56.0),
+                shape: StacRoundedRectangleBorder(
+                  borderRadius: StacBorderRadius.all(12.0),
+                ),
+              ).toJson(),
+              child: StacText(
+                // ادامه
                 data: '{{appStrings.common.continue}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacTextStyle(
@@ -419,33 +416,9 @@ StacWidget promissoryRealPaymentDeposits() {
                   color: '{{appColors.current.primary.onPrimary}}',
                 ),
               ).toJson(),
-            }),
+            ),
           ),
         ],
-      ),
-    ),
-  );
-}
-
-StacAppBar _buildAppBar() {
-  return StacAppBar(
-    centerTitle: true,
-    title: StacText(
-      data: 'انتخاب سپرده پرداخت',
-      textDirection: StacTextDirection.rtl,
-      style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
-    ),
-    leading: StacIconButton(
-      onPressed: StacRawJsonAction({
-        'actionType': 'navigate',
-        'navigationStyle': 'pop',
-      }),
-      icon: StacImage(
-        src: 'assets/icons/ic_right_arrow.svg',
-        imageType: StacImageType.asset,
-        width: 24.0,
-        height: 24.0,
-        color: '{{appColors.current.text.title}}',
       ),
     ),
   );
@@ -478,7 +451,8 @@ StacWidget _buildErrorContent(StacSequenceAction onRetryAction) {
             ),
           ),
           child: StacText(
-            data: 'تلاش مجدد',
+            // تلاش مجدد
+            data: '{{appStrings.common.tryAgain}}',
             style: StacTextStyle(
               color: 'white',
               fontWeight: StacFontWeight.bold,
@@ -535,10 +509,9 @@ StacWidget _buildDepositCardTemplate() {
                 ),
               ),
               child: StacCenter(
-                child: StacRawJsonWidget({
-                  'type': 'opacity',
-                  'opacity': '{{isSelected ? 1.0 : 0.0}}',
-                  'child': StacContainer(
+                child: StacCustomOpacity(
+                  opacity: '{{isSelected ? 1.0 : 0.0}}',
+                  child: StacContainer(
                     width: 12.0,
                     height: 12.0,
                     decoration: StacBoxDecoration(
@@ -546,7 +519,7 @@ StacWidget _buildDepositCardTemplate() {
                       color: '{{appColors.current.secondary.color}}',
                     ),
                   ).toJson(),
-                }),
+                ),
               ),
             ),
           ],
@@ -563,7 +536,8 @@ StacWidget _buildDepositCardTemplate() {
           textDirection: StacTextDirection.rtl,
           children: [
             StacText(
-              data: 'شماره سپرده: ',
+              // شماره سپرده: 
+              data: '{{appStrings.promissory.depositNumberLabel}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
                 fontSize: 14.0,
@@ -588,7 +562,8 @@ StacWidget _buildDepositCardTemplate() {
           textDirection: StacTextDirection.rtl,
           children: [
             StacText(
-              data: 'شماره شبا: ',
+              // شماره شبا: 
+              data: '{{appStrings.promissory.ibanLabel}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
                 fontSize: 14.0,
@@ -615,7 +590,8 @@ StacWidget _buildDepositCardTemplate() {
           textDirection: StacTextDirection.rtl,
           children: [
             StacText(
-              data: 'موجودی: ',
+              // موجودی: 
+              data: '{{appStrings.promissory.balanceLabel}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
                 fontSize: 14.0,
@@ -634,6 +610,7 @@ StacWidget _buildDepositCardTemplate() {
             ),
             StacSizedBox(width: 4.0),
             StacText(
+              // ریال
               data: '{{appStrings.common.rial}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
@@ -647,3 +624,5 @@ StacWidget _buildDepositCardTemplate() {
     ),
   );
 }
+
+

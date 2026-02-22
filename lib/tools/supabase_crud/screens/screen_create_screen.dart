@@ -16,9 +16,7 @@ class ScreenCreateScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final screenNameController = useTextEditingController();
-    final jsonController = useTextEditingController(
-      text: _getDefaultJson(),
-    );
+    final jsonController = useTextEditingController(text: _getDefaultJson());
     final descriptionController = useTextEditingController();
     final routeController = useTextEditingController();
     final authorController = useTextEditingController();
@@ -35,18 +33,18 @@ class ScreenCreateScreen extends HookConsumerWidget {
           onPressed: isCreating.value
               ? null
               : () => _createScreen(
-                    context,
-                    ref,
-                    screenNameController,
-                    jsonController,
-                    descriptionController,
-                    routeController,
-                    authorController,
-                    tagsController,
-                    isCreating,
-                    validationError,
-                    screenNameError,
-                  ),
+                  context,
+                  ref,
+                  screenNameController,
+                  jsonController,
+                  descriptionController,
+                  routeController,
+                  authorController,
+                  tagsController,
+                  isCreating,
+                  validationError,
+                  screenNameError,
+                ),
           icon: isCreating.value
               ? const SizedBox(
                   width: 16,
@@ -92,7 +90,8 @@ class ScreenCreateScreen extends HookConsumerWidget {
                           screenNameError.value = null;
                           // Auto-generate route if empty
                           if (routeController.text.isEmpty) {
-                            routeController.text = '/${value.replaceAll('_screen', '')}';
+                            routeController.text =
+                                '/${value.replaceAll('_screen', '')}';
                           }
                         },
                       ),
@@ -213,9 +212,7 @@ class ScreenCreateScreen extends HookConsumerWidget {
         onPressed: onPressed,
         icon: Icon(icon),
         label: Text(label),
-        style: OutlinedButton.styleFrom(
-          alignment: Alignment.centerLeft,
-        ),
+        style: OutlinedButton.styleFrom(alignment: Alignment.centerLeft),
       ),
     );
   }
@@ -241,7 +238,8 @@ class ScreenCreateScreen extends HookConsumerWidget {
     }
 
     if (!RegExp(r'^[a-z0-9_]+$').hasMatch(screenName)) {
-      screenNameError.value = 'Use only lowercase letters, numbers, and underscores';
+      screenNameError.value =
+          'Use only lowercase letters, numbers, and underscores';
       return;
     }
 
@@ -261,14 +259,18 @@ class ScreenCreateScreen extends HookConsumerWidget {
           .toList();
 
       // Create screen
-      await ref.read(supabaseCrudServiceProvider).createScreen(
+      await ref
+          .read(supabaseCrudServiceProvider)
+          .createScreen(
             name: screenName,
             jsonData: json,
             description: descriptionController.text.isEmpty
                 ? null
                 : descriptionController.text,
             route: routeController.text.isEmpty ? null : routeController.text,
-            author: authorController.text.isEmpty ? null : authorController.text,
+            author: authorController.text.isEmpty
+                ? null
+                : authorController.text,
             tags: tags,
           );
 
@@ -311,12 +313,12 @@ class ScreenCreateScreen extends HookConsumerWidget {
       'type': 'scaffold',
       'appBar': {
         'type': 'appBar',
-        'title': {'type': 'text', 'data': 'New Screen'}
+        'title': {'type': 'text', 'data': 'New Screen'},
       },
       'body': {
         'type': 'center',
-        'child': {'type': 'text', 'data': 'Hello World'}
-      }
+        'child': {'type': 'text', 'data': 'Hello World'},
+      },
     });
   }
 
@@ -325,7 +327,7 @@ class ScreenCreateScreen extends HookConsumerWidget {
       'type': 'scaffold',
       'appBar': {
         'type': 'appBar',
-        'title': {'type': 'text', 'data': 'Basic Screen'}
+        'title': {'type': 'text', 'data': 'Basic Screen'},
       },
       'body': {
         'type': 'padding',
@@ -338,13 +340,13 @@ class ScreenCreateScreen extends HookConsumerWidget {
             {
               'type': 'text',
               'data': 'Welcome',
-              'style': {'fontSize': 24, 'fontWeight': 'bold'}
+              'style': {'fontSize': 24, 'fontWeight': 'bold'},
             },
             {'type': 'sizedBox', 'height': 16},
             {
               'type': 'text',
               'data': 'This is a basic screen template',
-              'textAlign': 'center'
+              'textAlign': 'center',
             },
             {'type': 'sizedBox', 'height': 24},
             {
@@ -353,12 +355,12 @@ class ScreenCreateScreen extends HookConsumerWidget {
               'onPressed': {
                 'actionType': 'showDialog',
                 'title': 'Hello',
-                'message': 'Button clicked!'
-              }
-            }
-          ]
-        }
-      }
+                'message': 'Button clicked!',
+              },
+            },
+          ],
+        },
+      },
     });
   }
 
@@ -367,7 +369,7 @@ class ScreenCreateScreen extends HookConsumerWidget {
       'type': 'scaffold',
       'appBar': {
         'type': 'appBar',
-        'title': {'type': 'text', 'data': 'Form Screen'}
+        'title': {'type': 'text', 'data': 'Form Screen'},
       },
       'body': {
         'type': 'padding',
@@ -379,16 +381,16 @@ class ScreenCreateScreen extends HookConsumerWidget {
               'type': 'textField',
               'decoration': {
                 'labelText': 'Name',
-                'hintText': 'Enter your name'
-              }
+                'hintText': 'Enter your name',
+              },
             },
             {'type': 'sizedBox', 'height': 16},
             {
               'type': 'textField',
               'decoration': {
                 'labelText': 'Email',
-                'hintText': 'Enter your email'
-              }
+                'hintText': 'Enter your email',
+              },
             },
             {'type': 'sizedBox', 'height': 24},
             {
@@ -397,12 +399,12 @@ class ScreenCreateScreen extends HookConsumerWidget {
               'onPressed': {
                 'actionType': 'showDialog',
                 'title': 'Success',
-                'message': 'Form submitted!'
-              }
-            }
-          ]
-        }
-      }
+                'message': 'Form submitted!',
+              },
+            },
+          ],
+        },
+      },
     });
   }
 
@@ -411,7 +413,7 @@ class ScreenCreateScreen extends HookConsumerWidget {
       'type': 'scaffold',
       'appBar': {
         'type': 'appBar',
-        'title': {'type': 'text', 'data': 'List Screen'}
+        'title': {'type': 'text', 'data': 'List Screen'},
       },
       'body': {
         'type': 'listView',
@@ -420,22 +422,22 @@ class ScreenCreateScreen extends HookConsumerWidget {
             'type': 'listTile',
             'leading': {'type': 'icon', 'icon': 'home'},
             'title': {'type': 'text', 'data': 'Home'},
-            'subtitle': {'type': 'text', 'data': 'Go to home screen'}
+            'subtitle': {'type': 'text', 'data': 'Go to home screen'},
           },
           {
             'type': 'listTile',
             'leading': {'type': 'icon', 'icon': 'settings'},
             'title': {'type': 'text', 'data': 'Settings'},
-            'subtitle': {'type': 'text', 'data': 'Configure app settings'}
+            'subtitle': {'type': 'text', 'data': 'Configure app settings'},
           },
           {
             'type': 'listTile',
             'leading': {'type': 'icon', 'icon': 'person'},
             'title': {'type': 'text', 'data': 'Profile'},
-            'subtitle': {'type': 'text', 'data': 'View your profile'}
-          }
-        ]
-      }
+            'subtitle': {'type': 'text', 'data': 'View your profile'},
+          },
+        ],
+      },
     });
   }
 }

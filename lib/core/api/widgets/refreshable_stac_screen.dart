@@ -23,7 +23,8 @@ class RefreshableStacScreen extends ConsumerWidget {
   final String screenName;
 
   /// Builder function that receives the screen data
-  final Widget Function(BuildContext context, Map<String, dynamic> data) builder;
+  final Widget Function(BuildContext context, Map<String, dynamic> data)
+  builder;
 
   /// Optional loading widget
   final Widget? loadingWidget;
@@ -66,9 +67,7 @@ class RefreshableStacScreen extends ConsumerWidget {
       },
       loading: () {
         return loadingWidget ??
-            const Center(
-              child: CircularProgressIndicator(),
-            );
+            const Center(child: CircularProgressIndicator());
       },
       error: (error, stackTrace) {
         AppLogger.e('Error loading screen: $screenName', error, stackTrace);
@@ -86,16 +85,16 @@ class RefreshableStacScreen extends ConsumerWidget {
   Future<void> _handleRefresh(WidgetRef ref) async {
     try {
       AppLogger.i('🔄 Refreshing screen: $screenName');
-      
+
       // Trigger the refresh
       await ref.read(apiRefreshProvider.notifier).refresh();
-      
+
       // Invalidate the screen provider to refetch
       ref.invalidate(fetchScreenProvider(screenName));
-      
+
       // Call the optional callback
       onRefresh?.call();
-      
+
       AppLogger.i('✅ Screen refreshed: $screenName');
     } catch (e, stackTrace) {
       AppLogger.e('❌ Failed to refresh screen: $screenName', e, stackTrace);
@@ -136,9 +135,9 @@ class RefreshableStacScreen extends ConsumerWidget {
             const SizedBox(height: 16),
             Text(
               'Oops!',
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
             Text(
@@ -196,7 +195,8 @@ class StacScreenWithRefreshButton extends ConsumerWidget {
 
     return Scaffold(
       body: child,
-      floatingActionButton: refreshButton ??
+      floatingActionButton:
+          refreshButton ??
           FloatingActionButton(
             onPressed: () => _handleRefresh(ref, context),
             tooltip: 'Refresh',
@@ -209,22 +209,22 @@ class StacScreenWithRefreshButton extends ConsumerWidget {
   Future<void> _handleRefresh(WidgetRef ref, BuildContext context) async {
     try {
       AppLogger.i('🔄 Manual refresh triggered');
-      
+
       // Trigger the refresh
       await ref.read(apiRefreshProvider.notifier).refresh();
-      
+
       // Invalidate the screen provider if screenName is provided
       if (screenName != null) {
         ref.invalidate(fetchScreenProvider(screenName!));
       }
-      
+
       // Call the optional callback
       onRefresh?.call();
-      
+
       AppLogger.i('✅ Manual refresh completed');
     } catch (e, stackTrace) {
       AppLogger.e('❌ Failed to refresh', e, stackTrace);
-      
+
       // Show error snackbar
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(

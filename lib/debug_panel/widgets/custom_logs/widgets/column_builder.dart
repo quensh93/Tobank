@@ -29,4 +29,3 @@ class ISpectColumnBuilder extends StatelessWidget {
             List.generate(itemCount, (index) => itemBuilder(context, index)),
       );
 }
-

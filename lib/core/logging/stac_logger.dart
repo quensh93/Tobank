@@ -36,9 +36,7 @@ class StacLogger {
 
   /// Get log entries filtered by API source
   List<StacLogEntry> getLogsBySource(ApiSource source) {
-    return _logEntries
-        .where((entry) => entry.source == source)
-        .toList();
+    return _logEntries.where((entry) => entry.source == source).toList();
   }
 
   /// Get log entries for a specific screen
@@ -50,16 +48,12 @@ class StacLogger {
 
   /// Get error log entries
   List<StacLogEntry> getErrors() {
-    return _logEntries
-        .where((entry) => entry.isError)
-        .toList();
+    return _logEntries.where((entry) => entry.isError).toList();
   }
 
   /// Get slow operation log entries (>100ms)
   List<StacLogEntry> getSlowOperations() {
-    return _logEntries
-        .where((entry) => entry.isSlow)
-        .toList();
+    return _logEntries.where((entry) => entry.isSlow).toList();
   }
 
   /// Clear all log entries
@@ -111,10 +105,7 @@ class StacLogger {
     instance._addLogEntry(entry);
 
     // Log to console via AppLogger
-    AppLogger.i(
-      '📱 STAC Screen Fetch: $screenName',
-      metadata,
-    );
+    AppLogger.i('📱 STAC Screen Fetch: $screenName', metadata);
 
     // Warn if slow
     if (duration.inMilliseconds > 1000) {
@@ -158,10 +149,7 @@ class StacLogger {
     instance._addLogEntry(entry);
 
     // Log to console via AppLogger
-    AppLogger.i(
-      '🔄 STAC JSON Parsing: $screenName',
-      metadata,
-    );
+    AppLogger.i('🔄 STAC JSON Parsing: $screenName', metadata);
 
     // Log warnings if any
     if (warnings != null && warnings.isNotEmpty) {
@@ -212,10 +200,7 @@ class StacLogger {
     instance._addLogEntry(entry);
 
     // Log to console via AppLogger (debug level for renders)
-    AppLogger.d(
-      '🎨 STAC Component Render: $componentType',
-      metadata,
-    );
+    AppLogger.d('🎨 STAC Component Render: $componentType', metadata);
 
     // Warn if slow (>16ms = 60fps threshold)
     if (duration.inMilliseconds > 16) {
@@ -247,10 +232,7 @@ class StacLogger {
     };
 
     // Log to console via AppLogger
-    AppLogger.w(
-      '⚠️ STAC Warning: $operation - $message',
-      metadata,
-    );
+    AppLogger.w('⚠️ STAC Warning: $operation - $message', metadata);
   }
 
   /// Log an error during STAC operation
@@ -294,11 +276,7 @@ class StacLogger {
     instance._addLogEntry(entry);
 
     // Log to console via AppLogger
-    AppLogger.e(
-      '❌ STAC Error: $operation',
-      metadata,
-      stackTrace,
-    );
+    AppLogger.e('❌ STAC Error: $operation', metadata, stackTrace);
   }
 
   /// Log a generic STAC operation with custom metadata
@@ -333,10 +311,7 @@ class StacLogger {
         ? AppLogger.e
         : AppLogger.i;
 
-    level(
-      '${entry.emoji} STAC ${entry.operationName}: $screenName',
-      metadata,
-    );
+    level('${entry.emoji} STAC ${entry.operationName}: $screenName', metadata);
   }
 
   /// Get statistics about logged operations

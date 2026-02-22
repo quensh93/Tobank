@@ -1,5 +1,5 @@
 /// Entry point configuration model
-/// 
+///
 /// Represents the structure of app_entry_point.json file
 class EntryPointConfig {
   final String appName;
@@ -22,13 +22,13 @@ class EntryPointConfig {
       version: json['version'] as String? ?? '1.0.0',
       initialScreen: json['initial_screen'] as String? ?? 'login',
       screens: (json['screens'] as Map<String, dynamic>? ?? {}).map(
-        (key, value) => MapEntry(
-          key,
-          ScreenConfig.fromJson(value as Map<String, dynamic>),
-        ),
+        (key, value) =>
+            MapEntry(key, ScreenConfig.fromJson(value as Map<String, dynamic>)),
       ),
       navigation: json['navigation'] != null
-          ? NavigationConfig.fromJson(json['navigation'] as Map<String, dynamic>)
+          ? NavigationConfig.fromJson(
+              json['navigation'] as Map<String, dynamic>,
+            )
           : null,
     );
   }
@@ -49,10 +49,7 @@ class ScreenConfig {
   final String template;
   final String data;
 
-  ScreenConfig({
-    required this.template,
-    required this.data,
-  });
+  ScreenConfig({required this.template, required this.data});
 
   factory ScreenConfig.fromJson(Map<String, dynamic> json) {
     return ScreenConfig(
@@ -62,10 +59,7 @@ class ScreenConfig {
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'template': template,
-      'data': data,
-    };
+    return {'template': template, 'data': data};
   }
 }
 
@@ -73,9 +67,7 @@ class ScreenConfig {
 class NavigationConfig {
   final List<RouteConfig> routes;
 
-  NavigationConfig({
-    required this.routes,
-  });
+  NavigationConfig({required this.routes});
 
   factory NavigationConfig.fromJson(Map<String, dynamic> json) {
     return NavigationConfig(
@@ -86,9 +78,7 @@ class NavigationConfig {
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'routes': routes.map((e) => e.toJson()).toList(),
-    };
+    return {'routes': routes.map((e) => e.toJson()).toList()};
   }
 }
 
@@ -97,10 +87,7 @@ class RouteConfig {
   final String name;
   final String path;
 
-  RouteConfig({
-    required this.name,
-    required this.path,
-  });
+  RouteConfig({required this.name, required this.path});
 
   factory RouteConfig.fromJson(Map<String, dynamic> json) {
     return RouteConfig(
@@ -110,10 +97,6 @@ class RouteConfig {
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'name': name,
-      'path': path,
-    };
+    return {'name': name, 'path': path};
   }
 }
-

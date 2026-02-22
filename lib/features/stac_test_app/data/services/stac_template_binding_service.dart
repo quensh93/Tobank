@@ -2,12 +2,12 @@ import 'dart:convert';
 import '../../../../core/helpers/logger.dart';
 
 /// Service for applying data binding to STAC templates
-/// 
+///
 /// Replaces {{variable}} placeholders in template JSON with values from data JSON
 class StacTemplateBindingService {
   /// Apply data to template by replacing {{variable}} placeholders
-  /// 
-  /// This recursively processes the template and replaces all {{variable}} 
+  ///
+  /// This recursively processes the template and replaces all {{variable}}
   /// placeholders with corresponding values from the data map.
   static Map<String, dynamic> applyDataToTemplate(
     Map<String, dynamic> template,
@@ -15,11 +15,12 @@ class StacTemplateBindingService {
   ) {
     try {
       // Deep clone the template to avoid modifying the original
-      final clonedTemplate = jsonDecode(jsonEncode(template)) as Map<String, dynamic>;
-      
+      final clonedTemplate =
+          jsonDecode(jsonEncode(template)) as Map<String, dynamic>;
+
       // Recursively process the template
       _processTemplateRecursively(clonedTemplate, data);
-      
+
       return clonedTemplate;
     } catch (e, stackTrace) {
       AppLogger.e('Failed to apply data to template', e, stackTrace);
@@ -78,7 +79,7 @@ class StacTemplateBindingService {
   }
 
   /// Get nested value from data map using dot notation
-  /// 
+  ///
   /// Example: "user.profile.name" -> data['user']['profile']['name']
   static dynamic _getNestedValue(Map<String, dynamic> data, String key) {
     if (!key.contains('.')) {
@@ -104,4 +105,3 @@ class StacTemplateBindingService {
     return current;
   }
 }
-

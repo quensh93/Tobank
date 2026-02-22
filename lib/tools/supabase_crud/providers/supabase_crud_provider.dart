@@ -12,7 +12,8 @@ SupabaseCrudService supabaseCrudService(Ref ref) {
 
 /// Provider for listing screens
 @riverpod
-Future<List<ScreenMetadata>> screensList(Ref ref, {
+Future<List<ScreenMetadata>> screensList(
+  Ref ref, {
   int? limit,
   String? startAfter,
   String? orderBy,
@@ -43,22 +44,22 @@ Future<Map<String, dynamic>?> screenJson(Ref ref, String id) async {
 
 /// Provider for searching screens
 @riverpod
-Future<List<ScreenMetadata>> searchScreens(Ref ref, {
+Future<List<ScreenMetadata>> searchScreens(
+  Ref ref, {
   String? query,
   List<String>? tags,
   int? limit,
 }) async {
   final service = ref.watch(supabaseCrudServiceProvider);
-  return service.searchScreens(
-    query: query,
-    tags: tags,
-    limit: limit,
-  );
+  return service.searchScreens(query: query, tags: tags, limit: limit);
 }
 
 /// Provider for version history
 @riverpod
-Future<List<Map<String, dynamic>>> versionHistory(Ref ref, String screenId) async {
+Future<List<Map<String, dynamic>>> versionHistory(
+  Ref ref,
+  String screenId,
+) async {
   final service = ref.watch(supabaseCrudServiceProvider);
   return service.getVersionHistory(screenId);
 }

@@ -59,7 +59,8 @@ class PromissoryController extends GetxController {
     }
   }
 
-  void comingSoon() {//locale
+  void comingSoon() {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     SnackBarUtil.showInfoSnackBar(locale.coming_soon);
   }
@@ -77,7 +78,8 @@ class PromissoryController extends GetxController {
   }
 
   /// Retrieves the promissory assets and updates the [promissoryAssetResponseData] main controller.
-  void getPromissoryAssetRequest() {//locale
+  void getPromissoryAssetRequest() {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     hasError = false;
     isLoading = true;
@@ -87,7 +89,9 @@ class PromissoryController extends GetxController {
       update();
 
       switch (result) {
-        case Success(value: (final PromissoryAssetResponseData response, int _)):
+        case Success(
+          value: (final PromissoryAssetResponseData response, int _),
+        ):
           mainController.promissoryAssetResponseData = response;
           update();
         case Failure(exception: final ApiException apiException):
@@ -95,7 +99,7 @@ class PromissoryController extends GetxController {
           errorTitle = apiException.displayMessage;
           update();
           SnackBarUtil.showSnackBar(
-            title:locale.show_error(apiException.displayCode),
+            title: locale.show_error(apiException.displayCode),
             message: apiException.displayMessage,
           );
       }

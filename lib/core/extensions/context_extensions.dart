@@ -71,10 +71,7 @@ extension ContextExtensions on BuildContext {
 
   /// Show a success snackbar
   void showSuccess(String message) {
-    showSnackBar(
-      message,
-      backgroundColor: Colors.green,
-    );
+    showSnackBar(message, backgroundColor: Colors.green);
   }
 
   /// Pop the current route
@@ -109,10 +106,8 @@ extension ContextExtensions on BuildContext {
     bool Function(Route<dynamic>) predicate, {
     Object? arguments,
   }) {
-    return Navigator.of(this).pushNamedAndRemoveUntil<T>(
-      newRouteName,
-      predicate,
-      arguments: arguments,
-    );
+    return Navigator.of(
+      this,
+    ).pushNamedAndRemoveUntil<T>(newRouteName, predicate, arguments: arguments);
   }
 }

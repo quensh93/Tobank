@@ -18,28 +18,28 @@ part 'custom-widget-example.g.dart';
 class ProductCardModel {
   /// Product image URL
   final String imageUrl;
-  
+
   /// Product title
   final String title;
-  
+
   /// Product description (optional)
   final String? description;
-  
+
   /// Product price
   final double price;
-  
+
   /// Currency symbol (default: $)
   final String currency;
-  
+
   /// Product rating (0-5)
   final double rating;
-  
+
   /// Number of reviews
   final int reviewCount;
-  
+
   /// Whether product is in stock
   final bool inStock;
-  
+
   /// Action to perform when card is tapped (optional)
   final Map<String, dynamic>? onTap;
 
@@ -91,10 +91,7 @@ class ProductCardParser extends StacParser<ProductCardModel> {
 class ProductCardWidget extends StatelessWidget {
   final ProductCardModel model;
 
-  const ProductCardWidget({
-    Key? key,
-    required this.model,
-  }) : super(key: key);
+  const ProductCardWidget({Key? key, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -102,15 +99,13 @@ class ProductCardWidget extends StatelessWidget {
       elevation: 2,
       clipBehavior: Clip.antiAlias,
       child: InkWell(
-        onTap: model.onTap != null
-            ? () => _handleTap(context)
-            : null,
+        onTap: model.onTap != null ? () => _handleTap(context) : null,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Product Image
             _buildImage(),
-            
+
             // Product Details
             Padding(
               padding: const EdgeInsets.all(12.0),
@@ -121,12 +116,12 @@ class ProductCardWidget extends StatelessWidget {
                   Text(
                     model.title,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
+                      fontWeight: FontWeight.bold,
+                    ),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  
+
                   // Description (if provided)
                   if (model.description != null) ...[
                     const SizedBox(height: 4),
@@ -137,14 +132,14 @@ class ProductCardWidget extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ],
-                  
+
                   const SizedBox(height: 8),
-                  
+
                   // Rating
                   _buildRating(context),
-                  
+
                   const SizedBox(height: 8),
-                  
+
                   // Price and Stock Status
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -153,11 +148,11 @@ class ProductCardWidget extends StatelessWidget {
                       Text(
                         '${model.currency}${model.price.toStringAsFixed(2)}',
                         style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                              color: Theme.of(context).primaryColor,
-                              fontWeight: FontWeight.bold,
-                            ),
+                          color: Theme.of(context).primaryColor,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      
+
                       // Stock Status
                       _buildStockBadge(context),
                     ],
@@ -195,7 +190,7 @@ class ProductCardWidget extends StatelessWidget {
               child: CircularProgressIndicator(
                 value: loadingProgress.expectedTotalBytes != null
                     ? loadingProgress.cumulativeBytesLoaded /
-                        loadingProgress.expectedTotalBytes!
+                          loadingProgress.expectedTotalBytes!
                     : null,
               ),
             ),
@@ -218,9 +213,9 @@ class ProductCardWidget extends StatelessWidget {
             return const Icon(Icons.star_border, size: 16, color: Colors.amber);
           }
         }),
-        
+
         const SizedBox(width: 4),
-        
+
         // Rating text
         Text(
           '${model.rating.toStringAsFixed(1)} (${model.reviewCount})',
@@ -250,11 +245,11 @@ class ProductCardWidget extends StatelessWidget {
 
   void _handleTap(BuildContext context) {
     if (model.onTap == null) return;
-    
+
     // Execute the action defined in JSON
     // This would typically use your STAC action system
     // Example: StacActionService.execute(context, model.onTap!);
-    
+
     // For demonstration, just print
     print('Product card tapped: ${model.title}');
   }
@@ -265,14 +260,14 @@ class ProductCardWidget extends StatelessWidget {
 // ============================================================================
 
 /// Register the custom widget parser in your app initialization
-/// 
+///
 /// Example in main.dart:
 /// ```dart
 /// void main() {
 ///   // Register custom components
 ///   final registry = CustomComponentRegistry.instance;
 ///   registry.registerWidget(ProductCardParser());
-///   
+///
 ///   runApp(MyApp());
 /// }
 /// ```
@@ -319,16 +314,16 @@ class ProductCardWidget extends StatelessWidget {
 ///         rating: 4.5,
 ///         reviewCount: 100,
 ///       );
-///       
+///
 ///       final json = model.toJson();
-///       
+///
 ///       expect(json['imageUrl'], 'https://example.com/image.jpg');
 ///       expect(json['title'], 'Test Product');
 ///       expect(json['price'], 99.99);
 ///       expect(json['rating'], 4.5);
 ///       expect(json['reviewCount'], 100);
 ///     });
-///     
+///
 ///     test('should deserialize from JSON correctly', () {
 ///       final json = {
 ///         'imageUrl': 'https://example.com/image.jpg',
@@ -339,9 +334,9 @@ class ProductCardWidget extends StatelessWidget {
 ///         'reviewCount': 100,
 ///         'inStock': true,
 ///       };
-///       
+///
 ///       final model = ProductCardModel.fromJson(json);
-///       
+///
 ///       expect(model.imageUrl, 'https://example.com/image.jpg');
 ///       expect(model.title, 'Test Product');
 ///       expect(model.price, 99.99);
@@ -350,7 +345,7 @@ class ProductCardWidget extends StatelessWidget {
 ///       expect(model.inStock, true);
 ///     });
 ///   });
-///   
+///
 ///   group('ProductCardParser', () {
 ///     testWidgets('should render product card widget', (tester) async {
 ///       final parser = ProductCardParser();
@@ -361,7 +356,7 @@ class ProductCardWidget extends StatelessWidget {
 ///         rating: 4.5,
 ///         reviewCount: 100,
 ///       );
-///       
+///
 ///       await tester.pumpWidget(
 ///         MaterialApp(
 ///           home: Scaffold(
@@ -369,7 +364,7 @@ class ProductCardWidget extends StatelessWidget {
 ///           ),
 ///         ),
 ///       );
-///       
+///
 ///       expect(find.text('Test Product'), findsOneWidget);
 ///       expect(find.text('\$99.99'), findsOneWidget);
 ///       expect(find.text('4.5 (100)'), findsOneWidget);

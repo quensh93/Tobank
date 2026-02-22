@@ -126,4 +126,3 @@ class FileProcessingResult {
         format.hashCode;
   }
 }
-

@@ -146,10 +146,7 @@ class ScreenCard extends StatelessWidget {
                   runSpacing: 8,
                   children: screen.tags.map((tag) {
                     return Chip(
-                      label: Text(
-                        tag,
-                        style: theme.textTheme.bodySmall,
-                      ),
+                      label: Text(tag, style: theme.textTheme.bodySmall),
                       padding: const EdgeInsets.symmetric(horizontal: 8),
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     );

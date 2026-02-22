@@ -52,8 +52,11 @@ class BulkOperationsScreen extends HookConsumerWidget {
                               const SizedBox(height: 4),
                               Text(
                                 'Download all screens as a JSON file',
-                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                                style: Theme.of(context).textTheme.bodyMedium
+                                    ?.copyWith(
+                                      color: Theme.of(
+                                        context,
+                                      ).colorScheme.onSurfaceVariant,
                                     ),
                               ),
                             ],
@@ -65,11 +68,7 @@ class BulkOperationsScreen extends HookConsumerWidget {
                     FilledButton.icon(
                       onPressed: isProcessing.value
                           ? null
-                          : () => _exportAllScreens(
-                                context,
-                                ref,
-                                isProcessing,
-                              ),
+                          : () => _exportAllScreens(context, ref, isProcessing),
                       icon: const Icon(Icons.download),
                       label: const Text('Export All Screens'),
                     ),
@@ -106,8 +105,11 @@ class BulkOperationsScreen extends HookConsumerWidget {
                               const SizedBox(height: 4),
                               Text(
                                 'Upload multiple screens from a JSON file',
-                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                                style: Theme.of(context).textTheme.bodyMedium
+                                    ?.copyWith(
+                                      color: Theme.of(
+                                        context,
+                                      ).colorScheme.onSurfaceVariant,
                                     ),
                               ),
                             ],
@@ -165,21 +167,25 @@ class BulkOperationsScreen extends HookConsumerWidget {
                           onPressed: isProcessing.value
                               ? null
                               : () => _bulkUploadScreens(
-                                    context,
-                                    ref,
-                                    uploadJsonController,
-                                    isProcessing,
-                                    uploadError,
-                                    uploadSuccess,
-                                  ),
+                                  context,
+                                  ref,
+                                  uploadJsonController,
+                                  isProcessing,
+                                  uploadError,
+                                  uploadSuccess,
+                                ),
                           icon: isProcessing.value
                               ? const SizedBox(
                                   width: 16,
                                   height: 16,
-                                  child: CircularProgressIndicator(strokeWidth: 2),
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                  ),
                                 )
                               : const Icon(Icons.upload),
-                          label: Text(isProcessing.value ? 'Uploading...' : 'Upload'),
+                          label: Text(
+                            isProcessing.value ? 'Uploading...' : 'Upload',
+                          ),
                         ),
                         const SizedBox(width: 12),
                         OutlinedButton.icon(
@@ -291,16 +297,16 @@ class BulkOperationsScreen extends HookConsumerWidget {
             children: [
               Text(
                 title,
-                style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 4),
               Text(
                 description,
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    ),
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
               ),
             ],
           ),
@@ -317,7 +323,9 @@ class BulkOperationsScreen extends HookConsumerWidget {
     try {
       isProcessing.value = true;
 
-      final screens = await ref.read(supabaseCrudServiceProvider).exportAllScreens();
+      final screens = await ref
+          .read(supabaseCrudServiceProvider)
+          .exportAllScreens();
 
       if (screens.isEmpty) {
         if (context.mounted) {
@@ -348,10 +356,7 @@ class BulkOperationsScreen extends HookConsumerWidget {
               child: SingleChildScrollView(
                 child: SelectableText(
                   jsonString,
-                  style: const TextStyle(
-                    fontFamily: 'monospace',
-                    fontSize: 12,
-                  ),
+                  style: const TextStyle(fontFamily: 'monospace', fontSize: 12),
                 ),
               ),
             ),

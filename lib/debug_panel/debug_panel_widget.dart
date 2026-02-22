@@ -167,7 +167,7 @@ class _DebugPanelLargeLayoutState extends ConsumerState<DebugPanelLargeLayout> {
   static const double _minPanelHeight = 300.0; // Minimum height for both panels
 
   double?
-  _dragPanelWidth; // Local state during dragging, null when not dragging
+      _dragPanelWidth; // Local state during dragging, null when not dragging
 
   @override
   Widget build(BuildContext context) {
@@ -268,7 +268,9 @@ class _DebugPanelLargeLayoutState extends ConsumerState<DebugPanelLargeLayout> {
                                   width: 2,
                                   height: 40,
                                   decoration: BoxDecoration(
-                                    color: Theme.of(context).colorScheme.outline
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .outline
                                         .withValues(alpha: 0.4),
                                     borderRadius: BorderRadius.circular(1),
                                   ),
@@ -322,8 +324,7 @@ class _DebugPanelSmallLayoutState extends ConsumerState<DebugPanelSmallLayout> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     // Calculated heights
-    final double collapsedHeight =
-        60 +
+    final double collapsedHeight = 60 +
         MediaQuery.of(context).padding.bottom +
         40; // 60 tab + padding + 40 handle (Total ~100 + padding)
     final double expandedHeight = screenHeight * 0.85; // Cover 85% of screen
@@ -542,7 +543,8 @@ class _MobileBottomSheetPanelState
                         controller: _tabController,
                         isScrollable: true,
                         tabAlignment: TabAlignment.start,
-                        labelPadding: const EdgeInsets.symmetric(horizontal: 12),
+                        labelPadding:
+                            const EdgeInsets.symmetric(horizontal: 12),
                         onTap: (index) {
                           ref
                               .read(debugPanelSettingsProvider.notifier)
@@ -626,7 +628,7 @@ class _DebugPanelVerticalLayoutState
   static const double _minPanelHeightPx = 200.0; // Minimum 200px height
 
   double?
-  _dragPanelHeight; // Local state during dragging, null when not dragging
+      _dragPanelHeight; // Local state during dragging, null when not dragging
 
   @override
   Widget build(BuildContext context) {
@@ -727,7 +729,9 @@ class _DebugPanelVerticalLayoutState
                                   width: 40,
                                   height: 2,
                                   decoration: BoxDecoration(
-                                    color: Theme.of(context).colorScheme.outline
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .outline
                                         .withValues(alpha: 0.4),
                                     borderRadius: BorderRadius.circular(1),
                                   ),
@@ -853,9 +857,8 @@ class _ToolPanelState extends ConsumerState<ToolPanel>
   void _onTabChanged() {
     // Only save tab changes if we're not currently restoring a tab
     if (!_isRestoringTab && !_tabController.indexIsChanging) {
-      final currentIndex = ref
-          .read(debugPanelSettingsProvider)
-          .selectedTabIndex;
+      final currentIndex =
+          ref.read(debugPanelSettingsProvider).selectedTabIndex;
       if (_tabController.index != currentIndex) {
         ref
             .read(debugPanelSettingsProvider.notifier)
@@ -898,14 +901,14 @@ class _ToolPanelState extends ConsumerState<ToolPanel>
                     topRight: Radius.circular(16),
                   )
                 : widget.isMobile
-                ? const BorderRadius.only(
-                    topLeft: Radius.circular(16),
-                    topRight: Radius.circular(16),
-                  )
-                : const BorderRadius.only(
-                    topLeft: Radius.circular(16),
-                    bottomLeft: Radius.circular(16),
-                  ),
+                    ? const BorderRadius.only(
+                        topLeft: Radius.circular(16),
+                        topRight: Radius.circular(16),
+                      )
+                    : const BorderRadius.only(
+                        topLeft: Radius.circular(16),
+                        bottomLeft: Radius.circular(16),
+                      ),
             border: Border.all(
               color: Theme.of(
                 context,
@@ -920,14 +923,14 @@ class _ToolPanelState extends ConsumerState<ToolPanel>
                     topRight: Radius.circular(14.5),
                   )
                 : widget.isMobile
-                ? const BorderRadius.only(
-                    topLeft: Radius.circular(14.5),
-                    topRight: Radius.circular(14.5),
-                  )
-                : const BorderRadius.only(
-                    topLeft: Radius.circular(14.5),
-                    bottomLeft: Radius.circular(14.5),
-                  ),
+                    ? const BorderRadius.only(
+                        topLeft: Radius.circular(14.5),
+                        topRight: Radius.circular(14.5),
+                      )
+                    : const BorderRadius.only(
+                        topLeft: Radius.circular(14.5),
+                        bottomLeft: Radius.circular(14.5),
+                      ),
             child: Material(
               elevation: 0,
               color: Colors.transparent,
@@ -961,11 +964,9 @@ class _ToolPanelState extends ConsumerState<ToolPanel>
                               _tabBarScrollController.jumpTo(
                                 newOffset.clamp(
                                   _tabBarScrollController
-                                      .position
-                                      .minScrollExtent,
+                                      .position.minScrollExtent,
                                   _tabBarScrollController
-                                      .position
-                                      .maxScrollExtent,
+                                      .position.maxScrollExtent,
                                 ),
                               );
                             }
@@ -1202,9 +1203,9 @@ class ToolsTab extends StatelessWidget {
         Text(
           title,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
-            fontWeight: FontWeight.bold,
-            color: Theme.of(context).colorScheme.primary,
-          ),
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).colorScheme.primary,
+              ),
         ),
       ],
     );
@@ -1245,15 +1246,16 @@ class ToolsTab extends StatelessWidget {
                     Text(
                       title,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w600,
-                      ),
+                            fontWeight: FontWeight.w600,
+                          ),
                     ),
                     const SizedBox(height: 4),
                     Text(
                       description,
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
-                      ),
+                            color:
+                                Theme.of(context).colorScheme.onSurfaceVariant,
+                          ),
                     ),
                   ],
                 ),

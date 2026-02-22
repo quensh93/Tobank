@@ -55,15 +55,15 @@ class ExampleCardModel {
   }
 
   List<Object?> get props => [
-        title,
-        subtitle,
-        icon,
-        backgroundColor,
-        elevation,
-        borderRadius,
-        padding,
-        onTap,
-      ];
+    title,
+    subtitle,
+    icon,
+    backgroundColor,
+    elevation,
+    borderRadius,
+    padding,
+    onTap,
+  ];
 }
 
 /// Example Card Parser
@@ -95,10 +95,7 @@ class ExampleCardParser extends StacParser<ExampleCardModel> {
       padding: EdgeInsets.all(model.padding ?? 16.0),
       child: Row(
         children: [
-          if (iconWidget != null) ...[
-            iconWidget,
-            const SizedBox(width: 16),
-          ],
+          if (iconWidget != null) ...[iconWidget, const SizedBox(width: 16)],
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,16 +104,16 @@ class ExampleCardParser extends StacParser<ExampleCardModel> {
                 Text(
                   model.title,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 if (model.subtitle != null) ...[
                   const SizedBox(height: 4),
                   Text(
                     model.subtitle!,
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: Colors.grey[600],
-                        ),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.bodyMedium?.copyWith(color: Colors.grey[600]),
                   ),
                 ],
               ],

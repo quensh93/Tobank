@@ -21,13 +21,19 @@ class PromissoryTransactionDetailPageController extends GetxController {
   String? persianDateString;
   String? trackingNumber;
 
-  Future<void> setValues(TransactionData transactionDataParam, String? multiSignPath) async {//locale
+  Future<void> setValues(
+    TransactionData transactionDataParam,
+    String? multiSignPath,
+  ) async {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     transactionData = transactionDataParam;
     this.multiSignPath = multiSignPath;
     amount = '-';
     if (transactionData.trAmount != null) {
-      amount = locale.amount_format(AppUtil.formatMoney(transactionData.trAmount));
+      amount = locale.amount_format(
+        AppUtil.formatMoney(transactionData.trAmount),
+      );
     }
     final PersianDate persianDate = PersianDate();
     final String date = transactionData.trDate!.toString().split('+')[0];
@@ -35,16 +41,23 @@ class PromissoryTransactionDetailPageController extends GetxController {
     trackingNumber = transactionData.hashId;
   }
 
-  void sharePromissoryPdf() {//locale
+  void sharePromissoryPdf() {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     if (Platform.isIOS) {
-      Share.shareXFiles([XFile(multiSignPath!)], subject: locale.promissory_file);
+      Share.shareXFiles([
+        XFile(multiSignPath!),
+      ], subject: locale.promissory_file);
     } else {
-      Share.shareXFiles([XFile(multiSignPath!)], text:locale.promissory_file);
+      Share.shareXFiles([XFile(multiSignPath!)], text: locale.promissory_file);
     }
   }
 
   void showPreviewScreen() {
-    Get.to(() => PromissoryPreviewScreen(pdfData: File(multiSignPath!).readAsBytesSync()));
+    Get.to(
+      () => PromissoryPreviewScreen(
+        pdfData: File(multiSignPath!).readAsBytesSync(),
+      ),
+    );
   }
 }

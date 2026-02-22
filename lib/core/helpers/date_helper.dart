@@ -15,11 +15,23 @@ class DateHelper {
   }) {
     String formatted = format;
     formatted = formatted.replaceAll('yyyy', date.year.toString());
-    formatted = formatted.replaceAll('MM', date.month.toString().padLeft(2, '0'));
+    formatted = formatted.replaceAll(
+      'MM',
+      date.month.toString().padLeft(2, '0'),
+    );
     formatted = formatted.replaceAll('dd', date.day.toString().padLeft(2, '0'));
-    formatted = formatted.replaceAll('HH', date.hour.toString().padLeft(2, '0'));
-    formatted = formatted.replaceAll('mm', date.minute.toString().padLeft(2, '0'));
-    formatted = formatted.replaceAll('ss', date.second.toString().padLeft(2, '0'));
+    formatted = formatted.replaceAll(
+      'HH',
+      date.hour.toString().padLeft(2, '0'),
+    );
+    formatted = formatted.replaceAll(
+      'mm',
+      date.minute.toString().padLeft(2, '0'),
+    );
+    formatted = formatted.replaceAll(
+      'ss',
+      date.second.toString().padLeft(2, '0'),
+    );
     return formatted;
   }
 

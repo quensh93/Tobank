@@ -61,11 +61,13 @@ class _JsonViewerState extends State<JsonViewer> {
           _formattedJson = widget.jsonData;
         }
       } else if (widget.jsonData is Map || widget.jsonData is List) {
-        _formattedJson = const JsonEncoder.withIndent('  ').convert(widget.jsonData);
+        _formattedJson = const JsonEncoder.withIndent(
+          '  ',
+        ).convert(widget.jsonData);
       } else {
         _formattedJson = widget.jsonData.toString();
       }
-      
+
       _expandedNodes = {};
     } catch (e) {
       _formattedJson = 'Error formatting JSON: $e';
@@ -90,7 +92,7 @@ class _JsonViewerState extends State<JsonViewer> {
           // Header
           _buildHeader(context),
           const Divider(height: 1, color: Colors.white24),
-          
+
           // JSON content
           Flexible(
             child: SingleChildScrollView(
@@ -109,11 +111,7 @@ class _JsonViewerState extends State<JsonViewer> {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: Row(
         children: [
-          Icon(
-            Icons.code,
-            color: Colors.grey[300],
-            size: 20,
-          ),
+          Icon(Icons.code, color: Colors.grey[300], size: 20),
           const SizedBox(width: 8),
           Expanded(
             child: Text(
@@ -155,7 +153,7 @@ class _JsonViewerState extends State<JsonViewer> {
       final parsed = widget.jsonData is String
           ? jsonDecode(widget.jsonData)
           : widget.jsonData;
-      
+
       return _buildJsonNode(parsed, '', 0);
     } catch (e) {
       return SelectableText(
@@ -184,7 +182,7 @@ class _JsonViewerState extends State<JsonViewer> {
   Widget _buildMapNode(Map data, String key, int depth) {
     final nodeKey = '$key-$depth-map';
     final isExpanded = _expandedNodes[nodeKey] ?? widget.expandAll;
-    
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -281,7 +279,7 @@ class _JsonViewerState extends State<JsonViewer> {
   Widget _buildListNode(List data, String key, int depth) {
     final nodeKey = '$key-$depth-list';
     final isExpanded = _expandedNodes[nodeKey] ?? widget.expandAll;
-    
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -378,7 +376,7 @@ class _JsonViewerState extends State<JsonViewer> {
   Widget _buildValueNode(dynamic data, String key, int depth) {
     final valueColor = _getValueColor(data);
     final valueText = _formatValue(data);
-    
+
     return Padding(
       padding: EdgeInsets.only(left: depth * 16.0),
       child: SelectableText.rich(
@@ -505,9 +503,11 @@ class SimpleJsonViewer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final formattedJson = _formatJson(jsonData);
-    
+
     return Container(
-      constraints: maxHeight != null ? BoxConstraints(maxHeight: maxHeight!) : null,
+      constraints: maxHeight != null
+          ? BoxConstraints(maxHeight: maxHeight!)
+          : null,
       decoration: BoxDecoration(
         color: Colors.grey[900],
         borderRadius: BorderRadius.circular(8),
@@ -524,11 +524,7 @@ class SimpleJsonViewer extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             child: Row(
               children: [
-                Icon(
-                  Icons.code,
-                  color: Colors.grey[300],
-                  size: 20,
-                ),
+                Icon(Icons.code, color: Colors.grey[300], size: 20),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
@@ -542,17 +538,24 @@ class SimpleJsonViewer extends StatelessWidget {
                 ),
                 if (showCopyButton)
                   IconButton(
-                    icon: const Icon(Icons.copy, color: Colors.white70, size: 18),
+                    icon: const Icon(
+                      Icons.copy,
+                      color: Colors.white70,
+                      size: 18,
+                    ),
                     onPressed: () => _copyToClipboard(context, formattedJson),
                     tooltip: 'Copy JSON',
                     padding: EdgeInsets.zero,
-                    constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+                    constraints: const BoxConstraints(
+                      minWidth: 32,
+                      minHeight: 32,
+                    ),
                   ),
               ],
             ),
           ),
           const Divider(height: 1, color: Colors.white24),
-          
+
           // JSON content
           Flexible(
             child: SingleChildScrollView(

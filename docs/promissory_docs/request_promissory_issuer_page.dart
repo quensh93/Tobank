@@ -11,8 +11,7 @@ class RequestPromissoryIssuerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-//locale
+    //locale
     final locale = AppLocalizations.of(context)!;
     return GetBuilder<RequestPromissoryController>(
       builder: (controller) {
@@ -26,16 +25,17 @@ class RequestPromissoryIssuerPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      const SizedBox(
-                        height: 16.0,
-                      ),
+                      const SizedBox(height: 16.0),
                       Card(
                         elevation: Get.isDarkMode ? 1 : 0,
                         margin: EdgeInsets.zero,
                         shadowColor: Colors.transparent,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
-                          side: BorderSide(color: context.theme.dividerColor, width: 0.5),
+                          side: BorderSide(
+                            color: context.theme.dividerColor,
+                            width: 0.5,
+                          ),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(16.0),
@@ -46,48 +46,52 @@ class RequestPromissoryIssuerPage extends StatelessWidget {
                                 locale.issuer_information,
                                 style: ThemeUtil.titleStyle,
                               ),
-                              const SizedBox(
-                                height: 16.0,
-                              ),
+                              const SizedBox(height: 16.0),
                               KeyValueWidget(
                                 keyString: locale.national_code_title,
-                                valueString: controller.mainController.authInfoData!.nationalCode ?? '',
+                                valueString:
+                                    controller
+                                        .mainController
+                                        .authInfoData!
+                                        .nationalCode ??
+                                    '',
                               ),
-                              const SizedBox(
-                                height: 16.0,
-                              ),
+                              const SizedBox(height: 16.0),
                               KeyValueWidget(
-                                keyString:  locale.mobile_number,
-                                valueString: controller.mainController.authInfoData!.mobile ?? '',
+                                keyString: locale.mobile_number,
+                                valueString:
+                                    controller
+                                        .mainController
+                                        .authInfoData!
+                                        .mobile ??
+                                    '',
                               ),
-                              const SizedBox(
-                                height: 16.0,
-                              ),
+                              const SizedBox(height: 16.0),
                               KeyValueWidget(
-                                keyString:locale.full_name,
+                                keyString: locale.full_name,
                                 valueString: controller.getCustomerDetail(),
                               ),
-                              const SizedBox(
-                                height: 16.0,
-                              ),
+                              const SizedBox(height: 16.0),
                               KeyValueWidget(
                                 keyString: locale.deposit_shaba,
-                                valueString: controller.selectedDeposit!.depositIban!,
+                                valueString:
+                                    controller.selectedDeposit!.depositIban!,
                               ),
                             ],
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        height: 16.0,
-                      ),
+                      const SizedBox(height: 16.0),
                       Card(
                         elevation: Get.isDarkMode ? 1 : 0,
                         margin: EdgeInsets.zero,
                         shadowColor: Colors.transparent,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
-                          side: BorderSide(color: context.theme.dividerColor, width: 0.5),
+                          side: BorderSide(
+                            color: context.theme.dividerColor,
+                            width: 0.5,
+                          ),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(16.0),
@@ -98,9 +102,7 @@ class RequestPromissoryIssuerPage extends StatelessWidget {
                                 locale.issuer_residence_info,
                                 style: ThemeUtil.titleStyle,
                               ),
-                              const SizedBox(
-                                height: 16.0,
-                              ),
+                              const SizedBox(height: 16.0),
                               Text(
                                 locale.postal_code,
                                 style: TextStyle(
@@ -109,9 +111,7 @@ class RequestPromissoryIssuerPage extends StatelessWidget {
                                   color: ThemeUtil.textSubtitleColor,
                                 ),
                               ),
-                              const SizedBox(
-                                height: 8.0,
-                              ),
+                              const SizedBox(height: 8.0),
                               Text(
                                 controller.getPostalCode(),
                                 style: const TextStyle(
@@ -128,9 +128,7 @@ class RequestPromissoryIssuerPage extends StatelessWidget {
                                   color: ThemeUtil.textSubtitleColor,
                                 ),
                               ),
-                              const SizedBox(
-                                height: 8.0,
-                              ),
+                              const SizedBox(height: 8.0),
                               Text(
                                 controller.getCustomerAddress(),
                                 style: const TextStyle(

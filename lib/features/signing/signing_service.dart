@@ -141,7 +141,8 @@ class SigningService {
         signatureWidth: location.android.width.toInt(),
         signatureHeight: location.android.height.toInt(),
         signaturePage: location.signPageIndex,
-        signatureNameFamily: 'mahdi jamshidpour', // Pass user english name if available
+        signatureNameFamily:
+            'mahdi jamshidpour', // Pass user english name if available
       );
       return result.isSuccess == true ? result.data : null;
     } else {

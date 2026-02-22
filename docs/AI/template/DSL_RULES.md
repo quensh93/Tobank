@@ -11,6 +11,8 @@ The `stac build` command parses your `.dart` files and executes them to generate
 
 If a DSL file imports *anything* that transitively relies on Flutter, the `stac build` CLI will instantly crash with errors like `Method not found` or `Failed to process`.
 
+Additionally, **unused imports** or excessive imports can cause compilation errors if they reference missing files or invalid paths in the isolated environment. Only import exactly what is needed for the screen.
+
 ---
 
 ## 1. The "Wall of Separation" Architecture
@@ -113,6 +115,87 @@ void registerMyCustomActionParser() {
 
 ---
 
+## 4. Only Import Required Builders
+
+Do not carelessly copy-paste imports across DSL files. The `stac build` tool can sometimes fail if it attempts to resolve an import that is completely unused or if the path is invalid. 
+
+**Rule:** If your DSL file does not use `StacStatefulWidget`, do not import its builder. If it does not use a custom action, do not import `stac_custom_actions.dart`. Ensure your IDE's "unused import" warnings are resolved before compilation.
+
+---
+
+## 5. Widget Extraction & Reusability in DSL Files
+
+To keep DSL screen files readable and maintainable, follow the extraction pattern:
+
+1. **Avoid Giant Nested Trees:** Do not write the entire screen's UI in a single `StacWidget` return block. 
+2. **Extract Private Sub-Widgets:** Break down the screen into logical sections (e.g., `_buildIssuerSection()`, `_buildSubmitButton()`) within the same file. These should return `StacWidget`.
+3. **Shared Components:** If a widget is used across multiple screens (e.g., a common `StacAppBar`), extract it completely into a separate file in a `widgets/` subdirectory (e.g., `widgets/promissory_app_bar.dart`) and import it.
+
+**Example (Optimized Structure):**
+```dart
+@StacScreen(screenName: 'my_screen')
+StacWidget myScreen() {
+  return StacScaffold(
+    appBar: buildPromissoryAppBar(title: 'My Title'), // Imported from widgets/
+    body: StacColumn(
+      children: [
+        _buildHeaderSection(), // Defined below
+        _buildFormSection(),   // Defined below
+      ],
+    ),
+  );
+}
+
+StacWidget _buildHeaderSection() {
+  return StacContainer(...);
+}
+```
+
+---
+
+## 6. Navigation Actions Must Use Typed STAC Syntax
+
+For navigation, prefer typed STAC actions and avoid raw JSON payloads.
+
+**Required rule:**
+- Do not use `StacRawJsonAction({... 'actionType': 'navigate' ...})`.
+- Use `StacNavigateAction(...)` instead.
+
+### A. Dart STAC Screen Navigation (Preferred in Tobank flows)
+
+Use `routeName` with the screen name defined in `@StacScreen(screenName: '...')`.
+
+```dart
+onTap: StacNavigateAction(
+  routeName: 'promissory_real_rules',
+  navigationStyle: NavigationStyle.push,
+),
+```
+
+### B. JSON/Asset Navigation
+
+When navigation intentionally targets an asset JSON file, use typed `assetPath`:
+
+```dart
+onPressed: StacNavigateAction(
+  assetPath: 'lib/stac/tobank/flows/promissory_real/json/promissory_real_payment.json',
+  navigationStyle: NavigationStyle.push,
+),
+```
+
+### C. When Inside Raw Map Contexts
+
+If you are inside a map/list that expects JSON values, still use typed STAC and convert with `.toJson()`:
+
+```dart
+'onPressed': StacNavigateAction(
+  routeName: 'promissory_real_sign',
+  navigationStyle: NavigationStyle.pushReplacement,
+).toJson(),
+```
+
+---
+
 ## Summary Checklist for AI Agents
 
 When generating, refactoring, or creating DSL files or custom parsers for the Tobank project:
@@ -121,4 +204,7 @@ When generating, refactoring, or creating DSL files or custom parsers for the To
 2. [ ] **No Parsers in DSL:** Ensure DSL files in `lib/stac/ready_for_build/` **never** import `package:flutter/...` or parser files from `lib/core/stac/parsers/`.
 3. [ ] **Use Package Imports:** DSL files should use **package imports** (`package:tobank_sdui/...`) to import builders. This prevents fragile relative paths from breaking when files are copied to the build folder.
 4. [ ] **Wall of Separation:** If `stac build` crashes with "Method not found", check if your builder is accidentally exporting a parser or importing flutter code!
-5. [ ] **Naming:** Leave `@StacScreen(screenName: '...')` annotations perfectly intact.
+5. [ ] **Minimal Imports:** Ensure you only import the specific builder files you are actually using to prevent resolution errors.
+6. [ ] **Widget Extraction:** Avoid placing the entire UI tree in one massive function. Extract logical sections into private functions (e.g., `_buildHeader()`) within the same file, and extract shared components (like AppBars) into dedicated files in a `widgets/` directory.
+7. [ ] **Naming:** Leave `@StacScreen(screenName: '...')` annotations perfectly intact.
+8. [ ] **Typed Navigation Only:** For navigate actions, use `StacNavigateAction` (or `StacNavigateAction(...).toJson()` in map contexts), not `StacRawJsonAction` with `"actionType": "navigate"`.

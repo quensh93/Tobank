@@ -19,9 +19,7 @@ class StacLogsScreen extends StatelessWidget {
             icon: const Icon(Icons.code),
             onPressed: () {
               Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => const JsonPlaygroundScreen(),
-                ),
+                MaterialPageRoute(builder: (_) => const JsonPlaygroundScreen()),
               );
             },
             tooltip: 'Open JSON Playground',

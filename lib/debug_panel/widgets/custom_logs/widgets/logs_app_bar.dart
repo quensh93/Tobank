@@ -119,4 +119,3 @@ class LogsAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 }
-

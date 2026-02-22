@@ -43,8 +43,6 @@ class _AppRootState extends ConsumerState<AppRoot> {
   StacTheme? _darkTheme;
   bool _themesLoaded = false;
 
-
-
   @override
   void initState() {
     super.initState();
@@ -143,7 +141,8 @@ class _AppRootState extends ConsumerState<AppRoot> {
     // Use StacApp if themes loaded successfully, otherwise fallback to MaterialApp
     final app = _lightTheme != null && _darkTheme != null
         ? StacApp(
-            scrollBehavior: MyScrollBehavior(), // Enable mouse scrolling with custom behavior
+            scrollBehavior:
+                MyScrollBehavior(), // Enable mouse scrolling with custom behavior
             navigatorKey: AppRoot.mainAppNavigatorKey,
             debugShowCheckedModeBanner: false,
             theme: _lightTheme!,
@@ -204,8 +203,8 @@ class _AppRootState extends ConsumerState<AppRoot> {
                     isISpectEnabled:
                         isEnabled, // Control ISpect panel visibility via settings
                     options: ISpectOptions(
-                      observer: observer
-                          .ispectObserver, // Pass inner ISpect observer
+                      observer:
+                          observer.ispectObserver, // Pass inner ISpect observer
                       locale: const Locale('en'),
                       panelItems: panelItems, // Use panelItems for grid layout
                       panelButtons:
@@ -216,7 +215,6 @@ class _AppRootState extends ConsumerState<AppRoot> {
                       isColorPickerEnabled: false,
                       isLogPageEnabled: false,
                       isPerformanceEnabled: true,
-                      
                     ),
                     child: child ?? const SizedBox.shrink(),
                   );
@@ -244,7 +242,8 @@ class _AppRootState extends ConsumerState<AppRoot> {
             },
           )
         : MaterialApp(
-            scrollBehavior: MyScrollBehavior(), // Enable mouse scrolling with custom behavior
+            scrollBehavior:
+                MyScrollBehavior(), // Enable mouse scrolling with custom behavior
             navigatorKey: AppRoot.mainAppNavigatorKey,
             debugShowCheckedModeBanner: false,
             theme: buildTheme(brightness: Brightness.light),
@@ -305,8 +304,8 @@ class _AppRootState extends ConsumerState<AppRoot> {
                     isISpectEnabled:
                         isEnabled, // Control ISpect panel visibility via settings
                     options: ISpectOptions(
-                      observer: observer
-                          .ispectObserver, // Pass inner ISpect observer
+                      observer:
+                          observer.ispectObserver, // Pass inner ISpect observer
                       locale: const Locale('en'),
                       panelButtons:
                           panelButtons, // Add custom debug panel toggle button with ON/OFF label
@@ -374,10 +373,10 @@ class _AppRootState extends ConsumerState<AppRoot> {
 class MyScrollBehavior extends MaterialScrollBehavior {
   @override
   Set<PointerDeviceKind> get dragDevices => {
-        PointerDeviceKind.touch,
-        PointerDeviceKind.mouse,
-        PointerDeviceKind.stylus,
-        PointerDeviceKind.trackpad,
-        PointerDeviceKind.unknown,
-      };
+    PointerDeviceKind.touch,
+    PointerDeviceKind.mouse,
+    PointerDeviceKind.stylus,
+    PointerDeviceKind.trackpad,
+    PointerDeviceKind.unknown,
+  };
 }

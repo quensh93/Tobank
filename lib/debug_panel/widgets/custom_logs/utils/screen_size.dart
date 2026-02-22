@@ -254,4 +254,3 @@ final class ISpectScreenSize$Desktop extends ISpectScreenSize {
   bool operator ==(final Object other) =>
       identical(other, this) || other is ISpectScreenSize$Desktop;
 }
-

@@ -10,7 +10,7 @@ class RequestPromissorySignPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-//locale
+    //locale
     final locale = AppLocalizations.of(context)!;
     return GetBuilder<RequestPromissoryController>(
       builder: (controller) {
@@ -19,17 +19,11 @@ class RequestPromissorySignPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const SizedBox(
-                height: 16.0,
-              ),
+              const SizedBox(height: 16.0),
               Expanded(child: Container()),
-              const SvgIcon(
-                SvgIcons.signPdf,
-              ),
-              const SizedBox(
-                height: 16.0,
-              ),
-               Text(
+              const SvgIcon(SvgIcons.signPdf),
+              const SizedBox(height: 16.0),
+              Text(
                 locale.instruction_text_promissory_signature,
                 textAlign: TextAlign.right,
                 style: const TextStyle(
@@ -46,9 +40,7 @@ class RequestPromissorySignPage extends StatelessWidget {
                 isLoading: controller.isLoading,
                 buttonTitle: locale.promissory_signature,
               ),
-              const SizedBox(
-                height: 24.0,
-              ),
+              const SizedBox(height: 24.0),
             ],
           ),
         );

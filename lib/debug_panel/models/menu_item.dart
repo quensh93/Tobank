@@ -94,7 +94,8 @@ class MenuItem {
       id: json['id'] as String? ?? '',
       label: json['label'] as String? ?? '',
       icon: json['icon'] as String?,
-      action: MenuAction.fromJson(json['action'] as Map<String, dynamic>? ?? {}),
+      action:
+          MenuAction.fromJson(json['action'] as Map<String, dynamic>? ?? {}),
       order: json['order'] as int? ?? 0,
       enabled: json['enabled'] as bool? ?? true,
       visible: json['visible'] as bool? ?? true,

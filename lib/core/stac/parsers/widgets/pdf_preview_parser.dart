@@ -52,7 +52,7 @@ class PdfPreviewParser extends StacParser<PdfPreviewModel> {
   Widget parse(BuildContext context, PdfPreviewModel model) {
     return ValueListenableBuilder<int>(
       valueListenable: RegistryNotifier.instance.listenable,
-      builder: (context, _, __) {
+      builder: (context, _, _) {
         String? base64String;
 
         // 1. Try registry key first (most reliable for large data)

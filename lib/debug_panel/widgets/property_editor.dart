@@ -236,7 +236,8 @@ class _PropertyEditorState extends State<PropertyEditor> {
               Expanded(
                 child: Text(
                   key,
-                  style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                  style: const TextStyle(
+                      fontSize: 12, fontWeight: FontWeight.w500),
                 ),
               ),
               IconButton(
@@ -278,7 +279,8 @@ class _PropertyEditorState extends State<PropertyEditor> {
               Expanded(
                 child: Text(
                   key,
-                  style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                  style: const TextStyle(
+                      fontSize: 12, fontWeight: FontWeight.w500),
                 ),
               ),
               IconButton(
@@ -302,7 +304,8 @@ class _PropertyEditorState extends State<PropertyEditor> {
                 children: [
                   InkWell(
                     onTap: () {
-                      final current = num.tryParse(_controllers[key]!.text) ?? 0;
+                      final current =
+                          num.tryParse(_controllers[key]!.text) ?? 0;
                       _controllers[key]!.text = (current + 1).toString();
                       _updateProperty(key, current + 1);
                     },
@@ -310,7 +313,8 @@ class _PropertyEditorState extends State<PropertyEditor> {
                   ),
                   InkWell(
                     onTap: () {
-                      final current = num.tryParse(_controllers[key]!.text) ?? 0;
+                      final current =
+                          num.tryParse(_controllers[key]!.text) ?? 0;
                       _controllers[key]!.text = (current - 1).toString();
                       _updateProperty(key, current - 1);
                     },
@@ -376,7 +380,8 @@ class _PropertyEditorState extends State<PropertyEditor> {
               Expanded(
                 child: Text(
                   key,
-                  style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                  style: const TextStyle(
+                      fontSize: 12, fontWeight: FontWeight.w500),
                 ),
               ),
               IconButton(
@@ -456,7 +461,14 @@ class _PropertyEditorState extends State<PropertyEditor> {
   List<String> _getPropertySuggestions(String type) {
     const commonProps = {
       'text': ['data', 'fontSize', 'color', 'fontWeight', 'textAlign'],
-      'container': ['width', 'height', 'padding', 'margin', 'color', 'borderRadius'],
+      'container': [
+        'width',
+        'height',
+        'padding',
+        'margin',
+        'color',
+        'borderRadius'
+      ],
       'image': ['url', 'width', 'height', 'fit'],
       'elevatedButton': ['label', 'onPressed', 'color'],
       'textField': ['hint', 'label', 'value', 'maxLines'],
@@ -469,7 +481,9 @@ class _PropertyEditorState extends State<PropertyEditor> {
 
   dynamic _getDefaultValue(String key) {
     if (key.contains('color')) return '#000000';
-    if (key.contains('size') || key.contains('width') || key.contains('height')) {
+    if (key.contains('size') ||
+        key.contains('width') ||
+        key.contains('height')) {
       return 100.0;
     }
     if (key.contains('padding') || key.contains('margin')) return 16.0;

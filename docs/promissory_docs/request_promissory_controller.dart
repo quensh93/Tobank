@@ -72,7 +72,8 @@ class RequestPromissoryController extends GetxController {
 
   bool isIssuerAddressValid = true;
 
-  PromissoryCustomerType selectedReceiverType = PromissoryCustomerType.individual;
+  PromissoryCustomerType selectedReceiverType =
+      PromissoryCustomerType.individual;
   bool isGardeshgariSelected = false;
 
   String? receiverName;
@@ -83,7 +84,8 @@ class RequestPromissoryController extends GetxController {
 
   bool isReceiverMobileValid = true;
 
-  TextEditingController receiverNationalCodeController = TextEditingController();
+  TextEditingController receiverNationalCodeController =
+      TextEditingController();
 
   bool isReceiverNationalCodeValid = true;
 
@@ -151,11 +153,17 @@ class RequestPromissoryController extends GetxController {
   void onInit() {
     birthDateInitDateString = AppUtil.twentyYearsBeforeNow();
     final DateTime dateTime = DateTime.now();
-    initDateString = DateConverterUtil.getDateJalali(gregorianDate: intl.DateFormat('yyyy-MM-dd').format(dateTime));
-    startDateString =
-        DateConverterUtil.getStartOfYearJalali(gregorianDate: intl.DateFormat('yyyy-MM-dd').format(dateTime));
+    initDateString = DateConverterUtil.getDateJalali(
+      gregorianDate: intl.DateFormat('yyyy-MM-dd').format(dateTime),
+    );
+    startDateString = DateConverterUtil.getStartOfYearJalali(
+      gregorianDate: intl.DateFormat('yyyy-MM-dd').format(dateTime),
+    );
     endDateString = DateConverterUtil.getEndOfYearJalali(
-        gregorianDate: intl.DateFormat('yyyy-MM-dd').format(dateTime.add(const Duration(days: 10 * 365))));
+      gregorianDate: intl.DateFormat(
+        'yyyy-MM-dd',
+      ).format(dateTime.add(const Duration(days: 10 * 365))),
+    );
     getRulesRequest();
     super.onInit();
   }
@@ -172,7 +180,8 @@ class RequestPromissoryController extends GetxController {
   }
 
   /// Retrieves promissory note rules
-  Future<void> getRulesRequest() async {//locale
+  Future<void> getRulesRequest() async {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     isLoading = true;
     update();
@@ -198,19 +207,19 @@ class RequestPromissoryController extends GetxController {
     });
   }
 
-  void validateRules() {//locale
+  void validateRules() {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     if (isRuleChecked) {
       _checkUserSanaRequest();
     } else {
-      SnackBarUtil.showInfoSnackBar(
-        locale.please_read_and_accept_terms,
-      );
+      SnackBarUtil.showInfoSnackBar(locale.please_read_and_accept_terms);
     }
   }
 
   /// Checks the user's Sana status and proceeds with deposit list retrieval.
-  void _checkUserSanaRequest() {//locale
+  void _checkUserSanaRequest() {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     isLoading = true;
     update();
@@ -221,7 +230,9 @@ class RequestPromissoryController extends GetxController {
       switch (result) {
         case Success(value: _):
           _getDepositListRequest();
-        case Failure(exception: final ApiException<ErrorResponseData> apiException):
+        case Failure(
+          exception: final ApiException<ErrorResponseData> apiException,
+        ):
           if (apiException.type == ApiExceptionType.badRequest) {
             DialogUtil.showPositiveDialogMessage(
               buildContext: Get.context!,
@@ -247,7 +258,9 @@ class RequestPromissoryController extends GetxController {
     value.replaceAll(',', '');
     if (value.length > 3) {
       amountController.text = AppUtil.formatMoney(value);
-      amountController.selection = TextSelection.fromPosition(TextPosition(offset: amountController.text.length));
+      amountController.selection = TextSelection.fromPosition(
+        TextPosition(offset: amountController.text.length),
+      );
     }
     if (value != '') {
       amount = int.parse(value.replaceAll(',', ''));
@@ -263,13 +276,19 @@ class RequestPromissoryController extends GetxController {
     } else {
       final int amountInToman = amount ~/ 10;
       return AppUtil.getPersianNumbers(
-              DigitToWord.toWord(amountInToman.toString(), StrType.numWord, isMoney: true).replaceAll('  ', ' ')) ??
+            DigitToWord.toWord(
+              amountInToman.toString(),
+              StrType.numWord,
+              isMoney: true,
+            ).replaceAll('  ', ' '),
+          ) ??
           '';
     }
   }
 
   /// Hide keyboard & show date picker dialog modal
-  Future<void> showSelectDateDialog() async {//locale
+  Future<void> showSelectDateDialog() async {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     AppUtil.hideKeyboard(Get.context!);
     if (isClosed) {
@@ -277,32 +296,34 @@ class RequestPromissoryController extends GetxController {
     }
     openBottomSheets++;
     await showModalBottomSheet(
-        elevation: 0,
-        context: Get.context!,
-        isScrollControlled: true,
-        backgroundColor: Get.isDarkMode ? const Color(0xFF1c222e) : Colors.white,
-        constraints: BoxConstraints(maxHeight: Get.height * 5 / 6),
-        builder: (context) {
-          return DateSelectorBottomSheet(
-            initDateString: initDateString,
-            startDateString: startDateString,
-            endDateString: endDateString,
-            title: locale.select_payment_date,
-            onDateSelected: (selectedDate) {
-              dateJalaliString = selectedDate;
-            },
-            callback: () {
-              dateController.text = dateJalaliString;
-              initDateString = dateJalaliString;
-              update();
-              Get.back();
-            },
-          );
-        });
+      elevation: 0,
+      context: Get.context!,
+      isScrollControlled: true,
+      backgroundColor: Get.isDarkMode ? const Color(0xFF1c222e) : Colors.white,
+      constraints: BoxConstraints(maxHeight: Get.height * 5 / 6),
+      builder: (context) {
+        return DateSelectorBottomSheet(
+          initDateString: initDateString,
+          startDateString: startDateString,
+          endDateString: endDateString,
+          title: locale.select_payment_date,
+          onDateSelected: (selectedDate) {
+            dateJalaliString = selectedDate;
+          },
+          callback: () {
+            dateController.text = dateJalaliString;
+            initDateString = dateJalaliString;
+            update();
+            Get.back();
+          },
+        );
+      },
+    );
     openBottomSheets--;
   }
 
-  Future<void> showSelectBirthDateDialog() async {//locale
+  Future<void> showSelectBirthDateDialog() async {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     AppUtil.hideKeyboard(Get.context!);
     if (isClosed) {
@@ -310,27 +331,30 @@ class RequestPromissoryController extends GetxController {
     }
     openBottomSheets++;
     await showModalBottomSheet(
-        elevation: 0,
-        context: Get.context!,
-        isScrollControlled: true,
-        backgroundColor: Get.isDarkMode ? const Color(0xFF1c222e) : Colors.white,
-        constraints: BoxConstraints(maxHeight: Get.height * 5 / 6),
-        builder: (context) {
-          return DateSelectorBottomSheet(
-            initDateString: birthDateInitDateString,
-            title: locale.birthdate_hint,
-            onDateSelected: (selectedDate) {
-              dateJalaliString = selectedDate;
-            },
-            callback: () {
-              birthDateController.text = dateJalaliString;
-              birthDateInitDateString = dateJalaliString;
-              dateGregorian = DateConverterUtil.getDateGregorian(jalaliDate: dateJalaliString.replaceAll('-', '/'));
-              update();
-              Get.back();
-            },
-          );
-        });
+      elevation: 0,
+      context: Get.context!,
+      isScrollControlled: true,
+      backgroundColor: Get.isDarkMode ? const Color(0xFF1c222e) : Colors.white,
+      constraints: BoxConstraints(maxHeight: Get.height * 5 / 6),
+      builder: (context) {
+        return DateSelectorBottomSheet(
+          initDateString: birthDateInitDateString,
+          title: locale.birthdate_hint,
+          onDateSelected: (selectedDate) {
+            dateJalaliString = selectedDate;
+          },
+          callback: () {
+            birthDateController.text = dateJalaliString;
+            birthDateInitDateString = dateJalaliString;
+            dateGregorian = DateConverterUtil.getDateGregorian(
+              jalaliDate: dateJalaliString.replaceAll('-', '/'),
+            );
+            update();
+            Get.back();
+          },
+        );
+      },
+    );
     openBottomSheets--;
   }
 
@@ -346,14 +370,17 @@ class RequestPromissoryController extends GetxController {
     update();
   }
 
-  void setTourismBankLegal(bool value) {//locale
+  void setTourismBankLegal(bool value) {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     isGardeshgariSelected = value;
     if (isGardeshgariSelected) {
-      final tourismBankDetails = mainController.promissoryAssetResponseData!.data!.tourismBankDetails!;
+      final tourismBankDetails =
+          mainController.promissoryAssetResponseData!.data!.tourismBankDetails!;
 
       receiverMobileController.text = tourismBankDetails.legalPhoneNumber!;
-      receiverNationalCodeController.text = tourismBankDetails.legalNationalNumber!;
+      receiverNationalCodeController.text =
+          tourismBankDetails.legalNationalNumber!;
       paymentAddressController.text = tourismBankDetails.paymentAddress!;
 
       receiverName = locale.bank_gardeshgari;
@@ -376,47 +403,46 @@ class RequestPromissoryController extends GetxController {
   }
 
   /// Requests transaction details by ID.
-  void _requestTransactionDetailById() {//locale
+  void _requestTransactionDetailById() {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     isLoading = true;
     update();
     TransactionServices.getTransactionByIdRequest(
       id: promissoryInternetPaymentResponseData!.data!.transactionId!,
-    ).then(
-      (result) async {
-        isLoading = false;
-        update();
+    ).then((result) async {
+      isLoading = false;
+      update();
 
-        switch (result) {
-          case Success(value: (final TransactionDataResponse response, int _)):
-            transactionData = response.data;
-            update();
-            if (transactionData!.isSuccess == false) {
-              _showPaymentBottomSheet();
-              AppUtil.changePageController(
-                pageController: pageController,
-                page: 6,
-                isClosed: isClosed,
-              );
-              SnackBarUtil.showSnackBar(
-                title: locale.payment_error,
-                message: transactionData?.message ?? locale.try_again2,
-              );
-            } else {
-              AppUtil.changePageController(
-                pageController: pageController,
-                page: 8,
-                isClosed: isClosed,
-              );
-            }
-          case Failure(exception: final ApiException apiException):
-            SnackBarUtil.showSnackBar(
-              title: locale.show_error(apiException.displayCode),
-              message: apiException.displayMessage,
+      switch (result) {
+        case Success(value: (final TransactionDataResponse response, int _)):
+          transactionData = response.data;
+          update();
+          if (transactionData!.isSuccess == false) {
+            _showPaymentBottomSheet();
+            AppUtil.changePageController(
+              pageController: pageController,
+              page: 6,
+              isClosed: isClosed,
             );
-        }
-      },
-    );
+            SnackBarUtil.showSnackBar(
+              title: locale.payment_error,
+              message: transactionData?.message ?? locale.try_again2,
+            );
+          } else {
+            AppUtil.changePageController(
+              pageController: pageController,
+              page: 8,
+              isClosed: isClosed,
+            );
+          }
+        case Failure(exception: final ApiException apiException):
+          SnackBarUtil.showSnackBar(
+            title: locale.show_error(apiException.displayCode),
+            message: apiException.displayMessage,
+          );
+      }
+    });
   }
 
   int getCorrectAmount() {
@@ -428,46 +454,48 @@ class RequestPromissoryController extends GetxController {
   }
 
   /// Validates destination user information and updates the UI and navigation.
-  void _validateDestUserInfoRequest() {//locale
+  void _validateDestUserInfoRequest() {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     isLoading = true;
     update();
-    final DestUserInfoRequestData destUserInfoRequestData = DestUserInfoRequestData(
-      mobile: '',
-      nationalCode: '',
-      birthDate: '',
-    );
+    final DestUserInfoRequestData destUserInfoRequestData =
+        DestUserInfoRequestData(mobile: '', nationalCode: '', birthDate: '');
     destUserInfoRequestData.mobile = receiverMobileController.text;
-    destUserInfoRequestData.birthDate = birthDateController.text.replaceAll('/', '-');
+    destUserInfoRequestData.birthDate = birthDateController.text.replaceAll(
+      '/',
+      '-',
+    );
     destUserInfoRequestData.nationalCode = receiverNationalCodeController.text;
 
     PromissoryServices.destUserInfo(
       destUserInfoRequestData: destUserInfoRequestData,
-    ).then(
-      (result) async {
-        isLoading = false;
-        update();
+    ).then((result) async {
+      isLoading = false;
+      update();
 
-        switch (result) {
-          case Success(value: (final DestUserInfoResponse response, int _)):
-            destUserInfoResponse = response;
-            receiverName = '${response.data!.firstName!} ${response.data!.lastName!}';
-            AppUtil.nextPageController(pageController, isClosed);
-            update();
-          case Failure(exception: final ApiException apiException):
-            SnackBarUtil.showSnackBar(
-              title: locale.show_error(apiException.displayCode),
-              message: apiException.displayMessage,
-            );
-        }
-      },
-    );
+      switch (result) {
+        case Success(value: (final DestUserInfoResponse response, int _)):
+          destUserInfoResponse = response;
+          receiverName =
+              '${response.data!.firstName!} ${response.data!.lastName!}';
+          AppUtil.nextPageController(pageController, isClosed);
+          update();
+        case Failure(exception: final ApiException apiException):
+          SnackBarUtil.showSnackBar(
+            title: locale.show_error(apiException.displayCode),
+            message: apiException.displayMessage,
+          );
+      }
+    });
   }
 
   // Retrieves legal entity information
-  void _getLegalInfoRequest() {//locale
+  void _getLegalInfoRequest() {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
-    final PromissoryCompanyInquiryRequestData promissoryCompanyInquiryRequestData = PromissoryCompanyInquiryRequestData(
+    final PromissoryCompanyInquiryRequestData
+    promissoryCompanyInquiryRequestData = PromissoryCompanyInquiryRequestData(
       nationalId: receiverNationalCodeController.text,
     );
 
@@ -476,25 +504,25 @@ class RequestPromissoryController extends GetxController {
 
     PromissoryServices.companyInquiryRequest(
       promissoryCompanyInquiryRequestData: promissoryCompanyInquiryRequestData,
-    ).then(
-      (result) async {
-        isLoading = false;
-        update();
+    ).then((result) async {
+      isLoading = false;
+      update();
 
-        switch (result) {
-          case Success(value: (final PromissoryCompanyInquiryResponseData response, int _)):
-            paymentAddressController.text = response.data!.address!;
-            receiverName = response.data!.companyTitle;
-            update();
-            AppUtil.nextPageController(pageController, isClosed);
-          case Failure(exception: final ApiException apiException):
-            SnackBarUtil.showSnackBar(
-              title: locale.show_error(apiException.displayCode),
-              message: apiException.displayMessage,
-            );
-        }
-      },
-    );
+      switch (result) {
+        case Success(
+          value: (final PromissoryCompanyInquiryResponseData response, int _),
+        ):
+          paymentAddressController.text = response.data!.address!;
+          receiverName = response.data!.companyTitle;
+          update();
+          AppUtil.nextPageController(pageController, isClosed);
+        case Failure(exception: final ApiException apiException):
+          SnackBarUtil.showSnackBar(
+            title: locale.show_error(apiException.displayCode),
+            message: apiException.displayMessage,
+          );
+      }
+    });
   }
 
   void validatePaymentPage() {
@@ -516,7 +544,8 @@ class RequestPromissoryController extends GetxController {
   }
 
   /// Retrieves customer payment deposits and displays a selection bottom sheet.
-  void _getPaymentDepositsRequest() {//locale
+  void _getPaymentDepositsRequest() {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     isLoading = true;
     update();
@@ -526,13 +555,17 @@ class RequestPromissoryController extends GetxController {
       trackingNumber: const Uuid().v4(),
     );
 
-    DepositServices.getCustomerDeposits(customerDepositsRequest: customerDepositsRequest).then((result) {
+    DepositServices.getCustomerDeposits(
+      customerDepositsRequest: customerDepositsRequest,
+    ).then((result) {
       isLoading = false;
       update();
 
       switch (result) {
         case Success(value: (final CustomerDepositsResponse response, int _)):
-          final filteredDeposits = response.data!.deposits!.where((deposit) => deposit.depositeKind != 3).toList();
+          final filteredDeposits = response.data!.deposits!
+              .where((deposit) => deposit.depositeKind != 3)
+              .toList();
           _showSelectDepositBottomSheet(depositList: filteredDeposits);
         case Failure(exception: final ApiException apiException):
           SnackBarUtil.showSnackBar(
@@ -543,7 +576,9 @@ class RequestPromissoryController extends GetxController {
     });
   }
 
-  Future<void> _showSelectDepositBottomSheet({required List<Deposit> depositList}) async {
+  Future<void> _showSelectDepositBottomSheet({
+    required List<Deposit> depositList,
+  }) async {
     if (isClosed) {
       return;
     }
@@ -554,9 +589,7 @@ class RequestPromissoryController extends GetxController {
       backgroundColor: Get.isDarkMode ? const Color(0xFF1c222e) : Colors.white,
       constraints: BoxConstraints(maxHeight: Get.height * 5 / 6),
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(12),
-        ),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
       ),
       builder: (context) => Padding(
         padding: MediaQuery.of(context).viewInsets,
@@ -573,21 +606,23 @@ class RequestPromissoryController extends GetxController {
     openBottomSheets--;
   }
 
-  void _confirmPayment() {//locale
+  void _confirmPayment() {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     DialogUtil.showDialogMessage(
-        buildContext: Get.context!,
-        message: locale.promissory_payment_confirmation,
-        description: locale.promissory_cancellation_info,
-        positiveMessage: locale.confirmation,
-        negativeMessage: locale.cancel_laghv,
-        positiveFunction: () {
-          Get.back(closeOverlays: true);
-          _paymentMethod();
-        },
-        negativeFunction: () {
-          Get.back(closeOverlays: true);
-        });
+      buildContext: Get.context!,
+      message: locale.promissory_payment_confirmation,
+      description: locale.promissory_cancellation_info,
+      positiveMessage: locale.confirmation,
+      negativeMessage: locale.cancel_laghv,
+      positiveFunction: () {
+        Get.back(closeOverlays: true);
+        _paymentMethod();
+      },
+      negativeFunction: () {
+        Get.back(closeOverlays: true);
+      },
+    );
   }
 
   Future<void> _paymentMethod() async {
@@ -601,16 +636,20 @@ class RequestPromissoryController extends GetxController {
   }
 
   /// Initiates the promissory note payment process and handles the response.
-  void _promissoryPayment() {//locale
+  void _promissoryPayment() {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     isLoading = true;
     update();
 
-    final PromissoryPublishPaymentRequestData promissoryPublishPaymentRequestData = PromissoryPublishPaymentRequestData(
+    final PromissoryPublishPaymentRequestData
+    promissoryPublishPaymentRequestData = PromissoryPublishPaymentRequestData(
       id: promissoryResponseData!.data!.id!,
       gssToYekta: false,
       transactionType: currentPaymentType,
-      depositNumber: currentPaymentType == PaymentType.deposit ? selectedPaymentDeposit!.depositNumber! : null,
+      depositNumber: currentPaymentType == PaymentType.deposit
+          ? selectedPaymentDeposit!.depositNumber!
+          : null,
     );
 
     PromissoryServices.promissoryPaymentRequest(
@@ -643,12 +682,14 @@ class RequestPromissoryController extends GetxController {
   }
 
   /// Initiates the promissory note internet payment process and handles the response.
-  void _promissoryInternetPayment() {//locale
+  void _promissoryInternetPayment() {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     isLoading = true;
     update();
 
-    final PromissoryPublishPaymentRequestData promissoryPublishPaymentRequestData = PromissoryPublishPaymentRequestData(
+    final PromissoryPublishPaymentRequestData
+    promissoryPublishPaymentRequestData = PromissoryPublishPaymentRequestData(
       id: promissoryResponseData!.data!.id!,
       gssToYekta: false,
       transactionType: currentPaymentType,
@@ -662,7 +703,9 @@ class RequestPromissoryController extends GetxController {
       update();
 
       switch (result) {
-        case Success(value: (final PromissoryInternetPaymentResponseData response, int _)):
+        case Success(
+          value: (final PromissoryInternetPaymentResponseData response, int _),
+        ):
           promissoryInternetPaymentResponseData = response;
           update();
           _closeBottomSheets();
@@ -676,25 +719,28 @@ class RequestPromissoryController extends GetxController {
     });
   }
 
-  void showConfirmDialog() {//locale
+  void showConfirmDialog() {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     DialogUtil.showDialogMessage(
-        buildContext: Get.context!,
-        message: locale.promissory_signature_confirmation,
-        description: '',
-        positiveMessage: locale.confirmation,
-        negativeMessage: locale.cancel_laghv,
-        positiveFunction: () {
-          Get.back(closeOverlays: true);
-          _signPdf();
-        },
-        negativeFunction: () {
-          Get.back(closeOverlays: true);
-        });
+      buildContext: Get.context!,
+      message: locale.promissory_signature_confirmation,
+      description: '',
+      positiveMessage: locale.confirmation,
+      negativeMessage: locale.cancel_laghv,
+      positiveFunction: () {
+        Get.back(closeOverlays: true);
+        _signPdf();
+      },
+      negativeFunction: () {
+        Get.back(closeOverlays: true);
+      },
+    );
   }
 
   /// Signs a PDF document and proceeds with the promissory note finalization.
-  Future<void> _signPdf() async {//locale
+  Future<void> _signPdf() async {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     isLoading = false;
     update();
@@ -707,24 +753,30 @@ class RequestPromissoryController extends GetxController {
     if (response.isSuccess != null && response.isSuccess!) {
       base64SignedPdf = response.data;
 
-      final PromissoryPublishFinalizeRequestData promissoryPublishFinalizeRequestData =
+      final PromissoryPublishFinalizeRequestData
+      promissoryPublishFinalizeRequestData =
           PromissoryPublishFinalizeRequestData(
-        id: promissoryResponseData!.data!.id!,
-        signedPdf: base64SignedPdf!,
-      );
+            id: promissoryResponseData!.data!.id!,
+            signedPdf: base64SignedPdf!,
+          );
 
       _promissoryPublishFinalizeRequest(promissoryPublishFinalizeRequestData);
     } else {
       isLoading = false;
       update();
-      SnackBarUtil.showSnackBar(title: locale.error, message: response.message ?? locale.error_in_signature);
+      SnackBarUtil.showSnackBar(
+        title: locale.error,
+        message: response.message ?? locale.error_in_signature,
+      );
 
-      await Sentry.captureMessage('sign pdf error',
-          params: [
-            {'status code': response.statusCode},
-            {'message': response.message},
-          ],
-          level: SentryLevel.warning);
+      await Sentry.captureMessage(
+        'sign pdf error',
+        params: [
+          {'status code': response.statusCode},
+          {'message': response.message},
+        ],
+        level: SentryLevel.warning,
+      );
     }
   }
 
@@ -734,19 +786,23 @@ class RequestPromissoryController extends GetxController {
   /// to a file, updates the UI, and navigates to the next page.
   void _promissoryPublishFinalizeRequest(
     PromissoryPublishFinalizeRequestData promissoryPublishFinalizeRequestData,
-  ) {//locale
+  ) {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     isLoading = true;
     update();
 
     PromissoryServices.promissoryPublishFinalizeRequest(
-      promissoryPublishFinalizeRequestData: promissoryPublishFinalizeRequestData,
+      promissoryPublishFinalizeRequestData:
+          promissoryPublishFinalizeRequestData,
     ).then((result) async {
       isLoading = false;
       update();
 
       switch (result) {
-        case Success(value: (final PromissoryPublishFinalizeResponse response, int _)):
+        case Success(
+          value: (final PromissoryPublishFinalizeResponse response, int _),
+        ):
           promissoryPublishFinalizeResponse = response;
           multiSignPath = await FileUtil().writeAsBytesMultiSignedPDF(
             source: promissoryPublishFinalizeResponse!.data!.multiSignedPdf!,
@@ -770,7 +826,8 @@ class RequestPromissoryController extends GetxController {
     AppUtil.hideKeyboard(Get.context!);
     bool isValid = true;
     if (issuerPostalCodeController.text.isNotEmpty) {
-      if (issuerPostalCodeController.text.length == Constants.postalCodeLength) {
+      if (issuerPostalCodeController.text.length ==
+          Constants.postalCodeLength) {
         isIssuerPostalCodeValid = true;
       } else {
         isIssuerPostalCodeValid = false;
@@ -796,15 +853,19 @@ class RequestPromissoryController extends GetxController {
     bool isValid = true;
 
     if (selectedReceiverType == PromissoryCustomerType.individual) {
-      if (receiverNationalCodeController.text.length == Constants.nationalCodeLength &&
+      if (receiverNationalCodeController.text.length ==
+              Constants.nationalCodeLength &&
           AppUtil.validateNationalCode(receiverNationalCodeController.text)) {
         isReceiverNationalCodeValid = true;
       } else {
         isReceiverNationalCodeValid = false;
         isValid = false;
       }
-      if (receiverMobileController.text.length == Constants.mobileNumberLength &&
-          receiverMobileController.text.startsWith(Constants.mobileStartingDigits)) {
+      if (receiverMobileController.text.length ==
+              Constants.mobileNumberLength &&
+          receiverMobileController.text.startsWith(
+            Constants.mobileStartingDigits,
+          )) {
         isReceiverMobileValid = true;
       } else {
         isReceiverMobileValid = false;
@@ -818,7 +879,8 @@ class RequestPromissoryController extends GetxController {
         isValid = false;
       }
     } else {
-      if (receiverNationalCodeController.text.length == Constants.companyNationalCodeLength) {
+      if (receiverNationalCodeController.text.length ==
+          Constants.companyNationalCodeLength) {
         isReceiverNationalCodeValid = true;
       } else {
         isReceiverNationalCodeValid = false;
@@ -879,45 +941,43 @@ class RequestPromissoryController extends GetxController {
 
   /// Retrieves the wallet balance.
   /// If successful, it stores the wallet amount
-  Future<void> getWalletDetailRequest() async {//locale
+  Future<void> getWalletDetailRequest() async {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     hasError = false;
     isLoading = true;
     update();
-    WalletServices.getWalletBalance().then(
-      (result) {
-        isLoading = false;
-        update();
+    WalletServices.getWalletBalance().then((result) {
+      isLoading = false;
+      update();
 
-        switch (result) {
-          case Success(value: (final WalletBalanceResponseData response, int _)):
-            walletAmount = response.data!.amount!;
-            update();
-            setValidPaymentType();
-            _showPaymentBottomSheet();
-          case Failure(exception: final ApiException apiException):
-            hasError = true;
-            errorTitle = apiException.displayMessage;
-            update();
-            SnackBarUtil.showSnackBar(
-              title: locale.show_error(apiException.displayCode),
-              message: apiException.displayMessage,
-            );
-        }
-      },
-    );
+      switch (result) {
+        case Success(value: (final WalletBalanceResponseData response, int _)):
+          walletAmount = response.data!.amount!;
+          update();
+          setValidPaymentType();
+          _showPaymentBottomSheet();
+        case Failure(exception: final ApiException apiException):
+          hasError = true;
+          errorTitle = apiException.displayMessage;
+          update();
+          SnackBarUtil.showSnackBar(
+            title: locale.show_error(apiException.displayCode),
+            message: apiException.displayMessage,
+          );
+      }
+    });
   }
 
   /// Retrieves the promissory note amount details and updates the UI and navigation.
-  Future<void> _getPromissoryAmountRequest() async {//locale
+  Future<void> _getPromissoryAmountRequest() async {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     isLoading = true;
     update();
 
-    final PromissoryAmountRequestData promissoryAmountRequestData = PromissoryAmountRequestData(
-      amount: amount,
-      gssToYekta: false,
-    );
+    final PromissoryAmountRequestData promissoryAmountRequestData =
+        PromissoryAmountRequestData(amount: amount, gssToYekta: false);
 
     PromissoryServices.getPromissoryPublishPriceRequest(
       promissoryAmountRequestData: promissoryAmountRequestData,
@@ -926,7 +986,9 @@ class RequestPromissoryController extends GetxController {
       update();
 
       switch (result) {
-        case Success(value: (final PromissoryAmountResponseData response, int _)):
+        case Success(
+          value: (final PromissoryAmountResponseData response, int _),
+        ):
           promissoryAmountResponseData = response;
           update();
           AppUtil.nextPageController(pageController, isClosed);
@@ -943,20 +1005,23 @@ class RequestPromissoryController extends GetxController {
     _submitRequestPromissoryRequest();
   }
 
-  void _submitRequestPromissoryRequest() {//locale
+  void _submitRequestPromissoryRequest() {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     final PromissoryRequestData promissoryRequestData = PromissoryRequestData();
 
     // Issuer
     promissoryRequestData.issuerType = PromissoryCustomerType.individual;
     promissoryRequestData.issuerNn = mainController.authInfoData!.nationalCode;
-    promissoryRequestData.issuerCellphone = mainController.authInfoData!.mobile!.substring(1);
+    promissoryRequestData.issuerCellphone = mainController.authInfoData!.mobile!
+        .substring(1);
     promissoryRequestData.issuerFullName =
         '${mainController.authInfoData!.firstName!} ${mainController.authInfoData!.lastName!}';
     promissoryRequestData.issuerAccountNumber = selectedDeposit!.depositIban;
     promissoryRequestData.issuerAddress = issuerAddressController.text;
     promissoryRequestData.issuerPostalCode = issuerPostalCodeController.text;
-    promissoryRequestData.issuerSanaCheck = true; // Unnecessary value is set. this will be checked on the server side
+    promissoryRequestData.issuerSanaCheck =
+        true; // Unnecessary value is set. this will be checked on the server side
 
     // Recipient
     promissoryRequestData.recipientType = selectedReceiverType;
@@ -965,17 +1030,20 @@ class RequestPromissoryController extends GetxController {
     promissoryRequestData.recipientCellphone = receiverMobileController.text;
 
     if (selectedReceiverType == PromissoryCustomerType.individual) {
-      promissoryRequestData.recipientCellphone = promissoryRequestData.recipientCellphone!.substring(1);
+      promissoryRequestData.recipientCellphone = promissoryRequestData
+          .recipientCellphone!
+          .substring(1);
     }
 
     // Promissory
     promissoryRequestData.paymentPlace = paymentAddressController.text.trim();
     promissoryRequestData.amount = amount;
-    promissoryRequestData.dueDate = isOnTime ? null : dateController.text.replaceAll('/', '');
+    promissoryRequestData.dueDate = isOnTime
+        ? null
+        : dateController.text.replaceAll('/', '');
     promissoryRequestData.description = descriptionController.text;
     promissoryRequestData.transferable = isTransferable;
     promissoryRequestData.loanType = mainController.loanType;
-
 
     isLoading = true;
     update();
@@ -986,7 +1054,9 @@ class RequestPromissoryController extends GetxController {
       update();
 
       switch (result) {
-        case Success(value: (final PromissoryPublishResponseData response, int _)):
+        case Success(
+          value: (final PromissoryPublishResponseData response, int _),
+        ):
           promissoryResponseData = response;
           update();
           AppUtil.nextPageController(pageController, isClosed);
@@ -1000,7 +1070,8 @@ class RequestPromissoryController extends GetxController {
     });
   }
 
-  void _getCustomerInfoRequest() {//locale
+  void _getCustomerInfoRequest() {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     final CustomerInfoRequest customerInfoRequest = CustomerInfoRequest(
       trackingNumber: const Uuid().v4(),
@@ -1014,7 +1085,9 @@ class RequestPromissoryController extends GetxController {
     isLoading = true;
     update();
 
-    AuthorizationServices.getCustomerInfo(customerInfoRequest: customerInfoRequest).then((result) async {
+    AuthorizationServices.getCustomerInfo(
+      customerInfoRequest: customerInfoRequest,
+    ).then((result) async {
       isLoading = false;
       update();
       switch (result) {
@@ -1034,7 +1107,8 @@ class RequestPromissoryController extends GetxController {
   }
 
   String getCustomerAddress() {
-    if (customerInfoResponse != null && customerInfoResponse!.data!.address != null) {
+    if (customerInfoResponse != null &&
+        customerInfoResponse!.data!.address != null) {
       return customerInfoResponse!.data!.address!;
     } else {
       return '-';
@@ -1042,7 +1116,8 @@ class RequestPromissoryController extends GetxController {
   }
 
   String getPostalCode() {
-    if (customerInfoResponse != null && customerInfoResponse!.data!.postalCode != null) {
+    if (customerInfoResponse != null &&
+        customerInfoResponse!.data!.postalCode != null) {
       return customerInfoResponse!.data!.postalCode!;
     } else {
       return '-';
@@ -1061,18 +1136,21 @@ class RequestPromissoryController extends GetxController {
 
   void _setValueOfCustomerInfo(CustomerInfoResponse? customerInfoResponse) {
     if (customerInfoResponse != null) {
-      issuerPostalCodeController.text = customerInfoResponse.data!.postalCode ?? '';
+      issuerPostalCodeController.text =
+          customerInfoResponse.data!.postalCode ?? '';
       issuerAddressController.text = customerInfoResponse.data!.address ?? '';
     }
   }
 
   /// Retrieves the customer's deposit list and displays a promissory deposit bottom sheet.
-  void _getDepositListRequest() {//locale
+  void _getDepositListRequest() {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
-    final CustomerDepositsRequest customerDepositsRequest = CustomerDepositsRequest(
-      customerNumber: mainController.authInfoData!.customerNumber ?? '',
-      trackingNumber: const Uuid().v4(),
-    );
+    final CustomerDepositsRequest customerDepositsRequest =
+        CustomerDepositsRequest(
+          customerNumber: mainController.authInfoData!.customerNumber ?? '',
+          trackingNumber: const Uuid().v4(),
+        );
     isLoading = true;
     update();
 
@@ -1101,15 +1179,14 @@ class RequestPromissoryController extends GetxController {
     update();
   }
 
-  void validateDepositPage() {//locale
+  void validateDepositPage() {
+    //locale
     final locale = AppLocalizations.of(Get.context!)!;
     if (selectedDeposit != null) {
       issuerDepositController.text = selectedDeposit!.depositNumber ?? '';
       _getCustomerInfoRequest();
     } else {
-      SnackBarUtil.showInfoSnackBar(
-        locale.select_account,
-      );
+      SnackBarUtil.showInfoSnackBar(locale.select_account);
     }
   }
 
@@ -1153,9 +1230,7 @@ class RequestPromissoryController extends GetxController {
       backgroundColor: Get.isDarkMode ? const Color(0xFF1c222e) : Colors.white,
       constraints: BoxConstraints(maxHeight: Get.height * 5 / 6),
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(12),
-        ),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
       ),
       builder: (context) => Padding(
         padding: MediaQuery.of(context).viewInsets,
@@ -1177,9 +1252,7 @@ class RequestPromissoryController extends GetxController {
       backgroundColor: Get.isDarkMode ? const Color(0xFF1c222e) : Colors.white,
       constraints: BoxConstraints(maxHeight: Get.height * 5 / 6),
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(12),
-        ),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
       ),
       builder: (context) => Padding(
         padding: MediaQuery.of(context).viewInsets,

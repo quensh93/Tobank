@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 // Typography system
 TextTheme buildTextTheme({required Brightness brightness}) {
-  final color = brightness == Brightness.light 
-      ? const Color(0xFF1C1B1F) 
+  final color = brightness == Brightness.light
+      ? const Color(0xFF1C1B1F)
       : const Color(0xFFE6E1E5);
 
   return TextTheme(

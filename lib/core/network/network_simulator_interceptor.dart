@@ -3,15 +3,13 @@ import 'package:slow_net_simulator/slow_net_simulator.dart';
 import '../../core/helpers/logger.dart';
 
 /// Dio interceptor for network simulator
-/// 
+///
 /// This interceptor marks requests when the simulator is enabled.
 /// The actual simulation wrapping is done by NetworkSimulatorAdapter.
 class NetworkSimulatorInterceptor extends Interceptor {
   final bool Function() isEnabled;
-  
-  NetworkSimulatorInterceptor({
-    required this.isEnabled,
-  });
+
+  NetworkSimulatorInterceptor({required this.isEnabled});
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
@@ -37,7 +35,7 @@ class NetworkSimulatorInterceptor extends Interceptor {
 /// Helper service to wrap Dio requests with network simulator
 class NetworkSimulatorService {
   /// Wraps a Dio request with SlowNetSimulator if enabled
-  /// 
+  ///
   /// Use this to wrap any async operation (including Dio requests):
   /// ```dart
   /// final response = await NetworkSimulatorService.simulateIfEnabled(
@@ -45,7 +43,7 @@ class NetworkSimulatorService {
   ///   request: () => dio.get(url),
   /// );
   /// ```
-  /// 
+  ///
   /// Note: When SlowNetSimulator is configured (via NetworkSimulatorController),
   /// it automatically applies to all calls wrapped with SlowNetSimulator.simulate().
   /// This helper just provides a convenient way to conditionally wrap operations.
@@ -66,4 +64,3 @@ class NetworkSimulatorService {
     }
   }
 }
-

@@ -58,14 +58,20 @@ class _ComponentPaletteState extends State<ComponentPalette> {
           displayName: 'Column',
           icon: Icons.view_column,
           description: 'Vertical layout',
-          defaultProperties: {'mainAxisAlignment': 'start', 'crossAxisAlignment': 'center'},
+          defaultProperties: {
+            'mainAxisAlignment': 'start',
+            'crossAxisAlignment': 'center'
+          },
         ),
         ComponentItem(
           type: 'row',
           displayName: 'Row',
           icon: Icons.view_week,
           description: 'Horizontal layout',
-          defaultProperties: {'mainAxisAlignment': 'start', 'crossAxisAlignment': 'center'},
+          defaultProperties: {
+            'mainAxisAlignment': 'start',
+            'crossAxisAlignment': 'center'
+          },
         ),
         ComponentItem(
           type: 'stack',
@@ -372,7 +378,8 @@ class _ComponentPaletteState extends State<ComponentPalette> {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
           ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           isDense: true,
         ),
         onChanged: (value) {
@@ -410,7 +417,8 @@ class _ComponentPaletteState extends State<ComponentPalette> {
               },
             ),
             if (isExpanded)
-              ...category.components.map((component) => _buildComponentItem(component)),
+              ...category.components
+                  .map((component) => _buildComponentItem(component)),
           ],
         );
       },

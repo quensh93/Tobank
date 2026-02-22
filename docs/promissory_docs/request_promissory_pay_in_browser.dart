@@ -23,10 +23,13 @@ class RequestPromissoryPayInBrowserWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-//locale
+    //locale
     final locale = AppLocalizations.of(context)!;
     return GetBuilder<PayBrowserController>(
-      init: PayBrowserController(url: url!, returnDataFunction: returnDataFunction),
+      init: PayBrowserController(
+        url: url!,
+        returnDataFunction: returnDataFunction,
+      ),
       builder: (controller) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -34,20 +37,19 @@ class RequestPromissoryPayInBrowserWidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              const SizedBox(
-                height: 24.0,
-              ),
+              const SizedBox(height: 24.0),
               Row(
                 children: <Widget>[
-                   Expanded(
+                  Expanded(
                     child: Text(
                       locale.amount,
-                      style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14.0),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 14.0,
+                      ),
                     ),
                   ),
-                  const SizedBox(
-                    width: 10.0,
-                  ),
+                  const SizedBox(width: 10.0),
                   Text(
                     locale.amount_format(AppUtil.formatMoney(amount)),
                     style: const TextStyle(
@@ -57,10 +59,8 @@ class RequestPromissoryPayInBrowserWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 24.0,
-              ),
-               Text(
+              const SizedBox(height: 24.0),
+              Text(
                 locale.continue_payment_browser_text,
                 textAlign: TextAlign.start,
                 style: const TextStyle(
@@ -76,9 +76,7 @@ class RequestPromissoryPayInBrowserWidget extends StatelessWidget {
                 isLoading: isLoading,
                 buttonTitle: locale.check_payment,
               ),
-              const SizedBox(
-                height: 16.0,
-              ),
+              const SizedBox(height: 16.0),
             ],
           ),
         );

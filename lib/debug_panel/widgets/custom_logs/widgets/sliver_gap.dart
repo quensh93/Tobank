@@ -121,4 +121,3 @@ class RenderSliverGap extends RenderSliver {
       ..add(ColorProperty('color', color));
   }
 }
-

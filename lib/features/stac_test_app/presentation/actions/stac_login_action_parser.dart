@@ -40,7 +40,7 @@ class StacLoginActionParser extends StacActionParser<StacLoginAction> {
   FutureOr onCall(BuildContext context, StacLoginAction model) {
     // Get form scope to access form data
     final formScope = StacFormScope.of(context);
-    
+
     if (formScope == null) {
       AppLogger.w('LoginAction: No form scope found');
       _showErrorDialog(context, 'Form error', 'Please fill in all fields');
@@ -56,10 +56,10 @@ class StacLoginActionParser extends StacActionParser<StacLoginAction> {
     // Validate credentials (mock: admin/admin)
     if (username == 'admin' && password == 'admin') {
       AppLogger.i('✅ Login successful');
-      
+
       // Update screen state to home
       LoginNavigationHandler.onNavigate?.call('home');
-      
+
       // Also trigger STAC navigation for consistency
       // Note: This won't actually navigate since we're managing state ourselves
       // But it's good to have for future compatibility
@@ -103,12 +103,9 @@ void registerLoginActionParser() {
   CustomComponentRegistry.instance.registerAction(
     const StacLoginActionParser(),
   );
-  
+
   // Also register with STAC registry so it can be found
-  StacRegistry.instance.registerAction(
-    const StacLoginActionParser(),
-  );
-  
+  StacRegistry.instance.registerAction(const StacLoginActionParser());
+
   AppLogger.i('✅ Login action parser registered');
 }
-

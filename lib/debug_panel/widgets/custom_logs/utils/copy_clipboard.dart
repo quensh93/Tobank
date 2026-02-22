@@ -33,4 +33,3 @@ void copyClipboard(
     showValue: showValue,
   );
 }
-

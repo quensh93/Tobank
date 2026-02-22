@@ -14,7 +14,8 @@ class UserModel {
     this.company,
   });
 
-  factory UserModel.fromJson(Map<String, dynamic> json) => _$UserModelFromJson(json);
+  factory UserModel.fromJson(Map<String, dynamic> json) =>
+      _$UserModelFromJson(json);
 
   final int id;
   final String name;
@@ -37,7 +38,8 @@ class AddressModel {
     this.geo,
   });
 
-  factory AddressModel.fromJson(Map<String, dynamic> json) => _$AddressModelFromJson(json);
+  factory AddressModel.fromJson(Map<String, dynamic> json) =>
+      _$AddressModelFromJson(json);
 
   final String street;
   final String suite;
@@ -50,12 +52,10 @@ class AddressModel {
 
 @JsonSerializable()
 class GeoModel {
-  const GeoModel({
-    required this.lat,
-    required this.lng,
-  });
+  const GeoModel({required this.lat, required this.lng});
 
-  factory GeoModel.fromJson(Map<String, dynamic> json) => _$GeoModelFromJson(json);
+  factory GeoModel.fromJson(Map<String, dynamic> json) =>
+      _$GeoModelFromJson(json);
 
   final String lat;
   final String lng;
@@ -65,13 +65,10 @@ class GeoModel {
 
 @JsonSerializable()
 class CompanyModel {
-  const CompanyModel({
-    required this.name,
-    this.catchPhrase,
-    this.bs,
-  });
+  const CompanyModel({required this.name, this.catchPhrase, this.bs});
 
-  factory CompanyModel.fromJson(Map<String, dynamic> json) => _$CompanyModelFromJson(json);
+  factory CompanyModel.fromJson(Map<String, dynamic> json) =>
+      _$CompanyModelFromJson(json);
 
   final String name;
   final String? catchPhrase;

@@ -13,12 +13,12 @@ class StacJsonValidator implements JsonValidator {
   final List<ValidationError> _errors = [];
   final List<ValidationWarning> _warnings = [];
   final Set<String> _visitedNodes = {};
-  
+
   /// Whether to enable strict validation mode
   final bool strict;
-  
+
   /// Creates a new STAC JSON validator
-  /// 
+  ///
   /// If [strict] is true, warnings will be treated as errors
   StacJsonValidator({this.strict = false});
 
@@ -129,28 +129,37 @@ class StacJsonValidator implements JsonValidator {
 
     // Create and return result
     // In strict mode, treat warnings as errors
-    final hasErrors = strict ? (_errors.isNotEmpty || _warnings.isNotEmpty) : _errors.isNotEmpty;
-    
+    final hasErrors = strict
+        ? (_errors.isNotEmpty || _warnings.isNotEmpty)
+        : _errors.isNotEmpty;
+
     if (!hasErrors) {
-      return ValidationResult.success(warnings: List<ValidationWarning>.from(_warnings));
+      return ValidationResult.success(
+        warnings: List<ValidationWarning>.from(_warnings),
+      );
     } else {
       // In strict mode, convert warnings to errors
-      final allErrors = strict 
+      final allErrors = strict
           ? <ValidationError>[
               ...List<ValidationError>.from(_errors),
-              ..._warnings.map((w) => ValidationError(
-                path: w.path,
-                message: w.message,
-                value: w.value,
-                code: w.code,
-                suggestion: 'Strict mode: This warning is treated as an error',
-              )),
+              ..._warnings.map(
+                (w) => ValidationError(
+                  path: w.path,
+                  message: w.message,
+                  value: w.value,
+                  code: w.code,
+                  suggestion:
+                      'Strict mode: This warning is treated as an error',
+                ),
+              ),
             ]
           : List<ValidationError>.from(_errors);
-      
+
       return ValidationResult.failure(
         errors: allErrors,
-        warnings: strict ? <ValidationWarning>[] : List<ValidationWarning>.from(_warnings),
+        warnings: strict
+            ? <ValidationWarning>[]
+            : List<ValidationWarning>.from(_warnings),
       );
     }
   }
@@ -162,11 +171,7 @@ class StacJsonValidator implements JsonValidator {
   bool isValid() => _errors.isEmpty;
 
   /// Validates a single node in the JSON structure
-  void _validateNode(
-    Map<String, dynamic> json,
-    String path, {
-    int depth = 0,
-  }) {
+  void _validateNode(Map<String, dynamic> json, String path, {int depth = 0}) {
     // Check for circular references
     final nodeId = _generateNodeId(json);
     if (_visitedNodes.contains(nodeId)) {

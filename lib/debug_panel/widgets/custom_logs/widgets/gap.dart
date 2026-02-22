@@ -335,4 +335,3 @@ class RenderGap extends RenderBox {
       ..add(EnumProperty<Axis>('fallbackDirection', fallbackDirection));
   }
 }
-

@@ -89,7 +89,7 @@ class Devices {
       pixelRatio: 2.0,
       safeAreas: EdgeInsets.only(top: 20),
     ),
-    
+
     // Android Devices
     DeviceInfo(
       name: 'Pixel 8 Pro',
@@ -124,7 +124,7 @@ class Devices {
       pixelRatio: 1.0,
       safeAreas: EdgeInsets.only(top: 24),
     ),
-    
+
     // Desktop Devices
     DeviceInfo(
       name: 'macOS Desktop',
@@ -159,7 +159,7 @@ class Devices {
       pixelRatio: 1.0,
       safeAreas: EdgeInsets.zero,
     ),
-    
+
     // Laptop Devices
     DeviceInfo(
       name: 'MacBook Pro',
@@ -194,7 +194,7 @@ class Devices {
 
 class _IosDevices {
   const _IosDevices();
-  
+
   List<DeviceInfo> get all => Devices.all
       .where((d) => d.identifier.platform == TargetPlatform.iOS)
       .toList();
@@ -202,7 +202,7 @@ class _IosDevices {
 
 class _AndroidDevices {
   const _AndroidDevices();
-  
+
   List<DeviceInfo> get all => Devices.all
       .where((d) => d.identifier.platform == TargetPlatform.android)
       .toList();
@@ -210,7 +210,7 @@ class _AndroidDevices {
 
 class _WindowsDevices {
   const _WindowsDevices();
-  
+
   List<DeviceInfo> get all => Devices.all
       .where((d) => d.identifier.platform == TargetPlatform.windows)
       .toList();
@@ -218,7 +218,7 @@ class _WindowsDevices {
 
 class _MacOSDevices {
   const _MacOSDevices();
-  
+
   List<DeviceInfo> get all => Devices.all
       .where((d) => d.identifier.platform == TargetPlatform.macOS)
       .toList();
@@ -226,7 +226,7 @@ class _MacOSDevices {
 
 class _LinuxDevices {
   const _LinuxDevices();
-  
+
   List<DeviceInfo> get all => Devices.all
       .where((d) => d.identifier.platform == TargetPlatform.linux)
       .toList();

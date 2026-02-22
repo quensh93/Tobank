@@ -49,8 +49,6 @@ class SupabaseAuthManager {
   /// Secure storage for tokens
   final SecureConfigStorage _storage = SecureConfigStorage.instance;
 
-
-
   /// Current user stream (mock implementation)
   Stream<MockUser?> get authStateChanges => Stream.value(_currentUser);
 
@@ -261,9 +259,7 @@ class SupabaseAuthManager {
       // Check if current user is admin
       final currentUserIsAdmin = await this.isAdmin();
       if (!currentUserIsAdmin) {
-        throw UnauthorizedException(
-          'Only admins can modify user roles',
-        );
+        throw UnauthorizedException('Only admins can modify user roles');
       }
 
       AppLogger.i('👤 Setting admin role for user $userId: $isAdmin');
@@ -332,8 +328,6 @@ class SupabaseAuthManager {
       throw UnauthorizedException('Authentication required');
     }
   }
-
-
 
   /// Get user display name
   String? get displayName => currentUser?.displayName;

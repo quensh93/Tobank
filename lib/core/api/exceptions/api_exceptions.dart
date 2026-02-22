@@ -44,11 +44,11 @@ class ScreenNotFoundException extends ApiException {
     dynamic originalError,
     StackTrace? stackTrace,
   }) : super(
-          'Screen not found: $screenName',
-          statusCode: 404,
-          originalError: originalError,
-          stackTrace: stackTrace,
-        );
+         'Screen not found: $screenName',
+         statusCode: 404,
+         originalError: originalError,
+         stackTrace: stackTrace,
+       );
 
   @override
   String toString() {
@@ -169,14 +169,16 @@ class ValidationException extends ApiException {
     dynamic originalError,
     StackTrace? stackTrace,
   }) : super(
-          'Validation failed: ${errors.length} error(s)',
-          originalError: originalError,
-          stackTrace: stackTrace,
-        );
+         'Validation failed: ${errors.length} error(s)',
+         originalError: originalError,
+         stackTrace: stackTrace,
+       );
 
   @override
   String toString() {
-    final buffer = StringBuffer('ValidationException: ${errors.length} error(s)\n');
+    final buffer = StringBuffer(
+      'ValidationException: ${errors.length} error(s)\n',
+    );
     for (final error in errors) {
       buffer.writeln('  - ${error.path}: ${error.message}');
     }
@@ -231,11 +233,7 @@ class JsonParsingException extends ApiException {
 
 /// Exception thrown when cache operations fail
 class CacheException extends ApiException {
-  CacheException(
-    super.message, {
-    super.originalError,
-    super.stackTrace,
-  });
+  CacheException(super.message, {super.originalError, super.stackTrace});
 
   @override
   String toString() {

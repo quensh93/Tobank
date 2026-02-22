@@ -122,7 +122,10 @@ class AuthManager {
     }
 
     if (expiresAt != null) {
-      await _storage.write(key: _tokenExpiryKey, value: expiresAt.toIso8601String());
+      await _storage.write(
+        key: _tokenExpiryKey,
+        value: expiresAt.toIso8601String(),
+      );
     }
   }
 
@@ -243,8 +246,8 @@ class TokenPair {
       expiresAt: json['expires_at'] != null
           ? DateTime.parse(json['expires_at'] as String)
           : json['expires_in'] != null
-              ? DateTime.now().add(Duration(seconds: json['expires_in'] as int))
-              : null,
+          ? DateTime.now().add(Duration(seconds: json['expires_in'] as int))
+          : null,
     );
   }
 

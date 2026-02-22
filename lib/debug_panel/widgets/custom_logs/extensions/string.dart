@@ -23,4 +23,3 @@ extension ISpectStringExtension on String? {
         : '${value[0].toUpperCase()}${value.substring(1)}';
   }
 }
-

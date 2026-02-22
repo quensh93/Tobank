@@ -14,7 +14,7 @@ class RequestPromissorySelectPaymentBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-//locale
+    //locale
     final locale = AppLocalizations.of(context)!;
     return Directionality(
       textDirection: TextDirection.rtl,
@@ -31,15 +31,16 @@ class RequestPromissorySelectPaymentBottomSheet extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                          width: 36,
-                          height: 4,
-                          decoration:
-                              BoxDecoration(color: context.theme.dividerColor, borderRadius: BorderRadius.circular(4))),
+                        width: 36,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          color: context.theme.dividerColor,
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                      ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 16.0,
-                  ),
+                  const SizedBox(height: 16.0),
                   Column(
                     children: [
                       Card(
@@ -48,19 +49,22 @@ class RequestPromissorySelectPaymentBottomSheet extends StatelessWidget {
                         shadowColor: Colors.transparent,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40.0),
-                          side: BorderSide(color: context.theme.dividerColor, width: 0.5),
+                          side: BorderSide(
+                            color: context.theme.dividerColor,
+                            width: 0.5,
+                          ),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(12.0),
                           child: SvgIcon(
-                            Get.isDarkMode ? SvgIcons.promissoryRequestDark : SvgIcons.promissoryRequest,
+                            Get.isDarkMode
+                                ? SvgIcons.promissoryRequestDark
+                                : SvgIcons.promissoryRequest,
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        height: 16.0,
-                      ),
-                       Text(
+                      const SizedBox(height: 16.0),
+                      Text(
                         locale.promissory_issuance,
                         style: const TextStyle(
                           fontWeight: FontWeight.w600,
@@ -68,27 +72,30 @@ class RequestPromissorySelectPaymentBottomSheet extends StatelessWidget {
                           fontFamily: 'IranYekan',
                         ),
                       ),
-                      const SizedBox(
-                        height: 16.0,
-                      ),
+                      const SizedBox(height: 16.0),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
-                           Text(
+                          Text(
                             locale.payable_amount,
-                            style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 14.0),
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14.0,
+                            ),
                           ),
                           Row(
                             children: [
                               Text(
-                                AppUtil.formatMoney(controller.getCorrectAmount()),
+                                AppUtil.formatMoney(
+                                  controller.getCorrectAmount(),
+                                ),
                                 style: const TextStyle(
                                   fontWeight: FontWeight.w900,
                                   fontSize: 16.0,
                                   fontFamily: 'IranYekan',
                                 ),
                               ),
-                               Text(
+                              Text(
                                 locale.rial,
                                 style: const TextStyle(
                                   fontWeight: FontWeight.w400,
@@ -108,7 +115,10 @@ class RequestPromissorySelectPaymentBottomSheet extends StatelessWidget {
                     shadowColor: Colors.transparent,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0),
-                      side: BorderSide(color: context.theme.dividerColor, width: 0.5),
+                      side: BorderSide(
+                        color: context.theme.dividerColor,
+                        width: 0.5,
+                      ),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
@@ -116,30 +126,52 @@ class RequestPromissorySelectPaymentBottomSheet extends StatelessWidget {
                         children: [
                           KeyValueWidget(
                             keyString: locale.stamp_duty,
-                            valueString:
-                                locale.amount_format(AppUtil.formatMoney(controller.promissoryAmountResponseData!.data!.stampFee)),
+                            valueString: locale.amount_format(
+                              AppUtil.formatMoney(
+                                controller
+                                    .promissoryAmountResponseData!
+                                    .data!
+                                    .stampFee,
+                              ),
+                            ),
                           ),
-                          if (controller.promissoryAmountResponseData!.data!.gssToYektaFee! != 0)
-                            const SizedBox(
-                              height: 16.0,
-                            )
+                          if (controller
+                                  .promissoryAmountResponseData!
+                                  .data!
+                                  .gssToYektaFee! !=
+                              0)
+                            const SizedBox(height: 16.0)
                           else
                             Container(),
-                          if (controller.promissoryAmountResponseData!.data!.gssToYektaFee! != 0)
+                          if (controller
+                                  .promissoryAmountResponseData!
+                                  .data!
+                                  .gssToYektaFee! !=
+                              0)
                             KeyValueWidget(
                               keyString: locale.renewal_authentication,
-                              valueString:
-                              locale.amount_format(AppUtil.formatMoney(controller.promissoryAmountResponseData!.data!.gssToYektaFee)),
+                              valueString: locale.amount_format(
+                                AppUtil.formatMoney(
+                                  controller
+                                      .promissoryAmountResponseData!
+                                      .data!
+                                      .gssToYektaFee,
+                                ),
+                              ),
                             )
                           else
                             Container(),
-                          const SizedBox(
-                            height: 16.0,
-                          ),
+                          const SizedBox(height: 16.0),
                           KeyValueWidget(
                             keyString: locale.issuance_fee,
-                            valueString:
-                                locale.amount_format(AppUtil.formatMoney(controller.promissoryAmountResponseData!.data!.wage)),
+                            valueString: locale.amount_format(
+                              AppUtil.formatMoney(
+                                controller
+                                    .promissoryAmountResponseData!
+                                    .data!
+                                    .wage,
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -147,22 +179,20 @@ class RequestPromissorySelectPaymentBottomSheet extends StatelessWidget {
                   ),
                   const SizedBox(height: 16.0),
                   Text(locale.payment_method, style: ThemeUtil.titleStyle),
-                  const SizedBox(
-                    height: 16.0,
-                  ),
+                  const SizedBox(height: 16.0),
                   PaymentMethodWidget(
                     currentPaymentType: controller.currentPaymentType,
                     currentAmount: controller.walletAmount,
                     setCurrentPaymentTypeFunction: (paymentType) {
                       controller.setCurrentPaymentType(paymentType);
                     },
-                    canPayWithDeposit: controller.mainController.activatePromissoryPublishPayment,
+                    canPayWithDeposit: controller
+                        .mainController
+                        .activatePromissoryPublishPayment,
                     canPayWithWallet: true,
                     canPayWithGateway: false,
                   ),
-                  const SizedBox(
-                    height: 100.0,
-                  ),
+                  const SizedBox(height: 100.0),
                   ContinueButtonWidget(
                     callback: () {
                       controller.validatePaymentPage();

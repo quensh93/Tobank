@@ -21,16 +21,16 @@ class DevicePreviewTab extends ConsumerWidget {
           _buildSectionHeader(context, 'Device Selection'),
           const SizedBox(height: 8),
           _buildDeviceSelector(context, state, controller),
-          
+
           const SizedBox(height: 24),
-          
+
           // Preview Controls Section
           _buildSectionHeader(context, 'Preview Controls'),
           const SizedBox(height: 8),
           _buildPreviewControls(context, state, controller),
-          
+
           const SizedBox(height: 24),
-          
+
           // Device Info Section
           _buildSectionHeader(context, 'Device Information'),
           const SizedBox(height: 8),
@@ -44,13 +44,14 @@ class DevicePreviewTab extends ConsumerWidget {
     return Text(
       title,
       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-        fontWeight: FontWeight.bold,
-        color: Theme.of(context).colorScheme.primary,
-      ),
+            fontWeight: FontWeight.bold,
+            color: Theme.of(context).colorScheme.primary,
+          ),
     );
   }
 
-  Widget _buildDeviceSelector(BuildContext context, DevicePreviewState state, DevicePreviewController controller) {
+  Widget _buildDeviceSelector(BuildContext context, DevicePreviewState state,
+      DevicePreviewController controller) {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -67,8 +68,8 @@ class DevicePreviewTab extends ConsumerWidget {
                 Text(
                   'Select Device',
                   style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.w600,
-                  ),
+                        fontWeight: FontWeight.w600,
+                      ),
                 ),
               ],
             ),
@@ -84,7 +85,8 @@ class DevicePreviewTab extends ConsumerWidget {
     );
   }
 
-  Widget _buildPreviewControls(BuildContext context, DevicePreviewState state, DevicePreviewController controller) {
+  Widget _buildPreviewControls(BuildContext context, DevicePreviewState state,
+      DevicePreviewController controller) {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -108,7 +110,9 @@ class DevicePreviewTab extends ConsumerWidget {
             // Preview Enabled Toggle
             ListTile(
               leading: Icon(
-                state.isPreviewEnabled ? Icons.visibility : Icons.visibility_off,
+                state.isPreviewEnabled
+                    ? Icons.visibility
+                    : Icons.visibility_off,
                 color: Theme.of(context).colorScheme.primary,
               ),
               title: const Text('Device Preview'),
@@ -128,11 +132,14 @@ class DevicePreviewTab extends ConsumerWidget {
               ),
               title: const Text('Orientation'),
               subtitle: Text(
-                state.orientation == Orientation.portrait ? 'Portrait' : 'Landscape',
+                state.orientation == Orientation.portrait
+                    ? 'Portrait'
+                    : 'Landscape',
               ),
               trailing: IconButton(
                 icon: AnimatedRotation(
-                  turns: state.orientation == Orientation.landscape ? 0.25 : 0.0,
+                  turns:
+                      state.orientation == Orientation.landscape ? 0.25 : 0.0,
                   duration: const Duration(milliseconds: 200),
                   child: const Icon(Icons.rotate_90_degrees_cw),
                 ),
@@ -148,7 +155,7 @@ class DevicePreviewTab extends ConsumerWidget {
 
   Widget _buildDeviceInfo(BuildContext context, DevicePreviewState state) {
     final device = state.selectedDevice;
-    
+
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -165,18 +172,22 @@ class DevicePreviewTab extends ConsumerWidget {
                 Text(
                   'Current Device',
                   style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.w600,
-                  ),
+                        fontWeight: FontWeight.w600,
+                      ),
                 ),
               ],
             ),
             const SizedBox(height: 12),
             _buildInfoRow(context, 'Name', device.name),
-            _buildInfoRow(context, 'Platform', device.identifier.platform.name.toUpperCase()),
-            _buildInfoRow(context, 'Type', device.identifier.type.name.toUpperCase()),
-            _buildInfoRow(context, 'Screen Size', '${device.screenSize.width.toInt()} x ${device.screenSize.height.toInt()}'),
+            _buildInfoRow(context, 'Platform',
+                device.identifier.platform.name.toUpperCase()),
+            _buildInfoRow(
+                context, 'Type', device.identifier.type.name.toUpperCase()),
+            _buildInfoRow(context, 'Screen Size',
+                '${device.screenSize.width.toInt()} x ${device.screenSize.height.toInt()}'),
             _buildInfoRow(context, 'Pixel Ratio', '${device.pixelRatio}x'),
-            _buildInfoRow(context, 'Orientation', state.orientation.name.toUpperCase()),
+            _buildInfoRow(
+                context, 'Orientation', state.orientation.name.toUpperCase()),
           ],
         ),
       ),
@@ -195,7 +206,10 @@ class DevicePreviewTab extends ConsumerWidget {
               '$label:',
               style: TextStyle(
                 fontWeight: FontWeight.w500,
-                color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7),
+                color: Theme.of(context)
+                    .colorScheme
+                    .onSurface
+                    .withValues(alpha: 0.7),
               ),
             ),
           ),
@@ -222,7 +236,7 @@ class DevicePreviewTab extends ConsumerWidget {
       Devices.ios.iPadAir4,
       Devices.ios.iPad,
       Devices.ios.iPadPro11Inches,
-      
+
       // Android Devices
       Devices.android.samsungGalaxyS20,
       Devices.android.samsungGalaxyS25,
@@ -305,7 +319,9 @@ class _DeviceSelectorButtonState extends State<_DeviceSelectorButton> {
                   ),
                 ),
                 Icon(
-                  _isMenuOpen ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                  _isMenuOpen
+                      ? Icons.keyboard_arrow_up
+                      : Icons.keyboard_arrow_down,
                   size: 20,
                   color: colorScheme.onSurfaceVariant,
                 ),
@@ -326,7 +342,8 @@ class _DeviceSelectorButtonState extends State<_DeviceSelectorButton> {
                 shrinkWrap: true,
                 padding: EdgeInsets.zero,
                 children: widget.devices.map((device) {
-                  final isSelected = device.identifier.name == widget.selectedDevice.identifier.name;
+                  final isSelected = device.identifier.name ==
+                      widget.selectedDevice.identifier.name;
                   return InkWell(
                     onTap: () {
                       widget.onDeviceSelected(device);
@@ -335,7 +352,8 @@ class _DeviceSelectorButtonState extends State<_DeviceSelectorButton> {
                       });
                     },
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 12),
                       child: Row(
                         children: [
                           Icon(
@@ -350,7 +368,9 @@ class _DeviceSelectorButtonState extends State<_DeviceSelectorButton> {
                                   ? device.name
                                   : '${device.screenSize.width.toInt()}x${device.screenSize.height.toInt()} @${device.pixelRatio}x',
                               style: TextStyle(
-                                fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                                fontWeight: isSelected
+                                    ? FontWeight.bold
+                                    : FontWeight.normal,
                                 fontSize: 14,
                                 color: colorScheme.onSurface,
                               ),

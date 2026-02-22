@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import '../../../../core/helpers/logger.dart';
 
 /// Service for loading JSON files from local file system or URLs
-/// 
+///
 /// Supports:
 /// - Local file paths (relative to project root or base directory)
 /// - Absolute file paths
@@ -28,13 +28,14 @@ class StacJsonFileService {
     _urlCache.clear();
     AppLogger.i('✅ URL cache cleared');
   }
+
   /// Load JSON from file path or URL
-  /// 
+  ///
   /// Supports:
   /// - Local file paths (relative to project root or baseDir)
   /// - Absolute file paths
   /// - HTTP/HTTPS URLs (Supabase, etc.)
-  /// 
+  ///
   /// [path] - File path or URL
   /// [baseDir] - Optional base directory for resolving relative paths
   ///             (e.g., entry point directory for resolving template/data paths)
@@ -56,7 +57,7 @@ class StacJsonFileService {
   }
 
   /// Load JSON from local file
-  /// 
+  ///
   /// [filePath] - File path (relative or absolute)
   /// [baseDir] - Optional base directory for resolving relative paths
   static Future<Map<String, dynamic>> _loadFromFile(
@@ -91,31 +92,31 @@ class StacJsonFileService {
       }
 
       final content = await file.readAsString();
-      
+
       // Check for empty file
       if (content.trim().isEmpty) {
-        throw FormatException(
-          'File is empty: $resolvedPath',
-        );
+        throw FormatException('File is empty: $resolvedPath');
       }
-      
+
       // Check file size (warn if very large, but don't block)
       final sizeInMB = utf8.encode(content).length / (1024 * 1024);
       if (sizeInMB > 10) {
-        AppLogger.w('⚠️ Large JSON file detected: ${sizeInMB.toStringAsFixed(2)} MB - $resolvedPath');
+        AppLogger.w(
+          '⚠️ Large JSON file detected: ${sizeInMB.toStringAsFixed(2)} MB - $resolvedPath',
+        );
       }
-      
+
       // Validate JSON format
       try {
         final json = jsonDecode(content) as Map<String, dynamic>;
-        
+
         // Validate it's a Map (not a List or primitive)
         if (json.isEmpty) {
           throw FormatException(
             'JSON file is empty (no content): $resolvedPath',
           );
         }
-        
+
         AppLogger.i('✅ Loaded JSON from file: $resolvedPath');
         return json;
       } on FormatException catch (e) {
@@ -136,7 +137,7 @@ class StacJsonFileService {
   }
 
   /// Load JSON from URL
-  /// 
+  ///
   /// Supports caching to reduce network requests
   static Future<Map<String, dynamic>> _loadFromUrl(String url) async {
     // Check cache first
@@ -159,7 +160,8 @@ class StacJsonFileService {
         throw DioException(
           requestOptions: RequestOptions(path: url),
           response: response,
-          message: 'Failed to load JSON from URL: $url (Status: ${response.statusCode})',
+          message:
+              'Failed to load JSON from URL: $url (Status: ${response.statusCode})',
         );
       }
 
@@ -226,10 +228,10 @@ class StacJsonFileService {
   }
 
   /// Resolve relative path to absolute path
-  /// 
+  ///
   /// If path is relative, resolves it relative to baseDir (if provided) or project root
   /// If path is absolute, returns as is
-  /// 
+  ///
   /// [path] - File path to resolve
   /// [baseDir] - Optional base directory for resolving relative paths
   ///            (e.g., entry point directory for resolving template/data paths)
@@ -242,17 +244,20 @@ class StacJsonFileService {
 
     // Determine base directory
     final baseDirectory = baseDir ?? Directory.current.path;
-    
+
     // Handle both forward and backward slashes
     final normalizedPath = path.replaceAll('/', Platform.pathSeparator);
-    final normalizedBase = baseDirectory.replaceAll('/', Platform.pathSeparator);
-    
+    final normalizedBase = baseDirectory.replaceAll(
+      '/',
+      Platform.pathSeparator,
+    );
+
     // Resolve relative to base directory
     // Remove trailing separator from base if present
     final cleanBase = normalizedBase.endsWith(Platform.pathSeparator)
         ? normalizedBase.substring(0, normalizedBase.length - 1)
         : normalizedBase;
-    
+
     return '$cleanBase${Platform.pathSeparator}$normalizedPath';
   }
 
@@ -262,22 +267,22 @@ class StacJsonFileService {
     if (path.startsWith('/')) {
       return true;
     }
-    
+
     // Windows-style absolute path (C:\, D:\, etc.)
     if (path.length > 2 && path[1] == ':' && path[2] == '\\') {
       return true;
     }
-    
+
     // Windows-style absolute path with forward slash (C:/, D:/, etc.)
     if (path.length > 2 && path[1] == ':' && path[2] == '/') {
       return true;
     }
-    
+
     return false;
   }
 
   /// Write JSON to file
-  /// 
+  ///
   /// [filePath] - File path (relative or absolute)
   /// [json] - JSON data to write
   /// [baseDir] - Optional base directory for resolving relative paths
@@ -289,7 +294,7 @@ class StacJsonFileService {
     try {
       final resolvedPath = _resolvePath(filePath, baseDir: baseDir);
       final file = File(resolvedPath);
-      
+
       // Ensure directory exists
       try {
         await file.parent.create(recursive: true);
@@ -307,7 +312,7 @@ class StacJsonFileService {
 
       // Encode JSON
       final content = jsonEncode(json);
-      
+
       // Write file
       try {
         await file.writeAsString(content);
@@ -322,7 +327,7 @@ class StacJsonFileService {
         }
         rethrow;
       }
-      
+
       AppLogger.i('✅ Wrote JSON to file: $resolvedPath');
     } on FileSystemException {
       rethrow;
@@ -332,4 +337,3 @@ class StacJsonFileService {
     }
   }
 }
-

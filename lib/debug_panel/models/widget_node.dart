@@ -84,7 +84,8 @@ class WidgetNode {
       type: json['type'] as String,
       properties: json['properties'] as Map<String, dynamic>,
       children: (json['children'] as List<dynamic>?)
-              ?.map((child) => WidgetNode.fromJson(child as Map<String, dynamic>))
+              ?.map(
+                  (child) => WidgetNode.fromJson(child as Map<String, dynamic>))
               .toList() ??
           [],
     );

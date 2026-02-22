@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 
 /// Monitors and tracks performance metrics for STAC operations
-/// 
+///
 /// Tracks:
 /// - JSON parsing time
 /// - API call duration
@@ -10,47 +10,44 @@ import 'package:flutter/foundation.dart';
 /// - Slow operations
 class PerformanceMonitor {
   PerformanceMonitor._();
-  
+
   static final PerformanceMonitor instance = PerformanceMonitor._();
-  
+
   final List<PerformanceMetric> _metrics = [];
   final Map<String, Stopwatch> _activeTimers = {};
-  
+
   /// Maximum number of metrics to keep in memory
   static const int maxMetricsCount = 1000;
-  
+
   /// Threshold for slow JSON parsing (milliseconds)
   static const int slowJsonParsingThreshold = 100;
-  
+
   /// Threshold for slow API calls (milliseconds)
   static const int slowApiCallThreshold = 1000;
-  
+
   /// Threshold for slow widget builds (milliseconds)
   /// 16ms = 60fps, 8ms = 120fps
   static const int slowWidgetBuildThreshold = 16;
-  
+
   /// Start tracking an operation
   void startTracking(String operationId, PerformanceMetricType type) {
     _activeTimers[operationId] = Stopwatch()..start();
   }
-  
+
   /// Stop tracking an operation and record the metric
-  void stopTracking(
-    String operationId, {
-    Map<String, dynamic>? metadata,
-  }) {
+  void stopTracking(String operationId, {Map<String, dynamic>? metadata}) {
     final stopwatch = _activeTimers.remove(operationId);
     if (stopwatch == null) {
       debugPrint('Warning: No active timer found for $operationId');
       return;
     }
-    
+
     stopwatch.stop();
     final duration = stopwatch.elapsed;
-    
+
     // Determine type from operation ID or metadata
     final type = _determineType(operationId, metadata);
-    
+
     _recordMetric(
       type: type,
       operationId: operationId,
@@ -58,33 +55,29 @@ class PerformanceMonitor {
       metadata: metadata,
     );
   }
-  
+
   /// Track JSON parsing performance
   Future<T> trackJsonParsing<T>(
     String screenName,
     Future<T> Function() operation,
   ) async {
     final stopwatch = Stopwatch()..start();
-    
+
     try {
       final result = await operation();
       stopwatch.stop();
-      
+
       _recordMetric(
         type: PerformanceMetricType.jsonParsing,
         operationId: 'json_parse_$screenName',
         duration: stopwatch.elapsed,
         metadata: {'screenName': screenName},
       );
-      
+
       if (stopwatch.elapsedMilliseconds > slowJsonParsingThreshold) {
-        _logSlowOperation(
-          'JSON Parsing',
-          screenName,
-          stopwatch.elapsed,
-        );
+        _logSlowOperation('JSON Parsing', screenName, stopwatch.elapsed);
       }
-      
+
       return result;
     } catch (e) {
       stopwatch.stop();
@@ -98,33 +91,29 @@ class PerformanceMonitor {
       rethrow;
     }
   }
-  
+
   /// Track API call performance
   Future<T> trackApiCall<T>(
     String endpoint,
     Future<T> Function() operation,
   ) async {
     final stopwatch = Stopwatch()..start();
-    
+
     try {
       final result = await operation();
       stopwatch.stop();
-      
+
       _recordMetric(
         type: PerformanceMetricType.apiCall,
         operationId: 'api_call_$endpoint',
         duration: stopwatch.elapsed,
         metadata: {'endpoint': endpoint},
       );
-      
+
       if (stopwatch.elapsedMilliseconds > slowApiCallThreshold) {
-        _logSlowOperation(
-          'API Call',
-          endpoint,
-          stopwatch.elapsed,
-        );
+        _logSlowOperation('API Call', endpoint, stopwatch.elapsed);
       }
-      
+
       return result;
     } catch (e) {
       stopwatch.stop();
@@ -138,33 +127,26 @@ class PerformanceMonitor {
       rethrow;
     }
   }
-  
+
   /// Track widget build performance
-  T trackWidgetBuild<T>(
-    String widgetType,
-    T Function() operation,
-  ) {
+  T trackWidgetBuild<T>(String widgetType, T Function() operation) {
     final stopwatch = Stopwatch()..start();
-    
+
     try {
       final result = operation();
       stopwatch.stop();
-      
+
       _recordMetric(
         type: PerformanceMetricType.widgetBuild,
         operationId: 'widget_build_$widgetType',
         duration: stopwatch.elapsed,
         metadata: {'widgetType': widgetType},
       );
-      
+
       if (stopwatch.elapsedMilliseconds > slowWidgetBuildThreshold) {
-        _logSlowOperation(
-          'Widget Build',
-          widgetType,
-          stopwatch.elapsed,
-        );
+        _logSlowOperation('Widget Build', widgetType, stopwatch.elapsed);
       }
-      
+
       return result;
     } catch (e) {
       stopwatch.stop();
@@ -178,7 +160,7 @@ class PerformanceMonitor {
       rethrow;
     }
   }
-  
+
   /// Get all recorded metrics
   List<PerformanceMetric> getMetrics({
     PerformanceMetricType? type,
@@ -186,22 +168,22 @@ class PerformanceMonitor {
     bool? failed,
   }) {
     var filtered = _metrics.toList();
-    
+
     if (type != null) {
       filtered = filtered.where((m) => m.type == type).toList();
     }
-    
+
     if (minDuration != null) {
       filtered = filtered.where((m) => m.duration >= minDuration).toList();
     }
-    
+
     if (failed != null) {
       filtered = filtered.where((m) => m.failed == failed).toList();
     }
-    
+
     return filtered;
   }
-  
+
   /// Get slow operations
   List<PerformanceMetric> getSlowOperations() {
     return _metrics.where((m) {
@@ -217,35 +199,35 @@ class PerformanceMonitor {
       }
     }).toList();
   }
-  
+
   /// Get performance statistics
   PerformanceStats getStats({PerformanceMetricType? type}) {
     final metrics = type != null
         ? _metrics.where((m) => m.type == type).toList()
         : _metrics;
-    
+
     if (metrics.isEmpty) {
       return PerformanceStats.empty();
     }
-    
+
     final durations = metrics.map((m) => m.duration.inMilliseconds).toList();
     durations.sort();
-    
+
     final total = durations.reduce((a, b) => a + b);
     final average = total / durations.length;
-    
+
     final median = durations.length.isOdd
         ? durations[durations.length ~/ 2].toDouble()
         : (durations[durations.length ~/ 2 - 1] +
-                durations[durations.length ~/ 2]) /
-            2;
-    
+                  durations[durations.length ~/ 2]) /
+              2;
+
     final p95Index = (durations.length * 0.95).floor();
     final p95 = durations[p95Index].toDouble();
-    
+
     final p99Index = (durations.length * 0.99).floor();
     final p99 = durations[p99Index].toDouble();
-    
+
     final slowCount = metrics.where((m) {
       switch (m.type) {
         case PerformanceMetricType.jsonParsing:
@@ -258,9 +240,9 @@ class PerformanceMonitor {
           return m.duration.inMilliseconds > 100;
       }
     }).length;
-    
+
     final failedCount = metrics.where((m) => m.failed).length;
-    
+
     return PerformanceStats(
       totalOperations: metrics.length,
       averageDuration: average,
@@ -273,19 +255,21 @@ class PerformanceMonitor {
       failedOperations: failedCount,
     );
   }
-  
+
   /// Clear all metrics
   void clear() {
     _metrics.clear();
     _activeTimers.clear();
   }
-  
+
   /// Clear old metrics (keep only recent ones)
   void clearOldMetrics({Duration? olderThan}) {
-    final cutoff = DateTime.now().subtract(olderThan ?? const Duration(hours: 1));
+    final cutoff = DateTime.now().subtract(
+      olderThan ?? const Duration(hours: 1),
+    );
     _metrics.removeWhere((m) => m.timestamp.isBefore(cutoff));
   }
-  
+
   void _recordMetric({
     required PerformanceMetricType type,
     required String operationId,
@@ -297,7 +281,7 @@ class PerformanceMonitor {
     if (_metrics.length >= maxMetricsCount) {
       _metrics.removeAt(0);
     }
-    
+
     _metrics.add(
       PerformanceMetric(
         type: type,
@@ -309,7 +293,7 @@ class PerformanceMonitor {
       ),
     );
   }
-  
+
   PerformanceMetricType _determineType(
     String operationId,
     Map<String, dynamic>? metadata,
@@ -323,8 +307,12 @@ class PerformanceMonitor {
     }
     return PerformanceMetricType.other;
   }
-  
-  void _logSlowOperation(String operation, String identifier, Duration duration) {
+
+  void _logSlowOperation(
+    String operation,
+    String identifier,
+    Duration duration,
+  ) {
     debugPrint(
       '⚠️ Slow $operation: $identifier took ${duration.inMilliseconds}ms',
     );
@@ -332,12 +320,7 @@ class PerformanceMonitor {
 }
 
 /// Types of performance metrics
-enum PerformanceMetricType {
-  jsonParsing,
-  apiCall,
-  widgetBuild,
-  other,
-}
+enum PerformanceMetricType { jsonParsing, apiCall, widgetBuild, other }
 
 /// Represents a single performance metric
 class PerformanceMetric {
@@ -347,7 +330,7 @@ class PerformanceMetric {
   final DateTime timestamp;
   final Map<String, dynamic> metadata;
   final bool failed;
-  
+
   const PerformanceMetric({
     required this.type,
     required this.operationId,
@@ -356,22 +339,25 @@ class PerformanceMetric {
     required this.metadata,
     this.failed = false,
   });
-  
+
   String get formattedDuration => '${duration.inMilliseconds}ms';
-  
+
   bool get isSlow {
     switch (type) {
       case PerformanceMetricType.jsonParsing:
-        return duration.inMilliseconds > PerformanceMonitor.slowJsonParsingThreshold;
+        return duration.inMilliseconds >
+            PerformanceMonitor.slowJsonParsingThreshold;
       case PerformanceMetricType.apiCall:
-        return duration.inMilliseconds > PerformanceMonitor.slowApiCallThreshold;
+        return duration.inMilliseconds >
+            PerformanceMonitor.slowApiCallThreshold;
       case PerformanceMetricType.widgetBuild:
-        return duration.inMilliseconds > PerformanceMonitor.slowWidgetBuildThreshold;
+        return duration.inMilliseconds >
+            PerformanceMonitor.slowWidgetBuildThreshold;
       case PerformanceMetricType.other:
         return duration.inMilliseconds > 100;
     }
   }
-  
+
   @override
   String toString() {
     return 'PerformanceMetric(type: $type, id: $operationId, duration: $formattedDuration, failed: $failed)';
@@ -389,7 +375,7 @@ class PerformanceStats {
   final double p99Duration;
   final int slowOperations;
   final int failedOperations;
-  
+
   const PerformanceStats({
     required this.totalOperations,
     required this.averageDuration,
@@ -401,7 +387,7 @@ class PerformanceStats {
     required this.slowOperations,
     required this.failedOperations,
   });
-  
+
   factory PerformanceStats.empty() {
     return const PerformanceStats(
       totalOperations: 0,
@@ -415,17 +401,17 @@ class PerformanceStats {
       failedOperations: 0,
     );
   }
-  
+
   double get slowOperationRate {
     if (totalOperations == 0) return 0.0;
     return slowOperations / totalOperations;
   }
-  
+
   double get failureRate {
     if (totalOperations == 0) return 0.0;
     return failedOperations / totalOperations;
   }
-  
+
   @override
   String toString() {
     return 'PerformanceStats(\n'

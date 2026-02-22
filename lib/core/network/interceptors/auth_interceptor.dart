@@ -8,17 +8,14 @@ class AuthInterceptor extends Interceptor {
   AuthInterceptor({required this.getToken});
 
   @override
-  void onRequest(
-    RequestOptions options,
-    RequestInterceptorHandler handler,
-  ) {
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     final token = getToken();
-    
+
     if (token != null && token.isNotEmpty) {
       options.headers['Authorization'] = 'Bearer $token';
       AppLogger.d('Auth token added to request');
     }
-    
+
     super.onRequest(options, handler);
   }
 }

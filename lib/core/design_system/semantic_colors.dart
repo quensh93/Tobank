@@ -42,7 +42,10 @@ class SemanticColors extends ThemeExtension<SemanticColors> {
   }
 
   @override
-  ThemeExtension<SemanticColors> lerp(ThemeExtension<SemanticColors>? other, double t) {
+  ThemeExtension<SemanticColors> lerp(
+    ThemeExtension<SemanticColors>? other,
+    double t,
+  ) {
     if (other is! SemanticColors) return this;
     return SemanticColors(
       success: Color.lerp(success, other.success, t) ?? success,
@@ -50,7 +53,8 @@ class SemanticColors extends ThemeExtension<SemanticColors> {
       error: Color.lerp(error, other.error, t) ?? error,
       info: Color.lerp(info, other.info, t) ?? info,
       surface: Color.lerp(surface, other.surface, t) ?? surface,
-      surfaceVariant: Color.lerp(surfaceVariant, other.surfaceVariant, t) ?? surfaceVariant,
+      surfaceVariant:
+          Color.lerp(surfaceVariant, other.surfaceVariant, t) ?? surfaceVariant,
       outline: Color.lerp(outline, other.outline, t) ?? outline,
     );
   }

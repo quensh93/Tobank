@@ -16,8 +16,7 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-//locale
+    //locale
     final locale = AppLocalizations.of(context)!;
     // TODO: Check UI
     return GetBuilder<RequestPromissoryController>(
@@ -32,54 +31,51 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      const SizedBox(
-                        height: 16.0,
-                      ),
+                      const SizedBox(height: 16.0),
                       Text(
                         locale.recipient_information,
                         style: ThemeUtil.titleStyle,
                       ),
-                      const SizedBox(
-                        height: 16.0,
-                      ),
+                      const SizedBox(height: 16.0),
                       Row(
                         children: [
                           Expanded(
                             child: ReceiverTypeItemWidget(
                               title: locale.receiver_type_individual,
                               receiverType: PromissoryCustomerType.individual,
-                              selectedReceiverType: controller.selectedReceiverType,
+                              selectedReceiverType:
+                                  controller.selectedReceiverType,
                               setSelectedReceiverType: () {
-                                controller.setSelectedReceiverType(PromissoryCustomerType.individual);
+                                controller.setSelectedReceiverType(
+                                  PromissoryCustomerType.individual,
+                                );
                               },
                             ),
                           ),
-                          const SizedBox(
-                            width: 8.0,
-                          ),
+                          const SizedBox(width: 8.0),
                           Expanded(
                             child: ReceiverTypeItemWidget(
                               title: locale.receiver_type_legal,
                               receiverType: PromissoryCustomerType.company,
-                              selectedReceiverType: controller.selectedReceiverType,
+                              selectedReceiverType:
+                                  controller.selectedReceiverType,
                               setSelectedReceiverType: () {
-                                controller.setSelectedReceiverType(PromissoryCustomerType.company);
+                                controller.setSelectedReceiverType(
+                                  PromissoryCustomerType.company,
+                                );
                               },
                             ),
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 16.0,
-                      ),
-                      if (controller.selectedReceiverType == PromissoryCustomerType.individual) ...[
+                      const SizedBox(height: 16.0),
+                      if (controller.selectedReceiverType ==
+                          PromissoryCustomerType.individual) ...[
                         Text(
-                         locale.national_code_title,
+                          locale.national_code_title,
                           style: ThemeUtil.titleStyle,
                         ),
-                        const SizedBox(
-                          height: 8.0,
-                        ),
+                        const SizedBox(height: 8.0),
                         TextField(
                           controller: controller.receiverNationalCodeController,
                           textDirection: TextDirection.ltr,
@@ -92,7 +88,7 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
                           keyboardType: TextInputType.number,
                           inputFormatters: <TextInputFormatter>[
                             LengthLimitingTextInputFormatter(10),
-                            FilteringTextInputFormatter.digitsOnly
+                            FilteringTextInputFormatter.digitsOnly,
                           ],
                           textInputAction: TextInputAction.next,
                           onChanged: (value) {
@@ -105,7 +101,9 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
                               fontWeight: FontWeight.w400,
                               fontSize: 14.0,
                             ),
-                            errorText: controller.isReceiverNationalCodeValid ? null : locale.enter_national_code_error,
+                            errorText: controller.isReceiverNationalCodeValid
+                                ? null
+                                : locale.enter_national_code_error,
                             border: const OutlineInputBorder(
                               borderSide: BorderSide.none,
                               borderRadius: BorderRadius.all(
@@ -117,24 +115,21 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
                               vertical: 16.0,
                             ),
                             suffixIcon: TextFieldClearIconWidget(
-                              isVisible: controller.receiverNationalCodeController.text.isNotEmpty,
+                              isVisible: controller
+                                  .receiverNationalCodeController
+                                  .text
+                                  .isNotEmpty,
                               clearFunction: () {
-                                controller.receiverNationalCodeController.clear();
+                                controller.receiverNationalCodeController
+                                    .clear();
                                 controller.update();
                               },
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
-                        Text(
-                          locale.mobile_number,
-                          style: ThemeUtil.titleStyle,
-                        ),
-                        const SizedBox(
-                          height: 8.0,
-                        ),
+                        const SizedBox(height: 16.0),
+                        Text(locale.mobile_number, style: ThemeUtil.titleStyle),
+                        const SizedBox(height: 8.0),
                         TextField(
                           controller: controller.receiverMobileController,
                           textAlign: TextAlign.right,
@@ -147,7 +142,7 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
                           keyboardType: TextInputType.number,
                           inputFormatters: <TextInputFormatter>[
                             LengthLimitingTextInputFormatter(11),
-                            FilteringTextInputFormatter.digitsOnly
+                            FilteringTextInputFormatter.digitsOnly,
                           ],
                           onChanged: (value) {
                             controller.update();
@@ -159,7 +154,9 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
                               fontWeight: FontWeight.w400,
                               fontSize: 14.0,
                             ),
-                            errorText: controller.isReceiverMobileValid ? null : locale.enter_value_mobile,
+                            errorText: controller.isReceiverMobileValid
+                                ? null
+                                : locale.enter_value_mobile,
                             border: const OutlineInputBorder(
                               borderSide: BorderSide.none,
                               borderRadius: BorderRadius.all(
@@ -171,7 +168,10 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
                               vertical: 16.0,
                             ),
                             suffixIcon: TextFieldClearIconWidget(
-                              isVisible: controller.receiverMobileController.text.isNotEmpty,
+                              isVisible: controller
+                                  .receiverMobileController
+                                  .text
+                                  .isNotEmpty,
                               clearFunction: () {
                                 controller.receiverMobileController.clear();
                                 controller.update();
@@ -179,16 +179,12 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
+                        const SizedBox(height: 16.0),
                         Text(
                           locale.birthdate_label,
                           style: ThemeUtil.titleStyle,
                         ),
-                        const SizedBox(
-                          height: 8.0,
-                        ),
+                        const SizedBox(height: 8.0),
                         InkWell(
                           onTap: () {
                             controller.showSelectBirthDateDialog();
@@ -213,8 +209,9 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
                                   fontWeight: FontWeight.w500,
                                   fontSize: 14.0,
                                 ),
-                                errorText:
-                                    controller.isBirthdayValid ? null : locale.reciver_birthday_error_text,
+                                errorText: controller.isBirthdayValid
+                                    ? null
+                                    : locale.reciver_birthday_error_text,
                                 border: const OutlineInputBorder(
                                   borderSide: BorderSide.none,
                                   borderRadius: BorderRadius.all(
@@ -229,7 +226,10 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
                                   padding: const EdgeInsets.all(8.0),
                                   child: SvgIcon(
                                     SvgIcons.calendar,
-                                    colorFilter: ColorFilter.mode(context.theme.iconTheme.color!, BlendMode.srcIn),
+                                    colorFilter: ColorFilter.mode(
+                                      context.theme.iconTheme.color!,
+                                      BlendMode.srcIn,
+                                    ),
                                     size: 24,
                                   ),
                                 ),
@@ -248,7 +248,8 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
                                 scale: 0.7,
                                 transformHitTests: false,
                                 child: CupertinoSwitch(
-                                  activeColor: context.theme.colorScheme.secondary,
+                                  activeColor:
+                                      context.theme.colorScheme.secondary,
                                   value: controller.isGardeshgariSelected,
                                   onChanged: (bool value) {
                                     controller.setTourismBankLegal(value);
@@ -256,32 +257,21 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              width: 8.0,
-                            ),
-                            const SvgIcon(
-                              SvgIcons.gardeshgari,
-                              size: 24.0,
-                            ),
-                            const SizedBox(
-                              width: 8.0,
-                            ),
+                            const SizedBox(width: 8.0),
+                            const SvgIcon(SvgIcons.gardeshgari, size: 24.0),
+                            const SizedBox(width: 8.0),
                             Flexible(
-                              child: Text(locale.select_bank_as_recipient,
-                                  style: ThemeUtil.titleStyle, textAlign: TextAlign.right),
+                              child: Text(
+                                locale.select_bank_as_recipient,
+                                style: ThemeUtil.titleStyle,
+                                textAlign: TextAlign.right,
+                              ),
                             ),
                           ],
                         ),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
-                        Text(
-                          locale.national_code,
-                          style: ThemeUtil.titleStyle,
-                        ),
-                        const SizedBox(
-                          height: 8.0,
-                        ),
+                        const SizedBox(height: 16.0),
+                        Text(locale.national_code, style: ThemeUtil.titleStyle),
+                        const SizedBox(height: 8.0),
                         TextField(
                           controller: controller.receiverNationalCodeController,
                           readOnly: controller.isGardeshgariSelected,
@@ -295,7 +285,7 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
                           keyboardType: TextInputType.number,
                           inputFormatters: <TextInputFormatter>[
                             LengthLimitingTextInputFormatter(11),
-                            FilteringTextInputFormatter.digitsOnly
+                            FilteringTextInputFormatter.digitsOnly,
                           ],
                           textInputAction: TextInputAction.next,
                           onChanged: (value) {
@@ -308,7 +298,9 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
                               fontWeight: FontWeight.w400,
                               fontSize: 14.0,
                             ),
-                            errorText: controller.isReceiverNationalCodeValid ? null : locale.enter_valid_national_code,
+                            errorText: controller.isReceiverNationalCodeValid
+                                ? null
+                                : locale.enter_valid_national_code,
                             border: const OutlineInputBorder(
                               borderSide: BorderSide.none,
                               borderRadius: BorderRadius.all(
@@ -320,24 +312,24 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
                               vertical: 16.0,
                             ),
                             suffixIcon: TextFieldClearIconWidget(
-                              isVisible: controller.receiverNationalCodeController.text.isNotEmpty,
+                              isVisible: controller
+                                  .receiverNationalCodeController
+                                  .text
+                                  .isNotEmpty,
                               clearFunction: () {
-                                controller.receiverNationalCodeController.clear();
+                                controller.receiverNationalCodeController
+                                    .clear();
                                 controller.update();
                               },
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          height: 16.0,
-                        ),
+                        const SizedBox(height: 16.0),
                         Text(
                           locale.contact_number,
                           style: ThemeUtil.titleStyle,
                         ),
-                        const SizedBox(
-                          height: 8.0,
-                        ),
+                        const SizedBox(height: 8.0),
                         TextField(
                           controller: controller.receiverMobileController,
                           readOnly: controller.isGardeshgariSelected,
@@ -349,7 +341,9 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
                           ),
                           textInputAction: TextInputAction.next,
                           keyboardType: TextInputType.number,
-                          inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly,
+                          ],
                           onChanged: (value) {
                             controller.update();
                           },
@@ -360,7 +354,9 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
                               fontWeight: FontWeight.w400,
                               fontSize: 14.0,
                             ),
-                            errorText: controller.isReceiverMobileValid ? null : locale.enter_valid_contact_number,
+                            errorText: controller.isReceiverMobileValid
+                                ? null
+                                : locale.enter_valid_contact_number,
                             border: const OutlineInputBorder(
                               borderSide: BorderSide.none,
                               borderRadius: BorderRadius.all(
@@ -372,7 +368,10 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
                               vertical: 16.0,
                             ),
                             suffixIcon: TextFieldClearIconWidget(
-                              isVisible: controller.receiverMobileController.text.isNotEmpty,
+                              isVisible: controller
+                                  .receiverMobileController
+                                  .text
+                                  .isNotEmpty,
                               clearFunction: () {
                                 controller.receiverMobileController.clear();
                                 controller.update();
@@ -381,19 +380,15 @@ class RequestPromissoryReceiverPage extends StatelessWidget {
                           ),
                         ),
                       ],
-                      const SizedBox(
-                        height: 40,
-                      ),
+                      const SizedBox(height: 40),
                       ContinueButtonWidget(
                         callback: () {
                           controller.validateReceiverPage();
                         },
                         isLoading: controller.isLoading,
-                        buttonTitle:locale.continue_label,
+                        buttonTitle: locale.continue_label,
                       ),
-                      const SizedBox(
-                        height: 16.0,
-                      ),
+                      const SizedBox(height: 16.0),
                     ],
                   ),
                 ),

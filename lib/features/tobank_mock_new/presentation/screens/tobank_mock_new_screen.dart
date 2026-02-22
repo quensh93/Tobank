@@ -7,14 +7,15 @@ import '../../../../core/helpers/logger.dart';
 import '../../../../features/stac_test_app/data/utils/stac_error_handler.dart';
 
 /// Tobank Mock New Screen
-/// 
+///
 /// This screen loads and renders the Tobank menu from local JSON file.
 /// It uses STAC to render the server-driven UI.
 class TobankMockNewScreen extends ConsumerStatefulWidget {
   const TobankMockNewScreen({super.key});
 
   @override
-  ConsumerState<TobankMockNewScreen> createState() => _TobankMockNewScreenState();
+  ConsumerState<TobankMockNewScreen> createState() =>
+      _TobankMockNewScreenState();
 }
 
 class _TobankMockNewScreenState extends ConsumerState<TobankMockNewScreen> {
@@ -57,19 +58,14 @@ class _TobankMockNewScreenState extends ConsumerState<TobankMockNewScreen> {
         ),
       ),
       textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(
-          foregroundColor: Colors.purple,
-        ),
+        style: TextButton.styleFrom(foregroundColor: Colors.purple),
       ),
     );
   }
 
   /// Wraps a widget with Theme that has transparent input borders
   Widget _wrapWithTransparentBorderTheme(BuildContext context, Widget child) {
-    return Theme(
-      data: _getThemeWithTransparentBorders(context),
-      child: child,
-    );
+    return Theme(data: _getThemeWithTransparentBorders(context), child: child);
   }
 
   @override
@@ -80,18 +76,14 @@ class _TobankMockNewScreenState extends ConsumerState<TobankMockNewScreen> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Scaffold(
-            body: Center(
-              child: CircularProgressIndicator(),
-            ),
+            body: Center(child: CircularProgressIndicator()),
           );
         }
 
         if (snapshot.hasError) {
           AppLogger.e('Failed to load Tobank menu', snapshot.error);
           return Scaffold(
-            appBar: AppBar(
-              title: const Text('Tobank Mock - Error'),
-            ),
+            appBar: AppBar(title: const Text('Tobank Mock - Error')),
             body: Center(
               child: Padding(
                 padding: const EdgeInsets.all(24.0),
@@ -124,11 +116,7 @@ class _TobankMockNewScreenState extends ConsumerState<TobankMockNewScreen> {
         }
 
         if (!snapshot.hasData) {
-          return const Scaffold(
-            body: Center(
-              child: Text('No data available'),
-            ),
-          );
+          return const Scaffold(body: Center(child: Text('No data available')));
         }
 
         // Render STAC JSON
@@ -136,24 +124,18 @@ class _TobankMockNewScreenState extends ConsumerState<TobankMockNewScreen> {
           final widget = Stac.fromJson(snapshot.data!, context);
           if (widget == null) {
             return Scaffold(
-              appBar: AppBar(
-                title: const Text('Tobank Mock - Error'),
-              ),
-              body: const Center(
-                child: Text('Failed to render STAC widget'),
-              ),
+              appBar: AppBar(title: const Text('Tobank Mock - Error')),
+              body: const Center(child: Text('Failed to render STAC widget')),
             );
           }
-          
+
           // Wrap with Theme to force transparent input borders
           return _wrapWithTransparentBorderTheme(context, widget);
         } catch (e, stackTrace) {
           AppLogger.e('STAC parsing error', e, stackTrace);
           final userMessage = StacErrorHandler.getUserFriendlyMessage(e);
           return Scaffold(
-            appBar: AppBar(
-              title: const Text('Tobank Mock - Error'),
-            ),
+            appBar: AppBar(title: const Text('Tobank Mock - Error')),
             body: Center(
               child: Padding(
                 padding: const EdgeInsets.all(24.0),
@@ -182,7 +164,7 @@ class _TobankMockNewScreenState extends ConsumerState<TobankMockNewScreen> {
   }
 
   /// Load menu JSON from STAC build output
-  /// 
+  ///
   /// Loads directly from stac/.build/ which is STAC's default output directory.
   /// This avoids unnecessary file copying - files are used where STAC generates them.
   /// Uses Flutter's asset system which works on all platforms (mobile, web, desktop)
@@ -190,19 +172,25 @@ class _TobankMockNewScreenState extends ConsumerState<TobankMockNewScreen> {
     try {
       // Load directly from STAC build output directory (no copying needed)
       const assetPath = 'lib/stac/.build/tobank_menu.json';
-      
+
       AppLogger.i('Loading Tobank menu from STAC build output: $assetPath');
-      
+
       // Load JSON string from assets
       final jsonString = await rootBundle.loadString(assetPath);
-      
+
       // Parse JSON
       final json = jsonDecode(jsonString) as Map<String, dynamic>;
-      
-      AppLogger.i('✅ Successfully loaded Tobank menu JSON from STAC build output');
+
+      AppLogger.i(
+        '✅ Successfully loaded Tobank menu JSON from STAC build output',
+      );
       return json;
     } catch (e, stackTrace) {
-      AppLogger.e('Failed to load Tobank menu JSON from STAC build output', e, stackTrace);
+      AppLogger.e(
+        'Failed to load Tobank menu JSON from STAC build output',
+        e,
+        stackTrace,
+      );
       rethrow;
     }
   }

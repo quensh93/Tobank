@@ -5,7 +5,7 @@ import 'package:stac/stac.dart';
 import '../../../../core/helpers/logger.dart';
 
 /// Loader for Tobank STAC themes
-/// 
+///
 /// Loads theme JSON from assets and converts to StacTheme objects.
 /// Supports both light and dark themes.
 class TobankThemeLoader {
@@ -16,10 +16,11 @@ class TobankThemeLoader {
     try {
       const themePath = 'lib/stac/design_system/tobank_theme_light.json';
       AppLogger.i('Loading Tobank light theme from: $themePath');
-      
+
       final jsonStr = await _loadAssetString(themePath);
-      final Map<String, dynamic> themeMap = json.decode(jsonStr) as Map<String, dynamic>;
-      
+      final Map<String, dynamic> themeMap =
+          json.decode(jsonStr) as Map<String, dynamic>;
+
       final theme = StacTheme.fromJson(themeMap);
       AppLogger.i('✅ Successfully loaded Tobank light theme');
       return theme;
@@ -34,10 +35,11 @@ class TobankThemeLoader {
     try {
       const themePath = 'lib/stac/design_system/tobank_theme_dark.json';
       AppLogger.i('Loading Tobank dark theme from: $themePath');
-      
+
       final jsonStr = await _loadAssetString(themePath);
-      final Map<String, dynamic> themeMap = json.decode(jsonStr) as Map<String, dynamic>;
-      
+      final Map<String, dynamic> themeMap =
+          json.decode(jsonStr) as Map<String, dynamic>;
+
       final theme = StacTheme.fromJson(themeMap);
       AppLogger.i('✅ Successfully loaded Tobank dark theme');
       return theme;

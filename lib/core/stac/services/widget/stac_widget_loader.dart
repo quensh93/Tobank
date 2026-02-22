@@ -167,7 +167,7 @@ class StacWidgetLoader {
         .toJson(),
     'promissory_real_intro': () =>
         promissory_real_dart.promissoryRealIntro().toJson(),
-    'promissory_real_login_form': () =>
+    'promissory_real_login_form_dart': () =>
         promissory_real_login_dart.promissoryRealLoginForm().toJson(),
     'promissory_real_rules': () =>
         promissory_real_rules_dart.promissoryRealRules().toJson(),

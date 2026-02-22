@@ -17,11 +17,14 @@ class SecurePlugin {
     return version;
   }
 
-  static Future<SecureResponseData> isEnroll({required String phoneNumber}) async {
-    final String result = await _channel.invokeMethod('isEnroll', <String, dynamic>{
+  static Future<SecureResponseData> isEnroll(
+      {required String phoneNumber}) async {
+    final String result =
+        await _channel.invokeMethod('isEnroll', <String, dynamic>{
       'phoneNumber': '$prefix-$phoneNumber-$suffix',
     });
-    final SecureResponseData secureResponseData = SecureResponseData.fromJson(jsonDecode(result));
+    final SecureResponseData secureResponseData =
+        SecureResponseData.fromJson(jsonDecode(result));
     return secureResponseData;
   }
 
@@ -29,56 +32,74 @@ class SecurePlugin {
     required String phoneNumber,
     required String nameEnglish,
   }) async {
-    final String result = await _channel.invokeMethod('generateKeys', <String, dynamic>{
+    final String result =
+        await _channel.invokeMethod('generateKeys', <String, dynamic>{
       'phoneNumber': '$prefix-$phoneNumber-$suffix',
       'nameEnglish': nameEnglish,
     });
-    final SecureResponseData secureResponseData = SecureResponseData.fromJson(jsonDecode(result));
+    final SecureResponseData secureResponseData =
+        SecureResponseData.fromJson(jsonDecode(result));
     return secureResponseData;
   }
 
-  static Future<SecureResponseData> signText({required String plainText, required String phoneNumber}) async {
-    final String result = await _channel.invokeMethod('signText', <String, dynamic>{
+  static Future<SecureResponseData> signText(
+      {required String plainText, required String phoneNumber}) async {
+    final String result =
+        await _channel.invokeMethod('signText', <String, dynamic>{
       'plainText': plainText,
       'phoneNumber': '$prefix-$phoneNumber-$suffix',
     });
-    final SecureResponseData secureResponseData = SecureResponseData.fromJson(jsonDecode(result));
+    final SecureResponseData secureResponseData =
+        SecureResponseData.fromJson(jsonDecode(result));
     return secureResponseData;
   }
 
-  static Future<SecureResponseData> signBytes({required Uint8List bytesData, required String phoneNumber}) async {
-    final String result = await _channel.invokeMethod('signBytes', <String, dynamic>{
+  static Future<SecureResponseData> signBytes(
+      {required Uint8List bytesData, required String phoneNumber}) async {
+    final String result =
+        await _channel.invokeMethod('signBytes', <String, dynamic>{
       'bytesData': bytesData,
       'phoneNumber': '$prefix-$phoneNumber-$suffix',
     });
-    final SecureResponseData secureResponseData = SecureResponseData.fromJson(jsonDecode(result));
+    final SecureResponseData secureResponseData =
+        SecureResponseData.fromJson(jsonDecode(result));
     return secureResponseData;
   }
 
-  static Future<SecureResponseData> getPublicKey({required String phoneNumber}) async {
-    final String result = await _channel.invokeMethod('getPublicKey', <String, dynamic>{
+  static Future<SecureResponseData> getPublicKey(
+      {required String phoneNumber}) async {
+    final String result =
+        await _channel.invokeMethod('getPublicKey', <String, dynamic>{
       'phoneNumber': '$prefix-$phoneNumber-$suffix',
     });
-    final SecureResponseData secureResponseData = SecureResponseData.fromJson(jsonDecode(result));
+    final SecureResponseData secureResponseData =
+        SecureResponseData.fromJson(jsonDecode(result));
     return secureResponseData;
   }
 
-  static Future<SecureResponseData> removeKey({required String phoneNumber}) async {
-    final String result = await _channel.invokeMethod('removeKey', <String, dynamic>{
+  static Future<SecureResponseData> removeKey(
+      {required String phoneNumber}) async {
+    final String result =
+        await _channel.invokeMethod('removeKey', <String, dynamic>{
       'phoneNumber': '$prefix-$phoneNumber-$suffix',
     });
-    final SecureResponseData secureResponseData = SecureResponseData.fromJson(jsonDecode(result));
+    final SecureResponseData secureResponseData =
+        SecureResponseData.fromJson(jsonDecode(result));
     return secureResponseData;
   }
 
   static Future<SecureResponseData> verifyData(
-      {required String plainText, required String signedText, required String phoneNumber}) async {
-    final String result = await _channel.invokeMethod('verifyData', <String, dynamic>{
+      {required String plainText,
+      required String signedText,
+      required String phoneNumber}) async {
+    final String result =
+        await _channel.invokeMethod('verifyData', <String, dynamic>{
       'plainText': plainText,
       'signedText': signedText,
       'phoneNumber': '$prefix-$phoneNumber-$suffix',
     });
-    final SecureResponseData secureResponseData = SecureResponseData.fromJson(jsonDecode(result));
+    final SecureResponseData secureResponseData =
+        SecureResponseData.fromJson(jsonDecode(result));
     return secureResponseData;
   }
 
@@ -87,12 +108,14 @@ class SecurePlugin {
     required String signedText,
     required String phoneNumber,
   }) async {
-    final String result = await _channel.invokeMethod('verifyBytes', <String, dynamic>{
+    final String result =
+        await _channel.invokeMethod('verifyBytes', <String, dynamic>{
       'bytesData': bytesData,
       'signedText': signedText,
       'phoneNumber': '$prefix-$phoneNumber-$suffix',
     });
-    final SecureResponseData secureResponseData = SecureResponseData.fromJson(jsonDecode(result));
+    final SecureResponseData secureResponseData =
+        SecureResponseData.fromJson(jsonDecode(result));
     return secureResponseData;
   }
 
@@ -111,7 +134,8 @@ class SecurePlugin {
     String? reason,
     String? signatureNameFamily,
   }) async {
-    final String result = await _channel.invokeMethod('newSignPdf', <String, dynamic>{
+    final String result =
+        await _channel.invokeMethod('newSignPdf', <String, dynamic>{
       'phoneNumber': '$prefix-$phoneNumber-$suffix',
       'pdfBase64': pdfBase64,
       'signatureBase64': signatureBase64,
@@ -126,15 +150,19 @@ class SecurePlugin {
       'reason': reason,
       'signatureNameFamily': signatureNameFamily,
     });
-    final SecureResponseData secureResponseData = SecureResponseData.fromJson(jsonDecode(result));
+    final SecureResponseData secureResponseData =
+        SecureResponseData.fromJson(jsonDecode(result));
     return secureResponseData;
   }
 
-  static Future<SecureResponseData> getPrivateKey({required String phoneNumber}) async {
-    final String result = await _channel.invokeMethod('getPrivateKey', <String, dynamic>{
+  static Future<SecureResponseData> getPrivateKey(
+      {required String phoneNumber}) async {
+    final String result =
+        await _channel.invokeMethod('getPrivateKey', <String, dynamic>{
       'phoneNumber': '$prefix-$phoneNumber-$suffix',
     });
-    final SecureResponseData secureResponseData = SecureResponseData.fromJson(jsonDecode(result));
+    final SecureResponseData secureResponseData =
+        SecureResponseData.fromJson(jsonDecode(result));
     return secureResponseData;
   }
 }

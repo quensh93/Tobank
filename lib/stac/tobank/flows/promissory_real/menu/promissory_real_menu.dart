@@ -1,4 +1,5 @@
 import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 
 /// Promissory Real Flow - Debug Menu
 ///
@@ -8,13 +9,16 @@ StacWidget promissoryRealDebugMenu() {
   return StacScaffold(
     appBar: StacAppBar(
       title: StacText(
-        data: 'Promissory Debug Menu',
+        // منوی دیباگ سفته
+        data: '{{appStrings.promissory.debug.menuTitle}}',
         textDirection: StacTextDirection.rtl,
         style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
       ),
       centerTitle: true,
       leading: StacIconButton(
-        onPressed: StacNavigateAction(navigationStyle: NavigationStyle.pop),
+        onPressed: const StacNavigateAction(
+          navigationStyle: NavigationStyle.pop,
+        ),
         icon: StacImage(
           src: 'assets/icons/ic_right_arrow.svg',
           imageType: StacImageType.asset,
@@ -31,7 +35,8 @@ StacWidget promissoryRealDebugMenu() {
         mainAxisAlignment: StacMainAxisAlignment.center,
         children: [
           StacText(
-            data: 'Flows Entry Points',
+            // مسیرهای ورود جریان
+            data: '{{appStrings.promissory.debug.flowEntryPoints}}',
             textAlign: StacTextAlign.center,
             style: StacTextStyle(
               fontSize: 18,
@@ -40,15 +45,12 @@ StacWidget promissoryRealDebugMenu() {
             ),
           ),
           StacSizedBox(height: 32),
-
-          // 1. Load from Local JSON
           StacFilledButton(
-            onPressed: StacRawJsonAction({
-              'actionType': 'navigate',
-              'assetPath':
+            onPressed: const StacNavigateAction(
+              assetPath:
                   'lib/stac/tobank/flows/promissory_real/json/promissory_intro.json',
-              'navigationStyle': 'push',
-            }),
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -57,7 +59,8 @@ StacWidget promissoryRealDebugMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'Load from local json',
+              // بارگذاری از JSON محلی
+              data: '{{appStrings.promissory.debug.loadLocalJson}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,
@@ -65,14 +68,11 @@ StacWidget promissoryRealDebugMenu() {
             ),
           ),
           StacSizedBox(height: 16),
-
-          // 2. Load from DART (Now Main Intro)
           StacFilledButton(
-            onPressed: StacRawJsonAction({
-              'actionType': 'navigate',
-              'widgetType': 'promissory_real_intro',
-              'navigationStyle': 'push',
-            }),
+            onPressed: const StacNavigateAction(
+              routeName: 'promissory_real_intro',
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -81,7 +81,8 @@ StacWidget promissoryRealDebugMenu() {
                   '{{appColors.current.button.primary.foregroundColor}}',
             ),
             child: StacText(
-              data: 'Load from DART',
+              // بارگذاری از DART
+              data: '{{appStrings.promissory.debug.loadDart}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,
@@ -89,19 +90,20 @@ StacWidget promissoryRealDebugMenu() {
             ),
           ),
           StacSizedBox(height: 16),
-          // 4. Static Login
           StacOutlinedButton(
-            onPressed: StacRawJsonAction({
-              'actionType': 'navigate',
-              'widgetType': 'promissory_real_loader',
-              'navigationStyle': 'pushReplacement',
-            }),
+            onPressed: const StacNavigateAction(
+              routeName: 'promissory_real_loader',
+              navigationStyle: NavigationStyle.pushReplacement,
+            ),
             style: StacButtonStyle(
-              backgroundColor: '#FF5722',
-              foregroundColor: '#FFFFFF',
+              backgroundColor:
+                  '{{appColors.current.button.primary.backgroundColor}}',
+              foregroundColor:
+                  '{{appColors.current.button.primary.foregroundColor}}',
               padding: StacEdgeInsets.symmetric(horizontal: 32, vertical: 16),
             ),
             child: StacText(
+              // بارگذاری از API جریان
               data: '{{appStrings.promissory.loadFromJsonApi}}',
               style: StacTextStyle(
                 fontSize: 16,
@@ -113,7 +115,8 @@ StacWidget promissoryRealDebugMenu() {
           StacDivider(),
           StacSizedBox(height: 16),
           StacText(
-            data: 'Login Methods',
+            // روش‌های ورود
+            data: '{{appStrings.promissory.debug.loginMethods}}',
             textAlign: StacTextAlign.center,
             style: StacTextStyle(
               color: '{{appColors.current.text.subtitle}}',
@@ -121,16 +124,14 @@ StacWidget promissoryRealDebugMenu() {
             ),
           ),
           StacSizedBox(height: 16),
-
           StacFilledButton(
-            onPressed: StacRawJsonAction({
-              'actionType': 'promissory_real_login',
-            }),
+            onPressed: const StacPromissoryRealLoginAction(),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
             ),
             child: StacText(
-              data: 'Static Login (Nooshin)',
+              // ورود استاتیک
+              data: '{{appStrings.promissory.debug.staticLogin}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,
@@ -138,19 +139,17 @@ StacWidget promissoryRealDebugMenu() {
             ),
           ),
           StacSizedBox(height: 16),
-
-          // 5. Dynamic Login
           StacOutlinedButton(
-            onPressed: StacRawJsonAction({
-              'actionType': 'navigate',
-              'widgetType': 'promissory_real_login_form',
-              'navigationStyle': 'push',
-            }),
+            onPressed: const StacNavigateAction(
+              routeName: 'promissory_real_login_form_dart',
+              navigationStyle: NavigationStyle.push,
+            ),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
             ),
             child: StacText(
-              data: 'Dynamic Login',
+              // ورود داینامیک
+              data: '{{appStrings.promissory.debug.dynamicLogin}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,
@@ -163,22 +162,12 @@ StacWidget promissoryRealDebugMenu() {
   );
 }
 
-class StacAliasTextStyle implements StacTextStyle {
-  final String alias;
-  const StacAliasTextStyle(this.alias);
-  @override
-  StacTextStyleType get type => StacTextStyleType.custom;
-  @override
-  Map<String, dynamic> toJson() => {'type': 'alias', 'value': alias};
-}
-
-class StacRawJsonAction extends StacAction {
-  final Map<String, dynamic> json;
-  StacRawJsonAction(this.json);
+class StacPromissoryRealLoginAction extends StacAction {
+  const StacPromissoryRealLoginAction();
 
   @override
-  String get actionType => json['actionType'] as String;
+  String get actionType => 'promissory_real_login';
 
   @override
-  Map<String, dynamic> toJson() => json;
+  Map<String, dynamic> toJson() => {'actionType': 'promissory_real_login'};
 }

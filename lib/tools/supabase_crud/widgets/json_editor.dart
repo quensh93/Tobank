@@ -70,8 +70,8 @@ class JsonEditor extends HookWidget {
                 Text(
                   '${lineCount.value} lines',
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
-                      ),
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
                 ),
                 const SizedBox(width: 16),
                 // Format button
@@ -132,9 +132,9 @@ class JsonEditor extends HookWidget {
                       (index) => Text(
                         '${index + 1}',
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: Theme.of(context).colorScheme.onSurfaceVariant,
-                              fontFamily: 'monospace',
-                            ),
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
+                          fontFamily: 'monospace',
+                        ),
                       ),
                     ),
                   ),

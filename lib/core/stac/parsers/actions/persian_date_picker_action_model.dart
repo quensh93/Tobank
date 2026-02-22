@@ -1,7 +1,7 @@
 import 'package:stac_core/stac_core.dart';
 
 /// StacAction wrapper for Persian Date Picker
-/// 
+///
 /// This allows the action to be used in STAC Dart code where StacAction is required.
 /// This file is separate from the parser to allow STAC build to compile without Flutter dependencies.
 class StacPersianDatePickerAction extends StacAction {
@@ -34,8 +34,3 @@ class StacPersianDatePickerAction extends StacAction {
     };
   }
 }
-
-
-
-
-

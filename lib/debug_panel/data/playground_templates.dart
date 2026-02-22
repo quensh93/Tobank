@@ -395,16 +395,13 @@ class PlaygroundTemplates {
 
   /// Get templates by category
   static List<PlaygroundTemplate> getByCategory(String category) {
-    return templates.values
-        .where((t) => t.category == category)
-        .toList()
+    return templates.values.where((t) => t.category == category).toList()
       ..sort((a, b) => a.name.compareTo(b.name));
   }
 
   /// Get all templates as a list
   static List<PlaygroundTemplate> get all {
-    return templates.values.toList()
-      ..sort((a, b) => a.name.compareTo(b.name));
+    return templates.values.toList()..sort((a, b) => a.name.compareTo(b.name));
   }
 
   /// Get template by key

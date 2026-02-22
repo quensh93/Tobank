@@ -14,7 +14,8 @@ class RegistryReactiveWidgetModel {
   }
 }
 
-class RegistryReactiveWidgetParser extends StacParser<RegistryReactiveWidgetModel> {
+class RegistryReactiveWidgetParser
+    extends StacParser<RegistryReactiveWidgetModel> {
   const RegistryReactiveWidgetParser();
 
   @override

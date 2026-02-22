@@ -100,4 +100,3 @@ Color adjustColor({
       ? adjustColorDarken(color, value)
       : adjustColorBrightness(color, value);
 }
-

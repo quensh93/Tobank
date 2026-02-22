@@ -1,8 +1,10 @@
 import 'dart:convert';
 
-SecureResponseData secureResponseDataFromJson(String str) => SecureResponseData.fromJson(json.decode(str));
+SecureResponseData secureResponseDataFromJson(String str) =>
+    SecureResponseData.fromJson(json.decode(str));
 
-String secureResponseDataToJson(SecureResponseData data) => json.encode(data.toJson());
+String secureResponseDataToJson(SecureResponseData data) =>
+    json.encode(data.toJson());
 
 class SecureResponseData {
   SecureResponseData({
@@ -17,7 +19,8 @@ class SecureResponseData {
   String? message;
   bool? isSuccess;
 
-  factory SecureResponseData.fromJson(Map<String, dynamic> json) => SecureResponseData(
+  factory SecureResponseData.fromJson(Map<String, dynamic> json) =>
+      SecureResponseData(
         statusCode: json['statusCode'],
         data: json['data'],
         message: json['message'],

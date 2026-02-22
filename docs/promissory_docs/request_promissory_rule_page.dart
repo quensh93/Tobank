@@ -10,7 +10,7 @@ class RequestPromissoryRulePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-//locale
+    //locale
     final locale = AppLocalizations.of(context)!;
     return GetBuilder<RequestPromissoryController>(
       builder: (controller) {
@@ -19,9 +19,7 @@ class RequestPromissoryRulePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const SizedBox(
-                height: 16.0,
-              ),
+              const SizedBox(height: 16.0),
               Expanded(
                 child: Card(
                   elevation: Get.isDarkMode ? 1 : 0,
@@ -29,22 +27,25 @@ class RequestPromissoryRulePage extends StatelessWidget {
                   shadowColor: Colors.transparent,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0),
-                    side: BorderSide(color: context.theme.dividerColor, width: 0.5),
+                    side: BorderSide(
+                      color: context.theme.dividerColor,
+                      width: 0.5,
+                    ),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
-                       Padding(
+                      Padding(
                         padding: const EdgeInsets.all(16.0),
-                        child: Text(locale.online_promissory_issuance_terms,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                            )),
+                        child: Text(
+                          locale.online_promissory_issuance_terms,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
                       ),
-                      const Divider(
-                        thickness: 1,
-                      ),
+                      const Divider(thickness: 1),
                       Expanded(
                         child: Scrollbar(
                           controller: controller.scrollbarController,
@@ -54,10 +55,18 @@ class RequestPromissoryRulePage extends StatelessWidget {
                             child: Column(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 16.0,
+                                  ),
                                   child: Text(
                                     controller.otherItemData != null
-                                        ? AppUtil.getContents(controller.otherItemData!.data!.data!.content!)
+                                        ? AppUtil.getContents(
+                                            controller
+                                                .otherItemData!
+                                                .data!
+                                                .data!
+                                                .content!,
+                                          )
                                         : '',
                                     style: const TextStyle(
                                       fontWeight: FontWeight.w500,
@@ -75,9 +84,7 @@ class RequestPromissoryRulePage extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 24,
-              ),
+              const SizedBox(height: 24),
               InkWell(
                 borderRadius: BorderRadius.circular(8.0),
                 onTap: () {
@@ -93,18 +100,19 @@ class RequestPromissoryRulePage extends StatelessWidget {
                     child: Row(
                       children: [
                         Checkbox(
-                            activeColor: context.theme.colorScheme.secondary,
-                            fillColor: WidgetStateProperty.resolveWith((states) {
-                              if (!states.contains(WidgetState.selected)) {
-                                return Colors.transparent;
-                              }
-                              return null;
-                            }),
-                            value: controller.isRuleChecked,
-                            onChanged: (isCheck) {
-                              controller.setChecked(isCheck!);
-                            }),
-                         Flexible(
+                          activeColor: context.theme.colorScheme.secondary,
+                          fillColor: WidgetStateProperty.resolveWith((states) {
+                            if (!states.contains(WidgetState.selected)) {
+                              return Colors.transparent;
+                            }
+                            return null;
+                          }),
+                          value: controller.isRuleChecked,
+                          onChanged: (isCheck) {
+                            controller.setChecked(isCheck!);
+                          },
+                        ),
+                        Flexible(
                           child: Text(
                             locale.accept_online_promissory_terms,
                             style: const TextStyle(
@@ -119,9 +127,7 @@ class RequestPromissoryRulePage extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 24,
-              ),
+              const SizedBox(height: 24),
               ContinueButtonWidget(
                 callback: () {
                   controller.validateRules();
@@ -130,9 +136,7 @@ class RequestPromissoryRulePage extends StatelessWidget {
                 buttonTitle: locale.continue_label,
                 isEnabled: controller.isRuleChecked,
               ),
-              const SizedBox(
-                height: 16.0,
-              ),
+              const SizedBox(height: 16.0),
             ],
           ),
         );
