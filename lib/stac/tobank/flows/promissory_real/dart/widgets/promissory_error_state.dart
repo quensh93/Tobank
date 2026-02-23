@@ -37,10 +37,28 @@ Map<String, dynamic> buildPromissoryErrorState(String errorStateKey) {
             {'type': 'sizedBox', 'height': 24},
             {
               'type': 'container',
-              'width': 200,
+              'width': double.infinity,
+              'padding': {'top': 0, 'right': 16, 'bottom': 16, 'left': 16},
               'child': {
-                'type': 'evaluateExpressionAction',
-                'expression': 'tryAgain()',
+                'type': 'elevatedButton',
+                'onPressed': {'actionType': 'pop'},
+                'style': {
+                  'backgroundColor': '{{appColors.current.primary.color}}',
+                  'foregroundColor': '{{appColors.current.primary.onPrimary}}',
+                  'shape': {
+                    'type': 'roundedRectangle',
+                    'borderRadius': {'type': 'all', 'radius': 12},
+                  },
+                },
+                'child': {
+                  'type': 'text',
+                  'data': 'بازگشت',
+                  'style': {
+                    'type': 'custom',
+                    'fontSize': 16,
+                    'fontWeight': 'bold',
+                  },
+                },
               },
             },
           ],

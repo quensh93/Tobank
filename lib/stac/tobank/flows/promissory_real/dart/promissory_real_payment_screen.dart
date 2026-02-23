@@ -242,6 +242,7 @@ StacWidget _buildWalletPaymentOption() {
     onTap: StacSequenceAction(
       actions: [
         StacCustomSetValueAction(key: 'selectedPaymentMethod', value: 'wallet'),
+        StacCustomSetValueAction(key: 'paymentMethod', value: 'کیف پول'),
         StacCustomSetValueAction(key: 'isPayEnabled', value: true),
         StacCustomSetValueAction(key: 'isDepositSelected', value: false),
         StacCustomSetValueAction(key: 'isWalletSelected', value: true),
@@ -317,6 +318,7 @@ StacWidget _buildDepositPaymentOption() {
           key: 'selectedPaymentMethod',
           value: 'deposit',
         ),
+        StacCustomSetValueAction(key: 'paymentMethod', value: 'حساب'),
         StacCustomSetValueAction(key: 'isPayEnabled', value: true),
         StacCustomSetValueAction(key: 'isWalletSelected', value: false),
         StacCustomSetValueAction(key: 'isDepositSelected', value: true),
@@ -480,9 +482,80 @@ StacWidget _buildPaymentButtons() {
                     'onPressed': StacSequenceAction(
                       actions: [
                         const StacCloseDialogAction(),
-                        const StacNavigateAction(
-                          routeName: 'promissory_real_sign',
-                          navigationStyle: NavigationStyle.pushReplacement,
+                        StacNetworkRequestAction(
+                          url:
+                              'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/draft',
+                          method: 'post',
+                          headers: {
+                            'accept': 'application/json',
+                            'authorization': '{{auth.accessToken}}',
+                            'content-type': 'application/json',
+                          },
+                          data: {
+                            'issuerType': 'I',
+                            'sourceAccount': null,
+                            'issuerBirthDate':
+                                "{{replace(userData.birthDate, '/', '')}}",
+                            'issuerNN': '{{userData.nationalCode}}',
+                            'issuerSanaCheck': true,
+                            'issuerCellphone':
+                                '{{removeLeadingZero(userData.mobile)}}',
+                            'issuerFullName': '{{userData.fullName}}',
+                            'issuerAccountNumber': null,
+                            'issuerAddress': '{{userData.address}}',
+                            'issuerPostalCode': '{{userData.postalCode}}',
+                            'recipientType': '{{payload.recipientType}}',
+                            'recipientBirthDate':
+                                '{{payload.recipientBirthDate}}',
+                            'recipientNationalId':
+                                '{{payload.recipientNationalId}}',
+                            'recipientCellphone':
+                                '{{payload.recipientCellphone}}',
+                            'recipientFullName':
+                                '{{receiverIdentity.fullName}}',
+                            'paymentPlace': '{{form.paymentPlace}}',
+                            'amount': '{{toInt(form.promissory_amount)}}',
+                            'dueDate':
+                                "{{replace(form.promissory_due_date, '/', '')}}",
+                            'description': '{{form.description}}',
+                            'transferable': '{{form.transferable}}',
+                          },
+                          results: [
+                            {
+                              'statusCode': 200,
+                              'action': StacSequenceAction(
+                                actions: [
+                                  StacCustomSetValueAction(
+                                    values: const [
+                                      {
+                                        'key': 'form.unsigned_pdf_id',
+                                        'value':
+                                            '{{data_payload.unSignedPdfId}}',
+                                      },
+                                      {
+                                        'key': 'form.promissory_id',
+                                        'value': '{{data_payload.id}}',
+                                      },
+                                      {
+                                        'key': 'rawTransactionTime',
+                                        'value': '{{data.meta.time}}',
+                                      },
+                                    ],
+                                  ).toJson(),
+                                  {
+                                    'actionType': 'formatDate',
+                                    'sourceKey': 'rawTransactionTime',
+                                    'destinationKey': 'transactionTime',
+                                  },
+                                  const StacNavigateAction(
+                                    routeName: 'promissory_real_sign',
+                                    navigationStyle:
+                                        NavigationStyle.pushReplacement,
+                                  ).toJson(),
+                                ],
+                              ).toJson(),
+                            },
+                          ],
                         ),
                       ],
                     ).toJson(),

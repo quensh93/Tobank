@@ -28,10 +28,9 @@ StacWidget promissoryRealSuccess() {
                   // صدور سفته
                   '{{appStrings.promissory.issuanceTitle}}', // Use localized string
             },
-            // We assume 'paymentMethod' is already set or we map 'selectedPaymentMethod'
-            {'key': 'paymentMethod', 'value': '{{selectedPaymentMethod}}'},
+            {'key': 'paymentMethod', 'value': '{{paymentMethod ?? "-"}}'},
           ],
-        ),
+        ).toJson(),
       ],
     ),
     child: StacScaffold(

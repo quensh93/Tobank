@@ -28,6 +28,7 @@ import '../../../../stac/tobank/flows/promissory_real/service/promissory_login_a
 import '../parsers/actions/save_file_action_parser.dart';
 import '../parsers/actions/share_file_action_parser.dart';
 import '../parsers/actions/format_number_action_parser.dart';
+import '../parsers/actions/format_date_action_parser.dart';
 
 import '../parsers/widgets/reactive_list_view_parser.dart';
 
@@ -416,6 +417,11 @@ void _registerExampleParsers() {
   // Register formatNumber action parser for client side text formatting
   CustomComponentRegistry.instance.registerAction(
     const FormatNumberActionParser(),
+  );
+
+  // Register format date action parser
+  CustomComponentRegistry.instance.registerAction(
+    const FormatDateActionParser(),
   );
 }
 

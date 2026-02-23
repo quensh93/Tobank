@@ -77,7 +77,11 @@ Input for Amount, Due Date, and Description.
 *   **UI File:** [`request_promissory_data_page.dart`](request_promissory_data_page.dart)
 *   **Path:** `request_promissory_data_page.dart`
 
+**Individual Receiver:** <br/>
 <img src="Screenshot_20260104_135743_ .jpg" alt="Data Page" width="250"/> <img src="Screenshot_20260104_140021_ .jpg" alt="Data Page 2" width="250"/>
+
+**Legal Entity Receiver:** <br/>
+<img src="Screenshot_hoghooghi.png" alt="Data Page - Legal Entity" width="250"/>
 
 ---
 

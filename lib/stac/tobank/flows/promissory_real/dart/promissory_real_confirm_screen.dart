@@ -1,5 +1,6 @@
 ﻿import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_app_bar.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 
 /// Promissory Real Flow - Confirmation Page
 ///
@@ -290,13 +291,16 @@ StacWidget _buildIssuerSection() {
                   color: '{{appColors.current.text.subtitle}}',
                 ),
               ),
-              StacText(
-                data: '{{userData.fullName}}',
-                textDirection: StacTextDirection.ltr,
-                style: StacCustomTextStyle(
-                  fontSize: 14,
-                  fontWeight: StacFontWeight.w600,
-                  color: '{{appColors.current.text.title}}',
+              StacExpanded(
+                child: StacText(
+                  data: '{{userData.fullName}}',
+                  textDirection: StacTextDirection.ltr,
+                  textAlign: StacTextAlign.left,
+                  style: StacCustomTextStyle(
+                    fontSize: 14,
+                    fontWeight: StacFontWeight.w600,
+                    color: '{{appColors.current.text.title}}',
+                  ),
                 ),
               ),
             ],
@@ -365,32 +369,127 @@ StacWidget _buildReceiverSection() {
           ),
         ),
         StacSizedBox(height: 8),
-        StacPadding(
-          padding: StacEdgeInsets.only(bottom: 8),
-          child: StacRow(
-            textDirection: StacTextDirection.rtl,
-            mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-            children: [
-              StacText(
-                // کد ملی
-                data: '{{appStrings.promissory.nationalCode}}',
-                textDirection: StacTextDirection.rtl,
-                style: StacCustomTextStyle(
-                  fontSize: 14,
-                  color: '{{appColors.current.text.subtitle}}',
+        // National Code/ID Row
+        StacCustomVisibility(
+          visible: '[[recipientType]]',
+          child: StacPadding(
+            padding: StacEdgeInsets.only(bottom: 8),
+            child: StacRow(
+              textDirection: StacTextDirection.rtl,
+              mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+              children: [
+                StacText(
+                  // کد ملی
+                  data: '{{appStrings.promissory.nationalCode}}',
+                  textDirection: StacTextDirection.rtl,
+                  style: StacCustomTextStyle(
+                    fontSize: 14,
+                    color: '{{appColors.current.text.subtitle}}',
+                  ),
                 ),
-              ),
-              StacText(
-                data: '{{form.receiver_national_code}}',
-                textDirection: StacTextDirection.ltr,
-                style: StacCustomTextStyle(
-                  fontSize: 14,
-                  fontWeight: StacFontWeight.w600,
-                  color: '{{appColors.current.text.title}}',
+                StacText(
+                  data: '{{form.receiver_national_code}}',
+                  textDirection: StacTextDirection.ltr,
+                  style: StacCustomTextStyle(
+                    fontSize: 14,
+                    fontWeight: StacFontWeight.w600,
+                    color: '{{appColors.current.text.title}}',
+                  ),
                 ),
-              ),
-            ],
-          ),
+              ],
+            ),
+          ).toJson(),
+        ),
+        StacCustomVisibility(
+          visible: '[[!recipientType]]',
+          child: StacPadding(
+            padding: StacEdgeInsets.only(bottom: 8),
+            child: StacRow(
+              textDirection: StacTextDirection.rtl,
+              mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+              children: [
+                StacText(
+                  // شناسه ملی
+                  data: '{{appStrings.promissory.nationalId}}',
+                  textDirection: StacTextDirection.rtl,
+                  style: StacCustomTextStyle(
+                    fontSize: 14,
+                    color: '{{appColors.current.text.subtitle}}',
+                  ),
+                ),
+                StacText(
+                  data: '{{receiverIdentity.nationalId}}',
+                  textDirection: StacTextDirection.ltr,
+                  style: StacCustomTextStyle(
+                    fontSize: 14,
+                    fontWeight: StacFontWeight.w600,
+                    color: '{{appColors.current.text.title}}',
+                  ),
+                ),
+              ],
+            ),
+          ).toJson(),
+        ),
+        // Mobile/Contact Row
+        StacCustomVisibility(
+          visible: '[[recipientType]]',
+          child: StacPadding(
+            padding: StacEdgeInsets.only(bottom: 8),
+            child: StacRow(
+              textDirection: StacTextDirection.rtl,
+              mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+              children: [
+                StacText(
+                  // شماره موبایل
+                  data: '{{appStrings.promissory.mobileNumber}}',
+                  textDirection: StacTextDirection.rtl,
+                  style: StacCustomTextStyle(
+                    fontSize: 14,
+                    color: '{{appColors.current.text.subtitle}}',
+                  ),
+                ),
+                StacText(
+                  data: '{{form.receiver_mobile}}',
+                  textDirection: StacTextDirection.ltr,
+                  style: StacCustomTextStyle(
+                    fontSize: 14,
+                    fontWeight: StacFontWeight.w600,
+                    color: '{{appColors.current.text.title}}',
+                  ),
+                ),
+              ],
+            ),
+          ).toJson(),
+        ),
+        StacCustomVisibility(
+          visible: '[[!recipientType]]',
+          child: StacPadding(
+            padding: StacEdgeInsets.only(bottom: 8),
+            child: StacRow(
+              textDirection: StacTextDirection.rtl,
+              mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+              children: [
+                StacText(
+                  // شماره تماس
+                  data: '{{appStrings.promissory.contactNumber}}',
+                  textDirection: StacTextDirection.rtl,
+                  style: StacCustomTextStyle(
+                    fontSize: 14,
+                    color: '{{appColors.current.text.subtitle}}',
+                  ),
+                ),
+                StacText(
+                  data: '{{receiverIdentity.phone}}',
+                  textDirection: StacTextDirection.ltr,
+                  style: StacCustomTextStyle(
+                    fontSize: 14,
+                    fontWeight: StacFontWeight.w600,
+                    color: '{{appColors.current.text.title}}',
+                  ),
+                ),
+              ],
+            ),
+          ).toJson(),
         ),
         StacPadding(
           padding: StacEdgeInsets.only(bottom: 8),
@@ -398,49 +497,40 @@ StacWidget _buildReceiverSection() {
             textDirection: StacTextDirection.rtl,
             mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
             children: [
-              StacText(
-                // شماره موبایل
-                data: '{{appStrings.promissory.mobileNumber}}',
-                textDirection: StacTextDirection.rtl,
-                style: StacCustomTextStyle(
-                  fontSize: 14,
-                  color: '{{appColors.current.text.subtitle}}',
-                ),
+              StacCustomVisibility(
+                visible: '[[recipientType]]',
+                child: StacText(
+                  // نام و نام خانوادگی
+                  data: '{{appStrings.promissory.fullName}}',
+                  textDirection: StacTextDirection.rtl,
+                  style: StacCustomTextStyle(
+                    fontSize: 14,
+                    color: '{{appColors.current.text.subtitle}}',
+                  ),
+                ).toJson(),
               ),
-              StacText(
-                data: '{{form.receiver_mobile}}',
-                textDirection: StacTextDirection.ltr,
-                style: StacCustomTextStyle(
-                  fontSize: 14,
-                  fontWeight: StacFontWeight.w600,
-                  color: '{{appColors.current.text.title}}',
-                ),
+              StacCustomVisibility(
+                visible: '[[!recipientType]]',
+                child: StacText(
+                  // نام
+                  data: 'نام',
+                  textDirection: StacTextDirection.rtl,
+                  style: StacCustomTextStyle(
+                    fontSize: 14,
+                    color: '{{appColors.current.text.subtitle}}',
+                  ),
+                ).toJson(),
               ),
-            ],
-          ),
-        ),
-        StacPadding(
-          padding: StacEdgeInsets.only(bottom: 8),
-          child: StacRow(
-            textDirection: StacTextDirection.rtl,
-            mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-            children: [
-              StacText(
-                // نام و نام خانوادگی
-                data: '{{appStrings.promissory.fullName}}',
-                textDirection: StacTextDirection.rtl,
-                style: StacCustomTextStyle(
-                  fontSize: 14,
-                  color: '{{appColors.current.text.subtitle}}',
-                ),
-              ),
-              StacText(
-                data: '{{receiverIdentity.fullName}}',
-                textDirection: StacTextDirection.ltr,
-                style: StacCustomTextStyle(
-                  fontSize: 14,
-                  fontWeight: StacFontWeight.w600,
-                  color: '{{appColors.current.text.title}}',
+              StacExpanded(
+                child: StacText(
+                  data: '{{receiverIdentity.fullName}}',
+                  textDirection: StacTextDirection.ltr,
+                  textAlign: StacTextAlign.left,
+                  style: StacCustomTextStyle(
+                    fontSize: 14,
+                    fontWeight: StacFontWeight.w600,
+                    color: '{{appColors.current.text.title}}',
+                  ),
                 ),
               ),
             ],

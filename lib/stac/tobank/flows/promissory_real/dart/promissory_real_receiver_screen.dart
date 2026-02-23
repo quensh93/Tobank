@@ -17,6 +17,7 @@ StacWidget promissoryRealReceiver() {
     onInit: StacSequenceAction(
       actions: [
         // Receiver type: true = Individual, false = Legal
+        StacCustomSetValueAction(key: 'recipientType', value: true),
         StacCustomSetValueAction(key: 'isIndividualSelected', value: true),
         StacCustomSetValueAction(key: 'isLegalSelected', value: false),
         StacCustomSetValueAction(key: 'isReceiverFormValid', value: false),
@@ -78,6 +79,10 @@ StacWidget promissoryRealReceiver() {
                             onTap: StacSequenceAction(
                               actions: [
                                 StacCustomSetValueAction(
+                                  key: 'recipientType',
+                                  value: true,
+                                ),
+                                StacCustomSetValueAction(
                                   key: 'isIndividualSelected',
                                   value: true,
                                 ),
@@ -102,10 +107,14 @@ StacWidget promissoryRealReceiver() {
                                 ),
                               ),
                               child: StacPadding(
-                                padding: StacEdgeInsets.symmetric(horizontal: 16 , vertical: 6),
+                                padding: StacEdgeInsets.symmetric(
+                                  horizontal: 16,
+                                  vertical: 6,
+                                ),
                                 child: StacRow(
                                   textDirection: StacTextDirection.rtl,
-                                  crossAxisAlignment: StacCrossAxisAlignment.center,
+                                  crossAxisAlignment:
+                                      StacCrossAxisAlignment.center,
                                   children: [
                                     // Radio indicator
                                     StacContainer(
@@ -113,7 +122,9 @@ StacWidget promissoryRealReceiver() {
                                       height: 20,
                                       decoration: StacBoxDecoration(
                                         color: 'transparent',
-                                        borderRadius: StacBorderRadius.all(9999),
+                                        borderRadius: StacBorderRadius.all(
+                                          9999,
+                                        ),
                                         border: StacBorder.all(
                                           color:
                                               '{{isIndividualSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}',
@@ -127,7 +138,9 @@ StacWidget promissoryRealReceiver() {
                                           decoration: StacBoxDecoration(
                                             color:
                                                 '{{isIndividualSelected ? appColors.current.secondary.color : "transparent"}}',
-                                            borderRadius: StacBorderRadius.all(9999),
+                                            borderRadius: StacBorderRadius.all(
+                                              9999,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -143,7 +156,8 @@ StacWidget promissoryRealReceiver() {
                                         style: StacCustomTextStyle(
                                           fontSize: 14,
                                           fontWeight: StacFontWeight.w600,
-                                          color: '{{appColors.current.text.title}}',
+                                          color:
+                                              '{{appColors.current.text.title}}',
                                         ),
                                       ),
                                     ),
@@ -159,6 +173,10 @@ StacWidget promissoryRealReceiver() {
                           child: StacGestureDetector(
                             onTap: StacSequenceAction(
                               actions: [
+                                StacCustomSetValueAction(
+                                  key: 'recipientType',
+                                  value: false,
+                                ),
                                 StacCustomSetValueAction(
                                   key: 'isLegalSelected',
                                   value: true,
@@ -184,10 +202,14 @@ StacWidget promissoryRealReceiver() {
                                 ),
                               ),
                               child: StacPadding(
-                                padding: StacEdgeInsets.symmetric(horizontal: 16 , vertical: 6),
+                                padding: StacEdgeInsets.symmetric(
+                                  horizontal: 16,
+                                  vertical: 6,
+                                ),
                                 child: StacRow(
                                   textDirection: StacTextDirection.rtl,
-                                  crossAxisAlignment: StacCrossAxisAlignment.center,
+                                  crossAxisAlignment:
+                                      StacCrossAxisAlignment.center,
                                   children: [
                                     // Radio indicator
                                     StacContainer(
@@ -195,7 +217,9 @@ StacWidget promissoryRealReceiver() {
                                       height: 20,
                                       decoration: StacBoxDecoration(
                                         color: 'transparent',
-                                        borderRadius: StacBorderRadius.all(9999),
+                                        borderRadius: StacBorderRadius.all(
+                                          9999,
+                                        ),
                                         border: StacBorder.all(
                                           color:
                                               '{{isLegalSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}',
@@ -209,7 +233,9 @@ StacWidget promissoryRealReceiver() {
                                           decoration: StacBoxDecoration(
                                             color:
                                                 '{{isLegalSelected ? appColors.current.secondary.color : "transparent"}}',
-                                            borderRadius: StacBorderRadius.all(9999),
+                                            borderRadius: StacBorderRadius.all(
+                                              9999,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -225,7 +251,8 @@ StacWidget promissoryRealReceiver() {
                                         style: StacCustomTextStyle(
                                           fontSize: 14,
                                           fontWeight: StacFontWeight.w600,
-                                          color: '{{appColors.current.text.title}}',
+                                          color:
+                                              '{{appColors.current.text.title}}',
                                         ),
                                       ),
                                     ),
@@ -264,7 +291,8 @@ StacWidget promissoryRealReceiver() {
                             ],
                             decoration: StacInputDecoration(
                               // کد ملی دریافت کننده را وارد نمایید
-                              hintText: '{{appStrings.promissory.enterNationalCode}}',
+                              hintText:
+                                  '{{appStrings.promissory.enterNationalCode}}',
                               filled: false,
                               contentPadding: StacEdgeInsets.symmetric(
                                 horizontal: 16,
@@ -277,13 +305,17 @@ StacWidget promissoryRealReceiver() {
                               {
                                 'rule': r'^\d{10}$',
                                 // کد ملی معتبر وارد نمایید
-                                'message': '{{appStrings.promissory.nationalCodeError}}',
+                                'message':
+                                    '{{appStrings.promissory.nationalCodeError}}',
                               },
                             ],
                             onChanged: StacValidateFieldsAction(
                               resultKey: 'isReceiverFormValid',
                               fields: const [
-                                {'id': 'receiver_national_code', 'rule': r'^\d{10}$'},
+                                {
+                                  'id': 'receiver_national_code',
+                                  'rule': r'^\d{10}$',
+                                },
                                 {'id': 'receiver_mobile', 'rule': r'^09\d{9}$'},
                                 {
                                   'id': 'receiver_birthdate',
@@ -314,7 +346,8 @@ StacWidget promissoryRealReceiver() {
                             ],
                             decoration: StacInputDecoration(
                               // شماره موبایل دریافت کننده را وارد نمایید
-                              hintText: '{{appStrings.promissory.enterMobileNumber}}',
+                              hintText:
+                                  '{{appStrings.promissory.enterMobileNumber}}',
                               filled: false,
                               contentPadding: StacEdgeInsets.symmetric(
                                 horizontal: 16,
@@ -327,13 +360,17 @@ StacWidget promissoryRealReceiver() {
                               {
                                 'rule': r'^09\d{9}$',
                                 // شماره همراه معتبر وارد نمایید
-                                'message': '{{appStrings.promissory.mobileNumberError}}',
+                                'message':
+                                    '{{appStrings.promissory.mobileNumberError}}',
                               },
                             ],
                             onChanged: StacValidateFieldsAction(
                               resultKey: 'isReceiverFormValid',
                               fields: const [
-                                {'id': 'receiver_national_code', 'rule': r'^\d{10}$'},
+                                {
+                                  'id': 'receiver_national_code',
+                                  'rule': r'^\d{10}$',
+                                },
                                 {'id': 'receiver_mobile', 'rule': r'^09\d{9}$'},
                                 {
                                   'id': 'receiver_birthdate',
@@ -366,7 +403,10 @@ StacWidget promissoryRealReceiver() {
                                     'id': 'receiver_national_code',
                                     'rule': r'^\d{10}$',
                                   },
-                                  {'id': 'receiver_mobile', 'rule': r'^09\d{9}$'},
+                                  {
+                                    'id': 'receiver_mobile',
+                                    'rule': r'^09\d{9}$',
+                                  },
                                   {
                                     'id': 'receiver_birthdate',
                                     'rule': r'^\d{4}/\d{2}/\d{2}$',
@@ -382,7 +422,8 @@ StacWidget promissoryRealReceiver() {
                               textAlign: StacTextAlign.right,
                               decoration: StacInputDecoration(
                                 // تاریخ تولد دریافت کنننده را انتخاب نمایید
-                                hintText: '{{appStrings.promissory.selectBirthdate}}',
+                                hintText:
+                                    '{{appStrings.promissory.selectBirthdate}}',
                                 hintStyle: StacCustomTextStyle(
                                   color: '{{appColors.current.text.subtitle}}',
                                   fontSize: 15,
@@ -401,7 +442,8 @@ StacWidget promissoryRealReceiver() {
                                     width: 24,
                                     height: 24,
                                     fit: StacBoxFit.scaleDown,
-                                    color: '{{appColors.current.text.subtitle}}',
+                                    color:
+                                        '{{appColors.current.text.subtitle}}',
                                   ),
                                 ),
                               ),
@@ -415,7 +457,8 @@ StacWidget promissoryRealReceiver() {
                                 StacFormFieldValidator(
                                   rule: r'^\d{4}/\d{2}/\d{2}$',
                                   // تاریخ تولد را انتخاب نمایید
-                                  message: '{{appStrings.promissory.selectBirthdateError}}',
+                                  message:
+                                      '{{appStrings.promissory.selectBirthdateError}}',
                                 ),
                               ],
                             ),
@@ -431,12 +474,14 @@ StacWidget promissoryRealReceiver() {
                         children: [
                           StacRow(
                             textDirection: StacTextDirection.rtl,
-                            mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+                            mainAxisAlignment:
+                                StacMainAxisAlignment.spaceBetween,
                             children: [
                               StacExpanded(
                                 child: StacText(
                                   // اطلاعات ذینفع (دریافت‌کننده)
-                                  data: '{{appStrings.promissory.receiverSubtitle}}',
+                                  data:
+                                      '{{appStrings.promissory.receiverSubtitle}}',
                                   textDirection: StacTextDirection.rtl,
                                   style: StacCustomTextStyle(
                                     fontSize: 14,
@@ -460,7 +505,8 @@ StacWidget promissoryRealReceiver() {
                                   StacCustomReactiveSwitch(
                                     id: 'legal_receiver_bank_switch',
                                     valueKey: 'isLegalReceiverTourismBank',
-                                    activeColor: '{{appColors.current.secondary.color}}',
+                                    activeColor:
+                                        '{{appColors.current.secondary.color}}',
                                     onChanged: StacSequenceAction(
                                       actions: [
                                         StacCustomSetValueAction(
@@ -468,32 +514,38 @@ StacWidget promissoryRealReceiver() {
                                             {
                                               'key': 'legal_national_id',
                                               'value': '10320435268',
-                                              'condition': 'isLegalReceiverTourismBank',
+                                              'condition':
+                                                  'isLegalReceiverTourismBank',
                                             },
                                             {
                                               'key': 'legal_contact_number',
                                               'value': '02123952395',
-                                              'condition': 'isLegalReceiverTourismBank',
+                                              'condition':
+                                                  'isLegalReceiverTourismBank',
                                             },
                                             {
                                               'key': 'legal_national_id',
                                               'value': '',
-                                              'condition': '!isLegalReceiverTourismBank',
+                                              'condition':
+                                                  '!isLegalReceiverTourismBank',
                                             },
                                             {
                                               'key': 'legal_contact_number',
                                               'value': '',
-                                              'condition': '!isLegalReceiverTourismBank',
+                                              'condition':
+                                                  '!isLegalReceiverTourismBank',
                                             },
                                             {
                                               'key': 'isReceiverFormValid',
                                               'value': true,
-                                              'condition': 'isLegalReceiverTourismBank',
+                                              'condition':
+                                                  'isLegalReceiverTourismBank',
                                             },
                                             {
                                               'key': 'isReceiverFormValid',
                                               'value': false,
-                                              'condition': '!isLegalReceiverTourismBank',
+                                              'condition':
+                                                  '!isLegalReceiverTourismBank',
                                             },
                                           ],
                                         ),
@@ -504,99 +556,221 @@ StacWidget promissoryRealReceiver() {
                               ),
                             ],
                           ),
-                          StacSizedBox(height: 16),
-                          StacText(
-                            // شناسه ملی
-                            data: '{{appStrings.promissory.nationalId}}',
-                            textDirection: StacTextDirection.rtl,
-                            style: StacCustomTextStyle(
-                              fontSize: 14,
-                              fontWeight: StacFontWeight.w600,
-                              color: '{{appColors.current.text.title}}',
-                            ),
-                          ),
-                          StacSizedBox(height: 8),
-                          StacCustomTextFormField(
-                            id: 'legal_national_id',
-                            textDirection: 'rtl',
-                            textAlign: 'right',
-                            maxLength: 11,
-                            inputFormatters: const [
-                              {'type': 'allow', 'rule': '[0-9]'},
-                            ],
-                            decoration: StacInputDecoration(
-                              // شناسه ملی شرکت را وارد نمایید
-                              hintText: '{{appStrings.promissory.enterNationalId}}',
-                              filled: false,
-                              contentPadding: StacEdgeInsets.symmetric(
-                                horizontal: 16,
-                                vertical: 16,
-                              ),
-                            ).toJson(),
-                            keyboardType: 'number',
-                            textInputAction: 'next',
-                            validatorRules: const [
-                              {
-                                'rule': r'^\d{10,}$',
-                                // کد ملی معتبر وارد نمایید
-                                'message': '{{appStrings.promissory.nationalCodeError}}',
-                              },
-                            ],
-                            onChanged: StacValidateFieldsAction(
-                              resultKey: 'isReceiverFormValid',
-                              fields: const [
-                                {'id': 'legal_national_id', 'rule': r'^\d{10,}$'},
-                                {'id': 'legal_contact_number', 'rule': r'^\d{10,}$'},
+                          StacCustomVisibility(
+                            visible: '[[!isLegalReceiverTourismBank]]',
+                            child: StacColumn(
+                              crossAxisAlignment:
+                                  StacCrossAxisAlignment.stretch,
+                              children: [
+                                StacSizedBox(height: 16),
+                                StacText(
+                                  // شناسه ملی
+                                  data: '{{appStrings.promissory.nationalId}}',
+                                  textDirection: StacTextDirection.rtl,
+                                  style: StacCustomTextStyle(
+                                    fontSize: 14,
+                                    fontWeight: StacFontWeight.w600,
+                                    color: '{{appColors.current.text.title}}',
+                                  ),
+                                ),
+                                StacSizedBox(height: 8),
+                                StacCustomTextFormField(
+                                  id: 'legal_national_id',
+                                  textDirection: 'rtl',
+                                  textAlign: 'right',
+                                  maxLength: 11,
+                                  inputFormatters: const [
+                                    {'type': 'allow', 'rule': '[0-9]'},
+                                  ],
+                                  decoration: StacInputDecoration(
+                                    // شناسه ملی شرکت را وارد نمایید
+                                    hintText:
+                                        '{{appStrings.promissory.enterNationalId}}',
+                                    filled: false,
+                                    contentPadding: StacEdgeInsets.symmetric(
+                                      horizontal: 16,
+                                      vertical: 16,
+                                    ),
+                                  ).toJson(),
+                                  keyboardType: 'number',
+                                  textInputAction: 'next',
+                                  validatorRules: const [
+                                    {
+                                      'rule': r'^\d{10,}$',
+                                      // کد ملی معتبر وارد نمایید
+                                      'message':
+                                          '{{appStrings.promissory.nationalCodeError}}',
+                                    },
+                                  ],
+                                  onChanged: StacValidateFieldsAction(
+                                    resultKey: 'isReceiverFormValid',
+                                    fields: const [
+                                      {
+                                        'id': 'legal_national_id',
+                                        'rule': r'^\d{10,}$',
+                                      },
+                                      {
+                                        'id': 'legal_contact_number',
+                                        'rule': r'^\d{10,}$',
+                                      },
+                                    ],
+                                  ).toJson(),
+                                ),
+                                StacSizedBox(height: 16),
+                                StacText(
+                                  // شماره تماس
+                                  data:
+                                      '{{appStrings.promissory.contactNumber}}',
+                                  textDirection: StacTextDirection.rtl,
+                                  style: StacCustomTextStyle(
+                                    fontSize: 14,
+                                    fontWeight: StacFontWeight.w600,
+                                    color: '{{appColors.current.text.title}}',
+                                  ),
+                                ),
+                                StacSizedBox(height: 8),
+                                StacCustomTextFormField(
+                                  id: 'legal_contact_number',
+                                  textDirection: 'rtl',
+                                  textAlign: 'right',
+                                  maxLength: 11,
+                                  inputFormatters: const [
+                                    {'type': 'allow', 'rule': '[0-9]'},
+                                  ],
+                                  decoration: StacInputDecoration(
+                                    // شماره تماس شرکت را وارد نمایید
+                                    hintText:
+                                        '{{appStrings.promissory.enterContactNumber}}',
+                                    filled: false,
+                                    contentPadding: StacEdgeInsets.symmetric(
+                                      horizontal: 16,
+                                      vertical: 16,
+                                    ),
+                                  ).toJson(),
+                                  keyboardType: 'phone',
+                                  textInputAction: 'done',
+                                  validatorRules: const [
+                                    {
+                                      'rule': r'^\d{10,}$',
+                                      // شماره همراه معتبر وارد نمایید
+                                      'message':
+                                          '{{appStrings.promissory.mobileNumberError}}',
+                                    },
+                                  ],
+                                  onChanged: StacValidateFieldsAction(
+                                    resultKey: 'isReceiverFormValid',
+                                    fields: const [
+                                      {
+                                        'id': 'legal_national_id',
+                                        'rule': r'^\d{10,}$',
+                                      },
+                                      {
+                                        'id': 'legal_contact_number',
+                                        'rule': r'^\d{10,}$',
+                                      },
+                                    ],
+                                  ).toJson(),
+                                ),
+                                StacSizedBox(height: 40),
                               ],
                             ).toJson(),
                           ),
-                          StacSizedBox(height: 16),
-                          StacText(
-                            // شماره تماس
-                            data: '{{appStrings.promissory.contactNumber}}',
-                            textDirection: StacTextDirection.rtl,
-                            style: StacCustomTextStyle(
-                              fontSize: 14,
-                              fontWeight: StacFontWeight.w600,
-                              color: '{{appColors.current.text.title}}',
-                            ),
-                          ),
-                          StacSizedBox(height: 8),
-                          StacCustomTextFormField(
-                            id: 'legal_contact_number',
-                            textDirection: 'rtl',
-                            textAlign: 'right',
-                            maxLength: 11,
-                            inputFormatters: const [
-                              {'type': 'allow', 'rule': '[0-9]'},
-                            ],
-                            decoration: StacInputDecoration(
-                              // شماره تماس شرکت را وارد نمایید
-                              hintText: '{{appStrings.promissory.enterContactNumber}}',
-                              filled: false,
-                              contentPadding: StacEdgeInsets.symmetric(
-                                horizontal: 16,
-                                vertical: 16,
-                              ),
-                            ).toJson(),
-                            keyboardType: 'phone',
-                            textInputAction: 'done',
-                            validatorRules: const [
-                              {
-                                'rule': r'^\d{10,}$',
-                                // شماره همراه معتبر وارد نمایید
-                                'message': '{{appStrings.promissory.mobileNumberError}}',
-                              },
-                            ],
-                            onChanged: StacValidateFieldsAction(
-                              resultKey: 'isReceiverFormValid',
-                              fields: const [
-                                {'id': 'legal_national_id', 'rule': r'^\d{10,}$'},
-                                {'id': 'legal_contact_number', 'rule': r'^\d{10,}$'},
+                          StacCustomVisibility(
+                            visible: '[[isLegalReceiverTourismBank]]',
+                            child: StacColumn(
+                              crossAxisAlignment:
+                                  StacCrossAxisAlignment.stretch,
+                              children: [
+                                StacSizedBox(height: 16),
+                                StacText(
+                                  // شناسه ملی
+                                  data: '{{appStrings.promissory.nationalId}}',
+                                  textDirection: StacTextDirection.rtl,
+                                  style: StacCustomTextStyle(
+                                    fontSize: 14,
+                                    fontWeight: StacFontWeight.w600,
+                                    color: '{{appColors.current.text.title}}',
+                                  ),
+                                ),
+                                StacSizedBox(height: 8),
+                                StacCustomContainer(
+                                  width: double.infinity,
+                                  decoration: StacBoxDecoration(
+                                    border: StacBorder.all(
+                                      color:
+                                          '{{appColors.current.input.borderEnabled}}',
+                                    ),
+                                    borderRadius: const StacBorderRadius.all(
+                                      12,
+                                    ),
+                                    color:
+                                        '{{appColors.current.background.surfaceContainer}}',
+                                  ).toJson(),
+                                  child: StacPadding(
+                                    padding: const StacEdgeInsets.symmetric(
+                                      horizontal: 16,
+                                      vertical: 16,
+                                    ),
+                                    child: StacText(
+                                      data: '10320435268',
+                                      textAlign: StacTextAlign.right,
+                                      style: StacCustomTextStyle(
+                                        fontSize: 16,
+                                        fontWeight: StacFontWeight.w600,
+                                        color:
+                                            '{{appColors.current.text.title}}',
+                                      ),
+                                    ),
+                                  ).toJson(),
+                                ),
+                                StacSizedBox(height: 16),
+                                StacText(
+                                  // شماره تماس
+                                  data:
+                                      '{{appStrings.promissory.contactNumber}}',
+                                  textDirection: StacTextDirection.rtl,
+                                  style: StacCustomTextStyle(
+                                    fontSize: 14,
+                                    fontWeight: StacFontWeight.w600,
+                                    color: '{{appColors.current.text.title}}',
+                                  ),
+                                ),
+                                StacSizedBox(height: 8),
+                                StacCustomContainer(
+                                  width: double.infinity,
+                                  decoration: StacBoxDecoration(
+                                    border: StacBorder.all(
+                                      color:
+                                          '{{appColors.current.input.borderEnabled}}',
+                                    ),
+                                    borderRadius: const StacBorderRadius.all(
+                                      12,
+                                    ),
+                                    color:
+                                        '{{appColors.current.background.surfaceContainer}}',
+                                  ).toJson(),
+                                  child: StacPadding(
+                                    padding: const StacEdgeInsets.symmetric(
+                                      horizontal: 16,
+                                      vertical: 16,
+                                    ),
+                                    child: StacText(
+                                      data: '02123952395',
+                                      textAlign: StacTextAlign.right,
+                                      textDirection: StacTextDirection.ltr,
+                                      style: StacCustomTextStyle(
+                                        fontSize: 16,
+                                        fontWeight: StacFontWeight.w600,
+                                        color:
+                                            '{{appColors.current.text.title}}',
+                                      ),
+                                    ),
+                                  ).toJson(),
+                                ),
+                                StacSizedBox(height: 40),
                               ],
                             ).toJson(),
                           ),
-                          StacSizedBox(height: 40),
                         ],
                       ).toJson(),
                     ),
@@ -605,241 +779,501 @@ StacWidget promissoryRealReceiver() {
               ),
             ),
             // Continue Button (With Real API Call and Loading State)
-            StacPadding(
-              padding: StacEdgeInsets.all(16),
-              child: StacCustomReactiveElevatedButton(
-                enabledKey: 'isReceiverFormValid',
-                loadingKey: 'receiver.isLoading',
-                onPressed: {
-                  'actionType': 'sequence',
-                  'actions': [
-                    // Set loading state to true
-                    {
-                      'actionType': 'setValue',
-                      'values': [
-                        {'key': 'receiver.isLoading', 'value': true},
-                        {'key': 'receiver.error', 'value': null},
-                      ],
-                    },
-                    // Copy form values into registry for use in URL templating
-                    {
-                      'actionType': 'setValue',
-                      'values': [
-                        {
-                          'key': 'receiver.nationalCode',
-                          'value': {
-                            'actionType': 'getFormValue',
-                            'id': 'receiver_national_code',
-                          },
-                        },
-                        {
-                          'key': 'form.receiver_national_code',
-                          'value': {
-                            'actionType': 'getFormValue',
-                            'id': 'receiver_national_code',
-                          },
-                        },
-                        {
-                          'key': 'receiver.mobile',
-                          'value': {
-                            'actionType': 'getFormValue',
-                            'id': 'receiver_mobile',
-                          },
-                        },
-                        {
-                          'key': 'form.receiver_mobile',
-                          'value': {
-                            'actionType': 'getFormValue',
-                            'id': 'receiver_mobile',
-                          },
-                        },
-                        {
-                          'key': 'receiver.birthDate',
-                          'value': {
-                            'actionType': 'getFormValue',
-                            'id': 'receiver_birthdate',
-                          },
-                        },
-                        {
-                          'key': 'form.receiver_birthdate',
-                          'value': {
-                            'actionType': 'getFormValue',
-                            'id': 'receiver_birthdate',
-                          },
-                        },
-                        {
-                          'key': 'receiver.birthDateCompact',
-                          'value': "{{replace(receiver.birthDate,'/','')}}",
-                        },
-                      ],
-                    },
-                    // Call identity API (real) then navigate on success
-                    {
-                      'actionType': 'networkRequest',
-                      'url':
-                          'http://192.168.107.22:8280/api/digitalbanking/customers/v1.0/identity/{{receiver.nationalCode}}/{{receiver.birthDateCompact}}',
-                      'method': 'get',
-                      'headers': {
-                        'accept': '*/*',
-                        'app-platform': 'android',
-                        'app-store': 'application/json',
-                        'app-version': '456',
-                        'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
-                        'serviceauthorization':
-                            'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
-                        'authorization': '{{auth.accessToken}}',
+            StacCustomVisibility(
+              visible: '[[isIndividualSelected]]',
+              child: StacPadding(
+                padding: StacEdgeInsets.all(16),
+                child: StacCustomReactiveElevatedButton(
+                  enabledKey: 'isReceiverFormValid',
+                  loadingKey: 'receiver.isLoading',
+                  onPressed: {
+                    'actionType': 'sequence',
+                    'actions': [
+                      // Set loading state to true
+                      {
+                        'actionType': 'setValue',
+                        'values': [
+                          {'key': 'receiver.isLoading', 'value': true},
+                          {'key': 'receiver.error', 'value': null},
+                        ],
                       },
-                      'results': [
-                        {
-                          'statusCode': 200,
-                          'action': {
-                            'actionType': 'sequence',
-                            'actions': [
-                              {
-                                'actionType': 'setValue',
-                                'values': [
-                                  {'key': 'receiver.isLoading', 'value': false},
-                                  {
-                                    'key': 'receiverIdentity.raw',
-                                    'value': '{{data.data}}',
-                                  },
-                                  {
-                                    'key': 'receiverIdentity.name',
-                                    'value': '{{data.data.name}}',
-                                  },
-                                  {
-                                    'key': 'receiverIdentity.family',
-                                    'value': '{{data.data.family}}',
-                                  },
-                                  {
-                                    'key': 'receiverIdentity.fullName',
-                                    'value':
-                                        '{{data.data.name}} {{data.data.family}}',
-                                  },
-                                  {
-                                    'key': 'receiverIdentity.fatherName',
-                                    'value': '{{data.data.fatherName}}',
-                                  },
-                                  {
-                                    'key': 'receiverIdentity.gender',
-                                    'value': '{{data.data.gender}}',
-                                  },
-                                  {
-                                    'key': 'receiverIdentity.nationalId',
-                                    'value': '{{data.data.nationalId}}',
-                                  },
-                                ],
-                              },
-                              {
-                                'actionType': 'navigate',
-                                'widgetType':
-                                    'promissory_real_data', // Navigate to Real Data Screen
-                                'navigationStyle': 'push',
-                              },
-                            ],
+                      // Copy form values into registry for use in URL templating
+                      {
+                        'actionType': 'setValue',
+                        'values': [
+                          {
+                            'key': 'receiver.nationalCode',
+                            'value': {
+                              'actionType': 'getFormValue',
+                              'id': 'receiver_national_code',
+                            },
                           },
-                        },
-                        {
-                          'statusCode': 422,
-                          'action': {
-                            'actionType': 'sequence',
-                            'actions': [
-                              {
-                                'actionType': 'setValue',
-                                'values': [
-                                  {'key': 'receiver.isLoading', 'value': false},
-                                  {
-                                    'key': 'receiver.error',
-                                    'value':
-                                        // اطلاعات وارد شده صحیح نمی‌باشد
-                                        '{{appStrings.promissory.invalidDataError}}',
-                                  },
-                                ],
-                              },
-                              {
-                                'actionType': 'customSnackBar',
-                                'message':
-                                    // اطلاعات وارد شده صحیح نمی‌باشد. لطفا مجددا بررسی کنید.
-                                    '{{appStrings.promissory.invalidDataErrorDetail}}',
-                                'backgroundColor': '#D32F2F',
-                                'duration': 4000,
-                              },
-                            ],
+                          {
+                            'key': 'form.receiver_national_code',
+                            'value': {
+                              'actionType': 'getFormValue',
+                              'id': 'receiver_national_code',
+                            },
                           },
-                        },
-                        {
-                          'statusCode': 401,
-                          'action': {
-                            'actionType': 'sequence',
-                            'actions': [
-                              {
-                                'actionType': 'setValue',
-                                'values': [
-                                  {'key': 'receiver.isLoading', 'value': false},
-                                ],
-                              },
-                              {
-                                'actionType': 'customSnackBar',
-                                'message':
-                                    // نشست شما منقضی شده است. لطفا مجددا وارد شوید.
-                                    '{{appStrings.promissory.sessionExpiredError}}',
-                                'backgroundColor': '#D32F2F',
-                                'duration': 4000,
-                              },
-                            ],
+                          {
+                            'key': 'receiver.mobile',
+                            'value': {
+                              'actionType': 'getFormValue',
+                              'id': 'receiver_mobile',
+                            },
                           },
-                        },
-                        {
-                          'statusCode': -1, // Fallback for any other errors
-                          'action': {
-                            'actionType': 'sequence',
-                            'actions': [
-                              {
-                                'actionType': 'setValue',
-                                'values': [
-                                  {'key': 'receiver.isLoading', 'value': false},
-                                  {
-                                    'key': 'receiver.error',
-                                    'value':
-                                        // خطا در برقراری ارتباط با سرور
-                                        '{{appStrings.promissory.serverConnectionError}}',
-                                  },
-                                ],
-                              },
-                              {
-                                'actionType': 'customSnackBar',
-                                'message':
-                                    // خطا در برقراری ارتباط با سرور. لطفا مجددا تلاش کنید.
-                                    '{{appStrings.promissory.serverConnectionErrorDetail}}',
-                                'backgroundColor': '#D32F2F',
-                                'duration': 4000,
-                              },
-                            ],
+                          {
+                            'key': 'form.receiver_mobile',
+                            'value': {
+                              'actionType': 'getFormValue',
+                              'id': 'receiver_mobile',
+                            },
                           },
+                          {
+                            'key': 'receiver.birthDate',
+                            'value': {
+                              'actionType': 'getFormValue',
+                              'id': 'receiver_birthdate',
+                            },
+                          },
+                          {
+                            'key': 'form.receiver_birthdate',
+                            'value': {
+                              'actionType': 'getFormValue',
+                              'id': 'receiver_birthdate',
+                            },
+                          },
+                          {
+                            'key': 'receiver.birthDateCompact',
+                            'value': "{{replace(receiver.birthDate,'/','')}}",
+                          },
+                        ],
+                      },
+                      // Call identity API (real) then navigate on success
+                      {
+                        'actionType': 'networkRequest',
+                        'url':
+                            'http://192.168.107.22:8280/api/digitalbanking/customers/v1.0/identity/{{receiver.nationalCode}}/{{receiver.birthDateCompact}}',
+                        'method': 'get',
+                        'headers': {
+                          'accept': '*/*',
+                          'app-platform': 'android',
+                          'app-store': 'application/json',
+                          'app-version': '456',
+                          'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
+                          'serviceauthorization':
+                              'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
+                          'authorization': '{{auth.accessToken}}',
                         },
-                      ],
-                    },
-                  ],
-                },
-                style: StacButtonStyle(
-                  backgroundColor: '{{appColors.current.primary.color}}',
-                  elevation: 0,
-                  fixedSize: StacSize(999999, 56),
-                  shape: StacRoundedRectangleBorder(
-                    borderRadius: StacBorderRadius.all(12),
-                  ),
-                ).toJson(),
-                child: StacText(
-                  // ادامه
-                  data: '{{appStrings.common.continue}}',
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 18,
-                    fontWeight: StacFontWeight.bold,
-                    color: '{{appColors.current.primary.onPrimary}}',
-                  ),
-                ).toJson(),
-              ),
+                        'results': [
+                          {
+                            'statusCode': 200,
+                            'action': {
+                              'actionType': 'sequence',
+                              'actions': [
+                                {
+                                  'actionType': 'setValue',
+                                  'values': [
+                                    {
+                                      'key': 'receiver.isLoading',
+                                      'value': false,
+                                    },
+                                    {
+                                      'key': 'receiverIdentity.raw',
+                                      'value': '{{data.data}}',
+                                    },
+                                    {
+                                      'key': 'receiverIdentity.name',
+                                      'value': '{{data.data.name}}',
+                                    },
+                                    {
+                                      'key': 'receiverIdentity.family',
+                                      'value': '{{data.data.family}}',
+                                    },
+                                    {
+                                      'key': 'receiverIdentity.fullName',
+                                      'value':
+                                          '{{data.data.name}} {{data.data.family}}',
+                                    },
+                                    {
+                                      'key': 'receiverIdentity.fatherName',
+                                      'value': '{{data.data.fatherName}}',
+                                    },
+                                    {
+                                      'key': 'receiverIdentity.gender',
+                                      'value': '{{data.data.gender}}',
+                                    },
+                                    {
+                                      'key': 'receiverIdentity.nationalId',
+                                      'value': '{{data.data.nationalId}}',
+                                    },
+                                  ],
+                                },
+                                {
+                                  'actionType': 'navigate',
+                                  'widgetType':
+                                      'promissory_real_data', // Navigate to Real Data Screen
+                                  'navigationStyle': 'push',
+                                },
+                              ],
+                            },
+                          },
+                          {
+                            'statusCode': 422,
+                            'action': {
+                              'actionType': 'sequence',
+                              'actions': [
+                                {
+                                  'actionType': 'setValue',
+                                  'values': [
+                                    {
+                                      'key': 'receiver.isLoading',
+                                      'value': false,
+                                    },
+                                    {
+                                      'key': 'receiver.error',
+                                      'value':
+                                          // اطلاعات وارد شده صحیح نمی‌باشد
+                                          '{{appStrings.promissory.invalidDataError}}',
+                                    },
+                                  ],
+                                },
+                                {
+                                  'actionType': 'customSnackBar',
+                                  'message':
+                                      // اطلاعات وارد شده صحیح نمی‌باشد. لطفا مجددا بررسی کنید.
+                                      '{{appStrings.promissory.invalidDataErrorDetail}}',
+                                  'backgroundColor': '#D32F2F',
+                                  'duration': 4000,
+                                },
+                              ],
+                            },
+                          },
+                          {
+                            'statusCode': 401,
+                            'action': {
+                              'actionType': 'sequence',
+                              'actions': [
+                                {
+                                  'actionType': 'setValue',
+                                  'values': [
+                                    {
+                                      'key': 'receiver.isLoading',
+                                      'value': false,
+                                    },
+                                  ],
+                                },
+                                {
+                                  'actionType': 'customSnackBar',
+                                  'message':
+                                      // نشست شما منقضی شده است. لطفا مجددا وارد شوید.
+                                      '{{appStrings.promissory.sessionExpiredError}}',
+                                  'backgroundColor': '#D32F2F',
+                                  'duration': 4000,
+                                },
+                              ],
+                            },
+                          },
+                          {
+                            'statusCode': -1, // Fallback for any other errors
+                            'action': {
+                              'actionType': 'sequence',
+                              'actions': [
+                                {
+                                  'actionType': 'setValue',
+                                  'values': [
+                                    {
+                                      'key': 'receiver.isLoading',
+                                      'value': false,
+                                    },
+                                    {
+                                      'key': 'receiver.error',
+                                      'value':
+                                          // خطا در برقراری ارتباط با سرور
+                                          '{{appStrings.promissory.serverConnectionError}}',
+                                    },
+                                  ],
+                                },
+                                {
+                                  'actionType': 'customSnackBar',
+                                  'message':
+                                      // خطا در برقراری ارتباط با سرور. لطفا مجددا تلاش کنید.
+                                      '{{appStrings.promissory.serverConnectionErrorDetail}}',
+                                  'backgroundColor': '#D32F2F',
+                                  'duration': 4000,
+                                },
+                              ],
+                            },
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                  style: StacButtonStyle(
+                    backgroundColor: '{{appColors.current.primary.color}}',
+                    elevation: 0,
+                    fixedSize: StacSize(999999, 56),
+                    shape: StacRoundedRectangleBorder(
+                      borderRadius: StacBorderRadius.all(12),
+                    ),
+                  ).toJson(),
+                  child: StacText(
+                    // ادامه
+                    data: '{{appStrings.common.continue}}',
+                    textDirection: StacTextDirection.rtl,
+                    style: StacCustomTextStyle(
+                      fontSize: 18,
+                      fontWeight: StacFontWeight.bold,
+                      color: '{{appColors.current.primary.onPrimary}}',
+                    ),
+                  ).toJson(),
+                ),
+              ).toJson(),
+            ),
+            // Legal Receiver Continue Button
+            StacCustomVisibility(
+              visible: '[[isLegalSelected]]',
+              child: StacPadding(
+                padding: StacEdgeInsets.all(16),
+                child: StacCustomReactiveElevatedButton(
+                  enabledKey: 'isReceiverFormValid',
+                  loadingKey: 'receiver.isLoading',
+                  onPressed: {
+                    'actionType': 'sequence',
+                    'actions': [
+                      // Set loading state to true
+                      {
+                        'actionType': 'setValue',
+                        'values': [
+                          {'key': 'receiver.isLoading', 'value': true},
+                          {'key': 'receiver.error', 'value': null},
+                        ],
+                      },
+                      // Copy form values into registry for use in URL templating
+                      {
+                        'actionType': 'setValue',
+                        'values': [
+                          {
+                            'key': 'receiver.legalNationalId',
+                            'value': {
+                              'actionType': 'getFormValue',
+                              'id': 'legal_national_id',
+                            },
+                            'condition': '!isLegalReceiverTourismBank',
+                          },
+                          {
+                            'key': 'receiver.legalNationalId',
+                            'value': '{{legal_national_id}}',
+                            'condition': 'isLegalReceiverTourismBank',
+                          },
+                          {
+                            'key': 'form.legal_national_id',
+                            'value': {
+                              'actionType': 'getFormValue',
+                              'id': 'legal_national_id',
+                            },
+                            'condition': '!isLegalReceiverTourismBank',
+                          },
+                          {
+                            'key': 'form.legal_national_id',
+                            'value': '{{legal_national_id}}',
+                            'condition': 'isLegalReceiverTourismBank',
+                          },
+                          {
+                            'key': 'form.legal_contact_number',
+                            'value': {
+                              'actionType': 'getFormValue',
+                              'id': 'legal_contact_number',
+                            },
+                            'condition': '!isLegalReceiverTourismBank',
+                          },
+                          {
+                            'key': 'form.legal_contact_number',
+                            'value': '{{legal_contact_number}}',
+                            'condition': 'isLegalReceiverTourismBank',
+                          },
+                        ],
+                      },
+                      // Call identity API (real) then navigate on success
+                      {
+                        'actionType': 'networkRequest',
+                        'url':
+                            'http://192.168.107.22:8280/api/digitalbanking/customers/v1.0/identity/{{receiver.legalNationalId}}',
+                        'method': 'get',
+                        'headers': {
+                          'accept': '*/*',
+                          'app-platform': 'android',
+                          'app-store': 'application/json',
+                          'app-version': '456',
+                          'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
+                          'serviceauthorization':
+                              'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
+                          'authorization': '{{auth.accessToken}}',
+                        },
+                        'results': [
+                          {
+                            'statusCode': 200,
+                            'action': {
+                              'actionType': 'sequence',
+                              'actions': [
+                                {
+                                  'actionType': 'setValue',
+                                  'values': [
+                                    {
+                                      'key': 'receiver.isLoading',
+                                      'value': false,
+                                    },
+                                    {
+                                      'key': 'receiverIdentity.raw',
+                                      'value': '{{data.data}}',
+                                    },
+                                    {
+                                      'key': 'receiverIdentity.name',
+                                      'value': '{{data.data.name}}',
+                                    },
+                                    {
+                                      'key': 'receiverIdentity.fullName',
+                                      'value':
+                                          '{{data.data.name}}', // Used in next screen
+                                    },
+                                    {
+                                      'key': 'receiverIdentity.nationalId',
+                                      'value': '{{data.data.nationalId}}',
+                                    },
+                                    {
+                                      'key': 'receiverIdentity.phone',
+                                      'value': '{{data.data.phone}}',
+                                    },
+                                    {
+                                      'key': 'receiverIdentity.address',
+                                      'value': '{{data.data.address}}',
+                                    },
+                                    {
+                                      'key': 'form.paymentPlace',
+                                      'value': '{{data.data.address}}',
+                                    },
+                                  ],
+                                },
+                                {
+                                  'actionType': 'navigate',
+                                  'widgetType':
+                                      'promissory_real_data', // Navigate to Real Data Screen
+                                  'navigationStyle': 'push',
+                                },
+                              ],
+                            },
+                          },
+                          {
+                            'statusCode': 422,
+                            'action': {
+                              'actionType': 'sequence',
+                              'actions': [
+                                {
+                                  'actionType': 'setValue',
+                                  'values': [
+                                    {
+                                      'key': 'receiver.isLoading',
+                                      'value': false,
+                                    },
+                                    {
+                                      'key': 'receiver.error',
+                                      'value':
+                                          // اطلاعات وارد شده صحیح نمی‌باشد
+                                          '{{appStrings.promissory.invalidDataError}}',
+                                    },
+                                  ],
+                                },
+                                {
+                                  'actionType': 'customSnackBar',
+                                  'message':
+                                      // رکورد یافت نشد
+                                      '{{appStrings.promissory.invalidDataErrorDetail}}',
+                                  'backgroundColor': '#D32F2F',
+                                  'duration': 4000,
+                                },
+                              ],
+                            },
+                          },
+                          {
+                            'statusCode': 520,
+                            'action': {
+                              'actionType': 'sequence',
+                              'actions': [
+                                {
+                                  'actionType': 'setValue',
+                                  'values': [
+                                    {
+                                      'key': 'receiver.isLoading',
+                                      'value': false,
+                                    },
+                                  ],
+                                },
+                                {
+                                  'actionType': 'customSnackBar',
+                                  'message':
+                                      // پاسخ دریافتی نامعتبر است
+                                      '{{appStrings.promissory.serverConnectionErrorDetail}}',
+                                  'backgroundColor': '#D32F2F',
+                                  'duration': 4000,
+                                },
+                              ],
+                            },
+                          },
+                          {
+                            'statusCode': -1, // Fallback for any other errors
+                            'action': {
+                              'actionType': 'sequence',
+                              'actions': [
+                                {
+                                  'actionType': 'setValue',
+                                  'values': [
+                                    {
+                                      'key': 'receiver.isLoading',
+                                      'value': false,
+                                    },
+                                    {
+                                      'key': 'receiver.error',
+                                      'value':
+                                          // خطا در برقراری ارتباط با سرور
+                                          '{{appStrings.promissory.serverConnectionError}}',
+                                    },
+                                  ],
+                                },
+                                {
+                                  'actionType': 'customSnackBar',
+                                  'message':
+                                      // خطا در برقراری ارتباط با سرور. لطفا مجددا تلاش کنید.
+                                      '{{appStrings.promissory.serverConnectionErrorDetail}}',
+                                  'backgroundColor': '#D32F2F',
+                                  'duration': 4000,
+                                },
+                              ],
+                            },
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                  style: StacButtonStyle(
+                    backgroundColor: '{{appColors.current.primary.color}}',
+                    elevation: 0,
+                    fixedSize: StacSize(999999, 56),
+                    shape: StacRoundedRectangleBorder(
+                      borderRadius: StacBorderRadius.all(12),
+                    ),
+                  ).toJson(),
+                  child: StacText(
+                    // ادامه
+                    data: '{{appStrings.common.continue}}',
+                    textDirection: StacTextDirection.rtl,
+                    style: StacCustomTextStyle(
+                      fontSize: 18,
+                      fontWeight: StacFontWeight.bold,
+                      color: '{{appColors.current.primary.onPrimary}}',
+                    ),
+                  ).toJson(),
+                ),
+              ).toJson(),
             ),
           ],
         ),

@@ -347,11 +347,6 @@ StacWidget _buildSignButton() {
                                                       '{{form.promissory_amount}}',
                                                 },
                                                 {
-                                                  'key': 'transactionTime',
-                                                  'value':
-                                                      '{{form.promissory_due_date}}',
-                                                },
-                                                {
                                                   'key': 'serverSignedPdfId',
                                                   'value':
                                                       '{{data.data.serverSignedPdfId}}',
@@ -371,9 +366,8 @@ StacWidget _buildSignButton() {
                                             StacNavigateAction(
                                               routeName:
                                                   'promissory_real_success',
-                                              navigationStyle:
-                                                  NavigationStyle
-                                                      .pushReplacement,
+                                              navigationStyle: NavigationStyle
+                                                  .pushReplacement,
                                             ).toJson(),
                                           ],
                                         },
@@ -393,7 +387,8 @@ StacWidget _buildSignButton() {
                                               'content': {
                                                 'type': 'text',
                                                 // خطا در امضای سفته
-                                                'data': '{{appStrings.promissory.signError}}',
+                                                'data':
+                                                    '{{appStrings.promissory.signError}}',
                                               },
                                             },
                                           ],
@@ -419,7 +414,8 @@ StacWidget _buildSignButton() {
                                     'content': {
                                       'type': 'text',
                                       // خطا در امضای سفته
-                                      'data': '{{appStrings.promissory.signError}}',
+                                      'data':
+                                          '{{appStrings.promissory.signError}}',
                                     },
                                   },
                                 ],

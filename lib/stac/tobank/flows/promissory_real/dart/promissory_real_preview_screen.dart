@@ -133,6 +133,7 @@ Map<String, dynamic> _buildSuccessPreviewState() {
     ).toJson(),
   ).toJson();
 }
+
 StacWidget _buildActionButtons() {
   return StacCustomRegistryReactive(
     registryKey: 'previewLoaded',
@@ -185,15 +186,12 @@ StacWidget _buildActionButtons() {
                 ),
                 style: StacButtonStyle(
                   backgroundColor: '#FFFFFF',
-                  foregroundColor: '{{appColors.current.text.title}}',
+                  foregroundColor: '#D32F2F',
                   elevation: 0,
                   fixedSize: StacSize(999999, 52),
                   shape: StacRoundedRectangleBorder(
                     borderRadius: StacBorderRadius.all(12),
-                    side: StacBorderSide(
-                      color: '{{appColors.current.input.borderEnabled}}',
-                      width: 1,
-                    ),
+                    side: const StacBorderSide(color: '#D32F2F', width: 1.5),
                   ),
                 ),
                 child: StacText(
@@ -203,7 +201,7 @@ StacWidget _buildActionButtons() {
                   style: StacCustomTextStyle(
                     fontSize: 16,
                     fontWeight: StacFontWeight.bold,
-                    color: '{{appColors.current.text.title}}',
+                    color: '#D32F2F',
                   ),
                 ),
               ),

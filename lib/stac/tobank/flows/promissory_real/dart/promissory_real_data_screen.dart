@@ -87,25 +87,60 @@ StacWidget _buildReceiverInfoSummary() {
           ),
         ),
         StacSizedBox(height: 12),
-        // National Code
-        buildPromissoryDetailRow(
-          // کد ملی
-          '{{appStrings.promissory.nationalCode}}',
-          '{{form.receiver_national_code}}',
+        // National Code (Individual)
+        StacCustomVisibility(
+          visible: '[[recipientType]]',
+          child: buildPromissoryDetailRow(
+            // کد ملی
+            '{{appStrings.promissory.nationalCode}}',
+            '{{form.receiver_national_code}}',
+          ).toJson(),
+        ),
+        // National ID (Legal)
+        StacCustomVisibility(
+          visible: '[[!recipientType]]',
+          child: buildPromissoryDetailRow(
+            // شناسه ملی
+            '{{appStrings.promissory.nationalId}}',
+            '{{receiverIdentity.nationalId}}',
+          ).toJson(),
         ),
         StacSizedBox(height: 8),
-        // Mobile Number
-        buildPromissoryDetailRow(
-          // شماره موبایل
-          '{{appStrings.promissory.mobileNumber}}',
-          '{{form.receiver_mobile}}',
+        // Mobile Number (Individual)
+        StacCustomVisibility(
+          visible: '[[recipientType]]',
+          child: buildPromissoryDetailRow(
+            // شماره موبایل
+            '{{appStrings.promissory.mobileNumber}}',
+            '{{form.receiver_mobile}}',
+          ).toJson(),
+        ),
+        // Phone Number (Legal)
+        StacCustomVisibility(
+          visible: '[[!recipientType]]',
+          child: buildPromissoryDetailRow(
+            // شماره تماس
+            '{{appStrings.promissory.contactNumber}}',
+            '{{receiverIdentity.phone}}',
+          ).toJson(),
         ),
         StacSizedBox(height: 8),
-        // Full Name (from receiver inquiry)
-        buildPromissoryDetailRow(
-          // نام و نام خانوادگی
-          '{{appStrings.promissory.fullName}}',
-          '{{receiverIdentity.fullName}}',
+        // Full Name (Individual)
+        StacCustomVisibility(
+          visible: '[[recipientType]]',
+          child: buildPromissoryDetailRow(
+            // نام و نام خانوادگی
+            '{{appStrings.promissory.fullName}}',
+            '{{receiverIdentity.fullName}}',
+          ).toJson(),
+        ),
+        // Name (Legal)
+        StacCustomVisibility(
+          visible: '[[!recipientType]]',
+          child: buildPromissoryDetailRow(
+            'نام',
+            '{{receiverIdentity.fullName}}',
+          ).toJson(),
         ),
       ],
     ),
@@ -212,8 +247,28 @@ StacWidget _buildAmountInput() {
             // مبلغ الزامی است
             'message': '{{appStrings.promissory.amountRequired}}',
           },
+          {
+            'rule': r'^(2[0-9]{7,}|[3-9][0-9]{7,}|[1-9][0-9]{8,})$',
+            // حداقل مبلغ ۲۰,۰۰۰,۰۰۰ ریال می‌باشد
+            'message': 'حداقل مبلغ تعهد بیست میلیون ریال می‌باشد',
+          },
         ],
         onChanged: _getFullValidationAction(),
+      ),
+      StacSizedBox(height: 8),
+      StacRow(
+        textDirection: StacTextDirection.rtl,
+        children: [
+          StacText(
+            data: 'حداقل مبلغ تعهد بیست میلیون ریال می‌باشد',
+            textDirection: StacTextDirection.rtl,
+            style: StacCustomTextStyle(
+              fontSize: 12,
+              fontWeight: StacFontWeight.w500,
+              color: '{{appColors.current.text.subtitle}}',
+            ),
+          ),
+        ],
       ),
     ],
   );
@@ -346,7 +401,7 @@ StacWidget _buildPaymentPlaceInput() {
     children: [
       StacText(
         // آدرس
-        data: '{{appStrings.promissory.paymentPlaceOptional}}',
+        data: '{{appStrings.promissory.paymentPlaceLabel}}',
         textDirection: StacTextDirection.rtl,
         style: StacCustomTextStyle(
           fontSize: 14,
@@ -355,21 +410,54 @@ StacWidget _buildPaymentPlaceInput() {
         ),
       ),
       StacSizedBox(height: 8),
-      StacTextFormField(
-        id: 'promissory_payment_place',
-        textDirection: StacTextDirection.rtl,
-        textAlign: StacTextAlign.right,
-        minLines: 3,
-        maxLines: 5,
-        decoration: StacInputDecoration(
-          // آدرس محل پرداخت را بنویسید (تا ۲۰۰ کاراکتر)
-          hintText: '{{appStrings.promissory.paymentPlaceHint}}',
-          filled: false,
-          contentPadding: StacEdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 16,
-          ),
-        ),
+      StacCustomVisibility(
+        visible: '{{recipientType}}',
+        child: StacCustomTextFormField(
+          id: 'paymentPlace',
+          textDirection: 'rtl',
+          textAlign: 'right',
+          minLines: 3,
+          maxLines: 5,
+          maxLength: 200,
+          decoration: StacInputDecoration(
+            // آدرس محل پرداخت را بنویسید (تا ۲۰۰ کاراکتر)
+            hintText: '{{appStrings.promissory.paymentPlaceHint}}',
+            filled: false,
+            contentPadding: StacEdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 16,
+            ),
+          ).toJson(),
+          validatorRules: const [
+            {
+              'rule': r'^.{5,200}$',
+              'message': '{{appStrings.promissory.enterPaymentPlace}}',
+            },
+          ],
+          onChanged: _getFullValidationAction(),
+        ).toJson(),
+      ),
+      StacCustomVisibility(
+        visible: '{{!recipientType}}',
+        child: StacCustomTextFormField(
+          id: 'paymentPlace',
+          initialValue: '{{form.paymentPlace}}',
+          readOnly: true,
+          enabled: false,
+          textDirection: 'rtl',
+          textAlign: 'right',
+          minLines: 3,
+          maxLines: 5,
+          decoration: StacInputDecoration(
+            filled: true,
+            fillColor: '{{appColors.current.background.surfaceContainer}}',
+            contentPadding: StacEdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 16,
+            ),
+          ).toJson(),
+          onChanged: _getFullValidationAction(),
+        ).toJson(),
       ),
     ],
   );
@@ -448,7 +536,7 @@ StacWidget _buildSubmitButton() {
           ),
           StacCustomSetValueAction(
             key: 'form.paymentPlace',
-            value: StacGetFormValueAction(id: 'promissory_payment_place'),
+            value: StacGetFormValueAction(id: 'paymentPlace'),
           ),
           StacCustomSetValueAction(
             key: 'form.transferable',
@@ -564,6 +652,7 @@ StacValidateFieldsAction _getFullValidationAction() {
       'rule': r'^\d{4}/\d{2}/\d{2}$',
       'optional': 'isOnDemand',
     },
+    {'id': 'paymentPlace', 'rule': r'^.{5,200}$'},
   ];
   return StacValidateFieldsAction(resultKey: 'isDataFormValid', fields: fields);
 }

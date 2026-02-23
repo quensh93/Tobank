@@ -79,10 +79,15 @@ class StacCustomTextFormField extends StacWidget {
     this.keyboardType,
     this.textInputAction,
     this.maxLength,
+    this.minLines,
+    this.maxLines,
     this.inputFormatters,
     this.validatorRules,
     this.onChanged,
     this.onTap,
+    this.initialValue,
+    this.readOnly,
+    this.enabled,
   });
 
   final String? id;
@@ -94,10 +99,15 @@ class StacCustomTextFormField extends StacWidget {
   final String? keyboardType;
   final String? textInputAction;
   final int? maxLength;
+  final int? minLines;
+  final int? maxLines;
   final List<Map<String, dynamic>>? inputFormatters;
   final List<Map<String, dynamic>>? validatorRules;
   final dynamic onChanged;
   final dynamic onTap;
+  final String? initialValue;
+  final bool? readOnly;
+  final bool? enabled;
 
   @override
   String get type => 'textFormField';
@@ -114,6 +124,8 @@ class StacCustomTextFormField extends StacWidget {
     if (keyboardType != null) 'keyboardType': keyboardType,
     if (textInputAction != null) 'textInputAction': textInputAction,
     if (maxLength != null) 'maxLength': maxLength,
+    if (minLines != null) 'minLines': minLines,
+    if (maxLines != null) 'maxLines': maxLines,
     if (inputFormatters != null) 'inputFormatters': inputFormatters,
     if (validatorRules != null) 'validatorRules': validatorRules,
     if (onChanged != null)
@@ -122,6 +134,9 @@ class StacCustomTextFormField extends StacWidget {
           : onChanged,
     if (onTap != null)
       'onTap': onTap is StacAction ? (onTap as StacAction).toJson() : onTap,
+    if (initialValue != null) 'initialValue': initialValue,
+    if (readOnly != null) 'readOnly': readOnly,
+    if (enabled != null) 'enabled': enabled,
   };
 }
 

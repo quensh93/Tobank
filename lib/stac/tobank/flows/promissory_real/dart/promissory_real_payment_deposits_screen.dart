@@ -132,11 +132,54 @@ StacWidget promissoryRealPaymentDeposits() {
     ],
   );
 
-  // --- onContinue: Draft API call (PRESERVED from original) ---
   final onContinueAction = StacSequenceAction(
     actions: [
       StacCustomSetValueAction(key: 'isDraftLoading', value: true),
       StacCustomSetValueAction(key: 'hasSelection', value: true),
+      StacCustomSetValueAction(
+        values: [
+          {
+            'key': 'payload.recipientType',
+            'value': 'I',
+            'condition': 'recipientType',
+          },
+          {
+            'key': 'payload.recipientBirthDate',
+            'value': "{{replace(receiver.birthDate, '/', '')}}",
+            'condition': 'recipientType',
+          },
+          {
+            'key': 'payload.recipientNationalId',
+            'value': '{{receiver.nationalCode}}',
+            'condition': 'recipientType',
+          },
+          {
+            'key': 'payload.recipientCellphone',
+            'value': '{{removeLeadingZero(receiver.mobile)}}',
+            'condition': 'recipientType',
+          },
+          {
+            'key': 'payload.recipientType',
+            'value': 'C',
+            'condition': '!recipientType',
+          },
+          {
+            'key': 'payload.recipientBirthDate',
+            'value': null,
+            'condition': '!recipientType',
+          },
+          {
+            'key': 'payload.recipientNationalId',
+            'value': '{{receiverIdentity.nationalId}}',
+            'condition': '!recipientType',
+          },
+          {
+            'key': 'payload.recipientCellphone',
+            'value': '{{receiverIdentity.phone}}',
+            'condition': '!recipientType',
+          },
+        ],
+      ).toJson(),
       StacNetworkRequestAction(
         url:
             'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/draft',
@@ -157,10 +200,10 @@ StacWidget promissoryRealPaymentDeposits() {
           'issuerAccountNumber': '{{selectedDeposit.depositIban}}',
           'issuerAddress': '{{userData.address}}',
           'issuerPostalCode': '{{userData.postalCode}}',
-          'recipientType': 'I',
-          'recipientBirthDate': "{{replace(receiver.birthDate, '/', '')}}",
-          'recipientNationalId': '{{receiver.nationalCode}}',
-          'recipientCellphone': '{{removeLeadingZero(receiver.mobile)}}',
+          'recipientType': '{{payload.recipientType}}',
+          'recipientBirthDate': '{{payload.recipientBirthDate}}',
+          'recipientNationalId': '{{payload.recipientNationalId}}',
+          'recipientCellphone': '{{payload.recipientCellphone}}',
           'recipientFullName': '{{receiverIdentity.fullName}}',
           'paymentPlace': '{{form.paymentPlace}}',
           'amount': '{{toInt(form.promissory_amount)}}',
@@ -185,8 +228,17 @@ StacWidget promissoryRealPaymentDeposits() {
                       'key': 'form.promissory_id',
                       'value': '{{data_payload.id}}',
                     },
+                    {
+                      'key': 'rawTransactionTime',
+                      'value': '{{data.meta.time}}',
+                    },
                   ],
                 ).toJson(),
+                {
+                  'actionType': 'formatDate',
+                  'sourceKey': 'rawTransactionTime',
+                  'destinationKey': 'transactionTime',
+                },
                 const StacNavigateAction(
                   routeName: 'promissory_real_sign',
                   navigationStyle: NavigationStyle.push,

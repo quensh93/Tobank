@@ -70,7 +70,7 @@ class CustomNetworkRequestActionParser
       response = await StacNetworkService.request(
         context,
         resolvedModel,
-      ).timeout(const Duration(seconds: 15));
+      ).timeout(const Duration(seconds: 30));
     } on TimeoutException {
       AppLogger.wc(LogCategory.network, 'Network request timed out');
       response = null; // Will trigger fallback to status code -1

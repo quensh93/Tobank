@@ -107,8 +107,13 @@ The following screenshots show the user interface for each step in the promissor
 <img src="Screenshot_20260104_135725_ .jpg" alt="Receiver Information" style="max-width: 250px;"/>
 
 ### Step 6: Promissory Data Page
+
+**Flow 1: Receiver is Individual (حقیقی)**
 <img src="Screenshot_20260104_135743_ .jpg" alt="Promissory Data Part 1" style="max-width: 250px;"/>
 <img src="Screenshot_20260104_140021_ .jpg" alt="Promissory Data Part 2" style="max-width: 250px;"/>
+
+**Flow 2: Receiver is Legal Entity (حقوقی)**
+<img src="Screenshot_hoghooghi.png" alt="Promissory Data - Legal Entity" style="max-width: 250px;"/>
 
 ### Step 7: Confirmation Page
 <img src="Screenshot_20260104_135929_ .jpg" alt="Confirmation Part 1" style="max-width: 250px;"/>

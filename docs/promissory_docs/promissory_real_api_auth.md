@@ -87,3 +87,5 @@ if (token != null) {
 ## 5. Troubleshooting
 *   **LogCategory.network errors:** Check `promissory_real_auth_service.dart` and ensure it imports the correct `logger.dart` and uses `LogCategory.network` or `LogCategory.auth` (if defined in your updated generic category list).
 *   **"No token found in successful login response":** The login API response structure might have changed. Check the `login` method in `promissory_real_auth_service.dart` to ensure it parses the JSON correctly (currently checks `access_token`, `token`, `result['access_token']`, etc.).
+
+
