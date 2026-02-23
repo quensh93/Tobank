@@ -174,7 +174,7 @@ StacWidget _buildPromissoryDetails() {
             ),
             StacSizedBox(height: 5),
             StacText(
-              data: '{{form.promissory_payment_place}}',
+              data: '{{form.paymentPlace}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 15,

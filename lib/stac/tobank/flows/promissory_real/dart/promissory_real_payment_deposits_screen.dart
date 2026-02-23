@@ -4,7 +4,6 @@ import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_app_bar.dart';
 
-
 @StacScreen(screenName: 'promissory_real_payment_deposits')
 StacWidget promissoryRealPaymentDeposits() {
   final fetchDepositsAction = StacSequenceAction(
@@ -163,11 +162,11 @@ StacWidget promissoryRealPaymentDeposits() {
           'recipientNationalId': '{{receiver.nationalCode}}',
           'recipientCellphone': '{{removeLeadingZero(receiver.mobile)}}',
           'recipientFullName': '{{receiverIdentity.fullName}}',
-          'paymentPlace': '{{form.promissory_payment_place}}',
+          'paymentPlace': '{{form.paymentPlace}}',
           'amount': '{{toInt(form.promissory_amount)}}',
           'dueDate': "{{replace(form.promissory_due_date, '/', '')}}",
           'description': '{{form.description}}',
-          'transferable': true,
+          'transferable': '{{form.transferable}}',
         },
         results: [
           {
@@ -182,7 +181,10 @@ StacWidget promissoryRealPaymentDeposits() {
                       'key': 'form.unsigned_pdf_id',
                       'value': '{{data_payload.unSignedPdfId}}',
                     },
-                    {'key': 'form.promissory_id', 'value': '{{data_payload.id}}'},
+                    {
+                      'key': 'form.promissory_id',
+                      'value': '{{data_payload.id}}',
+                    },
                   ],
                 ).toJson(),
                 const StacNavigateAction(
@@ -536,7 +538,7 @@ StacWidget _buildDepositCardTemplate() {
           textDirection: StacTextDirection.rtl,
           children: [
             StacText(
-              // شماره سپرده: 
+              // شماره سپرده:
               data: '{{appStrings.promissory.depositNumberLabel}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
@@ -562,7 +564,7 @@ StacWidget _buildDepositCardTemplate() {
           textDirection: StacTextDirection.rtl,
           children: [
             StacText(
-              // شماره شبا: 
+              // شماره شبا:
               data: '{{appStrings.promissory.ibanLabel}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
@@ -590,7 +592,7 @@ StacWidget _buildDepositCardTemplate() {
           textDirection: StacTextDirection.rtl,
           children: [
             StacText(
-              // موجودی: 
+              // موجودی:
               data: '{{appStrings.promissory.balanceLabel}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
@@ -624,5 +626,3 @@ StacWidget _buildDepositCardTemplate() {
     ),
   );
 }
-
-

@@ -48,7 +48,7 @@ StacWidget promissoryRealDebugMenu() {
           StacFilledButton(
             onPressed: const StacNavigateAction(
               assetPath:
-                  'lib/stac/tobank/flows/promissory_real/json/promissory_intro.json',
+                  'lib/stac/tobank/flows/promissory_real/json/promissory_real_intro.json',
               navigationStyle: NavigationStyle.push,
             ),
             style: StacButtonStyle(

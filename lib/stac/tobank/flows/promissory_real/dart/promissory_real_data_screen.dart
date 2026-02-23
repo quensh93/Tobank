@@ -23,6 +23,7 @@ StacWidget promissoryRealData() {
         {'key': 'isDataFormValid', 'value': false},
         {'key': 'isIdentityLoading', 'value': false},
         {'key': 'isOnDemand', 'value': false},
+        {'key': 'transferable', 'value': true},
       ],
     ),
     child: StacScaffold(
@@ -332,7 +333,7 @@ StacWidget _buildTransferableInput() {
       ),
       StacCustomReactiveSwitch(
         id: 'transferableSwitch',
-        valueKey: 'isTransferable',
+        valueKey: 'transferable',
         activeColor: '{{appColors.current.secondary.color}}',
       ),
     ],
@@ -446,8 +447,12 @@ StacWidget _buildSubmitButton() {
             value: StacGetFormValueAction(id: 'description'),
           ),
           StacCustomSetValueAction(
-            key: 'form.promissory_payment_place',
+            key: 'form.paymentPlace',
             value: StacGetFormValueAction(id: 'promissory_payment_place'),
+          ),
+          StacCustomSetValueAction(
+            key: 'form.transferable',
+            value: '{{transferable}}',
           ),
           // Ensure compact birth date exists for later steps
           StacCustomSetValueAction(
@@ -501,7 +506,8 @@ StacWidget _buildSubmitButton() {
                       key: 'isIdentityLoading',
                       value: false,
                     ),
-                    StacDialogAction(widget: StacAlertDialog(
+                    StacDialogAction(
+                      widget: StacAlertDialog(
                         // خطا
                         title: StacText(data: '{{appStrings.common.error}}'),
                         content: StacText(
@@ -512,10 +518,13 @@ StacWidget _buildSubmitButton() {
                           StacTextButton(
                             onPressed: const StacCloseDialogAction(),
                             // تایید
-                            child: StacText(data: '{{appStrings.common.confirm}}'),
+                            child: StacText(
+                              data: '{{appStrings.common.confirm}}',
+                            ),
                           ),
                         ],
-                      ).toJson()),
+                      ).toJson(),
+                    ),
                   ],
                 ).toJson(),
               },
@@ -558,4 +567,3 @@ StacValidateFieldsAction _getFullValidationAction() {
   ];
   return StacValidateFieldsAction(resultKey: 'isDataFormValid', fields: fields);
 }
-

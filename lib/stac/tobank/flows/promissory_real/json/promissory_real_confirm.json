@@ -1,0 +1,650 @@
+{
+  "appBar": {
+    "leading": {
+      "onPressed": {
+        "navigationStyle": "pop",
+        "actionType": "navigate"
+      },
+      "icon": {
+        "src": "assets/icons/ic_right_arrow.svg",
+        "imageType": "asset",
+        "color": "{{appColors.current.text.title}}",
+        "width": 24.0,
+        "height": 24.0,
+        "type": "image"
+      },
+      "type": "iconButton"
+    },
+    "title": {
+      "data": "{{appStrings.promissory.issuanceTitle}}",
+      "style": {
+        "type": "alias",
+        "value": "{{appStyles.appbarStyle}}"
+      },
+      "textDirection": "rtl",
+      "type": "text"
+    },
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "body": {
+    "crossAxisAlignment": "stretch",
+    "children": [
+      {
+        "child": {
+          "padding": {
+            "left": 16.0,
+            "top": 16.0,
+            "right": 16.0,
+            "bottom": 16.0
+          },
+          "child": {
+            "crossAxisAlignment": "stretch",
+            "children": [
+              {
+                "padding": {
+                  "left": 16.0,
+                  "top": 16.0,
+                  "right": 16.0,
+                  "bottom": 16.0
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 0.5
+                  },
+                  "borderRadius": {
+                    "topLeft": 8.0,
+                    "topRight": 8.0,
+                    "bottomLeft": 8.0,
+                    "bottomRight": 8.0
+                  }
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "data": "{{appStrings.promissory.detailsTitle}}",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w700"
+                      },
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    {
+                      "height": 8.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "decoration": {
+                        "color": "{{appColors.current.input.borderEnabled}}"
+                      },
+                      "height": 1.0,
+                      "type": "container"
+                    },
+                    {
+                      "height": 8.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "padding": {
+                        "bottom": 8.0
+                      },
+                      "child": {
+                        "mainAxisAlignment": "spaceBetween",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "data": "{{appStrings.promissory.amountLabel}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0
+                            },
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "data": "{{form.promissory_amount_formatted}} {{appStrings.common.rial}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w600"
+                            },
+                            "textDirection": "rtl",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      "type": "padding"
+                    },
+                    {
+                      "height": 4.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "padding": {
+                        "bottom": 8.0
+                      },
+                      "child": {
+                        "mainAxisAlignment": "spaceBetween",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "data": "{{appStrings.promissory.payDate}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0
+                            },
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "data": "{{form.promissory_due_date_display}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w600"
+                            },
+                            "textDirection": "rtl",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      "type": "padding"
+                    },
+                    {
+                      "height": 4.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "crossAxisAlignment": "end",
+                      "children": [
+                        {
+                          "data": "{{appStrings.promissory.descriptionLabel}}",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 14.0
+                          },
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "height": 5.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "{{form.description}}",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 15.0,
+                            "fontWeight": "w600"
+                          },
+                          "textDirection": "rtl",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "column"
+                    },
+                    {
+                      "height": 4.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "crossAxisAlignment": "end",
+                      "children": [
+                        {
+                          "data": "{{appStrings.promissory.paymentPlaceLabel}}",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 14.0
+                          },
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "height": 5.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "{{form.promissory_payment_place}}",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 15.0,
+                            "fontWeight": "w600"
+                          },
+                          "textDirection": "rtl",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "column"
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "container"
+              },
+              {
+                "height": 16.0,
+                "type": "sizedBox"
+              },
+              {
+                "padding": {
+                  "left": 16.0,
+                  "top": 16.0,
+                  "right": 16.0,
+                  "bottom": 16.0
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 0.5
+                  },
+                  "borderRadius": {
+                    "topLeft": 8.0,
+                    "topRight": 8.0,
+                    "bottomLeft": 8.0,
+                    "bottomRight": 8.0
+                  }
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "data": "{{appStrings.promissory.issuerInfoTitle}}",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w700"
+                      },
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    {
+                      "height": 8.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "decoration": {
+                        "color": "{{appColors.current.input.borderEnabled}}"
+                      },
+                      "height": 1.0,
+                      "type": "container"
+                    },
+                    {
+                      "height": 8.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "padding": {
+                        "bottom": 8.0
+                      },
+                      "child": {
+                        "mainAxisAlignment": "spaceBetween",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "data": "{{appStrings.promissory.nationalCode}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0
+                            },
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "data": "{{userData.nationalCode}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w600"
+                            },
+                            "textDirection": "ltr",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      "type": "padding"
+                    },
+                    {
+                      "padding": {
+                        "bottom": 8.0
+                      },
+                      "child": {
+                        "mainAxisAlignment": "spaceBetween",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "data": "{{appStrings.promissory.issuerPhoneNumber}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0
+                            },
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "data": "{{userData.mobile}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w600"
+                            },
+                            "textDirection": "ltr",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      "type": "padding"
+                    },
+                    {
+                      "padding": {
+                        "bottom": 8.0
+                      },
+                      "child": {
+                        "mainAxisAlignment": "spaceBetween",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "data": "{{appStrings.promissory.fullName}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0
+                            },
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "data": "{{userData.fullName}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w600"
+                            },
+                            "textDirection": "ltr",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      "type": "padding"
+                    },
+                    {
+                      "height": 4.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "crossAxisAlignment": "end",
+                      "children": [
+                        {
+                          "data": "{{appStrings.promissory.addressResidence}}",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 14.0
+                          },
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "height": 5.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "{{userData.address}}",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 15.0,
+                            "fontWeight": "w600"
+                          },
+                          "textDirection": "rtl",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "column"
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "container"
+              },
+              {
+                "height": 16.0,
+                "type": "sizedBox"
+              },
+              {
+                "padding": {
+                  "left": 16.0,
+                  "top": 16.0,
+                  "right": 16.0,
+                  "bottom": 16.0
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 0.5
+                  },
+                  "borderRadius": {
+                    "topLeft": 8.0,
+                    "topRight": 8.0,
+                    "bottomLeft": 8.0,
+                    "bottomRight": 8.0
+                  }
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "data": "{{appStrings.promissory.receiverInfoTitle}}",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w700"
+                      },
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    {
+                      "height": 8.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "decoration": {
+                        "color": "{{appColors.current.input.borderEnabled}}"
+                      },
+                      "height": 1.0,
+                      "type": "container"
+                    },
+                    {
+                      "height": 8.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "padding": {
+                        "bottom": 8.0
+                      },
+                      "child": {
+                        "mainAxisAlignment": "spaceBetween",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "data": "{{appStrings.promissory.nationalCode}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0
+                            },
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "data": "{{form.receiver_national_code}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w600"
+                            },
+                            "textDirection": "ltr",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      "type": "padding"
+                    },
+                    {
+                      "padding": {
+                        "bottom": 8.0
+                      },
+                      "child": {
+                        "mainAxisAlignment": "spaceBetween",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "data": "{{appStrings.promissory.mobileNumber}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0
+                            },
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "data": "{{form.receiver_mobile}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w600"
+                            },
+                            "textDirection": "ltr",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      "type": "padding"
+                    },
+                    {
+                      "padding": {
+                        "bottom": 8.0
+                      },
+                      "child": {
+                        "mainAxisAlignment": "spaceBetween",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "data": "{{appStrings.promissory.fullName}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0
+                            },
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "data": "{{receiverIdentity.fullName}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w600"
+                            },
+                            "textDirection": "ltr",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      "type": "padding"
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "container"
+              }
+            ],
+            "type": "column"
+          },
+          "type": "singleChildScrollView"
+        },
+        "type": "expanded"
+      },
+      {
+        "padding": {
+          "left": 16.0,
+          "top": 16.0,
+          "right": 16.0,
+          "bottom": 16.0
+        },
+        "child": {
+          "onPressed": {
+            "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_payment.json",
+            "navigationStyle": "push",
+            "actionType": "navigate"
+          },
+          "style": {
+            "backgroundColor": "{{appColors.current.primary.color}}",
+            "elevation": 0.0,
+            "fixedSize": {
+              "width": 999999.0,
+              "height": 56.0
+            },
+            "shape": {
+              "type": "roundedRectangleBorder",
+              "borderRadius": {
+                "topLeft": 12.0,
+                "topRight": 12.0,
+                "bottomLeft": 12.0,
+                "bottomRight": 12.0
+              }
+            }
+          },
+          "child": {
+            "data": "{{appStrings.promissory.confirmAndPay}}",
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.primary.onPrimary}}",
+              "fontSize": 18.0,
+              "fontWeight": "bold"
+            },
+            "type": "text"
+          },
+          "type": "filledButton"
+        },
+        "type": "padding"
+      }
+    ],
+    "type": "column"
+  },
+  "type": "scaffold"
+}

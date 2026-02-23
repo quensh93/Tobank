@@ -1,0 +1,822 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "sequence",
+    "actions": [
+      {
+        "actionType": "setValue",
+        "values": [
+          {
+            "key": "deposits.isLoaded",
+            "value": false
+          },
+          {
+            "key": "deposits.rawData"
+          },
+          {
+            "key": "deposits.error"
+          },
+          {
+            "key": "selectedDepositId"
+          },
+          {
+            "key": "hasSelection",
+            "value": false
+          }
+        ]
+      },
+      {
+        "actionType": "networkRequest",
+        "url": "http://192.168.107.22:8280/api/digitalbanking/deposits/v1.0/customer/{{userData.nationalCode}}",
+        "method": "get",
+        "headers": {
+          "accept": "application/json",
+          "content-type": "application/json",
+          "app-platform": "android",
+          "app-store": "application/json",
+          "app-version": "456",
+          "device-uuid": "5109ab4c-77ca-4f0c-9858-da4df58031d2",
+          "serviceauthorization": "Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==",
+          "authorization": "{{auth.accessToken}}"
+        },
+        "results": [
+          {
+            "statusCode": 200,
+            "action": {
+              "actionType": "setValue",
+              "values": [
+                {
+                  "key": "deposits.rawData",
+                  "value": "{{data_payload}}"
+                },
+                {
+                  "key": "deposits.isLoaded",
+                  "value": true
+                },
+                {
+                  "key": "deposits.error"
+                }
+              ]
+            }
+          },
+          {
+            "statusCode": 403,
+            "action": {
+              "actionType": "setValue",
+              "values": [
+                {
+                  "key": "deposits.isLoaded",
+                  "value": true
+                },
+                {
+                  "key": "deposits.rawData"
+                },
+                {
+                  "key": "deposits.error",
+                  "value": "Access forbidden. Please check your permissions."
+                }
+              ]
+            }
+          },
+          {
+            "statusCode": 401,
+            "action": {
+              "actionType": "setValue",
+              "values": [
+                {
+                  "key": "deposits.isLoaded",
+                  "value": true
+                },
+                {
+                  "key": "deposits.rawData"
+                },
+                {
+                  "key": "deposits.error",
+                  "value": "Authentication failed. Please login again."
+                }
+              ]
+            }
+          },
+          {
+            "statusCode": 520,
+            "action": {
+              "actionType": "setValue",
+              "values": [
+                {
+                  "key": "deposits.isLoaded",
+                  "value": true
+                },
+                {
+                  "key": "deposits.rawData"
+                },
+                {
+                  "key": "deposits.error",
+                  "value": "Server Error (520): Unknown Response from Gateway. Please try again later."
+                }
+              ]
+            }
+          },
+          {
+            "statusCode": 500,
+            "action": {
+              "actionType": "setValue",
+              "values": [
+                {
+                  "key": "deposits.isLoaded",
+                  "value": true
+                },
+                {
+                  "key": "deposits.rawData"
+                },
+                {
+                  "key": "deposits.error",
+                  "value": "Internal Server Error. Please try again later."
+                }
+              ]
+            }
+          },
+          {
+            "statusCode": -1,
+            "action": {
+              "actionType": "setValue",
+              "values": [
+                {
+                  "key": "deposits.isLoaded",
+                  "value": true
+                },
+                {
+                  "key": "deposits.rawData"
+                },
+                {
+                  "key": "deposits.error",
+                  "value": "{{appStrings.promissory.serverConnectionErrorDetail}}"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "child": {
+    "appBar": {
+      "leading": {
+        "onPressed": {
+          "navigationStyle": "pop",
+          "actionType": "navigate"
+        },
+        "icon": {
+          "src": "assets/icons/ic_right_arrow.svg",
+          "imageType": "asset",
+          "color": "{{appColors.current.text.title}}",
+          "width": 24.0,
+          "height": 24.0,
+          "type": "image"
+        },
+        "type": "iconButton"
+      },
+      "title": {
+        "data": "{{appStrings.promissory.selectDepositTitle}}",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "body": {
+      "crossAxisAlignment": "stretch",
+      "children": [
+        {
+          "height": 24.0,
+          "type": "sizedBox"
+        },
+        {
+          "padding": {
+            "left": 16.0,
+            "right": 16.0
+          },
+          "child": {
+            "data": "{{appStrings.promissory.selectDepositForPromissory}}",
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.text.title}}",
+              "fontSize": 16.0,
+              "fontWeight": "w600"
+            },
+            "textDirection": "rtl",
+            "type": "text"
+          },
+          "type": "padding"
+        },
+        {
+          "height": 16.0,
+          "type": "sizedBox"
+        },
+        {
+          "child": {
+            "type": "reactiveListView",
+            "dataKey": "deposits.rawData",
+            "dataPath": "data",
+            "isLoadedKey": "deposits.isLoaded",
+            "errorKey": "deposits.error",
+            "itemIdField": "depositNumber",
+            "selectedIdKey": "selectedDepositId",
+            "padding": {
+              "left": 16.0,
+              "right": 16.0,
+              "top": 8.0,
+              "bottom": 8.0
+            },
+            "separator": {
+              "height": 16.0,
+              "type": "sizedBox"
+            },
+            "loadingWidget": {
+              "child": {
+                "mainAxisSize": "min",
+                "children": [
+                  {
+                    "type": "circularProgressIndicator"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{appStrings.promissory.loadingDeposits}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.subtitle}}",
+                      "fontSize": 16.0
+                    },
+                    "textDirection": "rtl",
+                    "type": "text"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "center"
+            },
+            "errorWidget": {
+              "child": {
+                "mainAxisAlignment": "center",
+                "children": [
+                  {
+                    "padding": {
+                      "left": 16.0,
+                      "top": 16.0,
+                      "right": 16.0,
+                      "bottom": 16.0
+                    },
+                    "child": {
+                      "data": "{{error}}",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.subtitle}}",
+                        "fontSize": 14.0
+                      },
+                      "textAlign": "center",
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    "type": "padding"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "onPressed": {
+                      "actionType": "sequence",
+                      "actions": [
+                        {
+                          "actionType": "setValue",
+                          "values": [
+                            {
+                              "key": "deposits.isLoaded",
+                              "value": false
+                            },
+                            {
+                              "key": "deposits.rawData"
+                            },
+                            {
+                              "key": "deposits.error"
+                            },
+                            {
+                              "key": "selectedDepositId"
+                            },
+                            {
+                              "key": "hasSelection",
+                              "value": false
+                            }
+                          ]
+                        },
+                        {
+                          "actionType": "networkRequest",
+                          "url": "http://192.168.107.22:8280/api/digitalbanking/deposits/v1.0/customer/{{userData.nationalCode}}",
+                          "method": "get",
+                          "headers": {
+                            "accept": "application/json",
+                            "content-type": "application/json",
+                            "app-platform": "android",
+                            "app-store": "application/json",
+                            "app-version": "456",
+                            "device-uuid": "5109ab4c-77ca-4f0c-9858-da4df58031d2",
+                            "serviceauthorization": "Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==",
+                            "authorization": "{{auth.accessToken}}"
+                          },
+                          "results": [
+                            {
+                              "statusCode": 200,
+                              "action": {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "deposits.rawData",
+                                    "value": "{{data_payload}}"
+                                  },
+                                  {
+                                    "key": "deposits.isLoaded",
+                                    "value": true
+                                  },
+                                  {
+                                    "key": "deposits.error"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "statusCode": 403,
+                              "action": {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "deposits.isLoaded",
+                                    "value": true
+                                  },
+                                  {
+                                    "key": "deposits.rawData"
+                                  },
+                                  {
+                                    "key": "deposits.error",
+                                    "value": "Access forbidden. Please check your permissions."
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "statusCode": 401,
+                              "action": {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "deposits.isLoaded",
+                                    "value": true
+                                  },
+                                  {
+                                    "key": "deposits.rawData"
+                                  },
+                                  {
+                                    "key": "deposits.error",
+                                    "value": "Authentication failed. Please login again."
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "statusCode": 520,
+                              "action": {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "deposits.isLoaded",
+                                    "value": true
+                                  },
+                                  {
+                                    "key": "deposits.rawData"
+                                  },
+                                  {
+                                    "key": "deposits.error",
+                                    "value": "Server Error (520): Unknown Response from Gateway. Please try again later."
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "statusCode": 500,
+                              "action": {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "deposits.isLoaded",
+                                    "value": true
+                                  },
+                                  {
+                                    "key": "deposits.rawData"
+                                  },
+                                  {
+                                    "key": "deposits.error",
+                                    "value": "Internal Server Error. Please try again later."
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "statusCode": -1,
+                              "action": {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "deposits.isLoaded",
+                                    "value": true
+                                  },
+                                  {
+                                    "key": "deposits.rawData"
+                                  },
+                                  {
+                                    "key": "deposits.error",
+                                    "value": "{{appStrings.promissory.serverConnectionErrorDetail}}"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "style": {
+                      "backgroundColor": "{{appColors.current.primary.color}}",
+                      "shape": {
+                        "type": "roundedRectangleBorder",
+                        "borderRadius": {
+                          "topLeft": 12.0,
+                          "topRight": 12.0,
+                          "bottomLeft": 12.0,
+                          "bottomRight": 12.0
+                        }
+                      }
+                    },
+                    "child": {
+                      "data": "{{appStrings.common.tryAgain}}",
+                      "style": {
+                        "type": "custom",
+                        "color": "white",
+                        "fontWeight": "bold"
+                      },
+                      "type": "text"
+                    },
+                    "type": "elevatedButton"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "center"
+            },
+            "emptyWidget": {
+              "child": {
+                "data": "{{appStrings.promissory.noDepositFound}}",
+                "style": {
+                  "type": "custom",
+                  "color": "{{appColors.current.text.subtitle}}",
+                  "fontSize": 14.0
+                },
+                "textDirection": "rtl",
+                "type": "text"
+              },
+              "type": "center"
+            },
+            "onItemTap": {
+              "actionType": "sequence",
+              "actions": [
+                {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "key": "selectedDepositId",
+                      "value": "{{item.depositNumber}}"
+                    }
+                  ]
+                },
+                {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "key": "hasSelection",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "key": "form.selected_deposit_id",
+                      "value": "{{item.depositNumber}}"
+                    }
+                  ]
+                },
+                {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "key": "form.selected_deposit_title",
+                      "value": "{{item.depositTitle}}"
+                    }
+                  ]
+                },
+                {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "key": "form.selected_deposit_number",
+                      "value": "{{item.depositNumber}}"
+                    }
+                  ]
+                },
+                {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "key": "form.selected_shaba_number",
+                      "value": "{{item.depositIban}}"
+                    }
+                  ]
+                },
+                {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "key": "selectedDeposit.depositNumber",
+                      "value": "{{item.depositNumber}}"
+                    }
+                  ]
+                },
+                {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "key": "selectedDeposit.depositIban",
+                      "value": "{{item.depositIban}}"
+                    }
+                  ]
+                }
+              ]
+            },
+            "itemTemplate": {
+              "padding": {
+                "left": 16.0,
+                "top": 16.0,
+                "right": 16.0,
+                "bottom": 16.0
+              },
+              "decoration": {
+                "color": "{{appColors.current.background.surfaceContainer}}",
+                "border": {
+                  "color": "{{isSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}",
+                  "width": 1.0
+                },
+                "borderRadius": {
+                  "topLeft": 8.0,
+                  "topRight": 8.0,
+                  "bottomLeft": 8.0,
+                  "bottomRight": 8.0
+                }
+              },
+              "child": {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "mainAxisAlignment": "spaceBetween",
+                    "crossAxisAlignment": "center",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "child": {
+                          "data": "{{item.depositTitle}}",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w600"
+                          },
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        "type": "expanded"
+                      },
+                      {
+                        "decoration": {
+                          "border": {
+                            "color": "{{isSelected ? appColors.current.secondary.color : appColors.current.text.subtitle}}",
+                            "width": 2.0
+                          },
+                          "shape": "circle"
+                        },
+                        "width": 24.0,
+                        "height": 24.0,
+                        "child": {
+                          "child": {
+                            "type": "opacity",
+                            "opacity": "{{isSelected ? 1.0 : 0.0}}",
+                            "child": {
+                              "decoration": {
+                                "color": "{{appColors.current.secondary.color}}",
+                                "shape": "circle"
+                              },
+                              "width": 12.0,
+                              "height": 12.0,
+                              "type": "container"
+                            }
+                          },
+                          "type": "center"
+                        },
+                        "type": "container"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "height": 12.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "height": 1.0,
+                    "type": "container"
+                  },
+                  {
+                    "height": 12.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "data": "{{appStrings.promissory.depositNumberLabel}}",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.subtitle}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w400"
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "data": "{{item.depositNumber}}",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w500"
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "data": "{{appStrings.promissory.ibanLabel}}",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.subtitle}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w400"
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "child": {
+                          "data": "{{item.depositIban}}",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w500"
+                          },
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        "type": "expanded"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "data": "{{appStrings.promissory.balanceLabel}}",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.subtitle}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w400"
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "data": "{{item.availableAmount}}",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w600"
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "width": 4.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "data": "{{appStrings.common.rial}}",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 14.0
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "row"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "container"
+            }
+          },
+          "type": "expanded"
+        },
+        {
+          "padding": {
+            "left": 16.0,
+            "top": 16.0,
+            "right": 16.0,
+            "bottom": 16.0
+          },
+          "child": {
+            "type": "reactiveElevatedButton",
+            "enabledKey": "hasSelection",
+            "onPressed": {
+              "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_issuer.json",
+              "navigationStyle": "push",
+              "actionType": "navigate"
+            },
+            "style": {
+              "type": "buttonStyle",
+              "backgroundColor": "{{appColors.current.primary.color}}",
+              "elevation": 0.0,
+              "fixedSize": {
+                "width": 999999.0,
+                "height": 56.0
+              },
+              "shape": {
+                "type": "roundedRectangleBorder",
+                "borderRadius": {
+                  "type": "all",
+                  "value": 12.0
+                }
+              }
+            },
+            "child": {
+              "data": "{{appStrings.common.continue}}",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.primary.onPrimary}}",
+                "fontSize": 18.0,
+                "fontWeight": "bold"
+              },
+              "textDirection": "rtl",
+              "type": "text"
+            }
+          },
+          "type": "padding"
+        }
+      ],
+      "type": "column"
+    },
+    "type": "scaffold"
+  }
+}
