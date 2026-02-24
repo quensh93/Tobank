@@ -847,7 +847,7 @@
               },
               "child": {
                 "onPressed": {
-                  "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_receiver.json",
+                  "routeName": "promissory_real_receiver",
                   "navigationStyle": "push",
                   "actionType": "navigate"
                 },

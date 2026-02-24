@@ -28,7 +28,6 @@ StacWidget promissoryRealSuccess() {
                   // صدور سفته
                   '{{appStrings.promissory.issuanceTitle}}', // Use localized string
             },
-            {'key': 'paymentMethod', 'value': '{{paymentMethod ?? "-"}}'},
           ],
         ).toJson(),
       ],

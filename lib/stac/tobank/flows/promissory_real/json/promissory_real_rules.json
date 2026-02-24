@@ -282,7 +282,7 @@
                             "value": false
                           },
                           {
-                            "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_issuer.json",
+                            "routeName": "promissory_real_issuer",
                             "navigationStyle": "push",
                             "actionType": "navigate"
                           }

@@ -232,10 +232,37 @@
                         },
                         {
                           "type": "container",
-                          "width": 200,
+                          "padding": {
+                            "top": 0,
+                            "right": 16,
+                            "bottom": 16,
+                            "left": 16
+                          },
                           "child": {
-                            "type": "evaluateExpressionAction",
-                            "expression": "tryAgain()"
+                            "type": "elevatedButton",
+                            "onPressed": {
+                              "actionType": "pop"
+                            },
+                            "style": {
+                              "backgroundColor": "{{appColors.current.primary.color}}",
+                              "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                              "shape": {
+                                "type": "roundedRectangle",
+                                "borderRadius": {
+                                  "type": "all",
+                                  "radius": 12
+                                }
+                              }
+                            },
+                            "child": {
+                              "type": "text",
+                              "data": "Ø¨Ø§Ø²Ú¯Ø´Øª",
+                              "style": {
+                                "type": "custom",
+                                "fontSize": 16,
+                                "fontWeight": "bold"
+                              }
+                            }
                           }
                         }
                       ]
@@ -505,10 +532,6 @@
                                                                       "value": "__STAC_OPEN__form.promissory_amount}}"
                                                                     },
                                                                     {
-                                                                      "key": "transactionTime",
-                                                                      "value": "__STAC_OPEN__form.promissory_due_date}}"
-                                                                    },
-                                                                    {
                                                                       "key": "serverSignedPdfId",
                                                                       "value": "__STAC_OPEN__data.data.serverSignedPdfId}}"
                                                                     },
@@ -523,7 +546,7 @@
                                                                   ]
                                                                 },
                                                                 {
-                                                                  "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_success.json",
+                                                                  "routeName": "promissory_real_success",
                                                                   "navigationStyle": "pushReplacement",
                                                                   "actionType": "navigate"
                                                                 }

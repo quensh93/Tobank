@@ -694,7 +694,6 @@ StacWidget promissoryRealReceiver() {
                                 ),
                                 StacSizedBox(height: 8),
                                 StacCustomContainer(
-                                  width: double.infinity,
                                   decoration: StacBoxDecoration(
                                     border: StacBorder.all(
                                       color:
@@ -737,7 +736,6 @@ StacWidget promissoryRealReceiver() {
                                 ),
                                 StacSizedBox(height: 8),
                                 StacCustomContainer(
-                                  width: double.infinity,
                                   decoration: StacBoxDecoration(
                                     border: StacBorder.all(
                                       color:

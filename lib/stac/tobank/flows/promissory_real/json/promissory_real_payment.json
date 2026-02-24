@@ -413,6 +413,11 @@
                       },
                       {
                         "actionType": "setValue",
+                        "key": "paymentMethod",
+                        "value": "Ú©ÛŒÙ Ù¾ÙˆÙ„"
+                      },
+                      {
+                        "actionType": "setValue",
                         "key": "isPayEnabled",
                         "value": true
                       },
@@ -531,6 +536,11 @@
                         "actionType": "setValue",
                         "key": "selectedPaymentMethod",
                         "value": "deposit"
+                      },
+                      {
+                        "actionType": "setValue",
+                        "key": "paymentMethod",
+                        "value": "Ø­Ø³Ø§Ø¨"
                       },
                       {
                         "actionType": "setValue",
@@ -690,9 +700,71 @@
                                 "actionType": "closeDialog"
                               },
                               {
-                                "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_sign.json",
-                                "navigationStyle": "pushReplacement",
-                                "actionType": "navigate"
+                                "actionType": "networkRequest",
+                                "url": "http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/draft",
+                                "method": "post",
+                                "data": {
+                                  "issuerType": "I",
+                                  "issuerBirthDate": "__STAC_OPEN__replace(userData.birthDate, '/', '')}}",
+                                  "issuerNN": "__STAC_OPEN__userData.nationalCode}}",
+                                  "issuerSanaCheck": true,
+                                  "issuerCellphone": "__STAC_OPEN__removeLeadingZero(userData.mobile)}}",
+                                  "issuerFullName": "__STAC_OPEN__userData.fullName}}",
+                                  "issuerAddress": "__STAC_OPEN__userData.address}}",
+                                  "issuerPostalCode": "__STAC_OPEN__userData.postalCode}}",
+                                  "recipientType": "__STAC_OPEN__payload.recipientType}}",
+                                  "recipientBirthDate": "__STAC_OPEN__payload.recipientBirthDate}}",
+                                  "recipientNationalId": "__STAC_OPEN__payload.recipientNationalId}}",
+                                  "recipientCellphone": "__STAC_OPEN__payload.recipientCellphone}}",
+                                  "recipientFullName": "__STAC_OPEN__receiverIdentity.fullName}}",
+                                  "paymentPlace": "__STAC_OPEN__form.paymentPlace}}",
+                                  "amount": "__STAC_OPEN__toInt(form.promissory_amount)}}",
+                                  "dueDate": "__STAC_OPEN__replace(form.promissory_due_date, '/', '')}}",
+                                  "description": "__STAC_OPEN__form.description}}",
+                                  "transferable": "__STAC_OPEN__form.transferable}}"
+                                },
+                                "headers": {
+                                  "accept": "application/json",
+                                  "authorization": "__STAC_OPEN__auth.accessToken}}",
+                                  "content-type": "application/json"
+                                },
+                                "results": [
+                                  {
+                                    "statusCode": 200,
+                                    "action": {
+                                      "actionType": "sequence",
+                                      "actions": [
+                                        {
+                                          "actionType": "setValue",
+                                          "values": [
+                                            {
+                                              "key": "form.unsigned_pdf_id",
+                                              "value": "__STAC_OPEN__data_payload.unSignedPdfId}}"
+                                            },
+                                            {
+                                              "key": "form.promissory_id",
+                                              "value": "__STAC_OPEN__data_payload.id}}"
+                                            },
+                                            {
+                                              "key": "rawTransactionTime",
+                                              "value": "__STAC_OPEN__data.meta.time}}"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "actionType": "formatDate",
+                                          "sourceKey": "rawTransactionTime",
+                                          "destinationKey": "transactionTime"
+                                        },
+                                        {
+                                          "routeName": "promissory_real_sign",
+                                          "navigationStyle": "pushReplacement",
+                                          "actionType": "navigate"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
                               }
                             ]
                           },
@@ -781,7 +853,7 @@
                   "enabledKey": "isPayEnabled",
                   "enabled": false,
                   "onPressed": {
-                    "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_payment_deposits.json",
+                    "routeName": "promissory_real_payment_deposits",
                     "navigationStyle": "push",
                     "actionType": "navigate"
                   },

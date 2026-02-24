@@ -219,7 +219,7 @@
                           "type": "sizedBox"
                         },
                         {
-                          "data": "{{form.promissory_payment_place}}",
+                          "data": "{{form.paymentPlace}}",
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
@@ -377,15 +377,19 @@
                             "type": "text"
                           },
                           {
-                            "data": "{{userData.fullName}}",
-                            "style": {
-                              "type": "custom",
-                              "color": "{{appColors.current.text.title}}",
-                              "fontSize": 14.0,
-                              "fontWeight": "w600"
+                            "child": {
+                              "data": "{{userData.fullName}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w600"
+                              },
+                              "textAlign": "left",
+                              "textDirection": "ltr",
+                              "type": "text"
                             },
-                            "textDirection": "ltr",
-                            "type": "text"
+                            "type": "expanded"
                           }
                         ],
                         "type": "row"
@@ -486,38 +490,156 @@
                       "type": "sizedBox"
                     },
                     {
-                      "padding": {
-                        "bottom": 8.0
-                      },
+                      "type": "visibility",
+                      "visible": "[[recipientType]]",
                       "child": {
-                        "mainAxisAlignment": "spaceBetween",
-                        "textDirection": "rtl",
-                        "children": [
-                          {
-                            "data": "{{appStrings.promissory.nationalCode}}",
-                            "style": {
-                              "type": "custom",
-                              "color": "{{appColors.current.text.subtitle}}",
-                              "fontSize": 14.0
+                        "padding": {
+                          "bottom": 8.0
+                        },
+                        "child": {
+                          "mainAxisAlignment": "spaceBetween",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "{{appStrings.promissory.nationalCode}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
                             },
-                            "textDirection": "rtl",
-                            "type": "text"
-                          },
-                          {
-                            "data": "{{form.receiver_national_code}}",
-                            "style": {
-                              "type": "custom",
-                              "color": "{{appColors.current.text.title}}",
-                              "fontSize": 14.0,
-                              "fontWeight": "w600"
+                            {
+                              "data": "{{form.receiver_national_code}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w600"
+                              },
+                              "textDirection": "ltr",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        "type": "padding"
+                      }
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[!recipientType]]",
+                      "child": {
+                        "padding": {
+                          "bottom": 8.0
+                        },
+                        "child": {
+                          "mainAxisAlignment": "spaceBetween",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "{{appStrings.promissory.nationalId}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
                             },
-                            "textDirection": "ltr",
-                            "type": "text"
-                          }
-                        ],
-                        "type": "row"
-                      },
-                      "type": "padding"
+                            {
+                              "data": "{{receiverIdentity.nationalId}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w600"
+                              },
+                              "textDirection": "ltr",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        "type": "padding"
+                      }
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[recipientType]]",
+                      "child": {
+                        "padding": {
+                          "bottom": 8.0
+                        },
+                        "child": {
+                          "mainAxisAlignment": "spaceBetween",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "{{appStrings.promissory.mobileNumber}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "data": "{{form.receiver_mobile}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w600"
+                              },
+                              "textDirection": "ltr",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        "type": "padding"
+                      }
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[!recipientType]]",
+                      "child": {
+                        "padding": {
+                          "bottom": 8.0
+                        },
+                        "child": {
+                          "mainAxisAlignment": "spaceBetween",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "{{appStrings.promissory.contactNumber}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "data": "{{receiverIdentity.phone}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w600"
+                              },
+                              "textDirection": "ltr",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        "type": "padding"
+                      }
                     },
                     {
                       "padding": {
@@ -528,59 +650,47 @@
                         "textDirection": "rtl",
                         "children": [
                           {
-                            "data": "{{appStrings.promissory.mobileNumber}}",
-                            "style": {
-                              "type": "custom",
-                              "color": "{{appColors.current.text.subtitle}}",
-                              "fontSize": 14.0
-                            },
-                            "textDirection": "rtl",
-                            "type": "text"
+                            "type": "visibility",
+                            "visible": "[[recipientType]]",
+                            "child": {
+                              "data": "{{appStrings.promissory.fullName}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
                           },
                           {
-                            "data": "{{form.receiver_mobile}}",
-                            "style": {
-                              "type": "custom",
-                              "color": "{{appColors.current.text.title}}",
-                              "fontSize": 14.0,
-                              "fontWeight": "w600"
-                            },
-                            "textDirection": "ltr",
-                            "type": "text"
-                          }
-                        ],
-                        "type": "row"
-                      },
-                      "type": "padding"
-                    },
-                    {
-                      "padding": {
-                        "bottom": 8.0
-                      },
-                      "child": {
-                        "mainAxisAlignment": "spaceBetween",
-                        "textDirection": "rtl",
-                        "children": [
-                          {
-                            "data": "{{appStrings.promissory.fullName}}",
-                            "style": {
-                              "type": "custom",
-                              "color": "{{appColors.current.text.subtitle}}",
-                              "fontSize": 14.0
-                            },
-                            "textDirection": "rtl",
-                            "type": "text"
+                            "type": "visibility",
+                            "visible": "[[!recipientType]]",
+                            "child": {
+                              "data": "Ù†Ø§Ù…",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
                           },
                           {
-                            "data": "{{receiverIdentity.fullName}}",
-                            "style": {
-                              "type": "custom",
-                              "color": "{{appColors.current.text.title}}",
-                              "fontSize": 14.0,
-                              "fontWeight": "w600"
+                            "child": {
+                              "data": "{{receiverIdentity.fullName}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w600"
+                              },
+                              "textAlign": "left",
+                              "textDirection": "ltr",
+                              "type": "text"
                             },
-                            "textDirection": "ltr",
-                            "type": "text"
+                            "type": "expanded"
                           }
                         ],
                         "type": "row"
@@ -608,7 +718,7 @@
         },
         "child": {
           "onPressed": {
-            "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_payment.json",
+            "routeName": "promissory_real_payment",
             "navigationStyle": "push",
             "actionType": "navigate"
           },

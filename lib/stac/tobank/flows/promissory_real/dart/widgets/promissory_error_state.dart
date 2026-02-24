@@ -37,7 +37,6 @@ Map<String, dynamic> buildPromissoryErrorState(String errorStateKey) {
             {'type': 'sizedBox', 'height': 24},
             {
               'type': 'container',
-              'width': double.infinity,
               'padding': {'top': 0, 'right': 16, 'bottom': 16, 'left': 16},
               'child': {
                 'type': 'elevatedButton',

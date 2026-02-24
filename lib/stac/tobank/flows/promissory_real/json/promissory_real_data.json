@@ -14,6 +14,10 @@
       {
         "key": "isOnDemand",
         "value": false
+      },
+      {
+        "key": "transferable",
+        "value": true
       }
     ]
   },
@@ -104,132 +108,276 @@
                               "type": "sizedBox"
                             },
                             {
-                              "mainAxisAlignment": "spaceBetween",
-                              "crossAxisAlignment": "start",
-                              "textDirection": "rtl",
-                              "children": [
-                                {
-                                  "child": {
-                                    "data": "{{appStrings.promissory.nationalCode}}",
-                                    "style": {
-                                      "type": "custom",
-                                      "color": "{{appColors.current.text.subtitle}}",
-                                      "fontSize": 14.0
+                              "type": "visibility",
+                              "visible": "[[recipientType]]",
+                              "child": {
+                                "mainAxisAlignment": "spaceBetween",
+                                "crossAxisAlignment": "start",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "data": "{{appStrings.promissory.nationalCode}}",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.subtitle}}",
+                                        "fontSize": 14.0
+                                      },
+                                      "textDirection": "rtl",
+                                      "type": "text"
                                     },
-                                    "textDirection": "rtl",
-                                    "type": "text"
+                                    "type": "expanded"
                                   },
-                                  "type": "expanded"
-                                },
-                                {
-                                  "width": 16.0,
-                                  "type": "sizedBox"
-                                },
-                                {
-                                  "child": {
-                                    "data": "{{form.receiver_national_code}}",
-                                    "style": {
-                                      "type": "custom",
-                                      "color": "{{appColors.current.text.title}}",
-                                      "fontSize": 14.0,
-                                      "fontWeight": "w600"
+                                  {
+                                    "width": 16.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "child": {
+                                      "data": "{{form.receiver_national_code}}",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.title}}",
+                                        "fontSize": 14.0,
+                                        "fontWeight": "w600"
+                                      },
+                                      "textAlign": "left",
+                                      "textDirection": "rtl",
+                                      "type": "text"
                                     },
-                                    "textAlign": "left",
-                                    "textDirection": "rtl",
-                                    "type": "text"
+                                    "type": "expanded"
+                                  }
+                                ],
+                                "type": "row"
+                              }
+                            },
+                            {
+                              "type": "visibility",
+                              "visible": "[[!recipientType]]",
+                              "child": {
+                                "mainAxisAlignment": "spaceBetween",
+                                "crossAxisAlignment": "start",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "data": "{{appStrings.promissory.nationalId}}",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.subtitle}}",
+                                        "fontSize": 14.0
+                                      },
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "expanded"
                                   },
-                                  "type": "expanded"
-                                }
-                              ],
-                              "type": "row"
+                                  {
+                                    "width": 16.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "child": {
+                                      "data": "{{receiverIdentity.nationalId}}",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.title}}",
+                                        "fontSize": 14.0,
+                                        "fontWeight": "w600"
+                                      },
+                                      "textAlign": "left",
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "expanded"
+                                  }
+                                ],
+                                "type": "row"
+                              }
                             },
                             {
                               "height": 8.0,
                               "type": "sizedBox"
                             },
                             {
-                              "mainAxisAlignment": "spaceBetween",
-                              "crossAxisAlignment": "start",
-                              "textDirection": "rtl",
-                              "children": [
-                                {
-                                  "child": {
-                                    "data": "{{appStrings.promissory.mobileNumber}}",
-                                    "style": {
-                                      "type": "custom",
-                                      "color": "{{appColors.current.text.subtitle}}",
-                                      "fontSize": 14.0
+                              "type": "visibility",
+                              "visible": "[[recipientType]]",
+                              "child": {
+                                "mainAxisAlignment": "spaceBetween",
+                                "crossAxisAlignment": "start",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "data": "{{appStrings.promissory.mobileNumber}}",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.subtitle}}",
+                                        "fontSize": 14.0
+                                      },
+                                      "textDirection": "rtl",
+                                      "type": "text"
                                     },
-                                    "textDirection": "rtl",
-                                    "type": "text"
+                                    "type": "expanded"
                                   },
-                                  "type": "expanded"
-                                },
-                                {
-                                  "width": 16.0,
-                                  "type": "sizedBox"
-                                },
-                                {
-                                  "child": {
-                                    "data": "{{form.receiver_mobile}}",
-                                    "style": {
-                                      "type": "custom",
-                                      "color": "{{appColors.current.text.title}}",
-                                      "fontSize": 14.0,
-                                      "fontWeight": "w600"
+                                  {
+                                    "width": 16.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "child": {
+                                      "data": "{{form.receiver_mobile}}",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.title}}",
+                                        "fontSize": 14.0,
+                                        "fontWeight": "w600"
+                                      },
+                                      "textAlign": "left",
+                                      "textDirection": "rtl",
+                                      "type": "text"
                                     },
-                                    "textAlign": "left",
-                                    "textDirection": "rtl",
-                                    "type": "text"
+                                    "type": "expanded"
+                                  }
+                                ],
+                                "type": "row"
+                              }
+                            },
+                            {
+                              "type": "visibility",
+                              "visible": "[[!recipientType]]",
+                              "child": {
+                                "mainAxisAlignment": "spaceBetween",
+                                "crossAxisAlignment": "start",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "data": "{{appStrings.promissory.contactNumber}}",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.subtitle}}",
+                                        "fontSize": 14.0
+                                      },
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "expanded"
                                   },
-                                  "type": "expanded"
-                                }
-                              ],
-                              "type": "row"
+                                  {
+                                    "width": 16.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "child": {
+                                      "data": "{{receiverIdentity.phone}}",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.title}}",
+                                        "fontSize": 14.0,
+                                        "fontWeight": "w600"
+                                      },
+                                      "textAlign": "left",
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "expanded"
+                                  }
+                                ],
+                                "type": "row"
+                              }
                             },
                             {
                               "height": 8.0,
                               "type": "sizedBox"
                             },
                             {
-                              "mainAxisAlignment": "spaceBetween",
-                              "crossAxisAlignment": "start",
-                              "textDirection": "rtl",
-                              "children": [
-                                {
-                                  "child": {
-                                    "data": "{{appStrings.promissory.fullName}}",
-                                    "style": {
-                                      "type": "custom",
-                                      "color": "{{appColors.current.text.subtitle}}",
-                                      "fontSize": 14.0
+                              "type": "visibility",
+                              "visible": "[[recipientType]]",
+                              "child": {
+                                "mainAxisAlignment": "spaceBetween",
+                                "crossAxisAlignment": "start",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "data": "{{appStrings.promissory.fullName}}",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.subtitle}}",
+                                        "fontSize": 14.0
+                                      },
+                                      "textDirection": "rtl",
+                                      "type": "text"
                                     },
-                                    "textDirection": "rtl",
-                                    "type": "text"
+                                    "type": "expanded"
                                   },
-                                  "type": "expanded"
-                                },
-                                {
-                                  "width": 16.0,
-                                  "type": "sizedBox"
-                                },
-                                {
-                                  "child": {
-                                    "data": "{{receiverIdentity.fullName}}",
-                                    "style": {
-                                      "type": "custom",
-                                      "color": "{{appColors.current.text.title}}",
-                                      "fontSize": 14.0,
-                                      "fontWeight": "w600"
+                                  {
+                                    "width": 16.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "child": {
+                                      "data": "{{receiverIdentity.fullName}}",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.title}}",
+                                        "fontSize": 14.0,
+                                        "fontWeight": "w600"
+                                      },
+                                      "textAlign": "left",
+                                      "textDirection": "rtl",
+                                      "type": "text"
                                     },
-                                    "textAlign": "left",
-                                    "textDirection": "rtl",
-                                    "type": "text"
+                                    "type": "expanded"
+                                  }
+                                ],
+                                "type": "row"
+                              }
+                            },
+                            {
+                              "type": "visibility",
+                              "visible": "[[!recipientType]]",
+                              "child": {
+                                "mainAxisAlignment": "spaceBetween",
+                                "crossAxisAlignment": "start",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "data": "Ù†Ø§Ù…",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.subtitle}}",
+                                        "fontSize": 14.0
+                                      },
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "expanded"
                                   },
-                                  "type": "expanded"
-                                }
-                              ],
-                              "type": "row"
+                                  {
+                                    "width": 16.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "child": {
+                                      "data": "{{receiverIdentity.fullName}}",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.title}}",
+                                        "fontSize": 14.0,
+                                        "fontWeight": "w600"
+                                      },
+                                      "textAlign": "left",
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "expanded"
+                                  }
+                                ],
+                                "type": "row"
+                              }
                             }
                           ],
                           "type": "column"
@@ -347,6 +495,10 @@
                                     {
                                       "rule": "^\\d+$",
                                       "message": "{{appStrings.promissory.amountRequired}}"
+                                    },
+                                    {
+                                      "rule": "^(2[0-9]{7,}|[3-9][0-9]{7,}|[1-9][0-9]{8,})$",
+                                      "message": "Ø­Ø¯Ø§Ù‚Ù„ Ù…Ø¨Ù„Øº ØªØ¹Ù‡Ø¯ Ø¨ÛŒØ³Øª Ù…ÛŒÙ„ÛŒÙˆÙ† Ø±ÛŒØ§Ù„ Ù…ÛŒâ€ŒØ¨Ø§Ø´Ø¯"
                                     }
                                   ],
                                   "onChanged": {
@@ -361,9 +513,34 @@
                                         "id": "promissory_due_date",
                                         "rule": "^\\d{4}/\\d{2}/\\d{2}$",
                                         "optional": "isOnDemand"
+                                      },
+                                      {
+                                        "id": "paymentPlace",
+                                        "rule": "^.{5,200}$"
                                       }
                                     ]
                                   }
+                                },
+                                {
+                                  "height": 8.0,
+                                  "type": "sizedBox"
+                                },
+                                {
+                                  "textDirection": "rtl",
+                                  "children": [
+                                    {
+                                      "data": "Ø­Ø¯Ø§Ù‚Ù„ Ù…Ø¨Ù„Øº ØªØ¹Ù‡Ø¯ Ø¨ÛŒØ³Øª Ù…ÛŒÙ„ÛŒÙˆÙ† Ø±ÛŒØ§Ù„ Ù…ÛŒâ€ŒØ¨Ø§Ø´Ø¯",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.subtitle}}",
+                                        "fontSize": 12.0,
+                                        "fontWeight": "w500"
+                                      },
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    }
+                                  ],
+                                  "type": "row"
                                 }
                               ],
                               "type": "column"
@@ -423,6 +600,10 @@
                                                 "id": "promissory_due_date",
                                                 "rule": "^\\d{4}/\\d{2}/\\d{2}$",
                                                 "optional": "isOnDemand"
+                                              },
+                                              {
+                                                "id": "paymentPlace",
+                                                "rule": "^.{5,200}$"
                                               }
                                             ]
                                           },
@@ -502,6 +683,10 @@
                                             "id": "promissory_due_date",
                                             "rule": "^\\d{4}/\\d{2}/\\d{2}$",
                                             "optional": "isOnDemand"
+                                          },
+                                          {
+                                            "id": "paymentPlace",
+                                            "rule": "^.{5,200}$"
                                           }
                                         ]
                                       }
@@ -537,7 +722,7 @@
                                 {
                                   "type": "reactiveSwitch",
                                   "id": "transferableSwitch",
-                                  "valueKey": "isTransferable",
+                                  "valueKey": "transferable",
                                   "activeColor": "{{appColors.current.secondary.color}}"
                                 }
                               ],
@@ -551,7 +736,7 @@
                               "crossAxisAlignment": "stretch",
                               "children": [
                                 {
-                                  "data": "{{appStrings.promissory.paymentPlaceOptional}}",
+                                  "data": "{{appStrings.promissory.paymentPlaceLabel}}",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -566,22 +751,96 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "id": "promissory_payment_place",
-                                  "decoration": {
-                                    "hintText": "{{appStrings.promissory.paymentPlaceHint}}",
-                                    "contentPadding": {
-                                      "left": 16.0,
-                                      "top": 16.0,
-                                      "right": 16.0,
-                                      "bottom": 16.0
+                                  "type": "visibility",
+                                  "visible": "{{recipientType}}",
+                                  "child": {
+                                    "type": "textFormField",
+                                    "id": "paymentPlace",
+                                    "textDirection": "rtl",
+                                    "textAlign": "right",
+                                    "decoration": {
+                                      "hintText": "{{appStrings.promissory.paymentPlaceHint}}",
+                                      "contentPadding": {
+                                        "left": 16.0,
+                                        "top": 16.0,
+                                        "right": 16.0,
+                                        "bottom": 16.0
+                                      },
+                                      "filled": false
                                     },
-                                    "filled": false
-                                  },
-                                  "textAlign": "right",
-                                  "textDirection": "rtl",
-                                  "maxLines": 5,
-                                  "minLines": 3,
-                                  "type": "textFormField"
+                                    "maxLength": 200,
+                                    "minLines": 3,
+                                    "maxLines": 5,
+                                    "validatorRules": [
+                                      {
+                                        "rule": "^.{5,200}$",
+                                        "message": "{{appStrings.promissory.enterPaymentPlace}}"
+                                      }
+                                    ],
+                                    "onChanged": {
+                                      "actionType": "validateFields",
+                                      "resultKey": "isDataFormValid",
+                                      "fields": [
+                                        {
+                                          "id": "promissory_amount",
+                                          "rule": "^[\\d,]+$"
+                                        },
+                                        {
+                                          "id": "promissory_due_date",
+                                          "rule": "^\\d{4}/\\d{2}/\\d{2}$",
+                                          "optional": "isOnDemand"
+                                        },
+                                        {
+                                          "id": "paymentPlace",
+                                          "rule": "^.{5,200}$"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                },
+                                {
+                                  "type": "visibility",
+                                  "visible": "{{!recipientType}}",
+                                  "child": {
+                                    "type": "textFormField",
+                                    "id": "paymentPlace",
+                                    "textDirection": "rtl",
+                                    "textAlign": "right",
+                                    "decoration": {
+                                      "contentPadding": {
+                                        "left": 16.0,
+                                        "top": 16.0,
+                                        "right": 16.0,
+                                        "bottom": 16.0
+                                      },
+                                      "filled": true,
+                                      "fillColor": "{{appColors.current.background.surfaceContainer}}"
+                                    },
+                                    "minLines": 3,
+                                    "maxLines": 5,
+                                    "onChanged": {
+                                      "actionType": "validateFields",
+                                      "resultKey": "isDataFormValid",
+                                      "fields": [
+                                        {
+                                          "id": "promissory_amount",
+                                          "rule": "^[\\d,]+$"
+                                        },
+                                        {
+                                          "id": "promissory_due_date",
+                                          "rule": "^\\d{4}/\\d{2}/\\d{2}$",
+                                          "optional": "isOnDemand"
+                                        },
+                                        {
+                                          "id": "paymentPlace",
+                                          "rule": "^.{5,200}$"
+                                        }
+                                      ]
+                                    },
+                                    "initialValue": "{{form.paymentPlace}}",
+                                    "readOnly": true,
+                                    "enabled": false
+                                  }
                                 }
                               ],
                               "type": "column"
@@ -699,11 +958,16 @@
                       },
                       {
                         "actionType": "setValue",
-                        "key": "form.promissory_payment_place",
+                        "key": "form.paymentPlace",
                         "value": {
                           "actionType": "getFormValue",
-                          "id": "promissory_payment_place"
+                          "id": "paymentPlace"
                         }
+                      },
+                      {
+                        "actionType": "setValue",
+                        "key": "form.transferable",
+                        "value": "__STAC_OPEN__transferable}}"
                       },
                       {
                         "actionType": "setValue",
@@ -751,7 +1015,7 @@
                                   ]
                                 },
                                 {
-                                  "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_confirm.json",
+                                  "routeName": "promissory_real_confirm",
                                   "navigationStyle": "push",
                                   "actionType": "navigate"
                                 }

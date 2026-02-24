@@ -856,6 +856,50 @@
                   "value": true
                 },
                 {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "key": "payload.recipientType",
+                      "value": "I",
+                      "condition": "recipientType"
+                    },
+                    {
+                      "key": "payload.recipientBirthDate",
+                      "value": "__STAC_OPEN__replace(receiver.birthDate, '/', '')}}",
+                      "condition": "recipientType"
+                    },
+                    {
+                      "key": "payload.recipientNationalId",
+                      "value": "__STAC_OPEN__receiver.nationalCode}}",
+                      "condition": "recipientType"
+                    },
+                    {
+                      "key": "payload.recipientCellphone",
+                      "value": "__STAC_OPEN__removeLeadingZero(receiver.mobile)}}",
+                      "condition": "recipientType"
+                    },
+                    {
+                      "key": "payload.recipientType",
+                      "value": "C",
+                      "condition": "!recipientType"
+                    },
+                    {
+                      "key": "payload.recipientBirthDate",
+                      "condition": "!recipientType"
+                    },
+                    {
+                      "key": "payload.recipientNationalId",
+                      "value": "__STAC_OPEN__receiverIdentity.nationalId}}",
+                      "condition": "!recipientType"
+                    },
+                    {
+                      "key": "payload.recipientCellphone",
+                      "value": "__STAC_OPEN__receiverIdentity.phone}}",
+                      "condition": "!recipientType"
+                    }
+                  ]
+                },
+                {
                   "actionType": "networkRequest",
                   "url": "http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/draft",
                   "method": "post",
@@ -870,16 +914,16 @@
                     "issuerAccountNumber": "__STAC_OPEN__selectedDeposit.depositIban}}",
                     "issuerAddress": "__STAC_OPEN__userData.address}}",
                     "issuerPostalCode": "__STAC_OPEN__userData.postalCode}}",
-                    "recipientType": "I",
-                    "recipientBirthDate": "__STAC_OPEN__replace(receiver.birthDate, '/', '')}}",
-                    "recipientNationalId": "__STAC_OPEN__receiver.nationalCode}}",
-                    "recipientCellphone": "__STAC_OPEN__removeLeadingZero(receiver.mobile)}}",
+                    "recipientType": "__STAC_OPEN__payload.recipientType}}",
+                    "recipientBirthDate": "__STAC_OPEN__payload.recipientBirthDate}}",
+                    "recipientNationalId": "__STAC_OPEN__payload.recipientNationalId}}",
+                    "recipientCellphone": "__STAC_OPEN__payload.recipientCellphone}}",
                     "recipientFullName": "__STAC_OPEN__receiverIdentity.fullName}}",
-                    "paymentPlace": "__STAC_OPEN__form.promissory_payment_place}}",
+                    "paymentPlace": "__STAC_OPEN__form.paymentPlace}}",
                     "amount": "__STAC_OPEN__toInt(form.promissory_amount)}}",
                     "dueDate": "__STAC_OPEN__replace(form.promissory_due_date, '/', '')}}",
                     "description": "__STAC_OPEN__form.description}}",
-                    "transferable": true
+                    "transferable": "__STAC_OPEN__form.transferable}}"
                   },
                   "headers": {
                     "accept": "application/json",
@@ -910,11 +954,20 @@
                               {
                                 "key": "form.promissory_id",
                                 "value": "__STAC_OPEN__data_payload.id}}"
+                              },
+                              {
+                                "key": "rawTransactionTime",
+                                "value": "__STAC_OPEN__data.meta.time}}"
                               }
                             ]
                           },
                           {
-                            "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_sign.json",
+                            "actionType": "formatDate",
+                            "sourceKey": "rawTransactionTime",
+                            "destinationKey": "transactionTime"
+                          },
+                          {
+                            "routeName": "promissory_real_sign",
                             "navigationStyle": "push",
                             "actionType": "navigate"
                           }
