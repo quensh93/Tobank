@@ -718,9 +718,9 @@
         },
         "child": {
           "onPressed": {
-            "routeName": "promissory_real_payment",
             "navigationStyle": "push",
-            "actionType": "navigate"
+            "actionType": "navigate",
+            "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_payment.json"
           },
           "style": {
             "backgroundColor": "{{appColors.current.primary.color}}",

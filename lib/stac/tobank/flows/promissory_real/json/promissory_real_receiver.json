@@ -1093,8 +1093,8 @@
                               },
                               {
                                 "actionType": "navigate",
-                                "widgetType": "promissory_real_data",
-                                "navigationStyle": "push"
+                                "navigationStyle": "push",
+                                "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_data.json"
                               }
                             ]
                           }
@@ -1343,8 +1343,8 @@
                               },
                               {
                                 "actionType": "navigate",
-                                "widgetType": "promissory_real_data",
-                                "navigationStyle": "push"
+                                "navigationStyle": "push",
+                                "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_data.json"
                               }
                             ]
                           }

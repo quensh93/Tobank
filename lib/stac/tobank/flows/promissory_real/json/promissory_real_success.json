@@ -490,9 +490,9 @@
                                   "type": "padding"
                                 },
                                 "onTap": {
-                                  "routeName": "promissory_real_preview",
                                   "navigationStyle": "push",
-                                  "actionType": "navigate"
+                                  "actionType": "navigate",
+                                  "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_preview.json"
                                 },
                                 "type": "gestureDetector"
                               },

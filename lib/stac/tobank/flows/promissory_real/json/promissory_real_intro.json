@@ -268,9 +268,9 @@
                   "type": "container"
                 },
                 "onTap": {
-                  "routeName": "promissory_real_rules",
                   "navigationStyle": "push",
-                  "actionType": "navigate"
+                  "actionType": "navigate",
+                  "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_rules.json"
                 },
                 "type": "gestureDetector"
               },

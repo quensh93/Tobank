@@ -87,10 +87,6 @@
                       "value": "{{responses.fetchCustomerInfo.data.address}}"
                     },
                     {
-                      "key": "selectedDeposit.depositIban",
-                      "value": "{{form.selected_shaba_number}}"
-                    },
-                    {
                       "key": "issuer.isLoading",
                       "value": false
                     },
@@ -180,7 +176,7 @@
           "type": "iconButton"
         },
         "title": {
-          "data": "{{appStrings.promissory.selectDepositTitle}}",
+            "data": "{{appStrings.promissory.issuerTitle}}",
           "style": {
             "type": "alias",
             "value": "{{appStyles.appbarStyle}}"
@@ -240,7 +236,7 @@
             "type": "iconButton"
           },
           "title": {
-            "data": "{{appStrings.promissory.issuanceTitle}}",
+            "data": "{{appStrings.promissory.issuerTitle}}",
             "style": {
               "type": "alias",
               "value": "{{appStyles.appbarStyle}}"
@@ -367,10 +363,6 @@
                                     "value": "{{responses.fetchCustomerInfo.data.address}}"
                                   },
                                   {
-                                    "key": "selectedDeposit.depositIban",
-                                    "value": "{{form.selected_shaba_number}}"
-                                  },
-                                  {
                                     "key": "issuer.isLoading",
                                     "value": false
                                   },
@@ -487,7 +479,7 @@
             "type": "iconButton"
           },
           "title": {
-            "data": "{{appStrings.promissory.issuanceTitle}}",
+            "data": "{{appStrings.promissory.issuerTitle}}",
             "style": {
               "type": "alias",
               "value": "{{appStyles.appbarStyle}}"
@@ -847,9 +839,9 @@
               },
               "child": {
                 "onPressed": {
-                  "routeName": "promissory_real_receiver",
                   "navigationStyle": "push",
-                  "actionType": "navigate"
+                  "actionType": "navigate",
+                  "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_receiver.json"
                 },
                 "style": {
                   "backgroundColor": "{{appColors.current.primary.color}}",

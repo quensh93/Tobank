@@ -780,9 +780,9 @@
             "type": "reactiveElevatedButton",
             "enabledKey": "hasSelection",
             "onPressed": {
-              "routeName": "promissory_real_issuer",
               "navigationStyle": "push",
-              "actionType": "navigate"
+              "actionType": "navigate",
+              "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_issuer.json"
             },
             "style": {
               "type": "buttonStyle",

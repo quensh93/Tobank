@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
@@ -91,10 +91,6 @@ StacWidget promissoryRealIssuer() {
                       'key': 'userData.address',
                       'value': '{{responses.fetchCustomerInfo.data.address}}',
                     },
-                    {
-                      'key': 'selectedDeposit.depositIban',
-                      'value': '{{form.selected_shaba_number}}',
-                    },
                     {'key': 'issuer.isLoading', 'value': false},
                     {'key': 'issuer.hasError', 'value': false},
                     {'key': 'issuer.showContent', 'value': true},
@@ -160,8 +156,8 @@ StacWidget promissoryRealIssuer() {
 StacWidget _buildLoadingScreen() {
   return StacScaffold(
     appBar: buildPromissoryAppBar(
-      // انتخاب سپرده
-      title: '{{appStrings.promissory.selectDepositTitle}}',
+      // اطلاعات صادرکننده
+      title: '{{appStrings.promissory.issuerTitle}}',
     ),
     body: StacCenter(
       child: StacColumn(
@@ -187,8 +183,8 @@ StacWidget _buildLoadingScreen() {
 StacWidget _buildErrorScreen(StacAction onRetry) {
   return StacScaffold(
     appBar: buildPromissoryAppBar(
-      // صدور سفته
-      title: '{{appStrings.promissory.issuanceTitle}}',
+      // اطلاعات صادرکننده
+      title: '{{appStrings.promissory.issuerTitle}}',
     ),
     body: StacCenter(
       child: StacColumn(
@@ -233,8 +229,8 @@ StacWidget _buildErrorScreen(StacAction onRetry) {
 StacWidget _buildIssuerDataScreen(StacAction onContinue) {
   return StacScaffold(
     appBar: buildPromissoryAppBar(
-      // صدور سفته
-      title: '{{appStrings.promissory.issuanceTitle}}',
+      // اطلاعات صادرکننده
+      title: '{{appStrings.promissory.issuerTitle}}',
     ),
     body: StacColumn(
       crossAxisAlignment: StacCrossAxisAlignment.stretch,
