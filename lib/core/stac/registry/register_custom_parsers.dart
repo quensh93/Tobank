@@ -29,6 +29,7 @@ import '../parsers/actions/save_file_action_parser.dart';
 import '../parsers/actions/share_file_action_parser.dart';
 import '../parsers/actions/format_number_action_parser.dart';
 import '../parsers/actions/format_date_action_parser.dart';
+import '../parsers/actions/amount_to_words_action_parser.dart';
 
 import '../parsers/widgets/reactive_list_view_parser.dart';
 
@@ -422,6 +423,11 @@ void _registerExampleParsers() {
   // Register format date action parser
   CustomComponentRegistry.instance.registerAction(
     const FormatDateActionParser(),
+  );
+
+  // Register amount to words action parser for live verbal amount preview
+  CustomComponentRegistry.instance.registerAction(
+    const AmountToWordsActionParser(),
   );
 }
 

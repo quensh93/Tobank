@@ -208,7 +208,7 @@ StacWidget _buildContinueButton() {
                       'value': false,
                     },
                     StacNavigateAction(
-                      routeName: 'promissory_real_issuer',
+                      routeName: 'promissory_real_success',
                       navigationStyle: NavigationStyle.push,
                     ).toJson(),
                   ],

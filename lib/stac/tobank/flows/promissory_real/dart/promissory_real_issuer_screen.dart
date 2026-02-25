@@ -320,12 +320,12 @@ StacWidget _buildIssuerCard() {
           '{{appStrings.promissory.fullName}}',
           '{{userData.fullName}}',
         ),
-        StacSizedBox(height: 16),
-        buildPromissoryDetailRow(
-          // شبا سپرده
-          '{{appStrings.promissory.depositShaba}}',
-          '{{selectedDeposit.depositIban}}',
-        ),
+        // StacSizedBox(height: 16),
+        // buildPromissoryDetailRow(
+        //   // شبا سپرده
+        //   '{{appStrings.promissory.depositShaba}}',
+        //   '{{selectedDeposit.depositIban}}',
+        // ),
       ],
     ),
   );

@@ -320,7 +320,7 @@ StacWidget promissoryRealPaymentDeposits() {
           StacPadding(
             padding: const StacEdgeInsets.symmetric(horizontal: 16.0),
             child: StacText(
-              // سپرده مورد نظر برای صدور سفته را انتخاب نمایید:
+              // سپرده جهت پرداخت را انتخاب کنید
               data: '{{appStrings.promissory.selectDepositForPromissory}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
@@ -578,13 +578,13 @@ StacWidget _buildDepositCardTemplate() {
             ),
           ],
         ),
-        StacSizedBox(height: 12.0),
+        StacSizedBox(height: 14.0),
         // Divider
         StacContainer(
           height: 1.0,
           color: '{{appColors.current.input.borderEnabled}}',
         ),
-        StacSizedBox(height: 12.0),
+        StacSizedBox(height: 14.0),
         // Deposit number
         StacRow(
           textDirection: StacTextDirection.rtl,
@@ -599,13 +599,16 @@ StacWidget _buildDepositCardTemplate() {
                 color: '{{appColors.current.text.subtitle}}',
               ),
             ),
-            StacText(
-              data: '{{item.depositNumber}}',
-              textDirection: StacTextDirection.rtl,
-              style: StacTextStyle(
-                fontSize: 14.0,
-                fontWeight: StacFontWeight.w500,
-                color: '{{appColors.current.text.title}}',
+            StacExpanded(
+              child: StacText(
+                data: '{{item.depositNumber}}',
+                textDirection: StacTextDirection.ltr,
+                textAlign: StacTextAlign.left,
+                style: StacTextStyle(
+                  fontSize: 14.0,
+                  fontWeight: StacFontWeight.w500,
+                  color: '{{appColors.current.text.title}}',
+                ),
               ),
             ),
           ],
@@ -628,7 +631,8 @@ StacWidget _buildDepositCardTemplate() {
             StacExpanded(
               child: StacText(
                 data: '{{item.depositIban}}',
-                textDirection: StacTextDirection.rtl,
+                textDirection: StacTextDirection.ltr,
+                textAlign: StacTextAlign.left,
                 style: StacTextStyle(
                   fontSize: 14.0,
                   fontWeight: StacFontWeight.w500,
@@ -637,6 +641,12 @@ StacWidget _buildDepositCardTemplate() {
               ),
             ),
           ],
+        ),
+        StacSizedBox(height: 8.0),
+        // Divider between IBAN and balance
+        StacContainer(
+          height: 1.0,
+          color: '{{appColors.current.input.borderEnabled}}',
         ),
         StacSizedBox(height: 8.0),
         // Available amount
@@ -653,22 +663,15 @@ StacWidget _buildDepositCardTemplate() {
                 color: '{{appColors.current.text.subtitle}}',
               ),
             ),
+            StacExpanded(
+              child: StacContainer(),
+            ),
             StacText(
-              data: '{{item.availableAmount}}',
-              textDirection: StacTextDirection.rtl,
+              data: '{{formatNumber(item.availableAmount)}} {{appStrings.common.rial}}',
+              textDirection: StacTextDirection.ltr,
               style: StacTextStyle(
                 fontSize: 14.0,
                 fontWeight: StacFontWeight.w600,
-                color: '{{appColors.current.text.title}}',
-              ),
-            ),
-            StacSizedBox(width: 4.0),
-            StacText(
-              // ریال
-              data: '{{appStrings.common.rial}}',
-              textDirection: StacTextDirection.rtl,
-              style: StacTextStyle(
-                fontSize: 14.0,
                 color: '{{appColors.current.text.title}}',
               ),
             ),

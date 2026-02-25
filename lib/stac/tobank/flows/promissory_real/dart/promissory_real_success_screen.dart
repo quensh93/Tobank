@@ -82,11 +82,10 @@ StacWidget _buildSuccessHeader() {
         ),
         child: StacCenter(
           child: StacImage(
-            src: 'assets/icons/ic_check_circle.svg',
+            src: 'assets/icons/ic_transaction_success.svg',
             imageType: StacImageType.asset,
-            width: 56,
-            height: 56,
-            color: '{{appColors.current.success.color}}',
+            width: 60,
+            height: 60,
           ),
         ),
       ),
@@ -104,8 +103,8 @@ StacWidget _buildSuccessHeader() {
       ),
       StacSizedBox(height: 8),
       StacText(
-        // سفته با موفقیت صادر شد
-        data: '{{appStrings.promissory.successMessage}}',
+        //عملیات پرداخت با موفقیت انجام شد
+        data: '{{appStrings.promissory.successfulMessage}}',
         textDirection: StacTextDirection.rtl,
         textAlign: StacTextAlign.center,
         style: StacCustomTextStyle(

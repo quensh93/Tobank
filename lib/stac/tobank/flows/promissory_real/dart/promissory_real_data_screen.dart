@@ -2,6 +2,7 @@
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/format_number_action.dart';
+import 'package:tobank_sdui/core/stac/builders/amount_to_words_action.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_app_bar.dart';
 import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_detail_row.dart';
@@ -24,12 +25,13 @@ StacWidget promissoryRealData() {
         {'key': 'isIdentityLoading', 'value': false},
         {'key': 'isOnDemand', 'value': false},
         {'key': 'transferable', 'value': true},
+        {'key': 'form.promissory_amount_words', 'value': ''},
       ],
     ),
     child: StacScaffold(
       appBar: buildPromissoryAppBar(
-        // اطلاعات سفته
-        title: '{{appStrings.promissory.dataTitle}}',
+        // صدور سفته
+        title: '{{appStrings.promissory.issuanceTitle}}',
       ),
       body: StacForm(
         autovalidateMode: StacAutovalidateMode.onUserInteraction,
@@ -77,8 +79,8 @@ StacWidget _buildReceiverInfoSummary() {
       crossAxisAlignment: StacCrossAxisAlignment.stretch,
       children: [
         StacText(
-          // دریافت‌کننده
-          data: '{{appStrings.promissory.receiverInfoTitle}}',
+          //  اطلاعات  دریافت‌کننده
+          data: '{{appStrings.promissory.receiveInfo}}',
           textDirection: StacTextDirection.rtl,
           style: StacCustomTextStyle(
             fontSize: 16,
@@ -193,25 +195,39 @@ StacWidget _buildAmountInput() {
     children: [
       StacRow(
         textDirection: StacTextDirection.rtl,
-        mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
         children: [
-          StacText(
-            // مبلغ سفته
-            data: '{{appStrings.promissory.amountLabel}}',
-            textDirection: StacTextDirection.rtl,
-            style: StacCustomTextStyle(
-              fontSize: 14,
-              fontWeight: StacFontWeight.w600,
-              color: '{{appColors.current.text.title}}',
+          StacExpanded(
+            child: StacText(
+              // مبلغ تعهد
+              data: '{{appStrings.promissory.CommitmentAmount}}',
+              textDirection: StacTextDirection.rtl,
+              style: StacCustomTextStyle(
+                fontSize: 14,
+                fontWeight: StacFontWeight.w600,
+                color: '{{appColors.current.text.title}}',
+              ),
             ),
           ),
-          StacText(
-            data: '',
-            textDirection: StacTextDirection.rtl,
-            style: StacCustomTextStyle(
-              fontSize: 13,
-              fontWeight: StacFontWeight.w600,
-              color: '{{appColors.current.text.subtitle}}',
+          StacSizedBox(width: 8),
+          StacContainer(
+            width: 190,
+            child: StacCustomRegistryReactive(
+              registryKey: 'form.promissory_amount_words',
+              child: {
+                'type': 'text',
+                'data': '{{form.promissory_amount_words}}',
+                'textDirection': 'rtl',
+                'textAlign': 'left',
+                'maxLines': 2,
+                'overflow': 'ellipsis',
+                'style': {
+                  'type': 'custom',
+                  'fontSize': 13,
+                  'fontWeight': 'w600',
+                  'height': 1.35,
+                  'color': '{{appColors.current.text.subtitle}}',
+                },
+              },
             ),
           ),
         ],
@@ -253,7 +269,22 @@ StacWidget _buildAmountInput() {
             'message': 'حداقل مبلغ تعهد بیست میلیون ریال می‌باشد',
           },
         ],
-        onChanged: _getFullValidationAction(),
+        onChanged: StacSequenceAction(
+          actions: [
+            StacCustomSetValueAction(
+              key: 'form.promissory_amount_raw',
+              value: StacGetFormValueAction(id: 'promissory_amount'),
+            ),
+            StacAmountToWordsAction(
+              sourceKey: 'form.promissory_amount_raw',
+              destinationKey: 'form.promissory_amount_words',
+              divideBy: 10,
+              minDigits: 2,
+              suffix: 'تومان',
+            ),
+            _getFullValidationAction(),
+          ],
+        ),
       ),
       StacSizedBox(height: 8),
       StacRow(
@@ -282,8 +313,8 @@ StacWidget _buildDateInput() {
         mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
         children: [
           StacText(
-            // تاریخ پرداخت
-            data: '{{appStrings.promissory.payDate}}',
+            // تاریخ پرداخت سفته
+            data: '{{appStrings.promissory.payDatePromissory}}',
             textDirection: StacTextDirection.rtl,
             style: StacCustomTextStyle(
               fontSize: 14,
@@ -401,7 +432,7 @@ StacWidget _buildPaymentPlaceInput() {
     children: [
       StacText(
         // آدرس
-        data: '{{appStrings.promissory.paymentPlaceLabel}}',
+        data: '{{appStrings.promissory.address}}',
         textDirection: StacTextDirection.rtl,
         style: StacCustomTextStyle(
           fontSize: 14,

@@ -291,16 +291,16 @@ StacWidget _buildWalletPaymentOption() {
               crossAxisAlignment: StacCrossAxisAlignment.start,
               children: [
                 StacSizedBox(height: 4),
-                StacText(
-                  data:
-                      // ریال
-                      '{{wallet.balance_formatted}} {{appStrings.common.rial}}',
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 12,
-                    color: '{{appColors.current.text.subtitle}}',
-                  ),
-                ),
+                // StacText(
+                //   data:
+                //       // ریال
+                //       '{{wallet.balance_formatted}} {{appStrings.common.rial}}',
+                //   textDirection: StacTextDirection.rtl,
+                //   style: StacCustomTextStyle(
+                //     fontSize: 12,
+                //     color: '{{appColors.current.text.subtitle}}',
+                //   ),
+                // ),
               ],
             ),
           ),

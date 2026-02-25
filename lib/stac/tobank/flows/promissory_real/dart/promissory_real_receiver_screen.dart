@@ -481,10 +481,10 @@ StacWidget promissoryRealReceiver() {
                                 child: StacText(
                                   // اطلاعات ذینفع (دریافت‌کننده)
                                   data:
-                                      '{{appStrings.promissory.receiverSubtitle}}',
+                                      '{{appStrings.promissory.selectGardeshgariAsReceiver}}',
                                   textDirection: StacTextDirection.rtl,
                                   style: StacCustomTextStyle(
-                                    fontSize: 14,
+                                    fontSize: 15,
                                     fontWeight: StacFontWeight.w600,
                                     color: '{{appColors.current.text.title}}',
                                   ),
@@ -499,7 +499,6 @@ StacWidget promissoryRealReceiver() {
                                     imageType: StacImageType.asset,
                                     width: 24,
                                     height: 24,
-                                    fit: StacBoxFit.scaleDown,
                                   ),
                                   StacSizedBox(width: 8),
                                   StacCustomReactiveSwitch(

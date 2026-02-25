@@ -421,6 +421,14 @@ class _ReactiveListViewWidget extends StatelessWidget {
     int index,
     int totalCount,
   ) {
+    // formatNumber(value): formats digits with thousands separators
+    final formatNumberMatch = RegExp(r'^formatNumber\((.+)\)$').firstMatch(expr);
+    if (formatNumberMatch != null) {
+      final innerExpr = formatNumberMatch.group(1)!.trim();
+      final rawValue = _lookupValue(innerExpr, item, isSelected, index, totalCount);
+      return _formatNumber(rawValue);
+    }
+
     // Handle ternary: "isSelected ? value1 : value2"
     final ternaryMatch = RegExp(
       r'^(.+?)\s*\?\s*(.+?)\s*:\s*(.+)$',
@@ -482,6 +490,23 @@ class _ReactiveListViewWidget extends StatelessWidget {
     // Fall through: return the expression as-is wrapped in {{}} so
     // the outer Stac framework can resolve it (e.g. appColors, appStrings)
     return '{{$expr}}';
+  }
+
+  String _formatNumber(dynamic value) {
+    final input = value?.toString() ?? '';
+    final digits = input.replaceAll(RegExp(r'[^0-9]'), '');
+    if (digits.isEmpty) return '';
+
+    final buffer = StringBuffer();
+    var count = 0;
+    for (int i = digits.length - 1; i >= 0; i--) {
+      buffer.write(digits[i]);
+      count++;
+      if (i > 0 && count % 3 == 0) {
+        buffer.write(',');
+      }
+    }
+    return buffer.toString().split('').reversed.join();
   }
 
   dynamic _parseValue(
