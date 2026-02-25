@@ -1058,7 +1058,7 @@
                                   ]
                                 },
                                 {
-                                  "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_confirm.json",
+                                  "routeName": "promissory_real_confirm",
                                   "navigationStyle": "push",
                                   "actionType": "navigate"
                                 }

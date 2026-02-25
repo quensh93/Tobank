@@ -1453,7 +1453,7 @@
                                   "type": "padding"
                                 },
                                 "onTap": {
-                                  "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_preview.json",
+                                  "routeName": "promissory_real_preview",
                                   "navigationStyle": "push",
                                   "actionType": "navigate"
                                 },

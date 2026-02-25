@@ -4,8 +4,8 @@ import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_app_bar.dart';
 
-@StacScreen(screenName: 'promissory_real_deposits')
-StacWidget promissoryRealDeposits() {
+@StacScreen(screenName: 'promissory_real_payment_deposits')
+StacWidget promissoryRealPaymentDeposits() {
   final fetchDepositsAction = StacSequenceAction(
     actions: [
       StacCustomSetValueAction(
@@ -15,6 +15,14 @@ StacWidget promissoryRealDeposits() {
           {'key': 'deposits.error', 'value': null},
           {'key': 'selectedDepositId', 'value': null},
           {'key': 'hasSelection', 'value': false},
+          {'key': 'isDraftLoading', 'value': false},
+          // Clear stale deposit selection from previous screen
+          {'key': 'selectedDeposit.depositNumber', 'value': null},
+          {'key': 'selectedDeposit.depositIban', 'value': null},
+          {'key': 'form.selected_deposit_id', 'value': null},
+          {'key': 'form.selected_deposit_title', 'value': null},
+          {'key': 'form.selected_deposit_number', 'value': null},
+          {'key': 'form.selected_shaba_number', 'value': null},
         ],
       ),
       StacNetworkRequestAction(
@@ -35,11 +43,19 @@ StacWidget promissoryRealDeposits() {
         results: [
           {
             'statusCode': 200,
-            'action': StacCustomSetValueAction(
-              values: const [
-                {'key': 'deposits.rawData', 'value': '{{data_payload}}'},
-                {'key': 'deposits.isLoaded', 'value': true},
-                {'key': 'deposits.error', 'value': null},
+            'action': StacSequenceAction(
+              actions: [
+                StacLogAction(
+                  message:
+                      'DEBUG: payment deposits fetch success. payload={{data_payload}}',
+                ).toJson(),
+                StacCustomSetValueAction(
+                  values: const [
+                    {'key': 'deposits.rawData', 'value': '{{data_payload}}'},
+                    {'key': 'deposits.isLoaded', 'value': true},
+                    {'key': 'deposits.error', 'value': null},
+                  ],
+                ).toJson(),
               ],
             ).toJson(),
           },
@@ -116,17 +132,186 @@ StacWidget promissoryRealDeposits() {
     ],
   );
 
-  final onContinueAction = const StacNavigateAction(
-    routeName: 'promissory_real_issuer',
-    navigationStyle: NavigationStyle.push,
+  final onContinueAction = StacSequenceAction(
+    actions: [
+      StacCustomSetValueAction(key: 'isDraftLoading', value: true),
+      StacCustomSetValueAction(key: 'hasSelection', value: true),
+      StacCustomSetValueAction(
+        values: [
+          {
+            'key': 'payload.recipientType',
+            'value': 'I',
+            'condition': 'recipientType',
+          },
+          {
+            'key': 'payload.recipientBirthDate',
+            'value': "{{replace(receiver.birthDate, '/', '')}}",
+            'condition': 'recipientType',
+          },
+          {
+            'key': 'payload.recipientNationalId',
+            'value': '{{receiver.nationalCode}}',
+            'condition': 'recipientType',
+          },
+          {
+            'key': 'payload.recipientCellphone',
+            'value': '{{removeLeadingZero(receiver.mobile)}}',
+            'condition': 'recipientType',
+          },
+          {
+            'key': 'payload.recipientType',
+            'value': 'C',
+            'condition': '!recipientType',
+          },
+          {
+            'key': 'payload.recipientBirthDate',
+            'value': null,
+            'condition': '!recipientType',
+          },
+          {
+            'key': 'payload.recipientNationalId',
+            'value': '{{receiverIdentity.nationalId}}',
+            'condition': '!recipientType',
+          },
+          {
+            'key': 'payload.recipientCellphone',
+            'value': '{{receiverIdentity.phone}}',
+            'condition': '!recipientType',
+          },
+        ],
+      ).toJson(),
+      StacNetworkRequestAction(
+        url:
+            'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/draft',
+        method: 'post',
+        headers: {
+          'accept': 'application/json',
+          'authorization': '{{auth.accessToken}}',
+          'content-type': 'application/json',
+        },
+        data: {
+          'issuerType': 'I',
+          'sourceAccount': '{{selectedDeposit.depositNumber}}',
+          'issuerBirthDate': "{{replace(userData.birthDate, '/', '')}}",
+          'issuerNN': '{{userData.nationalCode}}',
+          'issuerSanaCheck': true,
+          'issuerCellphone': '{{removeLeadingZero(userData.mobile)}}',
+          'issuerFullName': '{{userData.fullName}}',
+          'issuerAccountNumber': '{{selectedDeposit.depositIban}}',
+          'issuerAddress': '{{userData.address}}',
+          'issuerPostalCode': '{{userData.postalCode}}',
+          'recipientType': '{{payload.recipientType}}',
+          'recipientBirthDate': '{{payload.recipientBirthDate}}',
+          'recipientNationalId': '{{payload.recipientNationalId}}',
+          'recipientCellphone': '{{payload.recipientCellphone}}',
+          'recipientFullName': '{{receiverIdentity.fullName}}',
+          'paymentPlace': '{{form.paymentPlace}}',
+          'amount': '{{toInt(form.promissory_amount)}}',
+          'dueDate': "{{replace(form.promissory_due_date, '/', '')}}",
+          'description': '{{form.description}}',
+          'transferable': '{{form.transferable}}',
+        },
+        results: [
+          {
+            'statusCode': 200,
+            'action': StacSequenceAction(
+              actions: [
+                StacCustomSetValueAction(
+                  values: const [
+                    {'key': 'isDraftLoading', 'value': false},
+                    {'key': 'hasSelection', 'value': true},
+                    {
+                      'key': 'form.unsigned_pdf_id',
+                      'value': '{{data_payload.unSignedPdfId}}',
+                    },
+                    {
+                      'key': 'form.promissory_id',
+                      'value': '{{data_payload.id}}',
+                    },
+                    {
+                      'key': 'rawTransactionTime',
+                      'value': '{{data.meta.time}}',
+                    },
+                  ],
+                ).toJson(),
+                {
+                  'actionType': 'formatDate',
+                  'sourceKey': 'rawTransactionTime',
+                  'destinationKey': 'transactionTime',
+                },
+                const StacNavigateAction(
+                  routeName: 'promissory_real_sign',
+                  navigationStyle: NavigationStyle.push,
+                ).toJson(),
+              ],
+            ).toJson(),
+          },
+          {
+            'statusCode': 422,
+            'action': {
+              'actionType': 'sequence',
+              'actions': [
+                {
+                  'actionType': 'setValue',
+                  'values': [
+                    {'key': 'isDraftLoading', 'value': false},
+                    {'key': 'hasSelection', 'value': true},
+                  ],
+                },
+                {
+                  'actionType': 'showSnackBar',
+                  'backgroundColor': '#D32F2F',
+                  'content': {
+                    'type': 'text',
+                    'data': '{{data.status.message.0}}',
+                    'style': {
+                      'type': 'custom',
+                      'color': '#FFFFFF',
+                      'fontSize': 14,
+                    },
+                  },
+                },
+              ],
+            },
+          },
+          {
+            'statusCode': -1,
+            'action': {
+              'actionType': 'sequence',
+              'actions': [
+                {
+                  'actionType': 'setValue',
+                  'values': [
+                    {'key': 'isDraftLoading', 'value': false},
+                    {'key': 'hasSelection', 'value': true},
+                  ],
+                },
+                {
+                  'actionType': 'showSnackBar',
+                  'backgroundColor': '#D32F2F',
+                  'content': {
+                    'type': 'text',
+                    'data': '{{data.status.message.0}}',
+                    'style': {
+                      'type': 'custom',
+                      'color': '#FFFFFF',
+                      'fontSize': 14,
+                    },
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      ),
+    ],
   );
-
   return StacStatefulWidget(
     onInit: fetchDepositsAction,
     child: StacScaffold(
       appBar: buildPromissoryAppBar(
-        // انتخاب سپرده
-        title: '{{appStrings.promissory.selectDepositTitle}}',
+        // انتخاب سپرده پرداخت
+        title: '{{appStrings.promissory.selectPaymentDepositTitle}}',
       ),
       body: StacColumn(
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
@@ -135,7 +320,7 @@ StacWidget promissoryRealDeposits() {
           StacPadding(
             padding: const StacEdgeInsets.symmetric(horizontal: 16.0),
             child: StacText(
-              // سپرده مورد نظر برای صدور سفته را انتخاب نمایید:
+              // سپرده جهت پرداخت را انتخاب کنید
               data: '{{appStrings.promissory.selectDepositForPromissory}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
@@ -162,9 +347,36 @@ StacWidget promissoryRealDeposits() {
                 'bottom': 8.0,
               },
               separator: StacSizedBox(height: 16.0).toJson(),
-              loadingWidget: _buildDepositsLoadingWidget().toJson(),
+              loadingWidget: StacCenter(
+                child: StacColumn(
+                  mainAxisSize: StacMainAxisSize.min,
+                  children: [
+                    StacCircularProgressIndicator(),
+                    StacSizedBox(height: 16.0),
+                    StacText(
+                      // در حال دریافت لیست سپرده‌ها...
+                      data: '{{appStrings.promissory.loadingDeposits}}',
+                      textDirection: StacTextDirection.rtl,
+                      style: StacTextStyle(
+                        fontSize: 16.0,
+                        color: '{{appColors.current.text.subtitle}}',
+                      ),
+                    ),
+                  ],
+                ),
+              ).toJson(),
               errorWidget: _buildErrorContent(fetchDepositsAction).toJson(),
-              emptyWidget: _buildDepositsEmptyWidget().toJson(),
+              emptyWidget: StacCenter(
+                child: StacText(
+                  // سپرده‌ای یافت نشد. لطفا از طریق شعبه اقدام نمایید.
+                  data: '{{appStrings.promissory.noDepositFound}}',
+                  textDirection: StacTextDirection.rtl,
+                  style: StacTextStyle(
+                    fontSize: 14.0,
+                    color: '{{appColors.current.text.subtitle}}',
+                  ),
+                ),
+              ).toJson(),
               onItemTap: StacSequenceAction(
                 actions: [
                   StacCustomSetValueAction(
@@ -233,25 +445,21 @@ StacWidget promissoryRealDeposits() {
               itemTemplate: _buildDepositCardTemplate().toJson(),
             ),
           ),
-          // ----- CONTINUE BUTTON -----
+          // ----- CONTINUE BUTTON (with draft API call + loading state) -----
           StacPadding(
             padding: const StacEdgeInsets.all(16.0),
             child: StacCustomReactiveElevatedButton(
               enabledKey: 'hasSelection',
+              loadingKey: 'isDraftLoading',
               onPressed: onContinueAction,
-              style: {
-                'type': 'buttonStyle',
-                'backgroundColor': '{{appColors.current.primary.color}}',
-                'elevation': 0.0,
-                'fixedSize': StacSize(
-                  999999.0,
-                  56.0,
-                ).toJson(), // generic infinite logic
-                'shape': {
-                  'type': 'roundedRectangleBorder',
-                  'borderRadius': {'type': 'all', 'value': 12.0},
-                },
-              },
+              style: StacButtonStyle(
+                backgroundColor: '{{appColors.current.primary.color}}',
+                elevation: 0.0,
+                fixedSize: StacSize(999999.0, 56.0),
+                shape: StacRoundedRectangleBorder(
+                  borderRadius: StacBorderRadius.all(12.0),
+                ),
+              ).toJson(),
               child: StacText(
                 // ادامه
                 data: '{{appStrings.common.continue}}',
@@ -306,41 +514,6 @@ StacWidget _buildErrorContent(StacSequenceAction onRetryAction) {
           ),
         ),
       ],
-    ),
-  );
-}
-
-StacWidget _buildDepositsLoadingWidget() {
-  return StacCenter(
-    child: StacColumn(
-      mainAxisSize: StacMainAxisSize.min,
-      children: [
-        StacCircularProgressIndicator(),
-        StacSizedBox(height: 16.0),
-        StacText(
-          // در حال دریافت لیست سپرده‌ها...
-          data: '{{appStrings.promissory.loadingDeposits}}',
-          textDirection: StacTextDirection.rtl,
-          style: StacTextStyle(
-            fontSize: 16.0,
-            color: '{{appColors.current.text.subtitle}}',
-          ),
-        ),
-      ],
-    ),
-  );
-}
-
-StacWidget _buildDepositsEmptyWidget() {
-  return StacCenter(
-    child: StacText(
-      // سپرده‌ای یافت نشد. لطفا از طریق شعبه اقدام نمایید.
-      data: '{{appStrings.promissory.noDepositFound}}',
-      textDirection: StacTextDirection.rtl,
-      style: StacTextStyle(
-        fontSize: 14.0,
-        color: '{{appColors.current.text.subtitle}}',
-      ),
     ),
   );
 }
@@ -405,19 +578,19 @@ StacWidget _buildDepositCardTemplate() {
             ),
           ],
         ),
-        StacSizedBox(height: 12.0),
+        StacSizedBox(height: 14.0),
         // Divider
         StacContainer(
           height: 1.0,
           color: '{{appColors.current.input.borderEnabled}}',
         ),
-        StacSizedBox(height: 12.0),
+        StacSizedBox(height: 14.0),
         // Deposit number
         StacRow(
           textDirection: StacTextDirection.rtl,
           children: [
             StacText(
-              // شماره سپرده: 
+              // شماره سپرده:
               data: '{{appStrings.promissory.depositNumberLabel}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
@@ -426,13 +599,16 @@ StacWidget _buildDepositCardTemplate() {
                 color: '{{appColors.current.text.subtitle}}',
               ),
             ),
-            StacText(
-              data: '{{item.depositNumber}}',
-              textDirection: StacTextDirection.rtl,
-              style: StacTextStyle(
-                fontSize: 14.0,
-                fontWeight: StacFontWeight.w500,
-                color: '{{appColors.current.text.title}}',
+            StacExpanded(
+              child: StacText(
+                data: '{{item.depositNumber}}',
+                textDirection: StacTextDirection.ltr,
+                textAlign: StacTextAlign.left,
+                style: StacTextStyle(
+                  fontSize: 14.0,
+                  fontWeight: StacFontWeight.w500,
+                  color: '{{appColors.current.text.title}}',
+                ),
               ),
             ),
           ],
@@ -443,7 +619,7 @@ StacWidget _buildDepositCardTemplate() {
           textDirection: StacTextDirection.rtl,
           children: [
             StacText(
-              // شماره شبا: 
+              // شماره شبا:
               data: '{{appStrings.promissory.ibanLabel}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
@@ -455,7 +631,8 @@ StacWidget _buildDepositCardTemplate() {
             StacExpanded(
               child: StacText(
                 data: '{{item.depositIban}}',
-                textDirection: StacTextDirection.rtl,
+                textDirection: StacTextDirection.ltr,
+                textAlign: StacTextAlign.left,
                 style: StacTextStyle(
                   fontSize: 14.0,
                   fontWeight: StacFontWeight.w500,
@@ -466,12 +643,18 @@ StacWidget _buildDepositCardTemplate() {
           ],
         ),
         StacSizedBox(height: 8.0),
+        // Divider between IBAN and balance
+        StacContainer(
+          height: 1.0,
+          color: '{{appColors.current.input.borderEnabled}}',
+        ),
+        StacSizedBox(height: 8.0),
         // Available amount
         StacRow(
           textDirection: StacTextDirection.rtl,
           children: [
             StacText(
-              // موجودی: 
+              // موجودی:
               data: '{{appStrings.promissory.balanceLabel}}',
               textDirection: StacTextDirection.rtl,
               style: StacTextStyle(
@@ -480,22 +663,15 @@ StacWidget _buildDepositCardTemplate() {
                 color: '{{appColors.current.text.subtitle}}',
               ),
             ),
+            StacExpanded(
+              child: StacContainer(),
+            ),
             StacText(
-              data: '{{item.availableAmount}}',
-              textDirection: StacTextDirection.rtl,
+              data: '{{formatNumber(item.availableAmount)}} {{appStrings.common.rial}}',
+              textDirection: StacTextDirection.ltr,
               style: StacTextStyle(
                 fontSize: 14.0,
                 fontWeight: StacFontWeight.w600,
-                color: '{{appColors.current.text.title}}',
-              ),
-            ),
-            StacSizedBox(width: 4.0),
-            StacText(
-              // ریال
-              data: '{{appStrings.common.rial}}',
-              textDirection: StacTextDirection.rtl,
-              style: StacTextStyle(
-                fontSize: 14.0,
                 color: '{{appColors.current.text.title}}',
               ),
             ),
@@ -505,4 +681,3 @@ StacWidget _buildDepositCardTemplate() {
     ),
   );
 }
-

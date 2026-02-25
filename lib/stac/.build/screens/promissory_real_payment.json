@@ -747,7 +747,7 @@
                                           "destinationKey": "transactionTime"
                                         },
                                         {
-                                          "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_sign.json",
+                                          "routeName": "promissory_real_sign",
                                           "navigationStyle": "pushReplacement",
                                           "actionType": "navigate"
                                         }
@@ -843,7 +843,7 @@
                   "enabledKey": "isPayEnabled",
                   "enabled": false,
                   "onPressed": {
-                    "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_payment_deposits.json",
+                    "routeName": "promissory_real_payment_deposits",
                     "navigationStyle": "push",
                     "actionType": "navigate"
                   },
