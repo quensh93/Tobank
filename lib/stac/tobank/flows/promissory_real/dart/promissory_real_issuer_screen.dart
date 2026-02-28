@@ -24,21 +24,11 @@ StacWidget promissoryRealIssuer() {
           {'key': 'issuer.error', 'value': null},
         ],
       ),
-      StacNetworkRequestAction(
-        url:
-            'http://192.168.107.22:8280/api/digitalbanking/customers/v1.0/info/{{userData.nationalCode}}',
+      StacApiCallAction(
+        path:
+            '/api/digitalbanking/customers/v1.0/info/{{userData.nationalCode}}',
         method: 'get',
         dataBind: 'fetchCustomerInfo',
-        headers: {
-          'accept': '*/*',
-          'app-platform': 'android',
-          'app-store': 'application/json',
-          'app-version': '456',
-          'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
-          'serviceauthorization':
-              'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
-          'authorization': '{{auth.accessToken}}',
-        },
         results: [
           {
             'statusCode': 200,
@@ -100,32 +90,12 @@ StacWidget promissoryRealIssuer() {
             ).toJson(),
           },
           {
-            'statusCode': 401,
-            'action': StacCustomSetValueAction(
-              values: const [
-                {'key': 'issuer.isLoading', 'value': false},
-                {'key': 'issuer.hasError', 'value': true},
-                {'key': 'issuer.showContent', 'value': false},
-                {
-                  'key': 'issuer.error',
-                  'value': 'Authentication failed. Please login again.',
-                },
-              ],
-            ).toJson(),
-          },
-          {
             'statusCode': -1, // Fallback for network errors/timeouts
             'action': StacCustomSetValueAction(
               values: const [
                 {'key': 'issuer.isLoading', 'value': false},
                 {'key': 'issuer.hasError', 'value': true},
                 {'key': 'issuer.showContent', 'value': false},
-                {
-                  'key': 'issuer.error',
-                  'value':
-                      // خطا در برقراری ارتباط با سرور. لطفا مجددا تلاش کنید.
-                      '{{appStrings.promissory.serverConnectionErrorDetail}}',
-                },
               ],
             ).toJson(),
           },

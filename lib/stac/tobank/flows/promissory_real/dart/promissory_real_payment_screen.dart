@@ -482,15 +482,10 @@ StacWidget _buildPaymentButtons() {
                     'onPressed': StacSequenceAction(
                       actions: [
                         const StacCloseDialogAction(),
-                        StacNetworkRequestAction(
-                          url:
-                              'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/draft',
+                        StacApiCallAction(
+                          path:
+                              '/api/digitalbanking/collateral/v1.0/promissories/draft',
                           method: 'post',
-                          headers: {
-                            'accept': 'application/json',
-                            'authorization': '{{auth.accessToken}}',
-                            'content-type': 'application/json',
-                          },
                           data: {
                             'issuerType': 'I',
                             'sourceAccount': null,
@@ -554,6 +549,22 @@ StacWidget _buildPaymentButtons() {
                                   ).toJson(),
                                 ],
                               ).toJson(),
+                            },
+                            {
+                              'statusCode': -1,
+                              'action': {
+                                'actionType': 'showSnackBar',
+                                'backgroundColor': '#D32F2F',
+                                'content': {
+                                  'type': 'text',
+                                  'data': '{{data.status.message.0}}',
+                                  'style': {
+                                    'type': 'custom',
+                                    'color': '#FFFFFF',
+                                    'fontSize': 14,
+                                  },
+                                },
+                              },
                             },
                           ],
                         ),

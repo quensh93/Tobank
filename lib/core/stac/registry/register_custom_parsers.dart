@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+ import 'package:stac/stac.dart';
 import '../../helpers/logger.dart';
 import 'custom_component_registry.dart';
 import '../parsers/widgets/example_card_parser.dart';
@@ -37,6 +37,7 @@ import '../parsers/actions/show_snackbar_action_parser.dart';
 import '../parsers/actions/finger_print_action_parser.dart';
 import '../parsers/actions/auth_persist_action_parser.dart';
 import '../parsers/actions/promissory_sign_action_parser.dart';
+import '../parsers/actions/api_call_action_parser.dart';
 import '../parsers/widgets/pdf_preview_parser.dart';
 
 /// Register all custom STAC parsers with the STAC framework.
@@ -402,6 +403,9 @@ void _registerExampleParsers() {
   CustomComponentRegistry.instance.registerAction(
     const PromissorySignActionParser(),
   );
+
+  // Register apiCall action parser for shared API wiring
+  CustomComponentRegistry.instance.registerAction(const ApiCallActionParser());
 
   // Register saveFile action parser
   CustomComponentRegistry.instance.registerAction(const SaveFileActionParser());

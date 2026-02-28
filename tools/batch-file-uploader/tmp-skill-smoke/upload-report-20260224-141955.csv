@@ -1,0 +1,4 @@
+file,key,title,status,httpStatus,error,addUrl,resolveUrl,responseId,responsePathKey
+A.json,custom_a_key,Custom A,failed,,Connection error: [WinError 10061] No connection could be made because the target machine actively refused it,http://127.0.0.1:9/api/configurations/v1.0/configs/add,http://127.0.0.1:9/api/configurations/v1.0/configs/resolve/custom_a_key/2,,
+B.json,B,B,failed,,Connection error: [WinError 10061] No connection could be made because the target machine actively refused it,http://127.0.0.1:9/api/configurations/v1.0/configs/add,http://127.0.0.1:9/api/configurations/v1.0/configs/resolve/B/1,,
+bad.json,,,failed,,Expecting value: line 1 column 11 (char 10),http://127.0.0.1:9/api/configurations/v1.0/configs/add,,,

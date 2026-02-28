@@ -26,21 +26,10 @@ StacWidget promissoryRealPreview() {
           ],
         ),
         // Fetch PDF base64 from the endpoint
-        StacNetworkRequestAction(
-          url:
-              'http://192.168.107.22:8280/api/digitalbanking/files/v1.0/{{serverSignedPdfId}}/download/base64',
+        StacApiCallAction(
+          path:
+              '/api/digitalbanking/files/v1.0/{{serverSignedPdfId}}/download/base64',
           method: 'get',
-          headers: {
-            'accept': 'application/json',
-            'content-type': 'application/json',
-            'app-platform': 'android',
-            'app-store': 'application/json',
-            'app-version': '456',
-            'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
-            'serviceauthorization':
-                'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
-            'authorization': '{{auth.accessToken}}',
-          },
           results: [
             {
               'statusCode': 200,

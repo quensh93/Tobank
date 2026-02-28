@@ -25,21 +25,11 @@ StacWidget promissoryRealPaymentDeposits() {
           {'key': 'form.selected_shaba_number', 'value': null},
         ],
       ),
-      StacNetworkRequestAction(
-        url:
-            'http://192.168.107.22:8280/api/digitalbanking/deposits/v1.0/customer/{{userData.nationalCode}}',
+      StacApiCallAction(
+        path:
+            '/api/digitalbanking/deposits/v1.0/customer/{{userData.nationalCode}}',
         method: 'get',
-        headers: {
-          'accept': 'application/json',
-          'content-type': 'application/json',
-          'app-platform': 'android',
-          'app-store': 'application/json',
-          'app-version': '456',
-          'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
-          'serviceauthorization':
-              'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
-          'authorization': '{{auth.accessToken}}',
-        },
+        dataBind: 'customerDeposits',
         results: [
           {
             'statusCode': 200,
@@ -47,11 +37,14 @@ StacWidget promissoryRealPaymentDeposits() {
               actions: [
                 StacLogAction(
                   message:
-                      'DEBUG: payment deposits fetch success. payload={{data_payload}}',
+                      'DEBUG: payment deposits fetch success. payload={{responses.customerDeposits.data}}',
                 ).toJson(),
                 StacCustomSetValueAction(
                   values: const [
-                    {'key': 'deposits.rawData', 'value': '{{data_payload}}'},
+                    {
+                      'key': 'deposits.rawData',
+                      'value': '{{responses.customerDeposits.data}}',
+                    },
                     {'key': 'deposits.isLoaded', 'value': true},
                     {'key': 'deposits.error', 'value': null},
                   ],
@@ -60,70 +53,12 @@ StacWidget promissoryRealPaymentDeposits() {
             ).toJson(),
           },
           {
-            'statusCode': 403,
+            'statusCode': -1, // Wildcard Catch-All Error Handler
             'action': StacCustomSetValueAction(
               values: const [
                 {'key': 'deposits.isLoaded', 'value': true},
                 {'key': 'deposits.rawData', 'value': null},
-                {
-                  'key': 'deposits.error',
-                  'value': 'Access forbidden. Please check your permissions.',
-                },
-              ],
-            ).toJson(),
-          },
-          {
-            'statusCode': 401,
-            'action': StacCustomSetValueAction(
-              values: const [
-                {'key': 'deposits.isLoaded', 'value': true},
-                {'key': 'deposits.rawData', 'value': null},
-                {
-                  'key': 'deposits.error',
-                  'value': 'Authentication failed. Please login again.',
-                },
-              ],
-            ).toJson(),
-          },
-          {
-            'statusCode': 520,
-            'action': StacCustomSetValueAction(
-              values: const [
-                {'key': 'deposits.isLoaded', 'value': true},
-                {'key': 'deposits.rawData', 'value': null},
-                {
-                  'key': 'deposits.error',
-                  'value':
-                      'Server Error (520): Unknown Response from Gateway. Please try again later.',
-                },
-              ],
-            ).toJson(),
-          },
-          {
-            'statusCode': 500,
-            'action': StacCustomSetValueAction(
-              values: const [
-                {'key': 'deposits.isLoaded', 'value': true},
-                {'key': 'deposits.rawData', 'value': null},
-                {
-                  'key': 'deposits.error',
-                  'value': 'Internal Server Error. Please try again later.',
-                },
-              ],
-            ).toJson(),
-          },
-          {
-            'statusCode': -1,
-            'action': StacCustomSetValueAction(
-              values: const [
-                {'key': 'deposits.isLoaded', 'value': true},
-                {'key': 'deposits.rawData', 'value': null},
-                {
-                  'key': 'deposits.error',
-                  'value':
-                      // خطا در برقراری ارتباط با سرور. لطفا مجددا تلاش کنید.
-                      '{{appStrings.promissory.serverConnectionErrorDetail}}',
-                },
+                {'key': 'deposits.error', 'value': '{{data.status.message.0}}'},
               ],
             ).toJson(),
           },
@@ -145,7 +80,7 @@ StacWidget promissoryRealPaymentDeposits() {
           },
           {
             'key': 'payload.recipientBirthDate',
-            'value': "{{replace(receiver.birthDate, '/', '')}}",
+            'value': '{{receiver.birthDateCompact}}',
             'condition': 'recipientType',
           },
           {
@@ -155,7 +90,7 @@ StacWidget promissoryRealPaymentDeposits() {
           },
           {
             'key': 'payload.recipientCellphone',
-            'value': '{{removeLeadingZero(receiver.mobile)}}',
+            'value': '{{removeLeadingZero(receiver.phoneNumber)}}',
             'condition': 'recipientType',
           },
           {
@@ -165,7 +100,7 @@ StacWidget promissoryRealPaymentDeposits() {
           },
           {
             'key': 'payload.recipientBirthDate',
-            'value': null,
+            'value': '',
             'condition': '!recipientType',
           },
           {
@@ -180,15 +115,10 @@ StacWidget promissoryRealPaymentDeposits() {
           },
         ],
       ).toJson(),
-      StacNetworkRequestAction(
-        url:
-            'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/draft',
+      StacApiCallAction(
+        path: '/api/digitalbanking/collateral/v1.0/promissories/draft',
+        dataBind: 'draftResponse',
         method: 'post',
-        headers: {
-          'accept': 'application/json',
-          'authorization': '{{auth.accessToken}}',
-          'content-type': 'application/json',
-        },
         data: {
           'issuerType': 'I',
           'sourceAccount': '{{selectedDeposit.depositNumber}}',
@@ -247,35 +177,8 @@ StacWidget promissoryRealPaymentDeposits() {
             ).toJson(),
           },
           {
-            'statusCode': 422,
-            'action': {
-              'actionType': 'sequence',
-              'actions': [
-                {
-                  'actionType': 'setValue',
-                  'values': [
-                    {'key': 'isDraftLoading', 'value': false},
-                    {'key': 'hasSelection', 'value': true},
-                  ],
-                },
-                {
-                  'actionType': 'showSnackBar',
-                  'backgroundColor': '#D32F2F',
-                  'content': {
-                    'type': 'text',
-                    'data': '{{data.status.message.0}}',
-                    'style': {
-                      'type': 'custom',
-                      'color': '#FFFFFF',
-                      'fontSize': 14,
-                    },
-                  },
-                },
-              ],
-            },
-          },
-          {
-            'statusCode': -1,
+            'statusCode':
+                -1, // Acts as Catch-All wildcard for any other failure
             'action': {
               'actionType': 'sequence',
               'actions': [

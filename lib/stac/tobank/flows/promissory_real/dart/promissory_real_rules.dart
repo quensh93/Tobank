@@ -188,14 +188,10 @@ StacWidget _buildContinueButton() {
         'actions': [
           {'actionType': 'setValue', 'key': 'isSanaLoading', 'value': true},
           {
-            'actionType': 'networkRequest',
-            'url':
-                'http://192.168.107.22:8280/api/digitalbanking/governance/v1.0/sana/{{userData.nationalCode}}/1',
+            'actionType': 'apiCall',
+            'path':
+                '/api/digitalbanking/governance/v1.0/sana/{{userData.nationalCode}}/1',
             'method': 'get',
-            'headers': {
-              'accept': 'application/json',
-              'authorization': '{{auth.accessToken}}',
-            },
             'results': [
               {
                 'statusCode': 200,
@@ -215,33 +211,6 @@ StacWidget _buildContinueButton() {
                 },
               },
               {
-                'statusCode': 500,
-                'action': {
-                  'actionType': 'sequence',
-                  'actions': [
-                    {
-                      'actionType': 'setValue',
-                      'key': 'isSanaLoading',
-                      'value': false,
-                    },
-                    {
-                      'actionType': 'showSnackBar',
-                      'backgroundColor': '#D32F2F',
-                      'content': {
-                        'type': 'text',
-                        // خطا در برقراری ارتباط با سرور
-                        'data': '{{appStrings.promissory.serverConnectionError}}',
-                        'style': {
-                          'type': 'custom',
-                          'color': '#FFFFFF',
-                          'fontSize': 14,
-                        },
-                      },
-                    },
-                  ],
-                },
-              },
-              {
                 'statusCode': -1,
                 'action': {
                   'actionType': 'sequence',
@@ -257,8 +226,7 @@ StacWidget _buildContinueButton() {
                       'content': {
                         'type': 'text',
                         // خطایی رخ داده است
-                        'data':
-                            '{{data.status.message.0 ?? appStrings.common.somethingWentWrong}}',
+                        'data': '{{data.status.message.0}}',
                         'style': {
                           'type': 'custom',
                           'color': '#FFFFFF',

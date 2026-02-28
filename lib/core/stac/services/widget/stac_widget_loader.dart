@@ -67,8 +67,6 @@ import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_succe
     as promissory_real_success_dart;
 import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_issuer_screen.dart'
     as promissory_real_issuer_dart;
-import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_deposits_screen.dart'
-    as promissory_real_deposits_dart;
 import '../../../../stac/tobank/flows/promissory_real/menu/promissory_real_login_screen.dart'
     as promissory_real_login_dart;
 import '../../../../stac/tobank/flows/promissory_real/menu/promissory_real_menu.dart'
@@ -171,8 +169,6 @@ class StacWidgetLoader {
         promissory_real_login_dart.promissoryRealLoginForm().toJson(),
     'promissory_real_rules': () =>
         promissory_real_rules_dart.promissoryRealRules().toJson(),
-    'promissory_real_deposits': () =>
-        promissory_real_deposits_dart.promissoryRealDeposits().toJson(),
     'promissory_real_issuer': () =>
         promissory_real_issuer_dart.promissoryRealIssuer().toJson(),
     'promissory_real_receiver': () =>

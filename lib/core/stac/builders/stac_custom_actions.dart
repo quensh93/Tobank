@@ -162,6 +162,62 @@ class StacNetworkRequestAction extends StacAction {
   }
 }
 
+/// Builder for 'apiCall' action.
+class StacApiCallAction extends StacAction {
+  final String path;
+  final String method;
+  final Map<String, dynamic>? headers;
+  final bool ignoreDefaultHeaders;
+  final dynamic data;
+  final List<dynamic>? results;
+  final String? dataBind;
+  final String? fullUrl;
+
+  const StacApiCallAction({
+    required this.path,
+    this.results,
+    this.method = 'get',
+    this.headers,
+    this.ignoreDefaultHeaders = false,
+    this.data,
+    this.dataBind,
+    this.fullUrl,
+  });
+
+  @override
+  String get actionType => 'apiCall';
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      'actionType': actionType,
+      'path': path,
+      'method': method,
+      if (headers != null) 'headers': headers,
+      if (ignoreDefaultHeaders) 'ignoreDefaultHeaders': true,
+      if (data != null) 'data': data,
+      if (dataBind != null) 'data_bind': dataBind,
+      if (fullUrl != null) 'fullUrl': fullUrl,
+      if (results != null)
+        'results': results!.map((r) {
+          if (r is Map) {
+            return r.map((key, value) {
+              if (value is StacAction) {
+                return MapEntry(key, value.toJson());
+              }
+              return MapEntry(key, value);
+            }).cast<String, dynamic>();
+          }
+          try {
+            return (r as dynamic).toJson();
+          } catch (_) {
+            return r;
+          }
+        }).toList(),
+    };
+  }
+}
+
 /// Builder for 'persianDatePicker' action.
 class StacPersianDatePickerAction extends StacAction {
   final String formFieldId;

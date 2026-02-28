@@ -849,20 +849,10 @@ StacWidget promissoryRealReceiver() {
                       },
                       // Call identity API (real) then navigate on success
                       {
-                        'actionType': 'networkRequest',
-                        'url':
-                            'http://192.168.107.22:8280/api/digitalbanking/customers/v1.0/identity/{{receiver.nationalCode}}/{{receiver.birthDateCompact}}',
+                        'actionType': 'apiCall',
+                        'path':
+                            '/api/digitalbanking/customers/v1.0/identity/{{receiver.nationalCode}}/{{receiver.birthDateCompact}}',
                         'method': 'get',
-                        'headers': {
-                          'accept': '*/*',
-                          'app-platform': 'android',
-                          'app-store': 'application/json',
-                          'app-version': '456',
-                          'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
-                          'serviceauthorization':
-                              'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
-                          'authorization': '{{auth.accessToken}}',
-                        },
                         'results': [
                           {
                             'statusCode': 200,
@@ -917,89 +907,11 @@ StacWidget promissoryRealReceiver() {
                             },
                           },
                           {
-                            'statusCode': 422,
+                            'statusCode': -1,
                             'action': {
-                              'actionType': 'sequence',
-                              'actions': [
-                                {
-                                  'actionType': 'setValue',
-                                  'values': [
-                                    {
-                                      'key': 'receiver.isLoading',
-                                      'value': false,
-                                    },
-                                    {
-                                      'key': 'receiver.error',
-                                      'value':
-                                          // اطلاعات وارد شده صحیح نمی‌باشد
-                                          '{{appStrings.promissory.invalidDataError}}',
-                                    },
-                                  ],
-                                },
-                                {
-                                  'actionType': 'customSnackBar',
-                                  'message':
-                                      // اطلاعات وارد شده صحیح نمی‌باشد. لطفا مجددا بررسی کنید.
-                                      '{{appStrings.promissory.invalidDataErrorDetail}}',
-                                  'backgroundColor': '#D32F2F',
-                                  'duration': 4000,
-                                },
-                              ],
-                            },
-                          },
-                          {
-                            'statusCode': 401,
-                            'action': {
-                              'actionType': 'sequence',
-                              'actions': [
-                                {
-                                  'actionType': 'setValue',
-                                  'values': [
-                                    {
-                                      'key': 'receiver.isLoading',
-                                      'value': false,
-                                    },
-                                  ],
-                                },
-                                {
-                                  'actionType': 'customSnackBar',
-                                  'message':
-                                      // نشست شما منقضی شده است. لطفا مجددا وارد شوید.
-                                      '{{appStrings.promissory.sessionExpiredError}}',
-                                  'backgroundColor': '#D32F2F',
-                                  'duration': 4000,
-                                },
-                              ],
-                            },
-                          },
-                          {
-                            'statusCode': -1, // Fallback for any other errors
-                            'action': {
-                              'actionType': 'sequence',
-                              'actions': [
-                                {
-                                  'actionType': 'setValue',
-                                  'values': [
-                                    {
-                                      'key': 'receiver.isLoading',
-                                      'value': false,
-                                    },
-                                    {
-                                      'key': 'receiver.error',
-                                      'value':
-                                          // خطا در برقراری ارتباط با سرور
-                                          '{{appStrings.promissory.serverConnectionError}}',
-                                    },
-                                  ],
-                                },
-                                {
-                                  'actionType': 'customSnackBar',
-                                  'message':
-                                      // خطا در برقراری ارتباط با سرور. لطفا مجددا تلاش کنید.
-                                      '{{appStrings.promissory.serverConnectionErrorDetail}}',
-                                  'backgroundColor': '#D32F2F',
-                                  'duration': 4000,
-                                },
+                              'actionType': 'setValue',
+                              'values': [
+                                {'key': 'receiver.isLoading', 'value': false},
                               ],
                             },
                           },
@@ -1094,20 +1006,10 @@ StacWidget promissoryRealReceiver() {
                       },
                       // Call identity API (real) then navigate on success
                       {
-                        'actionType': 'networkRequest',
-                        'url':
-                            'http://192.168.107.22:8280/api/digitalbanking/customers/v1.0/identity/{{receiver.legalNationalId}}',
+                        'actionType': 'apiCall',
+                        'path':
+                            '/api/digitalbanking/customers/v1.0/identity/{{receiver.legalNationalId}}',
                         'method': 'get',
-                        'headers': {
-                          'accept': '*/*',
-                          'app-platform': 'android',
-                          'app-store': 'application/json',
-                          'app-version': '456',
-                          'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
-                          'serviceauthorization':
-                              'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
-                          'authorization': '{{auth.accessToken}}',
-                        },
                         'results': [
                           {
                             'statusCode': 200,
@@ -1162,89 +1064,11 @@ StacWidget promissoryRealReceiver() {
                             },
                           },
                           {
-                            'statusCode': 422,
+                            'statusCode': -1,
                             'action': {
-                              'actionType': 'sequence',
-                              'actions': [
-                                {
-                                  'actionType': 'setValue',
-                                  'values': [
-                                    {
-                                      'key': 'receiver.isLoading',
-                                      'value': false,
-                                    },
-                                    {
-                                      'key': 'receiver.error',
-                                      'value':
-                                          // اطلاعات وارد شده صحیح نمی‌باشد
-                                          '{{appStrings.promissory.invalidDataError}}',
-                                    },
-                                  ],
-                                },
-                                {
-                                  'actionType': 'customSnackBar',
-                                  'message':
-                                      // رکورد یافت نشد
-                                      '{{appStrings.promissory.invalidDataErrorDetail}}',
-                                  'backgroundColor': '#D32F2F',
-                                  'duration': 4000,
-                                },
-                              ],
-                            },
-                          },
-                          {
-                            'statusCode': 520,
-                            'action': {
-                              'actionType': 'sequence',
-                              'actions': [
-                                {
-                                  'actionType': 'setValue',
-                                  'values': [
-                                    {
-                                      'key': 'receiver.isLoading',
-                                      'value': false,
-                                    },
-                                  ],
-                                },
-                                {
-                                  'actionType': 'customSnackBar',
-                                  'message':
-                                      // پاسخ دریافتی نامعتبر است
-                                      '{{appStrings.promissory.serverConnectionErrorDetail}}',
-                                  'backgroundColor': '#D32F2F',
-                                  'duration': 4000,
-                                },
-                              ],
-                            },
-                          },
-                          {
-                            'statusCode': -1, // Fallback for any other errors
-                            'action': {
-                              'actionType': 'sequence',
-                              'actions': [
-                                {
-                                  'actionType': 'setValue',
-                                  'values': [
-                                    {
-                                      'key': 'receiver.isLoading',
-                                      'value': false,
-                                    },
-                                    {
-                                      'key': 'receiver.error',
-                                      'value':
-                                          // خطا در برقراری ارتباط با سرور
-                                          '{{appStrings.promissory.serverConnectionError}}',
-                                    },
-                                  ],
-                                },
-                                {
-                                  'actionType': 'customSnackBar',
-                                  'message':
-                                      // خطا در برقراری ارتباط با سرور. لطفا مجددا تلاش کنید.
-                                      '{{appStrings.promissory.serverConnectionErrorDetail}}',
-                                  'backgroundColor': '#D32F2F',
-                                  'duration': 4000,
-                                },
+                              'actionType': 'setValue',
+                              'values': [
+                                {'key': 'receiver.isLoading', 'value': false},
                               ],
                             },
                           },

@@ -549,14 +549,10 @@ StacWidget _buildSubmitButton() {
           ),
           // Fetch Fees API Call
           StacCustomSetValueAction(key: 'isIdentityLoading', value: true),
-          StacNetworkRequestAction(
-            url:
-                "http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/fees?amount={{replace(form.promissory_amount,',','')}}",
+          StacApiCallAction(
+            path:
+                "/api/digitalbanking/collateral/v1.0/promissories/fees?amount={{replace(form.promissory_amount,',','')}}",
             method: 'get',
-            headers: {
-              'accept': 'application/json',
-              'authorization': '{{auth.accessToken}}',
-            },
             results: [
               {
                 'statusCode': 200,
@@ -588,32 +584,9 @@ StacWidget _buildSubmitButton() {
               },
               {
                 'statusCode': -1, // Fallback for errors
-                'action': StacSequenceAction(
-                  actions: [
-                    StacCustomSetValueAction(
-                      key: 'isIdentityLoading',
-                      value: false,
-                    ),
-                    StacDialogAction(
-                      widget: StacAlertDialog(
-                        // خطا
-                        title: StacText(data: '{{appStrings.common.error}}'),
-                        content: StacText(
-                          // خطا در محاسبه هزینه سفته
-                          data: '{{appStrings.promissory.priceCalcError}}',
-                        ),
-                        actions: [
-                          StacTextButton(
-                            onPressed: const StacCloseDialogAction(),
-                            // تایید
-                            child: StacText(
-                              data: '{{appStrings.common.confirm}}',
-                            ),
-                          ),
-                        ],
-                      ).toJson(),
-                    ),
-                  ],
+                'action': StacCustomSetValueAction(
+                  key: 'isIdentityLoading',
+                  value: false,
                 ).toJson(),
               },
             ],
