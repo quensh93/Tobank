@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+import 'package:stac/stac.dart' hide StacRegistry;
 import 'package:stac_core/stac_core.dart';
 import '../../../../../core/stac/builders/stac_common_builders.dart';
 import '../../../../../core/stac/builders/stac_stateful_widget.dart';
