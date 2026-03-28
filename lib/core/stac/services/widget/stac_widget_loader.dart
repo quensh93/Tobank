@@ -72,6 +72,12 @@ import '../../../../stac/tobank/flows/promissory_real/menu/promissory_real_login
     as promissory_real_login_dart;
 import '../../../../stac/tobank/flows/promissory_real/menu/promissory_real_menu.dart'
     as promissory_real_debug_dart;
+import '../../../../stac/tobank/flows/verify_identity_real/menu/verify_identity_real_menu.dart'
+    as verify_identity_real_menu_dart;
+import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_intro.dart'
+    as verify_identity_real_intro_dart;
+import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_rules.dart'
+    as verify_identity_real_rules_dart;
 import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_rules.dart'
     as promissory_real_rules_dart;
 import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_preview_screen.dart'
@@ -158,6 +164,12 @@ class StacWidgetLoader {
     // Promissory Real (Real API) - fetches SDUI from real backend
     'promissory_real_menu': () =>
         promissory_real_debug_dart.promissoryRealDebugMenu().toJson(),
+    'verify_identity_real_menu': () =>
+        verify_identity_real_menu_dart.verifyIdentityRealMenu().toJson(),
+    'verify_identity_real_intro': () =>
+        verify_identity_real_intro_dart.verifyIdentityRealIntro().toJson(),
+    'verify_identity_real_rules': () =>
+        verify_identity_real_rules_dart.verifyIdentityRealRules().toJson(),
     'promissory_real_loader': () => {'type': 'promissory_real_loader'},
     'promissory_deposit_select': () =>
         promissory_deposit_select_dart.promissoryDepositSelectPage().toJson(),

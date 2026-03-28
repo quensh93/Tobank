@@ -36,6 +36,18 @@
             "promissory_payment",
             "promissory_success"
           ]
+        },
+        {
+          "title": "{{appStrings.menu.items.verifyIdentity}}",
+          "description": "فرم احراز هویت",
+          "icon": "{{appAssets.icons.login}}",
+          "dartPath": "lib/stac/tobank/login/dart/tobank_login.dart",
+          "jsonPath": null,
+          "apiPath": null,
+          "widgetType": "tobank_login_dart",
+          "flowSteps": [
+            "tobank_login_dart"
+          ]
         }
       ],
       "apiFlows": [
@@ -46,6 +58,15 @@
           "widgetType": "promissory_real_menu",
           "flowSteps": [
             "promissory_real_intro"
+          ]
+        },
+        {
+          "title": "احراز هویت (API واقعی)",
+          "description": "احراز هویت با منوی تست Dart",
+          "icon": "{{appAssets.icons.login}}",
+          "widgetType": "verify_identity_real_menu",
+          "flowSteps": [
+            "verify_identity_real_intro"
           ]
         }
       ],
