@@ -58,7 +58,7 @@ StacWidget verifyIdentityRealVerifyOtp() {
                   children: [
                     StacSizedBox(height: 12),
                     StacText(
-                      data: 'دریافت کد تایید',
+                      data: '{{appStrings.authentication.otpTitle}}',
                       textDirection: StacTextDirection.rtl,
                       textAlign: StacTextAlign.right,
                       style: StacCustomTextStyle(
@@ -69,7 +69,7 @@ StacWidget verifyIdentityRealVerifyOtp() {
                     ),
                     StacSizedBox(height: 24),
                     StacText(
-                      data: 'کد ارسالی به شماره 09103611173 را وارد نمایید.',
+                      data: '{{appStrings.authentication.otpDescription}}',
                       textDirection: StacTextDirection.rtl,
                       textAlign: StacTextAlign.right,
                       style: StacCustomTextStyle(
@@ -98,7 +98,7 @@ StacWidget verifyIdentityRealVerifyOtp() {
                             'textInputAction': 'done',
                             'decoration': {
                               ...StacInputDecoration(
-                                hintText: 'کد تایید',
+                                hintText: '{{appStrings.authentication.otpCodeHint}}',
                                 hintStyle: StacCustomTextStyle(
                                   fontSize: 15,
                                   fontWeight: StacFontWeight.w600,
@@ -137,7 +137,7 @@ StacWidget verifyIdentityRealVerifyOtp() {
                         const StacCustomWidget.fromJson({
                           'type': 'otpCountdownButton',
                           'initialSeconds': 120,
-                          'retryLabel': 'تلاش مجدد',
+                          'retryLabel': '{{appStrings.authentication.otpRetryLabel}}',
                           'iconAsset': 'assets/icons/ic_clock.svg',
                           'borderColor': '{{appColors.current.input.borderEnabled}}',
                           'countdownTextColor': '{{appColors.current.text.subtitle}}',
@@ -150,7 +150,7 @@ StacWidget verifyIdentityRealVerifyOtp() {
                             'backgroundColor': '#2E7D32',
                             'content': {
                               'type': 'text',
-                              'data': 'کد فعالسازی دوباره ارسال شد',
+                              'data': '{{appStrings.authentication.otpResentMessage}}',
                               'style': {
                                 'type': 'custom',
                                 'color': '#FFFFFF',
@@ -189,7 +189,7 @@ StacWidget verifyIdentityRealVerifyOtp() {
                   ),
                 ).toJson(),
                 'child': StacText(
-                  data: 'تایید کد',
+                  data: '{{appStrings.authentication.confirmOtpButton}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 18,

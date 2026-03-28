@@ -87,7 +87,7 @@ StacWidget verifyIdentityRealNationalCardFront() {
                   onPressed: const StacShowResultAction(
                     title: '{{appStrings.common.comingSoon}}',
                     content:
-                        'مسیر احراز هویت برای کارت ملی قدیمی هنوز پیاده‌سازی نشده است.',
+                        '{{appStrings.authentication.oldNationalCardFlowMessage}}',
                   ),
                   style: StacButtonStyle(
                     foregroundColor: '{{appColors.current.text.title}}',
@@ -101,7 +101,7 @@ StacWidget verifyIdentityRealNationalCardFront() {
                     ),
                   ),
                   child: StacText(
-                    data: 'کارت ملی جدید ندارم',
+                    data: '{{appStrings.authentication.noNewNationalCard}}',
                     textDirection: StacTextDirection.rtl,
                     style: StacCustomTextStyle(
                       fontSize: 16,
@@ -133,7 +133,7 @@ StacWidget verifyIdentityRealNationalCardFront() {
                     ),
                   ).toJson(),
                   'child': StacText(
-                    data: 'ادامه',
+                    data: '{{appStrings.authentication.continueLabel}}',
                     textDirection: StacTextDirection.rtl,
                     style: StacCustomTextStyle(
                       fontSize: 18,
@@ -143,7 +143,8 @@ StacWidget verifyIdentityRealNationalCardFront() {
                   ).toJson(),
                   'onPressed': const StacShowResultAction(
                     title: '{{appStrings.common.comingSoon}}',
-                    content: 'مرحله بعدی آپلود پشت کارت ملی هنوز پیاده‌سازی نشده است.',
+                    content:
+                        '{{appStrings.authentication.uploadBackNationalCardMessage}}',
                   ).toJson(),
                 }),
               ],
@@ -178,7 +179,7 @@ StacWidget _buildUploadPickerCard() {
             ),
           ),
           child: StacText(
-            data: 'تصویر روی کارت ملی متقاضی',
+            data: '{{appStrings.authentication.frontNationalCardTitle}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(
@@ -195,7 +196,7 @@ StacWidget _buildUploadPickerCard() {
             children: [
               StacExpanded(
                 child: _buildSourceOption(
-                  title: 'دوربین',
+                  title: '{{appStrings.authentication.cameraLabel}}',
                   iconAsset: 'assets/icons/ic_camera.svg',
 
                 ),
@@ -207,7 +208,7 @@ StacWidget _buildUploadPickerCard() {
               ),
               StacExpanded(
                 child: _buildSourceOption(
-                  title: 'گالری',
+                  title: '{{appStrings.authentication.galleryLabel}}',
                   iconAsset: 'assets/icons/ic_gallery.svg',
                 ),
               ),
@@ -275,7 +276,7 @@ StacWidget _buildSelectedImageCard() {
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
           StacText(
-            data: 'تصویر انتخاب شده',
+            data: '{{appStrings.authentication.selectedImageTitle}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(
@@ -298,7 +299,7 @@ StacWidget _buildSelectedImageCard() {
                 'type': 'center',
                 'child': {
                   'type': 'text',
-                  'data': 'پیش‌نمایش تصویر در دسترس نیست',
+                  'data': '{{appStrings.authentication.imagePreviewUnavailable}}',
                   'textDirection': 'rtl',
                   'style': {
                     'type': 'custom',
@@ -339,7 +340,7 @@ StacWidget _buildSampleCard() {
             ),
           ),
           child: StacText(
-            data: 'نمونه صحیح روی کارت ملی',
+            data: '{{appStrings.authentication.correctNationalCardSampleTitle}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(
@@ -369,9 +370,9 @@ StacWidget _buildTips() {
   return StacColumn(
     crossAxisAlignment: StacCrossAxisAlignment.stretch,
     children: [
-      _buildTipItem('موبایل خود را به‌صورت عمودی بگیرید'),
+      _buildTipItem('{{appStrings.authentication.tipHoldPhoneVertical}}'),
       StacSizedBox(height: 6),
-      _buildTipItem('تصویر بازتاب نور نداشته باشد'),
+      _buildTipItem('{{appStrings.authentication.tipNoReflection}}'),
     ],
   );
 }

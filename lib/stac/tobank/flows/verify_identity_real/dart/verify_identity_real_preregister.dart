@@ -50,7 +50,7 @@ StacWidget verifyIdentityRealPreRegister() {
               crossAxisAlignment: StacCrossAxisAlignment.stretch,
               children: [
                 StacText(
-                  data: 'برای شروع احراز هویت شماره موبایل خود را تایید کنید',
+                  data: '{{appStrings.authentication.preregisterDescription}}',
                   textDirection: StacTextDirection.rtl,
                   textAlign: StacTextAlign.right,
                   style: StacCustomTextStyle(
@@ -62,7 +62,7 @@ StacWidget verifyIdentityRealPreRegister() {
                 ),
                 StacSizedBox(height: 32),
                 StacText(
-                  data: 'شماره موبایل',
+                  data: '{{appStrings.authentication.mobileNumberLabel}}',
                   textDirection: StacTextDirection.rtl,
                   textAlign: StacTextAlign.right,
                   style: StacCustomTextStyle(
@@ -86,7 +86,7 @@ StacWidget verifyIdentityRealPreRegister() {
                     ),
                   ),
                   child: StacText(
-                    data: '09103611173',
+                    data: '{{appStrings.authentication.sampleMobileNumber}}',
                     textDirection: StacTextDirection.rtl,
                     textAlign: StacTextAlign.right,
                     style: StacCustomTextStyle(
@@ -117,7 +117,7 @@ StacWidget verifyIdentityRealPreRegister() {
               ),
             ),
             child: StacText(
-              data: 'دریافت کد فعالسازی',
+              data: '{{appStrings.authentication.receiveActivationCode}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 18,

@@ -6,7 +6,7 @@ StacWidget verifyIdentityRealRules() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
     appBar: buildPromissoryAppBar(
-      title: '{{appStrings.login.rulesAndRegulations}}',
+      title: '{{appStrings.authentication.rulesTitle}}',
     ),
     body: StacPadding(
       padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -24,7 +24,7 @@ StacWidget verifyIdentityRealRules() {
                 crossAxisAlignment: StacCrossAxisAlignment.stretch,
                 children: [
                   StacText(
-                    data: 'شرایط و مقررات ارائه خدمات توبانک',
+                    data: '{{appStrings.authentication.serviceRulesTitle}}',
                     textDirection: StacTextDirection.rtl,
                     textAlign: StacTextAlign.center,
                     style: StacCustomTextStyle(
@@ -35,24 +35,24 @@ StacWidget verifyIdentityRealRules() {
                   ),
                   StacSizedBox(height: 20),
                   _buildRuleItem(
-                    '۱- حدود مسئولیت و شرایط بانک',
-                    'امنیت سپرده‌ها و تضمین مبالغ مشتریان در چارچوب ضوابط قانونی و تعهدات بانک انجام می‌شود.',
+                    '{{appStrings.authentication.rule1Title}}',
+                    '{{appStrings.authentication.rule1Description}}',
                   ),
                   _buildRuleItem(
-                    '۲- محرمانگی اطلاعات',
-                    'همه اطلاعات حساب‌ها و مدارک هویتی مشتریان محرمانه بوده و بانک جز در موارد مصرح قانونی از افشای آن خودداری می‌نماید.',
+                    '{{appStrings.authentication.rule2Title}}',
+                    '{{appStrings.authentication.rule2Description}}',
                   ),
                   _buildRuleItem(
-                    '۳- ساعات پاسخگویی',
-                    'توبانک یک بانک ۲۴ ساعته است و در هیچ روز و ساعتی از سال تعطیلی ندارد. تمام روزها و تمام ساعات شبانه‌روز، توبانک باز است.',
+                    '{{appStrings.authentication.rule3Title}}',
+                    '{{appStrings.authentication.rule3Description}}',
                   ),
                   _buildRuleItem(
-                    '۴- پشتیبانی مشتریان',
-                    'توبانک از طریق مرکز امور مشتریان با شماره تماس ۲۳۹۵۰ داخلی ۷، موظف به پاسخگویی به مشتریان محترم است.',
+                    '{{appStrings.authentication.rule4Title}}',
+                    '{{appStrings.authentication.rule4Description}}',
                   ),
                   _buildRuleItem(
-                    '۵- پذیرش قوانین',
-                    'استفاده از خدمات احراز هویت به منزله مطالعه و پذیرش کامل قوانین و مقررات توبانک توسط کاربر است.',
+                    '{{appStrings.authentication.rule5Title}}',
+                    '{{appStrings.authentication.rule5Description}}',
                   ),
                 ],
               ),

@@ -90,7 +90,7 @@ StacWidget _buildStepsCard() {
       crossAxisAlignment: StacCrossAxisAlignment.stretch,
       children: [
         StacText(
-          data: 'مراحل احراز هویت توبانکی',
+          data: '{{appStrings.authentication.introTitle}}',
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.right,
           style: StacCustomTextStyle(
@@ -100,13 +100,13 @@ StacWidget _buildStepsCard() {
           ),
         ),
         StacSizedBox(height: 20),
-        _buildStepItem('اعتبارسنجی'),
-        _buildStepItem('آپلود کارت ملی (یا شناسنامه)'),
-        _buildStepItem('ثبت عکس از چهره'),
-        _buildStepItem('ثبت ویدیو از چهره'),
-        _buildStepItem('دریافت امضا کاربر'),
-        _buildStepItem('دریافت اطلاعات انگلیسی'),
-        _buildStepItem('دریافت امضا دیجیتال'),
+        _buildStepItem('{{appStrings.authentication.stepValidation}}'),
+        _buildStepItem('{{appStrings.authentication.stepUploadNationalCard}}'),
+        _buildStepItem('{{appStrings.authentication.stepCaptureFacePhoto}}'),
+        _buildStepItem('{{appStrings.authentication.stepCaptureFaceVideo}}'),
+        _buildStepItem('{{appStrings.authentication.stepCollectUserSignature}}'),
+        _buildStepItem('{{appStrings.authentication.stepCollectEnglishInfo}}'),
+        _buildStepItem('{{appStrings.authentication.stepCollectDigitalSignature}}'),
       ],
     ),
   );
@@ -197,7 +197,7 @@ StacWidget _buildRulesToggleCard() {
                   tapTargetSize: StacMaterialTapTargetSize.shrinkWrap,
                 ),
                 child: StacText(
-                  data: '{{appStrings.login.rulesAndRegulations}}',
+                  data: '{{appStrings.authentication.rulesTitle}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 16,
@@ -208,7 +208,7 @@ StacWidget _buildRulesToggleCard() {
               ),
               StacSizedBox(width: 3.5),
               StacText(
-                data: 'را می‌پذیرم.',
+                data: '{{appStrings.authentication.acceptRulesSuffix}}',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 16,
@@ -253,7 +253,7 @@ StacWidget _buildContinueButton() {
         ),
       ).toJson(),
       child: StacText(
-        data: '{{appStrings.common.continue}}',
+        data: '{{appStrings.authentication.continueLabel}}',
         textDirection: StacTextDirection.rtl,
         style: StacCustomTextStyle(
           fontSize: 18,
