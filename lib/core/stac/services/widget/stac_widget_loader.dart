@@ -76,6 +76,12 @@ import '../../../../stac/tobank/flows/verify_identity_real/menu/verify_identity_
     as verify_identity_real_menu_dart;
 import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_intro.dart'
     as verify_identity_real_intro_dart;
+import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_preregister.dart'
+    as verify_identity_real_preregister_dart;
+import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_verify_otp.dart'
+    as verify_identity_real_verify_otp_dart;
+import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_national_card_front.dart'
+    as verify_identity_real_national_card_front_dart;
 import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_rules.dart'
     as verify_identity_real_rules_dart;
 import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_rules.dart'
@@ -168,6 +174,16 @@ class StacWidgetLoader {
         verify_identity_real_menu_dart.verifyIdentityRealMenu().toJson(),
     'verify_identity_real_intro': () =>
         verify_identity_real_intro_dart.verifyIdentityRealIntro().toJson(),
+    'verify_identity_real_preregister': () => verify_identity_real_preregister_dart
+        .verifyIdentityRealPreRegister()
+        .toJson(),
+    'verify_identity_real_verify_otp': () => verify_identity_real_verify_otp_dart
+        .verifyIdentityRealVerifyOtp()
+        .toJson(),
+    'verify_identity_real_national_card_front': () =>
+        verify_identity_real_national_card_front_dart
+            .verifyIdentityRealNationalCardFront()
+            .toJson(),
     'verify_identity_real_rules': () =>
         verify_identity_real_rules_dart.verifyIdentityRealRules().toJson(),
     'promissory_real_loader': () => {'type': 'promissory_real_loader'},

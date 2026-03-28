@@ -231,9 +231,9 @@ StacWidget _buildContinueButton() {
     child: StacCustomReactiveElevatedButton(
       enabledKey: 'isVerifyIdentityRulesAccepted',
       enabled: false,
-      onPressed: const StacShowResultAction(
-        title: '{{appStrings.common.comingSoon}}',
-        content: 'مرحله بعدی احراز هویت هنوز پیاده‌سازی نشده است.',
+      onPressed: const StacNavigateAction(
+        routeName: 'verify_identity_real_preregister',
+        navigationStyle: NavigationStyle.push,
       ),
       style: StacButtonStyle(
         backgroundColor: '{{appColors.current.primary.color}}',

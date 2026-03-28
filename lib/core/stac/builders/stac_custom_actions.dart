@@ -196,3 +196,30 @@ class StacPersianDatePickerAction extends StacAction {
     };
   }
 }
+
+/// Builder for custom 'pickFile' action.
+class StacFilePickerAction extends StacAction {
+  final String fileType;
+  final bool allowMultiple;
+  final String targetKey;
+  final List<String>? allowedExtensions;
+
+  const StacFilePickerAction({
+    this.fileType = 'image',
+    this.allowMultiple = false,
+    required this.targetKey,
+    this.allowedExtensions,
+  });
+
+  @override
+  String get actionType => 'pickFile';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': actionType,
+    'fileType': fileType,
+    'allowMultiple': allowMultiple,
+    'targetKey': targetKey,
+    if (allowedExtensions != null) 'allowedExtensions': allowedExtensions,
+  };
+}

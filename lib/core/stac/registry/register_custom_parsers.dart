@@ -39,6 +39,7 @@ import '../parsers/actions/finger_print_action_parser.dart';
 import '../parsers/actions/auth_persist_action_parser.dart';
 import '../parsers/actions/promissory_sign_action_parser.dart';
 import '../parsers/widgets/pdf_preview_parser.dart';
+import '../parsers/widgets/otp_countdown_button_parser.dart';
 
 /// Register all custom STAC parsers with the STAC framework.
 ///
@@ -363,6 +364,11 @@ void _registerExampleParsers() {
 
   // Register reactive switch parser for registry-driven switch toggle
   CustomComponentRegistry.instance.registerWidget(const ReactiveSwitchParser());
+
+  // Register OTP countdown button parser for verify code screens
+  CustomComponentRegistry.instance.registerWidget(
+    const OtpCountdownButtonParser(),
+  );
 
   // Register Promissory Real Loader parser
   CustomComponentRegistry.instance.registerWidget(

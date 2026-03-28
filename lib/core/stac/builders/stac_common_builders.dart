@@ -219,6 +219,52 @@ class StacCustomReactiveSwitch extends StacWidget {
   };
 }
 
+/// Builder for custom 'otpCountdownButton' payloads handled by OtpCountdownButtonParser.
+class StacOtpCountdownButton extends StacWidget {
+  const StacOtpCountdownButton({
+    this.initialSeconds,
+    this.retryLabel,
+    this.iconAsset,
+    this.onRetry,
+    this.borderColor,
+    this.countdownTextColor,
+    this.retryTextColor,
+    this.backgroundColor,
+    this.height,
+    this.minWidth,
+  });
+
+  final int? initialSeconds;
+  final String? retryLabel;
+  final String? iconAsset;
+  final dynamic onRetry;
+  final String? borderColor;
+  final String? countdownTextColor;
+  final String? retryTextColor;
+  final String? backgroundColor;
+  final double? height;
+  final double? minWidth;
+
+  @override
+  String get type => 'otpCountdownButton';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'type': type,
+    if (initialSeconds != null) 'initialSeconds': initialSeconds,
+    if (retryLabel != null) 'retryLabel': retryLabel,
+    if (iconAsset != null) 'iconAsset': iconAsset,
+    if (onRetry != null)
+      'onRetry': onRetry is StacAction ? (onRetry as StacAction).toJson() : onRetry,
+    if (borderColor != null) 'borderColor': borderColor,
+    if (countdownTextColor != null) 'countdownTextColor': countdownTextColor,
+    if (retryTextColor != null) 'retryTextColor': retryTextColor,
+    if (backgroundColor != null) 'backgroundColor': backgroundColor,
+    if (height != null) 'height': height,
+    if (minWidth != null) 'minWidth': minWidth,
+  };
+}
+
 /// Builder for custom 'reactiveElevatedButton' payloads handled by ReactiveElevatedButtonParser.
 class StacCustomReactiveElevatedButton extends StacWidget {
   const StacCustomReactiveElevatedButton({
