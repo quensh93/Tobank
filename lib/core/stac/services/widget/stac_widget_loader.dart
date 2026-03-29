@@ -82,6 +82,14 @@ import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_
     as verify_identity_real_verify_otp_dart;
 import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_national_card_front.dart'
     as verify_identity_real_national_card_front_dart;
+import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_national_card_back.dart'
+    as verify_identity_real_national_card_back_dart;
+import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_old_national_card.dart'
+    as verify_identity_real_old_national_card_dart;
+import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_selfie.dart'
+    as verify_identity_real_selfie_dart;
+import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_postal_code.dart'
+    as verify_identity_real_postal_code_dart;
 import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_rules.dart'
     as verify_identity_real_rules_dart;
 import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_rules.dart'
@@ -183,6 +191,20 @@ class StacWidgetLoader {
     'verify_identity_real_national_card_front': () =>
         verify_identity_real_national_card_front_dart
             .verifyIdentityRealNationalCardFront()
+            .toJson(),
+    'verify_identity_real_national_card_back': () =>
+        verify_identity_real_national_card_back_dart
+            .verifyIdentityRealNationalCardBack()
+            .toJson(),
+    'verify_identity_real_old_national_card': () =>
+        verify_identity_real_old_national_card_dart
+            .verifyIdentityRealOldNationalCard()
+            .toJson(),
+    'verify_identity_real_selfie': () =>
+        verify_identity_real_selfie_dart.verifyIdentityRealSelfie().toJson(),
+    'verify_identity_real_postal_code': () =>
+        verify_identity_real_postal_code_dart
+            .verifyIdentityRealPostalCode()
             .toJson(),
     'verify_identity_real_rules': () =>
         verify_identity_real_rules_dart.verifyIdentityRealRules().toJson(),
