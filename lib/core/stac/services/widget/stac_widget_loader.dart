@@ -92,6 +92,20 @@ import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_
     as verify_identity_real_postal_code_dart;
 import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_rules.dart'
     as verify_identity_real_rules_dart;
+import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_signature.dart'
+    as verify_identity_real_signature_dart;
+import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_certificate_generator.dart'
+    as verify_identity_real_certificate_generator_dart;
+import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_signature_guide.dart'
+    as verify_identity_real_signature_guide_dart;
+import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_signature_visual_guide.dart'
+    as verify_identity_real_signature_visual_guide_dart;
+import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_final.dart'
+    as verify_identity_real_final_dart;
+import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_registration.dart'
+    as verify_identity_real_registration_dart;
+import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_job_selector.dart'
+    as verify_identity_real_job_selector_dart;
 import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_rules.dart'
     as promissory_real_rules_dart;
 import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_preview_screen.dart'
@@ -208,6 +222,30 @@ class StacWidgetLoader {
             .toJson(),
     'verify_identity_real_rules': () =>
         verify_identity_real_rules_dart.verifyIdentityRealRules().toJson(),
+    'verify_identity_real_signature': () =>
+        verify_identity_real_signature_dart.verifyIdentityRealSignature().toJson(),
+    'verify_identity_real_certificate_generator': () =>
+        verify_identity_real_certificate_generator_dart
+            .verifyIdentityRealCertificateGenerator()
+            .toJson(),
+    'verify_identity_real_signature_guide': () =>
+        verify_identity_real_signature_guide_dart
+            .verifyIdentityRealSignatureGuide()
+            .toJson(),
+    'verify_identity_real_signature_visual_guide': () =>
+        verify_identity_real_signature_visual_guide_dart
+            .verifyIdentityRealSignatureVisualGuide()
+            .toJson(),
+    'verify_identity_real_final': () =>
+        verify_identity_real_final_dart.verifyIdentityRealFinal().toJson(),
+    'verify_identity_real_registration': () =>
+        verify_identity_real_registration_dart
+            .verifyIdentityRealRegistration()
+            .toJson(),
+    'verify_identity_real_job_selector': () =>
+        verify_identity_real_job_selector_dart
+            .verifyIdentityRealJobSelector()
+            .toJson(),
     'promissory_real_loader': () => {'type': 'promissory_real_loader'},
     'promissory_deposit_select': () =>
         promissory_deposit_select_dart.promissoryDepositSelectPage().toJson(),

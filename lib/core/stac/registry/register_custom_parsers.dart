@@ -40,6 +40,7 @@ import '../parsers/actions/auth_persist_action_parser.dart';
 import '../parsers/actions/promissory_sign_action_parser.dart';
 import '../parsers/widgets/pdf_preview_parser.dart';
 import '../parsers/widgets/otp_countdown_button_parser.dart';
+import '../parsers/widgets/signature_pad_parser.dart';
 
 /// Register all custom STAC parsers with the STAC framework.
 ///
@@ -368,6 +369,11 @@ void _registerExampleParsers() {
   // Register OTP countdown button parser for verify code screens
   CustomComponentRegistry.instance.registerWidget(
     const OtpCountdownButtonParser(),
+  );
+
+  // Register signature pad parser for hand-drawn signature capture
+  CustomComponentRegistry.instance.registerWidget(
+    const SignaturePadParser(),
   );
 
   // Register Promissory Real Loader parser

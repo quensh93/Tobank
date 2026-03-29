@@ -111,6 +111,31 @@ StacWidget verifyIdentityRealNationalCardFront() {
                   ),
                 ),
                 StacSizedBox(height: 16),
+                // StacFilledButton(
+                //   onPressed: const StacNavigateAction(
+                //     routeName: 'verify_identity_real_signature',
+                //     navigationStyle: NavigationStyle.push,
+                //   ),
+                //   style: StacButtonStyle(
+                //     backgroundColor:
+                //         '{{appColors.current.background.surfaceContainer}}',
+                //     foregroundColor: '{{appColors.current.text.title}}',
+                //     minimumSize: const StacSize(999999, 48),
+                //     elevation: 0,
+                //     shape: StacRoundedRectangleBorder(
+                //       borderRadius: StacBorderRadius.all(12),
+                //     ),
+                //   ),
+                //   child: StacText(
+                //     data: 'test',
+                //     style: StacCustomTextStyle(
+                //       fontSize: 15,
+                //       fontWeight: StacFontWeight.w700,
+                //       color: '{{appColors.current.text.title}}',
+                //     ),
+                //   ),
+                // ),
+                // StacSizedBox(height: 16),
                 StacRawJsonWidget({
                   'type': 'reactiveElevatedButton',
                   'enabledKey': 'hasImage',

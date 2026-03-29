@@ -227,6 +227,8 @@ class _CustomTextFormFieldWidgetState
   @override
   Widget build(BuildContext context) {
     final onTapAction = widget.rawJson?['onTap'] as Map<String, dynamic>?;
+    final supportTextDirection = _parseSupportTextDirection();
+    final fieldTextDirection = supportTextDirection ?? widget.model.textDirection?.parse;
 
     final obscuringCharacter = _normalizeObscuringCharacter(
       widget.model.obscuringCharacter,
@@ -310,7 +312,9 @@ class _CustomTextFormFieldWidgetState
       textCapitalization:
           widget.model.textCapitalization?.parse ?? TextCapitalization.none,
       textAlign: widget.model.textAlign?.parse ?? TextAlign.start,
-      textDirection: widget.model.textDirection?.parse,
+      // Use supportTextDirection for the whole field so helper/error text
+      // follows the expected RTL/LTR layout as well.
+      textDirection: fieldTextDirection,
       readOnly: widget.model.readOnly ?? false,
       showCursor: widget.model.showCursor,
       autofocus: widget.model.autofocus ?? false,
@@ -368,7 +372,30 @@ class _CustomTextFormFieldWidgetState
       AppLogger.d('ðŸ“‹ Raw JSON keys: ${widget.rawJson!.keys.toList()}');
     }
 
+    if (supportTextDirection != null) {
+      return Directionality(
+        textDirection: supportTextDirection,
+        child: textField,
+      );
+    }
+
     return textField;
+  }
+
+  TextDirection? _parseSupportTextDirection() {
+    final rawValue = widget.rawJson?['supportTextDirection'];
+    if (rawValue is! String) {
+      return null;
+    }
+
+    switch (rawValue.toLowerCase().trim()) {
+      case 'rtl':
+        return TextDirection.rtl;
+      case 'ltr':
+        return TextDirection.ltr;
+      default:
+        return null;
+    }
   }
 
   String _normalizeObscuringCharacter(String? value) {

@@ -86,14 +86,15 @@ StacWidget verifyIdentityRealVerifyOtp() {
                       children: [
                         StacExpanded(
                           child: StacRawJsonWidget({
-                            'type': 'textFormField',
-                            'id': 'verify_identity_otp_code',
-                            'textDirection': 'ltr',
-                            'textAlign': 'right',
-                            'maxLength': 5,
-                            'inputFormatters': [
-                              {'type': 'allow', 'rule': '[0-9]'},
-                            ],
+                          'type': 'textFormField',
+                          'id': 'verify_identity_otp_code',
+                          'textDirection': 'ltr',
+                          'textAlign': 'right',
+                          'supportTextDirection': 'rtl',
+                          'maxLength': 5,
+                          'inputFormatters': [
+                            {'type': 'allow', 'rule': '[0-9]'},
+                          ],
                             'keyboardType': 'number',
                             'textInputAction': 'done',
                             'decoration': {

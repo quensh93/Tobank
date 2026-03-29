@@ -1,0 +1,296 @@
+import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
+import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_app_bar.dart';
+
+@StacScreen(screenName: 'verify_identity_real_signature')
+StacWidget verifyIdentityRealSignature() {
+  return StacStatefulWidget(
+    onInit: const StacCustomSetValueAction(
+      values: [
+        {'key': 'verifyIdentitySignatureImage', 'value': ''},
+        {'key': 'verifyIdentityHasSignature', 'value': false},
+        {'key': 'verifyIdentitySignatureClearVersion', 'value': 0},
+      ],
+    ),
+    onDispose: const StacCustomSetValueAction(
+      values: [
+        {'key': 'verifyIdentitySignatureImage', 'value': ''},
+        {'key': 'verifyIdentityHasSignature', 'value': false},
+        {'key': 'verifyIdentitySignatureClearVersion', 'value': 0},
+      ],
+    ),
+    child: StacScaffold(
+      backgroundColor: '{{appColors.current.background.surface}}',
+      appBar: StacAppBar(
+        title: buildPromissoryAppBar(
+          title: '{{appStrings.menu.items.verifyIdentity}}',
+        ).title,
+        centerTitle: true,
+        leading: buildPromissoryAppBar(
+          title: '{{appStrings.menu.items.verifyIdentity}}',
+        ).leading,
+        actions: [
+          StacPadding(
+            padding: StacEdgeInsets.only(right: 15),
+            child: StacContainer(
+              width: 44,
+              height: 44,
+              decoration: StacBoxDecoration(
+                color: '{{appColors.current.background.surfaceContainer}}',
+                borderRadius: StacBorderRadius.all(22),
+                border: StacBorder.all(
+                  color: '{{appColors.current.input.borderEnabled}}',
+                  width: 1,
+                ),
+              ),
+              child: StacCenter(
+                child: StacImage(
+                  src: 'assets/icons/ic_support.svg',
+                  imageType: StacImageType.asset,
+                  width: 24,
+                  height: 24,
+                  color: '{{appColors.current.text.title}}',
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+      body: StacColumn(
+        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+        children: [
+          StacExpanded(
+            child: StacSingleChildScrollView(
+              padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              child: StacColumn(
+                crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                children: [
+                  _buildHeaderRow(),
+                  StacSizedBox(height: 16),
+                  _buildInstructions(),
+                  StacSizedBox(height: 16),
+                  _buildSignatureCard(),
+                  StacSizedBox(height: 18),
+                  _buildDeleteButton(),
+                ],
+              ),
+            ),
+          ),
+          _buildConfirmButton(),
+        ],
+      ),
+    ),
+  );
+}
+
+StacWidget _buildHeaderRow() {
+  return StacRow(
+    textDirection: StacTextDirection.rtl,
+    mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+    crossAxisAlignment: StacCrossAxisAlignment.center,
+    children: [
+      StacText(
+        data: 'دریافت امضا',
+        textDirection: StacTextDirection.rtl,
+        style: StacCustomTextStyle(
+          fontSize: 18,
+          fontWeight: StacFontWeight.w700,
+          color: '{{appColors.current.text.title}}',
+        ),
+      ),
+      StacOutlinedButton(
+        onPressed: const StacNavigateAction(
+          routeName: 'verify_identity_real_signature_guide',
+          navigationStyle: NavigationStyle.push,
+        ),
+        style: StacButtonStyle(
+          minimumSize: const StacSize(88, 38),
+          foregroundColor: '{{appColors.current.text.title}}',
+          side: StacBorderSide(
+            color: '{{appColors.current.input.borderEnabled}}',
+            width: 1,
+          ),
+          shape: StacRoundedRectangleBorder(
+            borderRadius: StacBorderRadius.all(10),
+          ),
+          padding: StacEdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        ),
+        child: StacRow(
+          mainAxisSize: StacMainAxisSize.min,
+          textDirection: StacTextDirection.rtl,
+          children: [
+            StacText(
+              data: 'راهنما',
+              textDirection: StacTextDirection.rtl,
+              style: StacCustomTextStyle(
+                fontSize: 14,
+                fontWeight: StacFontWeight.w600,
+                color: '{{appColors.current.text.title}}',
+              ),
+            ),
+            StacSizedBox(width: 8),
+            StacImage(
+              src: 'assets/icons/ic_info.svg',
+              imageType: StacImageType.asset,
+              width: 18,
+              height: 18,
+              color: '{{appColors.current.text.subtitle}}',
+            ),
+          ],
+        ),
+      ),
+    ],
+  );
+}
+
+StacWidget _buildInstructions() {
+  return StacText(
+    data:
+        'لطفا نمونه امضا خود را در کادر زیر وارد کنید و پس از تایید، دکمه تایید و ادامه را فشار دهید.',
+    textDirection: StacTextDirection.rtl,
+    textAlign: StacTextAlign.center,
+    style: StacCustomTextStyle(
+      fontSize: 15,
+      fontWeight: StacFontWeight.w500,
+      color: '{{appColors.current.text.subtitle}}',
+      height: 1.8,
+    ),
+  );
+}
+
+StacWidget _buildSignatureCard() {
+  return StacContainer(
+    height: 360,
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: StacBorderRadius.all(12),
+      border: StacBorder.all(
+        color: '{{appColors.current.input.borderEnabled}}',
+        width: 1,
+      ),
+    ),
+    child: StacColumn(
+      crossAxisAlignment: StacCrossAxisAlignment.stretch,
+      children: [
+        StacPadding(
+          padding: StacEdgeInsets.all(16),
+          child: StacAlign(
+            alignment: StacAlignmentDirectional.centerEnd,
+            child: StacText(
+              data: 'محل امضا',
+              textDirection: StacTextDirection.rtl,
+              style: StacCustomTextStyle(
+                fontSize: 16,
+                fontWeight: StacFontWeight.w700,
+                color: '{{appColors.current.text.title}}',
+              ),
+            ),
+          ),
+        ),
+        StacExpanded(
+          child: StacPadding(
+            padding: StacEdgeInsets.only(left: 12, right: 12, bottom: 12),
+            child: const StacCustomWidget.fromJson({
+              'type': 'signaturePad',
+              'valueKey': 'verifyIdentitySignatureImage',
+              'hasSignatureKey': 'verifyIdentityHasSignature',
+              'clearKey': 'verifyIdentitySignatureClearVersion',
+              'strokeColor': '#111111',
+              'backgroundColor': '#00000000',
+              'strokeWidth': 3.2,
+            }),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+StacWidget _buildDeleteButton() {
+  return StacAlign(
+    alignment: StacAlignmentDirectional.center,
+    child: StacOutlinedButton(
+      onPressed: const StacCustomSetValueAction(
+        key: 'verifyIdentitySignatureClearVersion',
+        value: '{{now()}}',
+      ),
+      style: StacButtonStyle(
+        minimumSize: const StacSize(124, 42),
+        foregroundColor: '{{appColors.current.text.title}}',
+        side: StacBorderSide(
+          color: '{{appColors.current.input.borderEnabled}}',
+          width: 1,
+        ),
+        shape: StacRoundedRectangleBorder(
+          borderRadius: StacBorderRadius.all(48),
+        ),
+        padding: StacEdgeInsets.symmetric(horizontal: 18, vertical: 8),
+      ),
+      child: StacRow(
+        mainAxisSize: StacMainAxisSize.min,
+        textDirection: StacTextDirection.rtl,
+        children: [
+          StacText(
+            data: 'حذف',
+            textDirection: StacTextDirection.rtl,
+            style: StacCustomTextStyle(
+              fontSize: 15,
+              fontWeight: StacFontWeight.w500,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacSizedBox(width: 8),
+          StacImage(
+            src: 'assets/icons/ic_delete.svg',
+            imageType: StacImageType.asset,
+            width: 18,
+            height: 18,
+            color: '{{appColors.current.error.color}}',
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+StacWidget _buildConfirmButton() {
+  return StacPadding(
+    padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 24),
+    child: StacCustomReactiveElevatedButton(
+      enabledKey: 'verifyIdentityHasSignature',
+      enabled: false,
+      onPressed: const StacNavigateAction(
+        routeName: 'verify_identity_real_certificate_generator',
+        navigationStyle: NavigationStyle.push,
+      ),
+      style: StacButtonStyle(
+        backgroundColor: '{{appColors.current.primary.color}}',
+        elevation: 0,
+        fixedSize: const StacSize(999999, 56),
+        shape: StacRoundedRectangleBorder(
+          borderRadius: StacBorderRadius.all(12),
+        ),
+      ).toJson(),
+      disabledStyle: StacButtonStyle(
+        backgroundColor:
+            '{{appColors.current.background.surfaceContainerHigh}}',
+        elevation: 0,
+        fixedSize: const StacSize(999999, 56),
+        shape: StacRoundedRectangleBorder(
+          borderRadius: StacBorderRadius.all(12),
+        ),
+      ).toJson(),
+      child: StacText(
+        data: 'تایید و ادامه',
+        textDirection: StacTextDirection.rtl,
+        style: StacCustomTextStyle(
+          fontSize: 18,
+          fontWeight: StacFontWeight.w700,
+          color: '{{appColors.current.primary.onPrimary}}',
+        ),
+      ).toJson(),
+    ),
+  );
+}

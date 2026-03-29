@@ -126,10 +126,10 @@ StacWidget verifyIdentityRealPostalCode() {
                   color: '{{appColors.current.primary.onPrimary}}',
                 ),
               ).toJson(),
-              'onPressed': const StacShowResultAction(
-                title: '{{appStrings.common.comingSoon}}',
-                content: '{{appStrings.common.comingSoon}}',
-              ).toJson(),
+              'onPressed':  StacNavigateAction(
+  routeName: 'verify_identity_real_signature',
+  navigationStyle: NavigationStyle.push,
+  ),
             }),
           ),
         ],
