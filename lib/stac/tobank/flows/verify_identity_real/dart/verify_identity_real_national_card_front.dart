@@ -167,9 +167,9 @@ StacWidget verifyIdentityRealNationalCardFront() {
                     ),
                   ).toJson(),
                   'onPressed': {
-                    'actionType': 'navigate',
-                    'widgetType': 'verify_identity_real_national_card_back',
-                    'navigationStyle': 'push',
+                    // 'actionType': 'navigate',
+                    // 'widgetType': 'verify_identity_real_national_card_back',
+                    // 'navigationStyle': 'push',
                   },
                 }),
               ],
