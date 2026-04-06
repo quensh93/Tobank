@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
-import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_app_bar.dart';
+import 'package:tobank_sdui/stac/tobank/flows/verify_identity_real/dart/widgets/verify_identity_real_app_bar.dart';
 
 /// Old National Card flow - for users who don't have a new (smart) national card.
 /// They must enter their tracking code from the paper receipt,
@@ -30,40 +31,8 @@ StacWidget verifyIdentityRealOldNationalCard() {
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: StacAppBar(
-        title: buildPromissoryAppBar(
-          title: '{{appStrings.menu.items.verifyIdentity}}',
-        ).title,
-        centerTitle: true,
-        leading: buildPromissoryAppBar(
-          title: '{{appStrings.menu.items.verifyIdentity}}',
-        ).leading,
-        actions: [
-          StacPadding(
-            padding: StacEdgeInsets.only(right: 15),
-            child: StacContainer(
-              width: 44,
-              height: 44,
-              decoration: StacBoxDecoration(
-                color: '{{appColors.current.background.surfaceContainer}}',
-                borderRadius: StacBorderRadius.all(22),
-                border: StacBorder.all(
-                  color: '{{appColors.current.input.borderEnabled}}',
-                  width: 1,
-                ),
-              ),
-              child: StacCenter(
-                child: StacImage(
-                  src: 'assets/icons/ic_support.svg',
-                  imageType: StacImageType.asset,
-                  width: 24,
-                  height: 24,
-                  color: '{{appColors.current.text.title}}',
-                ),
-              ),
-            ),
-          ),
-        ],
+      appBar: buildVerifyIdentityRealAppBar(
+        title: '{{appStrings.menu.items.verifyIdentity}}',
       ),
       body: StacColumn(
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
@@ -139,21 +108,13 @@ StacWidget _buildDescriptionAndGuide() {
         ),
       ),
       StacSizedBox(width: 12),
-      StacOutlinedButton(
-        onPressed: const StacShowResultAction(
-          title: '{{appStrings.authentication.guideLabel}}',
-          content: '{{appStrings.authentication.oldCardGuideContent}}',
-        ),
-        style: StacButtonStyle(
-          foregroundColor: '{{appColors.current.text.title}}',
-          padding: StacEdgeInsets.symmetric(horizontal: 12, vertical: 8),
-          shape: StacRoundedRectangleBorder(
-            borderRadius: StacBorderRadius.all(8),
-          ),
-          side: StacBorderSide(
-            color: '{{appColors.current.input.borderEnabled}}',
-            width: 1,
-          ),
+      StacContainer(
+        padding: StacEdgeInsets.symmetric(vertical: 8 , horizontal: 16),
+        decoration:
+        StacBoxDecoration(
+          borderRadius: StacBorderRadius.all(8),
+          border: StacBorder.all(    color: '{{appColors.current.input.borderEnabled}}',
+            width: 1,),
         ),
         child: StacRow(
           mainAxisSize: StacMainAxisSize.min,
@@ -161,7 +122,7 @@ StacWidget _buildDescriptionAndGuide() {
           children: [
             StacIcon(
               icon: StacIcons.info_outline,
-              size: 18,
+              size: 23,
               color: '{{appColors.current.text.title}}',
             ),
             StacSizedBox(width: 6),
@@ -169,14 +130,15 @@ StacWidget _buildDescriptionAndGuide() {
               data: '{{appStrings.authentication.guideLabel}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
-                fontSize: 14,
+                fontSize: 15,
                 fontWeight: StacFontWeight.w600,
                 color: '{{appColors.current.text.title}}',
               ),
             ),
           ],
         ),
-      ),
+      )
+
     ],
   );
 }
@@ -275,7 +237,6 @@ StacWidget _buildCapturePhotoCard() {
                   imageType: StacImageType.asset,
                   width: 32,
                   height: 32,
-                  color: '{{appColors.current.primary.color}}',
                 ),
                 StacSizedBox(width: 8),
                 StacText(
@@ -342,11 +303,10 @@ StacWidget _buildCaptureVideoCard() {
               textDirection: StacTextDirection.rtl,
               children: [
                 StacImage(
-                  src: 'assets/icons/ic_recording.svg',
+                  src: 'assets/icons/video_light.svg',
                   imageType: StacImageType.asset,
                   width: 32,
                   height: 32,
-                  color: '{{appColors.current.primary.color}}',
                 ),
                 StacSizedBox(width: 8),
                 StacText(

@@ -11,6 +11,7 @@ class OtpCountdownButtonModel {
     this.iconAsset = 'assets/icons/ic_clock.svg',
     this.onRetry,
     this.borderColor,
+    this.expiredBorderColor,
     this.countdownTextColor,
     this.retryTextColor,
     this.backgroundColor,
@@ -23,6 +24,7 @@ class OtpCountdownButtonModel {
   final String iconAsset;
   final Map<String, dynamic>? onRetry;
   final String? borderColor;
+  final String? expiredBorderColor;
   final String? countdownTextColor;
   final String? retryTextColor;
   final String? backgroundColor;
@@ -33,8 +35,7 @@ class OtpCountdownButtonModel {
     return OtpCountdownButtonModel(
       initialSeconds: json['initialSeconds'] as int? ?? 120,
       retryLabel: json['retryLabel'] as String? ?? 'تلاش مجدد',
-      iconAsset:
-          json['iconAsset'] as String? ?? 'assets/icons/ic_clock.svg',
+      iconAsset: json['iconAsset'] as String? ?? 'assets/icons/ic_clock.svg',
       onRetry: json['onRetry'] as Map<String, dynamic>?,
       borderColor: json['borderColor'] as String?,
       countdownTextColor: json['countdownTextColor'] as String?,
@@ -42,6 +43,7 @@ class OtpCountdownButtonModel {
       backgroundColor: json['backgroundColor'] as String?,
       height: (json['height'] as num?)?.toDouble() ?? 60,
       minWidth: (json['minWidth'] as num?)?.toDouble() ?? 132,
+      expiredBorderColor:   json['expiredBorderColor'] as String?,
     );
   }
 }
@@ -124,60 +126,66 @@ class _OtpCountdownButtonState extends State<_OtpCountdownButton> {
   @override
   Widget build(BuildContext context) {
     final isExpired = _remainingSeconds <= 0;
-    final borderColor = _parseColor(widget.model.borderColor) ??
+    final borderColor =
+        _parseColor(widget.model.borderColor) ??
         Theme.of(context).colorScheme.outline;
-    final countdownTextColor = _parseColor(widget.model.countdownTextColor) ??
+    final expiredBorderColor =
+        _parseColor(widget.model.expiredBorderColor) ??
+        Theme.of(context).colorScheme.outline;
+    final countdownTextColor =
+        _parseColor(widget.model.countdownTextColor) ??
         Theme.of(context).colorScheme.onSurfaceVariant;
-    final retryTextColor = _parseColor(widget.model.retryTextColor) ??
+    final retryTextColor =
+        _parseColor(widget.model.retryTextColor) ??
         Theme.of(context).colorScheme.primary;
-    final backgroundColor = _parseColor(widget.model.backgroundColor) ??
-        Colors.transparent;
+    final backgroundColor =
+        _parseColor(widget.model.backgroundColor) ?? Colors.transparent;
 
     return ConstrainedBox(
       constraints: BoxConstraints(minWidth: widget.model.minWidth),
       child: SizedBox(
         height: widget.model.height,
-        child: OutlinedButton(
-          onPressed: isExpired ? _handleRetry : null,
-          style: OutlinedButton.styleFrom(
-            elevation: 0,
-            backgroundColor: backgroundColor,
-            disabledBackgroundColor: backgroundColor,
-            foregroundColor: isExpired ? retryTextColor : countdownTextColor,
-            disabledForegroundColor: countdownTextColor,
-            side: BorderSide(color: borderColor, width: 1),
-            shape: RoundedRectangleBorder(
+        child: GestureDetector(
+          onTap: isExpired ? _handleRetry : null,
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(width: 1, color:  isExpired ? expiredBorderColor:borderColor),
               borderRadius: BorderRadius.circular(12),
             ),
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-          ),
-          child: isExpired
-              ? Text(
-                  widget.model.retryLabel,
-                  textDirection: TextDirection.rtl,
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600,
-                    color: retryTextColor,
-                  ),
-                )
-              : Row(
-                  mainAxisSize: MainAxisSize.min,
-                  textDirection: TextDirection.rtl,
-                  children: [
-                    _buildCountdownIcon(countdownTextColor),
-                    const SizedBox(width: 8),
-                    Text(
-                      _formatDuration(_remainingSeconds),
-                      textDirection: TextDirection.ltr,
+            child: isExpired
+                ? Center(
+                    child: Text(
+                      widget.model.retryLabel,
+                      textDirection: TextDirection.rtl,
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
-                        color: countdownTextColor,
+                        color: retryTextColor,
                       ),
                     ),
-                  ],
-                ),
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    textDirection: TextDirection.ltr,
+                    children: [
+                      _buildCountdownIcon(countdownTextColor),
+                      const SizedBox(width: 8),
+                      SizedBox(
+                        width: 42,
+                        child: Text(
+                          _formatDuration(_remainingSeconds),
+                          textDirection: TextDirection.ltr,
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                            color: countdownTextColor,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+          ),
         ),
       ),
     );
@@ -190,19 +198,19 @@ class _OtpCountdownButtonState extends State<_OtpCountdownButton> {
     if (isSvg) {
       return SvgPicture.asset(
         iconAsset,
-        width: 20,
-        height: 20,
+        width: 22,
+        height: 22,
         colorFilter: ColorFilter.mode(countdownTextColor, BlendMode.srcIn),
       );
     }
 
     return Image.asset(
       iconAsset,
-      width: 20,
-      height: 20,
+      width: 22,
+      height: 22,
       color: countdownTextColor,
       errorBuilder: (_, error, stackTrace) =>
-          const SizedBox(width: 20, height: 20),
+          const SizedBox(width: 25, height: 25),
     );
   }
 

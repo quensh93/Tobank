@@ -2,7 +2,7 @@ import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
-import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_app_bar.dart';
+import 'package:tobank_sdui/stac/tobank/flows/verify_identity_real/dart/widgets/verify_identity_real_app_bar.dart';
 
 @StacScreen(screenName: 'verify_identity_real_verify_otp')
 StacWidget verifyIdentityRealVerifyOtp() {
@@ -10,40 +10,8 @@ StacWidget verifyIdentityRealVerifyOtp() {
     onInit: const StacCustomSetValueAction(key: 'isVerifyIdentityOtpValid', value: false),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: StacAppBar(
-        title: buildPromissoryAppBar(
-          title: '{{appStrings.menu.items.verifyIdentity}}',
-        ).title,
-        centerTitle: true,
-        leading: buildPromissoryAppBar(
-          title: '{{appStrings.menu.items.verifyIdentity}}',
-        ).leading,
-        actions: [
-          StacPadding(
-            padding: StacEdgeInsets.only(right: 15),
-            child: StacContainer(
-              width: 44,
-              height: 44,
-              decoration: StacBoxDecoration(
-                color: '{{appColors.current.background.surfaceContainer}}',
-                borderRadius: StacBorderRadius.all(22),
-                border: StacBorder.all(
-                  color: '{{appColors.current.input.borderEnabled}}',
-                  width: 1,
-                ),
-              ),
-              child: StacCenter(
-                child: StacImage(
-                  src: 'assets/icons/ic_support.svg',
-                  imageType: StacImageType.asset,
-                  width: 24,
-                  height: 24,
-                  color: '{{appColors.current.text.title}}',
-                ),
-              ),
-            ),
-          ),
-        ],
+      appBar: buildVerifyIdentityRealAppBar(
+        title: '{{appStrings.menu.items.verifyIdentity}}',
       ),
       body: StacForm(
         autovalidateMode: StacAutovalidateMode.onUserInteraction,
@@ -139,12 +107,13 @@ StacWidget verifyIdentityRealVerifyOtp() {
                           'type': 'otpCountdownButton',
                           'initialSeconds': 120,
                           'retryLabel': '{{appStrings.authentication.otpRetryLabel}}',
-                          'iconAsset': 'assets/icons/ic_clock.svg',
+                          'iconAsset': 'assets/icons/ic_timer.svg',
                           'borderColor': '{{appColors.current.input.borderEnabled}}',
+                          'expiredBorderColor': '{{appColors.current.primary.color}}',
                           'countdownTextColor': '{{appColors.current.text.subtitle}}',
-                          'retryTextColor': '{{appColors.current.primary.color}}',
+                          'retryTextColor': '{{appColors.current.text.title}}',
                           'backgroundColor': '{{appColors.current.background.surface}}',
-                          'height': 53,
+                          'height': 56,
                           'minWidth': 132,
                           'onRetry': {
                             'actionType': 'showSnackBar',
@@ -155,7 +124,7 @@ StacWidget verifyIdentityRealVerifyOtp() {
                               'style': {
                                 'type': 'custom',
                                 'color': '#FFFFFF',
-                                'fontSize': 14,
+                                'fontSize': 16,
                               },
                             },
                           },

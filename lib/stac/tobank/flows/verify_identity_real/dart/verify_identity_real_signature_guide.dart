@@ -1,13 +1,14 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
-import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_app_bar.dart';
+import 'package:tobank_sdui/stac/tobank/flows/verify_identity_real/dart/widgets/verify_identity_real_app_bar.dart';
 
 @StacScreen(screenName: 'verify_identity_real_signature_guide')
 StacWidget verifyIdentityRealSignatureGuide() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildPromissoryAppBar(
+    appBar: buildVerifyIdentityRealAppBar(
       title: 'راهنما',
+      showSupport: false,
     ),
     body: StacStack(
       children: [
