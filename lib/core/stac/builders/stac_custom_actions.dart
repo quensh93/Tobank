@@ -202,13 +202,25 @@ class StacFilePickerAction extends StacAction {
   final String fileType;
   final bool allowMultiple;
   final String targetKey;
+  final String? hasValueKey;
+  final String? fileNameKey;
   final List<String>? allowedExtensions;
+  final bool previewBeforeConfirm;
+  final String? previewSheetTitle;
+  final String? confirmButtonText;
+  final String? retryButtonText;
 
   const StacFilePickerAction({
     this.fileType = 'image',
     this.allowMultiple = false,
     required this.targetKey,
+    this.hasValueKey,
+    this.fileNameKey,
     this.allowedExtensions,
+    this.previewBeforeConfirm = false,
+    this.previewSheetTitle,
+    this.confirmButtonText,
+    this.retryButtonText,
   });
 
   @override
@@ -220,6 +232,89 @@ class StacFilePickerAction extends StacAction {
     'fileType': fileType,
     'allowMultiple': allowMultiple,
     'targetKey': targetKey,
+    if (hasValueKey != null) 'hasValueKey': hasValueKey,
+    if (fileNameKey != null) 'fileNameKey': fileNameKey,
     if (allowedExtensions != null) 'allowedExtensions': allowedExtensions,
+    'previewBeforeConfirm': previewBeforeConfirm,
+    if (previewSheetTitle != null) 'previewSheetTitle': previewSheetTitle,
+    if (confirmButtonText != null) 'confirmButtonText': confirmButtonText,
+    if (retryButtonText != null) 'retryButtonText': retryButtonText,
+  };
+}
+
+class StacShowRulesBottomSheetAction extends StacAction {
+  final String routeName;
+  final String? title;
+
+  const StacShowRulesBottomSheetAction({
+    required this.routeName,
+    this.title,
+  });
+
+  @override
+  String get actionType => 'showRulesBottomSheet';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': actionType,
+    'routeName': routeName,
+    if (title != null) 'title': title,
+  };
+}
+
+class StacShowGuideOptionsBottomSheetAction extends StacAction {
+  final String title;
+  final List<Map<String, dynamic>> options;
+
+  const StacShowGuideOptionsBottomSheetAction({
+    required this.title,
+    required this.options,
+  });
+
+  @override
+  String get actionType => 'showGuideOptionsBottomSheet';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': actionType,
+    'title': title,
+    'options': options,
+  };
+}
+
+class StacShowPhotoTipsBottomSheetAction extends StacAction {
+  final String title;
+  final String? iconAsset;
+  final List<String> tips;
+  final String? previewAsset;
+  final dynamic continueAction;
+  final String continueText;
+  final String cancelText;
+
+  const StacShowPhotoTipsBottomSheetAction({
+    required this.title,
+    required this.tips,
+    required this.continueAction,
+    this.iconAsset,
+    this.previewAsset,
+    this.continueText = 'ادامه',
+    this.cancelText = 'بازگشت',
+  });
+
+  @override
+  String get actionType => 'showPhotoTipsBottomSheet';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': actionType,
+    'title': title,
+    if (iconAsset != null) 'iconAsset': iconAsset,
+    'tips': tips,
+    if (previewAsset != null) 'previewAsset': previewAsset,
+    'continueAction': continueAction is StacAction
+        ? (continueAction as StacAction).toJson()
+        : continueAction,
+    'continueText': continueText,
+    'cancelText': cancelText,
   };
 }

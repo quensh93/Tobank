@@ -154,9 +154,9 @@ StacWidget _buildRulesToggleCard() {
             mainAxisSize: StacMainAxisSize.min,
             children: [
               StacTextButton(
-                onPressed: const StacNavigateAction(
+                onPressed: const StacShowRulesBottomSheetAction(
                   routeName: 'verify_identity_real_rules',
-                  navigationStyle: NavigationStyle.push,
+                  title: 'شرایط و مقررات ارائه خدمات توبانک',
                 ),
                 style: StacButtonStyle(
                   foregroundColor: '{{appColors.current.secondary.color}}',

@@ -30,6 +30,9 @@ import '../parsers/actions/share_file_action_parser.dart';
 import '../parsers/actions/format_number_action_parser.dart';
 import '../parsers/actions/format_date_action_parser.dart';
 import '../parsers/actions/amount_to_words_action_parser.dart';
+import '../parsers/actions/show_rules_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_guide_options_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_photo_tips_bottom_sheet_action_parser.dart';
 
 import '../parsers/widgets/reactive_list_view_parser.dart';
 
@@ -441,6 +444,15 @@ void _registerExampleParsers() {
   CustomComponentRegistry.instance.registerAction(
     const AmountToWordsActionParser(),
   );
+
+  // Register rules bottom sheet action parser for showing long-form rules inline
+  registerShowRulesBottomSheetActionParser();
+
+  // Register guide options bottom sheet action parser
+  registerShowGuideOptionsBottomSheetActionParser();
+
+  // Register photo tips bottom sheet action parser
+  registerShowPhotoTipsBottomSheetActionParser();
 }
 
 /// Unregister all custom parsers from the STAC framework.

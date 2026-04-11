@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
@@ -16,6 +15,7 @@ StacWidget verifyIdentityRealOldNationalCard() {
         {'key': 'oldCardTrackingCode', 'value': ''},
         {'key': 'oldCardPhoto', 'value': ''},
         {'key': 'oldCardVideo', 'value': ''},
+        {'key': 'oldCardVideoName', 'value': ''},
         {'key': 'hasOldCardPhoto', 'value': false},
         {'key': 'hasOldCardVideo', 'value': false},
       ],
@@ -25,6 +25,7 @@ StacWidget verifyIdentityRealOldNationalCard() {
         {'key': 'oldCardTrackingCode', 'value': ''},
         {'key': 'oldCardPhoto', 'value': ''},
         {'key': 'oldCardVideo', 'value': ''},
+        {'key': 'oldCardVideoName', 'value': ''},
         {'key': 'hasOldCardPhoto', 'value': false},
         {'key': 'hasOldCardVideo', 'value': false},
       ],
@@ -108,37 +109,62 @@ StacWidget _buildDescriptionAndGuide() {
         ),
       ),
       StacSizedBox(width: 12),
-      StacContainer(
-        padding: StacEdgeInsets.symmetric(vertical: 8 , horizontal: 16),
-        decoration:
-        StacBoxDecoration(
-          borderRadius: StacBorderRadius.all(8),
-          border: StacBorder.all(    color: '{{appColors.current.input.borderEnabled}}',
-            width: 1,),
-        ),
-        child: StacRow(
-          mainAxisSize: StacMainAxisSize.min,
-          textDirection: StacTextDirection.rtl,
-          children: [
-            StacIcon(
-              icon: StacIcons.info_outline,
-              size: 23,
-              color: '{{appColors.current.text.title}}',
-            ),
-            StacSizedBox(width: 6),
-            StacText(
-              data: '{{appStrings.authentication.guideLabel}}',
-              textDirection: StacTextDirection.rtl,
-              style: StacCustomTextStyle(
-                fontSize: 15,
-                fontWeight: StacFontWeight.w600,
-                color: '{{appColors.current.text.title}}',
-              ),
-            ),
+      StacGestureDetector(
+        onTap: const StacShowGuideOptionsBottomSheetAction(
+          title: 'راهنما',
+          options: [
+            {
+              'title': 'راهنمای تصویری',
+              'iconAsset': 'assets/icons/ic_visual_tutorial.svg',
+              'onTap': {
+                'actionType': 'showResult',
+                'title': '{{appStrings.common.comingSoon}}',
+                'content': 'راهنمای تصویری این بخش هنوز اضافه نشده است.',
+              },
+            },
+            {
+              'title': 'راهنمای صوتی',
+              'iconAsset': 'assets/icons/ic_voice_tutorial.svg',
+              'onTap': {
+                'actionType': 'showResult',
+                'title': '{{appStrings.common.comingSoon}}',
+                'content': 'راهنمای صوتی این بخش هنوز اضافه نشده است.',
+              },
+            },
           ],
         ),
-      )
-
+        child: StacContainer(
+          padding: StacEdgeInsets.symmetric(vertical: 8, horizontal: 16),
+          decoration: StacBoxDecoration(
+            borderRadius: StacBorderRadius.all(8),
+            border: StacBorder.all(
+              color: '{{appColors.current.input.borderEnabled}}',
+              width: 1,
+            ),
+          ),
+          child: StacRow(
+            mainAxisSize: StacMainAxisSize.min,
+            textDirection: StacTextDirection.rtl,
+            children: [
+              StacIcon(
+                icon: StacIcons.info_outline,
+                size: 23,
+                color: '{{appColors.current.text.title}}',
+              ),
+              StacSizedBox(width: 6),
+              StacText(
+                data: '{{appStrings.authentication.guideLabel}}',
+                textDirection: StacTextDirection.rtl,
+                style: StacCustomTextStyle(
+                  fontSize: 15,
+                  fontWeight: StacFontWeight.w600,
+                  color: '{{appColors.current.text.title}}',
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     ],
   );
 }
@@ -223,33 +249,20 @@ StacWidget _buildCapturePhotoCard() {
         ),
         StacPadding(
           padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
-          child: StacGestureDetector(
-            onTap: const StacFilePickerAction(
-              fileType: 'image',
-              targetKey: 'oldCardPhoto',
-            ),
-            child: StacRow(
-              mainAxisAlignment: StacMainAxisAlignment.center,
-              textDirection: StacTextDirection.rtl,
-              children: [
-                StacImage(
-                  src: 'assets/icons/ic_camera.svg',
-                  imageType: StacImageType.asset,
-                  width: 32,
-                  height: 32,
-                ),
-                StacSizedBox(width: 8),
-                StacText(
-                  data: '{{appStrings.authentication.capturePhotoButton}}',
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 15,
-                    fontWeight: StacFontWeight.w600,
-                    color: '{{appColors.current.text.subtitle}}',
-                  ),
-                ),
-              ],
-            ),
+          child: StacColumn(
+            crossAxisAlignment: StacCrossAxisAlignment.stretch,
+            children: [
+              StacRawJsonWidget({
+                'type': 'visibility',
+                'visible': '{{!hasOldCardPhoto}}',
+                'child': _buildPhotoCaptureTrigger().toJson(),
+              }),
+              StacRawJsonWidget({
+                'type': 'visibility',
+                'visible': '{{hasOldCardPhoto}}',
+                'child': _buildSelectedPhotoContent().toJson(),
+              }),
+            ],
           ),
         ),
       ],
@@ -293,33 +306,233 @@ StacWidget _buildCaptureVideoCard() {
         ),
         StacPadding(
           padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
-          child: StacGestureDetector(
-            onTap: const StacFilePickerAction(
-              fileType: 'video',
-              targetKey: 'oldCardVideo',
-            ),
-            child: StacRow(
-              mainAxisAlignment: StacMainAxisAlignment.center,
-              textDirection: StacTextDirection.rtl,
-              children: [
-                StacImage(
-                  src: 'assets/icons/video_light.svg',
-                  imageType: StacImageType.asset,
-                  width: 32,
-                  height: 32,
-                ),
-                StacSizedBox(width: 8),
-                StacText(
-                  data: '{{appStrings.authentication.captureVideoButton}}',
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 15,
-                    fontWeight: StacFontWeight.w600,
-                    color: '{{appColors.current.text.subtitle}}',
-                  ),
-                ),
-              ],
-            ),
+          child: StacColumn(
+            crossAxisAlignment: StacCrossAxisAlignment.stretch,
+            children: [
+              StacRawJsonWidget({
+                'type': 'visibility',
+                'visible': '{{!hasOldCardVideo}}',
+                'child': _buildVideoCaptureTrigger().toJson(),
+              }),
+              StacRawJsonWidget({
+                'type': 'visibility',
+                'visible': '{{hasOldCardVideo}}',
+                'child': _buildSelectedVideoContent().toJson(),
+              }),
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+StacWidget _buildPhotoCaptureTrigger() {
+  return StacGestureDetector(
+    onTap: const StacShowPhotoTipsBottomSheetAction(
+      title: 'نکات قابل توجه عکس',
+      iconAsset: 'assets/icons/ic_camera.svg',
+      tips: [
+        'پوشش مناسب رعایت شود',
+        'عکس باید واضح و بدون تاری باشد',
+        'پس زمینه یکنواخت باشد',
+        'عدم وجود هرگونه فرد دیگر در تصویر',
+        'تصویر رخ کامل صورت فرد را نشان دهد (بدون عینک آفتابی، ماسک یا سایه‌های شدید)',
+      ],
+      previewAsset: 'assets/icons/face_id.svg',
+      continueText: 'ادامه',
+      cancelText: 'بازگشت',
+      continueAction: {
+        'actionType': 'pickFile',
+        'fileType': 'image',
+        'targetKey': 'oldCardPhoto',
+        'hasValueKey': 'hasOldCardPhoto',
+        'previewBeforeConfirm': true,
+        'previewSheetTitle': 'عکس گرفته شده مورد تایید شما است؟',
+        'confirmButtonText': 'تایید',
+        'retryButtonText': 'بازگشت',
+      },
+    ),
+    child: StacRow(
+      mainAxisAlignment: StacMainAxisAlignment.center,
+      textDirection: StacTextDirection.rtl,
+      children: [
+        StacImage(
+          src: 'assets/icons/ic_camera.svg',
+          imageType: StacImageType.asset,
+          width: 32,
+          height: 32,
+        ),
+        StacSizedBox(width: 8),
+        StacText(
+          data: '{{appStrings.authentication.capturePhotoButton}}',
+          textDirection: StacTextDirection.rtl,
+          style: StacCustomTextStyle(
+            fontSize: 15,
+            fontWeight: StacFontWeight.w600,
+            color: '{{appColors.current.text.subtitle}}',
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+StacWidget _buildVideoCaptureTrigger() {
+  return StacGestureDetector(
+    onTap: const StacShowPhotoTipsBottomSheetAction(
+      title: 'نکات قابل توجه ویدیو',
+      iconAsset: 'assets/icons/video_light.svg',
+      tips: [
+        'پوشش مناسب رعایت شود',
+        'فیلم باید واضح و بدون تاری باشد',
+        'پس‌زمینه یکدست (ترجیحا سفید یا روشن)',
+        'تنها یک نفر در تصویر حضور داشته باشد',
+        'ویدیو باید کامل صورت کاربر را پوشش دهد (بدون عینک افتابی، ماسک یا سایه های شدید)',
+      ],
+      previewAsset: 'assets/icons/video_light.svg',
+      continueText: 'ادامه',
+      cancelText: 'بازگشت',
+      continueAction: {
+        'actionType': 'pickFile',
+        'fileType': 'video',
+        'targetKey': 'oldCardVideo',
+        'hasValueKey': 'hasOldCardVideo',
+        'fileNameKey': 'oldCardVideoName',
+        'previewBeforeConfirm': true,
+        'previewSheetTitle': 'ویدیوی گرفته شده مورد تایید شما است؟',
+        'confirmButtonText': 'تایید',
+        'retryButtonText': 'بازگشت',
+      },
+    ),
+    child: StacRow(
+      mainAxisAlignment: StacMainAxisAlignment.center,
+      textDirection: StacTextDirection.rtl,
+      children: [
+        StacImage(
+          src: 'assets/icons/video_light.svg',
+          imageType: StacImageType.asset,
+          width: 32,
+          height: 32,
+        ),
+        StacSizedBox(width: 8),
+        StacText(
+          data: '{{appStrings.authentication.captureVideoButton}}',
+          textDirection: StacTextDirection.rtl,
+          style: StacCustomTextStyle(
+            fontSize: 15,
+            fontWeight: StacFontWeight.w600,
+            color: '{{appColors.current.text.subtitle}}',
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+StacWidget _buildSelectedPhotoContent() {
+  return StacRow(
+    textDirection: StacTextDirection.rtl,
+    crossAxisAlignment: StacCrossAxisAlignment.center,
+    children: [
+      StacContainer(
+        width: 36,
+        height: 48,
+        decoration: StacBoxDecoration(
+          color: '{{appColors.current.background.surface}}',
+          borderRadius: StacBorderRadius.all(8),
+        ),
+        child: StacClipRRect(
+          borderRadius: StacBorderRadius.all(8),
+          child: StacRawJsonWidget({
+            'type': 'registryReactive',
+            'child': {
+              'type': 'image',
+              'src': '{{oldCardPhoto}}',
+              'registryKey': 'oldCardPhoto',
+              'fit': 'cover',
+              'width': 36,
+              'height': 48,
+              'errorBuilder': {
+                'type': 'center',
+                'child': {
+                  'type': 'icon',
+                  'icon': 'image_outlined',
+                  'size': 18,
+                  'color': '{{appColors.current.text.subtitle}}',
+                },
+              },
+            },
+          }),
+        ),
+      ),
+      StacExpanded(child: StacSizedBox()),
+      _buildDeleteButton(
+        onTap: const StacCustomSetValueAction(
+          values: [
+            {'key': 'oldCardPhoto', 'value': ''},
+            {'key': 'hasOldCardPhoto', 'value': false},
+          ],
+        ),
+      ),
+    ],
+  );
+}
+
+StacWidget _buildSelectedVideoContent() {
+  return StacRow(
+    textDirection: StacTextDirection.rtl,
+    crossAxisAlignment: StacCrossAxisAlignment.center,
+    children: [
+      StacExpanded(
+        child: StacText(
+          data: '{{oldCardVideoName}}',
+          textDirection: StacTextDirection.ltr,
+          textAlign: StacTextAlign.right,
+          style: StacCustomTextStyle(
+            fontSize: 12,
+            fontWeight: StacFontWeight.w500,
+            color: '{{appColors.current.primary.color}}',
+          ),
+        ),
+      ),
+      StacSizedBox(width: 12),
+      _buildDeleteButton(
+        onTap: const StacCustomSetValueAction(
+          values: [
+            {'key': 'oldCardVideo', 'value': ''},
+            {'key': 'oldCardVideoName', 'value': ''},
+            {'key': 'hasOldCardVideo', 'value': false},
+          ],
+        ),
+      ),
+    ],
+  );
+}
+
+StacWidget _buildDeleteButton({
+  required StacAction onTap,
+}) {
+  return StacGestureDetector(
+    onTap: onTap,
+    child: StacRow(
+      mainAxisSize: StacMainAxisSize.min,
+      textDirection: StacTextDirection.rtl,
+      children: [
+        StacImage(
+          src: 'assets/icons/ic_delete.svg',
+          imageType: StacImageType.asset,
+          width: 20,
+          height: 20,
+        ),
+        StacSizedBox(width: 6),
+        StacText(
+          data: 'حذف',
+          textDirection: StacTextDirection.rtl,
+          style: StacCustomTextStyle(
+            fontSize: 15,
+            fontWeight: StacFontWeight.w600,
+            color: '{{appColors.current.text.title}}',
           ),
         ),
       ],
