@@ -78,9 +78,9 @@ StacWidget verifyIdentityRealNationalCardBack() {
                 ),
               ).toJson(),
               'onPressed': {
-                    // 'actionType': 'navigate',
-                    // 'widgetType': 'verify_identity_real_selfie',
-                    // 'navigationStyle': 'push',
+                    'actionType': 'navigate',
+                    'widgetType': 'verify_identity_real_selfie',
+                    'navigationStyle': 'push',
                   },
             }),
           ),

@@ -69,9 +69,28 @@ StacWidget _buildHeaderRow() {
         ),
       ),
       StacOutlinedButton(
-        onPressed: const StacNavigateAction(
-          routeName: 'verify_identity_real_signature_guide',
-          navigationStyle: NavigationStyle.push,
+        onPressed: const StacShowGuideOptionsBottomSheetAction(
+          title: 'راهنما',
+          options: [
+            {
+              'title': 'راهنمای تصویری',
+              'iconAsset': 'assets/icons/ic_visual_tutorial.svg',
+              'onTap': {
+                'actionType': 'navigate',
+                'routeName': 'verify_identity_real_signature_guide',
+                'navigationStyle': 'push',
+              },
+            },
+            {
+              'title': 'راهنمای صوتی',
+              'iconAsset': 'assets/icons/ic_voice_tutorial.svg',
+              'onTap': {
+                'actionType': 'showResult',
+                'title': '{{appStrings.common.comingSoon}}',
+                'content': 'راهنمای صوتی این بخش هنوز اضافه نشده است.',
+              },
+            },
+          ],
         ),
         style: StacButtonStyle(
           minimumSize: const StacSize(88, 38),
@@ -81,31 +100,33 @@ StacWidget _buildHeaderRow() {
             width: 1,
           ),
           shape: StacRoundedRectangleBorder(
-            borderRadius: StacBorderRadius.all(10),
+            borderRadius: StacBorderRadius.all(8),
           ),
-          padding: StacEdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          padding: StacEdgeInsets.symmetric(horizontal: 12, vertical: 12),
         ),
         child: StacRow(
           mainAxisSize: StacMainAxisSize.min,
           textDirection: StacTextDirection.rtl,
           children: [
+            StacImage(
+              src: 'assets/icons/ic_info.svg',
+              imageType: StacImageType.asset,
+              width: 21,
+              height: 21,
+              color: '{{appColors.current.text.subtitle}}',
+            ),
+            StacSizedBox(width: 8),
+
             StacText(
               data: 'راهنما',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
-                fontSize: 14,
+                fontSize: 17,
                 fontWeight: StacFontWeight.w600,
                 color: '{{appColors.current.text.title}}',
               ),
             ),
-            StacSizedBox(width: 8),
-            StacImage(
-              src: 'assets/icons/ic_info.svg',
-              imageType: StacImageType.asset,
-              width: 18,
-              height: 18,
-              color: '{{appColors.current.text.subtitle}}',
-            ),
+
           ],
         ),
       ),
@@ -118,9 +139,9 @@ StacWidget _buildInstructions() {
     data:
         'لطفا نمونه امضا خود را در کادر زیر وارد کنید و پس از تایید، دکمه تایید و ادامه را فشار دهید.',
     textDirection: StacTextDirection.rtl,
-    textAlign: StacTextAlign.center,
+    textAlign: StacTextAlign.right,
     style: StacCustomTextStyle(
-      fontSize: 15,
+      fontSize: 17,
       fontWeight: StacFontWeight.w500,
       color: '{{appColors.current.text.subtitle}}',
       height: 1.8,
@@ -200,23 +221,25 @@ StacWidget _buildDeleteButton() {
         mainAxisSize: StacMainAxisSize.min,
         textDirection: StacTextDirection.rtl,
         children: [
+          StacImage(
+            src: 'assets/icons/ic_delete.svg',
+            imageType: StacImageType.asset,
+            width: 20,
+            height: 20,
+
+          ),
+          StacSizedBox(width: 8),
+
           StacText(
             data: 'حذف',
             textDirection: StacTextDirection.rtl,
             style: StacCustomTextStyle(
-              fontSize: 15,
+              fontSize: 17,
               fontWeight: StacFontWeight.w500,
               color: '{{appColors.current.text.title}}',
             ),
           ),
-          StacSizedBox(width: 8),
-          StacImage(
-            src: 'assets/icons/ic_delete.svg',
-            imageType: StacImageType.asset,
-            width: 18,
-            height: 18,
-            color: '{{appColors.current.error.color}}',
-          ),
+
         ],
       ),
     ),

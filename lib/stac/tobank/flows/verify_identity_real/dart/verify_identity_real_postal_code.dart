@@ -15,6 +15,8 @@ StacWidget verifyIdentityRealPostalCode() {
         {'key': 'postalCode', 'value': ''},
         {'key': 'postalAddress', 'value': ''},
         {'key': 'hasPostalAddress', 'value': false},
+        {'key': 'hasPostalCodeInput', 'value': false},
+        {'key': 'isPostalCodeComplete', 'value': false},
         {'key': 'isPostalLoading', 'value': false},
       ],
     ),
@@ -23,6 +25,8 @@ StacWidget verifyIdentityRealPostalCode() {
         {'key': 'postalCode', 'value': ''},
         {'key': 'postalAddress', 'value': ''},
         {'key': 'hasPostalAddress', 'value': false},
+        {'key': 'hasPostalCodeInput', 'value': false},
+        {'key': 'isPostalCodeComplete', 'value': false},
         {'key': 'isPostalLoading', 'value': false},
       ],
     ),
@@ -31,76 +35,78 @@ StacWidget verifyIdentityRealPostalCode() {
       appBar: buildVerifyIdentityRealAppBar(
         title: '{{appStrings.menu.items.verifyIdentity}}',
       ),
-      body: StacColumn(
-        crossAxisAlignment: StacCrossAxisAlignment.stretch,
-        children: [
-          StacExpanded(
-            child: StacSingleChildScrollView(
-              padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              child: StacColumn(
-                crossAxisAlignment: StacCrossAxisAlignment.stretch,
-                children: [
-                  // Description text
-                  StacText(
-                    data:
-                        '{{appStrings.authentication.postalCodeDescription}}',
-                    textDirection: StacTextDirection.rtl,
-                    textAlign: StacTextAlign.right,
-                    style: StacCustomTextStyle(
-                      fontSize: 15,
-                      fontWeight: StacFontWeight.w600,
-                      color: '{{appColors.current.text.subtitle}}',
-                      height: 1.8,
+      body: StacForm(
+        child: StacColumn(
+          crossAxisAlignment: StacCrossAxisAlignment.stretch,
+          children: [
+            StacExpanded(
+              child: StacSingleChildScrollView(
+                padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                child: StacColumn(
+                  crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                  children: [
+                    // Description text
+                    StacText(
+                      data:
+                          '{{appStrings.authentication.postalCodeDescription}}',
+                      textDirection: StacTextDirection.rtl,
+                      textAlign: StacTextAlign.right,
+                      style: StacCustomTextStyle(
+                        fontSize: 15,
+                        fontWeight: StacFontWeight.w600,
+                        color: '{{appColors.current.text.subtitle}}',
+                        height: 1.8,
+                      ),
                     ),
-                  ),
-                  StacSizedBox(height: 24),
-                  _buildPostalCodeSection(),
-                  StacSizedBox(height: 16),
-                  _buildAddressSection(),
-                ],
+                    StacSizedBox(height: 24),
+                    _buildPostalCodeSection(),
+                    StacSizedBox(height: 16),
+                    _buildAddressSection(),
+                  ],
+                ),
               ),
             ),
-          ),
-          // Confirm button - only enabled when address is loaded
-          StacPadding(
-            padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 24),
-            child: StacRawJsonWidget({
-              'type': 'reactiveElevatedButton',
-              'enabledKey': 'hasPostalAddress',
-              'enabled': false,
-              'style': StacButtonStyle(
-                backgroundColor: '{{appColors.current.primary.color}}',
-                elevation: 0,
-                fixedSize: const StacSize(999999, 56),
-                shape: StacRoundedRectangleBorder(
-                  borderRadius: StacBorderRadius.all(12),
+            // Confirm button - only enabled when address is loaded
+            StacPadding(
+              padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 24),
+              child: StacRawJsonWidget({
+                'type': 'reactiveElevatedButton',
+                'enabledKey': 'hasPostalAddress',
+                'enabled': false,
+                'style': StacButtonStyle(
+                  backgroundColor: '{{appColors.current.primary.color}}',
+                  elevation: 0,
+                  fixedSize: const StacSize(999999, 56),
+                  shape: StacRoundedRectangleBorder(
+                    borderRadius: StacBorderRadius.all(12),
+                  ),
+                ).toJson(),
+                'disabledStyle': StacButtonStyle(
+                  backgroundColor:
+                      '{{appColors.current.background.surfaceContainerHigh}}',
+                  elevation: 0,
+                  fixedSize: const StacSize(999999, 56),
+                  shape: StacRoundedRectangleBorder(
+                    borderRadius: StacBorderRadius.all(12),
+                  ),
+                ).toJson(),
+                'child': StacText(
+                  data: '{{appStrings.authentication.confirmAndContinue}}',
+                  textDirection: StacTextDirection.rtl,
+                  style: StacCustomTextStyle(
+                    fontSize: 18,
+                    fontWeight: StacFontWeight.w700,
+                    color: '{{appColors.current.primary.onPrimary}}',
+                  ),
+                ).toJson(),
+                'onPressed': StacNavigateAction(
+                  routeName: 'verify_identity_real_signature',
+                  navigationStyle: NavigationStyle.push,
                 ),
-              ).toJson(),
-              'disabledStyle': StacButtonStyle(
-                backgroundColor:
-                    '{{appColors.current.background.surfaceContainerHigh}}',
-                elevation: 0,
-                fixedSize: const StacSize(999999, 56),
-                shape: StacRoundedRectangleBorder(
-                  borderRadius: StacBorderRadius.all(12),
-                ),
-              ).toJson(),
-              'child': StacText(
-                data: '{{appStrings.authentication.confirmAndContinue}}',
-                textDirection: StacTextDirection.rtl,
-                style: StacCustomTextStyle(
-                  fontSize: 18,
-                  fontWeight: StacFontWeight.w700,
-                  color: '{{appColors.current.primary.onPrimary}}',
-                ),
-              ).toJson(),
-              'onPressed':  StacNavigateAction(
-  routeName: 'verify_identity_real_signature',
-  navigationStyle: NavigationStyle.push,
-  ),
-            }),
-          ),
-        ],
+              }),
+            ),
+          ],
+        ),
       ),
     ),
   );
@@ -127,59 +133,121 @@ StacWidget _buildPostalCodeSection() {
         children: [
           // Text field
           StacExpanded(
-            child: StacTextFormField(
-              id: 'postalCodeInput',
-              textDirection: StacTextDirection.rtl,
-              textAlign: StacTextAlign.right,
-              keyboardType: StacTextInputType.number,
-              style: StacCustomTextStyle(
-                fontSize: 14,
+            child: StacRawJsonWidget({
+              'type': 'textFormField',
+              'id': 'postalCodeInput',
+              'textDirection': 'rtl',
+              'textAlign': 'right',
+              'keyboardType': 'number',
+              'maxLength': 10,
+              'inputFormatters': [
+                {'type': 'allow', 'rule': '[0-9]'},
+              ],
+              'onChanged': StacSequenceAction(
+                actions: [
+                  const StacCustomSetValueAction(
+                    values: [
+                      {'key': 'postalAddress', 'value': ''},
+                      {'key': 'hasPostalAddress', 'value': false},
+                    ],
+                  ),
+                  const StacValidateFieldsAction(
+                    resultKey: 'hasPostalCodeInput',
+                    fields: [
+                      {'id': 'postalCodeInput'},
+                    ],
+                  ),
+                  const StacValidateFieldsAction(
+                    resultKey: 'isPostalCodeComplete',
+                    fields: [
+                      {'id': 'postalCodeInput', 'rule': r'^\d{10}$'},
+                    ],
+                  ),
+                ],
+              ).toJson(),
+              'style': StacCustomTextStyle(
+                fontSize: 18,
                 fontWeight: StacFontWeight.w600,
                 color: '{{appColors.current.text.title}}',
-              ),
-              decoration: StacInputDecoration(
-                hintText:
-                    '{{appStrings.authentication.postalCodeHint}}',
-                hintStyle: StacTextStyle(
-                  fontSize: 14,
-                  fontWeight: StacFontWeight.w500,
-                  color: '{{appColors.current.text.hint}}',
-                ),
-                filled: false,
-                contentPadding: StacEdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 18,
-                ),
-                suffixIcon: StacRawJsonWidget({
-                  'type': 'visibility',
-                  'visible': '{{hasPostalAddress}}',
-                  'child': StacGestureDetector(
-                    onTap: const StacCustomSetValueAction(
-                      values: [
-                        {'key': 'postalAddress', 'value': ''},
-                        {'key': 'hasPostalAddress', 'value': false},
-                        {'key': 'postalCode', 'value': ''},
-                      ],
-                    ),
-                    child: StacPadding(
-                      padding: StacEdgeInsets.all(12),
-                      child: StacIcon(
-                        icon: StacIcons.close,
-                        size: 20,
-                        color: '{{appColors.current.text.subtitle}}',
+              ).toJson(),
+              'decoration': {
+                ...StacInputDecoration(
+                  hintText: '{{appStrings.authentication.postalCodeHint}}',
+                  hintStyle: StacTextStyle(
+                    fontSize: 14,
+                    fontWeight: StacFontWeight.w500,
+                    color: '{{appColors.current.text.hint}}',
+                  ),
+                  filled: false,
+                  contentPadding: StacEdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 18,
+                  ),
+                  prefixIcon: StacRawJsonWidget({
+                    'type': 'visibility',
+                    'visible': '{{hasPostalCodeInput}}',
+                    'child': StacGestureDetector(
+                      onTap: const StacCustomSetValueAction(
+                        values: [
+                          {'key': 'postalCodeInput', 'value': ''},
+                          {'key': 'postalAddress', 'value': ''},
+                          {'key': 'hasPostalAddress', 'value': false},
+                          {'key': 'postalCode', 'value': ''},
+                          {'key': 'hasPostalCodeInput', 'value': false},
+                          {'key': 'isPostalCodeComplete', 'value': false},
+                        ],
                       ),
-                    ),
-                  ).toJson(),
-                }),
-              ),
-            ),
+                      child: StacPadding(
+                        padding: StacEdgeInsets.all(12),
+                        child: StacIcon(
+                          icon: StacIcons.close,
+                          size: 20,
+                          color: '{{appColors.current.text.subtitle}}',
+                        ),
+                      ),
+                    ).toJson(),
+                  }),
+                ).toJson(),
+                'counterText': '',
+              },
+            }),
           ),
-          StacSizedBox(width: 12),
+          StacSizedBox(width: 10),
           // "استعلام" button
-          StacFilledButton(
-            onPressed: StacSequenceAction(
+          StacRawJsonWidget({
+            'type': 'reactiveElevatedButton',
+            'enabledKey': 'isPostalCodeComplete',
+            'enabled': false,
+            'style': StacButtonStyle(
+              backgroundColor: '{{appColors.current.primary.color}}',
+              foregroundColor: '{{appColors.current.primary.onPrimary}}',
+              elevation: 0,
+              padding: StacEdgeInsets.symmetric(horizontal: 20, vertical: 23),
+              shape: StacRoundedRectangleBorder(
+                borderRadius: StacBorderRadius.all(10),
+              ),
+            ).toJson(),
+            'disabledStyle': StacButtonStyle(
+              backgroundColor:
+                  '{{appColors.current.background.surfaceContainerHigh}}',
+              foregroundColor: '{{appColors.current.text.subtitle}}',
+              elevation: 0,
+              padding: StacEdgeInsets.symmetric(horizontal: 20, vertical: 23),
+              shape: StacRoundedRectangleBorder(
+                borderRadius: StacBorderRadius.all(10),
+              ),
+            ).toJson(),
+            'child': StacText(
+              data: '{{appStrings.authentication.inquiryButton}}',
+              textDirection: StacTextDirection.rtl,
+              style: StacCustomTextStyle(
+                fontSize: 15,
+                fontWeight: StacFontWeight.w700,
+                color: '{{appColors.current.primary.onPrimary}}',
+              ),
+            ).toJson(),
+            'onPressed': StacSequenceAction(
               actions: [
-                // Save the postal code value to registry
                 StacCustomSetValueAction(
                   key: 'postalCode',
                   value: StacGetFormValueAction(id: 'postalCodeInput'),
@@ -188,8 +256,6 @@ StacWidget _buildPostalCodeSection() {
                   key: 'isPostalLoading',
                   value: true,
                 ),
-                // Mock: Set address after inquiry
-                // In real app this would be a network request
                 const StacCustomSetValueAction(
                   values: [
                     {
@@ -202,26 +268,8 @@ StacWidget _buildPostalCodeSection() {
                   ],
                 ),
               ],
-            ),
-            style: StacButtonStyle(
-              backgroundColor: '{{appColors.current.primary.color}}',
-              foregroundColor: '{{appColors.current.primary.onPrimary}}',
-              elevation: 0,
-              padding: StacEdgeInsets.symmetric(horizontal: 20, vertical: 18),
-              shape: StacRoundedRectangleBorder(
-                borderRadius: StacBorderRadius.all(10),
-              ),
-            ),
-            child: StacText(
-              data: '{{appStrings.authentication.inquiryButton}}',
-              textDirection: StacTextDirection.rtl,
-              style: StacCustomTextStyle(
-                fontSize: 15,
-                fontWeight: StacFontWeight.w700,
-                color: '{{appColors.current.primary.onPrimary}}',
-              ),
-            ),
-          ),
+            ).toJson(),
+          }),
         ],
       ),
     ],
@@ -272,7 +320,7 @@ StacWidget _buildAddressSection() {
                     'textAlign': 'right',
                     'style': {
                       'type': 'custom',
-                      'fontSize': 14,
+                      'fontSize': 16,
                       'fontWeight': 'w600',
                       'color': '{{appColors.current.text.title}}',
                       'height': 1.8,

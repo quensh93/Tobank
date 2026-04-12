@@ -14,6 +14,7 @@ StacWidget verifyIdentityRealSelfie() {
       values: [
         {'key': 'selfiePhoto', 'value': ''},
         {'key': 'selfieVideo', 'value': ''},
+        {'key': 'selfieVideoName', 'value': ''},
         {'key': 'hasSelfiePhoto', 'value': false},
         {'key': 'hasSelfieVideo', 'value': false},
       ],
@@ -22,6 +23,7 @@ StacWidget verifyIdentityRealSelfie() {
       values: [
         {'key': 'selfiePhoto', 'value': ''},
         {'key': 'selfieVideo', 'value': ''},
+        {'key': 'selfieVideoName', 'value': ''},
         {'key': 'hasSelfiePhoto', 'value': false},
         {'key': 'hasSelfieVideo', 'value': false},
       ],
@@ -99,30 +101,34 @@ StacWidget _buildSerialSection() {
         ),
       ),
       StacSizedBox(height: 12),
-      StacContainer(
-        padding: StacEdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 18,
-        ),
-        decoration: StacBoxDecoration(
-          color: '{{appColors.current.background.surface}}',
-          borderRadius: StacBorderRadius.all(12),
-          border: StacBorder.all(
-            color: '{{appColors.current.input.borderEnabled}}',
-            width: 1,
+      StacRawJsonWidget({
+        'type': 'textFormField',
+        'id': 'smartCardSerial',
+        'textDirection': 'rtl',
+        'textAlign': 'right',
+        'keyboardType': 'number',
+        'inputFormatters': [
+          {'type': 'allow', 'rule': '[0-9]'},
+        ],
+        'style': StacCustomTextStyle(
+          fontSize: 18,
+          fontWeight: StacFontWeight.w600,
+          color: '{{appColors.current.text.title}}',
+        ).toJson(),
+        'decoration': StacInputDecoration(
+          hintText: 'سریال پشت کارت ملی خود را وارد کنید',
+          hintStyle: StacTextStyle(
+            fontSize: 15,
+            fontWeight: StacFontWeight.w500,
+            color: '{{appColors.current.text.hint}}',
           ),
-        ),
-        child: StacText(
-          data: '{{smartCardSerial}}',
-          textDirection: StacTextDirection.rtl,
-          textAlign: StacTextAlign.right,
-          style: StacCustomTextStyle(
-            fontSize: 16,
-            fontWeight: StacFontWeight.w600,
-            color: '{{appColors.current.text.title}}',
+          filled: false,
+          contentPadding: StacEdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 18,
           ),
-        ),
-      ),
+        ).toJson(),
+      }),
     ],
   );
 }
@@ -163,34 +169,20 @@ StacWidget _buildCapturePhotoCard() {
         ),
         StacPadding(
           padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
-          child: StacGestureDetector(
-            onTap: const StacFilePickerAction(
-              fileType: 'image',
-              targetKey: 'selfiePhoto',
-            ),
-            child: StacRow(
-              mainAxisAlignment: StacMainAxisAlignment.center,
-              textDirection: StacTextDirection.rtl,
-              children: [
-                StacImage(
-                  src: 'assets/icons/ic_camera.svg',
-                  imageType: StacImageType.asset,
-                  width: 32,
-                  height: 32,
-                  color: '{{appColors.current.primary.color}}',
-                ),
-                StacSizedBox(width: 8),
-                StacText(
-                  data: '{{appStrings.authentication.capturePhotoButton}}',
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 15,
-                    fontWeight: StacFontWeight.w600,
-                    color: '{{appColors.current.text.subtitle}}',
-                  ),
-                ),
-              ],
-            ),
+          child: StacColumn(
+            crossAxisAlignment: StacCrossAxisAlignment.stretch,
+            children: [
+              StacRawJsonWidget({
+                'type': 'visibility',
+                'visible': '{{!hasSelfiePhoto}}',
+                'child': _buildSelfiePhotoTrigger().toJson(),
+              }),
+              StacRawJsonWidget({
+                'type': 'visibility',
+                'visible': '{{hasSelfiePhoto}}',
+                'child': _buildSelectedSelfiePhotoContent().toJson(),
+              }),
+            ],
           ),
         ),
       ],
@@ -234,34 +226,236 @@ StacWidget _buildCaptureVideoCard() {
         ),
         StacPadding(
           padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
-          child: StacGestureDetector(
-            onTap: const StacFilePickerAction(
-              fileType: 'video',
-              targetKey: 'selfieVideo',
+          child: StacColumn(
+            crossAxisAlignment: StacCrossAxisAlignment.stretch,
+            children: [
+              StacRawJsonWidget({
+                'type': 'visibility',
+                'visible': '{{!hasSelfieVideo}}',
+                'child': _buildSelfieVideoTrigger().toJson(),
+              }),
+              StacRawJsonWidget({
+                'type': 'visibility',
+                'visible': '{{hasSelfieVideo}}',
+                'child': _buildSelectedSelfieVideoContent().toJson(),
+              }),
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+StacWidget _buildSelfiePhotoTrigger() {
+  return StacGestureDetector(
+    onTap: const StacShowPhotoTipsBottomSheetAction(
+      title: 'نکات قابل توجه عکس',
+      iconAsset: 'assets/icons/ic_camera.svg',
+      tips: [
+        'پوشش مناسب رعایت شود',
+        'عکس باید واضح و بدون تاری باشد',
+        'پس زمینه یکنواخت باشد',
+        'عدم وجود هرگونه فرد دیگر در تصویر',
+        'تصویر رخ کامل صورت فرد را نشان دهد (بدون عینک آفتابی، ماسک یا سایه‌های شدید)',
+      ],
+      previewAsset: 'assets/icons/face_id.svg',
+      continueText: 'ادامه',
+      cancelText: 'بازگشت',
+      continueAction: {
+        'actionType': 'pickFile',
+        'fileType': 'image',
+        'targetKey': 'selfiePhoto',
+        'hasValueKey': 'hasSelfiePhoto',
+        'previewBeforeConfirm': true,
+        'previewSheetTitle': 'عکس گرفته شده مورد تایید شما است؟',
+        'confirmButtonText': 'تایید',
+        'retryButtonText': 'بازگشت',
+      },
+    ),
+    child: StacPadding(
+      padding: StacEdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      child: StacRow(
+        mainAxisAlignment: StacMainAxisAlignment.center,
+        textDirection: StacTextDirection.rtl,
+        children: [
+          StacImage(
+            src: 'assets/icons/ic_camera.svg',
+            imageType: StacImageType.asset,
+            width: 32,
+            height: 32,
+          ),
+          StacSizedBox(width: 8),
+          StacText(
+            data: '{{appStrings.authentication.capturePhotoButton}}',
+            textDirection: StacTextDirection.rtl,
+            style: StacCustomTextStyle(
+              fontSize: 15,
+              fontWeight: StacFontWeight.w600,
+              color: '{{appColors.current.text.subtitle}}',
             ),
-            child: StacRow(
-              mainAxisAlignment: StacMainAxisAlignment.center,
-              textDirection: StacTextDirection.rtl,
-              children: [
-                StacImage(
-                  src: 'assets/icons/ic_recording.svg',
-                  imageType: StacImageType.asset,
-                  width: 32,
-                  height: 32,
-                  color: '{{appColors.current.primary.color}}',
-                ),
-                StacSizedBox(width: 8),
-                StacText(
-                  data: '{{appStrings.authentication.captureVideoButton}}',
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 15,
-                    fontWeight: StacFontWeight.w600,
-                    color: '{{appColors.current.text.subtitle}}',
-                  ),
-                ),
-              ],
-            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+StacWidget _buildSelfieVideoTrigger() {
+  return StacGestureDetector(
+    onTap: const StacShowPhotoTipsBottomSheetAction(
+      title: 'نکات قابل توجه ویدیو',
+      iconAsset: 'assets/icons/video_light.svg',
+      tips: [
+        'پوشش مناسب رعایت شود',
+        'فیلم باید واضح و بدون تاری باشد',
+        'پس‌زمینه یکدست (ترجیحا سفید یا روشن)',
+        'تنها یک نفر در تصویر حضور داشته باشد',
+        'ویدیو باید کامل صورت کاربر را پوشش دهد (بدون عینک افتابی، ماسک یا سایه های شدید)',
+      ],
+      previewAsset: 'assets/icons/video_light.svg',
+      continueText: 'ادامه',
+      cancelText: 'بازگشت',
+      continueAction: {
+        'actionType': 'pickFile',
+        'fileType': 'video',
+        'targetKey': 'selfieVideo',
+        'hasValueKey': 'hasSelfieVideo',
+        'fileNameKey': 'selfieVideoName',
+        'previewBeforeConfirm': true,
+        'previewSheetTitle': 'ویدیوی گرفته شده مورد تایید شما است؟',
+        'confirmButtonText': 'تایید',
+        'retryButtonText': 'بازگشت',
+      },
+    ),
+    child: StacRow(
+      mainAxisAlignment: StacMainAxisAlignment.center,
+      textDirection: StacTextDirection.rtl,
+      children: [
+        StacImage(
+          src: 'assets/icons/video_light.svg',
+          imageType: StacImageType.asset,
+          width: 32,
+          height: 32,
+        ),
+        StacSizedBox(width: 8),
+        StacText(
+          data: '{{appStrings.authentication.captureVideoButton}}',
+          textDirection: StacTextDirection.rtl,
+          style: StacCustomTextStyle(
+            fontSize: 15,
+            fontWeight: StacFontWeight.w600,
+            color: '{{appColors.current.text.subtitle}}',
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+StacWidget _buildSelectedSelfiePhotoContent() {
+  return StacRow(
+    textDirection: StacTextDirection.rtl,
+    crossAxisAlignment: StacCrossAxisAlignment.center,
+    children: [
+      StacContainer(
+        width: 36,
+        height: 48,
+        decoration: StacBoxDecoration(
+          color: '{{appColors.current.background.surface}}',
+          borderRadius: StacBorderRadius.all(8),
+        ),
+        child: StacClipRRect(
+          borderRadius: StacBorderRadius.all(8),
+          child: StacRawJsonWidget({
+            'type': 'registryReactive',
+            'child': {
+              'type': 'image',
+              'src': '{{selfiePhoto}}',
+              'registryKey': 'selfiePhoto',
+              'fit': 'cover',
+              'width': 36,
+              'height': 48,
+              'errorBuilder': {
+                'type': 'center',
+                'child': {
+                  'type': 'icon',
+                  'icon': 'image_outlined',
+                  'size': 18,
+                  'color': '{{appColors.current.text.subtitle}}',
+                },
+              },
+            },
+          }),
+        ),
+      ),
+      StacExpanded(child: StacSizedBox()),
+      _buildSelfieDeleteButton(
+        onTap: const StacCustomSetValueAction(
+          values: [
+            {'key': 'selfiePhoto', 'value': ''},
+            {'key': 'hasSelfiePhoto', 'value': false},
+          ],
+        ),
+      ),
+    ],
+  );
+}
+
+StacWidget _buildSelectedSelfieVideoContent() {
+  return StacRow(
+    textDirection: StacTextDirection.rtl,
+    crossAxisAlignment: StacCrossAxisAlignment.center,
+    children: [
+      StacExpanded(
+        child: StacText(
+          data: '{{selfieVideoName}}',
+          textDirection: StacTextDirection.ltr,
+          textAlign: StacTextAlign.right,
+          style: StacCustomTextStyle(
+            fontSize: 12,
+            fontWeight: StacFontWeight.w500,
+            color: '{{appColors.current.primary.color}}',
+          ),
+        ),
+      ),
+      StacSizedBox(width: 12),
+      _buildSelfieDeleteButton(
+        onTap: const StacCustomSetValueAction(
+          values: [
+            {'key': 'selfieVideo', 'value': ''},
+            {'key': 'selfieVideoName', 'value': ''},
+            {'key': 'hasSelfieVideo', 'value': false},
+          ],
+        ),
+      ),
+    ],
+  );
+}
+
+StacWidget _buildSelfieDeleteButton({
+  required StacAction onTap,
+}) {
+  return StacGestureDetector(
+    onTap: onTap,
+    child: StacRow(
+      mainAxisSize: StacMainAxisSize.min,
+      textDirection: StacTextDirection.rtl,
+      children: [
+        StacImage(
+          src: 'assets/icons/ic_delete.svg',
+          imageType: StacImageType.asset,
+          width: 20,
+          height: 20,
+        ),
+        StacSizedBox(width: 6),
+        StacText(
+          data: 'حذف',
+          textDirection: StacTextDirection.rtl,
+          style: StacCustomTextStyle(
+            fontSize: 15,
+            fontWeight: StacFontWeight.w600,
+            color: '{{appColors.current.text.title}}',
           ),
         ),
       ],

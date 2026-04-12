@@ -190,7 +190,7 @@ StacWidget _buildTrackingCodeSection() {
         textDirection: StacTextDirection.rtl,
         textAlign: StacTextAlign.right,
         style: StacCustomTextStyle(
-          fontSize: 14,
+          fontSize: 17,
           fontWeight: StacFontWeight.w600,
           color: '{{appColors.current.text.title}}',
         ),
@@ -204,7 +204,7 @@ StacWidget _buildTrackingCodeSection() {
           ),
           filled: false,
           contentPadding: StacEdgeInsets.symmetric(
-            horizontal: 16,
+            horizontal: 18,
             vertical: 18,
           ),
         ),
