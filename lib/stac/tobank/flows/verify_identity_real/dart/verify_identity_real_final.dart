@@ -19,7 +19,7 @@ StacWidget verifyIdentityRealFinal() {
                 mainAxisSize: StacMainAxisSize.min,
                 children: [
                   StacImage(
-                    src: 'assets/images/authentication_success.png',
+                    src: '{{appAssets.images.authenticationSuccess}}',
                     imageType: StacImageType.asset,
                     height: 210,
                     fit: StacBoxFit.contain,

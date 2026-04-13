@@ -4,7 +4,7 @@ import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/stac/tobank/flows/verify_identity_real/dart/widgets/verify_identity_real_app_bar.dart';
 
-const _backNationalCardSampleAsset = 'assets/images/back_national.PNG';
+const _backNationalCardSampleAsset = '{{appAssets.images.backNationalSample}}';
 const _backHasImageKey = 'verifyIdentityBackHasImage';
 
 @StacScreen(screenName: 'verify_identity_real_national_card_back')
@@ -130,14 +130,14 @@ StacWidget _buildUploadPickerCard() {
             children: [
               StacRawJsonWidget({
                 'type': 'visibility',
-                'visible': '{{!verifyIdentityBackHasImage}}',
+                'visible': '[[!verifyIdentityBackHasImage]]',
                 'child': StacRow(
                   textDirection: StacTextDirection.rtl,
                   children: [
                     StacExpanded(
                       child: _buildSourceOption(
                         title: '{{appStrings.authentication.cameraLabel}}',
-                        iconAsset: 'assets/icons/ic_camera.svg',
+                        iconAsset: '{{appAssets.icons.cameraCurrent}}',
                       ),
                     ),
                     StacContainer(
@@ -148,7 +148,7 @@ StacWidget _buildUploadPickerCard() {
                     StacExpanded(
                       child: _buildSourceOption(
                         title: '{{appStrings.authentication.galleryLabel}}',
-                        iconAsset: 'assets/icons/ic_gallery.svg',
+                        iconAsset: '{{appAssets.icons.galleryCurrent}}',
                       ),
                     ),
                   ],
@@ -156,7 +156,7 @@ StacWidget _buildUploadPickerCard() {
               }),
               StacRawJsonWidget({
                 'type': 'visibility',
-                'visible': '{{verifyIdentityBackHasImage}}',
+                'visible': '[[verifyIdentityBackHasImage]]',
                 'child': StacColumn(
                   crossAxisAlignment: StacCrossAxisAlignment.stretch,
                   children: [
@@ -281,7 +281,7 @@ StacWidget _buildRetakeButton() {
       ),
       StacSizedBox(width: 3),
       StacImage(
-        src: 'assets/icons/ic_refresh.svg',
+        src: '{{appAssets.icons.refresh}}',
         imageType: StacImageType.asset,
         width: 24,
         height: 24,

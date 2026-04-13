@@ -106,6 +106,8 @@ import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_
     as verify_identity_real_registration_dart;
 import '../../../../stac/tobank/flows/verify_identity_real/dart/verify_identity_real_job_selector.dart'
     as verify_identity_real_job_selector_dart;
+import '../../../../stac/tobank/flows/verify_identity_real/dart/test_screen.dart'
+    as test_screen_dart;
 import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_rules.dart'
     as promissory_real_rules_dart;
 import '../../../../stac/tobank/flows/promissory_real/dart/promissory_real_preview_screen.dart'
@@ -246,6 +248,7 @@ class StacWidgetLoader {
         verify_identity_real_job_selector_dart
             .verifyIdentityRealJobSelector()
             .toJson(),
+    'test_screen': () => test_screen_dart.testScreen().toJson(),
     'promissory_real_loader': () => {'type': 'promissory_real_loader'},
     'promissory_deposit_select': () =>
         promissory_deposit_select_dart.promissoryDepositSelectPage().toJson(),

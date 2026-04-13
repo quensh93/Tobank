@@ -24,7 +24,7 @@ StacWidget _buildBackButton() {
   return StacIconButton(
     onPressed: StacNavigateAction(navigationStyle: NavigationStyle.pop),
     icon: StacImage(
-      src: 'assets/icons/ic_arrow_back.svg',
+      src: '{{appAssets.icons.arrowBack}}',
       imageType: StacImageType.asset,
       width: 30,
       height: 30,
@@ -49,7 +49,7 @@ StacWidget _buildSupportButton() {
         height: 42,
         child: StacCenter(
           child: StacImage(
-            src: 'assets/icons/ic_support.svg',
+            src: '{{appAssets.icons.support}}',
             imageType: StacImageType.asset,
             width: 24,
             height: 24,

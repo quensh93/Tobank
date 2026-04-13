@@ -115,7 +115,7 @@ StacWidget _buildDescriptionAndGuide() {
           options: [
             {
               'title': 'راهنمای تصویری',
-              'iconAsset': 'assets/icons/ic_visual_tutorial.svg',
+              'iconAsset': '{{appAssets.icons.visualTutorial}}',
               'onTap': {
                 'actionType': 'showResult',
                 'title': '{{appStrings.common.comingSoon}}',
@@ -124,7 +124,7 @@ StacWidget _buildDescriptionAndGuide() {
             },
             {
               'title': 'راهنمای صوتی',
-              'iconAsset': 'assets/icons/ic_voice_tutorial.svg',
+              'iconAsset': '{{appAssets.icons.voiceTutorial}}',
               'onTap': {
                 'actionType': 'showResult',
                 'title': '{{appStrings.common.comingSoon}}',
@@ -254,12 +254,12 @@ StacWidget _buildCapturePhotoCard() {
             children: [
               StacRawJsonWidget({
                 'type': 'visibility',
-                'visible': '{{!hasOldCardPhoto}}',
+                'visible': '[[!hasOldCardPhoto]]',
                 'child': _buildPhotoCaptureTrigger().toJson(),
               }),
               StacRawJsonWidget({
                 'type': 'visibility',
-                'visible': '{{hasOldCardPhoto}}',
+                'visible': '[[hasOldCardPhoto]]',
                 'child': _buildSelectedPhotoContent().toJson(),
               }),
             ],
@@ -311,12 +311,12 @@ StacWidget _buildCaptureVideoCard() {
             children: [
               StacRawJsonWidget({
                 'type': 'visibility',
-                'visible': '{{!hasOldCardVideo}}',
+                'visible': '[[!hasOldCardVideo]]',
                 'child': _buildVideoCaptureTrigger().toJson(),
               }),
               StacRawJsonWidget({
                 'type': 'visibility',
-                'visible': '{{hasOldCardVideo}}',
+                'visible': '[[hasOldCardVideo]]',
                 'child': _buildSelectedVideoContent().toJson(),
               }),
             ],
@@ -331,7 +331,7 @@ StacWidget _buildPhotoCaptureTrigger() {
   return StacGestureDetector(
     onTap: const StacShowPhotoTipsBottomSheetAction(
       title: 'نکات قابل توجه عکس',
-      iconAsset: 'assets/icons/ic_camera.svg',
+      iconAsset: '{{appAssets.icons.cameraCurrent}}',
       tips: [
         'پوشش مناسب رعایت شود',
         'عکس باید واضح و بدون تاری باشد',
@@ -339,7 +339,7 @@ StacWidget _buildPhotoCaptureTrigger() {
         'عدم وجود هرگونه فرد دیگر در تصویر',
         'تصویر رخ کامل صورت فرد را نشان دهد (بدون عینک آفتابی، ماسک یا سایه‌های شدید)',
       ],
-      previewAsset: 'assets/icons/face_id.svg',
+      previewAsset: '{{appAssets.icons.faceId}}',
       continueText: 'ادامه',
       cancelText: 'بازگشت',
       continueAction: {
@@ -358,7 +358,7 @@ StacWidget _buildPhotoCaptureTrigger() {
       textDirection: StacTextDirection.rtl,
       children: [
         StacImage(
-          src: 'assets/icons/ic_camera.svg',
+          src: '{{appAssets.icons.cameraCurrent}}',
           imageType: StacImageType.asset,
           width: 32,
           height: 32,
@@ -382,7 +382,7 @@ StacWidget _buildVideoCaptureTrigger() {
   return StacGestureDetector(
     onTap: const StacShowPhotoTipsBottomSheetAction(
       title: 'نکات قابل توجه ویدیو',
-      iconAsset: 'assets/icons/video_light.svg',
+      iconAsset: '{{appAssets.icons.videoLight}}',
       tips: [
         'پوشش مناسب رعایت شود',
         'فیلم باید واضح و بدون تاری باشد',
@@ -390,7 +390,7 @@ StacWidget _buildVideoCaptureTrigger() {
         'تنها یک نفر در تصویر حضور داشته باشد',
         'ویدیو باید کامل صورت کاربر را پوشش دهد (بدون عینک افتابی، ماسک یا سایه های شدید)',
       ],
-      previewAsset: 'assets/icons/video_light.svg',
+      previewAsset: '{{appAssets.icons.videoLight}}',
       continueText: 'ادامه',
       cancelText: 'بازگشت',
       continueAction: {
@@ -410,7 +410,7 @@ StacWidget _buildVideoCaptureTrigger() {
       textDirection: StacTextDirection.rtl,
       children: [
         StacImage(
-          src: 'assets/icons/video_light.svg',
+          src: '{{appAssets.icons.videoLight}}',
           imageType: StacImageType.asset,
           width: 32,
           height: 32,
@@ -520,7 +520,7 @@ StacWidget _buildDeleteButton({
       textDirection: StacTextDirection.rtl,
       children: [
         StacImage(
-          src: 'assets/icons/ic_delete.svg',
+          src: '{{appAssets.icons.delete}}',
           imageType: StacImageType.asset,
           width: 20,
           height: 20,

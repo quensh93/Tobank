@@ -20,7 +20,7 @@ StacWidget verifyIdentityRealMenu() {
           navigationStyle: NavigationStyle.pop,
         ),
         icon: StacImage(
-          src: 'assets/icons/ic_right_arrow.svg',
+          src: '{{appAssets.icons.arrowRight}}',
           imageType: StacImageType.asset,
           width: 24,
           height: 24,

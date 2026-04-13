@@ -107,7 +107,7 @@ StacWidget verifyIdentityRealVerifyOtp() {
                           'type': 'otpCountdownButton',
                           'initialSeconds': 120,
                           'retryLabel': '{{appStrings.authentication.otpRetryLabel}}',
-                          'iconAsset': 'assets/icons/ic_timer.svg',
+                          'iconAsset': '{{appAssets.icons.timer}}',
                           'borderColor': '{{appColors.current.input.borderEnabled}}',
                           'expiredBorderColor': '{{appColors.current.primary.color}}',
                           'countdownTextColor': '{{appColors.current.text.subtitle}}',

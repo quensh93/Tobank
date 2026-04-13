@@ -11,7 +11,7 @@ StacWidget verifyIdentityRealRegistration() {
       values: [
         {
           'key': 'verifyIdentitySelectedJobTitle',
-          'value': 'حوزه فعالیت خود را انتخاب کنید..',
+          'value': 'حوزه فعالیت خود را انتخاب کنید',
         },
         {'key': 'verifyIdentityHasSelectedJob', 'value': false},
       ],
@@ -77,9 +77,9 @@ StacWidget verifyIdentityRealRegistration() {
               child: StacCustomReactiveElevatedButton(
                 enabledKey: 'verifyIdentityHasSelectedJob',
                 enabled: false,
-                onPressed: const StacShowResultAction(
-                  title: '{{appStrings.common.comingSoon}}',
-                  content: 'مرحله بعدی ثبت‌نام هنوز پیاده‌سازی نشده است.',
+                onPressed: const StacNavigateAction(
+                  routeName: 'test_screen',
+                  navigationStyle: NavigationStyle.push,
                 ),
                 style: StacButtonStyle(
                   backgroundColor: '{{appColors.current.primary.color}}',
@@ -119,29 +119,28 @@ StacWidget verifyIdentityRealRegistration() {
 
 StacWidget _buildJobSelector() {
   return StacGestureDetector(
-    onTap: const StacNavigateAction(
-      routeName: 'verify_identity_real_job_selector',
-      navigationStyle: NavigationStyle.push,
+    onTap: const StacShowJobSelectorBottomSheetAction(
+      heightFactor: 0.75,
     ),
-    child: StacCustomRegistryReactive(
-      registryKey: 'verifyIdentitySelectedJobTitle',
-      child: StacContainer(
-        height: 56,
-        padding: StacEdgeInsets.symmetric(horizontal: 16),
-        decoration: StacBoxDecoration(
-          color: '{{appColors.current.background.surface}}',
-          borderRadius: StacBorderRadius.all(8),
-          border: StacBorder.all(
-            color: '{{appColors.current.input.borderEnabled}}',
-            width: 1,
-          ),
+    child: StacContainer(
+      height: 56,
+      padding: StacEdgeInsets.symmetric(horizontal: 16),
+      decoration: StacBoxDecoration(
+        color: '{{appColors.current.background.surface}}',
+        borderRadius: StacBorderRadius.all(8),
+        border: StacBorder.all(
+          color: '{{appColors.current.input.borderEnabled}}',
+          width: 1,
         ),
-        child: StacRow(
-          textDirection: StacTextDirection.rtl,
-          mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-          crossAxisAlignment: StacCrossAxisAlignment.center,
-          children: [
-            StacExpanded(
+      ),
+      child: StacRow(
+        textDirection: StacTextDirection.rtl,
+        mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+        crossAxisAlignment: StacCrossAxisAlignment.center,
+        children: [
+          StacExpanded(
+            child: StacCustomRegistryReactive(
+              registryKey: 'verifyIdentitySelectedJobTitle',
               child: StacText(
                 data: '{{verifyIdentitySelectedJobTitle}}',
                 textDirection: StacTextDirection.rtl,
@@ -151,19 +150,19 @@ StacWidget _buildJobSelector() {
                   fontWeight: StacFontWeight.w600,
                   color: '{{appColors.current.text.subtitle}}',
                 ),
-              ),
+              ).toJson(),
             ),
-            StacSizedBox(width: 12),
-            StacImage(
-              src: 'assets/icons/ic_arrow_circle_down.svg',
-              imageType: StacImageType.asset,
-              width: 33,
-              height: 33,
-
-            ),
-          ],
-        ),
-      ).toJson(),
+          ),
+          StacSizedBox(width: 12),
+          StacImage(
+            src: '{{appAssets.icons.arrowCircleDown}}',
+            imageType: StacImageType.asset,
+            width: 33,
+            height: 33,
+            color: '{{appColors.current.text.subtitle}}',
+          ),
+        ],
+      ),
     ),
   );
 }

@@ -8,8 +8,13 @@ import 'package:tobank_sdui/stac/tobank/flows/verify_identity_real/dart/widgets/
 StacWidget verifyIdentityRealCertificateGenerator() {
   return StacStatefulWidget(
     onInit: const StacCustomSetValueAction(
-      key: 'isVerifyIdentityCertificateInfoValid',
-      value: false,
+      values: [
+        {'key': 'isVerifyIdentityCertificateInfoValid', 'value': false},
+        {'key': 'hasVerifyIdentityEnglishFirstNameInput', 'value': false},
+        {'key': 'hasVerifyIdentityEnglishLastNameInput', 'value': false},
+        {'key': 'hasVerifyIdentityEmailInput', 'value': false},
+        {'key': 'hasVerifyIdentityHomePhoneInput', 'value': false},
+      ],
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
@@ -31,7 +36,7 @@ StacWidget verifyIdentityRealCertificateGenerator() {
                     StacText(
                       data: 'لطفا اطلاعات تکمیلی مورد نیاز را وارد کنید',
                       textDirection: StacTextDirection.rtl,
-                      textAlign: StacTextAlign.center,
+                      textAlign: StacTextAlign.right,
                       style: StacCustomTextStyle(
                         fontSize: 16,
                         fontWeight: StacFontWeight.w600,
@@ -44,6 +49,7 @@ StacWidget verifyIdentityRealCertificateGenerator() {
                     StacSizedBox(height: 8),
                     _buildEnglishInfoField(
                       id: 'verify_identity_english_first_name',
+                      hasValueKey: 'hasVerifyIdentityEnglishFirstNameInput',
                       hintText: 'نام خود را به انگلیسی وارد کنید',
                       keyboardType: 'text',
                       textInputAction: 'next',
@@ -60,6 +66,7 @@ StacWidget verifyIdentityRealCertificateGenerator() {
                     StacSizedBox(height: 8),
                     _buildEnglishInfoField(
                       id: 'verify_identity_english_last_name',
+                      hasValueKey: 'hasVerifyIdentityEnglishLastNameInput',
                       hintText: 'نام خانوادگی خود را به انگلیسی وارد کنید',
                       keyboardType: 'text',
                       textInputAction: 'next',
@@ -76,6 +83,7 @@ StacWidget verifyIdentityRealCertificateGenerator() {
                     StacSizedBox(height: 8),
                     _buildEnglishInfoField(
                       id: 'verify_identity_email',
+                      hasValueKey: 'hasVerifyIdentityEmailInput',
                       hintText: 'ایمیل خود را وارد کنید',
                       keyboardType: 'emailAddress',
                       textInputAction: 'next',
@@ -89,6 +97,7 @@ StacWidget verifyIdentityRealCertificateGenerator() {
                     StacSizedBox(height: 8),
                     _buildEnglishInfoField(
                       id: 'verify_identity_home_phone',
+                      hasValueKey: 'hasVerifyIdentityHomePhoneInput',
                       hintText:
                           'شماره تلفن منزل را با پیش شماره استان وارد کنید',
                       keyboardType: 'phone',
@@ -164,6 +173,7 @@ StacWidget _buildFieldLabel(String text) {
 
 StacWidget _buildEnglishInfoField({
   required String id,
+  required String hasValueKey,
   required String hintText,
   required String keyboardType,
   required String textInputAction,
@@ -193,6 +203,21 @@ StacWidget _buildEnglishInfoField({
           horizontal: 16,
           vertical: 18,
         ),
+        suffixIcon: StacRawJsonWidget({
+          'type': 'visibility',
+          'visible': '[[$hasValueKey]]',
+          'child': StacGestureDetector(
+            onTap: _buildClearFieldAction(id: id, hasValueKey: hasValueKey),
+            child: StacPadding(
+              padding: StacEdgeInsets.all(12),
+              child: StacIcon(
+                icon: StacIcons.close,
+                size: 20,
+                color: '{{appColors.current.text.subtitle}}',
+              ),
+            ),
+          ).toJson(),
+        }),
       ).toJson(),
       'helperText': ' ',
       'helperStyle': {'type': 'custom', 'height': 0.5},
@@ -208,7 +233,17 @@ StacWidget _buildEnglishInfoField({
         'message': validatorMessage,
       },
     ],
-    'onChanged': _certificateValidationAction().toJson(),
+    'onChanged': StacSequenceAction(
+      actions: [
+        StacValidateFieldsAction(
+          resultKey: hasValueKey,
+          fields: [
+            {'id': id},
+          ],
+        ),
+        _certificateValidationAction(),
+      ],
+    ).toJson(),
   };
 
   if (maxLength != null) {
@@ -219,6 +254,23 @@ StacWidget _buildEnglishInfoField({
   }
 
   return StacRawJsonWidget(json);
+}
+
+StacSequenceAction _buildClearFieldAction({
+  required String id,
+  required String hasValueKey,
+}) {
+  return StacSequenceAction(
+    actions: [
+      StacCustomSetValueAction(
+        values: [
+          {'key': id, 'value': ''},
+          {'key': hasValueKey, 'value': false},
+          {'key': 'isVerifyIdentityCertificateInfoValid', 'value': false},
+        ],
+      ),
+    ],
+  );
 }
 
 StacValidateFieldsAction _certificateValidationAction() {

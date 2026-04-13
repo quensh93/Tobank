@@ -40,7 +40,7 @@ StacWidget verifyIdentityRealSignatureVisualGuide() {
                       child: StacClipRRect(
                         borderRadius: StacBorderRadius.all(18),
                         child: StacImage(
-                          src: 'assets/images/signature_sample.png',
+                          src: '{{appAssets.images.signatureSample}}',
                           imageType: StacImageType.asset,
                           fit: StacBoxFit.contain,
                         ),

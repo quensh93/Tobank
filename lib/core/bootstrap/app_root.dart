@@ -16,6 +16,7 @@ import '../../debug_panel/state/debug_panel_settings_state.dart';
 import '../../features/pre_launch/presentation/screens/pre_launch_screen.dart';
 import '../../features/pre_launch/providers/theme_controller_provider.dart';
 import '../../features/tobank_mock_new/data/theme/tobank_theme_loader.dart';
+import '../stac/loaders/tobank/tobank_assets_loader.dart';
 import '../stac/loaders/tobank/tobank_colors_loader.dart';
 import '../stac/loaders/tobank/tobank_version_loader.dart';
 
@@ -121,20 +122,20 @@ class _AppRootState extends ConsumerState<AppRoot> {
     final themeAsync = ref.watch(themeControllerProvider);
     final themeMode = themeAsync.value ?? ThemeMode.system;
 
-    // Keep STAC color aliases in sync with the active theme mode
+    // Keep STAC current aliases in sync with the active theme mode
     ref.listen<AsyncValue<ThemeMode>>(themeControllerProvider, (
       previous,
       next,
     ) {
       final mode = next.value;
       if (mode != null) {
-        _syncColorsWithTheme(mode);
+        _syncStacThemeAliases(mode);
       }
     });
 
-    // Ensure appColors.current.* matches the active theme when initial value resolves
+    // Ensure STAC current aliases match the active theme when initial value resolves
     if (themeAsync.hasValue) {
-      _syncColorsWithTheme(themeMode);
+      _syncStacThemeAliases(themeMode);
     }
 
     // Show loading indicator while themes are loading
@@ -368,7 +369,7 @@ class _AppRootState extends ConsumerState<AppRoot> {
     return app;
   }
 
-  void _syncColorsWithTheme(ThemeMode mode) {
+  void _syncStacThemeAliases(ThemeMode mode) {
     String themeString;
     if (mode == ThemeMode.system) {
       final brightness = MediaQuery.of(context).platformBrightness;
@@ -379,6 +380,9 @@ class _AppRootState extends ConsumerState<AppRoot> {
 
     if (TobankColorsLoader.isLoaded) {
       TobankColorsLoader.setCurrentTheme(themeString);
+    }
+    if (TobankAssetsLoader.isLoaded) {
+      TobankAssetsLoader.setCurrentTheme(themeString);
     }
   }
 }

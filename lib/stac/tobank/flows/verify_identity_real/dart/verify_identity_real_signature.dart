@@ -74,16 +74,16 @@ StacWidget _buildHeaderRow() {
           options: [
             {
               'title': 'راهنمای تصویری',
-              'iconAsset': 'assets/icons/ic_visual_tutorial.svg',
+              'iconAsset': '{{appAssets.icons.visualTutorial}}',
               'onTap': {
                 'actionType': 'navigate',
-                'routeName': 'verify_identity_real_signature_guide',
+                'routeName': 'verify_identity_real_signature_visual_guide',
                 'navigationStyle': 'push',
               },
             },
             {
               'title': 'راهنمای صوتی',
-              'iconAsset': 'assets/icons/ic_voice_tutorial.svg',
+              'iconAsset': '{{appAssets.icons.voiceTutorial}}',
               'onTap': {
                 'actionType': 'showResult',
                 'title': '{{appStrings.common.comingSoon}}',
@@ -109,7 +109,7 @@ StacWidget _buildHeaderRow() {
           textDirection: StacTextDirection.rtl,
           children: [
             StacImage(
-              src: 'assets/icons/ic_info.svg',
+              src: '{{appAssets.icons.info}}',
               imageType: StacImageType.asset,
               width: 21,
               height: 21,
@@ -222,7 +222,7 @@ StacWidget _buildDeleteButton() {
         textDirection: StacTextDirection.rtl,
         children: [
           StacImage(
-            src: 'assets/icons/ic_delete.svg',
+            src: '{{appAssets.icons.delete}}',
             imageType: StacImageType.asset,
             width: 20,
             height: 20,

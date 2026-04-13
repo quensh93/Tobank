@@ -33,6 +33,7 @@ import '../parsers/actions/amount_to_words_action_parser.dart';
 import '../parsers/actions/show_rules_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_guide_options_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_photo_tips_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_job_selector_bottom_sheet_action_parser.dart';
 
 import '../parsers/widgets/reactive_list_view_parser.dart';
 
@@ -453,6 +454,9 @@ void _registerExampleParsers() {
 
   // Register photo tips bottom sheet action parser
   registerShowPhotoTipsBottomSheetActionParser();
+
+  // Register job selector bottom sheet action parser
+  registerShowJobSelectorBottomSheetActionParser();
 }
 
 /// Unregister all custom parsers from the STAC framework.

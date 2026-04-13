@@ -15,6 +15,7 @@ StacWidget verifyIdentityRealSelfie() {
         {'key': 'selfiePhoto', 'value': ''},
         {'key': 'selfieVideo', 'value': ''},
         {'key': 'selfieVideoName', 'value': ''},
+        {'key': 'hasSmartCardSerialInput', 'value': false},
         {'key': 'hasSelfiePhoto', 'value': false},
         {'key': 'hasSelfieVideo', 'value': false},
       ],
@@ -24,6 +25,7 @@ StacWidget verifyIdentityRealSelfie() {
         {'key': 'selfiePhoto', 'value': ''},
         {'key': 'selfieVideo', 'value': ''},
         {'key': 'selfieVideoName', 'value': ''},
+        {'key': 'hasSmartCardSerialInput', 'value': false},
         {'key': 'hasSelfiePhoto', 'value': false},
         {'key': 'hasSelfieVideo', 'value': false},
       ],
@@ -33,53 +35,28 @@ StacWidget verifyIdentityRealSelfie() {
       appBar: buildVerifyIdentityRealAppBar(
         title: '{{appStrings.menu.items.verifyIdentity}}',
       ),
-      body: StacColumn(
-        crossAxisAlignment: StacCrossAxisAlignment.stretch,
-        children: [
-          StacExpanded(
-            child: StacSingleChildScrollView(
-              padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              child: StacColumn(
-                crossAxisAlignment: StacCrossAxisAlignment.stretch,
-                children: [
-                  _buildSerialSection(),
-                  StacSizedBox(height: 16),
-                  _buildCapturePhotoCard(),
-                  StacSizedBox(height: 16),
-                  _buildCaptureVideoCard(),
-                ],
-              ),
-            ),
-          ),
-          StacPadding(
-            padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 24),
-            child: StacFilledButton(
-              onPressed: StacRawJsonAction({
-                'actionType': 'navigate',
-                'widgetType': 'verify_identity_real_postal_code',
-                'navigationStyle': 'push',
-              }),
-              style: StacButtonStyle(
-                backgroundColor: '{{appColors.current.primary.color}}',
-                foregroundColor: '{{appColors.current.primary.onPrimary}}',
-                elevation: 0,
-                fixedSize: const StacSize(999999, 56),
-                shape: StacRoundedRectangleBorder(
-                  borderRadius: StacBorderRadius.all(12),
-                ),
-              ),
-              child: StacText(
-                data: '{{appStrings.authentication.confirmLabel}}',
-                textDirection: StacTextDirection.rtl,
-                style: StacCustomTextStyle(
-                  fontSize: 18,
-                  fontWeight: StacFontWeight.w700,
-                  color: '{{appColors.current.primary.onPrimary}}',
+      body: StacForm(
+        child: StacColumn(
+          crossAxisAlignment: StacCrossAxisAlignment.stretch,
+          children: [
+            StacExpanded(
+              child: StacSingleChildScrollView(
+                padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                child: StacColumn(
+                  crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                  children: [
+                    _buildSerialSection(),
+                    StacSizedBox(height: 16),
+                    _buildCapturePhotoCard(),
+                    StacSizedBox(height: 16),
+                    _buildCaptureVideoCard(),
+                  ],
                 ),
               ),
             ),
-          ),
-        ],
+            _buildConfirmSection(),
+          ],
+        ),
       ),
     ),
   );
@@ -106,14 +83,19 @@ StacWidget _buildSerialSection() {
         'id': 'smartCardSerial',
         'textDirection': 'rtl',
         'textAlign': 'right',
-        'keyboardType': 'number',
-        'inputFormatters': [
-          {'type': 'allow', 'rule': '[0-9]'},
-        ],
+        'keyboardType': 'text',
+        'textCapitalization': 'characters',
+        'maxLength': 10,
         'style': StacCustomTextStyle(
           fontSize: 18,
           fontWeight: StacFontWeight.w600,
           color: '{{appColors.current.text.title}}',
+        ).toJson(),
+        'onChanged': const StacValidateFieldsAction(
+          resultKey: 'hasSmartCardSerialInput',
+          fields: [
+            {'id': 'smartCardSerial'},
+          ],
         ).toJson(),
         'decoration': StacInputDecoration(
           hintText: 'سریال پشت کارت ملی خود را وارد کنید',
@@ -130,6 +112,81 @@ StacWidget _buildSerialSection() {
         ).toJson(),
       }),
     ],
+  );
+}
+
+StacWidget _buildConfirmSection() {
+  return StacPadding(
+    padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 24),
+    child: StacRawJsonWidget({
+      'type': 'visibility',
+      'visible': '[[hasSmartCardSerialInput]]',
+      'replacement': _buildDisabledConfirmButton().toJson(),
+      'child': StacRawJsonWidget({
+        'type': 'visibility',
+        'visible': '[[hasSelfiePhoto]]',
+        'replacement': _buildDisabledConfirmButton().toJson(),
+        'child': StacRawJsonWidget({
+          'type': 'visibility',
+          'visible': '[[hasSelfieVideo]]',
+          'replacement': _buildDisabledConfirmButton().toJson(),
+          'child': _buildEnabledConfirmButton().toJson(),
+        }).toJson(),
+      }).toJson(),
+    }),
+  );
+}
+
+StacWidget _buildEnabledConfirmButton() {
+  return StacFilledButton(
+    onPressed: StacRawJsonAction({
+      'actionType': 'navigate',
+      'widgetType': 'verify_identity_real_postal_code',
+      'navigationStyle': 'push',
+    }),
+    style: StacButtonStyle(
+      backgroundColor: '{{appColors.current.primary.color}}',
+      foregroundColor: '{{appColors.current.primary.onPrimary}}',
+      elevation: 0,
+      fixedSize: const StacSize(999999, 56),
+      shape: StacRoundedRectangleBorder(
+        borderRadius: StacBorderRadius.all(12),
+      ),
+    ),
+    child: _buildConfirmButtonLabel(
+      color: '{{appColors.current.primary.onPrimary}}',
+    ),
+  );
+}
+
+StacWidget _buildDisabledConfirmButton() {
+  return StacFilledButton(
+    onPressed: null,
+    style: StacButtonStyle(
+      backgroundColor:
+          '{{appColors.current.background.surfaceContainerHigh}}',
+      foregroundColor: '{{appColors.current.text.subtitle}}',
+      elevation: 0,
+      fixedSize: const StacSize(999999, 56),
+      shape: StacRoundedRectangleBorder(
+        borderRadius: StacBorderRadius.all(12),
+      ),
+    ),
+    child: _buildConfirmButtonLabel(
+      color: '{{appColors.current.primary.onPrimary}}',
+    ),
+  );
+}
+
+StacWidget _buildConfirmButtonLabel({required String color}) {
+  return StacText(
+    data: '{{appStrings.authentication.confirmLabel}}',
+    textDirection: StacTextDirection.rtl,
+    style: StacCustomTextStyle(
+      fontSize: 18,
+      fontWeight: StacFontWeight.w700,
+      color: color,
+    ),
   );
 }
 
@@ -174,12 +231,12 @@ StacWidget _buildCapturePhotoCard() {
             children: [
               StacRawJsonWidget({
                 'type': 'visibility',
-                'visible': '{{!hasSelfiePhoto}}',
+                'visible': '[[!hasSelfiePhoto]]',
                 'child': _buildSelfiePhotoTrigger().toJson(),
               }),
               StacRawJsonWidget({
                 'type': 'visibility',
-                'visible': '{{hasSelfiePhoto}}',
+                'visible': '[[hasSelfiePhoto]]',
                 'child': _buildSelectedSelfiePhotoContent().toJson(),
               }),
             ],
@@ -231,12 +288,12 @@ StacWidget _buildCaptureVideoCard() {
             children: [
               StacRawJsonWidget({
                 'type': 'visibility',
-                'visible': '{{!hasSelfieVideo}}',
+                'visible': '[[!hasSelfieVideo]]',
                 'child': _buildSelfieVideoTrigger().toJson(),
               }),
               StacRawJsonWidget({
                 'type': 'visibility',
-                'visible': '{{hasSelfieVideo}}',
+                'visible': '[[hasSelfieVideo]]',
                 'child': _buildSelectedSelfieVideoContent().toJson(),
               }),
             ],
@@ -251,7 +308,7 @@ StacWidget _buildSelfiePhotoTrigger() {
   return StacGestureDetector(
     onTap: const StacShowPhotoTipsBottomSheetAction(
       title: 'نکات قابل توجه عکس',
-      iconAsset: 'assets/icons/ic_camera.svg',
+      iconAsset: '{{appAssets.icons.cameraCurrent}}',
       tips: [
         'پوشش مناسب رعایت شود',
         'عکس باید واضح و بدون تاری باشد',
@@ -259,7 +316,7 @@ StacWidget _buildSelfiePhotoTrigger() {
         'عدم وجود هرگونه فرد دیگر در تصویر',
         'تصویر رخ کامل صورت فرد را نشان دهد (بدون عینک آفتابی، ماسک یا سایه‌های شدید)',
       ],
-      previewAsset: 'assets/icons/face_id.svg',
+      previewAsset: '{{appAssets.icons.faceId}}',
       continueText: 'ادامه',
       cancelText: 'بازگشت',
       continueAction: {
@@ -280,7 +337,7 @@ StacWidget _buildSelfiePhotoTrigger() {
         textDirection: StacTextDirection.rtl,
         children: [
           StacImage(
-            src: 'assets/icons/ic_camera.svg',
+            src: '{{appAssets.icons.cameraCurrent}}',
             imageType: StacImageType.asset,
             width: 32,
             height: 32,
@@ -305,7 +362,7 @@ StacWidget _buildSelfieVideoTrigger() {
   return StacGestureDetector(
     onTap: const StacShowPhotoTipsBottomSheetAction(
       title: 'نکات قابل توجه ویدیو',
-      iconAsset: 'assets/icons/video_light.svg',
+      iconAsset: '{{appAssets.icons.videoLight}}',
       tips: [
         'پوشش مناسب رعایت شود',
         'فیلم باید واضح و بدون تاری باشد',
@@ -313,7 +370,7 @@ StacWidget _buildSelfieVideoTrigger() {
         'تنها یک نفر در تصویر حضور داشته باشد',
         'ویدیو باید کامل صورت کاربر را پوشش دهد (بدون عینک افتابی، ماسک یا سایه های شدید)',
       ],
-      previewAsset: 'assets/icons/video_light.svg',
+      previewAsset: '{{appAssets.icons.videoLight}}',
       continueText: 'ادامه',
       cancelText: 'بازگشت',
       continueAction: {
@@ -333,7 +390,7 @@ StacWidget _buildSelfieVideoTrigger() {
       textDirection: StacTextDirection.rtl,
       children: [
         StacImage(
-          src: 'assets/icons/video_light.svg',
+          src: '{{appAssets.icons.videoLight}}',
           imageType: StacImageType.asset,
           width: 32,
           height: 32,
@@ -443,7 +500,7 @@ StacWidget _buildSelfieDeleteButton({
       textDirection: StacTextDirection.rtl,
       children: [
         StacImage(
-          src: 'assets/icons/ic_delete.svg',
+          src: '{{appAssets.icons.delete}}',
           imageType: StacImageType.asset,
           width: 20,
           height: 20,

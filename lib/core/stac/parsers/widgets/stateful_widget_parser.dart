@@ -199,6 +199,12 @@ class _StatefulWidgetWrapperState extends State<_StatefulWidgetWrapper>
     'rawOnPressed',
   };
 
+  /// Keys in a registryReactive widget that must stay unresolved until the
+  /// registryReactive parser rebuilds its child from current registry values.
+  static const _registryReactiveProtectedKeys = {
+    'child',
+  };
+
   /// Resolves all {{...}} expressions in JSON, including ternary and negation.
   ///
   /// When a `reactiveListView` widget is encountered, its template-carrying
@@ -215,6 +221,7 @@ class _StatefulWidgetWrapperState extends State<_StatefulWidgetWrapper>
       final widgetType = json['type'];
       final isReactiveListView = widgetType == 'reactiveListView';
       final isReactiveElevatedButton = widgetType == 'reactiveElevatedButton';
+      final isRegistryReactive = widgetType == 'registryReactive';
       return json.map((key, value) {
         // Skip resolution for reactive list view template keys
         if (isReactiveListView &&
@@ -235,6 +242,10 @@ class _StatefulWidgetWrapperState extends State<_StatefulWidgetWrapper>
           }
           return MapEntry(key, value);
         }
+        if (isRegistryReactive &&
+            _registryReactiveProtectedKeys.contains(key)) {
+          return MapEntry(key, value);
+        }
         return MapEntry(key, _resolveExpressionsInJson(value));
       });
     } else if (json is Map) {
@@ -242,6 +253,7 @@ class _StatefulWidgetWrapperState extends State<_StatefulWidgetWrapper>
       final widgetType = typed['type'];
       final isReactiveListView = widgetType == 'reactiveListView';
       final isReactiveElevatedButton = widgetType == 'reactiveElevatedButton';
+      final isRegistryReactive = widgetType == 'registryReactive';
       return typed.map((key, value) {
         if (isReactiveListView &&
             _reactiveListViewProtectedKeys.contains(key)) {
@@ -258,6 +270,10 @@ class _StatefulWidgetWrapperState extends State<_StatefulWidgetWrapper>
               return MapEntry(key, value);
             }
           }
+          return MapEntry(key, value);
+        }
+        if (isRegistryReactive &&
+            _registryReactiveProtectedKeys.contains(key)) {
           return MapEntry(key, value);
         }
         return MapEntry(key, _resolveExpressionsInJson(value));

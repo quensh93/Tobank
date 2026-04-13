@@ -51,23 +51,21 @@ class CustomVisibilityParser extends StacParser<CustomVisibilityModel> {
   Widget parse(BuildContext context, CustomVisibilityModel model) {
     return ValueListenableBuilder(
       valueListenable: RegistryNotifier.instance.listenable,
-      builder: (context, _, __) {
+      builder: (context, _, child) {
         bool isVisible = true;
 
         if (model.visible is bool) {
           isVisible = model.visible;
         } else if (model.visible is String) {
           final value = _resolveValue(model.visible);
-          if (value is bool) {
-            isVisible = value;
-          } else if (value is String) {
-            isVisible = value.toLowerCase() == 'true';
-          } else if (value == null) {
+          if (value == null) {
             // Treat null as false or true? Stac usually defaults to true for visibility if not specified?
             // But if specified and null, usually false?
             // Documentation says "Defaults to true".
             // If the variable is missing, what should happen?
             isVisible = false;
+          } else {
+            isVisible = _toBool(value);
           }
         } else if (model.visible == null) {
           isVisible = true; // Default
@@ -115,9 +113,7 @@ class CustomVisibilityParser extends StacParser<CustomVisibilityModel> {
       final registryValue = StacRegistry.instance.getValue(key);
 
       if (negate) {
-        if (registryValue is bool) return !registryValue;
-        // Treat null or non-bool as false, so negation is true
-        return registryValue == null || registryValue == false;
+        return !_toBool(registryValue);
       }
 
       return registryValue;
@@ -128,5 +124,16 @@ class CustomVisibilityParser extends StacParser<CustomVisibilityModel> {
     if (value.toLowerCase() == 'false') return false;
 
     return value;
+  }
+
+  bool _toBool(dynamic value) {
+    if (value == null) return false;
+    if (value is bool) return value;
+    if (value is num) return value != 0;
+    if (value is String) {
+      final normalized = value.toLowerCase().trim();
+      return normalized == 'true' || normalized == '1' || normalized == 'yes';
+    }
+    return false;
   }
 }

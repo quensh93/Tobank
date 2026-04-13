@@ -185,7 +185,7 @@ StacWidget _buildPostalCodeSection() {
                   ),
                   prefixIcon: StacRawJsonWidget({
                     'type': 'visibility',
-                    'visible': '{{hasPostalCodeInput}}',
+                    'visible': '[[hasPostalCodeInput]]',
                     'child': StacGestureDetector(
                       onTap: const StacCustomSetValueAction(
                         values: [
@@ -280,7 +280,7 @@ StacWidget _buildPostalCodeSection() {
 StacWidget _buildAddressSection() {
   return StacRawJsonWidget({
     'type': 'visibility',
-    'visible': '{{hasPostalAddress}}',
+    'visible': '[[hasPostalAddress]]',
     'child': StacColumn(
       crossAxisAlignment: StacCrossAxisAlignment.stretch,
       children: [

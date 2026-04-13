@@ -11,7 +11,29 @@
         "theme": "assets/icons/ic_theme.svg",
         "arrowRight": "assets/icons/ic_right_arrow.svg",
         "arrowLeft": "assets/icons/ic_arrow_left.svg",
-        "buttonNext": "assets/icons/ic_button_next.svg"
+        "buttonNext": "assets/icons/ic_button_next.svg",
+        "arrowBack": "assets/icons/ic_arrow_back.svg",
+        "support": "assets/icons/ic_support.svg",
+        "camera": "assets/icons/ic_camera.svg",
+        "cameraDark": "assets/icons/ic_camera_dark.svg",
+        "gallery": "assets/icons/ic_gallery.svg",
+        "galleryDark": "assets/icons/ic_gallery_dark.svg",
+        "refresh": "assets/icons/ic_refresh.svg",
+        "visualTutorial": "assets/icons/ic_visual_tutorial.svg",
+        "voiceTutorial": "assets/icons/ic_voice_tutorial.svg",
+        "info": "assets/icons/ic_info.svg",
+        "delete": "assets/icons/ic_delete.svg",
+        "timer": "assets/icons/ic_timer.svg",
+        "arrowCircleDown": "assets/icons/ic_arrow_circle_down.svg",
+        "videoLight": "assets/icons/video_light.svg",
+        "videoDark": "assets/icons/video_dark.svg",
+        "faceId": "assets/icons/face_id.svg"
+      },
+      "images": {
+        "frontNationalSample": "assets/images/front_national.PNG",
+        "backNationalSample": "assets/images/back_national.PNG",
+        "authenticationSuccess": "assets/images/authentication_success.png",
+        "signatureSample": "assets/images/signature_sample.png"
       },
       "onboarding": {
         "page1": "assets/images/onboarding_1.svg",

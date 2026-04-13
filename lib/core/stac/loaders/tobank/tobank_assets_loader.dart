@@ -14,7 +14,9 @@ import '../../../helpers/logger.dart';
 /// ```
 class TobankAssetsLoader {
   static bool _loaded = false;
+  static Map<String, dynamic>? _cachedAssetsData;
   static final List<String> _storedKeys = []; // Track all keys we stored
+  static final List<String> _aliasKeys = []; // Track theme-aware aliases
   static const String _assetsUrl = 'https://api.tobank.com/assets';
   static const String _prefix = 'appAssets';
 
@@ -44,10 +46,16 @@ class TobankAssetsLoader {
       }
 
       final assetsData = response.data['data'] as Map<String, dynamic>;
+      _cachedAssetsData = assetsData;
 
       // Flatten nested structure and store with dot-notation keys
       // This allows {{appAssets.icons.login}} syntax to work
       _flattenAndStore(assetsData, _prefix);
+
+      final currentTheme =
+          (StacRegistry.instance.getValue('appTheme.current') ?? 'light')
+              .toString();
+      _createCurrentThemeAliases(assetsData, currentTheme);
 
       _loaded = true;
       AppLogger.i('Assets loaded and cached in StacRegistry');
@@ -78,12 +86,81 @@ class TobankAssetsLoader {
     });
   }
 
+  static void _createCurrentThemeAliases(
+    Map<String, dynamic> data,
+    String currentTheme,
+  ) {
+    void walk(Map<String, dynamic> node, String prefix) {
+      node.forEach((key, value) {
+        if (value is Map<String, dynamic>) {
+          walk(value, '$prefix.$key');
+          return;
+        }
+
+        if (key.endsWith('Dark')) {
+          return;
+        }
+
+        String? aliasName;
+        dynamic lightValue = value;
+        dynamic darkValue;
+
+        if (key.endsWith('Light')) {
+          aliasName = key.substring(0, key.length - 'Light'.length);
+          darkValue = node['${aliasName}Dark'];
+        } else {
+          aliasName = key;
+          darkValue = node['${key}Dark'];
+        }
+
+        if (darkValue == null) {
+          return;
+        }
+
+        final selectedValue = currentTheme == 'dark' ? darkValue : lightValue;
+
+        final currentKey = '$prefix.${aliasName}Current';
+        StacRegistry.instance.setValue(currentKey, selectedValue);
+        _aliasKeys.add(currentKey);
+
+        final namespacedCurrentKey =
+            '$_prefix.current.${prefix.substring(_prefix.length + 1)}.$aliasName';
+        StacRegistry.instance.setValue(namespacedCurrentKey, selectedValue);
+        _aliasKeys.add(namespacedCurrentKey);
+      });
+    }
+
+    walk(data, _prefix);
+    AppLogger.d(
+      'Created ${_aliasKeys.length} asset aliases for current theme ($currentTheme)',
+    );
+  }
+
+  static void setCurrentTheme(String newTheme) {
+    if (!_loaded || _cachedAssetsData == null) {
+      AppLogger.w('Assets not loaded; cannot update current theme aliases');
+      return;
+    }
+
+    for (final key in _aliasKeys) {
+      StacRegistry.instance.removeValue(key);
+    }
+    _aliasKeys.clear();
+
+    _createCurrentThemeAliases(_cachedAssetsData!, newTheme);
+    AppLogger.i('Synced appAssets current aliases to theme: $newTheme');
+  }
+
   /// Clear all stored asset keys from registry
   static void _clearStoredKeys() {
     for (final key in _storedKeys) {
       StacRegistry.instance.removeValue(key);
     }
+    for (final key in _aliasKeys) {
+      StacRegistry.instance.removeValue(key);
+    }
     _storedKeys.clear();
+    _aliasKeys.clear();
   }
 
   /// Check if assets are loaded

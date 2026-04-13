@@ -318,3 +318,20 @@ class StacShowPhotoTipsBottomSheetAction extends StacAction {
     'cancelText': cancelText,
   };
 }
+
+class StacShowJobSelectorBottomSheetAction extends StacAction {
+  final double heightFactor;
+
+  const StacShowJobSelectorBottomSheetAction({
+    this.heightFactor = 0.75,
+  });
+
+  @override
+  String get actionType => 'showJobSelectorBottomSheet';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': actionType,
+    'heightFactor': heightFactor,
+  };
+}
