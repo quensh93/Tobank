@@ -34,6 +34,8 @@ import '../parsers/actions/show_rules_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_guide_options_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_photo_tips_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_job_selector_bottom_sheet_action_parser.dart';
+import '../parsers/actions/launch_url_action_parser.dart';
+import '../parsers/actions/play_audio_url_action_parser.dart';
 
 import '../parsers/widgets/reactive_list_view_parser.dart';
 
@@ -457,6 +459,21 @@ void _registerExampleParsers() {
 
   // Register job selector bottom sheet action parser
   registerShowJobSelectorBottomSheetActionParser();
+
+  // Register launchUrl action parser for opening external links/media
+  CustomComponentRegistry.instance.registerAction(
+    const LaunchUrlActionParser(),
+  );
+
+  // Register playAudioUrl action parser for in-page audio playback
+  CustomComponentRegistry.instance.registerAction(
+    const PlayAudioUrlActionParser(),
+  );
+
+  // Register stopAudioUrl action parser for stopping in-page audio playback
+  CustomComponentRegistry.instance.registerAction(
+    const StopAudioUrlActionParser(),
+  );
 }
 
 /// Unregister all custom parsers from the STAC framework.

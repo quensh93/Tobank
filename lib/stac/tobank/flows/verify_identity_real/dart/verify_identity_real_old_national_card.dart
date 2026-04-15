@@ -20,20 +20,32 @@ StacWidget verifyIdentityRealOldNationalCard() {
         {'key': 'hasOldCardVideo', 'value': false},
       ],
     ),
-    onDispose: const StacCustomSetValueAction(
-      values: [
-        {'key': 'oldCardTrackingCode', 'value': ''},
-        {'key': 'oldCardPhoto', 'value': ''},
-        {'key': 'oldCardVideo', 'value': ''},
-        {'key': 'oldCardVideoName', 'value': ''},
-        {'key': 'hasOldCardPhoto', 'value': false},
-        {'key': 'hasOldCardVideo', 'value': false},
+    onDispose: const StacSequenceAction(
+      actions: [
+        {'actionType': 'stopAudioUrl'},
+        {
+          'actionType': 'setValue',
+          'values': [
+            {'key': 'oldCardTrackingCode', 'value': ''},
+            {'key': 'oldCardPhoto', 'value': ''},
+            {'key': 'oldCardVideo', 'value': ''},
+            {'key': 'oldCardVideoName', 'value': ''},
+            {'key': 'hasOldCardPhoto', 'value': false},
+            {'key': 'hasOldCardVideo', 'value': false},
+          ],
+        },
       ],
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
       appBar: buildVerifyIdentityRealAppBar(
         title: '{{appStrings.menu.items.verifyIdentity}}',
+        backAction: const StacSequenceAction(
+          actions: [
+            {'actionType': 'stopAudioUrl'},
+            {'actionType': 'navigate', 'navigationStyle': 'pop'},
+          ],
+        ),
       ),
       body: StacColumn(
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
@@ -58,9 +70,15 @@ StacWidget verifyIdentityRealOldNationalCard() {
           StacPadding(
             padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 24),
             child: StacFilledButton(
-              onPressed: const StacShowResultAction(
-                title: '{{appStrings.common.comingSoon}}',
-                content: '{{appStrings.common.comingSoon}}',
+              onPressed: const StacSequenceAction(
+                actions: [
+                  {'actionType': 'stopAudioUrl'},
+                  {
+                    'actionType': 'showResult',
+                    'title': '{{appStrings.common.comingSoon}}',
+                    'content': '{{appStrings.common.comingSoon}}',
+                  },
+                ],
               ),
               style: StacButtonStyle(
                 backgroundColor: '{{appColors.current.primary.color}}',
@@ -115,20 +133,22 @@ StacWidget _buildDescriptionAndGuide() {
           options: [
             {
               'title': 'راهنمای تصویری',
-              'iconAsset': '{{appAssets.icons.visualTutorial}}',
+              'iconAsset': '{{appAssets.icons.visualTutorialCurrent}}',
               'onTap': {
-                'actionType': 'showResult',
-                'title': '{{appStrings.common.comingSoon}}',
-                'content': 'راهنمای تصویری این بخش هنوز اضافه نشده است.',
+                'actionType': 'launchUrl',
+                'url':
+                    'https://appapi.tobank.ir/api/v1.0/media/ekyc/face_movement_video.mp4',
+                'mode': 'inAppWebView',
               },
             },
             {
               'title': 'راهنمای صوتی',
-              'iconAsset': '{{appAssets.icons.voiceTutorial}}',
+              'iconAsset': '{{appAssets.icons.voiceTutorialCurrent}}',
               'onTap': {
-                'actionType': 'showResult',
-                'title': '{{appStrings.common.comingSoon}}',
-                'content': 'راهنمای صوتی این بخش هنوز اضافه نشده است.',
+                'actionType': 'playAudioUrl',
+                'url':
+                    'https://appapi.tobank.ir/api/v1.0/media/ekyc/personal_photo_video_receipt_serial.mp3',
+                'stopPrevious': true,
               },
             },
           ],
@@ -382,7 +402,7 @@ StacWidget _buildVideoCaptureTrigger() {
   return StacGestureDetector(
     onTap: const StacShowPhotoTipsBottomSheetAction(
       title: 'نکات قابل توجه ویدیو',
-      iconAsset: '{{appAssets.icons.videoLight}}',
+      iconAsset: '{{appAssets.icons.videoCurrent}}',
       tips: [
         'پوشش مناسب رعایت شود',
         'فیلم باید واضح و بدون تاری باشد',
@@ -390,7 +410,7 @@ StacWidget _buildVideoCaptureTrigger() {
         'تنها یک نفر در تصویر حضور داشته باشد',
         'ویدیو باید کامل صورت کاربر را پوشش دهد (بدون عینک افتابی، ماسک یا سایه های شدید)',
       ],
-      previewAsset: '{{appAssets.icons.videoLight}}',
+      previewAsset: '{{appAssets.icons.videoCurrent}}',
       continueText: 'ادامه',
       cancelText: 'بازگشت',
       continueAction: {
@@ -410,7 +430,7 @@ StacWidget _buildVideoCaptureTrigger() {
       textDirection: StacTextDirection.rtl,
       children: [
         StacImage(
-          src: '{{appAssets.icons.videoLight}}',
+          src: '{{appAssets.icons.videoCurrent}}',
           imageType: StacImageType.asset,
           width: 32,
           height: 32,
@@ -520,7 +540,7 @@ StacWidget _buildDeleteButton({
       textDirection: StacTextDirection.rtl,
       children: [
         StacImage(
-          src: '{{appAssets.icons.delete}}',
+          src: '{{appAssets.icons.deleteCurrent}}',
           imageType: StacImageType.asset,
           width: 20,
           height: 20,

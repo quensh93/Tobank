@@ -316,7 +316,8 @@ StacWidget _buildSelfiePhotoTrigger() {
         'عدم وجود هرگونه فرد دیگر در تصویر',
         'تصویر رخ کامل صورت فرد را نشان دهد (بدون عینک آفتابی، ماسک یا سایه‌های شدید)',
       ],
-      previewAsset: '{{appAssets.icons.faceId}}',
+      previewAsset:
+          'https://appapi.tobank.ir/api/v1.0/media/ekyc/personal_picture_sample.png',
       continueText: 'ادامه',
       cancelText: 'بازگشت',
       continueAction: {
@@ -362,7 +363,7 @@ StacWidget _buildSelfieVideoTrigger() {
   return StacGestureDetector(
     onTap: const StacShowPhotoTipsBottomSheetAction(
       title: 'نکات قابل توجه ویدیو',
-      iconAsset: '{{appAssets.icons.videoLight}}',
+      iconAsset: '{{appAssets.icons.videoCurrent}}',
       tips: [
         'پوشش مناسب رعایت شود',
         'فیلم باید واضح و بدون تاری باشد',
@@ -370,7 +371,8 @@ StacWidget _buildSelfieVideoTrigger() {
         'تنها یک نفر در تصویر حضور داشته باشد',
         'ویدیو باید کامل صورت کاربر را پوشش دهد (بدون عینک افتابی، ماسک یا سایه های شدید)',
       ],
-      previewAsset: '{{appAssets.icons.videoLight}}',
+      previewAsset:
+          'https://appapi.tobank.ir/api/v1.0/media/ekyc/face_movement_video.mp4',
       continueText: 'ادامه',
       cancelText: 'بازگشت',
       continueAction: {
@@ -390,7 +392,7 @@ StacWidget _buildSelfieVideoTrigger() {
       textDirection: StacTextDirection.rtl,
       children: [
         StacImage(
-          src: '{{appAssets.icons.videoLight}}',
+          src: '{{appAssets.icons.videoCurrent}}',
           imageType: StacImageType.asset,
           width: 32,
           height: 32,
@@ -500,7 +502,7 @@ StacWidget _buildSelfieDeleteButton({
       textDirection: StacTextDirection.rtl,
       children: [
         StacImage(
-          src: '{{appAssets.icons.delete}}',
+          src: '{{appAssets.icons.deleteCurrent}}',
           imageType: StacImageType.asset,
           width: 20,
           height: 20,

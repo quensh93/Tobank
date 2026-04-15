@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:stac/stac.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 import 'file_picker_action_model.dart';
 import '../../registry/custom_component_registry.dart';
@@ -282,42 +283,22 @@ class FilePickerActionParser extends StacActionParser<FilePickerActionModel> {
     required ColorScheme colorScheme,
   }) {
     if (isVideo) {
+      final videoSource = _resolveVideoSource(file);
+      if (videoSource != null && videoSource.isNotEmpty) {
+        return _LoopVideoPreview(source: videoSource);
+      }
       return Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.videocam_rounded,
-                size: 54,
-                color: colorScheme.primary,
-              ),
-              const SizedBox(height: 12),
-              Text(
-                file.name,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.center,
-                textDirection: TextDirection.rtl,
-                style: TextStyle(
-                  color: colorScheme.onSurface,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const SizedBox(height: 6),
-              Text(
-                'ویدیوی انتخاب‌شده آماده ثبت است.',
-                textAlign: TextAlign.center,
-                textDirection: TextDirection.rtl,
-                style: TextStyle(
-                  color: colorScheme.onSurfaceVariant,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
+          child: Text(
+            'پیش‌نمایش ویدیو در دسترس نیست.',
+            textAlign: TextAlign.center,
+            textDirection: TextDirection.rtl,
+            style: TextStyle(
+              color: colorScheme.onSurfaceVariant,
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
       );
@@ -348,6 +329,20 @@ class FilePickerActionParser extends StacActionParser<FilePickerActionModel> {
     );
   }
 
+  String? _resolveVideoSource(PlatformFile file) {
+    if (!kIsWeb && file.path != null && file.path!.isNotEmpty) {
+      return Uri.file(file.path!).toString();
+    }
+
+    if (file.bytes != null && file.bytes!.isNotEmpty) {
+      final mimeType = _getMimeType(file.extension, isVideo: true);
+      final base64 = base64Encode(file.bytes!);
+      return 'data:$mimeType;base64,$base64';
+    }
+
+    return null;
+  }
+
   FileType _getFileType(String type) {
     switch (type.toLowerCase()) {
       case 'image':
@@ -365,8 +360,10 @@ class FilePickerActionParser extends StacActionParser<FilePickerActionModel> {
     }
   }
 
-  String _getMimeType(String? extension) {
-    if (extension == null) return 'application/octet-stream';
+  String _getMimeType(String? extension, {bool isVideo = false}) {
+    if (extension == null) {
+      return isVideo ? 'video/mp4' : 'application/octet-stream';
+    }
 
     switch (extension.toLowerCase()) {
       case 'jpg':
@@ -382,9 +379,122 @@ class FilePickerActionParser extends StacActionParser<FilePickerActionModel> {
         return 'image/bmp';
       case 'svg':
         return 'image/svg+xml';
+      case 'mp4':
+        return 'video/mp4';
+      case 'mov':
+        return 'video/quicktime';
+      case 'webm':
+        return 'video/webm';
+      case 'mkv':
+        return 'video/x-matroska';
+      case 'avi':
+        return 'video/x-msvideo';
       default:
-        return 'image/$extension';
+        return isVideo ? 'video/$extension' : 'image/$extension';
     }
+  }
+}
+
+class _LoopVideoPreview extends StatelessWidget {
+  const _LoopVideoPreview({required this.source});
+
+  final String source;
+
+  @override
+  Widget build(BuildContext context) {
+    if (kIsWeb) {
+      return HtmlElementView.fromTagName(
+        tagName: 'video',
+        onElementCreated: (Object element) {
+          final dynamic el = element;
+          el.src = source;
+          el.controls = false;
+          el.autoplay = true;
+          el.loop = true;
+          el.muted = true;
+          el.playsInline = true;
+          el.style.width = '100%';
+          el.style.height = '100%';
+          el.style.objectFit = 'cover';
+          el.style.backgroundColor = 'white';
+        },
+      );
+    }
+
+    if (WebViewPlatform.instance != null) {
+      return _LoopVideoWebView(source: source);
+    }
+
+    return const Center(
+      child: Icon(Icons.videocam, size: 44, color: Colors.black54),
+    );
+  }
+}
+
+class _LoopVideoWebView extends StatefulWidget {
+  const _LoopVideoWebView({required this.source});
+
+  final String source;
+
+  @override
+  State<_LoopVideoWebView> createState() => _LoopVideoWebViewState();
+}
+
+class _LoopVideoWebViewState extends State<_LoopVideoWebView> {
+  WebViewController? _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    final src = jsonEncode(widget.source);
+    final html = '''
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffffff;
+        overflow: hidden;
+      }
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <video id="v" autoplay loop muted playsinline></video>
+    <script>
+      const src = $src;
+      const v = document.getElementById('v');
+      v.src = src;
+      v.play().catch(() => {});
+    </script>
+  </body>
+</html>
+''';
+
+    _controller = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setBackgroundColor(Colors.white)
+      ..loadHtmlString(html);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (_controller == null) {
+      return const Center(
+        child: Icon(Icons.videocam, size: 44, color: Colors.black54),
+      );
+    }
+    return WebViewWidget(controller: _controller!);
   }
 }
 

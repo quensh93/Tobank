@@ -65,7 +65,7 @@ StacWidget verifyIdentityRealSignatureGuide() {
               _buildGuideOptionCard(
                 title: 'راهنمای تصویری',
                 subtitle: 'مشاهده نمونه صفحه و محل ثبت امضا',
-                iconAsset: '{{appAssets.icons.visualTutorial}}',
+                iconAsset: '{{appAssets.icons.visualTutorialCurrent}}',
                 onTap: const StacNavigateAction(
                   routeName: 'verify_identity_real_signature_visual_guide',
                   navigationStyle: NavigationStyle.push,
@@ -75,7 +75,7 @@ StacWidget verifyIdentityRealSignatureGuide() {
               _buildGuideOptionCard(
                 title: 'راهنمای صوتی',
                 subtitle: 'توضیح صوتی این مرحله',
-                iconAsset: '{{appAssets.icons.voiceTutorial}}',
+                iconAsset: '{{appAssets.icons.voiceTutorialCurrent}}',
                 onTap: const StacShowResultAction(
                   title: '{{appStrings.common.comingSoon}}',
                   content: 'راهنمای صوتی این بخش هنوز اضافه نشده است.',

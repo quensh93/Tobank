@@ -14,17 +14,29 @@ StacWidget verifyIdentityRealSignature() {
         {'key': 'verifyIdentitySignatureClearVersion', 'value': 0},
       ],
     ),
-    onDispose: const StacCustomSetValueAction(
-      values: [
-        {'key': 'verifyIdentitySignatureImage', 'value': ''},
-        {'key': 'verifyIdentityHasSignature', 'value': false},
-        {'key': 'verifyIdentitySignatureClearVersion', 'value': 0},
+    onDispose: const StacSequenceAction(
+      actions: [
+        {'actionType': 'stopAudioUrl'},
+        {
+          'actionType': 'setValue',
+          'values': [
+            {'key': 'verifyIdentitySignatureImage', 'value': ''},
+            {'key': 'verifyIdentityHasSignature', 'value': false},
+            {'key': 'verifyIdentitySignatureClearVersion', 'value': 0},
+          ],
+        },
       ],
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
       appBar: buildVerifyIdentityRealAppBar(
         title: '{{appStrings.menu.items.verifyIdentity}}',
+        backAction: const StacSequenceAction(
+          actions: [
+            {'actionType': 'stopAudioUrl'},
+            {'actionType': 'navigate', 'navigationStyle': 'pop'},
+          ],
+        ),
       ),
       body: StacColumn(
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
@@ -74,20 +86,21 @@ StacWidget _buildHeaderRow() {
           options: [
             {
               'title': 'راهنمای تصویری',
-              'iconAsset': '{{appAssets.icons.visualTutorial}}',
+              'iconAsset': '{{appAssets.icons.visualTutorialCurrent}}',
               'onTap': {
-                'actionType': 'navigate',
-                'routeName': 'verify_identity_real_signature_visual_guide',
-                'navigationStyle': 'push',
+                'actionType': 'launchUrl',
+                'url': 'https://tobank.ir/app/signature-template/',
+                'mode': 'inAppWebView',
               },
             },
             {
               'title': 'راهنمای صوتی',
-              'iconAsset': '{{appAssets.icons.voiceTutorial}}',
+              'iconAsset': '{{appAssets.icons.voiceTutorialCurrent}}',
               'onTap': {
-                'actionType': 'showResult',
-                'title': '{{appStrings.common.comingSoon}}',
-                'content': 'راهنمای صوتی این بخش هنوز اضافه نشده است.',
+                'actionType': 'playAudioUrl',
+                'url':
+                    'https://appapi.tobank.ir/api/v1.0/media/ekyc/signature_page.mp3',
+                'stopPrevious': true,
               },
             },
           ],
@@ -222,7 +235,7 @@ StacWidget _buildDeleteButton() {
         textDirection: StacTextDirection.rtl,
         children: [
           StacImage(
-            src: '{{appAssets.icons.delete}}',
+            src: '{{appAssets.icons.deleteCurrent}}',
             imageType: StacImageType.asset,
             width: 20,
             height: 20,
@@ -252,9 +265,15 @@ StacWidget _buildConfirmButton() {
     child: StacCustomReactiveElevatedButton(
       enabledKey: 'verifyIdentityHasSignature',
       enabled: false,
-      onPressed: const StacNavigateAction(
-        routeName: 'verify_identity_real_certificate_generator',
-        navigationStyle: NavigationStyle.push,
+      onPressed: const StacSequenceAction(
+        actions: [
+          {'actionType': 'stopAudioUrl'},
+          {
+            'actionType': 'navigate',
+            'routeName': 'verify_identity_real_certificate_generator',
+            'navigationStyle': 'push',
+          },
+        ],
       ),
       style: StacButtonStyle(
         backgroundColor: '{{appColors.current.primary.color}}',

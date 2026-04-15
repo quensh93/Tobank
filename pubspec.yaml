@@ -43,6 +43,9 @@ dependencies:
   shared_preferences: ^2.5.4
   file_picker: ^10.3.8
   share_plus: ^12.0.1
+  url_launcher: ^6.3.2
+  just_audio: ^0.10.5
+  webview_flutter: ^4.13.0
   device_frame: ^1.4.0
   package_info_plus: ^9.0.0
   args: ^2.7.0
@@ -158,5 +161,3 @@ flutter:
           weight: 700
         - asset: assets/fonts/IRANYekanMobileExtraBold.ttf
           weight: 900
-
-

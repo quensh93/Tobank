@@ -313,12 +313,13 @@ StacWidget _buildRetakeButton() {
   ),
   )
   ) ,
-      StacSizedBox(width: 3),
+      StacSizedBox(width: 5),
       StacImage(
         src: '{{appAssets.icons.refresh}}',
         imageType: StacImageType.asset,
         width: 24,
         height: 24,
+        color: '{{appColors.current.text.title}}',
       ),
     ]
   ) ;

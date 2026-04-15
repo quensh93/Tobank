@@ -5,6 +5,7 @@ StacAppBar buildVerifyIdentityRealAppBar({
   required String title,
   bool showSupport = true,
   bool showBack = true,
+  StacAction? backAction,
 }) {
   return StacAppBar(
     title: StacText(
@@ -14,15 +15,18 @@ StacAppBar buildVerifyIdentityRealAppBar({
     ),
     centerTitle: true,
     leading: showSupport
-        ? _buildSupportButton()
-        : (showBack ? _buildBackButton() : null),
-    actions: showSupport && showBack ? [_buildBackAction()] : [],
+        ? _buildSupportButton(backAction: backAction)
+        : (showBack ? _buildBackButton(backAction: backAction) : null),
+    actions: showSupport && showBack
+        ? [_buildBackAction(backAction: backAction)]
+        : [],
   );
 }
 
-StacWidget _buildBackButton() {
+StacWidget _buildBackButton({StacAction? backAction}) {
   return StacIconButton(
-    onPressed: StacNavigateAction(navigationStyle: NavigationStyle.pop),
+    onPressed: backAction ??
+        StacNavigateAction(navigationStyle: NavigationStyle.pop),
     icon: StacImage(
       src: '{{appAssets.icons.arrowBack}}',
       imageType: StacImageType.asset,
@@ -33,14 +37,14 @@ StacWidget _buildBackButton() {
   );
 }
 
-StacWidget _buildBackAction() {
+StacWidget _buildBackAction({StacAction? backAction}) {
   return StacPadding(
     padding: StacEdgeInsets.only(right: 15),
-    child: _buildBackButton(),
+    child: _buildBackButton(backAction: backAction),
   );
 }
 
-StacWidget _buildSupportButton() {
+StacWidget _buildSupportButton({StacAction? backAction}) {
   return StacPadding(
     padding: StacEdgeInsets.only(left: 12),
     child: StacCenter(

@@ -1,8 +1,11 @@
 import 'dart:async';
+import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stac/stac.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 import '../../registry/custom_component_registry.dart';
 import '../../../helpers/logger.dart';
@@ -159,8 +162,8 @@ class ShowPhotoTipsBottomSheetActionParser
                     const SizedBox(height: 14),
                     Center(
                       child: Container(
-                        width: 132,
-                        height: 192,
+                        width: _isVideoPath(model.previewAsset!) ? 260 : 132,
+                        height: _isVideoPath(model.previewAsset!) ? 146 : 192,
                         decoration: BoxDecoration(
                           color: colorScheme.surface,
                           borderRadius: BorderRadius.circular(8),
@@ -248,17 +251,82 @@ class ShowPhotoTipsBottomSheetActionParser
   }
 
   Widget _buildAssetIcon(String assetPath, double width, double height) {
-    if (assetPath.toLowerCase().endsWith('.svg')) {
-      return SvgPicture.asset(assetPath, width: width, height: height);
+    final path = assetPath.trim();
+    final isSvg = path.toLowerCase().endsWith('.svg');
+    final isNetwork = _isNetworkPath(path);
+
+    if (isSvg && isNetwork) {
+      return SvgPicture.network(path, width: width, height: height);
     }
-    return Image.asset(assetPath, width: width, height: height, fit: BoxFit.contain);
+    if (isSvg) {
+      return SvgPicture.asset(path, width: width, height: height);
+    }
+    if (isNetwork) {
+      return Image.network(path, width: width, height: height, fit: BoxFit.contain);
+    }
+    return Image.asset(path, width: width, height: height, fit: BoxFit.contain);
   }
 
   Widget _buildPreviewAsset(String assetPath) {
-    if (assetPath.toLowerCase().endsWith('.svg')) {
-      return SvgPicture.asset(assetPath, fit: BoxFit.contain);
+    final path = assetPath.trim();
+    final isSvg = path.toLowerCase().endsWith('.svg');
+    final isNetwork = _isNetworkPath(path);
+    final isVideo = _isVideoPath(path);
+
+    if (isVideo) {
+      return _buildVideoPreview(path);
     }
-    return Image.asset(assetPath, fit: BoxFit.contain);
+    if (isSvg && isNetwork) {
+      return SvgPicture.network(path, fit: BoxFit.contain);
+    }
+    if (isSvg) {
+      return SvgPicture.asset(path, fit: BoxFit.contain);
+    }
+    if (isNetwork) {
+      return Image.network(path, fit: BoxFit.contain);
+    }
+    return Image.asset(path, fit: BoxFit.contain);
+  }
+
+  bool _isNetworkPath(String value) {
+    return value.startsWith('http://') || value.startsWith('https://');
+  }
+
+  bool _isVideoPath(String value) {
+    final path = value.toLowerCase();
+    return path.endsWith('.mp4') ||
+        path.endsWith('.webm') ||
+        path.endsWith('.ogg') ||
+        path.endsWith('.mov');
+  }
+
+  Widget _buildVideoPreview(String path) {
+    if (kIsWeb) {
+      return HtmlElementView.fromTagName(
+        tagName: 'video',
+        onElementCreated: (Object element) {
+          final dynamic el = element;
+          el.src = path;
+          el.controls = false;
+          el.autoplay = true;
+          el.loop = true;
+          el.muted = true;
+          el.playsInline = true;
+          el.style.width = '100%';
+          el.style.height = '100%';
+          el.style.objectFit = 'cover';
+          el.style.backgroundColor = 'white';
+        },
+      );
+    }
+
+    if (WebViewPlatform.instance != null) {
+      return _VideoWebViewPreview(url: path);
+    }
+
+    return const Center(
+      child: Icon(Icons.videocam, size: 40, color: Colors.black54),
+    );
   }
 }
 
@@ -266,4 +334,72 @@ void registerShowPhotoTipsBottomSheetActionParser() {
   CustomComponentRegistry.instance.registerAction(
     const ShowPhotoTipsBottomSheetActionParser(),
   );
+}
+
+class _VideoWebViewPreview extends StatefulWidget {
+  const _VideoWebViewPreview({required this.url});
+
+  final String url;
+
+  @override
+  State<_VideoWebViewPreview> createState() => _VideoWebViewPreviewState();
+}
+
+class _VideoWebViewPreviewState extends State<_VideoWebViewPreview> {
+  WebViewController? _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    final uri = Uri.tryParse(widget.url);
+    if (uri == null) return;
+    final html = '''
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffffff;
+        overflow: hidden;
+      }
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <video autoplay loop muted playsinline>
+      <source src="${uri.toString()}" type="video/mp4" />
+    </video>
+  </body>
+</html>
+''';
+    final htmlUri = Uri.dataFromString(
+      html,
+      mimeType: 'text/html',
+      encoding: utf8,
+    );
+    _controller = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setBackgroundColor(Colors.white)
+      ..loadRequest(htmlUri);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (_controller == null) {
+      return const Center(
+        child: Icon(Icons.videocam, size: 40, color: Colors.black54),
+      );
+    }
+    return WebViewWidget(controller: _controller!);
+  }
 }
