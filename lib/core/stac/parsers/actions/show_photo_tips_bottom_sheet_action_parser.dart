@@ -105,7 +105,9 @@ class ShowPhotoTipsBottomSheetActionParser
                       width: 44,
                       height: 5,
                       decoration: BoxDecoration(
-                        color: colorScheme.outlineVariant.withValues(alpha: 0.35),
+                        color: colorScheme.outlineVariant.withValues(
+                          alpha: 0.35,
+                        ),
                         borderRadius: BorderRadius.circular(999),
                       ),
                     ),
@@ -168,7 +170,9 @@ class ShowPhotoTipsBottomSheetActionParser
                           color: colorScheme.surface,
                           borderRadius: BorderRadius.circular(8),
                           border: Border.all(
-                            color: colorScheme.outlineVariant.withValues(alpha: 0.45),
+                            color: colorScheme.outlineVariant.withValues(
+                              alpha: 0.45,
+                            ),
                           ),
                           boxShadow: [
                             BoxShadow(
@@ -262,7 +266,12 @@ class ShowPhotoTipsBottomSheetActionParser
       return SvgPicture.asset(path, width: width, height: height);
     }
     if (isNetwork) {
-      return Image.network(path, width: width, height: height, fit: BoxFit.contain);
+      return Image.network(
+        path,
+        width: width,
+        height: height,
+        fit: BoxFit.contain,
+      );
     }
     return Image.asset(path, width: width, height: height, fit: BoxFit.contain);
   }
@@ -302,31 +311,14 @@ class ShowPhotoTipsBottomSheetActionParser
 
   Widget _buildVideoPreview(String path) {
     if (kIsWeb) {
-      return HtmlElementView.fromTagName(
-        tagName: 'video',
-        onElementCreated: (Object element) {
-          final dynamic el = element;
-          el.src = path;
-          el.controls = false;
-          el.autoplay = true;
-          el.loop = true;
-          el.muted = true;
-          el.playsInline = true;
-          el.style.width = '100%';
-          el.style.height = '100%';
-          el.style.objectFit = 'cover';
-          el.style.backgroundColor = 'white';
-        },
-      );
+      return _VideoHtmlPreview(url: path);
     }
 
     if (WebViewPlatform.instance != null) {
       return _VideoWebViewPreview(url: path);
     }
 
-    return const Center(
-      child: Icon(Icons.videocam, size: 40, color: Colors.black54),
-    );
+    return const _VideoLoadingPlaceholder();
   }
 }
 
@@ -346,14 +338,16 @@ class _VideoWebViewPreview extends StatefulWidget {
 }
 
 class _VideoWebViewPreviewState extends State<_VideoWebViewPreview> {
-  WebViewController? _controller;
+  late final WebViewController _controller;
+  bool _isReady = false;
+  Timer? _fallbackTimer;
 
   @override
   void initState() {
     super.initState();
-    final uri = Uri.tryParse(widget.url);
-    if (uri == null) return;
-    final html = '''
+    final src = jsonEncode(widget.url);
+    final html =
+        '''
 <!doctype html>
 <html>
   <head>
@@ -376,30 +370,164 @@ class _VideoWebViewPreviewState extends State<_VideoWebViewPreview> {
     </style>
   </head>
   <body>
-    <video autoplay loop muted playsinline>
-      <source src="${uri.toString()}" type="video/mp4" />
-    </video>
+    <video id="v" autoplay loop muted playsinline></video>
+    <script>
+      const src = $src;
+      const v = document.getElementById('v');
+      function markReady() {
+        if (window.VideoPreviewState && window.VideoPreviewState.postMessage) {
+          window.VideoPreviewState.postMessage('ready');
+        }
+      }
+      function markWaiting() {
+        if (window.VideoPreviewState && window.VideoPreviewState.postMessage) {
+          window.VideoPreviewState.postMessage('waiting');
+        }
+      }
+      v.addEventListener('loadeddata', markReady);
+      v.addEventListener('canplay', markReady);
+      v.addEventListener('playing', markReady);
+      v.addEventListener('waiting', markWaiting);
+      v.addEventListener('stalled', markWaiting);
+      v.src = src;
+      v.play().then(markReady).catch(() => {
+        setTimeout(() => {
+          v.play().then(markReady).catch(() => {});
+        }, 250);
+      });
+      setTimeout(markReady, 3000);
+    </script>
   </body>
 </html>
 ''';
-    final htmlUri = Uri.dataFromString(
-      html,
-      mimeType: 'text/html',
-      encoding: utf8,
-    );
     _controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setBackgroundColor(Colors.white)
-      ..loadRequest(htmlUri);
+      ..addJavaScriptChannel(
+        'VideoPreviewState',
+        onMessageReceived: (message) {
+          if (!mounted) return;
+          if (message.message == 'ready') {
+            if (_isReady) return;
+            setState(() => _isReady = true);
+          } else if (message.message == 'waiting') {
+            if (!_isReady) return;
+            setState(() => _isReady = false);
+          }
+        },
+      )
+      ..loadHtmlString(html);
+
+    _fallbackTimer = Timer(const Duration(seconds: 3), () {
+      if (!mounted || _isReady) return;
+      setState(() => _isReady = true);
+    });
+  }
+
+  @override
+  void dispose() {
+    _fallbackTimer?.cancel();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    if (_controller == null) {
-      return const Center(
-        child: Icon(Icons.videocam, size: 40, color: Colors.black54),
-      );
-    }
-    return WebViewWidget(controller: _controller!);
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        WebViewWidget(controller: _controller),
+        if (!_isReady) const _VideoLoadingPlaceholder(),
+      ],
+    );
+  }
+}
+
+class _VideoHtmlPreview extends StatefulWidget {
+  const _VideoHtmlPreview({required this.url});
+
+  final String url;
+
+  @override
+  State<_VideoHtmlPreview> createState() => _VideoHtmlPreviewState();
+}
+
+class _VideoHtmlPreviewState extends State<_VideoHtmlPreview> {
+  bool _isReady = false;
+  Timer? _fallbackTimer;
+
+  @override
+  void initState() {
+    super.initState();
+    _fallbackTimer = Timer(const Duration(seconds: 3), () {
+      if (!mounted || _isReady) return;
+      setState(() => _isReady = true);
+    });
+  }
+
+  @override
+  void dispose() {
+    _fallbackTimer?.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        HtmlElementView.fromTagName(
+          tagName: 'video',
+          onElementCreated: (Object element) {
+            final dynamic el = element;
+            el.src = widget.url;
+            el.controls = false;
+            el.autoplay = true;
+            el.loop = true;
+            el.muted = true;
+            el.playsInline = true;
+            el.style.width = '100%';
+            el.style.height = '100%';
+            el.style.objectFit = 'cover';
+            el.style.backgroundColor = 'white';
+
+            void onReady(_) {
+              if (!mounted || _isReady) return;
+              setState(() => _isReady = true);
+            }
+
+            el.onloadeddata = onReady;
+            el.oncanplay = onReady;
+            el.onplaying = onReady;
+            el.onwaiting = (_) {
+              if (!mounted || !_isReady) return;
+              setState(() => _isReady = false);
+            };
+            el.onstalled = (_) {
+              if (!mounted || _isReady) return;
+              setState(() => _isReady = false);
+            };
+          },
+        ),
+        if (!_isReady) const _VideoLoadingPlaceholder(),
+      ],
+    );
+  }
+}
+
+class _VideoLoadingPlaceholder extends StatelessWidget {
+  const _VideoLoadingPlaceholder();
+
+  @override
+  Widget build(BuildContext context) {
+    return ColoredBox(
+      color: Color(0x80FFFFFF),
+      child: Center(
+        child: SizedBox(
+          width: 28,
+          height: 28,
+          child: CircularProgressIndicator(strokeWidth: 2.4),
+        ),
+      ),
+    );
   }
 }

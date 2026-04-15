@@ -180,13 +180,15 @@ class FilePickerActionParser extends StacActionParser<FilePickerActionModel> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  SizedBox(height: 4,),
+                  SizedBox(height: 4),
                   Center(
                     child: Container(
                       width: 44,
                       height: 4,
                       decoration: BoxDecoration(
-                        color: colorScheme.outlineVariant.withValues(alpha: 0.20),
+                        color: colorScheme.outlineVariant.withValues(
+                          alpha: 0.20,
+                        ),
                         borderRadius: BorderRadius.circular(999),
                       ),
                     ),
@@ -214,7 +216,6 @@ class FilePickerActionParser extends StacActionParser<FilePickerActionModel> {
                       constraints: BoxConstraints(
                         maxHeight: MediaQuery.sizeOf(context).height * 0.3,
                         minHeight: 200,
-
                       ),
                       color: colorScheme.surfaceContainerHighest,
                       child: _buildPreviewContent(
@@ -330,14 +331,14 @@ class FilePickerActionParser extends StacActionParser<FilePickerActionModel> {
   }
 
   String? _resolveVideoSource(PlatformFile file) {
-    if (!kIsWeb && file.path != null && file.path!.isNotEmpty) {
-      return Uri.file(file.path!).toString();
-    }
-
     if (file.bytes != null && file.bytes!.isNotEmpty) {
       final mimeType = _getMimeType(file.extension, isVideo: true);
       final base64 = base64Encode(file.bytes!);
       return 'data:$mimeType;base64,$base64';
+    }
+
+    if (!kIsWeb && file.path != null && file.path!.isNotEmpty) {
+      return Uri.file(file.path!).toString();
     }
 
     return null;
@@ -403,30 +404,85 @@ class _LoopVideoPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (kIsWeb) {
-      return HtmlElementView.fromTagName(
-        tagName: 'video',
-        onElementCreated: (Object element) {
-          final dynamic el = element;
-          el.src = source;
-          el.controls = false;
-          el.autoplay = true;
-          el.loop = true;
-          el.muted = true;
-          el.playsInline = true;
-          el.style.width = '100%';
-          el.style.height = '100%';
-          el.style.objectFit = 'cover';
-          el.style.backgroundColor = 'white';
-        },
-      );
+      return _LoopVideoHtmlPreview(source: source);
     }
 
     if (WebViewPlatform.instance != null) {
       return _LoopVideoWebView(source: source);
     }
 
-    return const Center(
-      child: Icon(Icons.videocam, size: 44, color: Colors.black54),
+    return const _VideoLoadingPlaceholder();
+  }
+}
+
+class _LoopVideoHtmlPreview extends StatefulWidget {
+  const _LoopVideoHtmlPreview({required this.source});
+
+  final String source;
+
+  @override
+  State<_LoopVideoHtmlPreview> createState() => _LoopVideoHtmlPreviewState();
+}
+
+class _LoopVideoHtmlPreviewState extends State<_LoopVideoHtmlPreview> {
+  bool _isReady = false;
+  Timer? _fallbackTimer;
+
+  @override
+  void initState() {
+    super.initState();
+    _fallbackTimer = Timer(const Duration(seconds: 3), () {
+      if (!mounted || _isReady) return;
+      setState(() => _isReady = true);
+    });
+  }
+
+  @override
+  void dispose() {
+    _fallbackTimer?.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        HtmlElementView.fromTagName(
+          tagName: 'video',
+          onElementCreated: (Object element) {
+            final dynamic el = element;
+            el.src = widget.source;
+            el.controls = false;
+            el.autoplay = true;
+            el.loop = true;
+            el.muted = true;
+            el.playsInline = true;
+            el.style.width = '100%';
+            el.style.height = '100%';
+            el.style.objectFit = 'cover';
+            el.style.backgroundColor = 'white';
+
+            void onReady(_) {
+              if (!mounted || _isReady) return;
+              setState(() => _isReady = true);
+            }
+
+            el.onloadeddata = onReady;
+            el.oncanplay = onReady;
+            el.onplaying = onReady;
+            el.onwaiting = (_) {
+              if (!mounted || !_isReady) return;
+              setState(() => _isReady = false);
+            };
+            el.onstalled = (_) {
+              if (!mounted || _isReady) return;
+              setState(() => _isReady = false);
+            };
+          },
+        ),
+        if (!_isReady) const _VideoLoadingPlaceholder(),
+      ],
     );
   }
 }
@@ -441,13 +497,16 @@ class _LoopVideoWebView extends StatefulWidget {
 }
 
 class _LoopVideoWebViewState extends State<_LoopVideoWebView> {
-  WebViewController? _controller;
+  late final WebViewController _controller;
+  bool _isReady = false;
+  Timer? _fallbackTimer;
 
   @override
   void initState() {
     super.initState();
     final src = jsonEncode(widget.source);
-    final html = '''
+    final html =
+        '''
 <!doctype html>
 <html>
   <head>
@@ -474,8 +533,28 @@ class _LoopVideoWebViewState extends State<_LoopVideoWebView> {
     <script>
       const src = $src;
       const v = document.getElementById('v');
+      function markReady() {
+        if (window.VideoPreviewState && window.VideoPreviewState.postMessage) {
+          window.VideoPreviewState.postMessage('ready');
+        }
+      }
+      function markWaiting() {
+        if (window.VideoPreviewState && window.VideoPreviewState.postMessage) {
+          window.VideoPreviewState.postMessage('waiting');
+        }
+      }
+      v.addEventListener('loadeddata', markReady);
+      v.addEventListener('canplay', markReady);
+      v.addEventListener('playing', markReady);
+      v.addEventListener('waiting', markWaiting);
+      v.addEventListener('stalled', markWaiting);
       v.src = src;
-      v.play().catch(() => {});
+      v.play().then(markReady).catch(() => {
+        setTimeout(() => {
+          v.play().then(markReady).catch(() => {});
+        }, 250);
+      });
+      setTimeout(markReady, 3000);
     </script>
   </body>
 </html>
@@ -484,17 +563,60 @@ class _LoopVideoWebViewState extends State<_LoopVideoWebView> {
     _controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setBackgroundColor(Colors.white)
+      ..addJavaScriptChannel(
+        'VideoPreviewState',
+        onMessageReceived: (message) {
+          if (!mounted) return;
+          if (message.message == 'ready') {
+            if (_isReady) return;
+            setState(() => _isReady = true);
+          } else if (message.message == 'waiting') {
+            if (!_isReady) return;
+            setState(() => _isReady = false);
+          }
+        },
+      )
       ..loadHtmlString(html);
+
+    _fallbackTimer = Timer(const Duration(seconds: 3), () {
+      if (!mounted || _isReady) return;
+      setState(() => _isReady = true);
+    });
+  }
+
+  @override
+  void dispose() {
+    _fallbackTimer?.cancel();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    if (_controller == null) {
-      return const Center(
-        child: Icon(Icons.videocam, size: 44, color: Colors.black54),
-      );
-    }
-    return WebViewWidget(controller: _controller!);
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        WebViewWidget(controller: _controller),
+        if (!_isReady) const _VideoLoadingPlaceholder(),
+      ],
+    );
+  }
+}
+
+class _VideoLoadingPlaceholder extends StatelessWidget {
+  const _VideoLoadingPlaceholder();
+
+  @override
+  Widget build(BuildContext context) {
+    return ColoredBox(
+      color: Color(0x80FFFFFF),
+      child: Center(
+        child: SizedBox(
+          width: 28,
+          height: 28,
+          child: CircularProgressIndicator(strokeWidth: 2.4),
+        ),
+      ),
+    );
   }
 }
 

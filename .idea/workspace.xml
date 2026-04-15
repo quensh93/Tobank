@@ -10,8 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="work on ehraz flow and pages">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_4_26,_8_28 AM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_4_26__8_28AM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/dart/verify_identity_real_national_card_back.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/dart/verify_identity_real_national_card_back.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/stac/parsers/actions/file_picker_action_parser.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/parsers/actions/file_picker_action_parser.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/stac/parsers/actions/show_photo_tips_bottom_sheet_action_parser.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/parsers/actions/show_photo_tips_bottom_sheet_action_parser.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
