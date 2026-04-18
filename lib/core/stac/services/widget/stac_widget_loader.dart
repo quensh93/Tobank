@@ -198,12 +198,14 @@ class StacWidgetLoader {
         verify_identity_real_menu_dart.verifyIdentityRealMenu().toJson(),
     'verify_identity_real_intro': () =>
         verify_identity_real_intro_dart.verifyIdentityRealIntro().toJson(),
-    'verify_identity_real_preregister': () => verify_identity_real_preregister_dart
-        .verifyIdentityRealPreRegister()
-        .toJson(),
-    'verify_identity_real_verify_otp': () => verify_identity_real_verify_otp_dart
-        .verifyIdentityRealVerifyOtp()
-        .toJson(),
+    'verify_identity_real_preregister': () =>
+        verify_identity_real_preregister_dart
+            .verifyIdentityRealPreRegister()
+            .toJson(),
+    'verify_identity_real_verify_otp': () =>
+        verify_identity_real_verify_otp_dart
+            .verifyIdentityRealVerifyOtp()
+            .toJson(),
     'verify_identity_real_national_card_front': () =>
         verify_identity_real_national_card_front_dart
             .verifyIdentityRealNationalCardFront()
@@ -224,8 +226,9 @@ class StacWidgetLoader {
             .toJson(),
     'verify_identity_real_rules': () =>
         verify_identity_real_rules_dart.verifyIdentityRealRules().toJson(),
-    'verify_identity_real_signature': () =>
-        verify_identity_real_signature_dart.verifyIdentityRealSignature().toJson(),
+    'verify_identity_real_signature': () => verify_identity_real_signature_dart
+        .verifyIdentityRealSignature()
+        .toJson(),
     'verify_identity_real_certificate_generator': () =>
         verify_identity_real_certificate_generator_dart
             .verifyIdentityRealCertificateGenerator()
@@ -250,6 +253,9 @@ class StacWidgetLoader {
             .toJson(),
     'test_screen': () => test_screen_dart.testScreen().toJson(),
     'promissory_real_loader': () => {'type': 'promissory_real_loader'},
+    'verify_identity_real_loader': () => {
+      'type': 'verify_identity_real_loader',
+    },
     'promissory_deposit_select': () =>
         promissory_deposit_select_dart.promissoryDepositSelectPage().toJson(),
     'request_promissory_deposit': () => request_promissory_deposit_page_dart

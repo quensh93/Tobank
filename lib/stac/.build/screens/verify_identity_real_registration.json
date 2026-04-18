@@ -1,0 +1,296 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "setValue",
+    "values": [
+      {
+        "key": "verifyIdentitySelectedJobTitle",
+        "value": "حوزه فعالیت خود را انتخاب کنید"
+      },
+      {
+        "key": "verifyIdentityHasSelectedJob",
+        "value": false
+      }
+    ]
+  },
+  "child": {
+    "appBar": {
+      "leading": {
+        "padding": {
+          "left": 12.0
+        },
+        "child": {
+          "child": {
+            "width": 42.0,
+            "height": 42.0,
+            "child": {
+              "child": {
+                "src": "{{appAssets.icons.support}}",
+                "imageType": "asset",
+                "color": "{{appColors.current.text.title}}",
+                "width": 24.0,
+                "height": 24.0,
+                "type": "image"
+              },
+              "type": "center"
+            },
+            "type": "container"
+          },
+          "type": "center"
+        },
+        "type": "padding"
+      },
+      "title": {
+        "data": "{{appStrings.menu.items.verifyIdentity}}",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "actions": [
+        {
+          "padding": {
+            "right": 15.0
+          },
+          "child": {
+            "onPressed": {
+              "navigationStyle": "pop",
+              "actionType": "navigate"
+            },
+            "icon": {
+              "src": "{{appAssets.icons.arrowBack}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 30.0,
+              "height": 30.0,
+              "type": "image"
+            },
+            "type": "iconButton"
+          },
+          "type": "padding"
+        }
+      ],
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "backgroundColor": "{{appColors.current.background.surface}}",
+    "body": {
+      "padding": {
+        "left": 16.0,
+        "top": 16.0,
+        "right": 16.0,
+        "bottom": 16.0
+      },
+      "child": {
+        "crossAxisAlignment": "stretch",
+        "children": [
+          {
+            "child": {
+              "child": {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "padding": {
+                      "left": 16.0,
+                      "top": 16.0,
+                      "right": 16.0,
+                      "bottom": 16.0
+                    },
+                    "decoration": {
+                      "color": "{{appColors.current.background.surface}}",
+                      "border": {
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "width": 1.0
+                      },
+                      "borderRadius": {
+                        "topLeft": 10.0,
+                        "topRight": 10.0,
+                        "bottomLeft": 10.0,
+                        "bottomRight": 10.0
+                      }
+                    },
+                    "child": {
+                      "data": "کاربر گرامی\nبا تکمیل اطلاعات زیر، مراحل احراز هویت شما به اتمام می‌رسد و می‌توانید از خدمات برنامه استفاده کنید.",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w500",
+                        "height": 1.8
+                      },
+                      "textAlign": "right",
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    "type": "container"
+                  },
+                  {
+                    "height": 32.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "حوزه فعالیت",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "child": {
+                      "padding": {
+                        "left": 16.0,
+                        "right": 16.0
+                      },
+                      "decoration": {
+                        "color": "{{appColors.current.background.surface}}",
+                        "border": {
+                          "color": "{{appColors.current.input.borderEnabled}}",
+                          "width": 1.0
+                        },
+                        "borderRadius": {
+                          "topLeft": 8.0,
+                          "topRight": 8.0,
+                          "bottomLeft": 8.0,
+                          "bottomRight": 8.0
+                        }
+                      },
+                      "height": 56.0,
+                      "child": {
+                        "mainAxisAlignment": "spaceBetween",
+                        "crossAxisAlignment": "center",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "child": {
+                              "type": "registryReactive",
+                              "registryKey": "verifyIdentitySelectedJobTitle",
+                              "child": {
+                                "data": "{{verifyIdentitySelectedJobTitle}}",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 14.0,
+                                  "fontWeight": "w600"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              }
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "width": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "src": "{{appAssets.icons.arrowCircleDown}}",
+                            "imageType": "asset",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "width": 33.0,
+                            "height": 33.0,
+                            "type": "image"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      "type": "container"
+                    },
+                    "onTap": {
+                      "actionType": "showJobSelectorBottomSheet",
+                      "heightFactor": 0.75
+                    },
+                    "type": "gestureDetector"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "singleChildScrollView"
+            },
+            "type": "expanded"
+          },
+          {
+            "padding": {
+              "top": 16.0
+            },
+            "child": {
+              "type": "reactiveElevatedButton",
+              "enabledKey": "verifyIdentityHasSelectedJob",
+              "enabled": false,
+              "onPressed": {
+                "routeName": "test_screen",
+                "navigationStyle": "push",
+                "actionType": "navigate"
+              },
+              "style": {
+                "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                "backgroundColor": "{{appColors.current.primary.color}}",
+                "elevation": 0.0,
+                "fixedSize": {
+                  "width": 999999.0,
+                  "height": 56.0
+                },
+                "shape": {
+                  "type": "roundedRectangleBorder",
+                  "borderRadius": {
+                    "topLeft": 12.0,
+                    "topRight": 12.0,
+                    "bottomLeft": 12.0,
+                    "bottomRight": 12.0
+                  }
+                }
+              },
+              "disabledStyle": {
+                "backgroundColor": "{{appColors.current.background.surfaceContainerHigh}}",
+                "elevation": 0.0,
+                "fixedSize": {
+                  "width": 999999.0,
+                  "height": 56.0
+                },
+                "shape": {
+                  "type": "roundedRectangleBorder",
+                  "borderRadius": {
+                    "topLeft": 12.0,
+                    "topRight": 12.0,
+                    "bottomLeft": 12.0,
+                    "bottomRight": 12.0
+                  }
+                }
+              },
+              "child": {
+                "data": "{{appStrings.common.continue}}",
+                "style": {
+                  "type": "custom",
+                  "color": "{{appColors.current.primary.onPrimary}}",
+                  "fontSize": 18.0,
+                  "fontWeight": "w700"
+                },
+                "textDirection": "rtl",
+                "type": "text"
+              }
+            },
+            "type": "padding"
+          }
+        ],
+        "type": "column"
+      },
+      "type": "padding"
+    },
+    "type": "scaffold"
+  }
+}

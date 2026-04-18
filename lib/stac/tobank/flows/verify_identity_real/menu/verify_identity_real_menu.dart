@@ -46,6 +46,28 @@ StacWidget verifyIdentityRealMenu() {
           StacSizedBox(height: 32),
           StacFilledButton(
             onPressed: const StacNavigateAction(
+              assetPath:
+                  'lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_intro.json',
+              navigationStyle: NavigationStyle.push,
+            ),
+            style: StacButtonStyle(
+              padding: StacEdgeInsets.symmetric(vertical: 16),
+              backgroundColor:
+                  '{{appColors.current.button.primary.backgroundColor}}',
+              foregroundColor:
+                  '{{appColors.current.button.primary.foregroundColor}}',
+            ),
+            child: StacText(
+              data: 'بارگذاری از JSON محلی',
+              style: StacTextStyle(
+                fontSize: 16,
+                fontWeight: StacFontWeight.w600,
+              ),
+            ),
+          ),
+          StacSizedBox(height: 16),
+          StacFilledButton(
+            onPressed: const StacNavigateAction(
               routeName: 'verify_identity_real_intro',
               navigationStyle: NavigationStyle.push,
             ),
@@ -58,6 +80,27 @@ StacWidget verifyIdentityRealMenu() {
             ),
             child: StacText(
               data: 'بارگذاری از DART',
+              style: StacTextStyle(
+                fontSize: 16,
+                fontWeight: StacFontWeight.w600,
+              ),
+            ),
+          ),
+          StacSizedBox(height: 16),
+          StacOutlinedButton(
+            onPressed: const StacNavigateAction(
+              routeName: 'verify_identity_real_loader',
+              navigationStyle: NavigationStyle.pushReplacement,
+            ),
+            style: StacButtonStyle(
+              backgroundColor:
+                  '{{appColors.current.button.primary.backgroundColor}}',
+              foregroundColor:
+                  '{{appColors.current.button.primary.foregroundColor}}',
+              padding: StacEdgeInsets.symmetric(horizontal: 32, vertical: 16),
+            ),
+            child: StacText(
+              data: '{{appStrings.promissory.loadFromJsonApi}}',
               style: StacTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w600,

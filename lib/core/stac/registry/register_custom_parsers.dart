@@ -24,6 +24,7 @@ import '../parsers/actions/custom_network_request_action_parser.dart';
 import '../parsers/actions/file_picker_action_parser.dart';
 import '../parsers/widgets/custom_text_form_field_parser.dart';
 import '../parsers/widgets/promissory_real_loader_parser.dart';
+import '../parsers/widgets/verify_identity_real_loader_parser.dart';
 import '../../../../stac/tobank/flows/promissory_real/service/promissory_login_action_parser.dart';
 import '../parsers/actions/save_file_action_parser.dart';
 import '../parsers/actions/share_file_action_parser.dart';
@@ -378,13 +379,16 @@ void _registerExampleParsers() {
   );
 
   // Register signature pad parser for hand-drawn signature capture
-  CustomComponentRegistry.instance.registerWidget(
-    const SignaturePadParser(),
-  );
+  CustomComponentRegistry.instance.registerWidget(const SignaturePadParser());
 
   // Register Promissory Real Loader parser
   CustomComponentRegistry.instance.registerWidget(
     const PromissoryRealLoaderParser(),
+  );
+
+  // Register Verify Identity Real Loader parser
+  CustomComponentRegistry.instance.registerWidget(
+    const VerifyIdentityRealLoaderParser(),
   );
 
   // Register generic ReactiveListView parser for reactive data lists
