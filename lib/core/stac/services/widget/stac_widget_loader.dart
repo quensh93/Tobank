@@ -116,6 +116,24 @@ import '../../../../stac/tobank/flows/promissory_real/onboarding/promissory_real
     as promissory_real_onboarding_dart;
 import '../../../../stac/tobank/flows/promissory_real/splash/promissory_real_splash.dart'
     as promissory_real_splash_dart;
+import '../../../../stac/tobank/flows/profile_real/menu/profile_real_menu.dart'
+    as profile_real_menu_dart;
+import '../../../../stac/tobank/flows/profile_real/dart/profile_real_intro.dart'
+    as profile_real_intro_dart;
+import '../../../../stac/tobank/flows/profile_real/dart/profile_real_bank_info.dart'
+    as profile_real_bank_info_dart;
+import '../../../../stac/tobank/flows/profile_real/dart/profile_real_invite_friends.dart'
+    as profile_real_invite_friends_dart;
+import '../../../../stac/tobank/flows/profile_real/dart/profile_real_destinations.dart'
+    as profile_real_destinations_dart;
+import '../../../../stac/tobank/flows/profile_real/dart/profile_real_settings.dart'
+    as profile_real_settings_dart;
+import '../../../../stac/tobank/flows/profile_real/dart/profile_real_rules.dart'
+    as profile_real_rules_dart;
+import '../../../../stac/tobank/flows/profile_real/dart/profile_real_about.dart'
+    as profile_real_about_dart;
+import '../../../../stac/tobank/flows/profile_real/dart/profile_real_contact.dart'
+    as profile_real_contact_dart;
 import 'package:tobank_sdui/core/helpers/logger.dart';
 
 /// Service for loading STAC widgets from Dart files.
@@ -196,6 +214,24 @@ class StacWidgetLoader {
         promissory_real_debug_dart.promissoryRealDebugMenu().toJson(),
     'verify_identity_real_menu': () =>
         verify_identity_real_menu_dart.verifyIdentityRealMenu().toJson(),
+    'profile_real_menu': () =>
+        profile_real_menu_dart.profileRealMenu().toJson(),
+    'profile_real_intro': () =>
+        profile_real_intro_dart.profileRealIntro().toJson(),
+    'profile_real_bank_info': () =>
+        profile_real_bank_info_dart.profileRealBankInfo().toJson(),
+    'profile_real_invite_friends': () =>
+        profile_real_invite_friends_dart.profileRealInviteFriends().toJson(),
+    'profile_real_destinations': () =>
+        profile_real_destinations_dart.profileRealDestinations().toJson(),
+    'profile_real_settings': () =>
+        profile_real_settings_dart.profileRealSettings().toJson(),
+    'profile_real_rules': () =>
+        profile_real_rules_dart.profileRealRules().toJson(),
+    'profile_real_about': () =>
+        profile_real_about_dart.profileRealAbout().toJson(),
+    'profile_real_contact': () =>
+        profile_real_contact_dart.profileRealContact().toJson(),
     'verify_identity_real_intro': () =>
         verify_identity_real_intro_dart.verifyIdentityRealIntro().toJson(),
     'verify_identity_real_preregister': () =>

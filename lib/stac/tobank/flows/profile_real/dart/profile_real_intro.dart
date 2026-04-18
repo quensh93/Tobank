@@ -4,7 +4,7 @@ import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 @StacScreen(screenName: 'profile_real_intro')
 StacWidget profileRealIntro() {
   return StacScaffold(
-    backgroundColor: '{{appColors.current.background.surface}}',
+    backgroundColor: '#F4F5F8',
     body: StacSingleChildScrollView(
       padding: StacEdgeInsets.only(left: 16, top: 20, right: 16, bottom: 12),
       child: StacColumn(
@@ -18,7 +18,7 @@ StacWidget profileRealIntro() {
               style: StacCustomTextStyle(
                 fontSize: 20,
                 fontWeight: StacFontWeight.w700,
-                color: '{{appColors.current.text.title}}',
+                color: '#252B37',
               ),
             ),
           ),
@@ -38,12 +38,10 @@ StacWidget profileRealIntro() {
                           width: 84,
                           height: 84,
                           decoration: StacBoxDecoration(
-                            color:
-                                '{{appColors.current.background.surfaceContainer}}',
+                            color: '#FFFFFF',
                             shape: StacBoxShape.circle,
                             border: StacBorder.all(
-                              color:
-                                  '{{appColors.current.input.borderEnabled}}',
+                              color: '#D6DAE1',
                               width: 1,
                             ),
                           ),
@@ -68,11 +66,10 @@ StacWidget profileRealIntro() {
                             width: 26,
                             height: 26,
                             decoration: StacBoxDecoration(
-                              color: '{{appColors.current.background.surface}}',
+                              color: '#FFFFFF',
                               shape: StacBoxShape.circle,
                               border: StacBorder.all(
-                                color:
-                                    '{{appColors.current.input.borderEnabled}}',
+                                color: '#D6DAE1',
                                 width: 1,
                               ),
                             ),
@@ -80,7 +77,7 @@ StacWidget profileRealIntro() {
                               child: StacIcon(
                                 icon: 'edit',
                                 size: 14,
-                                color: '{{appColors.current.text.subtitle}}',
+                                color: '#7C8796',
                               ),
                             ),
                           ),
@@ -96,7 +93,7 @@ StacWidget profileRealIntro() {
                   style: StacCustomTextStyle(
                     fontSize: 18,
                     fontWeight: StacFontWeight.w700,
-                    color: '{{appColors.current.text.title}}',
+                    color: '#252B37',
                   ),
                 ),
                 StacSizedBox(height: 6),
@@ -106,7 +103,7 @@ StacWidget profileRealIntro() {
                   style: StacCustomTextStyle(
                     fontSize: 14,
                     fontWeight: StacFontWeight.w500,
-                    color: '{{appColors.current.text.subtitle}}',
+                    color: '#7C8796',
                   ),
                 ),
               ],
@@ -162,7 +159,7 @@ StacWidget profileRealIntro() {
               style: StacCustomTextStyle(
                 fontSize: 13,
                 fontWeight: StacFontWeight.w500,
-                color: '{{appColors.current.text.subtitle}}',
+                color: '#9AA3AF',
               ),
             ),
           ),
@@ -186,10 +183,10 @@ StacWidget _buildMenuItem({
     child: StacContainer(
       padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 18),
       decoration: StacBoxDecoration(
-        color: '{{appColors.current.background.surface}}',
+        color: '#FFFFFF',
         borderRadius: StacBorderRadius.all(14),
         border: StacBorder.all(
-          color: '{{appColors.current.input.borderEnabled}}',
+          color: '#D6DAE1',
           width: 1,
         ),
       ),
@@ -199,7 +196,7 @@ StacWidget _buildMenuItem({
           StacIcon(
             icon: icon,
             size: 24,
-            color: '{{appColors.current.text.subtitle}}',
+            color: '#6F7A89',
           ),
           StacSizedBox(width: 12),
           StacExpanded(
@@ -210,7 +207,7 @@ StacWidget _buildMenuItem({
               style: StacCustomTextStyle(
                 fontSize: 18,
                 fontWeight: StacFontWeight.w600,
-                color: '{{appColors.current.text.title}}',
+                color: '#252B37',
               ),
             ),
           ),
@@ -220,7 +217,7 @@ StacWidget _buildMenuItem({
             imageType: StacImageType.asset,
             width: 16,
             height: 16,
-            color: '{{appColors.current.text.subtitle}}',
+            color: '#6F7A89',
           ),
         ],
       ),
