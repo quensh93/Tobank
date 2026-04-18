@@ -68,6 +68,15 @@
           "flowSteps": [
             "verify_identity_real_intro"
           ]
+        },
+        {
+          "title": "پروفایل (API واقعی)",
+          "description": "نمایش صفحه حساب کاربری با طراحی واقعی",
+          "icon": "{{appAssets.icons.login}}",
+          "widgetType": "profile_real_menu",
+          "flowSteps": [
+            "profile_real_intro"
+          ]
         }
       ],
       "completedItems": [
