@@ -41,7 +41,17 @@
         "arrowCircleDown": "assets/icons/ic_arrow_circle_down.svg",
         "videoLight": "assets/icons/video_light.svg",
         "videoDark": "assets/icons/video_dark.svg",
-        "faceId": "assets/icons/face_id.svg"
+        "faceId": "assets/icons/face_id.svg",
+        "fingerprintLight": "assets/icons/ic_fingerprint.svg",
+        "fingerprintDark": "assets/icons/ic_fingerprint_dark.svg",
+        "themeLight": "assets/icons/ic_theme.svg",
+        "themeDark": "assets/icons/ic_theme_dark.svg",
+        "cardServicePasswordChangeLight": "assets/icons/ic_card_service_password_change.svg",
+        "cardServicePasswordChangeDark": "assets/icons/ic_card_service_password_change_dark.svg",
+        "deleteAccountLight": "assets/icons/ic_delete_account.svg",
+        "deleteAccountDark": "assets/icons/ic_delete_account_dark.svg",
+        "logoutLight": "assets/icons/ic_logout.svg",
+        "logoutDark": "assets/icons/ic_logout_dark.svg"
       },
       "images": {
         "frontNationalSample": "assets/images/front_national.PNG",

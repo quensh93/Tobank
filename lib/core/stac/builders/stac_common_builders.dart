@@ -190,6 +190,7 @@ class StacCustomReactiveSwitch extends StacWidget {
     this.activeColor,
     this.inactiveTrackColor,
     this.inactiveThumbColor,
+    this.scale,
   });
 
   final String? id;
@@ -199,6 +200,7 @@ class StacCustomReactiveSwitch extends StacWidget {
   final String? activeColor;
   final String? inactiveTrackColor;
   final String? inactiveThumbColor;
+  final double? scale;
 
   @override
   String get type => 'reactiveSwitch';
@@ -216,6 +218,7 @@ class StacCustomReactiveSwitch extends StacWidget {
     if (activeColor != null) 'activeColor': activeColor,
     if (inactiveTrackColor != null) 'inactiveTrackColor': inactiveTrackColor,
     if (inactiveThumbColor != null) 'inactiveThumbColor': inactiveThumbColor,
+    if (scale != null) 'scale': scale,
   };
 }
 

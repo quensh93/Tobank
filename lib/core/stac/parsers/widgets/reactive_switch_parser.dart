@@ -9,6 +9,7 @@ class ReactiveSwitchModel {
   final String? activeColor;
   final String? inactiveTrackColor;
   final String? inactiveThumbColor;
+  final double? scale;
 
   const ReactiveSwitchModel({
     required this.valueKey,
@@ -17,6 +18,7 @@ class ReactiveSwitchModel {
     this.activeColor,
     this.inactiveTrackColor,
     this.inactiveThumbColor,
+    this.scale,
   });
 
   factory ReactiveSwitchModel.fromJson(Map<String, dynamic> json) {
@@ -27,6 +29,7 @@ class ReactiveSwitchModel {
       activeColor: json['activeColor'] as String?,
       inactiveTrackColor: json['inactiveTrackColor'] as String?,
       inactiveThumbColor: json['inactiveThumbColor'] as String?,
+      scale: (json['scale'] as num?)?.toDouble(),
     );
   }
 }
@@ -49,7 +52,7 @@ class ReactiveSwitchParser extends StacParser<ReactiveSwitchModel> {
       builder: (context, _, _) {
         final currentValue = _resolveValue(model);
 
-        return Switch.adaptive(
+        final switchWidget = Switch.adaptive(
           value: currentValue,
           activeColor: model.activeColor != null
               ? _parseColor(context, model.activeColor!)
@@ -60,6 +63,7 @@ class ReactiveSwitchParser extends StacParser<ReactiveSwitchModel> {
           inactiveThumbColor: model.inactiveThumbColor != null
               ? _parseColor(context, model.inactiveThumbColor!)
               : null,
+          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           onChanged: (newValue) {
             // Update the registry value
             StacRegistry.instance.setValue(model.valueKey, newValue);
@@ -76,6 +80,16 @@ class ReactiveSwitchParser extends StacParser<ReactiveSwitchModel> {
             }
           },
         );
+
+        if (model.scale != null && model.scale! > 0 && model.scale! != 1) {
+          return Transform.scale(
+            scale: model.scale!,
+            alignment: Alignment.center,
+            child: switchWidget,
+          );
+        }
+
+        return switchWidget;
       },
     );
   }

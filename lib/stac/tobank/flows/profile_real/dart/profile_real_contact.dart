@@ -12,47 +12,65 @@ StacWidget profileRealContact() {
       child: StacColumn(
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
-          _contactCard(
+          _addressCard(
             label: 'آدرس',
-            value: 'تهران، سعادت‌آباد، بلوار فرهنگ، نبش کوچه نور، پلاک ۶',
+            value:
+                'تهران، سعادت‌آباد، بلوار فرهنگ، نبش کوچه نور، پلاک ۶',
           ),
-          StacSizedBox(height: 12),
-          _contactCard(label: 'کد پستی', value: '۱۹۹۷۷۴۴۵۳۷'),
-          StacSizedBox(height: 12),
-          _contactCard(label: 'پشتیبانی شعبه', value: 'داخلی ۳ - ۰۲۱۲۳۹۵۰'),
-          StacSizedBox(height: 12),
-          _contactCard(
+          StacSizedBox(height: 16),
+          _infoRowCard(label: 'کد پستی', value: '۱۹۹۷۷۴۴۵۳۷'),
+          StacSizedBox(height: 16),
+          _infoRowCard(
+            label: 'پشتیبانی شعبه',
+            value: 'داخلی ۳ - ۰۲۱۲۳۹۵۰',
+          ),
+          StacSizedBox(height: 16),
+          _infoRowCard(
             label: 'اینستاگرام بانک گردشگری',
             value: '@tourism.bank',
+            isUnderlinedValue: true,
+            valueTextDirection: StacTextDirection.ltr,
           ),
-          StacSizedBox(height: 28),
+          StacSizedBox(height: 32),
           StacCenter(
             child: StacText(
               data: 'ارتباط با توبانک',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
-                fontSize: 25,
-                fontWeight: StacFontWeight.w700,
+                fontSize: 16,
+                fontWeight: StacFontWeight.w500,
                 color: '{{appColors.current.text.title}}',
               ),
             ),
           ),
-          StacSizedBox(height: 18),
-          _socialRow(icons: ['language', 'mail', 'call']),
           StacSizedBox(height: 16),
-          _socialRow(icons: ['sports_soccer', 'business_center', 'camera_alt']),
+          _socialRow(
+            iconAssets: [
+              'assets/icons/ic_website.svg',
+              'assets/icons/ic_email.svg',
+              'assets/icons/ic_call.svg',
+            ],
+          ),
+          StacSizedBox(height: 16),
+          _socialRow(
+            iconAssets: [
+              'assets/icons/ic_aparat.svg',
+              'assets/icons/ic_linkedin.svg',
+              'assets/icons/ic_instagram.svg',
+            ],
+          ),
         ],
       ),
     ),
   );
 }
 
-StacWidget _contactCard({required String label, required String value}) {
+StacWidget _addressCard({required String label, required String value}) {
   return StacContainer(
     padding: StacEdgeInsets.symmetric(horizontal: 14, vertical: 14),
     decoration: StacBoxDecoration(
       color: '{{appColors.current.background.surface}}',
-      borderRadius: StacBorderRadius.all(12),
+      borderRadius: StacBorderRadius.all(8),
       border: StacBorder.all(
         color: '{{appColors.current.input.borderEnabled}}',
         width: 1,
@@ -66,7 +84,7 @@ StacWidget _contactCard({required String label, required String value}) {
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.right,
           style: StacCustomTextStyle(
-            fontSize: 15,
+            fontSize: 14,
             fontWeight: StacFontWeight.w500,
             color: '{{appColors.current.text.subtitle}}',
           ),
@@ -77,9 +95,10 @@ StacWidget _contactCard({required String label, required String value}) {
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.right,
           style: StacCustomTextStyle(
-            fontSize: 18,
+            fontSize: 16,
             fontWeight: StacFontWeight.w600,
             color: '{{appColors.current.text.title}}',
+            height: 1.8,
           ),
         ),
       ],
@@ -87,26 +106,112 @@ StacWidget _contactCard({required String label, required String value}) {
   );
 }
 
-StacWidget _socialRow({required List<String> icons}) {
+StacWidget _infoRowCard({
+  required String label,
+  required String value,
+  bool isUnderlinedValue = false,
+  StacTextDirection valueTextDirection = StacTextDirection.rtl,
+}) {
+  return StacContainer(
+    padding: StacEdgeInsets.symmetric(horizontal: 14, vertical: 16),
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: StacBorderRadius.all(8),
+      border: StacBorder.all(
+        color: '{{appColors.current.input.borderEnabled}}',
+        width: 1,
+      ),
+    ),
+    child: StacRow(
+      textDirection: StacTextDirection.rtl,
+      mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+      children: [
+        StacText(
+          data: label,
+          textDirection: StacTextDirection.rtl,
+          style: StacCustomTextStyle(
+            fontSize: 15,
+            fontWeight: StacFontWeight.w400,
+            color: '{{appColors.current.text.subtitle}}',
+          ),
+        ),
+        _rowValue(
+          value: value,
+          valueTextDirection: valueTextDirection,
+          isUnderlinedValue: isUnderlinedValue,
+        ),
+      ],
+    ),
+  );
+}
+
+StacWidget _rowValue({
+  required String value,
+  required StacTextDirection valueTextDirection,
+  required bool isUnderlinedValue,
+}) {
+  if (!isUnderlinedValue) {
+    return StacText(
+      data: value,
+      textDirection: valueTextDirection,
+      style: StacCustomTextStyle(
+        fontSize: 16,
+        fontWeight: StacFontWeight.w600,
+        color: '{{appColors.current.text.title}}',
+      ),
+    );
+  }
+
+  return StacColumn(
+    crossAxisAlignment: StacCrossAxisAlignment.end,
+    children: [
+      StacText(
+        data: value,
+        textDirection: valueTextDirection,
+        style: StacCustomTextStyle(
+          fontSize: 16,
+          fontWeight: StacFontWeight.w600,
+          color: '{{appColors.current.text.title}}',
+        ),
+      ),
+      StacSizedBox(height: 2),
+      StacContainer(
+        width: 98,
+        height: 1,
+        color: '{{appColors.current.text.title}}',
+      ),
+    ],
+  );
+}
+
+StacWidget _socialRow({required List<String> iconAssets}) {
   return StacRow(
     mainAxisAlignment: StacMainAxisAlignment.center,
-    children: icons
+    children: iconAssets
         .map(
-          (icon) => StacPadding(
+          (iconAsset) => StacPadding(
             padding: StacEdgeInsets.symmetric(horizontal: 8),
-            child: StacContainer(
-              width: 44,
-              height: 44,
-              decoration: StacBoxDecoration(
-                color: '#F9EBEE',
-                shape: StacBoxShape.circle,
+            child: StacGestureDetector(
+              onTap: const StacShowResultAction(
+                title: 'ارتباط با توبانک',
+                content: 'این بخش به زودی فعال می‌شود.',
               ),
-              child: StacIconButton(
-                onPressed: const StacShowResultAction(
-                  title: 'لینک شبکه اجتماعی',
-                  content: 'این بخش به زودی فعال می‌شود.',
+              child: StacContainer(
+                width: 48,
+                height: 48,
+                decoration: StacBoxDecoration(
+                  color: '#FDF3F4',
+                  shape: StacBoxShape.circle,
                 ),
-                icon: StacIcon(icon: icon, color: '#D32F2F', size: 20),
+                child: StacCenter(
+                  child: StacImage(
+                    src: iconAsset,
+                    imageType: StacImageType.asset,
+                    width: 24,
+                    height: 24,
+                    color: '{{appColors.current.primary.color}}',
+                  ),
+                ),
               ),
             ),
           ),
