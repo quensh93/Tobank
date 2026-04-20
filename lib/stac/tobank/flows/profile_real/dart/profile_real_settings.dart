@@ -114,6 +114,7 @@ StacWidget _settingsItem({
             height: 24,
           ),
           StacSizedBox(width: 8),
+
           StacExpanded(
             child: StacText(
               data: title,

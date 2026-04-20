@@ -33,13 +33,13 @@ StacWidget transactionRealIntro() {
       ],
     ),
     child: StacScaffold(
-      backgroundColor: '#F4F5F8',
+      backgroundColor: '{{appColors.current.background.surface}}',
       body: StacColumn(
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
-          StacSizedBox(height: 46),
+          StacSizedBox(height: 65),
           _buildTopTabs(),
-          StacSizedBox(height: 8),
+
           StacExpanded(
             child: StacPadding(
               padding: StacEdgeInsets.symmetric(horizontal: 14),
@@ -58,12 +58,11 @@ StacWidget transactionRealIntro() {
 
 StacWidget _buildTopTabs() {
   return StacContainer(
-    margin: StacEdgeInsets.symmetric(horizontal: 14),
-    padding: StacEdgeInsets.symmetric(horizontal: 12, vertical: 12),
+    margin: StacEdgeInsets.symmetric(horizontal: 20 , vertical: 10),
+
     decoration: StacBoxDecoration(
-      color: '#FFFFFF',
-      borderRadius: StacBorderRadius.all(12),
-      border: StacBorder.all(color: '#DDE2E8', width: 1),
+      color: '{{appColors.current.background.surfaceContainer}}',
+      borderRadius: StacBorderRadius.circular(12)
     ),
     child: StacRow(
       textDirection: StacTextDirection.rtl,
@@ -78,7 +77,11 @@ StacWidget _buildTopTabs() {
             ),
           ),
         ),
-        StacContainer(width: 1, height: 26, color: '#E5E7EB'),
+        StacContainer(
+          width: 1,
+          height: 25,
+          color: '{{appColors.current.input.borderEnabled}}',
+        ),
         StacExpanded(
           child: _buildTopTabItem(
             title: 'سپرده‌ها',
@@ -103,7 +106,7 @@ StacWidget _buildTopTabItem({
     onTap: onTap,
     child: StacContainer(
       width: 999999,
-      height: 52,
+      height: 54,
       color: 'transparent',
       child: StacColumn(
         mainAxisAlignment: StacMainAxisAlignment.center,
@@ -116,8 +119,8 @@ StacWidget _buildTopTabItem({
               textAlign: StacTextAlign.center,
               style: StacCustomTextStyle(
                 fontSize: 16,
-                fontWeight: StacFontWeight.w700,
-                color: '#1F2937',
+                fontWeight: StacFontWeight.w800,
+                color: '{{appColors.current.text.title}}',
               ),
             ).toJson(),
             replacement: StacText(
@@ -127,7 +130,7 @@ StacWidget _buildTopTabItem({
               style: StacCustomTextStyle(
                 fontSize: 16,
                 fontWeight: StacFontWeight.w500,
-                color: '#6B7280',
+                color: '{{appColors.current.text.hint}}',
               ),
             ).toJson(),
           ),
@@ -138,7 +141,7 @@ StacWidget _buildTopTabItem({
               width: 56,
               height: 3,
               decoration: StacBoxDecoration(
-                color: '#D32F2F',
+                color: '{{appColors.current.primary.color}}',
                 borderRadius: StacBorderRadius.all(3),
               ),
             ).toJson(),
@@ -159,9 +162,9 @@ StacWidget _buildToBankContent() {
     child: StacColumn(
       crossAxisAlignment: StacCrossAxisAlignment.stretch,
       children: [
-        StacSizedBox(height: 12),
+        StacSizedBox(height: 14),
         _buildToBankHeaderFilters(),
-        StacSizedBox(height: 12),
+        StacSizedBox(height: 16),
         StacCustomVisibility(
           visible: '[[trIntroChipAllSelected]]',
           child: StacColumn(
@@ -176,21 +179,21 @@ StacWidget _buildToBankContent() {
                       subtitle: '۰۱ فروردین ۱۴۰۵ - ۱۱:۴۳',
                       isSuccess: true,
                     ),
-                    StacSizedBox(height: 12),
+                    StacSizedBox(height: 10),
                     _buildTransactionCard(
                       amount: '۳۸,۰۰۰ ریال',
                       title: 'سرویس کارمزد سفته',
                       subtitle: '۰۲ اسفند ۱۴۰۴ - ۱۵:۲۷',
                       isSuccess: true,
                     ),
-                    StacSizedBox(height: 12),
+                    StacSizedBox(height: 10),
                     _buildTransactionCard(
                       amount: '۱۰,۰۰۰ ریال',
                       title: 'کارت به کارت',
                       subtitle: '۰۶ دی ۱۴۰۴ - ۱۱:۰۲',
                       isSuccess: true,
                     ),
-                    StacSizedBox(height: 12),
+                    StacSizedBox(height: 10),
                   ],
                 ).toJson(),
                 replacement: StacSizedBox().toJson(),
@@ -205,14 +208,14 @@ StacWidget _buildToBankContent() {
                       subtitle: '۵۸ بهمن ۱۴۰۴ - ۱۰:۰۵',
                       isSuccess: false,
                     ),
-                    StacSizedBox(height: 12),
+                    StacSizedBox(height: 10),
                     _buildTransactionCard(
                       amount: '۵۰,۰۰۰ ریال',
                       title: 'شارژ کیف پول توبانک',
                       subtitle: '۵۸ دی ۱۴۰۴ - ۱۴:۰۳',
                       isSuccess: false,
                     ),
-                    StacSizedBox(height: 12),
+                    StacSizedBox(height: 10),
                     _buildTransactionCard(
                       amount: '۱۰,۰۰۰ ریال',
                       title: 'کارت به کارت',
@@ -241,35 +244,35 @@ StacWidget _buildToBankContent() {
                       subtitle: '۰۳ دی ۱۴۰۴ - ۱۳:۳۰',
                       isSuccess: true,
                     ),
-                    StacSizedBox(height: 12),
+                    StacSizedBox(height: 10),
                     _buildTransactionCard(
                       amount: '۸,۰۰۰ ریال',
                       title: 'سرویس اعتبارسنجی',
                       subtitle: '۰۱ دی ۱۴۰۴ - ۱۲:۰۱',
                       isSuccess: true,
                     ),
-                    StacSizedBox(height: 12),
+                    StacSizedBox(height: 10),
                     _buildTransactionCard(
                       amount: '۸۰,۰۰۰ ریال',
                       title: 'سرویس اعتبارسنجی',
                       subtitle: '۲۶ آذر ۱۴۰۴ - ۱۱:۱۶',
                       isSuccess: true,
                     ),
-                    StacSizedBox(height: 12),
+                    StacSizedBox(height: 10),
                     _buildTransactionCard(
                       amount: '۱,۳۶۸,۵۰۰ ریال',
                       title: 'سفارش کارت هدیه',
                       subtitle: '۲۶ آذر ۱۴۰۴ - ۱۱:۵۰',
                       isSuccess: true,
                     ),
-                    StacSizedBox(height: 12),
+                    StacSizedBox(height: 10),
                     _buildTransactionCard(
                       amount: '۱,۴۰۰,۰۰۰ ریال',
                       title: 'تراکنش کیف پول',
                       subtitle: '۲۶ آذر ۱۴۰۴ - ۱۱:۴۰',
                       isSuccess: true,
                     ),
-                    StacSizedBox(height: 12),
+                    StacSizedBox(height: 10),
                   ],
                 ).toJson(),
                 replacement: StacSizedBox().toJson(),
@@ -284,7 +287,7 @@ StacWidget _buildToBankContent() {
                       subtitle: '۰۸ دی ۱۴۰۴ - ۱۴:۰۳',
                       isSuccess: false,
                     ),
-                    StacSizedBox(height: 12),
+                    StacSizedBox(height: 10),
                     _buildTransactionCard(
                       amount: '۲۵,۰۰۰ ریال',
                       title: 'انتقال کیف پول',
@@ -299,7 +302,7 @@ StacWidget _buildToBankContent() {
           ).toJson(),
           replacement: StacSizedBox().toJson(),
         ),
-        StacSizedBox(height: 12),
+        StacSizedBox(height: 10),
       ],
     ),
   );
@@ -314,35 +317,47 @@ StacWidget _buildToBankHeaderFilters() {
           routeName: 'transaction_real_filter',
           navigationStyle: NavigationStyle.push,
         ),
+
         child: StacContainer(
-          height: 40,
+          height: 36,
           padding: StacEdgeInsets.symmetric(horizontal: 12),
           decoration: StacBoxDecoration(
-            color: '#FFFFFF',
-            borderRadius: StacBorderRadius.all(10),
-            border: StacBorder.all(color: '#DDE2E8', width: 1),
+            color: 'transparent',
+            borderRadius: StacBorderRadius.all(8),
+            border: StacBorder.all(
+              color: '{{appColors.current.input.borderEnabled}}',
+              width: 1,
+            ),
           ),
           child: StacRow(
             mainAxisAlignment: StacMainAxisAlignment.center,
             textDirection: StacTextDirection.rtl,
             children: [
-              StacIcon(icon: 'tune', size: 16, color: '#4B5563'),
+              StacIcon(
+                icon: 'tune',
+                size: 16,
+                color: '{{appColors.current.text.subtitle}}',
+              ),
               StacSizedBox(width: 6),
               StacText(
                 data: 'فیلترها',
                 style: StacCustomTextStyle(
                   fontSize: 14,
                   fontWeight: StacFontWeight.w600,
-                  color: '#1F2937',
+                  color: '{{appColors.current.text.title}}',
                 ),
               ),
             ],
           ),
         ),
       ),
-      StacSizedBox(width: 8),
-      StacContainer(width: 1, height: 24, color: '#DDE2E8'),
-      StacSizedBox(width: 8),
+      StacSizedBox(width: 6),
+      StacContainer(
+        width: 1,
+        height: 25,
+        color: '{{appColors.current.input.borderEnabled}}',
+      ),
+      StacSizedBox(width: 6),
       _buildToggleChip(
         title: 'همه',
         selectedVisible: '[[trIntroChipAllSelected]]',
@@ -380,12 +395,15 @@ StacWidget _buildToggleChip({
     child: StacCustomVisibility(
       visible: selectedVisible,
       child: StacContainer(
-        height: 40,
+        height: 36,
         padding: StacEdgeInsets.symmetric(horizontal: 12),
         decoration: StacBoxDecoration(
-          color: '#E8FBFE',
-          borderRadius: StacBorderRadius.all(10),
-          border: StacBorder.all(color: '#23C4D8', width: 1),
+          color: '{{appColors.current.secondary.secondaryContainer}}',
+          borderRadius: StacBorderRadius.all(8),
+          border: StacBorder.all(
+            color: '{{appColors.current.secondary.color}}',
+            width: 1,
+          ),
         ),
         child: StacCenter(
           child: StacText(
@@ -395,18 +413,21 @@ StacWidget _buildToggleChip({
             style: StacCustomTextStyle(
               fontSize: 14,
               fontWeight: StacFontWeight.w600,
-              color: '#06A7BC',
+              color: '{{appColors.current.secondary.color}}',
             ),
           ),
         ),
       ).toJson(),
       replacement: StacContainer(
-        height: 40,
+        height: 36,
         padding: StacEdgeInsets.symmetric(horizontal: 12),
         decoration: StacBoxDecoration(
-          color: '#FFFFFF',
-          borderRadius: StacBorderRadius.all(10),
-          border: StacBorder.all(color: '#DDE2E8', width: 1),
+          color: 'transparent',
+          borderRadius: StacBorderRadius.all(8),
+          border: StacBorder.all(
+            color: '{{appColors.current.input.borderEnabled}}',
+            width: 1,
+          ),
         ),
         child: StacCenter(
           child: StacText(
@@ -416,7 +437,7 @@ StacWidget _buildToggleChip({
             style: StacCustomTextStyle(
               fontSize: 14,
               fontWeight: StacFontWeight.w600,
-              color: '#1F2937',
+              color: '{{appColors.current.text.title}}',
             ),
           ),
         ),
@@ -429,49 +450,49 @@ StacWidget _buildDepositsContent() {
   return StacSingleChildScrollView(
     child: StacColumn(
       children: [
-        StacSizedBox(height: 12),
+        StacSizedBox(height: 14),
         _buildTransactionCard(
           amount: '۲۹۹,۹۰۰,۰۰۰ ریال',
           title: 'پل',
           subtitle: 'انتقال به مهدی جمشیدپور',
           isSuccess: true,
         ),
-        StacSizedBox(height: 12),
+        StacSizedBox(height: 10),
         _buildTransactionCard(
           amount: '۵۰۰,۰۰۰,۰۰۰ ریال',
           title: 'پل',
           subtitle: 'انتقال به مهدی جمشیدپور',
           isSuccess: false,
         ),
-        StacSizedBox(height: 12),
+        StacSizedBox(height: 10),
         _buildTransactionCard(
           amount: '۵۰۰,۰۰۰,۰۰۰ ریال',
           title: 'پل',
           subtitle: 'انتقال به مهدی جمشیدپور',
           isSuccess: false,
         ),
-        StacSizedBox(height: 12),
+        StacSizedBox(height: 10),
         _buildTransactionCard(
           amount: '۱۰,۵۰۰,۰۰۰ ریال',
           title: 'پل',
           subtitle: 'انتقال به مهدی جمشیدپور',
           isSuccess: true,
         ),
-        StacSizedBox(height: 12),
+        StacSizedBox(height: 10),
         _buildTransactionCard(
           amount: '۵۴۳,۸۰۰,۰۰۰ ریال',
           title: 'پایا',
           subtitle: 'انتقال به مهدی جمشیدپور',
           isSuccess: true,
         ),
-        StacSizedBox(height: 12),
+        StacSizedBox(height: 10),
         _buildTransactionCard(
           amount: '۵۴۳,۹۰۰,۰۰۰ ریال',
           title: 'پایا',
           subtitle: 'انتقال به مهدی جمشیدپور',
           isSuccess: false,
         ),
-        StacSizedBox(height: 12),
+        StacSizedBox(height: 10),
       ],
     ),
   );
@@ -483,31 +504,29 @@ StacWidget _buildTransactionCard({
   required String subtitle,
   required bool isSuccess,
 }) {
-  final statusColor = isSuccess ? '#27AE60' : '#D32F2F';
-
   return StacContainer(
-    padding: StacEdgeInsets.symmetric(horizontal: 14, vertical: 16),
+    padding: StacEdgeInsets.only(top: 14, bottom: 14, right: 14, left: 14),
     decoration: StacBoxDecoration(
-      color: '#FFFFFF',
-      borderRadius: StacBorderRadius.all(12),
-      border: StacBorder.all(color: '#DDE2E8', width: 1),
+      color: 'transparent',
+      borderRadius: StacBorderRadius.all(10),
+      border: StacBorder.all(
+        color: '{{appColors.current.input.borderEnabled}}',
+        width: 1,
+      ),
     ),
     child: StacRow(
       textDirection: StacTextDirection.rtl,
       children: [
-        StacContainer(
-          width: 34,
-          height: 34,
-          decoration: StacBoxDecoration(
-            shape: StacBoxShape.circle,
-            border: StacBorder.all(color: '#CFD6DF', width: 1),
-          ),
-          child: StacCenter(
-            child: StacIcon(
-              icon: isSuccess ? 'check' : 'close',
-              size: 18,
-              color: statusColor,
-            ),
+        StacSizedBox(
+          width: 28,
+          height: 28,
+          child: StacImage(
+            src: isSuccess
+                ? '{{appAssets.icons.transactionItemSuccessCurrent}}'
+                : '{{appAssets.icons.transactionItemFailedCurrent}}',
+            imageType: StacImageType.asset,
+            width: 28,
+            height: 28,
           ),
         ),
         StacSizedBox(width: 12),
@@ -525,8 +544,8 @@ StacWidget _buildTransactionCard({
                       textAlign: StacTextAlign.right,
                       style: StacCustomTextStyle(
                         fontSize: 16,
-                        fontWeight: StacFontWeight.w700,
-                        color: '#1F2937',
+                        fontWeight: StacFontWeight.w600,
+                        color: '{{appColors.current.text.title}}',
                       ),
                     ),
                   ),
@@ -536,9 +555,9 @@ StacWidget _buildTransactionCard({
                     textDirection: StacTextDirection.rtl,
                     textAlign: StacTextAlign.left,
                     style: StacCustomTextStyle(
-                      fontSize: 14,
+                      fontSize: 16,
                       fontWeight: StacFontWeight.w600,
-                      color: '#252B37',
+                      color: '{{appColors.current.text.title}}',
                     ),
                   ),
                 ],
@@ -549,9 +568,9 @@ StacWidget _buildTransactionCard({
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
                 style: StacCustomTextStyle(
-                  fontSize: 14,
+                  fontSize: 13,
                   fontWeight: StacFontWeight.w500,
-                  color: '#6B7280',
+                  color: '{{appColors.current.text.subtitle}}',
                 ),
               ),
             ],
