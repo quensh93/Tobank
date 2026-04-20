@@ -34,7 +34,7 @@ StacWidget tobankHomePageDart() {
                 _buildHeader(),
                 StacSizedBox(height: 24),
                 _buildTopTabs(),
-                StacSizedBox(height: 24),
+                StacSizedBox(height: 8),
               ],
             ),
           ),
@@ -157,6 +157,7 @@ StacWidget _buildTopTab({
       style: StacButtonStyle(
         padding: StacEdgeInsets.all(0),
         minimumSize: const StacSize(0, 0),
+        overlayColor: '#00000000',
         tapTargetSize: StacMaterialTapTargetSize.shrinkWrap,
       ),
       child: StacCustomVisibility(
@@ -178,7 +179,7 @@ StacWidget _buildSelectedTopTab({
   return StacColumn(
     children: [
       StacSizedBox(
-        height: 40,
+        height: 32,
         child: StacCenter(
           child: StacImage(
             src: iconPath,
@@ -200,14 +201,7 @@ StacWidget _buildSelectedTopTab({
           color: '{{appColors.current.text.title}}',
         ),
       ),
-      StacSizedBox(height: 10),
-      StacContainer(
-        height: 3,
-        decoration: StacBoxDecoration(
-          color: '{{appColors.current.primary.color}}',
-          borderRadius: StacBorderRadius.all(99),
-        ),
-      ),
+      StacSizedBox(height: 13),
     ],
   );
 }
@@ -219,7 +213,7 @@ StacWidget _buildUnselectedTopTab({
   return StacColumn(
     children: [
       StacSizedBox(
-        height: 40,
+        height: 32,
         child: StacCenter(
           child: StacImage(
             src: iconPath,
@@ -237,12 +231,11 @@ StacWidget _buildUnselectedTopTab({
         textAlign: StacTextAlign.center,
         style: StacCustomTextStyle(
           fontSize: 12,
-          fontWeight: StacFontWeight.w500,
-          color: '{{appColors.current.text.subtitle}}',
+          fontWeight: StacFontWeight.w700,
+          color: '{{appColors.current.text.title}}',
         ),
       ),
-      StacSizedBox(height: 10),
-      StacSizedBox(height: 3),
+      StacSizedBox(height: 13),
     ],
   );
 }
@@ -250,7 +243,7 @@ StacWidget _buildUnselectedTopTab({
 StacWidget _buildTabDivider() {
   return StacContainer(
     width: 1,
-    height: 38,
+    height: 24,
     margin: StacEdgeInsets.only(top: 8, left: 8, right: 8),
     color: '{{appColors.current.input.borderEnabled}}',
   );
@@ -335,7 +328,7 @@ StacWidget _buildDepositsTab() {
         textDirection: StacTextDirection.rtl,
         textAlign: StacTextAlign.right,
         style: StacCustomTextStyle(
-          fontSize: 18,
+          fontSize: 14,
           fontWeight: StacFontWeight.w700,
           color: '{{appColors.current.text.title}}',
         ),
@@ -361,9 +354,9 @@ StacWidget _buildDepositsTab() {
         ],
       ),
       StacSizedBox(height: 18),
-      _buildPromoBanner(),
-      StacSizedBox(height: 18),
-      _buildCustomerClubBanner(),
+      _buildHomeBannerCarousel(),
+      StacSizedBox(height: 10),
+      _buildStaticCustomerClubBanner(),
     ],
   );
 }
@@ -389,7 +382,7 @@ StacWidget _buildUnauthenticatedDepositsState() {
             data:
                 'کاربر گرامی، برای فعال سازی خدمات مرتبط با سپرده‌های بانک گردشگری، لطفا فرآیند احراز هویت را تکمیل نمایید.',
             textDirection: StacTextDirection.rtl,
-            textAlign: StacTextAlign.center,
+            textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
               fontSize: 12,
               fontWeight: StacFontWeight.w500,
@@ -397,7 +390,7 @@ StacWidget _buildUnauthenticatedDepositsState() {
               height: 1.6,
             ),
           ),
-          StacSizedBox(height: 14),
+          StacSizedBox(height: 32),
           StacFilledButton(
             onPressed: const StacCustomSetValueAction(
               values: [
@@ -881,19 +874,19 @@ StacWidget _buildServiceCard({
     elevation: 0,
     margin: StacEdgeInsets.all(0),
     shape: StacRoundedRectangleBorder(
-      borderRadius: StacBorderRadius.all(18),
+      borderRadius: StacBorderRadius.all(8),
       side: StacBorderSide(
         color: '{{appColors.current.input.borderEnabled}}',
         width: 1,
       ),
     ),
     child: StacPadding(
-      padding: StacEdgeInsets.all(18),
+      padding: StacEdgeInsets.all(10),
       child: StacColumn(
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
           StacRow(
-            mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+            mainAxisAlignment: StacMainAxisAlignment.start,
             textDirection: StacTextDirection.rtl,
             children: [
               StacImage(
@@ -903,25 +896,26 @@ StacWidget _buildServiceCard({
                 height: 24,
                 color: '{{appColors.current.text.subtitle}}',
               ),
+              StacSizedBox(width: 8),
               StacText(
                 data: title,
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
                 style: StacCustomTextStyle(
-                  fontSize: 17,
+                  fontSize: 14,
                   fontWeight: StacFontWeight.w700,
                   color: '{{appColors.current.text.title}}',
                 ),
               ),
             ],
           ),
-          StacSizedBox(height: 16),
+          StacSizedBox(height: 12),
           StacText(
             data: subtitle,
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
-              fontSize: 15,
+              fontSize: 12,
               fontWeight: StacFontWeight.w500,
               color: '{{appColors.current.text.subtitle}}',
               height: 1.7,
@@ -933,81 +927,32 @@ StacWidget _buildServiceCard({
   );
 }
 
-StacWidget _buildPromoBanner() {
-  return StacCard(
-    color: '{{appColors.current.primary.color}}',
-    elevation: 0,
-    margin: StacEdgeInsets.all(0),
-    child: StacContainer(
-      height: 146,
-      padding: StacEdgeInsets.all(18),
-      decoration: StacBoxDecoration(
-        gradient: StacLinearGradient(
-          colors: ['#d61f2c', '#b51227'],
-          begin: StacAlignment.centerLeft,
-          end: StacAlignment.centerRight,
-        ),
-        borderRadius: StacBorderRadius.all(20),
-      ),
-      child: StacRow(
-        textDirection: StacTextDirection.rtl,
-        children: [
-          StacExpanded(
-            child: StacColumn(
-              crossAxisAlignment: StacCrossAxisAlignment.end,
-              mainAxisAlignment: StacMainAxisAlignment.center,
-              children: [
-                StacImage(
-                  src: 'assets/icons/ic_tobank_logo.svg',
-                  imageType: StacImageType.asset,
-                  width: 96,
-                  height: 28,
-                ),
-                StacSizedBox(height: 14),
-                StacText(
-                  data: 'توربو وام',
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 24,
-                    fontWeight: StacFontWeight.w700,
-                    color: '#ffffff',
-                  ),
-                ),
-                StacSizedBox(height: 8),
-                StacText(
-                  data: 'فوری، بدون ضامن!',
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 20,
-                    fontWeight: StacFontWeight.w700,
-                    color: '#ffffff',
-                  ),
-                ),
-              ],
-            ),
-          ),
-          StacSizedBox(width: 12),
-          StacImage(
-            src: 'assets/icons/charge_wallet_icon.svg',
-            imageType: StacImageType.asset,
-            width: 112,
-            height: 112,
-          ),
-        ],
-      ),
-    ),
+StacWidget _buildHomeBannerCarousel() {
+  return StacTobankBannerCarousel(
+    imageUrls: const [
+      'https://picsum.photos/seed/tobank-home-banner-1/1200/420',
+      'https://picsum.photos/seed/tobank-home-banner-2/1200/420',
+    ],
+    height: 146,
+    borderRadius: 8,
+    autoScrollSeconds: 15,
+    showIndicators: true,
+    indicatorActiveColor: '#E31A2F',
+    indicatorInactiveColor: '#4C5E7A',
+    indicatorSpacing: 8,
   );
 }
 
-StacWidget _buildCustomerClubBanner() {
+StacWidget _buildStaticCustomerClubBanner() {
   return StacCard(
     elevation: 0,
     margin: StacEdgeInsets.all(0),
-    shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(20)),
+    clipBehavior: StacClip.antiAlias,
+    shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(12)),
     child: StacImage(
       src: 'assets/images/customer_club_banner.png',
       imageType: StacImageType.asset,
-      height: 132,
+      height: 72,
       fit: StacBoxFit.cover,
     ),
   );

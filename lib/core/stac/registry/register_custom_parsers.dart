@@ -53,6 +53,7 @@ import '../parsers/actions/promissory_sign_action_parser.dart';
 import '../parsers/widgets/pdf_preview_parser.dart';
 import '../parsers/widgets/otp_countdown_button_parser.dart';
 import '../parsers/widgets/signature_pad_parser.dart';
+import '../parsers/widgets/tobank_banner_carousel_parser.dart';
 
 /// Register all custom STAC parsers with the STAC framework.
 ///
@@ -382,6 +383,9 @@ void _registerExampleParsers() {
   CustomComponentRegistry.instance.registerWidget(
     const OtpCountdownButtonParser(),
   );
+
+  // Register home-page banner carousel parser (auto-scroll + indicators)
+  registerTobankBannerCarouselParser();
 
   // Register signature pad parser for hand-drawn signature capture
   CustomComponentRegistry.instance.registerWidget(const SignaturePadParser());

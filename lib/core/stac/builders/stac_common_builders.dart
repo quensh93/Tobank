@@ -258,7 +258,9 @@ class StacOtpCountdownButton extends StacWidget {
     if (retryLabel != null) 'retryLabel': retryLabel,
     if (iconAsset != null) 'iconAsset': iconAsset,
     if (onRetry != null)
-      'onRetry': onRetry is StacAction ? (onRetry as StacAction).toJson() : onRetry,
+      'onRetry': onRetry is StacAction
+          ? (onRetry as StacAction).toJson()
+          : onRetry,
     if (borderColor != null) 'borderColor': borderColor,
     if (countdownTextColor != null) 'countdownTextColor': countdownTextColor,
     if (retryTextColor != null) 'retryTextColor': retryTextColor,
@@ -555,4 +557,46 @@ class StacAliasTextStyle implements StacTextStyle {
 
   @override
   Map<String, dynamic> toJson() => {'type': 'alias', 'value': alias};
+}
+
+/// Builder for custom 'tobankBannerCarousel' payloads handled by
+/// TobankBannerCarouselParser.
+class StacTobankBannerCarousel extends StacWidget {
+  const StacTobankBannerCarousel({
+    required this.imageUrls,
+    this.height,
+    this.borderRadius,
+    this.autoScrollSeconds,
+    this.showIndicators,
+    this.indicatorActiveColor,
+    this.indicatorInactiveColor,
+    this.indicatorSpacing,
+  });
+
+  final List<String> imageUrls;
+  final double? height;
+  final double? borderRadius;
+  final int? autoScrollSeconds;
+  final bool? showIndicators;
+  final String? indicatorActiveColor;
+  final String? indicatorInactiveColor;
+  final double? indicatorSpacing;
+
+  @override
+  String get type => 'tobankBannerCarousel';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'type': type,
+    'imageUrls': imageUrls,
+    if (height != null) 'height': height,
+    if (borderRadius != null) 'borderRadius': borderRadius,
+    if (autoScrollSeconds != null) 'autoScrollSeconds': autoScrollSeconds,
+    if (showIndicators != null) 'showIndicators': showIndicators,
+    if (indicatorActiveColor != null)
+      'indicatorActiveColor': indicatorActiveColor,
+    if (indicatorInactiveColor != null)
+      'indicatorInactiveColor': indicatorInactiveColor,
+    if (indicatorSpacing != null) 'indicatorSpacing': indicatorSpacing,
+  };
 }
