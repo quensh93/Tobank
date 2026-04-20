@@ -335,3 +335,215 @@ class StacShowJobSelectorBottomSheetAction extends StacAction {
     'heightFactor': heightFactor,
   };
 }
+
+class StacShowBankAddressBottomSheetAction extends StacAction {
+  final String title;
+  final String addressLabel;
+  final String address;
+  final String postalCodeLabel;
+  final String postalCode;
+  final String editButtonText;
+  final String editTitle;
+  final String postalCodeHint;
+  final String inquiryButtonText;
+  final String postalCodeValueKey;
+  final dynamic inquiryAction;
+
+  const StacShowBankAddressBottomSheetAction({
+    this.title = 'آدرس ثبت‌شده در بانک',
+    this.addressLabel = 'آدرس',
+    required this.address,
+    this.postalCodeLabel = 'کد پستی',
+    required this.postalCode,
+    this.editButtonText = 'ویرایش',
+    this.editTitle = 'ویرایش آدرس ثبت‌شده در بانک',
+    this.postalCodeHint = 'کد پستی محل سکونت را وارد کنید',
+    this.inquiryButtonText = 'استعلام',
+    this.postalCodeValueKey = 'profileRealPostalCode',
+    this.inquiryAction,
+  });
+
+  @override
+  String get actionType => 'showBankAddressBottomSheet';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': actionType,
+    'title': title,
+    'addressLabel': addressLabel,
+    'address': address,
+    'postalCodeLabel': postalCodeLabel,
+    'postalCode': postalCode,
+    'editButtonText': editButtonText,
+    'editTitle': editTitle,
+    'postalCodeHint': postalCodeHint,
+    'inquiryButtonText': inquiryButtonText,
+    'postalCodeValueKey': postalCodeValueKey,
+    if (inquiryAction != null)
+      'inquiryAction': inquiryAction is StacAction
+          ? (inquiryAction as StacAction).toJson()
+          : inquiryAction,
+  };
+}
+
+class StacShowThemeSelectorBottomSheetAction extends StacAction {
+  final String title;
+  final String lightLabel;
+  final String darkLabel;
+  final String systemLabel;
+
+  const StacShowThemeSelectorBottomSheetAction({
+    this.title = 'ظاهر برنامه را انتخاب کنید',
+    this.lightLabel = 'حالت روز',
+    this.darkLabel = 'حالت شب',
+    this.systemLabel = 'پیش‌فرض سیستم عامل',
+  });
+
+  @override
+  String get actionType => 'showThemeSelectorBottomSheet';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': actionType,
+    'title': title,
+    'lightLabel': lightLabel,
+    'darkLabel': darkLabel,
+    'systemLabel': systemLabel,
+  };
+}
+
+class StacShowDeleteAccountConfirmBottomSheetAction extends StacAction {
+  final String title;
+  final String description;
+  final String warningMessageOne;
+  final String warningMessageTwo;
+  final String confirmText;
+  final String buttonText;
+  final String warningIconAsset;
+  final dynamic continueAction;
+
+  const StacShowDeleteAccountConfirmBottomSheetAction({
+    this.title = 'حذف اطلاعات حساب کاربری',
+    this.description =
+        'کاربر گرامی، در صورت انتقال سیم‌کارت یا تمایل به حذف اطلاعات حساب خود می‌توانید اطلاعاتی نظیر تراکنش‌ها، کارت‌های ذخیره شده و ... را از حساب‌کاربری خود حذف کنید.',
+    this.warningMessageOne =
+        'حتما قبل از حذف اطلاعات، موجودی کیف پول خود را به شماره دیگر خود انتقال دهید.',
+    this.warningMessageTwo =
+        'تا ۲۴ ساعت بعد از حذف حساب‌کاربری امکان ثبت‌نام مجدد نخواهید داشت',
+    this.confirmText = 'میخواهم اطلاعات حساب کاربری خود را حذف کنم.',
+    this.buttonText = 'ادامه',
+    this.warningIconAsset = 'assets/icons/ic_warning_red.svg',
+    this.continueAction,
+  });
+
+  @override
+  String get actionType => 'showDeleteAccountConfirmBottomSheet';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': actionType,
+    'title': title,
+    'description': description,
+    'warningMessageOne': warningMessageOne,
+    'warningMessageTwo': warningMessageTwo,
+    'confirmText': confirmText,
+    'buttonText': buttonText,
+    'warningIconAsset': warningIconAsset,
+    if (continueAction != null)
+      'continueAction': continueAction is StacAction
+          ? (continueAction as StacAction).toJson()
+          : continueAction,
+  };
+}
+
+class StacShowLogoutConfirmDialogAction extends StacAction {
+  final String title;
+  final String description;
+  final String positiveText;
+  final String negativeText;
+  final String warningIconAsset;
+  final dynamic positiveAction;
+  final dynamic negativeAction;
+
+  const StacShowLogoutConfirmDialogAction({
+    this.title = 'مطمئن به خروج از حساب‌کاربری هستید؟',
+    this.description =
+        'در صورت خروج از حساب‌کاربری، برای ورود مجدد نیاز به احراز هویت خواهد داشت. احراز هویت مجدد، به منظور افزایش امنیت حساب‌کاربری و جلوگیری از دسترسی غیرمجاز افراد ناشناس به حساب شما می‌باشد.',
+    this.positiveText = 'بله',
+    this.negativeText = 'خیر',
+    this.warningIconAsset = 'assets/icons/ic_warning_red.svg',
+    this.positiveAction,
+    this.negativeAction,
+  });
+
+  @override
+  String get actionType => 'showLogoutConfirmDialog';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': actionType,
+    'title': title,
+    'description': description,
+    'positiveText': positiveText,
+    'negativeText': negativeText,
+    'warningIconAsset': warningIconAsset,
+    if (positiveAction != null)
+      'positiveAction': positiveAction is StacAction
+          ? (positiveAction as StacAction).toJson()
+          : positiveAction,
+    if (negativeAction != null)
+      'negativeAction': negativeAction is StacAction
+          ? (negativeAction as StacAction).toJson()
+          : negativeAction,
+  };
+}
+
+class StacShowAddDestinationCardBottomSheetAction extends StacAction {
+  final String title;
+  final String scanButtonText;
+  final String scanIconAsset;
+  final String cardNumberLabel;
+  final String cardNumberHint;
+  final String cardTitleLabel;
+  final String cardTitleHint;
+  final String submitText;
+  final dynamic scanAction;
+  final dynamic submitAction;
+
+  const StacShowAddDestinationCardBottomSheetAction({
+    this.title = 'افزودن کارت جدید',
+    this.scanButtonText = 'اسکن کارت',
+    this.scanIconAsset = 'assets/icons/ic_scanner.svg',
+    this.cardNumberLabel = 'شماره کارت',
+    this.cardNumberHint = 'یک شماره کارت معتبر وارد نمایید',
+    this.cardTitleLabel = 'عنوان کارت',
+    this.cardTitleHint = 'عنوان کارت را وارد کنید',
+    this.submitText = 'ثبت',
+    this.scanAction,
+    this.submitAction,
+  });
+
+  @override
+  String get actionType => 'showAddDestinationCardBottomSheet';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': actionType,
+    'title': title,
+    'scanButtonText': scanButtonText,
+    'scanIconAsset': scanIconAsset,
+    'cardNumberLabel': cardNumberLabel,
+    'cardNumberHint': cardNumberHint,
+    'cardTitleLabel': cardTitleLabel,
+    'cardTitleHint': cardTitleHint,
+    'submitText': submitText,
+    if (scanAction != null)
+      'scanAction': scanAction is StacAction
+          ? (scanAction as StacAction).toJson()
+          : scanAction,
+    if (submitAction != null)
+      'submitAction': submitAction is StacAction
+          ? (submitAction as StacAction).toJson()
+          : submitAction,
+  };
+}

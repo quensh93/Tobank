@@ -1,5 +1,6 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/widgets/profile_real_app_bar.dart';
 
 @StacScreen(screenName: 'profile_real_settings')
@@ -13,63 +14,74 @@ StacWidget profileRealSettings() {
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
           StacContainer(
-            padding: StacEdgeInsets.symmetric(horizontal: 14, vertical: 14),
+            padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
             decoration: _itemDecoration(),
             child: StacRow(
               textDirection: StacTextDirection.rtl,
               children: [
-                StacIcon(icon: 'fingerprint', size: 22, color: '#D32F2F'),
-                StacSizedBox(width: 10),
+                StacImage(
+                  src: '{{appAssets.current.icons.fingerprint}}',
+                  imageType: StacImageType.asset,
+                  width: 24,
+                  height: 24,
+                ),
+                StacSizedBox(width: 8),
                 StacExpanded(
                   child: StacText(
                     data: 'فعال سازی تشخیص چهره',
                     textDirection: StacTextDirection.rtl,
                     textAlign: StacTextAlign.right,
                     style: StacCustomTextStyle(
-                      fontSize: 18,
+                      fontSize: 16,
                       fontWeight: StacFontWeight.w600,
                       color: '{{appColors.current.text.title}}',
                     ),
                   ),
                 ),
                 StacContainer(
-                  width: 48,
-                  height: 28,
-                  decoration: StacBoxDecoration(
-                    color: '#E3E5E8',
-                    borderRadius: StacBorderRadius.all(14),
-                  ),
-                  child: StacAlign(
-                    alignment: StacAlignmentDirectional.centerEnd,
-                    child: StacContainer(
-                      width: 24,
-                      height: 24,
-                      margin: StacEdgeInsets.only(right: 2),
-                      decoration: StacBoxDecoration(
-                        color: '#FFFFFF',
-                        shape: StacBoxShape.circle,
-                      ),
-                    ),
+                  width: 22,
+                  height: 14,
+                  child: StacCustomReactiveSwitch(
+                    valueKey: 'profileRealFaceIdEnabled',
+                    initialValue: false,
+                    activeColor: '{{appColors.current.primary.color}}',
+                    inactiveTrackColor: '#E5E7EB',
+                    inactiveThumbColor: '#FFFFFF',
+                    scale: 0.63,
                   ),
                 ),
               ],
             ),
           ),
-          StacSizedBox(height: 12),
+          StacSizedBox(height: 16),
           _settingsItem(
             title: 'ظاهر برنامه',
             trailingInfo: 'حالت روز',
-            icon: 'palette_outlined',
+            iconAsset: '{{appAssets.current.icons.theme}}',
+            onTapAction: const StacShowThemeSelectorBottomSheetAction(),
           ),
-          StacSizedBox(height: 12),
-          _settingsItem(title: 'تغییر رمز عبور', icon: 'password'),
-          StacSizedBox(height: 12),
+          StacSizedBox(height: 16),
+          _settingsItem(
+            title: 'تغییر رمز عبور',
+            iconAsset: '{{appAssets.current.icons.cardServicePasswordChange}}',
+            onTapAction: StacRawJsonAction({
+              'actionType': 'navigate',
+              'widgetType': 'profile_real_change_password',
+              'navigationStyle': 'push',
+            }),
+          ),
+          StacSizedBox(height: 16),
           _settingsItem(
             title: 'حذف اطلاعات حساب کاربری',
-            icon: 'delete_outline',
+            iconAsset: '{{appAssets.current.icons.deleteAccount}}',
+            onTapAction: const StacShowDeleteAccountConfirmBottomSheetAction(),
           ),
-          StacSizedBox(height: 12),
-          _settingsItem(title: 'خروج از حساب کاربری', icon: 'logout'),
+          StacSizedBox(height: 16),
+          _settingsItem(
+            title: 'خروج از حساب کاربری',
+            iconAsset: '{{appAssets.current.icons.logout}}',
+            onTapAction: const StacShowLogoutConfirmDialogAction(),
+          ),
         ],
       ),
     ),
@@ -79,32 +91,36 @@ StacWidget profileRealSettings() {
 StacWidget _settingsItem({
   required String title,
   String? trailingInfo,
-  required String icon,
+  required String iconAsset,
+  dynamic onTapAction,
 }) {
   return StacGestureDetector(
-    onTap: StacShowResultAction(
-      title: title,
-      content: 'این بخش به زودی فعال می‌شود.',
-    ),
+    onTap:
+        onTapAction ??
+        StacShowResultAction(
+          title: title,
+          content: 'این بخش به زودی فعال می‌شود.',
+        ),
     child: StacContainer(
-      padding: StacEdgeInsets.symmetric(horizontal: 14, vertical: 16),
+      padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
       decoration: _itemDecoration(),
       child: StacRow(
         textDirection: StacTextDirection.rtl,
         children: [
-          StacIcon(
-            icon: icon,
-            size: 22,
-            color: '{{appColors.current.text.subtitle}}',
+          StacImage(
+            src: iconAsset,
+            imageType: StacImageType.asset,
+            width: 24,
+            height: 24,
           ),
-          StacSizedBox(width: 10),
+          StacSizedBox(width: 8),
           StacExpanded(
             child: StacText(
               data: title,
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
-                fontSize: 18,
+                fontSize: 16,
                 fontWeight: StacFontWeight.w600,
                 color: '{{appColors.current.text.title}}',
               ),
@@ -124,9 +140,9 @@ StacWidget _settingsItem({
           StacImage(
             src: '{{appAssets.icons.arrowLeft}}',
             imageType: StacImageType.asset,
-            width: 14,
-            height: 14,
-            color: '{{appColors.current.text.subtitle}}',
+            width: 29,
+            height: 29,
+            color: '{{appColors.current.text.title}}',
           ),
         ],
       ),
@@ -137,7 +153,7 @@ StacWidget _settingsItem({
 StacBoxDecoration _itemDecoration() {
   return StacBoxDecoration(
     color: '{{appColors.current.background.surface}}',
-    borderRadius: StacBorderRadius.all(12),
+    borderRadius: StacBorderRadius.all(8),
     border: StacBorder.all(
       color: '{{appColors.current.input.borderEnabled}}',
       width: 1,

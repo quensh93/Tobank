@@ -1,7 +1,7 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 
-StacAppBar buildProfileRealAppBar({required String title}) {
+StacAppBar buildCartableRealAppBar({required String title}) {
   return StacAppBar(
     title: StacText(
       data: title,
@@ -29,10 +29,10 @@ StacAppBar buildProfileRealAppBar({required String title}) {
             navigationStyle: NavigationStyle.pop,
           ),
           icon: StacImage(
-            src: '{{appAssets.icons.arrowBack}}',
+            src: '{{appAssets.icons.arrowRight}}',
             imageType: StacImageType.asset,
-            width: 31,
-            height: 31,
+            width: 22,
+            height: 22,
             color: '{{appColors.current.text.title}}',
           ),
         ),

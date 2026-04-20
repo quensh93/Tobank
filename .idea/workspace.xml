@@ -12,7 +12,7 @@
     <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="add new page for profile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/core/stac/services/widget/stac_widget_loader.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/services/widget/stac_widget_loader.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/dart/profile_real_intro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/dart/profile_real_intro.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/menu/api/GET_menu-items.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/menu/api/GET_menu-items.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -370,7 +370,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776507315578</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="add new page for profile">
+      <option name="closed" value="true" />
+      <created>1776510379448</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1776510379448</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="ToolWindowManager">

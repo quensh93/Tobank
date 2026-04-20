@@ -35,6 +35,11 @@ import '../parsers/actions/show_rules_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_guide_options_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_photo_tips_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_job_selector_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_bank_address_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_theme_selector_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_delete_account_confirm_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_logout_confirm_dialog_action_parser.dart';
+import '../parsers/actions/show_add_destination_card_bottom_sheet_action_parser.dart';
 import '../parsers/actions/launch_url_action_parser.dart';
 import '../parsers/actions/play_audio_url_action_parser.dart';
 
@@ -463,6 +468,21 @@ void _registerExampleParsers() {
 
   // Register job selector bottom sheet action parser
   registerShowJobSelectorBottomSheetActionParser();
+
+  // Register bank address bottom sheet action parser
+  registerShowBankAddressBottomSheetActionParser();
+
+  // Register theme selector bottom sheet action parser
+  registerShowThemeSelectorBottomSheetActionParser();
+
+  // Register delete-account confirmation bottom sheet action parser
+  registerShowDeleteAccountConfirmBottomSheetActionParser();
+
+  // Register logout confirmation dialog action parser
+  registerShowLogoutConfirmDialogActionParser();
+
+  // Register add destination card bottom sheet action parser
+  registerShowAddDestinationCardBottomSheetActionParser();
 
   // Register launchUrl action parser for opening external links/media
   CustomComponentRegistry.instance.registerAction(
