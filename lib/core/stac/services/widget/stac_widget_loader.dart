@@ -150,6 +150,10 @@ import '../../../../stac/tobank/flows/transaction_real/dart/transaction_real_int
     as transaction_real_intro_dart;
 import '../../../../stac/tobank/flows/transaction_real/dart/transaction_real_filter.dart'
     as transaction_real_filter_dart;
+import '../../../../stac/tobank/flows/dashboard_real/menu/dashboard_real_menu.dart'
+    as dashboard_real_menu_dart;
+import '../../../../stac/tobank/flows/dashboard_real/dart/dashboard_real_shell.dart'
+    as dashboard_real_shell_dart;
 import '../../../../stac/tobank/flows/profile_real/dart/profile_real_customer_referrals.dart'
     as profile_real_customer_referrals_dart;
 import 'package:tobank_sdui/core/helpers/logger.dart';
@@ -269,6 +273,10 @@ class StacWidgetLoader {
         transaction_real_intro_dart.transactionRealIntro().toJson(),
     'transaction_real_filter': () =>
         transaction_real_filter_dart.transactionRealFilter().toJson(),
+    'dashboard_real_menu': () =>
+        dashboard_real_menu_dart.dashboardRealMenu().toJson(),
+    'dashboard_real_shell': () =>
+        dashboard_real_shell_dart.dashboardRealShell().toJson(),
     'verify_identity_real_intro': () =>
         verify_identity_real_intro_dart.verifyIdentityRealIntro().toJson(),
     'verify_identity_real_preregister': () =>
