@@ -77,6 +77,25 @@
           "flowSteps": [
             "profile_real_intro"
           ]
+        },
+        {
+          "title": "کارتابل (API واقعی)",
+          "description": "نمایش کارتابل و تاریخچه فعالیت‌ها",
+          "icon": "{{appAssets.icons.support}}",
+          "widgetType": "cartable_real_menu",
+          "flowSteps": [
+            "cartable_real_intro"
+          ]
+        },
+        {
+          "title": "تراکنش‌ها (API واقعی)",
+          "description": "نمایش لیست تراکنش‌ها و فیلترهای واقعی",
+          "icon": "{{appAssets.icons.wallet}}",
+          "widgetType": "transaction_real_menu",
+          "flowSteps": [
+            "transaction_real_intro",
+            "transaction_real_filter"
+          ]
         }
       ],
       "completedItems": [

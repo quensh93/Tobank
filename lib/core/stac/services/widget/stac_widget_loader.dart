@@ -136,6 +136,16 @@ import '../../../../stac/tobank/flows/profile_real/dart/profile_real_about.dart'
     as profile_real_about_dart;
 import '../../../../stac/tobank/flows/profile_real/dart/profile_real_contact.dart'
     as profile_real_contact_dart;
+import '../../../../stac/tobank/flows/cartable_real/menu/cartable_real_menu.dart'
+    as cartable_real_menu_dart;
+import '../../../../stac/tobank/flows/cartable_real/dart/cartable_real_intro.dart'
+    as cartable_real_intro_dart;
+import '../../../../stac/tobank/flows/transaction_real/menu/transaction_real_menu.dart'
+    as transaction_real_menu_dart;
+import '../../../../stac/tobank/flows/transaction_real/dart/transaction_real_intro.dart'
+    as transaction_real_intro_dart;
+import '../../../../stac/tobank/flows/transaction_real/dart/transaction_real_filter.dart'
+    as transaction_real_filter_dart;
 import '../../../../stac/tobank/flows/profile_real/dart/profile_real_customer_referrals.dart'
     as profile_real_customer_referrals_dart;
 import 'package:tobank_sdui/core/helpers/logger.dart';
@@ -242,6 +252,16 @@ class StacWidgetLoader {
         profile_real_customer_referrals_dart
             .profileRealCustomerReferrals()
             .toJson(),
+    'cartable_real_menu': () =>
+        cartable_real_menu_dart.cartableRealMenu().toJson(),
+    'cartable_real_intro': () =>
+        cartable_real_intro_dart.cartableRealIntro().toJson(),
+    'transaction_real_menu': () =>
+        transaction_real_menu_dart.transactionRealMenu().toJson(),
+    'transaction_real_intro': () =>
+        transaction_real_intro_dart.transactionRealIntro().toJson(),
+    'transaction_real_filter': () =>
+        transaction_real_filter_dart.transactionRealFilter().toJson(),
     'verify_identity_real_intro': () =>
         verify_identity_real_intro_dart.verifyIdentityRealIntro().toJson(),
     'verify_identity_real_preregister': () =>
