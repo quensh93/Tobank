@@ -52,6 +52,16 @@
       ],
       "apiFlows": [
         {
+          "title": "{{appStrings.menu.items.home}}",
+          "description": "صفحه خانه سپرده ها با منوی تست Dart",
+          "icon": "{{appAssets.icons.storedDeposit}}",
+          "widgetType": "tobank_home_page_menu",
+          "flowSteps": [
+            "tobank_home_page_menu",
+            "tobank_home_page_dart"
+          ]
+        },
+        {
           "title": "سفته (API واقعی)",
           "description": "صدور سفته با استفاده از API واقعی",
           "icon": "{{appAssets.icons.wallet}}",

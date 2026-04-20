@@ -3,6 +3,10 @@ import '../../../../stac/tobank/login/dart/verify_otp.dart' as verify_otp_dart;
 import '../../../../stac/tobank/splash/dart/tobank_splash.dart' as splash_dart;
 import '../../../../stac/tobank/menu/dart/tobank_menu.dart' as tobank_menu_dart;
 import '../../../../stac/tobank/home/dart/home.dart' as home_dart;
+import '../../../../stac/tobank/home_page/dart/home_page.dart'
+    as home_page_dart;
+import '../../../../stac/tobank/home_page/dart/home_page_menu.dart'
+    as home_page_menu_dart;
 import '../../../../stac/tobank/account/dart/account_overview.dart'
     as account_dart;
 import '../../../../stac/tobank/profile/dart/profile.dart' as profile_dart;
@@ -154,6 +158,9 @@ class StacWidgetLoader {
     'tobank_splash_dart': () => splash_dart.tobankSplashDart().toJson(),
     'tobank_menu_dart': () => tobank_menu_dart.tobankMenuDart().toJson(),
     'tobank_home': () => home_dart.tobankHome().toJson(),
+    'tobank_home_page_menu': () =>
+        home_page_menu_dart.tobankHomePageMenu().toJson(),
+    'tobank_home_page_dart': () => home_page_dart.tobankHomePageDart().toJson(),
     'tobank_account_overview': () =>
         account_dart.tobankAccountOverview().toJson(),
     'tobank_profile': () => profile_dart.tobankProfile().toJson(),
