@@ -44,6 +44,8 @@ import '../parsers/actions/launch_url_action_parser.dart';
 import '../parsers/actions/play_audio_url_action_parser.dart';
 
 import '../parsers/widgets/reactive_list_view_parser.dart';
+import '../parsers/widgets/custom_bottom_navigation_bar_parser.dart';
+import '../parsers/widgets/custom_bottom_navigation_view_parser.dart';
 
 import '../parsers/widgets/custom_visibility_parser.dart';
 import '../parsers/actions/show_snackbar_action_parser.dart';
@@ -102,7 +104,9 @@ Future<void> registerCustomParsers() async {
           if (type == 'image' ||
               type == 'visibility' ||
               type == 'stateful' ||
-              type == 'stateFull') {
+              type == 'stateFull' ||
+              type == 'bottomNavigationView' ||
+              type == 'bottomNavigationBar') {
             AppLogger.i('Overriding built-in parser for "$type"');
           } else {
             AppLogger.w(
@@ -119,7 +123,9 @@ Future<void> registerCustomParsers() async {
             (type == 'image' ||
                 type == 'visibility' ||
                 type == 'stateful' ||
-                type == 'stateFull')
+                type == 'stateFull' ||
+                type == 'bottomNavigationView' ||
+                type == 'bottomNavigationBar')
             ? stacRegistry.register(parser, true)
             : stacRegistry.register(parser);
         if (success) {
@@ -403,6 +409,18 @@ void _registerExampleParsers() {
   // Register generic ReactiveListView parser for reactive data lists
   CustomComponentRegistry.instance.registerWidget(
     const ReactiveListViewParser(),
+  );
+
+  // Override default bottomNavigationBar parser to soften item splash/highlight
+  CustomComponentRegistry.instance.registerWidget(
+    const CustomBottomNavigationBarParser(),
+    true,
+  );
+
+  // Override bottomNavigationView parser to keep all tab pages mounted
+  CustomComponentRegistry.instance.registerWidget(
+    const CustomBottomNavigationViewParser(),
+    true,
   );
 
   // Note: PromissoryRealPaymentDepositsParser removed as it uses the same list component

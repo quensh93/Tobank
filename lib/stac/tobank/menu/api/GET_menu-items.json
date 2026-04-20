@@ -106,6 +106,28 @@
             "transaction_real_intro",
             "transaction_real_filter"
           ]
+        },
+        {
+          "title": "داشبورد (ناوبری واقعی)",
+          "description": "داشبورد با نوار ناوبری پایین برای صفحات اصلی",
+          "icon": "{{appAssets.icons.storedDeposit}}",
+          "widgetType": "dashboard_real_menu",
+          "flowSteps": [
+            "dashboard_real_shell",
+            "tobank_home_page_dart",
+            "transaction_real_intro",
+            "transaction_real_filter",
+            "profile_real_intro",
+            "profile_real_bank_info",
+            "profile_real_invite_friends",
+            "profile_real_destinations",
+            "profile_real_settings",
+            "profile_real_change_password",
+            "profile_real_rules",
+            "profile_real_about",
+            "profile_real_contact",
+            "cartable_real_intro"
+          ]
         }
       ],
       "completedItems": [

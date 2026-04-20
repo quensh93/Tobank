@@ -8,52 +8,70 @@ import 'package:tobank_sdui/stac/tobank/flows/transaction_real/dart/widgets/tran
 StacWidget transactionRealFilter() {
   return StacStatefulWidget(
     child: StacScaffold(
-      backgroundColor: '#F4F5F8',
+      backgroundColor: '{{appColors.current.background.surface}}',
       appBar: buildTransactionRealAppBar(title: 'فیلتر تراکنش‌ها'),
       body: StacSingleChildScrollView(
         padding: StacEdgeInsets.all(16),
         child: StacColumn(
           crossAxisAlignment: StacCrossAxisAlignment.stretch,
           children: [
-            StacSizedBox(height: 8),
-            _buildDirectionRow(),
-            StacSizedBox(height: 24),
+            StacSizedBox(height: 6),
+            StacCustomVisibility(
+              visible: '[[trIntroChipWalletSelected]]',
+              child: StacColumn(
+                children: [
+                  _buildDirectionRow(),
+                  StacSizedBox(height: 18),
+                ],
+              ).toJson(),
+              replacement: StacSizedBox(height: 2).toJson(),
+            ),
             _sectionTitle('بازه زمانی'),
             StacSizedBox(height: 12),
             StacRow(
               textDirection: StacTextDirection.rtl,
               children: [
-                StacExpanded(child: _buildDateField(title: 'از تاریخ')),
+                StacExpanded(
+                  child: _buildDateField(
+                    title: 'از تاریخ',
+                    fieldId: 'trFilterFromDate',
+                  ),
+                ),
                 StacSizedBox(width: 10),
-                StacExpanded(child: _buildDateField(title: 'تا تاریخ')),
+                StacExpanded(
+                  child: _buildDateField(
+                    title: 'تا تاریخ',
+                    fieldId: 'trFilterToDate',
+                  ),
+                ),
               ],
             ),
-            StacSizedBox(height: 24),
+            StacSizedBox(height: 20),
             _sectionTitle('نوع تراکنش'),
             StacSizedBox(height: 12),
             _buildTypeChips(),
-            StacSizedBox(height: 24),
+            StacSizedBox(height: 20),
             _sectionTitle('وضعیت تراکنش'),
             StacSizedBox(height: 12),
             _buildStatusRow(),
-            StacSizedBox(height: 28),
+            StacSizedBox(height: 26),
             StacFilledButton(
               onPressed: _applyAndBackAction(),
               style: StacButtonStyle(
-                minimumSize: StacSize(double.infinity, 54),
-                backgroundColor: '#D90429',
-                foregroundColor: '#FFFFFF',
+                minimumSize: StacSize(double.infinity, 56),
+                backgroundColor: '{{appColors.current.primary.color}}',
+                foregroundColor: '{{appColors.current.primary.onPrimary}}',
                 shape: StacRoundedRectangleBorder(
-                  borderRadius: StacBorderRadius.all(12),
+                  borderRadius: StacBorderRadius.all(10),
                 ),
               ),
               child: StacText(
                 data: 'فیلتر نتایج',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
-                  fontSize: 17,
+                  fontSize: 18,
                   fontWeight: StacFontWeight.w700,
-                  color: '#FFFFFF',
+                  color: '{{appColors.current.primary.onPrimary}}',
                 ),
               ),
             ),
@@ -134,9 +152,9 @@ StacWidget _sectionTitle(String title) {
     textDirection: StacTextDirection.rtl,
     textAlign: StacTextAlign.right,
     style: StacCustomTextStyle(
-      fontSize: 32,
+      fontSize: 19,
       fontWeight: StacFontWeight.w700,
-      color: '#1F2937',
+      color: '{{appColors.current.text.title}}',
     ),
   );
 }
@@ -144,13 +162,13 @@ StacWidget _sectionTitle(String title) {
 StacWidget _buildDirectionRow() {
   return StacRow(
     textDirection: StacTextDirection.rtl,
-    mainAxisAlignment: StacMainAxisAlignment.end,
+    mainAxisAlignment: StacMainAxisAlignment.start,
     children: [
       _buildDirectionChip(
         title: 'دریافت وجه',
         icon: 'south',
         selectedVisible: '[[trFilterDirectionReceive]]',
-        selectedColor: '#26B366',
+        selectedColor: '{{appColors.current.success.color}}',
         onTap: const StacSequenceAction(
           actions: [
             StacCustomSetValueAction(
@@ -169,7 +187,7 @@ StacWidget _buildDirectionRow() {
         title: 'ارسال وجه',
         icon: 'north',
         selectedVisible: '[[trFilterDirectionSend]]',
-        selectedColor: '#F4B500',
+        selectedColor: '{{appColors.current.warning.color}}',
         onTap: const StacSequenceAction(
           actions: [
             StacCustomSetValueAction(
@@ -199,15 +217,26 @@ StacWidget _buildDirectionChip({
     child: StacCustomVisibility(
       visible: selectedVisible,
       child: StacContainer(
-        padding: StacEdgeInsets.symmetric(horizontal: 14, vertical: 8),
+        width: 120,
+        height: 36,
+        padding: StacEdgeInsets.symmetric(horizontal: 8),
         decoration: StacBoxDecoration(
           color: selectedColor,
-          borderRadius: StacBorderRadius.all(10),
+          borderRadius: StacBorderRadius.all(8),
+          border: StacBorder.all(
+            color: '{{appColors.current.input.borderEnabled}}',
+            width: 0.7,
+          ),
         ),
         child: StacRow(
+          mainAxisAlignment: StacMainAxisAlignment.center,
           textDirection: StacTextDirection.rtl,
           children: [
-            StacIcon(icon: icon, size: 16, color: '#FFFFFF'),
+            StacIcon(
+              icon: icon,
+              size: 16,
+              color: '{{appColors.current.text.onPrimary}}',
+            ),
             StacSizedBox(width: 6),
             StacText(
               data: title,
@@ -215,23 +244,33 @@ StacWidget _buildDirectionChip({
               style: StacCustomTextStyle(
                 fontSize: 14,
                 fontWeight: StacFontWeight.w600,
-                color: '#FFFFFF',
+                color: '{{appColors.current.text.onPrimary}}',
               ),
             ),
           ],
         ),
       ).toJson(),
       replacement: StacContainer(
-        padding: StacEdgeInsets.symmetric(horizontal: 14, vertical: 8),
+        width: 120,
+        height: 36,
+        padding: StacEdgeInsets.symmetric(horizontal: 8),
         decoration: StacBoxDecoration(
-          color: '#FFFFFF',
-          borderRadius: StacBorderRadius.all(10),
-          border: StacBorder.all(color: '#DDE2E8', width: 1),
+          color: 'transparent',
+          borderRadius: StacBorderRadius.all(8),
+          border: StacBorder.all(
+            color: '{{appColors.current.input.borderEnabled}}',
+            width: 0.7,
+          ),
         ),
         child: StacRow(
+          mainAxisAlignment: StacMainAxisAlignment.center,
           textDirection: StacTextDirection.rtl,
           children: [
-            StacIcon(icon: icon, size: 16, color: '#9AA3AF'),
+            StacIcon(
+              icon: icon,
+              size: 16,
+              color: '{{appColors.current.text.hint}}',
+            ),
             StacSizedBox(width: 6),
             StacText(
               data: title,
@@ -239,7 +278,7 @@ StacWidget _buildDirectionChip({
               style: StacCustomTextStyle(
                 fontSize: 14,
                 fontWeight: StacFontWeight.w600,
-                color: '#6B7280',
+                color: '{{appColors.current.text.subtitle}}',
               ),
             ),
           ],
@@ -249,41 +288,52 @@ StacWidget _buildDirectionChip({
   );
 }
 
-StacWidget _buildDateField({required String title}) {
+StacWidget _buildDateField({
+  required String title,
+  required String fieldId,
+}) {
   return StacGestureDetector(
-    onTap: const StacShowResultAction(
-      title: 'انتخاب تاریخ',
-      content: 'این بخش در این مرحله به صورت نمایشی است.',
+    onTap: StacPersianDatePickerAction(
+      formFieldId: fieldId,
+      firstDate: '1400/01/01',
+      lastDate: '1450/12/29',
+      includeTime: true,
     ),
     child: StacContainer(
-      height: 56,
-      padding: StacEdgeInsets.symmetric(horizontal: 12),
+      height: 52,
+      padding: StacEdgeInsets.symmetric(horizontal: 14),
       decoration: StacBoxDecoration(
-        color: '#FFFFFF',
-        borderRadius: StacBorderRadius.all(12),
-        border: StacBorder.all(color: '#DDE2E8', width: 1),
+        color: 'transparent',
+        borderRadius: StacBorderRadius.all(10),
+        border: StacBorder.all(
+          color: '{{appColors.current.input.borderEnabled}}',
+          width: 1,
+        ),
       ),
       child: StacRow(
-        textDirection: StacTextDirection.rtl,
+        textDirection: StacTextDirection.ltr,
         children: [
           StacImage(
             src: '{{appAssets.icons.calendar}}',
             imageType: StacImageType.asset,
             width: 20,
             height: 20,
-            color: '#23C4D8',
+            color: '{{appColors.current.secondary.color}}',
           ),
           StacSizedBox(width: 8),
           StacExpanded(
-            child: StacText(
-              data: title,
-              textDirection: StacTextDirection.rtl,
-              textAlign: StacTextAlign.right,
-              style: StacCustomTextStyle(
-                fontSize: 16,
-                fontWeight: StacFontWeight.w600,
-                color: '#4B5563',
-              ),
+            child: StacCustomRegistryReactive(
+              registryKey: 'form.$fieldId',
+              child: StacText(
+                data: title,
+                textDirection: StacTextDirection.rtl,
+                textAlign: StacTextAlign.right,
+                style: StacCustomTextStyle(
+                  fontSize: 16,
+                  fontWeight: StacFontWeight.w600,
+                  color: '{{appColors.current.text.title}}',
+                ),
+              ).toJson(),
             ),
           ),
         ],
@@ -415,10 +465,10 @@ StacWidget _buildTypeChip({
     child: StacCustomVisibility(
       visible: '[[$key]]',
       child: StacContainer(
-        height: 42,
+        height: 44,
         decoration: StacBoxDecoration(
-          color: '#23C4D8',
-          borderRadius: StacBorderRadius.all(10),
+          color: '{{appColors.current.secondary.color}}',
+          borderRadius: StacBorderRadius.all(6),
         ),
         child: StacCenter(
           child: StacText(
@@ -426,19 +476,22 @@ StacWidget _buildTypeChip({
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(
-              fontSize: 13,
+              fontSize: 14,
               fontWeight: StacFontWeight.w600,
-              color: '#FFFFFF',
+              color: '{{appColors.current.text.onPrimary}}',
             ),
           ),
         ),
       ).toJson(),
       replacement: StacContainer(
-        height: 42,
+        height: 44,
         decoration: StacBoxDecoration(
-          color: '#FFFFFF',
-          borderRadius: StacBorderRadius.all(10),
-          border: StacBorder.all(color: '#E4E7EC', width: 1),
+          color: 'transparent',
+          borderRadius: StacBorderRadius.all(8),
+          border: StacBorder.all(
+            color: '{{appColors.current.input.borderEnabled}}',
+            width: 1,
+          ),
         ),
         child: StacCenter(
           child: StacText(
@@ -446,9 +499,9 @@ StacWidget _buildTypeChip({
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(
-              fontSize: 13,
+              fontSize: 14,
               fontWeight: StacFontWeight.w500,
-              color: '#7C8796',
+              color: '{{appColors.current.text.hint}}',
             ),
           ),
         ),
@@ -464,9 +517,9 @@ StacWidget _buildStatusRow() {
       StacExpanded(
         child: _buildStatusChip(
           title: 'پرداخت موفق',
-          icon: 'check_circle_outline',
+          iconSrc: '{{appAssets.icons.transactionItemSuccessCurrent}}',
           selectedVisible: '[[trFilterStatusSuccessSelected]]',
-          selectedColor: '#26B366',
+          selectedColor: '{{appColors.current.success.color}}',
           onTap: const StacSequenceAction(
             actions: [
               StacCustomSetValueAction(
@@ -489,9 +542,9 @@ StacWidget _buildStatusRow() {
       StacExpanded(
         child: _buildStatusChip(
           title: 'پرداخت ناموفق',
-          icon: 'highlight_off',
+          iconSrc: '{{appAssets.icons.transactionItemFailedCurrent}}',
           selectedVisible: '[[trFilterStatusFailedSelected]]',
-          selectedColor: '#E53935',
+          selectedColor: '{{appColors.current.error.color}}',
           onTap: const StacSequenceAction(
             actions: [
               StacCustomSetValueAction(
@@ -516,7 +569,7 @@ StacWidget _buildStatusRow() {
 
 StacWidget _buildStatusChip({
   required String title,
-  required String icon,
+  required String iconSrc,
   required String selectedVisible,
   required String selectedColor,
   required StacAction onTap,
@@ -527,16 +580,21 @@ StacWidget _buildStatusChip({
       visible: selectedVisible,
       child: StacContainer(
         height: 44,
-        padding: StacEdgeInsets.symmetric(horizontal: 12),
+        padding: StacEdgeInsets.symmetric(horizontal: 10),
         decoration: StacBoxDecoration(
           color: selectedColor,
-          borderRadius: StacBorderRadius.all(10),
+          borderRadius: StacBorderRadius.all(8),
         ),
         child: StacRow(
           mainAxisAlignment: StacMainAxisAlignment.center,
           textDirection: StacTextDirection.rtl,
           children: [
-            StacIcon(icon: icon, size: 16, color: '#FFFFFF'),
+            StacImage(
+              src: iconSrc,
+              imageType: StacImageType.asset,
+              width: 18,
+              height: 18,
+            ),
             StacSizedBox(width: 8),
             StacText(
               data: title,
@@ -544,7 +602,7 @@ StacWidget _buildStatusChip({
               style: StacCustomTextStyle(
                 fontSize: 14,
                 fontWeight: StacFontWeight.w600,
-                color: '#FFFFFF',
+                color: '{{appColors.current.text.onPrimary}}',
               ),
             ),
           ],
@@ -552,17 +610,25 @@ StacWidget _buildStatusChip({
       ).toJson(),
       replacement: StacContainer(
         height: 44,
-        padding: StacEdgeInsets.symmetric(horizontal: 12),
+        padding: StacEdgeInsets.symmetric(horizontal: 10),
         decoration: StacBoxDecoration(
-          color: '#FFFFFF',
-          borderRadius: StacBorderRadius.all(10),
-          border: StacBorder.all(color: '#DDE2E8', width: 1),
+          color: 'transparent',
+          borderRadius: StacBorderRadius.all(8),
+          border: StacBorder.all(
+            color: '{{appColors.current.input.borderEnabled}}',
+            width: 1,
+          ),
         ),
         child: StacRow(
           mainAxisAlignment: StacMainAxisAlignment.center,
           textDirection: StacTextDirection.rtl,
           children: [
-            StacIcon(icon: icon, size: 16, color: '#9AA3AF'),
+            StacImage(
+              src: iconSrc,
+              imageType: StacImageType.asset,
+              width: 18,
+              height: 18,
+            ),
             StacSizedBox(width: 8),
             StacText(
               data: title,
@@ -570,7 +636,7 @@ StacWidget _buildStatusChip({
               style: StacCustomTextStyle(
                 fontSize: 14,
                 fontWeight: StacFontWeight.w600,
-                color: '#6B7280',
+                color: '{{appColors.current.text.subtitle}}',
               ),
             ),
           ],

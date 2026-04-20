@@ -168,6 +168,8 @@ class StacPersianDatePickerAction extends StacAction {
   final String firstDate;
   final String lastDate;
   final String? initialDate;
+  final bool includeTime;
+  final String? initialTime;
   final dynamic onDateSelected;
 
   const StacPersianDatePickerAction({
@@ -175,6 +177,8 @@ class StacPersianDatePickerAction extends StacAction {
     required this.firstDate,
     required this.lastDate,
     this.initialDate,
+    this.includeTime = false,
+    this.initialTime,
     this.onDateSelected,
   });
 
@@ -189,6 +193,8 @@ class StacPersianDatePickerAction extends StacAction {
       'firstDate': firstDate,
       'lastDate': lastDate,
       if (initialDate != null) 'initialDate': initialDate,
+      if (includeTime) 'includeTime': includeTime,
+      if (initialTime != null) 'initialTime': initialTime,
       if (onDateSelected != null)
         'onDateSelected': onDateSelected is StacAction
             ? onDateSelected.toJson()
