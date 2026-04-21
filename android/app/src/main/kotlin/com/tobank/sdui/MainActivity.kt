@@ -1,4 +1,4 @@
-package com.example.tobank_sdui
+package com.tobank.sdui
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 
