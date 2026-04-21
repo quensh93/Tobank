@@ -59,25 +59,28 @@ StacWidget _buildHeader() {
     textDirection: StacTextDirection.rtl,
     children: [
       StacImage(
-        src: 'assets/icons/ic_tobank_red.svg',
+        src: '{{appAssets.current.icons.tobankRed}}',
         imageType: StacImageType.asset,
         width: 18,
         height: 18,
       ),
       StacRow(
         children: [
-          _buildHeaderIcon('assets/icons/ic_support.svg'),
+          _buildHeaderIcon('{{appAssets.current.icons.support}}'),
           StacSizedBox(width: 18),
-          _buildHeaderIcon('assets/icons/ic_notification_unread.svg'),
+          _buildHeaderIcon(
+            '{{appAssets.current.icons.notificationUnread}}',
+            colorize: false,
+          ),
           StacSizedBox(width: 18),
-          _buildHeaderIcon('assets/icons/ic_map.svg'),
+          _buildHeaderIcon('{{appAssets.current.icons.map}}'),
         ],
       ),
     ],
   );
 }
 
-StacWidget _buildHeaderIcon(String assetPath) {
+StacWidget _buildHeaderIcon(String assetPath, {bool colorize = true}) {
   return StacContainer(
     width: 24,
     height: 24,
@@ -87,7 +90,7 @@ StacWidget _buildHeaderIcon(String assetPath) {
       imageType: StacImageType.asset,
       width: 22,
       height: 22,
-      color: '{{appColors.current.text.title}}',
+      color: colorize ? '{{appColors.current.text.title}}' : null,
     ),
   );
 }
@@ -99,8 +102,8 @@ StacWidget _buildTopTabs() {
       _buildTopTab(
         isSelectedKey: 'homePage.tab.services',
         label: 'خدمات',
-        iconPath: 'assets/icons/ic_other.svg',
-        selectedIconPath: 'assets/icons/ic_other_selected.svg',
+        iconPath: '{{appAssets.current.icons.other}}',
+        selectedIconPath: '{{appAssets.current.icons.otherSelected}}',
         action: _buildTabAction(
           deposits: false,
           cards: false,
@@ -112,8 +115,8 @@ StacWidget _buildTopTabs() {
       _buildTopTab(
         isSelectedKey: 'homePage.tab.investment',
         label: 'سرمایه‌گذاری',
-        iconPath: 'assets/icons/ic_finance.svg',
-        selectedIconPath: 'assets/icons/ic_finance_selected.svg',
+        iconPath: '{{appAssets.current.icons.finance}}',
+        selectedIconPath: '{{appAssets.current.icons.financeSelected}}',
         action: _buildTabAction(
           deposits: false,
           cards: false,
@@ -125,8 +128,8 @@ StacWidget _buildTopTabs() {
       _buildTopTab(
         isSelectedKey: 'homePage.tab.cards',
         label: 'کارت‌ها',
-        iconPath: 'assets/icons/ic_card.svg',
-        selectedIconPath: 'assets/icons/ic_card_selected.svg',
+        iconPath: '{{appAssets.current.icons.card}}',
+        selectedIconPath: '{{appAssets.current.icons.cardSelected}}',
         action: _buildTabAction(
           deposits: false,
           cards: true,
@@ -138,8 +141,8 @@ StacWidget _buildTopTabs() {
       _buildTopTab(
         isSelectedKey: 'homePage.tab.deposits',
         label: 'سپرده‌ها',
-        iconPath: 'assets/icons/ic_stored_deposit.svg',
-        selectedIconPath: 'assets/icons/ic_deposit_selected.svg',
+        iconPath: '{{appAssets.current.icons.storedDeposit}}',
+        selectedIconPath: '{{appAssets.current.icons.depositSelected}}',
         action: _buildTabAction(
           deposits: true,
           cards: false,
@@ -281,9 +284,16 @@ StacWidget _buildContentArea() {
       padding: StacEdgeInsets.only(left: 16, right: 16),
       child: _buildCardsTab(),
     ).toJson(),
-    replacement: StacSingleChildScrollView(
-      padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 32),
-      child: _buildScrollableTabsContent(),
+    replacement: StacCustomVisibility(
+      visible: '[[homePage.tab.services]]',
+      child: StacSingleChildScrollView(
+        padding: StacEdgeInsets.only(bottom: 32),
+        child: _buildServicesTab(),
+      ).toJson(),
+      replacement: StacSingleChildScrollView(
+        padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 32),
+        child: _buildScrollableTabsContent(),
+      ).toJson(),
     ).toJson(),
   );
 }
@@ -300,10 +310,6 @@ StacWidget _buildScrollableTabsContent() {
         visible: '[[homePage.tab.investment]]',
         child: _buildInvestmentTab().toJson(),
       ),
-      StacCustomVisibility(
-        visible: '[[homePage.tab.services]]',
-        child: _buildServicesTab().toJson(),
-      ),
     ],
   );
 }
@@ -313,50 +319,82 @@ StacWidget _buildServicesTab() {
     crossAxisAlignment: StacCrossAxisAlignment.stretch,
     children: [
       StacSizedBox(height: 24),
-      StacWrap(
-        textDirection: StacTextDirection.rtl,
-        spacing: 8,
-        runSpacing: 16,
-        children: [
-          _buildServiceGridItem(
-            label: 'کارت به کارت',
-            iconPath: 'assets/icons/ic_card_to_card.svg',
-          ),
-          _buildServiceGridItem(
-            label: 'چک صیادی',
-            iconPath: 'assets/icons/ic_check_receive.svg',
-          ),
-          _buildServiceGridItem(
-            label: 'موجودی',
-            iconPath: 'assets/icons/ic_card_balance.svg',
-          ),
-          _buildServiceGridItem(
-            label: 'شارژ',
-            iconPath: 'assets/icons/ic_sim_charge.svg',
-          ),
-          _buildServiceGridItem(
-            label: 'بسته اینترنت',
-            iconPath: 'assets/icons/ic_internet.svg',
-          ),
-          _buildServiceGridItem(
-            label: 'خدمات سفر',
-            iconPath: 'assets/icons/ic_megagasht.svg',
-          ),
-          _buildServiceGridItem(
-            label: 'کارت هدیه',
-            iconPath: 'assets/icons/ic_gift_card.svg',
-          ),
-          _buildServiceGridItem(
-            label: 'قبض',
-            iconPath: 'assets/icons/ic_invoice.svg',
-          ),
-          _buildServiceGridItem(
-            label: 'پذیرندگی',
-            iconPath: 'assets/icons/ic_acceptor.svg',
-          ),
-        ],
+      StacPadding(
+        padding: StacEdgeInsets.symmetric(horizontal: 8),
+        child: StacColumn(
+          crossAxisAlignment: StacCrossAxisAlignment.stretch,
+          children: [
+            _buildServicesRow(
+              first: _buildServiceGridItem(
+                label: 'کارت به کارت',
+                iconPath: '{{appAssets.current.icons.cardToCard}}',
+              ),
+              second: _buildServiceGridItem(
+                label: 'چک صیادی',
+                iconPath: '{{appAssets.current.icons.checkReceive}}',
+              ),
+              third: _buildServiceGridItem(
+                label: 'موجودی',
+                iconPath: '{{appAssets.current.icons.cardBalance}}',
+              ),
+              fourth: _buildServiceGridItem(
+                label: 'شارژ',
+                iconPath: '{{appAssets.current.icons.simCharge}}',
+              ),
+            ),
+            StacSizedBox(height: 16),
+            _buildServicesRow(
+              first: _buildServiceGridItem(
+                label: 'بسته اینترنت',
+                iconPath: '{{appAssets.current.icons.internet}}',
+              ),
+              second: _buildServiceGridItem(
+                label: 'خدمات سفر',
+                iconPath: '{{appAssets.current.icons.megagasht}}',
+              ),
+              third: _buildServiceGridItem(
+                label: 'کارت هدیه',
+                iconPath: '{{appAssets.current.icons.giftCard}}',
+              ),
+              fourth: _buildServiceGridItem(
+                label: 'قبض',
+                iconPath: '{{appAssets.current.icons.invoice}}',
+              ),
+            ),
+            StacSizedBox(height: 16),
+            _buildServicesRow(
+              first: _buildServiceGridItem(
+                label: 'پذیرندگی',
+                iconPath: '{{appAssets.current.icons.acceptor}}',
+              ),
+              second: StacSizedBox(),
+              third: StacSizedBox(),
+              fourth: StacSizedBox(),
+            ),
+          ],
+        ),
       ),
       StacSizedBox(height: 16),
+    ],
+  );
+}
+
+StacWidget _buildServicesRow({
+  required StacWidget first,
+  required StacWidget second,
+  required StacWidget third,
+  required StacWidget fourth,
+}) {
+  return StacRow(
+    textDirection: StacTextDirection.rtl,
+    children: [
+      StacExpanded(child: first),
+      StacSizedBox(width: 8),
+      StacExpanded(child: second),
+      StacSizedBox(width: 8),
+      StacExpanded(child: third),
+      StacSizedBox(width: 8),
+      StacExpanded(child: fourth),
     ],
   );
 }
@@ -365,39 +403,36 @@ StacWidget _buildServiceGridItem({
   required String label,
   required String iconPath,
 }) {
-  return StacSizedBox(
-    width: 74,
-    child: StacColumn(
-      mainAxisSize: StacMainAxisSize.min,
-      children: [
-        StacContainer(
-          width: 40,
-          height: 40,
-          alignment: StacAlignment.center,
-          decoration: StacBoxDecoration(
-            color: '{{appColors.current.background.surfaceContainerLowest}}',
-            borderRadius: StacBorderRadius.all(8),
-          ),
-          child: StacImage(
-            src: iconPath,
-            imageType: StacImageType.asset,
-            width: 28,
-            height: 28,
-          ),
+  return StacColumn(
+    mainAxisSize: StacMainAxisSize.min,
+    children: [
+      StacContainer(
+        width: 40,
+        height: 40,
+        alignment: StacAlignment.center,
+        decoration: StacBoxDecoration(
+          color: '{{appColors.current.background.surfaceContainerLowest}}',
+          borderRadius: StacBorderRadius.all(8),
         ),
-        StacSizedBox(height: 8),
-        StacText(
-          data: label,
-          textDirection: StacTextDirection.rtl,
-          textAlign: StacTextAlign.center,
-          style: StacCustomTextStyle(
-            fontSize: 13,
-            fontWeight: StacFontWeight.w500,
-            color: '{{appColors.current.text.title}}',
-          ),
+        child: StacImage(
+          src: iconPath,
+          imageType: StacImageType.asset,
+          width: 28,
+          height: 28,
         ),
-      ],
-    ),
+      ),
+      StacSizedBox(height: 8),
+      StacText(
+        data: label,
+        textDirection: StacTextDirection.rtl,
+        textAlign: StacTextAlign.center,
+        style: StacCustomTextStyle(
+          fontSize: 13,
+          fontWeight: StacFontWeight.w500,
+          color: '{{appColors.current.text.title}}',
+        ),
+      ),
+    ],
   );
 }
 
@@ -428,7 +463,7 @@ StacWidget _buildInvestmentTab() {
                   StacCustomOpacity(
                     opacity: 0.28,
                     child: StacImage(
-                      src: 'assets/icons/ic_deposit_bg.svg',
+                      src: '{{appAssets.current.icons.depositBg}}',
                       imageType: StacImageType.asset,
                       width: 320,
                       height: 170,
@@ -446,7 +481,7 @@ StacWidget _buildInvestmentTab() {
                         fit: StacBoxFit.contain,
                       ),
                       StacImage(
-                        src: 'assets/icons/ic_gardeshgari_sarmayeh.svg',
+                        src: '{{appAssets.current.icons.gardeshgariSarmayeh}}',
                         imageType: StacImageType.asset,
                         width: 120,
                         height: 120,
@@ -517,7 +552,7 @@ StacWidget _buildInvestmentFeature(String title) {
       textDirection: StacTextDirection.rtl,
       children: [
         StacImage(
-          src: 'assets/icons/ic_success.svg',
+          src: '{{appAssets.current.icons.success}}',
           imageType: StacImageType.asset,
           width: 18,
           height: 18,
@@ -599,7 +634,7 @@ StacWidget _buildWalletCardWithHandle() {
         child: StacAlign(
           alignment: StacAlignmentDirectional.topCenter,
           child: StacImage(
-            src: 'assets/icons/ic_scroll.svg',
+            src: '{{appAssets.current.icons.scroll}}',
             imageType: StacImageType.asset,
             width: 46,
             height: 27,
@@ -706,7 +741,7 @@ StacWidget _buildWalletCard() {
 
 StacWidget _buildWalletTargetIcon() {
   return StacImage(
-    src: 'assets/icons/ic_tobank_logo.svg',
+    src: '{{appAssets.current.icons.tobankLogo}}',
     imageType: StacImageType.asset,
     width: 34,
     height: 34,
@@ -748,7 +783,7 @@ StacWidget _buildBankCardItem({
               textDirection: StacTextDirection.rtl,
               children: [
                 StacImage(
-                  src: 'assets/icons/ic_gardeshgari.svg',
+                  src: '{{appAssets.current.icons.gardeshgari}}',
                   imageType: StacImageType.asset,
                   width: 24,
                   height: 24,
@@ -830,7 +865,7 @@ StacWidget _buildCardsAddButton() {
     ),
     alignment: StacAlignment.center,
     child: StacImage(
-      src: 'assets/icons/ic_add_plus.svg',
+      src: '{{appAssets.current.icons.addPlus}}',
       imageType: StacImageType.asset,
       width: 24,
       height: 24,
@@ -866,7 +901,7 @@ StacWidget _buildDepositsTab() {
             child: _buildServiceCard(
               title: 'سایر خدمات',
               subtitle: 'سفته الکترونیک ...',
-              iconPath: 'assets/icons/ic_promissory.svg',
+              iconPath: '{{appAssets.current.icons.promissory}}',
             ),
           ),
           StacSizedBox(width: 12),
@@ -874,7 +909,7 @@ StacWidget _buildDepositsTab() {
             child: _buildServiceCard(
               title: 'انواع تسهیلات',
               subtitle: 'ازدواج، کارت اعتباری ...',
-              iconPath: 'assets/icons/ic_credit_card.svg',
+              iconPath: '{{appAssets.current.icons.creditCard}}',
             ),
           ),
         ],
@@ -1009,7 +1044,7 @@ StacWidget _buildCreateDepositCard() {
               textDirection: StacTextDirection.rtl,
               children: [
                 StacImage(
-                  src: 'assets/icons/ic_gardeshgari.svg',
+                  src: '{{appAssets.current.icons.gardeshgari}}',
                   imageType: StacImageType.asset,
                   width: 32,
                   height: 32,
@@ -1031,7 +1066,7 @@ StacWidget _buildCreateDepositCard() {
               textDirection: StacTextDirection.rtl,
               children: [
                 StacImage(
-                  src: 'assets/icons/ic_success.svg',
+                  src: '{{appAssets.current.icons.success}}',
                   imageType: StacImageType.asset,
                   width: 16,
                   height: 16,
@@ -1123,7 +1158,7 @@ StacWidget _buildExistingDepositCard({
                   child: StacCustomOpacity(
                     opacity: 0.62,
                     child: StacImage(
-                      src: 'assets/icons/ic_deposit_bg.svg',
+                      src: '{{appAssets.current.icons.depositBg}}',
                       imageType: StacImageType.asset,
                       width: 170,
                       height: 132,
@@ -1164,7 +1199,7 @@ StacWidget _buildExistingDepositCard({
                           ),
                           StacSizedBox(width: 8),
                           StacImage(
-                            src: 'assets/icons/ic_gardeshgari.svg',
+                            src: '{{appAssets.current.icons.gardeshgari}}',
                             imageType: StacImageType.asset,
                             width: 32,
                             height: 32,
@@ -1215,7 +1250,7 @@ StacWidget _buildDepositBalanceRow() {
         textDirection: StacTextDirection.rtl,
         children: [
           StacImage(
-            src: '{{appAssets.icons.refresh}}',
+            src: '{{appAssets.current.icons.refresh}}',
             imageType: StacImageType.asset,
             width: 22,
             height: 22,
@@ -1273,13 +1308,16 @@ StacWidget _buildQuickActionsRow() {
       children: [
         _buildQuickAction(
           label: 'گردش سپرده',
-          iconPath: 'assets/icons/ic_share_deposit.svg',
+          iconPath: '{{appAssets.current.icons.shareDeposit}}',
         ),
         _buildQuickAction(
           label: 'انتقال وجه',
-          iconPath: 'assets/icons/ic_transfer_amount.svg',
+          iconPath: '{{appAssets.current.icons.transferAmount}}',
         ),
-        _buildQuickAction(label: 'بیشتر', iconPath: 'assets/icons/ic_more.svg'),
+        _buildQuickAction(
+          label: 'بیشتر',
+          iconPath: '{{appAssets.current.icons.more}}',
+        ),
       ],
     ),
   );
