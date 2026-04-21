@@ -18,21 +18,17 @@ StacWidget cartableRealIntro() {
       ],
     ),
     child: StacScaffold(
-      backgroundColor: '#F4F5F8',
+      backgroundColor: '{{appColors.current.background.surface}}',
       body: StacColumn(
-        crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
-          StacSizedBox(height: 46),
-          _buildTopTabs(),
+          StacSizedBox(height: 16),
+          _buildMainSelector(),
           StacSizedBox(height: 8),
           StacExpanded(
-            child: StacPadding(
-              padding: StacEdgeInsets.symmetric(horizontal: 14),
-              child: StacCustomVisibility(
-                visible: '[[isCartableTab]]',
-                child: _buildCartableContent().toJson(),
-                replacement: _buildHistoryContent().toJson(),
-              ),
+            child: StacCustomVisibility(
+              visible: '[[isCartableTab]]',
+              child: _buildCardboardPage().toJson(),
+              replacement: _buildProcessPage().toJson(),
             ),
           ),
         ],
@@ -41,20 +37,21 @@ StacWidget cartableRealIntro() {
   );
 }
 
-StacWidget _buildTopTabs() {
+StacWidget _buildMainSelector() {
   return StacContainer(
-    margin: StacEdgeInsets.symmetric(horizontal: 14),
-    padding: StacEdgeInsets.symmetric(horizontal: 12, vertical: 12),
+    margin: StacEdgeInsets.symmetric(horizontal: 16),
     decoration: StacBoxDecoration(
-      color: '#FFFFFF',
-      borderRadius: StacBorderRadius.all(12),
-      border: StacBorder.all(color: '#DDE2E8', width: 1),
+      color: '{{appColors.current.background.surfaceContainer}}',
+      borderRadius: StacBorderRadius.all(8),
+      border: StacBorder.all(
+        color: '{{appColors.current.input.borderEnabled}}',
+        width: 1,
+      ),
     ),
     child: StacRow(
-      textDirection: StacTextDirection.rtl,
       children: [
         StacExpanded(
-          child: _buildTopTabItem(
+          child: _buildSelectorItem(
             title: 'کارتابل',
             selectedVisible: '[[isCartableTab]]',
             onTap: const StacCustomSetValueAction(
@@ -63,9 +60,13 @@ StacWidget _buildTopTabs() {
             ),
           ),
         ),
-        StacContainer(width: 1, height: 26, color: '#E5E7EB'),
+        StacContainer(
+          height: 24,
+          width: 2,
+          color: '{{appColors.current.input.borderEnabled}}',
+        ),
         StacExpanded(
-          child: _buildTopTabItem(
+          child: _buildSelectorItem(
             title: 'تاریخچه فعالیت‌ها',
             selectedVisible: '[[!isCartableTab]]',
             onTap: const StacCustomSetValueAction(
@@ -79,59 +80,207 @@ StacWidget _buildTopTabs() {
   );
 }
 
-StacWidget _buildTopTabItem({
+StacWidget _buildSelectorItem({
   required String title,
   required String selectedVisible,
   required StacAction onTap,
 }) {
   return StacGestureDetector(
     onTap: onTap,
-    child: StacContainer(
-      width: 999999,
-      height: 52,
-      color: 'transparent',
+    child: StacSizedBox(
+      height: 56,
+      child: StacPadding(
+        padding: StacEdgeInsets.only(top: 8),
+        child: StacColumn(
+          mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+          children: [
+            StacContainer(),
+            StacCustomVisibility(
+              visible: selectedVisible,
+              child: StacText(
+                data: title,
+                textDirection: StacTextDirection.rtl,
+                style: StacCustomTextStyle(
+                  fontSize: 16,
+                  fontWeight: StacFontWeight.w900,
+                  color: '{{appColors.current.text.title}}',
+                ),
+              ).toJson(),
+              replacement: StacText(
+                data: title,
+                textDirection: StacTextDirection.rtl,
+                style: StacCustomTextStyle(
+                  fontSize: 16,
+                  fontWeight: StacFontWeight.w400,
+                  color: '{{appColors.current.text.subtitle}}',
+                ),
+              ).toJson(),
+            ),
+            StacPadding(
+              padding: StacEdgeInsets.symmetric(horizontal: 16),
+              child: StacCustomVisibility(
+                visible: selectedVisible,
+                child: StacContainer(
+                  height: 3,
+                  width: 56,
+                  decoration: StacBoxDecoration(
+                    color: '{{appColors.current.primary.color}}',
+                    borderRadius: StacBorderRadius.all(3),
+                  ),
+                ).toJson(),
+                replacement: StacContainer(
+                  height: 3,
+                  width: 56,
+                  color: 'transparent',
+                ).toJson(),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}
+
+StacWidget _buildCardboardPage() {
+  return StacSingleChildScrollView(
+    child: StacPadding(
+      padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
       child: StacColumn(
-        mainAxisAlignment: StacMainAxisAlignment.center,
-        children: [
-          StacCustomVisibility(
-            visible: selectedVisible,
-            child: StacText(
-              data: title,
-              textDirection: StacTextDirection.rtl,
-              textAlign: StacTextAlign.center,
-              style: StacCustomTextStyle(
-                fontSize: 16,
-                fontWeight: StacFontWeight.w700,
-                color: '#1F2937',
+        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+        children: [_buildCardboardItem(), StacSizedBox(height: 12)],
+      ),
+    ),
+  );
+}
+
+StacWidget _buildCardboardItem() {
+  return StacContainer(
+    decoration: StacBoxDecoration(
+      borderRadius: StacBorderRadius.all(8),
+      border: StacBorder.all(
+        color: '{{appColors.current.input.borderEnabled}}',
+        width: 1,
+      ),
+      color: '{{appColors.current.background.surfaceContainer}}',
+    ),
+    child: StacColumn(
+      crossAxisAlignment: StacCrossAxisAlignment.stretch,
+      children: [
+        StacPadding(
+          padding: StacEdgeInsets.all(16),
+          child: StacColumn(
+            crossAxisAlignment: StacCrossAxisAlignment.stretch,
+            children: [
+              StacText(
+                data: 'نوع درخواست: تسهیلات قرض الحسنه ازدواج',
+                textDirection: StacTextDirection.rtl,
+                textAlign: StacTextAlign.right,
+                style: StacCustomTextStyle(
+                  color: '{{appColors.current.text.title}}',
+                  fontWeight: StacFontWeight.w600,
+                  fontSize: 16,
+                ),
               ),
-            ).toJson(),
-            replacement: StacText(
-              data: title,
-              textDirection: StacTextDirection.rtl,
-              textAlign: StacTextAlign.center,
-              style: StacCustomTextStyle(
-                fontSize: 16,
-                fontWeight: StacFontWeight.w500,
-                color: '#6B7280',
+              StacSizedBox(height: 24),
+              StacRow(
+                textDirection: StacTextDirection.rtl,
+                mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+                children: [
+                  StacText(
+                    data: 'مرحله بعد',
+                    style: StacCustomTextStyle(
+                      color: '{{appColors.current.text.subtitle}}',
+                      fontWeight: StacFontWeight.w500,
+                      fontSize: 14,
+                    ),
+                  ),
+                  StacExpanded(
+                    child: StacText(
+                      data: 'اصلاح اطلاعات محل سکونت متقاضی',
+                      textDirection: StacTextDirection.rtl,
+                      textAlign: StacTextAlign.right,
+                      style: StacCustomTextStyle(
+                        color: '{{appColors.current.text.title}}',
+                        fontWeight: StacFontWeight.w600,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ).toJson(),
+            ],
           ),
-          StacSizedBox(height: 8),
-          StacCustomVisibility(
-            visible: selectedVisible,
-            child: StacContainer(
-              width: 56,
-              height: 3,
-              decoration: StacBoxDecoration(
-                color: '#D32F2F',
-                borderRadius: StacBorderRadius.all(3),
+        ),
+        StacContainer(
+          color: '{{appColors.current.input.borderEnabled}}',
+          width: 999999,
+          height: 1,
+        ),
+        StacPadding(
+          padding: StacEdgeInsets.symmetric(vertical: 8),
+          child: StacRow(
+            children: [
+              StacExpanded(
+                child: _buildCardboardFooterAction(
+                  title: 'جزئیات',
+                  iconAsset: 'assets/icons/ic_detail.svg',
+                  onTap: const StacShowResultAction(
+                    title: 'جزئیات',
+                    content: 'جزئیات به زودی فعال می‌شود.',
+                  ),
+                ),
               ),
-            ).toJson(),
-            replacement: StacContainer(
-              height: 3,
-              width: 56,
-              color: 'transparent',
-            ).toJson(),
+              StacContainer(
+                color: '{{appColors.current.input.borderEnabled}}',
+                width: 1,
+                height: 32,
+              ),
+              StacExpanded(
+                child: _buildCardboardFooterAction(
+                  title: 'ادامه فرآیند',
+                  iconAsset: 'assets/icons/ic_continue_process.svg',
+                  onTap: const StacShowResultAction(
+                    title: 'ادامه فرآیند',
+                    content: 'ادامه فرآیند به زودی فعال می‌شود.',
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+StacWidget _buildCardboardFooterAction({
+  required String title,
+  required String iconAsset,
+  required StacAction onTap,
+}) {
+  return StacGestureDetector(
+    onTap: onTap,
+    child: StacPadding(
+      padding: StacEdgeInsets.all(8),
+      child: StacRow(
+        mainAxisAlignment: StacMainAxisAlignment.center,
+        textDirection: StacTextDirection.rtl,
+        children: [
+          StacImage(
+            src: iconAsset,
+            imageType: StacImageType.asset,
+            width: 24,
+            height: 24,
+          ),
+          StacSizedBox(width: 8),
+          StacText(
+            data: title,
+            style: StacCustomTextStyle(
+              color: '{{appColors.current.text.title}}',
+              fontWeight: StacFontWeight.w500,
+              fontSize: 14,
+            ),
           ),
         ],
       ),
@@ -139,212 +288,116 @@ StacWidget _buildTopTabItem({
   );
 }
 
-StacWidget _buildCartableContent() {
-  return StacSingleChildScrollView(
-    child: StacColumn(
-      crossAxisAlignment: StacCrossAxisAlignment.stretch,
-      children: [
-        StacSizedBox(height: 12),
-        StacContainer(
-          decoration: StacBoxDecoration(
-            color: '#FFFFFF',
-            borderRadius: StacBorderRadius.all(12),
-            border: StacBorder.all(color: '#DDE2E8', width: 1),
-          ),
-          child: StacColumn(
-            crossAxisAlignment: StacCrossAxisAlignment.stretch,
-            children: [
-              StacPadding(
-                padding: StacEdgeInsets.all(14),
-                child: StacColumn(
-                  crossAxisAlignment: StacCrossAxisAlignment.stretch,
-                  children: [
-                    StacText(
-                      data: 'نوع درخواست: تسهیلات قرض الحسنه ازدواج',
-                      textDirection: StacTextDirection.rtl,
-                      textAlign: StacTextAlign.right,
-                      style: StacCustomTextStyle(
-                        fontSize: 16,
-                        fontWeight: StacFontWeight.w700,
-                        color: '#1F2937',
-                      ),
-                    ),
-                    StacSizedBox(height: 14),
-                    StacRow(
-                      textDirection: StacTextDirection.rtl,
-                      mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-                      children: [
-                        StacText(
-                          data: 'مرحله بعد',
-                          style: StacCustomTextStyle(
-                            fontSize: 14,
-                            fontWeight: StacFontWeight.w500,
-                            color: '#7C8796',
-                          ),
-                        ),
-                        StacExpanded(
-                          child: StacText(
-                            data: 'اصلاح اطلاعات محل سکونت متقاضی',
-                            textDirection: StacTextDirection.rtl,
-                            textAlign: StacTextAlign.right,
-                            style: StacCustomTextStyle(
-                              fontSize: 15,
-                              fontWeight: StacFontWeight.w600,
-                              color: '#1F2937',
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              StacContainer(height: 1, color: '#E5E7EB'),
-              StacPadding(
-                padding: StacEdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                child: StacRow(
-                  textDirection: StacTextDirection.rtl,
-                  children: [
-                    StacExpanded(
-                      child: _buildFooterAction(
-                        title: 'جزئیات',
-                        icon: 'list_alt_outlined',
-                        onTap: const StacShowResultAction(
-                          title: 'جزئیات',
-                          content: 'جزئیات به زودی فعال می‌شود.',
-                        ),
-                      ),
-                    ),
-                    StacContainer(width: 1, height: 28, color: '#E5E7EB'),
-                    StacExpanded(
-                      child: _buildFooterAction(
-                        title: 'ادامه فرآیند',
-                        icon: 'trending_up',
-                        onTap: const StacShowResultAction(
-                          title: 'ادامه فرآیند',
-                          content: 'ادامه فرآیند به زودی فعال می‌شود.',
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
-    ),
-  );
-}
-
-StacWidget _buildHistoryContent() {
-  return StacSingleChildScrollView(
-    child: StacColumn(
-      crossAxisAlignment: StacCrossAxisAlignment.stretch,
-      children: [
-        StacSizedBox(height: 12),
-        StacRow(
+StacWidget _buildProcessPage() {
+  return StacColumn(
+    children: [
+      StacPadding(
+        padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: StacRow(
           textDirection: StacTextDirection.rtl,
           children: [
-            StacExpanded(
-              child: _buildFilterChip(
-                title: 'همه',
-                selectedVisible: '[[historySelectedAll]]',
-                onTap: const StacCustomSetValueAction(
-                  values: [
-                    {'key': 'historyFilter', 'value': 'all'},
-                    {'key': 'historySelectedAll', 'value': true},
-                    {'key': 'historySelectedOpen', 'value': false},
-                    {'key': 'historySelectedClosed', 'value': false},
-                    {'key': 'historyShowOpenCard', 'value': true},
-                    {'key': 'historyShowClosedCards', 'value': true},
-                  ],
-                ),
+            _buildProcessFilterChip(
+              title: 'همه',
+              selectedVisible: '[[historySelectedAll]]',
+              onTap: const StacCustomSetValueAction(
+                values: [
+                  {'key': 'historyFilter', 'value': 'all'},
+                  {'key': 'historySelectedAll', 'value': true},
+                  {'key': 'historySelectedOpen', 'value': false},
+                  {'key': 'historySelectedClosed', 'value': false},
+                  {'key': 'historyShowOpenCard', 'value': true},
+                  {'key': 'historyShowClosedCards', 'value': true},
+                ],
               ),
             ),
             StacSizedBox(width: 8),
-            StacExpanded(
-              child: _buildFilterChip(
-                title: 'درخواست‌های باز',
-                selectedVisible: '[[historySelectedOpen]]',
-                onTap: const StacCustomSetValueAction(
-                  values: [
-                    {'key': 'historyFilter', 'value': 'open'},
-                    {'key': 'historySelectedAll', 'value': false},
-                    {'key': 'historySelectedOpen', 'value': true},
-                    {'key': 'historySelectedClosed', 'value': false},
-                    {'key': 'historyShowOpenCard', 'value': true},
-                    {'key': 'historyShowClosedCards', 'value': false},
-                  ],
-                ),
+            _buildProcessFilterChip(
+              title: 'درخواست‌های باز',
+              selectedVisible: '[[historySelectedOpen]]',
+              onTap: const StacCustomSetValueAction(
+                values: [
+                  {'key': 'historyFilter', 'value': 'open'},
+                  {'key': 'historySelectedAll', 'value': false},
+                  {'key': 'historySelectedOpen', 'value': true},
+                  {'key': 'historySelectedClosed', 'value': false},
+                  {'key': 'historyShowOpenCard', 'value': true},
+                  {'key': 'historyShowClosedCards', 'value': false},
+                ],
               ),
             ),
             StacSizedBox(width: 8),
-            StacExpanded(
-              child: _buildFilterChip(
-                title: 'درخواست‌های بسته',
-                selectedVisible: '[[historySelectedClosed]]',
-                onTap: const StacCustomSetValueAction(
-                  values: [
-                    {'key': 'historyFilter', 'value': 'closed'},
-                    {'key': 'historySelectedAll', 'value': false},
-                    {'key': 'historySelectedOpen', 'value': false},
-                    {'key': 'historySelectedClosed', 'value': true},
-                    {'key': 'historyShowOpenCard', 'value': false},
-                    {'key': 'historyShowClosedCards', 'value': true},
-                  ],
-                ),
+            _buildProcessFilterChip(
+              title: 'درخواست‌های بسته',
+              selectedVisible: '[[historySelectedClosed]]',
+              onTap: const StacCustomSetValueAction(
+                values: [
+                  {'key': 'historyFilter', 'value': 'closed'},
+                  {'key': 'historySelectedAll', 'value': false},
+                  {'key': 'historySelectedOpen', 'value': false},
+                  {'key': 'historySelectedClosed', 'value': true},
+                  {'key': 'historyShowOpenCard', 'value': false},
+                  {'key': 'historyShowClosedCards', 'value': true},
+                ],
               ),
             ),
           ],
         ),
-        StacSizedBox(height: 12),
-        StacCustomVisibility(
-          visible: '[[historyShowOpenCard]]',
-          child: StacColumn(
-            children: [
-              _buildHistoryCard(
-                title: 'وام قرض الحسنه ازدواج',
-                status: 'باز',
-                date: '۶ دی ۱۴۰۴',
-              ),
-              StacSizedBox(height: 12),
-            ],
-          ).toJson(),
-          replacement: StacSizedBox().toJson(),
+      ),
+      StacExpanded(
+        child: StacSingleChildScrollView(
+          child: StacPadding(
+            padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: StacColumn(
+              children: [
+                StacCustomVisibility(
+                  visible: '[[historyShowOpenCard]]',
+                  child: StacColumn(
+                    children: [
+                      _buildProcessItem(
+                        title: 'وام قرض الحسنه ازدواج',
+                        status: 'باز',
+                        date: '۶ دی ۱۴۰۴',
+                      ),
+                      StacSizedBox(height: 16),
+                    ],
+                  ).toJson(),
+                  replacement: StacSizedBox().toJson(),
+                ),
+                StacCustomVisibility(
+                  visible: '[[historyShowClosedCards]]',
+                  child: StacColumn(
+                    children: [
+                      _buildProcessItem(
+                        title: 'تکمیل مدارک',
+                        status: 'بسته',
+                        date: '۲۴ فروردین ۱۴۰۵',
+                      ),
+                      StacSizedBox(height: 16),
+                      _buildProcessItem(
+                        title: 'تکمیل مدارک',
+                        status: 'بسته',
+                        date: '۲۳ فروردین ۱۴۰۵',
+                      ),
+                      StacSizedBox(height: 16),
+                      _buildProcessItem(
+                        title: 'تکمیل مدارک',
+                        status: 'بسته',
+                        date: '۲۳ فروردین ۱۴۰۵',
+                      ),
+                    ],
+                  ).toJson(),
+                  replacement: StacSizedBox().toJson(),
+                ),
+              ],
+            ),
+          ),
         ),
-        StacCustomVisibility(
-          visible: '[[historyShowClosedCards]]',
-          child: StacColumn(
-            children: [
-              _buildHistoryCard(
-                title: 'تکمیل مدارک',
-                status: 'بسته',
-                date: '۲۴ فروردین ۱۴۰۵',
-              ),
-              StacSizedBox(height: 12),
-              _buildHistoryCard(
-                title: 'تکمیل مدارک',
-                status: 'بسته',
-                date: '۲۳ فروردین ۱۴۰۵',
-              ),
-              StacSizedBox(height: 12),
-              _buildHistoryCard(
-                title: 'تکمیل مدارک',
-                status: 'بسته',
-                date: '۲۳ فروردین ۱۴۰۵',
-              ),
-              StacSizedBox(height: 8),
-            ],
-          ).toJson(),
-          replacement: StacSizedBox().toJson(),
-        ),
-      ],
-    ),
+      ),
+    ],
   );
 }
 
-StacWidget _buildFilterChip({
+StacWidget _buildProcessFilterChip({
   required String title,
   required String selectedVisible,
   required StacAction onTap,
@@ -354,38 +407,44 @@ StacWidget _buildFilterChip({
     child: StacCustomVisibility(
       visible: selectedVisible,
       child: StacContainer(
-        padding: StacEdgeInsets.symmetric(vertical: 10),
         decoration: StacBoxDecoration(
-          color: '#E8FBFE',
-          borderRadius: StacBorderRadius.all(10),
-          border: StacBorder.all(color: '#23C4D8', width: 1),
+          borderRadius: StacBorderRadius.all(8),
+          color: '{{appColors.current.secondary.secondaryContainer}}',
+          border: StacBorder.all(
+            color: '{{appColors.current.secondary.color}}',
+            width: 1,
+          ),
         ),
-        child: StacText(
-          data: title,
-          textDirection: StacTextDirection.rtl,
-          textAlign: StacTextAlign.center,
-          style: StacCustomTextStyle(
-            fontSize: 14,
-            fontWeight: StacFontWeight.w600,
-            color: '#06A7BC',
+        child: StacPadding(
+          padding: StacEdgeInsets.symmetric(vertical: 6, horizontal: 12),
+          child: StacText(
+            data: title,
+            style: StacCustomTextStyle(
+              color: '{{appColors.current.secondary.color}}',
+              fontWeight: StacFontWeight.w600,
+              fontSize: 14,
+            ),
           ),
         ),
       ).toJson(),
       replacement: StacContainer(
-        padding: StacEdgeInsets.symmetric(vertical: 10),
         decoration: StacBoxDecoration(
-          color: '#FFFFFF',
-          borderRadius: StacBorderRadius.all(10),
-          border: StacBorder.all(color: '#DDE2E8', width: 1),
+          borderRadius: StacBorderRadius.all(8),
+          color: 'transparent',
+          border: StacBorder.all(
+            color: '{{appColors.current.input.borderEnabled}}',
+            width: 1,
+          ),
         ),
-        child: StacText(
-          data: title,
-          textDirection: StacTextDirection.rtl,
-          textAlign: StacTextAlign.center,
-          style: StacCustomTextStyle(
-            fontSize: 14,
-            fontWeight: StacFontWeight.w500,
-            color: '#4B5563',
+        child: StacPadding(
+          padding: StacEdgeInsets.symmetric(vertical: 6, horizontal: 12),
+          child: StacText(
+            data: title,
+            style: StacCustomTextStyle(
+              color: '{{appColors.current.text.title}}',
+              fontWeight: StacFontWeight.w600,
+              fontSize: 14,
+            ),
           ),
         ),
       ).toJson(),
@@ -393,22 +452,24 @@ StacWidget _buildFilterChip({
   );
 }
 
-StacWidget _buildHistoryCard({
+StacWidget _buildProcessItem({
   required String title,
   required String status,
   required String date,
 }) {
   return StacContainer(
     decoration: StacBoxDecoration(
-      color: '#FFFFFF',
-      borderRadius: StacBorderRadius.all(12),
-      border: StacBorder.all(color: '#DDE2E8', width: 1),
+      borderRadius: StacBorderRadius.all(8),
+      border: StacBorder.all(
+        color: '{{appColors.current.input.borderEnabled}}',
+        width: 1,
+      ),
+      color: '{{appColors.current.background.surfaceContainer}}',
     ),
     child: StacColumn(
-      crossAxisAlignment: StacCrossAxisAlignment.stretch,
       children: [
         StacPadding(
-          padding: StacEdgeInsets.all(14),
+          padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
           child: StacColumn(
             crossAxisAlignment: StacCrossAxisAlignment.stretch,
             children: [
@@ -417,79 +478,96 @@ StacWidget _buildHistoryCard({
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
                 style: StacCustomTextStyle(
-                  fontSize: 17,
+                  color: '{{appColors.current.text.title}}',
                   fontWeight: StacFontWeight.w700,
-                  color: '#1F2937',
+                  fontSize: 16,
                 ),
               ),
+              StacSizedBox(height: 24),
+              StacRow(
+                textDirection: StacTextDirection.rtl,
+                mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+                children: [
+                  StacText(
+                    data: 'وضعیت درخواست:',
+                    style: StacCustomTextStyle(
+                      color: '{{appColors.current.text.subtitle}}',
+                      fontWeight: StacFontWeight.w500,
+                      fontSize: 14,
+                    ),
+                  ),
+                  StacText(
+                    data: status,
+                    style: StacCustomTextStyle(
+                      color: '{{appColors.current.text.title}}',
+                      fontWeight: StacFontWeight.w600,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
               StacSizedBox(height: 16),
-              _buildInfoRow(label: 'وضعیت درخواست:', value: status),
-              StacSizedBox(height: 10),
-              _buildInfoRow(label: 'تاریخ ثبت درخواست:', value: date),
+              StacRow(
+                textDirection: StacTextDirection.rtl,
+                mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+                children: [
+                  StacText(
+                    data: 'تاریخ ثبت درخواست:',
+                    style: StacCustomTextStyle(
+                      color: '{{appColors.current.text.subtitle}}',
+                      fontWeight: StacFontWeight.w500,
+                      fontSize: 14,
+                    ),
+                  ),
+                  StacText(
+                    data: date,
+                    style: StacCustomTextStyle(
+                      color: '{{appColors.current.text.title}}',
+                      fontWeight: StacFontWeight.w600,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
-        StacContainer(height: 1, color: '#E5E7EB'),
-        StacPadding(
-          padding: StacEdgeInsets.symmetric(horizontal: 12, vertical: 8),
-          child: _buildFooterAction(
-            title: 'جزئیات',
-            icon: 'list_alt_outlined',
+        StacContainer(
+          color: '{{appColors.current.input.borderEnabled}}',
+          width: 999999,
+          height: 1,
+        ),
+        StacSizedBox(
+          height: 48,
+          child: StacGestureDetector(
             onTap: const StacShowResultAction(
               title: 'جزئیات',
               content: 'جزئیات به زودی فعال می‌شود.',
             ),
-          ),
-        ),
-      ],
-    ),
-  );
-}
-
-StacWidget _buildInfoRow({required String label, required String value}) {
-  return StacRow(
-    textDirection: StacTextDirection.rtl,
-    mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-    children: [
-      StacText(
-        data: label,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          fontWeight: StacFontWeight.w500,
-          color: '#7C8796',
-        ),
-      ),
-      StacText(
-        data: value,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          fontWeight: StacFontWeight.w700,
-          color: '#1F2937',
-        ),
-      ),
-    ],
-  );
-}
-
-StacWidget _buildFooterAction({
-  required String title,
-  required String icon,
-  required StacAction onTap,
-}) {
-  return StacGestureDetector(
-    onTap: onTap,
-    child: StacRow(
-      mainAxisAlignment: StacMainAxisAlignment.center,
-      textDirection: StacTextDirection.rtl,
-      children: [
-        StacIcon(icon: icon, size: 21, color: '#3F4B5B'),
-        StacSizedBox(width: 8),
-        StacText(
-          data: title,
-          style: StacCustomTextStyle(
-            fontSize: 15,
-            fontWeight: StacFontWeight.w600,
-            color: '#1F2937',
+            child: StacPadding(
+              padding: StacEdgeInsets.all(8),
+              child: StacRow(
+                mainAxisAlignment: StacMainAxisAlignment.center,
+                textDirection: StacTextDirection.rtl,
+                children: [
+                  StacImage(
+                    src: 'assets/icons/ic_detail.svg',
+                    imageType: StacImageType.asset,
+                    width: 24,
+                    height: 24,
+                  ),
+                  StacSizedBox(width: 8),
+                  StacText(
+                    data: 'جزئیات',
+                    style: StacCustomTextStyle(
+                      color: '{{appColors.current.text.title}}',
+                      fontWeight: StacFontWeight.w600,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ],
