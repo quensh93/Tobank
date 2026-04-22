@@ -2,6 +2,21 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Flutter (No Pub - Chrome)",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "toolArgs": [
+        "--no-pub",
+        "-d",
+        "chrome"
+      ],
+      "args": [
+        "--web-browser-flag",
+        "--disable-web-security"
+      ]
+    },
+    {
       "name": "Flutter (Mock API)",
       "request": "launch",
       "type": "dart",

@@ -1,0 +1,460 @@
+{
+  "appBar": {
+    "leading": {
+      "padding": {
+        "left": 12.0
+      },
+      "child": {
+        "child": {
+          "src": "{{appAssets.icons.support}}",
+          "imageType": "asset",
+          "color": "{{appColors.current.text.title}}",
+          "width": 24.0,
+          "height": 24.0,
+          "type": "image"
+        },
+        "type": "center"
+      },
+      "type": "padding"
+    },
+    "title": {
+      "data": "{{appStrings.profile.real.settings.title}}",
+      "style": {
+        "type": "alias",
+        "value": "{{appStyles.appbarStyle}}"
+      },
+      "textDirection": "rtl",
+      "type": "text"
+    },
+    "actions": [
+      {
+        "padding": {
+          "right": 12.0
+        },
+        "child": {
+          "onPressed": {
+            "navigationStyle": "pop",
+            "actionType": "navigate"
+          },
+          "icon": {
+            "src": "{{appAssets.icons.arrowBack}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 31.0,
+            "height": 31.0,
+            "type": "image"
+          },
+          "type": "iconButton"
+        },
+        "type": "padding"
+      }
+    ],
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "backgroundColor": "{{appColors.current.background.surface}}",
+  "body": {
+    "padding": {
+      "left": 16.0,
+      "top": 16.0,
+      "right": 16.0,
+      "bottom": 16.0
+    },
+    "child": {
+      "crossAxisAlignment": "stretch",
+      "children": [
+        {
+          "padding": {
+            "left": 16.0,
+            "top": 16.0,
+            "right": 16.0,
+            "bottom": 16.0
+          },
+          "decoration": {
+            "color": "{{appColors.current.background.surface}}",
+            "border": {
+              "color": "{{appColors.current.input.borderEnabled}}",
+              "width": 1.0
+            },
+            "borderRadius": {
+              "topLeft": 8.0,
+              "topRight": 8.0,
+              "bottomLeft": 8.0,
+              "bottomRight": 8.0
+            }
+          },
+          "child": {
+            "textDirection": "rtl",
+            "children": [
+              {
+                "src": "{{appAssets.current.icons.fingerprint}}",
+                "imageType": "asset",
+                "width": 24.0,
+                "height": 24.0,
+                "type": "image"
+              },
+              {
+                "width": 8.0,
+                "type": "sizedBox"
+              },
+              {
+                "child": {
+                  "data": "{{appStrings.profile.real.settings.faceId}}",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.text.title}}",
+                    "fontSize": 16.0,
+                    "fontWeight": "w600"
+                  },
+                  "textAlign": "right",
+                  "textDirection": "rtl",
+                  "type": "text"
+                },
+                "type": "expanded"
+              },
+              {
+                "width": 22.0,
+                "height": 14.0,
+                "child": {
+                  "type": "reactiveSwitch",
+                  "valueKey": "profileRealFaceIdEnabled",
+                  "initialValue": false,
+                  "activeColor": "{{appColors.current.primary.color}}",
+                  "inactiveTrackColor": "#E5E7EB",
+                  "inactiveThumbColor": "#FFFFFF",
+                  "scale": 0.63
+                },
+                "type": "container"
+              }
+            ],
+            "type": "row"
+          },
+          "type": "container"
+        },
+        {
+          "height": 16.0,
+          "type": "sizedBox"
+        },
+        {
+          "child": {
+            "padding": {
+              "left": 16.0,
+              "top": 16.0,
+              "right": 16.0,
+              "bottom": 16.0
+            },
+            "decoration": {
+              "color": "{{appColors.current.background.surface}}",
+              "border": {
+                "color": "{{appColors.current.input.borderEnabled}}",
+                "width": 1.0
+              },
+              "borderRadius": {
+                "topLeft": 8.0,
+                "topRight": 8.0,
+                "bottomLeft": 8.0,
+                "bottomRight": 8.0
+              }
+            },
+            "child": {
+              "textDirection": "rtl",
+              "children": [
+                {
+                  "src": "{{appAssets.current.icons.theme}}",
+                  "imageType": "asset",
+                  "width": 24.0,
+                  "height": 24.0,
+                  "type": "image"
+                },
+                {
+                  "width": 8.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "child": {
+                    "data": "{{appStrings.profile.real.settings.themeTitle}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w600"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  "type": "expanded"
+                },
+                {
+                  "data": "{{appStrings.profile.real.settings.themeCurrent}}",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.text.subtitle}}",
+                    "fontSize": 14.0,
+                    "fontWeight": "w500"
+                  },
+                  "type": "text"
+                },
+                {
+                  "width": 8.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "src": "{{appAssets.icons.arrowLeft}}",
+                  "imageType": "asset",
+                  "color": "{{appColors.current.text.title}}",
+                  "width": 29.0,
+                  "height": 29.0,
+                  "type": "image"
+                }
+              ],
+              "type": "row"
+            },
+            "type": "container"
+          },
+          "onTap": {
+            "actionType": "showThemeSelectorBottomSheet",
+            "title": "{{appStrings.profile.real.settings.themeSheetTitle}}",
+            "lightLabel": "{{appStrings.profile.real.settings.themeLight}}",
+            "darkLabel": "{{appStrings.profile.real.settings.themeDark}}",
+            "systemLabel": "{{appStrings.profile.real.settings.themeSystem}}"
+          },
+          "type": "gestureDetector"
+        },
+        {
+          "height": 16.0,
+          "type": "sizedBox"
+        },
+        {
+          "child": {
+            "padding": {
+              "left": 16.0,
+              "top": 16.0,
+              "right": 16.0,
+              "bottom": 16.0
+            },
+            "decoration": {
+              "color": "{{appColors.current.background.surface}}",
+              "border": {
+                "color": "{{appColors.current.input.borderEnabled}}",
+                "width": 1.0
+              },
+              "borderRadius": {
+                "topLeft": 8.0,
+                "topRight": 8.0,
+                "bottomLeft": 8.0,
+                "bottomRight": 8.0
+              }
+            },
+            "child": {
+              "textDirection": "rtl",
+              "children": [
+                {
+                  "src": "{{appAssets.current.icons.cardServicePasswordChange}}",
+                  "imageType": "asset",
+                  "width": 24.0,
+                  "height": 24.0,
+                  "type": "image"
+                },
+                {
+                  "width": 8.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "child": {
+                    "data": "{{appStrings.profile.real.settings.changePassword}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w600"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  "type": "expanded"
+                },
+                {
+                  "src": "{{appAssets.icons.arrowLeft}}",
+                  "imageType": "asset",
+                  "color": "{{appColors.current.text.title}}",
+                  "width": 29.0,
+                  "height": 29.0,
+                  "type": "image"
+                }
+              ],
+              "type": "row"
+            },
+            "type": "container"
+          },
+          "onTap": {
+            "assetPath": "lib/stac/tobank/flows/profile_real/json/profile_real_change_password.json",
+            "navigationStyle": "push",
+            "actionType": "navigate"
+          },
+          "type": "gestureDetector"
+        },
+        {
+          "height": 16.0,
+          "type": "sizedBox"
+        },
+        {
+          "child": {
+            "padding": {
+              "left": 16.0,
+              "top": 16.0,
+              "right": 16.0,
+              "bottom": 16.0
+            },
+            "decoration": {
+              "color": "{{appColors.current.background.surface}}",
+              "border": {
+                "color": "{{appColors.current.input.borderEnabled}}",
+                "width": 1.0
+              },
+              "borderRadius": {
+                "topLeft": 8.0,
+                "topRight": 8.0,
+                "bottomLeft": 8.0,
+                "bottomRight": 8.0
+              }
+            },
+            "child": {
+              "textDirection": "rtl",
+              "children": [
+                {
+                  "src": "{{appAssets.current.icons.deleteAccount}}",
+                  "imageType": "asset",
+                  "width": 24.0,
+                  "height": 24.0,
+                  "type": "image"
+                },
+                {
+                  "width": 8.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "child": {
+                    "data": "{{appStrings.profile.real.settings.deleteAccount}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w600"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  "type": "expanded"
+                },
+                {
+                  "src": "{{appAssets.icons.arrowLeft}}",
+                  "imageType": "asset",
+                  "color": "{{appColors.current.text.title}}",
+                  "width": 29.0,
+                  "height": 29.0,
+                  "type": "image"
+                }
+              ],
+              "type": "row"
+            },
+            "type": "container"
+          },
+          "onTap": {
+            "actionType": "showDeleteAccountConfirmBottomSheet",
+            "title": "{{appStrings.profile.real.settings.deleteAccountDialogTitle}}",
+            "description": "{{appStrings.profile.real.settings.deleteAccountDialogDescription}}",
+            "warningMessageOne": "{{appStrings.profile.real.settings.deleteAccountWarningOne}}",
+            "warningMessageTwo": "{{appStrings.profile.real.settings.deleteAccountWarningTwo}}",
+            "confirmText": "{{appStrings.profile.real.settings.deleteAccountConfirm}}",
+            "buttonText": "{{appStrings.profile.real.settings.deleteAccountButton}}",
+            "warningIconAsset": "assets/icons/ic_warning_red.svg"
+          },
+          "type": "gestureDetector"
+        },
+        {
+          "height": 16.0,
+          "type": "sizedBox"
+        },
+        {
+          "child": {
+            "padding": {
+              "left": 16.0,
+              "top": 16.0,
+              "right": 16.0,
+              "bottom": 16.0
+            },
+            "decoration": {
+              "color": "{{appColors.current.background.surface}}",
+              "border": {
+                "color": "{{appColors.current.input.borderEnabled}}",
+                "width": 1.0
+              },
+              "borderRadius": {
+                "topLeft": 8.0,
+                "topRight": 8.0,
+                "bottomLeft": 8.0,
+                "bottomRight": 8.0
+              }
+            },
+            "child": {
+              "textDirection": "rtl",
+              "children": [
+                {
+                  "src": "{{appAssets.current.icons.logout}}",
+                  "imageType": "asset",
+                  "width": 24.0,
+                  "height": 24.0,
+                  "type": "image"
+                },
+                {
+                  "width": 8.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "child": {
+                    "data": "{{appStrings.profile.real.settings.logout}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w600"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  "type": "expanded"
+                },
+                {
+                  "src": "{{appAssets.icons.arrowLeft}}",
+                  "imageType": "asset",
+                  "color": "{{appColors.current.text.title}}",
+                  "width": 29.0,
+                  "height": 29.0,
+                  "type": "image"
+                }
+              ],
+              "type": "row"
+            },
+            "type": "container"
+          },
+          "onTap": {
+            "actionType": "showLogoutConfirmDialog",
+            "title": "{{appStrings.profile.real.settings.logoutDialogTitle}}",
+            "description": "{{appStrings.profile.real.settings.logoutDialogDescription}}",
+            "positiveText": "{{appStrings.profile.real.settings.logoutYes}}",
+            "negativeText": "{{appStrings.profile.real.settings.logoutNo}}",
+            "warningIconAsset": "assets/icons/ic_warning_red.svg"
+          },
+          "type": "gestureDetector"
+        }
+      ],
+      "type": "column"
+    },
+    "type": "singleChildScrollView"
+  },
+  "type": "scaffold"
+}

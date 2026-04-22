@@ -38,7 +38,7 @@
           ]
         },
         {
-          "title": "{{appStrings.menu.items.verifyIdentity}}",
+          "title": "\u0627\u062d\u0631\u0627\u0632 \u0647\u0648\u06cc\u062a",
           "description": "فرم احراز هویت",
           "icon": "{{appAssets.icons.login}}",
           "dartPath": "lib/stac/tobank/login/dart/tobank_login.dart",
@@ -52,7 +52,7 @@
       ],
       "apiFlows": [
         {
-          "title": "{{appStrings.menu.items.home}}",
+          "title": "\u062e\u0627\u0646\u0647",
           "description": "صفحه خانه سپرده ها با منوی تست Dart",
           "icon": "{{appAssets.icons.storedDeposit}}",
           "widgetType": "tobank_home_page_menu",

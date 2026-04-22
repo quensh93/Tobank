@@ -43,6 +43,28 @@ StacWidget dashboardRealMenu() {
           StacSizedBox(height: 32),
           StacFilledButton(
             onPressed: const StacNavigateAction(
+              assetPath:
+                  'lib/stac/tobank/flows/dashboard_real/json/dashboard_real_shell.json',
+              navigationStyle: NavigationStyle.push,
+            ),
+            style: StacButtonStyle(
+              padding: StacEdgeInsets.symmetric(vertical: 16),
+              backgroundColor:
+                  '{{appColors.current.button.primary.backgroundColor}}',
+              foregroundColor:
+                  '{{appColors.current.button.primary.foregroundColor}}',
+            ),
+            child: StacText(
+              data: 'بارگذاری از JSON محلی',
+              style: StacTextStyle(
+                fontSize: 16,
+                fontWeight: StacFontWeight.w600,
+              ),
+            ),
+          ),
+          StacSizedBox(height: 16),
+          StacFilledButton(
+            onPressed: const StacNavigateAction(
               routeName: 'dashboard_real_shell',
               navigationStyle: NavigationStyle.push,
             ),

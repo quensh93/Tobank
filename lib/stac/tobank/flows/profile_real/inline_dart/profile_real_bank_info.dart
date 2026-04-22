@@ -1,6 +1,6 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
-import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/widgets/profile_real_app_bar.dart';
+import 'profile_real_app_bar.dart';
 
 @StacScreen(screenName: 'profile_real_bank_info')
 StacWidget profileRealBankInfo() {

@@ -149,6 +149,9 @@ flutter:
     - lib/stac/tobank/flows/promissory_real/json/
     - lib/stac/tobank/flows/promissory_real/api/
     - lib/stac/tobank/flows/verify_identity_real/json/
+    - lib/stac/tobank/flows/transaction_real/json/
+    - lib/stac/tobank/flows/profile_real/json/
+    - lib/stac/tobank/flows/dashboard_real/json/
 
 
 
