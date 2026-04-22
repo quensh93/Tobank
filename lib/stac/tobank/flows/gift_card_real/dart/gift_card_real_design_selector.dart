@@ -32,7 +32,7 @@ StacWidget giftCardRealDesignSelector() {
               bottom: 14,
             ),
             decoration: StacBoxDecoration(
-             color: ,
+              color: '{{appColors.current.background.surface}}',
               borderRadius: StacBorderRadius.all(12),
               border: StacBorder.all(
                 color: '{{appColors.current.input.borderEnabled}}',
