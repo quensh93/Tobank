@@ -46,6 +46,7 @@ import '../parsers/actions/play_audio_url_action_parser.dart';
 import '../parsers/widgets/reactive_list_view_parser.dart';
 import '../parsers/widgets/custom_bottom_navigation_bar_parser.dart';
 import '../parsers/widgets/custom_bottom_navigation_view_parser.dart';
+import '../parsers/widgets/asset_widget_parser.dart';
 
 import '../parsers/widgets/custom_visibility_parser.dart';
 import '../parsers/actions/show_snackbar_action_parser.dart';
@@ -426,6 +427,9 @@ void _registerExampleParsers() {
     const CustomBottomNavigationViewParser(),
     true,
   );
+
+  // Register assetWidget parser for loading tab/page content from external JSON
+  CustomComponentRegistry.instance.registerWidget(const AssetWidgetParser());
 
   // Note: PromissoryRealPaymentDepositsParser removed as it uses the same list component
 

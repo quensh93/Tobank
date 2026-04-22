@@ -31,7 +31,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "Ã˜Â­Ã˜³Ã˜Â§Ã˜Â¨ Ãš©Ã˜Â§Ã˜±Ã˜Â¨Ã˜±Ã›Å’",
+                      "data": "{{appStrings.profile.real.accountTitle}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -126,8 +126,8 @@
                       },
                       "onTap": {
                         "actionType": "showResult",
-                        "title": "Ã™Ë†Ã›Å’Ã˜±Ã˜Â§Ã›Å’Ã˜Â´ Ã˜ÂªÃ˜ÂµÃ™Ë†Ã›Å’Ã˜±",
-                        "content": "Ã˜Â§Ã›Å’Ã™â€  Ã˜Â¨Ã˜®Ã˜Â´ Ã˜Â¨Ã™â€¡ Ã˜²Ã™Ë†Ã˜Â¯Ã›Å’ Ã™ÂÃ˜Â¹Ã˜Â§Ã™â€ž Ã™â€¦Ã›Å’Ã¢â‚¬Å’Ã˜Â´Ã™Ë†Ã˜Â¯."
+                        "title": "{{appStrings.profile.real.editImageTitle}}",
+                        "content": "{{appStrings.profile.real.comingSoon}}"
                       },
                       "type": "gestureDetector"
                     },
@@ -136,7 +136,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "Ã™â€¦Ã™â€¡Ã˜Â¯Ã›Å’ Ã˜Â¬Ã™â€¦Ã˜Â´Ã›Å’Ã˜Â¯Ã™¾Ã™Ë†Ã˜±",
+                      "data": "{{appStrings.profile.real.userName}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -151,7 +151,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "09142767469",
+                      "data": "{{appStrings.profile.real.phoneNumber}}",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.subtitle}}",
@@ -215,7 +215,7 @@
                                           },
                                           {
                                             "child": {
-                                              "data": "Ã˜Â§Ã˜·Ã™â€žÃ˜Â§Ã˜Â¹Ã˜Â§Ã˜Âª Ã˜Â¨Ã˜Â§Ã™â€ Ãš©Ã›Å’",
+                                              "data": "{{appStrings.profile.real.menu.bankInfo}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -289,7 +289,7 @@
                                           },
                                           {
                                             "child": {
-                                              "data": "Ã˜Â¯Ã˜Â¹Ã™Ë†Ã˜Âª Ã˜Â§Ã˜² Ã˜Â¯Ã™Ë†Ã˜³Ã˜ÂªÃ˜Â§Ã™â€ ",
+                                              "data": "{{appStrings.profile.real.menu.inviteFriends}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -363,7 +363,7 @@
                                           },
                                           {
                                             "child": {
-                                              "data": "Ã™â€¦Ã˜Â¯Ã›Å’Ã˜±Ã›Å’Ã˜Âª Ã™â€¦Ã™â€šÃ˜ÂµÃ˜Â¯Ã™â€¡Ã˜Â§",
+                                              "data": "{{appStrings.profile.real.menu.destinations}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -437,7 +437,7 @@
                                           },
                                           {
                                             "child": {
-                                              "data": "Ã˜ÂªÃ™â€ Ã˜Â¸Ã›Å’Ã™â€¦Ã˜Â§Ã˜Âª",
+                                              "data": "{{appStrings.profile.real.menu.settings}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -511,7 +511,7 @@
                                           },
                                           {
                                             "child": {
-                                              "data": "Ã™â€šÃ™Ë†Ã˜Â§Ã™â€ Ã›Å’Ã™â€  Ã™Ë† Ã™â€¦Ã™â€šÃ˜±Ã˜±Ã˜Â§Ã˜Âª",
+                                              "data": "{{appStrings.profile.real.menu.rules}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -585,7 +585,7 @@
                                           },
                                           {
                                             "child": {
-                                              "data": "Ã˜Â¯Ã˜±Ã˜Â¨Ã˜Â§Ã˜±Ã™â€¡ Ã™â€¦Ã˜Â§",
+                                              "data": "{{appStrings.profile.real.menu.aboutUs}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -659,7 +659,7 @@
                                           },
                                           {
                                             "child": {
-                                              "data": "Ã˜ÂªÃ™â€¦Ã˜Â§Ã˜³ Ã˜Â¨Ã˜Â§ Ã™â€¦Ã˜Â§",
+                                              "data": "{{appStrings.profile.real.menu.contactUs}}",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -698,7 +698,7 @@
                               "type": "padding"
                             },
                             {
-                              "data": "Ã™â€ Ã˜³Ã˜®Ã™â€¡ Ã˜Â¨Ã˜±Ã™â€ Ã˜Â§Ã™â€¦Ã™â€¡ Ã›³.Ã›².Ã›Â¶",
+                              "data": "{{appStrings.profile.real.appVersion}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
