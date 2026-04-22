@@ -25,14 +25,12 @@ StacAppBar buildCartableRealAppBar({required String title}) {
       StacPadding(
         padding: StacEdgeInsets.only(right: 12),
         child: StacIconButton(
-          onPressed: const StacNavigateAction(
-            navigationStyle: NavigationStyle.pop,
-          ),
+          onPressed: const StacNavigateAction(navigationStyle: NavigationStyle.pop),
           icon: StacImage(
-            src: '{{appAssets.icons.arrowRight}}',
+            src: '{{appAssets.icons.arrowBack}}',
             imageType: StacImageType.asset,
-            width: 22,
-            height: 22,
+            width: 31,
+            height: 31,
             color: '{{appColors.current.text.title}}',
           ),
         ),

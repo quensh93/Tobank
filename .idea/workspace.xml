@@ -9,11 +9,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="add new page from home and navbars">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="and key to app for release">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/stac/registry/register_custom_parsers.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/registry/register_custom_parsers.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/core/stac/services/widget/stac_widget_loader.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/services/widget/stac_widget_loader.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/cartable_real/dart/cartable_real_intro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/cartable_real/dart/cartable_real_intro.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/cartable_real/dart/widgets/cartable_real_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/cartable_real/dart/widgets/cartable_real_app_bar.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/stac/tobank/menu/api/GET_menu-items.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/menu/api/GET_menu-items.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,13 +104,14 @@
     &quot;io.flutter.project.isFirstOpen&quot;: &quot;true&quot;,
     &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/arsham1/development/Arsham/dynamic_tobank/lib/stac/tobank/flows/promissory_real/dart&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Volumes/Daily SSD/Arsham/Development/Arsham/dynamic_tobank/android&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;dart.settings&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/android" />
       <recent name="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/dart" />
       <recent name="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json_upload" />
       <recent name="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real" />
@@ -388,7 +389,31 @@
       <option name="project" value="LOCAL" />
       <updated>1776664885358</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="add new page from home and navbars">
+      <option name="closed" value="true" />
+      <created>1776682980056</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1776682980056</updated>
+    </task>
+    <task id="LOCAL-00035" summary="add new page from home and navbars">
+      <option name="closed" value="true" />
+      <created>1776746764429</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1776746764429</updated>
+    </task>
+    <task id="LOCAL-00036" summary="and key to app for release">
+      <option name="closed" value="true" />
+      <created>1776758739695</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1776758739695</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -427,6 +452,7 @@
     <MESSAGE value="work on ehraz flow and pages" />
     <MESSAGE value="add new page for profile" />
     <MESSAGE value="add new page from home and navbars" />
-    <option name="LAST_COMMIT_MESSAGE" value="add new page from home and navbars" />
+    <MESSAGE value="and key to app for release" />
+    <option name="LAST_COMMIT_MESSAGE" value="and key to app for release" />
   </component>
 </project>

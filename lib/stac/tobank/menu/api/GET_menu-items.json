@@ -94,7 +94,8 @@
           "icon": "{{appAssets.icons.support}}",
           "widgetType": "cartable_real_menu",
           "flowSteps": [
-            "cartable_real_intro"
+            "cartable_real_intro",
+            "cartable_real_detail"
           ]
         },
         {
@@ -126,7 +127,8 @@
             "profile_real_rules",
             "profile_real_about",
             "profile_real_contact",
-            "cartable_real_intro"
+            "cartable_real_intro",
+            "cartable_real_detail"
           ]
         }
       ],

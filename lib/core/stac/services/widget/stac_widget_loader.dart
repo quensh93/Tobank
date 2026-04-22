@@ -144,6 +144,8 @@ import '../../../../stac/tobank/flows/cartable_real/menu/cartable_real_menu.dart
     as cartable_real_menu_dart;
 import '../../../../stac/tobank/flows/cartable_real/dart/cartable_real_intro.dart'
     as cartable_real_intro_dart;
+import '../../../../stac/tobank/flows/cartable_real/dart/cartable_real_detail.dart'
+    as cartable_real_detail_dart;
 import '../../../../stac/tobank/flows/transaction_real/menu/transaction_real_menu.dart'
     as transaction_real_menu_dart;
 import '../../../../stac/tobank/flows/transaction_real/dart/transaction_real_intro.dart'
@@ -267,6 +269,8 @@ class StacWidgetLoader {
         cartable_real_menu_dart.cartableRealMenu().toJson(),
     'cartable_real_intro': () =>
         cartable_real_intro_dart.cartableRealIntro().toJson(),
+    'cartable_real_detail': () =>
+        cartable_real_detail_dart.cartableRealDetail().toJson(),
     'transaction_real_menu': () =>
         transaction_real_menu_dart.transactionRealMenu().toJson(),
     'transaction_real_intro': () =>

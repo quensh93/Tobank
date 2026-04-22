@@ -21,7 +21,7 @@ StacWidget cartableRealIntro() {
       backgroundColor: '{{appColors.current.background.surface}}',
       body: StacColumn(
         children: [
-          StacSizedBox(height: 16),
+          StacSizedBox(height: 52),
           _buildMainSelector(),
           StacSizedBox(height: 8),
           StacExpanded(
@@ -49,6 +49,7 @@ StacWidget _buildMainSelector() {
       ),
     ),
     child: StacRow(
+      textDirection: StacTextDirection.rtl,
       children: [
         StacExpanded(
           child: _buildSelectorItem(
@@ -185,21 +186,26 @@ StacWidget _buildCardboardItem() {
               StacSizedBox(height: 24),
               StacRow(
                 textDirection: StacTextDirection.rtl,
-                mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
                 children: [
                   StacText(
                     data: 'مرحله بعد',
+                    textDirection: StacTextDirection.rtl,
+                    textAlign: StacTextAlign.right,
                     style: StacCustomTextStyle(
                       color: '{{appColors.current.text.subtitle}}',
                       fontWeight: StacFontWeight.w500,
                       fontSize: 14,
                     ),
                   ),
+                  StacSizedBox(width: 24),
                   StacExpanded(
                     child: StacText(
                       data: 'اصلاح اطلاعات محل سکونت متقاضی',
                       textDirection: StacTextDirection.rtl,
-                      textAlign: StacTextAlign.right,
+                      textAlign: StacTextAlign.left,
+                      maxLines: 1,
+                      softWrap: false,
+                      overflow: StacTextOverflow.ellipsis,
                       style: StacCustomTextStyle(
                         color: '{{appColors.current.text.title}}',
                         fontWeight: StacFontWeight.w600,
@@ -220,14 +226,14 @@ StacWidget _buildCardboardItem() {
         StacPadding(
           padding: StacEdgeInsets.symmetric(vertical: 8),
           child: StacRow(
+            textDirection: StacTextDirection.rtl,
             children: [
               StacExpanded(
                 child: _buildCardboardFooterAction(
                   title: 'جزئیات',
                   iconAsset: 'assets/icons/ic_detail.svg',
-                  onTap: const StacShowResultAction(
-                    title: 'جزئیات',
-                    content: 'جزئیات به زودی فعال می‌شود.',
+                  onTap: _buildOpenProcessDetailsAction(
+                    caseId: 'marriage_loan',
                   ),
                 ),
               ),
@@ -357,6 +363,7 @@ StacWidget _buildProcessPage() {
                         title: 'وام قرض الحسنه ازدواج',
                         status: 'باز',
                         date: '۶ دی ۱۴۰۴',
+                        detailCaseId: 'marriage_loan',
                       ),
                       StacSizedBox(height: 16),
                     ],
@@ -371,18 +378,21 @@ StacWidget _buildProcessPage() {
                         title: 'تکمیل مدارک',
                         status: 'بسته',
                         date: '۲۴ فروردین ۱۴۰۵',
+                        detailCaseId: 'docs_done',
                       ),
                       StacSizedBox(height: 16),
                       _buildProcessItem(
                         title: 'تکمیل مدارک',
                         status: 'بسته',
                         date: '۲۳ فروردین ۱۴۰۵',
+                        detailCaseId: 'docs_empty',
                       ),
                       StacSizedBox(height: 16),
                       _buildProcessItem(
                         title: 'تکمیل مدارک',
                         status: 'بسته',
                         date: '۲۳ فروردین ۱۴۰۵',
+                        detailCaseId: 'child_loan',
                       ),
                     ],
                   ).toJson(),
@@ -456,6 +466,7 @@ StacWidget _buildProcessItem({
   required String title,
   required String status,
   required String date,
+  required String detailCaseId,
 }) {
   return StacContainer(
     decoration: StacBoxDecoration(
@@ -488,16 +499,11 @@ StacWidget _buildProcessItem({
                 textDirection: StacTextDirection.rtl,
                 mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
                 children: [
-                  StacText(
-                    data: 'وضعیت درخواست:',
-                    style: StacCustomTextStyle(
-                      color: '{{appColors.current.text.subtitle}}',
-                      fontWeight: StacFontWeight.w500,
-                      fontSize: 14,
-                    ),
-                  ),
+                  _buildRtlLabelWithColon(title: 'وضعیت درخواست'),
                   StacText(
                     data: status,
+                    textDirection: StacTextDirection.rtl,
+                    textAlign: StacTextAlign.left,
                     style: StacCustomTextStyle(
                       color: '{{appColors.current.text.title}}',
                       fontWeight: StacFontWeight.w600,
@@ -511,16 +517,11 @@ StacWidget _buildProcessItem({
                 textDirection: StacTextDirection.rtl,
                 mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
                 children: [
-                  StacText(
-                    data: 'تاریخ ثبت درخواست:',
-                    style: StacCustomTextStyle(
-                      color: '{{appColors.current.text.subtitle}}',
-                      fontWeight: StacFontWeight.w500,
-                      fontSize: 14,
-                    ),
-                  ),
+                  _buildRtlLabelWithColon(title: 'تاریخ ثبت درخواست'),
                   StacText(
                     data: date,
+                    textDirection: StacTextDirection.rtl,
+                    textAlign: StacTextAlign.left,
                     style: StacCustomTextStyle(
                       color: '{{appColors.current.text.title}}',
                       fontWeight: StacFontWeight.w600,
@@ -540,10 +541,7 @@ StacWidget _buildProcessItem({
         StacSizedBox(
           height: 48,
           child: StacGestureDetector(
-            onTap: const StacShowResultAction(
-              title: 'جزئیات',
-              content: 'جزئیات به زودی فعال می‌شود.',
-            ),
+            onTap: _buildOpenProcessDetailsAction(caseId: detailCaseId),
             child: StacPadding(
               padding: StacEdgeInsets.all(8),
               child: StacRow(
@@ -572,5 +570,55 @@ StacWidget _buildProcessItem({
         ),
       ],
     ),
+  );
+}
+
+StacAction _buildOpenProcessDetailsAction({required String caseId}) {
+  final bool isMarriageLoan = caseId == 'marriage_loan';
+  final bool isChildLoan = caseId == 'child_loan';
+  final bool isDocsDone = caseId == 'docs_done';
+  final bool isDocsEmpty = caseId == 'docs_empty';
+
+  return StacSequenceAction(
+    actions: [
+      StacCustomSetValueAction(
+        values: [
+          {'key': 'crDetailVariantMarriageLoan', 'value': isMarriageLoan},
+          {'key': 'crDetailVariantChildLoan', 'value': isChildLoan},
+          {'key': 'crDetailVariantCompleteDocsDone', 'value': isDocsDone},
+          {'key': 'crDetailVariantCompleteDocsEmpty', 'value': isDocsEmpty},
+        ],
+      ),
+      const StacNavigateAction(routeName: 'cartable_real_detail'),
+    ],
+  );
+}
+
+StacWidget _buildRtlLabelWithColon({required String title}) {
+  return StacRow(
+    textDirection: StacTextDirection.rtl,
+    mainAxisSize: StacMainAxisSize.min,
+    children: [
+      StacText(
+        data: title,
+        textDirection: StacTextDirection.rtl,
+        textAlign: StacTextAlign.right,
+        style: StacCustomTextStyle(
+          color: '{{appColors.current.text.subtitle}}',
+          fontWeight: StacFontWeight.w500,
+          fontSize: 14,
+        ),
+      ),
+      StacSizedBox(width: 2),
+      StacText(
+        data: ':',
+        textDirection: StacTextDirection.ltr,
+        style: StacCustomTextStyle(
+          color: '{{appColors.current.text.subtitle}}',
+          fontWeight: StacFontWeight.w500,
+          fontSize: 14,
+        ),
+      ),
+    ],
   );
 }

@@ -600,3 +600,103 @@ class StacTobankBannerCarousel extends StacWidget {
     if (indicatorSpacing != null) 'indicatorSpacing': indicatorSpacing,
   };
 }
+
+/// Builder for custom 'tobankCardsCarousel' payloads handled by
+/// TobankCardsCarouselParser.
+class StacTobankCardsCarousel extends StacWidget {
+  const StacTobankCardsCarousel({
+    required this.pages,
+    this.height,
+    this.initialPage,
+    this.showIndicators,
+    this.indicatorTopSpacing,
+    this.indicatorActiveColor,
+    this.indicatorInactiveColor,
+    this.indicatorSpacing,
+    this.indicatorSize,
+  });
+
+  final List<Map<String, dynamic>> pages;
+  final double? height;
+  final int? initialPage;
+  final bool? showIndicators;
+  final double? indicatorTopSpacing;
+  final String? indicatorActiveColor;
+  final String? indicatorInactiveColor;
+  final double? indicatorSpacing;
+  final double? indicatorSize;
+
+  @override
+  String get type => 'tobankCardsCarousel';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'type': type,
+    'pages': pages,
+    if (height != null) 'height': height,
+    if (initialPage != null) 'initialPage': initialPage,
+    if (showIndicators != null) 'showIndicators': showIndicators,
+    if (indicatorTopSpacing != null) 'indicatorTopSpacing': indicatorTopSpacing,
+    if (indicatorActiveColor != null)
+      'indicatorActiveColor': indicatorActiveColor,
+    if (indicatorInactiveColor != null)
+      'indicatorInactiveColor': indicatorInactiveColor,
+    if (indicatorSpacing != null) 'indicatorSpacing': indicatorSpacing,
+    if (indicatorSize != null) 'indicatorSize': indicatorSize,
+  };
+}
+
+/// Builder for custom 'tobankCardsStackScroller' payloads handled by
+/// TobankCardsStackScrollerParser.
+class StacTobankCardsStackScroller extends StacWidget {
+  const StacTobankCardsStackScroller({
+    required this.walletCard,
+    required this.cards,
+    this.scrollHandle,
+    this.topSpacerHeight,
+    this.bottomSpacerHeight,
+    this.itemHeight,
+    this.itemHeightFactor,
+    this.scaleDistance,
+    this.minScale,
+    this.fadeStart,
+    this.horizontalPadding,
+    this.maxWidthInset,
+    this.handleTop,
+  });
+
+  final Map<String, dynamic> walletCard;
+  final List<Map<String, dynamic>> cards;
+  final Map<String, dynamic>? scrollHandle;
+  final double? topSpacerHeight;
+  final double? bottomSpacerHeight;
+  final double? itemHeight;
+  final double? itemHeightFactor;
+  final double? scaleDistance;
+  final double? minScale;
+  final double? fadeStart;
+  final double? horizontalPadding;
+  final double? maxWidthInset;
+  final double? handleTop;
+
+  @override
+  String get type => 'tobankCardsStackScroller';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'type': type,
+    'walletCard': walletCard,
+    'cards': cards,
+    if (scrollHandle != null) 'scrollHandle': scrollHandle,
+    if (topSpacerHeight != null) 'topSpacerHeight': topSpacerHeight,
+    if (bottomSpacerHeight != null) 'bottomSpacerHeight': bottomSpacerHeight,
+    if (itemHeight != null) 'itemHeight': itemHeight,
+    if (itemHeightFactor != null) 'itemHeightFactor': itemHeightFactor,
+    if (scaleDistance != null) 'scaleDistance': scaleDistance,
+    if (minScale != null) 'minScale': minScale,
+    if (fadeStart != null) 'fadeStart': fadeStart,
+    if (horizontalPadding != null) 'horizontalPadding': horizontalPadding,
+    if (maxWidthInset != null) 'maxWidthInset': maxWidthInset,
+    if (handleTop != null) 'handleTop': handleTop,
+  };
+}
