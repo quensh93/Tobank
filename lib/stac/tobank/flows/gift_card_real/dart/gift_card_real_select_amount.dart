@@ -159,6 +159,16 @@ StacWidget giftCardRealSelectAmount() {
                 'title': 'طرح کارت را انتخاب کنید',
                 'readyDesignTitle': 'طرح‌های آماده',
                 'customDesignTitle': 'طرح سفارشی',
+                'readyDesignAction': {
+                  'actionType': 'navigate',
+                  'routeName': 'gift_card_real_design_selector',
+                  'navigationStyle': 'push',
+                },
+                'customDesignAction': {
+                  'actionType': 'showResult',
+                  'title': 'طرح سفارشی',
+                  'content': 'این بخش به زودی فعال می‌شود.',
+                },
               }),
               style: StacButtonStyle(
                 fixedSize: StacSize(999999, 64),
