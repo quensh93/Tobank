@@ -769,7 +769,7 @@
             "body": {
               "children": [
                 {
-                  "height": 16.0,
+                  "height": 52.0,
                   "type": "sizedBox"
                 },
                 {
@@ -791,6 +791,7 @@
                     "right": 16.0
                   },
                   "child": {
+                    "textDirection": "rtl",
                     "children": [
                       {
                         "child": {
@@ -810,7 +811,7 @@
                                     "type": "visibility",
                                     "visible": "[[isCartableTab]]",
                                     "child": {
-                                      "data": "Ú©Ø§Ø±ØªØ§Ø¨Ù„",
+                                      "data": "کارتابل",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -821,7 +822,7 @@
                                       "type": "text"
                                     },
                                     "replacement": {
-                                      "data": "Ú©Ø§Ø±ØªØ§Ø¨Ù„",
+                                      "data": "کارتابل",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
@@ -903,7 +904,7 @@
                                     "type": "visibility",
                                     "visible": "[[!isCartableTab]]",
                                     "child": {
-                                      "data": "ØªØ§Ø±ÛŒØ®Ú†Ù‡ ÙØ¹Ø§Ù„ÛŒØªâ€ŒÙ‡Ø§",
+                                      "data": "تاریخچه فعالیت‌ها",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
@@ -914,7 +915,7 @@
                                       "type": "text"
                                     },
                                     "replacement": {
-                                      "data": "ØªØ§Ø±ÛŒØ®Ú†Ù‡ ÙØ¹Ø§Ù„ÛŒØªâ€ŒÙ‡Ø§",
+                                      "data": "تاریخچه فعالیت‌ها",
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
@@ -1024,7 +1025,7 @@
                                       "crossAxisAlignment": "stretch",
                                       "children": [
                                         {
-                                          "data": "Ù†ÙˆØ¹ Ø¯Ø±Ø®ÙˆØ§Ø³Øª: ØªØ³Ù‡ÛŒÙ„Ø§Øª Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ø§Ø²Ø¯ÙˆØ§Ø¬",
+                                          "data": "نوع درخواست: تسهیلات قرض الحسنه ازدواج",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1040,30 +1041,38 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "mainAxisAlignment": "spaceBetween",
                                           "textDirection": "rtl",
                                           "children": [
                                             {
-                                              "data": "Ù…Ø±Ø­Ù„Ù‡ Ø¨Ø¹Ø¯",
+                                              "data": "مرحله بعد",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
                                                 "fontSize": 14.0,
                                                 "fontWeight": "w500"
                                               },
+                                              "textAlign": "right",
+                                              "textDirection": "rtl",
                                               "type": "text"
                                             },
                                             {
+                                              "width": 24.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
                                               "child": {
-                                                "data": "Ø§ØµÙ„Ø§Ø­ Ø§Ø·Ù„Ø§Ø¹Ø§Øª Ù…Ø­Ù„ Ø³Ú©ÙˆÙ†Øª Ù…ØªÙ‚Ø§Ø¶ÛŒ",
+                                                "data": "اصلاح اطلاعات محل سکونت متقاضی",
                                                 "style": {
                                                   "type": "custom",
                                                   "color": "{{appColors.current.text.title}}",
                                                   "fontSize": 16.0,
                                                   "fontWeight": "w600"
                                                 },
-                                                "textAlign": "right",
+                                                "textAlign": "left",
                                                 "textDirection": "rtl",
+                                                "softWrap": false,
+                                                "overflow": "ellipsis",
+                                                "maxLines": 1,
                                                 "type": "text"
                                               },
                                               "type": "expanded"
@@ -1088,6 +1097,7 @@
                                       "bottom": 8.0
                                     },
                                     "child": {
+                                      "textDirection": "rtl",
                                       "children": [
                                         {
                                           "child": {
@@ -1114,7 +1124,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "Ø¬Ø²Ø¦ÛŒØ§Øª",
+                                                    "data": "جزئیات",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -1129,9 +1139,34 @@
                                               "type": "padding"
                                             },
                                             "onTap": {
-                                              "actionType": "showResult",
-                                              "title": "Ø¬Ø²Ø¦ÛŒØ§Øª",
-                                              "content": "Ø¬Ø²Ø¦ÛŒØ§Øª Ø¨Ù‡ Ø²ÙˆØ¯ÛŒ ÙØ¹Ø§Ù„ Ù…ÛŒâ€ŒØ´ÙˆØ¯."
+                                              "actionType": "sequence",
+                                              "actions": [
+                                                {
+                                                  "actionType": "setValue",
+                                                  "values": [
+                                                    {
+                                                      "key": "crDetailVariantMarriageLoan",
+                                                      "value": true
+                                                    },
+                                                    {
+                                                      "key": "crDetailVariantChildLoan",
+                                                      "value": false
+                                                    },
+                                                    {
+                                                      "key": "crDetailVariantCompleteDocsDone",
+                                                      "value": false
+                                                    },
+                                                    {
+                                                      "key": "crDetailVariantCompleteDocsEmpty",
+                                                      "value": false
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "routeName": "cartable_real_detail",
+                                                  "actionType": "navigate"
+                                                }
+                                              ]
                                             },
                                             "type": "gestureDetector"
                                           },
@@ -1168,7 +1203,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "Ø§Ø¯Ø§Ù…Ù‡ ÙØ±Ø¢ÛŒÙ†Ø¯",
+                                                    "data": "ادامه فرآیند",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -1184,8 +1219,8 @@
                                             },
                                             "onTap": {
                                               "actionType": "showResult",
-                                              "title": "Ø§Ø¯Ø§Ù…Ù‡ ÙØ±Ø¢ÛŒÙ†Ø¯",
-                                              "content": "Ø§Ø¯Ø§Ù…Ù‡ ÙØ±Ø¢ÛŒÙ†Ø¯ Ø¨Ù‡ Ø²ÙˆØ¯ÛŒ ÙØ¹Ø§Ù„ Ù…ÛŒâ€ŒØ´ÙˆØ¯."
+                                              "title": "ادامه فرآیند",
+                                              "content": "ادامه فرآیند به زودی فعال می‌شود."
                                             },
                                             "type": "gestureDetector"
                                           },
@@ -1250,7 +1285,7 @@
                                         "bottom": 6.0
                                       },
                                       "child": {
-                                        "data": "Ù‡Ù…Ù‡",
+                                        "data": "همه",
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.secondary.color}}",
@@ -1285,7 +1320,7 @@
                                         "bottom": 6.0
                                       },
                                       "child": {
-                                        "data": "Ù‡Ù…Ù‡",
+                                        "data": "همه",
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
@@ -1360,7 +1395,7 @@
                                         "bottom": 6.0
                                       },
                                       "child": {
-                                        "data": "Ø¯Ø±Ø®ÙˆØ§Ø³Øªâ€ŒÙ‡Ø§ÛŒ Ø¨Ø§Ø²",
+                                        "data": "درخواست‌های باز",
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.secondary.color}}",
@@ -1395,7 +1430,7 @@
                                         "bottom": 6.0
                                       },
                                       "child": {
-                                        "data": "Ø¯Ø±Ø®ÙˆØ§Ø³Øªâ€ŒÙ‡Ø§ÛŒ Ø¨Ø§Ø²",
+                                        "data": "درخواست‌های باز",
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
@@ -1470,7 +1505,7 @@
                                         "bottom": 6.0
                                       },
                                       "child": {
-                                        "data": "Ø¯Ø±Ø®ÙˆØ§Ø³Øªâ€ŒÙ‡Ø§ÛŒ Ø¨Ø³ØªÙ‡",
+                                        "data": "درخواست‌های بسته",
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.secondary.color}}",
@@ -1505,7 +1540,7 @@
                                         "bottom": 6.0
                                       },
                                       "child": {
-                                        "data": "Ø¯Ø±Ø®ÙˆØ§Ø³Øªâ€ŒÙ‡Ø§ÛŒ Ø¨Ø³ØªÙ‡",
+                                        "data": "درخواست‌های بسته",
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
@@ -1598,7 +1633,7 @@
                                                   "crossAxisAlignment": "stretch",
                                                   "children": [
                                                     {
-                                                      "data": "ÙˆØ§Ù… Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ø§Ø²Ø¯ÙˆØ§Ø¬",
+                                                      "data": "وام قرض الحسنه ازدواج",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -1618,23 +1653,49 @@
                                                       "textDirection": "rtl",
                                                       "children": [
                                                         {
-                                                          "data": "ÙˆØ¶Ø¹ÛŒØª Ø¯Ø±Ø®ÙˆØ§Ø³Øª:",
-                                                          "style": {
-                                                            "type": "custom",
-                                                            "color": "{{appColors.current.text.subtitle}}",
-                                                            "fontSize": 14.0,
-                                                            "fontWeight": "w500"
-                                                          },
-                                                          "type": "text"
+                                                          "mainAxisSize": "min",
+                                                          "textDirection": "rtl",
+                                                          "children": [
+                                                            {
+                                                              "data": "وضعیت درخواست",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "fontSize": 14.0,
+                                                                "fontWeight": "w500"
+                                                              },
+                                                              "textAlign": "right",
+                                                              "textDirection": "rtl",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "width": 2.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "data": ":",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "fontSize": 14.0,
+                                                                "fontWeight": "w500"
+                                                              },
+                                                              "textDirection": "ltr",
+                                                              "type": "text"
+                                                            }
+                                                          ],
+                                                          "type": "row"
                                                         },
                                                         {
-                                                          "data": "Ø¨Ø§Ø²",
+                                                          "data": "باز",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
                                                             "fontSize": 14.0,
                                                             "fontWeight": "w600"
                                                           },
+                                                          "textAlign": "left",
+                                                          "textDirection": "rtl",
                                                           "type": "text"
                                                         }
                                                       ],
@@ -1649,23 +1710,49 @@
                                                       "textDirection": "rtl",
                                                       "children": [
                                                         {
-                                                          "data": "ØªØ§Ø±ÛŒØ® Ø«Ø¨Øª Ø¯Ø±Ø®ÙˆØ§Ø³Øª:",
-                                                          "style": {
-                                                            "type": "custom",
-                                                            "color": "{{appColors.current.text.subtitle}}",
-                                                            "fontSize": 14.0,
-                                                            "fontWeight": "w500"
-                                                          },
-                                                          "type": "text"
+                                                          "mainAxisSize": "min",
+                                                          "textDirection": "rtl",
+                                                          "children": [
+                                                            {
+                                                              "data": "تاریخ ثبت درخواست",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "fontSize": 14.0,
+                                                                "fontWeight": "w500"
+                                                              },
+                                                              "textAlign": "right",
+                                                              "textDirection": "rtl",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "width": 2.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "data": ":",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "fontSize": 14.0,
+                                                                "fontWeight": "w500"
+                                                              },
+                                                              "textDirection": "ltr",
+                                                              "type": "text"
+                                                            }
+                                                          ],
+                                                          "type": "row"
                                                         },
                                                         {
-                                                          "data": "Û¶ Ø¯ÛŒ Û±Û´Û°Û´",
+                                                          "data": "۶ دی ۱۴۰۴",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
                                                             "fontSize": 14.0,
                                                             "fontWeight": "w600"
                                                           },
+                                                          "textAlign": "left",
+                                                          "textDirection": "rtl",
                                                           "type": "text"
                                                         }
                                                       ],
@@ -1708,7 +1795,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ø¬Ø²Ø¦ÛŒØ§Øª",
+                                                          "data": "جزئیات",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -1723,9 +1810,34 @@
                                                     "type": "padding"
                                                   },
                                                   "onTap": {
-                                                    "actionType": "showResult",
-                                                    "title": "Ø¬Ø²Ø¦ÛŒØ§Øª",
-                                                    "content": "Ø¬Ø²Ø¦ÛŒØ§Øª Ø¨Ù‡ Ø²ÙˆØ¯ÛŒ ÙØ¹Ø§Ù„ Ù…ÛŒâ€ŒØ´ÙˆØ¯."
+                                                    "actionType": "sequence",
+                                                    "actions": [
+                                                      {
+                                                        "actionType": "setValue",
+                                                        "values": [
+                                                          {
+                                                            "key": "crDetailVariantMarriageLoan",
+                                                            "value": true
+                                                          },
+                                                          {
+                                                            "key": "crDetailVariantChildLoan",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crDetailVariantCompleteDocsDone",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crDetailVariantCompleteDocsEmpty",
+                                                            "value": false
+                                                          }
+                                                        ]
+                                                      },
+                                                      {
+                                                        "routeName": "cartable_real_detail",
+                                                        "actionType": "navigate"
+                                                      }
+                                                    ]
                                                   },
                                                   "type": "gestureDetector"
                                                 },
@@ -1779,7 +1891,7 @@
                                                   "crossAxisAlignment": "stretch",
                                                   "children": [
                                                     {
-                                                      "data": "ØªÚ©Ù…ÛŒÙ„ Ù…Ø¯Ø§Ø±Ú©",
+                                                      "data": "تکمیل مدارک",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -1799,23 +1911,49 @@
                                                       "textDirection": "rtl",
                                                       "children": [
                                                         {
-                                                          "data": "ÙˆØ¶Ø¹ÛŒØª Ø¯Ø±Ø®ÙˆØ§Ø³Øª:",
-                                                          "style": {
-                                                            "type": "custom",
-                                                            "color": "{{appColors.current.text.subtitle}}",
-                                                            "fontSize": 14.0,
-                                                            "fontWeight": "w500"
-                                                          },
-                                                          "type": "text"
+                                                          "mainAxisSize": "min",
+                                                          "textDirection": "rtl",
+                                                          "children": [
+                                                            {
+                                                              "data": "وضعیت درخواست",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "fontSize": 14.0,
+                                                                "fontWeight": "w500"
+                                                              },
+                                                              "textAlign": "right",
+                                                              "textDirection": "rtl",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "width": 2.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "data": ":",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "fontSize": 14.0,
+                                                                "fontWeight": "w500"
+                                                              },
+                                                              "textDirection": "ltr",
+                                                              "type": "text"
+                                                            }
+                                                          ],
+                                                          "type": "row"
                                                         },
                                                         {
-                                                          "data": "Ø¨Ø³ØªÙ‡",
+                                                          "data": "بسته",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
                                                             "fontSize": 14.0,
                                                             "fontWeight": "w600"
                                                           },
+                                                          "textAlign": "left",
+                                                          "textDirection": "rtl",
                                                           "type": "text"
                                                         }
                                                       ],
@@ -1830,23 +1968,49 @@
                                                       "textDirection": "rtl",
                                                       "children": [
                                                         {
-                                                          "data": "ØªØ§Ø±ÛŒØ® Ø«Ø¨Øª Ø¯Ø±Ø®ÙˆØ§Ø³Øª:",
-                                                          "style": {
-                                                            "type": "custom",
-                                                            "color": "{{appColors.current.text.subtitle}}",
-                                                            "fontSize": 14.0,
-                                                            "fontWeight": "w500"
-                                                          },
-                                                          "type": "text"
+                                                          "mainAxisSize": "min",
+                                                          "textDirection": "rtl",
+                                                          "children": [
+                                                            {
+                                                              "data": "تاریخ ثبت درخواست",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "fontSize": 14.0,
+                                                                "fontWeight": "w500"
+                                                              },
+                                                              "textAlign": "right",
+                                                              "textDirection": "rtl",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "width": 2.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "data": ":",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "fontSize": 14.0,
+                                                                "fontWeight": "w500"
+                                                              },
+                                                              "textDirection": "ltr",
+                                                              "type": "text"
+                                                            }
+                                                          ],
+                                                          "type": "row"
                                                         },
                                                         {
-                                                          "data": "Û²Û´ ÙØ±ÙˆØ±Ø¯ÛŒÙ† Û±Û´Û°Ûµ",
+                                                          "data": "۲۴ فروردین ۱۴۰۵",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
                                                             "fontSize": 14.0,
                                                             "fontWeight": "w600"
                                                           },
+                                                          "textAlign": "left",
+                                                          "textDirection": "rtl",
                                                           "type": "text"
                                                         }
                                                       ],
@@ -1889,7 +2053,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ø¬Ø²Ø¦ÛŒØ§Øª",
+                                                          "data": "جزئیات",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -1904,9 +2068,34 @@
                                                     "type": "padding"
                                                   },
                                                   "onTap": {
-                                                    "actionType": "showResult",
-                                                    "title": "Ø¬Ø²Ø¦ÛŒØ§Øª",
-                                                    "content": "Ø¬Ø²Ø¦ÛŒØ§Øª Ø¨Ù‡ Ø²ÙˆØ¯ÛŒ ÙØ¹Ø§Ù„ Ù…ÛŒâ€ŒØ´ÙˆØ¯."
+                                                    "actionType": "sequence",
+                                                    "actions": [
+                                                      {
+                                                        "actionType": "setValue",
+                                                        "values": [
+                                                          {
+                                                            "key": "crDetailVariantMarriageLoan",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crDetailVariantChildLoan",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crDetailVariantCompleteDocsDone",
+                                                            "value": true
+                                                          },
+                                                          {
+                                                            "key": "crDetailVariantCompleteDocsEmpty",
+                                                            "value": false
+                                                          }
+                                                        ]
+                                                      },
+                                                      {
+                                                        "routeName": "cartable_real_detail",
+                                                        "actionType": "navigate"
+                                                      }
+                                                    ]
                                                   },
                                                   "type": "gestureDetector"
                                                 },
@@ -1948,7 +2137,7 @@
                                                   "crossAxisAlignment": "stretch",
                                                   "children": [
                                                     {
-                                                      "data": "ØªÚ©Ù…ÛŒÙ„ Ù…Ø¯Ø§Ø±Ú©",
+                                                      "data": "تکمیل مدارک",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -1968,23 +2157,49 @@
                                                       "textDirection": "rtl",
                                                       "children": [
                                                         {
-                                                          "data": "ÙˆØ¶Ø¹ÛŒØª Ø¯Ø±Ø®ÙˆØ§Ø³Øª:",
-                                                          "style": {
-                                                            "type": "custom",
-                                                            "color": "{{appColors.current.text.subtitle}}",
-                                                            "fontSize": 14.0,
-                                                            "fontWeight": "w500"
-                                                          },
-                                                          "type": "text"
+                                                          "mainAxisSize": "min",
+                                                          "textDirection": "rtl",
+                                                          "children": [
+                                                            {
+                                                              "data": "وضعیت درخواست",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "fontSize": 14.0,
+                                                                "fontWeight": "w500"
+                                                              },
+                                                              "textAlign": "right",
+                                                              "textDirection": "rtl",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "width": 2.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "data": ":",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "fontSize": 14.0,
+                                                                "fontWeight": "w500"
+                                                              },
+                                                              "textDirection": "ltr",
+                                                              "type": "text"
+                                                            }
+                                                          ],
+                                                          "type": "row"
                                                         },
                                                         {
-                                                          "data": "Ø¨Ø³ØªÙ‡",
+                                                          "data": "بسته",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
                                                             "fontSize": 14.0,
                                                             "fontWeight": "w600"
                                                           },
+                                                          "textAlign": "left",
+                                                          "textDirection": "rtl",
                                                           "type": "text"
                                                         }
                                                       ],
@@ -1999,23 +2214,49 @@
                                                       "textDirection": "rtl",
                                                       "children": [
                                                         {
-                                                          "data": "ØªØ§Ø±ÛŒØ® Ø«Ø¨Øª Ø¯Ø±Ø®ÙˆØ§Ø³Øª:",
-                                                          "style": {
-                                                            "type": "custom",
-                                                            "color": "{{appColors.current.text.subtitle}}",
-                                                            "fontSize": 14.0,
-                                                            "fontWeight": "w500"
-                                                          },
-                                                          "type": "text"
+                                                          "mainAxisSize": "min",
+                                                          "textDirection": "rtl",
+                                                          "children": [
+                                                            {
+                                                              "data": "تاریخ ثبت درخواست",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "fontSize": 14.0,
+                                                                "fontWeight": "w500"
+                                                              },
+                                                              "textAlign": "right",
+                                                              "textDirection": "rtl",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "width": 2.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "data": ":",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "fontSize": 14.0,
+                                                                "fontWeight": "w500"
+                                                              },
+                                                              "textDirection": "ltr",
+                                                              "type": "text"
+                                                            }
+                                                          ],
+                                                          "type": "row"
                                                         },
                                                         {
-                                                          "data": "Û²Û³ ÙØ±ÙˆØ±Ø¯ÛŒÙ† Û±Û´Û°Ûµ",
+                                                          "data": "۲۳ فروردین ۱۴۰۵",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
                                                             "fontSize": 14.0,
                                                             "fontWeight": "w600"
                                                           },
+                                                          "textAlign": "left",
+                                                          "textDirection": "rtl",
                                                           "type": "text"
                                                         }
                                                       ],
@@ -2058,7 +2299,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ø¬Ø²Ø¦ÛŒØ§Øª",
+                                                          "data": "جزئیات",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -2073,9 +2314,34 @@
                                                     "type": "padding"
                                                   },
                                                   "onTap": {
-                                                    "actionType": "showResult",
-                                                    "title": "Ø¬Ø²Ø¦ÛŒØ§Øª",
-                                                    "content": "Ø¬Ø²Ø¦ÛŒØ§Øª Ø¨Ù‡ Ø²ÙˆØ¯ÛŒ ÙØ¹Ø§Ù„ Ù…ÛŒâ€ŒØ´ÙˆØ¯."
+                                                    "actionType": "sequence",
+                                                    "actions": [
+                                                      {
+                                                        "actionType": "setValue",
+                                                        "values": [
+                                                          {
+                                                            "key": "crDetailVariantMarriageLoan",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crDetailVariantChildLoan",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crDetailVariantCompleteDocsDone",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crDetailVariantCompleteDocsEmpty",
+                                                            "value": true
+                                                          }
+                                                        ]
+                                                      },
+                                                      {
+                                                        "routeName": "cartable_real_detail",
+                                                        "actionType": "navigate"
+                                                      }
+                                                    ]
                                                   },
                                                   "type": "gestureDetector"
                                                 },
@@ -2117,7 +2383,7 @@
                                                   "crossAxisAlignment": "stretch",
                                                   "children": [
                                                     {
-                                                      "data": "ØªÚ©Ù…ÛŒÙ„ Ù…Ø¯Ø§Ø±Ú©",
+                                                      "data": "تکمیل مدارک",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -2137,23 +2403,49 @@
                                                       "textDirection": "rtl",
                                                       "children": [
                                                         {
-                                                          "data": "ÙˆØ¶Ø¹ÛŒØª Ø¯Ø±Ø®ÙˆØ§Ø³Øª:",
-                                                          "style": {
-                                                            "type": "custom",
-                                                            "color": "{{appColors.current.text.subtitle}}",
-                                                            "fontSize": 14.0,
-                                                            "fontWeight": "w500"
-                                                          },
-                                                          "type": "text"
+                                                          "mainAxisSize": "min",
+                                                          "textDirection": "rtl",
+                                                          "children": [
+                                                            {
+                                                              "data": "وضعیت درخواست",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "fontSize": 14.0,
+                                                                "fontWeight": "w500"
+                                                              },
+                                                              "textAlign": "right",
+                                                              "textDirection": "rtl",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "width": 2.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "data": ":",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "fontSize": 14.0,
+                                                                "fontWeight": "w500"
+                                                              },
+                                                              "textDirection": "ltr",
+                                                              "type": "text"
+                                                            }
+                                                          ],
+                                                          "type": "row"
                                                         },
                                                         {
-                                                          "data": "Ø¨Ø³ØªÙ‡",
+                                                          "data": "بسته",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
                                                             "fontSize": 14.0,
                                                             "fontWeight": "w600"
                                                           },
+                                                          "textAlign": "left",
+                                                          "textDirection": "rtl",
                                                           "type": "text"
                                                         }
                                                       ],
@@ -2168,23 +2460,49 @@
                                                       "textDirection": "rtl",
                                                       "children": [
                                                         {
-                                                          "data": "ØªØ§Ø±ÛŒØ® Ø«Ø¨Øª Ø¯Ø±Ø®ÙˆØ§Ø³Øª:",
-                                                          "style": {
-                                                            "type": "custom",
-                                                            "color": "{{appColors.current.text.subtitle}}",
-                                                            "fontSize": 14.0,
-                                                            "fontWeight": "w500"
-                                                          },
-                                                          "type": "text"
+                                                          "mainAxisSize": "min",
+                                                          "textDirection": "rtl",
+                                                          "children": [
+                                                            {
+                                                              "data": "تاریخ ثبت درخواست",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "fontSize": 14.0,
+                                                                "fontWeight": "w500"
+                                                              },
+                                                              "textAlign": "right",
+                                                              "textDirection": "rtl",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "width": 2.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "data": ":",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "fontSize": 14.0,
+                                                                "fontWeight": "w500"
+                                                              },
+                                                              "textDirection": "ltr",
+                                                              "type": "text"
+                                                            }
+                                                          ],
+                                                          "type": "row"
                                                         },
                                                         {
-                                                          "data": "Û²Û³ ÙØ±ÙˆØ±Ø¯ÛŒÙ† Û±Û´Û°Ûµ",
+                                                          "data": "۲۳ فروردین ۱۴۰۵",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
                                                             "fontSize": 14.0,
                                                             "fontWeight": "w600"
                                                           },
+                                                          "textAlign": "left",
+                                                          "textDirection": "rtl",
                                                           "type": "text"
                                                         }
                                                       ],
@@ -2227,7 +2545,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ø¬Ø²Ø¦ÛŒØ§Øª",
+                                                          "data": "جزئیات",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -2242,9 +2560,34 @@
                                                     "type": "padding"
                                                   },
                                                   "onTap": {
-                                                    "actionType": "showResult",
-                                                    "title": "Ø¬Ø²Ø¦ÛŒØ§Øª",
-                                                    "content": "Ø¬Ø²Ø¦ÛŒØ§Øª Ø¨Ù‡ Ø²ÙˆØ¯ÛŒ ÙØ¹Ø§Ù„ Ù…ÛŒâ€ŒØ´ÙˆØ¯."
+                                                    "actionType": "sequence",
+                                                    "actions": [
+                                                      {
+                                                        "actionType": "setValue",
+                                                        "values": [
+                                                          {
+                                                            "key": "crDetailVariantMarriageLoan",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crDetailVariantChildLoan",
+                                                            "value": true
+                                                          },
+                                                          {
+                                                            "key": "crDetailVariantCompleteDocsDone",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crDetailVariantCompleteDocsEmpty",
+                                                            "value": false
+                                                          }
+                                                        ]
+                                                      },
+                                                      {
+                                                        "routeName": "cartable_real_detail",
+                                                        "actionType": "navigate"
+                                                      }
+                                                    ]
                                                   },
                                                   "type": "gestureDetector"
                                                 },
@@ -2419,7 +2762,7 @@
                                   "type": "visibility",
                                   "visible": "[[trIntroIsTobankTab]]",
                                   "child": {
-                                    "data": "Ã˜ÂªÃ™Ë†Ã˜Â¨Ã˜Â§Ã™â€ Ãš©",
+                                    "data": "توبانک",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -2431,7 +2774,7 @@
                                     "type": "text"
                                   },
                                   "replacement": {
-                                    "data": "Ã˜ÂªÃ™Ë†Ã˜Â¨Ã˜Â§Ã™â€ Ãš©",
+                                    "data": "توبانک",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.hint}}",
@@ -2504,7 +2847,7 @@
                                   "type": "visibility",
                                   "visible": "[[!trIntroIsTobankTab]]",
                                   "child": {
-                                    "data": "Ã˜³Ã™¾Ã˜±Ã˜Â¯Ã™â€¡Ã¢â‚¬Å’Ã™â€¡Ã˜Â§",
+                                    "data": "سپرده‌ها",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
@@ -2516,7 +2859,7 @@
                                     "type": "text"
                                   },
                                   "replacement": {
-                                    "data": "Ã˜³Ã™¾Ã˜±Ã˜Â¯Ã™â€¡Ã¢â‚¬Å’Ã™â€¡Ã˜Â§",
+                                    "data": "سپرده‌ها",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.hint}}",
@@ -2631,7 +2974,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "Ã™ÂÃ›Å’Ã™â€žÃ˜ÂªÃ˜±Ã™â€¡Ã˜Â§",
+                                          "data": "فیلترها",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -2691,7 +3034,7 @@
                                       "height": 36.0,
                                       "child": {
                                         "child": {
-                                          "data": "Ã™â€¡Ã™â€¦Ã™â€¡",
+                                          "data": "همه",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.secondary.color}}",
@@ -2727,7 +3070,7 @@
                                       "height": 36.0,
                                       "child": {
                                         "child": {
-                                          "data": "Ã™â€¡Ã™â€¦Ã™â€¡",
+                                          "data": "همه",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -2795,7 +3138,7 @@
                                       "height": 36.0,
                                       "child": {
                                         "child": {
-                                          "data": "Ã˜ÂªÃ˜±Ã˜Â§Ãš©Ã™â€ Ã˜Â´ Ã™â€¡Ã˜Â§Ã›Å’ Ãš©Ã›Å’Ã™Â Ã™¾Ã™Ë†Ã™â€ž",
+                                          "data": "تراکنش های کیف پول",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.secondary.color}}",
@@ -2831,7 +3174,7 @@
                                       "height": 36.0,
                                       "child": {
                                         "child": {
-                                          "data": "Ã˜ÂªÃ˜±Ã˜Â§Ãš©Ã™â€ Ã˜Â´ Ã™â€¡Ã˜Â§Ã›Å’ Ãš©Ã›Å’Ã™Â Ã™¾Ã™Ë†Ã™â€ž",
+                                          "data": "تراکنش های کیف پول",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -2927,7 +3270,7 @@
                                                       "children": [
                                                         {
                                                           "child": {
-                                                            "data": "Ã™¾Ã˜±Ã˜Â¯Ã˜Â§Ã˜®Ã˜Âª Ã˜Â§Ã™â€šÃ˜³Ã˜Â§Ã˜·",
+                                                            "data": "پرداخت اقساط",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -2945,7 +3288,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã›±,Ã›°Ã›°Ã›Â¶,Ã›°Ã›°Ã›° Ã˜±Ã›Å’Ã˜Â§Ã™â€ž",
+                                                          "data": "۱,۰۰۶,۰۰۰ ریال",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -2964,7 +3307,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "Ã›°Ã›± Ã™ÂÃ˜±Ã™Ë†Ã˜±Ã˜Â¯Ã›Å’Ã™â€  Ã›±Ã›Â´Ã›°Ã›Âµ - Ã›±Ã›±:Ã›Â´Ã›³",
+                                                      "data": "۰۱ فروردین ۱۴۰۵ - ۱۱:۴۳",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -3037,7 +3380,7 @@
                                                       "children": [
                                                         {
                                                           "child": {
-                                                            "data": "Ã˜³Ã˜±Ã™Ë†Ã›Å’Ã˜³ Ãš©Ã˜Â§Ã˜±Ã™â€¦Ã˜²Ã˜Â¯ Ã˜³Ã™ÂÃ˜ÂªÃ™â€¡",
+                                                            "data": "سرویس کارمزد سفته",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -3055,7 +3398,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã›³Ã›Â¸,Ã›°Ã›°Ã›° Ã˜±Ã›Å’Ã˜Â§Ã™â€ž",
+                                                          "data": "۳۸,۰۰۰ ریال",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3074,7 +3417,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "Ã›°Ã›² Ã˜Â§Ã˜³Ã™ÂÃ™â€ Ã˜Â¯ Ã›±Ã›Â´Ã›°Ã›Â´ - Ã›±Ã›Âµ:Ã›²Ã›·",
+                                                      "data": "۰۲ اسفند ۱۴۰۴ - ۱۵:۲۷",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -3147,7 +3490,7 @@
                                                       "children": [
                                                         {
                                                           "child": {
-                                                            "data": "Ãš©Ã˜Â§Ã˜±Ã˜Âª Ã˜Â¨Ã™â€¡ Ãš©Ã˜Â§Ã˜±Ã˜Âª",
+                                                            "data": "کارت به کارت",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -3165,7 +3508,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã›±Ã›°,Ã›°Ã›°Ã›° Ã˜±Ã›Å’Ã˜Â§Ã™â€ž",
+                                                          "data": "۱۰,۰۰۰ ریال",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3184,7 +3527,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "Ã›°Ã›Â¶ Ã˜Â¯Ã›Å’ Ã›±Ã›Â´Ã›°Ã›Â´ - Ã›±Ã›±:Ã›°Ã›²",
+                                                      "data": "۰۶ دی ۱۴۰۴ - ۱۱:۰۲",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -3269,7 +3612,7 @@
                                                       "children": [
                                                         {
                                                           "child": {
-                                                            "data": "Ã˜³Ã˜±Ã™Ë†Ã›Å’Ã˜³ Ãš©Ã˜Â§Ã˜±Ã™â€¦Ã˜²Ã˜Â¯ Ã˜³Ã™ÂÃ˜ÂªÃ™â€¡",
+                                                            "data": "سرویس کارمزد سفته",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -3287,7 +3630,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã›³Ã›±Ã›³,Ã›°Ã›°Ã›° Ã˜±Ã›Å’Ã˜Â§Ã™â€ž",
+                                                          "data": "۳۱۳,۰۰۰ ریال",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3306,7 +3649,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "Ã›ÂµÃ›Â¸ Ã˜Â¨Ã™â€¡Ã™â€¦Ã™â€  Ã›±Ã›Â´Ã›°Ã›Â´ - Ã›±Ã›°:Ã›°Ã›Âµ",
+                                                      "data": "۵۸ بهمن ۱۴۰۴ - ۱۰:۰۵",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -3379,7 +3722,7 @@
                                                       "children": [
                                                         {
                                                           "child": {
-                                                            "data": "Ã˜Â´Ã˜Â§Ã˜±ÃšËœ Ãš©Ã›Å’Ã™Â Ã™¾Ã™Ë†Ã™â€ž Ã˜ÂªÃ™Ë†Ã˜Â¨Ã˜Â§Ã™â€ Ãš©",
+                                                            "data": "شارژ کیف پول توبانک",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -3397,7 +3740,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã›ÂµÃ›°,Ã›°Ã›°Ã›° Ã˜±Ã›Å’Ã˜Â§Ã™â€ž",
+                                                          "data": "۵۰,۰۰۰ ریال",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3416,7 +3759,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "Ã›ÂµÃ›Â¸ Ã˜Â¯Ã›Å’ Ã›±Ã›Â´Ã›°Ã›Â´ - Ã›±Ã›Â´:Ã›°Ã›³",
+                                                      "data": "۵۸ دی ۱۴۰۴ - ۱۴:۰۳",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -3489,7 +3832,7 @@
                                                       "children": [
                                                         {
                                                           "child": {
-                                                            "data": "Ãš©Ã˜Â§Ã˜±Ã˜Âª Ã˜Â¨Ã™â€¡ Ãš©Ã˜Â§Ã˜±Ã˜Âª",
+                                                            "data": "کارت به کارت",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -3507,7 +3850,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã›±Ã›°,Ã›°Ã›°Ã›° Ã˜±Ã›Å’Ã˜Â§Ã™â€ž",
+                                                          "data": "۱۰,۰۰۰ ریال",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3526,7 +3869,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "Ã›°Ã›Â¶ Ã˜Â¯Ã›Å’ Ã›±Ã›Â´Ã›°Ã›Â´ - Ã›±Ã›Âµ:Ã›°Ã›Â¸",
+                                                      "data": "۰۶ دی ۱۴۰۴ - ۱۵:۰۸",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -3619,7 +3962,7 @@
                                                       "children": [
                                                         {
                                                           "child": {
-                                                            "data": "Ã˜ÂªÃ˜±Ã˜Â§Ãš©Ã™â€ Ã˜Â´ Ãš©Ã›Å’Ã™Â Ã™¾Ã™Ë†Ã™â€ž",
+                                                            "data": "تراکنش کیف پول",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -3637,7 +3980,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã›±Ã›°,Ã›°Ã›°Ã›° Ã˜±Ã›Å’Ã˜Â§Ã™â€ž",
+                                                          "data": "۱۰,۰۰۰ ریال",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3656,7 +3999,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "Ã›°Ã›³ Ã˜Â¯Ã›Å’ Ã›±Ã›Â´Ã›°Ã›Â´ - Ã›±Ã›³:Ã›³Ã›°",
+                                                      "data": "۰۳ دی ۱۴۰۴ - ۱۳:۳۰",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -3729,7 +4072,7 @@
                                                       "children": [
                                                         {
                                                           "child": {
-                                                            "data": "Ã˜³Ã˜±Ã™Ë†Ã›Å’Ã˜³ Ã˜Â§Ã˜Â¹Ã˜ÂªÃ˜Â¨Ã˜Â§Ã˜±Ã˜³Ã™â€ Ã˜Â¬Ã›Å’",
+                                                            "data": "سرویس اعتبارسنجی",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -3747,7 +4090,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã›Â¸,Ã›°Ã›°Ã›° Ã˜±Ã›Å’Ã˜Â§Ã™â€ž",
+                                                          "data": "۸,۰۰۰ ریال",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3766,7 +4109,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "Ã›°Ã›± Ã˜Â¯Ã›Å’ Ã›±Ã›Â´Ã›°Ã›Â´ - Ã›±Ã›²:Ã›°Ã›±",
+                                                      "data": "۰۱ دی ۱۴۰۴ - ۱۲:۰۱",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -3839,7 +4182,7 @@
                                                       "children": [
                                                         {
                                                           "child": {
-                                                            "data": "Ã˜³Ã˜±Ã™Ë†Ã›Å’Ã˜³ Ã˜Â§Ã˜Â¹Ã˜ÂªÃ˜Â¨Ã˜Â§Ã˜±Ã˜³Ã™â€ Ã˜Â¬Ã›Å’",
+                                                            "data": "سرویس اعتبارسنجی",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -3857,7 +4200,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã›Â¸Ã›°,Ã›°Ã›°Ã›° Ã˜±Ã›Å’Ã˜Â§Ã™â€ž",
+                                                          "data": "۸۰,۰۰۰ ریال",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3876,7 +4219,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "Ã›²Ã›Â¶ Ã˜Â¢Ã˜°Ã˜± Ã›±Ã›Â´Ã›°Ã›Â´ - Ã›±Ã›±:Ã›±Ã›Â¶",
+                                                      "data": "۲۶ آذر ۱۴۰۴ - ۱۱:۱۶",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -3949,7 +4292,7 @@
                                                       "children": [
                                                         {
                                                           "child": {
-                                                            "data": "Ã˜³Ã™ÂÃ˜Â§Ã˜±Ã˜Â´ Ãš©Ã˜Â§Ã˜±Ã˜Âª Ã™â€¡Ã˜Â¯Ã›Å’Ã™â€¡",
+                                                            "data": "سفارش کارت هدیه",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -3967,7 +4310,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã›±,Ã›³Ã›Â¶Ã›Â¸,Ã›ÂµÃ›°Ã›° Ã˜±Ã›Å’Ã˜Â§Ã™â€ž",
+                                                          "data": "۱,۳۶۸,۵۰۰ ریال",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3986,7 +4329,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "Ã›²Ã›Â¶ Ã˜Â¢Ã˜°Ã˜± Ã›±Ã›Â´Ã›°Ã›Â´ - Ã›±Ã›±:Ã›ÂµÃ›°",
+                                                      "data": "۲۶ آذر ۱۴۰۴ - ۱۱:۵۰",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -4059,7 +4402,7 @@
                                                       "children": [
                                                         {
                                                           "child": {
-                                                            "data": "Ã˜ÂªÃ˜±Ã˜Â§Ãš©Ã™â€ Ã˜Â´ Ãš©Ã›Å’Ã™Â Ã™¾Ã™Ë†Ã™â€ž",
+                                                            "data": "تراکنش کیف پول",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -4077,7 +4420,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã›±,Ã›Â´Ã›°Ã›°,Ã›°Ã›°Ã›° Ã˜±Ã›Å’Ã˜Â§Ã™â€ž",
+                                                          "data": "۱,۴۰۰,۰۰۰ ریال",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -4096,7 +4439,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "Ã›²Ã›Â¶ Ã˜Â¢Ã˜°Ã˜± Ã›±Ã›Â´Ã›°Ã›Â´ - Ã›±Ã›±:Ã›Â´Ã›°",
+                                                      "data": "۲۶ آذر ۱۴۰۴ - ۱۱:۴۰",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -4181,7 +4524,7 @@
                                                       "children": [
                                                         {
                                                           "child": {
-                                                            "data": "Ã˜Â´Ã˜Â§Ã˜±ÃšËœ Ãš©Ã›Å’Ã™Â Ã™¾Ã™Ë†Ã™â€ž Ã˜ÂªÃ™Ë†Ã˜Â¨Ã˜Â§Ã™â€ Ãš©",
+                                                            "data": "شارژ کیف پول توبانک",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -4199,7 +4542,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã›ÂµÃ›°,Ã›°Ã›°Ã›° Ã˜±Ã›Å’Ã˜Â§Ã™â€ž",
+                                                          "data": "۵۰,۰۰۰ ریال",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -4218,7 +4561,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "Ã›°Ã›Â¸ Ã˜Â¯Ã›Å’ Ã›±Ã›Â´Ã›°Ã›Â´ - Ã›±Ã›Â´:Ã›°Ã›³",
+                                                      "data": "۰۸ دی ۱۴۰۴ - ۱۴:۰۳",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -4291,7 +4634,7 @@
                                                       "children": [
                                                         {
                                                           "child": {
-                                                            "data": "Ã˜Â§Ã™â€ Ã˜ÂªÃ™â€šÃ˜Â§Ã™â€ž Ãš©Ã›Å’Ã™Â Ã™¾Ã™Ë†Ã™â€ž",
+                                                            "data": "انتقال کیف پول",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -4309,7 +4652,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã›²Ã›Âµ,Ã›°Ã›°Ã›° Ã˜±Ã›Å’Ã˜Â§Ã™â€ž",
+                                                          "data": "۲۵,۰۰۰ ریال",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -4328,7 +4671,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "Ã›°Ã›Â¸ Ã˜Â¯Ã›Å’ Ã›±Ã›Â´Ã›°Ã›Â´ - Ã›±Ã›°:Ã›±Ã›Â¶",
+                                                      "data": "۰۸ دی ۱۴۰۴ - ۱۰:۱۶",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -4427,7 +4770,7 @@
                                           "children": [
                                             {
                                               "child": {
-                                                "data": "Ã™¾Ã™â€ž",
+                                                "data": "پل",
                                                 "style": {
                                                   "type": "custom",
                                                   "color": "{{appColors.current.text.title}}",
@@ -4445,7 +4788,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "Ã›²Ã›Â¹Ã›Â¹,Ã›Â¹Ã›°Ã›°,Ã›°Ã›°Ã›° Ã˜±Ã›Å’Ã˜Â§Ã™â€ž",
+                                              "data": "۲۹۹,۹۰۰,۰۰۰ ریال",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -4464,7 +4807,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "Ã˜Â§Ã™â€ Ã˜ÂªÃ™â€šÃ˜Â§Ã™â€ž Ã˜Â¨Ã™â€¡ Ã™â€¦Ã™â€¡Ã˜Â¯Ã›Å’ Ã˜Â¬Ã™â€¦Ã˜Â´Ã›Å’Ã˜Â¯Ã™¾Ã™Ë†Ã˜±",
+                                          "data": "انتقال به مهدی جمشیدپور",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -4537,7 +4880,7 @@
                                           "children": [
                                             {
                                               "child": {
-                                                "data": "Ã™¾Ã™â€ž",
+                                                "data": "پل",
                                                 "style": {
                                                   "type": "custom",
                                                   "color": "{{appColors.current.text.title}}",
@@ -4555,7 +4898,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "Ã›ÂµÃ›°Ã›°,Ã›°Ã›°Ã›°,Ã›°Ã›°Ã›° Ã˜±Ã›Å’Ã˜Â§Ã™â€ž",
+                                              "data": "۵۰۰,۰۰۰,۰۰۰ ریال",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -4574,7 +4917,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "Ã˜Â§Ã™â€ Ã˜ÂªÃ™â€šÃ˜Â§Ã™â€ž Ã˜Â¨Ã™â€¡ Ã™â€¦Ã™â€¡Ã˜Â¯Ã›Å’ Ã˜Â¬Ã™â€¦Ã˜Â´Ã›Å’Ã˜Â¯Ã™¾Ã™Ë†Ã˜±",
+                                          "data": "انتقال به مهدی جمشیدپور",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -4647,7 +4990,7 @@
                                           "children": [
                                             {
                                               "child": {
-                                                "data": "Ã™¾Ã™â€ž",
+                                                "data": "پل",
                                                 "style": {
                                                   "type": "custom",
                                                   "color": "{{appColors.current.text.title}}",
@@ -4665,7 +5008,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "Ã›ÂµÃ›°Ã›°,Ã›°Ã›°Ã›°,Ã›°Ã›°Ã›° Ã˜±Ã›Å’Ã˜Â§Ã™â€ž",
+                                              "data": "۵۰۰,۰۰۰,۰۰۰ ریال",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -4684,7 +5027,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "Ã˜Â§Ã™â€ Ã˜ÂªÃ™â€šÃ˜Â§Ã™â€ž Ã˜Â¨Ã™â€¡ Ã™â€¦Ã™â€¡Ã˜Â¯Ã›Å’ Ã˜Â¬Ã™â€¦Ã˜Â´Ã›Å’Ã˜Â¯Ã™¾Ã™Ë†Ã˜±",
+                                          "data": "انتقال به مهدی جمشیدپور",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -4757,7 +5100,7 @@
                                           "children": [
                                             {
                                               "child": {
-                                                "data": "Ã™¾Ã™â€ž",
+                                                "data": "پل",
                                                 "style": {
                                                   "type": "custom",
                                                   "color": "{{appColors.current.text.title}}",
@@ -4775,7 +5118,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "Ã›±Ã›°,Ã›ÂµÃ›°Ã›°,Ã›°Ã›°Ã›° Ã˜±Ã›Å’Ã˜Â§Ã™â€ž",
+                                              "data": "۱۰,۵۰۰,۰۰۰ ریال",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -4794,7 +5137,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "Ã˜Â§Ã™â€ Ã˜ÂªÃ™â€šÃ˜Â§Ã™â€ž Ã˜Â¨Ã™â€¡ Ã™â€¦Ã™â€¡Ã˜Â¯Ã›Å’ Ã˜Â¬Ã™â€¦Ã˜Â´Ã›Å’Ã˜Â¯Ã™¾Ã™Ë†Ã˜±",
+                                          "data": "انتقال به مهدی جمشیدپور",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -4867,7 +5210,7 @@
                                           "children": [
                                             {
                                               "child": {
-                                                "data": "Ã™¾Ã˜Â§Ã›Å’Ã˜Â§",
+                                                "data": "پایا",
                                                 "style": {
                                                   "type": "custom",
                                                   "color": "{{appColors.current.text.title}}",
@@ -4885,7 +5228,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "Ã›ÂµÃ›Â´Ã›³,Ã›Â¸Ã›°Ã›°,Ã›°Ã›°Ã›° Ã˜±Ã›Å’Ã˜Â§Ã™â€ž",
+                                              "data": "۵۴۳,۸۰۰,۰۰۰ ریال",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -4904,7 +5247,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "Ã˜Â§Ã™â€ Ã˜ÂªÃ™â€šÃ˜Â§Ã™â€ž Ã˜Â¨Ã™â€¡ Ã™â€¦Ã™â€¡Ã˜Â¯Ã›Å’ Ã˜Â¬Ã™â€¦Ã˜Â´Ã›Å’Ã˜Â¯Ã™¾Ã™Ë†Ã˜±",
+                                          "data": "انتقال به مهدی جمشیدپور",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -4977,7 +5320,7 @@
                                           "children": [
                                             {
                                               "child": {
-                                                "data": "Ã™¾Ã˜Â§Ã›Å’Ã˜Â§",
+                                                "data": "پایا",
                                                 "style": {
                                                   "type": "custom",
                                                   "color": "{{appColors.current.text.title}}",
@@ -4995,7 +5338,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "Ã›ÂµÃ›Â´Ã›³,Ã›Â¹Ã›°Ã›°,Ã›°Ã›°Ã›° Ã˜±Ã›Å’Ã˜Â§Ã™â€ž",
+                                              "data": "۵۴۳,۹۰۰,۰۰۰ ریال",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -5014,7 +5357,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "Ã˜Â§Ã™â€ Ã˜ÂªÃ™â€šÃ˜Â§Ã™â€ž Ã˜Â¨Ã™â€¡ Ã™â€¦Ã™â€¡Ã˜Â¯Ã›Å’ Ã˜Â¬Ã™â€¦Ã˜Â´Ã›Å’Ã˜Â¯Ã™¾Ã™Ë†Ã˜±",
+                                          "data": "انتقال به مهدی جمشیدپور",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",

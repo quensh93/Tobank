@@ -156,6 +156,12 @@ import '../../../../stac/tobank/flows/dashboard_real/menu/dashboard_real_menu.da
     as dashboard_real_menu_dart;
 import '../../../../stac/tobank/flows/dashboard_real/dart/dashboard_real_shell.dart'
     as dashboard_real_shell_dart;
+import '../../../../stac/tobank/flows/gift_card_real/menu/gift_card_real_menu.dart'
+    as gift_card_real_menu_dart;
+import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_intro.dart'
+    as gift_card_real_intro_dart;
+import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_select_amount.dart'
+    as gift_card_real_select_amount_dart;
 import '../../../../stac/tobank/flows/profile_real/dart/profile_real_customer_referrals.dart'
     as profile_real_customer_referrals_dart;
 import 'package:tobank_sdui/core/helpers/logger.dart';
@@ -281,6 +287,12 @@ class StacWidgetLoader {
         dashboard_real_menu_dart.dashboardRealMenu().toJson(),
     'dashboard_real_shell': () =>
         dashboard_real_shell_dart.dashboardRealShell().toJson(),
+    'gift_card_real_menu': () =>
+        gift_card_real_menu_dart.giftCardRealMenu().toJson(),
+    'gift_card_real_intro': () =>
+        gift_card_real_intro_dart.giftCardRealIntro().toJson(),
+    'gift_card_real_select_amount': () =>
+        gift_card_real_select_amount_dart.giftCardRealSelectAmount().toJson(),
     'verify_identity_real_intro': () =>
         verify_identity_real_intro_dart.verifyIdentityRealIntro().toJson(),
     'verify_identity_real_preregister': () =>

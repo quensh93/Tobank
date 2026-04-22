@@ -40,6 +40,13 @@ import '../parsers/actions/show_theme_selector_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_delete_account_confirm_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_logout_confirm_dialog_action_parser.dart';
 import '../parsers/actions/show_add_destination_card_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_gift_card_purchase_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_gift_card_amount_guide_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_gift_card_select_amount_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_gift_card_design_type_bottom_sheet_action_parser.dart';
+import '../parsers/actions/add_gift_card_amount_card_action_parser.dart';
+import '../parsers/actions/remove_gift_card_amount_card_action_parser.dart';
+import '../parsers/actions/update_gift_card_amount_count_action_parser.dart';
 import '../parsers/actions/launch_url_action_parser.dart';
 import '../parsers/actions/play_audio_url_action_parser.dart';
 
@@ -513,6 +520,27 @@ void _registerExampleParsers() {
 
   // Register add destination card bottom sheet action parser
   registerShowAddDestinationCardBottomSheetActionParser();
+
+  // Register gift-card purchase bottom sheet action parser
+  registerShowGiftCardPurchaseBottomSheetActionParser();
+
+  // Register gift-card amount guide bottom sheet action parser
+  registerShowGiftCardAmountGuideBottomSheetActionParser();
+
+  // Register gift-card select amount bottom sheet action parser
+  registerShowGiftCardSelectAmountBottomSheetActionParser();
+
+  // Register gift-card design type bottom sheet action parser
+  registerShowGiftCardDesignTypeBottomSheetActionParser();
+
+  // Register add-gift-card amount card action parser (max 3 cards)
+  registerAddGiftCardAmountCardActionParser();
+
+  // Register remove-gift-card amount card action parser
+  registerRemoveGiftCardAmountCardActionParser();
+
+  // Register update gift-card amount count action parser (1..5)
+  registerUpdateGiftCardAmountCountActionParser();
 
   // Register launchUrl action parser for opening external links/media
   CustomComponentRegistry.instance.registerAction(

@@ -130,6 +130,16 @@
             "cartable_real_intro",
             "cartable_real_detail"
           ]
+        },
+        {
+          "title": "کارت هدیه (API واقعی)",
+          "description": "خرید کارت هدیه با رابط واقعی",
+          "icon": "{{appAssets.icons.wallet}}",
+          "widgetType": "gift_card_real_menu",
+          "flowSteps": [
+            "gift_card_real_intro",
+            "gift_card_real_select_amount"
+          ]
         }
       ],
       "completedItems": [
