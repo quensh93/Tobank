@@ -152,6 +152,8 @@ flutter:
     - lib/stac/tobank/flows/transaction_real/json/
     - lib/stac/tobank/flows/profile_real/json/
     - lib/stac/tobank/flows/dashboard_real/json/
+    - lib/stac/tobank/home_page/json/
+    - lib/stac/tobank/home_page/api/
 
 
 
