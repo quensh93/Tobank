@@ -252,10 +252,7 @@ class StacShowRulesBottomSheetAction extends StacAction {
   final String routeName;
   final String? title;
 
-  const StacShowRulesBottomSheetAction({
-    required this.routeName,
-    this.title,
-  });
+  const StacShowRulesBottomSheetAction({required this.routeName, this.title});
 
   @override
   String get actionType => 'showRulesBottomSheet';
@@ -328,9 +325,7 @@ class StacShowPhotoTipsBottomSheetAction extends StacAction {
 class StacShowJobSelectorBottomSheetAction extends StacAction {
   final double heightFactor;
 
-  const StacShowJobSelectorBottomSheetAction({
-    this.heightFactor = 0.75,
-  });
+  const StacShowJobSelectorBottomSheetAction({this.heightFactor = 0.75});
 
   @override
   String get actionType => 'showJobSelectorBottomSheet';
@@ -551,5 +546,76 @@ class StacShowAddDestinationCardBottomSheetAction extends StacAction {
       'submitAction': submitAction is StacAction
           ? (submitAction as StacAction).toJson()
           : submitAction,
+  };
+}
+
+class StacShowGiftCardPurchaseBottomSheetAction extends StacAction {
+  final String title;
+  final String message;
+  final String rulesLabel;
+  final String continueText;
+  final dynamic continueAction;
+
+  const StacShowGiftCardPurchaseBottomSheetAction({
+    this.title = 'خرید کارت هدیه',
+    this.message =
+        'به مبالغ ۳۶,۰۰۰ ریال بابت کارمزد و ۵۷۰,۰۰۰ ریال بابت ارسال کارت هدیه به تحویل گیرنده اضافه می‌گردد',
+    this.rulesLabel = 'قوانین و مقررات توبانک را خوانده و قبول دارم',
+    this.continueText = 'ادامه',
+    this.continueAction,
+  });
+
+  @override
+  String get actionType => 'showGiftCardPurchaseBottomSheet';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': actionType,
+    'title': title,
+    'message': message,
+    'rulesLabel': rulesLabel,
+    'continueText': continueText,
+    if (continueAction != null)
+      'continueAction': continueAction is StacAction
+          ? (continueAction as StacAction).toJson()
+          : continueAction,
+  };
+}
+
+class StacShowGiftCardSelectAmountBottomSheetAction extends StacAction {
+  final String title;
+  final String inputHint;
+  final String confirmText;
+  final String amountValueKey;
+  final String amountLabelKey;
+  final int minAmount;
+  final int maxAmount;
+  final List<int>? quickAmounts;
+
+  const StacShowGiftCardSelectAmountBottomSheetAction({
+    required this.amountValueKey,
+    required this.amountLabelKey,
+    this.title = 'مبلغ کارت هدیه را وارد یا انتخاب نمایید',
+    this.inputHint = 'مبلغ کارت هدیه را به ریال وارد نمایید',
+    this.confirmText = 'تایید',
+    this.minAmount = 1000000,
+    this.maxAmount = 50000000,
+    this.quickAmounts,
+  });
+
+  @override
+  String get actionType => 'showGiftCardSelectAmountBottomSheet';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': actionType,
+    'title': title,
+    'inputHint': inputHint,
+    'confirmText': confirmText,
+    'amountValueKey': amountValueKey,
+    'amountLabelKey': amountLabelKey,
+    'minAmount': minAmount,
+    'maxAmount': maxAmount,
+    if (quickAmounts != null) 'quickAmounts': quickAmounts,
   };
 }

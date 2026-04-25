@@ -1,0 +1,2097 @@
+{
+  "type": "stateFull",
+  "child": {
+    "appBar": {
+      "leading": {
+        "padding": {
+          "left": 12.0
+        },
+        "child": {
+          "child": {
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24.0,
+            "height": 24.0,
+            "type": "image"
+          },
+          "type": "center"
+        },
+        "type": "padding"
+      },
+      "title": {
+        "data": "جزئیات فرآیند",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "actions": [
+        {
+          "padding": {
+            "right": 12.0
+          },
+          "child": {
+            "onPressed": {
+              "navigationStyle": "pop",
+              "actionType": "navigate"
+            },
+            "icon": {
+              "src": "{{appAssets.icons.arrowBack}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 31.0,
+              "height": 31.0,
+              "type": "image"
+            },
+            "type": "iconButton"
+          },
+          "type": "padding"
+        }
+      ],
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "backgroundColor": "{{appColors.current.background.surface}}",
+    "body": {
+      "padding": {
+        "left": 16.0,
+        "top": 12.0,
+        "right": 16.0,
+        "bottom": 12.0
+      },
+      "child": {
+        "type": "visibility",
+        "visible": "[[crDetailVariantChildLoan]]",
+        "child": {
+          "crossAxisAlignment": "stretch",
+          "children": [
+            {
+              "crossAxisAlignment": "stretch",
+              "children": [
+                {
+                  "data": "وام قرض الحسنه فرزندآوری",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.text.title}}",
+                    "fontSize": 16.0,
+                    "fontWeight": "w700"
+                  },
+                  "textAlign": "center",
+                  "textDirection": "rtl",
+                  "type": "text"
+                },
+                {
+                  "height": 20.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "mainAxisAlignment": "spaceBetween",
+                  "textDirection": "rtl",
+                  "children": [
+                    {
+                      "mainAxisSize": "min",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "data": "شروع فرآیند",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w500"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "width": 2.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": ":",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w500"
+                          },
+                          "textDirection": "ltr",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "data": "۱۴۰۴/۱۰/۰۶ - ۱۱:۱۱",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 14.0,
+                        "fontWeight": "w600"
+                      },
+                      "textAlign": "left",
+                      "textDirection": "rtl",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "row"
+                },
+                {
+                  "height": 14.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "mainAxisAlignment": "spaceBetween",
+                  "textDirection": "rtl",
+                  "children": [
+                    {
+                      "mainAxisSize": "min",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "data": "وضعیت فرآیند",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w500"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "width": 2.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": ":",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w500"
+                          },
+                          "textDirection": "ltr",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "data": "بسته",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 14.0,
+                        "fontWeight": "w600"
+                      },
+                      "textAlign": "left",
+                      "textDirection": "rtl",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "row"
+                }
+              ],
+              "type": "column"
+            },
+            {
+              "height": 18.0,
+              "type": "sizedBox"
+            },
+            {
+              "padding": {
+                "left": 14.0,
+                "top": 14.0,
+                "right": 14.0,
+                "bottom": 14.0
+              },
+              "decoration": {
+                "color": "{{appColors.current.background.surfaceContainer}}",
+                "border": {
+                  "color": "{{appColors.current.input.borderEnabled}}",
+                  "width": 1.0
+                },
+                "borderRadius": {
+                  "topLeft": 8.0,
+                  "topRight": 8.0,
+                  "bottomLeft": 8.0,
+                  "bottomRight": 8.0
+                }
+              },
+              "child": {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "mainAxisAlignment": "spaceBetween",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "child": {
+                          "data": "مدارک متقاضی",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w700"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        "type": "expanded"
+                      },
+                      {
+                        "width": 12.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "padding": {
+                          "left": 10.0,
+                          "top": 4.0,
+                          "right": 10.0,
+                          "bottom": 4.0
+                        },
+                        "decoration": {
+                          "color": "#D3F2F4",
+                          "borderRadius": {
+                            "topLeft": 8.0,
+                            "topRight": 8.0,
+                            "bottomLeft": 8.0,
+                            "bottomRight": 8.0
+                          }
+                        },
+                        "child": {
+                          "data": "در انتظار تکمیل",
+                          "style": {
+                            "type": "custom",
+                            "color": "#33A8B2",
+                            "fontSize": 14.0,
+                            "fontWeight": "w700"
+                          },
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        "type": "container"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "mainAxisAlignment": "spaceBetween",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "mainAxisSize": "min",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "data": "زمان ایجاد",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w500"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "width": 2.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "data": ":",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w500"
+                            },
+                            "textDirection": "ltr",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "data": "۱۴۰۴/۱۰/۰۶ - ۱۱:۱۱",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w600"
+                        },
+                        "textAlign": "left",
+                        "textDirection": "rtl",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "height": 12.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "mainAxisAlignment": "spaceBetween",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "mainAxisSize": "min",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "data": "زمان اتمام",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w500"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "width": 2.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "data": ":",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w500"
+                            },
+                            "textDirection": "ltr",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "data": "۱۴۰۴/۱۰/۰۶ - ۱۱:۴۸",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w600"
+                        },
+                        "textAlign": "left",
+                        "textDirection": "rtl",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "row"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "container"
+            },
+            {
+              "height": 14.0,
+              "type": "sizedBox"
+            },
+            {
+              "padding": {
+                "left": 14.0,
+                "top": 14.0,
+                "right": 14.0,
+                "bottom": 14.0
+              },
+              "decoration": {
+                "color": "{{appColors.current.background.surfaceContainer}}",
+                "border": {
+                  "color": "{{appColors.current.input.borderEnabled}}",
+                  "width": 1.0
+                },
+                "borderRadius": {
+                  "topLeft": 8.0,
+                  "topRight": 8.0,
+                  "bottomLeft": 8.0,
+                  "bottomRight": 8.0
+                }
+              },
+              "child": {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "mainAxisAlignment": "spaceBetween",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "child": {
+                          "data": "اطلاعات محل سکونت متقاضی",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w700"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        "type": "expanded"
+                      },
+                      {
+                        "width": 12.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "padding": {
+                          "left": 10.0,
+                          "top": 4.0,
+                          "right": 10.0,
+                          "bottom": 4.0
+                        },
+                        "decoration": {
+                          "color": "#D3F2F4",
+                          "borderRadius": {
+                            "topLeft": 8.0,
+                            "topRight": 8.0,
+                            "bottomLeft": 8.0,
+                            "bottomRight": 8.0
+                          }
+                        },
+                        "child": {
+                          "data": "در انتظار تکمیل",
+                          "style": {
+                            "type": "custom",
+                            "color": "#33A8B2",
+                            "fontSize": 14.0,
+                            "fontWeight": "w700"
+                          },
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        "type": "container"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "mainAxisAlignment": "spaceBetween",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "mainAxisSize": "min",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "data": "زمان ایجاد",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w500"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "width": 2.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "data": ":",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w500"
+                            },
+                            "textDirection": "ltr",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "data": "۱۴۰۴/۱۰/۰۶ - ۱۱:۱۱",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w600"
+                        },
+                        "textAlign": "left",
+                        "textDirection": "rtl",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "height": 12.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "mainAxisAlignment": "spaceBetween",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "mainAxisSize": "min",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "data": "زمان اتمام",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w500"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "width": 2.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "data": ":",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w500"
+                            },
+                            "textDirection": "ltr",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "data": "۱۴۰۴/۱۰/۰۶ - ۱۱:۴۸",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w600"
+                        },
+                        "textAlign": "left",
+                        "textDirection": "rtl",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "row"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "container"
+            },
+            {
+              "height": 14.0,
+              "type": "sizedBox"
+            },
+            {
+              "padding": {
+                "left": 14.0,
+                "top": 14.0,
+                "right": 14.0,
+                "bottom": 14.0
+              },
+              "decoration": {
+                "color": "{{appColors.current.background.surfaceContainer}}",
+                "border": {
+                  "color": "{{appColors.current.input.borderEnabled}}",
+                  "width": 1.0
+                },
+                "borderRadius": {
+                  "topLeft": 8.0,
+                  "topRight": 8.0,
+                  "bottomLeft": 8.0,
+                  "bottomRight": 8.0
+                }
+              },
+              "child": {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "mainAxisAlignment": "spaceBetween",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "child": {
+                          "data": "اطلاعات فرزند متقاضی",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w700"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        "type": "expanded"
+                      },
+                      {
+                        "width": 12.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "padding": {
+                          "left": 10.0,
+                          "top": 4.0,
+                          "right": 10.0,
+                          "bottom": 4.0
+                        },
+                        "decoration": {
+                          "color": "#D3F2F4",
+                          "borderRadius": {
+                            "topLeft": 8.0,
+                            "topRight": 8.0,
+                            "bottomLeft": 8.0,
+                            "bottomRight": 8.0
+                          }
+                        },
+                        "child": {
+                          "data": "در انتظار تکمیل",
+                          "style": {
+                            "type": "custom",
+                            "color": "#33A8B2",
+                            "fontSize": 14.0,
+                            "fontWeight": "w700"
+                          },
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        "type": "container"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "mainAxisAlignment": "spaceBetween",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "mainAxisSize": "min",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "data": "زمان ایجاد",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w500"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "width": 2.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "data": ":",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w500"
+                            },
+                            "textDirection": "ltr",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "data": "۱۴۰۴/۱۰/۰۶ - ۱۱:۱۱",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w600"
+                        },
+                        "textAlign": "left",
+                        "textDirection": "rtl",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "height": 12.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "mainAxisAlignment": "spaceBetween",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "mainAxisSize": "min",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "data": "زمان اتمام",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w500"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "width": 2.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "data": ":",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w500"
+                            },
+                            "textDirection": "ltr",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "data": "۱۴۰۴/۱۰/۰۶ - ۱۱:۴۸",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w600"
+                        },
+                        "textAlign": "left",
+                        "textDirection": "rtl",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "row"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "container"
+            }
+          ],
+          "type": "column"
+        },
+        "replacement": {
+          "type": "visibility",
+          "visible": "[[crDetailVariantCompleteDocsDone]]",
+          "child": {
+            "crossAxisAlignment": "stretch",
+            "children": [
+              {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "data": "تکمیل مدارک",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "center",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 20.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "mainAxisAlignment": "spaceBetween",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "mainAxisSize": "min",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "data": "شروع فرآیند",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w500"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "width": 2.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "data": ":",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w500"
+                            },
+                            "textDirection": "ltr",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "data": "۱۴۰۵/۰۱/۲۴ - ۱۵:۳۵",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w600"
+                        },
+                        "textAlign": "left",
+                        "textDirection": "rtl",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "height": 14.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "mainAxisAlignment": "spaceBetween",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "mainAxisSize": "min",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "data": "وضعیت فرآیند",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w500"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "width": 2.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "data": ":",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w500"
+                            },
+                            "textDirection": "ltr",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "data": "بسته",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w600"
+                        },
+                        "textAlign": "left",
+                        "textDirection": "rtl",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "row"
+                  }
+                ],
+                "type": "column"
+              },
+              {
+                "height": 18.0,
+                "type": "sizedBox"
+              },
+              {
+                "padding": {
+                  "left": 14.0,
+                  "top": 14.0,
+                  "right": 14.0,
+                  "bottom": 14.0
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1.0
+                  },
+                  "borderRadius": {
+                    "topLeft": 8.0,
+                    "topRight": 8.0,
+                    "bottomLeft": 8.0,
+                    "bottomRight": 8.0
+                  }
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "mainAxisAlignment": "spaceBetween",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "child": {
+                            "data": "بررسی مدارک مشتری",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 16.0,
+                              "fontWeight": "w700"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          "type": "expanded"
+                        },
+                        {
+                          "width": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "padding": {
+                            "left": 10.0,
+                            "top": 4.0,
+                            "right": 10.0,
+                            "bottom": 4.0
+                          },
+                          "decoration": {
+                            "color": "#DDF3E8",
+                            "borderRadius": {
+                              "topLeft": 8.0,
+                              "topRight": 8.0,
+                              "bottomLeft": 8.0,
+                              "bottomRight": 8.0
+                            }
+                          },
+                          "child": {
+                            "data": "تکمیل‌شده",
+                            "style": {
+                              "type": "custom",
+                              "color": "#5DA181",
+                              "fontSize": 14.0,
+                              "fontWeight": "w700"
+                            },
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          "type": "container"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "height": 16.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "mainAxisAlignment": "spaceBetween",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "mainAxisSize": "min",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "زمان ایجاد",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "width": 2.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": ":",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textDirection": "ltr",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        {
+                          "data": "۱۴۰۵/۰۱/۲۴ - ۱۵:۳۵",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w600"
+                          },
+                          "textAlign": "left",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "height": 12.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "mainAxisAlignment": "spaceBetween",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "mainAxisSize": "min",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "زمان اتمام",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "width": 2.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": ":",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textDirection": "ltr",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        {
+                          "data": "۱۴۰۵/۰۱/۲۶ - ۰۷:۱۷",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w600"
+                          },
+                          "textAlign": "left",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "row"
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "container"
+              }
+            ],
+            "type": "column"
+          },
+          "replacement": {
+            "type": "visibility",
+            "visible": "[[crDetailVariantCompleteDocsEmpty]]",
+            "child": {
+              "crossAxisAlignment": "stretch",
+              "children": [
+                {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "data": "تکمیل مدارک",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w700"
+                      },
+                      "textAlign": "center",
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    {
+                      "height": 20.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "mainAxisAlignment": "spaceBetween",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "mainAxisSize": "min",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "شروع فرآیند",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "width": 2.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": ":",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textDirection": "ltr",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        {
+                          "data": "۱۴۰۵/۰۱/۲۳ - ۱۰:۵۵",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w600"
+                          },
+                          "textAlign": "left",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "height": 14.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "mainAxisAlignment": "spaceBetween",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "mainAxisSize": "min",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "وضعیت فرآیند",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "width": 2.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": ":",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textDirection": "ltr",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        {
+                          "data": "بسته",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w600"
+                          },
+                          "textAlign": "left",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "row"
+                    }
+                  ],
+                  "type": "column"
+                }
+              ],
+              "type": "column"
+            },
+            "replacement": {
+              "crossAxisAlignment": "stretch",
+              "children": [
+                {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "data": "وام قرض الحسنه ازدواج",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w700"
+                      },
+                      "textAlign": "center",
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    {
+                      "height": 20.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "mainAxisAlignment": "spaceBetween",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "mainAxisSize": "min",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "شروع فرآیند",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "width": 2.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": ":",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textDirection": "ltr",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        {
+                          "data": "۱۴۰۴/۱۰/۰۶ - ۱۳:۴۶",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w600"
+                          },
+                          "textAlign": "left",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "height": 14.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "mainAxisAlignment": "spaceBetween",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "mainAxisSize": "min",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "وضعیت فرآیند",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "width": 2.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": ":",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textDirection": "ltr",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        {
+                          "data": "باز",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w600"
+                          },
+                          "textAlign": "left",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "height": 14.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "mainAxisAlignment": "spaceBetween",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "mainAxisSize": "min",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "مبلغ تسهیلات ازدواج",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "width": 2.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": ":",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textDirection": "ltr",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        {
+                          "data": "۳,۰۰۰,۰۰۰,۰۰۰ ریال",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w600"
+                          },
+                          "textAlign": "left",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "row"
+                    }
+                  ],
+                  "type": "column"
+                },
+                {
+                  "height": 18.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "padding": {
+                    "left": 14.0,
+                    "top": 14.0,
+                    "right": 14.0,
+                    "bottom": 14.0
+                  },
+                  "decoration": {
+                    "color": "{{appColors.current.background.surfaceContainer}}",
+                    "border": {
+                      "color": "{{appColors.current.input.borderEnabled}}",
+                      "width": 1.0
+                    },
+                    "borderRadius": {
+                      "topLeft": 8.0,
+                      "topRight": 8.0,
+                      "bottomLeft": 8.0,
+                      "bottomRight": 8.0
+                    }
+                  },
+                  "child": {
+                    "crossAxisAlignment": "stretch",
+                    "children": [
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "child": {
+                              "data": "اطلاعات عقد نامه متقاضی",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "width": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "padding": {
+                              "left": 10.0,
+                              "top": 4.0,
+                              "right": 10.0,
+                              "bottom": 4.0
+                            },
+                            "decoration": {
+                              "color": "#DDF3E8",
+                              "borderRadius": {
+                                "topLeft": 8.0,
+                                "topRight": 8.0,
+                                "bottomLeft": 8.0,
+                                "bottomRight": 8.0
+                              }
+                            },
+                            "child": {
+                              "data": "تکمیل‌شده",
+                              "style": {
+                                "type": "custom",
+                                "color": "#5DA181",
+                                "fontSize": 14.0,
+                                "fontWeight": "w700"
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "container"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "mainAxisSize": "min",
+                            "textDirection": "rtl",
+                            "children": [
+                              {
+                                "data": "زمان ایجاد",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 14.0,
+                                  "fontWeight": "w500"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              },
+                              {
+                                "width": 2.0,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": ":",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 14.0,
+                                  "fontWeight": "w500"
+                                },
+                                "textDirection": "ltr",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "row"
+                          },
+                          {
+                            "data": "۱۴۰۴/۱۰/۰۶ - ۱۳:۴۶",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w600"
+                            },
+                            "textAlign": "left",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "height": 12.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "mainAxisSize": "min",
+                            "textDirection": "rtl",
+                            "children": [
+                              {
+                                "data": "زمان اتمام",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 14.0,
+                                  "fontWeight": "w500"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              },
+                              {
+                                "width": 2.0,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": ":",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 14.0,
+                                  "fontWeight": "w500"
+                                },
+                                "textDirection": "ltr",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "row"
+                          },
+                          {
+                            "data": "۱۴۰۴/۱۲/۳۰ - ۱۰:۵۵",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w600"
+                            },
+                            "textAlign": "left",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      }
+                    ],
+                    "type": "column"
+                  },
+                  "type": "container"
+                },
+                {
+                  "height": 14.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "padding": {
+                    "left": 14.0,
+                    "top": 14.0,
+                    "right": 14.0,
+                    "bottom": 14.0
+                  },
+                  "decoration": {
+                    "color": "{{appColors.current.background.surfaceContainer}}",
+                    "border": {
+                      "color": "{{appColors.current.input.borderEnabled}}",
+                      "width": 1.0
+                    },
+                    "borderRadius": {
+                      "topLeft": 8.0,
+                      "topRight": 8.0,
+                      "bottomLeft": 8.0,
+                      "bottomRight": 8.0
+                    }
+                  },
+                  "child": {
+                    "crossAxisAlignment": "stretch",
+                    "children": [
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "child": {
+                              "data": "مدارک متقاضی",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "width": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "padding": {
+                              "left": 10.0,
+                              "top": 4.0,
+                              "right": 10.0,
+                              "bottom": 4.0
+                            },
+                            "decoration": {
+                              "color": "#DDF3E8",
+                              "borderRadius": {
+                                "topLeft": 8.0,
+                                "topRight": 8.0,
+                                "bottomLeft": 8.0,
+                                "bottomRight": 8.0
+                              }
+                            },
+                            "child": {
+                              "data": "تکمیل‌شده",
+                              "style": {
+                                "type": "custom",
+                                "color": "#5DA181",
+                                "fontSize": 14.0,
+                                "fontWeight": "w700"
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "container"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "mainAxisSize": "min",
+                            "textDirection": "rtl",
+                            "children": [
+                              {
+                                "data": "زمان ایجاد",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 14.0,
+                                  "fontWeight": "w500"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              },
+                              {
+                                "width": 2.0,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": ":",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 14.0,
+                                  "fontWeight": "w500"
+                                },
+                                "textDirection": "ltr",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "row"
+                          },
+                          {
+                            "data": "۱۴۰۴/۱۰/۰۶ - ۱۳:۴۶",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w600"
+                            },
+                            "textAlign": "left",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "height": 12.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "mainAxisSize": "min",
+                            "textDirection": "rtl",
+                            "children": [
+                              {
+                                "data": "زمان اتمام",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 14.0,
+                                  "fontWeight": "w500"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              },
+                              {
+                                "width": 2.0,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": ":",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 14.0,
+                                  "fontWeight": "w500"
+                                },
+                                "textDirection": "ltr",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "row"
+                          },
+                          {
+                            "data": "۱۴۰۴/۱۲/۳۰ - ۱۰:۵۶",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w600"
+                            },
+                            "textAlign": "left",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      }
+                    ],
+                    "type": "column"
+                  },
+                  "type": "container"
+                },
+                {
+                  "height": 14.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "padding": {
+                    "left": 14.0,
+                    "top": 14.0,
+                    "right": 14.0,
+                    "bottom": 14.0
+                  },
+                  "decoration": {
+                    "color": "{{appColors.current.background.surfaceContainer}}",
+                    "border": {
+                      "color": "{{appColors.current.input.borderEnabled}}",
+                      "width": 1.0
+                    },
+                    "borderRadius": {
+                      "topLeft": 8.0,
+                      "topRight": 8.0,
+                      "bottomLeft": 8.0,
+                      "bottomRight": 8.0
+                    }
+                  },
+                  "child": {
+                    "crossAxisAlignment": "stretch",
+                    "children": [
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "child": {
+                              "data": "اطلاعات محل سکونت متقاضی",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "width": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "padding": {
+                              "left": 10.0,
+                              "top": 4.0,
+                              "right": 10.0,
+                              "bottom": 4.0
+                            },
+                            "decoration": {
+                              "color": "#DDF3E8",
+                              "borderRadius": {
+                                "topLeft": 8.0,
+                                "topRight": 8.0,
+                                "bottomLeft": 8.0,
+                                "bottomRight": 8.0
+                              }
+                            },
+                            "child": {
+                              "data": "تکمیل‌شده",
+                              "style": {
+                                "type": "custom",
+                                "color": "#5DA181",
+                                "fontSize": 14.0,
+                                "fontWeight": "w700"
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "container"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "mainAxisSize": "min",
+                            "textDirection": "rtl",
+                            "children": [
+                              {
+                                "data": "زمان ایجاد",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 14.0,
+                                  "fontWeight": "w500"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              },
+                              {
+                                "width": 2.0,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": ":",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 14.0,
+                                  "fontWeight": "w500"
+                                },
+                                "textDirection": "ltr",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "row"
+                          },
+                          {
+                            "data": "۱۴۰۴/۱۰/۰۶ - ۱۳:۴۶",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w600"
+                            },
+                            "textAlign": "left",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "height": 12.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "mainAxisSize": "min",
+                            "textDirection": "rtl",
+                            "children": [
+                              {
+                                "data": "زمان اتمام",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 14.0,
+                                  "fontWeight": "w500"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              },
+                              {
+                                "width": 2.0,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": ":",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 14.0,
+                                  "fontWeight": "w500"
+                                },
+                                "textDirection": "ltr",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "row"
+                          },
+                          {
+                            "data": "۱۴۰۴/۱۲/۳۰ - ۱۰:۵۶",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w600"
+                            },
+                            "textAlign": "left",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "row"
+                      }
+                    ],
+                    "type": "column"
+                  },
+                  "type": "container"
+                }
+              ],
+              "type": "column"
+            }
+          }
+        }
+      },
+      "type": "singleChildScrollView"
+    },
+    "type": "scaffold"
+  }
+}
