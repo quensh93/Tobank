@@ -298,7 +298,7 @@
         "sampleMobileNumber": "09103611173",
         "receiveActivationCode": "دریافت کد فعالسازی",
         "otpTitle": "دریافت کد تایید",
-        "otpDescription": "کد ارسالی به شماره 09103611173 را وارد نمایید.",
+        "otpDescription": "کد ارسالی به شماره {{userData.mobile}} را وارد نمایید.",
         "otpCodeHint": "کد تایید",
         "otpRetryLabel": "ارسال مجدد",
         "otpResentMessage": "کد فعالسازی دوباره ارسال شد",

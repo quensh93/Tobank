@@ -84,7 +84,7 @@ dev_dependencies:
   riverpod_lint: ^3.0.3
   retrofit_generator: ^10.2.1
   json_serializable: ^6.10.0
-
+  flutter_launcher_icons: ^0.14.3
   stac_framework: 1.0.0
 
 # Force use of local logger instead of pub.dev version
@@ -93,6 +93,11 @@ dependency_overrides:
   logger:
   # stac_logger:
   #   path: .stac/packages/stac_logger  # Temporarily commented out - folder doesn't exist
+
+flutter_icons:
+  image_path: 'assets/images/logo.png'
+  android: true
+  ios: false
 
 flutter:
   uses-material-design: true
