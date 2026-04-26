@@ -39,7 +39,7 @@ class AppRoot extends ConsumerStatefulWidget {
   /// شروع از اسپلش(سفته)
   static const bool startFromPromissoryRealFlow = bool.fromEnvironment(
     'START_APP_FROM_PROMISSORY_REAL_FLOW',
-    defaultValue: true,
+    defaultValue: false,
   );
 
   // Global key for the main app's Navigator - allows debug panel to navigate the main app
