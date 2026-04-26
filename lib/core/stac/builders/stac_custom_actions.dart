@@ -214,6 +214,11 @@ class StacFilePickerAction extends StacAction {
   final String targetKey;
   final String? hasValueKey;
   final String? fileNameKey;
+  final String? source;
+  final String? cameraDevice;
+  final bool cropImage;
+  final double? cropAspectRatioX;
+  final double? cropAspectRatioY;
   final List<String>? allowedExtensions;
   final bool previewBeforeConfirm;
   final String? previewSheetTitle;
@@ -226,6 +231,11 @@ class StacFilePickerAction extends StacAction {
     required this.targetKey,
     this.hasValueKey,
     this.fileNameKey,
+    this.source,
+    this.cameraDevice,
+    this.cropImage = false,
+    this.cropAspectRatioX,
+    this.cropAspectRatioY,
     this.allowedExtensions,
     this.previewBeforeConfirm = false,
     this.previewSheetTitle,
@@ -244,6 +254,11 @@ class StacFilePickerAction extends StacAction {
     'targetKey': targetKey,
     if (hasValueKey != null) 'hasValueKey': hasValueKey,
     if (fileNameKey != null) 'fileNameKey': fileNameKey,
+    if (source != null) 'source': source,
+    if (cameraDevice != null) 'cameraDevice': cameraDevice,
+    'cropImage': cropImage,
+    if (cropAspectRatioX != null) 'cropAspectRatioX': cropAspectRatioX,
+    if (cropAspectRatioY != null) 'cropAspectRatioY': cropAspectRatioY,
     if (allowedExtensions != null) 'allowedExtensions': allowedExtensions,
     'previewBeforeConfirm': previewBeforeConfirm,
     if (previewSheetTitle != null) 'previewSheetTitle': previewSheetTitle,

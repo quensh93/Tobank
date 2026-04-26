@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:image_cropper/image_cropper.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:stac/stac.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -40,18 +42,8 @@ class FilePickerActionParser extends StacActionParser<FilePickerActionModel> {
     );
 
     try {
-      // Determine file type
-      final fileType = _getFileType(model.fileType);
-
-      // Pick file
-      final result = await FilePicker.platform.pickFiles(
-        type: fileType,
-        allowedExtensions: model.allowedExtensions,
-        allowMultiple: model.allowMultiple,
-        withData: true, // Always get bytes for web compatibility
-      );
-
-      if (result == null || result.files.isEmpty) {
+      final pickedFile = await _pickFile(model);
+      if (pickedFile == null) {
         AppLogger.dc(
           LogCategory.action,
           'FilePickerAction: User cancelled file picker',
@@ -61,35 +53,32 @@ class FilePickerActionParser extends StacActionParser<FilePickerActionModel> {
 
       if (!context.mounted) return;
 
-      final file = result.files.first;
-      String? fileData;
-
-      if (kIsWeb) {
-        // On web, convert bytes to base64 data URL
-        if (file.bytes != null) {
-          final mimeType = _getMimeType(file.extension);
-          final base64 = base64Encode(file.bytes!);
-          fileData = 'data:$mimeType;base64,$base64';
-          AppLogger.dc(
-            LogCategory.action,
-            'FilePickerAction: Web - Created base64 data URL (${file.bytes!.length} bytes)',
-          );
-        }
-      } else {
-        // On desktop/mobile, use file path
-        fileData = file.path;
+      final preparedFile = await _prepareSelectionWithCrop(
+        context: context,
+        model: model,
+        file: pickedFile,
+      );
+      if (preparedFile == null) {
         AppLogger.dc(
           LogCategory.action,
-          'FilePickerAction: Desktop/Mobile - Using file path: $fileData',
+          'FilePickerAction: User cancelled cropper',
         );
+        return;
       }
+
+      final fileData = _getStorableData(
+        file: preparedFile,
+        fileType: model.fileType,
+      );
+
+      if (!context.mounted) return;
 
       if (fileData != null) {
         if (model.previewBeforeConfirm) {
           final decision = await _showImagePreviewSheet(
             context: context,
             model: model,
-            file: file,
+            file: preparedFile,
           );
 
           if (decision == _FilePreviewDecision.retry) {
@@ -117,7 +106,7 @@ class FilePickerActionParser extends StacActionParser<FilePickerActionModel> {
             {'key': model.targetKey, 'value': fileData},
             {'key': model.hasValueKey ?? 'hasImage', 'value': true},
             if (model.fileNameKey != null)
-              {'key': model.fileNameKey, 'value': file.name},
+              {'key': model.fileNameKey, 'value': preparedFile.name},
           ],
         };
 
@@ -146,6 +135,176 @@ class FilePickerActionParser extends StacActionParser<FilePickerActionModel> {
         );
       }
     }
+  }
+
+  Future<PlatformFile?> _pickFile(FilePickerActionModel model) async {
+    if (_shouldUseNativePicker(model)) {
+      return _pickWithNativePicker(model);
+    }
+
+    final fileType = _getFileType(model.fileType);
+    final result = await FilePicker.platform.pickFiles(
+      type: fileType,
+      allowedExtensions: model.allowedExtensions,
+      allowMultiple: model.allowMultiple,
+      withData: true,
+    );
+
+    if (result == null || result.files.isEmpty) {
+      return null;
+    }
+
+    return result.files.first;
+  }
+
+  bool _shouldUseNativePicker(FilePickerActionModel model) {
+    if (kIsWeb || model.allowMultiple) {
+      return false;
+    }
+
+    final source = model.source?.toLowerCase();
+    if (source != 'camera' && source != 'gallery') {
+      return false;
+    }
+
+    final type = model.fileType.toLowerCase();
+    return type == 'image' || type == 'video';
+  }
+
+  Future<PlatformFile?> _pickWithNativePicker(
+    FilePickerActionModel model,
+  ) async {
+    final picker = ImagePicker();
+    final source = _resolveImageSource(model.source);
+    if (source == null) return null;
+
+    final cameraDevice = _resolveCameraDevice(model.cameraDevice);
+    final type = model.fileType.toLowerCase();
+
+    XFile? picked;
+    if (type == 'image') {
+      picked = await picker.pickImage(
+        source: source,
+        preferredCameraDevice: cameraDevice,
+      );
+    } else if (type == 'video') {
+      picked = await picker.pickVideo(
+        source: source,
+        preferredCameraDevice: cameraDevice,
+      );
+    }
+
+    if (picked == null) {
+      return null;
+    }
+
+    final shouldReadBytes = type == 'image' || kIsWeb;
+    final bytes = shouldReadBytes ? await picked.readAsBytes() : null;
+    final size = bytes?.length ?? await picked.length();
+
+    return PlatformFile(
+      name: picked.name,
+      path: picked.path,
+      size: size,
+      bytes: bytes,
+    );
+  }
+
+  ImageSource? _resolveImageSource(String? source) {
+    switch (source?.toLowerCase()) {
+      case 'camera':
+        return ImageSource.camera;
+      case 'gallery':
+        return ImageSource.gallery;
+      default:
+        return null;
+    }
+  }
+
+  CameraDevice _resolveCameraDevice(String? cameraDevice) {
+    return cameraDevice?.toLowerCase() == 'front'
+        ? CameraDevice.front
+        : CameraDevice.rear;
+  }
+
+  Future<PlatformFile?> _prepareSelectionWithCrop({
+    required BuildContext context,
+    required FilePickerActionModel model,
+    required PlatformFile file,
+  }) async {
+    final isImage = model.fileType.toLowerCase() == 'image';
+    if (!model.cropImage || !isImage || kIsWeb) {
+      return file;
+    }
+
+    final sourcePath = file.path;
+    if (sourcePath == null || sourcePath.isEmpty) {
+      AppLogger.dc(
+        LogCategory.action,
+        'FilePickerAction: Crop skipped, file path unavailable',
+      );
+      return file;
+    }
+
+    final lockAspectRatio =
+        model.cropAspectRatioX != null &&
+        model.cropAspectRatioY != null &&
+        model.cropAspectRatioX! > 0 &&
+        model.cropAspectRatioY! > 0;
+
+    final cropped = await ImageCropper().cropImage(
+      sourcePath: sourcePath,
+      aspectRatio: lockAspectRatio
+          ? CropAspectRatio(
+              ratioX: model.cropAspectRatioX!,
+              ratioY: model.cropAspectRatioY!,
+            )
+          : null,
+      uiSettings: [
+        AndroidUiSettings(
+          toolbarTitle: 'برش تصویر',
+          lockAspectRatio: lockAspectRatio,
+        ),
+        IOSUiSettings(
+          title: 'برش تصویر',
+          aspectRatioLockEnabled: lockAspectRatio,
+          resetAspectRatioEnabled: !lockAspectRatio,
+        ),
+      ],
+    );
+
+    if (cropped == null) {
+      return null;
+    }
+
+    final bytes = await cropped.readAsBytes();
+    final path = cropped.path;
+
+    return PlatformFile(
+      name: path.split(RegExp(r'[\\/]')).last,
+      path: path,
+      size: bytes.length,
+      bytes: bytes,
+    );
+  }
+
+  String? _getStorableData({
+    required PlatformFile file,
+    required String fileType,
+  }) {
+    if (kIsWeb) {
+      if (file.bytes != null) {
+        final mimeType = _getMimeType(
+          file.extension,
+          isVideo: fileType.toLowerCase() == 'video',
+        );
+        final base64 = base64Encode(file.bytes!);
+        return 'data:$mimeType;base64,$base64';
+      }
+      return null;
+    }
+
+    return file.path;
   }
 
   Future<_FilePreviewDecision> _showImagePreviewSheet({
