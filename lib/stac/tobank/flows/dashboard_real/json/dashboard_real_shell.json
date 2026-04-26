@@ -242,9 +242,22 @@
                                       "type": "container"
                                     },
                                     "onTap": {
-                                      "assetPath": "lib/stac/tobank/flows/profile_real/json/profile_real_bank_info.json",
+                                      "actionType": "navigate",
                                       "navigationStyle": "push",
-                                      "actionType": "navigate"
+                                      "request": {
+                                        "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.profile_real_bank_info/1",
+                                        "method": "post",
+                                        "headers": {
+                                          "Content-Type": "application/json",
+                                          "Accept": "*/*"
+                                        },
+                                        "body": {
+                                          "operator": "is",
+                                          "dimension": {
+                                            "app": "mobile"
+                                          }
+                                        }
+                                      }
                                     },
                                     "type": "gestureDetector"
                                   },
@@ -316,9 +329,22 @@
                                       "type": "container"
                                     },
                                     "onTap": {
-                                      "assetPath": "lib/stac/tobank/flows/profile_real/json/profile_real_invite_friends.json",
+                                      "actionType": "navigate",
                                       "navigationStyle": "push",
-                                      "actionType": "navigate"
+                                      "request": {
+                                        "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.profile_real_invite_friends/1",
+                                        "method": "post",
+                                        "headers": {
+                                          "Content-Type": "application/json",
+                                          "Accept": "*/*"
+                                        },
+                                        "body": {
+                                          "operator": "is",
+                                          "dimension": {
+                                            "app": "mobile"
+                                          }
+                                        }
+                                      }
                                     },
                                     "type": "gestureDetector"
                                   },
@@ -390,9 +416,22 @@
                                       "type": "container"
                                     },
                                     "onTap": {
-                                      "assetPath": "lib/stac/tobank/flows/profile_real/json/profile_real_destinations.json",
+                                      "actionType": "navigate",
                                       "navigationStyle": "push",
-                                      "actionType": "navigate"
+                                      "request": {
+                                        "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.profile_real_destinations/1",
+                                        "method": "post",
+                                        "headers": {
+                                          "Content-Type": "application/json",
+                                          "Accept": "*/*"
+                                        },
+                                        "body": {
+                                          "operator": "is",
+                                          "dimension": {
+                                            "app": "mobile"
+                                          }
+                                        }
+                                      }
                                     },
                                     "type": "gestureDetector"
                                   },
@@ -464,9 +503,22 @@
                                       "type": "container"
                                     },
                                     "onTap": {
-                                      "assetPath": "lib/stac/tobank/flows/profile_real/json/profile_real_settings.json",
+                                      "actionType": "navigate",
                                       "navigationStyle": "push",
-                                      "actionType": "navigate"
+                                      "request": {
+                                        "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.profile_real_settings/1",
+                                        "method": "post",
+                                        "headers": {
+                                          "Content-Type": "application/json",
+                                          "Accept": "*/*"
+                                        },
+                                        "body": {
+                                          "operator": "is",
+                                          "dimension": {
+                                            "app": "mobile"
+                                          }
+                                        }
+                                      }
                                     },
                                     "type": "gestureDetector"
                                   },
@@ -538,9 +590,22 @@
                                       "type": "container"
                                     },
                                     "onTap": {
-                                      "assetPath": "lib/stac/tobank/flows/profile_real/json/profile_real_rules.json",
+                                      "actionType": "navigate",
                                       "navigationStyle": "push",
-                                      "actionType": "navigate"
+                                      "request": {
+                                        "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.profile_real_rules/1",
+                                        "method": "post",
+                                        "headers": {
+                                          "Content-Type": "application/json",
+                                          "Accept": "*/*"
+                                        },
+                                        "body": {
+                                          "operator": "is",
+                                          "dimension": {
+                                            "app": "mobile"
+                                          }
+                                        }
+                                      }
                                     },
                                     "type": "gestureDetector"
                                   },
@@ -612,9 +677,22 @@
                                       "type": "container"
                                     },
                                     "onTap": {
-                                      "assetPath": "lib/stac/tobank/flows/profile_real/json/profile_real_about.json",
+                                      "actionType": "navigate",
                                       "navigationStyle": "push",
-                                      "actionType": "navigate"
+                                      "request": {
+                                        "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.profile_real_about/1",
+                                        "method": "post",
+                                        "headers": {
+                                          "Content-Type": "application/json",
+                                          "Accept": "*/*"
+                                        },
+                                        "body": {
+                                          "operator": "is",
+                                          "dimension": {
+                                            "app": "mobile"
+                                          }
+                                        }
+                                      }
                                     },
                                     "type": "gestureDetector"
                                   },
@@ -686,9 +764,22 @@
                                       "type": "container"
                                     },
                                     "onTap": {
-                                      "assetPath": "lib/stac/tobank/flows/profile_real/json/profile_real_contact.json",
+                                      "actionType": "navigate",
                                       "navigationStyle": "push",
-                                      "actionType": "navigate"
+                                      "request": {
+                                        "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.profile_real_contact/1",
+                                        "method": "post",
+                                        "headers": {
+                                          "Content-Type": "application/json",
+                                          "Accept": "*/*"
+                                        },
+                                        "body": {
+                                          "operator": "is",
+                                          "dimension": {
+                                            "app": "mobile"
+                                          }
+                                        }
+                                      }
                                     },
                                     "type": "gestureDetector"
                                   }
@@ -1163,8 +1254,22 @@
                                                   ]
                                                 },
                                                 {
-                                                  "routeName": "cartable_real_detail",
-                                                  "actionType": "navigate"
+                                                  "actionType": "navigate",
+                                                  "navigationStyle": "push",
+                                                  "request": {
+                                                    "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.cartable_real_detail/1",
+                                                    "method": "post",
+                                                    "headers": {
+                                                      "Content-Type": "application/json",
+                                                      "Accept": "*/*"
+                                                    },
+                                                    "body": {
+                                                      "operator": "is",
+                                                      "dimension": {
+                                                        "app": "mobile"
+                                                      }
+                                                    }
+                                                  }
                                                 }
                                               ]
                                             },
@@ -1834,8 +1939,22 @@
                                                         ]
                                                       },
                                                       {
-                                                        "routeName": "cartable_real_detail",
-                                                        "actionType": "navigate"
+                                                        "actionType": "navigate",
+                                                        "navigationStyle": "push",
+                                                        "request": {
+                                                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.cartable_real_detail/1",
+                                                          "method": "post",
+                                                          "headers": {
+                                                            "Content-Type": "application/json",
+                                                            "Accept": "*/*"
+                                                          },
+                                                          "body": {
+                                                            "operator": "is",
+                                                            "dimension": {
+                                                              "app": "mobile"
+                                                            }
+                                                          }
+                                                        }
                                                       }
                                                     ]
                                                   },
@@ -2092,8 +2211,22 @@
                                                         ]
                                                       },
                                                       {
-                                                        "routeName": "cartable_real_detail",
-                                                        "actionType": "navigate"
+                                                        "actionType": "navigate",
+                                                        "navigationStyle": "push",
+                                                        "request": {
+                                                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.cartable_real_detail/1",
+                                                          "method": "post",
+                                                          "headers": {
+                                                            "Content-Type": "application/json",
+                                                            "Accept": "*/*"
+                                                          },
+                                                          "body": {
+                                                            "operator": "is",
+                                                            "dimension": {
+                                                              "app": "mobile"
+                                                            }
+                                                          }
+                                                        }
                                                       }
                                                     ]
                                                   },
@@ -2338,8 +2471,22 @@
                                                         ]
                                                       },
                                                       {
-                                                        "routeName": "cartable_real_detail",
-                                                        "actionType": "navigate"
+                                                        "actionType": "navigate",
+                                                        "navigationStyle": "push",
+                                                        "request": {
+                                                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.cartable_real_detail/1",
+                                                          "method": "post",
+                                                          "headers": {
+                                                            "Content-Type": "application/json",
+                                                            "Accept": "*/*"
+                                                          },
+                                                          "body": {
+                                                            "operator": "is",
+                                                            "dimension": {
+                                                              "app": "mobile"
+                                                            }
+                                                          }
+                                                        }
                                                       }
                                                     ]
                                                   },
@@ -2584,8 +2731,22 @@
                                                         ]
                                                       },
                                                       {
-                                                        "routeName": "cartable_real_detail",
-                                                        "actionType": "navigate"
+                                                        "actionType": "navigate",
+                                                        "navigationStyle": "push",
+                                                        "request": {
+                                                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.cartable_real_detail/1",
+                                                          "method": "post",
+                                                          "headers": {
+                                                            "Content-Type": "application/json",
+                                                            "Accept": "*/*"
+                                                          },
+                                                          "body": {
+                                                            "operator": "is",
+                                                            "dimension": {
+                                                              "app": "mobile"
+                                                            }
+                                                          }
+                                                        }
                                                       }
                                                     ]
                                                   },
@@ -2989,9 +3150,22 @@
                                     "type": "container"
                                   },
                                   "onTap": {
-                                    "routeName": "transaction_real_filter",
+                                    "actionType": "navigate",
                                     "navigationStyle": "push",
-                                    "actionType": "navigate"
+                                    "request": {
+                                      "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.transaction_real_filter/1",
+                                      "method": "post",
+                                      "headers": {
+                                        "Content-Type": "application/json",
+                                        "Accept": "*/*"
+                                      },
+                                      "body": {
+                                        "operator": "is",
+                                        "dimension": {
+                                          "app": "mobile"
+                                        }
+                                      }
+                                    }
                                   },
                                   "type": "gestureDetector"
                                 },
@@ -7748,23 +7922,11 @@
                                                                               "type": "visibility",
                                                                               "visible": "[[homePage.balanceVisible]]",
                                                                               "child": {
-                                                                                "mainAxisAlignment": "end",
+                                                                                "mainAxisAlignment": "start",
                                                                                 "textDirection": "rtl",
                                                                                 "children": [
                                                                                   {
-                                                                                    "src": "{{appAssets.current.icons.refresh}}",
-                                                                                    "imageType": "asset",
-                                                                                    "color": "{{appColors.current.text.title}}",
-                                                                                    "width": 22.0,
-                                                                                    "height": 22.0,
-                                                                                    "type": "image"
-                                                                                  },
-                                                                                  {
-                                                                                    "width": 8.0,
-                                                                                    "type": "sizedBox"
-                                                                                  },
-                                                                                  {
-                                                                                    "data": "ریال 77,641",
+                                                                                    "data": "77,641",
                                                                                     "style": {
                                                                                       "type": "custom",
                                                                                       "color": "{{appColors.current.text.title}}",
@@ -7773,12 +7935,39 @@
                                                                                     },
                                                                                     "textDirection": "rtl",
                                                                                     "type": "text"
+                                                                                  },
+                                                                                  {
+                                                                                    "width": 1.0,
+                                                                                    "type": "sizedBox"
+                                                                                  },
+                                                                                  {
+                                                                                    "data": "ریال",
+                                                                                    "style": {
+                                                                                      "type": "custom",
+                                                                                      "color": "{{appColors.current.text.title}}",
+                                                                                      "fontSize": 18.0,
+                                                                                      "fontWeight": "w700"
+                                                                                    },
+                                                                                    "textDirection": "rtl",
+                                                                                    "type": "text"
+                                                                                  },
+                                                                                  {
+                                                                                    "width": 8.0,
+                                                                                    "type": "sizedBox"
+                                                                                  },
+                                                                                  {
+                                                                                    "src": "{{appAssets.current.icons.refresh}}",
+                                                                                    "imageType": "asset",
+                                                                                    "color": "{{appColors.current.text.title}}",
+                                                                                    "width": 22.0,
+                                                                                    "height": 22.0,
+                                                                                    "type": "image"
                                                                                   }
                                                                                 ],
                                                                                 "type": "row"
                                                                               },
                                                                               "replacement": {
-                                                                                "mainAxisAlignment": "end",
+                                                                                "mainAxisAlignment": "start",
                                                                                 "textDirection": "rtl",
                                                                                 "children": [
                                                                                   {
@@ -7793,21 +7982,6 @@
                                                                                     },
                                                                                     "textDirection": "ltr",
                                                                                     "type": "text"
-                                                                                  },
-                                                                                  {
-                                                                                    "width": 6.0,
-                                                                                    "type": "sizedBox"
-                                                                                  },
-                                                                                  {
-                                                                                    "data": "ریال",
-                                                                                    "style": {
-                                                                                      "type": "custom",
-                                                                                      "color": "{{appColors.current.text.subtitle}}",
-                                                                                      "fontSize": 14.0,
-                                                                                      "fontWeight": "w500"
-                                                                                    },
-                                                                                    "textDirection": "rtl",
-                                                                                    "type": "text"
                                                                                   }
                                                                                 ],
                                                                                 "type": "row"
@@ -7816,7 +7990,7 @@
                                                                             "type": "textButton"
                                                                           },
                                                                           {
-                                                                            "height": 8.0,
+                                                                            "height": 10.0,
                                                                             "type": "sizedBox"
                                                                           },
                                                                           {
@@ -8200,23 +8374,11 @@
                                                                               "type": "visibility",
                                                                               "visible": "[[homePage.balanceVisible]]",
                                                                               "child": {
-                                                                                "mainAxisAlignment": "end",
+                                                                                "mainAxisAlignment": "start",
                                                                                 "textDirection": "rtl",
                                                                                 "children": [
                                                                                   {
-                                                                                    "src": "{{appAssets.current.icons.refresh}}",
-                                                                                    "imageType": "asset",
-                                                                                    "color": "{{appColors.current.text.title}}",
-                                                                                    "width": 22.0,
-                                                                                    "height": 22.0,
-                                                                                    "type": "image"
-                                                                                  },
-                                                                                  {
-                                                                                    "width": 8.0,
-                                                                                    "type": "sizedBox"
-                                                                                  },
-                                                                                  {
-                                                                                    "data": "ریال 77,641",
+                                                                                    "data": "77,641",
                                                                                     "style": {
                                                                                       "type": "custom",
                                                                                       "color": "{{appColors.current.text.title}}",
@@ -8225,12 +8387,39 @@
                                                                                     },
                                                                                     "textDirection": "rtl",
                                                                                     "type": "text"
+                                                                                  },
+                                                                                  {
+                                                                                    "width": 1.0,
+                                                                                    "type": "sizedBox"
+                                                                                  },
+                                                                                  {
+                                                                                    "data": "ریال",
+                                                                                    "style": {
+                                                                                      "type": "custom",
+                                                                                      "color": "{{appColors.current.text.title}}",
+                                                                                      "fontSize": 18.0,
+                                                                                      "fontWeight": "w700"
+                                                                                    },
+                                                                                    "textDirection": "rtl",
+                                                                                    "type": "text"
+                                                                                  },
+                                                                                  {
+                                                                                    "width": 8.0,
+                                                                                    "type": "sizedBox"
+                                                                                  },
+                                                                                  {
+                                                                                    "src": "{{appAssets.current.icons.refresh}}",
+                                                                                    "imageType": "asset",
+                                                                                    "color": "{{appColors.current.text.title}}",
+                                                                                    "width": 22.0,
+                                                                                    "height": 22.0,
+                                                                                    "type": "image"
                                                                                   }
                                                                                 ],
                                                                                 "type": "row"
                                                                               },
                                                                               "replacement": {
-                                                                                "mainAxisAlignment": "end",
+                                                                                "mainAxisAlignment": "start",
                                                                                 "textDirection": "rtl",
                                                                                 "children": [
                                                                                   {
@@ -8245,21 +8434,6 @@
                                                                                     },
                                                                                     "textDirection": "ltr",
                                                                                     "type": "text"
-                                                                                  },
-                                                                                  {
-                                                                                    "width": 6.0,
-                                                                                    "type": "sizedBox"
-                                                                                  },
-                                                                                  {
-                                                                                    "data": "ریال",
-                                                                                    "style": {
-                                                                                      "type": "custom",
-                                                                                      "color": "{{appColors.current.text.subtitle}}",
-                                                                                      "fontSize": 14.0,
-                                                                                      "fontWeight": "w500"
-                                                                                    },
-                                                                                    "textDirection": "rtl",
-                                                                                    "type": "text"
                                                                                   }
                                                                                 ],
                                                                                 "type": "row"
@@ -8268,7 +8442,7 @@
                                                                             "type": "textButton"
                                                                           },
                                                                           {
-                                                                            "height": 8.0,
+                                                                            "height": 10.0,
                                                                             "type": "sizedBox"
                                                                           },
                                                                           {
@@ -8652,23 +8826,11 @@
                                                                               "type": "visibility",
                                                                               "visible": "[[homePage.balanceVisible]]",
                                                                               "child": {
-                                                                                "mainAxisAlignment": "end",
+                                                                                "mainAxisAlignment": "start",
                                                                                 "textDirection": "rtl",
                                                                                 "children": [
                                                                                   {
-                                                                                    "src": "{{appAssets.current.icons.refresh}}",
-                                                                                    "imageType": "asset",
-                                                                                    "color": "{{appColors.current.text.title}}",
-                                                                                    "width": 22.0,
-                                                                                    "height": 22.0,
-                                                                                    "type": "image"
-                                                                                  },
-                                                                                  {
-                                                                                    "width": 8.0,
-                                                                                    "type": "sizedBox"
-                                                                                  },
-                                                                                  {
-                                                                                    "data": "ریال 77,641",
+                                                                                    "data": "77,641",
                                                                                     "style": {
                                                                                       "type": "custom",
                                                                                       "color": "{{appColors.current.text.title}}",
@@ -8677,12 +8839,39 @@
                                                                                     },
                                                                                     "textDirection": "rtl",
                                                                                     "type": "text"
+                                                                                  },
+                                                                                  {
+                                                                                    "width": 1.0,
+                                                                                    "type": "sizedBox"
+                                                                                  },
+                                                                                  {
+                                                                                    "data": "ریال",
+                                                                                    "style": {
+                                                                                      "type": "custom",
+                                                                                      "color": "{{appColors.current.text.title}}",
+                                                                                      "fontSize": 18.0,
+                                                                                      "fontWeight": "w700"
+                                                                                    },
+                                                                                    "textDirection": "rtl",
+                                                                                    "type": "text"
+                                                                                  },
+                                                                                  {
+                                                                                    "width": 8.0,
+                                                                                    "type": "sizedBox"
+                                                                                  },
+                                                                                  {
+                                                                                    "src": "{{appAssets.current.icons.refresh}}",
+                                                                                    "imageType": "asset",
+                                                                                    "color": "{{appColors.current.text.title}}",
+                                                                                    "width": 22.0,
+                                                                                    "height": 22.0,
+                                                                                    "type": "image"
                                                                                   }
                                                                                 ],
                                                                                 "type": "row"
                                                                               },
                                                                               "replacement": {
-                                                                                "mainAxisAlignment": "end",
+                                                                                "mainAxisAlignment": "start",
                                                                                 "textDirection": "rtl",
                                                                                 "children": [
                                                                                   {
@@ -8697,21 +8886,6 @@
                                                                                     },
                                                                                     "textDirection": "ltr",
                                                                                     "type": "text"
-                                                                                  },
-                                                                                  {
-                                                                                    "width": 6.0,
-                                                                                    "type": "sizedBox"
-                                                                                  },
-                                                                                  {
-                                                                                    "data": "ریال",
-                                                                                    "style": {
-                                                                                      "type": "custom",
-                                                                                      "color": "{{appColors.current.text.subtitle}}",
-                                                                                      "fontSize": 14.0,
-                                                                                      "fontWeight": "w500"
-                                                                                    },
-                                                                                    "textDirection": "rtl",
-                                                                                    "type": "text"
                                                                                   }
                                                                                 ],
                                                                                 "type": "row"
@@ -8720,7 +8894,7 @@
                                                                             "type": "textButton"
                                                                           },
                                                                           {
-                                                                            "height": 8.0,
+                                                                            "height": 10.0,
                                                                             "type": "sizedBox"
                                                                           },
                                                                           {
@@ -9556,8 +9730,10 @@
                                       {
                                         "type": "tobankBannerCarousel",
                                         "imageUrls": [
-                                          "https://picsum.photos/seed/tobank-home-banner-1/1200/420",
-                                          "https://picsum.photos/seed/tobank-home-banner-2/1200/420"
+                                          "https://appapi.tobank.ir/api/v1.0/media/banners/Turbo-Loan.jpg",
+                                          "https://appapi.tobank.ir/api/v1.0/media/banners/SheydaWordByWord.jpg",
+                                          "https://appapi.tobank.ir/api/v1.0/media/banners/bamdad.jpg"
+
                                         ],
                                         "height": 106.0,
                                         "borderRadius": 8.0,
@@ -9921,6 +10097,7 @@
             "type": "scaffold"
           }
         }
+
       ],
       "type": "bottomNavigationView"
     },

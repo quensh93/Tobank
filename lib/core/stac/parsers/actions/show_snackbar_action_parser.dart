@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
 
-/// Model for the showSnackBar action
+/// Model for snackbar actions (`customSnackBar` and overridden `showSnackBar`).
 class ShowSnackBarActionModel {
   final String message;
   final String? backgroundColor;
@@ -18,8 +18,23 @@ class ShowSnackBarActionModel {
   });
 
   factory ShowSnackBarActionModel.fromJson(Map<String, dynamic> json) {
+    var message = (json['message'] as String?)?.trim() ?? '';
+
+    // Built-in `showSnackBar` commonly sends message via `content.data`.
+    if (message.isEmpty) {
+      final content = json['content'];
+      if (content is String) {
+        message = content;
+      } else if (content is Map) {
+        final data = content['data'];
+        if (data != null) {
+          message = data.toString();
+        }
+      }
+    }
+
     return ShowSnackBarActionModel(
-      message: json['message'] as String? ?? '',
+      message: message,
       backgroundColor: json['backgroundColor'] as String?,
       duration: json['duration'] as int?,
       textColor: json['textColor'] as String?,
@@ -27,37 +42,21 @@ class ShowSnackBarActionModel {
   }
 }
 
-/// Parser for the showSnackBar action.
-/// Shows a snackbar with a message.
-///
-/// Example JSON:
-/// ```json
-/// {
-///   "actionType": "showSnackBar",
-///   "message": "Operation completed successfully!",
-///   "backgroundColor": "#4CAF50",
-///   "duration": 3000,
-///   "textColor": "#FFFFFF"
-/// }
-/// ```
-class ShowSnackBarActionParser
+abstract class _BaseShowSnackBarActionParser
     extends StacActionParser<ShowSnackBarActionModel> {
-  const ShowSnackBarActionParser();
+  const _BaseShowSnackBarActionParser();
 
   @override
-  String get actionType => 'customSnackBar';
-
-  @override
-  ShowSnackBarActionModel getModel(Map<String, dynamic> json) {
-    return ShowSnackBarActionModel.fromJson(json);
-  }
+  ShowSnackBarActionModel getModel(Map<String, dynamic> json) =>
+      ShowSnackBarActionModel.fromJson(json);
 
   @override
   FutureOr<void> onCall(BuildContext context, ShowSnackBarActionModel model) {
-    // Resolve any template variables in the message
     final resolvedMessage = _resolveTemplateVariables(model.message);
+    if (resolvedMessage.trim().isEmpty) {
+      return null;
+    }
 
-    // Parse colors
     Color? bgColor;
     if (model.backgroundColor != null) {
       bgColor = _parseColor(model.backgroundColor!);
@@ -68,7 +67,6 @@ class ShowSnackBarActionParser
       txtColor = _parseColor(model.textColor!);
     }
 
-    // Create and show snackbar
     final snackBar = SnackBar(
       content: Text(
         resolvedMessage,
@@ -87,31 +85,90 @@ class ShowSnackBarActionParser
     );
 
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    return null;
   }
 
   String _resolveTemplateVariables(String text) {
-    // Simple template resolution using registry
-    final regex = RegExp(r'\{\{([^}]+)\}\}');
-    return text.replaceAllMapped(regex, (match) {
-      final key = match.group(1)?.trim();
-      if (key == null) return match.group(0) ?? '';
+    var resolved = text;
 
-      // Handle array access like data.status.message[0]
-      final arrayMatch = RegExp(r'(.+)\[(\d+)\]').firstMatch(key);
-      if (arrayMatch != null) {
-        final baseKey = arrayMatch.group(1);
-        final index = int.tryParse(arrayMatch.group(2) ?? '');
-        if (baseKey != null && index != null) {
-          final value = StacRegistry.instance.getValue(baseKey);
-          if (value is List && index < value.length) {
-            return value[index].toString();
-          }
-        }
-      }
+    // Resolve __STAC_OPEN__expr}} syntax used in built JSON files.
+    final stacOpenRegex = RegExp(r'__STAC_OPEN__([^}]+)\}\}');
+    resolved = resolved.replaceAllMapped(stacOpenRegex, (match) {
+      final expr = match.group(1)?.trim();
+      if (expr == null || expr.isEmpty) return match.group(0) ?? '';
 
-      final value = StacRegistry.instance.getValue(key);
-      return value?.toString() ?? match.group(0) ?? '';
+      final value = _resolveExpression(expr);
+      return value?.toString() ?? '';
     });
+
+    // Resolve {{expr}} syntax.
+    final mustacheRegex = RegExp(r'\{\{([^}]+)\}\}');
+    resolved = resolved.replaceAllMapped(mustacheRegex, (match) {
+      final expr = match.group(1)?.trim();
+      if (expr == null || expr.isEmpty) return match.group(0) ?? '';
+
+      final value = _resolveExpression(expr);
+      return value?.toString() ?? '';
+    });
+
+    return resolved;
+  }
+
+  dynamic _resolveExpression(String expr) {
+    // Support simple null-coalescing: a ?? b
+    final parts = expr
+        .split('??')
+        .map((e) => e.trim())
+        .where((e) => e.isNotEmpty);
+
+    for (final candidate in parts) {
+      final value = _lookupRegistryValue(candidate);
+      if (value != null && value.toString().isNotEmpty) {
+        return value;
+      }
+    }
+
+    return null;
+  }
+
+  dynamic _lookupRegistryValue(String path) {
+    final registry = StacRegistry.instance;
+
+    // Direct key lookup first (supports flat dotted keys as well).
+    final directValue = registry.getValue(path);
+    if (directValue != null) {
+      return directValue;
+    }
+
+    // Fallback path traversal: data.status.message.0 / foo[0].bar
+    final normalizedPath = path.replaceAllMapped(
+      RegExp(r'\[(\d+)\]'),
+      (m) => '.${m.group(1)}',
+    );
+    final segments = normalizedPath
+        .split('.')
+        .where((segment) => segment.isNotEmpty)
+        .toList();
+    if (segments.isEmpty) return null;
+
+    dynamic value = registry.getValue(segments.first);
+    for (final segment in segments.skip(1)) {
+      if (value is Map<String, dynamic>) {
+        value = value[segment];
+      } else if (value is Map) {
+        value = value[segment];
+      } else if (value is List) {
+        final index = int.tryParse(segment);
+        if (index == null || index < 0 || index >= value.length) {
+          return null;
+        }
+        value = value[index];
+      } else {
+        return null;
+      }
+    }
+
+    return value;
   }
 
   Color? _parseColor(String colorString) {
@@ -125,4 +182,20 @@ class ShowSnackBarActionParser
     } catch (_) {}
     return null;
   }
+}
+
+/// Parser for project custom action: `customSnackBar`.
+class ShowSnackBarActionParser extends _BaseShowSnackBarActionParser {
+  const ShowSnackBarActionParser();
+
+  @override
+  String get actionType => 'customSnackBar';
+}
+
+/// Override parser for built-in action: `showSnackBar`.
+class BuiltInShowSnackBarActionParser extends _BaseShowSnackBarActionParser {
+  const BuiltInShowSnackBarActionParser();
+
+  @override
+  String get actionType => 'showSnackBar';
 }

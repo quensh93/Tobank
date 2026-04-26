@@ -38,28 +38,32 @@ StacWidget verifyIdentityRealSignature() {
           ],
         ),
       ),
-      body: StacColumn(
-        crossAxisAlignment: StacCrossAxisAlignment.stretch,
-        children: [
-          StacExpanded(
-            child: StacSingleChildScrollView(
-              padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              child: StacColumn(
-                crossAxisAlignment: StacCrossAxisAlignment.stretch,
-                children: [
-                  _buildHeaderRow(),
-                  StacSizedBox(height: 16),
-                  _buildInstructions(),
-                  StacSizedBox(height: 16),
-                  _buildSignatureCard(),
-                  StacSizedBox(height: 18),
-                  _buildDeleteButton(),
-                ],
+      body: StacSafeArea(
+        bottom: true,
+        top: false,
+        child: StacColumn(
+          crossAxisAlignment: StacCrossAxisAlignment.stretch,
+          children: [
+            StacExpanded(
+              child: StacSingleChildScrollView(
+                padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                child: StacColumn(
+                  crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                  children: [
+                    _buildHeaderRow(),
+                    StacSizedBox(height: 16),
+                    _buildInstructions(),
+                    StacSizedBox(height: 16),
+                    _buildSignatureCard(),
+                    StacSizedBox(height: 18),
+                    _buildDeleteButton(),
+                  ],
+                ),
               ),
             ),
-          ),
-          _buildConfirmButton(),
-        ],
+            _buildConfirmButton(),
+          ],
+        ),
       ),
     ),
   );
@@ -139,7 +143,6 @@ StacWidget _buildHeaderRow() {
                 color: '{{appColors.current.text.title}}',
               ),
             ),
-
           ],
         ),
       ),
@@ -239,7 +242,6 @@ StacWidget _buildDeleteButton() {
             imageType: StacImageType.asset,
             width: 20,
             height: 20,
-
           ),
           StacSizedBox(width: 8),
 
@@ -252,7 +254,6 @@ StacWidget _buildDeleteButton() {
               color: '{{appColors.current.text.title}}',
             ),
           ),
-
         ],
       ),
     ),

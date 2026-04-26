@@ -1,4 +1,4 @@
-﻿{
+{
   "type": "stateFull",
   "onInit": {
     "actionType": "setValue",
@@ -2348,23 +2348,11 @@
                                                                       "type": "visibility",
                                                                       "visible": "[[homePage.balanceVisible]]",
                                                                       "child": {
-                                                                        "mainAxisAlignment": "end",
+                                                                        "mainAxisAlignment": "start",
                                                                         "textDirection": "rtl",
                                                                         "children": [
                                                                           {
-                                                                            "src": "{{appAssets.current.icons.refresh}}",
-                                                                            "imageType": "asset",
-                                                                            "color": "{{appColors.current.text.title}}",
-                                                                            "width": 22.0,
-                                                                            "height": 22.0,
-                                                                            "type": "image"
-                                                                          },
-                                                                          {
-                                                                            "width": 8.0,
-                                                                            "type": "sizedBox"
-                                                                          },
-                                                                          {
-                                                                            "data": "ریال 77,641",
+                                                                            "data": "77,641",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "color": "{{appColors.current.text.title}}",
@@ -2373,12 +2361,39 @@
                                                                             },
                                                                             "textDirection": "rtl",
                                                                             "type": "text"
+                                                                          },
+                                                                          {
+                                                                            "width": 1.0,
+                                                                            "type": "sizedBox"
+                                                                          },
+                                                                          {
+                                                                            "data": "ریال",
+                                                                            "style": {
+                                                                              "type": "custom",
+                                                                              "color": "{{appColors.current.text.title}}",
+                                                                              "fontSize": 18.0,
+                                                                              "fontWeight": "w700"
+                                                                            },
+                                                                            "textDirection": "rtl",
+                                                                            "type": "text"
+                                                                          },
+                                                                          {
+                                                                            "width": 8.0,
+                                                                            "type": "sizedBox"
+                                                                          },
+                                                                          {
+                                                                            "src": "{{appAssets.current.icons.refresh}}",
+                                                                            "imageType": "asset",
+                                                                            "color": "{{appColors.current.text.title}}",
+                                                                            "width": 22.0,
+                                                                            "height": 22.0,
+                                                                            "type": "image"
                                                                           }
                                                                         ],
                                                                         "type": "row"
                                                                       },
                                                                       "replacement": {
-                                                                        "mainAxisAlignment": "end",
+                                                                        "mainAxisAlignment": "start",
                                                                         "textDirection": "rtl",
                                                                         "children": [
                                                                           {
@@ -2393,21 +2408,6 @@
                                                                             },
                                                                             "textDirection": "ltr",
                                                                             "type": "text"
-                                                                          },
-                                                                          {
-                                                                            "width": 6.0,
-                                                                            "type": "sizedBox"
-                                                                          },
-                                                                          {
-                                                                            "data": "ریال",
-                                                                            "style": {
-                                                                              "type": "custom",
-                                                                              "color": "{{appColors.current.text.subtitle}}",
-                                                                              "fontSize": 14.0,
-                                                                              "fontWeight": "w500"
-                                                                            },
-                                                                            "textDirection": "rtl",
-                                                                            "type": "text"
                                                                           }
                                                                         ],
                                                                         "type": "row"
@@ -2416,7 +2416,7 @@
                                                                     "type": "textButton"
                                                                   },
                                                                   {
-                                                                    "height": 8.0,
+                                                                    "height": 10.0,
                                                                     "type": "sizedBox"
                                                                   },
                                                                   {
@@ -2800,23 +2800,11 @@
                                                                       "type": "visibility",
                                                                       "visible": "[[homePage.balanceVisible]]",
                                                                       "child": {
-                                                                        "mainAxisAlignment": "end",
+                                                                        "mainAxisAlignment": "start",
                                                                         "textDirection": "rtl",
                                                                         "children": [
                                                                           {
-                                                                            "src": "{{appAssets.current.icons.refresh}}",
-                                                                            "imageType": "asset",
-                                                                            "color": "{{appColors.current.text.title}}",
-                                                                            "width": 22.0,
-                                                                            "height": 22.0,
-                                                                            "type": "image"
-                                                                          },
-                                                                          {
-                                                                            "width": 8.0,
-                                                                            "type": "sizedBox"
-                                                                          },
-                                                                          {
-                                                                            "data": "ریال 77,641",
+                                                                            "data": "77,641",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "color": "{{appColors.current.text.title}}",
@@ -2825,12 +2813,39 @@
                                                                             },
                                                                             "textDirection": "rtl",
                                                                             "type": "text"
+                                                                          },
+                                                                          {
+                                                                            "width": 1.0,
+                                                                            "type": "sizedBox"
+                                                                          },
+                                                                          {
+                                                                            "data": "ریال",
+                                                                            "style": {
+                                                                              "type": "custom",
+                                                                              "color": "{{appColors.current.text.title}}",
+                                                                              "fontSize": 18.0,
+                                                                              "fontWeight": "w700"
+                                                                            },
+                                                                            "textDirection": "rtl",
+                                                                            "type": "text"
+                                                                          },
+                                                                          {
+                                                                            "width": 8.0,
+                                                                            "type": "sizedBox"
+                                                                          },
+                                                                          {
+                                                                            "src": "{{appAssets.current.icons.refresh}}",
+                                                                            "imageType": "asset",
+                                                                            "color": "{{appColors.current.text.title}}",
+                                                                            "width": 22.0,
+                                                                            "height": 22.0,
+                                                                            "type": "image"
                                                                           }
                                                                         ],
                                                                         "type": "row"
                                                                       },
                                                                       "replacement": {
-                                                                        "mainAxisAlignment": "end",
+                                                                        "mainAxisAlignment": "start",
                                                                         "textDirection": "rtl",
                                                                         "children": [
                                                                           {
@@ -2845,21 +2860,6 @@
                                                                             },
                                                                             "textDirection": "ltr",
                                                                             "type": "text"
-                                                                          },
-                                                                          {
-                                                                            "width": 6.0,
-                                                                            "type": "sizedBox"
-                                                                          },
-                                                                          {
-                                                                            "data": "ریال",
-                                                                            "style": {
-                                                                              "type": "custom",
-                                                                              "color": "{{appColors.current.text.subtitle}}",
-                                                                              "fontSize": 14.0,
-                                                                              "fontWeight": "w500"
-                                                                            },
-                                                                            "textDirection": "rtl",
-                                                                            "type": "text"
                                                                           }
                                                                         ],
                                                                         "type": "row"
@@ -2868,7 +2868,7 @@
                                                                     "type": "textButton"
                                                                   },
                                                                   {
-                                                                    "height": 8.0,
+                                                                    "height": 10.0,
                                                                     "type": "sizedBox"
                                                                   },
                                                                   {
@@ -3252,23 +3252,11 @@
                                                                       "type": "visibility",
                                                                       "visible": "[[homePage.balanceVisible]]",
                                                                       "child": {
-                                                                        "mainAxisAlignment": "end",
+                                                                        "mainAxisAlignment": "start",
                                                                         "textDirection": "rtl",
                                                                         "children": [
                                                                           {
-                                                                            "src": "{{appAssets.current.icons.refresh}}",
-                                                                            "imageType": "asset",
-                                                                            "color": "{{appColors.current.text.title}}",
-                                                                            "width": 22.0,
-                                                                            "height": 22.0,
-                                                                            "type": "image"
-                                                                          },
-                                                                          {
-                                                                            "width": 8.0,
-                                                                            "type": "sizedBox"
-                                                                          },
-                                                                          {
-                                                                            "data": "ریال 77,641",
+                                                                            "data": "77,641",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "color": "{{appColors.current.text.title}}",
@@ -3277,12 +3265,39 @@
                                                                             },
                                                                             "textDirection": "rtl",
                                                                             "type": "text"
+                                                                          },
+                                                                          {
+                                                                            "width": 1.0,
+                                                                            "type": "sizedBox"
+                                                                          },
+                                                                          {
+                                                                            "data": "ریال",
+                                                                            "style": {
+                                                                              "type": "custom",
+                                                                              "color": "{{appColors.current.text.title}}",
+                                                                              "fontSize": 18.0,
+                                                                              "fontWeight": "w700"
+                                                                            },
+                                                                            "textDirection": "rtl",
+                                                                            "type": "text"
+                                                                          },
+                                                                          {
+                                                                            "width": 8.0,
+                                                                            "type": "sizedBox"
+                                                                          },
+                                                                          {
+                                                                            "src": "{{appAssets.current.icons.refresh}}",
+                                                                            "imageType": "asset",
+                                                                            "color": "{{appColors.current.text.title}}",
+                                                                            "width": 22.0,
+                                                                            "height": 22.0,
+                                                                            "type": "image"
                                                                           }
                                                                         ],
                                                                         "type": "row"
                                                                       },
                                                                       "replacement": {
-                                                                        "mainAxisAlignment": "end",
+                                                                        "mainAxisAlignment": "start",
                                                                         "textDirection": "rtl",
                                                                         "children": [
                                                                           {
@@ -3297,21 +3312,6 @@
                                                                             },
                                                                             "textDirection": "ltr",
                                                                             "type": "text"
-                                                                          },
-                                                                          {
-                                                                            "width": 6.0,
-                                                                            "type": "sizedBox"
-                                                                          },
-                                                                          {
-                                                                            "data": "ریال",
-                                                                            "style": {
-                                                                              "type": "custom",
-                                                                              "color": "{{appColors.current.text.subtitle}}",
-                                                                              "fontSize": 14.0,
-                                                                              "fontWeight": "w500"
-                                                                            },
-                                                                            "textDirection": "rtl",
-                                                                            "type": "text"
                                                                           }
                                                                         ],
                                                                         "type": "row"
@@ -3320,7 +3320,7 @@
                                                                     "type": "textButton"
                                                                   },
                                                                   {
-                                                                    "height": 8.0,
+                                                                    "height": 10.0,
                                                                     "type": "sizedBox"
                                                                   },
                                                                   {

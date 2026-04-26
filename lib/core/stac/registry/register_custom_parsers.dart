@@ -44,6 +44,7 @@ import '../parsers/actions/show_gift_card_purchase_bottom_sheet_action_parser.da
 import '../parsers/actions/show_gift_card_amount_guide_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_gift_card_select_amount_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_gift_card_design_type_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_gift_card_plan_selector_bottom_sheet_action_parser.dart';
 import '../parsers/actions/add_gift_card_amount_card_action_parser.dart';
 import '../parsers/actions/remove_gift_card_amount_card_action_parser.dart';
 import '../parsers/actions/update_gift_card_amount_count_action_parser.dart';
@@ -532,6 +533,9 @@ void _registerExampleParsers() {
 
   // Register gift-card design type bottom sheet action parser
   registerShowGiftCardDesignTypeBottomSheetActionParser();
+
+  // Register gift-card plan selector bottom sheet action parser
+  registerShowGiftCardPlanSelectorBottomSheetActionParser();
 
   // Register add-gift-card amount card action parser (max 3 cards)
   registerAddGiftCardAmountCardActionParser();

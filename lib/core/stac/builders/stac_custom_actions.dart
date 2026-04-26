@@ -170,6 +170,7 @@ class StacPersianDatePickerAction extends StacAction {
   final String? initialDate;
   final bool includeTime;
   final String? initialTime;
+  final double? bottomSheetBottomPadding;
   final dynamic onDateSelected;
 
   const StacPersianDatePickerAction({
@@ -179,6 +180,7 @@ class StacPersianDatePickerAction extends StacAction {
     this.initialDate,
     this.includeTime = false,
     this.initialTime,
+    this.bottomSheetBottomPadding,
     this.onDateSelected,
   });
 
@@ -195,6 +197,8 @@ class StacPersianDatePickerAction extends StacAction {
       if (initialDate != null) 'initialDate': initialDate,
       if (includeTime) 'includeTime': includeTime,
       if (initialTime != null) 'initialTime': initialTime,
+      if (bottomSheetBottomPadding != null)
+        'bottomSheetBottomPadding': bottomSheetBottomPadding,
       if (onDateSelected != null)
         'onDateSelected': onDateSelected is StacAction
             ? onDateSelected.toJson()
@@ -617,5 +621,43 @@ class StacShowGiftCardSelectAmountBottomSheetAction extends StacAction {
     'minAmount': minAmount,
     'maxAmount': maxAmount,
     if (quickAmounts != null) 'quickAmounts': quickAmounts,
+  };
+}
+
+class StacShowGiftCardPlanSelectorBottomSheetAction extends StacAction {
+  final String title;
+  final String? categoryTitle;
+  final String selectedPlanIdKey;
+  final String selectedPlanTitleKey;
+  final String selectedCategoryKey;
+  final List<Map<String, dynamic>> plans;
+  final dynamic onPlanSelectedAction;
+
+  const StacShowGiftCardPlanSelectorBottomSheetAction({
+    required this.plans,
+    this.title = 'لطفا طرح کارت هدیه را انتخاب کنید',
+    this.categoryTitle,
+    this.selectedPlanIdKey = 'giftCardRealSelectedPlanId',
+    this.selectedPlanTitleKey = 'giftCardRealSelectedPlanTitle',
+    this.selectedCategoryKey = 'giftCardRealSelectedCategory',
+    this.onPlanSelectedAction,
+  });
+
+  @override
+  String get actionType => 'showGiftCardPlanSelectorBottomSheet';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': actionType,
+    'title': title,
+    if (categoryTitle != null) 'categoryTitle': categoryTitle,
+    'selectedPlanIdKey': selectedPlanIdKey,
+    'selectedPlanTitleKey': selectedPlanTitleKey,
+    'selectedCategoryKey': selectedCategoryKey,
+    'plans': plans,
+    if (onPlanSelectedAction != null)
+      'onPlanSelectedAction': onPlanSelectedAction is StacAction
+          ? (onPlanSelectedAction as StacAction).toJson()
+          : onPlanSelectedAction,
   };
 }

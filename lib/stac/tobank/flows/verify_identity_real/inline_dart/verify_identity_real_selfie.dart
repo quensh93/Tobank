@@ -35,27 +35,34 @@ StacWidget verifyIdentityRealSelfie() {
       appBar: buildVerifyIdentityRealAppBar(
         title: '{{appStrings.menu.items.verifyIdentity}}',
       ),
-      body: StacForm(
-        child: StacColumn(
-          crossAxisAlignment: StacCrossAxisAlignment.stretch,
-          children: [
-            StacExpanded(
-              child: StacSingleChildScrollView(
-                padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                child: StacColumn(
-                  crossAxisAlignment: StacCrossAxisAlignment.stretch,
-                  children: [
-                    _buildSerialSection(),
-                    StacSizedBox(height: 16),
-                    _buildCapturePhotoCard(),
-                    StacSizedBox(height: 16),
-                    _buildCaptureVideoCard(),
-                  ],
+      body: StacSafeArea(
+        bottom: true,
+        top: false,
+        child: StacForm(
+          child: StacColumn(
+            crossAxisAlignment: StacCrossAxisAlignment.stretch,
+            children: [
+              StacExpanded(
+                child: StacSingleChildScrollView(
+                  padding: StacEdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 16,
+                  ),
+                  child: StacColumn(
+                    crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                    children: [
+                      _buildSerialSection(),
+                      StacSizedBox(height: 16),
+                      _buildCapturePhotoCard(),
+                      StacSizedBox(height: 16),
+                      _buildCaptureVideoCard(),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            _buildConfirmSection(),
-          ],
+              _buildConfirmSection(),
+            ],
+          ),
         ),
       ),
     ),
@@ -149,9 +156,7 @@ StacWidget _buildEnabledConfirmButton() {
       foregroundColor: '{{appColors.current.primary.onPrimary}}',
       elevation: 0,
       fixedSize: const StacSize(999999, 56),
-      shape: StacRoundedRectangleBorder(
-        borderRadius: StacBorderRadius.all(12),
-      ),
+      shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(12)),
     ),
     child: _buildConfirmButtonLabel(
       color: '{{appColors.current.primary.onPrimary}}',
@@ -163,14 +168,11 @@ StacWidget _buildDisabledConfirmButton() {
   return StacFilledButton(
     onPressed: null,
     style: StacButtonStyle(
-      backgroundColor:
-          '{{appColors.current.background.surfaceContainerHigh}}',
+      backgroundColor: '{{appColors.current.background.surfaceContainerHigh}}',
       foregroundColor: '{{appColors.current.text.subtitle}}',
       elevation: 0,
       fixedSize: const StacSize(999999, 56),
-      shape: StacRoundedRectangleBorder(
-        borderRadius: StacBorderRadius.all(12),
-      ),
+      shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(12)),
     ),
     child: _buildConfirmButtonLabel(
       color: '{{appColors.current.primary.onPrimary}}',
@@ -208,10 +210,7 @@ StacWidget _buildCapturePhotoCard() {
           padding: StacEdgeInsets.all(16),
           decoration: StacBoxDecoration(
             color: '{{appColors.current.background.surfaceContainer}}',
-            borderRadius: StacBorderRadius.only(
-              topLeft: 16,
-              topRight: 16,
-            ),
+            borderRadius: StacBorderRadius.only(topLeft: 16, topRight: 16),
           ),
           child: StacText(
             data: '{{appStrings.authentication.capturePhotoTitle}}',
@@ -265,10 +264,7 @@ StacWidget _buildCaptureVideoCard() {
           padding: StacEdgeInsets.all(16),
           decoration: StacBoxDecoration(
             color: '{{appColors.current.background.surfaceContainer}}',
-            borderRadius: StacBorderRadius.only(
-              topLeft: 16,
-              topRight: 16,
-            ),
+            borderRadius: StacBorderRadius.only(topLeft: 16, topRight: 16),
           ),
           child: StacText(
             data: '{{appStrings.authentication.captureVideoTitle}}',
@@ -492,9 +488,7 @@ StacWidget _buildSelectedSelfieVideoContent() {
   );
 }
 
-StacWidget _buildSelfieDeleteButton({
-  required StacAction onTap,
-}) {
+StacWidget _buildSelfieDeleteButton({required StacAction onTap}) {
   return StacGestureDetector(
     onTap: onTap,
     child: StacRow(

@@ -261,6 +261,7 @@ StacWidget promissoryRealPaymentDeposits() {
                 {
                   'actionType': 'showSnackBar',
                   'backgroundColor': '#D32F2F',
+                  'textColor': '#FFFFFF',
                   'content': {
                     'type': 'text',
                     'data': '{{data.status.message.0}}',
@@ -289,6 +290,7 @@ StacWidget promissoryRealPaymentDeposits() {
                 {
                   'actionType': 'showSnackBar',
                   'backgroundColor': '#D32F2F',
+                  'textColor': '#FFFFFF',
                   'content': {
                     'type': 'text',
                     'data': '{{data.status.message.0}}',

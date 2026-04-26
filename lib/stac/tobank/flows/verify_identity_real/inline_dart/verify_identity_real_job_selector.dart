@@ -30,7 +30,11 @@ StacWidget verifyIdentityRealJobSelector() {
       title: '{{appStrings.menu.items.verifyIdentity}}',
       showSupport: false,
     ),
-    body: buildVerifyIdentityRealJobSelectorContent(showHandle: false),
+    body: StacSafeArea(
+      bottom: true,
+      top: false,
+      child: buildVerifyIdentityRealJobSelectorContent(showHandle: false),
+    ),
   );
 }
 

@@ -38,12 +38,16 @@ class PersianDatePickerActionModel {
   /// Optional action to execute after date is selected
   final Map<String, dynamic>? onDateSelected;
 
+  /// Extra spacing added below the date picker bottom sheet (in logical pixels).
+  final double bottomSheetBottomPadding;
+
   const PersianDatePickerActionModel({
     required this.formFieldId,
     this.initialDate,
     this.firstDate,
     this.lastDate,
     this.onDateSelected,
+    this.bottomSheetBottomPadding = 0,
   });
 
   factory PersianDatePickerActionModel.fromJson(Map<String, dynamic> json) {
@@ -53,6 +57,8 @@ class PersianDatePickerActionModel {
       firstDate: json['firstDate'] as String?,
       lastDate: json['lastDate'] as String?,
       onDateSelected: json['onDateSelected'] as Map<String, dynamic>?,
+      bottomSheetBottomPadding:
+          (json['bottomSheetBottomPadding'] as num?)?.toDouble() ?? 0,
     );
   }
 
@@ -64,6 +70,8 @@ class PersianDatePickerActionModel {
       if (firstDate != null) 'firstDate': firstDate,
       if (lastDate != null) 'lastDate': lastDate,
       if (onDateSelected != null) 'onDateSelected': onDateSelected,
+      if (bottomSheetBottomPadding > 0)
+        'bottomSheetBottomPadding': bottomSheetBottomPadding,
     };
   }
 }
@@ -203,7 +211,7 @@ class PersianDatePickerActionParser
         constraints: BoxConstraints(maxHeight: screenHeight * 5 / 6),
         isDismissible: true, // Allow dismissing by tapping outside
         enableDrag: true, // Allow dragging to dismiss
-        useSafeArea: true, // Use safe area
+        useSafeArea: false,
         barrierColor: Colors.black54, // Semi-transparent barrier
         builder: (bottomSheetContext) {
           AppLogger.d(
@@ -216,105 +224,113 @@ class PersianDatePickerActionParser
             'Bottom sheet context mounted: ${bottomSheetContext.mounted}',
           );
           try {
+            final safeBottom = MediaQuery.of(bottomSheetContext).padding.bottom;
+            final extraBottomPadding = model.bottomSheetBottomPadding;
+
             // Wrap in GestureDetector to prevent taps from propagating
-            final bottomSheetWidget = GestureDetector(
-              onTap: () {
-                // Prevent tap from dismissing the bottom sheet
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  color: isDarkMode ? const Color(0xFF1c222e) : Colors.white,
-                  borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(8.0),
+            final bottomSheetWidget = Padding(
+              padding: EdgeInsets.only(bottom: safeBottom + extraBottomPadding),
+              child: GestureDetector(
+                onTap: () {
+                  // Prevent tap from dismissing the bottom sheet
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: isDarkMode ? const Color(0xFF1c222e) : Colors.white,
+                    borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(8.0),
+                    ),
                   ),
-                ),
-                child: DateSelectorBottomSheet(
-                  initDateString: initDateString,
-                  startDateString: startDateString,
-                  endDateString: endDateString,
-                  title: title,
-                  onDateSelected: (selectedDate) {
-                    selectedDateString = selectedDate;
-                  },
-                  callback: () async {
-                    // Format date as YYYY/MM/DD (ensure consistent format)
-                    final parts = selectedDateString.split('/');
-                    if (parts.length == 3) {
-                      final year = parts[0];
-                      final month = parts[1].padLeft(2, '0');
-                      final day = parts[2].padLeft(2, '0');
-                      selectedDateString = '$year/$month/$day';
-                    }
+                  child: DateSelectorBottomSheet(
+                    initDateString: initDateString,
+                    startDateString: startDateString,
+                    endDateString: endDateString,
+                    title: title,
+                    onDateSelected: (selectedDate) {
+                      selectedDateString = selectedDate;
+                    },
+                    callback: () async {
+                      // Format date as YYYY/MM/DD (ensure consistent format)
+                      final parts = selectedDateString.split('/');
+                      if (parts.length == 3) {
+                        final year = parts[0];
+                        final month = parts[1].padLeft(2, '0');
+                        final day = parts[2].padLeft(2, '0');
+                        selectedDateString = '$year/$month/$day';
+                      }
 
-                    AppLogger.d(
-                      'Persian date picker selected: $selectedDateString',
-                    );
-
-                    // Get form scope to update form field directly
-                    final formScope = StacFormScope.of(context);
-                    if (formScope != null) {
-                      // Update formData directly (the map should be mutable)
-                      formScope.formData[model.formFieldId] =
-                          selectedDateString;
                       AppLogger.d(
-                        'Updated formData[${model.formFieldId}] = $selectedDateString',
+                        'Persian date picker selected: $selectedDateString',
                       );
-                    }
 
-                    // Also update registry for use in other places (e.g., API calls)
-                    StacRegistry.instance.setValue(
-                      'form.${model.formFieldId}',
-                      selectedDateString,
-                    );
-
-                    // Update the TextFormField controller to display the selected date
-                    _updateTextFormFieldValue(
-                      context,
-                      model.formFieldId,
-                      selectedDateString,
-                    );
-
-                    // Use setValue action to ensure the form field updates
-                    // This will trigger any necessary rebuilds
-                    final setValueActionJson = {
-                      'actionType': 'setValue',
-                      'values': [
-                        {
-                          'key': 'form.${model.formFieldId}',
-                          'value': selectedDateString,
-                        },
-                      ],
-                    };
-                    await Stac.onCallFromJson(setValueActionJson, context);
-
-                    // Execute optional onDateSelected action if provided
-                    if (model.onDateSelected != null) {
-                      AppLogger.i(
-                        '🎯 Executing onDateSelected callback: ${model.onDateSelected}',
-                      );
-                      if (context.mounted) {
-                        await Stac.onCallFromJson(
-                          model.onDateSelected!,
-                          context,
-                        );
-                        AppLogger.i(
-                          '✅ onDateSelected callback executed successfully',
+                      // Get form scope to update form field directly
+                      final formScope = StacFormScope.of(context);
+                      if (formScope != null) {
+                        // Update formData directly (the map should be mutable)
+                        formScope.formData[model.formFieldId] =
+                            selectedDateString;
+                        AppLogger.d(
+                          'Updated formData[${model.formFieldId}] = $selectedDateString',
                         );
                       }
-                    } else {
-                      AppLogger.w(
-                        '⚠️ onDateSelected is null, skipping callback',
-                      );
-                    }
 
-                    // Close bottom sheet
-                    AppLogger.d(
-                      'Closing bottom sheet with date: $selectedDateString',
-                    );
-                    if (bottomSheetContext.mounted) {
-                      Navigator.of(bottomSheetContext).pop(selectedDateString);
-                    }
-                  },
+                      // Also update registry for use in other places (e.g., API calls)
+                      StacRegistry.instance.setValue(
+                        'form.${model.formFieldId}',
+                        selectedDateString,
+                      );
+
+                      // Update the TextFormField controller to display the selected date
+                      _updateTextFormFieldValue(
+                        context,
+                        model.formFieldId,
+                        selectedDateString,
+                      );
+
+                      // Use setValue action to ensure the form field updates
+                      // This will trigger any necessary rebuilds
+                      final setValueActionJson = {
+                        'actionType': 'setValue',
+                        'values': [
+                          {
+                            'key': 'form.${model.formFieldId}',
+                            'value': selectedDateString,
+                          },
+                        ],
+                      };
+                      await Stac.onCallFromJson(setValueActionJson, context);
+
+                      // Execute optional onDateSelected action if provided
+                      if (model.onDateSelected != null) {
+                        AppLogger.i(
+                          '🎯 Executing onDateSelected callback: ${model.onDateSelected}',
+                        );
+                        if (context.mounted) {
+                          await Stac.onCallFromJson(
+                            model.onDateSelected!,
+                            context,
+                          );
+                          AppLogger.i(
+                            '✅ onDateSelected callback executed successfully',
+                          );
+                        }
+                      } else {
+                        AppLogger.w(
+                          '⚠️ onDateSelected is null, skipping callback',
+                        );
+                      }
+
+                      // Close bottom sheet
+                      AppLogger.d(
+                        'Closing bottom sheet with date: $selectedDateString',
+                      );
+                      if (bottomSheetContext.mounted) {
+                        Navigator.of(
+                          bottomSheetContext,
+                        ).pop(selectedDateString);
+                      }
+                    },
+                  ),
                 ),
               ),
             );

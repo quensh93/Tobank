@@ -62,36 +62,41 @@
   },
   "backgroundColor": "{{appColors.current.background.surface}}",
   "body": {
+    "type": "safeArea",
+    "top": false,
+    "bottom": true,
     "child": {
-      "mainAxisSize": "min",
-      "children": [
-        {
-          "src": "{{appAssets.icons.success}}",
-          "imageType": "asset",
-          "width": 88.0,
-          "height": 88.0,
-          "type": "image"
-        },
-        {
-          "height": 16.0,
-          "type": "sizedBox"
-        },
-        {
-          "data": "احراز هویت با موفقیت انجام شد",
-          "style": {
-            "type": "custom",
-            "color": "{{appColors.current.text.title}}",
-            "fontSize": 20.0,
-            "fontWeight": "w700"
+      "child": {
+        "mainAxisSize": "min",
+        "children": [
+          {
+            "src": "{{appAssets.icons.success}}",
+            "imageType": "asset",
+            "width": 88.0,
+            "height": 88.0,
+            "type": "image"
           },
-          "textAlign": "center",
-          "textDirection": "rtl",
-          "type": "text"
-        }
-      ],
-      "type": "column"
-    },
-    "type": "center"
+          {
+            "height": 16.0,
+            "type": "sizedBox"
+          },
+          {
+            "data": "احراز هویت با موفقیت انجام شد",
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.text.title}}",
+              "fontSize": 20.0,
+              "fontWeight": "w700"
+            },
+            "textAlign": "center",
+            "textDirection": "rtl",
+            "type": "text"
+          }
+        ],
+        "type": "column"
+      },
+      "type": "center"
+    }
   },
   "type": "scaffold"
 }

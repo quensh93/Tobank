@@ -35,77 +35,84 @@ StacWidget verifyIdentityRealPostalCode() {
       appBar: buildVerifyIdentityRealAppBar(
         title: '{{appStrings.menu.items.verifyIdentity}}',
       ),
-      body: StacForm(
-        child: StacColumn(
-          crossAxisAlignment: StacCrossAxisAlignment.stretch,
-          children: [
-            StacExpanded(
-              child: StacSingleChildScrollView(
-                padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                child: StacColumn(
-                  crossAxisAlignment: StacCrossAxisAlignment.stretch,
-                  children: [
-                    // Description text
-                    StacText(
-                      data:
-                          '{{appStrings.authentication.postalCodeDescription}}',
-                      textDirection: StacTextDirection.rtl,
-                      textAlign: StacTextAlign.right,
-                      style: StacCustomTextStyle(
-                        fontSize: 15,
-                        fontWeight: StacFontWeight.w600,
-                        color: '{{appColors.current.text.subtitle}}',
-                        height: 1.8,
+      body: StacSafeArea(
+        bottom: true,
+        top: false,
+        child: StacForm(
+          child: StacColumn(
+            crossAxisAlignment: StacCrossAxisAlignment.stretch,
+            children: [
+              StacExpanded(
+                child: StacSingleChildScrollView(
+                  padding: StacEdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 16,
+                  ),
+                  child: StacColumn(
+                    crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                    children: [
+                      // Description text
+                      StacText(
+                        data:
+                            '{{appStrings.authentication.postalCodeDescription}}',
+                        textDirection: StacTextDirection.rtl,
+                        textAlign: StacTextAlign.right,
+                        style: StacCustomTextStyle(
+                          fontSize: 15,
+                          fontWeight: StacFontWeight.w600,
+                          color: '{{appColors.current.text.subtitle}}',
+                          height: 1.8,
+                        ),
                       ),
-                    ),
-                    StacSizedBox(height: 24),
-                    _buildPostalCodeSection(),
-                    StacSizedBox(height: 16),
-                    _buildAddressSection(),
-                  ],
+                      StacSizedBox(height: 24),
+                      _buildPostalCodeSection(),
+                      StacSizedBox(height: 16),
+                      _buildAddressSection(),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            // Confirm button - only enabled when address is loaded
-            StacPadding(
-              padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 24),
-              child: StacRawJsonWidget({
-                'type': 'reactiveElevatedButton',
-                'enabledKey': 'hasPostalAddress',
-                'enabled': false,
-                'style': StacButtonStyle(
-                  backgroundColor: '{{appColors.current.primary.color}}',
-                  elevation: 0,
-                  fixedSize: const StacSize(999999, 56),
-                  shape: StacRoundedRectangleBorder(
-                    borderRadius: StacBorderRadius.all(12),
+              // Confirm button - only enabled when address is loaded
+              StacPadding(
+                padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 24),
+                child: StacRawJsonWidget({
+                  'type': 'reactiveElevatedButton',
+                  'enabledKey': 'hasPostalAddress',
+                  'enabled': false,
+                  'style': StacButtonStyle(
+                    backgroundColor: '{{appColors.current.primary.color}}',
+                    elevation: 0,
+                    fixedSize: const StacSize(999999, 56),
+                    shape: StacRoundedRectangleBorder(
+                      borderRadius: StacBorderRadius.all(12),
+                    ),
+                  ).toJson(),
+                  'disabledStyle': StacButtonStyle(
+                    backgroundColor:
+                        '{{appColors.current.background.surfaceContainerHigh}}',
+                    elevation: 0,
+                    fixedSize: const StacSize(999999, 56),
+                    shape: StacRoundedRectangleBorder(
+                      borderRadius: StacBorderRadius.all(12),
+                    ),
+                  ).toJson(),
+                  'child': StacText(
+                    data: '{{appStrings.authentication.confirmAndContinue}}',
+                    textDirection: StacTextDirection.rtl,
+                    style: StacCustomTextStyle(
+                      fontSize: 18,
+                      fontWeight: StacFontWeight.w700,
+                      color: '{{appColors.current.primary.onPrimary}}',
+                    ),
+                  ).toJson(),
+                  'onPressed': StacNavigateAction(
+                    routeName: 'verify_identity_real_signature',
+                    navigationStyle: NavigationStyle.push,
                   ),
-                ).toJson(),
-                'disabledStyle': StacButtonStyle(
-                  backgroundColor:
-                      '{{appColors.current.background.surfaceContainerHigh}}',
-                  elevation: 0,
-                  fixedSize: const StacSize(999999, 56),
-                  shape: StacRoundedRectangleBorder(
-                    borderRadius: StacBorderRadius.all(12),
-                  ),
-                ).toJson(),
-                'child': StacText(
-                  data: '{{appStrings.authentication.confirmAndContinue}}',
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 18,
-                    fontWeight: StacFontWeight.w700,
-                    color: '{{appColors.current.primary.onPrimary}}',
-                  ),
-                ).toJson(),
-                'onPressed': StacNavigateAction(
-                  routeName: 'verify_identity_real_signature',
-                  navigationStyle: NavigationStyle.push,
-                ),
-              }),
-            ),
-          ],
+                }),
+              ),
+            ],
+          ),
         ),
       ),
     ),

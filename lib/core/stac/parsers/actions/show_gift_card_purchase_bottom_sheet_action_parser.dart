@@ -137,12 +137,13 @@ class ShowGiftCardPurchaseBottomSheetActionParser
                               isRulesAccepted = !isRulesAccepted;
                             });
                           },
+
                           child: Row(
                             textDirection: TextDirection.rtl,
                             children: [
                               Container(
-                                width: 32,
-                                height: 32,
+                                width: 25,
+                                height: 25,
                                 decoration: BoxDecoration(
                                   color: isRulesAccepted
                                       ? const Color(0xFFD61F2C)
@@ -159,7 +160,7 @@ class ShowGiftCardPurchaseBottomSheetActionParser
                                     ? const Icon(
                                         Icons.check_rounded,
                                         color: Colors.white,
-                                        size: 20,
+                                        size: 15,
                                       )
                                     : null,
                               ),

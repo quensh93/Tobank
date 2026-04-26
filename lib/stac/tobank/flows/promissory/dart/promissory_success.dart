@@ -45,6 +45,7 @@ StacWidget promissorySuccess() {
       ],
     ),
     child: StacScaffold(
+
       appBar: StacAppBar(
         title: StacText(
           data: '{{appStrings.promissory.successTitle}}',

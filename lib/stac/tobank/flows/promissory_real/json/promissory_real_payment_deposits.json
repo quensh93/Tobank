@@ -1001,6 +1001,7 @@
                           {
                             "actionType": "showSnackBar",
                             "backgroundColor": "#D32F2F",
+                            "textColor": "#FFFFFF",
                             "content": {
                               "type": "text",
                               "data": "__STAC_OPEN__data.status.message.0}}",
@@ -1035,6 +1036,7 @@
                           {
                             "actionType": "showSnackBar",
                             "backgroundColor": "#D32F2F",
+                            "textColor": "#FFFFFF",
                             "content": {
                               "type": "text",
                               "data": "__STAC_OPEN__data.status.message.0}}",
