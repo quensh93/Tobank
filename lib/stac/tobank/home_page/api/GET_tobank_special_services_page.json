@@ -1,0 +1,594 @@
+{
+  "backgroundColor": "{{appColors.current.background.surface}}",
+  "appBar": {
+    "title": {
+      "data": "خدمات ویژه توبانک",
+      "textDirection": "rtl",
+      "style": {
+        "type": "alias",
+        "value": "{{appStyles.appbarStyle}}"
+      },
+      "type": "text"
+    },
+    "centerTitle": true,
+    "leading": {
+      "padding": {
+        "left": 12
+      },
+      "child": {
+        "type": "center",
+        "child": {
+          "width": 42,
+          "height": 42,
+          "type": "container",
+          "child": {
+            "type": "center",
+            "child": {
+              "src": "{{appAssets.icons.support}}",
+              "imageType": "asset",
+              "width": 24,
+              "height": 24,
+              "color": "{{appColors.current.text.title}}",
+              "type": "image"
+            }
+          }
+        }
+      },
+      "type": "padding"
+    },
+    "actions": [
+      {
+        "padding": {
+          "right": 15
+        },
+        "child": {
+          "onPressed": {
+            "navigationStyle": "pop",
+            "actionType": "navigate"
+          },
+          "icon": {
+            "src": "{{appAssets.icons.arrowBack}}",
+            "imageType": "asset",
+            "width": 30,
+            "height": 30,
+            "color": "{{appColors.current.text.title}}",
+            "type": "image"
+          },
+          "type": "iconButton"
+        },
+        "type": "padding"
+      }
+    ],
+    "type": "appBar"
+  },
+  "body": {
+    "padding": {
+      "left": 16,
+      "top": 24,
+      "right": 16,
+      "bottom": 24
+    },
+    "child": {
+      "child": {
+        "crossAxisAlignment": "stretch",
+        "children": [
+          {
+            "textDirection": "rtl",
+            "crossAxisAlignment": "start",
+            "children": [
+              {
+                "child": {
+                  "height": 176,
+                  "decoration": {
+                    "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                    "borderRadius": {
+                      "topLeft": 16,
+                      "topRight": 16,
+                      "bottomLeft": 16,
+                      "bottomRight": 16
+                    },
+                    "border": {
+                      "color": "{{appColors.current.input.borderEnabled}}",
+                      "width": 1
+                    }
+                  },
+                  "child": {
+                    "padding": {
+                      "left": 16,
+                      "top": 16,
+                      "right": 16,
+                      "bottom": 16
+                    },
+                    "child": {
+                      "mainAxisAlignment": "center",
+                      "crossAxisAlignment": "center",
+                      "children": [
+                        {
+                          "src": "assets/icons/ic_menu_mobile.svg",
+                          "imageType": "asset",
+                          "width": 32,
+                          "height": 32,
+                          "type": "image"
+                        },
+                        {
+                          "height": 18,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "خدمات موبایل بانک",
+                          "textDirection": "rtl",
+                          "textAlign": "center",
+                          "style": {
+                            "type": "custom",
+                            "fontSize": 14,
+                            "fontWeight": "w700",
+                            "color": "{{appColors.current.text.title}}",
+                            "height": 1.5
+                          },
+                          "type": "text"
+                        },
+                        {
+                          "height": 12,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "فعال سازی خدمات و صدور رمز",
+                          "textDirection": "rtl",
+                          "textAlign": "center",
+                          "style": {
+                            "type": "custom",
+                            "fontSize": 12,
+                            "fontWeight": "w500",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "height": 1.65
+                          },
+                          "type": "text"
+                        }
+                      ],
+                      "type": "column"
+                    },
+                    "type": "padding"
+                  },
+                  "type": "container"
+                },
+                "type": "expanded"
+              },
+              {
+                "width": 16,
+                "type": "sizedBox"
+              },
+              {
+                "child": {
+                  "height": 176,
+                  "decoration": {
+                    "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                    "borderRadius": {
+                      "topLeft": 16,
+                      "topRight": 16,
+                      "bottomLeft": 16,
+                      "bottomRight": 16
+                    },
+                    "border": {
+                      "color": "{{appColors.current.input.borderEnabled}}",
+                      "width": 1
+                    }
+                  },
+                  "child": {
+                    "padding": {
+                      "left": 16,
+                      "top": 16,
+                      "right": 16,
+                      "bottom": 16
+                    },
+                    "child": {
+                      "mainAxisAlignment": "center",
+                      "crossAxisAlignment": "center",
+                      "children": [
+                        {
+                          "src": "assets/icons/ic_menu_internet.svg",
+                          "imageType": "asset",
+                          "width": 32,
+                          "height": 32,
+                          "type": "image"
+                        },
+                        {
+                          "height": 18,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "خدمات اینترنت بانک",
+                          "textDirection": "rtl",
+                          "textAlign": "center",
+                          "style": {
+                            "type": "custom",
+                            "fontSize": 14,
+                            "fontWeight": "w700",
+                            "color": "{{appColors.current.text.title}}",
+                            "height": 1.5
+                          },
+                          "type": "text"
+                        },
+                        {
+                          "height": 12,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "فعال سازی خدمات و صدور رمز",
+                          "textDirection": "rtl",
+                          "textAlign": "center",
+                          "style": {
+                            "type": "custom",
+                            "fontSize": 12,
+                            "fontWeight": "w500",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "height": 1.65
+                          },
+                          "type": "text"
+                        }
+                      ],
+                      "type": "column"
+                    },
+                    "type": "padding"
+                  },
+                  "type": "container"
+                },
+                "type": "expanded"
+              }
+            ],
+            "type": "row"
+          },
+          {
+            "height": 16,
+            "type": "sizedBox"
+          },
+          {
+            "textDirection": "rtl",
+            "crossAxisAlignment": "start",
+            "children": [
+              {
+                "child": {
+                  "height": 176,
+                  "decoration": {
+                    "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                    "borderRadius": {
+                      "topLeft": 16,
+                      "topRight": 16,
+                      "bottomLeft": 16,
+                      "bottomRight": 16
+                    },
+                    "border": {
+                      "color": "{{appColors.current.input.borderEnabled}}",
+                      "width": 1
+                    }
+                  },
+                  "child": {
+                    "padding": {
+                      "left": 16,
+                      "top": 16,
+                      "right": 16,
+                      "bottom": 16
+                    },
+                    "child": {
+                      "mainAxisAlignment": "center",
+                      "crossAxisAlignment": "center",
+                      "children": [
+                        {
+                          "src": "assets/icons/ic_safe_box.svg",
+                          "imageType": "asset",
+                          "width": 32,
+                          "height": 32,
+                          "type": "image"
+                        },
+                        {
+                          "height": 18,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "صندوق امانات",
+                          "textDirection": "rtl",
+                          "textAlign": "center",
+                          "style": {
+                            "type": "custom",
+                            "fontSize": 14,
+                            "fontWeight": "w700",
+                            "color": "{{appColors.current.text.title}}",
+                            "height": 1.5
+                          },
+                          "type": "text"
+                        },
+                        {
+                          "height": 12,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "اجاره صندوق، رزرو زمان بازدید",
+                          "textDirection": "rtl",
+                          "textAlign": "center",
+                          "style": {
+                            "type": "custom",
+                            "fontSize": 12,
+                            "fontWeight": "w500",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "height": 1.65
+                          },
+                          "type": "text"
+                        }
+                      ],
+                      "type": "column"
+                    },
+                    "type": "padding"
+                  },
+                  "type": "container"
+                },
+                "type": "expanded"
+              },
+              {
+                "width": 16,
+                "type": "sizedBox"
+              },
+              {
+                "child": {
+                  "height": 176,
+                  "decoration": {
+                    "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                    "borderRadius": {
+                      "topLeft": 16,
+                      "topRight": 16,
+                      "bottomLeft": 16,
+                      "bottomRight": 16
+                    },
+                    "border": {
+                      "color": "{{appColors.current.input.borderEnabled}}",
+                      "width": 1
+                    }
+                  },
+                  "child": {
+                    "padding": {
+                      "left": 16,
+                      "top": 16,
+                      "right": 16,
+                      "bottom": 16
+                    },
+                    "child": {
+                      "mainAxisAlignment": "center",
+                      "crossAxisAlignment": "center",
+                      "children": [
+                        {
+                          "src": "assets/icons/ic_military_guarantee.svg",
+                          "imageType": "asset",
+                          "width": 32,
+                          "height": 32,
+                          "type": "image"
+                        },
+                        {
+                          "height": 18,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "ضمانت نامه نظام وظیفه",
+                          "textDirection": "rtl",
+                          "textAlign": "center",
+                          "style": {
+                            "type": "custom",
+                            "fontSize": 14,
+                            "fontWeight": "w700",
+                            "color": "{{appColors.current.text.title}}",
+                            "height": 1.5
+                          },
+                          "type": "text"
+                        },
+                        {
+                          "height": 12,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "ثبت ضمانتنامه",
+                          "textDirection": "rtl",
+                          "textAlign": "center",
+                          "style": {
+                            "type": "custom",
+                            "fontSize": 12,
+                            "fontWeight": "w500",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "height": 1.65
+                          },
+                          "type": "text"
+                        }
+                      ],
+                      "type": "column"
+                    },
+                    "type": "padding"
+                  },
+                  "type": "container"
+                },
+                "type": "expanded"
+              }
+            ],
+            "type": "row"
+          },
+          {
+            "height": 16,
+            "type": "sizedBox"
+          },
+          {
+            "textDirection": "rtl",
+            "crossAxisAlignment": "start",
+            "children": [
+              {
+                "child": {
+                  "onTap": {
+                    "routeName": "promissory_real_intro",
+                    "navigationStyle": "push",
+                    "actionType": "navigate"
+                  },
+                  "child": {
+                    "height": 176,
+                    "decoration": {
+                      "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                      "borderRadius": {
+                        "topLeft": 16,
+                        "topRight": 16,
+                        "bottomLeft": 16,
+                        "bottomRight": 16
+                      },
+                      "border": {
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "width": 1
+                      }
+                    },
+                    "child": {
+                      "padding": {
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
+                      },
+                      "child": {
+                        "mainAxisAlignment": "center",
+                        "crossAxisAlignment": "center",
+                        "children": [
+                          {
+                            "src": "assets/icons/ic_promissory.svg",
+                            "imageType": "asset",
+                            "width": 32,
+                            "height": 32,
+                            "type": "image"
+                          },
+                          {
+                            "height": 18,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "data": "سفته آنلاین",
+                            "textDirection": "rtl",
+                            "textAlign": "center",
+                            "style": {
+                              "type": "custom",
+                              "fontSize": 14,
+                              "fontWeight": "w700",
+                              "color": "{{appColors.current.text.title}}",
+                              "height": 1.5
+                            },
+                            "type": "text"
+                          },
+                          {
+                            "height": 12,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "data": "صدور و خدمات",
+                            "textDirection": "rtl",
+                            "textAlign": "center",
+                            "style": {
+                              "type": "custom",
+                              "fontSize": 12,
+                              "fontWeight": "w500",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "height": 1.65
+                            },
+                            "type": "text"
+                          }
+                        ],
+                        "type": "column"
+                      },
+                      "type": "padding"
+                    },
+                    "type": "container"
+                  },
+                  "type": "gestureDetector"
+                },
+                "type": "expanded"
+              },
+              {
+                "width": 16,
+                "type": "sizedBox"
+              },
+              {
+                "child": {
+                  "height": 176,
+                  "decoration": {
+                    "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                    "borderRadius": {
+                      "topLeft": 16,
+                      "topRight": 16,
+                      "bottomLeft": 16,
+                      "bottomRight": 16
+                    },
+                    "border": {
+                      "color": "{{appColors.current.input.borderEnabled}}",
+                      "width": 1
+                    }
+                  },
+                  "child": {
+                    "padding": {
+                      "left": 16,
+                      "top": 16,
+                      "right": 16,
+                      "bottom": 16
+                    },
+                    "child": {
+                      "mainAxisAlignment": "center",
+                      "crossAxisAlignment": "center",
+                      "children": [
+                        {
+                          "src": "assets/icons/ic_cbs_search.svg",
+                          "imageType": "asset",
+                          "width": 32,
+                          "height": 32,
+                          "type": "image"
+                        },
+                        {
+                          "height": 18,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "اعتبارسنجی",
+                          "textDirection": "rtl",
+                          "textAlign": "center",
+                          "style": {
+                            "type": "custom",
+                            "fontSize": 14,
+                            "fontWeight": "w700",
+                            "color": "{{appColors.current.text.title}}",
+                            "height": 1.5
+                          },
+                          "type": "text"
+                        },
+                        {
+                          "height": 12,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "اعتبارسنجی خود و سایرین",
+                          "textDirection": "rtl",
+                          "textAlign": "center",
+                          "style": {
+                            "type": "custom",
+                            "fontSize": 12,
+                            "fontWeight": "w500",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "height": 1.65
+                          },
+                          "type": "text"
+                        }
+                      ],
+                      "type": "column"
+                    },
+                    "type": "padding"
+                  },
+                  "type": "container"
+                },
+                "type": "expanded"
+              }
+            ],
+            "type": "row"
+          }
+        ],
+        "type": "column"
+      },
+      "type": "singleChildScrollView"
+    },
+    "type": "padding"
+  },
+  "type": "scaffold"
+}

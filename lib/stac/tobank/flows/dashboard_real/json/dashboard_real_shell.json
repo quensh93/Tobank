@@ -9358,7 +9358,8 @@
                                         "children": [
                                           {
                                             "child": {
-                                              "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                              "child": {
+                                                "color": "{{appColors.current.background.surfaceContainerLowest}}",
                                               "elevation": 0.0,
                                               "shape": {
                                                 "side": {
@@ -9441,7 +9442,14 @@
                                                 },
                                                 "type": "padding"
                                               },
-                                              "type": "card"
+                                                "type": "card"
+                                              },
+                                              "onTap": {
+                                                "assetPath": "lib/stac/tobank/home_page/api/GET_tobank_special_services_page.json",
+                                                "navigationStyle": "push",
+                                                "actionType": "navigate"
+                                              },
+                                              "type": "gestureDetector"
                                             },
                                             "type": "expanded"
                                           },

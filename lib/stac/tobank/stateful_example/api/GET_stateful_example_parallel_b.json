@@ -1,9 +1,0 @@
-{
-  "GET": {
-    "statusCode": 500,
-    "data": {
-      "status": "error",
-      "message": "parallel_b"
-    }
-  }
-}

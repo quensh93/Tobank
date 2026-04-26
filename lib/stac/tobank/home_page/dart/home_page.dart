@@ -891,6 +891,10 @@ StacWidget _buildDepositsTab() {
               title: 'سایر خدمات',
               subtitle: 'سفته الکترونیک ...',
               iconPath: '{{appAssets.current.icons.promissory}}',
+              onTap: const StacNavigateAction(
+                routeName: 'tobank_special_services_page',
+                navigationStyle: NavigationStyle.push,
+              ),
             ),
           ),
           StacSizedBox(width: 12),
@@ -1363,8 +1367,9 @@ StacWidget _buildServiceCard({
   required String title,
   required String subtitle,
   required String iconPath,
+  StacAction? onTap,
 }) {
-  return StacCard(
+  final card = StacCard(
     color: '{{appColors.current.background.surfaceContainerLowest}}',
     elevation: 0,
     margin: StacEdgeInsets.all(0),
@@ -1419,6 +1424,12 @@ StacWidget _buildServiceCard({
       ),
     ),
   );
+
+  if (onTap == null) {
+    return card;
+  }
+
+  return StacGestureDetector(onTap: onTap, child: card);
 }
 
 StacWidget _buildHomeBannerCarousel() {

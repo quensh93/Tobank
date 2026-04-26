@@ -1,14 +1,6 @@
 import 'package:stac_core/stac_core.dart';
 
-/// Tobank Menu Screen - Menu with Flows, Completed Items, and Incomplete Items sections
-///
-/// This screen displays:
-/// 1. Flows Section (روند ها) - Complete user flows that connect multiple screens
-/// 2. Completed Items Section - Individual screens that are done
-/// 3. Incomplete Items Section (سایر موارد) - Individual screens still in progress
-///
-/// Menu items are loaded from mock API to separate data layer from code.
-/// Uses STAC Dart syntax with StacDynamicView for data binding.
+/// Tobank Menu Screen built entirely from Dart (no menu-items JSON dependency).
 @StacScreen(screenName: 'tobank_menu_dart')
 StacWidget tobankMenuDart() {
   return StacScaffold(
@@ -40,189 +32,249 @@ StacWidget tobankMenuDart() {
     body: StacListView(
       padding: StacEdgeInsets.all(16),
       children: [
-        // ============================================
-        // LINEAR FLOWS SECTION (روند های خطی)
-        // ============================================
-
-        // Linear Flows Section Divider with Text
-        StacRow(
-          textDirection: StacTextDirection.rtl,
-          children: [
-            StacExpanded(
-              child: StacContainer(
-                height: 1,
-                color: '{{appColors.current.secondary.color}}',
-              ),
-            ),
-            StacPadding(
-              padding: StacEdgeInsets.symmetric(horizontal: 12),
-              child: StacText(
-                data: "روند های خطی",
-                style: StacCustomTextStyle(
-                  color: '{{appColors.current.secondary.color}}',
-                  fontSize: 14,
-                  fontWeight: StacFontWeight.bold,
-                ),
-              ),
-            ),
-            StacExpanded(
-              child: StacContainer(
-                height: 1,
-                color: '{{appColors.current.secondary.color}}',
-              ),
-            ),
-          ],
+        _buildMenuItemCard(
+          title: 'لاگین (خطی)',
+          dartPath:
+              'lib/stac/tobank/flows/login_flow_linear/dart/login_flow_linear_splash.dart',
+          jsonPath:
+              'lib/stac/tobank/flows/login_flow_linear/json/login_flow_linear_splash.json',
+          apiPath:
+              'lib/stac/tobank/flows/login_flow_linear/api/GET_login_flow_linear_splash.json',
+          widgetType: 'tobank_login_flow_linear_splash',
         ),
-
-        StacSizedBox(height: 16),
-
-        // Linear Flows Items - Load from API
-        StacDynamicView(
-          request: StacNetworkRequest(
-            url: 'https://api.tobank.com/menu-items',
-            method: Method.get,
-          ),
-          targetPath: 'data.linearFlows',
-          loaderWidget: StacCenter(child: StacCircularProgressIndicator()),
-          errorWidget: StacSizedBox(),
-          emptyTemplate: StacSizedBox(),
-          template: StacListView(padding: StacEdgeInsets.all(0), children: []),
+        _buildMenuItemCard(
+          title: 'سفته',
+          dartPath:
+              'lib/stac/tobank/flows/promissory/dart/promissory_intro.dart',
+          jsonPath:
+              'lib/stac/tobank/flows/promissory/json/promissory_intro.json',
+          apiPath:
+              'lib/stac/tobank/flows/promissory/api/GET_promissory_intro.json',
+          widgetType: 'promissory_intro',
         ),
-
-        // API Flows Items (Single Button) - Load from API
-        StacDynamicView(
-          request: StacNetworkRequest(
-            url: 'https://api.tobank.com/menu-items',
-            method: Method.get,
-          ),
-          targetPath: 'data.apiFlows',
-          loaderWidget: StacSizedBox(),
-          errorWidget: StacSizedBox(),
-          emptyTemplate: StacSizedBox(),
-          // restorationId is used as a flag to inject the single-button template
-          template: StacListView(
-            padding: StacEdgeInsets.all(0),
-            restorationId: 'singleButtonList',
-            children: [],
-          ),
+        _buildMenuItemCard(
+          title: 'احراز هویت',
+          dartPath: 'lib/stac/tobank/login/dart/tobank_login.dart',
+          jsonPath: null,
+          apiPath: null,
+          widgetType: 'tobank_login_dart',
         ),
-
-        StacSizedBox(height: 24),
-
-        // ============================================
-        // COMPLETED ITEMS SECTION (صفحات تمام شده)
-        // ============================================
-
-        // Completed Items Section Divider
-        StacRow(
-          textDirection: StacTextDirection.rtl,
-          children: [
-            StacExpanded(
-              child: StacContainer(
-                height: 1,
-                color: '{{appColors.current.success.color}}',
-              ),
-            ),
-            StacPadding(
-              padding: StacEdgeInsets.symmetric(horizontal: 12),
-              child: StacText(
-                data: "صفحات تمام شده",
-                style: StacCustomTextStyle(
-                  color: '{{appColors.current.success.color}}',
-                  fontSize: 12,
-                  fontWeight: StacFontWeight.w500,
-                ),
-              ),
-            ),
-            StacExpanded(
-              child: StacContainer(
-                height: 1,
-                color: '{{appColors.current.success.color}}',
-              ),
-            ),
-          ],
+        _buildSingleButtonMenuItemCard(
+          title: 'خانه',
+          widgetType: 'tobank_home_page_menu',
         ),
-
-        StacSizedBox(height: 16),
-
-        // Completed Items
-        StacDynamicView(
-          request: StacNetworkRequest(
-            url: 'https://api.tobank.com/menu-items',
-            method: Method.get,
-          ),
-          targetPath: 'data.completedItems',
-          loaderWidget: StacCenter(child: StacCircularProgressIndicator()),
-          errorWidget: StacCenter(
-            child: StacText(
-              data: '{{appStrings.menu.errorLoading}}',
-              style: StacCustomTextStyle(
-                color: '{{appColors.current.error.color}}',
-              ),
-            ),
-          ),
-          emptyTemplate: StacSizedBox(),
-          template: StacListView(padding: StacEdgeInsets.all(0), children: []),
+        _buildSingleButtonMenuItemCard(
+          title: 'سفته (API واقعی)',
+          widgetType: 'promissory_real_menu',
         ),
-
-        StacSizedBox(height: 24),
-
-        // ============================================
-        // INCOMPLETE ITEMS SECTION (سایر موارد)
-        // ============================================
-
-        // Incomplete Items Separator
-        StacRow(
-          textDirection: StacTextDirection.rtl,
-          children: [
-            StacExpanded(
-              child: StacContainer(
-                height: 1,
-                color: '{{appColors.current.text.subtitle}}',
-              ),
-            ),
-            StacPadding(
-              padding: StacEdgeInsets.symmetric(horizontal: 12),
-              child: StacText(
-                data: "سایر موارد",
-                style: StacCustomTextStyle(
-                  color: '{{appColors.current.text.subtitle}}',
-                  fontSize: 12,
-                  fontWeight: StacFontWeight.w500,
-                ),
-              ),
-            ),
-            StacExpanded(
-              child: StacContainer(
-                height: 1,
-                color: '{{appColors.current.text.subtitle}}',
-              ),
-            ),
-          ],
+        _buildSingleButtonMenuItemCard(
+          title: 'احراز هویت (API واقعی)',
+          widgetType: 'verify_identity_real_menu',
         ),
-
-        StacSizedBox(height: 16),
-
-        // Incomplete Items Section
-        StacDynamicView(
-          request: StacNetworkRequest(
-            url: 'https://api.tobank.com/menu-items',
-            method: Method.get,
-          ),
-          targetPath: 'data.incompleteItems',
-          loaderWidget: StacCenter(child: StacCircularProgressIndicator()),
-          errorWidget: StacCenter(
-            child: StacText(
-              data: '{{appStrings.menu.errorLoading}}',
-              style: StacCustomTextStyle(
-                color: '{{appColors.current.error.color}}',
-              ),
-            ),
-          ),
-          emptyTemplate: StacSizedBox(),
-          template: StacListView(padding: StacEdgeInsets.all(0), children: []),
+        _buildSingleButtonMenuItemCard(
+          title: 'پروفایل (API واقعی)',
+          widgetType: 'profile_real_menu',
+        ),
+        _buildSingleButtonMenuItemCard(
+          title: 'کارتابل (API واقعی)',
+          widgetType: 'cartable_real_menu',
+        ),
+        _buildSingleButtonMenuItemCard(
+          title: 'تراکنش‌ها (API واقعی)',
+          widgetType: 'transaction_real_menu',
+        ),
+        _buildSingleButtonMenuItemCard(
+          title: 'داشبورد (ناوبری واقعی)',
+          widgetType: 'dashboard_real_menu',
+        ),
+        _buildSingleButtonMenuItemCard(
+          title: 'کارت هدیه (API واقعی)',
+          widgetType: 'gift_card_real_menu',
         ),
       ],
+    ),
+  );
+}
+
+StacWidget _buildSingleButtonMenuItemCard({
+  required String title,
+  required String widgetType,
+}) {
+  return StacContainer(
+    margin: StacEdgeInsets.only(left: 8, top: 4, right: 8, bottom: 4),
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surfaceContainer}}',
+      border: StacBorder(
+        width: 1.5,
+        color: '{{appColors.current.input.borderEnabled}}',
+      ),
+      borderRadius: StacBorderRadius.all(8),
+    ),
+    child: StacPadding(
+      padding: StacEdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      child: StacRow(
+        mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+        crossAxisAlignment: StacCrossAxisAlignment.center,
+        textDirection: StacTextDirection.rtl,
+        children: [
+          StacExpanded(
+            child: StacText(
+              data: title,
+              textDirection: StacTextDirection.rtl,
+              textAlign: StacTextAlign.right,
+              style: StacCustomTextStyle(
+                fontSize: 15,
+                fontWeight: StacFontWeight.w500,
+                color: '{{appColors.current.text.title}}',
+              ),
+            ),
+          ),
+          StacSizedBox(width: 8),
+          _buildButtonWidget(
+            label: 'Run',
+            path: null,
+            widgetType: widgetType,
+            buttonType: 'dart',
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+StacWidget _buildMenuItemCard({
+  required String title,
+  String? dartPath,
+  String? jsonPath,
+  String? apiPath,
+  String? widgetType,
+}) {
+  return StacContainer(
+    margin: StacEdgeInsets.only(left: 8, top: 4, right: 8, bottom: 4),
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surfaceContainer}}',
+      border: StacBorder(
+        width: 1.5,
+        color: '{{appColors.current.input.borderEnabled}}',
+      ),
+      borderRadius: StacBorderRadius.all(8),
+    ),
+    child: StacPadding(
+      padding: StacEdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      child: StacRow(
+        mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+        crossAxisAlignment: StacCrossAxisAlignment.center,
+        textDirection: StacTextDirection.rtl,
+        children: [
+          StacExpanded(
+            child: StacText(
+              data: title,
+              textDirection: StacTextDirection.rtl,
+              textAlign: StacTextAlign.right,
+              style: StacCustomTextStyle(
+                fontSize: 15,
+                fontWeight: StacFontWeight.w500,
+                color: '{{appColors.current.text.title}}',
+              ),
+            ),
+          ),
+          StacSizedBox(width: 8),
+          StacFlexible(
+            flex: 0,
+            fit: StacFlexFit.loose,
+            child: StacRow(
+              mainAxisSize: StacMainAxisSize.min,
+              children: [
+                _buildButtonWidget(
+                  label: 'Dart',
+                  path: dartPath,
+                  widgetType: widgetType,
+                  buttonType: 'dart',
+                ),
+                StacSizedBox(width: 4),
+                _buildButtonWidget(
+                  label: 'JSON',
+                  path: jsonPath,
+                  buttonType: 'json',
+                ),
+                StacSizedBox(width: 4),
+                _buildButtonWidget(
+                  label: 'API',
+                  path: apiPath,
+                  buttonType: 'api',
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+StacWidget _buildButtonWidget({
+  required String label,
+  String? path,
+  String? widgetType,
+  required String buttonType,
+}) {
+  final hasValidPath =
+      path != null &&
+      path.isNotEmpty &&
+      path != 'null' &&
+      path.trim().isNotEmpty;
+
+  StacAction? onPressed;
+  if (buttonType == 'dart') {
+    if (widgetType != null && widgetType.isNotEmpty && widgetType != 'null') {
+      onPressed = StacAction.fromJson({
+        'actionType': 'navigate',
+        'widgetType': widgetType,
+        'navigationStyle': 'push',
+      });
+    } else if (hasValidPath) {
+      onPressed = StacNavigateAction(
+        assetPath: path!,
+        navigationStyle: NavigationStyle.push,
+      );
+    }
+  } else if (hasValidPath) {
+    onPressed = StacNavigateAction(
+      assetPath: path!,
+      navigationStyle: NavigationStyle.push,
+    );
+  }
+
+  final isEnabled =
+      hasValidPath ||
+      (buttonType == 'dart' &&
+          widgetType != null &&
+          widgetType.isNotEmpty &&
+          widgetType != 'null');
+
+  final buttonColor = '{{appColors.current.secondary.secondaryContainer}}';
+  final textColor = '{{appColors.current.secondary.color}}';
+  final disabledButtonColor =
+      '{{appColors.current.background.surfaceContainerHigh}}';
+  final disabledTextColor = '{{appColors.current.text.hint}}';
+
+  return StacFilledButton(
+    onPressed: onPressed,
+    style: StacButtonStyle(
+      padding: StacEdgeInsets.symmetric(horizontal: 8, vertical: 6),
+      minimumSize: const StacSize(0, 0),
+      backgroundColor: isEnabled ? buttonColor : disabledButtonColor,
+      foregroundColor: isEnabled ? textColor : disabledTextColor,
+      shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(6)),
+      tapTargetSize: StacMaterialTapTargetSize.shrinkWrap,
+    ),
+    child: StacText(
+      data: label,
+      style: StacCustomTextStyle(
+        fontSize: 11,
+        fontWeight: StacFontWeight.w600,
+        color: isEnabled ? textColor : disabledTextColor,
+      ),
     ),
   );
 }

@@ -490,7 +490,7 @@
         "cifRequired": "CIF الزامی است",
         "loginSuccess": "ورود موفقیت‌آمیز بود",
         "loginError": "خطا در ورود",
-        "loginSaveToken": "ورود و ذخیره توکن",
+        "loginSaveToken": "ورود",
         "previewPdf": "پیش‌نمایش PDF",
         "sharePdf": "اشتراک‌گذاری PDF",
         "introTitle": "سفته (API واقعی)",

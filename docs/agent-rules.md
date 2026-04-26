@@ -20,8 +20,9 @@
 
 ## Recent Changes (Last 20)
 
+- 2026-04-26: Added a dedicated `tobank_special_services_page` Dart STAC screen under `home_page`, wired the deposits `سایر خدمات` card to push to it, and registered the route in the widget loader without touching STAC build output folders.
 - 2026-04-19: Added a new Tobank `home_page` flow with a selector screen, Dart home page, menu integration in `apiFlows`, and widget-loader registration. Kept the legacy `home` screen unchanged.
 
 ## Last Updated
 
-- 2026-04-19
+- 2026-04-26

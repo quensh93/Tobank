@@ -7,8 +7,10 @@ import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 StacWidget promissoryRealLoginForm() {
   return StacStatefulWidget(
     onInit: const StacCustomSetValueAction(
-      key: 'isLoginFormValid',
-      value: false,
+      values: [
+        {'key': 'isLoginFormValid', 'value': false},
+        {'key': 'isLoginLoading', 'value': false},
+      ],
     ),
     child: StacScaffold(
       appBar: StacAppBar(
@@ -271,10 +273,12 @@ StacWidget _buildBirthDateField() {
 StacWidget _buildSubmitButton() {
   return StacCustomReactiveElevatedButton(
     enabledKey: 'isLoginFormValid',
+    loadingKey: 'isLoginLoading',
     onPressed: StacSequenceAction(
       actions: [
         StacCustomSetValueAction(
           values: [
+            {'key': 'isLoginLoading', 'value': true},
             {
               'key': 'login.mobile',
               'value': const StacGetFormValueAction(
@@ -334,6 +338,7 @@ StacWidget _buildSubmitButton() {
                 actions: [
                   StacCustomSetValueAction(
                     values: const [
+                      {'key': 'isLoginLoading', 'value': false},
                       {
                         'key': 'auth.accessToken',
                         'value': '{{data.result.data.access_token}}',
@@ -353,17 +358,18 @@ StacWidget _buildSubmitButton() {
                     accessToken: '{{data.result.data.access_token}}',
                     nationalCode: '{{login.nationalCode}}',
                   ),
-                  StacShowSnackBarAction(
-                    content: StacText(
-                      // ورود موفقیت‌آمیز بود
-                      data: '{{appStrings.promissory.loginSuccess}}',
-                    ).toJson(),
-                  ),
                   const StacNavigateAction(
                     routeName: 'promissory_real_intro',
                     navigationStyle: NavigationStyle.pushReplacement,
                   ),
                 ],
+              ).toJson(),
+            ),
+            StacNetworkResult(
+              statusCode: -1,
+              action: const StacCustomSetValueAction(
+                key: 'isLoginLoading',
+                value: false,
               ).toJson(),
             ),
           ],
@@ -398,23 +404,6 @@ StacValidateFieldsAction _loginValidationAction() {
       {'id': 'birthdate', 'rule': r'.+'},
     ],
   );
-}
-
-class StacShowSnackBarAction extends StacAction {
-  const StacShowSnackBarAction({required this.content, this.backgroundColor});
-
-  final Map<String, dynamic> content;
-  final String? backgroundColor;
-
-  @override
-  String get actionType => 'showSnackBar';
-
-  @override
-  Map<String, dynamic> toJson() => {
-    'actionType': 'showSnackBar',
-    'content': content,
-    if (backgroundColor != null) 'backgroundColor': backgroundColor,
-  };
 }
 
 class StacAuthPersistAction extends StacAction {

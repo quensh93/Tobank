@@ -112,29 +112,12 @@ flutter:
     - lib/stac/tobank/login/json/
     - lib/stac/tobank/login/api/
     - lib/stac/tobank/menu/api/
-    - lib/stac/tobank/splash/json/
-    - lib/stac/tobank/splash/api/
-    - lib/stac/tobank/home/json/
-    - lib/stac/tobank/home/api/
-    - lib/stac/tobank/account/json/
-    - lib/stac/tobank/account/api/
-    - lib/stac/tobank/profile/json/
-    - lib/stac/tobank/profile/api/
-    - lib/stac/tobank/transactions/json/
-    - lib/stac/tobank/transactions/api/
-    - lib/stac/tobank/transfer/json/
-    - lib/stac/tobank/transfer/api/
     - lib/stac/tobank/onboarding/json/
     - lib/stac/tobank/onboarding/api/
     - lib/stac/tobank/auth/api/
-    - lib/stac/tobank/sum_test/json/
-    - lib/stac/tobank/sum_test/api/
-    - lib/stac/tobank/stateful_example/json/
-    - lib/stac/tobank/stateful_example/api/
-    - lib/stac/tobank/image_picker_test/json/
-    - lib/stac/tobank/image_picker_test/api/
-    # Flows
 
+
+    # Flows
 
     - lib/stac/tobank/flows/login_flow_linear/json/
     - lib/stac/tobank/flows/login_flow_linear/api/
