@@ -47,60 +47,64 @@ StacWidget verifyIdentityRealOldNationalCard() {
           ],
         ),
       ),
-      body: StacColumn(
-        crossAxisAlignment: StacCrossAxisAlignment.stretch,
-        children: [
-          StacExpanded(
-            child: StacSingleChildScrollView(
-              padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              child: StacColumn(
-                crossAxisAlignment: StacCrossAxisAlignment.stretch,
-                children: [
-                  _buildDescriptionAndGuide(),
-                  StacSizedBox(height: 24),
-                  _buildTrackingCodeSection(),
-                  StacSizedBox(height: 16),
-                  _buildCapturePhotoCard(),
-                  StacSizedBox(height: 16),
-                  _buildCaptureVideoCard(),
-                ],
-              ),
-            ),
-          ),
-          StacPadding(
-            padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 24),
-            child: StacFilledButton(
-              onPressed: const StacSequenceAction(
-                actions: [
-                  {'actionType': 'stopAudioUrl'},
-                  {
-                    'actionType': 'showResult',
-                    'title': '{{appStrings.common.comingSoon}}',
-                    'content': '{{appStrings.common.comingSoon}}',
-                  },
-                ],
-              ),
-              style: StacButtonStyle(
-                backgroundColor: '{{appColors.current.primary.color}}',
-                foregroundColor: '{{appColors.current.primary.onPrimary}}',
-                elevation: 0,
-                fixedSize: const StacSize(999999, 56),
-                shape: StacRoundedRectangleBorder(
-                  borderRadius: StacBorderRadius.all(12),
-                ),
-              ),
-              child: StacText(
-                data: '{{appStrings.authentication.confirmLabel}}',
-                textDirection: StacTextDirection.rtl,
-                style: StacCustomTextStyle(
-                  fontSize: 18,
-                  fontWeight: StacFontWeight.w700,
-                  color: '{{appColors.current.primary.onPrimary}}',
+      body: StacSafeArea(
+        bottom: true,
+        top: false,
+        child: StacColumn(
+          crossAxisAlignment: StacCrossAxisAlignment.stretch,
+          children: [
+            StacExpanded(
+              child: StacSingleChildScrollView(
+                padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                child: StacColumn(
+                  crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                  children: [
+                    _buildDescriptionAndGuide(),
+                    StacSizedBox(height: 24),
+                    _buildTrackingCodeSection(),
+                    StacSizedBox(height: 16),
+                    _buildCapturePhotoCard(),
+                    StacSizedBox(height: 16),
+                    _buildCaptureVideoCard(),
+                  ],
                 ),
               ),
             ),
-          ),
-        ],
+            StacPadding(
+              padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 24),
+              child: StacFilledButton(
+                onPressed: const StacSequenceAction(
+                  actions: [
+                    {'actionType': 'stopAudioUrl'},
+                    {
+                      'actionType': 'showResult',
+                      'title': '{{appStrings.common.comingSoon}}',
+                      'content': '{{appStrings.common.comingSoon}}',
+                    },
+                  ],
+                ),
+                style: StacButtonStyle(
+                  backgroundColor: '{{appColors.current.primary.color}}',
+                  foregroundColor: '{{appColors.current.primary.onPrimary}}',
+                  elevation: 0,
+                  fixedSize: const StacSize(999999, 56),
+                  shape: StacRoundedRectangleBorder(
+                    borderRadius: StacBorderRadius.all(12),
+                  ),
+                ),
+                child: StacText(
+                  data: '{{appStrings.authentication.confirmLabel}}',
+                  textDirection: StacTextDirection.rtl,
+                  style: StacCustomTextStyle(
+                    fontSize: 18,
+                    fontWeight: StacFontWeight.w700,
+                    color: '{{appColors.current.primary.onPrimary}}',
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     ),
   );
@@ -114,8 +118,7 @@ StacWidget _buildDescriptionAndGuide() {
     children: [
       StacExpanded(
         child: StacText(
-          data:
-              '{{appStrings.authentication.oldCardTrackingCodeDescription}}',
+          data: '{{appStrings.authentication.oldCardTrackingCodeDescription}}',
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.right,
           style: StacCustomTextStyle(
@@ -215,8 +218,7 @@ StacWidget _buildTrackingCodeSection() {
           color: '{{appColors.current.text.title}}',
         ),
         decoration: StacInputDecoration(
-          hintText:
-              '{{appStrings.authentication.trackingCodeHint}}',
+          hintText: '{{appStrings.authentication.trackingCodeHint}}',
           hintStyle: StacTextStyle(
             fontSize: 14,
             fontWeight: StacFontWeight.w500,
@@ -251,10 +253,7 @@ StacWidget _buildCapturePhotoCard() {
           padding: StacEdgeInsets.all(16),
           decoration: StacBoxDecoration(
             color: '{{appColors.current.background.surfaceContainer}}',
-            borderRadius: StacBorderRadius.only(
-              topLeft: 16,
-              topRight: 16,
-            ),
+            borderRadius: StacBorderRadius.only(topLeft: 16, topRight: 16),
           ),
           child: StacText(
             data: '{{appStrings.authentication.capturePhotoTitle}}',
@@ -308,10 +307,7 @@ StacWidget _buildCaptureVideoCard() {
           padding: StacEdgeInsets.all(16),
           decoration: StacBoxDecoration(
             color: '{{appColors.current.background.surfaceContainer}}',
-            borderRadius: StacBorderRadius.only(
-              topLeft: 16,
-              topRight: 16,
-            ),
+            borderRadius: StacBorderRadius.only(topLeft: 16, topRight: 16),
           ),
           child: StacText(
             data: '{{appStrings.authentication.captureVideoTitle}}',
@@ -532,9 +528,7 @@ StacWidget _buildSelectedVideoContent() {
   );
 }
 
-StacWidget _buildDeleteButton({
-  required StacAction onTap,
-}) {
+StacWidget _buildDeleteButton({required StacAction onTap}) {
   return StacGestureDetector(
     onTap: onTap,
     child: StacRow(

@@ -12,28 +12,32 @@ StacWidget verifyIdentityRealIntro() {
       appBar: buildVerifyIdentityRealAppBar(
         title: '{{appStrings.menu.items.verifyIdentity}}',
       ),
-      body: StacColumn(
-        children: [
-          StacExpanded(
-            child: StacSingleChildScrollView(
-              padding: StacEdgeInsets.only(
-                left: 16,
-                top: 16,
-                right: 16,
-                bottom: 24,
-              ),
-              child: StacColumn(
-                crossAxisAlignment: StacCrossAxisAlignment.stretch,
-                children: [
-                  _buildStepsCard(),
-                  StacSizedBox(height: 16),
-                  _buildRulesToggleCard(),
-                ],
+      body: StacSafeArea(
+        bottom: true,
+        top: false,
+        child: StacColumn(
+          children: [
+            StacExpanded(
+              child: StacSingleChildScrollView(
+                padding: StacEdgeInsets.only(
+                  left: 16,
+                  top: 16,
+                  right: 16,
+                  bottom: 24,
+                ),
+                child: StacColumn(
+                  crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                  children: [
+                    _buildStepsCard(),
+                    StacSizedBox(height: 16),
+                    _buildRulesToggleCard(),
+                  ],
+                ),
               ),
             ),
-          ),
-          _buildContinueButton(),
-        ],
+            _buildContinueButton(),
+          ],
+        ),
       ),
     ),
   );

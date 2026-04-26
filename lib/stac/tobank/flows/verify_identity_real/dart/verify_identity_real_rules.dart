@@ -100,71 +100,75 @@ StacWidget verifyIdentityRealRules() {
       showSupport: false,
       showBack: false,
     ),
-    body: StacPadding(
-      padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      child: StacColumn(
-        crossAxisAlignment: StacCrossAxisAlignment.stretch,
-        children: [
-          StacContainer(
-            height: 1,
-            color: '{{appColors.current.input.borderEnabled}}',
-          ),
-          StacSizedBox(height: 24),
-          StacExpanded(
-            child: StacSingleChildScrollView(
-              child: StacColumn(
-                crossAxisAlignment: StacCrossAxisAlignment.stretch,
-                children: [
-                  StacText(
-                    data: verifyIdentityRealRulesSheetTitle,
-                    textDirection: StacTextDirection.rtl,
-                    style: StacCustomTextStyle(
-                      fontSize: 17,
-                      fontWeight: StacFontWeight.w600,
-                      color: '{{appColors.current.text.title}}',
-                    ),
-                  ),
-                  StacSizedBox(height: 12),
-                  ...verifyIdentityRealRulesSections.map(
-                    (section) =>
-                        _buildRuleSection(section.title, section.paragraphs),
-                  ),
-                  StacSizedBox(height: 20),
-                  StacPadding(
-                    padding: StacEdgeInsets.only(bottom: 12),
-                    child: StacElevatedButton(
-                      onPressed: const StacNavigateAction(
-                        navigationStyle: NavigationStyle.pop,
+    body: StacSafeArea(
+      bottom: true,
+      top: false,
+      child: StacPadding(
+        padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        child: StacColumn(
+          crossAxisAlignment: StacCrossAxisAlignment.stretch,
+          children: [
+            StacContainer(
+              height: 1,
+              color: '{{appColors.current.input.borderEnabled}}',
+            ),
+            StacSizedBox(height: 24),
+            StacExpanded(
+              child: StacSingleChildScrollView(
+                child: StacColumn(
+                  crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                  children: [
+                    StacText(
+                      data: verifyIdentityRealRulesSheetTitle,
+                      textDirection: StacTextDirection.rtl,
+                      style: StacCustomTextStyle(
+                        fontSize: 17,
+                        fontWeight: StacFontWeight.w600,
+                        color: '{{appColors.current.text.title}}',
                       ),
-                      style: StacButtonStyle(
-                        backgroundColor: '#FFFFFF',
-                        foregroundColor: '#D61F2C',
-                        elevation: 0,
-                        fixedSize: StacSize(999999, 67),
-                        shape: StacRoundedRectangleBorder(
-                          borderRadius: StacBorderRadius.all(13),
-                          side: const StacBorderSide(
+                    ),
+                    StacSizedBox(height: 12),
+                    ...verifyIdentityRealRulesSections.map(
+                      (section) =>
+                          _buildRuleSection(section.title, section.paragraphs),
+                    ),
+                    StacSizedBox(height: 20),
+                    StacPadding(
+                      padding: StacEdgeInsets.only(bottom: 12),
+                      child: StacElevatedButton(
+                        onPressed: const StacNavigateAction(
+                          navigationStyle: NavigationStyle.pop,
+                        ),
+                        style: StacButtonStyle(
+                          backgroundColor: '#FFFFFF',
+                          foregroundColor: '#D61F2C',
+                          elevation: 0,
+                          fixedSize: StacSize(999999, 67),
+                          shape: StacRoundedRectangleBorder(
+                            borderRadius: StacBorderRadius.all(13),
+                            side: const StacBorderSide(
+                              color: '#D61F2C',
+                              width: 1.5,
+                            ),
+                          ),
+                        ),
+                        child: StacText(
+                          data: 'متوجه شدم',
+                          textDirection: StacTextDirection.rtl,
+                          style: StacCustomTextStyle(
+                            fontSize: 17,
+                            fontWeight: StacFontWeight.w700,
                             color: '#D61F2C',
-                            width: 1.5,
                           ),
                         ),
                       ),
-                      child: StacText(
-                        data: 'متوجه شدم',
-                        textDirection: StacTextDirection.rtl,
-                        style: StacCustomTextStyle(
-                          fontSize: 17,
-                          fontWeight: StacFontWeight.w700,
-                          color: '#D61F2C',
-                        ),
-                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     ),
   );

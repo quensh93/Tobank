@@ -16,28 +16,32 @@ StacWidget verifyIdentityRealIntro() {
       appBar: buildVerifyIdentityRealAppBar(
         title: '{{appStrings.menu.items.verifyIdentity}}',
       ),
-      body: StacColumn(
-        children: [
-          StacExpanded(
-            child: StacSingleChildScrollView(
-              padding: StacEdgeInsets.only(
-                left: 16,
-                top: 16,
-                right: 16,
-                bottom: 24,
-              ),
-              child: StacColumn(
-                crossAxisAlignment: StacCrossAxisAlignment.stretch,
-                children: [
-                  _buildStepsCard(),
-                  StacSizedBox(height: 16),
-                  _buildRulesToggleCard(),
-                ],
+      body: StacSafeArea(
+        bottom: true,
+        top: false,
+        child: StacColumn(
+          children: [
+            StacExpanded(
+              child: StacSingleChildScrollView(
+                padding: StacEdgeInsets.only(
+                  left: 16,
+                  top: 16,
+                  right: 16,
+                  bottom: 24,
+                ),
+                child: StacColumn(
+                  crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                  children: [
+                    _buildStepsCard(),
+                    StacSizedBox(height: 16),
+                    _buildRulesToggleCard(),
+                  ],
+                ),
               ),
             ),
-          ),
-          _buildContinueButton(),
-        ],
+            _buildContinueButton(),
+          ],
+        ),
       ),
     ),
   );
@@ -72,9 +76,13 @@ StacWidget _buildStepsCard() {
         _buildStepItem('{{appStrings.authentication.stepUploadNationalCard}}'),
         _buildStepItem('{{appStrings.authentication.stepCaptureFacePhoto}}'),
         _buildStepItem('{{appStrings.authentication.stepCaptureFaceVideo}}'),
-        _buildStepItem('{{appStrings.authentication.stepCollectUserSignature}}'),
+        _buildStepItem(
+          '{{appStrings.authentication.stepCollectUserSignature}}',
+        ),
         _buildStepItem('{{appStrings.authentication.stepCollectEnglishInfo}}'),
-        _buildStepItem('{{appStrings.authentication.stepCollectDigitalSignature}}'),
+        _buildStepItem(
+          '{{appStrings.authentication.stepCollectDigitalSignature}}',
+        ),
       ],
     ),
   );
@@ -184,7 +192,6 @@ StacWidget _buildRulesToggleCard() {
                   color: '{{appColors.current.text.title}}',
                 ),
               ),
-
             ],
           ),
         ),

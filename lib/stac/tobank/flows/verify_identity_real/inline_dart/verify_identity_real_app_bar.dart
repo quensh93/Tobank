@@ -25,8 +25,8 @@ StacAppBar buildVerifyIdentityRealAppBar({
 
 StacWidget _buildBackButton({StacAction? backAction}) {
   return StacIconButton(
-    onPressed: backAction ??
-        StacNavigateAction(navigationStyle: NavigationStyle.pop),
+    onPressed:
+        backAction ?? StacNavigateAction(navigationStyle: NavigationStyle.pop),
     icon: StacImage(
       src: '{{appAssets.icons.arrowBack}}',
       imageType: StacImageType.asset,

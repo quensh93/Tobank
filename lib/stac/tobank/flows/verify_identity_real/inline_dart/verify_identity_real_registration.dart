@@ -21,96 +21,100 @@ StacWidget verifyIdentityRealRegistration() {
       appBar: buildVerifyIdentityRealAppBar(
         title: '{{appStrings.menu.items.verifyIdentity}}',
       ),
-      body: StacPadding(
-        padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        child: StacColumn(
-          crossAxisAlignment: StacCrossAxisAlignment.stretch,
-          children: [
-            StacExpanded(
-              child: StacSingleChildScrollView(
-                child: StacColumn(
-                  crossAxisAlignment: StacCrossAxisAlignment.stretch,
-                  children: [
-                    StacSizedBox(height: 16),
-                    StacContainer(
-                      padding: StacEdgeInsets.all(16),
-                      decoration: StacBoxDecoration(
-                        color: '{{appColors.current.background.surface}}',
-                        borderRadius: StacBorderRadius.all(10),
-                        border: StacBorder.all(
-                          color: '{{appColors.current.input.borderEnabled}}',
-                          width: 1,
+      body: StacSafeArea(
+        bottom: true,
+        top: false,
+        child: StacPadding(
+          padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          child: StacColumn(
+            crossAxisAlignment: StacCrossAxisAlignment.stretch,
+            children: [
+              StacExpanded(
+                child: StacSingleChildScrollView(
+                  child: StacColumn(
+                    crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                    children: [
+                      StacSizedBox(height: 16),
+                      StacContainer(
+                        padding: StacEdgeInsets.all(16),
+                        decoration: StacBoxDecoration(
+                          color: '{{appColors.current.background.surface}}',
+                          borderRadius: StacBorderRadius.all(10),
+                          border: StacBorder.all(
+                            color: '{{appColors.current.input.borderEnabled}}',
+                            width: 1,
+                          ),
+                        ),
+                        child: StacText(
+                          data:
+                              'کاربر گرامی\nبا تکمیل اطلاعات زیر، مراحل احراز هویت شما به اتمام می‌رسد و می‌توانید از خدمات برنامه استفاده کنید.',
+                          textDirection: StacTextDirection.rtl,
+                          textAlign: StacTextAlign.right,
+                          style: StacCustomTextStyle(
+                            fontSize: 16,
+                            fontWeight: StacFontWeight.w500,
+                            color: '{{appColors.current.text.title}}',
+                            height: 1.8,
+                          ),
                         ),
                       ),
-                      child: StacText(
-                        data:
-                            'کاربر گرامی\nبا تکمیل اطلاعات زیر، مراحل احراز هویت شما به اتمام می‌رسد و می‌توانید از خدمات برنامه استفاده کنید.',
+                      StacSizedBox(height: 32),
+                      StacText(
+                        data: 'حوزه فعالیت',
                         textDirection: StacTextDirection.rtl,
                         textAlign: StacTextAlign.right,
                         style: StacCustomTextStyle(
                           fontSize: 16,
-                          fontWeight: StacFontWeight.w500,
+                          fontWeight: StacFontWeight.w700,
                           color: '{{appColors.current.text.title}}',
-                          height: 1.8,
                         ),
                       ),
-                    ),
-                    StacSizedBox(height: 32),
-                    StacText(
-                      data: 'حوزه فعالیت',
-                      textDirection: StacTextDirection.rtl,
-                      textAlign: StacTextAlign.right,
-                      style: StacCustomTextStyle(
-                        fontSize: 16,
-                        fontWeight: StacFontWeight.w700,
-                        color: '{{appColors.current.text.title}}',
-                      ),
-                    ),
-                    StacSizedBox(height: 8),
-                    _buildJobSelector(),
-                  ],
+                      StacSizedBox(height: 8),
+                      _buildJobSelector(),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            StacPadding(
-              padding: StacEdgeInsets.only(top: 16),
-              child: StacCustomReactiveElevatedButton(
-                enabledKey: 'verifyIdentityHasSelectedJob',
-                enabled: false,
-                onPressed: const StacNavigateAction(
-                  routeName: 'test_screen',
-                  navigationStyle: NavigationStyle.push,
+              StacPadding(
+                padding: StacEdgeInsets.only(top: 16),
+                child: StacCustomReactiveElevatedButton(
+                  enabledKey: 'verifyIdentityHasSelectedJob',
+                  enabled: false,
+                  onPressed: const StacNavigateAction(
+                    routeName: 'test_screen',
+                    navigationStyle: NavigationStyle.push,
+                  ),
+                  style: StacButtonStyle(
+                    backgroundColor: '{{appColors.current.primary.color}}',
+                    foregroundColor: '{{appColors.current.primary.onPrimary}}',
+                    elevation: 0,
+                    fixedSize: const StacSize(999999, 56),
+                    shape: StacRoundedRectangleBorder(
+                      borderRadius: StacBorderRadius.all(12),
+                    ),
+                  ).toJson(),
+                  disabledStyle: StacButtonStyle(
+                    backgroundColor:
+                        '{{appColors.current.background.surfaceContainerHigh}}',
+                    elevation: 0,
+                    fixedSize: const StacSize(999999, 56),
+                    shape: StacRoundedRectangleBorder(
+                      borderRadius: StacBorderRadius.all(12),
+                    ),
+                  ).toJson(),
+                  child: StacText(
+                    data: '{{appStrings.common.continue}}',
+                    textDirection: StacTextDirection.rtl,
+                    style: StacCustomTextStyle(
+                      fontSize: 18,
+                      fontWeight: StacFontWeight.w700,
+                      color: '{{appColors.current.primary.onPrimary}}',
+                    ),
+                  ).toJson(),
                 ),
-                style: StacButtonStyle(
-                  backgroundColor: '{{appColors.current.primary.color}}',
-                  foregroundColor: '{{appColors.current.primary.onPrimary}}',
-                  elevation: 0,
-                  fixedSize: const StacSize(999999, 56),
-                  shape: StacRoundedRectangleBorder(
-                    borderRadius: StacBorderRadius.all(12),
-                  ),
-                ).toJson(),
-                disabledStyle: StacButtonStyle(
-                  backgroundColor:
-                      '{{appColors.current.background.surfaceContainerHigh}}',
-                  elevation: 0,
-                  fixedSize: const StacSize(999999, 56),
-                  shape: StacRoundedRectangleBorder(
-                    borderRadius: StacBorderRadius.all(12),
-                  ),
-                ).toJson(),
-                child: StacText(
-                  data: '{{appStrings.common.continue}}',
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 18,
-                    fontWeight: StacFontWeight.w700,
-                    color: '{{appColors.current.primary.onPrimary}}',
-                  ),
-                ).toJson(),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     ),
@@ -119,9 +123,7 @@ StacWidget verifyIdentityRealRegistration() {
 
 StacWidget _buildJobSelector() {
   return StacGestureDetector(
-    onTap: const StacShowJobSelectorBottomSheetAction(
-      heightFactor: 0.75,
-    ),
+    onTap: const StacShowJobSelectorBottomSheetAction(heightFactor: 0.75),
     child: StacContainer(
       height: 56,
       padding: StacEdgeInsets.symmetric(horizontal: 16),

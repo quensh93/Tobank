@@ -27,64 +27,68 @@ StacWidget verifyIdentityRealNationalCardBack() {
       appBar: buildVerifyIdentityRealAppBar(
         title: '{{appStrings.menu.items.verifyIdentity}}',
       ),
-      body: StacColumn(
-        crossAxisAlignment: StacCrossAxisAlignment.stretch,
-        children: [
-          StacExpanded(
-            child: StacSingleChildScrollView(
-              padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              child: StacColumn(
-                crossAxisAlignment: StacCrossAxisAlignment.stretch,
-                children: [
-                  _buildUploadPickerCard(),
-                  StacSizedBox(height: 16),
-                  _buildSampleCard(),
-                  StacSizedBox(height: 12),
-                  _buildTips(),
-                ],
+      body: StacSafeArea(
+        bottom: true,
+        top: false,
+        child: StacColumn(
+          crossAxisAlignment: StacCrossAxisAlignment.stretch,
+          children: [
+            StacExpanded(
+              child: StacSingleChildScrollView(
+                padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                child: StacColumn(
+                  crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                  children: [
+                    _buildUploadPickerCard(),
+                    StacSizedBox(height: 16),
+                    _buildSampleCard(),
+                    StacSizedBox(height: 12),
+                    _buildTips(),
+                  ],
+                ),
               ),
             ),
-          ),
-          StacPadding(
-            padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 24),
-            child: StacRawJsonWidget({
-              'type': 'reactiveElevatedButton',
-              'enabledKey': _backHasImageKey,
-              'enabled': false,
-              'style': StacButtonStyle(
-                backgroundColor: '{{appColors.current.primary.color}}',
-                elevation: 0,
-                fixedSize: const StacSize(999999, 56),
-                shape: StacRoundedRectangleBorder(
-                  borderRadius: StacBorderRadius.all(12),
-                ),
-              ).toJson(),
-              'disabledStyle': StacButtonStyle(
-                backgroundColor:
-                    '{{appColors.current.background.surfaceContainerHigh}}',
-                elevation: 0,
-                fixedSize: const StacSize(999999, 56),
-                shape: StacRoundedRectangleBorder(
-                  borderRadius: StacBorderRadius.all(12),
-                ),
-              ).toJson(),
-              'child': StacText(
-                data: '{{appStrings.authentication.continueLabel}}',
-                textDirection: StacTextDirection.rtl,
-                style: StacCustomTextStyle(
-                  fontSize: 18,
-                  fontWeight: StacFontWeight.w700,
-                  color: '{{appColors.current.primary.onPrimary}}',
-                ),
-              ).toJson(),
-              'onPressed': {
-                    'actionType': 'navigate',
-                    'widgetType': 'verify_identity_real_selfie',
-                    'navigationStyle': 'push',
-                  },
-            }),
-          ),
-        ],
+            StacPadding(
+              padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 24),
+              child: StacRawJsonWidget({
+                'type': 'reactiveElevatedButton',
+                'enabledKey': _backHasImageKey,
+                'enabled': false,
+                'style': StacButtonStyle(
+                  backgroundColor: '{{appColors.current.primary.color}}',
+                  elevation: 0,
+                  fixedSize: const StacSize(999999, 56),
+                  shape: StacRoundedRectangleBorder(
+                    borderRadius: StacBorderRadius.all(12),
+                  ),
+                ).toJson(),
+                'disabledStyle': StacButtonStyle(
+                  backgroundColor:
+                      '{{appColors.current.background.surfaceContainerHigh}}',
+                  elevation: 0,
+                  fixedSize: const StacSize(999999, 56),
+                  shape: StacRoundedRectangleBorder(
+                    borderRadius: StacBorderRadius.all(12),
+                  ),
+                ).toJson(),
+                'child': StacText(
+                  data: '{{appStrings.authentication.continueLabel}}',
+                  textDirection: StacTextDirection.rtl,
+                  style: StacCustomTextStyle(
+                    fontSize: 18,
+                    fontWeight: StacFontWeight.w700,
+                    color: '{{appColors.current.primary.onPrimary}}',
+                  ),
+                ).toJson(),
+                'onPressed': {
+                  'actionType': 'navigate',
+                  'widgetType': 'verify_identity_real_selfie',
+                  'navigationStyle': 'push',
+                },
+              }),
+            ),
+          ],
+        ),
       ),
     ),
   );
@@ -107,10 +111,7 @@ StacWidget _buildUploadPickerCard() {
           padding: StacEdgeInsets.all(16),
           decoration: StacBoxDecoration(
             color: '{{appColors.current.background.surfaceContainer}}',
-            borderRadius: StacBorderRadius.only(
-              topLeft: 16,
-              topRight: 16,
-            ),
+            borderRadius: StacBorderRadius.only(topLeft: 16, topRight: 16),
           ),
           child: StacText(
             data: '{{appStrings.authentication.backNationalCardTitle}}',
@@ -307,13 +308,11 @@ StacWidget _buildSampleCard() {
           padding: StacEdgeInsets.all(16),
           decoration: StacBoxDecoration(
             color: '{{appColors.current.background.surfaceContainer}}',
-            borderRadius: StacBorderRadius.only(
-              topLeft: 16,
-              topRight: 16,
-            ),
+            borderRadius: StacBorderRadius.only(topLeft: 16, topRight: 16),
           ),
           child: StacText(
-            data: '{{appStrings.authentication.correctBackNationalCardSampleTitle}}',
+            data:
+                '{{appStrings.authentication.correctBackNationalCardSampleTitle}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(

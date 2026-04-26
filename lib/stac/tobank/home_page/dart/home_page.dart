@@ -1171,7 +1171,7 @@ StacWidget _buildExistingDepositCard({
                                   StacCrossAxisAlignment.stretch,
                               children: [
                                 _buildDepositBalanceRow(),
-                                StacSizedBox(height: 8),
+                                StacSizedBox(height: 10),
                                 StacText(
                                   data: accountNumber,
                                   textDirection: StacTextDirection.rtl,
@@ -1235,19 +1235,12 @@ StacWidget _buildDepositBalanceRow() {
     child: StacCustomVisibility(
       visible: '[[homePage.balanceVisible]]',
       child: StacRow(
-        mainAxisAlignment: StacMainAxisAlignment.end,
+        mainAxisAlignment: StacMainAxisAlignment.start,
         textDirection: StacTextDirection.rtl,
         children: [
-          StacImage(
-            src: '{{appAssets.current.icons.refresh}}',
-            imageType: StacImageType.asset,
-            width: 22,
-            height: 22,
-            color: '{{appColors.current.text.title}}',
-          ),
-          StacSizedBox(width: 8),
+
           StacText(
-            data: 'ریال 77,641',
+            data: '77,641',
             textDirection: StacTextDirection.rtl,
             style: StacCustomTextStyle(
               fontSize: 18,
@@ -1255,10 +1248,28 @@ StacWidget _buildDepositBalanceRow() {
               color: '{{appColors.current.text.title}}',
             ),
           ),
+          StacSizedBox(width: 1),
+          StacText(
+            data: 'ریال',
+            textDirection: StacTextDirection.rtl,
+            style: StacCustomTextStyle(
+              fontSize: 18,
+              fontWeight: StacFontWeight.w700,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacSizedBox(width: 8),
+          StacImage(
+            src: '{{appAssets.current.icons.refresh}}',
+            imageType: StacImageType.asset,
+            width: 22,
+            height: 22,
+            color: '{{appColors.current.text.title}}',
+          ),
         ],
       ).toJson(),
       replacement: StacRow(
-        mainAxisAlignment: StacMainAxisAlignment.end,
+        mainAxisAlignment: StacMainAxisAlignment.start,
         textDirection: StacTextDirection.rtl,
         children: [
           StacText(
@@ -1272,16 +1283,7 @@ StacWidget _buildDepositBalanceRow() {
               height: 1.4,
             ),
           ),
-          StacSizedBox(width: 6),
-          StacText(
-            data: 'ریال',
-            textDirection: StacTextDirection.rtl,
-            style: StacCustomTextStyle(
-              fontSize: 14,
-              fontWeight: StacFontWeight.w500,
-              color: '{{appColors.current.text.subtitle}}',
-            ),
-          ),
+
         ],
       ).toJson(),
     ),

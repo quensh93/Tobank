@@ -10,6 +10,7 @@ class StacPersianDatePickerAction extends StacAction {
     this.initialDate,
     this.firstDate,
     this.lastDate,
+    this.bottomSheetBottomPadding,
     this.onDateSelected,
   });
 
@@ -17,6 +18,7 @@ class StacPersianDatePickerAction extends StacAction {
   final String? initialDate;
   final String? firstDate;
   final String? lastDate;
+  final double? bottomSheetBottomPadding;
   final Map<String, dynamic>? onDateSelected;
 
   @override
@@ -30,6 +32,8 @@ class StacPersianDatePickerAction extends StacAction {
       if (initialDate != null) 'initialDate': initialDate,
       if (firstDate != null) 'firstDate': firstDate,
       if (lastDate != null) 'lastDate': lastDate,
+      if (bottomSheetBottomPadding != null)
+        'bottomSheetBottomPadding': bottomSheetBottomPadding,
       if (onDateSelected != null) 'onDateSelected': onDateSelected,
     };
   }

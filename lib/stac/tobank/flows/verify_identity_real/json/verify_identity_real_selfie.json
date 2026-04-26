@@ -122,158 +122,399 @@
     },
     "backgroundColor": "{{appColors.current.background.surface}}",
     "body": {
+      "type": "safeArea",
+      "top": false,
+      "bottom": true,
       "child": {
-        "crossAxisAlignment": "stretch",
-        "children": [
-          {
-            "child": {
-              "padding": {
-                "left": 16.0,
-                "top": 16.0,
-                "right": 16.0,
-                "bottom": 16.0
-              },
+        "child": {
+          "crossAxisAlignment": "stretch",
+          "children": [
+            {
               "child": {
-                "crossAxisAlignment": "stretch",
-                "children": [
-                  {
-                    "crossAxisAlignment": "stretch",
-                    "children": [
-                      {
-                        "data": "{{appStrings.authentication.smartCardSerialTitle}}",
-                        "style": {
-                          "type": "custom",
-                          "color": "{{appColors.current.text.title}}",
-                          "fontSize": 16.0,
-                          "fontWeight": "w700"
-                        },
-                        "textAlign": "right",
-                        "textDirection": "rtl",
-                        "type": "text"
-                      },
-                      {
-                        "height": 12.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "type": "textFormField",
-                        "id": "smartCardSerial",
-                        "textDirection": "rtl",
-                        "textAlign": "right",
-                        "keyboardType": "text",
-                        "textCapitalization": "characters",
-                        "maxLength": 10,
-                        "style": {
-                          "type": "custom",
-                          "color": "{{appColors.current.text.title}}",
-                          "fontSize": 18.0,
-                          "fontWeight": "w600"
-                        },
-                        "onChanged": {
-                          "actionType": "validateFields",
-                          "resultKey": "hasSmartCardSerialInput",
-                          "fields": [
-                            {
-                              "id": "smartCardSerial"
-                            }
-                          ]
-                        },
-                        "decoration": {
-                          "hintText": "سریال پشت کارت ملی خود را وارد کنید",
-                          "hintStyle": {
-                            "type": "custom",
-                            "color": "{{appColors.current.text.hint}}",
-                            "fontSize": 15.0,
-                            "fontWeight": "w500"
-                          },
-                          "contentPadding": {
-                            "left": 16.0,
-                            "top": 18.0,
-                            "right": 16.0,
-                            "bottom": 18.0
-                          },
-                          "filled": false
-                        }
-                      }
-                    ],
-                    "type": "column"
-                  },
-                  {
-                    "height": 16.0,
-                    "type": "sizedBox"
-                  },
-                  {
-                    "decoration": {
-                      "color": "{{appColors.current.background.surfaceContainer}}",
-                      "border": {
-                        "color": "{{appColors.current.input.borderEnabled}}",
-                        "width": 1.0
-                      },
-                      "borderRadius": {
-                        "topLeft": 16.0,
-                        "topRight": 16.0,
-                        "bottomLeft": 16.0,
-                        "bottomRight": 16.0
-                      }
-                    },
-                    "child": {
+                "padding": {
+                  "left": 16.0,
+                  "top": 16.0,
+                  "right": 16.0,
+                  "bottom": 16.0
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
                       "crossAxisAlignment": "stretch",
                       "children": [
                         {
-                          "padding": {
-                            "left": 16.0,
-                            "top": 16.0,
-                            "right": 16.0,
-                            "bottom": 16.0
+                          "data": "{{appStrings.authentication.smartCardSerialTitle}}",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w700"
                           },
-                          "decoration": {
-                            "color": "{{appColors.current.background.surfaceContainer}}",
-                            "borderRadius": {
-                              "topLeft": 16.0,
-                              "topRight": 16.0
-                            }
-                          },
-                          "child": {
-                            "data": "{{appStrings.authentication.capturePhotoTitle}}",
-                            "style": {
-                              "type": "custom",
-                              "color": "{{appColors.current.text.title}}",
-                              "fontSize": 16.0,
-                              "fontWeight": "w700"
-                            },
-                            "textAlign": "center",
-                            "textDirection": "rtl",
-                            "type": "text"
-                          },
-                          "type": "container"
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
                         },
                         {
-                          "padding": {
-                            "left": 16.0,
-                            "top": 16.0,
-                            "right": 16.0,
-                            "bottom": 16.0
+                          "height": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "type": "textFormField",
+                          "id": "smartCardSerial",
+                          "textDirection": "rtl",
+                          "textAlign": "right",
+                          "keyboardType": "text",
+                          "textCapitalization": "characters",
+                          "maxLength": 10,
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 18.0,
+                            "fontWeight": "w600"
                           },
-                          "child": {
-                            "crossAxisAlignment": "stretch",
-                            "children": [
+                          "onChanged": {
+                            "actionType": "validateFields",
+                            "resultKey": "hasSmartCardSerialInput",
+                            "fields": [
                               {
-                                "type": "visibility",
-                                "visible": "[[!hasSelfiePhoto]]",
-                                "child": {
+                                "id": "smartCardSerial"
+                              }
+                            ]
+                          },
+                          "decoration": {
+                            "hintText": "سریال پشت کارت ملی خود را وارد کنید",
+                            "hintStyle": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.hint}}",
+                              "fontSize": 15.0,
+                              "fontWeight": "w500"
+                            },
+                            "contentPadding": {
+                              "left": 16.0,
+                              "top": 18.0,
+                              "right": 16.0,
+                              "bottom": 18.0
+                            },
+                            "filled": false
+                          }
+                        }
+                      ],
+                      "type": "column"
+                    },
+                    {
+                      "height": 16.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "decoration": {
+                        "color": "{{appColors.current.background.surfaceContainer}}",
+                        "border": {
+                          "color": "{{appColors.current.input.borderEnabled}}",
+                          "width": 1.0
+                        },
+                        "borderRadius": {
+                          "topLeft": 16.0,
+                          "topRight": 16.0,
+                          "bottomLeft": 16.0,
+                          "bottomRight": 16.0
+                        }
+                      },
+                      "child": {
+                        "crossAxisAlignment": "stretch",
+                        "children": [
+                          {
+                            "padding": {
+                              "left": 16.0,
+                              "top": 16.0,
+                              "right": 16.0,
+                              "bottom": 16.0
+                            },
+                            "decoration": {
+                              "color": "{{appColors.current.background.surfaceContainer}}",
+                              "borderRadius": {
+                                "topLeft": 16.0,
+                                "topRight": 16.0
+                              }
+                            },
+                            "child": {
+                              "data": "{{appStrings.authentication.capturePhotoTitle}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "center",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "container"
+                          },
+                          {
+                            "padding": {
+                              "left": 16.0,
+                              "top": 16.0,
+                              "right": 16.0,
+                              "bottom": 16.0
+                            },
+                            "child": {
+                              "crossAxisAlignment": "stretch",
+                              "children": [
+                                {
+                                  "type": "visibility",
+                                  "visible": "[[!hasSelfiePhoto]]",
                                   "child": {
-                                    "padding": {
-                                      "left": 12.0,
-                                      "top": 8.0,
-                                      "right": 12.0,
-                                      "bottom": 8.0
+                                    "child": {
+                                      "padding": {
+                                        "left": 12.0,
+                                        "top": 8.0,
+                                        "right": 12.0,
+                                        "bottom": 8.0
+                                      },
+                                      "child": {
+                                        "mainAxisAlignment": "center",
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "src": "{{appAssets.icons.cameraCurrent}}",
+                                            "imageType": "asset",
+                                            "width": 32.0,
+                                            "height": 32.0,
+                                            "type": "image"
+                                          },
+                                          {
+                                            "width": 8.0,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "data": "{{appStrings.authentication.capturePhotoButton}}",
+                                            "style": {
+                                              "type": "custom",
+                                              "color": "{{appColors.current.text.subtitle}}",
+                                              "fontSize": 15.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "type": "padding"
                                     },
+                                    "onTap": {
+                                      "actionType": "showPhotoTipsBottomSheet",
+                                      "title": "نکات قابل توجه عکس",
+                                      "iconAsset": "{{appAssets.icons.cameraCurrent}}",
+                                      "tips": [
+                                        "پوشش مناسب رعایت شود",
+                                        "عکس باید واضح و بدون تاری باشد",
+                                        "پس زمینه یکنواخت باشد",
+                                        "عدم وجود هرگونه فرد دیگر در تصویر",
+                                        "تصویر رخ کامل صورت فرد را نشان دهد (بدون عینک آفتابی، ماسک یا سایه‌های شدید)"
+                                      ],
+                                      "previewAsset": "https://appapi.tobank.ir/api/v1.0/media/ekyc/personal_picture_sample.png",
+                                      "continueAction": {
+                                        "actionType": "pickFile",
+                                        "fileType": "image",
+                                        "targetKey": "selfiePhoto",
+                                        "hasValueKey": "hasSelfiePhoto",
+                                        "previewBeforeConfirm": true,
+                                        "previewSheetTitle": "عکس گرفته شده مورد تایید شما است؟",
+                                        "confirmButtonText": "تایید",
+                                        "retryButtonText": "بازگشت"
+                                      },
+                                      "continueText": "ادامه",
+                                      "cancelText": "بازگشت"
+                                    },
+                                    "type": "gestureDetector"
+                                  }
+                                },
+                                {
+                                  "type": "visibility",
+                                  "visible": "[[hasSelfiePhoto]]",
+                                  "child": {
+                                    "crossAxisAlignment": "center",
+                                    "textDirection": "rtl",
+                                    "children": [
+                                      {
+                                        "decoration": {
+                                          "color": "{{appColors.current.background.surface}}",
+                                          "borderRadius": {
+                                            "topLeft": 8.0,
+                                            "topRight": 8.0,
+                                            "bottomLeft": 8.0,
+                                            "bottomRight": 8.0
+                                          }
+                                        },
+                                        "width": 36.0,
+                                        "height": 48.0,
+                                        "child": {
+                                          "borderRadius": {
+                                            "topLeft": 8.0,
+                                            "topRight": 8.0,
+                                            "bottomLeft": 8.0,
+                                            "bottomRight": 8.0
+                                          },
+                                          "child": {
+                                            "type": "registryReactive",
+                                            "child": {
+                                              "type": "image",
+                                              "src": "{{selfiePhoto}}",
+                                              "registryKey": "selfiePhoto",
+                                              "fit": "cover",
+                                              "width": 36,
+                                              "height": 48,
+                                              "errorBuilder": {
+                                                "type": "center",
+                                                "child": {
+                                                  "type": "icon",
+                                                  "icon": "image_outlined",
+                                                  "size": 18,
+                                                  "color": "{{appColors.current.text.subtitle}}"
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "type": "clipRRect"
+                                        },
+                                        "type": "container"
+                                      },
+                                      {
+                                        "child": {
+                                          "type": "sizedBox"
+                                        },
+                                        "type": "expanded"
+                                      },
+                                      {
+                                        "child": {
+                                          "mainAxisSize": "min",
+                                          "textDirection": "rtl",
+                                          "children": [
+                                            {
+                                              "src": "{{appAssets.icons.deleteCurrent}}",
+                                              "imageType": "asset",
+                                              "width": 20.0,
+                                              "height": 20.0,
+                                              "type": "image"
+                                            },
+                                            {
+                                              "width": 6.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "data": "حذف",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "{{appColors.current.text.title}}",
+                                                "fontSize": 15.0,
+                                                "fontWeight": "w600"
+                                              },
+                                              "textDirection": "rtl",
+                                              "type": "text"
+                                            }
+                                          ],
+                                          "type": "row"
+                                        },
+                                        "onTap": {
+                                          "actionType": "setValue",
+                                          "values": [
+                                            {
+                                              "key": "selfiePhoto",
+                                              "value": ""
+                                            },
+                                            {
+                                              "key": "hasSelfiePhoto",
+                                              "value": false
+                                            }
+                                          ]
+                                        },
+                                        "type": "gestureDetector"
+                                      }
+                                    ],
+                                    "type": "row"
+                                  }
+                                }
+                              ],
+                              "type": "column"
+                            },
+                            "type": "padding"
+                          }
+                        ],
+                        "type": "column"
+                      },
+                      "type": "container"
+                    },
+                    {
+                      "height": 16.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "decoration": {
+                        "color": "{{appColors.current.background.surfaceContainer}}",
+                        "border": {
+                          "color": "{{appColors.current.input.borderEnabled}}",
+                          "width": 1.0
+                        },
+                        "borderRadius": {
+                          "topLeft": 16.0,
+                          "topRight": 16.0,
+                          "bottomLeft": 16.0,
+                          "bottomRight": 16.0
+                        }
+                      },
+                      "child": {
+                        "crossAxisAlignment": "stretch",
+                        "children": [
+                          {
+                            "padding": {
+                              "left": 16.0,
+                              "top": 16.0,
+                              "right": 16.0,
+                              "bottom": 16.0
+                            },
+                            "decoration": {
+                              "color": "{{appColors.current.background.surfaceContainer}}",
+                              "borderRadius": {
+                                "topLeft": 16.0,
+                                "topRight": 16.0
+                              }
+                            },
+                            "child": {
+                              "data": "{{appStrings.authentication.captureVideoTitle}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "center",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "container"
+                          },
+                          {
+                            "padding": {
+                              "left": 16.0,
+                              "top": 16.0,
+                              "right": 16.0,
+                              "bottom": 16.0
+                            },
+                            "child": {
+                              "crossAxisAlignment": "stretch",
+                              "children": [
+                                {
+                                  "type": "visibility",
+                                  "visible": "[[!hasSelfieVideo]]",
+                                  "child": {
                                     "child": {
                                       "mainAxisAlignment": "center",
                                       "textDirection": "rtl",
                                       "children": [
                                         {
-                                          "src": "{{appAssets.icons.cameraCurrent}}",
+                                          "src": "{{appAssets.icons.videoCurrent}}",
                                           "imageType": "asset",
                                           "width": 32.0,
                                           "height": 32.0,
@@ -284,7 +525,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "{{appStrings.authentication.capturePhotoButton}}",
+                                          "data": "{{appStrings.authentication.captureVideoButton}}",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -297,412 +538,140 @@
                                       ],
                                       "type": "row"
                                     },
-                                    "type": "padding"
-                                  },
-                                  "onTap": {
-                                    "actionType": "showPhotoTipsBottomSheet",
-                                    "title": "نکات قابل توجه عکس",
-                                    "iconAsset": "{{appAssets.icons.cameraCurrent}}",
-                                    "tips": [
-                                      "پوشش مناسب رعایت شود",
-                                      "عکس باید واضح و بدون تاری باشد",
-                                      "پس زمینه یکنواخت باشد",
-                                      "عدم وجود هرگونه فرد دیگر در تصویر",
-                                      "تصویر رخ کامل صورت فرد را نشان دهد (بدون عینک آفتابی، ماسک یا سایه‌های شدید)"
-                                    ],
-                                    "previewAsset": "https://appapi.tobank.ir/api/v1.0/media/ekyc/personal_picture_sample.png",
-                                    "continueAction": {
-                                      "actionType": "pickFile",
-                                      "fileType": "image",
-                                      "targetKey": "selfiePhoto",
-                                      "hasValueKey": "hasSelfiePhoto",
-                                      "previewBeforeConfirm": true,
-                                      "previewSheetTitle": "عکس گرفته شده مورد تایید شما است؟",
-                                      "confirmButtonText": "تایید",
-                                      "retryButtonText": "بازگشت"
+                                    "onTap": {
+                                      "actionType": "showPhotoTipsBottomSheet",
+                                      "title": "نکات قابل توجه ویدیو",
+                                      "iconAsset": "{{appAssets.icons.videoCurrent}}",
+                                      "tips": [
+                                        "پوشش مناسب رعایت شود",
+                                        "فیلم باید واضح و بدون تاری باشد",
+                                        "پس‌زمینه یکدست (ترجیحا سفید یا روشن)",
+                                        "تنها یک نفر در تصویر حضور داشته باشد",
+                                        "ویدیو باید کامل صورت کاربر را پوشش دهد (بدون عینک افتابی، ماسک یا سایه های شدید)"
+                                      ],
+                                      "previewAsset": "https://appapi.tobank.ir/api/v1.0/media/ekyc/face_movement_video.mp4",
+                                      "continueAction": {
+                                        "actionType": "pickFile",
+                                        "fileType": "video",
+                                        "targetKey": "selfieVideo",
+                                        "hasValueKey": "hasSelfieVideo",
+                                        "fileNameKey": "selfieVideoName",
+                                        "previewBeforeConfirm": true,
+                                        "previewSheetTitle": "ویدیوی گرفته شده مورد تایید شما است؟",
+                                        "confirmButtonText": "تایید",
+                                        "retryButtonText": "بازگشت"
+                                      },
+                                      "continueText": "ادامه",
+                                      "cancelText": "بازگشت"
                                     },
-                                    "continueText": "ادامه",
-                                    "cancelText": "بازگشت"
-                                  },
-                                  "type": "gestureDetector"
-                                }
-                              },
-                              {
-                                "type": "visibility",
-                                "visible": "[[hasSelfiePhoto]]",
-                                "child": {
-                                  "crossAxisAlignment": "center",
-                                  "textDirection": "rtl",
-                                  "children": [
-                                    {
-                                      "decoration": {
-                                        "color": "{{appColors.current.background.surface}}",
-                                        "borderRadius": {
-                                          "topLeft": 8.0,
-                                          "topRight": 8.0,
-                                          "bottomLeft": 8.0,
-                                          "bottomRight": 8.0
-                                        }
-                                      },
-                                      "width": 36.0,
-                                      "height": 48.0,
-                                      "child": {
-                                        "borderRadius": {
-                                          "topLeft": 8.0,
-                                          "topRight": 8.0,
-                                          "bottomLeft": 8.0,
-                                          "bottomRight": 8.0
-                                        },
-                                        "child": {
-                                          "type": "registryReactive",
-                                          "child": {
-                                            "type": "image",
-                                            "src": "{{selfiePhoto}}",
-                                            "registryKey": "selfiePhoto",
-                                            "fit": "cover",
-                                            "width": 36,
-                                            "height": 48,
-                                            "errorBuilder": {
-                                              "type": "center",
-                                              "child": {
-                                                "type": "icon",
-                                                "icon": "image_outlined",
-                                                "size": 18,
-                                                "color": "{{appColors.current.text.subtitle}}"
-                                              }
-                                            }
-                                          }
-                                        },
-                                        "type": "clipRRect"
-                                      },
-                                      "type": "container"
-                                    },
-                                    {
-                                      "child": {
-                                        "type": "sizedBox"
-                                      },
-                                      "type": "expanded"
-                                    },
-                                    {
-                                      "child": {
-                                        "mainAxisSize": "min",
-                                        "textDirection": "rtl",
-                                        "children": [
-                                          {
-                                            "src": "{{appAssets.icons.deleteCurrent}}",
-                                            "imageType": "asset",
-                                            "width": 20.0,
-                                            "height": 20.0,
-                                            "type": "image"
-                                          },
-                                          {
-                                            "width": 6.0,
-                                            "type": "sizedBox"
-                                          },
-                                          {
-                                            "data": "حذف",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "{{appColors.current.text.title}}",
-                                              "fontSize": 15.0,
-                                              "fontWeight": "w600"
-                                            },
-                                            "textDirection": "rtl",
-                                            "type": "text"
-                                          }
-                                        ],
-                                        "type": "row"
-                                      },
-                                      "onTap": {
-                                        "actionType": "setValue",
-                                        "values": [
-                                          {
-                                            "key": "selfiePhoto",
-                                            "value": ""
-                                          },
-                                          {
-                                            "key": "hasSelfiePhoto",
-                                            "value": false
-                                          }
-                                        ]
-                                      },
-                                      "type": "gestureDetector"
-                                    }
-                                  ],
-                                  "type": "row"
-                                }
-                              }
-                            ],
-                            "type": "column"
-                          },
-                          "type": "padding"
-                        }
-                      ],
-                      "type": "column"
-                    },
-                    "type": "container"
-                  },
-                  {
-                    "height": 16.0,
-                    "type": "sizedBox"
-                  },
-                  {
-                    "decoration": {
-                      "color": "{{appColors.current.background.surfaceContainer}}",
-                      "border": {
-                        "color": "{{appColors.current.input.borderEnabled}}",
-                        "width": 1.0
-                      },
-                      "borderRadius": {
-                        "topLeft": 16.0,
-                        "topRight": 16.0,
-                        "bottomLeft": 16.0,
-                        "bottomRight": 16.0
-                      }
-                    },
-                    "child": {
-                      "crossAxisAlignment": "stretch",
-                      "children": [
-                        {
-                          "padding": {
-                            "left": 16.0,
-                            "top": 16.0,
-                            "right": 16.0,
-                            "bottom": 16.0
-                          },
-                          "decoration": {
-                            "color": "{{appColors.current.background.surfaceContainer}}",
-                            "borderRadius": {
-                              "topLeft": 16.0,
-                              "topRight": 16.0
-                            }
-                          },
-                          "child": {
-                            "data": "{{appStrings.authentication.captureVideoTitle}}",
-                            "style": {
-                              "type": "custom",
-                              "color": "{{appColors.current.text.title}}",
-                              "fontSize": 16.0,
-                              "fontWeight": "w700"
-                            },
-                            "textAlign": "center",
-                            "textDirection": "rtl",
-                            "type": "text"
-                          },
-                          "type": "container"
-                        },
-                        {
-                          "padding": {
-                            "left": 16.0,
-                            "top": 16.0,
-                            "right": 16.0,
-                            "bottom": 16.0
-                          },
-                          "child": {
-                            "crossAxisAlignment": "stretch",
-                            "children": [
-                              {
-                                "type": "visibility",
-                                "visible": "[[!hasSelfieVideo]]",
-                                "child": {
+                                    "type": "gestureDetector"
+                                  }
+                                },
+                                {
+                                  "type": "visibility",
+                                  "visible": "[[hasSelfieVideo]]",
                                   "child": {
-                                    "mainAxisAlignment": "center",
+                                    "crossAxisAlignment": "center",
                                     "textDirection": "rtl",
                                     "children": [
                                       {
-                                        "src": "{{appAssets.icons.videoCurrent}}",
-                                        "imageType": "asset",
-                                        "width": 32.0,
-                                        "height": 32.0,
-                                        "type": "image"
+                                        "child": {
+                                          "data": "{{selfieVideoName}}",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.primary.color}}",
+                                            "fontSize": 12.0,
+                                            "fontWeight": "w500"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "ltr",
+                                          "type": "text"
+                                        },
+                                        "type": "expanded"
                                       },
                                       {
-                                        "width": 8.0,
+                                        "width": 12.0,
                                         "type": "sizedBox"
                                       },
                                       {
-                                        "data": "{{appStrings.authentication.captureVideoButton}}",
-                                        "style": {
-                                          "type": "custom",
-                                          "color": "{{appColors.current.text.subtitle}}",
-                                          "fontSize": 15.0,
-                                          "fontWeight": "w600"
+                                        "child": {
+                                          "mainAxisSize": "min",
+                                          "textDirection": "rtl",
+                                          "children": [
+                                            {
+                                              "src": "{{appAssets.icons.deleteCurrent}}",
+                                              "imageType": "asset",
+                                              "width": 20.0,
+                                              "height": 20.0,
+                                              "type": "image"
+                                            },
+                                            {
+                                              "width": 6.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "data": "حذف",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "{{appColors.current.text.title}}",
+                                                "fontSize": 15.0,
+                                                "fontWeight": "w600"
+                                              },
+                                              "textDirection": "rtl",
+                                              "type": "text"
+                                            }
+                                          ],
+                                          "type": "row"
                                         },
-                                        "textDirection": "rtl",
-                                        "type": "text"
+                                        "onTap": {
+                                          "actionType": "setValue",
+                                          "values": [
+                                            {
+                                              "key": "selfieVideo",
+                                              "value": ""
+                                            },
+                                            {
+                                              "key": "selfieVideoName",
+                                              "value": ""
+                                            },
+                                            {
+                                              "key": "hasSelfieVideo",
+                                              "value": false
+                                            }
+                                          ]
+                                        },
+                                        "type": "gestureDetector"
                                       }
                                     ],
                                     "type": "row"
-                                  },
-                                  "onTap": {
-                                    "actionType": "showPhotoTipsBottomSheet",
-                                    "title": "نکات قابل توجه ویدیو",
-                                    "iconAsset": "{{appAssets.icons.videoCurrent}}",
-                                    "tips": [
-                                      "پوشش مناسب رعایت شود",
-                                      "فیلم باید واضح و بدون تاری باشد",
-                                      "پس‌زمینه یکدست (ترجیحا سفید یا روشن)",
-                                      "تنها یک نفر در تصویر حضور داشته باشد",
-                                      "ویدیو باید کامل صورت کاربر را پوشش دهد (بدون عینک افتابی، ماسک یا سایه های شدید)"
-                                    ],
-                                    "previewAsset": "https://appapi.tobank.ir/api/v1.0/media/ekyc/face_movement_video.mp4",
-                                    "continueAction": {
-                                      "actionType": "pickFile",
-                                      "fileType": "video",
-                                      "targetKey": "selfieVideo",
-                                      "hasValueKey": "hasSelfieVideo",
-                                      "fileNameKey": "selfieVideoName",
-                                      "previewBeforeConfirm": true,
-                                      "previewSheetTitle": "ویدیوی گرفته شده مورد تایید شما است؟",
-                                      "confirmButtonText": "تایید",
-                                      "retryButtonText": "بازگشت"
-                                    },
-                                    "continueText": "ادامه",
-                                    "cancelText": "بازگشت"
-                                  },
-                                  "type": "gestureDetector"
+                                  }
                                 }
-                              },
-                              {
-                                "type": "visibility",
-                                "visible": "[[hasSelfieVideo]]",
-                                "child": {
-                                  "crossAxisAlignment": "center",
-                                  "textDirection": "rtl",
-                                  "children": [
-                                    {
-                                      "child": {
-                                        "data": "{{selfieVideoName}}",
-                                        "style": {
-                                          "type": "custom",
-                                          "color": "{{appColors.current.primary.color}}",
-                                          "fontSize": 12.0,
-                                          "fontWeight": "w500"
-                                        },
-                                        "textAlign": "right",
-                                        "textDirection": "ltr",
-                                        "type": "text"
-                                      },
-                                      "type": "expanded"
-                                    },
-                                    {
-                                      "width": 12.0,
-                                      "type": "sizedBox"
-                                    },
-                                    {
-                                      "child": {
-                                        "mainAxisSize": "min",
-                                        "textDirection": "rtl",
-                                        "children": [
-                                          {
-                                            "src": "{{appAssets.icons.deleteCurrent}}",
-                                            "imageType": "asset",
-                                            "width": 20.0,
-                                            "height": 20.0,
-                                            "type": "image"
-                                          },
-                                          {
-                                            "width": 6.0,
-                                            "type": "sizedBox"
-                                          },
-                                          {
-                                            "data": "حذف",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "{{appColors.current.text.title}}",
-                                              "fontSize": 15.0,
-                                              "fontWeight": "w600"
-                                            },
-                                            "textDirection": "rtl",
-                                            "type": "text"
-                                          }
-                                        ],
-                                        "type": "row"
-                                      },
-                                      "onTap": {
-                                        "actionType": "setValue",
-                                        "values": [
-                                          {
-                                            "key": "selfieVideo",
-                                            "value": ""
-                                          },
-                                          {
-                                            "key": "selfieVideoName",
-                                            "value": ""
-                                          },
-                                          {
-                                            "key": "hasSelfieVideo",
-                                            "value": false
-                                          }
-                                        ]
-                                      },
-                                      "type": "gestureDetector"
-                                    }
-                                  ],
-                                  "type": "row"
-                                }
-                              }
-                            ],
-                            "type": "column"
-                          },
-                          "type": "padding"
-                        }
-                      ],
-                      "type": "column"
-                    },
-                    "type": "container"
-                  }
-                ],
-                "type": "column"
-              },
-              "type": "singleChildScrollView"
-            },
-            "type": "expanded"
-          },
-          {
-            "padding": {
-              "left": 16.0,
-              "right": 16.0,
-              "bottom": 24.0
-            },
-            "child": {
-              "type": "visibility",
-              "visible": "[[hasSmartCardSerialInput]]",
-              "replacement": {
-                "style": {
-                  "foregroundColor": "{{appColors.current.text.subtitle}}",
-                  "backgroundColor": "{{appColors.current.background.surfaceContainerHigh}}",
-                  "elevation": 0.0,
-                  "fixedSize": {
-                    "width": 999999.0,
-                    "height": 56.0
-                  },
-                  "shape": {
-                    "type": "roundedRectangleBorder",
-                    "borderRadius": {
-                      "topLeft": 12.0,
-                      "topRight": 12.0,
-                      "bottomLeft": 12.0,
-                      "bottomRight": 12.0
+                              ],
+                              "type": "column"
+                            },
+                            "type": "padding"
+                          }
+                        ],
+                        "type": "column"
+                      },
+                      "type": "container"
                     }
-                  }
+                  ],
+                  "type": "column"
                 },
-                "child": {
-                  "data": "{{appStrings.authentication.confirmLabel}}",
-                  "style": {
-                    "type": "custom",
-                    "color": "{{appColors.current.primary.onPrimary}}",
-                    "fontSize": 18.0,
-                    "fontWeight": "w700"
-                  },
-                  "textDirection": "rtl",
-                  "type": "text"
-                },
-                "type": "filledButton"
+                "type": "singleChildScrollView"
+              },
+              "type": "expanded"
+            },
+            {
+              "padding": {
+                "left": 16.0,
+                "right": 16.0,
+                "bottom": 24.0
               },
               "child": {
                 "type": "visibility",
-                "visible": "[[hasSelfiePhoto]]",
+                "visible": "[[hasSmartCardSerialInput]]",
                 "replacement": {
                   "style": {
                     "foregroundColor": "{{appColors.current.text.subtitle}}",
@@ -737,7 +706,7 @@
                 },
                 "child": {
                   "type": "visibility",
-                  "visible": "[[hasSelfieVideo]]",
+                  "visible": "[[hasSelfiePhoto]]",
                   "replacement": {
                     "style": {
                       "foregroundColor": "{{appColors.current.text.subtitle}}",
@@ -771,64 +740,100 @@
                     "type": "filledButton"
                   },
                   "child": {
-                    "onPressed": {
-                      "actionType": "navigate",
-                      "navigationStyle": "push",
-                      "request": {
-                        "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.verify_identity_real_postal_code/1",
-                        "method": "post",
-                        "headers": {
-                          "Content-Type": "application/json",
-                          "Accept": "*/*"
+                    "type": "visibility",
+                    "visible": "[[hasSelfieVideo]]",
+                    "replacement": {
+                      "style": {
+                        "foregroundColor": "{{appColors.current.text.subtitle}}",
+                        "backgroundColor": "{{appColors.current.background.surfaceContainerHigh}}",
+                        "elevation": 0.0,
+                        "fixedSize": {
+                          "width": 999999.0,
+                          "height": 56.0
                         },
-                        "body": {
-                          "operator": "is",
-                          "dimension": {
-                            "app": "mobile"
+                        "shape": {
+                          "type": "roundedRectangleBorder",
+                          "borderRadius": {
+                            "topLeft": 12.0,
+                            "topRight": 12.0,
+                            "bottomLeft": 12.0,
+                            "bottomRight": 12.0
                           }
                         }
-                      }
-                    },
-                    "style": {
-                      "foregroundColor": "{{appColors.current.primary.onPrimary}}",
-                      "backgroundColor": "{{appColors.current.primary.color}}",
-                      "elevation": 0.0,
-                      "fixedSize": {
-                        "width": 999999.0,
-                        "height": 56.0
                       },
-                      "shape": {
-                        "type": "roundedRectangleBorder",
-                        "borderRadius": {
-                          "topLeft": 12.0,
-                          "topRight": 12.0,
-                          "bottomLeft": 12.0,
-                          "bottomRight": 12.0
-                        }
-                      }
+                      "child": {
+                        "data": "{{appStrings.authentication.confirmLabel}}",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.primary.onPrimary}}",
+                          "fontSize": 18.0,
+                          "fontWeight": "w700"
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      "type": "filledButton"
                     },
                     "child": {
-                      "data": "{{appStrings.authentication.confirmLabel}}",
-                      "style": {
-                        "type": "custom",
-                        "color": "{{appColors.current.primary.onPrimary}}",
-                        "fontSize": 18.0,
-                        "fontWeight": "w700"
+                      "onPressed": {
+                        "actionType": "navigate",
+                        "navigationStyle": "push",
+                        "request": {
+                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.verify_identity_real_postal_code/1",
+                          "method": "post",
+                          "headers": {
+                            "Content-Type": "application/json",
+                            "Accept": "*/*"
+                          },
+                          "body": {
+                            "operator": "is",
+                            "dimension": {
+                              "app": "mobile"
+                            }
+                          }
+                        }
                       },
-                      "textDirection": "rtl",
-                      "type": "text"
-                    },
-                    "type": "filledButton"
+                      "style": {
+                        "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                        "backgroundColor": "{{appColors.current.primary.color}}",
+                        "elevation": 0.0,
+                        "fixedSize": {
+                          "width": 999999.0,
+                          "height": 56.0
+                        },
+                        "shape": {
+                          "type": "roundedRectangleBorder",
+                          "borderRadius": {
+                            "topLeft": 12.0,
+                            "topRight": 12.0,
+                            "bottomLeft": 12.0,
+                            "bottomRight": 12.0
+                          }
+                        }
+                      },
+                      "child": {
+                        "data": "{{appStrings.authentication.confirmLabel}}",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.primary.onPrimary}}",
+                          "fontSize": 18.0,
+                          "fontWeight": "w700"
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      "type": "filledButton"
+                    }
                   }
                 }
-              }
-            },
-            "type": "padding"
-          }
-        ],
-        "type": "column"
-      },
-      "type": "form"
+              },
+              "type": "padding"
+            }
+          ],
+          "type": "column"
+        },
+        "type": "form"
+      }
     },
     "type": "scaffold"
   }

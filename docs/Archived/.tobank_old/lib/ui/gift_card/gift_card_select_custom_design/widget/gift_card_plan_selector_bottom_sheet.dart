@@ -42,7 +42,7 @@ class GiftCardPlanSelectorBottomSheet extends StatelessWidget {
                   height: 16.0,
                 ),
                 Expanded(
-                  child: SingleChildScrollView(
+                  child: SingleChildScrollView
                     child: GridView(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),

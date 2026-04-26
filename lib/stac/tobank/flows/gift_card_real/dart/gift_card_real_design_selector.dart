@@ -1,5 +1,4 @@
 import 'package:stac_core/stac_core.dart';
-import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac/tobank/flows/gift_card_real/dart/widgets/gift_card_real_app_bar.dart';
 
 @StacScreen(screenName: 'gift_card_real_design_selector')
@@ -85,9 +84,9 @@ StacWidget giftCardRealDesignSelector() {
           ),
           StacSizedBox(height: 62),
           StacGestureDetector(
-            onTap: const StacShowResultAction(
-              title: 'انتخاب متن و تصویر',
-              content: 'این بخش به زودی فعال می‌شود.',
+            onTap: const StacNavigateAction(
+              routeName: 'gift_card_real_select_design',
+              navigationStyle: NavigationStyle.push,
             ),
             child: StacColumn(
               children: [
