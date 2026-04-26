@@ -10,11 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="and key to app for release">
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_15_26,_2_14 PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_15_26__2_14PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_15_26,_2_31 PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_15_26,_2_58 PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_15_26__2_31PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_15_26__2_58PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/stac/services/widget/stac_widget_loader.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/services/widget/stac_widget_loader.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/cartable_real/dart/cartable_real_intro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/cartable_real/dart/cartable_real_intro.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/cartable_real/dart/widgets/cartable_real_app_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/cartable_real/dart/widgets/cartable_real_app_bar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/menu/api/GET_menu-items.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/menu/api/GET_menu-items.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/bootstrap/app_root.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/bootstrap/app_root.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/dashboard_real/json/dashboard_real_shell.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/dashboard_real/json/dashboard_real_shell.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_bank_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_bank_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_invite_friends.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_invite_friends.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transaction_real/json/transaction_real_intro.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transaction_real/json/transaction_real_intro.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -413,7 +422,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776758739695</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="and key to app for release">
+      <option name="closed" value="true" />
+      <created>1776833910855</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1776833910855</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">

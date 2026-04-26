@@ -289,9 +289,22 @@
             "type": "container"
           },
           "onTap": {
-            "assetPath": "lib/stac/tobank/flows/profile_real/json/profile_real_change_password.json",
+            "actionType": "navigate",
             "navigationStyle": "push",
-            "actionType": "navigate"
+            "request": {
+              "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.profile_real_change_password/1",
+              "method": "post",
+              "headers": {
+                "Content-Type": "application/json",
+                "Accept": "*/*"
+              },
+              "body": {
+                "operator": "is",
+                "dimension": {
+                  "app": "mobile"
+                }
+              }
+            }
           },
           "type": "gestureDetector"
         },
