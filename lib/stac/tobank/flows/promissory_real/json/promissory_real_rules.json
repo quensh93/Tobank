@@ -302,6 +302,7 @@
                           {
                             "actionType": "showSnackBar",
                             "backgroundColor": "#D32F2F",
+                            "textColor": "#FFFFFF",
                             "content": {
                               "type": "text",
                               "data": "__STAC_OPEN__appStrings.promissory.serverConnectionError}}",
@@ -328,13 +329,15 @@
                           {
                             "actionType": "showSnackBar",
                             "backgroundColor": "#D32F2F",
+                            "textColor": "#FFFFFF",
                             "content": {
                               "type": "text",
-                              "data": "__STAC_OPEN__data.status.message.0 ?? appStrings.common.somethingWentWrong}}",
+                              "data": "{{data.status.message.0}}",
+                              "textAlign": "right",
                               "style": {
                                 "type": "custom",
                                 "color": "#FFFFFF",
-                                "fontSize": 14
+                                "fontSize": 17
                               }
                             }
                           }
