@@ -174,6 +174,7 @@ StacWidget _buildUploadPickerCard() {
                       child: _buildSourceOption(
                         title: '{{appStrings.authentication.cameraLabel}}',
                         iconAsset: '{{appAssets.icons.cameraCurrent}}',
+                        source: 'camera',
                       ),
                     ),
                     StacContainer(
@@ -185,6 +186,7 @@ StacWidget _buildUploadPickerCard() {
                       child: _buildSourceOption(
                         title: '{{appStrings.authentication.galleryLabel}}',
                         iconAsset: '{{appAssets.icons.galleryCurrent}}',
+                        source: 'gallery',
                       ),
                     ),
                   ],
@@ -213,12 +215,17 @@ StacWidget _buildUploadPickerCard() {
 StacWidget _buildSourceOption({
   required String title,
   required String iconAsset,
+  required String source,
 }) {
   return StacGestureDetector(
-    onTap: const StacFilePickerAction(
+    onTap: StacFilePickerAction(
       fileType: 'image',
       targetKey: 'verifyIdentityFrontImage',
       hasValueKey: _frontHasImageKey,
+      source: source,
+      cropImage: true,
+      cropAspectRatioX: 85.6,
+      cropAspectRatioY: 54,
       previewBeforeConfirm: true,
       previewSheetTitle: 'پیش نمایش تصویر کارت ملی',
       confirmButtonText: 'تایید',

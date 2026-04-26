@@ -182,6 +182,7 @@ class _TobankOnboardingSliderState extends State<_TobankOnboardingSlider> {
               behavior: _MouseDragScrollBehavior(),
               child: PageView.builder(
                 controller: _controller,
+                reverse: true,
                 itemCount: widget.model.pages.length,
                 onPageChanged: (index) {
                   setState(() {
