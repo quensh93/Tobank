@@ -692,6 +692,14 @@ class _LoopVideoWebViewState extends State<_LoopVideoWebView> {
     <script>
       const src = $src;
       const v = document.getElementById('v');
+      v.muted = true;
+      v.defaultMuted = true;
+      v.playsInline = true;
+      v.controls = false;
+      v.setAttribute('muted', '');
+      v.setAttribute('autoplay', '');
+      v.setAttribute('playsinline', '');
+      v.setAttribute('webkit-playsinline', '');
       function markReady() {
         if (window.VideoPreviewState && window.VideoPreviewState.postMessage) {
           window.VideoPreviewState.postMessage('ready');
@@ -734,8 +742,10 @@ class _LoopVideoWebViewState extends State<_LoopVideoWebView> {
             setState(() => _isReady = false);
           }
         },
-      )
-      ..loadHtmlString(html);
+      );
+
+    _disableMediaPlaybackGestureRequirement(_controller);
+    _controller.loadHtmlString(html);
 
     _fallbackTimer = Timer(const Duration(seconds: 3), () {
       if (!mounted || _isReady) return;
@@ -747,6 +757,15 @@ class _LoopVideoWebViewState extends State<_LoopVideoWebView> {
   void dispose() {
     _fallbackTimer?.cancel();
     super.dispose();
+  }
+
+  void _disableMediaPlaybackGestureRequirement(WebViewController controller) {
+    final dynamic platformController = controller.platform;
+    try {
+      platformController.setMediaPlaybackRequiresUserGesture(false);
+    } catch (_) {
+      // This API is platform/version dependent.
+    }
   }
 
   @override
