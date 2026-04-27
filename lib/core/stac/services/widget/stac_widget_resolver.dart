@@ -19,6 +19,10 @@ import 'package:tobank_sdui/core/helpers/logger.dart';
 class StacWidgetResolver {
   StacWidgetResolver._();
 
+  static const String _dashboardShellJsonPath =
+      'lib/stac/tobank/flows/dashboard_real/json/dashboard_real_shell.json';
+  static const String _dashboardShellKey = 'dashboard_real_shell';
+
   /// Resolves a widget from widgetJson.
   /// Returns the widget wrapped with theme-awareness (rebuilds on theme change).
   static Widget? resolveFromJson(
@@ -52,6 +56,14 @@ class StacWidgetResolver {
     BuildContext context,
     StacNetworkRequest request,
   ) {
+    if (_isDashboardShellNetworkRequest(request)) {
+      AppLogger.dc(
+        LogCategory.stacNavigation,
+        'StacWidgetResolver: Using single-fetch cache for dashboard shell network request: ${request.url}',
+      );
+      return _SingleParseStacNetworkWidget(request: request);
+    }
+
     return _ThemeReactiveStacWidget(
       builder: (ctx) {
         // Use FutureBuilder to handle manual request and extraction
@@ -113,6 +125,11 @@ class StacWidgetResolver {
         );
       },
     );
+  }
+
+  static bool _isDashboardShellNetworkRequest(StacNetworkRequest request) {
+    final url = request.url.toLowerCase();
+    return url.contains(_dashboardShellKey);
   }
 
   /// Extracts widget JSON from various nested structures
@@ -192,6 +209,20 @@ class StacWidgetResolver {
       );
       final jsonData = json.decode(jsonString) as Map<String, dynamic>;
 
+      // Dashboard shell must remain stable while navigating to child pages.
+      // Parse it once and reuse the same widget tree to avoid bottom-nav resets
+      // when returning with back navigation.
+      if (normalizedPath == _dashboardShellJsonPath) {
+        AppLogger.dc(
+          LogCategory.stacNavigation,
+          'StacWidgetResolver: Using single-parse cache for $normalizedPath',
+        );
+        return _SingleParseStacAssetWidget(
+          assetPath: normalizedPath,
+          rawJson: jsonData,
+        );
+      }
+
       return _ThemeReactiveStacWidget(
         builder: (ctx) {
           // Tunnel reactive button actions before any variable resolution.
@@ -236,6 +267,152 @@ class StacWidgetResolver {
     return _ThemeReactiveStacWidget(
       builder: (ctx) {
         return StacThemeWrapper.wrapWithTheme(ctx, Stac(routeName: routeName));
+      },
+    );
+  }
+}
+
+/// Keeps a parsed STAC asset widget alive for the lifetime of this route.
+///
+/// This is intentionally used for dashboard shell JSON so back navigation
+/// from pushed pages does not recreate the shell widget tree.
+class _SingleParseStacAssetWidget extends StatefulWidget {
+  const _SingleParseStacAssetWidget({
+    required this.assetPath,
+    required this.rawJson,
+  });
+
+  final String assetPath;
+  final Map<String, dynamic> rawJson;
+
+  @override
+  State<_SingleParseStacAssetWidget> createState() =>
+      _SingleParseStacAssetWidgetState();
+}
+
+class _SingleParseStacAssetWidgetState
+    extends State<_SingleParseStacAssetWidget> {
+  Widget? _parsedWidget;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_parsedWidget != null) return;
+
+    try {
+      final tunneledJson = tunnelReactiveButtonActions(widget.rawJson);
+      final resolvedJson = mock_setup.resolveVariablesPreservingTypes(
+        tunneledJson,
+        StacRegistry.instance,
+      );
+
+      _parsedWidget = Stac.fromJson(resolvedJson, context) ?? const SizedBox();
+      AppLogger.dc(
+        LogCategory.stacNavigation,
+        'StacWidgetResolver: Single-parse cache initialized for ${widget.assetPath}',
+      );
+    } catch (e) {
+      AppLogger.e(
+        'StacWidgetResolver: Failed to initialize single-parse cache for ${widget.assetPath}',
+        e,
+      );
+      _parsedWidget = const SizedBox();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return StacThemeWrapper.wrapWithTheme(
+      context,
+      _parsedWidget ?? const SizedBox(),
+    );
+  }
+}
+
+/// Keeps a fetched STAC network widget alive for the lifetime of this route.
+///
+/// Used for dashboard shell network loading to avoid re-fetch and re-parse
+/// when returning from pushed pages via back navigation.
+class _SingleParseStacNetworkWidget extends StatefulWidget {
+  const _SingleParseStacNetworkWidget({required this.request});
+
+  final StacNetworkRequest request;
+
+  @override
+  State<_SingleParseStacNetworkWidget> createState() =>
+      _SingleParseStacNetworkWidgetState();
+}
+
+class _SingleParseStacNetworkWidgetState
+    extends State<_SingleParseStacNetworkWidget> {
+  Future<Map<String, dynamic>?>? _resolvedJsonFuture;
+  Widget? _parsedWidget;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _resolvedJsonFuture ??= _loadResolvedJson();
+  }
+
+  Future<Map<String, dynamic>?> _loadResolvedJson() async {
+    final response = await StacNetworkService.request(context, widget.request);
+    final data = response?.data;
+
+    final widgetJson = StacWidgetResolver._extractWidgetJson(data);
+    if (widgetJson == null || widgetJson.isEmpty) {
+      AppLogger.w('StacWidgetResolver: No widget data found in response');
+      return null;
+    }
+
+    final tunneledJson = tunnelReactiveButtonActions(widgetJson);
+    final resolvedJson = mock_setup.resolveVariablesPreservingTypes(
+      tunneledJson,
+      StacRegistry.instance,
+    );
+
+    if (resolvedJson is Map<String, dynamic>) {
+      return resolvedJson;
+    }
+    if (resolvedJson is Map) {
+      return Map<String, dynamic>.from(resolvedJson);
+    }
+    return null;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<Map<String, dynamic>?>(
+      future: _resolvedJsonFuture,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Scaffold(
+            body: Center(child: CircularProgressIndicator()),
+          );
+        }
+        if (snapshot.hasError) {
+          AppLogger.e('StacWidgetResolver: Network error', snapshot.error);
+          return Scaffold(
+            appBar: AppBar(title: const Text('Error')),
+            body: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text('Error: ${snapshot.error}'),
+              ),
+            ),
+          );
+        }
+
+        final resolvedJson = snapshot.data;
+        if (resolvedJson == null || resolvedJson.isEmpty) {
+          return const Scaffold(body: SizedBox.shrink());
+        }
+
+        _parsedWidget ??=
+            Stac.fromJson(resolvedJson, context) ?? const SizedBox.shrink();
+        return StacThemeWrapper.wrapWithTheme(
+          context,
+          _parsedWidget ?? const SizedBox.shrink(),
+        );
       },
     );
   }
