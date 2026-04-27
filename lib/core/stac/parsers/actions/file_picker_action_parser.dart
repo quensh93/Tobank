@@ -744,7 +744,7 @@ class _LoopVideoWebViewState extends State<_LoopVideoWebView> {
         },
       );
 
-    _disableMediaPlaybackGestureRequirement(_controller);
+    _configureNativeVideoPreviewWebView(_controller);
     _controller.loadHtmlString(html);
 
     _fallbackTimer = Timer(const Duration(seconds: 3), () {
@@ -759,12 +759,22 @@ class _LoopVideoWebViewState extends State<_LoopVideoWebView> {
     super.dispose();
   }
 
-  void _disableMediaPlaybackGestureRequirement(WebViewController controller) {
+  void _configureNativeVideoPreviewWebView(WebViewController controller) {
     final dynamic platformController = controller.platform;
     try {
       platformController.setMediaPlaybackRequiresUserGesture(false);
     } catch (_) {
       // This API is platform/version dependent.
+    }
+    try {
+      platformController.setAllowFileAccess(true);
+    } catch (_) {
+      // Android-specific API.
+    }
+    try {
+      platformController.setAllowContentAccess(true);
+    } catch (_) {
+      // Android-specific API.
     }
   }
 
