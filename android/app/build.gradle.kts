@@ -82,6 +82,11 @@ android {
     }
 }
 
+dependencies {
+    // uCrop (used by image_cropper) references okhttp classes during release shrinking.
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+}
+
 flutter {
     source = "../.."
 }

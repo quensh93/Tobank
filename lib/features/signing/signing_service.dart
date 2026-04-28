@@ -144,7 +144,16 @@ class SigningService {
         signatureNameFamily:
             'mahdi jamshidpour', // Pass user english name if available
       );
-      return result.isSuccess == true ? result.data : null;
+      if (result.isSuccess == true &&
+          result.data != null &&
+          result.data!.isNotEmpty) {
+        return result.data;
+      }
+      throw PlatformException(
+        code: 'secure_plugin_sign_failed',
+        message:
+            'Secure signing failed (status=${result.statusCode}, message=${result.message})',
+      );
     } else {
       // iOS implementation would go here
       return null;

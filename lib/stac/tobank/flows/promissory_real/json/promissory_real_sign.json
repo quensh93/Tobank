@@ -412,7 +412,7 @@
                                       "foregroundColor": "__STAC_OPEN__appColors.current.text.title}}",
                                       "elevation": 0.0,
                                       "fixedSize": {
-                                        "width": 120.0,
+                                        "width": 104.0,
                                         "height": 44.0
                                       },
                                       "shape": {
@@ -546,9 +546,22 @@
                                                                   ]
                                                                 },
                                                                 {
-                                                                  "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_success.json",
-                                                                  "navigationStyle": "pushReplacement",
-                                                                  "actionType": "navigate"
+                                                                  "request": {
+                                                                    "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.promissory_real_success/1",
+                                                                    "body": {
+                                                                      "operator": "is",
+                                                                      "dimension": {
+                                                                        "app": "mobile"
+                                                                      }
+                                                                    },
+                                                                    "method": "post",
+                                                                    "headers": {
+                                                                      "Accept": "*/*",
+                                                                      "Content-Type": "application/json"
+                                                                    }
+                                                                  },
+                                                                  "actionType": "navigate",
+                                                                  "navigationStyle": "pushReplacement"
                                                                 }
                                                               ]
                                                             }
@@ -617,7 +630,7 @@
                                     "backgroundColor": "__STAC_OPEN__appColors.current.primary.color}}",
                                     "elevation": 0.0,
                                     "fixedSize": {
-                                      "width": 120.0,
+                                      "width": 104.0,
                                       "height": 44.0
                                     },
                                     "shape": {
@@ -642,7 +655,13 @@
                                     }
                                   }
                                 }
-                              ]
+                              ],
+                              "insetPadding": {
+                                "left": 16.0,
+                                "top": 24.0,
+                                "right": 16.0,
+                                "bottom": 24.0
+                              }
                             }
                           },
                           "style": {

@@ -225,20 +225,12 @@ StacWidget _buildContinueButton() {
                       'value': false,
                     },
                     {
-                      'actionType': 'showSnackBar',
+                      'actionType': 'customSnackBar',
+                      'message':
+                          '{{appStrings.promissory.serverConnectionError}}',
                       'backgroundColor': '#D32F2F',
                       'textColor': '#FFFFFF',
-                      'content': {
-                        'type': 'text',
-                        // خطا در برقراری ارتباط با سرور
-                        'data':
-                            '{{appStrings.promissory.serverConnectionError}}',
-                        'style': {
-                          'type': 'custom',
-                          'color': '#FFFFFF',
-                          'fontSize': 14,
-                        },
-                      },
+                      'duration': 4000,
                     },
                   ],
                 },
@@ -254,20 +246,11 @@ StacWidget _buildContinueButton() {
                       'value': false,
                     },
                     {
-                      'actionType': 'showSnackBar',
+                      'actionType': 'customSnackBar',
+                      'message': '{{data.status.message.0}}',
                       'backgroundColor': '#D32F2F',
                       'textColor': '#FFFFFF',
-                      'content': {
-                        'type': 'text',
-                        // خطایی رخ داده است
-                        'data': '{{data.status.message.0}}',
-                        'textAlign': 'right',
-                        'style': {
-                          'type': 'custom',
-                          'color': '#FFFFFF',
-                          'fontSize': 17,
-                        },
-                      },
+                      'duration': 4000,
                     },
                   ],
                 },

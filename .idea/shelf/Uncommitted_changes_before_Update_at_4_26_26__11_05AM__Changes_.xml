@@ -1,0 +1,29 @@
+<changelist name="Uncommitted_changes_before_Update_at_4_26_26,_11_05 AM_[Changes]" date="1777188937220" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_26_26,_11_05 AM_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 4/26/26, 11:05 AM [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="android/app/src/main/res/mipmap-mdpi/ic_launcher.png" />
+    <option name="AFTER_PATH" value="android/app/src/main/res/mipmap-mdpi/ic_launcher.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_26_26,_11_05 AM_[Changes]/ic_launcher.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" />
+    <option name="AFTER_PATH" value="android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_26_26,_11_05 AM_[Changes]/ic_launcher1.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="android/app/src/main/res/mipmap-hdpi/ic_launcher.png" />
+    <option name="AFTER_PATH" value="android/app/src/main/res/mipmap-hdpi/ic_launcher.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_26_26,_11_05 AM_[Changes]/ic_launcher2.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" />
+    <option name="AFTER_PATH" value="android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_26_26,_11_05 AM_[Changes]/ic_launcher3.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" />
+    <option name="AFTER_PATH" value="android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_26_26,_11_05 AM_[Changes]/ic_launcher4.png" />
+  </binary>
+</changelist>
