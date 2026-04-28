@@ -76,6 +76,7 @@ class StacCustomTextFormField extends StacWidget {
     this.formatThousands,
     this.thousandsSeparator,
     this.decoration,
+    this.style,
     this.keyboardType,
     this.textInputAction,
     this.maxLength,
@@ -96,6 +97,7 @@ class StacCustomTextFormField extends StacWidget {
   final bool? formatThousands;
   final String? thousandsSeparator;
   final Map<String, dynamic>? decoration;
+  final Map<String, dynamic>? style;
   final String? keyboardType;
   final String? textInputAction;
   final int? maxLength;
@@ -121,6 +123,7 @@ class StacCustomTextFormField extends StacWidget {
     if (formatThousands != null) 'formatThousands': formatThousands,
     if (thousandsSeparator != null) 'thousandsSeparator': thousandsSeparator,
     if (decoration != null) 'decoration': decoration,
+    if (style != null) 'style': style,
     if (keyboardType != null) 'keyboardType': keyboardType,
     if (textInputAction != null) 'textInputAction': textInputAction,
     if (maxLength != null) 'maxLength': maxLength,

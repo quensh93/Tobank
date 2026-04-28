@@ -601,6 +601,30 @@ class StacShowGiftCardPurchaseBottomSheetAction extends StacAction {
   };
 }
 
+class StacShowGiftCardMessageGuideBottomSheetAction extends StacAction {
+  final String title;
+  final String description;
+  final String closeText;
+
+  const StacShowGiftCardMessageGuideBottomSheetAction({
+    this.title = 'راهنما',
+    this.description =
+        'در صورت ورود متن دلخواه، یکی از متن‌های پیش‌فرض را انتخاب کنید تا در صورت عدم موافقت بانک با متن دلخواه شما، متن پیش‌فرض جایگزین آن شود',
+    this.closeText = 'بستن',
+  });
+
+  @override
+  String get actionType => 'showGiftCardMessageGuideBottomSheet';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': actionType,
+    'title': title,
+    'description': description,
+    'closeText': closeText,
+  };
+}
+
 class StacShowGiftCardSelectAmountBottomSheetAction extends StacAction {
   final String title;
   final String inputHint;

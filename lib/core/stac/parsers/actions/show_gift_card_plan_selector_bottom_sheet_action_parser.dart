@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stac/stac.dart';
 
 import '../../registry/custom_component_registry.dart';
@@ -72,6 +73,7 @@ class GiftCardPlanBottomSheetItemModel {
   final String primaryColor;
   final String secondaryColor;
   final String accentColor;
+  final String? imageUrl;
 
   const GiftCardPlanBottomSheetItemModel({
     required this.id,
@@ -79,6 +81,7 @@ class GiftCardPlanBottomSheetItemModel {
     required this.primaryColor,
     required this.secondaryColor,
     required this.accentColor,
+    this.imageUrl,
   });
 
   factory GiftCardPlanBottomSheetItemModel.fromJson(Map<String, dynamic> json) {
@@ -90,6 +93,7 @@ class GiftCardPlanBottomSheetItemModel {
       primaryColor: json['primaryColor'] as String? ?? '#A8D96A',
       secondaryColor: json['secondaryColor'] as String? ?? '#5DB7A8',
       accentColor: json['accentColor'] as String? ?? '#45A0A5',
+      imageUrl: json['imageUrl'] as String?,
     );
   }
 }
@@ -219,6 +223,23 @@ class ShowGiftCardPlanSelectorBottomSheetActionParser
 
     StacRegistry.instance.setValue(model.selectedPlanIdKey, result.id);
     StacRegistry.instance.setValue(model.selectedPlanTitleKey, result.title);
+    StacRegistry.instance.setValue(
+      'giftCardRealSelectedPlanPrimaryColor',
+      result.primaryColor,
+    );
+    StacRegistry.instance.setValue(
+      'giftCardRealSelectedPlanSecondaryColor',
+      result.secondaryColor,
+    );
+    StacRegistry.instance.setValue(
+      'giftCardRealSelectedPlanAccentColor',
+      result.accentColor,
+    );
+    StacRegistry.instance.setValue(
+      'giftCardRealSelectedPlanImageUrl',
+      result.imageUrl ??
+          'https://picsum.photos/seed/gift-plan-${result.id}/1200/560',
+    );
     if (model.categoryTitle != null && model.categoryTitle!.trim().isNotEmpty) {
       StacRegistry.instance.setValue(
         model.selectedCategoryKey,
@@ -264,57 +285,57 @@ class _GiftCardPlanBottomSheetItem extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: const BorderRadius.vertical(top: Radius.circular(10)),
-            child: Container(
+            child: SizedBox(
               height: 88,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
-                  colors: [
-                    _parseHexColor(item.primaryColor),
-                    _parseHexColor(item.secondaryColor),
-                    _parseHexColor(item.accentColor),
-                  ],
-                ),
-              ),
               child: Stack(
                 children: [
-                  Positioned(
-                    right: -18,
-                    top: 16,
-                    child: _miniCard(
-                      color: Colors.white.withValues(alpha: 0.95),
+                  Positioned.fill(
+                    child: Image.network(
+                      item.imageUrl ??
+                          'https://picsum.photos/seed/gift-plan-${item.id}/900/420',
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: [
+                                _parseHexColor(item.primaryColor),
+                                _parseHexColor(item.secondaryColor),
+                                _parseHexColor(item.accentColor),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
                   Positioned(
-                    right: 30,
-                    top: 16,
-                    child: _miniCard(
-                      color: Colors.white.withValues(alpha: 0.95),
-                    ),
-                  ),
-                  Positioned(
-                    right: 78,
-                    top: 16,
-                    child: _miniCard(
-                      color: Colors.white.withValues(alpha: 0.95),
-                    ),
-                  ),
-                  Positioned(
-                    left: 0,
+                    top: 0,
                     right: 0,
-                    bottom: 7,
-                    child: Center(
-                      child: Text(
-                        item.title,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.center,
-                        style: textTheme.bodySmall?.copyWith(
-                          color: Colors.white,
-                          fontSize: 11,
-                          fontWeight: FontWeight.w600,
-                        ),
+                    left: 0,
+                    child: Container(
+                      height: 28,
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      color: const Color(0xFFF7FAFD),
+                      child: Row(
+                        textDirection: TextDirection.rtl,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SvgPicture.asset(
+                            'assets/icons/shetab.svg',
+                            width: 58,
+                            height: 18,
+                            fit: BoxFit.contain,
+                          ),
+                          SvgPicture.asset(
+                            'assets/icons/gardeshgary.svg',
+                            width: 56,
+                            height: 16,
+                            fit: BoxFit.contain,
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -356,21 +377,6 @@ class _GiftCardPlanBottomSheetItem extends StatelessWidget {
           ),
           const SizedBox(height: 12),
         ],
-      ),
-    );
-  }
-
-  Widget _miniCard({required Color color}) {
-    return Transform.rotate(
-      angle: -0.06,
-      child: Container(
-        width: 52,
-        height: 64,
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.circular(5),
-          border: Border.all(color: const Color(0xFFE1E4E9), width: 1),
-        ),
       ),
     );
   }

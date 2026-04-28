@@ -41,7 +41,11 @@ import '../parsers/actions/show_delete_account_confirm_bottom_sheet_action_parse
 import '../parsers/actions/show_logout_confirm_dialog_action_parser.dart';
 import '../parsers/actions/show_add_destination_card_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_gift_card_purchase_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_gift_card_payment_accounts_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_gift_card_amount_guide_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_gift_card_message_guide_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_gift_card_location_selector_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_gift_card_select_date_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_gift_card_select_amount_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_gift_card_design_type_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_gift_card_plan_selector_bottom_sheet_action_parser.dart';
@@ -525,8 +529,20 @@ void _registerExampleParsers() {
   // Register gift-card purchase bottom sheet action parser
   registerShowGiftCardPurchaseBottomSheetActionParser();
 
+  // Register gift-card payment accounts bottom sheet action parser
+  registerShowGiftCardPaymentAccountsBottomSheetActionParser();
+
   // Register gift-card amount guide bottom sheet action parser
   registerShowGiftCardAmountGuideBottomSheetActionParser();
+
+  // Register gift-card message guide bottom sheet action parser
+  registerShowGiftCardMessageGuideBottomSheetActionParser();
+
+  // Register gift-card location selector bottom sheet action parser
+  registerShowGiftCardLocationSelectorBottomSheetActionParser();
+
+  // Register gift-card date/time selector bottom sheet action parser
+  registerShowGiftCardSelectDateBottomSheetActionParser();
 
   // Register gift-card select amount bottom sheet action parser
   registerShowGiftCardSelectAmountBottomSheetActionParser();

@@ -15,7 +15,7 @@ StacWidget giftCardRealSelectDesign() {
           StacText(
             data: 'دسته‌بندی کارت هدیه را انتخاب کنید',
             textDirection: StacTextDirection.rtl,
-            textAlign: StacTextAlign.center,
+            textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
               fontSize: 18,
               fontWeight: StacFontWeight.w700,
@@ -26,11 +26,13 @@ StacWidget giftCardRealSelectDesign() {
           _buildCategoryRow(
             left: _buildCategoryTile(
               title: 'تبریک نوروز',
+              imageUrl: _internetImageFor('gift-category-nowruz'),
               topColors: ['#1C4A95', '#5A39A5'],
               plans: _categoryPlansNowruz(),
             ),
             right: _buildCategoryTile(
               title: 'ماه‌های تولد',
+              imageUrl: _internetImageFor('gift-category-birth-months'),
               topColors: ['#2BA76E', '#2E7CC7'],
               plans: _categoryPlansBirthMonths(),
             ),
@@ -39,11 +41,13 @@ StacWidget giftCardRealSelectDesign() {
           _buildCategoryRow(
             left: _buildCategoryTile(
               title: 'اعیاد مذهبی، ملی، فرهنگی',
+              imageUrl: _internetImageFor('gift-category-national-events'),
               topColors: ['#3866B4', '#E8A82B'],
               plans: _categoryPlansNationalEvents(),
             ),
             right: _buildCategoryTile(
               title: 'تبریک ازدواج',
+              imageUrl: _internetImageFor('gift-category-wedding'),
               topColors: ['#C48A3C', '#8E4A7A'],
               plans: _categoryPlansWedding(),
             ),
@@ -52,11 +56,13 @@ StacWidget giftCardRealSelectDesign() {
           _buildCategoryRow(
             left: _buildCategoryTile(
               title: 'کارت هدیه موشی ۲',
+              imageUrl: _internetImageFor('gift-category-mouse'),
               topColors: ['#DB4CB5', '#48BDD7'],
               plans: _categoryPlansMouse(),
             ),
             right: _buildCategoryTile(
               title: 'فصل‌های تولد',
+              imageUrl: _internetImageFor('gift-category-seasons'),
               topColors: ['#2E8D53', '#D08D2E'],
               plans: _categoryPlansSeasons(),
             ),
@@ -65,11 +71,13 @@ StacWidget giftCardRealSelectDesign() {
           _buildCategoryRow(
             left: _buildCategoryTile(
               title: 'روزهای خاص',
+              imageUrl: _internetImageFor('gift-category-special-days'),
               topColors: ['#7E8A94', '#3A4C5C'],
               plans: _categoryPlansSpecialDays(),
             ),
             right: _buildCategoryTile(
               title: 'مکان‌های تاریخی',
+              imageUrl: _internetImageFor('gift-category-historical-places'),
               topColors: ['#8E4D66', '#A98941'],
               plans: _categoryPlansHistoricalPlaces(),
             ),
@@ -95,13 +103,19 @@ StacWidget _buildCategoryRow({
 
 StacWidget _buildCategoryTile({
   required String title,
+  required String imageUrl,
   required List<String> topColors,
   required List<Map<String, dynamic>> plans,
 }) {
+  final plansWithImages = _withInternetPlanImages(plans);
   return StacGestureDetector(
     onTap: StacShowGiftCardPlanSelectorBottomSheetAction(
       categoryTitle: title,
-      plans: plans,
+      plans: plansWithImages,
+      onPlanSelectedAction: StacNavigateAction(
+        routeName: 'gift_card_real_message',
+        navigationStyle: NavigationStyle.push,
+      ),
     ),
     child: StacContainer(
       height: 190,
@@ -134,13 +148,47 @@ StacWidget _buildCategoryTile({
             ),
             child: StacStack(
               children: [
-                StacPositioned(right: -8, top: 10, child: _buildMiniGiftCard()),
-                StacPositioned(right: 44, top: 10, child: _buildMiniGiftCard()),
-                StacPositioned(right: 96, top: 10, child: _buildMiniGiftCard()),
                 StacPositioned(
-                  right: 148,
-                  top: 10,
-                  child: _buildMiniGiftCard(),
+                  top: 0,
+                  right: 0,
+                  left: 0,
+                  bottom: 0,
+                  child: StacImage(
+                    src: imageUrl,
+                    imageType: StacImageType.network,
+                    fit: StacBoxFit.cover,
+                  ),
+                ),
+                StacPositioned(
+                  top: 0,
+                  right: 0,
+                  left: 0,
+                  child: StacContainer(
+                    height: 30,
+                    padding: StacEdgeInsets.symmetric(horizontal: 8),
+                    color: '#F7FAFD',
+                    child: StacRow(
+                      textDirection: StacTextDirection.rtl,
+                      mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: StacCrossAxisAlignment.center,
+                      children: [
+                        StacImage(
+                          src: 'assets/icons/shetab.svg',
+                          imageType: StacImageType.asset,
+                          width: 66,
+                          height: 20,
+                          fit: StacBoxFit.contain,
+                        ),
+                        StacImage(
+                          src: 'assets/icons/gardeshgary.svg',
+                          imageType: StacImageType.asset,
+                          width: 64,
+                          height: 18,
+                          fit: StacBoxFit.contain,
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -168,6 +216,26 @@ StacWidget _buildCategoryTile({
       ),
     ),
   );
+}
+
+List<Map<String, dynamic>> _withInternetPlanImages(
+  List<Map<String, dynamic>> plans,
+) {
+  return plans.map((plan) {
+    final id = (plan['id'] as String?) ?? '';
+    if ((plan['imageUrl'] as String?)?.isNotEmpty == true) {
+      return plan;
+    }
+    return <String, dynamic>{
+      ...plan,
+      'imageUrl': _internetImageFor('gift-plan-$id'),
+    };
+  }).toList();
+}
+
+String _internetImageFor(String seed) {
+  final safeSeed = Uri.encodeComponent(seed);
+  return 'https://picsum.photos/seed/$safeSeed/1200/560';
 }
 
 List<Map<String, dynamic>> _categoryPlansBirthMonths() {
@@ -544,24 +612,4 @@ List<Map<String, dynamic>> _categoryPlansHistoricalPlaces() {
       'accentColor': '#B48D42',
     },
   ];
-}
-
-StacWidget _buildMiniGiftCard() {
-  return StacContainer(
-    width: 62,
-    height: 82,
-    decoration: StacBoxDecoration(
-      color: '#FFFFFF',
-      borderRadius: StacBorderRadius.all(6),
-      border: StacBorder.all(color: '#D7DCE2', width: 1),
-    ),
-    child: StacPadding(
-      padding: StacEdgeInsets.only(top: 8, left: 6, right: 6),
-      child: StacImage(
-        src: 'assets/icons/ic_gift_card.svg',
-        imageType: StacImageType.asset,
-        fit: StacBoxFit.contain,
-      ),
-    ),
-  );
 }

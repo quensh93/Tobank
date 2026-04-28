@@ -155,6 +155,12 @@ import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_design_
     as gift_card_real_design_selector_dart;
 import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_select_design.dart'
     as gift_card_real_select_design_dart;
+import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_message.dart'
+    as gift_card_real_message_dart;
+import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_receiver_info.dart'
+    as gift_card_real_receiver_info_dart;
+import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_confirm.dart'
+    as gift_card_real_confirm_dart;
 import '../../../../stac/tobank/flows/profile_real/dart/profile_real_customer_referrals.dart'
     as profile_real_customer_referrals_dart;
 import 'package:tobank_sdui/core/helpers/logger.dart';
@@ -282,6 +288,12 @@ class StacWidgetLoader {
         .toJson(),
     'gift_card_real_select_design': () =>
         gift_card_real_select_design_dart.giftCardRealSelectDesign().toJson(),
+    'gift_card_real_message': () =>
+        gift_card_real_message_dart.giftCardRealMessage().toJson(),
+    'gift_card_real_receiver_info': () =>
+        gift_card_real_receiver_info_dart.giftCardRealReceiverInfo().toJson(),
+    'gift_card_real_confirm': () =>
+        gift_card_real_confirm_dart.giftCardRealConfirm().toJson(),
     'verify_identity_real_intro': () =>
         verify_identity_real_intro_dart.verifyIdentityRealIntro().toJson(),
     'verify_identity_real_preregister': () =>
