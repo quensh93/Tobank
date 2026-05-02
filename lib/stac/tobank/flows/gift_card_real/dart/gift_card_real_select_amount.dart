@@ -31,123 +31,125 @@ StacWidget giftCardRealSelectAmount() {
           StacExpanded(
             child: StacSingleChildScrollView(
               padding: StacEdgeInsets.only(left: 16, right: 16, top: 22),
-              child: StacColumn(
-                crossAxisAlignment: StacCrossAxisAlignment.stretch,
-                children: [
-                  StacRow(
-                    textDirection: StacTextDirection.rtl,
-                    mainAxisAlignment: StacMainAxisAlignment.start,
-                    children: [
-                      StacText(
-                        data: 'مبلغ کارت هدیه را وارد یا انتخاب نمایید',
-                        textDirection: StacTextDirection.rtl,
-                        textAlign: StacTextAlign.center,
-                        style: StacCustomTextStyle(
-                          fontSize: 16,
-                          fontWeight: StacFontWeight.w700,
-                          color: '{{appColors.current.text.title}}',
-                        ),
-                      ),
-                      StacSizedBox(width: 8),
-                      const StacGestureDetector(
-                        onTap: StacCustomAction.fromJson({
-                          'actionType': 'showGiftCardAmountGuideBottomSheet',
-                          'title': 'راهنما',
-                          'minAmount': 1000000,
-                          'maxAmount': 50000000,
-                          'closeText': 'بستن',
-                        }),
-                        child: StacIcon(
-                          icon: 'info_outline',
-                          size: 22,
-                          color: '{{appColors.current.text.subtitle}}',
-                        ),
-                      ),
-                    ],
-                  ),
-                  StacSizedBox(height: 26),
-                  _buildAmountCard(cardIndex: 1),
-                  StacCustomVisibility(
-                    visible: '[[giftCardRealShowSecondAmountCard]]',
-                    child: StacColumn(
-                      crossAxisAlignment: StacCrossAxisAlignment.stretch,
+              child: StacCustomRegistryReactive(
+                child: StacColumn(
+                  crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                  children: [
+                    StacRow(
+                      textDirection: StacTextDirection.rtl,
+                      mainAxisAlignment: StacMainAxisAlignment.start,
                       children: [
-                        StacSizedBox(height: 16),
-                        _buildAmountCard(
-                          cardIndex: 2,
-                          removeAction: const StacCustomAction.fromJson({
-                            'actionType': 'removeGiftCardAmountCard',
-                            'cardIndex': 2,
-                            'secondCardVisibleKey':
-                                'giftCardRealShowSecondAmountCard',
-                            'thirdCardVisibleKey':
-                                'giftCardRealShowThirdAmountCard',
-                          }),
-                        ),
-                      ],
-                    ).toJson(),
-                  ),
-                  StacCustomVisibility(
-                    visible: '[[giftCardRealShowThirdAmountCard]]',
-                    child: StacColumn(
-                      crossAxisAlignment: StacCrossAxisAlignment.stretch,
-                      children: [
-                        StacSizedBox(height: 16),
-                        _buildAmountCard(
-                          cardIndex: 3,
-                          removeAction: const StacCustomAction.fromJson({
-                            'actionType': 'removeGiftCardAmountCard',
-                            'cardIndex': 3,
-                            'secondCardVisibleKey':
-                                'giftCardRealShowSecondAmountCard',
-                            'thirdCardVisibleKey':
-                                'giftCardRealShowThirdAmountCard',
-                          }),
-                        ),
-                      ],
-                    ).toJson(),
-                  ),
-                  StacSizedBox(height: 22),
-                  StacCustomVisibility(
-                    visible: '[[!giftCardRealShowThirdAmountCard]]',
-                    child: StacGestureDetector(
-                      onTap: const StacCustomAction.fromJson({
-                        'actionType': 'addGiftCardAmountCard',
-                        'secondCardVisibleKey':
-                            'giftCardRealShowSecondAmountCard',
-                        'thirdCardVisibleKey':
-                            'giftCardRealShowThirdAmountCard',
-                      }),
-                      child: StacPadding(
-                        padding: StacEdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 10,
-                        ),
-                        child: StacRow(
+                        StacText(
+                          data: 'مبلغ کارت هدیه را وارد یا انتخاب نمایید',
                           textDirection: StacTextDirection.rtl,
-                          mainAxisAlignment: StacMainAxisAlignment.center,
-                          children: [
-                            StacIcon(
-                              icon: 'add',
-                              size: 28,
-                              color: '{{appColors.current.text.title}}',
-                            ),
-                            StacSizedBox(width: 6),
-                            StacText(
-                              data: 'افزودن کارت با مبلغ جدید',
-                              textDirection: StacTextDirection.rtl,
-                              style: StacCustomTextStyle(
-                                fontSize: 16,
-                                fontWeight: StacFontWeight.w600,
+                          textAlign: StacTextAlign.center,
+                          style: StacCustomTextStyle(
+                            fontSize: 16,
+                            fontWeight: StacFontWeight.w700,
+                            color: '{{appColors.current.text.title}}',
+                          ),
+                        ),
+                        StacSizedBox(width: 8),
+                        const StacGestureDetector(
+                          onTap: StacCustomAction.fromJson({
+                            'actionType': 'showGiftCardAmountGuideBottomSheet',
+                            'title': 'راهنما',
+                            'minAmount': 1000000,
+                            'maxAmount': 50000000,
+                            'closeText': 'بستن',
+                          }),
+                          child: StacIcon(
+                            icon: 'info_outline',
+                            size: 22,
+                            color: '{{appColors.current.text.subtitle}}',
+                          ),
+                        ),
+                      ],
+                    ),
+                    StacSizedBox(height: 26),
+                    _buildAmountCard(cardIndex: 1),
+                    StacCustomVisibility(
+                      visible: '[[giftCardRealShowSecondAmountCard]]',
+                      child: StacColumn(
+                        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                        children: [
+                          StacSizedBox(height: 16),
+                          _buildAmountCard(
+                            cardIndex: 2,
+                            removeAction: const StacCustomAction.fromJson({
+                              'actionType': 'removeGiftCardAmountCard',
+                              'cardIndex': 2,
+                              'secondCardVisibleKey':
+                                  'giftCardRealShowSecondAmountCard',
+                              'thirdCardVisibleKey':
+                                  'giftCardRealShowThirdAmountCard',
+                            }),
+                          ),
+                        ],
+                      ).toJson(),
+                    ),
+                    StacCustomVisibility(
+                      visible: '[[giftCardRealShowThirdAmountCard]]',
+                      child: StacColumn(
+                        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                        children: [
+                          StacSizedBox(height: 16),
+                          _buildAmountCard(
+                            cardIndex: 3,
+                            removeAction: const StacCustomAction.fromJson({
+                              'actionType': 'removeGiftCardAmountCard',
+                              'cardIndex': 3,
+                              'secondCardVisibleKey':
+                                  'giftCardRealShowSecondAmountCard',
+                              'thirdCardVisibleKey':
+                                  'giftCardRealShowThirdAmountCard',
+                            }),
+                          ),
+                        ],
+                      ).toJson(),
+                    ),
+                    StacSizedBox(height: 22),
+                    StacCustomVisibility(
+                      visible: '[[!giftCardRealShowThirdAmountCard]]',
+                      child: StacGestureDetector(
+                        onTap: const StacCustomAction.fromJson({
+                          'actionType': 'addGiftCardAmountCard',
+                          'secondCardVisibleKey':
+                              'giftCardRealShowSecondAmountCard',
+                          'thirdCardVisibleKey':
+                              'giftCardRealShowThirdAmountCard',
+                        }),
+                        child: StacPadding(
+                          padding: StacEdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 10,
+                          ),
+                          child: StacRow(
+                            textDirection: StacTextDirection.rtl,
+                            mainAxisAlignment: StacMainAxisAlignment.center,
+                            children: [
+                              StacIcon(
+                                icon: 'add',
+                                size: 28,
                                 color: '{{appColors.current.text.title}}',
                               ),
-                            ),
-                          ],
+                              StacSizedBox(width: 6),
+                              StacText(
+                                data: 'افزودن کارت با مبلغ جدید',
+                                textDirection: StacTextDirection.rtl,
+                                style: StacCustomTextStyle(
+                                  fontSize: 16,
+                                  fontWeight: StacFontWeight.w600,
+                                  color: '{{appColors.current.text.title}}',
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ).toJson(),
-                  ),
-                ],
+                      ).toJson(),
+                    ),
+                  ],
+                ).toJson(),
               ),
             ),
           ),
@@ -165,9 +167,9 @@ StacWidget giftCardRealSelectAmount() {
                   'navigationStyle': 'push',
                 },
                 'customDesignAction': {
-                  'actionType': 'showResult',
-                  'title': 'طرح سفارشی',
-                  'content': 'این بخش به زودی فعال می‌شود.',
+                  'actionType': 'navigate',
+                  'routeName': 'gift_card_real_custom_design_selector',
+                  'navigationStyle': 'push',
                 },
               }),
               style: StacButtonStyle(

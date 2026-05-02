@@ -491,8 +491,8 @@ Widget _buildDisabledWalletTile({
       ? colorScheme.outlineVariant.withValues(alpha: 0.25)
       : colorScheme.outlineVariant.withValues(alpha: 0.25);
   final iconBackground = isDisabled
-      ? colorScheme.surfaceContainerHighest.withValues(alpha: 0.70)
-      : colorScheme.surfaceContainerHighest;
+      ? colorScheme.outlineVariant.withValues(alpha: 0.03)
+      : colorScheme.outlineVariant.withValues(alpha: 0.07);
   final iconColor = isDisabled
       ? colorScheme.onSurfaceVariant.withValues(alpha: 0.55)
       : colorScheme.onSurfaceVariant;
@@ -518,7 +518,7 @@ Widget _buildDisabledWalletTile({
           decoration: BoxDecoration(
             color: iconBackground,
             shape: BoxShape.circle,
-            border: Border.all(color: iconBorderColor, width: 1),
+
           ),
           child: Padding(
             padding: const EdgeInsets.all(11),

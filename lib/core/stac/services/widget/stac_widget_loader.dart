@@ -153,6 +153,14 @@ import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_select_
     as gift_card_real_select_amount_dart;
 import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_design_selector.dart'
     as gift_card_real_design_selector_dart;
+import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_custom_design_selector.dart'
+    as gift_card_real_custom_design_selector_dart;
+import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_image_selector.dart'
+    as gift_card_real_image_selector_dart;
+import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_custom_select_design.dart'
+    as gift_card_real_custom_select_design_dart;
+import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_custom_message.dart'
+    as gift_card_real_custom_message_dart;
 import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_select_design.dart'
     as gift_card_real_select_design_dart;
 import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_message.dart'
@@ -286,6 +294,18 @@ class StacWidgetLoader {
     'gift_card_real_design_selector': () => gift_card_real_design_selector_dart
         .giftCardRealDesignSelector()
         .toJson(),
+    'gift_card_real_custom_design_selector': () =>
+        gift_card_real_custom_design_selector_dart
+            .giftCardRealCustomDesignSelector()
+            .toJson(),
+    'gift_card_real_image_selector': () =>
+        gift_card_real_image_selector_dart.giftCardRealImageSelector().toJson(),
+    'gift_card_real_custom_select_design': () =>
+        gift_card_real_custom_select_design_dart
+            .giftCardRealCustomSelectDesign()
+            .toJson(),
+    'gift_card_real_custom_message': () =>
+        gift_card_real_custom_message_dart.giftCardRealCustomMessage().toJson(),
     'gift_card_real_select_design': () =>
         gift_card_real_select_design_dart.giftCardRealSelectDesign().toJson(),
     'gift_card_real_message': () =>

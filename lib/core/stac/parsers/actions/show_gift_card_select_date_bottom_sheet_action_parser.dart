@@ -418,15 +418,21 @@ void _prepareConfirmSummaryValues({
 
   int totalAmount = 0;
   int totalCards = 0;
-  totalAmount += _lineAmount(1);
-  totalCards += _lineCount(1);
+  final line1Amount = _lineAmount(1);
+  final line1Count = _lineCount(1);
+  totalAmount += line1Amount * line1Count;
+  totalCards += line1Count;
   if (showSecond) {
-    totalAmount += _lineAmount(2);
-    totalCards += _lineCount(2);
+    final line2Amount = _lineAmount(2);
+    final line2Count = _lineCount(2);
+    totalAmount += line2Amount * line2Count;
+    totalCards += line2Count;
   }
   if (showThird) {
-    totalAmount += _lineAmount(3);
-    totalCards += _lineCount(3);
+    final line3Amount = _lineAmount(3);
+    final line3Count = _lineCount(3);
+    totalAmount += line3Amount * line3Count;
+    totalCards += line3Count;
   }
 
   const issuanceFeePerCard = 36000;

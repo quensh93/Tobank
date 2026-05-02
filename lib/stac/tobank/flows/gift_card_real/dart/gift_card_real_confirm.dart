@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac/tobank/flows/gift_card_real/dart/widgets/gift_card_real_app_bar.dart';
@@ -42,25 +43,22 @@ StacWidget giftCardRealConfirm() {
                 {
                   'id': 'acc_1',
                   'title': 'سپرده حقیقی حساب قرض الحسنه جاری حقیقی- ریالی',
-                  'ownerName': 'سپیدارسا بنی طباع',
+                  'ownerName': 'سید پارسا بنی طبا',
                   'depositNumber': '۱۱۰.۷۰.۱۶/۲۹۸۸.۱',
-                  'cardNumber': '۵۰۵۴/۱۶۱۷/۰۴۱۶/۷۳۴',
                   'availableAmount': 66770,
                 },
                 {
                   'id': 'acc_2',
                   'title': 'سپرده حقیقی سپرده سرمایه گذاری کوتاه مدت',
-                  'ownerName': 'توبانک- حقیقی ریالی سپیدارسا بنی طباع',
+                  'ownerName': 'توبانک- حقیقی ریالی سید پارسا بنی طبا',
                   'depositNumber': '۱۱۰.۹۹۹۲.۱۶/۲۹۸۸.۱',
-                  'cardNumber': '۵۰۵۴/۱۶۱۷/۰۴۱۶/۷۳۴',
                   'availableAmount': 39148,
                 },
                 {
                   'id': 'acc_3',
                   'title': 'سپرده حقیقی سپرده سرمایه گذاری ویژه',
-                  'ownerName': 'توبانک- حقیقی ریالی سپیدارسا بنی طباع',
+                  'ownerName': 'توبانک- حقیقی ریالی سید پارسا بنی طبا',
                   'depositNumber': '۱۱۹.۹۲۹۰.۱۶/۲۹۸۸.۱',
-                  'cardNumber': '۵۰۵۴/۱۶۱۷/۰۴۱۶/۷۳۴',
                   'availableAmount': 9200000,
                 },
               ],
@@ -169,11 +167,12 @@ StacWidget _buildCardLine({
     mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
     children: [
       StacColumn(
-        crossAxisAlignment: StacCrossAxisAlignment.start,
+        crossAxisAlignment: StacCrossAxisAlignment.end,
         children: [
           StacText(
             data: 'کارت هدیه',
             textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
               fontSize: 16,
               fontWeight: StacFontWeight.w500,
@@ -184,9 +183,10 @@ StacWidget _buildCardLine({
           StacText(
             data: '{{$amountLabelKey}}',
             textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
-              fontSize: 20,
-              fontWeight: StacFontWeight.w800,
+              fontSize: 18,
+              fontWeight: StacFontWeight.w600,
               color: '{{appColors.current.text.title}}',
             ),
           ),
