@@ -16,6 +16,8 @@ class ShowGiftCardSelectDateBottomSheetActionModel {
   final String selectedDateKey;
   final String selectedTimeKey;
   final String confirmRouteName;
+  final String? confirmAssetPath;
+  final Map<String, dynamic>? confirmRequest;
   final List<String> dateOptions;
   final List<String> timeOptions;
 
@@ -28,6 +30,8 @@ class ShowGiftCardSelectDateBottomSheetActionModel {
     required this.selectedDateKey,
     required this.selectedTimeKey,
     required this.confirmRouteName,
+    required this.confirmAssetPath,
+    required this.confirmRequest,
     required this.dateOptions,
     required this.timeOptions,
   });
@@ -62,6 +66,13 @@ class ShowGiftCardSelectDateBottomSheetActionModel {
           json['selectedTimeKey'] as String? ?? 'giftCardRealDeliveryTime',
       confirmRouteName:
           json['confirmRouteName'] as String? ?? 'gift_card_real_confirm',
+      confirmAssetPath: (json['confirmAssetPath'] as String?)?.trim().isEmpty ==
+              true
+          ? null
+          : (json['confirmAssetPath'] as String?),
+      confirmRequest: json['confirmRequest'] is Map<String, dynamic>
+          ? Map<String, dynamic>.from(json['confirmRequest'] as Map)
+          : null,
       dateOptions: parseList(json['dateOptions']),
       timeOptions: parseList(json['timeOptions']),
     );
@@ -343,11 +354,22 @@ class ShowGiftCardSelectDateBottomSheetActionParser
                             RegistryNotifier.instance.notify();
                             Navigator.of(bottomSheetContext).pop();
                             if (!context.mounted) return;
-                            Stac.onCallFromJson({
+                            final targetAssetPath =
+                                model.confirmAssetPath?.trim();
+                            final navigatePayload = <String, dynamic>{
                               'actionType': 'navigate',
-                              'routeName': model.confirmRouteName,
                               'navigationStyle': 'push',
-                            }, context);
+                            };
+                            if (model.confirmRequest != null) {
+                              navigatePayload['request'] = model.confirmRequest;
+                            } else if (targetAssetPath != null &&
+                                targetAssetPath.isNotEmpty) {
+                              navigatePayload['assetPath'] = targetAssetPath;
+                            } else {
+                              navigatePayload['routeName'] =
+                                  model.confirmRouteName;
+                            }
+                            Stac.onCallFromJson(navigatePayload, context);
                           },
                           style: FilledButton.styleFrom(
                             minimumSize: const Size.fromHeight(64),

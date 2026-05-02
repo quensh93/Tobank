@@ -132,6 +132,13 @@ class CustomSetValueActionParser
 
       // Store the resolved value in registry
       final existingValue = StacRegistry.instance.getValue(key);
+      if (_shouldSkipGiftCardDefaultReset(key, existingValue, valueToStore)) {
+        AppLogger.dc(
+          LogCategory.stacAction,
+          'CustomSetValueAction: skipping default reset for key="$key" existing="$existingValue" incoming="$valueToStore"',
+        );
+        continue;
+      }
       if (existingValue != valueToStore) {
         AppLogger.dc(
           LogCategory.stacAction,
@@ -415,5 +422,65 @@ class CustomSetValueActionParser
     } catch (_) {
       return null;
     }
+  }
+
+  bool _shouldSkipGiftCardDefaultReset(
+    String key,
+    dynamic existingValue,
+    dynamic incomingValue,
+  ) {
+    bool hasText(dynamic v) {
+      return v != null && v.toString().trim().isNotEmpty;
+    }
+
+    bool isTruthy(dynamic v) {
+      if (v is bool) return v;
+      if (v is num) return v != 0;
+      if (v is String) {
+        final t = v.trim().toLowerCase();
+        return t == 'true' || t == '1';
+      }
+      return false;
+    }
+
+    if (key == 'giftCardRealHasSelection' ||
+        key == 'giftCardRealCustomHasSelection' ||
+        key == 'giftCardRealCustomHasImage' ||
+        key == 'giftCardRealCustomHasReplacementMessage') {
+      return isTruthy(existingValue) && !isTruthy(incomingValue);
+    }
+
+    if (key == 'giftCardRealFinalMessage') {
+      const defaultMessage = 'متن مورد نظر شما';
+      return hasText(existingValue) && incomingValue == defaultMessage;
+    }
+
+    if (key == 'giftCardRealSelectedPlanTitle') {
+      const defaultTitle = 'طرح انتخابی';
+      return hasText(existingValue) && incomingValue == defaultTitle;
+    }
+
+    if (key == 'giftCardRealSelectedPlanPrimaryColor') {
+      return hasText(existingValue) && incomingValue == '#BEE56C';
+    }
+
+    if (key == 'giftCardRealSelectedPlanSecondaryColor') {
+      return hasText(existingValue) && incomingValue == '#87CE77';
+    }
+
+    if (key == 'giftCardRealSelectedPlanAccentColor') {
+      return hasText(existingValue) && incomingValue == '#43AB9D';
+    }
+
+    if (key == 'giftCardRealSelectedCategory') {
+      const defaultCategory = 'طرح سفارشی';
+      return hasText(existingValue) && incomingValue == defaultCategory;
+    }
+
+    if (key == 'giftCardRealCustomReplacementMessage') {
+      return hasText(existingValue) && !hasText(incomingValue);
+    }
+
+    return false;
   }
 }
