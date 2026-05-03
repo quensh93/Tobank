@@ -7,16 +7,7 @@ import 'package:tobank_sdui/stac/tobank/flows/gift_card_real/dart/widgets/gift_c
 @StacScreen(screenName: 'gift_card_real_design_selector')
 StacWidget giftCardRealDesignSelector() {
   return StacStatefulWidget(
-    onInit: const StacCustomSetValueAction(
-      values: [
-        {'key': 'giftCardRealHasSelection', 'value': false},
-        {'key': 'giftCardRealFinalMessage', 'value': 'متن مورد نظر شما'},
-        {'key': 'giftCardRealSelectedPlanTitle', 'value': 'طرح انتخابی'},
-        {'key': 'giftCardRealSelectedPlanPrimaryColor', 'value': '#BEE56C'},
-        {'key': 'giftCardRealSelectedPlanSecondaryColor', 'value': '#87CE77'},
-        {'key': 'giftCardRealSelectedPlanAccentColor', 'value': '#43AB9D'},
-      ],
-    ),
+    onInit: const StacCustomSetValueAction(values: []),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
       appBar: buildGiftCardRealAppBar(title: 'کارت هدیه'),

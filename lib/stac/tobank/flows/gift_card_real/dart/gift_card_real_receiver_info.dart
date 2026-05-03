@@ -220,6 +220,8 @@ StacWidget giftCardRealReceiverInfo() {
                   'timeOptions': _deliveryTimeOptions,
                   'selectedDateKey': 'giftCardRealDeliveryDate',
                   'selectedTimeKey': 'giftCardRealDeliveryTime',
+                  'confirmAssetPath':
+                      'lib/stac/tobank/flows/gift_card_real/json/gift_card_real_confirm.json',
                 }),
                 style: StacButtonStyle(
                   fixedSize: StacSize(999999, 62),
