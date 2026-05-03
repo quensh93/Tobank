@@ -1,8 +1,7 @@
 {
   "type": "stateFull",
   "onInit": {
-    "actionType": "setValue",
-    "values": []
+    "actionType": "setValue"
   },
   "child": {
     "appBar": {
@@ -202,39 +201,57 @@
                             "type": "container"
                           },
                           {
-                            "height": 20.0,
-                            "type": "sizedBox"
-                          },
-                          {
-                            "data": "{{giftCardRealFinalMessage}}",
-                            "style": {
-                              "type": "custom",
-                              "color": "{{appColors.current.text.title}}",
-                              "fontSize": 17.0,
-                              "fontWeight": "w700"
+                            "decoration": {
+                              "color": "#F7FAFD",
+                              "borderRadius": {
+                                "topLeft": 0.0,
+                                "topRight": 0.0,
+                                "bottomLeft": 11.0,
+                                "bottomRight": 11.0
+                              }
                             },
-                            "textAlign": "center",
-                            "textDirection": "rtl",
-                            "type": "text"
-                          },
-                          {
-                            "height": 18.0,
-                            "type": "sizedBox"
-                          },
-                          {
-                            "data": "۵۰۵۴  ۱۶۳۰  ****  ****",
-                            "style": {
-                              "type": "custom",
-                              "color": "{{appColors.current.text.title}}",
-                              "fontSize": 21.0,
-                              "fontWeight": "w900"
+                            "child": {
+                              "mainAxisAlignment": "center",
+                              "children": [
+                                {
+                                  "height": 12.0,
+                                  "type": "sizedBox"
+                                },
+                                {
+                                  "data": "{{giftCardRealFinalMessage}}",
+                                  "style": {
+                                    "type": "custom",
+                                    "color": "#000000",
+                                    "fontSize": 16.0,
+                                    "fontWeight": "w700"
+                                  },
+                                  "textAlign": "center",
+                                  "textDirection": "rtl",
+                                  "type": "text"
+                                },
+                                {
+                                  "height": 12.0,
+                                  "type": "sizedBox"
+                                },
+                                {
+                                  "data": "۵۰۵۴  ۱۶۳۰  ****  ****",
+                                  "style": {
+                                    "type": "custom",
+                                    "color": "#000000",
+                                    "fontSize": 19.0,
+                                    "fontWeight": "w900"
+                                  },
+                                  "textAlign": "center",
+                                  "textDirection": "ltr",
+                                  "type": "text"
+                                }
+                              ],
+                              "type": "column"
                             },
-                            "textAlign": "center",
-                            "textDirection": "ltr",
-                            "type": "text"
+                            "type": "container"
                           },
                           {
-                            "height": 22.0,
+                            "height": 8.0,
                             "type": "sizedBox"
                           }
                         ],
@@ -994,7 +1011,7 @@
                       "type": "column"
                     },
                     "onTap": {
-                      "assetPath": "lib/stac/tobank/flows/gift_card_real/json/gift_card_real_select_design.json",
+                      "routeName": "gift_card_real_select_design",
                       "navigationStyle": "push",
                       "actionType": "navigate"
                     },
@@ -1025,7 +1042,7 @@
               },
               "child": {
                 "onPressed": {
-                  "assetPath": "lib/stac/tobank/flows/gift_card_real/json/gift_card_real_receiver_info.json",
+                  "routeName": "gift_card_real_receiver_info",
                   "navigationStyle": "push",
                   "actionType": "navigate"
                 },

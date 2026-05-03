@@ -1,0 +1,849 @@
+{
+  "appBar": {
+    "leading": {
+      "padding": {
+        "left": 12.0
+      },
+      "child": {
+        "child": {
+          "src": "{{appAssets.icons.support}}",
+          "imageType": "asset",
+          "color": "{{appColors.current.text.title}}",
+          "width": 24.0,
+          "height": 24.0,
+          "type": "image"
+        },
+        "type": "center"
+      },
+      "type": "padding"
+    },
+    "title": {
+      "data": "کارت هدیه",
+      "style": {
+        "type": "alias",
+        "value": "{{appStyles.appbarStyle}}"
+      },
+      "textDirection": "rtl",
+      "type": "text"
+    },
+    "actions": [
+      {
+        "padding": {
+          "right": 12.0
+        },
+        "child": {
+          "onPressed": {
+            "navigationStyle": "pop",
+            "actionType": "navigate"
+          },
+          "icon": {
+            "src": "{{appAssets.icons.arrowBack}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 31.0,
+            "height": 31.0,
+            "type": "image"
+          },
+          "type": "iconButton"
+        },
+        "type": "padding"
+      }
+    ],
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "backgroundColor": "{{appColors.current.background.surface}}",
+  "body": {
+    "crossAxisAlignment": "stretch",
+    "children": [
+      {
+        "child": {
+          "padding": {
+            "left": 16.0,
+            "top": 14.0,
+            "right": 16.0
+          },
+          "child": {
+            "crossAxisAlignment": "stretch",
+            "children": [
+              {
+                "padding": {
+                  "left": 16.0,
+                  "top": 16.0,
+                  "right": 16.0,
+                  "bottom": 16.0
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surface}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1.0
+                  },
+                  "borderRadius": {
+                    "topLeft": 12.0,
+                    "topRight": 12.0,
+                    "bottomLeft": 12.0,
+                    "bottomRight": 12.0
+                  }
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "mainAxisAlignment": "spaceBetween",
+                      "crossAxisAlignment": "end",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "crossAxisAlignment": "end",
+                          "children": [
+                            {
+                              "data": "کارت هدیه",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "height": 7.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "{{giftCardRealAmountLabel1}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 18.0,
+                                "fontWeight": "w600"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "column"
+                        },
+                        {
+                          "data": "{{giftCardRealCardCount1}} عدد",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 17.0,
+                            "fontWeight": "w700"
+                          },
+                          "textDirection": "rtl",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[giftCardRealShowSecondAmountCard]]",
+                      "child": {
+                        "crossAxisAlignment": "stretch",
+                        "children": [
+                          {
+                            "height": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "color": "{{appColors.current.input.borderEnabled}}",
+                            "height": 1.0,
+                            "type": "container"
+                          },
+                          {
+                            "height": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "mainAxisAlignment": "spaceBetween",
+                            "crossAxisAlignment": "end",
+                            "textDirection": "rtl",
+                            "children": [
+                              {
+                                "crossAxisAlignment": "end",
+                                "children": [
+                                  {
+                                    "data": "کارت هدیه",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.subtitle}}",
+                                      "fontSize": 16.0,
+                                      "fontWeight": "w500"
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  },
+                                  {
+                                    "height": 7.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "{{giftCardRealAmountLabel2}}",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "fontSize": 18.0,
+                                      "fontWeight": "w600"
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "column"
+                              },
+                              {
+                                "data": "{{giftCardRealCardCount2}} عدد",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.title}}",
+                                  "fontSize": 17.0,
+                                  "fontWeight": "w700"
+                                },
+                                "textDirection": "rtl",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "row"
+                          }
+                        ],
+                        "type": "column"
+                      }
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[giftCardRealShowThirdAmountCard]]",
+                      "child": {
+                        "crossAxisAlignment": "stretch",
+                        "children": [
+                          {
+                            "height": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "color": "{{appColors.current.input.borderEnabled}}",
+                            "height": 1.0,
+                            "type": "container"
+                          },
+                          {
+                            "height": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "mainAxisAlignment": "spaceBetween",
+                            "crossAxisAlignment": "end",
+                            "textDirection": "rtl",
+                            "children": [
+                              {
+                                "crossAxisAlignment": "end",
+                                "children": [
+                                  {
+                                    "data": "کارت هدیه",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.subtitle}}",
+                                      "fontSize": 16.0,
+                                      "fontWeight": "w500"
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  },
+                                  {
+                                    "height": 7.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "{{giftCardRealAmountLabel3}}",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "fontSize": 18.0,
+                                      "fontWeight": "w600"
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "column"
+                              },
+                              {
+                                "data": "{{giftCardRealCardCount3}} عدد",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.title}}",
+                                  "fontSize": 17.0,
+                                  "fontWeight": "w700"
+                                },
+                                "textDirection": "rtl",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "row"
+                          }
+                        ],
+                        "type": "column"
+                      }
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "container"
+              },
+              {
+                "height": 18.0,
+                "type": "sizedBox"
+              },
+              {
+                "padding": {
+                  "left": 16.0,
+                  "top": 16.0,
+                  "right": 16.0,
+                  "bottom": 16.0
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surface}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1.0
+                  },
+                  "borderRadius": {
+                    "topLeft": 12.0,
+                    "topRight": 12.0,
+                    "bottomLeft": 12.0,
+                    "bottomRight": 12.0
+                  }
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "mainAxisAlignment": "spaceBetween",
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "data": "مبلغ کارت(های) هدیه",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w500"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "width": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "data": "{{giftCardRealSummaryCardsAmountLabel}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 18.0,
+                              "fontWeight": "w700"
+                            },
+                            "textAlign": "left",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "height": 16.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "mainAxisAlignment": "spaceBetween",
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "data": "هزینه صدور هر کارت",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w500"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "width": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "data": "{{giftCardRealSummaryIssuanceFeeLabel}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 18.0,
+                              "fontWeight": "w700"
+                            },
+                            "textAlign": "left",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "height": 16.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "mainAxisAlignment": "spaceBetween",
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "data": "هزینه ارسال",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w500"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "width": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "data": "{{giftCardRealSummaryDeliveryFeeLabel}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 18.0,
+                              "fontWeight": "w700"
+                            },
+                            "textAlign": "left",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "height": 16.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "mainAxisAlignment": "spaceBetween",
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "data": "نوع کارت هدیه",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w500"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "width": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "data": "{{giftCardRealSummaryType}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 18.0,
+                              "fontWeight": "w700"
+                            },
+                            "textAlign": "left",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "height": 16.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "mainAxisAlignment": "spaceBetween",
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "data": "نام تحویل گیرنده",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w500"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "width": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "data": "{{giftCardRealSummaryReceiverName}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 18.0,
+                              "fontWeight": "w700"
+                            },
+                            "textAlign": "left",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "height": 16.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "mainAxisAlignment": "spaceBetween",
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "data": "موبایل تحویل گیرنده",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w500"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "width": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "data": "{{giftCardRealSummaryReceiverMobile}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 18.0,
+                              "fontWeight": "w700"
+                            },
+                            "textAlign": "left",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "height": 16.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "mainAxisAlignment": "spaceBetween",
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "data": "تاریخ تحویل",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w500"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "width": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "data": "{{giftCardRealSummaryDeliveryDate}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 18.0,
+                              "fontWeight": "w700"
+                            },
+                            "textAlign": "left",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "height": 16.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "mainAxisAlignment": "spaceBetween",
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "data": "ساعت تحویل",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w500"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "width": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "data": "{{giftCardRealSummaryDeliveryTime}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 18.0,
+                              "fontWeight": "w700"
+                            },
+                            "textAlign": "left",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "height": 16.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "mainAxisAlignment": "spaceBetween",
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "data": "شهر تحویل گیرنده",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w500"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "width": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "data": "{{giftCardRealSummaryReceiverCity}}",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 18.0,
+                              "fontWeight": "w700"
+                            },
+                            "textAlign": "left",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "height": 16.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "data": "آدرس تحویل گیرنده",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.subtitle}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w500"
+                      },
+                      "textAlign": "right",
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    {
+                      "height": 8.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "data": "{{giftCardRealSummaryReceiverAddress}}",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 18.0,
+                        "fontWeight": "w700"
+                      },
+                      "textAlign": "right",
+                      "textDirection": "rtl",
+                      "type": "text"
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "container"
+              },
+              {
+                "height": 20.0,
+                "type": "sizedBox"
+              }
+            ],
+            "type": "column"
+          },
+          "type": "singleChildScrollView"
+        },
+        "type": "expanded"
+      },
+      {
+        "padding": {
+          "left": 16.0,
+          "right": 16.0,
+          "bottom": 24.0
+        },
+        "child": {
+          "onPressed": {
+            "actionType": "showGiftCardPaymentAccountsBottomSheet",
+            "title": "کارت هدیه",
+            "paymentAmountKey": "giftCardRealSummaryPaymentAmount",
+            "walletLabel": "کیف پول",
+            "walletBalance": 226600,
+            "accountsTitle": "حساب‌ها",
+            "insufficientText": "موجودی ناکافی",
+            "sufficientText": "موجودی کافی",
+            "chargeButtonText": "شارژ حساب",
+            "continueButtonText": "ادامه",
+            "accounts": [
+              {
+                "id": "acc_1",
+                "title": "سپرده حقیقی حساب قرض الحسنه جاری حقیقی- ریالی",
+                "ownerName": "سید پارسا بنی طبا",
+                "depositNumber": "۱۱۰.۷۰.۱۶/۲۹۸۸.۱",
+                "availableAmount": 66770
+              },
+              {
+                "id": "acc_2",
+                "title": "سپرده حقیقی سپرده سرمایه گذاری کوتاه مدت",
+                "ownerName": "توبانک- حقیقی ریالی سید پارسا بنی طبا",
+                "depositNumber": "۱۱۰.۹۹۹۲.۱۶/۲۹۸۸.۱",
+                "availableAmount": 39148
+              },
+              {
+                "id": "acc_3",
+                "title": "سپرده حقیقی سپرده سرمایه گذاری ویژه",
+                "ownerName": "توبانک- حقیقی ریالی سید پارسا بنی طبا",
+                "depositNumber": "۱۱۹.۹۲۹۰.۱۶/۲۹۸۸.۱",
+                "availableAmount": 9200000
+              }
+            ],
+            "continueAction": {
+              "actionType": "showResult",
+              "title": "پرداخت",
+              "content": "پرداخت با موفقیت انجام شد."
+            },
+            "chargeAction": {
+              "actionType": "showResult",
+              "title": "شارژ حساب",
+              "content": "برای ادامه، حساب خود را شارژ کنید."
+            }
+          },
+          "style": {
+            "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+            "backgroundColor": "{{appColors.current.primary.color}}",
+            "elevation": 0.0,
+            "fixedSize": {
+              "width": 999999.0,
+              "height": 62.0
+            },
+            "shape": {
+              "type": "roundedRectangleBorder",
+              "borderRadius": {
+                "topLeft": 14.0,
+                "topRight": 14.0,
+                "bottomLeft": 14.0,
+                "bottomRight": 14.0
+              }
+            }
+          },
+          "child": {
+            "data": "پرداخت {{giftCardRealSummaryPaymentLabel}}",
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.primary.onPrimary}}",
+              "fontSize": 19.0,
+              "fontWeight": "w700"
+            },
+            "textDirection": "rtl",
+            "type": "text"
+          },
+          "type": "filledButton"
+        },
+        "type": "padding"
+      }
+    ],
+    "type": "column"
+  },
+  "type": "scaffold"
+}

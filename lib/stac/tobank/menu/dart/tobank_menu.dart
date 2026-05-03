@@ -91,6 +91,10 @@ StacWidget tobankMenuDart() {
           title: 'کارت هدیه (API واقعی)',
           widgetType: 'gift_card_real_menu',
         ),
+        _buildSingleButtonMenuItemCard(
+          title: 'انتقال وجه (واقعی)',
+          widgetType: 'transfer_real_menu',
+        ),
       ],
     ),
   );

@@ -2059,7 +2059,7 @@ abstract class AppLocalizations {
   /// No description provided for @enter_pay_id_optional.
   ///
   /// In fa, this message translates to:
-  /// **'شناسه پرداخت را وارد نمایید(اختیاری)'**
+  /// **' شناسه پرداخت را وارد نمایید(اختیاری)'**
   String get enter_pay_id_optional;
 
   /// No description provided for @card_to_card_not_available_.

@@ -151,6 +151,16 @@ import '../../../../stac/tobank/flows/dashboard_real/dart/dashboard_real_shell.d
     as dashboard_real_shell_dart;
 import '../../../../stac/tobank/flows/gift_card_real/menu/gift_card_real_menu.dart'
     as gift_card_real_menu_dart;
+import '../../../../stac/tobank/flows/transfer_real/menu/transfer_real_menu.dart'
+    as transfer_real_menu_dart;
+import '../../../../stac/tobank/flows/transfer_real/dart/transfer_real_amount.dart'
+    as transfer_real_amount_dart;
+import '../../../../stac/tobank/flows/transfer_real/dart/transfer_real_details.dart'
+    as transfer_real_details_dart;
+import '../../../../stac/tobank/flows/transfer_real/dart/transfer_real_confirm.dart'
+    as transfer_real_confirm_dart;
+import '../../../../stac/tobank/flows/transfer_real/dart/transfer_real_result.dart'
+    as transfer_real_result_dart;
 import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_intro.dart'
     as gift_card_real_intro_dart;
 import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_select_amount.dart'
@@ -295,6 +305,16 @@ class StacWidgetLoader {
         dashboard_real_shell_dart.dashboardRealShell().toJson(),
     'gift_card_real_menu': () =>
         gift_card_real_menu_dart.giftCardRealMenu().toJson(),
+    'transfer_real_menu': () =>
+        transfer_real_menu_dart.transferRealMenu().toJson(),
+    'transfer_real_amount': () =>
+        transfer_real_amount_dart.transferRealAmount().toJson(),
+    'transfer_real_details': () =>
+        transfer_real_details_dart.transferRealDetails().toJson(),
+    'transfer_real_confirm': () =>
+        transfer_real_confirm_dart.transferRealConfirm().toJson(),
+    'transfer_real_result': () =>
+        transfer_real_result_dart.transferRealResult().toJson(),
     'gift_card_real_intro': () =>
         gift_card_real_intro_dart.giftCardRealIntro().toJson(),
     'gift_card_real_select_amount': () =>

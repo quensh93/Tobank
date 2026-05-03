@@ -262,7 +262,8 @@ class ShowGiftCardPaymentAccountsBottomSheetActionParser
                                   account.availableAmount >= paymentAmount;
                               final selectedBorderColor = colorScheme.primary;
                               final amountColor = hasBalance
-                                  ? Colors.black
+                                  ? colorScheme
+                                  .onSurface
                                   : colorScheme.primary;
 
                               return InkWell(
@@ -369,7 +370,8 @@ class ShowGiftCardPaymentAccountsBottomSheetActionParser
                                                   fontSize: 16,
                                                   fontWeight: FontWeight.w500,
                                                   color: hasBalance
-                                                      ? Colors.black
+                                                      ?  colorScheme
+                                                      .onSurface
                                                       : colorScheme.primary,
                                                 ),
                                           ),
