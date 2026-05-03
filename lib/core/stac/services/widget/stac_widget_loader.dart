@@ -7,6 +7,10 @@ import '../../../../stac/tobank/home_page/dart/home_page_menu.dart'
     as home_page_menu_dart;
 import '../../../../stac/tobank/home_page/dart/tobank_special_services_page.dart'
     as tobank_special_services_page_dart;
+import '../../../../stac/tobank/home_page/dart/travel_services_page.dart'
+    as travel_services_page_dart;
+import '../../../../stac/tobank/home_page/dart/acceptor_services_page.dart'
+    as acceptor_services_page_dart;
 
 import '../../../../stac/tobank/onboarding/dart/tobank_onboarding.dart'
     as onboarding_dart;
@@ -186,6 +190,10 @@ class StacWidgetLoader {
     'tobank_home_page_dart': () => home_page_dart.tobankHomePageDart().toJson(),
     'tobank_special_services_page': () =>
         tobank_special_services_page_dart.tobankSpecialServicesPage().toJson(),
+    'tobank_travel_services_page': () =>
+        travel_services_page_dart.tobankTravelServicesPage().toJson(),
+    'tobank_acceptor_services_page': () =>
+        acceptor_services_page_dart.tobankAcceptorServicesPage().toJson(),
     'tobank_onboarding': () => onboarding_dart.tobankOnboarding().toJson(),
 
     // Flow widgets - all use FlowManager via loginFlowOverview

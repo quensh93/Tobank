@@ -1,4 +1,4 @@
-{
+﻿{
   "type": "stateFull",
   "onInit": {
     "actionType": "setValue",
@@ -202,7 +202,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "خدمات",
+                                  "data": "Ã˜Â®Ã˜Â¯Ã™â€¦Ã˜Â§Ã˜Âª",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -242,7 +242,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "خدمات",
+                                  "data": "Ã˜Â®Ã˜Â¯Ã™â€¦Ã˜Â§Ã˜Âª",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -337,7 +337,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "سرمایه‌گذاری",
+                                  "data": "Ã˜Â³Ã˜Â±Ã™â€¦Ã˜Â§Ã›Å’Ã™â€¡Ã¢â‚¬Å’ÃšÂ¯Ã˜Â°Ã˜Â§Ã˜Â±Ã›Å’",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -377,7 +377,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "سرمایه‌گذاری",
+                                  "data": "Ã˜Â³Ã˜Â±Ã™â€¦Ã˜Â§Ã›Å’Ã™â€¡Ã¢â‚¬Å’ÃšÂ¯Ã˜Â°Ã˜Â§Ã˜Â±Ã›Å’",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -472,7 +472,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "کارت‌ها",
+                                  "data": "ÃšÂ©Ã˜Â§Ã˜Â±Ã˜ÂªÃ¢â‚¬Å’Ã™â€¡Ã˜Â§",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -512,7 +512,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "کارت‌ها",
+                                  "data": "ÃšÂ©Ã˜Â§Ã˜Â±Ã˜ÂªÃ¢â‚¬Å’Ã™â€¡Ã˜Â§",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -607,7 +607,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "سپرده‌ها",
+                                  "data": "Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡Ã¢â‚¬Å’Ã™â€¡Ã˜Â§",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -647,7 +647,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "سپرده‌ها",
+                                  "data": "Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡Ã¢â‚¬Å’Ã™â€¡Ã˜Â§",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -753,7 +753,7 @@
                                             "mainAxisAlignment": "end",
                                             "children": [
                                               {
-                                                "data": "کیف پول توبانک",
+                                                "data": "ÃšÂ©Ã›Å’Ã™Â Ã™Â¾Ã™Ë†Ã™â€ž Ã˜ÂªÃ™Ë†Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©",
                                                 "style": {
                                                   "type": "custom",
                                                   "color": "#FFFFFF",
@@ -787,7 +787,7 @@
                                               "textDirection": "rtl",
                                               "children": [
                                                 {
-                                                  "data": "۳۳,۲۲۲",
+                                                  "data": "Ã›Â³Ã›Â³,Ã›Â²Ã›Â²Ã›Â²",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "#FFFFFF",
@@ -802,7 +802,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "ریال",
+                                                  "data": "Ã˜Â±Ã›Å’Ã˜Â§Ã™â€ž",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "#FFFFFF",
@@ -908,7 +908,7 @@
                                             "type": "sizedBox"
                                           },
                                           {
-                                            "data": "بانک‌گردشگری",
+                                            "data": "Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©Ã¢â‚¬Å’ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
                                             "style": {
                                               "type": "custom",
                                               "color": "#FFFFFF",
@@ -924,7 +924,7 @@
                                       {
                                         "children": [
                                           {
-                                            "data": "۵۵۰۴ ۱۶۱۷ ۰۲۸۲ ۲۳۳۳",
+                                            "data": "Ã›ÂµÃ›ÂµÃ›Â°Ã›Â´ Ã›Â±Ã›Â¶Ã›Â±Ã›Â· Ã›Â°Ã›Â²Ã›Â¸Ã›Â² Ã›Â²Ã›Â³Ã›Â³Ã›Â³",
                                             "style": {
                                               "type": "custom",
                                               "color": "#FFFFFF",
@@ -936,7 +936,7 @@
                                             "type": "text"
                                           },
                                           {
-                                            "data": "حساب قرض الحسنه گردشگری",
+                                            "data": "Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
                                             "style": {
                                               "type": "custom",
                                               "color": "#FFFFFF",
@@ -1018,7 +1018,7 @@
                                             "type": "sizedBox"
                                           },
                                           {
-                                            "data": "بانک‌گردشگری",
+                                            "data": "Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©Ã¢â‚¬Å’ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
                                             "style": {
                                               "type": "custom",
                                               "color": "#FFFFFF",
@@ -1034,7 +1034,7 @@
                                       {
                                         "children": [
                                           {
-                                            "data": "۵۵۰۴ ۱۶۱۷ ۰۵۰۳ ۰۶۰۳",
+                                            "data": "Ã›ÂµÃ›ÂµÃ›Â°Ã›Â´ Ã›Â±Ã›Â¶Ã›Â±Ã›Â· Ã›Â°Ã›ÂµÃ›Â°Ã›Â³ Ã›Â°Ã›Â¶Ã›Â°Ã›Â³",
                                             "style": {
                                               "type": "custom",
                                               "color": "#FFFFFF",
@@ -1046,7 +1046,7 @@
                                             "type": "text"
                                           },
                                           {
-                                            "data": "حساب قرض الحسنه گردشگری",
+                                            "data": "Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
                                             "style": {
                                               "type": "custom",
                                               "color": "#FFFFFF",
@@ -1128,7 +1128,7 @@
                                             "type": "sizedBox"
                                           },
                                           {
-                                            "data": "بانک‌گردشگری",
+                                            "data": "Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©Ã¢â‚¬Å’ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
                                             "style": {
                                               "type": "custom",
                                               "color": "#FFFFFF",
@@ -1144,7 +1144,7 @@
                                       {
                                         "children": [
                                           {
-                                            "data": "۵۵۰۴ ۱۶۶۰ ۱۱۶۵ ۰۶۳۴",
+                                            "data": "Ã›ÂµÃ›ÂµÃ›Â°Ã›Â´ Ã›Â±Ã›Â¶Ã›Â¶Ã›Â° Ã›Â±Ã›Â±Ã›Â¶Ã›Âµ Ã›Â°Ã›Â¶Ã›Â³Ã›Â´",
                                             "style": {
                                               "type": "custom",
                                               "color": "#FFFFFF",
@@ -1156,7 +1156,7 @@
                                             "type": "text"
                                           },
                                           {
-                                            "data": "حساب قرض الحسنه گردشگری",
+                                            "data": "Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
                                             "style": {
                                               "type": "custom",
                                               "color": "#FFFFFF",
@@ -1238,7 +1238,7 @@
                                             "type": "sizedBox"
                                           },
                                           {
-                                            "data": "بانک‌گردشگری",
+                                            "data": "Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©Ã¢â‚¬Å’ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
                                             "style": {
                                               "type": "custom",
                                               "color": "#FFFFFF",
@@ -1254,7 +1254,7 @@
                                       {
                                         "children": [
                                           {
-                                            "data": "۵۵۰۴ ۱۶۷۸ ۳۴۹۱ ۶۲۴۰",
+                                            "data": "Ã›ÂµÃ›ÂµÃ›Â°Ã›Â´ Ã›Â±Ã›Â¶Ã›Â·Ã›Â¸ Ã›Â³Ã›Â´Ã›Â¹Ã›Â± Ã›Â¶Ã›Â²Ã›Â´Ã›Â°",
                                             "style": {
                                               "type": "custom",
                                               "color": "#FFFFFF",
@@ -1266,7 +1266,7 @@
                                             "type": "text"
                                           },
                                           {
-                                            "data": "حساب قرض الحسنه گردشگری",
+                                            "data": "Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
                                             "style": {
                                               "type": "custom",
                                               "color": "#FFFFFF",
@@ -1348,7 +1348,7 @@
                                             "type": "sizedBox"
                                           },
                                           {
-                                            "data": "بانک‌گردشگری",
+                                            "data": "Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©Ã¢â‚¬Å’ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
                                             "style": {
                                               "type": "custom",
                                               "color": "#FFFFFF",
@@ -1364,7 +1364,7 @@
                                       {
                                         "children": [
                                           {
-                                            "data": "۵۰۲۲ ۲۲۹۸ ۷۷۴۵ ۱۲۰۱",
+                                            "data": "Ã›ÂµÃ›Â°Ã›Â²Ã›Â² Ã›Â²Ã›Â²Ã›Â¹Ã›Â¸ Ã›Â·Ã›Â·Ã›Â´Ã›Âµ Ã›Â±Ã›Â²Ã›Â°Ã›Â±",
                                             "style": {
                                               "type": "custom",
                                               "color": "#FFFFFF",
@@ -1376,7 +1376,7 @@
                                             "type": "text"
                                           },
                                           {
-                                            "data": "حساب قرض الحسنه گردشگری",
+                                            "data": "Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
                                             "style": {
                                               "type": "custom",
                                               "color": "#FFFFFF",
@@ -1458,7 +1458,7 @@
                                             "type": "sizedBox"
                                           },
                                           {
-                                            "data": "بانک‌گردشگری",
+                                            "data": "Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©Ã¢â‚¬Å’ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
                                             "style": {
                                               "type": "custom",
                                               "color": "#FFFFFF",
@@ -1474,7 +1474,7 @@
                                       {
                                         "children": [
                                           {
-                                            "data": "۵۸۹۲ ۱۰۱۰ ۶۵۴۳ ۷۹۹۸",
+                                            "data": "Ã›ÂµÃ›Â¸Ã›Â¹Ã›Â² Ã›Â±Ã›Â°Ã›Â±Ã›Â° Ã›Â¶Ã›ÂµÃ›Â´Ã›Â³ Ã›Â·Ã›Â¹Ã›Â¹Ã›Â¸",
                                             "style": {
                                               "type": "custom",
                                               "color": "#FFFFFF",
@@ -1486,7 +1486,7 @@
                                             "type": "text"
                                           },
                                           {
-                                            "data": "حساب قرض الحسنه گردشگری",
+                                            "data": "Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
                                             "style": {
                                               "type": "custom",
                                               "color": "#FFFFFF",
@@ -1581,7 +1581,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "کارت به کارت",
+                                          "data": "ÃšÂ©Ã˜Â§Ã˜Â±Ã˜Âª Ã˜Â¨Ã™â€¡ ÃšÂ©Ã˜Â§Ã˜Â±Ã˜Âª",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1632,7 +1632,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "چک صیادی",
+                                          "data": "Ãšâ€ ÃšÂ© Ã˜ÂµÃ›Å’Ã˜Â§Ã˜Â¯Ã›Å’",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1683,7 +1683,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "موجودی",
+                                          "data": "Ã™â€¦Ã™Ë†Ã˜Â¬Ã™Ë†Ã˜Â¯Ã›Å’",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1734,7 +1734,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "شارژ",
+                                          "data": "Ã˜Â´Ã˜Â§Ã˜Â±ÃšËœ",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1791,7 +1791,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "بسته اینترنت",
+                                          "data": "Ã˜Â¨Ã˜Â³Ã˜ÂªÃ™â€¡ Ã˜Â§Ã›Å’Ã™â€ Ã˜ÂªÃ˜Â±Ã™â€ Ã˜Âª",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1813,48 +1813,56 @@
                                   },
                                   {
                                     "child": {
-                                      "mainAxisSize": "min",
-                                      "children": [
-                                        {
-                                          "alignment": "center",
-                                          "decoration": {
-                                            "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                                            "borderRadius": {
-                                              "topLeft": 8.0,
-                                              "topRight": 8.0,
-                                              "bottomLeft": 8.0,
-                                              "bottomRight": 8.0
-                                            }
+                                      "child": {
+                                        "mainAxisSize": "min",
+                                        "children": [
+                                          {
+                                            "alignment": "center",
+                                            "decoration": {
+                                              "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                              "borderRadius": {
+                                                "topLeft": 8.0,
+                                                "topRight": 8.0,
+                                                "bottomLeft": 8.0,
+                                                "bottomRight": 8.0
+                                              }
+                                            },
+                                            "width": 40.0,
+                                            "height": 40.0,
+                                            "child": {
+                                              "src": "{{appAssets.current.icons.megagasht}}",
+                                              "imageType": "asset",
+                                              "width": 28.0,
+                                              "height": 28.0,
+                                              "type": "image"
+                                            },
+                                            "type": "container"
                                           },
-                                          "width": 40.0,
-                                          "height": 40.0,
-                                          "child": {
-                                            "src": "{{appAssets.current.icons.megagasht}}",
-                                            "imageType": "asset",
-                                            "width": 28.0,
-                                            "height": 28.0,
-                                            "type": "image"
+                                          {
+                                            "height": 8.0,
+                                            "type": "sizedBox"
                                           },
-                                          "type": "container"
-                                        },
-                                        {
-                                          "height": 8.0,
-                                          "type": "sizedBox"
-                                        },
-                                        {
-                                          "data": "خدمات سفر",
-                                          "style": {
-                                            "type": "custom",
-                                            "color": "{{appColors.current.text.title}}",
-                                            "fontSize": 13.0,
-                                            "fontWeight": "w500"
-                                          },
-                                          "textAlign": "center",
-                                          "textDirection": "rtl",
-                                          "type": "text"
-                                        }
-                                      ],
-                                      "type": "column"
+                                          {
+                                            "data": "Ã˜Â®Ã˜Â¯Ã™â€¦Ã˜Â§Ã˜Âª Ã˜Â³Ã™ÂÃ˜Â±",
+                                            "style": {
+                                              "type": "custom",
+                                              "color": "{{appColors.current.text.title}}",
+                                              "fontSize": 13.0,
+                                              "fontWeight": "w500"
+                                            },
+                                            "textAlign": "center",
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "type": "column"
+                                      },
+                                      "onTap": {
+                                        "assetPath": "lib/stac/tobank/home_page/api/GET_tobank_travel_services_page.json",
+                                        "navigationStyle": "push",
+                                        "actionType": "navigate"
+                                      },
+                                      "type": "gestureDetector"
                                     },
                                     "type": "expanded"
                                   },
@@ -1893,7 +1901,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "کارت هدیه",
+                                          "data": "ÃšÂ©Ã˜Â§Ã˜Â±Ã˜Âª Ã™â€¡Ã˜Â¯Ã›Å’Ã™â€¡",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -1944,7 +1952,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "قبض",
+                                          "data": "Ã™â€šÃ˜Â¨Ã˜Â¶",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -2001,7 +2009,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "پذیرندگی",
+                                          "data": "Ù¾Ø°ÛŒØ±Ù†Ø¯Ú¯ÛŒ",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -2015,7 +2023,12 @@
                                       ],
                                       "type": "column"
                                     },
-                                    "type": "expanded"
+                                    "onTap": {
+                                      "assetPath": "lib/stac/tobank/home_page/api/GET_tobank_acceptor_services_page.json",
+                                      "navigationStyle": "push",
+                                      "actionType": "navigate"
+                                    },
+                                    "type": "gestureDetector"
                                   },
                                   {
                                     "width": 8.0,
@@ -2136,7 +2149,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "افتتاح سپرده بانک گردشگری",
+                                                    "data": "Ã˜Â§Ã™ÂÃ˜ÂªÃ˜ÂªÃ˜Â§Ã˜Â­ Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡ Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ© ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -2166,7 +2179,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "کوتاه مدت، قرض الحسنه پس انداز، بلندمدت و ...",
+                                                    "data": "ÃšÂ©Ã™Ë†Ã˜ÂªÃ˜Â§Ã™â€¡ Ã™â€¦Ã˜Â¯Ã˜ÂªÃ˜Å’ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ Ã™Â¾Ã˜Â³ Ã˜Â§Ã™â€ Ã˜Â¯Ã˜Â§Ã˜Â²Ã˜Å’ Ã˜Â¨Ã™â€žÃ™â€ Ã˜Â¯Ã™â€¦Ã˜Â¯Ã˜Âª Ã™Ë† ...",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.subtitle}}",
@@ -2202,7 +2215,7 @@
                                                   "textDirection": "rtl",
                                                   "children": [
                                                     {
-                                                      "data": "افتتاح سپرده",
+                                                      "data": "Ã˜Â§Ã™ÂÃ˜ÂªÃ˜ÂªÃ˜Â§Ã˜Â­ Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡",
                                                       "style": {
                                                         "type": "custom",
                                                         "fontSize": 16.0,
@@ -2367,7 +2380,7 @@
                                                                             "type": "sizedBox"
                                                                           },
                                                                           {
-                                                                            "data": "ریال",
+                                                                            "data": "Ã˜Â±Ã›Å’Ã˜Â§Ã™â€ž",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "color": "{{appColors.current.text.title}}",
@@ -2397,7 +2410,7 @@
                                                                         "textDirection": "rtl",
                                                                         "children": [
                                                                           {
-                                                                            "data": "⬤⬤⬤⬤⬤⬤⬤",
+                                                                            "data": "Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "color": "{{appColors.current.text.title}}",
@@ -2455,7 +2468,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "حساب قرض الحسنه جاری توبانک",
+                                                          "data": "Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ Ã˜Â¬Ã˜Â§Ã˜Â±Ã›Å’ Ã˜ÂªÃ™Ë†Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -2536,7 +2549,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "گردش سپرده",
+                                                          "data": "ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -2599,7 +2612,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "انتقال وجه",
+                                                          "data": "Ã˜Â§Ã™â€ Ã˜ÂªÃ™â€šÃ˜Â§Ã™â€ž Ã™Ë†Ã˜Â¬Ã™â€¡",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -2662,7 +2675,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "بیشتر",
+                                                          "data": "Ã˜Â¨Ã›Å’Ã˜Â´Ã˜ÂªÃ˜Â±",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -2819,7 +2832,7 @@
                                                                             "type": "sizedBox"
                                                                           },
                                                                           {
-                                                                            "data": "ریال",
+                                                                            "data": "Ã˜Â±Ã›Å’Ã˜Â§Ã™â€ž",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "color": "{{appColors.current.text.title}}",
@@ -2849,7 +2862,7 @@
                                                                         "textDirection": "rtl",
                                                                         "children": [
                                                                           {
-                                                                            "data": "⬤⬤⬤⬤⬤⬤⬤",
+                                                                            "data": "Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "color": "{{appColors.current.text.title}}",
@@ -2907,7 +2920,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "حساب قرض الحسنه جاری سپرده دوم",
+                                                          "data": "Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ Ã˜Â¬Ã˜Â§Ã˜Â±Ã›Å’ Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡ Ã˜Â¯Ã™Ë†Ã™â€¦",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -2988,7 +3001,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "گردش سپرده",
+                                                          "data": "ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3051,7 +3064,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "انتقال وجه",
+                                                          "data": "Ã˜Â§Ã™â€ Ã˜ÂªÃ™â€šÃ˜Â§Ã™â€ž Ã™Ë†Ã˜Â¬Ã™â€¡",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3114,7 +3127,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "بیشتر",
+                                                          "data": "Ã˜Â¨Ã›Å’Ã˜Â´Ã˜ÂªÃ˜Â±",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3271,7 +3284,7 @@
                                                                             "type": "sizedBox"
                                                                           },
                                                                           {
-                                                                            "data": "ریال",
+                                                                            "data": "Ã˜Â±Ã›Å’Ã˜Â§Ã™â€ž",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "color": "{{appColors.current.text.title}}",
@@ -3301,7 +3314,7 @@
                                                                         "textDirection": "rtl",
                                                                         "children": [
                                                                           {
-                                                                            "data": "⬤⬤⬤⬤⬤⬤⬤",
+                                                                            "data": "Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "color": "{{appColors.current.text.title}}",
@@ -3359,7 +3372,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "حساب قرض الحسنه جاری حقیقی توبانک",
+                                                          "data": "Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ Ã˜Â¬Ã˜Â§Ã˜Â±Ã›Å’ Ã˜Â­Ã™â€šÃ›Å’Ã™â€šÃ›Å’ Ã˜ÂªÃ™Ë†Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -3440,7 +3453,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "گردش سپرده",
+                                                          "data": "ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3503,7 +3516,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "انتقال وجه",
+                                                          "data": "Ã˜Â§Ã™â€ Ã˜ÂªÃ™â€šÃ˜Â§Ã™â€ž Ã™Ë†Ã˜Â¬Ã™â€¡",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3566,7 +3579,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "بیشتر",
+                                                          "data": "Ã˜Â¨Ã›Å’Ã˜Â´Ã˜ÂªÃ˜Â±",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3636,7 +3649,7 @@
                                       "crossAxisAlignment": "stretch",
                                       "children": [
                                         {
-                                          "data": "کاربر گرامی، برای فعال سازی خدمات مرتبط با سپرده‌های بانک گردشگری، لطفا فرآیند احراز هویت را تکمیل نمایید.",
+                                          "data": "ÃšÂ©Ã˜Â§Ã˜Â±Ã˜Â¨Ã˜Â± ÃšÂ¯Ã˜Â±Ã˜Â§Ã™â€¦Ã›Å’Ã˜Å’ Ã˜Â¨Ã˜Â±Ã˜Â§Ã›Å’ Ã™ÂÃ˜Â¹Ã˜Â§Ã™â€ž Ã˜Â³Ã˜Â§Ã˜Â²Ã›Å’ Ã˜Â®Ã˜Â¯Ã™â€¦Ã˜Â§Ã˜Âª Ã™â€¦Ã˜Â±Ã˜ÂªÃ˜Â¨Ã˜Â· Ã˜Â¨Ã˜Â§ Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡Ã¢â‚¬Å’Ã™â€¡Ã˜Â§Ã›Å’ Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ© ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’Ã˜Å’ Ã™â€žÃ˜Â·Ã™ÂÃ˜Â§ Ã™ÂÃ˜Â±Ã˜Â¢Ã›Å’Ã™â€ Ã˜Â¯ Ã˜Â§Ã˜Â­Ã˜Â±Ã˜Â§Ã˜Â² Ã™â€¡Ã™Ë†Ã›Å’Ã˜Âª Ã˜Â±Ã˜Â§ Ã˜ÂªÃšÂ©Ã™â€¦Ã›Å’Ã™â€ž Ã™â€ Ã™â€¦Ã˜Â§Ã›Å’Ã›Å’Ã˜Â¯.",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -3708,7 +3721,7 @@
                                             }
                                           },
                                           "child": {
-                                            "data": "احراز هویت",
+                                            "data": "Ã˜Â§Ã˜Â­Ã˜Â±Ã˜Â§Ã˜Â² Ã™â€¡Ã™Ë†Ã›Å’Ã˜Âª",
                                             "style": {
                                               "type": "custom",
                                               "fontSize": 14.0,
@@ -3779,7 +3792,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "گردش سپرده",
+                                                      "data": "ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -3842,7 +3855,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "انتقال وجه",
+                                                      "data": "Ã˜Â§Ã™â€ Ã˜ÂªÃ™â€šÃ˜Â§Ã™â€ž Ã™Ë†Ã˜Â¬Ã™â€¡",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -3905,7 +3918,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بیشتر",
+                                                      "data": "Ã˜Â¨Ã›Å’Ã˜Â´Ã˜ÂªÃ˜Â±",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -3939,7 +3952,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "خدمات ویژه توبانک",
+                                "data": "Ã˜Â®Ã˜Â¯Ã™â€¦Ã˜Â§Ã˜Âª Ã™Ë†Ã›Å’ÃšËœÃ™â€¡ Ã˜ÂªÃ™Ë†Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
@@ -4006,7 +4019,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "سایر خدمات",
+                                                    "data": "Ã˜Â³Ã˜Â§Ã›Å’Ã˜Â± Ã˜Â®Ã˜Â¯Ã™â€¦Ã˜Â§Ã˜Âª",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -4025,7 +4038,7 @@
                                                 "type": "sizedBox"
                                               },
                                               {
-                                                "data": "سفته الکترونیک ...",
+                                                "data": "Ã˜Â³Ã™ÂÃ˜ÂªÃ™â€¡ Ã˜Â§Ã™â€žÃšÂ©Ã˜ÂªÃ˜Â±Ã™Ë†Ã™â€ Ã›Å’ÃšÂ© ...",
                                                 "style": {
                                                   "type": "custom",
                                                   "color": "{{appColors.current.text.subtitle}}",
@@ -4045,7 +4058,7 @@
                                         "type": "card"
                                       },
                                       "onTap": {
-                                        "assetPath": "lib/stac/tobank/home_page/api/GET_tobank_special_services_page.json",
+                                        "routeName": "tobank_special_services_page",
                                         "navigationStyle": "push",
                                         "actionType": "navigate"
                                       },
@@ -4106,7 +4119,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "انواع تسهیلات",
+                                                  "data": "Ã˜Â§Ã™â€ Ã™Ë†Ã˜Â§Ã˜Â¹ Ã˜ÂªÃ˜Â³Ã™â€¡Ã›Å’Ã™â€žÃ˜Â§Ã˜Âª",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -4125,7 +4138,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "ازدواج، کارت اعتباری ...",
+                                              "data": "Ã˜Â§Ã˜Â²Ã˜Â¯Ã™Ë†Ã˜Â§Ã˜Â¬Ã˜Å’ ÃšÂ©Ã˜Â§Ã˜Â±Ã˜Âª Ã˜Â§Ã˜Â¹Ã˜ÂªÃ˜Â¨Ã˜Â§Ã˜Â±Ã›Å’ ...",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -4289,7 +4302,7 @@
                                         "type": "sizedBox"
                                       },
                                       {
-                                        "data": "صندوق سرمایه‌گذاری",
+                                        "data": "Ã˜ÂµÃ™â€ Ã˜Â¯Ã™Ë†Ã™â€š Ã˜Â³Ã˜Â±Ã™â€¦Ã˜Â§Ã›Å’Ã™â€¡Ã¢â‚¬Å’ÃšÂ¯Ã˜Â°Ã˜Â§Ã˜Â±Ã›Å’",
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
@@ -4326,7 +4339,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "معاف از مالیات",
+                                              "data": "Ã™â€¦Ã˜Â¹Ã˜Â§Ã™Â Ã˜Â§Ã˜Â² Ã™â€¦Ã˜Â§Ã™â€žÃ›Å’Ã˜Â§Ã˜Âª",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -4368,7 +4381,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "تحت مجوز و نظارت سازمان بورس",
+                                              "data": "Ã˜ÂªÃ˜Â­Ã˜Âª Ã™â€¦Ã˜Â¬Ã™Ë†Ã˜Â² Ã™Ë† Ã™â€ Ã˜Â¸Ã˜Â§Ã˜Â±Ã˜Âª Ã˜Â³Ã˜Â§Ã˜Â²Ã™â€¦Ã˜Â§Ã™â€  Ã˜Â¨Ã™Ë†Ã˜Â±Ã˜Â³",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -4429,7 +4442,7 @@
                                           }
                                         },
                                         "child": {
-                                          "data": "شروع سرمایه گذاری",
+                                          "data": "Ã˜Â´Ã˜Â±Ã™Ë†Ã˜Â¹ Ã˜Â³Ã˜Â±Ã™â€¦Ã˜Â§Ã›Å’Ã™â€¡ ÃšÂ¯Ã˜Â°Ã˜Â§Ã˜Â±Ã›Å’",
                                           "style": {
                                             "type": "custom",
                                             "color": "#FFFFFF",
@@ -4521,3 +4534,4 @@
     "type": "scaffold"
   }
 }
+

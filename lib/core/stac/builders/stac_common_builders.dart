@@ -703,3 +703,51 @@ class StacTobankCardsStackScroller extends StacWidget {
     if (handleTop != null) 'handleTop': handleTop,
   };
 }
+
+/// Builder for custom 'tobankMegaGashtWebView' payloads handled by
+/// TobankMegaGashtWebViewParser.
+class StacTobankMegaGashtWebView extends StacWidget {
+  const StacTobankMegaGashtWebView({
+    this.initialUrl = 'https://on.megagasht.com/',
+    this.onResumeUrl = 'https://on.megagasht.com/Panel-Dashboard.bc',
+  });
+
+  final String initialUrl;
+  final String onResumeUrl;
+
+  @override
+  String get type => 'tobankMegaGashtWebView';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'type': type,
+    'initialUrl': initialUrl,
+    'onResumeUrl': onResumeUrl,
+  };
+}
+
+/// Builder for custom 'tobankAcceptorWebView' payloads handled by
+/// TobankAcceptorWebViewParser.
+class StacTobankAcceptorWebView extends StacWidget {
+  const StacTobankAcceptorWebView({
+    this.initialUrl = 'https://my.gardeshpay.ir/',
+    this.onResumeUrl = 'https://my.gardeshpay.ir/wallet',
+    this.paymentRedirectPrefix =
+        'https://ipg.gardeshpay.ir/v1/provider/payment/redirect/',
+  });
+
+  final String initialUrl;
+  final String onResumeUrl;
+  final String paymentRedirectPrefix;
+
+  @override
+  String get type => 'tobankAcceptorWebView';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'type': type,
+    'initialUrl': initialUrl,
+    'onResumeUrl': onResumeUrl,
+    'paymentRedirectPrefix': paymentRedirectPrefix,
+  };
+}

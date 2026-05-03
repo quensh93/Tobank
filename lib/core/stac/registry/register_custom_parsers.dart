@@ -71,6 +71,8 @@ import '../parsers/widgets/signature_pad_parser.dart';
 import '../parsers/widgets/tobank_banner_carousel_parser.dart';
 import '../parsers/widgets/tobank_cards_carousel_parser.dart';
 import '../parsers/widgets/tobank_cards_stack_scroller_parser.dart';
+import '../parsers/widgets/tobank_mega_gasht_webview_parser.dart';
+import '../parsers/widgets/tobank_acceptor_webview_parser.dart';
 
 /// Register all custom STAC parsers with the STAC framework.
 ///
@@ -409,6 +411,8 @@ void _registerExampleParsers() {
   registerTobankBannerCarouselParser();
   registerTobankCardsCarouselParser();
   registerTobankCardsStackScrollerParser();
+  registerTobankMegaGashtWebViewParser();
+  registerTobankAcceptorWebViewParser();
 
   // Register signature pad parser for hand-drawn signature capture
   CustomComponentRegistry.instance.registerWidget(const SignaturePadParser());

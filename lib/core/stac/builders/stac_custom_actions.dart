@@ -50,6 +50,28 @@ class StacLogAction extends StacAction {
   }
 }
 
+/// Builder for Mega Gasht webview back navigation.
+class StacTobankMegaGashtBackAction extends StacAction {
+  const StacTobankMegaGashtBackAction();
+
+  @override
+  String get actionType => 'tobankMegaGashtBack';
+
+  @override
+  Map<String, dynamic> toJson() => {'actionType': actionType};
+}
+
+/// Builder for Acceptor webview back navigation.
+class StacTobankAcceptorBackAction extends StacAction {
+  const StacTobankAcceptorBackAction();
+
+  @override
+  String get actionType => 'tobankAcceptorBack';
+
+  @override
+  Map<String, dynamic> toJson() => {'actionType': actionType};
+}
+
 /// Builder for 'validateFields' action.
 class StacValidateFieldsAction extends StacAction {
   final String resultKey;

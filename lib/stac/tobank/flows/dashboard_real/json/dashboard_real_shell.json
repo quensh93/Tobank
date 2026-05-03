@@ -7387,48 +7387,56 @@
                                           },
                                           {
                                             "child": {
-                                              "mainAxisSize": "min",
-                                              "children": [
-                                                {
-                                                  "alignment": "center",
-                                                  "decoration": {
-                                                    "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                                                    "borderRadius": {
-                                                      "topLeft": 8.0,
-                                                      "topRight": 8.0,
-                                                      "bottomLeft": 8.0,
-                                                      "bottomRight": 8.0
-                                                    }
+                                              "child": {
+                                                "mainAxisSize": "min",
+                                                "children": [
+                                                  {
+                                                    "alignment": "center",
+                                                    "decoration": {
+                                                      "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                                      "borderRadius": {
+                                                        "topLeft": 8.0,
+                                                        "topRight": 8.0,
+                                                        "bottomLeft": 8.0,
+                                                        "bottomRight": 8.0
+                                                      }
+                                                    },
+                                                    "width": 40.0,
+                                                    "height": 40.0,
+                                                    "child": {
+                                                      "src": "{{appAssets.current.icons.megagasht}}",
+                                                      "imageType": "asset",
+                                                      "width": 28.0,
+                                                      "height": 28.0,
+                                                      "type": "image"
+                                                    },
+                                                    "type": "container"
                                                   },
-                                                  "width": 40.0,
-                                                  "height": 40.0,
-                                                  "child": {
-                                                    "src": "{{appAssets.current.icons.megagasht}}",
-                                                    "imageType": "asset",
-                                                    "width": 28.0,
-                                                    "height": 28.0,
-                                                    "type": "image"
+                                                  {
+                                                    "height": 8.0,
+                                                    "type": "sizedBox"
                                                   },
-                                                  "type": "container"
-                                                },
-                                                {
-                                                  "height": 8.0,
-                                                  "type": "sizedBox"
-                                                },
-                                                {
-                                                  "data": "خدمات سفر",
-                                                  "style": {
-                                                    "type": "custom",
-                                                    "color": "{{appColors.current.text.title}}",
-                                                    "fontSize": 13.0,
-                                                    "fontWeight": "w500"
-                                                  },
-                                                  "textAlign": "center",
-                                                  "textDirection": "rtl",
-                                                  "type": "text"
-                                                }
-                                              ],
-                                              "type": "column"
+                                                  {
+                                                    "data": "خدمات سفر",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "{{appColors.current.text.title}}",
+                                                      "fontSize": 13.0,
+                                                      "fontWeight": "w500"
+                                                    },
+                                                    "textAlign": "center",
+                                                    "textDirection": "rtl",
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "type": "column"
+                                              },
+                                              "onTap": {
+                                                "assetPath": "lib/stac/tobank/home_page/api/GET_tobank_travel_services_page.json",
+                                                "navigationStyle": "push",
+                                                "actionType": "navigate"
+                                              },
+                                              "type": "gestureDetector"
                                             },
                                             "type": "expanded"
                                           },
@@ -7546,48 +7554,56 @@
                                         "children": [
                                           {
                                             "child": {
-                                              "mainAxisSize": "min",
-                                              "children": [
-                                                {
-                                                  "alignment": "center",
-                                                  "decoration": {
-                                                    "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                                                    "borderRadius": {
-                                                      "topLeft": 8.0,
-                                                      "topRight": 8.0,
-                                                      "bottomLeft": 8.0,
-                                                      "bottomRight": 8.0
-                                                    }
+                                              "child": {
+                                                "mainAxisSize": "min",
+                                                "children": [
+                                                  {
+                                                    "alignment": "center",
+                                                    "decoration": {
+                                                      "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                                      "borderRadius": {
+                                                        "topLeft": 8.0,
+                                                        "topRight": 8.0,
+                                                        "bottomLeft": 8.0,
+                                                        "bottomRight": 8.0
+                                                      }
+                                                    },
+                                                    "width": 40.0,
+                                                    "height": 40.0,
+                                                    "child": {
+                                                      "src": "{{appAssets.current.icons.acceptor}}",
+                                                      "imageType": "asset",
+                                                      "width": 28.0,
+                                                      "height": 28.0,
+                                                      "type": "image"
+                                                    },
+                                                    "type": "container"
                                                   },
-                                                  "width": 40.0,
-                                                  "height": 40.0,
-                                                  "child": {
-                                                    "src": "{{appAssets.current.icons.acceptor}}",
-                                                    "imageType": "asset",
-                                                    "width": 28.0,
-                                                    "height": 28.0,
-                                                    "type": "image"
+                                                  {
+                                                    "height": 8.0,
+                                                    "type": "sizedBox"
                                                   },
-                                                  "type": "container"
-                                                },
-                                                {
-                                                  "height": 8.0,
-                                                  "type": "sizedBox"
-                                                },
-                                                {
-                                                  "data": "پذیرندگی",
-                                                  "style": {
-                                                    "type": "custom",
-                                                    "color": "{{appColors.current.text.title}}",
-                                                    "fontSize": 13.0,
-                                                    "fontWeight": "w500"
-                                                  },
-                                                  "textAlign": "center",
-                                                  "textDirection": "rtl",
-                                                  "type": "text"
-                                                }
-                                              ],
-                                              "type": "column"
+                                                  {
+                                                    "data": "پذیرندگی",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "{{appColors.current.text.title}}",
+                                                      "fontSize": 13.0,
+                                                      "fontWeight": "w500"
+                                                    },
+                                                    "textAlign": "center",
+                                                    "textDirection": "rtl",
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "type": "column"
+                                              },
+                                              "onTap": {
+                                                "assetPath": "lib/stac/tobank/home_page/api/GET_tobank_acceptor_services_page.json",
+                                                "navigationStyle": "push",
+                                                "actionType": "navigate"
+                                              },
+                                              "type": "gestureDetector"
                                             },
                                             "type": "expanded"
                                           },
@@ -9534,88 +9550,88 @@
                                             "child": {
                                               "child": {
                                                 "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                                              "elevation": 0.0,
-                                              "shape": {
-                                                "side": {
-                                                  "color": "{{appColors.current.input.borderEnabled}}",
-                                                  "width": 0.5
+                                                "elevation": 0.0,
+                                                "shape": {
+                                                  "side": {
+                                                    "color": "{{appColors.current.input.borderEnabled}}",
+                                                    "width": 0.5
+                                                  },
+                                                  "type": "roundedRectangleBorder",
+                                                  "borderRadius": {
+                                                    "topLeft": 8.0,
+                                                    "topRight": 8.0,
+                                                    "bottomLeft": 8.0,
+                                                    "bottomRight": 8.0
+                                                  }
                                                 },
-                                                "type": "roundedRectangleBorder",
-                                                "borderRadius": {
-                                                  "topLeft": 8.0,
-                                                  "topRight": 8.0,
-                                                  "bottomLeft": 8.0,
-                                                  "bottomRight": 8.0
-                                                }
-                                              },
-                                              "margin": {
-                                                "left": 0.0,
-                                                "top": 0.0,
-                                                "right": 0.0,
-                                                "bottom": 0.0
-                                              },
-                                              "child": {
-                                                "padding": {
-                                                  "left": 12.0,
-                                                  "top": 12.0,
-                                                  "right": 12.0,
-                                                  "bottom": 12.0
+                                                "margin": {
+                                                  "left": 0.0,
+                                                  "top": 0.0,
+                                                  "right": 0.0,
+                                                  "bottom": 0.0
                                                 },
                                                 "child": {
-                                                  "crossAxisAlignment": "stretch",
-                                                  "children": [
-                                                    {
-                                                      "mainAxisAlignment": "start",
-                                                      "textDirection": "rtl",
-                                                      "children": [
-                                                        {
-                                                          "src": "{{appAssets.current.icons.promissory}}",
-                                                          "imageType": "asset",
-                                                          "width": 24.0,
-                                                          "height": 24.0,
-                                                          "type": "image"
-                                                        },
-                                                        {
-                                                          "width": 8.0,
-                                                          "type": "sizedBox"
-                                                        },
-                                                        {
-                                                          "data": "سایر خدمات",
-                                                          "style": {
-                                                            "type": "custom",
-                                                            "color": "{{appColors.current.text.title}}",
-                                                            "fontSize": 16.0,
-                                                            "fontWeight": "w600"
+                                                  "padding": {
+                                                    "left": 12.0,
+                                                    "top": 12.0,
+                                                    "right": 12.0,
+                                                    "bottom": 12.0
+                                                  },
+                                                  "child": {
+                                                    "crossAxisAlignment": "stretch",
+                                                    "children": [
+                                                      {
+                                                        "mainAxisAlignment": "start",
+                                                        "textDirection": "rtl",
+                                                        "children": [
+                                                          {
+                                                            "src": "{{appAssets.current.icons.promissory}}",
+                                                            "imageType": "asset",
+                                                            "width": 24.0,
+                                                            "height": 24.0,
+                                                            "type": "image"
                                                           },
-                                                          "textAlign": "right",
-                                                          "textDirection": "rtl",
-                                                          "type": "text"
-                                                        }
-                                                      ],
-                                                      "type": "row"
-                                                    },
-                                                    {
-                                                      "height": 16.0,
-                                                      "type": "sizedBox"
-                                                    },
-                                                    {
-                                                      "data": "سفته الکترونیک ...",
-                                                      "style": {
-                                                        "type": "custom",
-                                                        "color": "{{appColors.current.text.subtitle}}",
-                                                        "fontSize": 14.0,
-                                                        "fontWeight": "w500",
-                                                        "height": 1.7
+                                                          {
+                                                            "width": 8.0,
+                                                            "type": "sizedBox"
+                                                          },
+                                                          {
+                                                            "data": "سایر خدمات",
+                                                            "style": {
+                                                              "type": "custom",
+                                                              "color": "{{appColors.current.text.title}}",
+                                                              "fontSize": 16.0,
+                                                              "fontWeight": "w600"
+                                                            },
+                                                            "textAlign": "right",
+                                                            "textDirection": "rtl",
+                                                            "type": "text"
+                                                          }
+                                                        ],
+                                                        "type": "row"
                                                       },
-                                                      "textAlign": "right",
-                                                      "textDirection": "rtl",
-                                                      "type": "text"
-                                                    }
-                                                  ],
-                                                  "type": "column"
+                                                      {
+                                                        "height": 16.0,
+                                                        "type": "sizedBox"
+                                                      },
+                                                      {
+                                                        "data": "سفته الکترونیک ...",
+                                                        "style": {
+                                                          "type": "custom",
+                                                          "color": "{{appColors.current.text.subtitle}}",
+                                                          "fontSize": 14.0,
+                                                          "fontWeight": "w500",
+                                                          "height": 1.7
+                                                        },
+                                                        "textAlign": "right",
+                                                        "textDirection": "rtl",
+                                                        "type": "text"
+                                                      }
+                                                    ],
+                                                    "type": "column"
+                                                  },
+                                                  "type": "padding"
                                                 },
-                                                "type": "padding"
-                                              },
                                                 "type": "card"
                                               },
                                               "onTap": {
@@ -9733,7 +9749,6 @@
                                           "https://appapi.tobank.ir/api/v1.0/media/banners/Turbo-Loan.jpg",
                                           "https://appapi.tobank.ir/api/v1.0/media/banners/SheydaWordByWord.jpg",
                                           "https://appapi.tobank.ir/api/v1.0/media/banners/bamdad.jpg"
-
                                         ],
                                         "height": 106.0,
                                         "borderRadius": 8.0,
@@ -10097,7 +10112,6 @@
             "type": "scaffold"
           }
         }
-
       ],
       "type": "bottomNavigationView"
     },

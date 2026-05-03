@@ -349,6 +349,10 @@ StacWidget _buildServicesTab() {
               second: _buildServiceGridItem(
                 label: 'خدمات سفر',
                 iconPath: '{{appAssets.current.icons.megagasht}}',
+                onTap: const StacNavigateAction(
+                  routeName: 'tobank_travel_services_page',
+                  navigationStyle: NavigationStyle.push,
+                ),
               ),
               third: _buildServiceGridItem(
                 label: 'کارت هدیه',
@@ -364,6 +368,9 @@ StacWidget _buildServicesTab() {
               first: _buildServiceGridItem(
                 label: 'پذیرندگی',
                 iconPath: '{{appAssets.current.icons.acceptor}}',
+                onTap: const StacNavigateAction(
+                  routeName: 'tobank_acceptor_services_page',
+                ),
               ),
               second: StacSizedBox(),
               third: StacSizedBox(),
@@ -400,8 +407,9 @@ StacWidget _buildServicesRow({
 StacWidget _buildServiceGridItem({
   required String label,
   required String iconPath,
+  StacAction? onTap,
 }) {
-  return StacColumn(
+  final item = StacColumn(
     mainAxisSize: StacMainAxisSize.min,
     children: [
       StacContainer(
@@ -432,6 +440,9 @@ StacWidget _buildServiceGridItem({
       ),
     ],
   );
+
+  final content = onTap == null ? item : StacGestureDetector(onTap: onTap, child: item);
+  return StacAlign(alignment: StacAlignmentDirectional.topCenter, child: content);
 }
 
 StacWidget _buildInvestmentTab() {
@@ -1242,7 +1253,6 @@ StacWidget _buildDepositBalanceRow() {
         mainAxisAlignment: StacMainAxisAlignment.start,
         textDirection: StacTextDirection.rtl,
         children: [
-
           StacText(
             data: '77,641',
             textDirection: StacTextDirection.rtl,
@@ -1287,7 +1297,6 @@ StacWidget _buildDepositBalanceRow() {
               height: 1.4,
             ),
           ),
-
         ],
       ).toJson(),
     ),
