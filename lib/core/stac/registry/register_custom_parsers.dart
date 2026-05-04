@@ -48,6 +48,8 @@ import '../parsers/actions/show_gift_card_location_selector_bottom_sheet_action_
 import '../parsers/actions/show_gift_card_select_date_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_gift_card_select_amount_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_gift_card_design_type_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_transfer_purpose_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_transfer_type_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_gift_card_plan_selector_bottom_sheet_action_parser.dart';
 import '../parsers/actions/add_gift_card_amount_card_action_parser.dart';
 import '../parsers/actions/remove_gift_card_amount_card_action_parser.dart';
@@ -65,9 +67,14 @@ import '../parsers/actions/show_snackbar_action_parser.dart';
 import '../parsers/actions/finger_print_action_parser.dart';
 import '../parsers/actions/auth_persist_action_parser.dart';
 import '../parsers/actions/promissory_sign_action_parser.dart';
+import '../parsers/actions/filter_transfer_iban_list_action_parser.dart';
+import '../parsers/actions/set_transfer_destination_from_iban_action_parser.dart';
+import '../parsers/actions/set_transfer_details_continue_enabled_action_parser.dart';
+import '../parsers/actions/transfer_receipt_action_parser.dart';
 import '../parsers/widgets/pdf_preview_parser.dart';
 import '../parsers/widgets/otp_countdown_button_parser.dart';
 import '../parsers/widgets/signature_pad_parser.dart';
+import '../parsers/widgets/receipt_repaint_boundary_parser.dart';
 import '../parsers/widgets/tobank_banner_carousel_parser.dart';
 import '../parsers/widgets/tobank_cards_carousel_parser.dart';
 import '../parsers/widgets/tobank_cards_stack_scroller_parser.dart';
@@ -554,6 +561,12 @@ void _registerExampleParsers() {
   // Register gift-card design type bottom sheet action parser
   registerShowGiftCardDesignTypeBottomSheetActionParser();
 
+  // Register transfer purpose bottom sheet action parser
+  registerShowTransferPurposeBottomSheetActionParser();
+
+  // Register transfer type bottom sheet action parser
+  registerShowTransferTypeBottomSheetActionParser();
+
   // Register gift-card plan selector bottom sheet action parser
   registerShowGiftCardPlanSelectorBottomSheetActionParser();
 
@@ -579,6 +592,19 @@ void _registerExampleParsers() {
   // Register stopAudioUrl action parser for stopping in-page audio playback
   CustomComponentRegistry.instance.registerAction(
     const StopAudioUrlActionParser(),
+  );
+
+  // Register transfer flow IBAN actions
+  registerFilterTransferIbanListActionParser();
+  registerSetTransferDestinationFromIbanActionParser();
+  registerSetTransferDetailsContinueEnabledActionParser();
+
+  // Register transfer receipt action parser
+  registerTransferReceiptActionParser();
+
+  // Register receipt boundary widget used by transfer result
+  CustomComponentRegistry.instance.registerWidget(
+    const ReceiptRepaintBoundaryParser(),
   );
 }
 

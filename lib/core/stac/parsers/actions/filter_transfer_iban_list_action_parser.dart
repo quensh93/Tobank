@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
 
 import '../../../helpers/logger.dart';
+import '../../registry/custom_component_registry.dart';
 import '../../utils/registry_notifier.dart';
 import '../../utils/text_form_field_controller_registry.dart';
 
@@ -71,7 +72,7 @@ class FilterTransferIbanListActionParser
       return null;
     }
 
-    final inputRaw = _readFieldValue(context, model.fieldId);
+    final inputRaw = _readFieldValue(model.fieldId);
     final normalizedInput = _normalize(inputRaw);
 
     var didUpdate = false;
@@ -116,17 +117,13 @@ class FilterTransferIbanListActionParser
     return null;
   }
 
-  String _readFieldValue(BuildContext context, String fieldId) {
-    try {
-      final formScope = StacFormScope.of(context);
-      final fromForm = formScope?.formData[fieldId]?.toString();
-      if (fromForm != null) return fromForm;
-    } catch (_) {
-      // no-op
-    }
-
+  String _readFieldValue(String fieldId) {
     final controller = TextFormFieldControllerRegistry.instance.get(fieldId);
-    return controller?.text ?? '';
+    final fromController = controller?.text ?? '';
+    if (fromController.isNotEmpty) return fromController;
+
+    final fromRegistry = StacRegistry.instance.getValue(fieldId)?.toString();
+    return fromRegistry ?? '';
   }
 
   String _normalize(String value) {
@@ -163,4 +160,10 @@ class FilterTransferIbanListActionParser
     }
     return buffer.toString();
   }
+}
+
+void registerFilterTransferIbanListActionParser() {
+  CustomComponentRegistry.instance.registerAction(
+    const FilterTransferIbanListActionParser(),
+  );
 }
