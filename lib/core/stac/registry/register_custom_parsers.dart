@@ -50,6 +50,7 @@ import '../parsers/actions/show_gift_card_select_amount_bottom_sheet_action_pars
 import '../parsers/actions/show_gift_card_design_type_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_transfer_purpose_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_transfer_type_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_transfer_in_bank_type_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_gift_card_plan_selector_bottom_sheet_action_parser.dart';
 import '../parsers/actions/add_gift_card_amount_card_action_parser.dart';
 import '../parsers/actions/remove_gift_card_amount_card_action_parser.dart';
@@ -70,6 +71,8 @@ import '../parsers/actions/promissory_sign_action_parser.dart';
 import '../parsers/actions/filter_transfer_iban_list_action_parser.dart';
 import '../parsers/actions/set_transfer_destination_from_iban_action_parser.dart';
 import '../parsers/actions/set_transfer_details_continue_enabled_action_parser.dart';
+import '../parsers/actions/set_transfer_in_bank_continue_enabled_action_parser.dart';
+import '../parsers/actions/validate_transfer_card_continue_action_parser.dart';
 import '../parsers/actions/transfer_receipt_action_parser.dart';
 import '../parsers/widgets/pdf_preview_parser.dart';
 import '../parsers/widgets/otp_countdown_button_parser.dart';
@@ -567,6 +570,9 @@ void _registerExampleParsers() {
   // Register transfer type bottom sheet action parser
   registerShowTransferTypeBottomSheetActionParser();
 
+  // Register in-bank transfer type bottom sheet action parser
+  registerShowTransferInBankTypeBottomSheetActionParser();
+
   // Register gift-card plan selector bottom sheet action parser
   registerShowGiftCardPlanSelectorBottomSheetActionParser();
 
@@ -598,6 +604,8 @@ void _registerExampleParsers() {
   registerFilterTransferIbanListActionParser();
   registerSetTransferDestinationFromIbanActionParser();
   registerSetTransferDetailsContinueEnabledActionParser();
+  registerSetTransferInBankContinueEnabledActionParser();
+  registerValidateTransferCardContinueActionParser();
 
   // Register transfer receipt action parser
   registerTransferReceiptActionParser();

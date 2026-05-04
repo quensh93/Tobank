@@ -161,6 +161,14 @@ import '../../../../stac/tobank/flows/transfer_real/dart/transfer_real_confirm.d
     as transfer_real_confirm_dart;
 import '../../../../stac/tobank/flows/transfer_real/dart/transfer_real_result.dart'
     as transfer_real_result_dart;
+import '../../../../stac/tobank/flows/transfer_real/dart/transfer_real_in_bank_details.dart'
+    as transfer_real_in_bank_details_dart;
+import '../../../../stac/tobank/flows/transfer_real/dart/transfer_real_in_bank_confirm.dart'
+    as transfer_real_in_bank_confirm_dart;
+import '../../../../stac/tobank/flows/transfer_real/dart/transfer_real_in_bank_result.dart'
+    as transfer_real_in_bank_result_dart;
+import '../../../../stac/tobank/flows/transfer_real/dart/transfer_real_card_details.dart'
+    as transfer_real_card_details_dart;
 import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_intro.dart'
     as gift_card_real_intro_dart;
 import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_select_amount.dart'
@@ -315,6 +323,14 @@ class StacWidgetLoader {
         transfer_real_confirm_dart.transferRealConfirm().toJson(),
     'transfer_real_result': () =>
         transfer_real_result_dart.transferRealResult().toJson(),
+    'transfer_real_in_bank_details': () =>
+        transfer_real_in_bank_details_dart.transferRealInBankDetails().toJson(),
+    'transfer_real_in_bank_confirm': () =>
+        transfer_real_in_bank_confirm_dart.transferRealInBankConfirm().toJson(),
+    'transfer_real_in_bank_result': () =>
+        transfer_real_in_bank_result_dart.transferRealInBankResult().toJson(),
+    'transfer_real_card_details': () =>
+        transfer_real_card_details_dart.transferRealCardDetails().toJson(),
     'gift_card_real_intro': () =>
         gift_card_real_intro_dart.giftCardRealIntro().toJson(),
     'gift_card_real_select_amount': () =>

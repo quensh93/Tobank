@@ -348,7 +348,7 @@ class _CustomTextFormFieldWidgetState
       cursorHeight: widget.model.cursorHeight,
       cursorColor: widget.model.cursorColor?.toColor(context),
       style: widget.model.style?.parse(context),
-      decoration: widget.model.decoration?.parse(context),
+      decoration: _buildDecoration(context),
       inputFormatters: widget.model.inputFormatters
           ?.map(
             (inputFormatter) =>
@@ -395,6 +395,109 @@ class _CustomTextFormFieldWidgetState
         return TextDirection.ltr;
       default:
         return null;
+    }
+  }
+
+  InputDecoration? _buildDecoration(BuildContext context) {
+    final parsedDecoration = widget.model.decoration?.parse(context);
+    final rawDecoration = widget.rawJson?['decoration'];
+    if (rawDecoration is! Map<String, dynamic>) {
+      return parsedDecoration;
+    }
+
+    final hintTextAlign = _parseTextAlign(rawDecoration['hintTextAlign']);
+    if (hintTextAlign == null) {
+      return parsedDecoration;
+    }
+
+    final hintText = rawDecoration['hintText']?.toString();
+    if (hintText == null || hintText.isEmpty) {
+      return parsedDecoration;
+    }
+
+    final hintTextDirection = _parseTextDirection(
+      rawDecoration['hintTextDirection'],
+      context,
+    );
+    final hintAlignment = _mapHintAlignment(hintTextAlign, hintTextDirection);
+    final hintStyle = widget.model.decoration?.hintStyle?.parse(context);
+
+    // Build a base decoration without hint/hintText to avoid Flutter assertion:
+    // "Declaring both hint and hintText is not supported."
+    final rawWithoutHint = Map<String, dynamic>.from(rawDecoration)
+      ..remove('hint')
+      ..remove('hintText')
+      ..remove('hintTextDirection')
+      ..remove('hintTextAlign');
+    final baseDecoration = StacInputDecoration.fromJson(
+      rawWithoutHint,
+    ).parse(context);
+
+    return baseDecoration.copyWith(
+      hint: Align(
+        alignment: hintAlignment,
+        child: Text(
+          hintText,
+          textAlign: hintTextAlign,
+          textDirection: hintTextDirection,
+          style: hintStyle,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
+      ),
+    );
+  }
+
+  TextAlign? _parseTextAlign(dynamic value) {
+    if (value is! String) return null;
+    switch (value.trim().toLowerCase()) {
+      case 'left':
+        return TextAlign.left;
+      case 'right':
+        return TextAlign.right;
+      case 'center':
+        return TextAlign.center;
+      case 'start':
+        return TextAlign.start;
+      case 'end':
+        return TextAlign.end;
+      case 'justify':
+        return TextAlign.justify;
+      default:
+        return null;
+    }
+  }
+
+  TextDirection _parseTextDirection(dynamic value, BuildContext context) {
+    if (value is String) {
+      switch (value.trim().toLowerCase()) {
+        case 'ltr':
+          return TextDirection.ltr;
+        case 'rtl':
+          return TextDirection.rtl;
+      }
+    }
+    return Directionality.of(context);
+  }
+
+  Alignment _mapHintAlignment(TextAlign textAlign, TextDirection textDirection) {
+    switch (textAlign) {
+      case TextAlign.left:
+        return Alignment.centerLeft;
+      case TextAlign.right:
+        return Alignment.centerRight;
+      case TextAlign.center:
+        return Alignment.center;
+      case TextAlign.start:
+        return textDirection == TextDirection.rtl
+            ? Alignment.centerRight
+            : Alignment.centerLeft;
+      case TextAlign.end:
+        return textDirection == TextDirection.rtl
+            ? Alignment.centerLeft
+            : Alignment.centerRight;
+      case TextAlign.justify:
+        return Alignment.centerRight;
     }
   }
 

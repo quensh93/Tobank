@@ -1,8 +1,8 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 
-@StacScreen(screenName: 'transfer_real_result')
-StacWidget transferRealResult() {
+@StacScreen(screenName: 'transfer_real_in_bank_result')
+StacWidget transferRealInBankResult() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
     appBar: StacAppBar(
@@ -33,7 +33,7 @@ StacWidget transferRealResult() {
           StacExpanded(
             child: StacCustomWidget.fromJson({
               'type': 'receiptRepaintBoundary',
-              'boundaryKey': 'transferReceiptContentV2',
+              'boundaryKey': 'transferInBankReceiptContent',
               'child': StacSingleChildScrollView(
                 child: StacColumn(
                   crossAxisAlignment: StacCrossAxisAlignment.stretch,
@@ -194,12 +194,12 @@ StacWidget _resultCard() {
         ),
         _dashedLikeDivider(),
         _resultRow(
-          title: 'شماره شبا مقصد',
+          title: 'شماره سپرده مقصد',
           valueWidget: StacCustomRegistryReactive(
             registryKey: 'transferApiDestinationIban',
             child: {
               'type': 'text',
-              'data': 'IR{{transferApiDestinationIban}}',
+              'data': '{{transferApiDestinationIban}}',
               'textDirection': 'ltr',
               'textAlign': 'left',
               'style': {
@@ -355,7 +355,7 @@ StacWidget _bottomActionButton({
       'mode': mode,
       'title': 'رسید تراکنش',
       'pixelRatio': 3.0,
-      'boundaryKey': 'transferReceiptContentV2',
+      'boundaryKey': 'transferInBankReceiptContent',
     }),
     style: StacButtonStyle(
       fixedSize: const StacSize(999999, 57),

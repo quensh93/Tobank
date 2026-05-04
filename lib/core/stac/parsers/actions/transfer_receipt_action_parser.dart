@@ -1,16 +1,17 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:ui' as ui;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:stac/stac.dart';
 
 import '../../../helpers/logger.dart';
 import '../../registry/custom_component_registry.dart';
 import '../../utils/receipt_boundary_registry.dart';
+import '../../utils/web_file_download_stub.dart'
+    if (dart.library.html) '../../utils/web_file_download_web.dart';
 
 class TransferReceiptActionModel {
   final String mode;
@@ -108,14 +109,21 @@ class TransferReceiptActionParser
       throw Exception('failed to capture image bytes');
     }
     final bytes = byteData.buffer.asUint8List();
-    final tempDir = await getTemporaryDirectory();
-    final path =
-        '${tempDir.path}/transfer_receipt_${DateTime.now().millisecondsSinceEpoch}.png';
-    final file = await File(path).writeAsBytes(bytes, flush: true);
+    final filename =
+        'transfer_receipt_${DateTime.now().millisecondsSinceEpoch}.png';
+
+    if (kIsWeb) {
+      await downloadFileFromBytes(
+        bytes: bytes,
+        fileName: filename,
+        mimeType: 'image/png',
+      );
+      return;
+    }
 
     await SharePlus.instance.share(
       ShareParams(
-        files: [XFile(file.path, mimeType: 'image/png')],
+        files: [XFile.fromData(bytes, name: filename, mimeType: 'image/png')],
         subject: model.title ?? 'رسید تراکنش',
       ),
     );
