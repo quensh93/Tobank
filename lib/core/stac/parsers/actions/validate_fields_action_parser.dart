@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
 import '../../../helpers/logger.dart';
 import '../../utils/registry_notifier.dart';
+import '../../utils/text_form_field_controller_registry.dart';
 
 class ValidateFieldsActionModel {
   final String resultKey;
@@ -62,8 +63,10 @@ class ValidateFieldsActionParser
   FutureOr onCall(BuildContext context, ValidateFieldsActionModel model) {
     final formScope = _tryGetFormScope(context);
     if (formScope == null) {
-      AppLogger.wc(LogCategory.action, 'validateFields: no form scope found');
-      return null;
+      AppLogger.wc(
+        LogCategory.action,
+        'validateFields: no form scope found, using controller/registry fallback',
+      );
     }
 
     var isValid = true;
@@ -75,14 +78,15 @@ class ValidateFieldsActionParser
         if (isOptional) continue;
       }
 
-      final value = formScope.formData[field.id]?.toString() ?? '';
+      final value = _resolveFieldValue(formScope, field.id);
       if (value.isEmpty) {
         isValid = false;
         break;
       }
       if (field.rule != null && field.rule!.isNotEmpty) {
         final regex = RegExp(field.rule!);
-        if (!regex.hasMatch(value)) {
+        final normalized = _normalizeDigits(value);
+        if (!regex.hasMatch(normalized)) {
           isValid = false;
           break;
         }
@@ -100,5 +104,34 @@ class ValidateFieldsActionParser
     } catch (_) {
       return null;
     }
+  }
+
+  String _resolveFieldValue(StacFormScope? formScope, String fieldId) {
+    final fromForm = formScope?.formData[fieldId]?.toString().trim() ?? '';
+    if (fromForm.isNotEmpty) return fromForm;
+
+    final controller = TextFormFieldControllerRegistry.instance.get(fieldId);
+    final fromController = controller?.text.trim() ?? '';
+    if (fromController.isNotEmpty) return fromController;
+
+    final fromFormRegistry =
+        StacRegistry.instance.getValue('form.$fieldId')?.toString().trim() ??
+        '';
+    if (fromFormRegistry.isNotEmpty) return fromFormRegistry;
+
+    final fromDirectRegistry =
+        StacRegistry.instance.getValue(fieldId)?.toString().trim() ?? '';
+    return fromDirectRegistry;
+  }
+
+  String _normalizeDigits(String input) {
+    var output = input;
+    const fa = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+    const ar = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+    for (var i = 0; i < 10; i++) {
+      output = output.replaceAll(fa[i], '$i');
+      output = output.replaceAll(ar[i], '$i');
+    }
+    return output;
   }
 }

@@ -8,7 +8,11 @@ class OtpCountdownButtonModel {
   const OtpCountdownButtonModel({
     this.initialSeconds = 120,
     this.retryLabel = 'تلاش مجدد',
+    this.requestLabel = 'دریافت رمز پویا',
+    this.startOnTap = false,
+    this.showIcon = true,
     this.iconAsset = 'assets/icons/ic_clock.svg',
+    this.onStart,
     this.onRetry,
     this.borderColor,
     this.expiredBorderColor,
@@ -21,7 +25,11 @@ class OtpCountdownButtonModel {
 
   final int initialSeconds;
   final String retryLabel;
+  final String requestLabel;
+  final bool startOnTap;
+  final bool showIcon;
   final String iconAsset;
+  final Map<String, dynamic>? onStart;
   final Map<String, dynamic>? onRetry;
   final String? borderColor;
   final String? expiredBorderColor;
@@ -35,7 +43,11 @@ class OtpCountdownButtonModel {
     return OtpCountdownButtonModel(
       initialSeconds: json['initialSeconds'] as int? ?? 120,
       retryLabel: json['retryLabel'] as String? ?? 'تلاش مجدد',
+      requestLabel: json['requestLabel'] as String? ?? 'دریافت رمز پویا',
+      startOnTap: json['startOnTap'] as bool? ?? false,
+      showIcon: json['showIcon'] as bool? ?? true,
       iconAsset: json['iconAsset'] as String? ?? 'assets/icons/ic_clock.svg',
+      onStart: json['onStart'] as Map<String, dynamic>?,
       onRetry: json['onRetry'] as Map<String, dynamic>?,
       borderColor: json['borderColor'] as String?,
       countdownTextColor: json['countdownTextColor'] as String?,
@@ -43,7 +55,7 @@ class OtpCountdownButtonModel {
       backgroundColor: json['backgroundColor'] as String?,
       height: (json['height'] as num?)?.toDouble() ?? 60,
       minWidth: (json['minWidth'] as num?)?.toDouble() ?? 132,
-      expiredBorderColor:   json['expiredBorderColor'] as String?,
+      expiredBorderColor: json['expiredBorderColor'] as String?,
     );
   }
 }
@@ -77,12 +89,16 @@ class _OtpCountdownButton extends StatefulWidget {
 class _OtpCountdownButtonState extends State<_OtpCountdownButton> {
   Timer? _timer;
   late int _remainingSeconds;
+  late bool _hasStarted;
 
   @override
   void initState() {
     super.initState();
     _remainingSeconds = widget.model.initialSeconds;
-    _startTimer();
+    _hasStarted = !widget.model.startOnTap;
+    if (_hasStarted) {
+      _startTimer();
+    }
   }
 
   @override
@@ -110,6 +126,24 @@ class _OtpCountdownButtonState extends State<_OtpCountdownButton> {
     });
   }
 
+  Future<void> _handleStart() async {
+    if (_hasStarted) return;
+
+    setState(() {
+      _hasStarted = true;
+      _remainingSeconds = widget.model.initialSeconds;
+    });
+    _startTimer();
+
+    if (widget.model.onStart != null) {
+      await Stac.onCallFromJson(widget.model.onStart!, context);
+      return;
+    }
+    if (widget.model.onRetry != null) {
+      await Stac.onCallFromJson(widget.model.onRetry!, context);
+    }
+  }
+
   Future<void> _handleRetry() async {
     if (_remainingSeconds > 0) return;
 
@@ -125,6 +159,7 @@ class _OtpCountdownButtonState extends State<_OtpCountdownButton> {
 
   @override
   Widget build(BuildContext context) {
+    final isWaitingToStart = widget.model.startOnTap && !_hasStarted;
     final isExpired = _remainingSeconds <= 0;
     final borderColor =
         _parseColor(widget.model.borderColor) ??
@@ -146,13 +181,33 @@ class _OtpCountdownButtonState extends State<_OtpCountdownButton> {
       child: SizedBox(
         height: widget.model.height,
         child: GestureDetector(
-          onTap: isExpired ? _handleRetry : null,
+          onTap: isWaitingToStart
+              ? _handleStart
+              : isExpired
+              ? _handleRetry
+              : null,
           child: Container(
             decoration: BoxDecoration(
-              border: Border.all(width: 1, color:  isExpired ? expiredBorderColor:borderColor),
+              border: Border.all(
+                width: 1,
+                color: isExpired ? expiredBorderColor : borderColor,
+              ),
               borderRadius: BorderRadius.circular(12),
+              color: backgroundColor,
             ),
-            child: isExpired
+            child: isWaitingToStart
+                ? Center(
+                    child: Text(
+                      widget.model.requestLabel,
+                      textDirection: TextDirection.rtl,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                        color: retryTextColor,
+                      ),
+                    ),
+                  )
+                : isExpired
                 ? Center(
                     child: Text(
                       widget.model.retryLabel,
@@ -169,15 +224,17 @@ class _OtpCountdownButtonState extends State<_OtpCountdownButton> {
                     mainAxisSize: MainAxisSize.min,
                     textDirection: TextDirection.ltr,
                     children: [
-                      _buildCountdownIcon(countdownTextColor),
-                      const SizedBox(width: 8),
+                      if (widget.model.showIcon) ...[
+                        _buildCountdownIcon(countdownTextColor),
+                        const SizedBox(width: 8),
+                      ],
                       SizedBox(
-                        width: 42,
+                        width: 43,
                         child: Text(
                           _formatDuration(_remainingSeconds),
                           textDirection: TextDirection.ltr,
                           style: TextStyle(
-                            fontSize: 17,
+                            fontSize: 18,
                             fontWeight: FontWeight.w600,
                             color: countdownTextColor,
                           ),
@@ -193,6 +250,9 @@ class _OtpCountdownButtonState extends State<_OtpCountdownButton> {
 
   Widget _buildCountdownIcon(Color countdownTextColor) {
     final iconAsset = widget.model.iconAsset;
+    if (iconAsset.trim().isEmpty) {
+      return const SizedBox.shrink();
+    }
     final isSvg = iconAsset.toLowerCase().endsWith('.svg');
 
     if (isSvg) {

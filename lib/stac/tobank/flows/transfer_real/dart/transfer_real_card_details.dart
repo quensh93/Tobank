@@ -12,6 +12,8 @@ StacWidget transferRealCardDetails() {
         {'key': 'transferApiCardAmountWords', 'value': ''},
         {'key': 'transferApiCardDetailsContinueEnabled', 'value': false},
         {'key': 'transferApiCardAmountHasText', 'value': false},
+        {'key': 'transferApiCardDescription', 'value': ''},
+        {'key': 'transferApiCardDescriptionHasText', 'value': false},
       ],
     ),
     child: StacScaffold(
@@ -39,7 +41,12 @@ StacWidget transferRealCardDetails() {
       body: StacForm(
         autovalidateMode: StacAutovalidateMode.onUserInteraction,
         child: StacPadding(
-          padding: StacEdgeInsets.only(left: 16, top: 16, right: 16, bottom: 23),
+          padding: StacEdgeInsets.only(
+            left: 16,
+            top: 16,
+            right: 16,
+            bottom: 23,
+          ),
           child: StacColumn(
             crossAxisAlignment: StacCrossAxisAlignment.stretch,
             children: [
@@ -254,7 +261,7 @@ StacWidget _amountInput() {
   return StacCustomTextFormField(
     id: 'transferApiCardAmountInput',
     textDirection: 'ltr',
-    textAlign: 'right',
+    textAlign: 'left',
     keyboardType: 'number',
     maxLength: 14,
     formatThousands: true,
@@ -296,40 +303,50 @@ StacWidget _amountInput() {
       fontWeight: StacFontWeight.w600,
       color: '{{appColors.current.text.title}}',
     ).toJson(),
-    decoration: StacInputDecoration(
-      hintText: 'مبلغ انتقال را به ریال وارد کنید',
-      hintStyle: StacCustomTextStyle(
-        fontSize: 16,
-        fontWeight: StacFontWeight.w500,
-        color: '{{appColors.current.text.hint}}',
-      ),
-      contentPadding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 19.5),
-      filled: false,
-      suffixIcon: StacRawJsonWidget({
-        'type': 'visibility',
-        'visible': '[[transferApiCardAmountHasText]]',
-        'child': StacGestureDetector(
-          onTap: const StacCustomSetValueAction(
-            values: [
-              {'key': 'transferApiCardAmountInput', 'value': ''},
-              {'key': 'transferApiCardAmountRaw', 'value': ''},
-              {'key': 'transferApiCardAmountWords', 'value': ''},
-              {'key': 'transferApiCardDetailsContinueEnabled', 'value': false},
-              {'key': 'transferApiCardAmountHasText', 'value': false},
-            ],
-          ),
-          child: StacPadding(
-            padding: StacEdgeInsets.only(left: 10, right: 10),
-            child: StacIcon(
-              icon: StacIcons.close,
-              size: 19,
-              color: '{{appColors.current.text.subtitle}}',
+    decoration: {
+      ...StacInputDecoration(
+        hintText: 'مبلغ انتقال را به ریال وارد کنید',
+        hintStyle: StacCustomTextStyle(
+          fontSize: 16,
+          fontWeight: StacFontWeight.w500,
+          color: '{{appColors.current.text.hint}}',
+        ),
+        contentPadding: StacEdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 19.5,
+        ),
+        filled: false,
+        suffixIcon: StacRawJsonWidget({
+          'type': 'visibility',
+          'visible': '[[transferApiCardAmountHasText]]',
+          'child': StacGestureDetector(
+            onTap: const StacCustomSetValueAction(
+              values: [
+                {'key': 'transferApiCardAmountInput', 'value': ''},
+                {'key': 'transferApiCardAmountRaw', 'value': ''},
+                {'key': 'transferApiCardAmountWords', 'value': ''},
+                {
+                  'key': 'transferApiCardDetailsContinueEnabled',
+                  'value': false,
+                },
+                {'key': 'transferApiCardAmountHasText', 'value': false},
+              ],
             ),
-          ),
-        ).toJson(),
-        'replacement': StacSizedBox(width: 24).toJson(),
-      }),
-    ).toJson(),
+            child: StacPadding(
+              padding: StacEdgeInsets.only(left: 10, right: 10),
+              child: StacIcon(
+                icon: StacIcons.close,
+                size: 19,
+                color: '{{appColors.current.text.subtitle}}',
+              ),
+            ),
+          ).toJson(),
+          'replacement': StacSizedBox(width: 24).toJson(),
+        }),
+      ).toJson(),
+      'hintTextDirection': 'rtl',
+      'hintTextAlign': 'right',
+    },
   );
 }
 
@@ -357,6 +374,21 @@ StacWidget _amountWords() {
 StacWidget _descriptionInput() {
   return StacCustomTextFormField(
     id: 'transferApiCardDescriptionInput',
+    onChanged: StacSequenceAction(
+      actions: [
+        StacCustomSetValueAction(
+          key: 'transferApiCardDescription',
+          value: StacGetFormValueAction(id: 'transferApiCardDescriptionInput'),
+        ),
+        StacRawJsonAction({
+          'actionType': 'validateFields',
+          'resultKey': 'transferApiCardDescriptionHasText',
+          'fields': [
+            {'id': 'transferApiCardDescriptionInput'},
+          ],
+        }),
+      ],
+    ),
     textDirection: 'rtl',
     textAlign: 'right',
     keyboardType: 'text',

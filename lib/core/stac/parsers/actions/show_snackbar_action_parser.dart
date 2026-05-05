@@ -9,12 +9,14 @@ class ShowSnackBarActionModel {
   final String? backgroundColor;
   final int? duration;
   final String? textColor;
+  final String? snackStyle;
 
   const ShowSnackBarActionModel({
     required this.message,
     this.backgroundColor,
     this.duration,
     this.textColor,
+    this.snackStyle,
   });
 
   factory ShowSnackBarActionModel.fromJson(Map<String, dynamic> json) {
@@ -38,6 +40,7 @@ class ShowSnackBarActionModel {
       backgroundColor: json['backgroundColor'] as String?,
       duration: json['duration'] as int?,
       textColor: json['textColor'] as String?,
+      snackStyle: json['snackStyle'] as String?,
     );
   }
 }
@@ -67,25 +70,112 @@ abstract class _BaseShowSnackBarActionParser
       txtColor = _parseColor(model.textColor!);
     }
 
-    final snackBar = SnackBar(
-      content: Text(
-        resolvedMessage,
-        style: TextStyle(
-          color: txtColor ?? Colors.white,
-          fontSize: 14,
-          fontWeight: FontWeight.w500,
-        ),
-        textDirection: TextDirection.rtl,
-      ),
-      backgroundColor: bgColor ?? Colors.black87,
-      duration: Duration(milliseconds: model.duration ?? 3000),
-      behavior: SnackBarBehavior.floating,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      margin: const EdgeInsets.all(16),
-    );
+    final useInfoCardStyle =
+        model.snackStyle?.trim().toLowerCase() == 'infocard';
+
+    final snackBar = useInfoCardStyle
+        ? _buildInfoCardSnackBar(
+            context: context,
+            message: resolvedMessage,
+            durationMs: model.duration ?? 3000,
+            backgroundColor: bgColor,
+            textColor: txtColor,
+          )
+        : SnackBar(
+            content: Text(
+              resolvedMessage,
+              style: TextStyle(
+                color: txtColor ?? Colors.white,
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
+              textDirection: TextDirection.rtl,
+            ),
+            backgroundColor: bgColor ?? Colors.black87,
+            duration: Duration(milliseconds: model.duration ?? 3000),
+            behavior: SnackBarBehavior.floating,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+            margin: const EdgeInsets.all(16),
+          );
 
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
     return null;
+  }
+
+  SnackBar _buildInfoCardSnackBar({
+    required BuildContext context,
+    required String message,
+    required int durationMs,
+    Color? backgroundColor,
+    Color? textColor,
+  }) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final bg = isDark
+        ? (backgroundColor ?? const Color(0xE11D2939))
+        : Colors.white;
+    final txt = isDark
+        ? (textColor ?? const Color(0xFFD0D5DD))
+        : const Color(0xFF475467);
+    final divider = txt.withValues(alpha: 0.40);
+    final iconColor = txt.withValues(alpha: 0.95);
+    final iconBg = isDark
+        ? Colors.white.withValues(alpha: 0.08)
+        : const Color(0xFFF2F4F7);
+    final border = isDark
+        ? const Color(0xFFD0D7DD).withValues(alpha: 0.55)
+        : const Color(0xFF475467).withValues(alpha: 0.35);
+
+    return SnackBar(
+      content: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 22),
+          decoration: BoxDecoration(
+            color: bg,
+            borderRadius: BorderRadius.circular(7),
+            border: Border.all(color: border, width: 2),
+          ),
+          child: Row(
+            textDirection: TextDirection.rtl,
+            children: [
+              Container(
+                width: 26,
+                height: 26,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: iconBg,
+                ),
+                child: Icon(Icons.info_outline, size: 18, color: iconColor),
+              ),
+              const SizedBox(width: 8),
+              Container(width: 1, height: 24, color: divider),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  message,
+                  textDirection: TextDirection.rtl,
+                  textAlign: TextAlign.right,
+                  style: TextStyle(
+                    color: txt,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    height: 1.35,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      duration: Duration(milliseconds: durationMs + 1000),
+      behavior: SnackBarBehavior.floating,
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+      padding: EdgeInsets.zero,
+      margin: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+    );
   }
 
   String _resolveTemplateVariables(String text) {

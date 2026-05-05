@@ -161,6 +161,8 @@ import '../../../../stac/tobank/flows/transfer_real/dart/transfer_real_confirm.d
     as transfer_real_confirm_dart;
 import '../../../../stac/tobank/flows/transfer_real/dart/transfer_real_result.dart'
     as transfer_real_result_dart;
+import '../../../../stac/tobank/flows/transfer_real/dart/transfer_real_card_result.dart'
+    as transfer_real_card_result_dart;
 import '../../../../stac/tobank/flows/transfer_real/dart/transfer_real_in_bank_details.dart'
     as transfer_real_in_bank_details_dart;
 import '../../../../stac/tobank/flows/transfer_real/dart/transfer_real_in_bank_confirm.dart'
@@ -323,6 +325,8 @@ class StacWidgetLoader {
         transfer_real_confirm_dart.transferRealConfirm().toJson(),
     'transfer_real_result': () =>
         transfer_real_result_dart.transferRealResult().toJson(),
+    'transfer_real_card_result': () =>
+        transfer_real_card_result_dart.transferRealCardResult().toJson(),
     'transfer_real_in_bank_details': () =>
         transfer_real_in_bank_details_dart.transferRealInBankDetails().toJson(),
     'transfer_real_in_bank_confirm': () =>

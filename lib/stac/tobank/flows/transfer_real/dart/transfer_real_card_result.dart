@@ -1,8 +1,8 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 
-@StacScreen(screenName: 'transfer_real_result')
-StacWidget transferRealResult() {
+@StacScreen(screenName: 'transfer_real_card_result')
+StacWidget transferRealCardResult() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
     appBar: StacAppBar(
@@ -25,110 +25,52 @@ StacWidget transferRealResult() {
         ),
       ),
     ),
-    body: StacCustomVisibility(
-      visible: '[[transferApiTabCard]]',
-      child: _cardResultContent().toJson(),
-      replacement: _defaultResultContent().toJson(),
-    ),
-  );
-}
-
-StacWidget _cardResultContent() {
-  return StacPadding(
-    padding: StacEdgeInsets.only(left: 16, top: 14, right: 16, bottom: 24),
-    child: StacColumn(
-      crossAxisAlignment: StacCrossAxisAlignment.stretch,
-      children: [
-        StacExpanded(
-          child: StacSingleChildScrollView(
-            child: StacColumn(
-              crossAxisAlignment: StacCrossAxisAlignment.stretch,
-              children: [
-                _cardSuccessHeader(),
-                StacSizedBox(height: 16),
-                _cardResultCard(),
-                StacSizedBox(height: 18),
-                _brandSection(),
-              ],
-            ),
+    body: StacPadding(
+      padding: StacEdgeInsets.only(left: 16, top: 14, right: 16, bottom: 35),
+      child: StacColumn(
+        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+        children: [
+          StacExpanded(
+            child: StacCustomWidget.fromJson({
+              'type': 'receiptRepaintBoundary',
+              'boundaryKey': 'transferCardReceiptContent',
+              'child': StacSingleChildScrollView(
+                child: StacColumn(
+                  crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                  children: [
+                    _cardSuccessHeader(),
+                    StacSizedBox(height: 16),
+                    _cardResultCard(),
+                    StacSizedBox(height: 18),
+                    _brandSection(),
+                  ],
+                ),
+              ).toJson(),
+            }),
           ),
-        ),
-      ],
-    ),
-  );
-}
-
-StacWidget _defaultResultContent() {
-  return StacPadding(
-    padding: StacEdgeInsets.only(left: 16, top: 14, right: 16, bottom: 35),
-    child: StacColumn(
-      crossAxisAlignment: StacCrossAxisAlignment.stretch,
-      children: [
-        StacExpanded(
-          child: StacCustomWidget.fromJson({
-            'type': 'receiptRepaintBoundary',
-            'boundaryKey': 'transferReceiptContentV2',
-            'child': StacSingleChildScrollView(
-              child: StacColumn(
-                crossAxisAlignment: StacCrossAxisAlignment.stretch,
-                children: [
-                  _successHeader(),
-                  StacSizedBox(height: 14),
-                  _resultCard(),
-                  StacSizedBox(height: 20),
-                  _brandSection(),
-                ],
+          StacSizedBox(height: 12),
+          StacRow(
+            children: [
+              StacExpanded(
+                child: _bottomActionButton(
+                  title: 'متن رسید',
+                  iconAsset: 'assets/icons/ic_download.svg',
+                  mode: 'shareText',
+                ),
               ),
-            ).toJson(),
-          }),
-        ),
-        StacSizedBox(height: 12),
-        StacRow(
-          children: [
-            StacExpanded(
-              child: _bottomActionButton(
-                title: 'متن رسید',
-                iconAsset: 'assets/icons/ic_download.svg',
-                mode: 'shareText',
+              StacSizedBox(width: 10),
+              StacExpanded(
+                child: _bottomActionButton(
+                  title: 'تصویر رسید',
+                  iconAsset: 'assets/icons/ic_share.svg',
+                  mode: 'shareImage',
+                ),
               ),
-            ),
-            StacSizedBox(width: 10),
-            StacExpanded(
-              child: _bottomActionButton(
-                title: 'تصویر رسید',
-                iconAsset: 'assets/icons/ic_share.svg',
-                mode: 'shareImage',
-              ),
-            ),
-          ],
-        ),
-      ],
-    ),
-  );
-}
-
-StacWidget _successHeader() {
-  return StacColumn(
-    children: [
-      StacSizedBox(height: 8),
-      StacImage(
-        src: 'assets/icons/ic_transaction_success.svg',
-        imageType: StacImageType.asset,
-        width: 88,
-        height: 88,
+            ],
+          ),
+        ],
       ),
-      StacSizedBox(height: 18),
-      StacText(
-        data: 'درخواست انتقال شما با موفقیت ثبت شد.',
-        textDirection: StacTextDirection.rtl,
-        textAlign: StacTextAlign.center,
-        style: StacCustomTextStyle(
-          fontSize: 18,
-          fontWeight: StacFontWeight.w600,
-          color: '{{appColors.current.text.title}}',
-        ),
-      ),
-    ],
+    ),
   );
 }
 
@@ -330,165 +272,37 @@ StacWidget _cardResultCard() {
         _dashedLikeDivider(),
         _resultRow(
           title: 'توضیحات',
-          valueWidget: StacText(
-            data: '-',
-            textDirection: StacTextDirection.rtl,
-            textAlign: StacTextAlign.left,
-            style: StacCustomTextStyle(
-              fontSize: 17,
-              fontWeight: StacFontWeight.w600,
-              color: '{{appColors.current.text.subtitle}}',
-            ),
-          ),
-        ),
-      ],
-    ),
-  );
-}
-
-StacWidget _resultCard() {
-  return StacContainer(
-    padding: StacEdgeInsets.symmetric(horizontal: 14, vertical: 14),
-    decoration: StacBoxDecoration(
-      borderRadius: StacBorderRadius.all(11),
-      border: StacBorder.all(
-        color: '{{appColors.current.input.borderEnabled}}',
-        width: 1,
-      ),
-      color: '{{appColors.current.background.surface}}',
-    ),
-    child: StacColumn(
-      children: [
-        _resultRow(
-          title: 'نوع انتقال',
           valueWidget: StacCustomRegistryReactive(
-            registryKey: 'transferApiTransferTypeTitle',
+            registryKey: 'transferApiCardDescriptionHasText',
             child: {
-              'type': 'text',
-              'data': '{{transferApiTransferTypeTitle}}',
-              'textDirection': 'rtl',
-              'textAlign': 'left',
-              'style': {
-                'type': 'custom',
-                'fontSize': 17,
-                'fontWeight': 'w700',
-                'color': '{{appColors.current.text.title}}',
-              },
-            },
-          ),
-        ),
-        _dashedLikeDivider(),
-        _resultRow(
-          title: 'مبلغ انتقال',
-          valueWidget: StacCustomRegistryReactive(
-            registryKey: 'transferApiAmountRaw',
-            child: StacRow(
-              mainAxisSize: StacMainAxisSize.min,
-              textDirection: StacTextDirection.ltr,
-              children: [
-                StacRawJsonWidget({
+              'type': 'visibility',
+              'visible': '[[transferApiCardDescriptionHasText]]',
+              'child': StacCustomRegistryReactive(
+                registryKey: 'transferApiCardDescription',
+                child: {
                   'type': 'text',
-                  'data': '{{transferApiAmountRaw}}',
-                  'textDirection': 'ltr',
+                  'data': '{{transferApiCardDescription}}',
+                  'textDirection': 'rtl',
+                  'textAlign': 'left',
                   'style': {
                     'type': 'custom',
                     'fontSize': 17,
-                    'fontWeight': 'w700',
+                    'fontWeight': 'w600',
                     'color': '{{appColors.current.text.title}}',
                   },
-                }),
-                StacSizedBox(width: 4),
-                StacText(
-                  data: 'ریال',
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 17,
-                    fontWeight: StacFontWeight.w700,
-                    color: '{{appColors.current.text.title}}',
-                  ),
+                },
+              ).toJson(),
+              'replacement': StacText(
+                data: '-',
+                textDirection: StacTextDirection.rtl,
+                textAlign: StacTextAlign.left,
+                style: StacCustomTextStyle(
+                  fontSize: 17,
+                  fontWeight: StacFontWeight.w600,
+                  color: '{{appColors.current.text.subtitle}}',
                 ),
-              ],
-            ).toJson(),
-          ),
-        ),
-        _dashedLikeDivider(),
-        _resultRow(
-          title: 'زمان انتقال وجه',
-          valueWidget: StacText(
-            data: '۱۴۰۵/۰۲/۰۵ - ۱۲:۲۶',
-            textDirection: StacTextDirection.ltr,
-            textAlign: StacTextAlign.left,
-            style: StacCustomTextStyle(
-              fontSize: 17,
-              fontWeight: StacFontWeight.w700,
-              color: '{{appColors.current.text.title}}',
-            ),
-          ),
-        ),
-        _dashedLikeDivider(),
-        _resultRow(
-          title: 'شماره سپرده مبدا',
-          valueWidget: StacText(
-            data: '۱۱۰.۹۹۲۲.۱۷۹۳۸۵۸.۱',
-            textDirection: StacTextDirection.ltr,
-            textAlign: StacTextAlign.left,
-            style: StacCustomTextStyle(
-              fontSize: 17,
-              fontWeight: StacFontWeight.w700,
-              color: '{{appColors.current.text.title}}',
-            ),
-          ),
-        ),
-        _dashedLikeDivider(),
-        _resultRow(
-          title: 'شماره شبا مقصد',
-          valueWidget: StacCustomRegistryReactive(
-            registryKey: 'transferApiDestinationIban',
-            child: {
-              'type': 'text',
-              'data': 'IR{{transferApiDestinationIban}}',
-              'textDirection': 'ltr',
-              'textAlign': 'left',
-              'style': {
-                'type': 'custom',
-                'fontSize': 17,
-                'fontWeight': 'w700',
-                'color': '{{appColors.current.text.title}}',
-              },
+              ).toJson(),
             },
-          ),
-        ),
-        _dashedLikeDivider(),
-        _resultRow(
-          title: 'صاحب سپرده مقصد',
-          valueWidget: StacCustomRegistryReactive(
-            registryKey: 'transferApiDestinationName',
-            child: {
-              'type': 'text',
-              'data': '{{transferApiDestinationName}}',
-              'textDirection': 'rtl',
-              'textAlign': 'left',
-              'style': {
-                'type': 'custom',
-                'fontSize': 17,
-                'fontWeight': 'w700',
-                'color': '{{appColors.current.text.title}}',
-              },
-            },
-          ),
-        ),
-        _dashedLikeDivider(),
-        _resultRow(
-          title: 'شماره پیگیری بانکی',
-          valueWidget: StacText(
-            data: '۱۴۰۵۰۲۰۵۰۶۴۳۰۰۳۸۵۲۱۷۱',
-            textDirection: StacTextDirection.ltr,
-            textAlign: StacTextAlign.left,
-            style: StacCustomTextStyle(
-              fontSize: 17,
-              fontWeight: StacFontWeight.w700,
-              color: '{{appColors.current.text.title}}',
-            ),
           ),
         ),
       ],
@@ -602,7 +416,7 @@ StacWidget _bottomActionButton({
       'mode': mode,
       'title': 'رسید تراکنش',
       'pixelRatio': 3.0,
-      'boundaryKey': 'transferReceiptContentV2',
+      'boundaryKey': 'transferCardReceiptContent',
     }),
     style: StacButtonStyle(
       fixedSize: const StacSize(999999, 57),
@@ -623,7 +437,6 @@ StacWidget _bottomActionButton({
           ),
         ),
         StacSizedBox(width: 8),
-
         StacImage(
           src: iconAsset,
           imageType: StacImageType.asset,

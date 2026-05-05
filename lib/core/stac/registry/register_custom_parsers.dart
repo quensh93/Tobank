@@ -51,6 +51,8 @@ import '../parsers/actions/show_gift_card_design_type_bottom_sheet_action_parser
 import '../parsers/actions/show_transfer_purpose_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_transfer_type_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_transfer_in_bank_type_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_card_expire_select_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_transfer_card_confirm_dialog_action_parser.dart';
 import '../parsers/actions/show_gift_card_plan_selector_bottom_sheet_action_parser.dart';
 import '../parsers/actions/add_gift_card_amount_card_action_parser.dart';
 import '../parsers/actions/remove_gift_card_amount_card_action_parser.dart';
@@ -274,6 +276,33 @@ Future<void> registerCustomParsers() async {
       AppLogger.ec(
         LogCategory.registry,
         '❌ Failed to register custom setValue action parser: $e\n$stackTrace',
+      );
+    }
+
+    // Register custom validateFields action parser to override the default one.
+    // Needed for robust form validation with controller fallback and digit normalization.
+    try {
+      const customValidateFieldsParser = ValidateFieldsActionParser();
+      final success = stacRegistry.registerAction(
+        customValidateFieldsParser,
+        true,
+      ); // override: true
+      if (success) {
+        actionCount++;
+        AppLogger.ic(
+          LogCategory.registry,
+          '✅ Registered custom validateFields action parser (overriding default)',
+        );
+      } else {
+        AppLogger.wc(
+          LogCategory.registry,
+          '⚠️ Failed to register custom validateFields action parser',
+        );
+      }
+    } catch (e, stackTrace) {
+      AppLogger.ec(
+        LogCategory.registry,
+        '❌ Failed to register custom validateFields action parser: $e\n$stackTrace',
       );
     }
 
@@ -572,6 +601,12 @@ void _registerExampleParsers() {
 
   // Register in-bank transfer type bottom sheet action parser
   registerShowTransferInBankTypeBottomSheetActionParser();
+
+  // Register card expire month/year selector bottom sheet action parser
+  registerShowCardExpireSelectBottomSheetActionParser();
+
+  // Register transfer card confirmation dialog action parser
+  registerShowTransferCardConfirmDialogActionParser();
 
   // Register gift-card plan selector bottom sheet action parser
   registerShowGiftCardPlanSelectorBottomSheetActionParser();

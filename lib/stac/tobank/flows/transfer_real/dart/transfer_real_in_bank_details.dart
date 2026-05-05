@@ -60,6 +60,9 @@ StacWidget transferRealInBankDetails() {
                         id: 'transferApiAmountInput',
                         hint: 'مبلغ انتقال را به ریال وارد کنید',
                         textDirection: 'ltr',
+                        textAlign: 'left',
+                        hintTextDirection: 'rtl',
+                        hintTextAlign: 'right',
                         keyboardType: 'number',
                         maxLength: 14,
                         digitsOnly: true,
@@ -218,6 +221,9 @@ StacWidget _textInput({
   required String id,
   required String hint,
   required String textDirection,
+  String textAlign = 'right',
+  String? hintTextDirection,
+  String? hintTextAlign,
   required String keyboardType,
   int? maxLength,
   int maxLines = 1,
@@ -229,7 +235,7 @@ StacWidget _textInput({
   return StacCustomTextFormField(
     id: id,
     textDirection: textDirection,
-    textAlign: 'right',
+    textAlign: textAlign,
     keyboardType: keyboardType,
     maxLength: maxLength,
     maxLines: maxLines,
@@ -246,16 +252,20 @@ StacWidget _textInput({
       fontWeight: StacFontWeight.w600,
       color: '{{appColors.current.text.title}}',
     ).toJson(),
-    decoration: StacInputDecoration(
-      hintText: hint,
-      hintStyle: StacCustomTextStyle(
-        fontSize: 16,
-        fontWeight: StacFontWeight.w500,
-        color: '{{appColors.current.text.hint}}',
-      ),
-      contentPadding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 19.5),
-      filled: false,
-    ).toJson(),
+    decoration: {
+      ...StacInputDecoration(
+        hintText: hint,
+        hintStyle: StacCustomTextStyle(
+          fontSize: 16,
+          fontWeight: StacFontWeight.w500,
+          color: '{{appColors.current.text.hint}}',
+        ),
+        contentPadding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 19.5),
+        filled: false,
+      ).toJson(),
+      if (hintTextDirection != null) 'hintTextDirection': hintTextDirection,
+      if (hintTextAlign != null) 'hintTextAlign': hintTextAlign,
+    },
   );
 }
 
