@@ -53,6 +53,7 @@ import '../parsers/actions/show_transfer_type_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_transfer_in_bank_type_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_card_expire_select_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_transfer_card_confirm_dialog_action_parser.dart';
+import '../parsers/actions/show_transfer_card_scanner_action_parser.dart';
 import '../parsers/actions/show_gift_card_plan_selector_bottom_sheet_action_parser.dart';
 import '../parsers/actions/add_gift_card_amount_card_action_parser.dart';
 import '../parsers/actions/remove_gift_card_amount_card_action_parser.dart';
@@ -607,6 +608,9 @@ void _registerExampleParsers() {
 
   // Register transfer card confirmation dialog action parser
   registerShowTransferCardConfirmDialogActionParser();
+
+  // Register transfer card scanner action parser
+  registerShowTransferCardScannerActionParser();
 
   // Register gift-card plan selector bottom sheet action parser
   registerShowGiftCardPlanSelectorBottomSheetActionParser();

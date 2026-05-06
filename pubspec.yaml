@@ -62,6 +62,7 @@ dependencies:
   dio_mocked_responses: ^1.6.5
   persian_datetime_picker: ^3.2.0
   flutter_svg: ^2.2.3
+  ml_card_scanner: ^0.2.3
   syncfusion_flutter_pdf: ^28.2.9
   syncfusion_flutter_pdfviewer: ^28.2.9
   secure_plugin:
@@ -142,6 +143,8 @@ flutter:
     - lib/stac/tobank/flows/transaction_real/json/
     - lib/stac/tobank/flows/profile_real/json/
     - lib/stac/tobank/flows/dashboard_real/json/
+    - lib/stac/tobank/flows/transfer_real/json/
+    - lib/stac/tobank/flows/transfer_real/api/
     - lib/stac/tobank/flows/gift_card_real/json/
     - lib/stac/tobank/flows/gift_card_real/api_json/
     - lib/stac/tobank/home_page/json/
