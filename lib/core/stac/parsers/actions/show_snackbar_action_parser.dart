@@ -10,6 +10,7 @@ class ShowSnackBarActionModel {
   final int? duration;
   final String? textColor;
   final String? snackStyle;
+  final Map<String, dynamic>? child;
 
   const ShowSnackBarActionModel({
     required this.message,
@@ -17,6 +18,7 @@ class ShowSnackBarActionModel {
     this.duration,
     this.textColor,
     this.snackStyle,
+    this.child,
   });
 
   factory ShowSnackBarActionModel.fromJson(Map<String, dynamic> json) {
@@ -41,6 +43,9 @@ class ShowSnackBarActionModel {
       duration: json['duration'] as int?,
       textColor: json['textColor'] as String?,
       snackStyle: json['snackStyle'] as String?,
+      child: json['child'] is Map
+          ? Map<String, dynamic>.from(json['child'] as Map)
+          : null,
     );
   }
 }
@@ -56,7 +61,11 @@ abstract class _BaseShowSnackBarActionParser
   @override
   FutureOr<void> onCall(BuildContext context, ShowSnackBarActionModel model) {
     final resolvedMessage = _resolveTemplateVariables(model.message);
-    if (resolvedMessage.trim().isEmpty) {
+    final customChild = model.child != null
+        ? Stac.fromJson(model.child!, context)
+        : null;
+
+    if (resolvedMessage.trim().isEmpty && customChild == null) {
       return null;
     }
 
@@ -73,7 +82,17 @@ abstract class _BaseShowSnackBarActionParser
     final useInfoCardStyle =
         model.snackStyle?.trim().toLowerCase() == 'infocard';
 
-    final snackBar = useInfoCardStyle
+    final snackBar = customChild != null
+        ? SnackBar(
+            content: customChild,
+            backgroundColor: bgColor ?? Colors.transparent,
+            duration: Duration(milliseconds: model.duration ?? 3000),
+            behavior: SnackBarBehavior.floating,
+            elevation: 0,
+            padding: EdgeInsets.zero,
+            margin: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+          )
+        : useInfoCardStyle
         ? _buildInfoCardSnackBar(
             context: context,
             message: resolvedMessage,
