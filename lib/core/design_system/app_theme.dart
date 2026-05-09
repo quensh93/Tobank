@@ -4,6 +4,17 @@ import 'tokens.dart' as ds;
 import 'typography.dart';
 import 'semantic_colors.dart';
 
+AppBarTheme buildStableAppBarTheme(ColorScheme scheme) {
+  return AppBarTheme(
+    backgroundColor: scheme.surface,
+    foregroundColor: scheme.onSurface,
+    elevation: 0,
+    scrolledUnderElevation: 0,
+    surfaceTintColor: Colors.transparent,
+    shadowColor: Colors.transparent,
+  );
+}
+
 ThemeData buildTheme({required Brightness brightness}) {
   final scheme = brightness == Brightness.dark ? darkScheme : lightScheme;
   final textTheme = buildTextTheme(brightness: brightness);
@@ -15,6 +26,7 @@ ThemeData buildTheme({required Brightness brightness}) {
     useMaterial3: true,
     colorScheme: scheme,
     textTheme: textTheme,
+    appBarTheme: buildStableAppBarTheme(scheme),
 
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(

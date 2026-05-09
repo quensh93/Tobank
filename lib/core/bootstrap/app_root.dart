@@ -99,6 +99,16 @@ class _AppRootState extends ConsumerState<AppRoot> {
     }
   }
 
+  Widget _wrapWithStableAppBarTheme(BuildContext context, Widget child) {
+    final baseTheme = Theme.of(context);
+    return Theme(
+      data: baseTheme.copyWith(
+        appBarTheme: buildStableAppBarTheme(baseTheme.colorScheme),
+      ),
+      child: child,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final Widget homeWidget = AppRoot.startFromPromissoryRealFlow
@@ -230,7 +240,10 @@ class _AppRootState extends ConsumerState<AppRoot> {
                       isLogPageEnabled: false,
                       isPerformanceEnabled: true,
                     ),
-                    child: child ?? const SizedBox.shrink(),
+                    child: _wrapWithStableAppBarTheme(
+                      context,
+                      child ?? const SizedBox.shrink(),
+                    ),
                   );
 
                   // Debug: Log ISpectBuilder creation
@@ -247,12 +260,18 @@ class _AppRootState extends ConsumerState<AppRoot> {
                   debugPrint('❌ ISpectBuilder error: $e');
                   debugPrint('Stack: $stackTrace');
                   AppLogger.e('❌ ISpectBuilder error: $e', stackTrace);
-                  return child ?? const SizedBox.shrink();
+                  return _wrapWithStableAppBarTheme(
+                    context,
+                    child ?? const SizedBox.shrink(),
+                  );
                 }
               }
               debugPrint('ℹ️ ISpect disabled in builder - panel will not show');
               AppLogger.d('ℹ️ ISpect disabled in builder - observer is null');
-              return child ?? const SizedBox.shrink();
+              return _wrapWithStableAppBarTheme(
+                context,
+                child ?? const SizedBox.shrink(),
+              );
             },
           )
         : MaterialApp(
@@ -324,7 +343,10 @@ class _AppRootState extends ConsumerState<AppRoot> {
                       panelButtons:
                           panelButtons, // Add custom debug panel toggle button with ON/OFF label
                     ),
-                    child: child ?? const SizedBox.shrink(),
+                    child: _wrapWithStableAppBarTheme(
+                      context,
+                      child ?? const SizedBox.shrink(),
+                    ),
                   );
 
                   // Debug: Log ISpectBuilder creation
@@ -341,12 +363,18 @@ class _AppRootState extends ConsumerState<AppRoot> {
                   debugPrint('❌ ISpectBuilder error: $e');
                   debugPrint('Stack: $stackTrace');
                   AppLogger.e('❌ ISpectBuilder error: $e', stackTrace);
-                  return child ?? const SizedBox.shrink();
+                  return _wrapWithStableAppBarTheme(
+                    context,
+                    child ?? const SizedBox.shrink(),
+                  );
                 }
               }
               debugPrint('ℹ️ ISpect disabled in builder - panel will not show');
               AppLogger.d('ℹ️ ISpect disabled in builder - observer is null');
-              return child ?? const SizedBox.shrink();
+              return _wrapWithStableAppBarTheme(
+                context,
+                child ?? const SizedBox.shrink(),
+              );
             },
           );
 
