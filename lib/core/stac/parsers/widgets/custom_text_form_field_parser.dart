@@ -401,22 +401,43 @@ class _CustomTextFormFieldWidgetState
   InputDecoration? _buildDecoration(BuildContext context) {
     final parsedDecoration = widget.model.decoration?.parse(context);
     final rawDecoration = widget.rawJson?['decoration'];
-    if (rawDecoration is! Map<String, dynamic>) {
+    if (rawDecoration is! Map) {
       return parsedDecoration;
     }
+    final decorationMap = Map<String, dynamic>.from(rawDecoration);
 
-    final hintTextAlign = _parseTextAlign(rawDecoration['hintTextAlign']);
+    final hintTextAlign = _parseTextAlign(decorationMap['hintTextAlign']);
     if (hintTextAlign == null) {
-      return parsedDecoration;
+      // Even when no custom hint alignment is requested, still honor
+      // explicit border overrides from raw JSON (e.g. type: none).
+      return parsedDecoration?.copyWith(
+        border:
+            _parseInputBorder(decorationMap['border']) ?? parsedDecoration.border,
+        enabledBorder:
+            _parseInputBorder(decorationMap['enabledBorder']) ??
+            parsedDecoration.enabledBorder,
+        focusedBorder:
+            _parseInputBorder(decorationMap['focusedBorder']) ??
+            parsedDecoration.focusedBorder,
+        errorBorder:
+            _parseInputBorder(decorationMap['errorBorder']) ??
+            parsedDecoration.errorBorder,
+        focusedErrorBorder:
+            _parseInputBorder(decorationMap['focusedErrorBorder']) ??
+            parsedDecoration.focusedErrorBorder,
+        disabledBorder:
+            _parseInputBorder(decorationMap['disabledBorder']) ??
+            parsedDecoration.disabledBorder,
+      );
     }
 
-    final hintText = rawDecoration['hintText']?.toString();
+    final hintText = decorationMap['hintText']?.toString();
     if (hintText == null || hintText.isEmpty) {
       return parsedDecoration;
     }
 
     final hintTextDirection = _parseTextDirection(
-      rawDecoration['hintTextDirection'],
+      decorationMap['hintTextDirection'],
       context,
     );
     final hintAlignment = _mapHintAlignment(hintTextAlign, hintTextDirection);
@@ -424,7 +445,7 @@ class _CustomTextFormFieldWidgetState
 
     // Build a base decoration without hint/hintText to avoid Flutter assertion:
     // "Declaring both hint and hintText is not supported."
-    final rawWithoutHint = Map<String, dynamic>.from(rawDecoration)
+    final rawWithoutHint = Map<String, dynamic>.from(decorationMap)
       ..remove('hint')
       ..remove('hintText')
       ..remove('hintTextDirection')
@@ -445,7 +466,32 @@ class _CustomTextFormFieldWidgetState
           overflow: TextOverflow.ellipsis,
         ),
       ),
+      border: _parseInputBorder(decorationMap['border']) ?? baseDecoration.border,
+      enabledBorder:
+          _parseInputBorder(decorationMap['enabledBorder']) ??
+          baseDecoration.enabledBorder,
+      focusedBorder:
+          _parseInputBorder(decorationMap['focusedBorder']) ??
+          baseDecoration.focusedBorder,
+      errorBorder:
+          _parseInputBorder(decorationMap['errorBorder']) ??
+          baseDecoration.errorBorder,
+      focusedErrorBorder:
+          _parseInputBorder(decorationMap['focusedErrorBorder']) ??
+          baseDecoration.focusedErrorBorder,
+      disabledBorder:
+          _parseInputBorder(decorationMap['disabledBorder']) ??
+          baseDecoration.disabledBorder,
     );
+  }
+
+  InputBorder? _parseInputBorder(dynamic rawBorder) {
+    if (rawBorder is! Map) return null;
+    final type = rawBorder['type']?.toString().trim().toLowerCase();
+    if (type == 'none') {
+      return InputBorder.none;
+    }
+    return null;
   }
 
   TextAlign? _parseTextAlign(dynamic value) {

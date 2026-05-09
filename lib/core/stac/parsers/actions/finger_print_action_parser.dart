@@ -22,6 +22,7 @@ class FingerPrintActionParser extends StacActionParser<FingerPrintActionModel> {
     BuildContext context,
     FingerPrintActionModel model,
   ) async {
+    final hostContext = context;
     AppLogger.ic(
       LogCategory.stacAction,
       '[fingerPrint] start userIdProvided=${model.userId != null && model.userId!.isNotEmpty} authenticateOnly=true',
@@ -47,7 +48,7 @@ class FingerPrintActionParser extends StacActionParser<FingerPrintActionModel> {
       return;
     }
 
-    await showModalBottomSheet(
+    final authenticated = await showModalBottomSheet<bool>(
       context: context,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -94,25 +95,7 @@ class FingerPrintActionParser extends StacActionParser<FingerPrintActionModel> {
                     if (!sheetContext.mounted) {
                       return;
                     }
-                    Navigator.pop(sheetContext);
-
-                    if (authenticated) {
-                      AppLogger.ic(
-                        LogCategory.stacAction,
-                        '[fingerPrint] success callback',
-                      );
-                      if (model.onSuccess != null) {
-                        Stac.onCallFromJson(model.onSuccess!, sheetContext);
-                      }
-                    } else {
-                      AppLogger.wc(
-                        LogCategory.stacAction,
-                        '[fingerPrint] failure callback',
-                      );
-                      if (model.onFailure != null) {
-                        Stac.onCallFromJson(model.onFailure!, sheetContext);
-                      }
-                    }
+                    Navigator.pop(sheetContext, authenticated);
                   },
                   child: const Text('تایید'),
                 ),
@@ -122,5 +105,27 @@ class FingerPrintActionParser extends StacActionParser<FingerPrintActionModel> {
         );
       },
     );
+
+    if (!hostContext.mounted) {
+      return;
+    }
+
+    if (authenticated == true) {
+      AppLogger.ic(
+        LogCategory.stacAction,
+        '[fingerPrint] success callback',
+      );
+      if (model.onSuccess != null) {
+        Stac.onCallFromJson(model.onSuccess!, hostContext);
+      }
+    } else {
+      AppLogger.wc(
+        LogCategory.stacAction,
+        '[fingerPrint] failure callback',
+      );
+      if (model.onFailure != null) {
+        Stac.onCallFromJson(model.onFailure!, hostContext);
+      }
+    }
   }
 }

@@ -13,7 +13,7 @@ StacWidget dashboardRealCardsManagement() {
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
           StacTobankCardManagementSlider(
-            height: 430,
+            height: 206,
             initialPage: 6,
             indicatorTopSpacing: 16,
             indicatorActiveColor: '#E31A2F',
@@ -46,8 +46,8 @@ StacWidget dashboardRealCardsManagement() {
 
 StacWidget _buildEnabledWalletCard({required String balance}) {
   return StacContainer(
-    height: 330,
-    padding: StacEdgeInsets.all(24),
+    height: 150,
+    padding: StacEdgeInsets.symmetric(horizontal: 18, vertical: 16),
     decoration: StacBoxDecoration(
       gradient: StacLinearGradient(
         begin: StacAlignment.centerLeft,
@@ -68,7 +68,7 @@ StacWidget _buildEnabledWalletCard({required String balance}) {
               data: 'کیف پول توبانک',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
-                fontSize: 28,
+                fontSize: 20,
                 fontWeight: StacFontWeight.w700,
                 color: '#FFFFFF',
               ),
@@ -77,7 +77,7 @@ StacWidget _buildEnabledWalletCard({required String balance}) {
               src: '{{appAssets.current.icons.target}}',
               imageType: StacImageType.asset,
               width: 62,
-              height: 62,
+              height: 52,
             ),
           ],
         ),
@@ -88,17 +88,17 @@ StacWidget _buildEnabledWalletCard({required String balance}) {
               data: 'ریال',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
-                fontSize: 26,
+                fontSize: 16,
                 fontWeight: StacFontWeight.w500,
                 color: '#FFFFFF',
               ),
             ),
-            StacSizedBox(width: 12),
+            StacSizedBox(width: 8),
             StacText(
               data: balance,
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
-                fontSize: 42,
+                fontSize: 24,
                 fontWeight: StacFontWeight.w600,
                 color: '#FFFFFF',
               ),
@@ -112,8 +112,8 @@ StacWidget _buildEnabledWalletCard({required String balance}) {
 
 StacWidget _buildDisabledCard({required String cardNumber}) {
   return StacContainer(
-    height: 330,
-    padding: StacEdgeInsets.all(24),
+    height: 150,
+    padding: StacEdgeInsets.symmetric(horizontal: 18, vertical: 16),
     decoration: StacBoxDecoration(
       gradient: StacLinearGradient(
         begin: StacAlignment.centerLeft,
@@ -133,7 +133,7 @@ StacWidget _buildDisabledCard({required String cardNumber}) {
               data: cardNumber,
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
-                fontSize: 20,
+                fontSize: 16,
                 fontWeight: StacFontWeight.w600,
                 color: '#FFFFFF',
               ),
@@ -147,12 +147,12 @@ StacWidget _buildDisabledCard({required String cardNumber}) {
             ),
           ],
         ),
-        StacSizedBox(height: 20),
+        StacSizedBox(height: 10),
         StacText(
           data: 'مسدود شده',
           textDirection: StacTextDirection.rtl,
           style: StacCustomTextStyle(
-            fontSize: 20,
+            fontSize: 16,
             fontWeight: StacFontWeight.w500,
             color: '#FFFFFF',
           ),
@@ -163,7 +163,7 @@ StacWidget _buildDisabledCard({required String cardNumber}) {
               src: '{{appAssets.current.icons.block}}',
               imageType: StacImageType.asset,
               width: 78,
-              height: 78,
+              height: 52,
               color: '#1E2538',
             ),
           ),
@@ -320,7 +320,7 @@ StacWidget _serviceTile({
   final foreground = enabled ? enabledColor : disabledColor;
 
   final tile = StacContainer(
-    height: 156,
+    height: 124,
     padding: StacEdgeInsets.all(16),
     decoration: StacBoxDecoration(
       borderRadius: StacBorderRadius.all(16),
@@ -333,16 +333,16 @@ StacWidget _serviceTile({
           src: iconAsset,
           imageType: StacImageType.asset,
           width: 38,
-          height: 38,
+          height: 32,
           color: foreground,
         ),
-        StacSizedBox(height: 12),
+        StacSizedBox(height: 10),
         StacText(
           data: title,
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.center,
           style: StacCustomTextStyle(
-            fontSize: 20,
+            fontSize: 14,
             fontWeight: StacFontWeight.w500,
             color: foreground,
           ),
