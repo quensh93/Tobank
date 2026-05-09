@@ -63,6 +63,10 @@ StacWidget tobankSpecialServicesPage() {
               title: 'خدمات اینترنت بانک',
               subtitle: 'فعال سازی خدمات و صدور رمز',
               iconPath: 'assets/icons/ic_menu_internet.svg',
+              onTap: const StacNavigateAction(
+                routeName: 'charge_real_intro',
+                navigationStyle: NavigationStyle.push,
+              ),
             ),
           ),
           StacSizedBox(height: 16),

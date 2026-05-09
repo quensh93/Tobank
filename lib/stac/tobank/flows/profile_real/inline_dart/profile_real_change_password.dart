@@ -1,11 +1,11 @@
 import 'package:stac_core/stac_core.dart';
-import 'profile_real_app_bar.dart';
+import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/widgets/profile_real_app_bar.dart';
 
 @StacScreen(screenName: 'profile_real_change_password')
 StacWidget profileRealChangePassword() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildProfileRealAppBar(title: 'ØªØºÛŒÛŒØ± Ø±Ù…Ø² Ø¹Ø¨ÙˆØ±'),
+    appBar: buildProfileRealAppBar(title: 'تغییر رمز عبور'),
     body: StacColumn(
       crossAxisAlignment: StacCrossAxisAlignment.stretch,
       children: [
@@ -16,29 +16,29 @@ StacWidget profileRealChangePassword() {
               crossAxisAlignment: StacCrossAxisAlignment.stretch,
               children: [
                 _passwordSection(
-                  label: 'Ø±Ù…Ø² Ø¹Ø¨ÙˆØ± ÙØ¹Ù„ÛŒ',
+                  label: 'رمز عبور فعلی',
                   fieldId: 'profileRealCurrentPassword',
-                  hint: 'Ø±Ù…Ø² Ø¹Ø¨ÙˆØ± ÙØ¹Ù„ÛŒ Ø±Ø§ ÙˆØ§Ø±Ø¯ Ú©Ù†ÛŒØ¯',
+                  hint: 'رمز عبور فعلی را وارد کنید',
                   action: StacTextInputAction.next,
                 ),
                 StacSizedBox(height: 16),
                 _passwordSection(
-                  label: 'Ø±Ù…Ø² Ø¹Ø¨ÙˆØ± Ø¬Ø¯ÛŒØ¯',
+                  label: 'رمز عبور جدید',
                   fieldId: 'profileRealNewPassword',
-                  hint: 'Ø±Ù…Ø² Ø¹Ø¨ÙˆØ± Ø¬Ø¯ÛŒØ¯ Ø±Ø§ ÙˆØ§Ø±Ø¯ Ú©Ù†ÛŒØ¯',
+                  hint: 'رمز عبور جدید را وارد کنید',
                   action: StacTextInputAction.next,
                 ),
                 StacSizedBox(height: 12),
-                _passwordRule(text: 'Ø´Ø§Ù…Ù„ Ø­Ø±ÙˆÙ Ú©ÙˆÚ†Ú© Ùˆ Ø¨Ø²Ø±Ú¯ Ø§Ù†Ú¯Ù„ÛŒØ³ÛŒ'),
+                _passwordRule(text: 'شامل حروف کوچک و بزرگ انگلیسی'),
                 StacSizedBox(height: 8),
-                _passwordRule(text: 'Ø´Ø§Ù…Ù„ Ø­Ø¯Ø§Ù‚Ù„ Û¸ Ú©Ø§Ø±Ø§Ú©ØªØ±'),
+                _passwordRule(text: 'شامل حداقل ۸ کاراکتر'),
                 StacSizedBox(height: 8),
-                _passwordRule(text: 'Ø´Ø§Ù…Ù„ Ø¹Ø¯Ø¯'),
+                _passwordRule(text: 'شامل عدد'),
                 StacSizedBox(height: 20),
                 _passwordSection(
-                  label: 'ØªÚ©Ø±Ø§Ø± Ø±Ù…Ø² Ø¹Ø¨ÙˆØ± Ø¬Ø¯ÛŒØ¯',
+                  label: 'تکرار رمز عبور جدید',
                   fieldId: 'profileRealConfirmNewPassword',
-                  hint: 'Ø±Ù…Ø² Ø¹Ø¨ÙˆØ± Ø¬Ø¯ÛŒØ¯ Ø±Ø§ Ø¯ÙˆØ¨Ø§Ø±Ù‡ ÙˆØ§Ø±Ø¯ Ú©Ù†ÛŒØ¯',
+                  hint: 'رمز عبور جدید را دوباره وارد کنید',
                   action: StacTextInputAction.done,
                 ),
               ],
@@ -55,7 +55,7 @@ StacWidget profileRealChangePassword() {
             ),
             child: StacCenter(
               child: StacText(
-                data: 'ØªØ§ÛŒÛŒØ¯ Ùˆ Ø°Ø®ÛŒØ±Ù‡',
+                data: 'تایید و ذخیره',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 16,

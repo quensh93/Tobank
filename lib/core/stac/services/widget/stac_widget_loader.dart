@@ -187,6 +187,30 @@ import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_custom_
     as gift_card_real_custom_message_dart;
 import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_select_design.dart'
     as gift_card_real_select_design_dart;
+import '../../../../stac/tobank/flows/charge_real/menu/charge_real_menu.dart'
+    as charge_real_menu_dart;
+import '../../../../stac/tobank/flows/charge_real/dart/charge_real_intro.dart'
+    as charge_real_intro_dart;
+import '../../../../stac/tobank/flows/charge_real/dart/charge_real_add_sim.dart'
+    as charge_real_add_sim_dart;
+import '../../../../stac/tobank/flows/charge_real/dart/charge_real_package_list.dart'
+    as charge_real_package_list_dart;
+import '../../../../stac/tobank/flows/charge_real/dart/charge_real_payment.dart'
+    as charge_real_payment_dart;
+import '../../../../stac/tobank/flows/charge_real/dart/charge_real_payment_success.dart'
+    as charge_real_payment_success_dart;
+import '../../../../stac/tobank/flows/package_real/menu/package_real_menu.dart'
+    as package_real_menu_dart;
+import '../../../../stac/tobank/flows/package_real/dart/package_real_intro.dart'
+    as package_real_intro_dart;
+import '../../../../stac/tobank/flows/package_real/dart/package_real_add_sim.dart'
+    as package_real_add_sim_dart;
+import '../../../../stac/tobank/flows/package_real/dart/package_real_package_list.dart'
+    as package_real_package_list_dart;
+import '../../../../stac/tobank/flows/package_real/dart/package_real_payment.dart'
+    as package_real_payment_dart;
+import '../../../../stac/tobank/flows/package_real/dart/package_real_payment_success.dart'
+    as package_real_payment_success_dart;
 import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_message.dart'
     as gift_card_real_message_dart;
 import '../../../../stac/tobank/flows/gift_card_real/dart/gift_card_real_receiver_info.dart'
@@ -356,6 +380,57 @@ class StacWidgetLoader {
         gift_card_real_custom_message_dart.giftCardRealCustomMessage().toJson(),
     'gift_card_real_select_design': () =>
         gift_card_real_select_design_dart.giftCardRealSelectDesign().toJson(),
+    'charge_real_menu': () => charge_real_menu_dart.chargeRealMenu().toJson(),
+    'charge_real_intro': () =>
+        charge_real_intro_dart.chargeRealIntro().toJson(),
+    'charge_real_add_sim': () =>
+        charge_real_add_sim_dart.chargeRealAddSim().toJson(),
+    'charge_real_package_list': () =>
+        charge_real_package_list_dart.chargeRealPackageList().toJson(),
+    'charge_real_payment': () =>
+        charge_real_payment_dart.chargeRealPayment().toJson(),
+    'charge_real_payment_success': () =>
+        charge_real_payment_success_dart.chargeRealPaymentSuccess().toJson(),
+    'charge_real_simcards': () =>
+        charge_real_intro_dart.chargeRealSimCards().toJson(),
+    'charge_real_simcards_duplicate': () =>
+        charge_real_intro_dart.chargeRealSimCardsDuplicate().toJson(),
+    'charge_real_simcards_selected': () =>
+        charge_real_intro_dart.chargeRealSimCardsSelected().toJson(),
+    'charge_real_add_sim_empty': () =>
+        charge_real_add_sim_dart.chargeRealAddSimEmpty().toJson(),
+    'charge_real_add_sim_filled': () =>
+        charge_real_add_sim_dart.chargeRealAddSimFilled().toJson(),
+    'charge_real_add_sim_invalid': () =>
+        charge_real_add_sim_dart.chargeRealAddSimInvalid().toJson(),
+    'charge_real_add_sim_unsupported': () =>
+        charge_real_add_sim_dart.chargeRealAddSimUnsupported().toJson(),
+    'package_real_menu': () =>
+        package_real_menu_dart.packageRealMenu().toJson(),
+    'package_real_intro': () =>
+        package_real_intro_dart.packageRealIntro().toJson(),
+    'package_real_add_sim': () =>
+        package_real_add_sim_dart.packageRealAddSim().toJson(),
+    'package_real_package_list': () =>
+        package_real_package_list_dart.packageRealPackageList().toJson(),
+    'package_real_payment': () =>
+        package_real_payment_dart.packageRealPayment().toJson(),
+    'package_real_payment_success': () =>
+        package_real_payment_success_dart.packageRealPaymentSuccess().toJson(),
+    'package_real_simcards': () =>
+        package_real_intro_dart.packageRealSimCards().toJson(),
+    'package_real_simcards_duplicate': () =>
+        package_real_intro_dart.packageRealSimCardsDuplicate().toJson(),
+    'package_real_simcards_selected': () =>
+        package_real_intro_dart.packageRealSimCardsSelected().toJson(),
+    'package_real_add_sim_empty': () =>
+        package_real_add_sim_dart.packageRealAddSimEmpty().toJson(),
+    'package_real_add_sim_filled': () =>
+        package_real_add_sim_dart.packageRealAddSimFilled().toJson(),
+    'package_real_add_sim_invalid': () =>
+        package_real_add_sim_dart.packageRealAddSimInvalid().toJson(),
+    'package_real_add_sim_unsupported': () =>
+        package_real_add_sim_dart.packageRealAddSimUnsupported().toJson(),
     'gift_card_real_message': () =>
         gift_card_real_message_dart.giftCardRealMessage().toJson(),
     'gift_card_real_receiver_info': () =>

@@ -44,6 +44,8 @@ dependencies:
   file_picker: ^10.3.8
   image_picker: ^1.2.0
   image_cropper: ^11.0.0
+  flutter_native_contact_picker: ^0.0.10
+  permission_handler: ^12.0.1
   share_plus: ^12.0.1
   url_launcher: ^6.3.2
   just_audio: ^0.10.5
@@ -147,6 +149,7 @@ flutter:
     - lib/stac/tobank/flows/transfer_real/api/
     - lib/stac/tobank/flows/gift_card_real/json/
     - lib/stac/tobank/flows/gift_card_real/api_json/
+    - lib/stac/tobank/flows/package_real/json/
     - lib/stac/tobank/home_page/json/
     - lib/stac/tobank/home_page/api/
 

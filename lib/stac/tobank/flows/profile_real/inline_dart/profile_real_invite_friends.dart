@@ -1,12 +1,12 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
-import 'profile_real_app_bar.dart';
+import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/widgets/profile_real_app_bar.dart';
 
 @StacScreen(screenName: 'profile_real_invite_friends')
 StacWidget profileRealInviteFriends() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildProfileRealAppBar(title: 'Ø¯Ø¹ÙˆØª Ø§Ø² Ø¯ÙˆØ³ØªØ§Ù†'),
+    appBar: buildProfileRealAppBar(title: 'دعوت از دوستان'),
     body: StacSingleChildScrollView(
       padding: StacEdgeInsets.all(16),
       child: StacColumn(
@@ -28,7 +28,7 @@ StacWidget profileRealInviteFriends() {
                 ),
                 StacSizedBox(height: 16),
                 StacText(
-                  data: 'Ø¯Ø¹ÙˆØª Ø§Ø² Ø¯ÙˆØ³ØªØ§Ù†',
+                  data: 'دعوت از دوستان',
                   textDirection: StacTextDirection.rtl,
                   textAlign: StacTextAlign.right,
                   style: StacCustomTextStyle(
@@ -40,7 +40,7 @@ StacWidget profileRealInviteFriends() {
                 StacSizedBox(height: 8),
                 StacText(
                   data:
-                      'Ú©Ø¯ Ø¯Ø¹ÙˆØª Ø±Ø§ Ú©Ù¾ÛŒ Ú©Ù†ÛŒØ¯ Ùˆ ÛŒØ§ Ø¨Ø§ Ø¯ÙˆØ³ØªØ§Ù†ØªØ§Ù† Ø¨Ù‡ Ø§Ø´ØªØ±Ø§Ú© Ø¨Ú¯Ø°Ø§Ø±ÛŒØ¯',
+                      'کد دعوت را کپی کنید و یا با دوستانتان به اشتراک بگذارید',
                   textDirection: StacTextDirection.rtl,
                   textAlign: StacTextAlign.right,
                   style: StacCustomTextStyle(
@@ -54,9 +54,8 @@ StacWidget profileRealInviteFriends() {
                 StacSizedBox(height: 16),
                 StacFilledButton(
                   onPressed: const StacShowResultAction(
-                    title: 'Ø§Ø´ØªØ±Ø§Ú©â€ŒÚ¯Ø°Ø§Ø±ÛŒ Ú©Ø¯ Ø¯Ø¹ÙˆØª',
-                    content:
-                        'Ø§Ù…Ú©Ø§Ù† Ø§Ø´ØªØ±Ø§Ú©â€ŒÚ¯Ø°Ø§Ø±ÛŒ Ø¨Ù‡ Ø²ÙˆØ¯ÛŒ ÙØ¹Ø§Ù„ Ù…ÛŒâ€ŒØ´ÙˆØ¯.',
+                    title: 'اشتراک‌گذاری کد دعوت',
+                    content: 'امکان اشتراک‌گذاری به زودی فعال می‌شود.',
                   ),
                   style: StacButtonStyle(
                     elevation: 0,
@@ -81,7 +80,7 @@ StacWidget profileRealInviteFriends() {
                       ),
                       StacSizedBox(width: 8),
                       StacText(
-                        data: 'Ø§Ø´ØªØ±Ø§Ú©â€ŒÚ¯Ø°Ø§Ø±ÛŒ Ú©Ø¯ Ø¯Ø¹ÙˆØª',
+                        data: 'اشتراک‌گذاری کد دعوت',
                         style: StacCustomTextStyle(
                           fontSize: 16,
                           fontWeight: StacFontWeight.w500,
@@ -97,11 +96,11 @@ StacWidget profileRealInviteFriends() {
           ),
           StacSizedBox(height: 16),
           StacGestureDetector(
-            onTap: const StacNavigateAction(
-              assetPath:
-                  'lib/stac/tobank/flows/profile_real/json/profile_real_customer_referrals.json',
-              navigationStyle: NavigationStyle.push,
-            ),
+            onTap: StacRawJsonAction({
+              'actionType': 'navigate',
+              'widgetType': 'profile_real_customer_referrals',
+              'navigationStyle': 'push',
+            }),
             child: StacContainer(
               padding: StacEdgeInsets.all(16),
               decoration: _itemDecoration(),
@@ -118,7 +117,7 @@ StacWidget profileRealInviteFriends() {
                   StacSizedBox(width: 8),
                   StacExpanded(
                     child: StacText(
-                      data: 'Ù„ÛŒØ³Øª Ø¯Ø¹ÙˆØªâ€ŒØ´Ø¯Ú¯Ø§Ù†',
+                      data: 'لیست دعوت‌شدگان',
                       textDirection: StacTextDirection.rtl,
                       textAlign: StacTextAlign.right,
                       style: StacCustomTextStyle(
@@ -161,6 +160,8 @@ StacWidget _inviteCodeCard() {
     child: StacRow(
       textDirection: StacTextDirection.ltr,
       children: [
+
+
         StacExpanded(
           child: StacContainer(
             height: 64,
@@ -180,7 +181,7 @@ StacWidget _inviteCodeCard() {
                 ),
                 StacCenter(
                   child: StacText(
-                    data: 'Û´ÛµÛ³Û²ÛµÛ°Û¹Û±',
+                    data: '۴۵۳۲۵۰۹۱',
                     textDirection: StacTextDirection.ltr,
                     textAlign: StacTextAlign.center,
                     style: StacCustomTextStyle(
@@ -208,8 +209,8 @@ StacWidget _inviteCodeCard() {
               ),
               child: StacIconButton(
                 onPressed: const StacShowResultAction(
-                  title: 'Ú©Ù¾ÛŒ',
-                  content: 'Ú©Ø¯ Ø¯Ø¹ÙˆØª Ú©Ù¾ÛŒ Ø´Ø¯.',
+                  title: 'کپی',
+                  content: 'کد دعوت کپی شد.',
                 ),
                 icon: StacImage(
                   src: 'assets/icons/ic_copy.svg',

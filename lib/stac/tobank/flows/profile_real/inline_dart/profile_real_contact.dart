@@ -1,32 +1,32 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
-import 'profile_real_app_bar.dart';
+import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/widgets/profile_real_app_bar.dart';
 
 @StacScreen(screenName: 'profile_real_contact')
 StacWidget profileRealContact() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildProfileRealAppBar(title: 'ØªÙ…Ø§Ø³ Ø¨Ø§ Ù…Ø§'),
+    appBar: buildProfileRealAppBar(title: 'تماس با ما'),
     body: StacSingleChildScrollView(
       padding: StacEdgeInsets.all(16),
       child: StacColumn(
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
           _addressCard(
-            label: 'Ø¢Ø¯Ø±Ø³',
+            label: 'آدرس',
             value:
-                'ØªÙ‡Ø±Ø§Ù†ØŒ Ø³Ø¹Ø§Ø¯Øªâ€ŒØ¢Ø¨Ø§Ø¯ØŒ Ø¨Ù„ÙˆØ§Ø± ÙØ±Ù‡Ù†Ú¯ØŒ Ù†Ø¨Ø´ Ú©ÙˆÚ†Ù‡ Ù†ÙˆØ±ØŒ Ù¾Ù„Ø§Ú© Û¶',
+                'تهران، سعادت‌آباد، بلوار فرهنگ، نبش کوچه نور، پلاک ۶',
           ),
           StacSizedBox(height: 16),
-          _infoRowCard(label: 'Ú©Ø¯ Ù¾Ø³ØªÛŒ', value: 'Û±Û¹Û¹Û·Û·Û´Û´ÛµÛ³Û·'),
+          _infoRowCard(label: 'کد پستی', value: '۱۹۹۷۷۴۴۵۳۷'),
           StacSizedBox(height: 16),
           _infoRowCard(
-            label: 'Ù¾Ø´ØªÛŒØ¨Ø§Ù†ÛŒ Ø´Ø¹Ø¨Ù‡',
-            value: 'Ø¯Ø§Ø®Ù„ÛŒ Û³ - Û°Û²Û±Û²Û³Û¹ÛµÛ°',
+            label: 'پشتیبانی شعبه',
+            value: 'داخلی ۳ - ۰۲۱۲۳۹۵۰',
           ),
           StacSizedBox(height: 16),
           _infoRowCard(
-            label: 'Ø§ÛŒÙ†Ø³ØªØ§Ú¯Ø±Ø§Ù… Ø¨Ø§Ù†Ú© Ú¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ',
+            label: 'اینستاگرام بانک گردشگری',
             value: '@tourism.bank',
             isUnderlinedValue: true,
             valueTextDirection: StacTextDirection.ltr,
@@ -34,7 +34,7 @@ StacWidget profileRealContact() {
           StacSizedBox(height: 32),
           StacCenter(
             child: StacText(
-              data: 'Ø§Ø±ØªØ¨Ø§Ø· Ø¨Ø§ ØªÙˆØ¨Ø§Ù†Ú©',
+              data: 'ارتباط با توبانک',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 16,
@@ -193,8 +193,8 @@ StacWidget _socialRow({required List<String> iconAssets}) {
             padding: StacEdgeInsets.symmetric(horizontal: 8),
             child: StacGestureDetector(
               onTap: const StacShowResultAction(
-                title: 'Ø§Ø±ØªØ¨Ø§Ø· Ø¨Ø§ ØªÙˆØ¨Ø§Ù†Ú©',
-                content: 'Ø§ÛŒÙ† Ø¨Ø®Ø´ Ø¨Ù‡ Ø²ÙˆØ¯ÛŒ ÙØ¹Ø§Ù„ Ù…ÛŒâ€ŒØ´ÙˆØ¯.',
+                title: 'ارتباط با توبانک',
+                content: 'این بخش به زودی فعال می‌شود.',
               ),
               child: StacContainer(
                 width: 48,

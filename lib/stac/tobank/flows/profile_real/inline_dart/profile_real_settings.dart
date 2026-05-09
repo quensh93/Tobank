@@ -1,13 +1,13 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
-import 'profile_real_app_bar.dart';
+import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/widgets/profile_real_app_bar.dart';
 
 @StacScreen(screenName: 'profile_real_settings')
 StacWidget profileRealSettings() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildProfileRealAppBar(title: 'ØªÙ†Ø¸ÛŒÙ…Ø§Øª'),
+    appBar: buildProfileRealAppBar(title: 'تنظیمات'),
     body: StacSingleChildScrollView(
       padding: StacEdgeInsets.all(16),
       child: StacColumn(
@@ -28,7 +28,7 @@ StacWidget profileRealSettings() {
                 StacSizedBox(width: 8),
                 StacExpanded(
                   child: StacText(
-                    data: 'ÙØ¹Ø§Ù„ Ø³Ø§Ø²ÛŒ ØªØ´Ø®ÛŒØµ Ú†Ù‡Ø±Ù‡',
+                    data: 'فعال سازی تشخیص چهره',
                     textDirection: StacTextDirection.rtl,
                     textAlign: StacTextAlign.right,
                     style: StacCustomTextStyle(
@@ -55,30 +55,30 @@ StacWidget profileRealSettings() {
           ),
           StacSizedBox(height: 16),
           _settingsItem(
-            title: 'Ø¸Ø§Ù‡Ø± Ø¨Ø±Ù†Ø§Ù…Ù‡',
-            trailingInfo: 'Ø­Ø§Ù„Øª Ø±ÙˆØ²',
+            title: 'ظاهر برنامه',
+            trailingInfo: 'حالت روز',
             iconAsset: '{{appAssets.current.icons.theme}}',
             onTapAction: const StacShowThemeSelectorBottomSheetAction(),
           ),
           StacSizedBox(height: 16),
           _settingsItem(
-            title: 'ØªØºÛŒÛŒØ± Ø±Ù…Ø² Ø¹Ø¨ÙˆØ±',
+            title: 'تغییر رمز عبور',
             iconAsset: '{{appAssets.current.icons.cardServicePasswordChange}}',
-            onTapAction: const StacNavigateAction(
-              assetPath:
-                  'lib/stac/tobank/flows/profile_real/json/profile_real_change_password.json',
-              navigationStyle: NavigationStyle.push,
-            ),
+            onTapAction: StacRawJsonAction({
+              'actionType': 'navigate',
+              'widgetType': 'profile_real_change_password',
+              'navigationStyle': 'push',
+            }),
           ),
           StacSizedBox(height: 16),
           _settingsItem(
-            title: 'Ø­Ø°Ù Ø§Ø·Ù„Ø§Ø¹Ø§Øª Ø­Ø³Ø§Ø¨ Ú©Ø§Ø±Ø¨Ø±ÛŒ',
+            title: 'حذف اطلاعات حساب کاربری',
             iconAsset: '{{appAssets.current.icons.deleteAccount}}',
             onTapAction: const StacShowDeleteAccountConfirmBottomSheetAction(),
           ),
           StacSizedBox(height: 16),
           _settingsItem(
-            title: 'Ø®Ø±ÙˆØ¬ Ø§Ø² Ø­Ø³Ø§Ø¨ Ú©Ø§Ø±Ø¨Ø±ÛŒ',
+            title: 'خروج از حساب کاربری',
             iconAsset: '{{appAssets.current.icons.logout}}',
             onTapAction: const StacShowLogoutConfirmDialogAction(),
           ),
@@ -99,7 +99,7 @@ StacWidget _settingsItem({
         onTapAction ??
         StacShowResultAction(
           title: title,
-          content: 'Ø§ÛŒÙ† Ø¨Ø®Ø´ Ø¨Ù‡ Ø²ÙˆØ¯ÛŒ ÙØ¹Ø§Ù„ Ù…ÛŒâ€ŒØ´ÙˆØ¯.',
+          content: 'این بخش به زودی فعال می‌شود.',
         ),
     child: StacContainer(
       padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),

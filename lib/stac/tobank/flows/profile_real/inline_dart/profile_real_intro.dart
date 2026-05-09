@@ -24,7 +24,7 @@ StacWidget profileRealIntro() {
             children: [
               StacSizedBox(height: 65),
               StacText(
-                data: '{{appStrings.profile.real.accountTitle}}',
+                data: 'حساب کاربری',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 16,
@@ -35,8 +35,8 @@ StacWidget profileRealIntro() {
               StacSizedBox(height: 32),
               StacGestureDetector(
                 onTap: const StacShowResultAction(
-                  title: '{{appStrings.profile.real.editImageTitle}}',
-                  content: '{{appStrings.profile.real.comingSoon}}',
+                  title: 'ویرایش تصویر',
+                  content: 'این بخش به زودی فعال می‌شود.',
                 ),
                 child: StacContainer(
                   width: 84,
@@ -90,7 +90,7 @@ StacWidget profileRealIntro() {
               ),
               StacSizedBox(height: 16),
               StacText(
-                data: '{{appStrings.profile.real.userName}}',
+                data: 'مهدی جمشیدپور',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 16,
@@ -100,7 +100,7 @@ StacWidget profileRealIntro() {
               ),
               StacSizedBox(height: 8),
               StacText(
-                data: '{{appStrings.profile.real.phoneNumber}}',
+                data: '09142767469',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 14,
@@ -121,63 +121,51 @@ StacWidget profileRealIntro() {
                         child: StacColumn(
                           children: [
                             _buildMenuItem(
-                              title:
-                                  '{{appStrings.profile.real.menu.bankInfo}}',
+                              title: 'اطلاعات بانکی',
                               iconAsset: '{{appAssets.icons.bankAccount}}',
-                              assetPath:
-                                  'lib/stac/tobank/flows/profile_real/json/profile_real_bank_info.json',
+                              routeName: 'profile_real_bank_info',
                             ),
                             StacSizedBox(height: 16),
                             _buildMenuItem(
-                              title:
-                                  '{{appStrings.profile.real.menu.inviteFriends}}',
+                              title: 'دعوت از دوستان',
                               iconAsset: '{{appAssets.icons.inviteMember}}',
-                              assetPath:
-                                  'lib/stac/tobank/flows/profile_real/json/profile_real_invite_friends.json',
+                              routeName: 'profile_real_invite_friends',
                             ),
                             StacSizedBox(height: 16),
                             _buildMenuItem(
-                              title:
-                                  '{{appStrings.profile.real.menu.destinations}}',
+                              title: 'مدیریت مقصدها',
                               iconAsset: '{{appAssets.icons.storedDeposit}}',
-                              assetPath:
-                                  'lib/stac/tobank/flows/profile_real/json/profile_real_destinations.json',
+                              routeName: 'profile_real_destinations',
                             ),
                             StacSizedBox(height: 16),
                             _buildMenuItem(
-                              title:
-                                  '{{appStrings.profile.real.menu.settings}}',
+                              title: 'تنظیمات',
                               iconAsset: '{{appAssets.icons.settings}}',
-                              assetPath:
-                                  'lib/stac/tobank/flows/profile_real/json/profile_real_settings.json',
+                              routeName: 'profile_real_settings',
                             ),
                             StacSizedBox(height: 16),
                             _buildMenuItem(
-                              title: '{{appStrings.profile.real.menu.rules}}',
+                              title: 'قوانین و مقررات',
                               iconAsset: '{{appAssets.icons.rules}}',
-                              assetPath:
-                                  'lib/stac/tobank/flows/profile_real/json/profile_real_rules.json',
+                              routeName: 'profile_real_rules',
                             ),
                             StacSizedBox(height: 16),
                             _buildMenuItem(
-                              title: '{{appStrings.profile.real.menu.aboutUs}}',
+                              title: 'درباره ما',
                               iconAsset: '{{appAssets.icons.aboutUs}}',
-                              assetPath:
-                                  'lib/stac/tobank/flows/profile_real/json/profile_real_about.json',
+                              routeName: 'profile_real_about',
                             ),
                             StacSizedBox(height: 16),
                             _buildMenuItem(
-                              title:
-                                  '{{appStrings.profile.real.menu.contactUs}}',
+                              title: 'تماس با ما',
                               iconAsset: '{{appAssets.icons.contact}}',
-                              assetPath:
-                                  'lib/stac/tobank/flows/profile_real/json/profile_real_contact.json',
+                              routeName: 'profile_real_contact',
                             ),
                           ],
                         ),
                       ),
                       StacText(
-                        data: '{{appStrings.profile.real.appVersion}}',
+                        data: 'نسخه برنامه ۳.۲.۶',
                         textDirection: StacTextDirection.rtl,
                         style: StacCustomTextStyle(
                           fontSize: 14,
@@ -201,16 +189,17 @@ StacWidget profileRealIntro() {
 StacWidget _buildMenuItem({
   required String title,
   required String iconAsset,
-  required String assetPath,
+  required String routeName,
 }) {
   return StacGestureDetector(
     onTap: StacNavigateAction(
-      assetPath: assetPath,
+      routeName: routeName,
       navigationStyle: NavigationStyle.push,
     ),
     child: StacContainer(
       padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
       decoration: StacBoxDecoration(
+
         borderRadius: StacBorderRadius.all(8),
         border: StacBorder.all(
           color: '{{appColors.current.input.borderEnabled}}',

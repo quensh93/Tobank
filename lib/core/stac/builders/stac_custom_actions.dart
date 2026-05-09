@@ -289,6 +289,43 @@ class StacFilePickerAction extends StacAction {
   };
 }
 
+class StacPickContactPhoneAction extends StacAction {
+  final String formFieldId;
+  final String? targetKey;
+  final dynamic onContactSelected;
+  final String? permissionDeniedMessage;
+  final String? invalidMobileMessage;
+  final String? unsupportedMessage;
+
+  const StacPickContactPhoneAction({
+    required this.formFieldId,
+    this.targetKey,
+    this.onContactSelected,
+    this.permissionDeniedMessage,
+    this.invalidMobileMessage,
+    this.unsupportedMessage,
+  });
+
+  @override
+  String get actionType => 'pickContactPhone';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': actionType,
+    'formFieldId': formFieldId,
+    if (targetKey != null) 'targetKey': targetKey,
+    if (permissionDeniedMessage != null)
+      'permissionDeniedMessage': permissionDeniedMessage,
+    if (invalidMobileMessage != null)
+      'invalidMobileMessage': invalidMobileMessage,
+    if (unsupportedMessage != null) 'unsupportedMessage': unsupportedMessage,
+    if (onContactSelected != null)
+      'onContactSelected': onContactSelected is StacAction
+          ? (onContactSelected as StacAction).toJson()
+          : onContactSelected,
+  };
+}
+
 class StacShowRulesBottomSheetAction extends StacAction {
   final String routeName;
   final String? title;

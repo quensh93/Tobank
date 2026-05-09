@@ -1,0 +1,1449 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "setValue",
+    "values": [
+      {
+        "key": "crChargePreset50",
+        "value": false
+      },
+      {
+        "key": "crChargePreset100",
+        "value": true
+      },
+      {
+        "key": "crChargePreset200",
+        "value": false
+      },
+      {
+        "key": "crChargePreset500",
+        "value": false
+      },
+      {
+        "key": "crChargePreset1000",
+        "value": false
+      },
+      {
+        "key": "crChargeHasPreset",
+        "value": true
+      },
+      {
+        "key": "crChargeAmazing",
+        "value": false
+      },
+      {
+        "key": "crChargeCanToggleAmazing",
+        "value": true
+      },
+      {
+        "key": "crChargeOptionalMode",
+        "value": false
+      },
+      {
+        "key": "crChargeOptionalInRange",
+        "value": false
+      },
+      {
+        "key": "crChargeContinueOptionalValid",
+        "value": false
+      },
+      {
+        "key": "crChargeShowAmountError",
+        "value": false
+      },
+      {
+        "key": "crChargeEnteredAmount",
+        "value": ""
+      },
+      {
+        "key": "crChargeSelectedPresetAmount",
+        "value": "۱۰۰,۰۰۰"
+      }
+    ]
+  },
+  "child": {
+    "appBar": {
+      "leading": {
+        "padding": {
+          "left": 12.0
+        },
+        "child": {
+          "child": {
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24.0,
+            "height": 24.0,
+            "type": "image"
+          },
+          "type": "center"
+        },
+        "type": "padding"
+      },
+      "title": {
+        "data": "شارژ",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "actions": [
+        {
+          "padding": {
+            "right": 12.0
+          },
+          "child": {
+            "onPressed": {
+              "navigationStyle": "pop",
+              "actionType": "navigate"
+            },
+            "icon": {
+              "src": "{{appAssets.icons.arrowBack}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 31.0,
+              "height": 31.0,
+              "type": "image"
+            },
+            "type": "iconButton"
+          },
+          "type": "padding"
+        }
+      ],
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "backgroundColor": "{{appColors.current.background.surface}}",
+    "body": {
+      "children": [
+        {
+          "top": false,
+          "child": {
+            "padding": {
+              "left": 16.0,
+              "top": 14.0,
+              "right": 16.0
+            },
+            "child": {
+              "crossAxisAlignment": "stretch",
+              "children": [
+                {
+                  "data": "شماره سیم کارت اعتباری را وارد کنید",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.text.title}}",
+                    "fontSize": 18.0,
+                    "fontWeight": "w700"
+                  },
+                  "textAlign": "right",
+                  "textDirection": "rtl",
+                  "type": "text"
+                },
+                {
+                  "height": 16.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "padding": {
+                    "left": 12.0,
+                    "right": 12.0
+                  },
+                  "decoration": {
+                    "border": {
+                      "color": "{{appColors.current.input.borderEnabled}}",
+                      "width": 1.0
+                    },
+                    "borderRadius": {
+                      "topLeft": 10.0,
+                      "topRight": 10.0,
+                      "bottomLeft": 10.0,
+                      "bottomRight": 10.0
+                    }
+                  },
+                  "height": 56.0,
+                  "child": {
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "src": "assets/icons/ic_pick_contact.svg",
+                        "imageType": "asset",
+                        "color": "{{appColors.current.text.subtitle}}",
+                        "width": 20.0,
+                        "height": 20.0,
+                        "type": "image"
+                      },
+                      {
+                        "width": 8.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "child": {
+                          "data": "{{crActiveSimNumber}}",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w500"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "ltr",
+                          "type": "text"
+                        },
+                        "type": "expanded"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  "type": "container"
+                }
+              ],
+              "type": "column"
+            },
+            "type": "padding"
+          },
+          "type": "safeArea"
+        },
+        {
+          "color": "#8B63708C",
+          "width": 999999.0,
+          "height": 999999.0,
+          "type": "container"
+        },
+        {
+          "alignment": "bottomCenter",
+          "child": {
+            "padding": {
+              "left": 16.0,
+              "top": 10.0,
+              "right": 16.0,
+              "bottom": 16.0
+            },
+            "decoration": {
+              "color": "{{appColors.current.background.surface}}",
+              "borderRadius": {
+                "topLeft": 22.0,
+                "topRight": 22.0
+              }
+            },
+            "width": 999999.0,
+            "child": {
+              "mainAxisSize": "min",
+              "crossAxisAlignment": "stretch",
+              "children": [
+                {
+                  "child": {
+                    "decoration": {
+                      "color": "#D0D5DD",
+                      "borderRadius": {
+                        "topLeft": 99.0,
+                        "topRight": 99.0,
+                        "bottomLeft": 99.0,
+                        "bottomRight": 99.0
+                      }
+                    },
+                    "width": 44.0,
+                    "height": 5.0,
+                    "type": "container"
+                  },
+                  "type": "center"
+                },
+                {
+                  "height": 18.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "data": "مبلغ شارژ",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.text.title}}",
+                    "fontSize": 24.0,
+                    "fontWeight": "w700"
+                  },
+                  "textAlign": "center",
+                  "textDirection": "rtl",
+                  "type": "text"
+                },
+                {
+                  "height": 18.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "textDirection": "rtl",
+                  "children": [
+                    {
+                      "child": {
+                        "child": {
+                          "type": "visibility",
+                          "visible": "[[crChargePreset50]]",
+                          "child": {
+                            "alignment": "center",
+                            "decoration": {
+                              "color": "#EAFBFD",
+                              "border": {
+                                "color": "#20C4D8",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            },
+                            "height": 54.0,
+                            "child": {
+                              "data": "۵۰,۰۰۰ ریال",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "center",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "container"
+                          },
+                          "replacement": {
+                            "alignment": "center",
+                            "decoration": {
+                              "color": "{{appColors.current.background.surface}}",
+                              "border": {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            },
+                            "height": 54.0,
+                            "child": {
+                              "data": "۵۰,۰۰۰ ریال",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "center",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "container"
+                          }
+                        },
+                        "onTap": {
+                          "actionType": "setValue",
+                          "values": [
+                            {
+                              "key": "crChargePreset50",
+                              "value": true
+                            },
+                            {
+                              "key": "crChargePreset100",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset200",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset500",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset1000",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeHasPreset",
+                              "value": true
+                            },
+                            {
+                              "key": "crChargeOptionalMode",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeShowAmountError",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeCanToggleAmazing",
+                              "value": true
+                            },
+                            {
+                              "key": "crChargeContinueOptionalValid",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۵۰,۰۰۰",
+                              "condition": "crChargePreset50"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۱۰۰,۰۰۰",
+                              "condition": "crChargePreset100"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۲۰۰,۰۰۰",
+                              "condition": "crChargePreset200"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۵۰۰,۰۰۰",
+                              "condition": "crChargePreset500"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۱,۰۰۰,۰۰۰",
+                              "condition": "crChargePreset1000"
+                            }
+                          ]
+                        },
+                        "type": "gestureDetector"
+                      },
+                      "type": "expanded"
+                    },
+                    {
+                      "width": 10.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "child": {
+                        "child": {
+                          "type": "visibility",
+                          "visible": "[[crChargePreset100]]",
+                          "child": {
+                            "alignment": "center",
+                            "decoration": {
+                              "color": "#EAFBFD",
+                              "border": {
+                                "color": "#20C4D8",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            },
+                            "height": 54.0,
+                            "child": {
+                              "data": "۱۰۰,۰۰۰ ریال",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "center",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "container"
+                          },
+                          "replacement": {
+                            "alignment": "center",
+                            "decoration": {
+                              "color": "{{appColors.current.background.surface}}",
+                              "border": {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            },
+                            "height": 54.0,
+                            "child": {
+                              "data": "۱۰۰,۰۰۰ ریال",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "center",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "container"
+                          }
+                        },
+                        "onTap": {
+                          "actionType": "setValue",
+                          "values": [
+                            {
+                              "key": "crChargePreset50",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset100",
+                              "value": true
+                            },
+                            {
+                              "key": "crChargePreset200",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset500",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset1000",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeHasPreset",
+                              "value": true
+                            },
+                            {
+                              "key": "crChargeOptionalMode",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeShowAmountError",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeCanToggleAmazing",
+                              "value": true
+                            },
+                            {
+                              "key": "crChargeContinueOptionalValid",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۵۰,۰۰۰",
+                              "condition": "crChargePreset50"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۱۰۰,۰۰۰",
+                              "condition": "crChargePreset100"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۲۰۰,۰۰۰",
+                              "condition": "crChargePreset200"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۵۰۰,۰۰۰",
+                              "condition": "crChargePreset500"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۱,۰۰۰,۰۰۰",
+                              "condition": "crChargePreset1000"
+                            }
+                          ]
+                        },
+                        "type": "gestureDetector"
+                      },
+                      "type": "expanded"
+                    },
+                    {
+                      "width": 10.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "child": {
+                        "child": {
+                          "type": "visibility",
+                          "visible": "[[crChargePreset200]]",
+                          "child": {
+                            "alignment": "center",
+                            "decoration": {
+                              "color": "#EAFBFD",
+                              "border": {
+                                "color": "#20C4D8",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            },
+                            "height": 54.0,
+                            "child": {
+                              "data": "۲۰۰,۰۰۰ ریال",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "center",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "container"
+                          },
+                          "replacement": {
+                            "alignment": "center",
+                            "decoration": {
+                              "color": "{{appColors.current.background.surface}}",
+                              "border": {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            },
+                            "height": 54.0,
+                            "child": {
+                              "data": "۲۰۰,۰۰۰ ریال",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "center",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "container"
+                          }
+                        },
+                        "onTap": {
+                          "actionType": "setValue",
+                          "values": [
+                            {
+                              "key": "crChargePreset50",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset100",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset200",
+                              "value": true
+                            },
+                            {
+                              "key": "crChargePreset500",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset1000",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeHasPreset",
+                              "value": true
+                            },
+                            {
+                              "key": "crChargeOptionalMode",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeShowAmountError",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeCanToggleAmazing",
+                              "value": true
+                            },
+                            {
+                              "key": "crChargeContinueOptionalValid",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۵۰,۰۰۰",
+                              "condition": "crChargePreset50"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۱۰۰,۰۰۰",
+                              "condition": "crChargePreset100"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۲۰۰,۰۰۰",
+                              "condition": "crChargePreset200"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۵۰۰,۰۰۰",
+                              "condition": "crChargePreset500"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۱,۰۰۰,۰۰۰",
+                              "condition": "crChargePreset1000"
+                            }
+                          ]
+                        },
+                        "type": "gestureDetector"
+                      },
+                      "type": "expanded"
+                    }
+                  ],
+                  "type": "row"
+                },
+                {
+                  "height": 10.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "textDirection": "rtl",
+                  "children": [
+                    {
+                      "child": {
+                        "child": {
+                          "type": "visibility",
+                          "visible": "[[crChargePreset500]]",
+                          "child": {
+                            "alignment": "center",
+                            "decoration": {
+                              "color": "#EAFBFD",
+                              "border": {
+                                "color": "#20C4D8",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            },
+                            "height": 54.0,
+                            "child": {
+                              "data": "۵۰۰,۰۰۰ ریال",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "center",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "container"
+                          },
+                          "replacement": {
+                            "alignment": "center",
+                            "decoration": {
+                              "color": "{{appColors.current.background.surface}}",
+                              "border": {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            },
+                            "height": 54.0,
+                            "child": {
+                              "data": "۵۰۰,۰۰۰ ریال",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "center",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "container"
+                          }
+                        },
+                        "onTap": {
+                          "actionType": "setValue",
+                          "values": [
+                            {
+                              "key": "crChargePreset50",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset100",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset200",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset500",
+                              "value": true
+                            },
+                            {
+                              "key": "crChargePreset1000",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeHasPreset",
+                              "value": true
+                            },
+                            {
+                              "key": "crChargeOptionalMode",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeShowAmountError",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeCanToggleAmazing",
+                              "value": true
+                            },
+                            {
+                              "key": "crChargeContinueOptionalValid",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۵۰,۰۰۰",
+                              "condition": "crChargePreset50"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۱۰۰,۰۰۰",
+                              "condition": "crChargePreset100"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۲۰۰,۰۰۰",
+                              "condition": "crChargePreset200"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۵۰۰,۰۰۰",
+                              "condition": "crChargePreset500"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۱,۰۰۰,۰۰۰",
+                              "condition": "crChargePreset1000"
+                            }
+                          ]
+                        },
+                        "type": "gestureDetector"
+                      },
+                      "type": "expanded"
+                    },
+                    {
+                      "width": 10.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "child": {
+                        "child": {
+                          "type": "visibility",
+                          "visible": "[[crChargePreset1000]]",
+                          "child": {
+                            "alignment": "center",
+                            "decoration": {
+                              "color": "#EAFBFD",
+                              "border": {
+                                "color": "#20C4D8",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            },
+                            "height": 54.0,
+                            "child": {
+                              "data": "۱,۰۰۰,۰۰۰ ریال",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "center",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "container"
+                          },
+                          "replacement": {
+                            "alignment": "center",
+                            "decoration": {
+                              "color": "{{appColors.current.background.surface}}",
+                              "border": {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            },
+                            "height": 54.0,
+                            "child": {
+                              "data": "۱,۰۰۰,۰۰۰ ریال",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "center",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "container"
+                          }
+                        },
+                        "onTap": {
+                          "actionType": "setValue",
+                          "values": [
+                            {
+                              "key": "crChargePreset50",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset100",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset200",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset500",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset1000",
+                              "value": true
+                            },
+                            {
+                              "key": "crChargeHasPreset",
+                              "value": true
+                            },
+                            {
+                              "key": "crChargeOptionalMode",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeShowAmountError",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeCanToggleAmazing",
+                              "value": true
+                            },
+                            {
+                              "key": "crChargeContinueOptionalValid",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۵۰,۰۰۰",
+                              "condition": "crChargePreset50"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۱۰۰,۰۰۰",
+                              "condition": "crChargePreset100"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۲۰۰,۰۰۰",
+                              "condition": "crChargePreset200"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۵۰۰,۰۰۰",
+                              "condition": "crChargePreset500"
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۱,۰۰۰,۰۰۰",
+                              "condition": "crChargePreset1000"
+                            }
+                          ]
+                        },
+                        "type": "gestureDetector"
+                      },
+                      "type": "expanded"
+                    },
+                    {
+                      "child": {
+                        "type": "sizedBox"
+                      },
+                      "type": "expanded"
+                    }
+                  ],
+                  "type": "row"
+                },
+                {
+                  "height": 12.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "type": "visibility",
+                  "visible": "[[!crChargeAmazing]]",
+                  "child": {
+                    "crossAxisAlignment": "stretch",
+                    "children": [
+                      {
+                        "type": "textFormField",
+                        "id": "crChargeDesiredAmount",
+                        "textDirection": "rtl",
+                        "textAlign": "center",
+                        "decoration": {
+                          "hintText": "مبلغ دلخواه",
+                          "hintStyle": {
+                            "type": "custom",
+                            "color": "#98A2B3",
+                            "fontSize": 16.0,
+                            "fontWeight": "w500"
+                          },
+                          "prefixText": "ریال",
+                          "prefixStyle": {
+                            "type": "custom",
+                            "color": "#98A2B3",
+                            "fontSize": 16.0,
+                            "fontWeight": "w500"
+                          },
+                          "contentPadding": {
+                            "left": 14.0,
+                            "top": 14.0,
+                            "right": 14.0,
+                            "bottom": 14.0
+                          },
+                          "hintTextAlign": "center",
+                          "hintTextDirection": "rtl",
+                          "counterText": ""
+                        },
+                        "keyboardType": "number",
+                        "onChanged": {
+                          "actionType": "sequence",
+                          "actions": [
+                            {
+                              "actionType": "setValue",
+                              "values": [
+                                {
+                                  "key": "crChargeOptionalMode",
+                                  "value": true
+                                },
+                                {
+                                  "key": "crChargeHasPreset",
+                                  "value": false
+                                },
+                                {
+                                  "key": "crChargePreset50",
+                                  "value": false
+                                },
+                                {
+                                  "key": "crChargePreset100",
+                                  "value": false
+                                },
+                                {
+                                  "key": "crChargePreset200",
+                                  "value": false
+                                },
+                                {
+                                  "key": "crChargePreset500",
+                                  "value": false
+                                },
+                                {
+                                  "key": "crChargePreset1000",
+                                  "value": false
+                                },
+                                {
+                                  "key": "crChargeCanToggleAmazing",
+                                  "value": false
+                                },
+                                {
+                                  "key": "crChargeAmazing",
+                                  "value": false
+                                },
+                                {
+                                  "key": "crChargeShowAmountError",
+                                  "value": false
+                                },
+                                {
+                                  "key": "crChargeContinueOptionalValid",
+                                  "value": false
+                                }
+                              ]
+                            },
+                            {
+                              "actionType": "setValue",
+                              "key": "crChargeEnteredAmount",
+                              "value": {
+                                "actionType": "getFormValue",
+                                "id": "crChargeDesiredAmount"
+                              }
+                            },
+                            {
+                              "actionType": "validateFields",
+                              "resultKey": "crChargeOptionalInRange",
+                              "fields": [
+                                {
+                                  "id": "crChargeDesiredAmount",
+                                  "rule": "^[0-9۰-۹٠-٩,٬]+$"
+                                }
+                              ]
+                            },
+                            {
+                              "actionType": "setValue",
+                              "values": [
+                                {
+                                  "key": "crChargeContinueOptionalValid",
+                                  "value": true,
+                                  "condition": "crChargeOptionalInRange"
+                                },
+                                {
+                                  "key": "crChargeShowAmountError",
+                                  "value": true,
+                                  "condition": "!crChargeOptionalInRange"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "visibility",
+                        "visible": "[[crChargeShowAmountError]]",
+                        "child": {
+                          "padding": {
+                            "top": 8.0,
+                            "right": 6.0
+                          },
+                          "child": {
+                            "data": "مبلغ شارژ را وارد کنید.",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.feedback.error}}",
+                              "fontSize": 13.0,
+                              "fontWeight": "w500"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          "type": "padding"
+                        },
+                        "replacement": {
+                          "type": "sizedBox"
+                        }
+                      }
+                    ],
+                    "type": "column"
+                  },
+                  "replacement": {
+                    "type": "sizedBox"
+                  }
+                },
+                {
+                  "height": 14.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "textDirection": "rtl",
+                  "children": [
+                    {
+                      "data": "شارژ شگفت انگیز",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w600"
+                      },
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    {
+                      "child": {
+                        "type": "sizedBox"
+                      },
+                      "type": "expanded"
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[crChargeCanToggleAmazing]]",
+                      "child": {
+                        "type": "reactiveSwitch",
+                        "valueKey": "crChargeAmazing",
+                        "initialValue": false,
+                        "onChanged": {
+                          "actionType": "setValue",
+                          "values": [
+                            {
+                              "key": "crChargeHasPreset",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeOptionalMode",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeShowAmountError",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset50",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset100",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset200",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset500",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargePreset1000",
+                              "value": false
+                            },
+                            {
+                              "key": "crChargeSelectedPresetAmount",
+                              "value": "۱۰۰,۰۰۰"
+                            }
+                          ]
+                        },
+                        "activeColor": "#20C4D8",
+                        "scale": 0.85
+                      },
+                      "replacement": {
+                        "decoration": {
+                          "color": "#EAECF0",
+                          "borderRadius": {
+                            "topLeft": 16.0,
+                            "topRight": 16.0,
+                            "bottomLeft": 16.0,
+                            "bottomRight": 16.0
+                          }
+                        },
+                        "width": 48.0,
+                        "height": 28.0,
+                        "child": {
+                          "alignment": "centerStart",
+                          "child": {
+                            "decoration": {
+                              "color": "#C4C4C4",
+                              "shape": "circle"
+                            },
+                            "width": 22.0,
+                            "height": 22.0,
+                            "margin": {
+                              "left": 3.0,
+                              "right": 3.0
+                            },
+                            "type": "container"
+                          },
+                          "type": "align"
+                        },
+                        "type": "container"
+                      }
+                    }
+                  ],
+                  "type": "row"
+                },
+                {
+                  "height": 18.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "type": "visibility",
+                  "visible": "[[crChargeOptionalMode]]",
+                  "child": {
+                    "type": "visibility",
+                    "visible": "[[crChargeContinueOptionalValid]]",
+                    "child": {
+                      "onPressed": {
+                        "actionType": "sequence",
+                        "actions": [
+                          {
+                            "actionType": "setValue",
+                            "values": [
+                              {
+                                "key": "crPkgSelectedAmount",
+                                "value": "{{crChargeEnteredAmount}}"
+                              },
+                              {
+                                "key": "crPkgSelectedName",
+                                "value": "شارژ {{crActiveSimOperator}}"
+                              }
+                            ]
+                          },
+                          {
+                            "routeName": "charge_real_payment",
+                            "navigationStyle": "push",
+                            "actionType": "navigate"
+                          }
+                        ]
+                      },
+                      "style": {
+                        "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                        "backgroundColor": "{{appColors.current.primary.color}}",
+                        "elevation": 0.0,
+                        "fixedSize": {
+                          "width": 999999.0,
+                          "height": 56.0
+                        },
+                        "shape": {
+                          "type": "roundedRectangleBorder",
+                          "borderRadius": {
+                            "topLeft": 10.0,
+                            "topRight": 10.0,
+                            "bottomLeft": 10.0,
+                            "bottomRight": 10.0
+                          }
+                        }
+                      },
+                      "child": {
+                        "data": "تایید و ادامه",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.primary.onPrimary}}",
+                          "fontSize": 16.0,
+                          "fontWeight": "w700"
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      "type": "filledButton"
+                    },
+                    "replacement": {
+                      "onPressed": {
+                        "actionType": "setValue",
+                        "key": "crChargeShowAmountError",
+                        "value": true
+                      },
+                      "style": {
+                        "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                        "backgroundColor": "{{appColors.current.primary.color}}",
+                        "elevation": 0.0,
+                        "fixedSize": {
+                          "width": 999999.0,
+                          "height": 56.0
+                        },
+                        "shape": {
+                          "type": "roundedRectangleBorder",
+                          "borderRadius": {
+                            "topLeft": 10.0,
+                            "topRight": 10.0,
+                            "bottomLeft": 10.0,
+                            "bottomRight": 10.0
+                          }
+                        }
+                      },
+                      "child": {
+                        "data": "تایید و ادامه",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.primary.onPrimary}}",
+                          "fontSize": 16.0,
+                          "fontWeight": "w700"
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      "type": "filledButton"
+                    }
+                  },
+                  "replacement": {
+                    "onPressed": {
+                      "actionType": "sequence",
+                      "actions": [
+                        {
+                          "actionType": "setValue",
+                          "values": [
+                            {
+                              "key": "crPkgSelectedAmount",
+                              "value": "{{crChargeSelectedPresetAmount}}"
+                            },
+                            {
+                              "key": "crPkgSelectedName",
+                              "value": "شارژ {{crActiveSimOperator}}"
+                            }
+                          ]
+                        },
+                        {
+                          "routeName": "charge_real_payment",
+                          "navigationStyle": "push",
+                          "actionType": "navigate"
+                        }
+                      ]
+                    },
+                    "style": {
+                      "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                      "backgroundColor": "{{appColors.current.primary.color}}",
+                      "elevation": 0.0,
+                      "fixedSize": {
+                        "width": 999999.0,
+                        "height": 56.0
+                      },
+                      "shape": {
+                        "type": "roundedRectangleBorder",
+                        "borderRadius": {
+                          "topLeft": 10.0,
+                          "topRight": 10.0,
+                          "bottomLeft": 10.0,
+                          "bottomRight": 10.0
+                        }
+                      }
+                    },
+                    "child": {
+                      "data": "تایید و ادامه",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.primary.onPrimary}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w700"
+                      },
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    "type": "filledButton"
+                  }
+                }
+              ],
+              "type": "column"
+            },
+            "type": "container"
+          },
+          "type": "align"
+        }
+      ],
+      "type": "stack"
+    },
+    "type": "scaffold"
+  }
+}

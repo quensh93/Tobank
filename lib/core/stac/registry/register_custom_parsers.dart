@@ -60,6 +60,7 @@ import '../parsers/actions/remove_gift_card_amount_card_action_parser.dart';
 import '../parsers/actions/update_gift_card_amount_count_action_parser.dart';
 import '../parsers/actions/launch_url_action_parser.dart';
 import '../parsers/actions/play_audio_url_action_parser.dart';
+import '../parsers/actions/pick_contact_phone_action_parser.dart';
 
 import '../parsers/widgets/reactive_list_view_parser.dart';
 import '../parsers/widgets/custom_bottom_navigation_bar_parser.dart';
@@ -653,6 +654,9 @@ void _registerExampleParsers() {
   CustomComponentRegistry.instance.registerWidget(
     const ReceiptRepaintBoundaryParser(),
   );
+
+  // Register contact picker action parser for selecting mobile from contacts
+  registerPickContactPhoneActionParser();
 }
 
 /// Unregister all custom parsers from the STAC framework.

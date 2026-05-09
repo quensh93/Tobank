@@ -1,11 +1,11 @@
 import 'package:stac_core/stac_core.dart';
-import 'profile_real_app_bar.dart';
+import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/widgets/profile_real_app_bar.dart';
 
 @StacScreen(screenName: 'profile_real_customer_referrals')
 StacWidget profileRealCustomerReferrals() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildProfileRealAppBar(title: 'Ù„ÛŒØ³Øª Ø¯Ø¹ÙˆØªâ€ŒØ´Ø¯Ú¯Ø§Ù†'),
+    appBar: buildProfileRealAppBar(title: 'لیست دعوت‌شدگان'),
     body: StacCenter(
       child: StacColumn(
         mainAxisSize: StacMainAxisSize.min,
@@ -20,7 +20,7 @@ StacWidget profileRealCustomerReferrals() {
           ),
           StacSizedBox(height: 24),
           StacText(
-            data: 'Ù…ÙˆØ±Ø¯ÛŒ ÛŒØ§ÙØª Ù†Ø´Ø¯',
+            data: 'موردی یافت نشد',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(

@@ -95,6 +95,14 @@ StacWidget tobankMenuDart() {
           title: 'انتقال وجه (واقعی)',
           widgetType: 'transfer_real_menu',
         ),
+        _buildSingleButtonMenuItemCard(
+          title: 'شارژ (API واقعی)',
+          widgetType: 'charge_real_menu',
+        ),
+        _buildSingleButtonMenuItemCard(
+          title: 'پکیج اینترنت (API واقعی)',
+          widgetType: 'package_real_menu',
+        ),
       ],
     ),
   );
@@ -238,13 +246,13 @@ StacWidget _buildButtonWidget({
       });
     } else if (hasValidPath) {
       onPressed = StacNavigateAction(
-        assetPath: path!,
+        assetPath: path,
         navigationStyle: NavigationStyle.push,
       );
     }
   } else if (hasValidPath) {
     onPressed = StacNavigateAction(
-      assetPath: path!,
+      assetPath: path,
       navigationStyle: NavigationStyle.push,
     );
   }
