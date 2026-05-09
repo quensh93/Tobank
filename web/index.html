@@ -35,6 +35,98 @@
 </head>
 
 <body>
+  <script>
+    window.webAuthnCreate = async function (
+      challenge,
+      userId,
+      userName,
+      rpName,
+      rpId
+    ) {
+      try {
+        if (!window.PublicKeyCredential || !navigator.credentials) {
+          return null;
+        }
+
+        const options = {
+          challenge: new Uint8Array(challenge),
+          rp: {
+            name: rpName || "Tobank",
+            id: rpId || window.location.hostname,
+          },
+          user: {
+            id: new Uint8Array(userId),
+            name: userName,
+            displayName: userName,
+          },
+          pubKeyCredParams: [
+            { type: "public-key", alg: -7 },
+            { type: "public-key", alg: -257 },
+          ],
+          authenticatorSelection: {
+            userVerification: "preferred",
+            residentKey: "preferred",
+          },
+          timeout: 60000,
+          attestation: "none",
+        };
+
+        const credential = await navigator.credentials.create({ publicKey: options });
+        if (!credential) return null;
+
+        const rawId = new Uint8Array(credential.rawId);
+        let binary = "";
+        for (let i = 0; i < rawId.byteLength; i++) {
+          binary += String.fromCharCode(rawId[i]);
+        }
+        return btoa(binary);
+      } catch (e) {
+        if (e instanceof DOMException) {
+          if (e.name === "NotAllowedError" || e.name === "AbortError") {
+            throw new Error("USER_CANCELLED");
+          }
+        }
+        return null;
+      }
+    };
+
+    window.webAuthnGet = async function (challenge, credentialIdBase64) {
+      try {
+        if (!window.PublicKeyCredential || !navigator.credentials) {
+          return false;
+        }
+
+        const binaryId = atob(credentialIdBase64);
+        const credentialId = new Uint8Array(binaryId.length);
+        for (let i = 0; i < binaryId.length; i++) {
+          credentialId[i] = binaryId.charCodeAt(i);
+        }
+
+        const options = {
+          challenge: new Uint8Array(challenge),
+          allowCredentials: [{ id: credentialId, type: "public-key", transports: ["internal"] }],
+          userVerification: "preferred",
+          timeout: 60000,
+        };
+
+        const assertion = await navigator.credentials.get({ publicKey: options });
+        return assertion !== null;
+      } catch (e) {
+        if (e instanceof DOMException) {
+          if (e.name === "NotAllowedError" || e.name === "AbortError") {
+            throw new Error("USER_CANCELLED");
+          }
+        }
+        return false;
+      }
+    };
+
+    window.isWebAuthnAvailable = function () {
+      return window.isSecureContext &&
+        window.PublicKeyCredential !== undefined &&
+        navigator.credentials !== undefined;
+    };
+  </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 

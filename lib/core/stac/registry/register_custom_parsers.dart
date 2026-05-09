@@ -54,6 +54,7 @@ import '../parsers/actions/show_transfer_in_bank_type_bottom_sheet_action_parser
 import '../parsers/actions/show_card_expire_select_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_transfer_card_confirm_dialog_action_parser.dart';
 import '../parsers/actions/show_transfer_card_scanner_action_parser.dart';
+import '../parsers/actions/show_bottom_sheet_action_parser.dart';
 import '../parsers/actions/show_gift_card_plan_selector_bottom_sheet_action_parser.dart';
 import '../parsers/actions/add_gift_card_amount_card_action_parser.dart';
 import '../parsers/actions/remove_gift_card_amount_card_action_parser.dart';
@@ -69,7 +70,10 @@ import '../parsers/widgets/asset_widget_parser.dart';
 
 import '../parsers/widgets/custom_visibility_parser.dart';
 import '../parsers/actions/show_snackbar_action_parser.dart';
+import '../parsers/actions/hide_snackbar_action_parser.dart';
 import '../parsers/actions/finger_print_action_parser.dart';
+import '../parsers/actions/biometric_register_action_parser.dart';
+import '../parsers/actions/biometric_debug_action_parser.dart';
 import '../parsers/actions/auth_persist_action_parser.dart';
 import '../parsers/actions/promissory_sign_action_parser.dart';
 import '../parsers/actions/filter_transfer_iban_list_action_parser.dart';
@@ -84,6 +88,7 @@ import '../parsers/widgets/signature_pad_parser.dart';
 import '../parsers/widgets/receipt_repaint_boundary_parser.dart';
 import '../parsers/widgets/tobank_banner_carousel_parser.dart';
 import '../parsers/widgets/tobank_cards_carousel_parser.dart';
+import '../parsers/widgets/tobank_card_management_slider_parser.dart';
 import '../parsers/widgets/tobank_cards_stack_scroller_parser.dart';
 import '../parsers/widgets/tobank_mega_gasht_webview_parser.dart';
 import '../parsers/widgets/tobank_acceptor_webview_parser.dart';
@@ -451,6 +456,7 @@ void _registerExampleParsers() {
   // Register home-page banner carousel parser (auto-scroll + indicators)
   registerTobankBannerCarouselParser();
   registerTobankCardsCarouselParser();
+  registerTobankCardManagementSliderParser();
   registerTobankCardsStackScrollerParser();
   registerTobankMegaGashtWebViewParser();
   registerTobankAcceptorWebViewParser();
@@ -502,10 +508,23 @@ void _registerExampleParsers() {
   CustomComponentRegistry.instance.registerAction(
     const ShowSnackBarActionParser(),
   );
+  CustomComponentRegistry.instance.registerAction(
+    const HideSnackBarActionParser(),
+  );
 
   // Register fingerPrint action parser
   CustomComponentRegistry.instance.registerAction(
     const FingerPrintActionParser(),
+  );
+
+  // Register explicit biometric registration action parser
+  CustomComponentRegistry.instance.registerAction(
+    const BiometricRegisterActionParser(),
+  );
+
+  // Register biometricDebug action parser for module QA flows
+  CustomComponentRegistry.instance.registerAction(
+    const BiometricDebugActionParser(),
   );
 
   // Register authPersist action parser
@@ -615,6 +634,9 @@ void _registerExampleParsers() {
 
   // Register gift-card plan selector bottom sheet action parser
   registerShowGiftCardPlanSelectorBottomSheetActionParser();
+
+  // Register generic bottom sheet action parser
+  registerShowBottomSheetActionParser();
 
   // Register add-gift-card amount card action parser (max 3 cards)
   registerAddGiftCardAmountCardActionParser();

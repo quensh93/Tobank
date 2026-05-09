@@ -655,7 +655,13 @@ StacWidget _buildWalletCardWithHandle() {
 }
 
 StacWidget _buildWalletCard() {
-  return StacContainer(
+  return StacGestureDetector(
+    onTap: StacRawJsonAction({
+      'actionType': 'navigate',
+      'widgetType': 'dashboard_real_cards_management',
+      'navigationStyle': 'push',
+    }),
+    child: StacContainer(
     height: 125,
     padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 14),
     decoration: StacBoxDecoration(
@@ -739,6 +745,7 @@ StacWidget _buildWalletCard() {
         ),
       ],
     ),
+   ),
   );
 }
 
@@ -755,7 +762,13 @@ StacWidget _buildBankCardItem({
   required String cardNumber,
   required String subtitle,
 }) {
-  return StacContainer(
+  return StacGestureDetector(
+    onTap: StacRawJsonAction({
+      'actionType': 'navigate',
+      'widgetType': 'dashboard_real_cards_management',
+      'navigationStyle': 'push',
+    }),
+    child: StacContainer(
     height: 112,
     padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 12),
     decoration: StacBoxDecoration(
@@ -832,6 +845,7 @@ StacWidget _buildBankCardItem({
         ),
       ],
     ),
+   ),
   );
 }
 

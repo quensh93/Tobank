@@ -20,6 +20,19 @@ class WebBiometricService {
   static const String _credentialIdKey = 'webauthn_credential_id';
   static const String _enabledKey = 'webauthn_biometric_enabled';
 
+  static bool _isUserCancelledError(Object error) {
+    final errorString = error.toString().toLowerCase();
+    return errorString.contains('notallowederror') ||
+        errorString.contains('aborterror') ||
+        errorString.contains('user_cancelled') ||
+        errorString.contains('cancelled') ||
+        errorString.contains('canceled') ||
+        errorString.contains('abort') ||
+        errorString.contains('not allowed') ||
+        errorString.contains('operation was aborted') ||
+        errorString.contains('user denied');
+  }
+
   /// Check if the device is an Apple device (iOS/iPadOS)
   /// Public method to check if running on Apple device
   static bool isAppleDevice() {
@@ -86,6 +99,17 @@ class WebBiometricService {
       // Fallback: check if password is set (for password authentication fallback)
       final String? storedPassword = await StorageUtil.getPassword();
       return storedPassword != null && storedPassword.isNotEmpty;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  /// Check whether a real WebAuthn credential is stored.
+  /// Unlike [isRegistered], this does not include password fallback state.
+  static Future<bool> isPasskeyRegistered() async {
+    try {
+      final credentialId = html.window.localStorage[_credentialIdKey];
+      return credentialId != null && credentialId.isNotEmpty;
     } catch (e) {
       return false;
     }
@@ -634,6 +658,9 @@ class WebBiometricService {
       final result = await _jsGetCredential(challenge, credentialId);
       return result;
     } catch (e) {
+      if (_isUserCancelledError(e)) {
+        rethrow;
+      }
       print('JS getCredential error: $e');
       return false;
     }
@@ -674,6 +701,10 @@ class WebBiometricService {
           completer.complete(value);
         })
         .catchError((e) {
+          if (_isUserCancelledError(e)) {
+            completer.completeError(e);
+            return;
+          }
           completer.complete(false);
         });
 
@@ -715,6 +746,9 @@ class WebBiometricService {
       final result = await jsPromise.toDart;
       return result?.toDart ?? false;
     } catch (e) {
+      if (_isUserCancelledError(e)) {
+        rethrow;
+      }
       print('Execute WebAuthn get error: $e');
       return false;
     }

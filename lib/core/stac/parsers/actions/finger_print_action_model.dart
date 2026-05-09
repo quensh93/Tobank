@@ -3,7 +3,8 @@ import 'package:stac/stac.dart';
 class FingerPrintActionModel {
   final String? title;
   final String? description;
-  final String? userId; // For web registration
+  final String?
+  userId; // Optional context only; authenticate path does not register
   final Map<String, dynamic>? onSuccess;
   final Map<String, dynamic>? onFailure;
 

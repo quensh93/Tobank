@@ -14,6 +14,8 @@
 - Prefer existing Tobank assets and patterns before introducing new UI assets or navigation shapes.
 - Keep bottom navigation outside child page implementations when the user marks it as parent-owned UI.
 - For v1 feature work, enable only the paths the user requested and keep out-of-scope buttons visually present but inactive when needed.
+- Never auto-convert local STAC `assetPath` values from `/json/*.json` to `/api/GET_*.json` unless the user explicitly asks for API-path mode.
+- Treat Persian/Arabic JSON and Dart files as UTF-8 only; when scripting file edits use explicit UTF-8 read/write APIs and avoid shell defaults that can cause mojibake (`Ã...`, `Ø...`, `ï¿½...`).
 
 ## Recent Changes (Last 20)
 ### 2026-05-02T09:49:46+03:30

@@ -5,37 +5,30 @@ import 'package:stac/stac.dart';
 
 import '../../../helpers/logger.dart';
 import '../../../services/biometric/biometric_service.dart';
-import 'finger_print_action_model.dart';
+import 'biometric_register_action_model.dart';
 
-class FingerPrintActionParser extends StacActionParser<FingerPrintActionModel> {
-  const FingerPrintActionParser();
-
-  @override
-  String get actionType => 'fingerPrint';
+class BiometricRegisterActionParser
+    extends StacActionParser<BiometricRegisterActionModel> {
+  const BiometricRegisterActionParser();
 
   @override
-  FingerPrintActionModel getModel(Map<String, dynamic> json) =>
-      FingerPrintActionModel.fromJson(json);
+  String get actionType => 'biometricRegister';
+
+  @override
+  BiometricRegisterActionModel getModel(Map<String, dynamic> json) {
+    return BiometricRegisterActionModel.fromJson(json);
+  }
 
   @override
   FutureOr<void> onCall(
     BuildContext context,
-    FingerPrintActionModel model,
+    BiometricRegisterActionModel model,
   ) async {
-    AppLogger.ic(
-      LogCategory.stacAction,
-      '[fingerPrint] start userIdProvided=${model.userId != null && model.userId!.isNotEmpty} authenticateOnly=true',
-    );
-
-    final isAvailable = await BiometricService.isAvailable();
-    AppLogger.ic(
-      LogCategory.stacAction,
-      '[fingerPrint] availability=$isAvailable',
-    );
-    if (!isAvailable) {
+    final userId = model.userId?.trim();
+    if (userId == null || userId.isEmpty) {
       AppLogger.wc(
         LogCategory.stacAction,
-        '[fingerPrint] unavailable -> onFailure',
+        '[biometricRegister] missing userId -> onFailure',
       );
       if (context.mounted && model.onFailure != null) {
         Stac.onCallFromJson(model.onFailure!, context);
@@ -61,7 +54,7 @@ class FingerPrintActionParser extends StacActionParser<FingerPrintActionModel> {
               const Icon(Icons.fingerprint, size: 64, color: Colors.blue),
               const SizedBox(height: 16),
               Text(
-                model.title ?? 'احراز هویت',
+                model.title ?? 'Biometric Registration',
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -70,7 +63,7 @@ class FingerPrintActionParser extends StacActionParser<FingerPrintActionModel> {
               const SizedBox(height: 8),
               Text(
                 model.description ??
-                    'لطفا برای ادامه از اثر انگشت استفاده کنید',
+                    'Create biometric/passkey credential for this user.',
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 24),
@@ -80,15 +73,15 @@ class FingerPrintActionParser extends StacActionParser<FingerPrintActionModel> {
                   onPressed: () async {
                     AppLogger.ic(
                       LogCategory.stacAction,
-                      '[fingerPrint] authenticate requested',
+                      '[biometricRegister] start userId=$userId passkeyOnly=${model.passkeyOnly}',
                     );
-                    final authenticated = await BiometricService.authenticate(
-                      reason: model.description ?? 'لطفا احراز هویت کنید',
-                      userId: model.userId,
+                    final registered = await BiometricService.register(
+                      userId: userId,
+                      passkeyOnly: model.passkeyOnly,
                     );
                     AppLogger.ic(
                       LogCategory.stacAction,
-                      '[fingerPrint] authenticate result=$authenticated',
+                      '[biometricRegister] result=$registered',
                     );
 
                     if (!sheetContext.mounted) {
@@ -96,25 +89,17 @@ class FingerPrintActionParser extends StacActionParser<FingerPrintActionModel> {
                     }
                     Navigator.pop(sheetContext);
 
-                    if (authenticated) {
-                      AppLogger.ic(
-                        LogCategory.stacAction,
-                        '[fingerPrint] success callback',
-                      );
+                    if (registered) {
                       if (model.onSuccess != null) {
                         Stac.onCallFromJson(model.onSuccess!, sheetContext);
                       }
                     } else {
-                      AppLogger.wc(
-                        LogCategory.stacAction,
-                        '[fingerPrint] failure callback',
-                      );
                       if (model.onFailure != null) {
                         Stac.onCallFromJson(model.onFailure!, sheetContext);
                       }
                     }
                   },
-                  child: const Text('تایید'),
+                  child: const Text('Create Credential'),
                 ),
               ),
             ],

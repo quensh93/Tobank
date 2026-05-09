@@ -759,3 +759,63 @@ class StacShowGiftCardPlanSelectorBottomSheetAction extends StacAction {
           : onPlanSelectedAction,
   };
 }
+
+class StacShowBottomSheetAction extends StacAction {
+  final Map<String, dynamic>? sheet;
+  final String? title;
+  final List<Map<String, dynamic>>? items;
+  final bool? isScrollControlled;
+  final bool? useSafeArea;
+  final bool? isDismissible;
+  final bool? enableDrag;
+  final String? backgroundColor;
+  final String? barrierColor;
+
+  const StacShowBottomSheetAction({
+    this.sheet,
+    this.title,
+    this.items,
+    this.isScrollControlled,
+    this.useSafeArea,
+    this.isDismissible,
+    this.enableDrag,
+    this.backgroundColor,
+    this.barrierColor,
+  });
+
+  @override
+  String get actionType => 'showBottomSheet';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': actionType,
+    if (sheet != null) 'sheet': sheet,
+    if (title != null) 'title': title,
+    if (items != null) 'items': items,
+    if (isScrollControlled != null) 'isScrollControlled': isScrollControlled,
+    if (useSafeArea != null) 'useSafeArea': useSafeArea,
+    if (isDismissible != null) 'isDismissible': isDismissible,
+    if (enableDrag != null) 'enableDrag': enableDrag,
+    if (backgroundColor != null) 'backgroundColor': backgroundColor,
+    if (barrierColor != null) 'barrierColor': barrierColor,
+  };
+}
+
+@Deprecated('Use StacShowBottomSheetAction instead.')
+class StacShowMobileBankServicesBottomSheetAction
+    extends StacShowBottomSheetAction {
+  const StacShowMobileBankServicesBottomSheetAction({
+    super.sheet,
+    super.title,
+    super.items,
+    super.isScrollControlled,
+    super.useSafeArea,
+    super.isDismissible,
+    super.enableDrag,
+    super.backgroundColor,
+    super.barrierColor,
+  });
+
+  @override
+  String get actionType => 'showMobileBankServicesBottomSheet';
+}

@@ -1,6 +1,7 @@
 import 'package:stac/stac.dart';
 import '../../core/helpers/logger.dart';
 import '../../core/stac/parsers/widgets/tobank_onboarding_slider_parser.dart';
+import '../../core/stac/parsers/widgets/tobank_card_management_slider_parser.dart';
 import 'custom_component_registry.dart';
 
 // Custom widgets and actions will be imported here when created
@@ -120,6 +121,9 @@ void _registerExampleParsers() {
   // registerExampleCardParser(); // Uncomment when widgets are created
   CustomComponentRegistry.instance.registerWidget(
     const TobankOnboardingSliderParser(),
+  );
+  CustomComponentRegistry.instance.registerWidget(
+    const TobankCardManagementSliderParser(),
   );
 
   // Register example action parsers

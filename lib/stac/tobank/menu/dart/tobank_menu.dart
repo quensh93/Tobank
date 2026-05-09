@@ -103,7 +103,30 @@ StacWidget tobankMenuDart() {
           title: 'پکیج اینترنت (API واقعی)',
           widgetType: 'package_real_menu',
         ),
+        StacSizedBox(height: 20),
+        _buildSectionHeader('ماژول ها'),
+        StacSizedBox(height: 8),
+        _buildSingleButtonMenuItemCard(
+          title: 'بیومتریک ( تست ماژول)',
+          widgetType: 'biometric_test_menu',
+        ),
       ],
+    ),
+  );
+}
+
+StacWidget _buildSectionHeader(String title) {
+  return StacPadding(
+    padding: StacEdgeInsets.symmetric(horizontal: 8),
+    child: StacText(
+      data: title,
+      textDirection: StacTextDirection.rtl,
+      textAlign: StacTextAlign.right,
+      style: StacCustomTextStyle(
+        fontSize: 16,
+        fontWeight: StacFontWeight.w700,
+        color: '{{appColors.current.text.title}}',
+      ),
     ),
   );
 }

@@ -147,8 +147,12 @@ import '../../../../stac/tobank/flows/transaction_real/dart/transaction_real_fil
     as transaction_real_filter_dart;
 import '../../../../stac/tobank/flows/dashboard_real/menu/dashboard_real_menu.dart'
     as dashboard_real_menu_dart;
+import '../../../../stac/tobank/flows/biometric_test/menu/biometric_test_menu.dart'
+    as biometric_test_menu_dart;
 import '../../../../stac/tobank/flows/dashboard_real/dart/dashboard_real_shell.dart'
     as dashboard_real_shell_dart;
+import '../../../../stac/tobank/flows/dashboard_real/dart/cards_management_screen.dart'
+    as cards_management_screen_dart;
 import '../../../../stac/tobank/flows/gift_card_real/menu/gift_card_real_menu.dart'
     as gift_card_real_menu_dart;
 import '../../../../stac/tobank/flows/transfer_real/menu/transfer_real_menu.dart'
@@ -335,8 +339,12 @@ class StacWidgetLoader {
         transaction_real_filter_dart.transactionRealFilter().toJson(),
     'dashboard_real_menu': () =>
         dashboard_real_menu_dart.dashboardRealMenu().toJson(),
+    'biometric_test_menu': () =>
+        biometric_test_menu_dart.biometricTestMenu().toJson(),
     'dashboard_real_shell': () =>
         dashboard_real_shell_dart.dashboardRealShell().toJson(),
+    'dashboard_real_cards_management': () =>
+        cards_management_screen_dart.dashboardRealCardsManagement().toJson(),
     'gift_card_real_menu': () =>
         gift_card_real_menu_dart.giftCardRealMenu().toJson(),
     'transfer_real_menu': () =>

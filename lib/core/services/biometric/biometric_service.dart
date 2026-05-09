@@ -28,18 +28,47 @@ class BiometricService {
     }
   }
 
+  /// Check whether biometric/passkey is already registered for current user.
+  /// On web this checks local credential/password state.
+  /// On native this maps to biometric availability.
+  static Future<bool> isRegistered() async {
+    if (kIsWeb) {
+      return WebBiometricService.isRegistered();
+    }
+    return isAvailable();
+  }
+
+  /// Explicit registration step for web biometric (passkey/password fallback).
+  /// Native local_auth has no registration step, so this returns false.
+  static Future<bool> register({
+    required String userId,
+    bool passkeyOnly = false,
+  }) async {
+    if (!kIsWeb) {
+      return false;
+    }
+    return WebBiometricService.register(
+      userId: userId,
+      passkeyOnly: passkeyOnly,
+    );
+  }
+
   /// Authenticate the user
   /// [reason] - Message to show (e.g., "Please authenticate to sign")
-  /// [userId] - Optional, used for Web registration if needed
+  /// [userId] - Optional context only (no implicit registration)
   static Future<bool> authenticate({
     String reason = 'لطفا احراز هویت کنید',
     String? userId,
   }) async {
     if (kIsWeb) {
-      // Web implementation
+      if (userId != null && userId.isNotEmpty) {
+        debugPrint(
+          'BiometricService.authenticate ignores userId on web; use register() for credential creation.',
+        );
+      }
       return await WebBiometricService.authenticate(
         reason: reason,
-        userId: userId,
+        userId: null,
       );
     } else {
       // Native implementation via local_auth

@@ -649,6 +649,54 @@ class StacTobankCardsCarousel extends StacWidget {
   };
 }
 
+/// Builder for custom 'tobankCardManagementSlider' payloads handled by
+/// TobankCardManagementSliderParser.
+class StacTobankCardManagementSlider extends StacWidget {
+  const StacTobankCardManagementSlider({
+    required this.pages,
+    this.enabledStates,
+    this.selectedEnabledKey,
+    this.height,
+    this.initialPage,
+    this.indicatorTopSpacing,
+    this.indicatorActiveColor,
+    this.indicatorInactiveColor,
+    this.indicatorSpacing,
+    this.indicatorSize,
+  });
+
+  final List<Map<String, dynamic>> pages;
+  final List<bool>? enabledStates;
+  final String? selectedEnabledKey;
+  final double? height;
+  final int? initialPage;
+  final double? indicatorTopSpacing;
+  final String? indicatorActiveColor;
+  final String? indicatorInactiveColor;
+  final double? indicatorSpacing;
+  final double? indicatorSize;
+
+  @override
+  String get type => 'tobankCardManagementSlider';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'type': type,
+    'pages': pages,
+    if (enabledStates != null) 'enabledStates': enabledStates,
+    if (selectedEnabledKey != null) 'selectedEnabledKey': selectedEnabledKey,
+    if (height != null) 'height': height,
+    if (initialPage != null) 'initialPage': initialPage,
+    if (indicatorTopSpacing != null) 'indicatorTopSpacing': indicatorTopSpacing,
+    if (indicatorActiveColor != null)
+      'indicatorActiveColor': indicatorActiveColor,
+    if (indicatorInactiveColor != null)
+      'indicatorInactiveColor': indicatorInactiveColor,
+    if (indicatorSpacing != null) 'indicatorSpacing': indicatorSpacing,
+    if (indicatorSize != null) 'indicatorSize': indicatorSize,
+  };
+}
+
 /// Builder for custom 'tobankCardsStackScroller' payloads handled by
 /// TobankCardsStackScrollerParser.
 class StacTobankCardsStackScroller extends StacWidget {

@@ -1,5 +1,6 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 
 @StacScreen(screenName: 'tobank_special_services_page')
 StacWidget tobankSpecialServicesPage() {
@@ -58,6 +59,7 @@ StacWidget tobankSpecialServicesPage() {
               title: 'خدمات موبایل بانک',
               subtitle: 'فعال سازی خدمات و صدور رمز',
               iconPath: 'assets/icons/ic_menu_mobile.svg',
+              onTap: _mobileBankServicesBottomSheetAction(),
             ),
             second: _buildServiceTile(
               title: 'خدمات اینترنت بانک',
@@ -183,4 +185,491 @@ StacWidget _buildServiceTile({
   }
 
   return StacGestureDetector(onTap: onTap, child: tile);
+}
+
+StacShowBottomSheetAction _mobileBankServicesBottomSheetAction() {
+  return StacShowBottomSheetAction(
+    backgroundColor: '#00000000',
+    sheet: _mobileBankServicesSheet().toJson(),
+  );
+}
+
+StacWidget _mobileBankServicesSheet() {
+  return StacContainer(
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: const StacBorderRadius.only(topLeft: 18, topRight: 18),
+    ),
+    child: StacPadding(
+      padding: StacEdgeInsets.only(left: 16, top: 10, right: 16, bottom: 16),
+      child: StacColumn(
+        mainAxisSize: StacMainAxisSize.min,
+        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+        children: [
+          StacCenter(
+            child: StacContainer(
+              width: 46,
+              height: 6,
+              decoration: StacBoxDecoration(
+                color: '{{appColors.current.input.borderEnabled}}',
+                borderRadius: StacBorderRadius.all(999),
+              ),
+            ),
+          ),
+          StacSizedBox(height: 20),
+          StacText(
+            data: 'خدمات موبایل بانک',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 16,
+              fontWeight: StacFontWeight.w800,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacSizedBox(height: 16),
+          _mobileBankSheetItem(
+            title: 'صدور اولیه رمز موبایل بانک',
+            iconPath: 'assets/icons/ic_bank_lock.svg',
+            resultAction: _mobileBankActivationConfirmAction(),
+          ),
+          StacSizedBox(height: 12),
+          _mobileBankSheetItem(
+            title: 'بازیابی رمز موبایل بانک',
+            iconPath: 'assets/icons/ic_lock_retrieval.svg',
+            resultAction: _mobileBankRecoveryUsernameAction(),
+          ),
+          StacSizedBox(height: 8),
+        ],
+      ),
+    ),
+  );
+}
+
+StacAction _mobileBankActivationConfirmAction() {
+  return StacShowBottomSheetAction(
+    backgroundColor: '#00000000',
+    sheet: _mobileBankActivationConfirmSheet().toJson(),
+  );
+}
+
+StacAction _mobileBankRecoveryUsernameAction() {
+  return StacShowBottomSheetAction(
+    backgroundColor: '#00000000',
+    sheet: _mobileBankRecoveryUsernameSheet().toJson(),
+  );
+}
+
+StacWidget _mobileBankActivationConfirmSheet() {
+  return StacContainer(
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: const StacBorderRadius.only(topLeft: 18, topRight: 18),
+    ),
+    child: StacPadding(
+      padding: StacEdgeInsets.only(left: 16, top: 10, right: 16, bottom: 16),
+      child: StacColumn(
+        mainAxisSize: StacMainAxisSize.min,
+        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+        children: [
+          StacCenter(
+            child: StacContainer(
+              width: 46,
+              height: 6,
+              decoration: StacBoxDecoration(
+                color: '{{appColors.current.input.borderEnabled}}',
+                borderRadius: StacBorderRadius.all(999),
+              ),
+            ),
+          ),
+          StacSizedBox(height: 20),
+          StacRow(
+            textDirection: StacTextDirection.rtl,
+            mainAxisAlignment: StacMainAxisAlignment.start,
+            children: [
+              StacImage(
+                src: 'assets/icons/ic_info.svg',
+                imageType: StacImageType.asset,
+                width: 20,
+                height: 20,
+                color: '{{appColors.current.text.title}}',
+              ),
+              StacSizedBox(width: 8),
+              StacText(
+                data: 'توجه',
+                textDirection: StacTextDirection.rtl,
+                style: StacCustomTextStyle(
+                  fontSize: 15,
+                  fontWeight: StacFontWeight.w700,
+                  color: '{{appColors.current.text.title}}',
+                ),
+              ),
+            ],
+          ),
+          StacSizedBox(height: 14),
+          StacText(
+            data:
+                'کاربر گرامی، جهت دریافت نام‌کاربری و رمزعبور، نیازمند فعال سازی سرویس می‌باشید',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 13,
+              fontWeight: StacFontWeight.w500,
+              color: '{{appColors.current.text.title}}',
+              height: 1.7,
+            ),
+          ),
+          StacSizedBox(height: 22),
+          StacFilledButton(
+            onPressed: StacCloseDialogAction(
+              result: _buildMobileBankFingerPrintAction(
+                description: 'برای صدور اولیه رمز موبایل بانک احراز هویت کنید',
+                failureMessage:
+                    'احراز هویت ناموفق بود. عملیات "صدور اولیه رمز موبایل بانک" انجام نشد.',
+              ).toJson(),
+            ),
+            style: StacButtonStyle(
+              backgroundColor:
+                  '{{appColors.current.button.primary.backgroundColor}}',
+              foregroundColor:
+                  '{{appColors.current.button.primary.foregroundColor}}',
+              minimumSize: const StacSize(0, 56),
+              padding: StacEdgeInsets.symmetric(vertical: 8),
+              shape: StacRoundedRectangleBorder(
+                borderRadius: StacBorderRadius.all(8),
+              ),
+            ),
+            child: StacText(
+              data: 'فعال‌سازی',
+              textDirection: StacTextDirection.rtl,
+              style: StacCustomTextStyle(
+                fontSize: 14,
+                fontWeight: StacFontWeight.w700,
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+StacWidget _mobileBankRecoveryUsernameSheet() {
+  return StacContainer(
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: const StacBorderRadius.only(topLeft: 18, topRight: 18),
+    ),
+    child: StacPadding(
+      padding: StacEdgeInsets.only(left: 16, top: 10, right: 16, bottom: 16),
+      child: StacColumn(
+        mainAxisSize: StacMainAxisSize.min,
+        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+        children: [
+          StacCenter(
+            child: StacContainer(
+              width: 46,
+              height: 6,
+              decoration: StacBoxDecoration(
+                color: '{{appColors.current.input.borderEnabled}}',
+                borderRadius: StacBorderRadius.all(999),
+              ),
+            ),
+          ),
+          StacSizedBox(height: 20),
+          StacText(
+            data: 'خدمات موبایل بانک',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 16,
+              fontWeight: StacFontWeight.w800,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacSizedBox(height: 16),
+          StacText(
+            data: 'نام کاربری موبایل بانک',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 16,
+              fontWeight: StacFontWeight.w700,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacSizedBox(height: 8),
+          StacContainer(
+            decoration: StacBoxDecoration(
+              border: StacBorder.all(color: '#FFFFFF', width: 1),
+              borderRadius: StacBorderRadius.all(12),
+            ),
+            child: StacRawJsonWidget({
+              'type': 'textFormField',
+              'id': 'mobileBankRecoveryUsername',
+              'textDirection': 'ltr',
+              'textAlign': 'right',
+              'keyboardType': 'number',
+              'decoration': {
+                'hintText': 'نام کاربری موبایل بانک',
+                'hintStyle': {
+                  'type': 'custom',
+                  'fontSize': 14,
+                  'fontWeight': 'w400',
+                  'color': '{{appColors.current.text.hint}}',
+                },
+                'filled': false,
+                'contentPadding': {
+                  'left': 16,
+                  'right': 16,
+                  'top': 20,
+                  'bottom': 20,
+                },
+                'border': {'type': 'none'},
+                'enabledBorder': {'type': 'none'},
+                'focusedBorder': {'type': 'none'},
+                'errorBorder': {'type': 'none'},
+                'focusedErrorBorder': {'type': 'none'},
+                'disabledBorder': {'type': 'none'},
+                'prefixIcon': {
+                  'type': 'padding',
+                  'padding': {'left': 8, 'right': 8, 'top': 8, 'bottom': 8},
+                  'child': {
+                    'type': 'icon',
+                    'icon': 'close',
+                    'size': 18,
+                    'color': '{{appColors.current.text.subtitle}}',
+                  },
+                },
+              },
+            }),
+          ),
+          StacSizedBox(height: 24),
+          StacFilledButton(
+            onPressed: StacCloseDialogAction(
+              result: _buildMobileBankFingerPrintAction(
+                description: 'برای بازیابی رمز موبایل بانک احراز هویت کنید',
+                failureMessage:
+                    'احراز هویت ناموفق بود. عملیات "بازیابی رمز موبایل بانک" انجام نشد.',
+              ).toJson(),
+            ),
+            style: StacButtonStyle(
+              backgroundColor: '#E31A2F',
+              foregroundColor: '#FFFFFF',
+              minimumSize: const StacSize(0, 56),
+              shape: StacRoundedRectangleBorder(
+                borderRadius: StacBorderRadius.all(8),
+              ),
+              elevation: 0,
+            ),
+            child: StacText(
+              data: 'تایید و بازیابی رمز موبایل بانک',
+              textDirection: StacTextDirection.rtl,
+              style: StacCustomTextStyle(
+                fontSize: 16,
+                fontWeight: StacFontWeight.w600,
+                color: '#FFFFFF',
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+StacAction _buildMobileBankFingerPrintAction({
+  required String description,
+  required String failureMessage,
+}) {
+  return StacFingerPrintAction(
+    title: 'احراز هویت',
+    description: description,
+    onSuccess: _customSnackBarAction(
+      title: 'درخواست شما با موفقیت ثبت شد!',
+      detail: 'مراتب از طریق پیامک به شما اطلاع داده خواهد شد.',
+    ),
+    onFailure: _customSnackBarAction(
+      title: 'احراز هویت ناموفق بود.',
+      detail: failureMessage,
+    ),
+  );
+}
+
+StacWidget _mobileBankSheetItem({
+  required String title,
+  required String iconPath,
+  required StacAction resultAction,
+}) {
+  return StacGestureDetector(
+    onTap: StacCloseDialogAction(result: resultAction.toJson()),
+    child: StacContainer(
+      decoration: StacBoxDecoration(
+        color: '#1D2230',
+        borderRadius: StacBorderRadius.all(14),
+        border: StacBorder.all(color: '#3A4150', width: 1),
+      ),
+      child: StacPadding(
+        padding: StacEdgeInsets.only(left: 16, top: 8, right: 16, bottom: 8),
+        child: StacRow(
+          textDirection: StacTextDirection.rtl,
+          crossAxisAlignment: StacCrossAxisAlignment.center,
+          children: [
+            StacContainer(
+              width: 44,
+              height: 44,
+              decoration: StacBoxDecoration(
+                color: '#232938',
+                shape: StacBoxShape.circle,
+              ),
+              child: StacCenter(
+                child: StacImage(
+                  src: iconPath,
+                  imageType: StacImageType.asset,
+                  width: 28,
+                  height: 28,
+                ),
+              ),
+            ),
+            StacSizedBox(width: 12),
+            StacExpanded(
+              child: StacText(
+                data: title,
+                textDirection: StacTextDirection.rtl,
+                textAlign: StacTextAlign.right,
+                style: StacCustomTextStyle(
+                  fontSize: 14,
+                  fontWeight: StacFontWeight.w700,
+                  color: '{{appColors.current.text.title}}',
+                  height: 1.5,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}
+
+Map<String, dynamic> _customSnackBarAction({
+  required String title,
+  required String detail,
+}) {
+  return {
+    'actionType': 'customSnackBar',
+    'backgroundColor': '#00000000',
+    'duration': 10000,
+    'child': {
+      'type': 'container',
+      'decoration': {
+        'color': '#1A2739',
+        'borderRadius': {
+          'topLeft': 8,
+          'topRight': 8,
+          'bottomLeft': 8,
+          'bottomRight': 8,
+        },
+        'border': {'color': '#6D7F98', 'width': 1},
+      },
+      'padding': {'left': 12, 'top': 10, 'right': 12, 'bottom': 10},
+      'child': {
+        'type': 'row',
+        'textDirection': 'ltr',
+        'crossAxisAlignment': 'center',
+        'children': [
+          {
+            'type': 'gestureDetector',
+            'onTap': {'actionType': 'hideSnackBar'},
+            'child': {
+              'type': 'container',
+              'padding': {'left': 10, 'top': 5, 'right': 10, 'bottom': 5},
+              'decoration': {
+                'color': '#E31A2F',
+                'borderRadius': {
+                  'topLeft': 8,
+                  'topRight': 8,
+                  'bottomLeft': 8,
+                  'bottomRight': 8,
+                },
+              },
+              'child': {
+                'type': 'text',
+                'data': 'بستن',
+                'textDirection': 'rtl',
+                'style': {
+                  'type': 'custom',
+                  'fontSize': 12,
+                  'fontWeight': 'w700',
+                  'color': '#FFFFFF',
+                },
+              },
+            },
+          },
+          {'type': 'sizedBox', 'width': 10},
+          {
+            'type': 'expanded',
+            'child': {
+              'type': 'column',
+              'mainAxisSize': 'min',
+              'crossAxisAlignment': 'end',
+              'children': [
+                {
+                  'type': 'text',
+                  'data': title,
+                  'textDirection': 'rtl',
+                  'textAlign': 'right',
+                  'style': {
+                    'type': 'custom',
+                    'fontSize': 14,
+                    'fontWeight': 'w700',
+                    'color': '#F4F7FB',
+                    'height': 1.45,
+                  },
+                },
+                {'type': 'sizedBox', 'height': 4},
+                {
+                  'type': 'text',
+                  'data': detail,
+                  'textDirection': 'rtl',
+                  'textAlign': 'right',
+                  'style': {
+                    'type': 'custom',
+                    'fontSize': 13,
+                    'fontWeight': 'w500',
+                    'color': '#B8C6D9',
+                    'height': 1.45,
+                  },
+                },
+              ],
+            },
+          },
+          {'type': 'sizedBox', 'width': 10},
+          {
+            'type': 'container',
+            'width': 1,
+            'height': 20,
+            'decoration': {
+              'color': '#6D7F98',
+              'borderRadius': {
+                'topLeft': 999,
+                'topRight': 999,
+                'bottomLeft': 999,
+                'bottomRight': 999,
+              },
+            },
+          },
+          {'type': 'sizedBox', 'width': 8},
+          {
+            'type': 'image',
+            'src': 'assets/icons/ic_info.svg',
+            'imageType': 'asset',
+            'width': 20,
+            'height': 20,
+            'color': '#B8C6D9',
+          },
+        ],
+      },
+    },
+  };
 }
