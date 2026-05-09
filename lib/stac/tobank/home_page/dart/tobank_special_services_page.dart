@@ -401,7 +401,11 @@ StacWidget _mobileBankRecoveryUsernameSheet() {
           StacSizedBox(height: 8),
           StacContainer(
             decoration: StacBoxDecoration(
-              border: StacBorder.all(color: '#FFFFFF', width: 1),
+              color: '{{appColors.current.background.surfaceContainerLowest}}',
+              border: StacBorder.all(
+                color: '{{appColors.current.input.borderEnabled}}',
+                width: 1,
+              ),
               borderRadius: StacBorderRadius.all(12),
             ),
             child: StacRawJsonWidget({
@@ -505,9 +509,12 @@ StacWidget _mobileBankSheetItem({
     onTap: StacCloseDialogAction(result: resultAction.toJson()),
     child: StacContainer(
       decoration: StacBoxDecoration(
-        color: '#1D2230',
+        color: '{{appColors.current.background.surfaceContainerLowest}}',
         borderRadius: StacBorderRadius.all(14),
-        border: StacBorder.all(color: '#3A4150', width: 1),
+        border: StacBorder.all(
+          color: '{{appColors.current.input.borderEnabled}}',
+          width: 1,
+        ),
       ),
       child: StacPadding(
         padding: StacEdgeInsets.only(left: 16, top: 8, right: 16, bottom: 8),
@@ -519,7 +526,7 @@ StacWidget _mobileBankSheetItem({
               width: 44,
               height: 44,
               decoration: StacBoxDecoration(
-                color: '#232938',
+                color: '{{appColors.current.background.surfaceContainer}}',
                 shape: StacBoxShape.circle,
               ),
               child: StacCenter(
@@ -563,14 +570,14 @@ Map<String, dynamic> _customSnackBarAction({
     'child': {
       'type': 'container',
       'decoration': {
-        'color': '#1A2739',
+        'color': '{{appColors.current.background.surfaceContainer}}',
         'borderRadius': {
           'topLeft': 8,
           'topRight': 8,
           'bottomLeft': 8,
           'bottomRight': 8,
         },
-        'border': {'color': '#6D7F98', 'width': 1},
+        'border': {'color': '{{appColors.current.input.borderEnabled}}', 'width': 1},
       },
       'padding': {'left': 12, 'top': 10, 'right': 12, 'bottom': 10},
       'child': {
@@ -623,7 +630,7 @@ Map<String, dynamic> _customSnackBarAction({
                     'type': 'custom',
                     'fontSize': 14,
                     'fontWeight': 'w700',
-                    'color': '#F4F7FB',
+                    'color': '{{appColors.current.text.title}}',
                     'height': 1.45,
                   },
                 },
@@ -637,7 +644,7 @@ Map<String, dynamic> _customSnackBarAction({
                     'type': 'custom',
                     'fontSize': 13,
                     'fontWeight': 'w500',
-                    'color': '#B8C6D9',
+                    'color': '{{appColors.current.text.subtitle}}',
                     'height': 1.45,
                   },
                 },
@@ -650,7 +657,7 @@ Map<String, dynamic> _customSnackBarAction({
             'width': 1,
             'height': 20,
             'decoration': {
-              'color': '#6D7F98',
+              'color': '{{appColors.current.input.borderEnabled}}',
               'borderRadius': {
                 'topLeft': 999,
                 'topRight': 999,
@@ -666,10 +673,11 @@ Map<String, dynamic> _customSnackBarAction({
             'imageType': 'asset',
             'width': 20,
             'height': 20,
-            'color': '#B8C6D9',
+            'color': '{{appColors.current.text.subtitle}}',
           },
         ],
       },
     },
   };
 }
+
