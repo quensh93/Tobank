@@ -2,7 +2,7 @@ import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
-import 'verify_identity_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'verify_identity_real_signature')
 StacWidget verifyIdentityRealSignature() {
@@ -29,7 +29,8 @@ StacWidget verifyIdentityRealSignature() {
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: buildVerifyIdentityRealAppBar(
+      appBar: buildTobankFlowAppBar(
+        showSupport: true,
         title: '{{appStrings.menu.items.verifyIdentity}}',
         backAction: const StacSequenceAction(
           actions: [

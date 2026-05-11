@@ -1,11 +1,11 @@
 import 'package:stac_core/stac_core.dart';
-import 'package:tobank_sdui/stac/tobank/flows/verify_identity_real/dart/widgets/verify_identity_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'test_screen')
 StacWidget testScreen() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildVerifyIdentityRealAppBar(title: 'احراز هویت'),
+    appBar: buildTobankFlowAppBar(showSupport: true, title: 'احراز هویت'),
     body: StacSafeArea(
       bottom: true,
       top: false,

@@ -8,7 +8,6 @@ StacWidget cartableRealIntro() {
   return StacStatefulWidget(
     onInit: const StacCustomSetValueAction(
       values: [
-        {'key': 'isCartableTab', 'value': true},
         {'key': 'historyFilter', 'value': 'all'},
         {'key': 'historySelectedAll', 'value': true},
         {'key': 'historySelectedOpen', 'value': false},
@@ -19,19 +18,20 @@ StacWidget cartableRealIntro() {
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      body: StacColumn(
-        children: [
-          StacSizedBox(height: 52),
-          _buildMainSelector(),
-          StacSizedBox(height: 8),
-          StacExpanded(
-            child: StacCustomVisibility(
-              visible: '[[isCartableTab]]',
-              child: _buildCardboardPage().toJson(),
-              replacement: _buildProcessPage().toJson(),
+      body: StacDefaultTabController(
+        length: 2,
+        child: StacColumn(
+          children: [
+            StacSizedBox(height: 52),
+            _buildMainSelector(),
+            StacSizedBox(height: 8),
+            StacExpanded(
+              child: StacTabBarView(
+                children: [_buildCardboardPage(), _buildProcessPage()],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     ),
   );
@@ -39,106 +39,45 @@ StacWidget cartableRealIntro() {
 
 StacWidget _buildMainSelector() {
   return StacContainer(
-    margin: StacEdgeInsets.symmetric(horizontal: 16),
-    decoration: StacBoxDecoration(
-      color: '{{appColors.current.background.surfaceContainer}}',
-      borderRadius: StacBorderRadius.all(8),
-      border: StacBorder.all(
-        color: '{{appColors.current.input.borderEnabled}}',
-        width: 1,
-      ),
-    ),
-    child: StacRow(
-      textDirection: StacTextDirection.rtl,
+    color: '{{appColors.current.background.surfaceContainer}}',
+    child: StacStack(
       children: [
-        StacExpanded(
-          child: _buildSelectorItem(
-            title: 'کارتابل',
-            selectedVisible: '[[isCartableTab]]',
-            onTap: const StacCustomSetValueAction(
-              key: 'isCartableTab',
-              value: true,
-            ),
+        StacTabBar(
+          enableFeedback: false,
+          indicatorColor: '{{appColors.current.primary.color}}',
+          indicatorWeight: 3,
+          indicatorSize: StacTabBarIndicatorSize.tab,
+          indicatorPadding: StacEdgeInsets.only(left: 70, top: 54, right: 70),
+          dividerColor: '{{appColors.current.input.borderEnabled}}',
+          dividerHeight: 1,
+          labelStyle: StacCustomTextStyle(
+            fontSize: 18,
+            fontWeight: StacFontWeight.w700,
           ),
+          unselectedLabelStyle: StacCustomTextStyle(
+            fontSize: 18,
+            fontWeight: StacFontWeight.w500,
+          ),
+          labelColor: '{{appColors.current.text.title}}',
+          unselectedLabelColor: '{{appColors.current.text.subtitle}}',
+          tabs: const [
+            StacTab(text: 'کارتابل', height: 62),
+            StacTab(text: 'تاریخچه فعالیت‌ها', height: 62),
+          ],
         ),
-        StacContainer(
-          height: 24,
-          width: 2,
-          color: '{{appColors.current.input.borderEnabled}}',
-        ),
-        StacExpanded(
-          child: _buildSelectorItem(
-            title: 'تاریخچه فعالیت‌ها',
-            selectedVisible: '[[!isCartableTab]]',
-            onTap: const StacCustomSetValueAction(
-              key: 'isCartableTab',
-              value: false,
+        StacPositioned(
+          top: 12,
+          bottom: 12,
+          left: 0,
+          right: 0,
+          child: StacCenter(
+            child: StacContainer(
+              width: 1,
+              color: '{{appColors.current.input.borderEnabled}}',
             ),
           ),
         ),
       ],
-    ),
-  );
-}
-
-StacWidget _buildSelectorItem({
-  required String title,
-  required String selectedVisible,
-  required StacAction onTap,
-}) {
-  return StacGestureDetector(
-    onTap: onTap,
-    child: StacSizedBox(
-      height: 56,
-      child: StacPadding(
-        padding: StacEdgeInsets.only(top: 8),
-        child: StacColumn(
-          mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-          children: [
-            StacContainer(),
-            StacCustomVisibility(
-              visible: selectedVisible,
-              child: StacText(
-                data: title,
-                textDirection: StacTextDirection.rtl,
-                style: StacCustomTextStyle(
-                  fontSize: 16,
-                  fontWeight: StacFontWeight.w900,
-                  color: '{{appColors.current.text.title}}',
-                ),
-              ).toJson(),
-              replacement: StacText(
-                data: title,
-                textDirection: StacTextDirection.rtl,
-                style: StacCustomTextStyle(
-                  fontSize: 16,
-                  fontWeight: StacFontWeight.w400,
-                  color: '{{appColors.current.text.subtitle}}',
-                ),
-              ).toJson(),
-            ),
-            StacPadding(
-              padding: StacEdgeInsets.symmetric(horizontal: 16),
-              child: StacCustomVisibility(
-                visible: selectedVisible,
-                child: StacContainer(
-                  height: 3,
-                  width: 56,
-                  decoration: StacBoxDecoration(
-                    color: '{{appColors.current.primary.color}}',
-                    borderRadius: StacBorderRadius.all(3),
-                  ),
-                ).toJson(),
-                replacement: StacContainer(
-                  height: 3,
-                  width: 56,
-                  color: 'transparent',
-                ).toJson(),
-              ),
-            ),
-          ],
-        ),
-      ),
     ),
   );
 }

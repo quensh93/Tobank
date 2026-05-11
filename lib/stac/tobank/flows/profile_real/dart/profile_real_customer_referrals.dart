@@ -1,11 +1,15 @@
 import 'package:stac_core/stac_core.dart';
-import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/widgets/profile_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'profile_real_customer_referrals')
 StacWidget profileRealCustomerReferrals() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildProfileRealAppBar(title: 'لیست دعوت‌شدگان'),
+    appBar: buildTobankFlowAppBar(
+      showSupport: true,
+      showBack: true,
+      title: 'لیست دعوت‌شدگان',
+    ),
     body: StacCenter(
       child: StacColumn(
         mainAxisSize: StacMainAxisSize.min,

@@ -2,7 +2,7 @@ import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
-import 'package:tobank_sdui/stac/tobank/flows/gift_card_real/dart/widgets/gift_card_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'gift_card_real_image_selector')
 StacWidget giftCardRealImageSelector() {
@@ -17,7 +17,9 @@ StacWidget giftCardRealImageSelector() {
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: buildGiftCardRealAppBar(
+      appBar: buildTobankFlowAppBar(
+        showSupport: true,
+        showBack: true,
         title: 'کارت هدیه',
         backAction: const StacSequenceAction(
           actions: [

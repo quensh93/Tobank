@@ -1,10 +1,10 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/format_number_action.dart';
 import 'package:tobank_sdui/core/stac/builders/amount_to_words_action.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
-import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_detail_row.dart';
 
 /// Promissory Real Flow - Data Entry Page
@@ -29,7 +29,8 @@ StacWidget promissoryRealData() {
       ],
     ),
     child: StacScaffold(
-      appBar: buildPromissoryAppBar(
+      appBar: buildTobankFlowAppBar(
+        showSupport: false,
         // صدور سفته
         title: '{{appStrings.promissory.issuanceTitle}}',
       ),
@@ -625,8 +626,8 @@ StacWidget _buildSubmitButton() {
                       key: 'isIdentityLoading',
                       value: false,
                     ),
-                    StacDialogAction(
-                      widget: StacAlertDialog(
+                    StacShowDialogAction(
+                      dialog: StacAlertDialog(
                         // خطا
                         title: StacText(data: '{{appStrings.common.error}}'),
                         content: StacText(

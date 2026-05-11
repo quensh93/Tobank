@@ -8,7 +8,6 @@ StacWidget transactionRealIntro() {
   return StacStatefulWidget(
     onInit: const StacCustomSetValueAction(
       values: [
-        {'key': 'trIntroIsTobankTab', 'value': false},
         {'key': 'trIntroChipAllSelected', 'value': true},
         {'key': 'trIntroChipWalletSelected', 'value': false},
         {'key': 'trIntroShowSuccessTx', 'value': true},
@@ -34,23 +33,24 @@ StacWidget transactionRealIntro() {
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      body: StacColumn(
-        crossAxisAlignment: StacCrossAxisAlignment.stretch,
-        children: [
-          StacSizedBox(height: 65),
-          _buildTopTabs(),
-
-          StacExpanded(
-            child: StacPadding(
-              padding: StacEdgeInsets.symmetric(horizontal: 14),
-              child: StacCustomVisibility(
-                visible: '[[trIntroIsTobankTab]]',
-                child: _buildToBankContent().toJson(),
-                replacement: _buildDepositsContent().toJson(),
+      body: StacDefaultTabController(
+        length: 2,
+        initialIndex: 1,
+        child: StacColumn(
+          crossAxisAlignment: StacCrossAxisAlignment.stretch,
+          children: [
+            StacSizedBox(height: 65),
+            _buildTopTabs(),
+            StacExpanded(
+              child: StacPadding(
+                padding: StacEdgeInsets.symmetric(horizontal: 14),
+                child: StacTabBarView(
+                  children: [_buildDepositsContent(), _buildToBankContent()],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     ),
   );
@@ -64,95 +64,43 @@ StacWidget _buildTopTabs() {
       color: '{{appColors.current.background.surfaceContainer}}',
       borderRadius: StacBorderRadius.circular(12)
     ),
-    child: StacRow(
-      textDirection: StacTextDirection.rtl,
+    child: StacStack(
       children: [
-        StacExpanded(
-          child: _buildTopTabItem(
-            title: 'توبانک',
-            selectedVisible: '[[trIntroIsTobankTab]]',
-            onTap: const StacCustomSetValueAction(
-              key: 'trIntroIsTobankTab',
-              value: true,
-            ),
+        StacTabBar(
+          enableFeedback: false,
+          dividerColor: '#00000000',
+          indicatorColor: '{{appColors.current.primary.color}}',
+          indicatorWeight: 3,
+          indicatorSize: StacTabBarIndicatorSize.tab,
+          indicatorPadding: StacEdgeInsets.only(left: 62, top: 50, right: 62),
+          labelStyle: StacCustomTextStyle(
+            fontSize: 16,
+            fontWeight: StacFontWeight.w800,
           ),
+          unselectedLabelStyle: StacCustomTextStyle(
+            fontSize: 16,
+            fontWeight: StacFontWeight.w500,
+          ),
+          labelColor: '{{appColors.current.text.title}}',
+          unselectedLabelColor: '{{appColors.current.text.hint}}',
+          tabs: const [
+            StacTab(text: 'سپرده‌ها', height: 54),
+            StacTab(text: 'توبانک', height: 54),
+          ],
         ),
-        StacContainer(
-          width: 1,
-          height: 25,
-          color: '{{appColors.current.input.borderEnabled}}',
-        ),
-        StacExpanded(
-          child: _buildTopTabItem(
-            title: 'سپرده‌ها',
-            selectedVisible: '[[!trIntroIsTobankTab]]',
-            onTap: const StacCustomSetValueAction(
-              key: 'trIntroIsTobankTab',
-              value: false,
+        StacPositioned(
+          top: 12,
+          bottom: 12,
+          left: 0,
+          right: 0,
+          child: StacCenter(
+            child: StacContainer(
+              width: 1,
+              color: '{{appColors.current.input.borderEnabled}}',
             ),
           ),
         ),
       ],
-    ),
-  );
-}
-
-StacWidget _buildTopTabItem({
-  required String title,
-  required String selectedVisible,
-  required StacAction onTap,
-}) {
-  return StacGestureDetector(
-    onTap: onTap,
-    child: StacContainer(
-      width: 999999,
-      height: 54,
-      color: 'transparent',
-      child: StacColumn(
-        mainAxisAlignment: StacMainAxisAlignment.center,
-        children: [
-          StacCustomVisibility(
-            visible: selectedVisible,
-            child: StacText(
-              data: title,
-              textDirection: StacTextDirection.rtl,
-              textAlign: StacTextAlign.center,
-              style: StacCustomTextStyle(
-                fontSize: 16,
-                fontWeight: StacFontWeight.w800,
-                color: '{{appColors.current.text.title}}',
-              ),
-            ).toJson(),
-            replacement: StacText(
-              data: title,
-              textDirection: StacTextDirection.rtl,
-              textAlign: StacTextAlign.center,
-              style: StacCustomTextStyle(
-                fontSize: 16,
-                fontWeight: StacFontWeight.w500,
-                color: '{{appColors.current.text.hint}}',
-              ),
-            ).toJson(),
-          ),
-          StacSizedBox(height: 8),
-          StacCustomVisibility(
-            visible: selectedVisible,
-            child: StacContainer(
-              width: 56,
-              height: 3,
-              decoration: StacBoxDecoration(
-                color: '{{appColors.current.primary.color}}',
-                borderRadius: StacBorderRadius.all(3),
-              ),
-            ).toJson(),
-            replacement: StacContainer(
-              width: 56,
-              height: 3,
-              color: 'transparent',
-            ).toJson(),
-          ),
-        ],
-      ),
     ),
   );
 }

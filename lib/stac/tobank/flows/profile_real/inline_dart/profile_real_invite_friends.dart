@@ -1,12 +1,16 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
-import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/widgets/profile_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'profile_real_invite_friends')
 StacWidget profileRealInviteFriends() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildProfileRealAppBar(title: 'دعوت از دوستان'),
+    appBar: buildTobankFlowAppBar(
+      showSupport: true,
+      showBack: true,
+      title: 'دعوت از دوستان',
+    ),
     body: StacSingleChildScrollView(
       padding: StacEdgeInsets.all(16),
       child: StacColumn(
@@ -160,8 +164,6 @@ StacWidget _inviteCodeCard() {
     child: StacRow(
       textDirection: StacTextDirection.ltr,
       children: [
-
-
         StacExpanded(
           child: StacContainer(
             height: 64,

@@ -1,5 +1,5 @@
 import 'package:stac_core/stac_core.dart';
-import 'verify_identity_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 const verifyIdentityRealRulesSheetTitle = 'شرایط و مقررات ارائه خدمات توبانک';
 
@@ -95,7 +95,7 @@ const verifyIdentityRealRulesSections = <VerifyIdentityRealRuleSectionData>[
 StacWidget verifyIdentityRealRules() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildVerifyIdentityRealAppBar(
+    appBar: buildTobankFlowAppBar(
       title: '{{appStrings.authentication.rulesTitle}}',
       showSupport: false,
       showBack: false,

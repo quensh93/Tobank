@@ -2,7 +2,7 @@ import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
-import 'package:tobank_sdui/stac/tobank/flows/package_real/dart/widgets/package_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'package_real_add_sim')
 StacWidget packageRealAddSim() {
@@ -35,7 +35,11 @@ StacWidget packageRealAddSim() {
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: buildPackageRealAppBar(title: 'اینترنت'),
+      appBar: buildTobankFlowAppBar(
+        showSupport: true,
+        showBack: true,
+        title: 'اینترنت',
+      ),
       body: StacStack(
         children: [
           StacSafeArea(
@@ -184,21 +188,6 @@ StacWidget packageRealAddSim() {
                 ],
               ),
             ),
-          ),
-          StacCustomVisibility(
-            visible: '[[crAddShowDuplicateDialog]]',
-            child: _buildDuplicateDialog().toJson(),
-            replacement: StacSizedBox().toJson(),
-          ),
-          StacCustomVisibility(
-            visible: '[[crAddShowOperatorSheet]]',
-            child: _buildOperatorSheet().toJson(),
-            replacement: StacSizedBox().toJson(),
-          ),
-          StacCustomVisibility(
-            visible: '[[crAddShowSimTypeSheet]]',
-            child: _buildSimTypeSheet().toJson(),
-            replacement: StacSizedBox().toJson(),
           ),
         ],
       ),
@@ -398,20 +387,19 @@ StacAction _normalContinueAction() {
 }
 
 StacAction _portedContinueAction() {
-  return const StacCustomSetValueAction(
-    values: [
-      {'key': 'crAddShowOperatorSheet', 'value': true},
-      {'key': 'crAddShowSimTypeSheet', 'value': false},
-    ],
-  );
+  return _showOperatorSheetAction();
 }
 
 StacAction _duplicateContinueAction() {
-  return const StacCustomSetValueAction(
-    values: [
-      {'key': 'crAddShowDuplicateDialog', 'value': true},
-      {'key': 'crAddShowInvalidError', 'value': false},
-      {'key': 'crAddShowUnsupportedError', 'value': false},
+  return StacSequenceAction(
+    actions: [
+      const StacCustomSetValueAction(
+        values: [
+          {'key': 'crAddShowInvalidError', 'value': false},
+          {'key': 'crAddShowUnsupportedError', 'value': false},
+        ],
+      ),
+      _showDuplicateDialogAction(),
     ],
   );
 }
@@ -441,6 +429,27 @@ StacAction _operatorSelectAction(String op) {
       {'key': 'crAddOpIrancellSel', 'value': op == 'irancell'},
       {'key': 'crAddOpRightelSel', 'value': op == 'rightel'},
     ],
+  );
+}
+
+StacAction _showOperatorSheetAction() {
+  return StacShowBottomSheetAction(
+    backgroundColor: '#8B63708C',
+    sheet: _buildOperatorSheet().toJson(),
+  );
+}
+
+StacAction _showSimTypeSheetAction() {
+  return StacShowBottomSheetAction(
+    backgroundColor: '#8B63708C',
+    sheet: _buildSimTypeSheet().toJson(),
+  );
+}
+
+StacAction _showDuplicateDialogAction() {
+  return StacShowBottomSheetAction(
+    backgroundColor: '#8B63708C',
+    sheet: _buildDuplicateDialog().toJson(),
   );
 }
 
@@ -615,110 +624,97 @@ StacWidget _buildCaseContinueButton({
 }
 
 StacWidget _buildOperatorSheet() {
-  return StacStack(
-    children: [
-      StacContainer(width: 999999, height: 999999, color: '#8B63708C'),
-      StacAlign(
-        alignment: StacAlignmentDirectional.bottomCenter,
-        child: StacContainer(
-          width: 999999,
-          padding: StacEdgeInsets.only(
-            left: 14,
-            top: 10,
-            right: 14,
-            bottom: 16,
-          ),
-          decoration: StacBoxDecoration(
-            color: '{{appColors.current.background.surface}}',
-            borderRadius: StacBorderRadius.only(topLeft: 22, topRight: 22),
-          ),
-          child: StacColumn(
-            mainAxisSize: StacMainAxisSize.min,
-            crossAxisAlignment: StacCrossAxisAlignment.stretch,
-            children: [
-              StacCenter(
-                child: StacContainer(
-                  width: 44,
-                  height: 5,
-                  decoration: StacBoxDecoration(
-                    color: '#D0D5DD',
-                    borderRadius: StacBorderRadius.all(99),
-                  ),
-                ),
-              ),
-              StacSizedBox(height: 16),
-              StacText(
-                data: 'اپراتور',
-                textDirection: StacTextDirection.rtl,
-                textAlign: StacTextAlign.center,
-                style: StacCustomTextStyle(
-                  fontSize: 18,
-                  fontWeight: StacFontWeight.w700,
-                ),
-              ),
-              StacSizedBox(height: 8),
-              StacText(
-                data: 'در صورت ترابرد سیم‌کارت اپراتور خود را انتخاب نمایید',
-                textDirection: StacTextDirection.rtl,
-                textAlign: StacTextAlign.center,
-                style: StacCustomTextStyle(
-                  fontSize: 13,
-                  color: '{{appColors.current.text.subtitle}}',
-                ),
-              ),
-              StacSizedBox(height: 14),
-              _operatorItem(
-                title: 'همراه اول',
-                logo: 'assets/icons/ic_hamrah_aval.svg',
-                selectedKey: 'crAddOpMciSel',
-                onTap: _operatorSelectAction('mci'),
-              ),
-              StacSizedBox(height: 10),
-              _operatorItem(
-                title: 'ایرانسل',
-                logo: 'assets/icons/ic_irancell.svg',
-                selectedKey: 'crAddOpIrancellSel',
-                onTap: _operatorSelectAction('irancell'),
-              ),
-              StacSizedBox(height: 10),
-              _operatorItem(
-                title: 'رایتل',
-                logo: 'assets/icons/ic_rightel.svg',
-                selectedKey: 'crAddOpRightelSel',
-                onTap: _operatorSelectAction('rightel'),
-              ),
-              StacSizedBox(height: 14),
-              StacFilledButton(
-                onPressed: const StacCustomSetValueAction(
-                  values: [
-                    {'key': 'crAddShowOperatorSheet', 'value': false},
-                    {'key': 'crAddShowSimTypeSheet', 'value': true},
-                  ],
-                ),
-                style: StacButtonStyle(
-                  fixedSize: StacSize(999999, 56),
-                  backgroundColor: '{{appColors.current.primary.color}}',
-                  foregroundColor: '{{appColors.current.primary.onPrimary}}',
-                  shape: StacRoundedRectangleBorder(
-                    borderRadius: StacBorderRadius.all(10),
-                  ),
-                  elevation: 0,
-                ),
-                child: StacText(
-                  data: 'تایید و ادامه',
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 16,
-                    fontWeight: StacFontWeight.w700,
-                    color: '{{appColors.current.primary.onPrimary}}',
-                  ),
-                ),
-              ),
-            ],
+  return StacContainer(
+    width: 999999,
+    padding: StacEdgeInsets.only(left: 14, top: 10, right: 14, bottom: 16),
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: StacBorderRadius.only(topLeft: 22, topRight: 22),
+    ),
+    child: StacColumn(
+      mainAxisSize: StacMainAxisSize.min,
+      crossAxisAlignment: StacCrossAxisAlignment.stretch,
+      children: [
+        StacCenter(
+          child: StacContainer(
+            width: 44,
+            height: 5,
+            decoration: StacBoxDecoration(
+              color: '#D0D5DD',
+              borderRadius: StacBorderRadius.all(99),
+            ),
           ),
         ),
-      ),
-    ],
+        StacSizedBox(height: 16),
+        StacText(
+          data: 'اپراتور',
+          textDirection: StacTextDirection.rtl,
+          textAlign: StacTextAlign.center,
+          style: StacCustomTextStyle(
+            fontSize: 18,
+            fontWeight: StacFontWeight.w700,
+          ),
+        ),
+        StacSizedBox(height: 8),
+        StacText(
+          data: 'در صورت ترابرد سیم‌کارت اپراتور خود را انتخاب نمایید',
+          textDirection: StacTextDirection.rtl,
+          textAlign: StacTextAlign.center,
+          style: StacCustomTextStyle(
+            fontSize: 13,
+            color: '{{appColors.current.text.subtitle}}',
+          ),
+        ),
+        StacSizedBox(height: 14),
+        _operatorItem(
+          title: 'همراه اول',
+          logo: 'assets/icons/ic_hamrah_aval.svg',
+          selectedKey: 'crAddOpMciSel',
+          onTap: _operatorSelectAction('mci'),
+        ),
+        StacSizedBox(height: 10),
+        _operatorItem(
+          title: 'ایرانسل',
+          logo: 'assets/icons/ic_irancell.svg',
+          selectedKey: 'crAddOpIrancellSel',
+          onTap: _operatorSelectAction('irancell'),
+        ),
+        StacSizedBox(height: 10),
+        _operatorItem(
+          title: 'رایتل',
+          logo: 'assets/icons/ic_rightel.svg',
+          selectedKey: 'crAddOpRightelSel',
+          onTap: _operatorSelectAction('rightel'),
+        ),
+        StacSizedBox(height: 14),
+        StacFilledButton(
+          onPressed: StacSequenceAction(
+            actions: [
+              const StacNavigateAction(navigationStyle: NavigationStyle.pop),
+              _showSimTypeSheetAction(),
+            ],
+          ),
+          style: StacButtonStyle(
+            fixedSize: StacSize(999999, 56),
+            backgroundColor: '{{appColors.current.primary.color}}',
+            foregroundColor: '{{appColors.current.primary.onPrimary}}',
+            shape: StacRoundedRectangleBorder(
+              borderRadius: StacBorderRadius.all(10),
+            ),
+            elevation: 0,
+          ),
+          child: StacText(
+            data: 'تایید و ادامه',
+            textDirection: StacTextDirection.rtl,
+            style: StacCustomTextStyle(
+              fontSize: 16,
+              fontWeight: StacFontWeight.w700,
+              color: '{{appColors.current.primary.onPrimary}}',
+            ),
+          ),
+        ),
+      ],
+    ),
   );
 }
 
@@ -802,96 +798,88 @@ StacWidget _operatorItem({
 }
 
 StacWidget _buildSimTypeSheet() {
-  return StacStack(
-    children: [
-      StacContainer(width: 999999, height: 999999, color: '#8B63708C'),
-      StacAlign(
-        alignment: StacAlignmentDirectional.bottomCenter,
-        child: StacContainer(
-          width: 999999,
-          padding: StacEdgeInsets.only(
-            left: 14,
-            top: 10,
-            right: 14,
-            bottom: 16,
-          ),
-          decoration: StacBoxDecoration(
-            color: '{{appColors.current.background.surface}}',
-            borderRadius: StacBorderRadius.only(topLeft: 22, topRight: 22),
-          ),
-          child: StacColumn(
-            mainAxisSize: StacMainAxisSize.min,
-            crossAxisAlignment: StacCrossAxisAlignment.stretch,
-            children: [
-              StacCenter(
-                child: StacContainer(
-                  width: 44,
-                  height: 5,
-                  decoration: StacBoxDecoration(
-                    color: '#D0D5DD',
-                    borderRadius: StacBorderRadius.all(99),
-                  ),
-                ),
-              ),
-              StacSizedBox(height: 16),
-              StacText(
-                data: 'نوع سیم کارت',
-                textDirection: StacTextDirection.rtl,
-                textAlign: StacTextAlign.center,
-                style: StacCustomTextStyle(
-                  fontSize: 18,
-                  fontWeight: StacFontWeight.w700,
-                ),
-              ),
-              StacSizedBox(height: 8),
-              StacText(
-                data: '{{crAddEnteredPhone}}',
-                textDirection: StacTextDirection.ltr,
-                textAlign: StacTextAlign.center,
-                style: StacCustomTextStyle(
-                  fontSize: 16,
-                  color: '{{appColors.current.text.subtitle}}',
-                ),
-              ),
-              StacSizedBox(height: 14),
-              _simTypeItem(
-                title: 'دائمی',
-                selectedKey: 'crAddTypePermanentSel',
-                onTap: _simTypeSelectAction('permanent'),
-              ),
-              StacSizedBox(height: 10),
-              _simTypeItem(
-                title: 'اعتباری',
-                selectedKey: 'crAddTypeCreditSel',
-                onTap: _simTypeSelectAction('credit'),
-              ),
-              StacSizedBox(height: 14),
-              StacFilledButton(
-                onPressed: _confirmPortedFlowAction(),
-                style: StacButtonStyle(
-                  fixedSize: StacSize(999999, 56),
-                  backgroundColor: '{{appColors.current.primary.color}}',
-                  foregroundColor: '{{appColors.current.primary.onPrimary}}',
-                  shape: StacRoundedRectangleBorder(
-                    borderRadius: StacBorderRadius.all(10),
-                  ),
-                  elevation: 0,
-                ),
-                child: StacText(
-                  data: 'تایید و ادامه',
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 16,
-                    fontWeight: StacFontWeight.w700,
-                    color: '{{appColors.current.primary.onPrimary}}',
-                  ),
-                ),
-              ),
-            ],
+  return StacContainer(
+    width: 999999,
+    padding: StacEdgeInsets.only(left: 14, top: 10, right: 14, bottom: 16),
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: StacBorderRadius.only(topLeft: 22, topRight: 22),
+    ),
+    child: StacColumn(
+      mainAxisSize: StacMainAxisSize.min,
+      crossAxisAlignment: StacCrossAxisAlignment.stretch,
+      children: [
+        StacCenter(
+          child: StacContainer(
+            width: 44,
+            height: 5,
+            decoration: StacBoxDecoration(
+              color: '#D0D5DD',
+              borderRadius: StacBorderRadius.all(99),
+            ),
           ),
         ),
-      ),
-    ],
+        StacSizedBox(height: 16),
+        StacText(
+          data: 'نوع سیم کارت',
+          textDirection: StacTextDirection.rtl,
+          textAlign: StacTextAlign.center,
+          style: StacCustomTextStyle(
+            fontSize: 18,
+            fontWeight: StacFontWeight.w700,
+          ),
+        ),
+        StacSizedBox(height: 8),
+        StacText(
+          data: '{{crAddEnteredPhone}}',
+          textDirection: StacTextDirection.ltr,
+          textAlign: StacTextAlign.center,
+          style: StacCustomTextStyle(
+            fontSize: 16,
+            color: '{{appColors.current.text.subtitle}}',
+          ),
+        ),
+        StacSizedBox(height: 14),
+        _simTypeItem(
+          title: 'دائمی',
+          selectedKey: 'crAddTypePermanentSel',
+          onTap: _simTypeSelectAction('permanent'),
+        ),
+        StacSizedBox(height: 10),
+        _simTypeItem(
+          title: 'اعتباری',
+          selectedKey: 'crAddTypeCreditSel',
+          onTap: _simTypeSelectAction('credit'),
+        ),
+        StacSizedBox(height: 14),
+        StacFilledButton(
+          onPressed: StacSequenceAction(
+            actions: [
+              const StacNavigateAction(navigationStyle: NavigationStyle.pop),
+              _confirmPortedFlowAction(),
+            ],
+          ),
+          style: StacButtonStyle(
+            fixedSize: StacSize(999999, 56),
+            backgroundColor: '{{appColors.current.primary.color}}',
+            foregroundColor: '{{appColors.current.primary.onPrimary}}',
+            shape: StacRoundedRectangleBorder(
+              borderRadius: StacBorderRadius.all(10),
+            ),
+            elevation: 0,
+          ),
+          child: StacText(
+            data: 'تایید و ادامه',
+            textDirection: StacTextDirection.rtl,
+            style: StacCustomTextStyle(
+              fontSize: 16,
+              fontWeight: StacFontWeight.w700,
+              color: '{{appColors.current.primary.onPrimary}}',
+            ),
+          ),
+        ),
+      ],
+    ),
   );
 }
 
@@ -967,96 +955,83 @@ StacWidget _simTypeItem({
 }
 
 StacWidget _buildDuplicateDialog() {
-  return StacStack(
-    children: [
-      StacContainer(width: 999999, height: 999999, color: '#8B63708C'),
-      StacCenter(
-        child: StacContainer(
-          margin: StacEdgeInsets.symmetric(horizontal: 16),
-          padding: StacEdgeInsets.only(
-            left: 14,
-            top: 16,
-            right: 14,
-            bottom: 12,
-          ),
-          decoration: StacBoxDecoration(
-            color: '{{appColors.current.background.surface}}',
-            borderRadius: StacBorderRadius.all(12),
-            border: StacBorder.all(color: '#2B8BFA', width: 2),
-          ),
-          child: StacColumn(
-            mainAxisSize: StacMainAxisSize.min,
-            crossAxisAlignment: StacCrossAxisAlignment.stretch,
-            children: [
-              StacCenter(
-                child: StacContainer(
-                  width: 28,
-                  height: 28,
-                  decoration: StacBoxDecoration(
-                    color: '#FFCD29',
-                    shape: StacBoxShape.circle,
-                  ),
-                  child: StacCenter(
-                    child: StacIcon(
-                      icon: 'error_outline',
-                      size: 18,
-                      color: '#FFFFFF',
-                    ),
-                  ),
-                ),
+  return StacContainer(
+    margin: StacEdgeInsets.only(left: 16, right: 16, top: 24, bottom: 24),
+    padding: StacEdgeInsets.only(left: 14, top: 16, right: 14, bottom: 12),
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: StacBorderRadius.all(12),
+      border: StacBorder.all(color: '#2B8BFA', width: 2),
+    ),
+    child: StacColumn(
+      mainAxisSize: StacMainAxisSize.min,
+      crossAxisAlignment: StacCrossAxisAlignment.stretch,
+      children: [
+        StacCenter(
+          child: StacContainer(
+            width: 28,
+            height: 28,
+            decoration: StacBoxDecoration(
+              color: '#FFCD29',
+              shape: StacBoxShape.circle,
+            ),
+            child: StacCenter(
+              child: StacIcon(
+                icon: 'error_outline',
+                size: 18,
+                color: '#FFFFFF',
               ),
-              StacSizedBox(height: 10),
-              StacText(
-                data: 'مجاز نیست',
-                textDirection: StacTextDirection.rtl,
-                textAlign: StacTextAlign.center,
-                style: StacCustomTextStyle(
-                  fontSize: 18,
-                  fontWeight: StacFontWeight.w700,
-                  color: '{{appColors.current.text.title}}',
-                ),
-              ),
-              StacSizedBox(height: 10),
-              StacText(
-                data:
-                    'شماره انتخابی شما جز سیم‌کارت‌های تکراری می‌باشد، لطفا یکی دیگر انتخاب کنید.',
-                textDirection: StacTextDirection.rtl,
-                textAlign: StacTextAlign.center,
-                style: StacCustomTextStyle(
-                  fontSize: 13,
-                  fontWeight: StacFontWeight.w500,
-                  color: '{{appColors.current.text.subtitle}}',
-                ),
-              ),
-              StacSizedBox(height: 14),
-              StacFilledButton(
-                onPressed: const StacCustomSetValueAction(
-                  key: 'crAddShowDuplicateDialog',
-                  value: false,
-                ),
-                style: StacButtonStyle(
-                  fixedSize: StacSize(999999, 44),
-                  backgroundColor: '{{appColors.current.primary.color}}',
-                  foregroundColor: '{{appColors.current.primary.onPrimary}}',
-                  shape: StacRoundedRectangleBorder(
-                    borderRadius: StacBorderRadius.all(8),
-                  ),
-                  elevation: 0,
-                ),
-                child: StacText(
-                  data: 'متوجه شدم',
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 14,
-                    fontWeight: StacFontWeight.w700,
-                    color: '{{appColors.current.primary.onPrimary}}',
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
         ),
-      ),
-    ],
+        StacSizedBox(height: 10),
+        StacText(
+          data: 'مجاز نیست',
+          textDirection: StacTextDirection.rtl,
+          textAlign: StacTextAlign.center,
+          style: StacCustomTextStyle(
+            fontSize: 18,
+            fontWeight: StacFontWeight.w700,
+            color: '{{appColors.current.text.title}}',
+          ),
+        ),
+        StacSizedBox(height: 10),
+        StacText(
+          data:
+              'شماره انتخابی شما جز سیم‌کارت‌های تکراری می‌باشد، لطفا یکی دیگر انتخاب کنید.',
+          textDirection: StacTextDirection.rtl,
+          textAlign: StacTextAlign.center,
+          style: StacCustomTextStyle(
+            fontSize: 13,
+            fontWeight: StacFontWeight.w500,
+            color: '{{appColors.current.text.subtitle}}',
+          ),
+        ),
+        StacSizedBox(height: 14),
+        StacFilledButton(
+          onPressed: const StacNavigateAction(
+            navigationStyle: NavigationStyle.pop,
+          ),
+          style: StacButtonStyle(
+            fixedSize: StacSize(999999, 44),
+            backgroundColor: '{{appColors.current.primary.color}}',
+            foregroundColor: '{{appColors.current.primary.onPrimary}}',
+            shape: StacRoundedRectangleBorder(
+              borderRadius: StacBorderRadius.all(8),
+            ),
+            elevation: 0,
+          ),
+          child: StacText(
+            data: 'متوجه شدم',
+            textDirection: StacTextDirection.rtl,
+            style: StacCustomTextStyle(
+              fontSize: 14,
+              fontWeight: StacFontWeight.w700,
+              color: '{{appColors.current.primary.onPrimary}}',
+            ),
+          ),
+        ),
+      ],
+    ),
   );
 }

@@ -88,6 +88,10 @@ class TobankColorsLoader {
 
       // Store current theme in registry for reference
       StacRegistry.instance.setValue('appTheme.current', currentTheme);
+      StacRegistry.instance.setValue(
+        'appTheme.currentLabel',
+        _resolveThemeLabel(currentTheme),
+      );
 
       _loaded = true;
       AppLogger.ic(
@@ -394,6 +398,10 @@ class TobankColorsLoader {
 
     _createCurrentThemeAliases(_cachedColorsData!, newTheme);
     StacRegistry.instance.setValue('appTheme.current', newTheme);
+    StacRegistry.instance.setValue(
+      'appTheme.currentLabel',
+      _resolveThemeLabel(newTheme),
+    );
     AppLogger.ic(
       LogCategory.theme,
       'Synced appColors.current.* aliases to theme: $newTheme',
@@ -426,5 +434,17 @@ class TobankColorsLoader {
     _clearStoredKeys();
     _loaded = false;
     AppLogger.ic(LogCategory.theme, 'Colors schema cache cleared');
+  }
+
+  static String _resolveThemeLabel(String theme) {
+    switch (theme) {
+      case 'dark':
+        return 'حالت شب';
+      case 'system':
+        return 'پیش‌فرض سیستم عامل';
+      case 'light':
+      default:
+        return 'حالت روز';
+    }
   }
 }

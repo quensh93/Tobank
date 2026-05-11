@@ -1,8 +1,8 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
-import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 /// Promissory Flow - Rules Page
 ///
@@ -21,7 +21,8 @@ StacWidget promissoryRealRules() {
       ],
     ),
     child: StacScaffold(
-      appBar: buildPromissoryAppBar(
+      appBar: buildTobankFlowAppBar(
+        showSupport: false,
         // صدور سفته
         title: '{{appStrings.promissory.requestPromissory}}',
       ),
@@ -224,14 +225,11 @@ StacWidget _buildContinueButton() {
                       'key': 'isSanaLoading',
                       'value': false,
                     },
-                    {
-                      'actionType': 'customSnackBar',
-                      'message':
-                          '{{appStrings.promissory.serverConnectionError}}',
-                      'backgroundColor': '#D32F2F',
-                      'textColor': '#FFFFFF',
-                      'duration': 4000,
-                    },
+                    const StacCustomSnackBarAction(
+                      title: 'خطا',
+                      detail: '{{appStrings.promissory.serverConnectionError}}',
+                      duration: 4000,
+                    ).toJson(),
                   ],
                 },
               },
@@ -245,13 +243,11 @@ StacWidget _buildContinueButton() {
                       'key': 'isSanaLoading',
                       'value': false,
                     },
-                    {
-                      'actionType': 'customSnackBar',
-                      'message': '{{data.status.message.0}}',
-                      'backgroundColor': '#D32F2F',
-                      'textColor': '#FFFFFF',
-                      'duration': 4000,
-                    },
+                    const StacCustomSnackBarAction(
+                      title: 'خطا',
+                      detail: '{{data.status.message.0}}',
+                      duration: 4000,
+                    ).toJson(),
                   ],
                 },
               },

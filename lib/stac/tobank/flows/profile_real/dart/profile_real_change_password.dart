@@ -1,11 +1,15 @@
 import 'package:stac_core/stac_core.dart';
-import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/widgets/profile_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'profile_real_change_password')
 StacWidget profileRealChangePassword() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildProfileRealAppBar(title: 'تغییر رمز عبور'),
+    appBar: buildTobankFlowAppBar(
+      showSupport: true,
+      showBack: true,
+      title: 'تغییر رمز عبور',
+    ),
     body: StacColumn(
       crossAxisAlignment: StacCrossAxisAlignment.stretch,
       children: [

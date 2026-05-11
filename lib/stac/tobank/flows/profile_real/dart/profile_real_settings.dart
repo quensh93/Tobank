@@ -1,13 +1,17 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
-import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/widgets/profile_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'profile_real_settings')
 StacWidget profileRealSettings() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildProfileRealAppBar(title: 'تنظیمات'),
+    appBar: buildTobankFlowAppBar(
+      showSupport: true,
+      showBack: true,
+      title: 'تنظیمات',
+    ),
     body: StacSingleChildScrollView(
       padding: StacEdgeInsets.all(16),
       child: StacColumn(
@@ -56,7 +60,7 @@ StacWidget profileRealSettings() {
           StacSizedBox(height: 16),
           _settingsItem(
             title: 'ظاهر برنامه',
-            trailingInfo: 'حالت روز',
+            trailingInfo: '{{appTheme.currentLabel}}',
             iconAsset: '{{appAssets.current.icons.theme}}',
             onTapAction: const StacShowThemeSelectorBottomSheetAction(),
           ),
@@ -80,10 +84,114 @@ StacWidget profileRealSettings() {
           _settingsItem(
             title: 'خروج از حساب کاربری',
             iconAsset: '{{appAssets.current.icons.logout}}',
-            onTapAction: const StacShowLogoutConfirmDialogAction(),
+            onTapAction: StacShowDialogAction(
+              dialog: _buildLogoutConfirmDialog().toJson(),
+              barrierDismissible: true,
+              barrierColor: '#8B63708C',
+            ),
           ),
         ],
       ),
+    ),
+  );
+}
+
+StacWidget _buildLogoutConfirmDialog() {
+  return StacContainer(
+    padding: StacEdgeInsets.only(left: 16, top: 16, right: 16, bottom: 14),
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: StacBorderRadius.all(12),
+    ),
+    child: StacColumn(
+      mainAxisSize: StacMainAxisSize.min,
+      crossAxisAlignment: StacCrossAxisAlignment.stretch,
+      children: [
+        StacCenter(
+          child: StacImage(
+            src: 'assets/icons/ic_warning_red.svg',
+            imageType: StacImageType.asset,
+            width: 56,
+            height: 56,
+            fit: StacBoxFit.contain,
+          ),
+        ),
+        StacSizedBox(height: 12),
+        StacText(
+          data: 'مطمئن به خروج از حساب‌کاربری هستید؟',
+          textDirection: StacTextDirection.rtl,
+          textAlign: StacTextAlign.center,
+          style: StacCustomTextStyle(
+            fontSize: 17,
+            fontWeight: StacFontWeight.w700,
+            color: '{{appColors.current.text.title}}',
+          ),
+        ),
+        StacSizedBox(height: 12),
+        StacText(
+          data:
+              'در صورت خروج از حساب‌کاربری، برای ورود مجدد نیاز به احراز هویت خواهد داشت. احراز هویت مجدد، به منظور افزایش امنیت حساب‌کاربری و جلوگیری از دسترسی غیرمجاز افراد ناشناس به حساب شما می‌باشد.',
+          textDirection: StacTextDirection.rtl,
+          textAlign: StacTextAlign.center,
+          style: StacCustomTextStyle(
+            fontSize: 15,
+            fontWeight: StacFontWeight.w500,
+            color: '{{appColors.current.text.subtitle}}',
+          ),
+        ),
+        StacSizedBox(height: 18),
+        StacRow(
+          textDirection: StacTextDirection.ltr,
+          children: [
+            StacExpanded(
+              child: StacFilledButton(
+                onPressed: const StacCloseDialogAction(),
+                style: StacButtonStyle(
+                  fixedSize: StacSize(999999, 50),
+                  backgroundColor: '{{appColors.current.primary.color}}',
+                  foregroundColor: '{{appColors.current.primary.onPrimary}}',
+                  shape: StacRoundedRectangleBorder(
+                    borderRadius: StacBorderRadius.all(10),
+                  ),
+                  elevation: 0,
+                ),
+                child: StacText(
+                  data: 'بله',
+                  style: StacCustomTextStyle(
+                    fontSize: 16,
+                    fontWeight: StacFontWeight.w700,
+                    color: '{{appColors.current.primary.onPrimary}}',
+                  ),
+                ),
+              ),
+            ),
+            StacSizedBox(width: 10),
+            StacExpanded(
+              child: StacOutlinedButton(
+                onPressed: const StacCloseDialogAction(),
+                style: StacButtonStyle(
+                  fixedSize: StacSize(999999, 50),
+                  side: StacBorderSide(
+                    color: '{{appColors.current.input.borderEnabled}}',
+                    width: 1.2,
+                  ),
+                  shape: StacRoundedRectangleBorder(
+                    borderRadius: StacBorderRadius.all(10),
+                  ),
+                ),
+                child: StacText(
+                  data: 'خیر',
+                  style: StacCustomTextStyle(
+                    fontSize: 16,
+                    fontWeight: StacFontWeight.w700,
+                    color: '{{appColors.current.text.title}}',
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
     ),
   );
 }

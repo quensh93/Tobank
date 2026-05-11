@@ -2,14 +2,18 @@ import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
-import 'transaction_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'transaction_real_filter')
 StacWidget transactionRealFilter() {
   return StacStatefulWidget(
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: buildTransactionRealAppBar(title: 'فیلتر تراکنش‌ها'),
+      appBar: buildTobankFlowAppBar(
+        showSupport: true,
+        showBack: true,
+        title: 'فیلتر تراکنش‌ها',
+      ),
       body: StacSingleChildScrollView(
         padding: StacEdgeInsets.all(16),
         child: StacColumn(
@@ -19,10 +23,7 @@ StacWidget transactionRealFilter() {
             StacCustomVisibility(
               visible: '[[trIntroChipWalletSelected]]',
               child: StacColumn(
-                children: [
-                  _buildDirectionRow(),
-                  StacSizedBox(height: 18),
-                ],
+                children: [_buildDirectionRow(), StacSizedBox(height: 18)],
               ).toJson(),
               replacement: StacSizedBox(height: 2).toJson(),
             ),
@@ -288,10 +289,7 @@ StacWidget _buildDirectionChip({
   );
 }
 
-StacWidget _buildDateField({
-  required String title,
-  required String fieldId,
-}) {
+StacWidget _buildDateField({required String title, required String fieldId}) {
   return StacGestureDetector(
     onTap: StacPersianDatePickerAction(
       formFieldId: fieldId,

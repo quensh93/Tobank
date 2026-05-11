@@ -1,11 +1,15 @@
 import 'package:stac_core/stac_core.dart';
-import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/widgets/profile_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'profile_real_rules')
 StacWidget profileRealRules() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildProfileRealAppBar(title: 'قوانین و مقررات'),
+    appBar: buildTobankFlowAppBar(
+      showSupport: true,
+      showBack: true,
+      title: 'قوانین و مقررات',
+    ),
     body: StacSingleChildScrollView(
       padding: StacEdgeInsets.all(16),
       child: StacContainer(
@@ -32,7 +36,8 @@ StacWidget profileRealRules() {
 محترم مى باشد.
 كارمزدها
 • توبانك، كارت هاى بانكى درخواست شده مشتريان را براى بار اول، بهصورت رايكان و در كمترين زمان ممكن به دست مشتريان مى رساند.
-. كليه هزينه ها وكارمزدهاى مرتبط با فرايند شناسايى مشترى، افتتاح حساب، صدور و ارسال كارت توسط توبانك پرداخت مى شود و خدمات مذكور براى مشتريان محترم رايكان است.''''۱- حدود مسئولیت و شرایط بانک\n'
+. كليه هزينه ها وكارمزدهاى مرتبط با فرايند شناسايى مشترى، افتتاح حساب، صدور و ارسال كارت توسط توبانك پرداخت مى شود و خدمات مذكور براى مشتريان محترم رايكان است.'''
+              '۱- حدود مسئولیت و شرایط بانک\n'
               'امنیت سپرده‌ها و تضمین مبالغ مشتریان در چارچوب ضوابط قانونی و تعهدات بانک انجام می‌شود.\n'
               '۲- محرمانگی اطلاعات\n'
               'همه اطلاعات حساب‌ها و مدارک هویتی مشتریان محرمانه بوده و بانک جز در موارد مصرح قانونی از افشای آن خودداری می‌نماید.\n'
@@ -50,7 +55,6 @@ StacWidget profileRealRules() {
             fontSize: 16,
             fontWeight: StacFontWeight.w500,
             color: '{{appColors.current.text.title}}',
-
           ),
         ),
       ),

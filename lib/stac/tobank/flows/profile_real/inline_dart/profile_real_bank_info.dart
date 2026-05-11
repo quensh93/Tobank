@@ -1,12 +1,14 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
-import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/widgets/profile_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'profile_real_bank_info')
 StacWidget profileRealBankInfo() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildProfileRealAppBar(
+    appBar: buildTobankFlowAppBar(
+      showSupport: true,
+      showBack: true,
       title: '{{appStrings.profile.real.menu.bankInfo}}',
     ),
     body: StacSingleChildScrollView(

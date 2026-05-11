@@ -1,6 +1,7 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/amount_to_words_action.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 
@@ -18,25 +19,10 @@ StacWidget transferRealCardDetails() {
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: StacAppBar(
-        title: StacText(
-          data: 'انتقال وجه',
-          textDirection: StacTextDirection.rtl,
-          style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
-        ),
-        centerTitle: true,
-        leading: StacIconButton(
-          onPressed: const StacNavigateAction(
-            navigationStyle: NavigationStyle.pop,
-          ),
-          icon: StacImage(
-            src: '{{appAssets.icons.arrowRight}}',
-            imageType: StacImageType.asset,
-            width: 24,
-            height: 24,
-            color: '{{appColors.current.text.title}}',
-          ),
-        ),
+      appBar: buildTobankFlowAppBar(
+        showSupport: false,
+        backIconSrc: '{{appAssets.icons.arrowRight}}',
+        title: 'انتقال وجه',
       ),
       body: StacForm(
         autovalidateMode: StacAutovalidateMode.onUserInteraction,

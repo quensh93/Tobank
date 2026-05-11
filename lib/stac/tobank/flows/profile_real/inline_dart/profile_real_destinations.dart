@@ -2,7 +2,7 @@ import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
-import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/widgets/profile_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'profile_real_destinations')
 StacWidget profileRealDestinations() {
@@ -17,7 +17,11 @@ StacWidget profileRealDestinations() {
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: buildProfileRealAppBar(title: 'مخاطبین'),
+      appBar: buildTobankFlowAppBar(
+        showSupport: true,
+        showBack: true,
+        title: 'مخاطبین',
+      ),
       body: StacStack(
         children: [
           StacSingleChildScrollView(
@@ -69,7 +73,6 @@ StacWidget _tabSwitcher() {
     decoration: StacBoxDecoration(
       color: '{{appColors.current.background.surface}}',
       borderRadius: StacBorderRadius.all(8),
-    
     ),
     child: StacRow(
       textDirection: StacTextDirection.rtl,
@@ -373,9 +376,7 @@ StacWidget _addDestinationButton() {
       elevation: 6,
       fixedSize: const StacSize(175, 56),
       padding: StacEdgeInsets.symmetric(horizontal: 12),
-      shape: StacRoundedRectangleBorder(
-        borderRadius: StacBorderRadius.all(16),
-      ),
+      shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(16)),
       backgroundColor: '{{appColors.current.button.primary.backgroundColor}}',
     ),
     child: StacRow(
@@ -410,7 +411,6 @@ StacWidget _addDestinationButton() {
             color: '{{appColors.current.button.primary.foregroundColor}}',
           ),
         ),
-
       ],
     ),
   );
@@ -424,11 +424,7 @@ StacWidget _addCardBottomSheetOverlay() {
           key: 'profileRealShowAddCardSheet',
           value: false,
         ),
-        child: StacContainer(
-          width: 999999,
-          height: 999999,
-          color: '#9F000000',
-        ),
+        child: StacContainer(width: 999999, height: 999999, color: '#9F000000'),
       ),
       StacAlign(
         alignment: StacAlignmentDirectional.bottomCenter,
@@ -442,10 +438,7 @@ StacWidget _addCardBottomSheetOverlay() {
           ),
           decoration: StacBoxDecoration(
             color: '{{appColors.current.background.surface}}',
-            borderRadius: StacBorderRadius.only(
-              topLeft: 16,
-              topRight: 16,
-            ),
+            borderRadius: StacBorderRadius.only(topLeft: 16, topRight: 16),
           ),
           child: StacColumn(
             mainAxisSize: StacMainAxisSize.min,
@@ -607,7 +600,8 @@ StacWidget _addCardBottomSheetOverlay() {
                   style: StacCustomTextStyle(
                     fontSize: 16,
                     fontWeight: StacFontWeight.w700,
-                    color: '{{appColors.current.button.primary.foregroundColor}}',
+                    color:
+                        '{{appColors.current.button.primary.foregroundColor}}',
                   ),
                 ),
               ),

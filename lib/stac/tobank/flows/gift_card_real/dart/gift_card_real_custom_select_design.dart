@@ -1,7 +1,8 @@
 import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
-import 'package:tobank_sdui/stac/tobank/flows/gift_card_real/dart/widgets/gift_card_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'gift_card_real_custom_select_design')
 StacWidget giftCardRealCustomSelectDesign() {
@@ -22,7 +23,9 @@ StacWidget giftCardRealCustomSelectDesign() {
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: buildGiftCardRealAppBar(
+      appBar: buildTobankFlowAppBar(
+        showSupport: true,
+        showBack: true,
         title: 'کارت هدیه',
         backAction: const StacSequenceAction(
           actions: [
@@ -168,13 +171,10 @@ StacWidget _buildCategoryTile({
 }) {
   final plansWithImages = _withInternetPlanImages(plans);
   return StacGestureDetector(
-    onTap: StacShowGiftCardPlanSelectorBottomSheetAction(
+    onTap: _giftCardPlanSelectorBottomSheetAction(
       categoryTitle: title,
       plans: plansWithImages,
-      onPlanSelectedAction: const StacNavigateAction(
-        routeName: 'gift_card_real_custom_message',
-        navigationStyle: NavigationStyle.push,
-      ),
+      nextRouteName: 'gift_card_real_custom_message',
     ),
     child: StacContainer(
       height: 190,
@@ -268,6 +268,174 @@ StacWidget _buildCategoryTile({
                     color: '{{appColors.current.text.title}}',
                   ),
                 ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+StacAction _giftCardPlanSelectorBottomSheetAction({
+  required String categoryTitle,
+  required List<Map<String, dynamic>> plans,
+  required String nextRouteName,
+}) {
+  return _proxyLegacyBottomSheetAction({
+    'actionType': 'showGiftCardPlanSelectorBottomSheet',
+    'categoryTitle': categoryTitle,
+    'plans': plans,
+    'onPlanSelectedAction': {
+      'actionType': 'navigate',
+      'routeName': nextRouteName,
+      'navigationStyle': 'push',
+    },
+  });
+}
+
+StacAction _proxyLegacyBottomSheetAction(Map<String, dynamic> legacyAction) {
+  return StacShowBottomSheetAction(
+    backgroundColor: '#00000000',
+    sheet: StacStatefulWidget(
+      onInit: StacSequenceAction(
+        actions: [
+          StacCustomAction.fromJson(legacyAction),
+          const StacNavigateAction(navigationStyle: NavigationStyle.pop),
+        ],
+      ),
+      child: StacSizedBox(width: 0, height: 0),
+    ).toJson(),
+  );
+}
+
+StacWidget _giftCardPlanSelectorBottomSheet({
+  required String categoryTitle,
+  required List<Map<String, dynamic>> plans,
+  required String nextRouteName,
+}) {
+  return StacContainer(
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: const StacBorderRadius.only(topLeft: 12, topRight: 12),
+    ),
+    child: StacPadding(
+      padding: StacEdgeInsets.only(left: 16, top: 10, right: 16, bottom: 16),
+      child: StacColumn(
+        mainAxisSize: StacMainAxisSize.min,
+        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+        children: [
+          StacCenter(
+            child: StacContainer(
+              width: 62,
+              height: 6,
+              decoration: StacBoxDecoration(
+                color: '#737373',
+                borderRadius: StacBorderRadius.all(999),
+              ),
+            ),
+          ),
+          StacSizedBox(height: 18),
+          StacText(
+            data: categoryTitle,
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 16,
+              fontWeight: StacFontWeight.w800,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacSizedBox(height: 14),
+          StacContainer(
+            constraints: const StacBoxConstraints(maxHeight: 420),
+            child: StacSingleChildScrollView(
+              child: StacColumn(
+                crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                children: plans.map((plan) {
+                  final title = (plan['title'] as String?) ?? '';
+                  final id = (plan['id'] as String?) ?? '';
+                  final primaryColor = (plan['primaryColor'] as String?) ?? '';
+                  final secondaryColor =
+                      (plan['secondaryColor'] as String?) ?? '';
+                  final accentColor = (plan['accentColor'] as String?) ?? '';
+                  final imageUrl = (plan['imageUrl'] as String?) ?? '';
+                  return StacPadding(
+                    padding: StacEdgeInsets.only(bottom: 10),
+                    child: StacGestureDetector(
+                      onTap: StacSequenceAction(
+                        actions: [
+                          StacSetValueAction(
+                            values: [
+                              {
+                                'key': 'giftCardRealSelectedPlanId',
+                                'value': id,
+                              },
+                              {
+                                'key': 'giftCardRealSelectedPlanTitle',
+                                'value': title,
+                              },
+                              {
+                                'key': 'giftCardRealSelectedPlanPrimaryColor',
+                                'value': primaryColor,
+                              },
+                              {
+                                'key': 'giftCardRealSelectedPlanSecondaryColor',
+                                'value': secondaryColor,
+                              },
+                              {
+                                'key': 'giftCardRealSelectedPlanAccentColor',
+                                'value': accentColor,
+                              },
+                              {
+                                'key': 'giftCardRealSelectedPlanImageUrl',
+                                'value': imageUrl,
+                              },
+                              {
+                                'key': 'giftCardRealSelectedCategory',
+                                'value': categoryTitle,
+                              },
+                              {
+                                'key': 'giftCardRealHasSelection',
+                                'value': true,
+                              },
+                            ],
+                          ),
+                          const StacNavigateAction(
+                            navigationStyle: NavigationStyle.pop,
+                          ),
+                          StacNavigateAction(
+                            routeName: nextRouteName,
+                            navigationStyle: NavigationStyle.push,
+                          ),
+                        ],
+                      ),
+                      child: StacContainer(
+                        padding: StacEdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 12,
+                        ),
+                        decoration: StacBoxDecoration(
+                          borderRadius: StacBorderRadius.all(10),
+                          border: StacBorder.all(
+                            color: '{{appColors.current.input.borderEnabled}}',
+                            width: 1,
+                          ),
+                        ),
+                        child: StacText(
+                          data: title,
+                          textDirection: StacTextDirection.rtl,
+                          textAlign: StacTextAlign.right,
+                          style: StacCustomTextStyle(
+                            fontSize: 15,
+                            fontWeight: StacFontWeight.w600,
+                            color: '{{appColors.current.text.title}}',
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                }).toList(),
               ),
             ),
           ),

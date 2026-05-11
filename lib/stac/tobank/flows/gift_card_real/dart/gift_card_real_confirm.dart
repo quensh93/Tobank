@@ -1,12 +1,18 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
-import 'package:tobank_sdui/stac/tobank/flows/gift_card_real/dart/widgets/gift_card_real_app_bar.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'gift_card_real_confirm')
 StacWidget giftCardRealConfirm() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildGiftCardRealAppBar(title: 'کارت هدیه'),
+    appBar: buildTobankFlowAppBar(
+      showSupport: true,
+      showBack: true,
+      title: 'کارت هدیه',
+    ),
     body: StacColumn(
       crossAxisAlignment: StacCrossAxisAlignment.stretch,
       children: [
@@ -27,51 +33,7 @@ StacWidget giftCardRealConfirm() {
         StacPadding(
           padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 24),
           child: StacFilledButton(
-            onPressed: const StacCustomAction.fromJson({
-              'actionType': 'showGiftCardPaymentAccountsBottomSheet',
-              'title': 'کارت هدیه',
-              'paymentAmountKey': 'giftCardRealSummaryPaymentAmount',
-              'walletLabel': 'کیف پول',
-              'walletBalance': 226600,
-              'accountsTitle': 'حساب‌ها',
-              'insufficientText': 'موجودی ناکافی',
-              'sufficientText': 'موجودی کافی',
-              'chargeButtonText': 'شارژ حساب',
-              'continueButtonText': 'ادامه',
-              'accounts': [
-                {
-                  'id': 'acc_1',
-                  'title': 'سپرده حقیقی حساب قرض الحسنه جاری حقیقی- ریالی',
-                  'ownerName': 'سید پارسا بنی طبا',
-                  'depositNumber': '۱۱۰.۷۰.۱۶/۲۹۸۸.۱',
-                  'availableAmount': 66770,
-                },
-                {
-                  'id': 'acc_2',
-                  'title': 'سپرده حقیقی سپرده سرمایه گذاری کوتاه مدت',
-                  'ownerName': 'توبانک- حقیقی ریالی سید پارسا بنی طبا',
-                  'depositNumber': '۱۱۰.۹۹۹۲.۱۶/۲۹۸۸.۱',
-                  'availableAmount': 39148,
-                },
-                {
-                  'id': 'acc_3',
-                  'title': 'سپرده حقیقی سپرده سرمایه گذاری ویژه',
-                  'ownerName': 'توبانک- حقیقی ریالی سید پارسا بنی طبا',
-                  'depositNumber': '۱۱۹.۹۲۹۰.۱۶/۲۹۸۸.۱',
-                  'availableAmount': 9200000,
-                },
-              ],
-              'continueAction': {
-                'actionType': 'showResult',
-                'title': 'پرداخت',
-                'content': 'پرداخت با موفقیت انجام شد.',
-              },
-              'chargeAction': {
-                'actionType': 'showResult',
-                'title': 'شارژ حساب',
-                'content': 'برای ادامه، حساب خود را شارژ کنید.',
-              },
-            }),
+            onPressed: _paymentAccountsBottomSheetAction(),
             style: StacButtonStyle(
               fixedSize: StacSize(999999, 62),
               backgroundColor: '{{appColors.current.primary.color}}',
@@ -94,6 +56,69 @@ StacWidget giftCardRealConfirm() {
         ),
       ],
     ),
+  );
+}
+
+StacAction _paymentAccountsBottomSheetAction() {
+  return _proxyLegacyBottomSheetAction(const {
+    'actionType': 'showGiftCardPaymentAccountsBottomSheet',
+    'title': 'کارت هدیه',
+    'paymentAmountKey': 'giftCardRealSummaryPaymentAmount',
+    'walletLabel': 'کیف پول',
+    'walletBalance': 226600,
+    'accountsTitle': 'حساب‌ها',
+    'insufficientText': 'موجودی ناکافی',
+    'sufficientText': 'موجودی کافی',
+    'chargeButtonText': 'شارژ حساب',
+    'continueButtonText': 'ادامه',
+    'accounts': [
+      {
+        'id': 'acc_1',
+        'title': 'سپرده حقیقی حساب قرض الحسنه جاری حقیقی- ریالی',
+        'ownerName': 'سید پارسا بنی طبا',
+        'depositNumber': '۱۱۰.۷۰.۱۶/۲۹۸۸.۱',
+        'availableAmount': 66770,
+      },
+      {
+        'id': 'acc_2',
+        'title': 'سپرده حقیقی سپرده سرمایه گذاری کوتاه مدت',
+        'ownerName': 'توبانک- حقیقی ریالی سید پارسا بنی طبا',
+        'depositNumber': '۱۱۰.۹۹۹۲.۱۶/۲۹۸۸.۱',
+        'availableAmount': 39148,
+      },
+      {
+        'id': 'acc_3',
+        'title': 'سپرده حقیقی سپرده سرمایه گذاری ویژه',
+        'ownerName': 'توبانک- حقیقی ریالی سید پارسا بنی طبا',
+        'depositNumber': '۱۱۹.۹۲۹۰.۱۶/۲۹۸۸.۱',
+        'availableAmount': 9200000,
+      },
+    ],
+    'continueAction': {
+      'actionType': 'showResult',
+      'title': 'پرداخت',
+      'content': 'پرداخت با موفقیت انجام شد.',
+    },
+    'chargeAction': {
+      'actionType': 'showResult',
+      'title': 'شارژ حساب',
+      'content': 'برای ادامه، حساب خود را شارژ کنید.',
+    },
+  });
+}
+
+StacAction _proxyLegacyBottomSheetAction(Map<String, dynamic> legacyAction) {
+  return StacShowBottomSheetAction(
+    backgroundColor: '#00000000',
+    sheet: StacStatefulWidget(
+      onInit: StacSequenceAction(
+        actions: [
+          StacCustomAction.fromJson(legacyAction),
+          const StacNavigateAction(navigationStyle: NavigationStyle.pop),
+        ],
+      ),
+      child: StacSizedBox(width: 0, height: 0),
+    ).toJson(),
   );
 }
 

@@ -801,6 +801,225 @@ class StacShowBottomSheetAction extends StacAction {
   };
 }
 
+class StacShowDialogAction extends StacAction {
+  final String dialogActionType;
+  final Map<String, dynamic>? dialog;
+  final String? title;
+  final String? description;
+  final String? positiveText;
+  final String? negativeText;
+  final String? warningIconAsset;
+  final dynamic positiveAction;
+  final dynamic negativeAction;
+  final bool? barrierDismissible;
+  final String? barrierColor;
+  final String? backgroundColor;
+
+  const StacShowDialogAction({
+    this.dialogActionType = 'showAppDialog',
+    this.dialog,
+    this.title,
+    this.description,
+    this.positiveText,
+    this.negativeText,
+    this.warningIconAsset,
+    this.positiveAction,
+    this.negativeAction,
+    this.barrierDismissible,
+    this.barrierColor,
+    this.backgroundColor,
+  });
+
+  @override
+  String get actionType => dialogActionType;
+
+  @override
+  Map<String, dynamic> toJson() {
+    final json = <String, dynamic>{'actionType': actionType};
+    if (dialog != null) {
+      json['dialog'] = dialog;
+    }
+    if (title != null) json['title'] = title;
+    if (description != null) json['description'] = description;
+    if (positiveText != null) json['positiveText'] = positiveText;
+    if (negativeText != null) json['negativeText'] = negativeText;
+    if (warningIconAsset != null) json['warningIconAsset'] = warningIconAsset;
+    if (barrierDismissible != null) {
+      json['barrierDismissible'] = barrierDismissible;
+    }
+    if (barrierColor != null) {
+      json['barrierColor'] = barrierColor;
+    }
+    if (backgroundColor != null) {
+      json['backgroundColor'] = backgroundColor;
+    }
+    if (positiveAction != null) {
+      json['positiveAction'] = positiveAction is StacAction
+          ? (positiveAction as StacAction).toJson()
+          : positiveAction;
+    }
+    if (negativeAction != null) {
+      json['negativeAction'] = negativeAction is StacAction
+          ? (negativeAction as StacAction).toJson()
+          : negativeAction;
+    }
+    return json;
+  }
+}
+
+class StacCustomSnackBarAction extends StacAction {
+  final String title;
+  final String detail;
+  final String backgroundColor;
+  final int duration;
+  final String? buttonTitle;
+  final bool permanent;
+  final dynamic buttonAction;
+
+  const StacCustomSnackBarAction({
+    required this.title,
+    required this.detail,
+    this.backgroundColor = '#00000000',
+    this.duration = 10000,
+    this.buttonTitle,
+    bool permanent = false,
+    @Deprecated('Use permanent instead') bool? permenent,
+    this.buttonAction,
+  }) : permanent = permenent ?? permanent;
+
+  @override
+  String get actionType => 'customSnackBar';
+
+  @override
+  Map<String, dynamic> toJson() {
+    final hasButton = (buttonTitle ?? '').trim().isNotEmpty;
+    final rowChildren = <Map<String, dynamic>>[
+      if (hasButton)
+        {
+          'type': 'gestureDetector',
+          'onTap': buttonAction ?? {'actionType': 'hideSnackBar'},
+          'child': {
+            'type': 'container',
+            'padding': {'left': 10, 'top': 5, 'right': 10, 'bottom': 5},
+            'decoration': {
+              'color': '#E31A2F',
+              'borderRadius': {
+                'topLeft': 8,
+                'topRight': 8,
+                'bottomLeft': 8,
+                'bottomRight': 8,
+              },
+            },
+            'child': {
+              'type': 'text',
+              'data': buttonTitle,
+              'textDirection': 'rtl',
+              'style': {
+                'type': 'custom',
+                'fontSize': 12,
+                'fontWeight': 'w700',
+                'color': '#FFFFFF',
+              },
+            },
+          },
+        },
+      if (hasButton) {'type': 'sizedBox', 'width': 10},
+      {
+        'type': 'expanded',
+        'child': {
+          'type': 'column',
+          'mainAxisSize': 'min',
+          'crossAxisAlignment': 'end',
+          'children': [
+            {
+              'type': 'text',
+              'data': title,
+              'textDirection': 'rtl',
+              'textAlign': 'right',
+              'style': {
+                'type': 'custom',
+                'fontSize': 14,
+                'fontWeight': 'w700',
+                'color': '{{appColors.current.text.title}}',
+                'height': 1.45,
+              },
+            },
+            {'type': 'sizedBox', 'height': 4},
+            {
+              'type': 'text',
+              'data': detail,
+              'textDirection': 'rtl',
+              'textAlign': 'right',
+              'style': {
+                'type': 'custom',
+                'fontSize': 13,
+                'fontWeight': 'w500',
+                'color': '{{appColors.current.text.subtitle}}',
+                'height': 1.45,
+              },
+            },
+          ],
+        },
+      },
+      {'type': 'sizedBox', 'width': 10},
+      {
+        'type': 'container',
+        'width': 1,
+        'height': 20,
+        'decoration': {
+          'color': '{{appColors.current.input.borderEnabled}}',
+          'borderRadius': {
+            'topLeft': 999,
+            'topRight': 999,
+            'bottomLeft': 999,
+            'bottomRight': 999,
+          },
+        },
+      },
+      {'type': 'sizedBox', 'width': 8},
+      {
+        'type': 'image',
+        'src': 'assets/icons/ic_info.svg',
+        'imageType': 'asset',
+        'width': 20,
+        'height': 20,
+        'color': '{{appColors.current.text.subtitle}}',
+      },
+    ];
+
+    return {
+      'actionType': actionType,
+      'backgroundColor': backgroundColor,
+      if (!permanent) 'duration': duration,
+      'permanent': permanent,
+      'permenent': permanent,
+      'child': {
+        'type': 'container',
+        'decoration': {
+          'color': '{{appColors.current.background.surfaceContainer}}',
+          'borderRadius': {
+            'topLeft': 8,
+            'topRight': 8,
+            'bottomLeft': 8,
+            'bottomRight': 8,
+          },
+          'border': {
+            'color': '{{appColors.current.input.borderEnabled}}',
+            'width': 1,
+          },
+        },
+        'padding': {'left': 12, 'top': 10, 'right': 12, 'bottom': 10},
+        'child': {
+          'type': 'row',
+          'textDirection': 'ltr',
+          'crossAxisAlignment': 'center',
+          'children': rowChildren,
+        },
+      },
+    };
+  }
+}
+
 @Deprecated('Use StacShowBottomSheetAction instead.')
 class StacShowMobileBankServicesBottomSheetAction
     extends StacShowBottomSheetAction {

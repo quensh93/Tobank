@@ -1,4 +1,5 @@
 import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 /// Promissory Flow - Intro Screen
 ///
@@ -11,23 +12,10 @@ import 'package:stac_core/stac_core.dart';
 @StacScreen(screenName: 'promissory_intro')
 StacWidget promissoryIntro() {
   return StacScaffold(
-    appBar: StacAppBar(
-      title: StacText(
-        data: '{{appStrings.promissory.title}}',
-        textDirection: StacTextDirection.rtl,
-        style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
-      ),
-      centerTitle: true,
-      leading: StacIconButton(
-        onPressed: StacNavigateAction(navigationStyle: NavigationStyle.pop),
-        icon: StacImage(
-          src: 'assets/icons/ic_right_arrow.svg',
-          imageType: StacImageType.asset,
-          width: 24,
-          height: 24,
-          color: '{{appColors.current.text.title}}',
-        ),
-      ),
+    appBar: buildTobankFlowAppBar(
+      showSupport: false,
+      backIconSrc: 'assets/icons/ic_right_arrow.svg',
+      title: '{{appStrings.promissory.title}}',
     ),
     body: StacColumn(
       children: [
@@ -35,60 +23,53 @@ StacWidget promissoryIntro() {
         StacSizedBox(height: 16),
         StacPadding(
           padding: StacEdgeInsets.symmetric(horizontal: 16),
-          child: StacContainer(
-            decoration: StacBoxDecoration(
-              color: '{{appColors.current.background.surfaceContainer}}',
-              borderRadius: StacBorderRadius.all(8),
-            ),
-            child: StacRow(
-              textDirection: StacTextDirection.rtl,
-              children: [
-                // Promissory Services Tab (Active)
-                StacExpanded(
-                  child: StacContainer(
-                    padding: StacEdgeInsets.symmetric(vertical: 12),
-                    decoration: StacBoxDecoration(
+          child: StacDefaultTabController(
+            length: 2,
+            initialIndex: 1,
+            child: StacContainer(
+              decoration: StacBoxDecoration(
+                color: '{{appColors.current.background.surfaceContainer}}',
+                borderRadius: StacBorderRadius.all(8),
+              ),
+              child: StacStack(
+                children: [
+                  StacTabBar(
+                    enableFeedback: false,
+                    dividerColor: '#00000000',
+                    indicator: StacBoxDecoration(
                       color: '{{appColors.current.primary.color}}',
                       borderRadius: StacBorderRadius.all(8),
                     ),
+                    indicatorSize: StacTabBarIndicatorSize.tab,
+                    labelStyle: StacCustomTextStyle(
+                      fontSize: 14,
+                      fontWeight: StacFontWeight.w600,
+                    ),
+                    unselectedLabelStyle: StacCustomTextStyle(
+                      fontSize: 14,
+                      fontWeight: StacFontWeight.w500,
+                    ),
+                    labelColor: '{{appColors.current.primary.onPrimary}}',
+                    unselectedLabelColor: '{{appColors.current.text.subtitle}}',
+                    tabs: const [
+                      StacTab(text: '{{appStrings.promissory.myNotesTab}}', height: 44),
+                      StacTab(text: '{{appStrings.promissory.servicesTab}}', height: 44),
+                    ],
+                  ),
+                  StacPositioned(
+                    top: 6,
+                    bottom: 6,
+                    left: 0,
+                    right: 0,
                     child: StacCenter(
-                      child: StacText(
-                        data: '{{appStrings.promissory.servicesTab}}',
-                        textDirection: StacTextDirection.rtl,
-                        style: StacCustomTextStyle(
-                          fontSize: 14,
-                          fontWeight: StacFontWeight.w600,
-                          color: '{{appColors.current.primary.onPrimary}}',
-                        ),
+                      child: StacContainer(
+                        width: 1,
+                        color: '{{appColors.current.input.borderEnabled}}',
                       ),
                     ),
                   ),
-                ),
-                // My Promissory Tab (Inactive - Coming Soon)
-                StacExpanded(
-                  child: StacGestureDetector(
-                    onTap: StacRawJsonAction({
-                      'actionType': 'showResult',
-                      'title': '{{appStrings.common.comingSoon}}',
-                      'content': '{{appStrings.promissory.myNotesComingSoon}}',
-                    }),
-                    child: StacContainer(
-                      padding: StacEdgeInsets.symmetric(vertical: 12),
-                      child: StacCenter(
-                        child: StacText(
-                          data: '{{appStrings.promissory.myNotesTab}}',
-                          textDirection: StacTextDirection.rtl,
-                          style: StacCustomTextStyle(
-                            fontSize: 14,
-                            fontWeight: StacFontWeight.w500,
-                            color: '{{appColors.current.text.subtitle}}',
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

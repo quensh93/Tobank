@@ -1,4 +1,5 @@
 import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart'
     hide StacPersianDatePickerAction;
@@ -22,23 +23,10 @@ StacWidget promissoryReceiver() {
       ],
     ),
     child: StacScaffold(
-      appBar: StacAppBar(
-        title: StacText(
-          data: 'اطلاعات ذینفع',
-          textDirection: StacTextDirection.rtl,
-          style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
-        ),
-        centerTitle: true,
-        leading: StacIconButton(
-          onPressed: StacNavigateAction(navigationStyle: NavigationStyle.pop),
-          icon: StacImage(
-            src: 'assets/icons/ic_right_arrow.svg',
-            imageType: StacImageType.asset,
-            width: 24,
-            height: 24,
-            color: '{{appColors.current.text.title}}',
-          ),
-        ),
+      appBar: buildTobankFlowAppBar(
+        showSupport: false,
+        backIconSrc: 'assets/icons/ic_right_arrow.svg',
+        title: 'اطلاعات ذینفع',
       ),
       body: StacForm(
         autovalidateMode: StacAutovalidateMode.onUserInteraction,

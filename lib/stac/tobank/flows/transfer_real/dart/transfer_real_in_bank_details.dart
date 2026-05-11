@@ -1,6 +1,7 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/amount_to_words_action.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 
@@ -17,25 +18,10 @@ StacWidget transferRealInBankDetails() {
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: StacAppBar(
-        title: StacText(
-          data: 'انتقال وجه',
-          textDirection: StacTextDirection.rtl,
-          style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
-        ),
-        centerTitle: true,
-        leading: StacIconButton(
-          onPressed: const StacNavigateAction(
-            navigationStyle: NavigationStyle.pop,
-          ),
-          icon: StacImage(
-            src: '{{appAssets.icons.arrowRight}}',
-            imageType: StacImageType.asset,
-            width: 24,
-            height: 24,
-            color: '{{appColors.current.text.title}}',
-          ),
-        ),
+      appBar: buildTobankFlowAppBar(
+        showSupport: false,
+        backIconSrc: '{{appAssets.icons.arrowRight}}',
+        title: 'انتقال وجه',
       ),
       body: StacForm(
         autovalidateMode: StacAutovalidateMode.onUserInteraction,
@@ -124,17 +110,7 @@ StacWidget transferRealInBankDetails() {
               StacSizedBox(height: 12),
               StacCustomReactiveElevatedButton(
                 enabledKey: 'transferApiDetailsContinueEnabled',
-                onPressed: const StacCustomAction.fromJson({
-                  'actionType': 'showTransferInBankTypeBottomSheet',
-                  'title': 'روش انتقال خود را انتخاب کنید',
-                  'heightFactor': 0.68,
-                  'selectedTypeKey': 'transferApiTransferTypeTitle',
-                  'onSelectAction': {
-                    'actionType': 'navigate',
-                    'routeName': 'transfer_real_in_bank_confirm',
-                    'navigationStyle': 'push',
-                  },
-                }),
+                onPressed: _showTransferInBankTypeBottomSheetAction(),
                 style: StacButtonStyle(
                   fixedSize: const StacSize(999999, 57),
                   shape: StacRoundedRectangleBorder(
@@ -260,7 +236,10 @@ StacWidget _textInput({
           fontWeight: StacFontWeight.w500,
           color: '{{appColors.current.text.hint}}',
         ),
-        contentPadding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 19.5),
+        contentPadding: StacEdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 19.5,
+        ),
         filled: false,
       ).toJson(),
       if (hintTextDirection != null) 'hintTextDirection': hintTextDirection,
@@ -271,15 +250,7 @@ StacWidget _textInput({
 
 StacWidget _reasonPickerInput() {
   return StacGestureDetector(
-    onTap: const StacCustomAction.fromJson({
-      'actionType': 'showTransferPurposeBottomSheet',
-      'title': 'انتقال بابت:',
-      'selectedValueKey': 'transferApiReasonTitle',
-      'hasValueKey': 'transferApiHasReason',
-      'amountRawKey': 'transferApiAmountRaw',
-      'continueEnabledKey': 'transferApiDetailsContinueEnabled',
-      'heightFactor': 0.72,
-    }),
+    onTap: _showTransferPurposeBottomSheetAction(),
     child: StacContainer(
       padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 19.5),
       decoration: StacBoxDecoration(
@@ -335,5 +306,293 @@ StacWidget _reasonPickerInput() {
         ],
       ),
     ),
+  );
+}
+
+StacAction _showTransferInBankTypeBottomSheetAction() {
+  return StacShowBottomSheetAction(
+    backgroundColor: '#8B63708C',
+    sheet: _buildTransferInBankTypeBottomSheet().toJson(),
+  );
+}
+
+StacAction _showTransferPurposeBottomSheetAction() {
+  return StacShowBottomSheetAction(
+    backgroundColor: '#8B63708C',
+    sheet: _buildTransferPurposeBottomSheet().toJson(),
+  );
+}
+
+StacWidget _buildTransferInBankTypeBottomSheet() {
+  return StacContainer(
+    width: 999999,
+    padding: StacEdgeInsets.only(left: 16, top: 10, right: 16, bottom: 16),
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: StacBorderRadius.only(topLeft: 16, topRight: 16),
+    ),
+    child: StacColumn(
+      mainAxisSize: StacMainAxisSize.min,
+      crossAxisAlignment: StacCrossAxisAlignment.stretch,
+      children: [
+        StacCenter(
+          child: StacContainer(
+            width: 56,
+            height: 6,
+            decoration: StacBoxDecoration(
+              color: '{{appColors.current.input.borderEnabled}}',
+              borderRadius: StacBorderRadius.all(999),
+            ),
+          ),
+        ),
+        StacSizedBox(height: 20),
+        StacText(
+          data: 'روش انتقال خود را انتخاب کنید',
+          textDirection: StacTextDirection.rtl,
+          textAlign: StacTextAlign.right,
+          style: StacCustomTextStyle(
+            fontSize: 19,
+            fontWeight: StacFontWeight.w700,
+            color: '{{appColors.current.text.title}}',
+          ),
+        ),
+        StacSizedBox(height: 16),
+        _transferTypeItem(
+          title: 'درون بانکی',
+          subtitle: 'انتقال در لحظه | کارمزد: رایگان',
+          iconAsset: 'assets/icons/ic_gardeshgari.svg',
+          enabled: true,
+          onTap: _selectTransferTypeAndContinue(
+            'درون بانکی',
+            'transfer_real_in_bank_confirm',
+          ),
+        ),
+        StacSizedBox(height: 12),
+        _transferTypeItem(
+          title: 'پل',
+          subtitle: 'این روش برای انتقال درون بانکی فعال نیست',
+          iconAsset: 'assets/icons/ic_bank_transfer_dark.svg',
+          enabled: false,
+          onTap: const StacNavigateAction(navigationStyle: NavigationStyle.pop),
+        ),
+        StacSizedBox(height: 12),
+        _transferTypeItem(
+          title: 'پایا',
+          subtitle: 'این روش برای انتقال درون بانکی فعال نیست',
+          iconAsset: 'assets/icons/ic_bank_transfer_dark.svg',
+          enabled: false,
+          onTap: const StacNavigateAction(navigationStyle: NavigationStyle.pop),
+        ),
+        StacSizedBox(height: 12),
+        _transferTypeItem(
+          title: 'ساتنا',
+          subtitle: 'این روش برای انتقال درون بانکی فعال نیست',
+          iconAsset: 'assets/icons/ic_bank_transfer_dark.svg',
+          enabled: false,
+          onTap: const StacNavigateAction(navigationStyle: NavigationStyle.pop),
+        ),
+      ],
+    ),
+  );
+}
+
+StacWidget _transferTypeItem({
+  required String title,
+  required String subtitle,
+  required String iconAsset,
+  required bool enabled,
+  required StacAction onTap,
+}) {
+  return StacGestureDetector(
+    onTap: enabled ? onTap : null,
+    child: StacContainer(
+      padding: StacEdgeInsets.symmetric(horizontal: 14, vertical: 16),
+      decoration: StacBoxDecoration(
+        borderRadius: StacBorderRadius.all(11),
+        border: StacBorder.all(
+          color: '{{appColors.current.input.borderEnabled}}',
+          width: 1,
+        ),
+      ),
+      child: StacRow(
+        textDirection: StacTextDirection.rtl,
+        children: [
+          StacContainer(
+            width: 46,
+            height: 46,
+            decoration: StacBoxDecoration(
+              shape: StacBoxShape.circle,
+              color: '{{appColors.current.background.surfaceContainer}}',
+            ),
+            child: StacCenter(
+              child: StacImage(
+                src: iconAsset,
+                imageType: StacImageType.asset,
+                width: 24,
+                height: 24,
+              ),
+            ),
+          ),
+          StacSizedBox(width: 14),
+          StacExpanded(
+            child: StacColumn(
+              crossAxisAlignment: StacCrossAxisAlignment.stretch,
+              children: [
+                StacText(
+                  data: title,
+                  textDirection: StacTextDirection.rtl,
+                  textAlign: StacTextAlign.right,
+                  style: StacCustomTextStyle(
+                    fontSize: 18,
+                    fontWeight: StacFontWeight.w700,
+                    color: enabled
+                        ? '{{appColors.current.text.title}}'
+                        : '{{appColors.current.text.hint}}',
+                  ),
+                ),
+                StacSizedBox(height: 7),
+                StacText(
+                  data: subtitle,
+                  textDirection: StacTextDirection.rtl,
+                  textAlign: StacTextAlign.right,
+                  style: StacCustomTextStyle(
+                    fontSize: 14,
+                    fontWeight: StacFontWeight.w500,
+                    color: enabled
+                        ? '{{appColors.current.text.subtitle}}'
+                        : '{{appColors.current.text.hint}}',
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+StacAction _selectTransferTypeAndContinue(String type, String routeName) {
+  return StacSequenceAction(
+    actions: [
+      StacCustomSetValueAction(
+        key: 'transferApiTransferTypeTitle',
+        value: type,
+      ),
+      const StacNavigateAction(navigationStyle: NavigationStyle.pop),
+      StacNavigateAction(
+        routeName: routeName,
+        navigationStyle: NavigationStyle.push,
+      ),
+    ],
+  );
+}
+
+StacWidget _buildTransferPurposeBottomSheet() {
+  const purposes = [
+    'واریز حقوق',
+    'امور بیمه خدمات',
+    'امور درمانی',
+    'امور سرمایه گذاری و بورس',
+    'امور ارزی در چهارچوب ضوابط و مقررات',
+    'پرداخت قرض و تادیه دیون(قرض الحسنه، بدهی و ...)',
+    'امور بازنشستگی',
+    'معاملات اموال منقول',
+    'معاملات اموال غیر منقول',
+    'مدیریت نقدینگی',
+    'خرید کالا و خدمات',
+    'سایر',
+  ];
+
+  return StacContainer(
+    width: 999999,
+    padding: StacEdgeInsets.only(left: 16, top: 10, right: 16, bottom: 8),
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: StacBorderRadius.only(topLeft: 16, topRight: 16),
+    ),
+    child: StacColumn(
+      mainAxisSize: StacMainAxisSize.min,
+      crossAxisAlignment: StacCrossAxisAlignment.stretch,
+      children: [
+        StacCenter(
+          child: StacContainer(
+            width: 56,
+            height: 6,
+            decoration: StacBoxDecoration(
+              color: '{{appColors.current.input.borderEnabled}}',
+              borderRadius: StacBorderRadius.all(999),
+            ),
+          ),
+        ),
+        StacSizedBox(height: 24),
+        StacText(
+          data: 'انتقال بابت:',
+          textDirection: StacTextDirection.rtl,
+          textAlign: StacTextAlign.right,
+          style: StacCustomTextStyle(
+            fontSize: 19,
+            fontWeight: StacFontWeight.w700,
+            color: '{{appColors.current.text.title}}',
+          ),
+        ),
+        StacSizedBox(height: 8),
+        StacSizedBox(
+          height: 420,
+          child: StacSingleChildScrollView(
+            child: StacColumn(
+              crossAxisAlignment: StacCrossAxisAlignment.stretch,
+              children: [
+                for (final p in purposes) ...[
+                  StacGestureDetector(
+                    onTap: _selectTransferPurposeAction(p),
+                    child: StacPadding(
+                      padding: StacEdgeInsets.symmetric(
+                        horizontal: 6,
+                        vertical: 19,
+                      ),
+                      child: StacText(
+                        data: p,
+                        textDirection: StacTextDirection.rtl,
+                        textAlign: StacTextAlign.right,
+                        style: StacCustomTextStyle(
+                          fontSize: 19,
+                          fontWeight: StacFontWeight.w600,
+                          color: '{{appColors.current.text.title}}',
+                        ),
+                      ),
+                    ),
+                  ),
+                  StacContainer(
+                    height: 1,
+                    color: '{{appColors.current.input.borderEnabled}}',
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+StacAction _selectTransferPurposeAction(String purpose) {
+  return StacSequenceAction(
+    actions: [
+      StacCustomSetValueAction(
+        values: [
+          {'key': 'transferApiReasonTitle', 'value': purpose},
+          {'key': 'transferApiHasReason', 'value': true},
+        ],
+      ),
+      const StacCustomAction.fromJson({
+        'actionType': 'setTransferDetailsContinueEnabled',
+        'amountRawKey': 'transferApiAmountRaw',
+        'reasonSelectedKey': 'transferApiHasReason',
+        'continueEnabledKey': 'transferApiDetailsContinueEnabled',
+      }),
+      const StacNavigateAction(navigationStyle: NavigationStyle.pop),
+    ],
   );
 }

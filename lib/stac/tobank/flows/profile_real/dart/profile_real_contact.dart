@@ -1,12 +1,16 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
-import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/widgets/profile_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'profile_real_contact')
 StacWidget profileRealContact() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildProfileRealAppBar(title: 'تماس با ما'),
+    appBar: buildTobankFlowAppBar(
+      showSupport: true,
+      showBack: true,
+      title: 'تماس با ما',
+    ),
     body: StacSingleChildScrollView(
       padding: StacEdgeInsets.all(16),
       child: StacColumn(
@@ -14,16 +18,12 @@ StacWidget profileRealContact() {
         children: [
           _addressCard(
             label: 'آدرس',
-            value:
-                'تهران، سعادت‌آباد، بلوار فرهنگ، نبش کوچه نور، پلاک ۶',
+            value: 'تهران، سعادت‌آباد، بلوار فرهنگ، نبش کوچه نور، پلاک ۶',
           ),
           StacSizedBox(height: 16),
           _infoRowCard(label: 'کد پستی', value: '۱۹۹۷۷۴۴۵۳۷'),
           StacSizedBox(height: 16),
-          _infoRowCard(
-            label: 'پشتیبانی شعبه',
-            value: 'داخلی ۳ - ۰۲۱۲۳۹۵۰',
-          ),
+          _infoRowCard(label: 'پشتیبانی شعبه', value: 'داخلی ۳ - ۰۲۱۲۳۹۵۰'),
           StacSizedBox(height: 16),
           _infoRowCard(
             label: 'اینستاگرام بانک گردشگری',

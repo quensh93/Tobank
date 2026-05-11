@@ -1,6 +1,7 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 /// Linear Login Flow - Verify OTP Screen
 ///
@@ -12,13 +13,10 @@ StacWidget tobankLoginFlowLinearVerifyOtp() {
   return StacStatefulWidget(
     onInit: StacCustomSetValueAction(key: 'isFormValid', value: false),
     child: StacScaffold(
-      appBar: StacAppBar(
-        title: StacText(
-          data: '{{appStrings.verifyOtp.title}}',
-          textDirection: StacTextDirection.rtl,
-          style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
-        ),
-        centerTitle: true,
+      appBar: buildTobankFlowAppBar(
+        showSupport: false,
+        showBack: false,
+        title: '{{appStrings.verifyOtp.title}}',
       ),
       body: StacForm(
         autovalidateMode: StacAutovalidateMode.onUserInteraction,
@@ -228,8 +226,8 @@ StacWidget tobankLoginFlowLinearVerifyOtp() {
                     results: [
                       StacNetworkResult(
                         statusCode: 200,
-                        action: StacDialogAction(
-                          widget: {
+                        action: StacShowDialogAction(
+                          dialog: {
                             'type': 'alertDialog',
                             'title': {
                               'type': 'text',

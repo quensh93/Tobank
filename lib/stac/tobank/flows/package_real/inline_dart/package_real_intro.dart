@@ -2,7 +2,7 @@ import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
-import 'package:tobank_sdui/stac/tobank/flows/package_real/dart/widgets/package_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac/tobank/flows/package_real/dart/widgets/package_real_widgets.dart';
 
 @StacScreen(screenName: 'package_real_intro')
@@ -171,7 +171,11 @@ StacWidget packageRealIntro() {
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: buildPackageRealAppBar(title: 'اینترنت'),
+      appBar: buildTobankFlowAppBar(
+        showSupport: true,
+        showBack: true,
+        title: 'اینترنت',
+      ),
       body: StacStack(
         children: [
           StacSafeArea(
@@ -328,16 +332,6 @@ StacWidget packageRealIntro() {
             ),
           ),
           StacCustomVisibility(
-            visible: '[[crShowSimActionSheet]]',
-            child: _buildActionSheetOverlay().toJson(),
-            replacement: StacSizedBox().toJson(),
-          ),
-          StacCustomVisibility(
-            visible: '[[crShowSimEditSheet]]',
-            child: _buildEditSheetOverlay().toJson(),
-            replacement: StacSizedBox().toJson(),
-          ),
-          StacCustomVisibility(
             visible: '[[crShowSimDeleteDialog]]',
             child: _buildDeleteDialogOverlay().toJson(),
             replacement: StacSizedBox().toJson(),
@@ -409,345 +403,315 @@ StacAction _showSimActionsFor({
   bool isTarget2 = false,
   bool isTarget3 = false,
 }) {
-  return StacCustomSetValueAction(
-    values: [
-      {'key': 'crSheetTargetSim1', 'value': isTarget1},
-      {'key': 'crSheetTargetSim2', 'value': isTarget2},
-      {'key': 'crSheetTargetSim3', 'value': isTarget3},
-      {'key': 'crSheetOperator', 'value': operator},
-      {'key': 'crSheetNumber', 'value': number},
-      {'key': 'crSheetLogo', 'value': logo},
-      {'key': 'crShowSimActionSheet', 'value': true},
-      {'key': 'crShowSimEditSheet', 'value': false},
-      {'key': 'crShowSimDeleteDialog', 'value': false},
+  return StacSequenceAction(
+    actions: [
+      StacCustomSetValueAction(
+        values: [
+          {'key': 'crSheetTargetSim1', 'value': isTarget1},
+          {'key': 'crSheetTargetSim2', 'value': isTarget2},
+          {'key': 'crSheetTargetSim3', 'value': isTarget3},
+          {'key': 'crSheetOperator', 'value': operator},
+          {'key': 'crSheetNumber', 'value': number},
+          {'key': 'crSheetLogo', 'value': logo},
+          {'key': 'crShowSimDeleteDialog', 'value': false},
+        ],
+      ),
+      _showSimActionSheetAction(),
     ],
   );
 }
 
-StacWidget _buildActionSheetOverlay() {
-  return StacStack(
-    children: [
-      StacGestureDetector(
-        onTap: const StacCustomSetValueAction(
-          values: [
-            {'key': 'crShowSimActionSheet', 'value': false},
-          ],
+StacAction _showSimActionSheetAction() {
+  return StacShowBottomSheetAction(
+    backgroundColor: '#8B63708C',
+    sheet: _buildActionSheet().toJson(),
+  );
+}
+
+StacAction _showSimEditSheetAction() {
+  return StacShowBottomSheetAction(
+    backgroundColor: '#8B63708C',
+    sheet: _buildEditSheet().toJson(),
+  );
+}
+
+StacWidget _buildActionSheet() {
+  return StacContainer(
+    width: 999999,
+    padding: StacEdgeInsets.only(left: 14, top: 10, right: 14, bottom: 16),
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: StacBorderRadius.only(topLeft: 22, topRight: 22),
+    ),
+    child: StacColumn(
+      mainAxisSize: StacMainAxisSize.min,
+      crossAxisAlignment: StacCrossAxisAlignment.stretch,
+      children: [
+        StacCenter(
+          child: StacContainer(
+            width: 44,
+            height: 5,
+            decoration: StacBoxDecoration(
+              color: '#D0D5DD',
+              borderRadius: StacBorderRadius.all(99),
+            ),
+          ),
         ),
-        child: StacContainer(width: 999999, height: 999999, color: '#8B63708C'),
-      ),
-      StacAlign(
-        alignment: StacAlignmentDirectional.bottomCenter,
-        child: StacContainer(
-          width: 999999,
-          padding: StacEdgeInsets.only(
-            left: 14,
-            top: 10,
-            right: 14,
-            bottom: 16,
+        StacSizedBox(height: 20),
+        StacText(
+          data: '{{crSheetOperator}}',
+          textDirection: StacTextDirection.rtl,
+          textAlign: StacTextAlign.center,
+          style: StacCustomTextStyle(
+            fontSize: 24,
+            fontWeight: StacFontWeight.w700,
+            color: '{{appColors.current.text.title}}',
           ),
-          decoration: StacBoxDecoration(
-            color: '{{appColors.current.background.surface}}',
-            borderRadius: StacBorderRadius.only(topLeft: 22, topRight: 22),
+        ),
+        StacSizedBox(height: 6),
+        StacText(
+          data: '{{crSheetNumber}}',
+          textDirection: StacTextDirection.ltr,
+          textAlign: StacTextAlign.center,
+          style: StacCustomTextStyle(
+            fontSize: 16,
+            fontWeight: StacFontWeight.w500,
+            color: '{{appColors.current.text.title}}',
           ),
-          child: StacColumn(
-            mainAxisSize: StacMainAxisSize.min,
-            crossAxisAlignment: StacCrossAxisAlignment.stretch,
-            children: [
-              StacCenter(
-                child: StacContainer(
-                  width: 44,
-                  height: 5,
-                  decoration: StacBoxDecoration(
-                    color: '#D0D5DD',
-                    borderRadius: StacBorderRadius.all(99),
-                  ),
-                ),
-              ),
-              StacSizedBox(height: 20),
-              StacText(
-                data: '{{crSheetOperator}}',
-                textDirection: StacTextDirection.rtl,
-                textAlign: StacTextAlign.center,
-                style: StacCustomTextStyle(
-                  fontSize: 24,
-                  fontWeight: StacFontWeight.w700,
-                  color: '{{appColors.current.text.title}}',
-                ),
-              ),
-              StacSizedBox(height: 6),
-              StacText(
-                data: '{{crSheetNumber}}',
-                textDirection: StacTextDirection.ltr,
-                textAlign: StacTextAlign.center,
-                style: StacCustomTextStyle(
-                  fontSize: 16,
-                  fontWeight: StacFontWeight.w500,
-                  color: '{{appColors.current.text.title}}',
-                ),
-              ),
-              StacSizedBox(height: 18),
-              StacContainer(
-                height: 1,
-                color: '{{appColors.current.input.borderEnabled}}',
-              ),
-              StacGestureDetector(
-                onTap: const StacCustomSetValueAction(
-                  values: [
-                    {'key': 'crShowSimActionSheet', 'value': false},
-                    {'key': 'crShowSimEditSheet', 'value': true},
-                    {'key': 'crShowSimDeleteDialog', 'value': false},
-                  ],
-                ),
-                child: StacPadding(
-                  padding: StacEdgeInsets.symmetric(vertical: 14),
-                  child: StacRow(
-                    textDirection: StacTextDirection.rtl,
-                    children: [
-                      StacIcon(
-                        icon: 'edit_outlined',
-                        size: 22,
-                        color: '{{appColors.current.text.title}}',
-                      ),
-                      StacSizedBox(width: 8),
-                      StacText(
-                        data: 'ویرایش',
-                        textDirection: StacTextDirection.rtl,
-                        style: StacCustomTextStyle(
-                          fontSize: 16,
-                          fontWeight: StacFontWeight.w500,
-                          color: '{{appColors.current.text.title}}',
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              StacContainer(
-                height: 1,
-                color: '{{appColors.current.input.borderEnabled}}',
-              ),
-              StacGestureDetector(
-                onTap: const StacCustomSetValueAction(
-                  values: [
-                    {'key': 'crShowSimActionSheet', 'value': false},
-                    {'key': 'crShowSimEditSheet', 'value': false},
-                    {'key': 'crShowSimDeleteDialog', 'value': true},
-                  ],
-                ),
-                child: StacPadding(
-                  padding: StacEdgeInsets.symmetric(vertical: 14),
-                  child: StacRow(
-                    textDirection: StacTextDirection.rtl,
-                    children: [
-                      StacIcon(
-                        icon: 'delete_outline',
-                        size: 25,
-                        color: '#E31D35',
-                      ),
-                      StacSizedBox(width: 8),
-                      StacText(
-                        data: 'حذف کردن',
-                        textDirection: StacTextDirection.rtl,
-                        style: StacCustomTextStyle(
-                          fontSize: 16,
-                          fontWeight: StacFontWeight.w500,
-                          color: '#E31D35',
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              StacSizedBox(height: 12),
-              StacFilledButton(
-                onPressed: const StacCustomSetValueAction(
-                  values: [
-                    {'key': 'crShowSimActionSheet', 'value': false},
-                  ],
-                ),
-                style: StacButtonStyle(
-                  fixedSize: StacSize(999999, 56),
-                  backgroundColor: '{{appColors.current.primary.color}}',
-                  foregroundColor: '{{appColors.current.primary.onPrimary}}',
-                  shape: StacRoundedRectangleBorder(
-                    borderRadius: StacBorderRadius.all(10),
-                  ),
-                  elevation: 0,
-                ),
-                child: StacText(
-                  data: 'انصراف',
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 16,
-                    fontWeight: StacFontWeight.w700,
-                    color: '{{appColors.current.primary.onPrimary}}',
-                  ),
-                ),
-              ),
+        ),
+        StacSizedBox(height: 18),
+        StacContainer(
+          height: 1,
+          color: '{{appColors.current.input.borderEnabled}}',
+        ),
+        StacGestureDetector(
+          onTap: StacSequenceAction(
+            actions: [
+              const StacNavigateAction(navigationStyle: NavigationStyle.pop),
+              _showSimEditSheetAction(),
             ],
           ),
-        ),
-      ),
-    ],
-  );
-}
-
-StacWidget _buildEditSheetOverlay() {
-  return StacStack(
-    children: [
-      StacGestureDetector(
-        onTap: const StacCustomSetValueAction(
-          values: [
-            {'key': 'crShowSimEditSheet', 'value': false},
-          ],
-        ),
-        child: StacContainer(width: 999999, height: 999999, color: '#8B63708C'),
-      ),
-      StacAlign(
-        alignment: StacAlignmentDirectional.bottomCenter,
-        child: StacContainer(
-          width: 999999,
-          padding: StacEdgeInsets.only(
-            left: 14,
-            top: 10,
-            right: 14,
-            bottom: 16,
-          ),
-          decoration: StacBoxDecoration(
-            color: '{{appColors.current.background.surface}}',
-            borderRadius: StacBorderRadius.only(topLeft: 22, topRight: 22),
-          ),
-          child: StacForm(
-            child: StacColumn(
-              mainAxisSize: StacMainAxisSize.min,
-              crossAxisAlignment: StacCrossAxisAlignment.stretch,
+          child: StacPadding(
+            padding: StacEdgeInsets.symmetric(vertical: 14),
+            child: StacRow(
+              textDirection: StacTextDirection.rtl,
               children: [
-                StacCenter(
-                  child: StacContainer(
-                    width: 44,
-                    height: 5,
-                    decoration: StacBoxDecoration(
-                      color: '#D0D5DD',
-                      borderRadius: StacBorderRadius.all(99),
-                    ),
-                  ),
+                StacIcon(
+                  icon: 'edit_outlined',
+                  size: 22,
+                  color: '{{appColors.current.text.title}}',
                 ),
-                StacSizedBox(height: 20),
-                StacCenter(
-                  child: StacContainer(
-                    width: 56,
-                    height: 56,
-                    decoration: StacBoxDecoration(
-                      color:
-                          '{{appColors.current.background.surfaceContainer}}',
-                      borderRadius: StacBorderRadius.all(28),
-                      border: StacBorder.all(
-                        color: '{{appColors.current.input.borderEnabled}}',
-                        width: 1,
-                      ),
-                    ),
-                    child: StacCenter(
-                      child: StacImage(
-                        src: '{{crSheetLogo}}',
-                        imageType: StacImageType.asset,
-                        width: 36,
-                        height: 23,
-                        fit: StacBoxFit.contain,
-                      ),
-                    ),
-                  ),
-                ),
-                StacSizedBox(height: 12),
+                StacSizedBox(width: 8),
                 StacText(
-                  data: '{{crSheetNumber}}',
-                  textDirection: StacTextDirection.ltr,
-                  textAlign: StacTextAlign.center,
+                  data: 'ویرایش',
+                  textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 16,
                     fontWeight: StacFontWeight.w500,
                     color: '{{appColors.current.text.title}}',
                   ),
                 ),
-                StacSizedBox(height: 14),
-                StacCustomTextFormField(
-                  id: 'crEditOperatorField',
-                  textDirection: 'rtl',
-                  textAlign: 'center',
-                  initialValue: '{{crSheetOperator}}',
-                  maxLength: 20,
-                  decoration: StacInputDecoration(
-                    filled: false,
-                    contentPadding: StacEdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 14,
-                    ),
-                  ).toJson(),
-                ),
-                StacSizedBox(height: 12),
-                StacFilledButton(
-                  onPressed: StacSequenceAction(
-                    actions: [
-                      const StacCustomSetValueAction(
-                        values: [
-                          {
-                            'key': 'crSim1Operator',
-                            'value': StacGetFormValueAction(
-                              id: 'crEditOperatorField',
-                            ),
-                            'condition': 'crSheetTargetSim1',
-                          },
-                          {
-                            'key': 'crSim2Operator',
-                            'value': StacGetFormValueAction(
-                              id: 'crEditOperatorField',
-                            ),
-                            'condition': 'crSheetTargetSim2',
-                          },
-                          {
-                            'key': 'crSim3Operator',
-                            'value': StacGetFormValueAction(
-                              id: 'crEditOperatorField',
-                            ),
-                            'condition': 'crSheetTargetSim3',
-                          },
-                          {
-                            'key': 'crSheetOperator',
-                            'value': StacGetFormValueAction(
-                              id: 'crEditOperatorField',
-                            ),
-                          },
-                          {'key': 'crShowSimEditSheet', 'value': false},
-                          {'key': 'crShowSimActionSheet', 'value': false},
-                          {'key': 'crShowSimDeleteDialog', 'value': false},
-                        ],
-                      ),
-                    ],
-                  ),
-                  style: StacButtonStyle(
-                    fixedSize: StacSize(999999, 56),
-                    backgroundColor: '{{appColors.current.primary.color}}',
-                    foregroundColor: '{{appColors.current.primary.onPrimary}}',
-                    shape: StacRoundedRectangleBorder(
-                      borderRadius: StacBorderRadius.all(10),
-                    ),
-                    elevation: 0,
-                  ),
-                  child: StacText(
-                    data: 'ذخیره',
-                    textDirection: StacTextDirection.rtl,
-                    style: StacCustomTextStyle(
-                      fontSize: 16,
-                      fontWeight: StacFontWeight.w700,
-                      color: '{{appColors.current.primary.onPrimary}}',
-                    ),
+              ],
+            ),
+          ),
+        ),
+        StacContainer(
+          height: 1,
+          color: '{{appColors.current.input.borderEnabled}}',
+        ),
+        StacGestureDetector(
+          onTap: const StacSequenceAction(
+            actions: [
+              StacNavigateAction(navigationStyle: NavigationStyle.pop),
+              StacCustomSetValueAction(
+                values: [
+                  {'key': 'crShowSimDeleteDialog', 'value': true},
+                ],
+              ),
+            ],
+          ),
+          child: StacPadding(
+            padding: StacEdgeInsets.symmetric(vertical: 14),
+            child: StacRow(
+              textDirection: StacTextDirection.rtl,
+              children: [
+                StacIcon(icon: 'delete_outline', size: 25, color: '#E31D35'),
+                StacSizedBox(width: 8),
+                StacText(
+                  data: 'حذف کردن',
+                  textDirection: StacTextDirection.rtl,
+                  style: StacCustomTextStyle(
+                    fontSize: 16,
+                    fontWeight: StacFontWeight.w500,
+                    color: '#E31D35',
                   ),
                 ),
               ],
             ),
           ),
         ),
+        StacSizedBox(height: 12),
+        StacFilledButton(
+          onPressed: const StacNavigateAction(
+            navigationStyle: NavigationStyle.pop,
+          ),
+          style: StacButtonStyle(
+            fixedSize: StacSize(999999, 56),
+            backgroundColor: '{{appColors.current.primary.color}}',
+            foregroundColor: '{{appColors.current.primary.onPrimary}}',
+            shape: StacRoundedRectangleBorder(
+              borderRadius: StacBorderRadius.all(10),
+            ),
+            elevation: 0,
+          ),
+          child: StacText(
+            data: 'انصراف',
+            textDirection: StacTextDirection.rtl,
+            style: StacCustomTextStyle(
+              fontSize: 16,
+              fontWeight: StacFontWeight.w700,
+              color: '{{appColors.current.primary.onPrimary}}',
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+StacWidget _buildEditSheet() {
+  return StacContainer(
+    width: 999999,
+    padding: StacEdgeInsets.only(left: 14, top: 10, right: 14, bottom: 16),
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: StacBorderRadius.only(topLeft: 22, topRight: 22),
+    ),
+    child: StacForm(
+      child: StacColumn(
+        mainAxisSize: StacMainAxisSize.min,
+        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+        children: [
+          StacCenter(
+            child: StacContainer(
+              width: 44,
+              height: 5,
+              decoration: StacBoxDecoration(
+                color: '#D0D5DD',
+                borderRadius: StacBorderRadius.all(99),
+              ),
+            ),
+          ),
+          StacSizedBox(height: 20),
+          StacCenter(
+            child: StacContainer(
+              width: 56,
+              height: 56,
+              decoration: StacBoxDecoration(
+                color: '{{appColors.current.background.surfaceContainer}}',
+                borderRadius: StacBorderRadius.all(28),
+                border: StacBorder.all(
+                  color: '{{appColors.current.input.borderEnabled}}',
+                  width: 1,
+                ),
+              ),
+              child: StacCenter(
+                child: StacImage(
+                  src: '{{crSheetLogo}}',
+                  imageType: StacImageType.asset,
+                  width: 36,
+                  height: 23,
+                  fit: StacBoxFit.contain,
+                ),
+              ),
+            ),
+          ),
+          StacSizedBox(height: 12),
+          StacText(
+            data: '{{crSheetNumber}}',
+            textDirection: StacTextDirection.ltr,
+            textAlign: StacTextAlign.center,
+            style: StacCustomTextStyle(
+              fontSize: 16,
+              fontWeight: StacFontWeight.w500,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacSizedBox(height: 14),
+          StacCustomTextFormField(
+            id: 'crEditOperatorField',
+            textDirection: 'rtl',
+            textAlign: 'center',
+            initialValue: '{{crSheetOperator}}',
+            maxLength: 20,
+            decoration: StacInputDecoration(
+              filled: false,
+              contentPadding: StacEdgeInsets.symmetric(
+                horizontal: 12,
+                vertical: 14,
+              ),
+            ).toJson(),
+          ),
+          StacSizedBox(height: 12),
+          StacFilledButton(
+            onPressed: StacSequenceAction(
+              actions: [
+                const StacCustomSetValueAction(
+                  values: [
+                    {
+                      'key': 'crSim1Operator',
+                      'value': StacGetFormValueAction(
+                        id: 'crEditOperatorField',
+                      ),
+                      'condition': 'crSheetTargetSim1',
+                    },
+                    {
+                      'key': 'crSim2Operator',
+                      'value': StacGetFormValueAction(
+                        id: 'crEditOperatorField',
+                      ),
+                      'condition': 'crSheetTargetSim2',
+                    },
+                    {
+                      'key': 'crSim3Operator',
+                      'value': StacGetFormValueAction(
+                        id: 'crEditOperatorField',
+                      ),
+                      'condition': 'crSheetTargetSim3',
+                    },
+                    {
+                      'key': 'crSheetOperator',
+                      'value': StacGetFormValueAction(
+                        id: 'crEditOperatorField',
+                      ),
+                    },
+                  ],
+                ),
+                const StacNavigateAction(navigationStyle: NavigationStyle.pop),
+              ],
+            ),
+            style: StacButtonStyle(
+              fixedSize: StacSize(999999, 56),
+              backgroundColor: '{{appColors.current.primary.color}}',
+              foregroundColor: '{{appColors.current.primary.onPrimary}}',
+              shape: StacRoundedRectangleBorder(
+                borderRadius: StacBorderRadius.all(10),
+              ),
+              elevation: 0,
+            ),
+            child: StacText(
+              data: 'ذخیره',
+              textDirection: StacTextDirection.rtl,
+              style: StacCustomTextStyle(
+                fontSize: 16,
+                fontWeight: StacFontWeight.w700,
+                color: '{{appColors.current.primary.onPrimary}}',
+              ),
+            ),
+          ),
+        ],
       ),
-    ],
+    ),
   );
 }
 

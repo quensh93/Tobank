@@ -2,7 +2,7 @@ import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
-import 'package:tobank_sdui/stac/tobank/flows/gift_card_real/dart/widgets/gift_card_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'gift_card_real_select_amount')
 StacWidget giftCardRealSelectAmount() {
@@ -24,7 +24,11 @@ StacWidget giftCardRealSelectAmount() {
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: buildGiftCardRealAppBar(title: 'کارت هدیه'),
+      appBar: buildTobankFlowAppBar(
+        showSupport: true,
+        showBack: true,
+        title: 'کارت هدیه',
+      ),
       body: StacColumn(
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
@@ -50,14 +54,8 @@ StacWidget giftCardRealSelectAmount() {
                           ),
                         ),
                         StacSizedBox(width: 8),
-                        const StacGestureDetector(
-                          onTap: StacCustomAction.fromJson({
-                            'actionType': 'showGiftCardAmountGuideBottomSheet',
-                            'title': 'راهنما',
-                            'minAmount': 1000000,
-                            'maxAmount': 50000000,
-                            'closeText': 'بستن',
-                          }),
+                        StacGestureDetector(
+                          onTap: _giftCardAmountGuideBottomSheetAction(),
                           child: StacIcon(
                             icon: 'info_outline',
                             size: 22,
@@ -156,22 +154,7 @@ StacWidget giftCardRealSelectAmount() {
           StacPadding(
             padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 24),
             child: StacFilledButton(
-              onPressed: const StacCustomAction.fromJson({
-                'actionType': 'showGiftCardDesignTypeBottomSheet',
-                'title': 'طرح کارت را انتخاب کنید',
-                'readyDesignTitle': 'طرح‌های آماده',
-                'customDesignTitle': 'طرح سفارشی',
-                'readyDesignAction': {
-                  'actionType': 'navigate',
-                  'routeName': 'gift_card_real_design_selector',
-                  'navigationStyle': 'push',
-                },
-                'customDesignAction': {
-                  'actionType': 'navigate',
-                  'routeName': 'gift_card_real_custom_design_selector',
-                  'navigationStyle': 'push',
-                },
-              }),
+              onPressed: _giftCardDesignTypeBottomSheetAction(),
               style: StacButtonStyle(
                 fixedSize: StacSize(999999, 64),
                 backgroundColor: '{{appColors.current.primary.color}}',
@@ -221,10 +204,7 @@ StacWidget _buildAmountCard({
           children: [
             StacExpanded(
               child: StacGestureDetector(
-                onTap: StacShowGiftCardSelectAmountBottomSheetAction(
-                  amountValueKey: 'giftCardRealAmountValue$cardIndex',
-                  amountLabelKey: 'giftCardRealAmountLabel$cardIndex',
-                ),
+                onTap: _giftCardSelectAmountBottomSheetAction(cardIndex),
                 child: StacContainer(
                   height: 55,
                   padding: StacEdgeInsets.symmetric(horizontal: 10),
@@ -342,6 +322,343 @@ StacWidget _buildAmountCard({
           ],
         ),
       ],
+    ),
+  );
+}
+
+StacAction _giftCardAmountGuideBottomSheetAction() {
+  return _proxyLegacyBottomSheetAction(const {
+    'actionType': 'showGiftCardAmountGuideBottomSheet',
+    'title': 'راهنما',
+    'minAmount': 1000000,
+    'maxAmount': 50000000,
+    'closeText': 'بستن',
+  });
+}
+
+StacWidget _giftCardAmountGuideBottomSheet() {
+  return StacContainer(
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: const StacBorderRadius.only(topLeft: 12, topRight: 12),
+    ),
+    child: StacPadding(
+      padding: StacEdgeInsets.only(left: 24, top: 10, right: 24, bottom: 20),
+      child: StacColumn(
+        mainAxisSize: StacMainAxisSize.min,
+        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+        children: [
+          StacCenter(
+            child: StacContainer(
+              width: 62,
+              height: 6,
+              decoration: StacBoxDecoration(
+                color: '#737373',
+                borderRadius: StacBorderRadius.all(999),
+              ),
+            ),
+          ),
+          StacSizedBox(height: 24),
+          StacText(
+            data: 'راهنما',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 18,
+              fontWeight: StacFontWeight.w700,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacSizedBox(height: 14),
+          StacText(
+            data: 'حداقل مبلغ: ۱,۰۰۰,۰۰۰ ریال',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 16,
+              fontWeight: StacFontWeight.w500,
+              color: '{{appColors.current.text.subtitle}}',
+            ),
+          ),
+          StacSizedBox(height: 8),
+          StacText(
+            data: 'حداکثر مبلغ: ۵۰,۰۰۰,۰۰۰ ریال',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 16,
+              fontWeight: StacFontWeight.w500,
+              color: '{{appColors.current.text.subtitle}}',
+            ),
+          ),
+          StacSizedBox(height: 20),
+          StacFilledButton(
+            onPressed: const StacNavigateAction(
+              navigationStyle: NavigationStyle.pop,
+            ),
+            style: StacButtonStyle(
+              fixedSize: StacSize(999999, 56),
+              backgroundColor: '{{appColors.current.primary.color}}',
+              foregroundColor: '{{appColors.current.primary.onPrimary}}',
+              shape: StacRoundedRectangleBorder(
+                borderRadius: StacBorderRadius.all(12),
+              ),
+              elevation: 0,
+            ),
+            child: StacText(
+              data: 'بستن',
+              textDirection: StacTextDirection.rtl,
+              style: StacCustomTextStyle(
+                fontSize: 17,
+                fontWeight: StacFontWeight.w700,
+                color: '{{appColors.current.primary.onPrimary}}',
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+StacAction _giftCardDesignTypeBottomSheetAction() {
+  return _proxyLegacyBottomSheetAction(const {
+    'actionType': 'showGiftCardDesignTypeBottomSheet',
+    'title': 'طرح کارت را انتخاب کنید',
+    'readyDesignTitle': 'طرح‌های آماده',
+    'customDesignTitle': 'طرح سفارشی',
+    'readyDesignAction': {
+      'actionType': 'navigate',
+      'routeName': 'gift_card_real_design_selector',
+      'navigationStyle': 'push',
+    },
+    'customDesignAction': {
+      'actionType': 'navigate',
+      'routeName': 'gift_card_real_custom_design_selector',
+      'navigationStyle': 'push',
+    },
+  });
+}
+
+StacWidget _giftCardDesignTypeBottomSheet() {
+  return StacContainer(
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: const StacBorderRadius.only(topLeft: 12, topRight: 12),
+    ),
+    child: StacPadding(
+      padding: StacEdgeInsets.only(left: 20, top: 12, right: 20, bottom: 20),
+      child: StacColumn(
+        mainAxisSize: StacMainAxisSize.min,
+        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+        children: [
+          StacCenter(
+            child: StacContainer(
+              width: 62,
+              height: 6,
+              decoration: StacBoxDecoration(
+                color: '#737373',
+                borderRadius: StacBorderRadius.all(999),
+              ),
+            ),
+          ),
+          StacSizedBox(height: 20),
+          StacText(
+            data: 'طرح کارت را انتخاب کنید',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 18,
+              fontWeight: StacFontWeight.w700,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacSizedBox(height: 16),
+          _giftCardDesignTypeTile(
+            title: 'طرح‌های آماده',
+            action: const StacSequenceAction(
+              actions: [
+                StacNavigateAction(navigationStyle: NavigationStyle.pop),
+                StacNavigateAction(
+                  routeName: 'gift_card_real_design_selector',
+                  navigationStyle: NavigationStyle.push,
+                ),
+              ],
+            ),
+          ),
+          StacSizedBox(height: 10),
+          _giftCardDesignTypeTile(
+            title: 'طرح سفارشی',
+            action: const StacSequenceAction(
+              actions: [
+                StacNavigateAction(navigationStyle: NavigationStyle.pop),
+                StacNavigateAction(
+                  routeName: 'gift_card_real_custom_design_selector',
+                  navigationStyle: NavigationStyle.push,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+StacWidget _giftCardDesignTypeTile({
+  required String title,
+  required StacAction action,
+}) {
+  return StacGestureDetector(
+    onTap: action,
+    child: StacContainer(
+      height: 58,
+      padding: StacEdgeInsets.symmetric(horizontal: 14),
+      decoration: StacBoxDecoration(
+        borderRadius: StacBorderRadius.all(12),
+        border: StacBorder.all(
+          color: '{{appColors.current.input.borderEnabled}}',
+          width: 1,
+        ),
+      ),
+      child: StacRow(
+        textDirection: StacTextDirection.rtl,
+        mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+        children: [
+          StacText(
+            data: title,
+            textDirection: StacTextDirection.rtl,
+            style: StacCustomTextStyle(
+              fontSize: 16,
+              fontWeight: StacFontWeight.w600,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacIcon(
+            icon: 'chevron_left',
+            color: '{{appColors.current.text.subtitle}}',
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+StacAction _giftCardSelectAmountBottomSheetAction(int cardIndex) {
+  return _proxyLegacyBottomSheetAction({
+    'actionType': 'showGiftCardSelectAmountBottomSheet',
+    'amountValueKey': 'giftCardRealAmountValue$cardIndex',
+    'amountLabelKey': 'giftCardRealAmountLabel$cardIndex',
+  });
+}
+
+StacAction _proxyLegacyBottomSheetAction(Map<String, dynamic> legacyAction) {
+  return StacShowBottomSheetAction(
+    backgroundColor: '#00000000',
+    sheet: StacStatefulWidget(
+      onInit: StacSequenceAction(
+        actions: [
+          StacCustomAction.fromJson(legacyAction),
+          const StacNavigateAction(navigationStyle: NavigationStyle.pop),
+        ],
+      ),
+      child: StacSizedBox(width: 0, height: 0),
+    ).toJson(),
+  );
+}
+
+StacWidget _giftCardSelectAmountBottomSheet(int cardIndex) {
+  final values = <Map<String, String>>[
+    {'value': '1000000', 'label': '۱,۰۰۰,۰۰۰ ریال'},
+    {'value': '5000000', 'label': '۵,۰۰۰,۰۰۰ ریال'},
+    {'value': '10000000', 'label': '۱۰,۰۰۰,۰۰۰ ریال'},
+    {'value': '20000000', 'label': '۲۰,۰۰۰,۰۰۰ ریال'},
+    {'value': '50000000', 'label': '۵۰,۰۰۰,۰۰۰ ریال'},
+  ];
+  return StacContainer(
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: const StacBorderRadius.only(topLeft: 12, topRight: 12),
+    ),
+    child: StacPadding(
+      padding: StacEdgeInsets.only(left: 20, top: 12, right: 20, bottom: 20),
+      child: StacColumn(
+        mainAxisSize: StacMainAxisSize.min,
+        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+        children: [
+          StacCenter(
+            child: StacContainer(
+              width: 62,
+              height: 6,
+              decoration: StacBoxDecoration(
+                color: '#737373',
+                borderRadius: StacBorderRadius.all(999),
+              ),
+            ),
+          ),
+          StacSizedBox(height: 20),
+          StacText(
+            data: 'مبلغ کارت هدیه را انتخاب کنید',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 17,
+              fontWeight: StacFontWeight.w700,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacSizedBox(height: 14),
+          ...values.map((item) {
+            return StacPadding(
+              padding: StacEdgeInsets.only(bottom: 10),
+              child: StacGestureDetector(
+                onTap: StacSequenceAction(
+                  actions: [
+                    StacCustomSetValueAction(
+                      values: [
+                        {
+                          'key': 'giftCardRealAmountValue$cardIndex',
+                          'value': item['value']!,
+                        },
+                        {
+                          'key': 'giftCardRealAmountLabel$cardIndex',
+                          'value': item['label']!,
+                        },
+                      ],
+                    ),
+                    const StacNavigateAction(
+                      navigationStyle: NavigationStyle.pop,
+                    ),
+                  ],
+                ),
+                child: StacContainer(
+                  height: 52,
+                  padding: StacEdgeInsets.symmetric(horizontal: 14),
+                  decoration: StacBoxDecoration(
+                    borderRadius: StacBorderRadius.all(10),
+                    border: StacBorder.all(
+                      color: '{{appColors.current.input.borderEnabled}}',
+                      width: 1,
+                    ),
+                  ),
+                  child: StacAlign(
+                    alignment: StacAlignmentDirectional.centerStart,
+                    child: StacText(
+                      data: item['label']!,
+                      textDirection: StacTextDirection.rtl,
+                      style: StacCustomTextStyle(
+                        fontSize: 16,
+                        fontWeight: StacFontWeight.w600,
+                        color: '{{appColors.current.text.title}}',
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            );
+          }),
+        ],
+      ),
     ),
   );
 }

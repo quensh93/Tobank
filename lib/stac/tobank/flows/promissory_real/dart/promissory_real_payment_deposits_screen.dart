@@ -1,8 +1,8 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
-import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'promissory_real_payment_deposits')
 StacWidget promissoryRealPaymentDeposits() {
@@ -258,20 +258,10 @@ StacWidget promissoryRealPaymentDeposits() {
                     {'key': 'hasSelection', 'value': true},
                   ],
                 },
-                {
-                  'actionType': 'showSnackBar',
-                  'backgroundColor': '#D32F2F',
-                  'textColor': '#FFFFFF',
-                  'content': {
-                    'type': 'text',
-                    'data': '{{data.status.message.0}}',
-                    'style': {
-                      'type': 'custom',
-                      'color': '#FFFFFF',
-                      'fontSize': 14,
-                    },
-                  },
-                },
+                const StacCustomSnackBarAction(
+                  title: 'خطا',
+                  detail: '{{data.status.message.0}}',
+                ).toJson(),
               ],
             },
           },
@@ -287,20 +277,10 @@ StacWidget promissoryRealPaymentDeposits() {
                     {'key': 'hasSelection', 'value': true},
                   ],
                 },
-                {
-                  'actionType': 'showSnackBar',
-                  'backgroundColor': '#D32F2F',
-                  'textColor': '#FFFFFF',
-                  'content': {
-                    'type': 'text',
-                    'data': '{{data.status.message.0}}',
-                    'style': {
-                      'type': 'custom',
-                      'color': '#FFFFFF',
-                      'fontSize': 14,
-                    },
-                  },
-                },
+                const StacCustomSnackBarAction(
+                  title: 'خطا',
+                  detail: '{{data.status.message.0}}',
+                ).toJson(),
               ],
             },
           },
@@ -311,7 +291,8 @@ StacWidget promissoryRealPaymentDeposits() {
   return StacStatefulWidget(
     onInit: fetchDepositsAction,
     child: StacScaffold(
-      appBar: buildPromissoryAppBar(
+      appBar: buildTobankFlowAppBar(
+        showSupport: false,
         // انتخاب سپرده پرداخت
         title: '{{appStrings.promissory.selectPaymentDepositTitle}}',
       ),
@@ -665,11 +646,10 @@ StacWidget _buildDepositCardTemplate() {
                 color: '{{appColors.current.text.subtitle}}',
               ),
             ),
-            StacExpanded(
-              child: StacContainer(),
-            ),
+            StacExpanded(child: StacContainer()),
             StacText(
-              data: '{{formatNumber(item.availableAmount)}} {{appStrings.common.rial}}',
+              data:
+                  '{{formatNumber(item.availableAmount)}} {{appStrings.common.rial}}',
               textDirection: StacTextDirection.ltr,
               style: StacTextStyle(
                 fontSize: 14.0,

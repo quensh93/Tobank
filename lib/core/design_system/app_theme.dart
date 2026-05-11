@@ -27,6 +27,13 @@ ThemeData buildTheme({required Brightness brightness}) {
     colorScheme: scheme,
     textTheme: textTheme,
     appBarTheme: buildStableAppBarTheme(scheme),
+    splashFactory: NoSplash.splashFactory,
+    splashColor: Colors.transparent,
+    highlightColor: Colors.transparent,
+    tabBarTheme: const TabBarThemeData(
+      overlayColor: WidgetStatePropertyAll<Color>(Colors.transparent),
+      splashFactory: NoSplash.splashFactory,
+    ),
 
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(

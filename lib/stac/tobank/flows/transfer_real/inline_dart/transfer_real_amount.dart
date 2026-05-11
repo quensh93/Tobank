@@ -139,48 +139,55 @@ StacWidget transferRealAmount() {
           ),
         ),
       ),
-      body: StacPadding(
-        padding: StacEdgeInsets.only(left: 16, top: 16, right: 16, bottom: 23),
-        child: StacColumn(
-          crossAxisAlignment: StacCrossAxisAlignment.stretch,
-          children: [
-            _transferTabs(),
-            StacSizedBox(height: 18),
-            StacCustomVisibility(
-              visible: '[[transferApiTabIban]]',
-              child: _ibanInputSection().toJson(),
-              replacement: StacSizedBox().toJson(),
-            ),
-            StacCustomVisibility(
-              visible: '[[transferApiTabInBank]]',
-              child: _inBankInputSection().toJson(),
-              replacement: StacSizedBox().toJson(),
-            ),
-            StacCustomVisibility(
-              visible: '[[transferApiTabCard]]',
-              child: _cardInputSection().toJson(),
-              replacement: StacSizedBox().toJson(),
-            ),
-
-            StacSizedBox(height: 22),
-            StacExpanded(
-              child: StacCustomVisibility(
+      body: StacForm(
+        child: StacPadding(
+          padding: StacEdgeInsets.only(
+            left: 16,
+            top: 16,
+            right: 16,
+            bottom: 23,
+          ),
+          child: StacColumn(
+            crossAxisAlignment: StacCrossAxisAlignment.stretch,
+            children: [
+              _transferTabs(),
+              StacSizedBox(height: 18),
+              StacCustomVisibility(
                 visible: '[[transferApiTabIban]]',
-                child: _ibanListScrollable().toJson(),
-                replacement: StacCustomVisibility(
-                  visible: '[[transferApiTabInBank]]',
-                  child: _inBankContent().toJson(),
-                  replacement: StacCustomVisibility(
-                    visible: '[[transferApiTabCard]]',
-                    child: _cardContent().toJson(),
-                    replacement: _otherTabContent().toJson(),
-                  ).toJson(),
-                ).toJson(),
+                child: _ibanInputSection().toJson(),
+                replacement: StacSizedBox().toJson(),
               ),
-            ),
-            StacSizedBox(height: 12),
-            _bottomPrimaryButton(),
-          ],
+              StacCustomVisibility(
+                visible: '[[transferApiTabInBank]]',
+                child: _inBankInputSection().toJson(),
+                replacement: StacSizedBox().toJson(),
+              ),
+              StacCustomVisibility(
+                visible: '[[transferApiTabCard]]',
+                child: _cardInputSection().toJson(),
+                replacement: StacSizedBox().toJson(),
+              ),
+
+              StacSizedBox(height: 22),
+              StacExpanded(
+                child: StacCustomVisibility(
+                  visible: '[[transferApiTabIban]]',
+                  child: _ibanListScrollable().toJson(),
+                  replacement: StacCustomVisibility(
+                    visible: '[[transferApiTabInBank]]',
+                    child: _inBankContent().toJson(),
+                    replacement: StacCustomVisibility(
+                      visible: '[[transferApiTabCard]]',
+                      child: _cardContent().toJson(),
+                      replacement: _otherTabContent().toJson(),
+                    ).toJson(),
+                  ).toJson(),
+                ),
+              ),
+              StacSizedBox(height: 12),
+              _bottomPrimaryButton(),
+            ],
+          ),
         ),
       ),
     ),
@@ -1050,10 +1057,6 @@ StacWidget _cardDestinationItem({
           ],
         ),
         _cardFilterAction(),
-        const StacNavigateAction(
-          routeName: 'transfer_real_card_details',
-          navigationStyle: NavigationStyle.push,
-        ),
       ],
     ),
     child: StacContainer(

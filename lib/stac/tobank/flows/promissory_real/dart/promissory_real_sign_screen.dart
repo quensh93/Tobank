@@ -1,9 +1,9 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_promissory_sign_action.dart';
-import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_error_state.dart';
 import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_loading_state.dart';
 
@@ -88,7 +88,8 @@ StacWidget promissoryRealSign() {
       ],
     ),
     child: StacScaffold(
-      appBar: buildPromissoryAppBar(
+      appBar: buildTobankFlowAppBar(
+        showSupport: false,
         // امضا سفته
         title: '{{appStrings.promissory.signTitle}}',
       ),
@@ -177,9 +178,8 @@ StacWidget _buildSignButton() {
     child: StacCustomReactiveElevatedButton(
       enabled: true,
       loadingKey: 'isSigning',
-      onPressed: {
-        'actionType': 'showDialog',
-        'widget': {
+      onPressed: StacShowDialogAction(
+        dialog: {
           'type': 'alertDialog',
           'title': {
             'type': 'column',
@@ -217,250 +217,258 @@ StacWidget _buildSignButton() {
           },
           'actions': [
             {
-              'type': 'container',
-              'decoration': StacBoxDecoration(
-                borderRadius: StacBorderRadius.all(12),
-                border: StacBorder.all(color: '#000000', width: 0.8),
-              ).toJson(),
-              'child': {
-                'type': 'elevatedButton',
-                'onPressed': {'actionType': 'closeDialog'},
-                'style': StacButtonStyle(
-                  foregroundColor: '{{appColors.current.text.title}}',
-                  fixedSize: StacSize(120, 44),
-                  shape: StacRoundedRectangleBorder(
-                    borderRadius: StacBorderRadius.all(12),
-                  ),
-                  elevation: 0,
-                ).toJson(),
-                'child': {
-                  'type': 'text',
-                  // انصراف
-                  'data': '{{appStrings.common.cancel}}',
-                  'textDirection': 'rtl',
-                  'style': {
-                    'type': 'custom',
-                    'fontSize': 16,
-                    'fontWeight': 'bold',
-                    'color': '{{appColors.current.text.title}}',
+              'type': 'row',
+              'textDirection': 'ltr',
+              'children': [
+                {
+                  'type': 'expanded',
+                  'child': {
+                    'type': 'container',
+                    'decoration': StacBoxDecoration(
+                      borderRadius: StacBorderRadius.all(12),
+                      border: StacBorder.all(color: '#000000', width: 0.8),
+                    ).toJson(),
+                    'child': {
+                      'type': 'elevatedButton',
+                      'onPressed': {'actionType': 'closeDialog'},
+                      'style': StacButtonStyle(
+                        foregroundColor: '{{appColors.current.text.title}}',
+                        fixedSize: StacSize(999999, 44),
+                        shape: StacRoundedRectangleBorder(
+                          borderRadius: StacBorderRadius.all(12),
+                        ),
+                        elevation: 0,
+                      ).toJson(),
+                      'child': {
+                        'type': 'text',
+                        // انصراف
+                        'data': '{{appStrings.common.cancel}}',
+                        'textDirection': 'rtl',
+                        'style': {
+                          'type': 'custom',
+                          'fontSize': 16,
+                          'fontWeight': 'bold',
+                          'color': '{{appColors.current.text.title}}',
+                        },
+                      },
+                    },
                   },
                 },
-              },
-            },
-            {
-              'type': 'elevatedButton',
-              'onPressed': {
-                'actionType': 'sequence',
-                'actions': [
-                  {'actionType': 'closeDialog'},
-                  StacPromissorySignAction(
-                    unsignedContract: '{{form.unsigned_pdf}}',
-                    signLocation: {
-                      "x": 450,
-                      "y": 450,
-                      "width": 150,
-                      "height": 50,
-                      "x_ios": 450,
-                      "y_ios": 450,
-                      "width_ios": 150,
-                      "height_ios": 50,
-                      "page": 0,
-                    },
-                    // سفته
-                    promissoryTitle: '{{appStrings.promissory.promissory}}',
-                    onSuccess: {
+                {'type': 'sizedBox', 'width': 10},
+                {
+                  'type': 'expanded',
+                  'child': {
+                    'type': 'elevatedButton',
+                    'onPressed': {
                       'actionType': 'sequence',
                       'actions': [
-                        {
-                          'actionType': 'setValue',
-                          'key': 'isSigning',
-                          'value': true,
-                        },
-                        {
-                          'actionType': 'networkRequest',
-                          'url':
-                              'http://192.168.107.22:8280/api/digitalbanking/files/v1.0/promissory/upload/base64',
-                          'method': 'post',
-                          'headers': {
-                            'accept': '*/*',
-                            'app-platform': 'android',
-                            'app-store': 'application/json',
-                            'app-version': '456',
-                            'device-uuid':
-                                '5109ab4c-77ca-4f0c-9858-da4df58031d2',
-                            'serviceauthorization':
-                                'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
-                            'authorization': '{{auth.accessToken}}',
+                        {'actionType': 'closeDialog'},
+                        StacPromissorySignAction(
+                          unsignedContract: '{{form.unsigned_pdf}}',
+                          signLocation: {
+                            "x": 450,
+                            "y": 450,
+                            "width": 150,
+                            "height": 50,
+                            "x_ios": 450,
+                            "y_ios": 450,
+                            "width_ios": 150,
+                            "height_ios": 50,
+                            "page": 0,
                           },
-                          'data': {
-                            "fileName": "promisorry.pdf",
-                            "contentType": "application/pdf",
-                            "base64": "{{form.signed_pdf}}",
-                          },
-                          'results': [
-                            {
-                              'statusCode': 200,
-                              'action': {
-                                'actionType': 'sequence',
-                                'actions': [
+                          // سفته
+                          promissoryTitle:
+                              '{{appStrings.promissory.promissory}}',
+                          onSuccess: {
+                            'actionType': 'sequence',
+                            'actions': [
+                              {
+                                'actionType': 'setValue',
+                                'key': 'isSigning',
+                                'value': true,
+                              },
+                              {
+                                'actionType': 'networkRequest',
+                                'url':
+                                    'http://192.168.107.22:8280/api/digitalbanking/files/v1.0/promissory/upload/base64',
+                                'method': 'post',
+                                'headers': {
+                                  'accept': '*/*',
+                                  'app-platform': 'android',
+                                  'app-store': 'application/json',
+                                  'app-version': '456',
+                                  'device-uuid':
+                                      '5109ab4c-77ca-4f0c-9858-da4df58031d2',
+                                  'serviceauthorization':
+                                      'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
+                                  'authorization': '{{auth.accessToken}}',
+                                },
+                                'data': {
+                                  "fileName": "promisorry.pdf",
+                                  "contentType": "application/pdf",
+                                  "base64": "{{form.signed_pdf}}",
+                                },
+                                'results': [
                                   {
-                                    'actionType': 'networkRequest',
-                                    'url':
-                                        'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/finalize/{{form.promissory_id}}',
-                                    'method': 'post',
-                                    'headers': {
-                                      'accept': '*/*',
-                                      'app-platform': 'android',
-                                      'app-store': 'application/json',
-                                      'app-version': '456',
-                                      'device-uuid':
-                                          '5109ab4c-77ca-4f0c-9858-da4df58031d2',
-                                      'serviceauthorization':
-                                          'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
-                                      'authorization': '{{auth.accessToken}}',
-                                    },
-                                    'data': {
-                                      'signedPdfId': '{{data_payload.id}}',
-                                    },
-                                    'results': [
-                                      {
-                                        'statusCode': 200,
-                                        'action': {
-                                          'actionType': 'sequence',
-                                          'actions': [
+                                    'statusCode': 200,
+                                    'action': {
+                                      'actionType': 'sequence',
+                                      'actions': [
+                                        {
+                                          'actionType': 'networkRequest',
+                                          'url':
+                                              'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/finalize/{{form.promissory_id}}',
+                                          'method': 'post',
+                                          'headers': {
+                                            'accept': '*/*',
+                                            'app-platform': 'android',
+                                            'app-store': 'application/json',
+                                            'app-version': '456',
+                                            'device-uuid':
+                                                '5109ab4c-77ca-4f0c-9858-da4df58031d2',
+                                            'serviceauthorization':
+                                                'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
+                                            'authorization':
+                                                '{{auth.accessToken}}',
+                                          },
+                                          'data': {
+                                            'signedPdfId':
+                                                '{{data_payload.id}}',
+                                          },
+                                          'results': [
                                             {
-                                              'actionType': 'setValue',
-                                              'key': 'isSigning',
-                                              'value': false,
+                                              'statusCode': 200,
+                                              'action': {
+                                                'actionType': 'sequence',
+                                                'actions': [
+                                                  {
+                                                    'actionType': 'setValue',
+                                                    'key': 'isSigning',
+                                                    'value': false,
+                                                  },
+                                                  {
+                                                    'actionType': 'setValue',
+                                                    'values': [
+                                                      {
+                                                        'key': 'promissoryId',
+                                                        'value':
+                                                            '{{data.data.promissoryId}}',
+                                                      },
+                                                      {
+                                                        'key':
+                                                            'transactionAmount',
+                                                        'value':
+                                                            '{{form.promissory_amount}}',
+                                                      },
+                                                      {
+                                                        'key':
+                                                            'serverSignedPdfId',
+                                                        'value':
+                                                            '{{data.data.serverSignedPdfId}}',
+                                                      },
+                                                      {
+                                                        'key': 'requestId',
+                                                        'value':
+                                                            '{{data.data.requestId}}',
+                                                      },
+                                                      {
+                                                        'key': 'trackingNumber',
+                                                        'value':
+                                                            '{{data.data.trackingNumber}}',
+                                                      },
+                                                    ],
+                                                  },
+                                                  StacNavigateAction(
+                                                    routeName:
+                                                        'promissory_real_success',
+                                                    navigationStyle:
+                                                        NavigationStyle
+                                                            .pushReplacement,
+                                                  ).toJson(),
+                                                ],
+                                              },
                                             },
                                             {
-                                              'actionType': 'setValue',
-                                              'values': [
-                                                {
-                                                  'key': 'promissoryId',
-                                                  'value':
-                                                      '{{data.data.promissoryId}}',
-                                                },
-                                                {
-                                                  'key': 'transactionAmount',
-                                                  'value':
-                                                      '{{form.promissory_amount}}',
-                                                },
-                                                {
-                                                  'key': 'serverSignedPdfId',
-                                                  'value':
-                                                      '{{data.data.serverSignedPdfId}}',
-                                                },
-                                                {
-                                                  'key': 'requestId',
-                                                  'value':
-                                                      '{{data.data.requestId}}',
-                                                },
-                                                {
-                                                  'key': 'trackingNumber',
-                                                  'value':
-                                                      '{{data.data.trackingNumber}}',
-                                                },
-                                              ],
-                                            },
-                                            StacNavigateAction(
-                                              routeName:
-                                                  'promissory_real_success',
-                                              navigationStyle: NavigationStyle
-                                                  .pushReplacement,
-                                            ).toJson(),
-                                          ],
-                                        },
-                                      },
-                                      {
-                                        'statusCode': -1,
-                                        'action': {
-                                          'actionType': 'sequence',
-                                          'actions': [
-                                            {
-                                              'actionType': 'setValue',
-                                              'key': 'isSigning',
-                                              'value': false,
-                                            },
-                                            {
-                                              'actionType': 'showSnackBar',
-                                              'content': {
-                                                'type': 'text',
-                                                // خطا در امضای سفته
-                                                'data':
-                                                    '{{appStrings.promissory.signError}}',
+                                              'statusCode': -1,
+                                              'action': {
+                                                'actionType': 'sequence',
+                                                'actions': [
+                                                  {
+                                                    'actionType': 'setValue',
+                                                    'key': 'isSigning',
+                                                    'value': false,
+                                                  },
+                                                  const StacCustomSnackBarAction(
+                                                    title: 'خطا',
+                                                    detail:
+                                                        '{{appStrings.promissory.signError}}',
+                                                  ).toJson(),
+                                                ],
                                               },
                                             },
                                           ],
                                         },
-                                      },
-                                    ],
-                                  },
-                                ],
-                              },
-                            },
-                            {
-                              'statusCode': -1,
-                              'action': {
-                                'actionType': 'sequence',
-                                'actions': [
-                                  {
-                                    'actionType': 'setValue',
-                                    'key': 'isSigning',
-                                    'value': false,
+                                      ],
+                                    },
                                   },
                                   {
-                                    'actionType': 'showSnackBar',
-                                    'content': {
-                                      'type': 'text',
-                                      // خطا در امضای سفته
-                                      'data':
-                                          '{{appStrings.promissory.signError}}',
+                                    'statusCode': -1,
+                                    'action': {
+                                      'actionType': 'sequence',
+                                      'actions': [
+                                        {
+                                          'actionType': 'setValue',
+                                          'key': 'isSigning',
+                                          'value': false,
+                                        },
+                                        const StacCustomSnackBarAction(
+                                          title: 'خطا',
+                                          detail:
+                                              '{{appStrings.promissory.signError}}',
+                                        ).toJson(),
+                                      ],
                                     },
                                   },
                                 ],
                               },
-                            },
-                          ],
-                        },
+                            ],
+                          },
+                          onFailure: const StacCustomSnackBarAction(
+                            title: 'خطا',
+                            detail: '{{appStrings.promissory.signError}}',
+                          ).toJson(),
+                        ).toJson(),
                       ],
                     },
-                    onFailure: {
-                      'actionType': 'showSnackBar',
-                      'content': {
-                        'type': 'text',
-                        // خطا در امضای سفته
-                        'data': '{{appStrings.promissory.signError}}',
+                    'style': StacButtonStyle(
+                      backgroundColor: '{{appColors.current.primary.color}}',
+                      foregroundColor:
+                          '{{appColors.current.primary.onPrimary}}',
+                      fixedSize: StacSize(999999, 44),
+                      shape: StacRoundedRectangleBorder(
+                        borderRadius: StacBorderRadius.all(12),
+                      ),
+                      elevation: 0,
+                    ).toJson(),
+                    'child': {
+                      'type': 'text',
+                      // تایید
+                      'data': '{{appStrings.common.confirm}}',
+                      'textDirection': 'rtl',
+                      'style': {
+                        'type': 'custom',
+                        'fontSize': 16,
+                        'fontWeight': 'bold',
+                        'color': '{{appColors.current.primary.onPrimary}}',
                       },
                     },
-                  ).toJson(),
-                ],
-              },
-              'style': StacButtonStyle(
-                backgroundColor: '{{appColors.current.primary.color}}',
-                foregroundColor: '{{appColors.current.primary.onPrimary}}',
-                fixedSize: StacSize(120, 44),
-                shape: StacRoundedRectangleBorder(
-                  borderRadius: StacBorderRadius.all(12),
-                ),
-                elevation: 0,
-              ).toJson(),
-              'child': {
-                'type': 'text',
-                // تایید
-                'data': '{{appStrings.common.confirm}}',
-                'textDirection': 'rtl',
-                'style': {
-                  'type': 'custom',
-                  'fontSize': 16,
-                  'fontWeight': 'bold',
-                  'color': '{{appColors.current.primary.onPrimary}}',
+                  },
                 },
-              },
+              ],
             },
           ],
         },
-      },
+      ).toJson(),
       style: StacButtonStyle(
         backgroundColor: '{{appColors.current.primary.color}}',
         elevation: 0,

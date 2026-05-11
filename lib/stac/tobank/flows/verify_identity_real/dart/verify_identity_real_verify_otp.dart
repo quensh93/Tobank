@@ -2,7 +2,7 @@ import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
-import 'package:tobank_sdui/stac/tobank/flows/verify_identity_real/dart/widgets/verify_identity_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'verify_identity_real_verify_otp')
 StacWidget verifyIdentityRealVerifyOtp() {
@@ -13,7 +13,8 @@ StacWidget verifyIdentityRealVerifyOtp() {
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: buildVerifyIdentityRealAppBar(
+      appBar: buildTobankFlowAppBar(
+        showSupport: true,
         title: '{{appStrings.menu.items.verifyIdentity}}',
       ),
       body: StacSafeArea(
@@ -120,7 +121,7 @@ StacWidget verifyIdentityRealVerifyOtp() {
                             }),
                           ),
                           StacSizedBox(width: 12),
-                          const StacCustomWidget.fromJson({
+                          StacCustomWidget.fromJson({
                             'type': 'otpCountdownButton',
                             'initialSeconds': 120,
                             'retryLabel':
@@ -138,20 +139,11 @@ StacWidget verifyIdentityRealVerifyOtp() {
                                 '{{appColors.current.background.surface}}',
                             'height': 56,
                             'minWidth': 132,
-                            'onRetry': {
-                              'actionType': 'showSnackBar',
-                              'backgroundColor': '#2E7D32',
-                              'content': {
-                                'type': 'text',
-                                'data':
-                                    '{{appStrings.authentication.otpResentMessage}}',
-                                'style': {
-                                  'type': 'custom',
-                                  'color': '#FFFFFF',
-                                  'fontSize': 16,
-                                },
-                              },
-                            },
+                            'onRetry': StacCustomSnackBarAction(
+                              title: 'اعلان',
+                              detail:
+                                  '{{appStrings.authentication.otpResentMessage}}',
+                            ).toJson(),
                           }),
                         ],
                       ),

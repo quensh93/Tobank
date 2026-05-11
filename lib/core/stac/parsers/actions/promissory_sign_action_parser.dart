@@ -10,6 +10,7 @@ import '../../../../features/signing/signing_service.dart';
 import 'package:secure_plugin/secure_plugin.dart' as secure;
 import '../../../../core/storage/storage_util.dart';
 import '../../../../model/common/auth_info_data.dart';
+import '../../../bootstrap/app_root.dart';
 
 class PromissorySignActionParser
     extends StacActionParser<StacPromissorySignAction> {
@@ -181,11 +182,12 @@ class PromissorySignActionParser
           'PromissorySignActionParser: Signing successful, executing onSuccess',
         );
 
-        // Store signed PDF in registry/form (Hardcoded to ensure access)
+        // Store signed PDF in registry/form
         await _storeSignedPdf(context, result);
 
-        if (context.mounted && model.onSuccess != null) {
-          await Stac.onCallFromJson(model.onSuccess!, context);
+        final activeContext = _resolveActiveContext(context);
+        if (activeContext != null && model.onSuccess != null) {
+          await Stac.onCallFromJson(model.onSuccess!, activeContext);
           return true;
         }
         return true;
@@ -201,8 +203,9 @@ class PromissorySignActionParser
           ScaffoldMessenger.of(
             context,
           ).showSnackBar(const SnackBar(content: Text('خطا در امضای دیجیتال')));
-          if (model.onFailure != null) {
-            Stac.onCallFromJson(model.onFailure!, context);
+          final activeContext = _resolveActiveContext(context);
+          if (model.onFailure != null && activeContext != null) {
+            Stac.onCallFromJson(model.onFailure!, activeContext);
           }
         }
         return false;
@@ -214,8 +217,9 @@ class PromissorySignActionParser
         ScaffoldMessenger.of(
           context,
         ).showSnackBar(SnackBar(content: Text('خطا: $e')));
-        if (model.onFailure != null) {
-          Stac.onCallFromJson(model.onFailure!, context);
+        final activeContext = _resolveActiveContext(context);
+        if (model.onFailure != null && activeContext != null) {
+          Stac.onCallFromJson(model.onFailure!, activeContext);
         }
       }
       return false;
@@ -232,12 +236,23 @@ class PromissorySignActionParser
     StacRegistry.instance.setValue(key, signedPdfBase64);
 
     // 2. Update Form Scope (if available) - this allows immediate {{form.x}} access
-    final formScope = StacFormScope.of(context);
-    // ignore: unnecessary_null_comparison
-    if (formScope != null) {
-      // Basic support for form.key - strip 'form.' prefix if present
+    final activeContext = _resolveActiveContext(context);
+    if (activeContext == null) return;
+
+    try {
+      final formScope = StacFormScope.of(activeContext);
+      if (formScope == null) return;
       final formKey = key.startsWith('form.') ? key.substring(5) : key;
       formScope.formData[formKey] = signedPdfBase64;
+    } catch (_) {
+      // Safe fallback: registry already holds the value.
     }
+  }
+
+  BuildContext? _resolveActiveContext(BuildContext context) {
+    if (context.mounted) return context;
+    final fallback = AppRoot.mainAppNavigatorKey.currentContext;
+    if (fallback != null && fallback.mounted) return fallback;
+    return null;
   }
 }

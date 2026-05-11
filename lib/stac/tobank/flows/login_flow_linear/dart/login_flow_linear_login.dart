@@ -3,6 +3,7 @@ import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart'
     hide StacPersianDatePickerAction;
 import 'package:tobank_sdui/core/stac/parsers/actions/persian_date_picker_action_model.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 /// Linear Login Flow - Login Screen
 ///
@@ -18,13 +19,10 @@ StacWidget _buildLinearLogin() {
   return StacStatefulWidget(
     onInit: StacCustomSetValueAction(key: 'isFormValid', value: false),
     child: StacScaffold(
-      appBar: StacAppBar(
-        title: StacText(
-          data: '{{appStrings.login.validationTitle}}',
-          textDirection: StacTextDirection.rtl,
-          style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
-        ),
-        centerTitle: true,
+      appBar: buildTobankFlowAppBar(
+        showSupport: false,
+        showBack: false,
+        title: '{{appStrings.login.validationTitle}}',
       ),
       body: StacForm(
         autovalidateMode: StacAutovalidateMode.onUserInteraction,
@@ -337,8 +335,8 @@ StacWidget _buildLinearLogin() {
                     results: [
                       StacNetworkResult(
                         statusCode: 200,
-                        action: StacDialogAction(
-                          widget: {
+                        action: StacShowDialogAction(
+                          dialog: {
                             'type': 'alertDialog',
                             'title': {
                               'type': 'text',

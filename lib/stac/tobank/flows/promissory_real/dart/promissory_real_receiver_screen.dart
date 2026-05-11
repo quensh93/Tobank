@@ -1,4 +1,5 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart'
@@ -24,24 +25,9 @@ StacWidget promissoryRealReceiver() {
       ],
     ),
     child: StacScaffold(
-      appBar: StacAppBar(
-        title: StacText(
-          // صدور سفته
-          data: '{{appStrings.promissory.issuanceTitle}}',
-          textDirection: StacTextDirection.rtl,
-          style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
-        ),
-        centerTitle: true,
-        leading: StacIconButton(
-          onPressed: StacNavigateAction(navigationStyle: NavigationStyle.pop),
-          icon: StacImage(
-            src: 'assets/icons/ic_right_arrow.svg',
-            imageType: StacImageType.asset,
-            width: 24,
-            height: 24,
-            color: '{{appColors.current.text.title}}',
-          ),
-        ),
+      appBar: buildTobankFlowAppBar(
+        showSupport: false,
+        title: '{{appStrings.promissory.issuanceTitle}}',
       ),
       body: StacForm(
         autovalidateMode: StacAutovalidateMode.onUserInteraction,
@@ -935,14 +921,12 @@ StacWidget promissoryRealReceiver() {
                                     },
                                   ],
                                 },
-                                {
-                                  'actionType': 'customSnackBar',
-                                  'message':
-                                      // اطلاعات وارد شده صحیح نمی‌باشد. لطفا مجددا بررسی کنید.
+                                const StacCustomSnackBarAction(
+                                  title: 'خطا',
+                                  detail:
                                       '{{appStrings.promissory.invalidDataErrorDetail}}',
-                                  'backgroundColor': '#D32F2F',
-                                  'duration': 4000,
-                                },
+                                  duration: 4000,
+                                ).toJson(),
                               ],
                             },
                           },
@@ -960,14 +944,12 @@ StacWidget promissoryRealReceiver() {
                                     },
                                   ],
                                 },
-                                {
-                                  'actionType': 'customSnackBar',
-                                  'message':
-                                      // نشست شما منقضی شده است. لطفا مجددا وارد شوید.
+                                const StacCustomSnackBarAction(
+                                  title: 'خطا',
+                                  detail:
                                       '{{appStrings.promissory.sessionExpiredError}}',
-                                  'backgroundColor': '#D32F2F',
-                                  'duration': 4000,
-                                },
+                                  duration: 4000,
+                                ).toJson(),
                               ],
                             },
                           },
@@ -991,14 +973,12 @@ StacWidget promissoryRealReceiver() {
                                     },
                                   ],
                                 },
-                                {
-                                  'actionType': 'customSnackBar',
-                                  'message':
-                                      // خطا در برقراری ارتباط با سرور. لطفا مجددا تلاش کنید.
+                                const StacCustomSnackBarAction(
+                                  title: 'خطا',
+                                  detail:
                                       '{{appStrings.promissory.serverConnectionErrorDetail}}',
-                                  'backgroundColor': '#D32F2F',
-                                  'duration': 4000,
-                                },
+                                  duration: 4000,
+                                ).toJson(),
                               ],
                             },
                           },
@@ -1180,14 +1160,12 @@ StacWidget promissoryRealReceiver() {
                                     },
                                   ],
                                 },
-                                {
-                                  'actionType': 'customSnackBar',
-                                  'message':
-                                      // رکورد یافت نشد
+                                const StacCustomSnackBarAction(
+                                  title: 'خطا',
+                                  detail:
                                       '{{appStrings.promissory.invalidDataErrorDetail}}',
-                                  'backgroundColor': '#D32F2F',
-                                  'duration': 4000,
-                                },
+                                  duration: 4000,
+                                ).toJson(),
                               ],
                             },
                           },
@@ -1205,14 +1183,12 @@ StacWidget promissoryRealReceiver() {
                                     },
                                   ],
                                 },
-                                {
-                                  'actionType': 'customSnackBar',
-                                  'message':
-                                      // پاسخ دریافتی نامعتبر است
+                                const StacCustomSnackBarAction(
+                                  title: 'خطا',
+                                  detail:
                                       '{{appStrings.promissory.serverConnectionErrorDetail}}',
-                                  'backgroundColor': '#D32F2F',
-                                  'duration': 4000,
-                                },
+                                  duration: 4000,
+                                ).toJson(),
                               ],
                             },
                           },
@@ -1236,14 +1212,12 @@ StacWidget promissoryRealReceiver() {
                                     },
                                   ],
                                 },
-                                {
-                                  'actionType': 'customSnackBar',
-                                  'message':
-                                      // خطا در برقراری ارتباط با سرور. لطفا مجددا تلاش کنید.
+                                const StacCustomSnackBarAction(
+                                  title: 'خطا',
+                                  detail:
                                       '{{appStrings.promissory.serverConnectionErrorDetail}}',
-                                  'backgroundColor': '#D32F2F',
-                                  'duration': 4000,
-                                },
+                                  duration: 4000,
+                                ).toJson(),
                               ],
                             },
                           },

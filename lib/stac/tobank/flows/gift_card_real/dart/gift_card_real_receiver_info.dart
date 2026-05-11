@@ -2,7 +2,7 @@ import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
-import 'package:tobank_sdui/stac/tobank/flows/gift_card_real/dart/widgets/gift_card_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 const _provinceOptions = <String>[
   'تهران',
@@ -73,7 +73,11 @@ StacWidget giftCardRealReceiverInfo() {
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: buildGiftCardRealAppBar(title: 'کارت هدیه'),
+      appBar: buildTobankFlowAppBar(
+        showSupport: true,
+        showBack: true,
+        title: 'کارت هدیه',
+      ),
       body: StacForm(
         child: StacColumn(
           crossAxisAlignment: StacCrossAxisAlignment.stretch,
@@ -148,13 +152,11 @@ StacWidget giftCardRealReceiverInfo() {
                       valueKey: 'giftCardRealReceiverProvince',
                       onTap: StacSequenceAction(
                         actions: [
-                          StacCustomAction.fromJson({
-                            'actionType':
-                                'showGiftCardLocationSelectorBottomSheet',
-                            'title': 'انتخاب استان',
-                            'selectedKey': 'giftCardRealReceiverProvince',
-                            'options': _provinceOptions,
-                          }),
+                          _locationSelectorBottomSheetAction(
+                            title: 'انتخاب استان',
+                            selectedKey: 'giftCardRealReceiverProvince',
+                            options: _provinceOptions,
+                          ),
                           _receiverFormValidationAction(),
                         ],
                       ),
@@ -166,13 +168,11 @@ StacWidget giftCardRealReceiverInfo() {
                       valueKey: 'giftCardRealReceiverCity',
                       onTap: StacSequenceAction(
                         actions: [
-                          StacCustomAction.fromJson({
-                            'actionType':
-                                'showGiftCardLocationSelectorBottomSheet',
-                            'title': 'انتخاب شهر',
-                            'selectedKey': 'giftCardRealReceiverCity',
-                            'options': _cityOptions,
-                          }),
+                          _locationSelectorBottomSheetAction(
+                            title: 'انتخاب شهر',
+                            selectedKey: 'giftCardRealReceiverCity',
+                            options: _cityOptions,
+                          ),
                           _receiverFormValidationAction(),
                         ],
                       ),
@@ -209,20 +209,7 @@ StacWidget giftCardRealReceiverInfo() {
               padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 24),
               child: StacCustomReactiveElevatedButton(
                 enabledKey: 'giftCardRealReceiverContinueEnabled',
-                onPressed: StacCustomAction.fromJson({
-                  'actionType': 'showGiftCardSelectDateBottomSheet',
-                  'title': 'لطفا تاریخ و بازه‌زمانی تحویل هدیه را انتخاب کنید',
-                  'dateTitle': 'تاریخ تحویل',
-                  'timeTitle': 'محدوده ساعتی تحویل',
-                  'confirmText': 'تایید',
-                  'noDateSelectedText': 'تاریخی انتخاب نشده است',
-                  'dateOptions': _deliveryDateOptions,
-                  'timeOptions': _deliveryTimeOptions,
-                  'selectedDateKey': 'giftCardRealDeliveryDate',
-                  'selectedTimeKey': 'giftCardRealDeliveryTime',
-                  'confirmAssetPath':
-                      'lib/stac/tobank/flows/gift_card_real/json/gift_card_real_confirm.json',
-                }),
+                onPressed: _deliveryDateTimeBottomSheetAction(),
                 style: StacButtonStyle(
                   fixedSize: StacSize(999999, 62),
                   backgroundColor: '{{appColors.current.primary.color}}',
@@ -337,6 +324,299 @@ StacAction _receiverFormValidationAction() {
       {'id': 'gift_card_real_receiver_postal_code', 'rule': r'^[0-9]{10}$'},
       {'id': 'gift_card_real_receiver_address'},
     ],
+  );
+}
+
+StacAction _locationSelectorBottomSheetAction({
+  required String title,
+  required String selectedKey,
+  required List<String> options,
+}) {
+  return _proxyLegacyBottomSheetAction({
+    'actionType': 'showGiftCardLocationSelectorBottomSheet',
+    'title': title,
+    'selectedKey': selectedKey,
+    'options': options,
+  });
+}
+
+StacWidget _locationSelectorBottomSheet({
+  required String title,
+  required String selectedKey,
+  required List<String> options,
+}) {
+  return StacContainer(
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: const StacBorderRadius.only(topLeft: 12, topRight: 12),
+    ),
+    child: StacPadding(
+      padding: StacEdgeInsets.only(left: 16, top: 10, right: 16, bottom: 16),
+      child: StacColumn(
+        mainAxisSize: StacMainAxisSize.min,
+        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+        children: [
+          StacCenter(
+            child: StacContainer(
+              width: 62,
+              height: 6,
+              decoration: StacBoxDecoration(
+                color: '#737373',
+                borderRadius: StacBorderRadius.all(999),
+              ),
+            ),
+          ),
+          StacSizedBox(height: 18),
+          StacText(
+            data: title,
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 16,
+              fontWeight: StacFontWeight.w800,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacSizedBox(height: 14),
+          StacContainer(
+            constraints: const StacBoxConstraints(maxHeight: 360),
+            child: StacSingleChildScrollView(
+              child: StacColumn(
+                crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                children: options.map((option) {
+                  return StacPadding(
+                    padding: StacEdgeInsets.only(bottom: 10),
+                    child: StacGestureDetector(
+                      onTap: StacSequenceAction(
+                        actions: [
+                          StacCustomSetValueAction(
+                            key: selectedKey,
+                            value: option,
+                          ),
+                          const StacNavigateAction(
+                            navigationStyle: NavigationStyle.pop,
+                          ),
+                        ],
+                      ),
+                      child: StacContainer(
+                        padding: StacEdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 12,
+                        ),
+                        decoration: StacBoxDecoration(
+                          borderRadius: StacBorderRadius.all(10),
+                          border: StacBorder.all(
+                            color: '{{appColors.current.input.borderEnabled}}',
+                            width: 1,
+                          ),
+                        ),
+                        child: StacText(
+                          data: option,
+                          textDirection: StacTextDirection.rtl,
+                          textAlign: StacTextAlign.right,
+                          style: StacCustomTextStyle(
+                            fontSize: 15,
+                            fontWeight: StacFontWeight.w600,
+                            color: '{{appColors.current.text.title}}',
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+StacAction _deliveryDateTimeBottomSheetAction() {
+  return _proxyLegacyBottomSheetAction({
+    'actionType': 'showGiftCardSelectDateBottomSheet',
+    'title': 'لطفا تاریخ و بازه‌زمانی تحویل هدیه را انتخاب کنید',
+    'dateTitle': 'تاریخ تحویل',
+    'timeTitle': 'محدوده ساعتی تحویل',
+    'confirmText': 'تایید',
+    'noDateSelectedText': 'تاریخی انتخاب نشده است',
+    'dateOptions': _deliveryDateOptions,
+    'timeOptions': _deliveryTimeOptions,
+    'selectedDateKey': 'giftCardRealDeliveryDate',
+    'selectedTimeKey': 'giftCardRealDeliveryTime',
+    'confirmAssetPath':
+        'lib/stac/tobank/flows/gift_card_real/json/gift_card_real_confirm.json',
+  });
+}
+
+StacAction _proxyLegacyBottomSheetAction(Map<String, dynamic> legacyAction) {
+  return StacShowBottomSheetAction(
+    backgroundColor: '#00000000',
+    sheet: StacStatefulWidget(
+      onInit: StacSequenceAction(
+        actions: [
+          StacCustomAction.fromJson(legacyAction),
+          const StacNavigateAction(navigationStyle: NavigationStyle.pop),
+        ],
+      ),
+      child: StacSizedBox(width: 0, height: 0),
+    ).toJson(),
+  );
+}
+
+StacWidget _deliveryDateTimeBottomSheet() {
+  return StacStatefulWidget(
+    onInit: const StacCustomSetValueAction(
+      values: [
+        {'key': 'giftCardRealTempDeliveryDate', 'value': ''},
+        {'key': 'giftCardRealTempDeliveryTime', 'value': ''},
+      ],
+    ),
+    child: StacContainer(
+      decoration: StacBoxDecoration(
+        color: '{{appColors.current.background.surface}}',
+        borderRadius: const StacBorderRadius.only(topLeft: 12, topRight: 12),
+      ),
+      child: StacPadding(
+        padding: StacEdgeInsets.only(left: 16, top: 10, right: 16, bottom: 16),
+        child: StacColumn(
+          mainAxisSize: StacMainAxisSize.min,
+          crossAxisAlignment: StacCrossAxisAlignment.stretch,
+          children: [
+            StacCenter(
+              child: StacContainer(
+                width: 62,
+                height: 6,
+                decoration: StacBoxDecoration(
+                  color: '#737373',
+                  borderRadius: StacBorderRadius.all(999),
+                ),
+              ),
+            ),
+            StacSizedBox(height: 18),
+            StacText(
+              data: 'لطفا تاریخ و بازه‌زمانی تحویل هدیه را انتخاب کنید',
+              textDirection: StacTextDirection.rtl,
+              textAlign: StacTextAlign.right,
+              style: StacCustomTextStyle(
+                fontSize: 16,
+                fontWeight: StacFontWeight.w800,
+                color: '{{appColors.current.text.title}}',
+              ),
+            ),
+            StacSizedBox(height: 14),
+            ..._deliveryDateOptions.map((date) {
+              return StacPadding(
+                padding: StacEdgeInsets.only(bottom: 8),
+                child: StacGestureDetector(
+                  onTap: StacCustomSetValueAction(
+                    key: 'giftCardRealTempDeliveryDate',
+                    value: date,
+                  ),
+                  child: StacContainer(
+                    padding: StacEdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 12,
+                    ),
+                    decoration: StacBoxDecoration(
+                      borderRadius: StacBorderRadius.all(10),
+                      border: StacBorder.all(
+                        color: '{{appColors.current.input.borderEnabled}}',
+                        width: 1,
+                      ),
+                    ),
+                    child: StacText(
+                      data: date,
+                      textDirection: StacTextDirection.rtl,
+                      textAlign: StacTextAlign.right,
+                      style: StacCustomTextStyle(
+                        fontSize: 15,
+                        fontWeight: StacFontWeight.w600,
+                        color: '{{appColors.current.text.title}}',
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }),
+            StacSizedBox(height: 6),
+            ..._deliveryTimeOptions.map((time) {
+              return StacPadding(
+                padding: StacEdgeInsets.only(bottom: 8),
+                child: StacGestureDetector(
+                  onTap: StacCustomSetValueAction(
+                    key: 'giftCardRealTempDeliveryTime',
+                    value: time,
+                  ),
+                  child: StacContainer(
+                    padding: StacEdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 12,
+                    ),
+                    decoration: StacBoxDecoration(
+                      borderRadius: StacBorderRadius.all(10),
+                      border: StacBorder.all(
+                        color: '{{appColors.current.input.borderEnabled}}',
+                        width: 1,
+                      ),
+                    ),
+                    child: StacText(
+                      data: time,
+                      textDirection: StacTextDirection.rtl,
+                      textAlign: StacTextAlign.right,
+                      style: StacCustomTextStyle(
+                        fontSize: 15,
+                        fontWeight: StacFontWeight.w600,
+                        color: '{{appColors.current.text.title}}',
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }),
+            StacSizedBox(height: 8),
+            StacFilledButton(
+              onPressed: const StacSequenceAction(
+                actions: [
+                  StacCustomSetValueAction(
+                    key: 'giftCardRealDeliveryDate',
+                    value: '{{giftCardRealTempDeliveryDate}}',
+                  ),
+                  StacCustomSetValueAction(
+                    key: 'giftCardRealDeliveryTime',
+                    value: '{{giftCardRealTempDeliveryTime}}',
+                  ),
+                  StacNavigateAction(navigationStyle: NavigationStyle.pop),
+                  StacNavigateAction(
+                    routeName: 'gift_card_real_confirm',
+                    navigationStyle: NavigationStyle.push,
+                  ),
+                ],
+              ),
+              style: StacButtonStyle(
+                fixedSize: StacSize(999999, 56),
+                backgroundColor: '{{appColors.current.primary.color}}',
+                foregroundColor: '{{appColors.current.primary.onPrimary}}',
+                shape: StacRoundedRectangleBorder(
+                  borderRadius: StacBorderRadius.all(12),
+                ),
+                elevation: 0,
+              ),
+              child: StacText(
+                data: 'تایید',
+                textDirection: StacTextDirection.rtl,
+                style: StacCustomTextStyle(
+                  fontSize: 17,
+                  fontWeight: StacFontWeight.w700,
+                  color: '{{appColors.current.primary.onPrimary}}',
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
   );
 }
 

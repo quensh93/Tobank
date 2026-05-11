@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/format_number_action.dart';
@@ -12,7 +12,7 @@ import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 ///
 ///
 /// Note: Integrating with Real API flow logic.
-import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'promissory_real_payment')
 StacWidget promissoryRealPayment() {
@@ -42,7 +42,8 @@ StacWidget promissoryRealPayment() {
       ],
     ),
     child: StacScaffold(
-      appBar: buildPromissoryAppBar(
+      appBar: buildTobankFlowAppBar(
+        showSupport: false,
         // پرداخت هزینه
         title: '{{appStrings.promissory.paymentTitle}}',
       ),
@@ -397,8 +398,8 @@ StacWidget _buildPaymentButtons() {
           child: StacCustomReactiveElevatedButton(
             enabledKey: 'isPayEnabled',
             enabled: false,
-            onPressed: StacDialogAction(
-              widget: {
+            onPressed: StacShowDialogAction(
+              dialog: {
                 'type': 'alertDialog',
                 'title': {
                   'type': 'column',
@@ -447,140 +448,159 @@ StacWidget _buildPaymentButtons() {
                 },
                 'actions': [
                   {
-                    'type': 'container',
-                    'decoration': StacBoxDecoration(
-                      borderRadius: StacBorderRadius.all(12),
-                      border: StacBorder.all(color: '#000000', width: 0.8),
-                    ).toJson(),
-                    'child': {
-                      'type': 'elevatedButton',
-                      'onPressed': const StacCloseDialogAction().toJson(),
-                      'style': StacButtonStyle(
-                        foregroundColor: '{{appColors.current.text.title}}',
-                        fixedSize: StacSize(120, 44),
-                        shape: StacRoundedRectangleBorder(
-                          borderRadius: StacBorderRadius.all(12),
-                        ),
-                        elevation: 0,
-                      ).toJson(),
-                      'child': {
-                        'type': 'text',
-                        // انصراف
-                        'data': '{{appStrings.common.cancel}}',
-                        'textDirection': 'rtl',
-                        'style': {
-                          'type': 'custom',
-                          'fontSize': 16,
-                          'fontWeight': 'bold',
-                          'color': '{{appColors.current.text.title}}',
+                    'type': 'row',
+                    'textDirection': 'ltr',
+                    'children': [
+                      {
+                        'type': 'expanded',
+                        'child': {
+                          'type': 'container',
+                          'decoration': StacBoxDecoration(
+                            borderRadius: StacBorderRadius.all(12),
+                            border: StacBorder.all(
+                              color: '#000000',
+                              width: 0.8,
+                            ),
+                          ).toJson(),
+                          'child': {
+                            'type': 'elevatedButton',
+                            'onPressed': const StacCloseDialogAction().toJson(),
+                            'style': StacButtonStyle(
+                              foregroundColor:
+                                  '{{appColors.current.text.title}}',
+                              fixedSize: StacSize(999999, 44),
+                              shape: StacRoundedRectangleBorder(
+                                borderRadius: StacBorderRadius.all(12),
+                              ),
+                              elevation: 0,
+                            ).toJson(),
+                            'child': {
+                              'type': 'text',
+                              // انصراف
+                              'data': '{{appStrings.common.cancel}}',
+                              'textDirection': 'rtl',
+                              'style': {
+                                'type': 'custom',
+                                'fontSize': 16,
+                                'fontWeight': 'bold',
+                                'color': '{{appColors.current.text.title}}',
+                              },
+                            },
+                          },
                         },
                       },
-                    },
-                  },
-                  {
-                    'type': 'elevatedButton',
-                    'onPressed': StacSequenceAction(
-                      actions: [
-                        const StacCloseDialogAction(),
-                        StacNetworkRequestAction(
-                          url:
-                              'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/draft',
-                          method: 'post',
-                          headers: {
-                            'accept': 'application/json',
-                            'authorization': '{{auth.accessToken}}',
-                            'content-type': 'application/json',
-                          },
-                          data: {
-                            'issuerType': 'I',
-                            'sourceAccount': null,
-                            'issuerBirthDate':
-                                "{{replace(userData.birthDate, '/', '')}}",
-                            'issuerNN': '{{userData.nationalCode}}',
-                            'issuerSanaCheck': true,
-                            'issuerCellphone':
-                                '{{removeLeadingZero(userData.mobile)}}',
-                            'issuerFullName': '{{userData.fullName}}',
-                            'issuerAccountNumber': null,
-                            'issuerAddress': '{{userData.address}}',
-                            'issuerPostalCode': '{{userData.postalCode}}',
-                            'recipientType': '{{payload.recipientType}}',
-                            'recipientBirthDate':
-                                '{{payload.recipientBirthDate}}',
-                            'recipientNationalId':
-                                '{{payload.recipientNationalId}}',
-                            'recipientCellphone':
-                                '{{payload.recipientCellphone}}',
-                            'recipientFullName':
-                                '{{receiverIdentity.fullName}}',
-                            'paymentPlace': '{{form.paymentPlace}}',
-                            'amount': '{{toInt(form.promissory_amount)}}',
-                            'dueDate':
-                                "{{replace(form.promissory_due_date, '/', '')}}",
-                            'description': '{{form.description}}',
-                            'transferable': '{{form.transferable}}',
-                          },
-                          results: [
-                            {
-                              'statusCode': 200,
-                              'action': StacSequenceAction(
-                                actions: [
-                                  StacCustomSetValueAction(
-                                    values: const [
-                                      {
-                                        'key': 'form.unsigned_pdf_id',
-                                        'value':
-                                            '{{data_payload.unSignedPdfId}}',
-                                      },
-                                      {
-                                        'key': 'form.promissory_id',
-                                        'value': '{{data_payload.id}}',
-                                      },
-                                      {
-                                        'key': 'rawTransactionTime',
-                                        'value': '{{data.meta.time}}',
-                                      },
-                                    ],
-                                  ).toJson(),
+                      {'type': 'sizedBox', 'width': 10},
+                      {
+                        'type': 'expanded',
+                        'child': {
+                          'type': 'elevatedButton',
+                          'onPressed': StacSequenceAction(
+                            actions: [
+                              const StacCloseDialogAction(),
+                              StacNetworkRequestAction(
+                                url:
+                                    'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/draft',
+                                method: 'post',
+                                headers: {
+                                  'accept': 'application/json',
+                                  'authorization': '{{auth.accessToken}}',
+                                  'content-type': 'application/json',
+                                },
+                                data: {
+                                  'issuerType': 'I',
+                                  'sourceAccount': null,
+                                  'issuerBirthDate':
+                                      "{{replace(userData.birthDate, '/', '')}}",
+                                  'issuerNN': '{{userData.nationalCode}}',
+                                  'issuerSanaCheck': true,
+                                  'issuerCellphone':
+                                      '{{removeLeadingZero(userData.mobile)}}',
+                                  'issuerFullName': '{{userData.fullName}}',
+                                  'issuerAccountNumber': null,
+                                  'issuerAddress': '{{userData.address}}',
+                                  'issuerPostalCode': '{{userData.postalCode}}',
+                                  'recipientType': '{{payload.recipientType}}',
+                                  'recipientBirthDate':
+                                      '{{payload.recipientBirthDate}}',
+                                  'recipientNationalId':
+                                      '{{payload.recipientNationalId}}',
+                                  'recipientCellphone':
+                                      '{{payload.recipientCellphone}}',
+                                  'recipientFullName':
+                                      '{{receiverIdentity.fullName}}',
+                                  'paymentPlace': '{{form.paymentPlace}}',
+                                  'amount': '{{toInt(form.promissory_amount)}}',
+                                  'dueDate':
+                                      "{{replace(form.promissory_due_date, '/', '')}}",
+                                  'description': '{{form.description}}',
+                                  'transferable': '{{form.transferable}}',
+                                },
+                                results: [
                                   {
-                                    'actionType': 'formatDate',
-                                    'sourceKey': 'rawTransactionTime',
-                                    'destinationKey': 'transactionTime',
+                                    'statusCode': 200,
+                                    'action': StacSequenceAction(
+                                      actions: [
+                                        StacCustomSetValueAction(
+                                          values: const [
+                                            {
+                                              'key': 'form.unsigned_pdf_id',
+                                              'value':
+                                                  '{{data_payload.unSignedPdfId}}',
+                                            },
+                                            {
+                                              'key': 'form.promissory_id',
+                                              'value': '{{data_payload.id}}',
+                                            },
+                                            {
+                                              'key': 'rawTransactionTime',
+                                              'value': '{{data.meta.time}}',
+                                            },
+                                          ],
+                                        ).toJson(),
+                                        {
+                                          'actionType': 'formatDate',
+                                          'sourceKey': 'rawTransactionTime',
+                                          'destinationKey': 'transactionTime',
+                                        },
+                                        const StacNavigateAction(
+                                          routeName: 'promissory_real_sign',
+                                          navigationStyle:
+                                              NavigationStyle.pushReplacement,
+                                        ).toJson(),
+                                      ],
+                                    ).toJson(),
                                   },
-                                  const StacNavigateAction(
-                                    routeName: 'promissory_real_sign',
-                                    navigationStyle:
-                                        NavigationStyle.pushReplacement,
-                                  ).toJson(),
                                 ],
-                              ).toJson(),
+                              ),
+                            ],
+                          ).toJson(),
+                          'style': StacButtonStyle(
+                            backgroundColor:
+                                '{{appColors.current.primary.color}}',
+                            foregroundColor:
+                                '{{appColors.current.primary.onPrimary}}',
+                            fixedSize: StacSize(999999, 44),
+                            shape: StacRoundedRectangleBorder(
+                              borderRadius: StacBorderRadius.all(12),
+                            ),
+                            elevation: 0,
+                          ).toJson(),
+                          'child': {
+                            'type': 'text',
+                            // تایید
+                            'data': '{{appStrings.common.confirm}}',
+                            'textDirection': 'rtl',
+                            'style': {
+                              'type': 'custom',
+                              'fontSize': 16,
+                              'fontWeight': 'bold',
+                              'color':
+                                  '{{appColors.current.primary.onPrimary}}',
                             },
-                          ],
-                        ),
-                      ],
-                    ).toJson(),
-                    'style': StacButtonStyle(
-                      backgroundColor: '{{appColors.current.primary.color}}',
-                      foregroundColor:
-                          '{{appColors.current.primary.onPrimary}}',
-                      fixedSize: StacSize(120, 44),
-                      shape: StacRoundedRectangleBorder(
-                        borderRadius: StacBorderRadius.all(12),
-                      ),
-                      elevation: 0,
-                    ).toJson(),
-                    'child': {
-                      'type': 'text',
-                      // تایید
-                      'data': '{{appStrings.common.confirm}}',
-                      'textDirection': 'rtl',
-                      'style': {
-                        'type': 'custom',
-                        'fontSize': 16,
-                        'fontWeight': 'bold',
-                        'color': '{{appColors.current.primary.onPrimary}}',
+                          },
+                        },
                       },
-                    },
+                    ],
                   },
                 ],
               },

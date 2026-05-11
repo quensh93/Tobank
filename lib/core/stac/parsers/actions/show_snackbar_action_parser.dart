@@ -8,6 +8,7 @@ class ShowSnackBarActionModel {
   final String message;
   final String? backgroundColor;
   final int? duration;
+  final bool permanent;
   final String? textColor;
   final String? snackStyle;
   final Map<String, dynamic>? child;
@@ -16,6 +17,7 @@ class ShowSnackBarActionModel {
     required this.message,
     this.backgroundColor,
     this.duration,
+    this.permanent = false,
     this.textColor,
     this.snackStyle,
     this.child,
@@ -41,6 +43,7 @@ class ShowSnackBarActionModel {
       message: message,
       backgroundColor: json['backgroundColor'] as String?,
       duration: json['duration'] as int?,
+      permanent: (json['permanent'] == true) || (json['permenent'] == true),
       textColor: json['textColor'] as String?,
       snackStyle: json['snackStyle'] as String?,
       child: json['child'] is Map
@@ -82,11 +85,18 @@ abstract class _BaseShowSnackBarActionParser
     final useInfoCardStyle =
         model.snackStyle?.trim().toLowerCase() == 'infocard';
 
+    final effectiveDurationMs = model.permanent
+        ? const Duration(days: 3650).inMilliseconds
+        : (model.duration ?? 3000);
+
     final snackBar = customChild != null
         ? SnackBar(
             content: customChild,
             backgroundColor: bgColor ?? Colors.transparent,
-            duration: Duration(milliseconds: model.duration ?? 3000),
+            duration: Duration(milliseconds: effectiveDurationMs),
+            dismissDirection: model.permanent
+                ? DismissDirection.none
+                : DismissDirection.down,
             behavior: SnackBarBehavior.floating,
             elevation: 0,
             padding: EdgeInsets.zero,
@@ -96,7 +106,8 @@ abstract class _BaseShowSnackBarActionParser
         ? _buildInfoCardSnackBar(
             context: context,
             message: resolvedMessage,
-            durationMs: model.duration ?? 3000,
+            durationMs: effectiveDurationMs,
+            permanent: model.permanent,
             backgroundColor: bgColor,
             textColor: txtColor,
           )
@@ -111,7 +122,10 @@ abstract class _BaseShowSnackBarActionParser
               textDirection: TextDirection.rtl,
             ),
             backgroundColor: bgColor ?? Colors.black87,
-            duration: Duration(milliseconds: model.duration ?? 3000),
+            duration: Duration(milliseconds: effectiveDurationMs),
+            dismissDirection: model.permanent
+                ? DismissDirection.none
+                : DismissDirection.down,
             behavior: SnackBarBehavior.floating,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
@@ -127,6 +141,7 @@ abstract class _BaseShowSnackBarActionParser
     required BuildContext context,
     required String message,
     required int durationMs,
+    required bool permanent,
     Color? backgroundColor,
     Color? textColor,
   }) {
@@ -189,6 +204,9 @@ abstract class _BaseShowSnackBarActionParser
         ),
       ),
       duration: Duration(milliseconds: durationMs + 1000),
+      dismissDirection: permanent
+          ? DismissDirection.none
+          : DismissDirection.down,
       behavior: SnackBarBehavior.floating,
       elevation: 0,
       backgroundColor: Colors.transparent,

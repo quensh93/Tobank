@@ -1,14 +1,18 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
-import 'package:tobank_sdui/stac/tobank/flows/cartable_real/dart/widgets/cartable_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'cartable_real_detail')
 StacWidget cartableRealDetail() {
   return StacStatefulWidget(
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: buildCartableRealAppBar(title: 'جزئیات فرآیند'),
+      appBar: buildTobankFlowAppBar(
+        showSupport: true,
+        showBack: true,
+        title: 'جزئیات فرآیند',
+      ),
       body: StacSingleChildScrollView(
         padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 12),
         child: _buildDetailContent(),

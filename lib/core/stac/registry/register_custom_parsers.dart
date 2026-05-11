@@ -55,6 +55,7 @@ import '../parsers/actions/show_card_expire_select_bottom_sheet_action_parser.da
 import '../parsers/actions/show_transfer_card_confirm_dialog_action_parser.dart';
 import '../parsers/actions/show_transfer_card_scanner_action_parser.dart';
 import '../parsers/actions/show_bottom_sheet_action_parser.dart';
+import '../parsers/actions/show_dialog_action_parser.dart';
 import '../parsers/actions/show_gift_card_plan_selector_bottom_sheet_action_parser.dart';
 import '../parsers/actions/add_gift_card_amount_card_action_parser.dart';
 import '../parsers/actions/remove_gift_card_amount_card_action_parser.dart';
@@ -67,6 +68,7 @@ import '../parsers/widgets/reactive_list_view_parser.dart';
 import '../parsers/widgets/custom_bottom_navigation_bar_parser.dart';
 import '../parsers/widgets/custom_bottom_navigation_view_parser.dart';
 import '../parsers/widgets/asset_widget_parser.dart';
+import '../parsers/widgets/custom_tab_bar_parser.dart';
 
 import '../parsers/widgets/custom_visibility_parser.dart';
 import '../parsers/actions/show_snackbar_action_parser.dart';
@@ -206,6 +208,31 @@ Future<void> registerCustomParsers() async {
 
     // Register custom TextFormField parser to override the default one
     // This allows controllers to be registered for external updates (e.g., date picker)
+    try {
+      const customTabBarParser = CustomTabBarParser();
+      final success = stacRegistry.register(
+        customTabBarParser,
+        true,
+      ); // override: true
+      if (success) {
+        widgetCount++;
+        AppLogger.ic(
+          LogCategory.registry,
+          '✅ Registered custom TabBar parser (overriding default)',
+        );
+      } else {
+        AppLogger.wc(
+          LogCategory.registry,
+          '⚠️ Failed to register custom TabBar parser',
+        );
+      }
+    } catch (e, stackTrace) {
+      AppLogger.ec(
+        LogCategory.registry,
+        '❌ Failed to register custom TabBar parser: $e\n$stackTrace',
+      );
+    }
+
     try {
       const customTextFormFieldParser = CustomTextFormFieldParser();
       final success = stacRegistry.register(
@@ -637,6 +664,9 @@ void _registerExampleParsers() {
 
   // Register generic bottom sheet action parser
   registerShowBottomSheetActionParser();
+
+  // Register generic dialog action parser
+  registerShowDialogActionParser();
 
   // Register add-gift-card amount card action parser (max 3 cards)
   registerAddGiftCardAmountCardActionParser();

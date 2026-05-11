@@ -1,4 +1,5 @@
 import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 /// Promissory Flow - Confirmation Page
 ///
@@ -11,23 +12,9 @@ import 'package:stac_core/stac_core.dart';
 @StacScreen(screenName: 'promissory_confirm')
 StacWidget promissoryConfirm() {
   return StacScaffold(
-    appBar: StacAppBar(
-      title: StacText(
-        data: '{{appStrings.promissory.confirmTitle}}',
-        textDirection: StacTextDirection.rtl,
-        style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
-      ),
-      centerTitle: true,
-      leading: StacIconButton(
-        onPressed: StacNavigateAction(navigationStyle: NavigationStyle.pop),
-        icon: StacImage(
-          src: 'assets/icons/ic_right_arrow.svg',
-          imageType: StacImageType.asset,
-          width: 24,
-          height: 24,
-          color: '{{appColors.current.text.title}}',
-        ),
-      ),
+    appBar: buildTobankFlowAppBar(
+      showSupport: false,
+      title: '{{appStrings.promissory.confirmTitle}}',
     ),
     body: StacColumn(
       crossAxisAlignment: StacCrossAxisAlignment.stretch,

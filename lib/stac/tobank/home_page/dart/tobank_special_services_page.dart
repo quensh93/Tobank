@@ -489,14 +489,14 @@ StacAction _buildMobileBankFingerPrintAction({
   return StacFingerPrintAction(
     title: 'احراز هویت',
     description: description,
-    onSuccess: _customSnackBarAction(
+    onSuccess: const StacCustomSnackBarAction(
       title: 'درخواست شما با موفقیت ثبت شد!',
       detail: 'مراتب از طریق پیامک به شما اطلاع داده خواهد شد.',
-    ),
-    onFailure: _customSnackBarAction(
+    ).toJson(),
+    onFailure: StacCustomSnackBarAction(
       title: 'احراز هویت ناموفق بود.',
       detail: failureMessage,
-    ),
+    ).toJson(),
   );
 }
 
@@ -558,126 +558,3 @@ StacWidget _mobileBankSheetItem({
     ),
   );
 }
-
-Map<String, dynamic> _customSnackBarAction({
-  required String title,
-  required String detail,
-}) {
-  return {
-    'actionType': 'customSnackBar',
-    'backgroundColor': '#00000000',
-    'duration': 10000,
-    'child': {
-      'type': 'container',
-      'decoration': {
-        'color': '{{appColors.current.background.surfaceContainer}}',
-        'borderRadius': {
-          'topLeft': 8,
-          'topRight': 8,
-          'bottomLeft': 8,
-          'bottomRight': 8,
-        },
-        'border': {'color': '{{appColors.current.input.borderEnabled}}', 'width': 1},
-      },
-      'padding': {'left': 12, 'top': 10, 'right': 12, 'bottom': 10},
-      'child': {
-        'type': 'row',
-        'textDirection': 'ltr',
-        'crossAxisAlignment': 'center',
-        'children': [
-          {
-            'type': 'gestureDetector',
-            'onTap': {'actionType': 'hideSnackBar'},
-            'child': {
-              'type': 'container',
-              'padding': {'left': 10, 'top': 5, 'right': 10, 'bottom': 5},
-              'decoration': {
-                'color': '#E31A2F',
-                'borderRadius': {
-                  'topLeft': 8,
-                  'topRight': 8,
-                  'bottomLeft': 8,
-                  'bottomRight': 8,
-                },
-              },
-              'child': {
-                'type': 'text',
-                'data': 'بستن',
-                'textDirection': 'rtl',
-                'style': {
-                  'type': 'custom',
-                  'fontSize': 12,
-                  'fontWeight': 'w700',
-                  'color': '#FFFFFF',
-                },
-              },
-            },
-          },
-          {'type': 'sizedBox', 'width': 10},
-          {
-            'type': 'expanded',
-            'child': {
-              'type': 'column',
-              'mainAxisSize': 'min',
-              'crossAxisAlignment': 'end',
-              'children': [
-                {
-                  'type': 'text',
-                  'data': title,
-                  'textDirection': 'rtl',
-                  'textAlign': 'right',
-                  'style': {
-                    'type': 'custom',
-                    'fontSize': 14,
-                    'fontWeight': 'w700',
-                    'color': '{{appColors.current.text.title}}',
-                    'height': 1.45,
-                  },
-                },
-                {'type': 'sizedBox', 'height': 4},
-                {
-                  'type': 'text',
-                  'data': detail,
-                  'textDirection': 'rtl',
-                  'textAlign': 'right',
-                  'style': {
-                    'type': 'custom',
-                    'fontSize': 13,
-                    'fontWeight': 'w500',
-                    'color': '{{appColors.current.text.subtitle}}',
-                    'height': 1.45,
-                  },
-                },
-              ],
-            },
-          },
-          {'type': 'sizedBox', 'width': 10},
-          {
-            'type': 'container',
-            'width': 1,
-            'height': 20,
-            'decoration': {
-              'color': '{{appColors.current.input.borderEnabled}}',
-              'borderRadius': {
-                'topLeft': 999,
-                'topRight': 999,
-                'bottomLeft': 999,
-                'bottomRight': 999,
-              },
-            },
-          },
-          {'type': 'sizedBox', 'width': 8},
-          {
-            'type': 'image',
-            'src': 'assets/icons/ic_info.svg',
-            'imageType': 'asset',
-            'width': 20,
-            'height': 20,
-            'color': '{{appColors.current.text.subtitle}}',
-          },
-        ],
-      },
-    },
-  };
-}
-

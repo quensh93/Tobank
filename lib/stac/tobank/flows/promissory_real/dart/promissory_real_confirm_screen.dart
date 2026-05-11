@@ -1,5 +1,5 @@
-﻿import 'package:stac_core/stac_core.dart';
-import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_app_bar.dart';
+import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 
 /// Promissory Real Flow - Confirmation Page
@@ -11,7 +11,8 @@ import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 @StacScreen(screenName: 'promissory_real_confirm')
 StacWidget promissoryRealConfirm() {
   return StacScaffold(
-    appBar: buildPromissoryAppBar(
+    appBar: buildTobankFlowAppBar(
+      showSupport: false,
       // صدور سفته
       title: '{{appStrings.promissory.issuanceTitle}}',
     ),

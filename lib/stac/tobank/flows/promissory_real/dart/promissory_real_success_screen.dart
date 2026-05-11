@@ -1,8 +1,8 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_detail_row.dart';
 import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_divider.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
-import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/format_number_action.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 
@@ -33,15 +33,10 @@ StacWidget promissoryRealSuccess() {
       ],
     ),
     child: StacScaffold(
-      appBar: StacAppBar(
-        title: StacText(
-          // صدور سفته
-          data: '{{appStrings.promissory.successTitle}}',
-          textDirection: StacTextDirection.rtl,
-          style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
-        ),
-        centerTitle: true,
-        automaticallyImplyLeading: false,
+      appBar: buildTobankFlowAppBar(
+        showSupport: false,
+        title: '{{appStrings.promissory.successTitle}}',
+        showBack: false,
       ),
       body: StacColumn(
         crossAxisAlignment: StacCrossAxisAlignment.stretch,

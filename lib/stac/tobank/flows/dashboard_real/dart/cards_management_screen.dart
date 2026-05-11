@@ -1,12 +1,16 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
-import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/widgets/profile_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'dashboard_real_cards_management')
 StacWidget dashboardRealCardsManagement() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildProfileRealAppBar(title: 'مدیریت کارت‌ها'),
+    appBar: buildTobankFlowAppBar(
+      showSupport: true,
+      showBack: true,
+      title: 'مدیریت کارت‌ها',
+    ),
     body: StacSingleChildScrollView(
       padding: StacEdgeInsets.only(left: 16, right: 16, top: 16, bottom: 24),
       child: StacColumn(
@@ -233,10 +237,7 @@ StacWidget _buildTobankCard({
           ],
         ),
         StacSizedBox(height: 8),
-        StacContainer(
-          height: 1,
-          color: '#FFFFFF66',
-        ),
+        StacContainer(height: 1, color: '#FFFFFF66'),
         StacSizedBox(height: 8),
         StacRow(
           mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
@@ -540,7 +541,8 @@ StacWidget _buildDisabledServices() {
           StacExpanded(
             child: _serviceTile(
               title: 'رمز اول',
-              iconAsset: '{{appAssets.current.icons.cardServicePasswordChange}}',
+              iconAsset:
+                  '{{appAssets.current.icons.cardServicePasswordChange}}',
               enabled: false,
             ),
           ),
@@ -548,7 +550,8 @@ StacWidget _buildDisabledServices() {
           StacExpanded(
             child: _serviceTile(
               title: 'رمز دوم',
-              iconAsset: '{{appAssets.current.icons.cardServicePasswordChange}}',
+              iconAsset:
+                  '{{appAssets.current.icons.cardServicePasswordChange}}',
               enabled: false,
             ),
           ),

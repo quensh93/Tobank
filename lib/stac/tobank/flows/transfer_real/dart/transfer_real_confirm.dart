@@ -1,5 +1,6 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 
@@ -18,25 +19,10 @@ StacWidget transferRealConfirm() {
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: StacAppBar(
-        title: StacText(
-          data: 'انتقال وجه',
-          textDirection: StacTextDirection.rtl,
-          style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
-        ),
-        centerTitle: true,
-        leading: StacIconButton(
-          onPressed: const StacNavigateAction(
-            navigationStyle: NavigationStyle.pop,
-          ),
-          icon: StacImage(
-            src: '{{appAssets.icons.arrowRight}}',
-            imageType: StacImageType.asset,
-            width: 24,
-            height: 24,
-            color: '{{appColors.current.text.title}}',
-          ),
-        ),
+      appBar: buildTobankFlowAppBar(
+        showSupport: false,
+        backIconSrc: '{{appAssets.icons.arrowRight}}',
+        title: 'انتقال وجه',
       ),
       body: StacCustomVisibility(
         visible: '[[transferApiTabCard]]',
@@ -126,22 +112,16 @@ StacWidget _cardConfirmContent() {
                             '{{appColors.current.background.surface}}',
                         'height': 56,
                         'minWidth': 132,
-                        'onStart': {
-                          'actionType': 'customSnackBar',
-                          'snackStyle': 'infoCard',
-                          'message': 'رمز پویا با موفقیت ارسال شد.',
-                          'backgroundColor': '#1D2939',
-                          'textColor': '#D0D5DD',
-                          'duration': 2200,
-                        },
-                        'onRetry': {
-                          'actionType': 'customSnackBar',
-                          'snackStyle': 'infoCard',
-                          'message': 'رمز پویا با موفقیت ارسال شد.',
-                          'backgroundColor': '#1D2939',
-                          'textColor': '#D0D5DD',
-                          'duration': 2200,
-                        },
+                        'onStart': const StacCustomSnackBarAction(
+                          title: 'اعلان',
+                          detail: 'رمز پویا با موفقیت ارسال شد.',
+                          duration: 2200,
+                        ).toJson(),
+                        'onRetry': const StacCustomSnackBarAction(
+                          title: 'اعلان',
+                          detail: 'رمز پویا با موفقیت ارسال شد.',
+                          duration: 2200,
+                        ).toJson(),
                       }),
                     ),
                   ],
@@ -249,22 +229,134 @@ StacAction _showCardExpireBottomSheetAction() {
 }
 
 StacAction _showTransferCardConfirmDialogAction() {
-  return StacRawJsonAction({
-    'actionType': 'showTransferCardConfirmDialog',
-    'title': 'تایید اطلاعات کارت به کارت',
-    'cardLabel': 'کارت مقصد',
-    'ownerNameLabel': 'نام صاحب کارت',
-    'amountLabel': 'مبلغ انتقال',
-    'destinationCardKey': 'transferApiCardDestinationNumber',
-    'destinationNameKey': 'transferApiCardDestinationName',
-    'amountKey': 'transferApiCardAmountRaw',
-    'cancelText': 'انصراف',
-    'confirmText': 'تایید',
-    'confirmAction': const StacNavigateAction(
-      routeName: 'transfer_real_card_result',
-      navigationStyle: NavigationStyle.push,
-    ).toJson(),
-  });
+  return StacShowDialogAction(
+    barrierDismissible: true,
+    barrierColor: '#8B63708C',
+    dialog: _buildTransferCardConfirmDialog().toJson(),
+  );
+}
+
+StacWidget _buildTransferCardConfirmDialog() {
+  return StacContainer(
+    padding: StacEdgeInsets.only(left: 16, top: 16, right: 16, bottom: 14),
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: StacBorderRadius.all(12),
+    ),
+    child: StacColumn(
+      mainAxisSize: StacMainAxisSize.min,
+      crossAxisAlignment: StacCrossAxisAlignment.stretch,
+      children: [
+        StacText(
+          data: 'تایید اطلاعات کارت به کارت',
+          textDirection: StacTextDirection.rtl,
+          textAlign: StacTextAlign.center,
+          style: StacCustomTextStyle(
+            fontSize: 17,
+            fontWeight: StacFontWeight.w700,
+            color: '{{appColors.current.text.title}}',
+          ),
+        ),
+        StacSizedBox(height: 14),
+        _confirmRow('کارت مقصد', '{{transferApiCardDestinationNumber}}'),
+        StacSizedBox(height: 8),
+        _confirmRow('نام صاحب کارت', '{{transferApiCardDestinationName}}'),
+        StacSizedBox(height: 8),
+        _confirmRow('مبلغ انتقال', '{{transferApiCardAmountRaw}} ریال'),
+        StacSizedBox(height: 18),
+        StacRow(
+          textDirection: StacTextDirection.ltr,
+          children: [
+            StacExpanded(
+              child: StacFilledButton(
+                onPressed: StacSequenceAction(
+                  actions: [
+                    const StacCloseDialogAction(),
+                    const StacNavigateAction(
+                      routeName: 'transfer_real_card_result',
+                      navigationStyle: NavigationStyle.push,
+                    ),
+                  ],
+                ),
+                style: StacButtonStyle(
+                  fixedSize: StacSize(999999, 50),
+                  backgroundColor: '{{appColors.current.primary.color}}',
+                  foregroundColor: '{{appColors.current.primary.onPrimary}}',
+                  shape: StacRoundedRectangleBorder(
+                    borderRadius: StacBorderRadius.all(10),
+                  ),
+                  elevation: 0,
+                ),
+                child: StacText(
+                  data: 'تایید',
+                  style: StacCustomTextStyle(
+                    fontSize: 16,
+                    fontWeight: StacFontWeight.w700,
+                    color: '{{appColors.current.primary.onPrimary}}',
+                  ),
+                ),
+              ),
+            ),
+            StacSizedBox(width: 10),
+            StacExpanded(
+              child: StacOutlinedButton(
+                onPressed: const StacCloseDialogAction(),
+                style: StacButtonStyle(
+                  fixedSize: StacSize(999999, 50),
+                  side: StacBorderSide(
+                    color: '{{appColors.current.input.borderEnabled}}',
+                    width: 1.2,
+                  ),
+                  shape: StacRoundedRectangleBorder(
+                    borderRadius: StacBorderRadius.all(10),
+                  ),
+                ),
+                child: StacText(
+                  data: 'انصراف',
+                  style: StacCustomTextStyle(
+                    fontSize: 16,
+                    fontWeight: StacFontWeight.w700,
+                    color: '{{appColors.current.text.title}}',
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
+}
+
+StacWidget _confirmRow(String label, String value) {
+  return StacRow(
+    textDirection: StacTextDirection.rtl,
+    mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+    children: [
+      StacText(
+        data: label,
+        textDirection: StacTextDirection.rtl,
+        style: StacCustomTextStyle(
+          fontSize: 15,
+          fontWeight: StacFontWeight.w600,
+          color: '{{appColors.current.text.subtitle}}',
+        ),
+      ),
+      StacSizedBox(width: 10),
+      StacExpanded(
+        child: StacText(
+          data: value,
+          textDirection: StacTextDirection.rtl,
+          textAlign: StacTextAlign.left,
+          style: StacCustomTextStyle(
+            fontSize: 15,
+            fontWeight: StacFontWeight.w700,
+            color: '{{appColors.current.text.title}}',
+          ),
+        ),
+      ),
+    ],
+  );
 }
 
 StacAction _validateCardPaymentFieldsAction() {

@@ -2,7 +2,7 @@ import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
-import 'package:tobank_sdui/stac/tobank/flows/promissory_real/dart/widgets/promissory_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 /// Promissory Real Flow - Intro Screen
 ///
@@ -14,34 +14,42 @@ StacWidget promissoryRealIntro() {
   return StacStatefulWidget(
     onInit: const StacCustomSetValueAction(
       values: [
-        {'key': 'isMyPromissoryTab', 'value': false},
         {'key': 'isElectronicPromissoryExpanded', 'value': false},
       ],
     ),
     child: StacScaffold(
       // سفته انلاین
-      appBar: buildPromissoryAppBar(title: '{{appStrings.promissory.PromissoryTitle}}'),
-      body: StacColumn(
-        children: [
-          StacSizedBox(height: 16),
-          _buildTabs(),
-          StacSizedBox(height: 8),
-          StacContainer(
-            height: 1,
-            color: '{{appColors.current.input.borderEnabled}}',
-          ),
-          StacSizedBox(height: 16),
-          StacExpanded(
-            child: StacPadding(
-              padding: StacEdgeInsets.symmetric(horizontal: 16),
-              child: StacCustomVisibility(
-                visible: '[[isMyPromissoryTab]]',
-                child: _buildMyPromissoryCards().toJson(),
-                replacement: _buildServicesTabContent().toJson(),
+      appBar: buildTobankFlowAppBar(
+        showSupport: false,
+        backIconSrc: 'assets/icons/ic_right_arrow.svg',
+        title: '{{appStrings.promissory.PromissoryTitle}}',
+      ),
+      body: StacDefaultTabController(
+        length: 2,
+        initialIndex: 1,
+        child: StacColumn(
+          children: [
+            StacSizedBox(height: 16),
+            _buildTabs(),
+            StacSizedBox(height: 8),
+            StacContainer(
+              height: 1,
+              color: '{{appColors.current.input.borderEnabled}}',
+            ),
+            StacSizedBox(height: 16),
+            StacExpanded(
+              child: StacPadding(
+                padding: StacEdgeInsets.symmetric(horizontal: 16),
+                child: StacTabBarView(
+                  children: [
+                    _buildMyPromissoryCards(),
+                    _buildServicesTabContent(),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     ),
   );
@@ -50,85 +58,41 @@ StacWidget promissoryRealIntro() {
 StacWidget _buildTabs() {
   return StacPadding(
     padding: StacEdgeInsets.symmetric(horizontal: 16),
-    child: StacRow(
-      textDirection: StacTextDirection.rtl,
+    child: StacStack(
       children: [
-        StacExpanded(
-          child: _buildTabItem(
-            title: '{{appStrings.promissory.servicesTab}}',
-            selectedVisible: '[[!isMyPromissoryTab]]',
-            onTap: const StacCustomSetValueAction(
-              key: 'isMyPromissoryTab',
-              value: false,
+        StacTabBar(
+          enableFeedback: false,
+          dividerColor: '#00000000',
+          indicatorColor: '#D32F2F',
+          indicatorWeight: 3,
+          indicatorSize: StacTabBarIndicatorSize.tab,
+          indicatorPadding: StacEdgeInsets.only(left: 42, top: 32, right: 42),
+          labelStyle: StacCustomTextStyle(
+            fontSize: 14,
+            fontWeight: StacFontWeight.w700,
+          ),
+          unselectedLabelStyle: StacCustomTextStyle(
+            fontSize: 14,
+            fontWeight: StacFontWeight.w500,
+          ),
+          labelColor: '{{appColors.current.text.title}}',
+          unselectedLabelColor: '{{appColors.current.text.subtitle}}',
+          tabs: const [
+            StacTab(text: '{{appStrings.promissory.myNotesTab}}', height: 34),
+            StacTab(text: '{{appStrings.promissory.servicesTab}}', height: 34),
+          ],
+        ),
+        StacPositioned(
+          top: 4,
+          bottom: 4,
+          left: 0,
+          right: 0,
+          child: StacCenter(
+            child: StacContainer(
+              width: 1,
+              color: '{{appColors.current.input.borderEnabled}}',
             ),
           ),
-        ),
-        StacContainer(
-          width: 1,
-          height: 24,
-          color: '{{appColors.current.input.borderEnabled}}',
-        ),
-        StacExpanded(
-          child: _buildTabItem(
-            title: '{{appStrings.promissory.myNotesTab}}',
-            selectedVisible: '[[isMyPromissoryTab]]',
-            onTap: const StacCustomSetValueAction(
-              key: 'isMyPromissoryTab',
-              value: true,
-            ),
-          ),
-        ),
-      ],
-    ),
-  );
-}
-
-StacWidget _buildTabItem({
-  required String title,
-  required String selectedVisible,
-  required StacAction onTap,
-}) {
-  return StacGestureDetector(
-    onTap: onTap,
-    child: StacColumn(
-      children: [
-        StacCustomVisibility(
-          visible: selectedVisible,
-          child: StacText(
-            data: title,
-            textDirection: StacTextDirection.rtl,
-            style: StacCustomTextStyle(
-              fontSize: 14,
-              fontWeight: StacFontWeight.w700,
-              color: '{{appColors.current.text.title}}',
-            ),
-          ).toJson(),
-          replacement: StacText(
-            data: title,
-            textDirection: StacTextDirection.rtl,
-            style: StacCustomTextStyle(
-              fontSize: 14,
-              fontWeight: StacFontWeight.w500,
-              color: '{{appColors.current.text.subtitle}}',
-            ),
-          ).toJson(),
-        ),
-        StacSizedBox(height: 8),
-        StacCustomVisibility(
-          visible: selectedVisible,
-          child: StacContainer(
-            width: 56,
-            height: 3,
-            decoration: StacBoxDecoration(
-              color: '#D32F2F',
-              borderRadius: StacBorderRadius.all(3),
-            ),
-          ).toJson(),
-          replacement: StacContainer(
-            width: 56,
-            height: 3,
-            color: 'transparent',
-          ).toJson(),
         ),
       ],
     ),
@@ -142,9 +106,7 @@ StacWidget _buildServicesTabContent() {
       _buildTitleCard(),
       StacSizedBox(height: 12),
       StacExpanded(
-        child: StacSingleChildScrollView(
-          child: _buildServiceCards(),
-        ),
+        child: StacSingleChildScrollView(child: _buildServiceCards()),
       ),
     ],
   );
@@ -280,7 +242,8 @@ StacWidget _buildTitleCard() {
                 ),
                 StacSizedBox(height: 12),
                 StacText(
-                  data: 'سفته الکترونیکی، یک سند تجاری است که به صورت الکترونیکی، صادر شده و به موجب آن، صادر‌کننده، پرداخت مبلغی را در قبال شخص دیگر، متعهد میشود',
+                  data:
+                      'سفته الکترونیکی، یک سند تجاری است که به صورت الکترونیکی، صادر شده و به موجب آن، صادر‌کننده، پرداخت مبلغی را در قبال شخص دیگر، متعهد میشود',
                   textDirection: StacTextDirection.rtl,
                   textAlign: StacTextAlign.right,
                   style: StacCustomTextStyle(
@@ -288,7 +251,6 @@ StacWidget _buildTitleCard() {
                     color: '{{appColors.current.text.subtitle}}',
                   ),
                 ),
-
               ],
             ).toJson(),
           ),

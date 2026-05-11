@@ -2,7 +2,7 @@ import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
-import 'package:tobank_sdui/stac/tobank/flows/gift_card_real/dart/widgets/gift_card_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'gift_card_real_message')
 StacWidget giftCardRealMessage() {
@@ -22,7 +22,11 @@ StacWidget giftCardRealMessage() {
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: buildGiftCardRealAppBar(title: 'کارت هدیه'),
+      appBar: buildTobankFlowAppBar(
+        showSupport: true,
+        showBack: true,
+        title: 'کارت هدیه',
+      ),
       body: StacForm(
         child: StacColumn(
           crossAxisAlignment: StacCrossAxisAlignment.stretch,
@@ -48,12 +52,7 @@ StacWidget giftCardRealMessage() {
                         ),
                         StacSizedBox(width: 8),
                         StacGestureDetector(
-                          onTap: const StacShowGiftCardMessageGuideBottomSheetAction(
-                            title: 'راهنما',
-                            description:
-                                'در صورت ورود متن دلخواه، یکی از متن‌های پیش‌فرض را انتخاب کنید تا در صورت عدم موافقت بانک با متن دلخواه شما، متن پیش‌فرض جایگزین آن شود',
-                            closeText: 'بستن',
-                          ),
+                          onTap: _giftCardMessageGuideBottomSheetAction(),
                           child: StacIcon(
                             icon: 'error_outline',
                             size: 24,
@@ -249,6 +248,107 @@ StacWidget giftCardRealMessage() {
             ),
           ],
         ),
+      ),
+    ),
+  );
+}
+
+StacAction _giftCardMessageGuideBottomSheetAction() {
+  return _proxyLegacyBottomSheetAction(const {
+    'actionType': 'showGiftCardMessageGuideBottomSheet',
+    'title': 'راهنما',
+    'description':
+        'در صورت ورود متن دلخواه، یکی از متن‌های پیش‌فرض را انتخاب کنید تا در صورت عدم موافقت بانک با متن دلخواه شما، متن پیش‌فرض جایگزین آن شود',
+    'closeText': 'بستن',
+  });
+}
+
+StacAction _proxyLegacyBottomSheetAction(Map<String, dynamic> legacyAction) {
+  return StacShowBottomSheetAction(
+    backgroundColor: '#00000000',
+    sheet: StacStatefulWidget(
+      onInit: StacSequenceAction(
+        actions: [
+          StacCustomAction.fromJson(legacyAction),
+          const StacNavigateAction(navigationStyle: NavigationStyle.pop),
+        ],
+      ),
+      child: StacSizedBox(width: 0, height: 0),
+    ).toJson(),
+  );
+}
+
+StacWidget _giftCardMessageGuideBottomSheet() {
+  return StacContainer(
+    decoration: StacBoxDecoration(
+      color: '{{appColors.current.background.surface}}',
+      borderRadius: const StacBorderRadius.only(topLeft: 12, topRight: 12),
+    ),
+    child: StacPadding(
+      padding: StacEdgeInsets.only(left: 24, top: 10, right: 24, bottom: 24),
+      child: StacColumn(
+        mainAxisSize: StacMainAxisSize.min,
+        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+        children: [
+          StacCenter(
+            child: StacContainer(
+              width: 62,
+              height: 6,
+              decoration: StacBoxDecoration(
+                color: '#737373',
+                borderRadius: StacBorderRadius.all(999),
+              ),
+            ),
+          ),
+          StacSizedBox(height: 24),
+          StacText(
+            data: 'راهنما',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 18,
+              fontWeight: StacFontWeight.w700,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacSizedBox(height: 16),
+          StacText(
+            data:
+                'در صورت ورود متن دلخواه، یکی از متن‌های پیش‌فرض را انتخاب کنید تا در صورت عدم موافقت بانک با متن دلخواه شما، متن پیش‌فرض جایگزین آن شود',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 16,
+              fontWeight: StacFontWeight.w500,
+              height: 1.8,
+              color: '{{appColors.current.text.subtitle}}',
+            ),
+          ),
+          StacSizedBox(height: 24),
+          StacFilledButton(
+            onPressed: const StacNavigateAction(
+              navigationStyle: NavigationStyle.pop,
+            ),
+            style: StacButtonStyle(
+              fixedSize: StacSize(999999, 56),
+              backgroundColor: '{{appColors.current.primary.color}}',
+              foregroundColor: '{{appColors.current.primary.onPrimary}}',
+              shape: StacRoundedRectangleBorder(
+                borderRadius: StacBorderRadius.all(12),
+              ),
+              elevation: 0,
+            ),
+            child: StacText(
+              data: 'بستن',
+              textDirection: StacTextDirection.rtl,
+              style: StacCustomTextStyle(
+                fontSize: 17,
+                fontWeight: StacFontWeight.w700,
+                color: '{{appColors.current.primary.onPrimary}}',
+              ),
+            ),
+          ),
+        ],
       ),
     ),
   );

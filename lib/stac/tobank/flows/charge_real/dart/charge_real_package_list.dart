@@ -2,100 +2,107 @@ import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
-import 'package:tobank_sdui/stac/tobank/flows/charge_real/dart/widgets/charge_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'charge_real_package_list')
 StacWidget chargeRealPackageList() {
   return StacStatefulWidget(
-    onInit: const StacCustomSetValueAction(
-      values: [
-        {'key': 'crChargePreset50', 'value': false},
-        {'key': 'crChargePreset100', 'value': true},
-        {'key': 'crChargePreset200', 'value': false},
-        {'key': 'crChargePreset500', 'value': false},
-        {'key': 'crChargePreset1000', 'value': false},
-        {'key': 'crChargeHasPreset', 'value': true},
-        {'key': 'crChargeAmazing', 'value': false},
-        {'key': 'crChargeCanToggleAmazing', 'value': true},
-        {'key': 'crChargeOptionalMode', 'value': false},
-        {'key': 'crChargeOptionalInRange', 'value': false},
-        {'key': 'crChargeContinueOptionalValid', 'value': false},
-        {'key': 'crChargeShowAmountError', 'value': false},
-        {'key': 'crChargeEnteredAmount', 'value': ''},
-        {'key': 'crChargeSelectedPresetAmount', 'value': '۱۰۰,۰۰۰'},
+    onInit: StacSequenceAction(
+      actions: [
+        const StacCustomSetValueAction(
+          values: [
+            {'key': 'crChargePreset50', 'value': false},
+            {'key': 'crChargePreset100', 'value': true},
+            {'key': 'crChargePreset200', 'value': false},
+            {'key': 'crChargePreset500', 'value': false},
+            {'key': 'crChargePreset1000', 'value': false},
+            {'key': 'crChargeHasPreset', 'value': true},
+            {'key': 'crChargeAmazing', 'value': false},
+            {'key': 'crChargeCanToggleAmazing', 'value': true},
+            {'key': 'crChargeOptionalMode', 'value': false},
+            {'key': 'crChargeOptionalInRange', 'value': false},
+            {'key': 'crChargeContinueOptionalValid', 'value': false},
+            {'key': 'crChargeShowAmountError', 'value': false},
+            {'key': 'crChargeEnteredAmount', 'value': ''},
+            {'key': 'crChargeSelectedPresetAmount', 'value': '۱۰۰,۰۰۰'},
+          ],
+        ),
+        _showChargeAmountSheetAction(),
       ],
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: buildChargeRealAppBar(title: 'شارژ'),
-      body: StacStack(
-        children: [
-          StacSafeArea(
-            top: false,
-            child: StacPadding(
-              padding: StacEdgeInsets.only(left: 16, top: 14, right: 16),
-              child: StacColumn(
-                crossAxisAlignment: StacCrossAxisAlignment.stretch,
-                children: [
-                  StacText(
-                    data: 'شماره سیم کارت اعتباری را وارد کنید',
-                    textDirection: StacTextDirection.rtl,
-                    textAlign: StacTextAlign.right,
-                    style: StacCustomTextStyle(
-                      fontSize: 18,
-                      fontWeight: StacFontWeight.w700,
-                      color: '{{appColors.current.text.title}}',
-                    ),
+      appBar: buildTobankFlowAppBar(
+        showSupport: true,
+        showBack: true,
+        title: 'شارژ',
+      ),
+      body: StacSafeArea(
+        top: false,
+        child: StacPadding(
+          padding: StacEdgeInsets.only(left: 16, top: 14, right: 16),
+          child: StacColumn(
+            crossAxisAlignment: StacCrossAxisAlignment.stretch,
+            children: [
+              StacText(
+                data: 'شماره سیم کارت اعتباری را وارد کنید',
+                textDirection: StacTextDirection.rtl,
+                textAlign: StacTextAlign.right,
+                style: StacCustomTextStyle(
+                  fontSize: 18,
+                  fontWeight: StacFontWeight.w700,
+                  color: '{{appColors.current.text.title}}',
+                ),
+              ),
+              StacSizedBox(height: 16),
+              StacContainer(
+                height: 56,
+                padding: StacEdgeInsets.symmetric(horizontal: 12),
+                decoration: StacBoxDecoration(
+                  borderRadius: StacBorderRadius.all(10),
+                  border: StacBorder.all(
+                    color: '{{appColors.current.input.borderEnabled}}',
+                    width: 1,
                   ),
-                  StacSizedBox(height: 16),
-                  StacContainer(
-                    height: 56,
-                    padding: StacEdgeInsets.symmetric(horizontal: 12),
-                    decoration: StacBoxDecoration(
-                      borderRadius: StacBorderRadius.all(10),
-                      border: StacBorder.all(
-                        color: '{{appColors.current.input.borderEnabled}}',
-                        width: 1,
-                      ),
+                ),
+                child: StacRow(
+                  textDirection: StacTextDirection.rtl,
+                  children: [
+                    StacImage(
+                      src: 'assets/icons/ic_pick_contact.svg',
+                      imageType: StacImageType.asset,
+                      width: 20,
+                      height: 20,
+                      color: '{{appColors.current.text.subtitle}}',
                     ),
-                    child: StacRow(
-                      textDirection: StacTextDirection.rtl,
-                      children: [
-                        StacImage(
-                          src: 'assets/icons/ic_pick_contact.svg',
-                          imageType: StacImageType.asset,
-                          width: 20,
-                          height: 20,
+                    StacSizedBox(width: 8),
+                    StacExpanded(
+                      child: StacText(
+                        data: '{{crActiveSimNumber}}',
+                        textDirection: StacTextDirection.ltr,
+                        textAlign: StacTextAlign.right,
+                        style: StacCustomTextStyle(
+                          fontSize: 16,
+                          fontWeight: StacFontWeight.w500,
                           color: '{{appColors.current.text.subtitle}}',
                         ),
-                        StacSizedBox(width: 8),
-                        StacExpanded(
-                          child: StacText(
-                            data: '{{crActiveSimNumber}}',
-                            textDirection: StacTextDirection.ltr,
-                            textAlign: StacTextAlign.right,
-                            style: StacCustomTextStyle(
-                              fontSize: 16,
-                              fontWeight: StacFontWeight.w500,
-                              color: '{{appColors.current.text.subtitle}}',
-                            ),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
+            ],
           ),
-          StacContainer(width: 999999, height: 999999, color: '#8B63708C'),
-          StacAlign(
-            alignment: StacAlignmentDirectional.bottomCenter,
-            child: _buildChargeAmountSheet(),
-          ),
-        ],
+        ),
       ),
     ),
+  );
+}
+
+StacAction _showChargeAmountSheetAction() {
+  return StacShowBottomSheetAction(
+    backgroundColor: '#8B63708C',
+    sheet: _buildChargeAmountSheet().toJson(),
   );
 }
 
@@ -471,6 +478,7 @@ StacAction _onAmazingChanged() {
 StacAction _presetContinueAction() {
   return const StacSequenceAction(
     actions: [
+      StacNavigateAction(navigationStyle: NavigationStyle.pop),
       StacCustomSetValueAction(
         values: [
           {
@@ -491,6 +499,7 @@ StacAction _presetContinueAction() {
 StacAction _optionalContinueAction() {
   return const StacSequenceAction(
     actions: [
+      StacNavigateAction(navigationStyle: NavigationStyle.pop),
       StacCustomSetValueAction(
         values: [
           {'key': 'crPkgSelectedAmount', 'value': '{{crChargeEnteredAmount}}'},
