@@ -89,7 +89,7 @@ StacWidget promissoryRealSign() {
     ),
     child: StacScaffold(
       appBar: buildTobankFlowAppBar(
-        showSupport: false,
+        showSupport: true,
         // امضا سفته
         title: '{{appStrings.promissory.signTitle}}',
       ),

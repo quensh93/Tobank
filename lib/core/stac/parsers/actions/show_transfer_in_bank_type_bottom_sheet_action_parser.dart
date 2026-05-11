@@ -151,15 +151,16 @@ class ShowTransferInBankTypeBottomSheetActionParser
                           itemBuilder: (itemContext, index) {
                             final item = options[index];
                             final disabled = !item.enabled;
+                            final iconAsset = disabled &&
+                                    item.iconAsset.contains('ic_bank_transfer')
+                                ? 'assets/icons/ic_bank_transfer_disabled.svg'
+                                : item.iconAsset;
+                            const disabledTextColor = Color(0xFF98A2B3);
                             final titleColor = disabled
-                                ? colorScheme.onSurfaceVariant.withValues(
-                                    alpha: 0.45,
-                                  )
+                                ? disabledTextColor
                                 : colorScheme.onSurface;
                             final subtitleColor = disabled
-                                ? colorScheme.onSurfaceVariant.withValues(
-                                    alpha: 0.40,
-                                  )
+                                ? disabledTextColor
                                 : colorScheme.onSurfaceVariant;
 
                             return InkWell(
@@ -176,9 +177,14 @@ class ShowTransferInBankTypeBottomSheetActionParser
                                 ),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(11),
+                                  color: disabled
+                                      ? const Color(0xFFF8F9FB)
+                                      : null,
                                   border: Border.all(
-                                    color: colorScheme.outlineVariant
-                                        .withValues(alpha: 0.24),
+                                    color: disabled
+                                        ? const Color(0xFFD0D5DD)
+                                        : colorScheme.outlineVariant
+                                              .withValues(alpha: 0.24),
                                     width: 1,
                                   ),
                                 ),
@@ -191,22 +197,21 @@ class ShowTransferInBankTypeBottomSheetActionParser
                                       height: 46,
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
-                                        color: colorScheme.surfaceContainerHigh
-                                            .withValues(alpha: 0.65),
+                                        color: disabled
+                                            ? const Color(0xFFF2F4F7)
+                                            : colorScheme.surfaceContainerHigh
+                                                  .withValues(alpha: 0.65),
                                       ),
                                       child: Opacity(
-                                        opacity: disabled ? 0.45 : 1,
+                                        opacity: disabled ? 0.7 : 1,
                                         child: Center(
                                           child: SvgPicture.asset(
-                                            item.iconAsset,
+                                            iconAsset,
                                             width: 24,
                                             height: 24,
                                             colorFilter: disabled
                                                 ? ColorFilter.mode(
-                                                    colorScheme.onSurfaceVariant
-                                                        .withValues(
-                                                          alpha: 0.45,
-                                                        ),
+                                                    disabledTextColor,
                                                     BlendMode.srcIn,
                                                   )
                                                 : null,

@@ -1,4 +1,5 @@
 import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart'
@@ -107,17 +108,16 @@ StacWidget promissoryData() {
                             ],
                           ),
                           StacSizedBox(height: 8),
-                          StacRawJsonWidget({
-                            'type': 'textFormField',
-                            'id': 'promissory_amount',
-                            'keyboardType': 'number',
-                            'textInputAction': 'next',
-                            'textDirection': 'ltr',
-                            'textAlign': 'right',
-                            'inputFormatters': [
+                          StacCustomTextFormField(
+                            id: 'promissory_amount',
+                            keyboardType: 'number',
+                            textInputAction: 'next',
+                            textDirection: 'ltr',
+                            textAlign: 'right',
+                            inputFormatters: const [
                               {'type': 'allow', 'rule': '[0-9]'},
                             ],
-                            'decoration': StacInputDecoration(
+                            decoration: StacInputDecoration(
                               hintText: 'مبلغ سفته را وارد نمایید',
                               filled: false,
                               contentPadding: StacEdgeInsets.symmetric(
@@ -126,14 +126,14 @@ StacWidget promissoryData() {
                               ),
                               suffixText: '{{appStrings.common.rial}}',
                             ).toJson(),
-                            'validatorRules': [
+                            validatorRules: const [
                               {
                                 'rule': r'^\d+$',
                                 'message': 'مبلغ سفته را وارد نمایید',
                               },
                             ],
-                            'onChanged': _getFullValidationAction().toJson(),
-                          }),
+                            onChanged: _getFullValidationAction().toJson(),
+                          ),
                           StacSizedBox(height: 16),
 
                           // Due Date Toggle
@@ -267,15 +267,14 @@ StacWidget promissoryData() {
                             ),
                           ),
                           StacSizedBox(height: 8),
-                          StacRawJsonWidget({
-                            'type': 'textFormField',
-                            'id': 'promissory_payment_place',
-                            'textInputAction': 'next',
-                            'textDirection': 'rtl',
-                            'textAlign': 'right',
-                            'maxLines': 3,
-                            'minLines': 2,
-                            'decoration': StacInputDecoration(
+                          StacCustomTextFormField(
+                            id: 'promissory_payment_place',
+                            textInputAction: 'next',
+                            textDirection: 'rtl',
+                            textAlign: 'right',
+                            maxLines: 3,
+                            minLines: 2,
+                            decoration: StacInputDecoration(
                               hintText: 'محل پرداخت سفته را وارد نمایید',
                               filled: false,
                               contentPadding: StacEdgeInsets.symmetric(
@@ -283,14 +282,14 @@ StacWidget promissoryData() {
                                 vertical: 16,
                               ),
                             ).toJson(),
-                            'validatorRules': [
+                            validatorRules: const [
                               {
                                 'rule': r'^.{1,200}$',
                                 'message': 'محل پرداخت را وارد نمایید',
                               },
                             ],
-                            'onChanged': _getFullValidationAction().toJson(),
-                          }),
+                            onChanged: _getFullValidationAction().toJson(),
+                          ),
                           StacSizedBox(height: 16),
 
                           // Description Field (Optional)

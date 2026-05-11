@@ -20,6 +20,7 @@ StacWidget cartableRealIntro() {
       backgroundColor: '{{appColors.current.background.surface}}',
       body: StacDefaultTabController(
         length: 2,
+        initialIndex: 1,
         child: StacColumn(
           children: [
             StacSizedBox(height: 52),
@@ -27,7 +28,7 @@ StacWidget cartableRealIntro() {
             StacSizedBox(height: 8),
             StacExpanded(
               child: StacTabBarView(
-                children: [_buildCardboardPage(), _buildProcessPage()],
+                children: [_buildProcessPage(), _buildCardboardPage()],
               ),
             ),
           ],
@@ -61,8 +62,8 @@ StacWidget _buildMainSelector() {
           labelColor: '{{appColors.current.text.title}}',
           unselectedLabelColor: '{{appColors.current.text.subtitle}}',
           tabs: const [
-            StacTab(text: 'کارتابل', height: 62),
             StacTab(text: 'تاریخچه فعالیت‌ها', height: 62),
+            StacTab(text: 'کارتابل', height: 62),
           ],
         ),
         StacPositioned(

@@ -1,4 +1,5 @@
 import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
@@ -112,18 +113,17 @@ StacWidget tobankLoginFlowLinearVerifyOtp() {
                       crossAxisAlignment: StacCrossAxisAlignment.start,
                       children: [
                         StacExpanded(
-                          child: StacRawJsonWidget({
-                            'type': 'textFormField',
-                            'id': 'otp_code',
-                            'textDirection': 'ltr',
-                            'textAlign': 'right',
-                            'maxLength': 5,
-                            'inputFormatters': [
+                          child: StacCustomTextFormField(
+                            id: 'otp_code',
+                            textDirection: 'ltr',
+                            textAlign: 'right',
+                            maxLength: 5,
+                            inputFormatters: const [
                               {'type': 'allow', 'rule': '[0-9]'},
                             ],
-                            'keyboardType': 'number',
-                            'textInputAction': 'done',
-                            'decoration': {
+                            keyboardType: 'number',
+                            textInputAction: 'done',
+                            decoration: {
                               ...StacInputDecoration(
                                 filled: false,
                                 contentPadding: StacEdgeInsets.symmetric(
@@ -134,26 +134,26 @@ StacWidget tobankLoginFlowLinearVerifyOtp() {
                               'helperText': ' ',
                               'helperStyle': {'type': 'custom', 'height': 0.5},
                             },
-                            'style': StacCustomTextStyle(
+                            style: StacCustomTextStyle(
                               fontSize: 24.0,
                               fontWeight: StacFontWeight.w600,
                               fontFamily: 'IranYekan',
                               letterSpacing: 8.0,
                               color: '{{appColors.current.text.title}}',
                             ).toJson(),
-                            'validatorRules': [
+                            validatorRules: const [
                               {
                                 'rule': r'^\d{5}$',
                                 'message': 'کد تایید باید 5 رقم باشد',
                               },
                             ],
-                            'onChanged': StacValidateFieldsAction(
+                            onChanged: StacValidateFieldsAction(
                               resultKey: 'isFormValid',
                               fields: [
                                 {'id': 'otp_code', 'rule': r'^\d{5}$'},
                               ],
                             ).toJson(),
-                          }),
+                          ),
                         ),
                         StacSizedBox(width: 8.0),
                         StacOutlinedButton(

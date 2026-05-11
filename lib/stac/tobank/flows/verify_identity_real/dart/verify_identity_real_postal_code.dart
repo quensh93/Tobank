@@ -141,17 +141,16 @@ StacWidget _buildPostalCodeSection() {
         children: [
           // Text field
           StacExpanded(
-            child: StacRawJsonWidget({
-              'type': 'textFormField',
-              'id': 'postalCodeInput',
-              'textDirection': 'rtl',
-              'textAlign': 'right',
-              'keyboardType': 'number',
-              'maxLength': 10,
-              'inputFormatters': [
+            child: StacCustomTextFormField(
+              id: 'postalCodeInput',
+              textDirection: 'rtl',
+              textAlign: 'right',
+              keyboardType: 'number',
+              maxLength: 10,
+              inputFormatters: const [
                 {'type': 'allow', 'rule': '[0-9]'},
               ],
-              'onChanged': StacSequenceAction(
+              onChanged: StacSequenceAction(
                 actions: [
                   const StacCustomSetValueAction(
                     values: [
@@ -173,12 +172,12 @@ StacWidget _buildPostalCodeSection() {
                   ),
                 ],
               ).toJson(),
-              'style': StacCustomTextStyle(
+              style: StacCustomTextStyle(
                 fontSize: 18,
                 fontWeight: StacFontWeight.w600,
                 color: '{{appColors.current.text.title}}',
               ).toJson(),
-              'decoration': {
+              decoration: {
                 ...StacInputDecoration(
                   hintText: '{{appStrings.authentication.postalCodeHint}}',
                   hintStyle: StacTextStyle(
@@ -218,7 +217,7 @@ StacWidget _buildPostalCodeSection() {
                 ).toJson(),
                 'counterText': '',
               },
-            }),
+            ),
           ),
           StacSizedBox(width: 10),
           // "استعلام" button

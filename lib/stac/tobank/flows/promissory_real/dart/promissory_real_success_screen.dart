@@ -34,7 +34,7 @@ StacWidget promissoryRealSuccess() {
     ),
     child: StacScaffold(
       appBar: buildTobankFlowAppBar(
-        showSupport: false,
+        showSupport: true,
         title: '{{appStrings.promissory.successTitle}}',
         showBack: false,
       ),

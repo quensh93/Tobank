@@ -74,7 +74,7 @@ StacWidget promissoryRealPreview() {
     ),
     child: StacScaffold(
       appBar: buildTobankFlowAppBar(
-        showSupport: false,
+        showSupport: true,
         // نمایش سفته
         title: '{{appStrings.promissory.previewScreenTitle}}',
       ),

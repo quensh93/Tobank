@@ -26,7 +26,7 @@ StacWidget promissoryRealReceiver() {
     ),
     child: StacScaffold(
       appBar: buildTobankFlowAppBar(
-        showSupport: false,
+        showSupport: true,
         title: '{{appStrings.promissory.issuanceTitle}}',
       ),
       body: StacForm(

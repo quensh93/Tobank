@@ -43,7 +43,7 @@ StacWidget promissoryRealPayment() {
     ),
     child: StacScaffold(
       appBar: buildTobankFlowAppBar(
-        showSupport: false,
+        showSupport: true,
         // پرداخت هزینه
         title: '{{appStrings.promissory.paymentTitle}}',
       ),

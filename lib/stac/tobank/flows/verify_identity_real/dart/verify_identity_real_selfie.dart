@@ -86,27 +86,25 @@ StacWidget _buildSerialSection() {
         ),
       ),
       StacSizedBox(height: 12),
-      StacRawJsonWidget({
-        'type': 'textFormField',
-        'id': 'smartCardSerial',
-        'textDirection': 'rtl',
-        'textAlign': 'right',
-        'keyboardType': 'text',
-        'textCapitalization': 'characters',
-        'maxLength': 10,
-        'initialValue': '4M15685899',
-        'style': StacCustomTextStyle(
+      StacCustomTextFormField(
+        id: 'smartCardSerial',
+        textDirection: 'rtl',
+        textAlign: 'right',
+        keyboardType: 'text',
+        maxLength: 10,
+        initialValue: '4M15685899',
+        style: StacCustomTextStyle(
           fontSize: 18,
           fontWeight: StacFontWeight.w600,
           color: '{{appColors.current.text.title}}',
         ).toJson(),
-        'onChanged': const StacValidateFieldsAction(
+        onChanged: const StacValidateFieldsAction(
           resultKey: 'hasSmartCardSerialInput',
           fields: [
             {'id': 'smartCardSerial'},
           ],
         ).toJson(),
-        'decoration': StacInputDecoration(
+        decoration: StacInputDecoration(
           hintText: 'سریال پشت کارت ملی خود را وارد کنید',
           hintStyle: StacTextStyle(
             fontSize: 15,
@@ -119,7 +117,7 @@ StacWidget _buildSerialSection() {
             vertical: 18,
           ),
         ).toJson(),
-      }),
+      ),
     ],
   );
 }

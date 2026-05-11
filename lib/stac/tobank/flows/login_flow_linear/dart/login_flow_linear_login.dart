@@ -1,4 +1,5 @@
 import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart'
     hide StacPersianDatePickerAction;
@@ -63,16 +64,15 @@ StacWidget _buildLinearLogin() {
                           style: StacAliasTextStyle('{{appStyles.text.label}}'),
                         ),
                         StacSizedBox(height: 8.0),
-                        StacRawJsonWidget({
-                          'type': 'textFormField',
-                          'id': 'mobile_number',
-                          'textDirection': 'rtl',
-                          'textAlign': 'right',
-                          'maxLength': 11,
-                          'inputFormatters': [
+                        StacCustomTextFormField(
+                          id: 'mobile_number',
+                          textDirection: 'rtl',
+                          textAlign: 'right',
+                          maxLength: 11,
+                          inputFormatters: const [
                             {'type': 'allow', 'rule': '[0-9]'},
                           ],
-                          'decoration': StacInputDecoration(
+                          decoration: StacInputDecoration(
                             hintText:
                                 '{{appStrings.login.mobileNumberPlaceholder}}',
                             hintStyle: StacCustomTextStyle(
@@ -87,21 +87,21 @@ StacWidget _buildLinearLogin() {
                               vertical: 16.0,
                             ),
                           ).toJson(),
-                          'keyboardType': 'number',
-                          'textInputAction': 'next',
-                          'style': StacCustomTextStyle(
+                          keyboardType: 'number',
+                          textInputAction: 'next',
+                          style: StacCustomTextStyle(
                             fontSize: 16.0,
                             fontWeight: StacFontWeight.w600,
                             color: '{{appStyles.input.login.textStyleColor}}',
                           ).toJson(),
-                          'validatorRules': [
+                          validatorRules: const [
                             {
                               'rule': r'^09\d{9}$',
                               'message':
                                   '{{appStrings.login.mobileNumberError}}',
                             },
                           ],
-                          'onChanged': StacValidateFieldsAction(
+                          onChanged: StacValidateFieldsAction(
                             resultKey: 'isFormValid',
                             fields: [
                               {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
@@ -112,7 +112,7 @@ StacWidget _buildLinearLogin() {
                               },
                             ],
                           ).toJson(),
-                        }),
+                        ),
                         StacSizedBox(height: 16.0),
                         StacText(
                           data: '{{appStrings.login.nationalCodeTitle}}',
@@ -120,16 +120,15 @@ StacWidget _buildLinearLogin() {
                           style: StacAliasTextStyle('{{appStyles.text.label}}'),
                         ),
                         StacSizedBox(height: 8.0),
-                        StacRawJsonWidget({
-                          'type': 'textFormField',
-                          'id': 'national_code',
-                          'textDirection': 'rtl',
-                          'textAlign': 'right',
-                          'maxLength': 10,
-                          'inputFormatters': [
+                        StacCustomTextFormField(
+                          id: 'national_code',
+                          textDirection: 'rtl',
+                          textAlign: 'right',
+                          maxLength: 10,
+                          inputFormatters: const [
                             {'type': 'allow', 'rule': '[0-9]'},
                           ],
-                          'decoration': StacInputDecoration(
+                          decoration: StacInputDecoration(
                             hintText:
                                 '{{appStrings.login.nationalCodePlaceholder}}',
                             hintStyle: StacCustomTextStyle(
@@ -144,21 +143,21 @@ StacWidget _buildLinearLogin() {
                               vertical: 16.0,
                             ),
                           ).toJson(),
-                          'keyboardType': 'number',
-                          'textInputAction': 'done',
-                          'style': StacCustomTextStyle(
+                          keyboardType: 'number',
+                          textInputAction: 'done',
+                          style: StacCustomTextStyle(
                             fontSize: 16.0,
                             fontWeight: StacFontWeight.w600,
                             color: '{{appStyles.input.login.textStyleColor}}',
                           ).toJson(),
-                          'validatorRules': [
+                          validatorRules: const [
                             {
                               'rule': r'^\d{10}$',
                               'message':
                                   '{{appStrings.login.nationalCodeError}}',
                             },
                           ],
-                          'onChanged': StacValidateFieldsAction(
+                          onChanged: StacValidateFieldsAction(
                             resultKey: 'isFormValid',
                             fields: [
                               {'id': 'mobile_number', 'rule': r'^09\d{9}$'},
@@ -169,7 +168,7 @@ StacWidget _buildLinearLogin() {
                               },
                             ],
                           ).toJson(),
-                        }),
+                        ),
                         StacSizedBox(height: 16.0),
                         StacText(
                           data: '{{appStrings.login.birthdateLabel}}',

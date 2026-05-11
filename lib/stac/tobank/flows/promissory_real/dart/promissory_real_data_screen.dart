@@ -30,7 +30,7 @@ StacWidget promissoryRealData() {
     ),
     child: StacScaffold(
       appBar: buildTobankFlowAppBar(
-        showSupport: false,
+        showSupport: true,
         // صدور سفته
         title: '{{appStrings.promissory.issuanceTitle}}',
       ),

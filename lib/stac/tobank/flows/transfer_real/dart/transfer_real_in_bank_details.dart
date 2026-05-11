@@ -19,8 +19,7 @@ StacWidget transferRealInBankDetails() {
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
       appBar: buildTobankFlowAppBar(
-        showSupport: false,
-        backIconSrc: '{{appAssets.icons.arrowRight}}',
+        showSupport: true,
         title: 'انتقال وجه',
       ),
       body: StacForm(

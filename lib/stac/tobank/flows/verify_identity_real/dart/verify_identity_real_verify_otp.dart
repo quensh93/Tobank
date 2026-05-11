@@ -63,19 +63,17 @@ StacWidget verifyIdentityRealVerifyOtp() {
                         crossAxisAlignment: StacCrossAxisAlignment.start,
                         children: [
                           StacExpanded(
-                            child: StacRawJsonWidget({
-                              'type': 'textFormField',
-                              'id': 'verify_identity_otp_code',
-                              'textDirection': 'ltr',
-                              'textAlign': 'right',
-                              'supportTextDirection': 'rtl',
-                              'maxLength': 5,
-                              'inputFormatters': [
+                            child: StacCustomTextFormField(
+                              id: 'verify_identity_otp_code',
+                              textDirection: 'ltr',
+                              textAlign: 'right',
+                              maxLength: 5,
+                              inputFormatters: const [
                                 {'type': 'allow', 'rule': '[0-9]'},
                               ],
-                              'keyboardType': 'number',
-                              'textInputAction': 'done',
-                              'decoration': {
+                              keyboardType: 'number',
+                              textInputAction: 'done',
+                              decoration: {
                                 ...StacInputDecoration(
                                   hintText:
                                       '{{appStrings.authentication.otpCodeHint}}',
@@ -96,20 +94,20 @@ StacWidget verifyIdentityRealVerifyOtp() {
                                   'height': 0.5,
                                 },
                               },
-                              'style': StacCustomTextStyle(
+                              style: StacCustomTextStyle(
                                 fontSize: 18,
                                 fontWeight: StacFontWeight.w600,
                                 color: '{{appColors.current.text.title}}',
                                 letterSpacing: 4,
                               ).toJson(),
-                              'validatorRules': [
+                              validatorRules: const [
                                 {
                                   'rule': r'^\d{5}$',
                                   'message':
                                       '{{appStrings.verifyOtp.otpCodeError}}',
                                 },
                               ],
-                              'onChanged': StacValidateFieldsAction(
+                              onChanged: StacValidateFieldsAction(
                                 resultKey: 'isVerifyIdentityOtpValid',
                                 fields: [
                                   {
@@ -118,7 +116,7 @@ StacWidget verifyIdentityRealVerifyOtp() {
                                   },
                                 ],
                               ).toJson(),
-                            }),
+                            ),
                           ),
                           StacSizedBox(width: 12),
                           StacCustomWidget.fromJson({

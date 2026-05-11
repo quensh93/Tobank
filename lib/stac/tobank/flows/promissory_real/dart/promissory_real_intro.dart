@@ -20,8 +20,7 @@ StacWidget promissoryRealIntro() {
     child: StacScaffold(
       // سفته انلاین
       appBar: buildTobankFlowAppBar(
-        showSupport: false,
-        backIconSrc: 'assets/icons/ic_right_arrow.svg',
+        showSupport: true,
         title: '{{appStrings.promissory.PromissoryTitle}}',
       ),
       body: StacDefaultTabController(

@@ -59,30 +59,49 @@ class ShowTransferTypeBottomSheetActionParser
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
 
-    final options = const <_TransferTypeItem>[
+    final selectedPurpose =
+        (StacRegistry.instance.getValue('transferApiReasonTitle') ?? '')
+            .toString()
+            .trim();
+    final amountRaw = (StacRegistry.instance.getValue('transferApiAmountRaw') ??
+            '')
+        .toString();
+    final amount = _parseAmount(amountRaw);
+    const satnaMinAmount = 100000000;
+    final isInsurancePurpose = selectedPurpose == 'امور بیمه خدمات';
+
+    final options = <_TransferTypeItem>[
       _TransferTypeItem(
         title: 'درون بانکی',
-        subtitle: 'برای این انتقال حساب مقصد باید گردشگری باشد.',
+        subtitle: isInsurancePurpose
+            ? 'انتقال در لحظه | کارمزد: رایگان'
+            : 'برای این انتقال حساب مقصد باید گردشگری باشد.',
         iconAsset: 'assets/icons/ic_gardeshgari.svg',
-        enabled: false,
+        enabled: isInsurancePurpose,
       ),
       _TransferTypeItem(
         title: 'پل',
-        subtitle: 'انتقال در لحظه | کارمزد: ۵۰۰۰ ریال',
+        subtitle: isInsurancePurpose
+            ? 'این روش برای انتقال درون بانکی فعال نیست'
+            : 'انتقال در لحظه | کارمزد: ۵۰۰۰ ریال',
         iconAsset: 'assets/icons/ic_bank_transfer.svg',
-        enabled: true,
+        enabled: !isInsurancePurpose,
       ),
       _TransferTypeItem(
         title: 'پایا',
-        subtitle: 'انتقال امروز تا ۱۹:۴۵ | کارمزد: ۳۰۰۰ ریال',
+        subtitle: isInsurancePurpose
+            ? 'این روش برای انتقال درون بانکی فعال نیست'
+            : 'انتقال امروز تا ۱۹:۴۵ | کارمزد: ۳۰۰۰ ریال',
         iconAsset: 'assets/icons/ic_bank_transfer.svg',
-        enabled: true,
+        enabled: !isInsurancePurpose,
       ),
       _TransferTypeItem(
         title: 'ساتنا',
-        subtitle: 'حداقل مبلغ انتقال در هر روز ۱۰۰,۰۰۰,۰۰۰ ریال می‌باشد.',
+        subtitle: isInsurancePurpose
+            ? 'این روش برای انتقال درون بانکی فعال نیست'
+            : 'حداقل مبلغ انتقال در هر روز ۱۰۰,۰۰۰,۰۰۰ ریال می‌باشد.',
         iconAsset: 'assets/icons/ic_bank_transfer_dark.svg',
-        enabled: false,
+        enabled: !isInsurancePurpose && amount >= satnaMinAmount,
       ),
     ];
 
@@ -149,15 +168,16 @@ class ShowTransferTypeBottomSheetActionParser
                           itemBuilder: (itemContext, index) {
                             final item = options[index];
                             final disabled = !item.enabled;
+                            final iconAsset = disabled &&
+                                    item.iconAsset.contains('ic_bank_transfer')
+                                ? 'assets/icons/ic_bank_transfer_disabled.svg'
+                                : item.iconAsset;
+                            const disabledTextColor = Color(0xFF98A2B3);
                             final titleColor = disabled
-                                ? colorScheme.onSurfaceVariant.withValues(
-                                    alpha: 0.45,
-                                  )
+                                ? disabledTextColor
                                 : colorScheme.onSurface;
                             final subtitleColor = disabled
-                                ? colorScheme.onSurfaceVariant.withValues(
-                                    alpha: 0.40,
-                                  )
+                                ? disabledTextColor
                                 : colorScheme.onSurfaceVariant;
 
                             return InkWell(
@@ -174,9 +194,14 @@ class ShowTransferTypeBottomSheetActionParser
                                 ),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(11),
+                                  color: disabled
+                                      ? const Color(0xFFF8F9FB)
+                                      : null,
                                   border: Border.all(
-                                    color: colorScheme.outlineVariant
-                                        .withValues(alpha: 0.24),
+                                    color: disabled
+                                        ? const Color(0xFFD0D5DD)
+                                        : colorScheme.outlineVariant
+                                              .withValues(alpha: 0.24),
                                     width: 1,
                                   ),
                                 ),
@@ -189,22 +214,21 @@ class ShowTransferTypeBottomSheetActionParser
                                       height: 46,
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
-                                        color: colorScheme.surfaceContainerHigh
-                                            .withValues(alpha: 0.65),
+                                        color: disabled
+                                            ? const Color(0xFFF2F4F7)
+                                            : colorScheme.surfaceContainerHigh
+                                                  .withValues(alpha: 0.65),
                                       ),
                                       child: Opacity(
-                                        opacity: disabled ? 0.45 : 1,
+                                        opacity: disabled ? 0.7 : 1,
                                         child: Center(
                                           child: SvgPicture.asset(
-                                            item.iconAsset,
+                                            iconAsset,
                                             width: 24,
                                             height: 24,
                                             colorFilter: disabled
                                                 ? ColorFilter.mode(
-                                                    colorScheme.onSurfaceVariant
-                                                        .withValues(
-                                                          alpha: 0.45,
-                                                        ),
+                                                    disabledTextColor,
                                                     BlendMode.srcIn,
                                                   )
                                                 : null,
@@ -285,6 +309,22 @@ class ShowTransferTypeBottomSheetActionParser
       'navigationStyle': 'push',
     }, context);
   }
+}
+
+int _parseAmount(String input) {
+  final normalized = _toEnglishDigits(input).replaceAll(RegExp(r'[^0-9]'), '');
+  if (normalized.isEmpty) return 0;
+  return int.tryParse(normalized) ?? 0;
+}
+
+String _toEnglishDigits(String value) {
+  const fa = '۰۱۲۳۴۵۶۷۸۹';
+  const ar = '٠١٢٣٤٥٦٧٨٩';
+  var output = value;
+  for (var i = 0; i < 10; i++) {
+    output = output.replaceAll(fa[i], '$i').replaceAll(ar[i], '$i');
+  }
+  return output;
 }
 
 class _TransferTypeItem {

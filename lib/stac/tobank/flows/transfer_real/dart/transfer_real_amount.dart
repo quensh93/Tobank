@@ -118,8 +118,7 @@ StacWidget transferRealAmount() {
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
       appBar: buildTobankFlowAppBar(
-        showSupport: false,
-        backIconSrc: '{{appAssets.icons.arrowRight}}',
+        showSupport: true,
         title: 'انتقال وجه',
       ),
       body: StacForm(
@@ -379,23 +378,22 @@ StacWidget _ibanInputSection() {
         ),
       ),
       StacSizedBox(height: 10),
-      StacRawJsonWidget({
-        'type': 'textFormField',
-        'id': 'transferApiIbanInput',
-        'textDirection': 'ltr',
-        'textAlign': 'left',
-        'keyboardType': 'number',
-        'maxLength': 24,
-        'inputFormatters': const [
+      StacCustomTextFormField(
+        id: 'transferApiIbanInput',
+        textDirection: 'ltr',
+        textAlign: 'left',
+        keyboardType: 'number',
+        maxLength: 24,
+        inputFormatters: const [
           {'type': 'allow', 'rule': '[0-9]'},
         ],
-        'onChanged': _filterAction().toJson(),
-        'style': StacCustomTextStyle(
+        onChanged: _filterAction().toJson(),
+        style: StacCustomTextStyle(
           fontSize: 16,
           fontWeight: StacFontWeight.w600,
           color: '{{appColors.current.text.title}}',
         ).toJson(),
-        'decoration': {
+        decoration: {
           ...StacInputDecoration(
             hintText: 'شماره شبا را وارد کنید',
             hintStyle: StacCustomTextStyle(
@@ -456,7 +454,7 @@ StacWidget _ibanInputSection() {
           'hintTextDirection': 'rtl',
           'hintTextAlign': 'right',
         },
-      }),
+      ),
     ],
   );
 }

@@ -292,7 +292,7 @@ StacWidget promissoryRealPaymentDeposits() {
     onInit: fetchDepositsAction,
     child: StacScaffold(
       appBar: buildTobankFlowAppBar(
-        showSupport: false,
+        showSupport: true,
         // انتخاب سپرده پرداخت
         title: '{{appStrings.promissory.selectPaymentDepositTitle}}',
       ),

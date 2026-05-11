@@ -12,7 +12,7 @@ import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 StacWidget promissoryRealConfirm() {
   return StacScaffold(
     appBar: buildTobankFlowAppBar(
-      showSupport: false,
+      showSupport: true,
       // صدور سفته
       title: '{{appStrings.promissory.issuanceTitle}}',
     ),

@@ -1,4 +1,5 @@
 import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart'
@@ -90,16 +91,15 @@ StacWidget promissoryReceiver() {
                       ),
                     ),
                     StacSizedBox(height: 8),
-                    StacRawJsonWidget({
-                      'type': 'textFormField',
-                      'id': 'receiver_national_code',
-                      'textDirection': 'rtl',
-                      'textAlign': 'right',
-                      'maxLength': 10,
-                      'inputFormatters': [
+                    StacCustomTextFormField(
+                      id: 'receiver_national_code',
+                      textDirection: 'rtl',
+                      textAlign: 'right',
+                      maxLength: 10,
+                      inputFormatters: const [
                         {'type': 'allow', 'rule': '[0-9]'},
                       ],
-                      'decoration': StacInputDecoration(
+                      decoration: StacInputDecoration(
                         hintText: 'کد ملی ذینفع را وارد نمایید',
                         filled: false,
                         contentPadding: StacEdgeInsets.symmetric(
@@ -107,15 +107,15 @@ StacWidget promissoryReceiver() {
                           vertical: 16,
                         ),
                       ).toJson(),
-                      'keyboardType': 'number',
-                      'textInputAction': 'next',
-                      'validatorRules': [
+                      keyboardType: 'number',
+                      textInputAction: 'next',
+                      validatorRules: const [
                         {
                           'rule': r'^\d{10}$',
                           'message': 'کد ملی معتبر وارد نمایید',
                         },
                       ],
-                      'onChanged': StacValidateFieldsAction(
+                      onChanged: StacValidateFieldsAction(
                         resultKey: 'isReceiverFormValid',
                         fields: [
                           {'id': 'receiver_national_code', 'rule': r'^\d{10}$'},
@@ -126,7 +126,7 @@ StacWidget promissoryReceiver() {
                           },
                         ],
                       ).toJson(),
-                    }),
+                    ),
                     StacSizedBox(height: 16),
 
                     // Mobile Number Field
@@ -140,16 +140,15 @@ StacWidget promissoryReceiver() {
                       ),
                     ),
                     StacSizedBox(height: 8),
-                    StacRawJsonWidget({
-                      'type': 'textFormField',
-                      'id': 'receiver_mobile',
-                      'textDirection': 'rtl',
-                      'textAlign': 'right',
-                      'maxLength': 11,
-                      'inputFormatters': [
+                    StacCustomTextFormField(
+                      id: 'receiver_mobile',
+                      textDirection: 'rtl',
+                      textAlign: 'right',
+                      maxLength: 11,
+                      inputFormatters: const [
                         {'type': 'allow', 'rule': '[0-9]'},
                       ],
-                      'decoration': StacInputDecoration(
+                      decoration: StacInputDecoration(
                         hintText: 'شماره همراه ذینفع را وارد نمایید',
                         filled: false,
                         contentPadding: StacEdgeInsets.symmetric(
@@ -157,15 +156,15 @@ StacWidget promissoryReceiver() {
                           vertical: 16,
                         ),
                       ).toJson(),
-                      'keyboardType': 'phone',
-                      'textInputAction': 'next',
-                      'validatorRules': [
+                      keyboardType: 'phone',
+                      textInputAction: 'next',
+                      validatorRules: const [
                         {
                           'rule': r'^09\d{9}$',
                           'message': 'شماره همراه معتبر وارد نمایید',
                         },
                       ],
-                      'onChanged': StacValidateFieldsAction(
+                      onChanged: StacValidateFieldsAction(
                         resultKey: 'isReceiverFormValid',
                         fields: [
                           {'id': 'receiver_national_code', 'rule': r'^\d{10}$'},
@@ -176,7 +175,7 @@ StacWidget promissoryReceiver() {
                           },
                         ],
                       ).toJson(),
-                    }),
+                    ),
                     StacSizedBox(height: 16),
 
                     // Birthdate Field

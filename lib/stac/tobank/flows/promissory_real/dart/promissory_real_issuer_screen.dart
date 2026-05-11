@@ -156,7 +156,7 @@ StacWidget promissoryRealIssuer() {
 StacWidget _buildLoadingScreen() {
   return StacScaffold(
     appBar: buildTobankFlowAppBar(
-      showSupport: false,
+      showSupport: true,
       // اطلاعات صادرکننده
       title: '{{appStrings.promissory.issuerTitle}}',
     ),
@@ -184,7 +184,7 @@ StacWidget _buildLoadingScreen() {
 StacWidget _buildErrorScreen(StacAction onRetry) {
   return StacScaffold(
     appBar: buildTobankFlowAppBar(
-      showSupport: false,
+      showSupport: true,
       // اطلاعات صادرکننده
       title: '{{appStrings.promissory.issuerTitle}}',
     ),
@@ -231,7 +231,7 @@ StacWidget _buildErrorScreen(StacAction onRetry) {
 StacWidget _buildIssuerDataScreen(StacAction onContinue) {
   return StacScaffold(
     appBar: buildTobankFlowAppBar(
-      showSupport: false,
+      showSupport: true,
       // اطلاعات صادرکننده
       title: '{{appStrings.promissory.issuerTitle}}',
     ),
