@@ -97,21 +97,22 @@
     "appBar": {
       "leading": {
         "padding": {
-          "left": 12.0
+          "left": 12
         },
         "child": {
           "child": {
             "src": "{{appAssets.icons.support}}",
             "imageType": "asset",
             "color": "{{appColors.current.text.title}}",
-            "width": 24.0,
-            "height": 24.0,
+            "width": 24,
+            "height": 24,
             "type": "image"
           },
           "type": "center"
         },
         "type": "padding"
       },
+      "automaticallyImplyLeading": true,
       "title": {
         "data": "اینترنت",
         "style": {
@@ -124,7 +125,7 @@
       "actions": [
         {
           "padding": {
-            "right": 12.0
+            "right": 12
           },
           "child": {
             "onPressed": {
@@ -135,8 +136,8 @@
               "src": "{{appAssets.icons.arrowBack}}",
               "imageType": "asset",
               "color": "{{appColors.current.text.title}}",
-              "width": 31.0,
-              "height": 31.0,
+              "width": 31,
+              "height": 31,
               "type": "image"
             },
             "type": "iconButton"
@@ -160,9 +161,9 @@
                 {
                   "child": {
                     "padding": {
-                      "left": 16.0,
-                      "top": 14.0,
-                      "right": 16.0
+                      "left": 16,
+                      "top": 14,
+                      "right": 16
                     },
                     "child": {
                       "crossAxisAlignment": "stretch",
@@ -172,7 +173,7 @@
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
-                            "fontSize": 18.0,
+                            "fontSize": 18,
                             "fontWeight": "w700"
                           },
                           "textAlign": "right",
@@ -180,7 +181,7 @@
                           "type": "text"
                         },
                         {
-                          "height": 18.0,
+                          "height": 18,
                           "type": "sizedBox"
                         },
                         {
@@ -195,21 +196,21 @@
                               "hintStyle": {
                                 "type": "custom",
                                 "color": "#98A2B3",
-                                "fontSize": 14.0,
+                                "fontSize": 14,
                                 "fontWeight": "w500"
                               },
                               "prefixIcon": {
                                 "padding": {
-                                  "left": 12.0,
-                                  "right": 8.0
+                                  "left": 12,
+                                  "right": 8
                                 },
                                 "child": {
                                   "child": {
                                     "src": "assets/icons/ic_pick_contact.svg",
                                     "imageType": "asset",
                                     "color": "{{appColors.current.text.subtitle}}",
-                                    "width": 20.0,
-                                    "height": 20.0,
+                                    "width": 20,
+                                    "height": 20,
                                     "type": "image"
                                   },
                                   "onTap": {
@@ -407,10 +408,10 @@
                                 "type": "padding"
                               },
                               "contentPadding": {
-                                "left": 12.0,
-                                "top": 14.0,
-                                "right": 12.0,
-                                "bottom": 14.0
+                                "left": 12,
+                                "top": 14,
+                                "right": 12,
+                                "bottom": 14
                               },
                               "filled": false,
                               "counterText": ""
@@ -614,15 +615,15 @@
                           "visible": "[[crAddShowInvalidError]]",
                           "child": {
                             "padding": {
-                              "top": 8.0,
-                              "right": 6.0
+                              "top": 8,
+                              "right": 6
                             },
                             "child": {
                               "data": "شماره همراه نامعتبر است",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.feedback.error}}",
-                                "fontSize": 13.0,
+                                "fontSize": 13,
                                 "fontWeight": "w500"
                               },
                               "textAlign": "right",
@@ -640,15 +641,15 @@
                           "visible": "[[crAddShowUnsupportedError]]",
                           "child": {
                             "padding": {
-                              "top": 8.0,
-                              "right": 6.0
+                              "top": 8,
+                              "right": 6
                             },
                             "child": {
                               "data": "اپراتور مورد نظر پشتیبانی نمی‌شود",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.feedback.error}}",
-                                "fontSize": 13.0,
+                                "fontSize": 13,
                                 "fontWeight": "w500"
                               },
                               "textAlign": "right",
@@ -673,26 +674,26 @@
                   "visible": "[[!crAddCanContinue]]",
                   "child": {
                     "padding": {
-                      "left": 16.0,
-                      "right": 16.0,
-                      "bottom": 18.0
+                      "left": 16,
+                      "right": 16,
+                      "bottom": 18
                     },
                     "child": {
                       "style": {
                         "foregroundColor": "#98A2B3",
                         "backgroundColor": "#D0D5DD",
-                        "elevation": 0.0,
+                        "elevation": 0,
                         "fixedSize": {
-                          "width": 99999.0,
-                          "height": 56.0
+                          "width": 99999,
+                          "height": 56
                         },
                         "shape": {
                           "type": "roundedRectangleBorder",
                           "borderRadius": {
-                            "topLeft": 10.0,
-                            "topRight": 10.0,
-                            "bottomLeft": 10.0,
-                            "bottomRight": 10.0
+                            "topLeft": 10,
+                            "topRight": 10,
+                            "bottomLeft": 10,
+                            "bottomRight": 10
                           }
                         }
                       },
@@ -701,7 +702,7 @@
                         "style": {
                           "type": "custom",
                           "color": "#98A2B3",
-                          "fontSize": 16.0,
+                          "fontSize": 16,
                           "fontWeight": "w700"
                         },
                         "textDirection": "rtl",
@@ -720,9 +721,9 @@
                   "visible": "[[crAddCaseNormal]]",
                   "child": {
                     "padding": {
-                      "left": 16.0,
-                      "right": 16.0,
-                      "bottom": 18.0
+                      "left": 16,
+                      "right": 16,
+                      "bottom": 18
                     },
                     "child": {
                       "type": "reactiveElevatedButton",
@@ -730,18 +731,18 @@
                       "style": {
                         "foregroundColor": "{{appColors.current.primary.onPrimary}}",
                         "backgroundColor": "{{appColors.current.primary.color}}",
-                        "elevation": 0.0,
+                        "elevation": 0,
                         "fixedSize": {
-                          "width": 99999.0,
-                          "height": 56.0
+                          "width": 99999,
+                          "height": 56
                         },
                         "shape": {
                           "type": "roundedRectangleBorder",
                           "borderRadius": {
-                            "topLeft": 10.0,
-                            "topRight": 10.0,
-                            "bottomLeft": 10.0,
-                            "bottomRight": 10.0
+                            "topLeft": 10,
+                            "topRight": 10,
+                            "bottomLeft": 10,
+                            "bottomRight": 10
                           }
                         }
                       },
@@ -750,7 +751,7 @@
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.primary.onPrimary}}",
-                          "fontSize": 16.0,
+                          "fontSize": 16,
                           "fontWeight": "w700"
                         },
                         "textDirection": "rtl",
@@ -855,9 +856,22 @@
                             "value": "__STAC_OPEN__crAddEnteredPhone}}"
                           },
                           {
-                            "routeName": "package_real_package_list",
                             "navigationStyle": "push",
-                            "actionType": "navigate"
+                            "actionType": "navigate",
+                            "request": {
+                              "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.package_real_package_list/1",
+                              "body": {
+                                "operator": "is",
+                                "dimension": {
+                                  "app": "mobile"
+                                }
+                              },
+                              "method": "post",
+                              "headers": {
+                                "Accept": "*/*",
+                                "Content-Type": "application/json"
+                              }
+                            }
                           }
                         ]
                       }
@@ -873,9 +887,9 @@
                   "visible": "[[crAddCaseDuplicate]]",
                   "child": {
                     "padding": {
-                      "left": 16.0,
-                      "right": 16.0,
-                      "bottom": 18.0
+                      "left": 16,
+                      "right": 16,
+                      "bottom": 18
                     },
                     "child": {
                       "type": "reactiveElevatedButton",
@@ -883,18 +897,18 @@
                       "style": {
                         "foregroundColor": "{{appColors.current.primary.onPrimary}}",
                         "backgroundColor": "{{appColors.current.primary.color}}",
-                        "elevation": 0.0,
+                        "elevation": 0,
                         "fixedSize": {
-                          "width": 99999.0,
-                          "height": 56.0
+                          "width": 99999,
+                          "height": 56
                         },
                         "shape": {
                           "type": "roundedRectangleBorder",
                           "borderRadius": {
-                            "topLeft": 10.0,
-                            "topRight": 10.0,
-                            "bottomLeft": 10.0,
-                            "bottomRight": 10.0
+                            "topLeft": 10,
+                            "topRight": 10,
+                            "bottomLeft": 10,
+                            "bottomRight": 10
                           }
                         }
                       },
@@ -903,26 +917,160 @@
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.primary.onPrimary}}",
-                          "fontSize": 16.0,
+                          "fontSize": 16,
                           "fontWeight": "w700"
                         },
                         "textDirection": "rtl",
                         "type": "text"
                       },
                       "onPressed": {
-                        "actionType": "setValue",
-                        "values": [
+                        "actionType": "sequence",
+                        "actions": [
                           {
-                            "key": "crAddShowDuplicateDialog",
-                            "value": true
+                            "actionType": "setValue",
+                            "values": [
+                              {
+                                "key": "crAddShowInvalidError",
+                                "value": false
+                              },
+                              {
+                                "key": "crAddShowUnsupportedError",
+                                "value": false
+                              }
+                            ]
                           },
                           {
-                            "key": "crAddShowInvalidError",
-                            "value": false
-                          },
-                          {
-                            "key": "crAddShowUnsupportedError",
-                            "value": false
+                            "actionType": "showBottomSheet",
+                            "sheet": {
+                              "padding": {
+                                "left": 14,
+                                "top": 16,
+                                "right": 14,
+                                "bottom": 12
+                              },
+                              "decoration": {
+                                "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                "border": {
+                                  "color": "#2B8BFA",
+                                  "width": 2
+                                },
+                                "borderRadius": {
+                                  "topLeft": 12,
+                                  "topRight": 12,
+                                  "bottomLeft": 12,
+                                  "bottomRight": 12
+                                }
+                              },
+                              "margin": {
+                                "left": 16,
+                                "top": 24,
+                                "right": 16,
+                                "bottom": 24
+                              },
+                              "child": {
+                                "mainAxisSize": "min",
+                                "crossAxisAlignment": "stretch",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "decoration": {
+                                        "color": "#FFCD29",
+                                        "shape": "circle"
+                                      },
+                                      "width": 28,
+                                      "height": 28,
+                                      "child": {
+                                        "child": {
+                                          "icon": "error_outline",
+                                          "iconType": "material",
+                                          "size": 18,
+                                          "color": "#FFFFFF",
+                                          "type": "icon"
+                                        },
+                                        "type": "center"
+                                      },
+                                      "type": "container"
+                                    },
+                                    "type": "center"
+                                  },
+                                  {
+                                    "height": 10,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "مجاز نیست",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                      "fontSize": 18,
+                                      "fontWeight": "w700"
+                                    },
+                                    "textAlign": "center",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  },
+                                  {
+                                    "height": 10,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "شماره انتخابی شما جز سیم‌کارت‌های تکراری می‌باشد، لطفا یکی دیگر انتخاب کنید.",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                      "fontSize": 13,
+                                      "fontWeight": "w500"
+                                    },
+                                    "textAlign": "center",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  },
+                                  {
+                                    "height": 14,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "onPressed": {
+                                      "navigationStyle": "pop",
+                                      "actionType": "navigate"
+                                    },
+                                    "style": {
+                                      "foregroundColor": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
+                                      "backgroundColor": "__STAC_OPEN__appColors.current.primary.color}}",
+                                      "elevation": 0,
+                                      "fixedSize": {
+                                        "width": 999999,
+                                        "height": 44
+                                      },
+                                      "shape": {
+                                        "type": "roundedRectangleBorder",
+                                        "borderRadius": {
+                                          "topLeft": 8,
+                                          "topRight": 8,
+                                          "bottomLeft": 8,
+                                          "bottomRight": 8
+                                        }
+                                      }
+                                    },
+                                    "child": {
+                                      "data": "متوجه شدم",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
+                                        "fontSize": 14,
+                                        "fontWeight": "w700"
+                                      },
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "filledButton"
+                                  }
+                                ],
+                                "type": "column"
+                              },
+                              "type": "container"
+                            },
+                            "backgroundColor": "#8B63708C"
                           }
                         ]
                       }
@@ -938,9 +1086,9 @@
                   "visible": "[[crAddCasePorted]]",
                   "child": {
                     "padding": {
-                      "left": 16.0,
-                      "right": 16.0,
-                      "bottom": 18.0
+                      "left": 16,
+                      "right": 16,
+                      "bottom": 18
                     },
                     "child": {
                       "type": "reactiveElevatedButton",
@@ -948,18 +1096,18 @@
                       "style": {
                         "foregroundColor": "{{appColors.current.primary.onPrimary}}",
                         "backgroundColor": "{{appColors.current.primary.color}}",
-                        "elevation": 0.0,
+                        "elevation": 0,
                         "fixedSize": {
-                          "width": 99999.0,
-                          "height": 56.0
+                          "width": 99999,
+                          "height": 56
                         },
                         "shape": {
                           "type": "roundedRectangleBorder",
                           "borderRadius": {
-                            "topLeft": 10.0,
-                            "topRight": 10.0,
-                            "bottomLeft": 10.0,
-                            "bottomRight": 10.0
+                            "topLeft": 10,
+                            "topRight": 10,
+                            "bottomLeft": 10,
+                            "bottomRight": 10
                           }
                         }
                       },
@@ -968,24 +1116,1446 @@
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.primary.onPrimary}}",
-                          "fontSize": 16.0,
+                          "fontSize": 16,
                           "fontWeight": "w700"
                         },
                         "textDirection": "rtl",
                         "type": "text"
                       },
                       "onPressed": {
-                        "actionType": "setValue",
-                        "values": [
-                          {
-                            "key": "crAddShowOperatorSheet",
-                            "value": true
+                        "actionType": "showBottomSheet",
+                        "sheet": {
+                          "padding": {
+                            "left": 14,
+                            "top": 10,
+                            "right": 14,
+                            "bottom": 16
                           },
-                          {
-                            "key": "crAddShowSimTypeSheet",
-                            "value": false
-                          }
-                        ]
+                          "decoration": {
+                            "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                            "borderRadius": {
+                              "topLeft": 22,
+                              "topRight": 22
+                            }
+                          },
+                          "width": 999999,
+                          "child": {
+                            "mainAxisSize": "min",
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "child": {
+                                  "decoration": {
+                                    "color": "#D0D5DD",
+                                    "borderRadius": {
+                                      "topLeft": 99,
+                                      "topRight": 99,
+                                      "bottomLeft": 99,
+                                      "bottomRight": 99
+                                    }
+                                  },
+                                  "width": 44,
+                                  "height": 5,
+                                  "type": "container"
+                                },
+                                "type": "center"
+                              },
+                              {
+                                "height": 16,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": "اپراتور",
+                                "style": {
+                                  "type": "custom",
+                                  "fontSize": 18,
+                                  "fontWeight": "w700"
+                                },
+                                "textAlign": "center",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              },
+                              {
+                                "height": 8,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": "در صورت ترابرد سیم‌کارت اپراتور خود را انتخاب نمایید",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                  "fontSize": 13
+                                },
+                                "textAlign": "center",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              },
+                              {
+                                "height": 14,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "child": {
+                                  "type": "visibility",
+                                  "visible": "[[crAddOpMciSel]]",
+                                  "child": {
+                                    "decoration": {
+                                      "border": {
+                                        "color": "#20C4D8",
+                                        "width": 1
+                                      },
+                                      "borderRadius": {
+                                        "topLeft": 10,
+                                        "topRight": 10,
+                                        "bottomLeft": 10,
+                                        "bottomRight": 10
+                                      }
+                                    },
+                                    "child": {
+                                      "padding": {
+                                        "left": 12,
+                                        "top": 12,
+                                        "right": 12,
+                                        "bottom": 12
+                                      },
+                                      "decoration": {
+                                        "border": {
+                                          "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                          "width": 1
+                                        },
+                                        "borderRadius": {
+                                          "topLeft": 10,
+                                          "topRight": 10,
+                                          "bottomLeft": 10,
+                                          "bottomRight": 10
+                                        }
+                                      },
+                                      "child": {
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "src": "assets/icons/ic_hamrah_aval.svg",
+                                            "imageType": "asset",
+                                            "width": 20,
+                                            "height": 20,
+                                            "type": "image"
+                                          },
+                                          {
+                                            "width": 10,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "data": "همراه اول",
+                                            "style": {
+                                              "type": "custom",
+                                              "fontSize": 18,
+                                              "fontWeight": "w500"
+                                            },
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          },
+                                          {
+                                            "child": {
+                                              "type": "sizedBox"
+                                            },
+                                            "type": "expanded"
+                                          },
+                                          {
+                                            "type": "visibility",
+                                            "visible": "[[crAddOpMciSel]]",
+                                            "child": {
+                                              "decoration": {
+                                                "color": "#20C4D8",
+                                                "shape": "circle"
+                                              },
+                                              "width": 22,
+                                              "height": 22,
+                                              "child": {
+                                                "child": {
+                                                  "icon": "check",
+                                                  "iconType": "material",
+                                                  "size": 16,
+                                                  "color": "#FFFFFF",
+                                                  "type": "icon"
+                                                },
+                                                "type": "center"
+                                              },
+                                              "type": "container"
+                                            },
+                                            "replacement": {
+                                              "decoration": {
+                                                "border": {
+                                                  "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                  "width": 1
+                                                },
+                                                "shape": "circle"
+                                              },
+                                              "width": 22,
+                                              "height": 22,
+                                              "type": "container"
+                                            }
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "type": "container"
+                                    },
+                                    "type": "container"
+                                  },
+                                  "replacement": {
+                                    "padding": {
+                                      "left": 12,
+                                      "top": 12,
+                                      "right": 12,
+                                      "bottom": 12
+                                    },
+                                    "decoration": {
+                                      "border": {
+                                        "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                        "width": 1
+                                      },
+                                      "borderRadius": {
+                                        "topLeft": 10,
+                                        "topRight": 10,
+                                        "bottomLeft": 10,
+                                        "bottomRight": 10
+                                      }
+                                    },
+                                    "child": {
+                                      "textDirection": "rtl",
+                                      "children": [
+                                        {
+                                          "src": "assets/icons/ic_hamrah_aval.svg",
+                                          "imageType": "asset",
+                                          "width": 20,
+                                          "height": 20,
+                                          "type": "image"
+                                        },
+                                        {
+                                          "width": 10,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "همراه اول",
+                                          "style": {
+                                            "type": "custom",
+                                            "fontSize": 18,
+                                            "fontWeight": "w500"
+                                          },
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "child": {
+                                            "type": "sizedBox"
+                                          },
+                                          "type": "expanded"
+                                        },
+                                        {
+                                          "type": "visibility",
+                                          "visible": "[[crAddOpMciSel]]",
+                                          "child": {
+                                            "decoration": {
+                                              "color": "#20C4D8",
+                                              "shape": "circle"
+                                            },
+                                            "width": 22,
+                                            "height": 22,
+                                            "child": {
+                                              "child": {
+                                                "icon": "check",
+                                                "iconType": "material",
+                                                "size": 16,
+                                                "color": "#FFFFFF",
+                                                "type": "icon"
+                                              },
+                                              "type": "center"
+                                            },
+                                            "type": "container"
+                                          },
+                                          "replacement": {
+                                            "decoration": {
+                                              "border": {
+                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                "width": 1
+                                              },
+                                              "shape": "circle"
+                                            },
+                                            "width": 22,
+                                            "height": 22,
+                                            "type": "container"
+                                          }
+                                        }
+                                      ],
+                                      "type": "row"
+                                    },
+                                    "type": "container"
+                                  }
+                                },
+                                "onTap": {
+                                  "actionType": "setValue",
+                                  "values": [
+                                    {
+                                      "key": "crAddOpMciSel",
+                                      "value": true
+                                    },
+                                    {
+                                      "key": "crAddOpIrancellSel",
+                                      "value": false
+                                    },
+                                    {
+                                      "key": "crAddOpRightelSel",
+                                      "value": false
+                                    }
+                                  ]
+                                },
+                                "type": "gestureDetector"
+                              },
+                              {
+                                "height": 10,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "child": {
+                                  "type": "visibility",
+                                  "visible": "[[crAddOpIrancellSel]]",
+                                  "child": {
+                                    "decoration": {
+                                      "border": {
+                                        "color": "#20C4D8",
+                                        "width": 1
+                                      },
+                                      "borderRadius": {
+                                        "topLeft": 10,
+                                        "topRight": 10,
+                                        "bottomLeft": 10,
+                                        "bottomRight": 10
+                                      }
+                                    },
+                                    "child": {
+                                      "padding": {
+                                        "left": 12,
+                                        "top": 12,
+                                        "right": 12,
+                                        "bottom": 12
+                                      },
+                                      "decoration": {
+                                        "border": {
+                                          "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                          "width": 1
+                                        },
+                                        "borderRadius": {
+                                          "topLeft": 10,
+                                          "topRight": 10,
+                                          "bottomLeft": 10,
+                                          "bottomRight": 10
+                                        }
+                                      },
+                                      "child": {
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "src": "assets/icons/ic_irancell.svg",
+                                            "imageType": "asset",
+                                            "width": 20,
+                                            "height": 20,
+                                            "type": "image"
+                                          },
+                                          {
+                                            "width": 10,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "data": "ایرانسل",
+                                            "style": {
+                                              "type": "custom",
+                                              "fontSize": 18,
+                                              "fontWeight": "w500"
+                                            },
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          },
+                                          {
+                                            "child": {
+                                              "type": "sizedBox"
+                                            },
+                                            "type": "expanded"
+                                          },
+                                          {
+                                            "type": "visibility",
+                                            "visible": "[[crAddOpIrancellSel]]",
+                                            "child": {
+                                              "decoration": {
+                                                "color": "#20C4D8",
+                                                "shape": "circle"
+                                              },
+                                              "width": 22,
+                                              "height": 22,
+                                              "child": {
+                                                "child": {
+                                                  "icon": "check",
+                                                  "iconType": "material",
+                                                  "size": 16,
+                                                  "color": "#FFFFFF",
+                                                  "type": "icon"
+                                                },
+                                                "type": "center"
+                                              },
+                                              "type": "container"
+                                            },
+                                            "replacement": {
+                                              "decoration": {
+                                                "border": {
+                                                  "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                  "width": 1
+                                                },
+                                                "shape": "circle"
+                                              },
+                                              "width": 22,
+                                              "height": 22,
+                                              "type": "container"
+                                            }
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "type": "container"
+                                    },
+                                    "type": "container"
+                                  },
+                                  "replacement": {
+                                    "padding": {
+                                      "left": 12,
+                                      "top": 12,
+                                      "right": 12,
+                                      "bottom": 12
+                                    },
+                                    "decoration": {
+                                      "border": {
+                                        "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                        "width": 1
+                                      },
+                                      "borderRadius": {
+                                        "topLeft": 10,
+                                        "topRight": 10,
+                                        "bottomLeft": 10,
+                                        "bottomRight": 10
+                                      }
+                                    },
+                                    "child": {
+                                      "textDirection": "rtl",
+                                      "children": [
+                                        {
+                                          "src": "assets/icons/ic_irancell.svg",
+                                          "imageType": "asset",
+                                          "width": 20,
+                                          "height": 20,
+                                          "type": "image"
+                                        },
+                                        {
+                                          "width": 10,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "ایرانسل",
+                                          "style": {
+                                            "type": "custom",
+                                            "fontSize": 18,
+                                            "fontWeight": "w500"
+                                          },
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "child": {
+                                            "type": "sizedBox"
+                                          },
+                                          "type": "expanded"
+                                        },
+                                        {
+                                          "type": "visibility",
+                                          "visible": "[[crAddOpIrancellSel]]",
+                                          "child": {
+                                            "decoration": {
+                                              "color": "#20C4D8",
+                                              "shape": "circle"
+                                            },
+                                            "width": 22,
+                                            "height": 22,
+                                            "child": {
+                                              "child": {
+                                                "icon": "check",
+                                                "iconType": "material",
+                                                "size": 16,
+                                                "color": "#FFFFFF",
+                                                "type": "icon"
+                                              },
+                                              "type": "center"
+                                            },
+                                            "type": "container"
+                                          },
+                                          "replacement": {
+                                            "decoration": {
+                                              "border": {
+                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                "width": 1
+                                              },
+                                              "shape": "circle"
+                                            },
+                                            "width": 22,
+                                            "height": 22,
+                                            "type": "container"
+                                          }
+                                        }
+                                      ],
+                                      "type": "row"
+                                    },
+                                    "type": "container"
+                                  }
+                                },
+                                "onTap": {
+                                  "actionType": "setValue",
+                                  "values": [
+                                    {
+                                      "key": "crAddOpMciSel",
+                                      "value": false
+                                    },
+                                    {
+                                      "key": "crAddOpIrancellSel",
+                                      "value": true
+                                    },
+                                    {
+                                      "key": "crAddOpRightelSel",
+                                      "value": false
+                                    }
+                                  ]
+                                },
+                                "type": "gestureDetector"
+                              },
+                              {
+                                "height": 10,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "child": {
+                                  "type": "visibility",
+                                  "visible": "[[crAddOpRightelSel]]",
+                                  "child": {
+                                    "decoration": {
+                                      "border": {
+                                        "color": "#20C4D8",
+                                        "width": 1
+                                      },
+                                      "borderRadius": {
+                                        "topLeft": 10,
+                                        "topRight": 10,
+                                        "bottomLeft": 10,
+                                        "bottomRight": 10
+                                      }
+                                    },
+                                    "child": {
+                                      "padding": {
+                                        "left": 12,
+                                        "top": 12,
+                                        "right": 12,
+                                        "bottom": 12
+                                      },
+                                      "decoration": {
+                                        "border": {
+                                          "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                          "width": 1
+                                        },
+                                        "borderRadius": {
+                                          "topLeft": 10,
+                                          "topRight": 10,
+                                          "bottomLeft": 10,
+                                          "bottomRight": 10
+                                        }
+                                      },
+                                      "child": {
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "src": "assets/icons/ic_rightel.svg",
+                                            "imageType": "asset",
+                                            "width": 20,
+                                            "height": 20,
+                                            "type": "image"
+                                          },
+                                          {
+                                            "width": 10,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "data": "رایتل",
+                                            "style": {
+                                              "type": "custom",
+                                              "fontSize": 18,
+                                              "fontWeight": "w500"
+                                            },
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          },
+                                          {
+                                            "child": {
+                                              "type": "sizedBox"
+                                            },
+                                            "type": "expanded"
+                                          },
+                                          {
+                                            "type": "visibility",
+                                            "visible": "[[crAddOpRightelSel]]",
+                                            "child": {
+                                              "decoration": {
+                                                "color": "#20C4D8",
+                                                "shape": "circle"
+                                              },
+                                              "width": 22,
+                                              "height": 22,
+                                              "child": {
+                                                "child": {
+                                                  "icon": "check",
+                                                  "iconType": "material",
+                                                  "size": 16,
+                                                  "color": "#FFFFFF",
+                                                  "type": "icon"
+                                                },
+                                                "type": "center"
+                                              },
+                                              "type": "container"
+                                            },
+                                            "replacement": {
+                                              "decoration": {
+                                                "border": {
+                                                  "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                  "width": 1
+                                                },
+                                                "shape": "circle"
+                                              },
+                                              "width": 22,
+                                              "height": 22,
+                                              "type": "container"
+                                            }
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "type": "container"
+                                    },
+                                    "type": "container"
+                                  },
+                                  "replacement": {
+                                    "padding": {
+                                      "left": 12,
+                                      "top": 12,
+                                      "right": 12,
+                                      "bottom": 12
+                                    },
+                                    "decoration": {
+                                      "border": {
+                                        "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                        "width": 1
+                                      },
+                                      "borderRadius": {
+                                        "topLeft": 10,
+                                        "topRight": 10,
+                                        "bottomLeft": 10,
+                                        "bottomRight": 10
+                                      }
+                                    },
+                                    "child": {
+                                      "textDirection": "rtl",
+                                      "children": [
+                                        {
+                                          "src": "assets/icons/ic_rightel.svg",
+                                          "imageType": "asset",
+                                          "width": 20,
+                                          "height": 20,
+                                          "type": "image"
+                                        },
+                                        {
+                                          "width": 10,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "رایتل",
+                                          "style": {
+                                            "type": "custom",
+                                            "fontSize": 18,
+                                            "fontWeight": "w500"
+                                          },
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "child": {
+                                            "type": "sizedBox"
+                                          },
+                                          "type": "expanded"
+                                        },
+                                        {
+                                          "type": "visibility",
+                                          "visible": "[[crAddOpRightelSel]]",
+                                          "child": {
+                                            "decoration": {
+                                              "color": "#20C4D8",
+                                              "shape": "circle"
+                                            },
+                                            "width": 22,
+                                            "height": 22,
+                                            "child": {
+                                              "child": {
+                                                "icon": "check",
+                                                "iconType": "material",
+                                                "size": 16,
+                                                "color": "#FFFFFF",
+                                                "type": "icon"
+                                              },
+                                              "type": "center"
+                                            },
+                                            "type": "container"
+                                          },
+                                          "replacement": {
+                                            "decoration": {
+                                              "border": {
+                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                "width": 1
+                                              },
+                                              "shape": "circle"
+                                            },
+                                            "width": 22,
+                                            "height": 22,
+                                            "type": "container"
+                                          }
+                                        }
+                                      ],
+                                      "type": "row"
+                                    },
+                                    "type": "container"
+                                  }
+                                },
+                                "onTap": {
+                                  "actionType": "setValue",
+                                  "values": [
+                                    {
+                                      "key": "crAddOpMciSel",
+                                      "value": false
+                                    },
+                                    {
+                                      "key": "crAddOpIrancellSel",
+                                      "value": false
+                                    },
+                                    {
+                                      "key": "crAddOpRightelSel",
+                                      "value": true
+                                    }
+                                  ]
+                                },
+                                "type": "gestureDetector"
+                              },
+                              {
+                                "height": 14,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "onPressed": {
+                                  "actionType": "sequence",
+                                  "actions": [
+                                    {
+                                      "navigationStyle": "pop",
+                                      "actionType": "navigate"
+                                    },
+                                    {
+                                      "actionType": "showBottomSheet",
+                                      "sheet": {
+                                        "padding": {
+                                          "left": 14,
+                                          "top": 10,
+                                          "right": 14,
+                                          "bottom": 16
+                                        },
+                                        "decoration": {
+                                          "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                          "borderRadius": {
+                                            "topLeft": 22,
+                                            "topRight": 22
+                                          }
+                                        },
+                                        "width": 999999,
+                                        "child": {
+                                          "mainAxisSize": "min",
+                                          "crossAxisAlignment": "stretch",
+                                          "children": [
+                                            {
+                                              "child": {
+                                                "decoration": {
+                                                  "color": "#D0D5DD",
+                                                  "borderRadius": {
+                                                    "topLeft": 99,
+                                                    "topRight": 99,
+                                                    "bottomLeft": 99,
+                                                    "bottomRight": 99
+                                                  }
+                                                },
+                                                "width": 44,
+                                                "height": 5,
+                                                "type": "container"
+                                              },
+                                              "type": "center"
+                                            },
+                                            {
+                                              "height": 16,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "data": "نوع سیم کارت",
+                                              "style": {
+                                                "type": "custom",
+                                                "fontSize": 18,
+                                                "fontWeight": "w700"
+                                              },
+                                              "textAlign": "center",
+                                              "textDirection": "rtl",
+                                              "type": "text"
+                                            },
+                                            {
+                                              "height": 8,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "data": "__STAC_OPEN__crAddEnteredPhone}}",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                "fontSize": 16
+                                              },
+                                              "textAlign": "center",
+                                              "textDirection": "ltr",
+                                              "type": "text"
+                                            },
+                                            {
+                                              "height": 14,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "child": {
+                                                "type": "visibility",
+                                                "visible": "[[crAddTypePermanentSel]]",
+                                                "child": {
+                                                  "decoration": {
+                                                    "border": {
+                                                      "color": "#20C4D8",
+                                                      "width": 1
+                                                    },
+                                                    "borderRadius": {
+                                                      "topLeft": 10,
+                                                      "topRight": 10,
+                                                      "bottomLeft": 10,
+                                                      "bottomRight": 10
+                                                    }
+                                                  },
+                                                  "child": {
+                                                    "padding": {
+                                                      "left": 12,
+                                                      "top": 14,
+                                                      "right": 12,
+                                                      "bottom": 14
+                                                    },
+                                                    "decoration": {
+                                                      "border": {
+                                                        "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                        "width": 1
+                                                      },
+                                                      "borderRadius": {
+                                                        "topLeft": 10,
+                                                        "topRight": 10,
+                                                        "bottomLeft": 10,
+                                                        "bottomRight": 10
+                                                      }
+                                                    },
+                                                    "child": {
+                                                      "textDirection": "rtl",
+                                                      "children": [
+                                                        {
+                                                          "data": "دائمی",
+                                                          "style": {
+                                                            "type": "custom",
+                                                            "fontSize": 16,
+                                                            "fontWeight": "w500"
+                                                          },
+                                                          "textDirection": "rtl",
+                                                          "type": "text"
+                                                        },
+                                                        {
+                                                          "child": {
+                                                            "type": "sizedBox"
+                                                          },
+                                                          "type": "expanded"
+                                                        },
+                                                        {
+                                                          "type": "visibility",
+                                                          "visible": "[[crAddTypePermanentSel]]",
+                                                          "child": {
+                                                            "decoration": {
+                                                              "color": "#20C4D8",
+                                                              "shape": "circle"
+                                                            },
+                                                            "width": 22,
+                                                            "height": 22,
+                                                            "child": {
+                                                              "child": {
+                                                                "icon": "check",
+                                                                "iconType": "material",
+                                                                "size": 16,
+                                                                "color": "#FFFFFF",
+                                                                "type": "icon"
+                                                              },
+                                                              "type": "center"
+                                                            },
+                                                            "type": "container"
+                                                          },
+                                                          "replacement": {
+                                                            "decoration": {
+                                                              "border": {
+                                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                                "width": 1
+                                                              },
+                                                              "shape": "circle"
+                                                            },
+                                                            "width": 22,
+                                                            "height": 22,
+                                                            "type": "container"
+                                                          }
+                                                        }
+                                                      ],
+                                                      "type": "row"
+                                                    },
+                                                    "type": "container"
+                                                  },
+                                                  "type": "container"
+                                                },
+                                                "replacement": {
+                                                  "padding": {
+                                                    "left": 12,
+                                                    "top": 14,
+                                                    "right": 12,
+                                                    "bottom": 14
+                                                  },
+                                                  "decoration": {
+                                                    "border": {
+                                                      "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                      "width": 1
+                                                    },
+                                                    "borderRadius": {
+                                                      "topLeft": 10,
+                                                      "topRight": 10,
+                                                      "bottomLeft": 10,
+                                                      "bottomRight": 10
+                                                    }
+                                                  },
+                                                  "child": {
+                                                    "textDirection": "rtl",
+                                                    "children": [
+                                                      {
+                                                        "data": "دائمی",
+                                                        "style": {
+                                                          "type": "custom",
+                                                          "fontSize": 16,
+                                                          "fontWeight": "w500"
+                                                        },
+                                                        "textDirection": "rtl",
+                                                        "type": "text"
+                                                      },
+                                                      {
+                                                        "child": {
+                                                          "type": "sizedBox"
+                                                        },
+                                                        "type": "expanded"
+                                                      },
+                                                      {
+                                                        "type": "visibility",
+                                                        "visible": "[[crAddTypePermanentSel]]",
+                                                        "child": {
+                                                          "decoration": {
+                                                            "color": "#20C4D8",
+                                                            "shape": "circle"
+                                                          },
+                                                          "width": 22,
+                                                          "height": 22,
+                                                          "child": {
+                                                            "child": {
+                                                              "icon": "check",
+                                                              "iconType": "material",
+                                                              "size": 16,
+                                                              "color": "#FFFFFF",
+                                                              "type": "icon"
+                                                            },
+                                                            "type": "center"
+                                                          },
+                                                          "type": "container"
+                                                        },
+                                                        "replacement": {
+                                                          "decoration": {
+                                                            "border": {
+                                                              "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                              "width": 1
+                                                            },
+                                                            "shape": "circle"
+                                                          },
+                                                          "width": 22,
+                                                          "height": 22,
+                                                          "type": "container"
+                                                        }
+                                                      }
+                                                    ],
+                                                    "type": "row"
+                                                  },
+                                                  "type": "container"
+                                                }
+                                              },
+                                              "onTap": {
+                                                "actionType": "setValue",
+                                                "values": [
+                                                  {
+                                                    "key": "crAddTypePermanentSel",
+                                                    "value": true
+                                                  },
+                                                  {
+                                                    "key": "crAddTypeCreditSel",
+                                                    "value": false
+                                                  }
+                                                ]
+                                              },
+                                              "type": "gestureDetector"
+                                            },
+                                            {
+                                              "height": 10,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "child": {
+                                                "type": "visibility",
+                                                "visible": "[[crAddTypeCreditSel]]",
+                                                "child": {
+                                                  "decoration": {
+                                                    "border": {
+                                                      "color": "#20C4D8",
+                                                      "width": 1
+                                                    },
+                                                    "borderRadius": {
+                                                      "topLeft": 10,
+                                                      "topRight": 10,
+                                                      "bottomLeft": 10,
+                                                      "bottomRight": 10
+                                                    }
+                                                  },
+                                                  "child": {
+                                                    "padding": {
+                                                      "left": 12,
+                                                      "top": 14,
+                                                      "right": 12,
+                                                      "bottom": 14
+                                                    },
+                                                    "decoration": {
+                                                      "border": {
+                                                        "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                        "width": 1
+                                                      },
+                                                      "borderRadius": {
+                                                        "topLeft": 10,
+                                                        "topRight": 10,
+                                                        "bottomLeft": 10,
+                                                        "bottomRight": 10
+                                                      }
+                                                    },
+                                                    "child": {
+                                                      "textDirection": "rtl",
+                                                      "children": [
+                                                        {
+                                                          "data": "اعتباری",
+                                                          "style": {
+                                                            "type": "custom",
+                                                            "fontSize": 16,
+                                                            "fontWeight": "w500"
+                                                          },
+                                                          "textDirection": "rtl",
+                                                          "type": "text"
+                                                        },
+                                                        {
+                                                          "child": {
+                                                            "type": "sizedBox"
+                                                          },
+                                                          "type": "expanded"
+                                                        },
+                                                        {
+                                                          "type": "visibility",
+                                                          "visible": "[[crAddTypeCreditSel]]",
+                                                          "child": {
+                                                            "decoration": {
+                                                              "color": "#20C4D8",
+                                                              "shape": "circle"
+                                                            },
+                                                            "width": 22,
+                                                            "height": 22,
+                                                            "child": {
+                                                              "child": {
+                                                                "icon": "check",
+                                                                "iconType": "material",
+                                                                "size": 16,
+                                                                "color": "#FFFFFF",
+                                                                "type": "icon"
+                                                              },
+                                                              "type": "center"
+                                                            },
+                                                            "type": "container"
+                                                          },
+                                                          "replacement": {
+                                                            "decoration": {
+                                                              "border": {
+                                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                                "width": 1
+                                                              },
+                                                              "shape": "circle"
+                                                            },
+                                                            "width": 22,
+                                                            "height": 22,
+                                                            "type": "container"
+                                                          }
+                                                        }
+                                                      ],
+                                                      "type": "row"
+                                                    },
+                                                    "type": "container"
+                                                  },
+                                                  "type": "container"
+                                                },
+                                                "replacement": {
+                                                  "padding": {
+                                                    "left": 12,
+                                                    "top": 14,
+                                                    "right": 12,
+                                                    "bottom": 14
+                                                  },
+                                                  "decoration": {
+                                                    "border": {
+                                                      "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                      "width": 1
+                                                    },
+                                                    "borderRadius": {
+                                                      "topLeft": 10,
+                                                      "topRight": 10,
+                                                      "bottomLeft": 10,
+                                                      "bottomRight": 10
+                                                    }
+                                                  },
+                                                  "child": {
+                                                    "textDirection": "rtl",
+                                                    "children": [
+                                                      {
+                                                        "data": "اعتباری",
+                                                        "style": {
+                                                          "type": "custom",
+                                                          "fontSize": 16,
+                                                          "fontWeight": "w500"
+                                                        },
+                                                        "textDirection": "rtl",
+                                                        "type": "text"
+                                                      },
+                                                      {
+                                                        "child": {
+                                                          "type": "sizedBox"
+                                                        },
+                                                        "type": "expanded"
+                                                      },
+                                                      {
+                                                        "type": "visibility",
+                                                        "visible": "[[crAddTypeCreditSel]]",
+                                                        "child": {
+                                                          "decoration": {
+                                                            "color": "#20C4D8",
+                                                            "shape": "circle"
+                                                          },
+                                                          "width": 22,
+                                                          "height": 22,
+                                                          "child": {
+                                                            "child": {
+                                                              "icon": "check",
+                                                              "iconType": "material",
+                                                              "size": 16,
+                                                              "color": "#FFFFFF",
+                                                              "type": "icon"
+                                                            },
+                                                            "type": "center"
+                                                          },
+                                                          "type": "container"
+                                                        },
+                                                        "replacement": {
+                                                          "decoration": {
+                                                            "border": {
+                                                              "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                              "width": 1
+                                                            },
+                                                            "shape": "circle"
+                                                          },
+                                                          "width": 22,
+                                                          "height": 22,
+                                                          "type": "container"
+                                                        }
+                                                      }
+                                                    ],
+                                                    "type": "row"
+                                                  },
+                                                  "type": "container"
+                                                }
+                                              },
+                                              "onTap": {
+                                                "actionType": "setValue",
+                                                "values": [
+                                                  {
+                                                    "key": "crAddTypePermanentSel",
+                                                    "value": false
+                                                  },
+                                                  {
+                                                    "key": "crAddTypeCreditSel",
+                                                    "value": true
+                                                  }
+                                                ]
+                                              },
+                                              "type": "gestureDetector"
+                                            },
+                                            {
+                                              "height": 14,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "onPressed": {
+                                                "actionType": "sequence",
+                                                "actions": [
+                                                  {
+                                                    "navigationStyle": "pop",
+                                                    "actionType": "navigate"
+                                                  },
+                                                  {
+                                                    "actionType": "sequence",
+                                                    "actions": [
+                                                      {
+                                                        "actionType": "setValue",
+                                                        "values": [
+                                                          {
+                                                            "key": "crSimHasItems",
+                                                            "value": true
+                                                          },
+                                                          {
+                                                            "key": "crSimShowDuplicateBanner",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crSim3Visible",
+                                                            "value": true
+                                                          },
+                                                          {
+                                                            "key": "crSim1Selected",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crSim2Selected",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crSim3Selected",
+                                                            "value": true
+                                                          },
+                                                          {
+                                                            "key": "crShowSimActionSheet",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crShowSimEditSheet",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crShowSimDeleteDialog",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crAddShowOperatorSheet",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crAddShowSimTypeSheet",
+                                                            "value": false
+                                                          },
+                                                          {
+                                                            "key": "crSim3Operator",
+                                                            "value": "همراه اول",
+                                                            "condition": "crAddOpMciSel"
+                                                          },
+                                                          {
+                                                            "key": "crSim3Logo",
+                                                            "value": "assets/icons/ic_hamrah_aval.svg",
+                                                            "condition": "crAddOpMciSel"
+                                                          },
+                                                          {
+                                                            "key": "crSim3Operator",
+                                                            "value": "ایرانسل",
+                                                            "condition": "crAddOpIrancellSel"
+                                                          },
+                                                          {
+                                                            "key": "crSim3Logo",
+                                                            "value": "assets/icons/ic_irancell.svg",
+                                                            "condition": "crAddOpIrancellSel"
+                                                          },
+                                                          {
+                                                            "key": "crSim3Operator",
+                                                            "value": "رایتل",
+                                                            "condition": "crAddOpRightelSel"
+                                                          },
+                                                          {
+                                                            "key": "crSim3Logo",
+                                                            "value": "assets/icons/ic_rightel.svg",
+                                                            "condition": "crAddOpRightelSel"
+                                                          },
+                                                          {
+                                                            "key": "crActiveSimOperator",
+                                                            "value": "همراه اول",
+                                                            "condition": "crAddOpMciSel"
+                                                          },
+                                                          {
+                                                            "key": "crActiveSimLogo",
+                                                            "value": "assets/icons/ic_hamrah_aval.svg",
+                                                            "condition": "crAddOpMciSel"
+                                                          },
+                                                          {
+                                                            "key": "crActiveSimOperator",
+                                                            "value": "ایرانسل",
+                                                            "condition": "crAddOpIrancellSel"
+                                                          },
+                                                          {
+                                                            "key": "crActiveSimLogo",
+                                                            "value": "assets/icons/ic_irancell.svg",
+                                                            "condition": "crAddOpIrancellSel"
+                                                          },
+                                                          {
+                                                            "key": "crActiveSimOperator",
+                                                            "value": "رایتل",
+                                                            "condition": "crAddOpRightelSel"
+                                                          },
+                                                          {
+                                                            "key": "crActiveSimLogo",
+                                                            "value": "assets/icons/ic_rightel.svg",
+                                                            "condition": "crAddOpRightelSel"
+                                                          }
+                                                        ]
+                                                      },
+                                                      {
+                                                        "actionType": "setValue",
+                                                        "key": "crSim3Number",
+                                                        "value": "__STAC_OPEN__crAddEnteredPhone}}"
+                                                      },
+                                                      {
+                                                        "actionType": "setValue",
+                                                        "key": "crActiveSimNumber",
+                                                        "value": "__STAC_OPEN__crAddEnteredPhone}}"
+                                                      },
+                                                      {
+                                                        "navigationStyle": "push",
+                                                        "actionType": "navigate",
+                                                        "request": {
+                                                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.package_real_package_list/1",
+                                                          "body": {
+                                                            "operator": "is",
+                                                            "dimension": {
+                                                              "app": "mobile"
+                                                            }
+                                                          },
+                                                          "method": "post",
+                                                          "headers": {
+                                                            "Accept": "*/*",
+                                                            "Content-Type": "application/json"
+                                                          }
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              },
+                                              "style": {
+                                                "foregroundColor": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
+                                                "backgroundColor": "__STAC_OPEN__appColors.current.primary.color}}",
+                                                "elevation": 0,
+                                                "fixedSize": {
+                                                  "width": 999999,
+                                                  "height": 56
+                                                },
+                                                "shape": {
+                                                  "type": "roundedRectangleBorder",
+                                                  "borderRadius": {
+                                                    "topLeft": 10,
+                                                    "topRight": 10,
+                                                    "bottomLeft": 10,
+                                                    "bottomRight": 10
+                                                  }
+                                                }
+                                              },
+                                              "child": {
+                                                "data": "تایید و ادامه",
+                                                "style": {
+                                                  "type": "custom",
+                                                  "color": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
+                                                  "fontSize": 16,
+                                                  "fontWeight": "w700"
+                                                },
+                                                "textDirection": "rtl",
+                                                "type": "text"
+                                              },
+                                              "type": "filledButton"
+                                            }
+                                          ],
+                                          "type": "column"
+                                        },
+                                        "type": "container"
+                                      },
+                                      "backgroundColor": "#8B63708C"
+                                    }
+                                  ]
+                                },
+                                "style": {
+                                  "foregroundColor": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
+                                  "backgroundColor": "__STAC_OPEN__appColors.current.primary.color}}",
+                                  "elevation": 0,
+                                  "fixedSize": {
+                                    "width": 999999,
+                                    "height": 56
+                                  },
+                                  "shape": {
+                                    "type": "roundedRectangleBorder",
+                                    "borderRadius": {
+                                      "topLeft": 10,
+                                      "topRight": 10,
+                                      "bottomLeft": 10,
+                                      "bottomRight": 10
+                                    }
+                                  }
+                                },
+                                "child": {
+                                  "data": "تایید و ادامه",
+                                  "style": {
+                                    "type": "custom",
+                                    "color": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
+                                    "fontSize": 16,
+                                    "fontWeight": "w700"
+                                  },
+                                  "textDirection": "rtl",
+                                  "type": "text"
+                                },
+                                "type": "filledButton"
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "container"
+                        },
+                        "backgroundColor": "#8B63708C"
                       }
                     },
                     "type": "padding"
@@ -999,9 +2569,9 @@
                   "visible": "[[crAddCaseUnsupported]]",
                   "child": {
                     "padding": {
-                      "left": 16.0,
-                      "right": 16.0,
-                      "bottom": 18.0
+                      "left": 16,
+                      "right": 16,
+                      "bottom": 18
                     },
                     "child": {
                       "type": "reactiveElevatedButton",
@@ -1009,18 +2579,18 @@
                       "style": {
                         "foregroundColor": "{{appColors.current.primary.onPrimary}}",
                         "backgroundColor": "{{appColors.current.primary.color}}",
-                        "elevation": 0.0,
+                        "elevation": 0,
                         "fixedSize": {
-                          "width": 99999.0,
-                          "height": 56.0
+                          "width": 99999,
+                          "height": 56
                         },
                         "shape": {
                           "type": "roundedRectangleBorder",
                           "borderRadius": {
-                            "topLeft": 10.0,
-                            "topRight": 10.0,
-                            "bottomLeft": 10.0,
-                            "bottomRight": 10.0
+                            "topLeft": 10,
+                            "topRight": 10,
+                            "bottomLeft": 10,
+                            "bottomRight": 10
                           }
                         }
                       },
@@ -1029,7 +2599,7 @@
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.primary.onPrimary}}",
-                          "fontSize": 16.0,
+                          "fontSize": 16,
                           "fontWeight": "w700"
                         },
                         "textDirection": "rtl",
@@ -1060,9 +2630,9 @@
                   "visible": "[[crAddCaseInvalidAction]]",
                   "child": {
                     "padding": {
-                      "left": 16.0,
-                      "right": 16.0,
-                      "bottom": 18.0
+                      "left": 16,
+                      "right": 16,
+                      "bottom": 18
                     },
                     "child": {
                       "type": "reactiveElevatedButton",
@@ -1070,18 +2640,18 @@
                       "style": {
                         "foregroundColor": "{{appColors.current.primary.onPrimary}}",
                         "backgroundColor": "{{appColors.current.primary.color}}",
-                        "elevation": 0.0,
+                        "elevation": 0,
                         "fixedSize": {
-                          "width": 99999.0,
-                          "height": 56.0
+                          "width": 99999,
+                          "height": 56
                         },
                         "shape": {
                           "type": "roundedRectangleBorder",
                           "borderRadius": {
-                            "topLeft": 10.0,
-                            "topRight": 10.0,
-                            "bottomLeft": 10.0,
-                            "bottomRight": 10.0
+                            "topLeft": 10,
+                            "topRight": 10,
+                            "bottomLeft": 10,
+                            "bottomRight": 10
                           }
                         }
                       },
@@ -1090,7 +2660,7 @@
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.primary.onPrimary}}",
-                          "fontSize": 16.0,
+                          "fontSize": 16,
                           "fontWeight": "w700"
                         },
                         "textDirection": "rtl",
@@ -1122,1608 +2692,6 @@
             "type": "form"
           },
           "type": "safeArea"
-        },
-        {
-          "type": "visibility",
-          "visible": "[[crAddShowDuplicateDialog]]",
-          "child": {
-            "children": [
-              {
-                "color": "#8B63708C",
-                "width": 999999.0,
-                "height": 999999.0,
-                "type": "container"
-              },
-              {
-                "child": {
-                  "padding": {
-                    "left": 14.0,
-                    "top": 16.0,
-                    "right": 14.0,
-                    "bottom": 12.0
-                  },
-                  "decoration": {
-                    "color": "{{appColors.current.background.surface}}",
-                    "border": {
-                      "color": "#2B8BFA",
-                      "width": 2.0
-                    },
-                    "borderRadius": {
-                      "topLeft": 12.0,
-                      "topRight": 12.0,
-                      "bottomLeft": 12.0,
-                      "bottomRight": 12.0
-                    }
-                  },
-                  "margin": {
-                    "left": 16.0,
-                    "right": 16.0
-                  },
-                  "child": {
-                    "mainAxisSize": "min",
-                    "crossAxisAlignment": "stretch",
-                    "children": [
-                      {
-                        "child": {
-                          "decoration": {
-                            "color": "#FFCD29",
-                            "shape": "circle"
-                          },
-                          "width": 28.0,
-                          "height": 28.0,
-                          "child": {
-                            "child": {
-                              "icon": "error_outline",
-                              "iconType": "material",
-                              "size": 18.0,
-                              "color": "#FFFFFF",
-                              "type": "icon"
-                            },
-                            "type": "center"
-                          },
-                          "type": "container"
-                        },
-                        "type": "center"
-                      },
-                      {
-                        "height": 10.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "data": "مجاز نیست",
-                        "style": {
-                          "type": "custom",
-                          "color": "{{appColors.current.text.title}}",
-                          "fontSize": 18.0,
-                          "fontWeight": "w700"
-                        },
-                        "textAlign": "center",
-                        "textDirection": "rtl",
-                        "type": "text"
-                      },
-                      {
-                        "height": 10.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "data": "شماره انتخابی شما جز سیم‌کارت‌های تکراری می‌باشد، لطفا یکی دیگر انتخاب کنید.",
-                        "style": {
-                          "type": "custom",
-                          "color": "{{appColors.current.text.subtitle}}",
-                          "fontSize": 13.0,
-                          "fontWeight": "w500"
-                        },
-                        "textAlign": "center",
-                        "textDirection": "rtl",
-                        "type": "text"
-                      },
-                      {
-                        "height": 14.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "onPressed": {
-                          "actionType": "setValue",
-                          "key": "crAddShowDuplicateDialog",
-                          "value": false
-                        },
-                        "style": {
-                          "foregroundColor": "{{appColors.current.primary.onPrimary}}",
-                          "backgroundColor": "{{appColors.current.primary.color}}",
-                          "elevation": 0.0,
-                          "fixedSize": {
-                            "width": 999999.0,
-                            "height": 44.0
-                          },
-                          "shape": {
-                            "type": "roundedRectangleBorder",
-                            "borderRadius": {
-                              "topLeft": 8.0,
-                              "topRight": 8.0,
-                              "bottomLeft": 8.0,
-                              "bottomRight": 8.0
-                            }
-                          }
-                        },
-                        "child": {
-                          "data": "متوجه شدم",
-                          "style": {
-                            "type": "custom",
-                            "color": "{{appColors.current.primary.onPrimary}}",
-                            "fontSize": 14.0,
-                            "fontWeight": "w700"
-                          },
-                          "textDirection": "rtl",
-                          "type": "text"
-                        },
-                        "type": "filledButton"
-                      }
-                    ],
-                    "type": "column"
-                  },
-                  "type": "container"
-                },
-                "type": "center"
-              }
-            ],
-            "type": "stack"
-          },
-          "replacement": {
-            "type": "sizedBox"
-          }
-        },
-        {
-          "type": "visibility",
-          "visible": "[[crAddShowOperatorSheet]]",
-          "child": {
-            "children": [
-              {
-                "color": "#8B63708C",
-                "width": 999999.0,
-                "height": 999999.0,
-                "type": "container"
-              },
-              {
-                "alignment": "bottomCenter",
-                "child": {
-                  "padding": {
-                    "left": 14.0,
-                    "top": 10.0,
-                    "right": 14.0,
-                    "bottom": 16.0
-                  },
-                  "decoration": {
-                    "color": "{{appColors.current.background.surface}}",
-                    "borderRadius": {
-                      "topLeft": 22.0,
-                      "topRight": 22.0
-                    }
-                  },
-                  "width": 999999.0,
-                  "child": {
-                    "mainAxisSize": "min",
-                    "crossAxisAlignment": "stretch",
-                    "children": [
-                      {
-                        "child": {
-                          "decoration": {
-                            "color": "#D0D5DD",
-                            "borderRadius": {
-                              "topLeft": 99.0,
-                              "topRight": 99.0,
-                              "bottomLeft": 99.0,
-                              "bottomRight": 99.0
-                            }
-                          },
-                          "width": 44.0,
-                          "height": 5.0,
-                          "type": "container"
-                        },
-                        "type": "center"
-                      },
-                      {
-                        "height": 16.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "data": "اپراتور",
-                        "style": {
-                          "type": "custom",
-                          "fontSize": 18.0,
-                          "fontWeight": "w700"
-                        },
-                        "textAlign": "center",
-                        "textDirection": "rtl",
-                        "type": "text"
-                      },
-                      {
-                        "height": 8.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "data": "در صورت ترابرد سیم‌کارت اپراتور خود را انتخاب نمایید",
-                        "style": {
-                          "type": "custom",
-                          "color": "{{appColors.current.text.subtitle}}",
-                          "fontSize": 13.0
-                        },
-                        "textAlign": "center",
-                        "textDirection": "rtl",
-                        "type": "text"
-                      },
-                      {
-                        "height": 14.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "child": {
-                          "type": "visibility",
-                          "visible": "[[crAddOpMciSel]]",
-                          "child": {
-                            "decoration": {
-                              "border": {
-                                "color": "#20C4D8",
-                                "width": 1.0
-                              },
-                              "borderRadius": {
-                                "topLeft": 10.0,
-                                "topRight": 10.0,
-                                "bottomLeft": 10.0,
-                                "bottomRight": 10.0
-                              }
-                            },
-                            "child": {
-                              "padding": {
-                                "left": 12.0,
-                                "top": 12.0,
-                                "right": 12.0,
-                                "bottom": 12.0
-                              },
-                              "decoration": {
-                                "border": {
-                                  "color": "{{appColors.current.input.borderEnabled}}",
-                                  "width": 1.0
-                                },
-                                "borderRadius": {
-                                  "topLeft": 10.0,
-                                  "topRight": 10.0,
-                                  "bottomLeft": 10.0,
-                                  "bottomRight": 10.0
-                                }
-                              },
-                              "child": {
-                                "textDirection": "rtl",
-                                "children": [
-                                  {
-                                    "src": "assets/icons/ic_hamrah_aval.svg",
-                                    "imageType": "asset",
-                                    "width": 20.0,
-                                    "height": 20.0,
-                                    "type": "image"
-                                  },
-                                  {
-                                    "width": 10.0,
-                                    "type": "sizedBox"
-                                  },
-                                  {
-                                    "data": "همراه اول",
-                                    "style": {
-                                      "type": "custom",
-                                      "fontSize": 18.0,
-                                      "fontWeight": "w500"
-                                    },
-                                    "textDirection": "rtl",
-                                    "type": "text"
-                                  },
-                                  {
-                                    "child": {
-                                      "type": "sizedBox"
-                                    },
-                                    "type": "expanded"
-                                  },
-                                  {
-                                    "type": "visibility",
-                                    "visible": "[[crAddOpMciSel]]",
-                                    "child": {
-                                      "decoration": {
-                                        "color": "#20C4D8",
-                                        "shape": "circle"
-                                      },
-                                      "width": 22.0,
-                                      "height": 22.0,
-                                      "child": {
-                                        "child": {
-                                          "icon": "check",
-                                          "iconType": "material",
-                                          "size": 16.0,
-                                          "color": "#FFFFFF",
-                                          "type": "icon"
-                                        },
-                                        "type": "center"
-                                      },
-                                      "type": "container"
-                                    },
-                                    "replacement": {
-                                      "decoration": {
-                                        "border": {
-                                          "color": "{{appColors.current.input.borderEnabled}}",
-                                          "width": 1.0
-                                        },
-                                        "shape": "circle"
-                                      },
-                                      "width": 22.0,
-                                      "height": 22.0,
-                                      "type": "container"
-                                    }
-                                  }
-                                ],
-                                "type": "row"
-                              },
-                              "type": "container"
-                            },
-                            "type": "container"
-                          },
-                          "replacement": {
-                            "padding": {
-                              "left": 12.0,
-                              "top": 12.0,
-                              "right": 12.0,
-                              "bottom": 12.0
-                            },
-                            "decoration": {
-                              "border": {
-                                "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 1.0
-                              },
-                              "borderRadius": {
-                                "topLeft": 10.0,
-                                "topRight": 10.0,
-                                "bottomLeft": 10.0,
-                                "bottomRight": 10.0
-                              }
-                            },
-                            "child": {
-                              "textDirection": "rtl",
-                              "children": [
-                                {
-                                  "src": "assets/icons/ic_hamrah_aval.svg",
-                                  "imageType": "asset",
-                                  "width": 20.0,
-                                  "height": 20.0,
-                                  "type": "image"
-                                },
-                                {
-                                  "width": 10.0,
-                                  "type": "sizedBox"
-                                },
-                                {
-                                  "data": "همراه اول",
-                                  "style": {
-                                    "type": "custom",
-                                    "fontSize": 18.0,
-                                    "fontWeight": "w500"
-                                  },
-                                  "textDirection": "rtl",
-                                  "type": "text"
-                                },
-                                {
-                                  "child": {
-                                    "type": "sizedBox"
-                                  },
-                                  "type": "expanded"
-                                },
-                                {
-                                  "type": "visibility",
-                                  "visible": "[[crAddOpMciSel]]",
-                                  "child": {
-                                    "decoration": {
-                                      "color": "#20C4D8",
-                                      "shape": "circle"
-                                    },
-                                    "width": 22.0,
-                                    "height": 22.0,
-                                    "child": {
-                                      "child": {
-                                        "icon": "check",
-                                        "iconType": "material",
-                                        "size": 16.0,
-                                        "color": "#FFFFFF",
-                                        "type": "icon"
-                                      },
-                                      "type": "center"
-                                    },
-                                    "type": "container"
-                                  },
-                                  "replacement": {
-                                    "decoration": {
-                                      "border": {
-                                        "color": "{{appColors.current.input.borderEnabled}}",
-                                        "width": 1.0
-                                      },
-                                      "shape": "circle"
-                                    },
-                                    "width": 22.0,
-                                    "height": 22.0,
-                                    "type": "container"
-                                  }
-                                }
-                              ],
-                              "type": "row"
-                            },
-                            "type": "container"
-                          }
-                        },
-                        "onTap": {
-                          "actionType": "setValue",
-                          "values": [
-                            {
-                              "key": "crAddOpMciSel",
-                              "value": true
-                            },
-                            {
-                              "key": "crAddOpIrancellSel",
-                              "value": false
-                            },
-                            {
-                              "key": "crAddOpRightelSel",
-                              "value": false
-                            }
-                          ]
-                        },
-                        "type": "gestureDetector"
-                      },
-                      {
-                        "height": 10.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "child": {
-                          "type": "visibility",
-                          "visible": "[[crAddOpIrancellSel]]",
-                          "child": {
-                            "decoration": {
-                              "border": {
-                                "color": "#20C4D8",
-                                "width": 1.0
-                              },
-                              "borderRadius": {
-                                "topLeft": 10.0,
-                                "topRight": 10.0,
-                                "bottomLeft": 10.0,
-                                "bottomRight": 10.0
-                              }
-                            },
-                            "child": {
-                              "padding": {
-                                "left": 12.0,
-                                "top": 12.0,
-                                "right": 12.0,
-                                "bottom": 12.0
-                              },
-                              "decoration": {
-                                "border": {
-                                  "color": "{{appColors.current.input.borderEnabled}}",
-                                  "width": 1.0
-                                },
-                                "borderRadius": {
-                                  "topLeft": 10.0,
-                                  "topRight": 10.0,
-                                  "bottomLeft": 10.0,
-                                  "bottomRight": 10.0
-                                }
-                              },
-                              "child": {
-                                "textDirection": "rtl",
-                                "children": [
-                                  {
-                                    "src": "assets/icons/ic_irancell.svg",
-                                    "imageType": "asset",
-                                    "width": 20.0,
-                                    "height": 20.0,
-                                    "type": "image"
-                                  },
-                                  {
-                                    "width": 10.0,
-                                    "type": "sizedBox"
-                                  },
-                                  {
-                                    "data": "ایرانسل",
-                                    "style": {
-                                      "type": "custom",
-                                      "fontSize": 18.0,
-                                      "fontWeight": "w500"
-                                    },
-                                    "textDirection": "rtl",
-                                    "type": "text"
-                                  },
-                                  {
-                                    "child": {
-                                      "type": "sizedBox"
-                                    },
-                                    "type": "expanded"
-                                  },
-                                  {
-                                    "type": "visibility",
-                                    "visible": "[[crAddOpIrancellSel]]",
-                                    "child": {
-                                      "decoration": {
-                                        "color": "#20C4D8",
-                                        "shape": "circle"
-                                      },
-                                      "width": 22.0,
-                                      "height": 22.0,
-                                      "child": {
-                                        "child": {
-                                          "icon": "check",
-                                          "iconType": "material",
-                                          "size": 16.0,
-                                          "color": "#FFFFFF",
-                                          "type": "icon"
-                                        },
-                                        "type": "center"
-                                      },
-                                      "type": "container"
-                                    },
-                                    "replacement": {
-                                      "decoration": {
-                                        "border": {
-                                          "color": "{{appColors.current.input.borderEnabled}}",
-                                          "width": 1.0
-                                        },
-                                        "shape": "circle"
-                                      },
-                                      "width": 22.0,
-                                      "height": 22.0,
-                                      "type": "container"
-                                    }
-                                  }
-                                ],
-                                "type": "row"
-                              },
-                              "type": "container"
-                            },
-                            "type": "container"
-                          },
-                          "replacement": {
-                            "padding": {
-                              "left": 12.0,
-                              "top": 12.0,
-                              "right": 12.0,
-                              "bottom": 12.0
-                            },
-                            "decoration": {
-                              "border": {
-                                "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 1.0
-                              },
-                              "borderRadius": {
-                                "topLeft": 10.0,
-                                "topRight": 10.0,
-                                "bottomLeft": 10.0,
-                                "bottomRight": 10.0
-                              }
-                            },
-                            "child": {
-                              "textDirection": "rtl",
-                              "children": [
-                                {
-                                  "src": "assets/icons/ic_irancell.svg",
-                                  "imageType": "asset",
-                                  "width": 20.0,
-                                  "height": 20.0,
-                                  "type": "image"
-                                },
-                                {
-                                  "width": 10.0,
-                                  "type": "sizedBox"
-                                },
-                                {
-                                  "data": "ایرانسل",
-                                  "style": {
-                                    "type": "custom",
-                                    "fontSize": 18.0,
-                                    "fontWeight": "w500"
-                                  },
-                                  "textDirection": "rtl",
-                                  "type": "text"
-                                },
-                                {
-                                  "child": {
-                                    "type": "sizedBox"
-                                  },
-                                  "type": "expanded"
-                                },
-                                {
-                                  "type": "visibility",
-                                  "visible": "[[crAddOpIrancellSel]]",
-                                  "child": {
-                                    "decoration": {
-                                      "color": "#20C4D8",
-                                      "shape": "circle"
-                                    },
-                                    "width": 22.0,
-                                    "height": 22.0,
-                                    "child": {
-                                      "child": {
-                                        "icon": "check",
-                                        "iconType": "material",
-                                        "size": 16.0,
-                                        "color": "#FFFFFF",
-                                        "type": "icon"
-                                      },
-                                      "type": "center"
-                                    },
-                                    "type": "container"
-                                  },
-                                  "replacement": {
-                                    "decoration": {
-                                      "border": {
-                                        "color": "{{appColors.current.input.borderEnabled}}",
-                                        "width": 1.0
-                                      },
-                                      "shape": "circle"
-                                    },
-                                    "width": 22.0,
-                                    "height": 22.0,
-                                    "type": "container"
-                                  }
-                                }
-                              ],
-                              "type": "row"
-                            },
-                            "type": "container"
-                          }
-                        },
-                        "onTap": {
-                          "actionType": "setValue",
-                          "values": [
-                            {
-                              "key": "crAddOpMciSel",
-                              "value": false
-                            },
-                            {
-                              "key": "crAddOpIrancellSel",
-                              "value": true
-                            },
-                            {
-                              "key": "crAddOpRightelSel",
-                              "value": false
-                            }
-                          ]
-                        },
-                        "type": "gestureDetector"
-                      },
-                      {
-                        "height": 10.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "child": {
-                          "type": "visibility",
-                          "visible": "[[crAddOpRightelSel]]",
-                          "child": {
-                            "decoration": {
-                              "border": {
-                                "color": "#20C4D8",
-                                "width": 1.0
-                              },
-                              "borderRadius": {
-                                "topLeft": 10.0,
-                                "topRight": 10.0,
-                                "bottomLeft": 10.0,
-                                "bottomRight": 10.0
-                              }
-                            },
-                            "child": {
-                              "padding": {
-                                "left": 12.0,
-                                "top": 12.0,
-                                "right": 12.0,
-                                "bottom": 12.0
-                              },
-                              "decoration": {
-                                "border": {
-                                  "color": "{{appColors.current.input.borderEnabled}}",
-                                  "width": 1.0
-                                },
-                                "borderRadius": {
-                                  "topLeft": 10.0,
-                                  "topRight": 10.0,
-                                  "bottomLeft": 10.0,
-                                  "bottomRight": 10.0
-                                }
-                              },
-                              "child": {
-                                "textDirection": "rtl",
-                                "children": [
-                                  {
-                                    "src": "assets/icons/ic_rightel.svg",
-                                    "imageType": "asset",
-                                    "width": 20.0,
-                                    "height": 20.0,
-                                    "type": "image"
-                                  },
-                                  {
-                                    "width": 10.0,
-                                    "type": "sizedBox"
-                                  },
-                                  {
-                                    "data": "رایتل",
-                                    "style": {
-                                      "type": "custom",
-                                      "fontSize": 18.0,
-                                      "fontWeight": "w500"
-                                    },
-                                    "textDirection": "rtl",
-                                    "type": "text"
-                                  },
-                                  {
-                                    "child": {
-                                      "type": "sizedBox"
-                                    },
-                                    "type": "expanded"
-                                  },
-                                  {
-                                    "type": "visibility",
-                                    "visible": "[[crAddOpRightelSel]]",
-                                    "child": {
-                                      "decoration": {
-                                        "color": "#20C4D8",
-                                        "shape": "circle"
-                                      },
-                                      "width": 22.0,
-                                      "height": 22.0,
-                                      "child": {
-                                        "child": {
-                                          "icon": "check",
-                                          "iconType": "material",
-                                          "size": 16.0,
-                                          "color": "#FFFFFF",
-                                          "type": "icon"
-                                        },
-                                        "type": "center"
-                                      },
-                                      "type": "container"
-                                    },
-                                    "replacement": {
-                                      "decoration": {
-                                        "border": {
-                                          "color": "{{appColors.current.input.borderEnabled}}",
-                                          "width": 1.0
-                                        },
-                                        "shape": "circle"
-                                      },
-                                      "width": 22.0,
-                                      "height": 22.0,
-                                      "type": "container"
-                                    }
-                                  }
-                                ],
-                                "type": "row"
-                              },
-                              "type": "container"
-                            },
-                            "type": "container"
-                          },
-                          "replacement": {
-                            "padding": {
-                              "left": 12.0,
-                              "top": 12.0,
-                              "right": 12.0,
-                              "bottom": 12.0
-                            },
-                            "decoration": {
-                              "border": {
-                                "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 1.0
-                              },
-                              "borderRadius": {
-                                "topLeft": 10.0,
-                                "topRight": 10.0,
-                                "bottomLeft": 10.0,
-                                "bottomRight": 10.0
-                              }
-                            },
-                            "child": {
-                              "textDirection": "rtl",
-                              "children": [
-                                {
-                                  "src": "assets/icons/ic_rightel.svg",
-                                  "imageType": "asset",
-                                  "width": 20.0,
-                                  "height": 20.0,
-                                  "type": "image"
-                                },
-                                {
-                                  "width": 10.0,
-                                  "type": "sizedBox"
-                                },
-                                {
-                                  "data": "رایتل",
-                                  "style": {
-                                    "type": "custom",
-                                    "fontSize": 18.0,
-                                    "fontWeight": "w500"
-                                  },
-                                  "textDirection": "rtl",
-                                  "type": "text"
-                                },
-                                {
-                                  "child": {
-                                    "type": "sizedBox"
-                                  },
-                                  "type": "expanded"
-                                },
-                                {
-                                  "type": "visibility",
-                                  "visible": "[[crAddOpRightelSel]]",
-                                  "child": {
-                                    "decoration": {
-                                      "color": "#20C4D8",
-                                      "shape": "circle"
-                                    },
-                                    "width": 22.0,
-                                    "height": 22.0,
-                                    "child": {
-                                      "child": {
-                                        "icon": "check",
-                                        "iconType": "material",
-                                        "size": 16.0,
-                                        "color": "#FFFFFF",
-                                        "type": "icon"
-                                      },
-                                      "type": "center"
-                                    },
-                                    "type": "container"
-                                  },
-                                  "replacement": {
-                                    "decoration": {
-                                      "border": {
-                                        "color": "{{appColors.current.input.borderEnabled}}",
-                                        "width": 1.0
-                                      },
-                                      "shape": "circle"
-                                    },
-                                    "width": 22.0,
-                                    "height": 22.0,
-                                    "type": "container"
-                                  }
-                                }
-                              ],
-                              "type": "row"
-                            },
-                            "type": "container"
-                          }
-                        },
-                        "onTap": {
-                          "actionType": "setValue",
-                          "values": [
-                            {
-                              "key": "crAddOpMciSel",
-                              "value": false
-                            },
-                            {
-                              "key": "crAddOpIrancellSel",
-                              "value": false
-                            },
-                            {
-                              "key": "crAddOpRightelSel",
-                              "value": true
-                            }
-                          ]
-                        },
-                        "type": "gestureDetector"
-                      },
-                      {
-                        "height": 14.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "onPressed": {
-                          "actionType": "setValue",
-                          "values": [
-                            {
-                              "key": "crAddShowOperatorSheet",
-                              "value": false
-                            },
-                            {
-                              "key": "crAddShowSimTypeSheet",
-                              "value": true
-                            }
-                          ]
-                        },
-                        "style": {
-                          "foregroundColor": "{{appColors.current.primary.onPrimary}}",
-                          "backgroundColor": "{{appColors.current.primary.color}}",
-                          "elevation": 0.0,
-                          "fixedSize": {
-                            "width": 999999.0,
-                            "height": 56.0
-                          },
-                          "shape": {
-                            "type": "roundedRectangleBorder",
-                            "borderRadius": {
-                              "topLeft": 10.0,
-                              "topRight": 10.0,
-                              "bottomLeft": 10.0,
-                              "bottomRight": 10.0
-                            }
-                          }
-                        },
-                        "child": {
-                          "data": "تایید و ادامه",
-                          "style": {
-                            "type": "custom",
-                            "color": "{{appColors.current.primary.onPrimary}}",
-                            "fontSize": 16.0,
-                            "fontWeight": "w700"
-                          },
-                          "textDirection": "rtl",
-                          "type": "text"
-                        },
-                        "type": "filledButton"
-                      }
-                    ],
-                    "type": "column"
-                  },
-                  "type": "container"
-                },
-                "type": "align"
-              }
-            ],
-            "type": "stack"
-          },
-          "replacement": {
-            "type": "sizedBox"
-          }
-        },
-        {
-          "type": "visibility",
-          "visible": "[[crAddShowSimTypeSheet]]",
-          "child": {
-            "children": [
-              {
-                "color": "#8B63708C",
-                "width": 999999.0,
-                "height": 999999.0,
-                "type": "container"
-              },
-              {
-                "alignment": "bottomCenter",
-                "child": {
-                  "padding": {
-                    "left": 14.0,
-                    "top": 10.0,
-                    "right": 14.0,
-                    "bottom": 16.0
-                  },
-                  "decoration": {
-                    "color": "{{appColors.current.background.surface}}",
-                    "borderRadius": {
-                      "topLeft": 22.0,
-                      "topRight": 22.0
-                    }
-                  },
-                  "width": 999999.0,
-                  "child": {
-                    "mainAxisSize": "min",
-                    "crossAxisAlignment": "stretch",
-                    "children": [
-                      {
-                        "child": {
-                          "decoration": {
-                            "color": "#D0D5DD",
-                            "borderRadius": {
-                              "topLeft": 99.0,
-                              "topRight": 99.0,
-                              "bottomLeft": 99.0,
-                              "bottomRight": 99.0
-                            }
-                          },
-                          "width": 44.0,
-                          "height": 5.0,
-                          "type": "container"
-                        },
-                        "type": "center"
-                      },
-                      {
-                        "height": 16.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "data": "نوع سیم کارت",
-                        "style": {
-                          "type": "custom",
-                          "fontSize": 18.0,
-                          "fontWeight": "w700"
-                        },
-                        "textAlign": "center",
-                        "textDirection": "rtl",
-                        "type": "text"
-                      },
-                      {
-                        "height": 8.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "data": "{{crAddEnteredPhone}}",
-                        "style": {
-                          "type": "custom",
-                          "color": "{{appColors.current.text.subtitle}}",
-                          "fontSize": 16.0
-                        },
-                        "textAlign": "center",
-                        "textDirection": "ltr",
-                        "type": "text"
-                      },
-                      {
-                        "height": 14.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "child": {
-                          "type": "visibility",
-                          "visible": "[[crAddTypePermanentSel]]",
-                          "child": {
-                            "decoration": {
-                              "border": {
-                                "color": "#20C4D8",
-                                "width": 1.0
-                              },
-                              "borderRadius": {
-                                "topLeft": 10.0,
-                                "topRight": 10.0,
-                                "bottomLeft": 10.0,
-                                "bottomRight": 10.0
-                              }
-                            },
-                            "child": {
-                              "padding": {
-                                "left": 12.0,
-                                "top": 14.0,
-                                "right": 12.0,
-                                "bottom": 14.0
-                              },
-                              "decoration": {
-                                "border": {
-                                  "color": "{{appColors.current.input.borderEnabled}}",
-                                  "width": 1.0
-                                },
-                                "borderRadius": {
-                                  "topLeft": 10.0,
-                                  "topRight": 10.0,
-                                  "bottomLeft": 10.0,
-                                  "bottomRight": 10.0
-                                }
-                              },
-                              "child": {
-                                "textDirection": "rtl",
-                                "children": [
-                                  {
-                                    "data": "دائمی",
-                                    "style": {
-                                      "type": "custom",
-                                      "fontSize": 16.0,
-                                      "fontWeight": "w500"
-                                    },
-                                    "textDirection": "rtl",
-                                    "type": "text"
-                                  },
-                                  {
-                                    "child": {
-                                      "type": "sizedBox"
-                                    },
-                                    "type": "expanded"
-                                  },
-                                  {
-                                    "type": "visibility",
-                                    "visible": "[[crAddTypePermanentSel]]",
-                                    "child": {
-                                      "decoration": {
-                                        "color": "#20C4D8",
-                                        "shape": "circle"
-                                      },
-                                      "width": 22.0,
-                                      "height": 22.0,
-                                      "child": {
-                                        "child": {
-                                          "icon": "check",
-                                          "iconType": "material",
-                                          "size": 16.0,
-                                          "color": "#FFFFFF",
-                                          "type": "icon"
-                                        },
-                                        "type": "center"
-                                      },
-                                      "type": "container"
-                                    },
-                                    "replacement": {
-                                      "decoration": {
-                                        "border": {
-                                          "color": "{{appColors.current.input.borderEnabled}}",
-                                          "width": 1.0
-                                        },
-                                        "shape": "circle"
-                                      },
-                                      "width": 22.0,
-                                      "height": 22.0,
-                                      "type": "container"
-                                    }
-                                  }
-                                ],
-                                "type": "row"
-                              },
-                              "type": "container"
-                            },
-                            "type": "container"
-                          },
-                          "replacement": {
-                            "padding": {
-                              "left": 12.0,
-                              "top": 14.0,
-                              "right": 12.0,
-                              "bottom": 14.0
-                            },
-                            "decoration": {
-                              "border": {
-                                "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 1.0
-                              },
-                              "borderRadius": {
-                                "topLeft": 10.0,
-                                "topRight": 10.0,
-                                "bottomLeft": 10.0,
-                                "bottomRight": 10.0
-                              }
-                            },
-                            "child": {
-                              "textDirection": "rtl",
-                              "children": [
-                                {
-                                  "data": "دائمی",
-                                  "style": {
-                                    "type": "custom",
-                                    "fontSize": 16.0,
-                                    "fontWeight": "w500"
-                                  },
-                                  "textDirection": "rtl",
-                                  "type": "text"
-                                },
-                                {
-                                  "child": {
-                                    "type": "sizedBox"
-                                  },
-                                  "type": "expanded"
-                                },
-                                {
-                                  "type": "visibility",
-                                  "visible": "[[crAddTypePermanentSel]]",
-                                  "child": {
-                                    "decoration": {
-                                      "color": "#20C4D8",
-                                      "shape": "circle"
-                                    },
-                                    "width": 22.0,
-                                    "height": 22.0,
-                                    "child": {
-                                      "child": {
-                                        "icon": "check",
-                                        "iconType": "material",
-                                        "size": 16.0,
-                                        "color": "#FFFFFF",
-                                        "type": "icon"
-                                      },
-                                      "type": "center"
-                                    },
-                                    "type": "container"
-                                  },
-                                  "replacement": {
-                                    "decoration": {
-                                      "border": {
-                                        "color": "{{appColors.current.input.borderEnabled}}",
-                                        "width": 1.0
-                                      },
-                                      "shape": "circle"
-                                    },
-                                    "width": 22.0,
-                                    "height": 22.0,
-                                    "type": "container"
-                                  }
-                                }
-                              ],
-                              "type": "row"
-                            },
-                            "type": "container"
-                          }
-                        },
-                        "onTap": {
-                          "actionType": "setValue",
-                          "values": [
-                            {
-                              "key": "crAddTypePermanentSel",
-                              "value": true
-                            },
-                            {
-                              "key": "crAddTypeCreditSel",
-                              "value": false
-                            }
-                          ]
-                        },
-                        "type": "gestureDetector"
-                      },
-                      {
-                        "height": 10.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "child": {
-                          "type": "visibility",
-                          "visible": "[[crAddTypeCreditSel]]",
-                          "child": {
-                            "decoration": {
-                              "border": {
-                                "color": "#20C4D8",
-                                "width": 1.0
-                              },
-                              "borderRadius": {
-                                "topLeft": 10.0,
-                                "topRight": 10.0,
-                                "bottomLeft": 10.0,
-                                "bottomRight": 10.0
-                              }
-                            },
-                            "child": {
-                              "padding": {
-                                "left": 12.0,
-                                "top": 14.0,
-                                "right": 12.0,
-                                "bottom": 14.0
-                              },
-                              "decoration": {
-                                "border": {
-                                  "color": "{{appColors.current.input.borderEnabled}}",
-                                  "width": 1.0
-                                },
-                                "borderRadius": {
-                                  "topLeft": 10.0,
-                                  "topRight": 10.0,
-                                  "bottomLeft": 10.0,
-                                  "bottomRight": 10.0
-                                }
-                              },
-                              "child": {
-                                "textDirection": "rtl",
-                                "children": [
-                                  {
-                                    "data": "اعتباری",
-                                    "style": {
-                                      "type": "custom",
-                                      "fontSize": 16.0,
-                                      "fontWeight": "w500"
-                                    },
-                                    "textDirection": "rtl",
-                                    "type": "text"
-                                  },
-                                  {
-                                    "child": {
-                                      "type": "sizedBox"
-                                    },
-                                    "type": "expanded"
-                                  },
-                                  {
-                                    "type": "visibility",
-                                    "visible": "[[crAddTypeCreditSel]]",
-                                    "child": {
-                                      "decoration": {
-                                        "color": "#20C4D8",
-                                        "shape": "circle"
-                                      },
-                                      "width": 22.0,
-                                      "height": 22.0,
-                                      "child": {
-                                        "child": {
-                                          "icon": "check",
-                                          "iconType": "material",
-                                          "size": 16.0,
-                                          "color": "#FFFFFF",
-                                          "type": "icon"
-                                        },
-                                        "type": "center"
-                                      },
-                                      "type": "container"
-                                    },
-                                    "replacement": {
-                                      "decoration": {
-                                        "border": {
-                                          "color": "{{appColors.current.input.borderEnabled}}",
-                                          "width": 1.0
-                                        },
-                                        "shape": "circle"
-                                      },
-                                      "width": 22.0,
-                                      "height": 22.0,
-                                      "type": "container"
-                                    }
-                                  }
-                                ],
-                                "type": "row"
-                              },
-                              "type": "container"
-                            },
-                            "type": "container"
-                          },
-                          "replacement": {
-                            "padding": {
-                              "left": 12.0,
-                              "top": 14.0,
-                              "right": 12.0,
-                              "bottom": 14.0
-                            },
-                            "decoration": {
-                              "border": {
-                                "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 1.0
-                              },
-                              "borderRadius": {
-                                "topLeft": 10.0,
-                                "topRight": 10.0,
-                                "bottomLeft": 10.0,
-                                "bottomRight": 10.0
-                              }
-                            },
-                            "child": {
-                              "textDirection": "rtl",
-                              "children": [
-                                {
-                                  "data": "اعتباری",
-                                  "style": {
-                                    "type": "custom",
-                                    "fontSize": 16.0,
-                                    "fontWeight": "w500"
-                                  },
-                                  "textDirection": "rtl",
-                                  "type": "text"
-                                },
-                                {
-                                  "child": {
-                                    "type": "sizedBox"
-                                  },
-                                  "type": "expanded"
-                                },
-                                {
-                                  "type": "visibility",
-                                  "visible": "[[crAddTypeCreditSel]]",
-                                  "child": {
-                                    "decoration": {
-                                      "color": "#20C4D8",
-                                      "shape": "circle"
-                                    },
-                                    "width": 22.0,
-                                    "height": 22.0,
-                                    "child": {
-                                      "child": {
-                                        "icon": "check",
-                                        "iconType": "material",
-                                        "size": 16.0,
-                                        "color": "#FFFFFF",
-                                        "type": "icon"
-                                      },
-                                      "type": "center"
-                                    },
-                                    "type": "container"
-                                  },
-                                  "replacement": {
-                                    "decoration": {
-                                      "border": {
-                                        "color": "{{appColors.current.input.borderEnabled}}",
-                                        "width": 1.0
-                                      },
-                                      "shape": "circle"
-                                    },
-                                    "width": 22.0,
-                                    "height": 22.0,
-                                    "type": "container"
-                                  }
-                                }
-                              ],
-                              "type": "row"
-                            },
-                            "type": "container"
-                          }
-                        },
-                        "onTap": {
-                          "actionType": "setValue",
-                          "values": [
-                            {
-                              "key": "crAddTypePermanentSel",
-                              "value": false
-                            },
-                            {
-                              "key": "crAddTypeCreditSel",
-                              "value": true
-                            }
-                          ]
-                        },
-                        "type": "gestureDetector"
-                      },
-                      {
-                        "height": 14.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "onPressed": {
-                          "actionType": "sequence",
-                          "actions": [
-                            {
-                              "actionType": "setValue",
-                              "values": [
-                                {
-                                  "key": "crSimHasItems",
-                                  "value": true
-                                },
-                                {
-                                  "key": "crSimShowDuplicateBanner",
-                                  "value": false
-                                },
-                                {
-                                  "key": "crSim3Visible",
-                                  "value": true
-                                },
-                                {
-                                  "key": "crSim1Selected",
-                                  "value": false
-                                },
-                                {
-                                  "key": "crSim2Selected",
-                                  "value": false
-                                },
-                                {
-                                  "key": "crSim3Selected",
-                                  "value": true
-                                },
-                                {
-                                  "key": "crShowSimActionSheet",
-                                  "value": false
-                                },
-                                {
-                                  "key": "crShowSimEditSheet",
-                                  "value": false
-                                },
-                                {
-                                  "key": "crShowSimDeleteDialog",
-                                  "value": false
-                                },
-                                {
-                                  "key": "crAddShowOperatorSheet",
-                                  "value": false
-                                },
-                                {
-                                  "key": "crAddShowSimTypeSheet",
-                                  "value": false
-                                },
-                                {
-                                  "key": "crSim3Operator",
-                                  "value": "همراه اول",
-                                  "condition": "crAddOpMciSel"
-                                },
-                                {
-                                  "key": "crSim3Logo",
-                                  "value": "assets/icons/ic_hamrah_aval.svg",
-                                  "condition": "crAddOpMciSel"
-                                },
-                                {
-                                  "key": "crSim3Operator",
-                                  "value": "ایرانسل",
-                                  "condition": "crAddOpIrancellSel"
-                                },
-                                {
-                                  "key": "crSim3Logo",
-                                  "value": "assets/icons/ic_irancell.svg",
-                                  "condition": "crAddOpIrancellSel"
-                                },
-                                {
-                                  "key": "crSim3Operator",
-                                  "value": "رایتل",
-                                  "condition": "crAddOpRightelSel"
-                                },
-                                {
-                                  "key": "crSim3Logo",
-                                  "value": "assets/icons/ic_rightel.svg",
-                                  "condition": "crAddOpRightelSel"
-                                },
-                                {
-                                  "key": "crActiveSimOperator",
-                                  "value": "همراه اول",
-                                  "condition": "crAddOpMciSel"
-                                },
-                                {
-                                  "key": "crActiveSimLogo",
-                                  "value": "assets/icons/ic_hamrah_aval.svg",
-                                  "condition": "crAddOpMciSel"
-                                },
-                                {
-                                  "key": "crActiveSimOperator",
-                                  "value": "ایرانسل",
-                                  "condition": "crAddOpIrancellSel"
-                                },
-                                {
-                                  "key": "crActiveSimLogo",
-                                  "value": "assets/icons/ic_irancell.svg",
-                                  "condition": "crAddOpIrancellSel"
-                                },
-                                {
-                                  "key": "crActiveSimOperator",
-                                  "value": "رایتل",
-                                  "condition": "crAddOpRightelSel"
-                                },
-                                {
-                                  "key": "crActiveSimLogo",
-                                  "value": "assets/icons/ic_rightel.svg",
-                                  "condition": "crAddOpRightelSel"
-                                }
-                              ]
-                            },
-                            {
-                              "actionType": "setValue",
-                              "key": "crSim3Number",
-                              "value": "{{crAddEnteredPhone}}"
-                            },
-                            {
-                              "actionType": "setValue",
-                              "key": "crActiveSimNumber",
-                              "value": "{{crAddEnteredPhone}}"
-                            },
-                            {
-                              "routeName": "package_real_package_list",
-                              "navigationStyle": "push",
-                              "actionType": "navigate"
-                            }
-                          ]
-                        },
-                        "style": {
-                          "foregroundColor": "{{appColors.current.primary.onPrimary}}",
-                          "backgroundColor": "{{appColors.current.primary.color}}",
-                          "elevation": 0.0,
-                          "fixedSize": {
-                            "width": 999999.0,
-                            "height": 56.0
-                          },
-                          "shape": {
-                            "type": "roundedRectangleBorder",
-                            "borderRadius": {
-                              "topLeft": 10.0,
-                              "topRight": 10.0,
-                              "bottomLeft": 10.0,
-                              "bottomRight": 10.0
-                            }
-                          }
-                        },
-                        "child": {
-                          "data": "تایید و ادامه",
-                          "style": {
-                            "type": "custom",
-                            "color": "{{appColors.current.primary.onPrimary}}",
-                            "fontSize": 16.0,
-                            "fontWeight": "w700"
-                          },
-                          "textDirection": "rtl",
-                          "type": "text"
-                        },
-                        "type": "filledButton"
-                      }
-                    ],
-                    "type": "column"
-                  },
-                  "type": "container"
-                },
-                "type": "align"
-              }
-            ],
-            "type": "stack"
-          },
-          "replacement": {
-            "type": "sizedBox"
-          }
         }
       ],
       "type": "stack"

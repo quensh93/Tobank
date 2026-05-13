@@ -195,18 +195,6 @@ StacWidget packageRealAddSim() {
   );
 }
 
-@StacScreen(screenName: 'package_real_add_sim_empty')
-StacWidget packageRealAddSimEmpty() => packageRealAddSim();
-
-@StacScreen(screenName: 'package_real_add_sim_filled')
-StacWidget packageRealAddSimFilled() => packageRealAddSim();
-
-@StacScreen(screenName: 'package_real_add_sim_invalid')
-StacWidget packageRealAddSimInvalid() => packageRealAddSim();
-
-@StacScreen(screenName: 'package_real_add_sim_unsupported')
-StacWidget packageRealAddSimUnsupported() => packageRealAddSim();
-
 StacAction _addValidationAction() {
   return StacSequenceAction(
     actions: [

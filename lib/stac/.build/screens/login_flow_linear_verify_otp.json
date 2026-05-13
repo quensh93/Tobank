@@ -1,0 +1,487 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "setValue",
+    "key": "isFormValid",
+    "value": false
+  },
+  "child": {
+    "appBar": {
+      "automaticallyImplyLeading": false,
+      "title": {
+        "data": "{{appStrings.verifyOtp.title}}",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "body": {
+      "autovalidateMode": "onUserInteraction",
+      "child": {
+        "crossAxisAlignment": "stretch",
+        "textDirection": "rtl",
+        "children": [
+          {
+            "child": {
+              "padding": {
+                "left": 16.0,
+                "top": 16.0,
+                "right": 16.0,
+                "bottom": 16.0
+              },
+              "child": {
+                "crossAxisAlignment": "stretch",
+                "textDirection": "rtl",
+                "children": [
+                  {
+                    "data": "{{appStrings.verifyOtp.receiveVerificationCode}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 20.0,
+                      "fontWeight": "w600",
+                      "fontFamily": "IranYekan"
+                    },
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "کد تایید به شماره {{appData.mobile_number}} ارسال شد",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.subtitle}}",
+                      "fontSize": 14.0,
+                      "fontWeight": "w500",
+                      "fontFamily": "IranYekan"
+                    },
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "mainAxisAlignment": "spaceBetween",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "child": {
+                          "data": "{{appStrings.verifyOtp.wrongNumber}}",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w600",
+                            "fontFamily": "IranYekan"
+                          },
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        "type": "expanded"
+                      },
+                      {
+                        "onPressed": {
+                          "navigationStyle": "pop",
+                          "actionType": "navigate"
+                        },
+                        "child": {
+                          "mainAxisAlignment": "center",
+                          "mainAxisSize": "min",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "src": "{{appAssets.icons.edit}}",
+                              "imageType": "asset",
+                              "color": "{{appColors.current.secondary.color}}",
+                              "width": 16.0,
+                              "height": 16.0,
+                              "type": "image"
+                            },
+                            {
+                              "width": 8.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "{{appStrings.verifyOtp.edit}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.secondary.color}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w600",
+                                "fontFamily": "IranYekan"
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        "type": "textButton"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "height": 24.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "crossAxisAlignment": "start",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "child": {
+                          "type": "textFormField",
+                          "id": "otp_code",
+                          "textDirection": "ltr",
+                          "textAlign": "right",
+                          "decoration": {
+                            "helperText": " ",
+                            "helperStyle": {
+                              "type": "custom",
+                              "height": 0.5
+                            },
+                            "contentPadding": {
+                              "left": 16.0,
+                              "top": 16.0,
+                              "right": 16.0,
+                              "bottom": 16.0
+                            },
+                            "filled": false
+                          },
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 24.0,
+                            "fontWeight": "w600",
+                            "letterSpacing": 8.0,
+                            "fontFamily": "IranYekan"
+                          },
+                          "keyboardType": "number",
+                          "textInputAction": "done",
+                          "maxLength": 5,
+                          "inputFormatters": [
+                            {
+                              "type": "allow",
+                              "rule": "[0-9]"
+                            }
+                          ],
+                          "validatorRules": [
+                            {
+                              "rule": "^\\d{5}$",
+                              "message": "کد تایید باید 5 رقم باشد"
+                            }
+                          ],
+                          "onChanged": {
+                            "actionType": "validateFields",
+                            "resultKey": "isFormValid",
+                            "fields": [
+                              {
+                                "id": "otp_code",
+                                "rule": "^\\d{5}$"
+                              }
+                            ]
+                          }
+                        },
+                        "type": "expanded"
+                      },
+                      {
+                        "width": 8.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "onPressed": {
+                          "url": "https://api.tobank.com/resend-otp",
+                          "method": "post",
+                          "contentType": "application/json",
+                          "body": {
+                            "mobile_number": {
+                              "id": "mobile_number",
+                              "actionType": "getFormValue"
+                            }
+                          },
+                          "results": [
+                            {
+                              "statusCode": 200,
+                              "action": {
+                                "values": [
+                                  {
+                                    "key": "form.otp_code",
+                                    "value": ""
+                                  }
+                                ],
+                                "actionType": "setValue"
+                              }
+                            }
+                          ],
+                          "actionType": "networkRequest"
+                        },
+                        "style": {
+                          "fixedSize": {
+                            "width": 120.0,
+                            "height": 60.0
+                          },
+                          "shape": {
+                            "type": "roundedRectangleBorder",
+                            "borderRadius": {
+                              "topLeft": 8.0,
+                              "topRight": 8.0,
+                              "bottomLeft": 8.0,
+                              "bottomRight": 8.0
+                            }
+                          }
+                        },
+                        "child": {
+                          "data": "{{appStrings.verifyOtp.sendAgain}}",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.secondary.color}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w600",
+                            "fontFamily": "IranYekan"
+                          },
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        "type": "outlinedButton"
+                      }
+                    ],
+                    "type": "row"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "singleChildScrollView"
+            },
+            "type": "expanded"
+          },
+          {
+            "padding": {
+              "left": 16.0,
+              "top": 16.0,
+              "right": 16.0,
+              "bottom": 16.0
+            },
+            "child": {
+              "type": "reactiveElevatedButton",
+              "enabledKey": "isFormValid",
+              "enabled": false,
+              "onPressed": {
+                "values": [
+                  {
+                    "key": "form.otp_code",
+                    "value": {
+                      "id": "otp_code",
+                      "actionType": "getFormValue"
+                    }
+                  }
+                ],
+                "action": {
+                  "url": "https://api.tobank.com/verify-otp",
+                  "method": "post",
+                  "contentType": "application/json",
+                  "body": {
+                    "mobile_number": {
+                      "id": "mobile_number",
+                      "actionType": "getFormValue"
+                    },
+                    "otp_code": {
+                      "id": "otp_code",
+                      "actionType": "getFormValue"
+                    }
+                  },
+                  "results": [
+                    {
+                      "statusCode": 200,
+                      "action": {
+                        "actionType": "showAppDialog",
+                        "dialog": {
+                          "type": "alertDialog",
+                          "title": {
+                            "type": "text",
+                            "data": "پایان روند",
+                            "textDirection": "rtl",
+                            "textAlign": "center",
+                            "style": {
+                              "type": "custom",
+                              "fontSize": 20.0,
+                              "fontWeight": "w700",
+                              "color": "__STAC_OPEN__appColors.current.text.title}}"
+                            }
+                          },
+                          "contentPadding": {
+                            "left": 24,
+                            "right": 24,
+                            "top": 20,
+                            "bottom": 24
+                          },
+                          "content": {
+                            "type": "column",
+                            "crossAxisAlignment": "center",
+                            "mainAxisSize": "min",
+                            "children": [
+                              {
+                                "type": "image",
+                                "src": "__STAC_OPEN__appAssets.icons.success}}",
+                                "imageType": "asset",
+                                "width": 80,
+                                "height": 80,
+                                "color": "__STAC_OPEN__appColors.current.success.color}}"
+                              },
+                              {
+                                "type": "sizedBox",
+                                "height": 20
+                              },
+                              {
+                                "type": "text",
+                                "data": "تبریک! روند لاگین با موفقیت تکمیل شد.",
+                                "textDirection": "rtl",
+                                "textAlign": "center",
+                                "style": {
+                                  "type": "custom",
+                                  "fontSize": 16.0,
+                                  "fontWeight": "w500",
+                                  "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                  "height": 1.5
+                                }
+                              },
+                              {
+                                "type": "sizedBox",
+                                "height": 12
+                              },
+                              {
+                                "type": "text",
+                                "data": "اسپلش ← آنبردینگ ← ورود ← تایید کد",
+                                "textDirection": "rtl",
+                                "textAlign": "center",
+                                "style": {
+                                  "type": "custom",
+                                  "fontSize": 13.0,
+                                  "color": "__STAC_OPEN__appColors.current.text.subtitle}}"
+                                }
+                              },
+                              {
+                                "type": "sizedBox",
+                                "height": 24
+                              },
+                              {
+                                "type": "sizedBox",
+                                "width": 999999.0,
+                                "child": {
+                                  "type": "filledButton",
+                                  "style": {
+                                    "backgroundColor": "__STAC_OPEN__appColors.current.primary.color}}",
+                                    "foregroundColor": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
+                                    "minimumSize": {
+                                      "width": 999999.0,
+                                      "height": 48
+                                    },
+                                    "shape": {
+                                      "type": "roundedRectangle",
+                                      "borderRadius": {
+                                        "topLeft": 12,
+                                        "topRight": 12,
+                                        "bottomLeft": 12,
+                                        "bottomRight": 12
+                                      }
+                                    }
+                                  },
+                                  "child": {
+                                    "type": "text",
+                                    "data": "بازگشت به منو",
+                                    "textDirection": "rtl",
+                                    "style": {
+                                      "type": "custom",
+                                      "fontSize": 16.0,
+                                      "color": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
+                                      "fontWeight": "w600"
+                                    }
+                                  },
+                                  "onPressed": {
+                                    "actionType": "multiAction",
+                                    "actions": [
+                                      {
+                                        "actionType": "closeDialog"
+                                      },
+                                      {
+                                        "actionType": "navigate",
+                                        "navigationStyle": "popAll"
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "actionType": "networkRequest"
+                },
+                "actionType": "setValue"
+              },
+              "style": {
+                "backgroundColor": "{{appStyles.button.primary.backgroundColor}}",
+                "elevation": 0.0,
+                "textStyle": {
+                  "type": "custom",
+                  "color": "{{appStyles.button.primary.textStyleColor}}",
+                  "fontSize": 16.0,
+                  "fontWeight": "w600"
+                },
+                "padding": {
+                  "top": 8.0,
+                  "bottom": 8.0
+                },
+                "fixedSize": {
+                  "width": 999999.0,
+                  "height": 56.0
+                },
+                "shape": {
+                  "type": "roundedRectangleBorder",
+                  "borderRadius": {
+                    "topLeft": 10.0,
+                    "topRight": 10.0,
+                    "bottomLeft": 10.0,
+                    "bottomRight": 10.0
+                  }
+                }
+              },
+              "child": {
+                "data": "{{appStrings.verifyOtp.continueLabel}}",
+                "style": {
+                  "type": "custom",
+                  "color": "{{appStyles.button.primary.textStyleColor}}",
+                  "fontSize": 16.0,
+                  "fontWeight": "w600",
+                  "fontFamily": "IranYekan"
+                },
+                "textDirection": "rtl",
+                "type": "text"
+              }
+            },
+            "type": "padding"
+          },
+          {
+            "height": 24.0,
+            "type": "sizedBox"
+          }
+        ],
+        "type": "column"
+      },
+      "type": "form"
+    },
+    "type": "scaffold"
+  }
+}

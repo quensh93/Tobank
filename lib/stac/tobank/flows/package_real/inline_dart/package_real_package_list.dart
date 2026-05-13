@@ -9,10 +9,6 @@ StacWidget packageRealPackageList() {
   return StacStatefulWidget(
     onInit: const StacCustomSetValueAction(
       values: [
-        {'key': 'crPkgTabDaily', 'value': false},
-        {'key': 'crPkgTabWeekly', 'value': false},
-        {'key': 'crPkgTabMonthly', 'value': false},
-        {'key': 'crPkgTabOther', 'value': true},
         {'key': 'crPkgContinueEnabled', 'value': false},
         {'key': 'crPkgSel1', 'value': false},
         {'key': 'crPkgSel2', 'value': false},
@@ -33,59 +29,31 @@ StacWidget packageRealPackageList() {
         top: false,
         child: StacPadding(
           padding: StacEdgeInsets.all(16),
-          child: StacColumn(
-            crossAxisAlignment: StacCrossAxisAlignment.stretch,
-            children: [
-              StacRow(
-                textDirection: StacTextDirection.rtl,
-                children: [
-                  StacExpanded(
-                    child: _buildTabItem(
-                      title: 'روزانه',
-                      selectedKey: 'crPkgTabDaily',
-                      onTap: _selectTab('daily'),
-                    ),
+          child: StacDefaultTabController(
+            length: 4,
+            initialIndex: 0,
+            child: StacColumn(
+              crossAxisAlignment: StacCrossAxisAlignment.stretch,
+              children: [
+                _buildTabs(),
+                StacSizedBox(height: 16),
+                StacExpanded(
+                  child: StacTabBarView(
+                    children: [
+                      _buildPackageList(),
+                      _buildMonthlyEmptyState(),
+                      _buildPackageList(),
+                      _buildPackageList(),
+                    ],
                   ),
-                  StacSizedBox(width: 8),
-                  StacExpanded(
-                    child: _buildTabItem(
-                      title: 'هفتگی',
-                      selectedKey: 'crPkgTabWeekly',
-                      onTap: _selectTab('weekly'),
-                    ),
-                  ),
-                  StacSizedBox(width: 8),
-                  StacExpanded(
-                    child: _buildTabItem(
-                      title: 'ماهانه',
-                      selectedKey: 'crPkgTabMonthly',
-                      onTap: _selectTab('monthly'),
-                    ),
-                  ),
-                  StacSizedBox(width: 8),
-                  StacExpanded(
-                    child: _buildTabItem(
-                      title: 'سایر',
-                      selectedKey: 'crPkgTabOther',
-                      onTap: _selectTab('other'),
-                    ),
-                  ),
-                ],
-              ),
-              StacSizedBox(height: 16),
-              StacExpanded(
-                child: StacCustomVisibility(
-                  visible: '[[crPkgTabMonthly]]',
-                  child: _buildMonthlyEmptyState().toJson(),
-                  replacement: _buildPackageList().toJson(),
                 ),
-              ),
-              StacCustomVisibility(
-                visible: '[[!crPkgContinueEnabled]]',
-                child: _buildContinueButton(enabled: false).toJson(),
-                replacement: _buildContinueButton(enabled: true).toJson(),
-              ),
-            ],
+                StacCustomVisibility(
+                  visible: '[[!crPkgContinueEnabled]]',
+                  child: _buildContinueButton(enabled: false).toJson(),
+                  replacement: _buildContinueButton(enabled: true).toJson(),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -93,72 +61,66 @@ StacWidget packageRealPackageList() {
   );
 }
 
-StacAction _selectTab(String key) {
-  return StacCustomSetValueAction(
-    values: [
-      {'key': 'crPkgTabDaily', 'value': key == 'daily'},
-      {'key': 'crPkgTabWeekly', 'value': key == 'weekly'},
-      {'key': 'crPkgTabMonthly', 'value': key == 'monthly'},
-      {'key': 'crPkgTabOther', 'value': key == 'other'},
-      {'key': 'crPkgContinueEnabled', 'value': false},
-      {'key': 'crPkgSel1', 'value': false},
-      {'key': 'crPkgSel2', 'value': false},
-      {'key': 'crPkgSel3', 'value': false},
-      {'key': 'crPkgSel4', 'value': false},
-      {'key': 'crPkgSel5', 'value': false},
-      {'key': 'crPkgSel6', 'value': false},
-    ],
-  );
-}
-
-StacWidget _buildTabItem({
-  required String title,
-  required String selectedKey,
-  required StacAction onTap,
-}) {
-  return StacGestureDetector(
-    onTap: onTap,
-    child: StacCustomVisibility(
-      visible: '[[$selectedKey]]',
-      child: StacContainer(
-        padding: StacEdgeInsets.symmetric(vertical: 10),
-        decoration: StacBoxDecoration(
-          color: '#EAFBFD',
-          borderRadius: StacBorderRadius.all(10),
-          border: StacBorder.all(color: '#20C4D8', width: 1),
-        ),
-        child: StacText(
-          data: title,
-          textDirection: StacTextDirection.rtl,
-          textAlign: StacTextAlign.center,
-          style: StacCustomTextStyle(
+StacWidget _buildTabs() {
+  return StacContainer(
+    color: '{{appColors.current.background.surface}}',
+    child: StacStack(
+      children: [
+        StacTabBar(
+          enableFeedback: false,
+          isScrollable: false,
+          dividerColor: '#00000000',
+          indicator: StacBoxDecoration(
+            color: '#EAFBFD',
+            borderRadius: StacBorderRadius.all(10),
+            border: StacBorder.all(color: '#20C4D8', width: 1),
+          ),
+          indicatorSize: StacTabBarIndicatorSize.tab,
+          indicatorPadding: StacEdgeInsets.all(0),
+          labelStyle: StacCustomTextStyle(
             fontSize: 16,
             fontWeight: StacFontWeight.w600,
-            color: '{{appColors.current.text.title}}',
           ),
-        ),
-      ).toJson(),
-      replacement: StacContainer(
-        padding: StacEdgeInsets.symmetric(vertical: 10),
-        decoration: StacBoxDecoration(
-          color: '{{appColors.current.background.surface}}',
-          borderRadius: StacBorderRadius.all(10),
-          border: StacBorder.all(
-            color: '{{appColors.current.input.borderEnabled}}',
-            width: 1,
-          ),
-        ),
-        child: StacText(
-          data: title,
-          textDirection: StacTextDirection.rtl,
-          textAlign: StacTextAlign.center,
-          style: StacCustomTextStyle(
+          unselectedLabelStyle: StacCustomTextStyle(
             fontSize: 16,
             fontWeight: StacFontWeight.w500,
-            color: '{{appColors.current.text.title}}',
+          ),
+          labelColor: '{{appColors.current.text.title}}',
+          unselectedLabelColor: '{{appColors.current.text.title}}',
+          tabs: const [
+            StacTab(text: 'سایر', height: 40),
+            StacTab(text: 'ماهانه', height: 40),
+            StacTab(text: 'هفتگی', height: 40),
+            StacTab(text: 'روزانه', height: 40),
+          ],
+        ),
+        StacPositioned(
+          top: 8,
+          bottom: 8,
+          left: 0,
+          right: 0,
+          child: StacRow(
+            children: [
+              StacExpanded(child: StacSizedBox()),
+              StacContainer(
+                width: 1,
+                color: '{{appColors.current.input.borderEnabled}}',
+              ),
+              StacExpanded(child: StacSizedBox()),
+              StacContainer(
+                width: 1,
+                color: '{{appColors.current.input.borderEnabled}}',
+              ),
+              StacExpanded(child: StacSizedBox()),
+              StacContainer(
+                width: 1,
+                color: '{{appColors.current.input.borderEnabled}}',
+              ),
+              StacExpanded(child: StacSizedBox()),
+            ],
           ),
         ),
-      ).toJson(),
+      ],
     ),
   );
 }

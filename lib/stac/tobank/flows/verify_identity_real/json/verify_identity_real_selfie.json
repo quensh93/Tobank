@@ -66,25 +66,18 @@
         },
         "child": {
           "child": {
-            "width": 42.0,
-            "height": 42.0,
-            "child": {
-              "child": {
-                "src": "{{appAssets.icons.support}}",
-                "imageType": "asset",
-                "color": "{{appColors.current.text.title}}",
-                "width": 24.0,
-                "height": 24.0,
-                "type": "image"
-              },
-              "type": "center"
-            },
-            "type": "container"
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24.0,
+            "height": 24.0,
+            "type": "image"
           },
           "type": "center"
         },
         "type": "padding"
       },
+      "automaticallyImplyLeading": true,
       "title": {
         "data": "{{appStrings.menu.items.verifyIdentity}}",
         "style": {
@@ -97,7 +90,7 @@
       "actions": [
         {
           "padding": {
-            "right": 15.0
+            "right": 12.0
           },
           "child": {
             "onPressed": {
@@ -108,8 +101,8 @@
               "src": "{{appAssets.icons.arrowBack}}",
               "imageType": "asset",
               "color": "{{appColors.current.text.title}}",
-              "width": 30.0,
-              "height": 30.0,
+              "width": 31.0,
+              "height": 31.0,
               "type": "image"
             },
             "type": "iconButton"
@@ -122,7 +115,6 @@
     },
     "backgroundColor": "{{appColors.current.background.surface}}",
     "body": {
-      "type": "safeArea",
       "top": false,
       "bottom": true,
       "child": {
@@ -164,24 +156,6 @@
                           "id": "smartCardSerial",
                           "textDirection": "rtl",
                           "textAlign": "right",
-                          "keyboardType": "text",
-                          "textCapitalization": "characters",
-                          "maxLength": 10,
-                          "style": {
-                            "type": "custom",
-                            "color": "{{appColors.current.text.title}}",
-                            "fontSize": 18.0,
-                            "fontWeight": "w600"
-                          },
-                          "onChanged": {
-                            "actionType": "validateFields",
-                            "resultKey": "hasSmartCardSerialInput",
-                            "fields": [
-                              {
-                                "id": "smartCardSerial"
-                              }
-                            ]
-                          },
                           "decoration": {
                             "hintText": "سریال پشت کارت ملی خود را وارد کنید",
                             "hintStyle": {
@@ -197,7 +171,25 @@
                               "bottom": 18.0
                             },
                             "filled": false
-                          }
+                          },
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 18.0,
+                            "fontWeight": "w600"
+                          },
+                          "keyboardType": "text",
+                          "maxLength": 10,
+                          "onChanged": {
+                            "actionType": "validateFields",
+                            "resultKey": "hasSmartCardSerialInput",
+                            "fields": [
+                              {
+                                "id": "smartCardSerial"
+                              }
+                            ]
+                          },
+                          "initialValue": "4M15685899"
                         }
                       ],
                       "type": "column"
@@ -316,19 +308,42 @@
                                       ],
                                       "previewAsset": "https://appapi.tobank.ir/api/v1.0/media/ekyc/personal_picture_sample.png",
                                       "continueAction": {
-                                        "actionType": "pickFile",
-                                        "fileType": "image",
-                                        "targetKey": "selfiePhoto",
-                                        "hasValueKey": "hasSelfiePhoto",
-                                        "source": "camera",
-                                        "cameraDevice": "front",
-                                        "cropImage": true,
-                                        "cropAspectRatioX": 3.0,
-                                        "cropAspectRatioY": 4.0,
-                                        "previewBeforeConfirm": true,
-                                        "previewSheetTitle": "عکس گرفته شده مورد تایید شما است؟",
-                                        "confirmButtonText": "تایید",
-                                        "retryButtonText": "بازگشت"
+                                        "actionType": "sequence",
+                                        "actions": [
+                                          {
+                                            "actionType": "validateFields",
+                                            "resultKey": "hasSmartCardSerialInput",
+                                            "fields": [
+                                              {
+                                                "id": "smartCardSerial"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "actionType": "pickFile",
+                                            "fileType": "image",
+                                            "targetKey": "selfiePhoto",
+                                            "hasValueKey": "hasSelfiePhoto",
+                                            "source": "camera",
+                                            "cameraDevice": "front",
+                                            "cropImage": true,
+                                            "cropAspectRatioX": 3,
+                                            "cropAspectRatioY": 4,
+                                            "previewBeforeConfirm": true,
+                                            "previewSheetTitle": "عکس گرفته شده مورد تایید شما است؟",
+                                            "confirmButtonText": "تایید",
+                                            "retryButtonText": "بازگشت"
+                                          },
+                                          {
+                                            "actionType": "validateFields",
+                                            "resultKey": "hasSmartCardSerialInput",
+                                            "fields": [
+                                              {
+                                                "id": "smartCardSerial"
+                                              }
+                                            ]
+                                          }
+                                        ]
                                       },
                                       "continueText": "ادامه",
                                       "cancelText": "بازگشت"
@@ -556,17 +571,40 @@
                                       ],
                                       "previewAsset": "https://appapi.tobank.ir/api/v1.0/media/ekyc/face_movement_video.mp4",
                                       "continueAction": {
-                                        "actionType": "pickFile",
-                                        "fileType": "video",
-                                        "targetKey": "selfieVideo",
-                                        "hasValueKey": "hasSelfieVideo",
-                                        "fileNameKey": "selfieVideoName",
-                                        "source": "camera",
-                                        "cameraDevice": "front",
-                                        "previewBeforeConfirm": true,
-                                        "previewSheetTitle": "ویدیوی گرفته شده مورد تایید شما است؟",
-                                        "confirmButtonText": "تایید",
-                                        "retryButtonText": "بازگشت"
+                                        "actionType": "sequence",
+                                        "actions": [
+                                          {
+                                            "actionType": "validateFields",
+                                            "resultKey": "hasSmartCardSerialInput",
+                                            "fields": [
+                                              {
+                                                "id": "smartCardSerial"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "actionType": "pickFile",
+                                            "fileType": "video",
+                                            "targetKey": "selfieVideo",
+                                            "hasValueKey": "hasSelfieVideo",
+                                            "fileNameKey": "selfieVideoName",
+                                            "source": "camera",
+                                            "cameraDevice": "front",
+                                            "previewBeforeConfirm": true,
+                                            "previewSheetTitle": "ویدیوی گرفته شده مورد تایید شما است؟",
+                                            "confirmButtonText": "تایید",
+                                            "retryButtonText": "بازگشت"
+                                          },
+                                          {
+                                            "actionType": "validateFields",
+                                            "resultKey": "hasSmartCardSerialInput",
+                                            "fields": [
+                                              {
+                                                "id": "smartCardSerial"
+                                              }
+                                            ]
+                                          }
+                                        ]
                                       },
                                       "continueText": "ادامه",
                                       "cancelText": "بازگشت"
@@ -784,21 +822,8 @@
                     "child": {
                       "onPressed": {
                         "actionType": "navigate",
-                        "navigationStyle": "push",
-                        "request": {
-                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.verify_identity_real_postal_code/1",
-                          "method": "post",
-                          "headers": {
-                            "Content-Type": "application/json",
-                            "Accept": "*/*"
-                          },
-                          "body": {
-                            "operator": "is",
-                            "dimension": {
-                              "app": "mobile"
-                            }
-                          }
-                        }
+                        "widgetType": "verify_identity_real_postal_code",
+                        "navigationStyle": "push"
                       },
                       "style": {
                         "foregroundColor": "{{appColors.current.primary.onPrimary}}",
@@ -840,7 +865,8 @@
           "type": "column"
         },
         "type": "form"
-      }
+      },
+      "type": "safeArea"
     },
     "type": "scaffold"
   }

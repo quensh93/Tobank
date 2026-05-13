@@ -17,8 +17,9 @@
       },
       "type": "padding"
     },
+    "automaticallyImplyLeading": true,
     "title": {
-      "data": "{{appStrings.profile.real.contact.title}}",
+      "data": "تماس با ما",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -87,7 +88,7 @@
             "crossAxisAlignment": "stretch",
             "children": [
               {
-                "data": "{{appStrings.profile.real.contact.addressLabel}}",
+                "data": "آدرس",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.subtitle}}",
@@ -103,7 +104,7 @@
                 "type": "sizedBox"
               },
               {
-                "data": "{{appStrings.profile.real.contact.addressValue}}",
+                "data": "تهران، سعادت‌آباد، بلوار فرهنگ، نبش کوچه نور، پلاک ۶",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.title}}",
@@ -149,7 +150,7 @@
             "textDirection": "rtl",
             "children": [
               {
-                "data": "{{appStrings.profile.real.contact.postalCodeLabel}}",
+                "data": "کد پستی",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.subtitle}}",
@@ -160,7 +161,7 @@
                 "type": "text"
               },
               {
-                "data": "{{appStrings.profile.real.contact.postalCodeValue}}",
+                "data": "۱۹۹۷۷۴۴۵۳۷",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.title}}",
@@ -204,7 +205,7 @@
             "textDirection": "rtl",
             "children": [
               {
-                "data": "{{appStrings.profile.real.contact.supportLabel}}",
+                "data": "پشتیبانی شعبه",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.subtitle}}",
@@ -215,7 +216,7 @@
                 "type": "text"
               },
               {
-                "data": "{{appStrings.profile.real.contact.supportValue}}",
+                "data": "داخلی ۳ - ۰۲۱۲۳۹۵۰",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.title}}",
@@ -259,7 +260,7 @@
             "textDirection": "rtl",
             "children": [
               {
-                "data": "{{appStrings.profile.real.contact.instagramLabel}}",
+                "data": "اینستاگرام بانک گردشگری",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.subtitle}}",
@@ -273,7 +274,7 @@
                 "crossAxisAlignment": "end",
                 "children": [
                   {
-                    "data": "{{appStrings.profile.real.contact.instagramValue}}",
+                    "data": "@tourism.bank",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -307,7 +308,7 @@
         },
         {
           "child": {
-            "data": "{{appStrings.profile.real.contact.connectTitle}}",
+            "data": "ارتباط با توبانک",
             "style": {
               "type": "custom",
               "color": "{{appColors.current.text.title}}",
@@ -354,8 +355,8 @@
                 },
                 "onTap": {
                   "actionType": "showResult",
-                  "title": "{{appStrings.profile.real.contact.comingSoonTitle}}",
-                  "content": "{{appStrings.profile.real.contact.comingSoonContent}}"
+                  "title": "ارتباط با توبانک",
+                  "content": "این بخش به زودی فعال می‌شود."
                 },
                 "type": "gestureDetector"
               },
@@ -389,8 +390,8 @@
                 },
                 "onTap": {
                   "actionType": "showResult",
-                  "title": "{{appStrings.profile.real.contact.comingSoonTitle}}",
-                  "content": "{{appStrings.profile.real.contact.comingSoonContent}}"
+                  "title": "ارتباط با توبانک",
+                  "content": "این بخش به زودی فعال می‌شود."
                 },
                 "type": "gestureDetector"
               },
@@ -424,8 +425,8 @@
                 },
                 "onTap": {
                   "actionType": "showResult",
-                  "title": "{{appStrings.profile.real.contact.comingSoonTitle}}",
-                  "content": "{{appStrings.profile.real.contact.comingSoonContent}}"
+                  "title": "ارتباط با توبانک",
+                  "content": "این بخش به زودی فعال می‌شود."
                 },
                 "type": "gestureDetector"
               },
@@ -469,8 +470,8 @@
                 },
                 "onTap": {
                   "actionType": "showResult",
-                  "title": "{{appStrings.profile.real.contact.comingSoonTitle}}",
-                  "content": "{{appStrings.profile.real.contact.comingSoonContent}}"
+                  "title": "ارتباط با توبانک",
+                  "content": "این بخش به زودی فعال می‌شود."
                 },
                 "type": "gestureDetector"
               },
@@ -504,8 +505,8 @@
                 },
                 "onTap": {
                   "actionType": "showResult",
-                  "title": "{{appStrings.profile.real.contact.comingSoonTitle}}",
-                  "content": "{{appStrings.profile.real.contact.comingSoonContent}}"
+                  "title": "ارتباط با توبانک",
+                  "content": "این بخش به زودی فعال می‌شود."
                 },
                 "type": "gestureDetector"
               },
@@ -539,8 +540,8 @@
                 },
                 "onTap": {
                   "actionType": "showResult",
-                  "title": "{{appStrings.profile.real.contact.comingSoonTitle}}",
-                  "content": "{{appStrings.profile.real.contact.comingSoonContent}}"
+                  "title": "ارتباط با توبانک",
+                  "content": "این بخش به زودی فعال می‌شود."
                 },
                 "type": "gestureDetector"
               },

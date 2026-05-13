@@ -53,21 +53,22 @@
     "appBar": {
       "leading": {
         "padding": {
-          "left": 12.0
+          "left": 12
         },
         "child": {
           "child": {
             "src": "{{appAssets.icons.support}}",
             "imageType": "asset",
             "color": "{{appColors.current.text.title}}",
-            "width": 24.0,
-            "height": 24.0,
+            "width": 24,
+            "height": 24,
             "type": "image"
           },
           "type": "center"
         },
         "type": "padding"
       },
+      "automaticallyImplyLeading": true,
       "title": {
         "data": "کارت هدیه",
         "style": {
@@ -80,7 +81,7 @@
       "actions": [
         {
           "padding": {
-            "right": 12.0
+            "right": 12
           },
           "child": {
             "onPressed": {
@@ -91,8 +92,8 @@
               "src": "{{appAssets.icons.arrowBack}}",
               "imageType": "asset",
               "color": "{{appColors.current.text.title}}",
-              "width": 31.0,
-              "height": 31.0,
+              "width": 31,
+              "height": 31,
               "type": "image"
             },
             "type": "iconButton"
@@ -110,9 +111,9 @@
         {
           "child": {
             "padding": {
-              "left": 16.0,
-              "top": 22.0,
-              "right": 16.0
+              "left": 16,
+              "top": 22,
+              "right": 16
             },
             "child": {
               "type": "registryReactive",
@@ -128,7 +129,7 @@
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
-                          "fontSize": 16.0,
+                          "fontSize": 16,
                           "fontWeight": "w700"
                         },
                         "textAlign": "center",
@@ -136,23 +137,44 @@
                         "type": "text"
                       },
                       {
-                        "width": 8.0,
+                        "width": 8,
                         "type": "sizedBox"
                       },
                       {
                         "child": {
                           "icon": "info_outline",
                           "iconType": "material",
-                          "size": 22.0,
+                          "size": 22,
                           "color": "{{appColors.current.text.subtitle}}",
                           "type": "icon"
                         },
                         "onTap": {
-                          "actionType": "showGiftCardAmountGuideBottomSheet",
-                          "title": "راهنما",
-                          "minAmount": 1000000,
-                          "maxAmount": 50000000,
-                          "closeText": "بستن"
+                          "actionType": "showBottomSheet",
+                          "sheet": {
+                            "type": "stateFull",
+                            "onInit": {
+                              "actionType": "sequence",
+                              "actions": [
+                                {
+                                  "actionType": "showGiftCardAmountGuideBottomSheet",
+                                  "title": "راهنما",
+                                  "minAmount": 1000000,
+                                  "maxAmount": 50000000,
+                                  "closeText": "بستن"
+                                },
+                                {
+                                  "navigationStyle": "pop",
+                                  "actionType": "navigate"
+                                }
+                              ]
+                            },
+                            "child": {
+                              "width": 0,
+                              "height": 0,
+                              "type": "sizedBox"
+                            }
+                          },
+                          "backgroundColor": "#00000000"
                         },
                         "type": "gestureDetector"
                       }
@@ -160,27 +182,27 @@
                     "type": "row"
                   },
                   {
-                    "height": 26.0,
+                    "height": 26,
                     "type": "sizedBox"
                   },
                   {
                     "padding": {
-                      "left": 16.0,
-                      "top": 16.0,
-                      "right": 16.0,
-                      "bottom": 16.0
+                      "left": 16,
+                      "top": 16,
+                      "right": 16,
+                      "bottom": 16
                     },
                     "decoration": {
                       "color": "{{appColors.current.background.surface}}",
                       "border": {
                         "color": "{{appColors.current.input.borderEnabled}}",
-                        "width": 1.0
+                        "width": 1
                       },
                       "borderRadius": {
-                        "topLeft": 10.0,
-                        "topRight": 10.0,
-                        "bottomLeft": 10.0,
-                        "bottomRight": 10.0
+                        "topLeft": 10,
+                        "topRight": 10,
+                        "bottomLeft": 10,
+                        "bottomRight": 10
                       }
                     },
                     "child": {
@@ -194,23 +216,23 @@
                               "child": {
                                 "child": {
                                   "padding": {
-                                    "left": 10.0,
-                                    "right": 10.0
+                                    "left": 10,
+                                    "right": 10
                                   },
                                   "decoration": {
                                     "color": "{{appColors.current.background.surface}}",
                                     "border": {
                                       "color": "{{appColors.current.input.borderEnabled}}",
-                                      "width": 1.0
+                                      "width": 1
                                     },
                                     "borderRadius": {
-                                      "topLeft": 10.0,
-                                      "topRight": 10.0,
-                                      "bottomLeft": 10.0,
-                                      "bottomRight": 10.0
+                                      "topLeft": 10,
+                                      "topRight": 10,
+                                      "bottomLeft": 10,
+                                      "bottomRight": 10
                                     }
                                   },
-                                  "height": 55.0,
+                                  "height": 55,
                                   "child": {
                                     "textDirection": "rtl",
                                     "children": [
@@ -219,7 +241,7 @@
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
-                                          "fontSize": 18.0,
+                                          "fontSize": 18,
                                           "fontWeight": "w600"
                                         },
                                         "textDirection": "rtl",
@@ -234,7 +256,7 @@
                                       {
                                         "icon": "keyboard_arrow_down",
                                         "iconType": "material",
-                                        "size": 25.0,
+                                        "size": 25,
                                         "color": "{{appColors.current.text.title}}",
                                         "type": "icon"
                                       }
@@ -244,14 +266,30 @@
                                   "type": "container"
                                 },
                                 "onTap": {
-                                  "actionType": "showGiftCardSelectAmountBottomSheet",
-                                  "title": "مبلغ کارت هدیه را وارد یا انتخاب نمایید",
-                                  "inputHint": "مبلغ کارت هدیه را به ریال وارد نمایید",
-                                  "confirmText": "تایید",
-                                  "amountValueKey": "giftCardRealAmountValue1",
-                                  "amountLabelKey": "giftCardRealAmountLabel1",
-                                  "minAmount": 1000000,
-                                  "maxAmount": 50000000
+                                  "actionType": "showBottomSheet",
+                                  "sheet": {
+                                    "type": "stateFull",
+                                    "onInit": {
+                                      "actionType": "sequence",
+                                      "actions": [
+                                        {
+                                          "actionType": "showGiftCardSelectAmountBottomSheet",
+                                          "amountValueKey": "giftCardRealAmountValue1",
+                                          "amountLabelKey": "giftCardRealAmountLabel1"
+                                        },
+                                        {
+                                          "navigationStyle": "pop",
+                                          "actionType": "navigate"
+                                        }
+                                      ]
+                                    },
+                                    "child": {
+                                      "width": 0,
+                                      "height": 0,
+                                      "type": "sizedBox"
+                                    }
+                                  },
+                                  "backgroundColor": "#00000000"
                                 },
                                 "type": "gestureDetector"
                               },
@@ -261,7 +299,7 @@
                           "type": "row"
                         },
                         {
-                          "height": 18.0,
+                          "height": 18,
                           "type": "sizedBox"
                         },
                         {
@@ -274,7 +312,7 @@
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
-                                "fontSize": 16.0,
+                                "fontSize": 16,
                                 "fontWeight": "w700"
                               },
                               "textDirection": "rtl",
@@ -292,19 +330,19 @@
                                         "width": 1.5
                                       },
                                       "borderRadius": {
-                                        "topLeft": 10.0,
-                                        "topRight": 10.0,
-                                        "bottomLeft": 10.0,
-                                        "bottomRight": 10.0
+                                        "topLeft": 10,
+                                        "topRight": 10,
+                                        "bottomLeft": 10,
+                                        "bottomRight": 10
                                       }
                                     },
-                                    "width": 31.0,
-                                    "height": 31.0,
+                                    "width": 31,
+                                    "height": 31,
                                     "child": {
                                       "child": {
                                         "icon": "add",
                                         "iconType": "material",
-                                        "size": 20.0,
+                                        "size": 20,
                                         "color": "{{appColors.current.primary.color}}",
                                         "type": "icon"
                                       },
@@ -322,7 +360,7 @@
                                   "type": "gestureDetector"
                                 },
                                 {
-                                  "width": 16.0,
+                                  "width": 16,
                                   "type": "sizedBox"
                                 },
                                 {
@@ -330,14 +368,14 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
-                                    "fontSize": 22.0,
+                                    "fontSize": 22,
                                     "fontWeight": "w700"
                                   },
                                   "textDirection": "rtl",
                                   "type": "text"
                                 },
                                 {
-                                  "width": 16.0,
+                                  "width": 16,
                                   "type": "sizedBox"
                                 },
                                 {
@@ -349,19 +387,19 @@
                                         "width": 1.5
                                       },
                                       "borderRadius": {
-                                        "topLeft": 10.0,
-                                        "topRight": 10.0,
-                                        "bottomLeft": 10.0,
-                                        "bottomRight": 10.0
+                                        "topLeft": 10,
+                                        "topRight": 10,
+                                        "bottomLeft": 10,
+                                        "bottomRight": 10
                                       }
                                     },
-                                    "width": 31.0,
-                                    "height": 31.0,
+                                    "width": 31,
+                                    "height": 31,
                                     "child": {
                                       "child": {
                                         "icon": "remove",
                                         "iconType": "material",
-                                        "size": 20.0,
+                                        "size": 20,
                                         "color": "{{appColors.current.primary.color}}",
                                         "type": "icon"
                                       },
@@ -396,27 +434,27 @@
                       "crossAxisAlignment": "stretch",
                       "children": [
                         {
-                          "height": 16.0,
+                          "height": 16,
                           "type": "sizedBox"
                         },
                         {
                           "padding": {
-                            "left": 16.0,
-                            "top": 16.0,
-                            "right": 16.0,
-                            "bottom": 16.0
+                            "left": 16,
+                            "top": 16,
+                            "right": 16,
+                            "bottom": 16
                           },
                           "decoration": {
                             "color": "{{appColors.current.background.surface}}",
                             "border": {
                               "color": "{{appColors.current.input.borderEnabled}}",
-                              "width": 1.0
+                              "width": 1
                             },
                             "borderRadius": {
-                              "topLeft": 10.0,
-                              "topRight": 10.0,
-                              "bottomLeft": 10.0,
-                              "bottomRight": 10.0
+                              "topLeft": 10,
+                              "topRight": 10,
+                              "bottomLeft": 10,
+                              "bottomRight": 10
                             }
                           },
                           "child": {
@@ -430,23 +468,23 @@
                                     "child": {
                                       "child": {
                                         "padding": {
-                                          "left": 10.0,
-                                          "right": 10.0
+                                          "left": 10,
+                                          "right": 10
                                         },
                                         "decoration": {
                                           "color": "{{appColors.current.background.surface}}",
                                           "border": {
                                             "color": "{{appColors.current.input.borderEnabled}}",
-                                            "width": 1.0
+                                            "width": 1
                                           },
                                           "borderRadius": {
-                                            "topLeft": 10.0,
-                                            "topRight": 10.0,
-                                            "bottomLeft": 10.0,
-                                            "bottomRight": 10.0
+                                            "topLeft": 10,
+                                            "topRight": 10,
+                                            "bottomLeft": 10,
+                                            "bottomRight": 10
                                           }
                                         },
-                                        "height": 55.0,
+                                        "height": 55,
                                         "child": {
                                           "textDirection": "rtl",
                                           "children": [
@@ -455,7 +493,7 @@
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
-                                                "fontSize": 18.0,
+                                                "fontSize": 18,
                                                 "fontWeight": "w600"
                                               },
                                               "textDirection": "rtl",
@@ -470,7 +508,7 @@
                                             {
                                               "icon": "keyboard_arrow_down",
                                               "iconType": "material",
-                                              "size": 25.0,
+                                              "size": 25,
                                               "color": "{{appColors.current.text.title}}",
                                               "type": "icon"
                                             }
@@ -480,21 +518,37 @@
                                         "type": "container"
                                       },
                                       "onTap": {
-                                        "actionType": "showGiftCardSelectAmountBottomSheet",
-                                        "title": "مبلغ کارت هدیه را وارد یا انتخاب نمایید",
-                                        "inputHint": "مبلغ کارت هدیه را به ریال وارد نمایید",
-                                        "confirmText": "تایید",
-                                        "amountValueKey": "giftCardRealAmountValue2",
-                                        "amountLabelKey": "giftCardRealAmountLabel2",
-                                        "minAmount": 1000000,
-                                        "maxAmount": 50000000
+                                        "actionType": "showBottomSheet",
+                                        "sheet": {
+                                          "type": "stateFull",
+                                          "onInit": {
+                                            "actionType": "sequence",
+                                            "actions": [
+                                              {
+                                                "actionType": "showGiftCardSelectAmountBottomSheet",
+                                                "amountValueKey": "giftCardRealAmountValue2",
+                                                "amountLabelKey": "giftCardRealAmountLabel2"
+                                              },
+                                              {
+                                                "navigationStyle": "pop",
+                                                "actionType": "navigate"
+                                              }
+                                            ]
+                                          },
+                                          "child": {
+                                            "width": 0,
+                                            "height": 0,
+                                            "type": "sizedBox"
+                                          }
+                                        },
+                                        "backgroundColor": "#00000000"
                                       },
                                       "type": "gestureDetector"
                                     },
                                     "type": "expanded"
                                   },
                                   {
-                                    "width": 10.0,
+                                    "width": 10,
                                     "type": "sizedBox"
                                   },
                                   {
@@ -506,19 +560,19 @@
                                           "width": 1.2
                                         },
                                         "borderRadius": {
-                                          "topLeft": 10.0,
-                                          "topRight": 10.0,
-                                          "bottomLeft": 10.0,
-                                          "bottomRight": 10.0
+                                          "topLeft": 10,
+                                          "topRight": 10,
+                                          "bottomLeft": 10,
+                                          "bottomRight": 10
                                         }
                                       },
-                                      "width": 36.0,
-                                      "height": 36.0,
+                                      "width": 36,
+                                      "height": 36,
                                       "child": {
                                         "child": {
                                           "icon": "delete_outline",
                                           "iconType": "material",
-                                          "size": 20.0,
+                                          "size": 20,
                                           "color": "{{appColors.current.primary.color}}",
                                           "type": "icon"
                                         },
@@ -538,7 +592,7 @@
                                 "type": "row"
                               },
                               {
-                                "height": 18.0,
+                                "height": 18,
                                 "type": "sizedBox"
                               },
                               {
@@ -551,7 +605,7 @@
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
-                                      "fontSize": 16.0,
+                                      "fontSize": 16,
                                       "fontWeight": "w700"
                                     },
                                     "textDirection": "rtl",
@@ -569,19 +623,19 @@
                                               "width": 1.5
                                             },
                                             "borderRadius": {
-                                              "topLeft": 10.0,
-                                              "topRight": 10.0,
-                                              "bottomLeft": 10.0,
-                                              "bottomRight": 10.0
+                                              "topLeft": 10,
+                                              "topRight": 10,
+                                              "bottomLeft": 10,
+                                              "bottomRight": 10
                                             }
                                           },
-                                          "width": 31.0,
-                                          "height": 31.0,
+                                          "width": 31,
+                                          "height": 31,
                                           "child": {
                                             "child": {
                                               "icon": "add",
                                               "iconType": "material",
-                                              "size": 20.0,
+                                              "size": 20,
                                               "color": "{{appColors.current.primary.color}}",
                                               "type": "icon"
                                             },
@@ -599,7 +653,7 @@
                                         "type": "gestureDetector"
                                       },
                                       {
-                                        "width": 16.0,
+                                        "width": 16,
                                         "type": "sizedBox"
                                       },
                                       {
@@ -607,14 +661,14 @@
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
-                                          "fontSize": 22.0,
+                                          "fontSize": 22,
                                           "fontWeight": "w700"
                                         },
                                         "textDirection": "rtl",
                                         "type": "text"
                                       },
                                       {
-                                        "width": 16.0,
+                                        "width": 16,
                                         "type": "sizedBox"
                                       },
                                       {
@@ -626,19 +680,19 @@
                                               "width": 1.5
                                             },
                                             "borderRadius": {
-                                              "topLeft": 10.0,
-                                              "topRight": 10.0,
-                                              "bottomLeft": 10.0,
-                                              "bottomRight": 10.0
+                                              "topLeft": 10,
+                                              "topRight": 10,
+                                              "bottomLeft": 10,
+                                              "bottomRight": 10
                                             }
                                           },
-                                          "width": 31.0,
-                                          "height": 31.0,
+                                          "width": 31,
+                                          "height": 31,
                                           "child": {
                                             "child": {
                                               "icon": "remove",
                                               "iconType": "material",
-                                              "size": 20.0,
+                                              "size": 20,
                                               "color": "{{appColors.current.primary.color}}",
                                               "type": "icon"
                                             },
@@ -677,27 +731,27 @@
                       "crossAxisAlignment": "stretch",
                       "children": [
                         {
-                          "height": 16.0,
+                          "height": 16,
                           "type": "sizedBox"
                         },
                         {
                           "padding": {
-                            "left": 16.0,
-                            "top": 16.0,
-                            "right": 16.0,
-                            "bottom": 16.0
+                            "left": 16,
+                            "top": 16,
+                            "right": 16,
+                            "bottom": 16
                           },
                           "decoration": {
                             "color": "{{appColors.current.background.surface}}",
                             "border": {
                               "color": "{{appColors.current.input.borderEnabled}}",
-                              "width": 1.0
+                              "width": 1
                             },
                             "borderRadius": {
-                              "topLeft": 10.0,
-                              "topRight": 10.0,
-                              "bottomLeft": 10.0,
-                              "bottomRight": 10.0
+                              "topLeft": 10,
+                              "topRight": 10,
+                              "bottomLeft": 10,
+                              "bottomRight": 10
                             }
                           },
                           "child": {
@@ -711,23 +765,23 @@
                                     "child": {
                                       "child": {
                                         "padding": {
-                                          "left": 10.0,
-                                          "right": 10.0
+                                          "left": 10,
+                                          "right": 10
                                         },
                                         "decoration": {
                                           "color": "{{appColors.current.background.surface}}",
                                           "border": {
                                             "color": "{{appColors.current.input.borderEnabled}}",
-                                            "width": 1.0
+                                            "width": 1
                                           },
                                           "borderRadius": {
-                                            "topLeft": 10.0,
-                                            "topRight": 10.0,
-                                            "bottomLeft": 10.0,
-                                            "bottomRight": 10.0
+                                            "topLeft": 10,
+                                            "topRight": 10,
+                                            "bottomLeft": 10,
+                                            "bottomRight": 10
                                           }
                                         },
-                                        "height": 55.0,
+                                        "height": 55,
                                         "child": {
                                           "textDirection": "rtl",
                                           "children": [
@@ -736,7 +790,7 @@
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
-                                                "fontSize": 18.0,
+                                                "fontSize": 18,
                                                 "fontWeight": "w600"
                                               },
                                               "textDirection": "rtl",
@@ -751,7 +805,7 @@
                                             {
                                               "icon": "keyboard_arrow_down",
                                               "iconType": "material",
-                                              "size": 25.0,
+                                              "size": 25,
                                               "color": "{{appColors.current.text.title}}",
                                               "type": "icon"
                                             }
@@ -761,21 +815,37 @@
                                         "type": "container"
                                       },
                                       "onTap": {
-                                        "actionType": "showGiftCardSelectAmountBottomSheet",
-                                        "title": "مبلغ کارت هدیه را وارد یا انتخاب نمایید",
-                                        "inputHint": "مبلغ کارت هدیه را به ریال وارد نمایید",
-                                        "confirmText": "تایید",
-                                        "amountValueKey": "giftCardRealAmountValue3",
-                                        "amountLabelKey": "giftCardRealAmountLabel3",
-                                        "minAmount": 1000000,
-                                        "maxAmount": 50000000
+                                        "actionType": "showBottomSheet",
+                                        "sheet": {
+                                          "type": "stateFull",
+                                          "onInit": {
+                                            "actionType": "sequence",
+                                            "actions": [
+                                              {
+                                                "actionType": "showGiftCardSelectAmountBottomSheet",
+                                                "amountValueKey": "giftCardRealAmountValue3",
+                                                "amountLabelKey": "giftCardRealAmountLabel3"
+                                              },
+                                              {
+                                                "navigationStyle": "pop",
+                                                "actionType": "navigate"
+                                              }
+                                            ]
+                                          },
+                                          "child": {
+                                            "width": 0,
+                                            "height": 0,
+                                            "type": "sizedBox"
+                                          }
+                                        },
+                                        "backgroundColor": "#00000000"
                                       },
                                       "type": "gestureDetector"
                                     },
                                     "type": "expanded"
                                   },
                                   {
-                                    "width": 10.0,
+                                    "width": 10,
                                     "type": "sizedBox"
                                   },
                                   {
@@ -787,19 +857,19 @@
                                           "width": 1.2
                                         },
                                         "borderRadius": {
-                                          "topLeft": 10.0,
-                                          "topRight": 10.0,
-                                          "bottomLeft": 10.0,
-                                          "bottomRight": 10.0
+                                          "topLeft": 10,
+                                          "topRight": 10,
+                                          "bottomLeft": 10,
+                                          "bottomRight": 10
                                         }
                                       },
-                                      "width": 36.0,
-                                      "height": 36.0,
+                                      "width": 36,
+                                      "height": 36,
                                       "child": {
                                         "child": {
                                           "icon": "delete_outline",
                                           "iconType": "material",
-                                          "size": 20.0,
+                                          "size": 20,
                                           "color": "{{appColors.current.primary.color}}",
                                           "type": "icon"
                                         },
@@ -819,7 +889,7 @@
                                 "type": "row"
                               },
                               {
-                                "height": 18.0,
+                                "height": 18,
                                 "type": "sizedBox"
                               },
                               {
@@ -832,7 +902,7 @@
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
-                                      "fontSize": 16.0,
+                                      "fontSize": 16,
                                       "fontWeight": "w700"
                                     },
                                     "textDirection": "rtl",
@@ -850,19 +920,19 @@
                                               "width": 1.5
                                             },
                                             "borderRadius": {
-                                              "topLeft": 10.0,
-                                              "topRight": 10.0,
-                                              "bottomLeft": 10.0,
-                                              "bottomRight": 10.0
+                                              "topLeft": 10,
+                                              "topRight": 10,
+                                              "bottomLeft": 10,
+                                              "bottomRight": 10
                                             }
                                           },
-                                          "width": 31.0,
-                                          "height": 31.0,
+                                          "width": 31,
+                                          "height": 31,
                                           "child": {
                                             "child": {
                                               "icon": "add",
                                               "iconType": "material",
-                                              "size": 20.0,
+                                              "size": 20,
                                               "color": "{{appColors.current.primary.color}}",
                                               "type": "icon"
                                             },
@@ -880,7 +950,7 @@
                                         "type": "gestureDetector"
                                       },
                                       {
-                                        "width": 16.0,
+                                        "width": 16,
                                         "type": "sizedBox"
                                       },
                                       {
@@ -888,14 +958,14 @@
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
-                                          "fontSize": 22.0,
+                                          "fontSize": 22,
                                           "fontWeight": "w700"
                                         },
                                         "textDirection": "rtl",
                                         "type": "text"
                                       },
                                       {
-                                        "width": 16.0,
+                                        "width": 16,
                                         "type": "sizedBox"
                                       },
                                       {
@@ -907,19 +977,19 @@
                                               "width": 1.5
                                             },
                                             "borderRadius": {
-                                              "topLeft": 10.0,
-                                              "topRight": 10.0,
-                                              "bottomLeft": 10.0,
-                                              "bottomRight": 10.0
+                                              "topLeft": 10,
+                                              "topRight": 10,
+                                              "bottomLeft": 10,
+                                              "bottomRight": 10
                                             }
                                           },
-                                          "width": 31.0,
-                                          "height": 31.0,
+                                          "width": 31,
+                                          "height": 31,
                                           "child": {
                                             "child": {
                                               "icon": "remove",
                                               "iconType": "material",
-                                              "size": 20.0,
+                                              "size": 20,
                                               "color": "{{appColors.current.primary.color}}",
                                               "type": "icon"
                                             },
@@ -952,7 +1022,7 @@
                     }
                   },
                   {
-                    "height": 22.0,
+                    "height": 22,
                     "type": "sizedBox"
                   },
                   {
@@ -961,10 +1031,10 @@
                     "child": {
                       "child": {
                         "padding": {
-                          "left": 8.0,
-                          "top": 10.0,
-                          "right": 8.0,
-                          "bottom": 10.0
+                          "left": 8,
+                          "top": 10,
+                          "right": 8,
+                          "bottom": 10
                         },
                         "child": {
                           "mainAxisAlignment": "center",
@@ -973,12 +1043,12 @@
                             {
                               "icon": "add",
                               "iconType": "material",
-                              "size": 28.0,
+                              "size": 28,
                               "color": "{{appColors.current.text.title}}",
                               "type": "icon"
                             },
                             {
-                              "width": 6.0,
+                              "width": 6,
                               "type": "sizedBox"
                             },
                             {
@@ -986,7 +1056,7 @@
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
-                                "fontSize": 16.0,
+                                "fontSize": 16,
                                 "fontWeight": "w600"
                               },
                               "textDirection": "rtl",
@@ -1015,42 +1085,89 @@
         },
         {
           "padding": {
-            "left": 16.0,
-            "right": 16.0,
-            "bottom": 24.0
+            "left": 16,
+            "right": 16,
+            "bottom": 24
           },
           "child": {
             "onPressed": {
-              "actionType": "showGiftCardDesignTypeBottomSheet",
-              "title": "طرح کارت را انتخاب کنید",
-              "readyDesignTitle": "طرح‌های آماده",
-              "customDesignTitle": "طرح سفارشی",
-              "readyDesignAction": {
-                "actionType": "navigate",
-                "assetPath": "lib/stac/tobank/flows/gift_card_real/json/gift_card_real_design_selector.json",
-                "navigationStyle": "push"
+              "actionType": "showBottomSheet",
+              "sheet": {
+                "type": "stateFull",
+                "onInit": {
+                  "actionType": "sequence",
+                  "actions": [
+                    {
+                      "actionType": "showGiftCardDesignTypeBottomSheet",
+                      "title": "طرح کارت را انتخاب کنید",
+                      "readyDesignTitle": "طرح‌های آماده",
+                      "customDesignTitle": "طرح سفارشی",
+                      "readyDesignAction": {
+                        "actionType": "navigate",
+                        "navigationStyle": "push",
+                        "request": {
+                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.gift_card_real_design_selector/1",
+                          "body": {
+                            "operator": "is",
+                            "dimension": {
+                              "app": "mobile"
+                            }
+                          },
+                          "method": "post",
+                          "headers": {
+                            "Accept": "*/*",
+                            "Content-Type": "application/json"
+                          }
+                        }
+                      },
+                      "customDesignAction": {
+                        "actionType": "navigate",
+                        "navigationStyle": "push",
+                        "request": {
+                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.gift_card_real_custom_design_selector/1",
+                          "body": {
+                            "operator": "is",
+                            "dimension": {
+                              "app": "mobile"
+                            }
+                          },
+                          "method": "post",
+                          "headers": {
+                            "Accept": "*/*",
+                            "Content-Type": "application/json"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "navigationStyle": "pop",
+                      "actionType": "navigate"
+                    }
+                  ]
+                },
+                "child": {
+                  "width": 0,
+                  "height": 0,
+                  "type": "sizedBox"
+                }
               },
-              "customDesignAction": {
-                "actionType": "navigate",
-                "assetPath": "lib/stac/tobank/flows/gift_card_real/json/gift_card_real_custom_design_selector.json",
-                "navigationStyle": "push"
-              }
+              "backgroundColor": "#00000000"
             },
             "style": {
               "foregroundColor": "{{appColors.current.primary.onPrimary}}",
               "backgroundColor": "{{appColors.current.primary.color}}",
-              "elevation": 0.0,
+              "elevation": 0,
               "fixedSize": {
-                "width": 999999.0,
-                "height": 64.0
+                "width": 999999,
+                "height": 64
               },
               "shape": {
                 "type": "roundedRectangleBorder",
                 "borderRadius": {
-                  "topLeft": 16.0,
-                  "topRight": 16.0,
-                  "bottomLeft": 16.0,
-                  "bottomRight": 16.0
+                  "topLeft": 16,
+                  "topRight": 16,
+                  "bottomLeft": 16,
+                  "bottomRight": 16
                 }
               }
             },
@@ -1059,7 +1176,7 @@
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.primary.onPrimary}}",
-                "fontSize": 18.0,
+                "fontSize": 18,
                 "fontWeight": "w700"
               },
               "textDirection": "rtl",

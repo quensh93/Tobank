@@ -74,25 +74,18 @@
         },
         "child": {
           "child": {
-            "width": 42.0,
-            "height": 42.0,
-            "child": {
-              "child": {
-                "src": "{{appAssets.icons.support}}",
-                "imageType": "asset",
-                "color": "{{appColors.current.text.title}}",
-                "width": 24.0,
-                "height": 24.0,
-                "type": "image"
-              },
-              "type": "center"
-            },
-            "type": "container"
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24.0,
+            "height": 24.0,
+            "type": "image"
           },
           "type": "center"
         },
         "type": "padding"
       },
+      "automaticallyImplyLeading": true,
       "title": {
         "data": "{{appStrings.menu.items.verifyIdentity}}",
         "style": {
@@ -105,7 +98,7 @@
       "actions": [
         {
           "padding": {
-            "right": 15.0
+            "right": 12.0
           },
           "child": {
             "onPressed": {
@@ -124,8 +117,8 @@
               "src": "{{appAssets.icons.arrowBack}}",
               "imageType": "asset",
               "color": "{{appColors.current.text.title}}",
-              "width": 30.0,
-              "height": 30.0,
+              "width": 31.0,
+              "height": 31.0,
               "type": "image"
             },
             "type": "iconButton"
@@ -138,7 +131,6 @@
     },
     "backgroundColor": "{{appColors.current.background.surface}}",
     "body": {
-      "type": "safeArea",
       "top": false,
       "bottom": true,
       "child": {
@@ -425,8 +417,8 @@
                                       "source": "camera",
                                       "cameraDevice": "front",
                                       "cropImage": true,
-                                      "cropAspectRatioX": 3.0,
-                                      "cropAspectRatioY": 4.0,
+                                      "cropAspectRatioX": 3,
+                                      "cropAspectRatioY": 4,
                                       "previewBeforeConfirm": true,
                                       "previewSheetTitle": "عکس گرفته شده مورد تایید شما است؟",
                                       "confirmButtonText": "تایید",
@@ -827,7 +819,8 @@
           }
         ],
         "type": "column"
-      }
+      },
+      "type": "safeArea"
     },
     "type": "scaffold"
   }

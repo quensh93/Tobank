@@ -17,6 +17,7 @@
       },
       "type": "padding"
     },
+    "automaticallyImplyLeading": true,
     "title": {
       "data": "شارژ",
       "style": {

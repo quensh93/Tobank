@@ -1,5 +1,6 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 
 @StacScreen(screenName: 'transfer_real_in_bank_confirm')
@@ -7,25 +8,9 @@ StacWidget transferRealInBankConfirm() {
   return StacStatefulWidget(
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: StacAppBar(
-        title: StacText(
-          data: 'انتقال وجه',
-          textDirection: StacTextDirection.rtl,
-          style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
-        ),
-        centerTitle: true,
-        leading: StacIconButton(
-          onPressed: const StacNavigateAction(
-            navigationStyle: NavigationStyle.pop,
-          ),
-          icon: StacImage(
-            src: '{{appAssets.icons.arrowRight}}',
-            imageType: StacImageType.asset,
-            width: 24,
-            height: 24,
-            color: '{{appColors.current.text.title}}',
-          ),
-        ),
+      appBar: buildTobankFlowAppBar(
+        showSupport: true,
+        title: 'انتقال وجه',
       ),
       body: StacPadding(
         padding: StacEdgeInsets.only(left: 16, top: 16, right: 16, bottom: 21),

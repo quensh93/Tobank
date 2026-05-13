@@ -32,14 +32,15 @@
           "src": "assets/icons/ic_right_arrow.svg",
           "imageType": "asset",
           "color": "{{appColors.current.text.title}}",
-          "width": 24.0,
-          "height": 24.0,
+          "width": 31.0,
+          "height": 31.0,
           "type": "image"
         },
         "type": "iconButton"
       },
+      "automaticallyImplyLeading": true,
       "title": {
-        "data": "اطلاعات سفته JSON",
+        "data": "اطلاعات سفته",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -281,16 +282,8 @@
                         {
                           "type": "textFormField",
                           "id": "promissory_amount",
-                          "keyboardType": "number",
-                          "textInputAction": "next",
                           "textDirection": "ltr",
                           "textAlign": "right",
-                          "inputFormatters": [
-                            {
-                              "type": "allow",
-                              "rule": "[0-9]"
-                            }
-                          ],
                           "decoration": {
                             "hintText": "مبلغ سفته را وارد نمایید",
                             "suffixText": "{{appStrings.common.rial}}",
@@ -302,6 +295,14 @@
                             },
                             "filled": false
                           },
+                          "keyboardType": "number",
+                          "textInputAction": "next",
+                          "inputFormatters": [
+                            {
+                              "type": "allow",
+                              "rule": "[0-9]"
+                            }
+                          ],
                           "validatorRules": [
                             {
                               "rule": "^\\d+$",
@@ -526,11 +527,8 @@
                         {
                           "type": "textFormField",
                           "id": "promissory_payment_place",
-                          "textInputAction": "next",
                           "textDirection": "rtl",
                           "textAlign": "right",
-                          "maxLines": 3,
-                          "minLines": 2,
                           "decoration": {
                             "hintText": "محل پرداخت سفته را وارد نمایید",
                             "contentPadding": {
@@ -541,6 +539,9 @@
                             },
                             "filled": false
                           },
+                          "textInputAction": "next",
+                          "minLines": 2,
+                          "maxLines": 3,
                           "validatorRules": [
                             {
                               "rule": "^.{1,200}$",
@@ -669,16 +670,16 @@
                   {
                     "actionType": "setValue",
                     "key": "form.isOnDemand",
-                    "value": "{{isOnDemand}}"
+                    "value": "__STAC_OPEN__isOnDemand}}"
                   },
                   {
                     "actionType": "setValue",
                     "key": "form.isTransferable",
-                    "value": "{{isTransferable}}"
+                    "value": "__STAC_OPEN__isTransferable}}"
                   },
                   {
                     "actionType": "navigate",
-                    "assetPath": "lib/stac/tobank/flows/promissory/json/promissory_confirm.json",
+                    "widgetType": "promissory_confirm",
                     "navigationStyle": "push"
                   }
                 ],

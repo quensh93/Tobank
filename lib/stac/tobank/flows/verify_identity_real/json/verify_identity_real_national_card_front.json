@@ -34,25 +34,18 @@
         },
         "child": {
           "child": {
-            "width": 42.0,
-            "height": 42.0,
-            "child": {
-              "child": {
-                "src": "{{appAssets.icons.support}}",
-                "imageType": "asset",
-                "color": "{{appColors.current.text.title}}",
-                "width": 24.0,
-                "height": 24.0,
-                "type": "image"
-              },
-              "type": "center"
-            },
-            "type": "container"
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24.0,
+            "height": 24.0,
+            "type": "image"
           },
           "type": "center"
         },
         "type": "padding"
       },
+      "automaticallyImplyLeading": true,
       "title": {
         "data": "{{appStrings.menu.items.verifyIdentity}}",
         "style": {
@@ -65,7 +58,7 @@
       "actions": [
         {
           "padding": {
-            "right": 15.0
+            "right": 12.0
           },
           "child": {
             "onPressed": {
@@ -76,8 +69,8 @@
               "src": "{{appAssets.icons.arrowBack}}",
               "imageType": "asset",
               "color": "{{appColors.current.text.title}}",
-              "width": 30.0,
-              "height": 30.0,
+              "width": 31.0,
+              "height": 31.0,
               "type": "image"
             },
             "type": "iconButton"
@@ -90,7 +83,6 @@
     },
     "backgroundColor": "{{appColors.current.background.surface}}",
     "body": {
-      "type": "safeArea",
       "top": false,
       "bottom": true,
       "child": {
@@ -597,21 +589,8 @@
                 {
                   "onPressed": {
                     "actionType": "navigate",
-                    "navigationStyle": "push",
-                    "request": {
-                      "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.verify_identity_real_old_national_card/1",
-                      "method": "post",
-                      "headers": {
-                        "Content-Type": "application/json",
-                        "Accept": "*/*"
-                      },
-                      "body": {
-                        "operator": "is",
-                        "dimension": {
-                          "app": "mobile"
-                        }
-                      }
-                    }
+                    "widgetType": "verify_identity_real_old_national_card",
+                    "navigationStyle": "push"
                   },
                   "style": {
                     "foregroundColor": "{{appColors.current.text.title}}",
@@ -701,21 +680,8 @@
                   },
                   "onPressed": {
                     "actionType": "navigate",
-                    "navigationStyle": "push",
-                    "request": {
-                      "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.verify_identity_real_national_card_back/1",
-                      "method": "post",
-                      "headers": {
-                        "Content-Type": "application/json",
-                        "Accept": "*/*"
-                      },
-                      "body": {
-                        "operator": "is",
-                        "dimension": {
-                          "app": "mobile"
-                        }
-                      }
-                    }
+                    "widgetType": "verify_identity_real_national_card_back",
+                    "navigationStyle": "push"
                   }
                 }
               ],
@@ -725,7 +691,8 @@
           }
         ],
         "type": "column"
-      }
+      },
+      "type": "safeArea"
     },
     "type": "scaffold"
   }

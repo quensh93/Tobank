@@ -59,7 +59,7 @@ StacWidget transactionRealFilter() {
             StacFilledButton(
               onPressed: _applyAndBackAction(),
               style: StacButtonStyle(
-                minimumSize: StacSize(999999, 56),
+                minimumSize: StacSize(double.infinity, 56),
                 backgroundColor: '{{appColors.current.primary.color}}',
                 foregroundColor: '{{appColors.current.primary.onPrimary}}',
                 shape: StacRoundedRectangleBorder(

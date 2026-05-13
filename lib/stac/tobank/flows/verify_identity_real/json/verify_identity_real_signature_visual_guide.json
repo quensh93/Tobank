@@ -9,12 +9,13 @@
         "src": "{{appAssets.icons.arrowBack}}",
         "imageType": "asset",
         "color": "{{appColors.current.text.title}}",
-        "width": 30.0,
-        "height": 30.0,
+        "width": 31.0,
+        "height": 31.0,
         "type": "image"
       },
       "type": "iconButton"
     },
+    "automaticallyImplyLeading": true,
     "title": {
       "data": "راهنمای تصویری امضا",
       "style": {
@@ -29,7 +30,6 @@
   },
   "backgroundColor": "{{appColors.current.background.surface}}",
   "body": {
-    "type": "safeArea",
     "top": false,
     "bottom": true,
     "child": {
@@ -146,7 +146,8 @@
         }
       ],
       "type": "stack"
-    }
+    },
+    "type": "safeArea"
   },
   "type": "scaffold"
 }

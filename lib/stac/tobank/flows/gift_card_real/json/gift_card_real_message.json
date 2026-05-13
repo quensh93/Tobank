@@ -60,6 +60,7 @@
         },
         "type": "padding"
       },
+      "automaticallyImplyLeading": true,
       "title": {
         "data": "کارت هدیه",
         "style": {
@@ -138,10 +139,31 @@
                           "type": "icon"
                         },
                         "onTap": {
-                          "actionType": "showGiftCardMessageGuideBottomSheet",
-                          "title": "راهنما",
-                          "description": "در صورت ورود متن دلخواه، یکی از متن‌های پیش‌فرض را انتخاب کنید تا در صورت عدم موافقت بانک با متن دلخواه شما، متن پیش‌فرض جایگزین آن شود",
-                          "closeText": "بستن"
+                          "actionType": "showBottomSheet",
+                          "sheet": {
+                            "type": "stateFull",
+                            "onInit": {
+                              "actionType": "sequence",
+                              "actions": [
+                                {
+                                  "actionType": "showGiftCardMessageGuideBottomSheet",
+                                  "title": "راهنما",
+                                  "description": "در صورت ورود متن دلخواه، یکی از متن‌های پیش‌فرض را انتخاب کنید تا در صورت عدم موافقت بانک با متن دلخواه شما، متن پیش‌فرض جایگزین آن شود",
+                                  "closeText": "بستن"
+                                },
+                                {
+                                  "navigationStyle": "pop",
+                                  "actionType": "navigate"
+                                }
+                              ]
+                            },
+                            "child": {
+                              "width": 0.0,
+                              "height": 0.0,
+                              "type": "sizedBox"
+                            }
+                          },
+                          "backgroundColor": "#00000000"
                         },
                         "type": "gestureDetector"
                       }

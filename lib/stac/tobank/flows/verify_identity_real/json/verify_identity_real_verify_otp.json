@@ -9,29 +9,22 @@
     "appBar": {
       "leading": {
         "padding": {
-          "left": 12.0
+          "left": 12
         },
         "child": {
           "child": {
-            "width": 42.0,
-            "height": 42.0,
-            "child": {
-              "child": {
-                "src": "{{appAssets.icons.support}}",
-                "imageType": "asset",
-                "color": "{{appColors.current.text.title}}",
-                "width": 24.0,
-                "height": 24.0,
-                "type": "image"
-              },
-              "type": "center"
-            },
-            "type": "container"
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24,
+            "height": 24,
+            "type": "image"
           },
           "type": "center"
         },
         "type": "padding"
       },
+      "automaticallyImplyLeading": true,
       "title": {
         "data": "{{appStrings.menu.items.verifyIdentity}}",
         "style": {
@@ -44,7 +37,7 @@
       "actions": [
         {
           "padding": {
-            "right": 15.0
+            "right": 12
           },
           "child": {
             "onPressed": {
@@ -55,8 +48,8 @@
               "src": "{{appAssets.icons.arrowBack}}",
               "imageType": "asset",
               "color": "{{appColors.current.text.title}}",
-              "width": 30.0,
-              "height": 30.0,
+              "width": 31,
+              "height": 31,
               "type": "image"
             },
             "type": "iconButton"
@@ -69,7 +62,6 @@
     },
     "backgroundColor": "{{appColors.current.background.surface}}",
     "body": {
-      "type": "safeArea",
       "top": false,
       "bottom": true,
       "child": {
@@ -80,16 +72,16 @@
             {
               "child": {
                 "padding": {
-                  "left": 16.0,
-                  "top": 16.0,
-                  "right": 16.0,
-                  "bottom": 16.0
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
                 },
                 "child": {
                   "crossAxisAlignment": "stretch",
                   "children": [
                     {
-                      "height": 12.0,
+                      "height": 12,
                       "type": "sizedBox"
                     },
                     {
@@ -97,7 +89,7 @@
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
-                        "fontSize": 20.0,
+                        "fontSize": 20,
                         "fontWeight": "w700"
                       },
                       "textAlign": "right",
@@ -105,7 +97,7 @@
                       "type": "text"
                     },
                     {
-                      "height": 24.0,
+                      "height": 24,
                       "type": "sizedBox"
                     },
                     {
@@ -113,7 +105,7 @@
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.subtitle}}",
-                        "fontSize": 15.0,
+                        "fontSize": 15,
                         "fontWeight": "w600",
                         "height": 1.8
                       },
@@ -122,7 +114,7 @@
                       "type": "text"
                     },
                     {
-                      "height": 24.0,
+                      "height": 24,
                       "type": "sizedBox"
                     },
                     {
@@ -135,22 +127,12 @@
                             "id": "verify_identity_otp_code",
                             "textDirection": "ltr",
                             "textAlign": "right",
-                            "supportTextDirection": "rtl",
-                            "maxLength": 5,
-                            "inputFormatters": [
-                              {
-                                "type": "allow",
-                                "rule": "[0-9]"
-                              }
-                            ],
-                            "keyboardType": "number",
-                            "textInputAction": "done",
                             "decoration": {
                               "hintText": "{{appStrings.authentication.otpCodeHint}}",
                               "hintStyle": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.hint}}",
-                                "fontSize": 15.0,
+                                "fontSize": 15,
                                 "fontWeight": "w600"
                               },
                               "helperText": " ",
@@ -159,20 +141,29 @@
                                 "height": 0.5
                               },
                               "contentPadding": {
-                                "left": 16.0,
-                                "top": 18.0,
-                                "right": 16.0,
-                                "bottom": 18.0
+                                "left": 16,
+                                "top": 18,
+                                "right": 16,
+                                "bottom": 18
                               },
                               "filled": false
                             },
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
-                              "fontSize": 18.0,
+                              "fontSize": 18,
                               "fontWeight": "w600",
-                              "letterSpacing": 4.0
+                              "letterSpacing": 4
                             },
+                            "keyboardType": "number",
+                            "textInputAction": "done",
+                            "maxLength": 5,
+                            "inputFormatters": [
+                              {
+                                "type": "allow",
+                                "rule": "[0-9]"
+                              }
+                            ],
                             "validatorRules": [
                               {
                                 "rule": "^\\d{5}$",
@@ -193,7 +184,7 @@
                           "type": "expanded"
                         },
                         {
-                          "width": 12.0,
+                          "width": 12,
                           "type": "sizedBox"
                         },
                         {
@@ -209,15 +200,108 @@
                           "height": 56,
                           "minWidth": 132,
                           "onRetry": {
-                            "actionType": "showSnackBar",
-                            "backgroundColor": "#2E7D32",
-                            "content": {
-                              "type": "text",
-                              "data": "{{appStrings.authentication.otpResentMessage}}",
-                              "style": {
-                                "type": "custom",
-                                "color": "#FFFFFF",
-                                "fontSize": 16
+                            "actionType": "customSnackBar",
+                            "backgroundColor": "#00000000",
+                            "duration": 10000,
+                            "permanent": false,
+                            "permenent": false,
+                            "child": {
+                              "type": "container",
+                              "decoration": {
+                                "color": "{{appColors.current.background.surfaceContainer}}",
+                                "borderRadius": {
+                                  "topLeft": 8,
+                                  "topRight": 8,
+                                  "bottomLeft": 8,
+                                  "bottomRight": 8
+                                },
+                                "border": {
+                                  "color": "{{appColors.current.input.borderEnabled}}",
+                                  "width": 1
+                                }
+                              },
+                              "padding": {
+                                "left": 12,
+                                "top": 10,
+                                "right": 12,
+                                "bottom": 10
+                              },
+                              "child": {
+                                "type": "row",
+                                "textDirection": "ltr",
+                                "crossAxisAlignment": "center",
+                                "children": [
+                                  {
+                                    "type": "expanded",
+                                    "child": {
+                                      "type": "column",
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "end",
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "data": "اعلان",
+                                          "textDirection": "rtl",
+                                          "textAlign": "right",
+                                          "style": {
+                                            "type": "custom",
+                                            "fontSize": 14,
+                                            "fontWeight": "w700",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "height": 1.45
+                                          }
+                                        },
+                                        {
+                                          "type": "sizedBox",
+                                          "height": 4
+                                        },
+                                        {
+                                          "type": "text",
+                                          "data": "{{appStrings.authentication.otpResentMessage}}",
+                                          "textDirection": "rtl",
+                                          "textAlign": "right",
+                                          "style": {
+                                            "type": "custom",
+                                            "fontSize": 13,
+                                            "fontWeight": "w500",
+                                            "color": "{{appColors.current.text.subtitle}}",
+                                            "height": 1.45
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "type": "sizedBox",
+                                    "width": 10
+                                  },
+                                  {
+                                    "type": "container",
+                                    "width": 1,
+                                    "height": 20,
+                                    "decoration": {
+                                      "color": "{{appColors.current.input.borderEnabled}}",
+                                      "borderRadius": {
+                                        "topLeft": 999,
+                                        "topRight": 999,
+                                        "bottomLeft": 999,
+                                        "bottomRight": 999
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "sizedBox",
+                                    "width": 8
+                                  },
+                                  {
+                                    "type": "image",
+                                    "src": "assets/icons/ic_info.svg",
+                                    "imageType": "asset",
+                                    "width": 20,
+                                    "height": 20,
+                                    "color": "{{appColors.current.text.subtitle}}"
+                                  }
+                                ]
                               }
                             }
                           }
@@ -234,9 +318,9 @@
             },
             {
               "padding": {
-                "left": 16.0,
-                "right": 16.0,
-                "bottom": 24.0
+                "left": 16,
+                "right": 16,
+                "bottom": 24
               },
               "child": {
                 "type": "reactiveElevatedButton",
@@ -244,35 +328,35 @@
                 "enabled": false,
                 "style": {
                   "backgroundColor": "{{appColors.current.primary.color}}",
-                  "elevation": 0.0,
+                  "elevation": 0,
                   "fixedSize": {
-                    "width": 999999.0,
-                    "height": 64.0
+                    "width": 999999,
+                    "height": 64
                   },
                   "shape": {
                     "type": "roundedRectangleBorder",
                     "borderRadius": {
-                      "topLeft": 14.0,
-                      "topRight": 14.0,
-                      "bottomLeft": 14.0,
-                      "bottomRight": 14.0
+                      "topLeft": 14,
+                      "topRight": 14,
+                      "bottomLeft": 14,
+                      "bottomRight": 14
                     }
                   }
                 },
                 "disabledStyle": {
                   "backgroundColor": "{{appColors.current.background.surfaceContainerHigh}}",
-                  "elevation": 0.0,
+                  "elevation": 0,
                   "fixedSize": {
-                    "width": 999999.0,
-                    "height": 64.0
+                    "width": 999999,
+                    "height": 64
                   },
                   "shape": {
                     "type": "roundedRectangleBorder",
                     "borderRadius": {
-                      "topLeft": 14.0,
-                      "topRight": 14.0,
-                      "bottomLeft": 14.0,
-                      "bottomRight": 14.0
+                      "topLeft": 14,
+                      "topRight": 14,
+                      "bottomLeft": 14,
+                      "bottomRight": 14
                     }
                   }
                 },
@@ -281,7 +365,7 @@
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.primary.onPrimary}}",
-                    "fontSize": 18.0,
+                    "fontSize": 18,
                     "fontWeight": "w700"
                   },
                   "textDirection": "rtl",
@@ -292,16 +376,16 @@
                   "actionType": "navigate",
                   "request": {
                     "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.verify_identity_real_national_card_front/1",
-                    "method": "post",
-                    "headers": {
-                      "Content-Type": "application/json",
-                      "Accept": "*/*"
-                    },
                     "body": {
                       "operator": "is",
                       "dimension": {
                         "app": "mobile"
                       }
+                    },
+                    "method": "post",
+                    "headers": {
+                      "Accept": "*/*",
+                      "Content-Type": "application/json"
                     }
                   }
                 }
@@ -312,7 +396,8 @@
           "type": "column"
         },
         "type": "form"
-      }
+      },
+      "type": "safeArea"
     },
     "type": "scaffold"
   }

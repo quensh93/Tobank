@@ -25,21 +25,22 @@
     "appBar": {
       "leading": {
         "padding": {
-          "left": 12.0
+          "left": 12
         },
         "child": {
           "child": {
             "src": "{{appAssets.icons.support}}",
             "imageType": "asset",
             "color": "{{appColors.current.text.title}}",
-            "width": 24.0,
-            "height": 24.0,
+            "width": 24,
+            "height": 24,
             "type": "image"
           },
           "type": "center"
         },
         "type": "padding"
       },
+      "automaticallyImplyLeading": true,
       "title": {
         "data": "شارژ",
         "style": {
@@ -52,7 +53,7 @@
       "actions": [
         {
           "padding": {
-            "right": 12.0
+            "right": 12
           },
           "child": {
             "onPressed": {
@@ -63,8 +64,8 @@
               "src": "{{appAssets.icons.arrowBack}}",
               "imageType": "asset",
               "color": "{{appColors.current.text.title}}",
-              "width": 31.0,
-              "height": 31.0,
+              "width": 31,
+              "height": 31,
               "type": "image"
             },
             "type": "iconButton"
@@ -80,10 +81,10 @@
       "top": false,
       "child": {
         "padding": {
-          "left": 14.0,
-          "top": 14.0,
-          "right": 14.0,
-          "bottom": 14.0
+          "left": 14,
+          "top": 14,
+          "right": 14,
+          "bottom": 14
         },
         "child": {
           "crossAxisAlignment": "stretch",
@@ -91,21 +92,21 @@
             {
               "child": {
                 "padding": {
-                  "left": 10.0,
-                  "top": 10.0,
-                  "right": 10.0,
-                  "bottom": 10.0
+                  "left": 10,
+                  "top": 10,
+                  "right": 10,
+                  "bottom": 10
                 },
                 "decoration": {
                   "color": "{{appColors.current.background.surface}}",
                   "border": {
                     "color": "{{appColors.current.input.borderEnabled}}",
-                    "width": 1.0
+                    "width": 1
                   },
                   "shape": "circle"
                 },
-                "width": 50.0,
-                "height": 50.0,
+                "width": 50,
+                "height": 50,
                 "child": {
                   "src": "{{crActiveSimLogo}}",
                   "imageType": "asset",
@@ -117,7 +118,7 @@
               "type": "center"
             },
             {
-              "height": 8.0,
+              "height": 8,
               "type": "sizedBox"
             },
             {
@@ -125,7 +126,7 @@
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.text.title}}",
-                "fontSize": 14.0,
+                "fontSize": 14,
                 "fontWeight": "w500"
               },
               "textAlign": "center",
@@ -133,7 +134,7 @@
               "type": "text"
             },
             {
-              "height": 10.0,
+              "height": 10,
               "type": "sizedBox"
             },
             {
@@ -145,14 +146,14 @@
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.subtitle}}",
-                    "fontSize": 16.0,
+                    "fontSize": 16,
                     "fontWeight": "w500"
                   },
                   "textDirection": "rtl",
                   "type": "text"
                 },
                 {
-                  "width": 8.0,
+                  "width": 8,
                   "type": "sizedBox"
                 },
                 {
@@ -160,7 +161,7 @@
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.title}}",
-                    "fontSize": 20.0,
+                    "fontSize": 20,
                     "fontWeight": "w700"
                   },
                   "textDirection": "rtl",
@@ -170,27 +171,27 @@
               "type": "row"
             },
             {
-              "height": 14.0,
+              "height": 14,
               "type": "sizedBox"
             },
             {
               "padding": {
-                "left": 12.0,
-                "top": 10.0,
-                "right": 12.0,
-                "bottom": 10.0
+                "left": 12,
+                "top": 10,
+                "right": 12,
+                "bottom": 10
               },
               "decoration": {
                 "color": "{{appColors.current.background.surface}}",
                 "border": {
                   "color": "{{appColors.current.input.borderEnabled}}",
-                  "width": 1.0
+                  "width": 1
                 },
                 "borderRadius": {
-                  "topLeft": 10.0,
-                  "topRight": 10.0,
-                  "bottomLeft": 10.0,
-                  "bottomRight": 10.0
+                  "topLeft": 10,
+                  "topRight": 10,
+                  "bottomLeft": 10,
+                  "bottomRight": 10
                 }
               },
               "child": {
@@ -201,13 +202,13 @@
                       "color": "#F2F4F7",
                       "shape": "circle"
                     },
-                    "width": 34.0,
-                    "height": 34.0,
+                    "width": 34,
+                    "height": 34,
                     "child": {
                       "child": {
                         "icon": "account_balance_wallet_outlined",
                         "iconType": "material",
-                        "size": 20.0,
+                        "size": 20,
                         "color": "{{appColors.current.text.subtitle}}",
                         "type": "icon"
                       },
@@ -216,7 +217,7 @@
                     "type": "container"
                   },
                   {
-                    "width": 8.0,
+                    "width": 8,
                     "type": "sizedBox"
                   },
                   {
@@ -224,7 +225,7 @@
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
-                      "fontSize": 16.0,
+                      "fontSize": 16,
                       "fontWeight": "w600"
                     },
                     "textDirection": "rtl",
@@ -241,7 +242,7 @@
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
-                      "fontSize": 16.0,
+                      "fontSize": 16,
                       "fontWeight": "w600"
                     },
                     "textDirection": "ltr",
@@ -253,27 +254,27 @@
               "type": "container"
             },
             {
-              "height": 18.0,
+              "height": 18,
               "type": "sizedBox"
             },
             {
               "padding": {
-                "left": 12.0,
-                "top": 12.0,
-                "right": 12.0,
-                "bottom": 12.0
+                "left": 12,
+                "top": 12,
+                "right": 12,
+                "bottom": 12
               },
               "decoration": {
                 "color": "{{appColors.current.background.surface}}",
                 "border": {
                   "color": "{{appColors.current.input.borderEnabled}}",
-                  "width": 1.0
+                  "width": 1
                 },
                 "borderRadius": {
-                  "topLeft": 10.0,
-                  "topRight": 10.0,
-                  "bottomLeft": 10.0,
-                  "bottomRight": 10.0
+                  "topLeft": 10,
+                  "topRight": 10,
+                  "bottomLeft": 10,
+                  "bottomRight": 10
                 }
               },
               "child": {
@@ -281,7 +282,7 @@
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.title}}",
-                  "fontSize": 16.0,
+                  "fontSize": 16,
                   "fontWeight": "w600"
                 },
                 "textAlign": "right",
@@ -291,14 +292,14 @@
               "type": "container"
             },
             {
-              "height": 16.0,
+              "height": 16,
               "type": "sizedBox"
             },
             {
               "child": {
                 "padding": {
-                  "top": 4.0,
-                  "bottom": 2.0
+                  "top": 4,
+                  "bottom": 2
                 },
                 "child": {
                   "crossAxisAlignment": "stretch",
@@ -312,21 +313,21 @@
                             "color": "#F4FDFF",
                             "border": {
                               "color": "#20C4D8",
-                              "width": 1.0
+                              "width": 1
                             },
                             "borderRadius": {
-                              "topLeft": 10.0,
-                              "topRight": 10.0,
-                              "bottomLeft": 10.0,
-                              "bottomRight": 10.0
+                              "topLeft": 10,
+                              "topRight": 10,
+                              "bottomLeft": 10,
+                              "bottomRight": 10
                             }
                           },
                           "child": {
                             "padding": {
-                              "left": 12.0,
-                              "top": 12.0,
-                              "right": 12.0,
-                              "bottom": 12.0
+                              "left": 12,
+                              "top": 12,
+                              "right": 12,
+                              "bottom": 12
                             },
                             "child": {
                               "crossAxisAlignment": "stretch",
@@ -339,12 +340,12 @@
                                       "decoration": {
                                         "border": {
                                           "color": "{{appColors.current.input.borderEnabled}}",
-                                          "width": 1.0
+                                          "width": 1
                                         },
                                         "shape": "circle"
                                       },
-                                      "width": 18.0,
-                                      "height": 18.0,
+                                      "width": 18,
+                                      "height": 18,
                                       "child": {
                                         "type": "visibility",
                                         "visible": "[[crPayAcc1Sel]]",
@@ -354,8 +355,8 @@
                                               "color": "#20C4D8",
                                               "shape": "circle"
                                             },
-                                            "width": 8.0,
-                                            "height": 8.0,
+                                            "width": 8,
+                                            "height": 8,
                                             "type": "container"
                                           },
                                           "type": "center"
@@ -367,7 +368,7 @@
                                       "type": "container"
                                     },
                                     {
-                                      "width": 10.0,
+                                      "width": 10,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -376,7 +377,7 @@
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
-                                          "fontSize": 16.0,
+                                          "fontSize": 16,
                                           "fontWeight": "w500"
                                         },
                                         "textAlign": "right",
@@ -389,7 +390,7 @@
                                   "type": "row"
                                 },
                                 {
-                                  "height": 10.0,
+                                  "height": 10,
                                   "type": "sizedBox"
                                 },
                                 {
@@ -400,14 +401,14 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
-                                        "fontSize": 13.0,
+                                        "fontSize": 13,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "rtl",
                                       "type": "text"
                                     },
                                     {
-                                      "width": 8.0,
+                                      "width": 8,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -415,7 +416,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
-                                        "fontSize": 14.0,
+                                        "fontSize": 14,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "ltr",
@@ -425,7 +426,7 @@
                                   "type": "row"
                                 },
                                 {
-                                  "height": 8.0,
+                                  "height": 8,
                                   "type": "sizedBox"
                                 },
                                 {
@@ -436,14 +437,14 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
-                                        "fontSize": 13.0,
+                                        "fontSize": 13,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "rtl",
                                       "type": "text"
                                     },
                                     {
-                                      "width": 8.0,
+                                      "width": 8,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -451,7 +452,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
-                                        "fontSize": 14.0,
+                                        "fontSize": 14,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "ltr",
@@ -462,10 +463,10 @@
                                 },
                                 {
                                   "color": "#E5E7EB",
-                                  "height": 1.0,
+                                  "height": 1,
                                   "margin": {
-                                    "top": 10.0,
-                                    "bottom": 10.0
+                                    "top": 10,
+                                    "bottom": 10
                                   },
                                   "type": "container"
                                 },
@@ -477,14 +478,14 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "#13A780",
-                                        "fontSize": 15.0,
+                                        "fontSize": 15,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "rtl",
                                       "type": "text"
                                     },
                                     {
-                                      "width": 8.0,
+                                      "width": 8,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -492,7 +493,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "#13A780",
-                                        "fontSize": 16.0,
+                                        "fontSize": 16,
                                         "fontWeight": "w600"
                                       },
                                       "textDirection": "ltr",
@@ -519,21 +520,21 @@
                             "color": "{{appColors.current.background.surface}}",
                             "border": {
                               "color": "{{appColors.current.input.borderEnabled}}",
-                              "width": 1.0
+                              "width": 1
                             },
                             "borderRadius": {
-                              "topLeft": 10.0,
-                              "topRight": 10.0,
-                              "bottomLeft": 10.0,
-                              "bottomRight": 10.0
+                              "topLeft": 10,
+                              "topRight": 10,
+                              "bottomLeft": 10,
+                              "bottomRight": 10
                             }
                           },
                           "child": {
                             "padding": {
-                              "left": 12.0,
-                              "top": 12.0,
-                              "right": 12.0,
-                              "bottom": 12.0
+                              "left": 12,
+                              "top": 12,
+                              "right": 12,
+                              "bottom": 12
                             },
                             "child": {
                               "crossAxisAlignment": "stretch",
@@ -546,12 +547,12 @@
                                       "decoration": {
                                         "border": {
                                           "color": "{{appColors.current.input.borderEnabled}}",
-                                          "width": 1.0
+                                          "width": 1
                                         },
                                         "shape": "circle"
                                       },
-                                      "width": 18.0,
-                                      "height": 18.0,
+                                      "width": 18,
+                                      "height": 18,
                                       "child": {
                                         "type": "visibility",
                                         "visible": "[[crPayAcc1Sel]]",
@@ -561,8 +562,8 @@
                                               "color": "#20C4D8",
                                               "shape": "circle"
                                             },
-                                            "width": 8.0,
-                                            "height": 8.0,
+                                            "width": 8,
+                                            "height": 8,
                                             "type": "container"
                                           },
                                           "type": "center"
@@ -574,7 +575,7 @@
                                       "type": "container"
                                     },
                                     {
-                                      "width": 10.0,
+                                      "width": 10,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -583,7 +584,7 @@
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
-                                          "fontSize": 16.0,
+                                          "fontSize": 16,
                                           "fontWeight": "w500"
                                         },
                                         "textAlign": "right",
@@ -596,7 +597,7 @@
                                   "type": "row"
                                 },
                                 {
-                                  "height": 10.0,
+                                  "height": 10,
                                   "type": "sizedBox"
                                 },
                                 {
@@ -607,14 +608,14 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
-                                        "fontSize": 13.0,
+                                        "fontSize": 13,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "rtl",
                                       "type": "text"
                                     },
                                     {
-                                      "width": 8.0,
+                                      "width": 8,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -622,7 +623,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
-                                        "fontSize": 14.0,
+                                        "fontSize": 14,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "ltr",
@@ -632,7 +633,7 @@
                                   "type": "row"
                                 },
                                 {
-                                  "height": 8.0,
+                                  "height": 8,
                                   "type": "sizedBox"
                                 },
                                 {
@@ -643,14 +644,14 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
-                                        "fontSize": 13.0,
+                                        "fontSize": 13,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "rtl",
                                       "type": "text"
                                     },
                                     {
-                                      "width": 8.0,
+                                      "width": 8,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -658,7 +659,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
-                                        "fontSize": 14.0,
+                                        "fontSize": 14,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "ltr",
@@ -669,10 +670,10 @@
                                 },
                                 {
                                   "color": "#E5E7EB",
-                                  "height": 1.0,
+                                  "height": 1,
                                   "margin": {
-                                    "top": 10.0,
-                                    "bottom": 10.0
+                                    "top": 10,
+                                    "bottom": 10
                                   },
                                   "type": "container"
                                 },
@@ -684,14 +685,14 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "#13A780",
-                                        "fontSize": 15.0,
+                                        "fontSize": 15,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "rtl",
                                       "type": "text"
                                     },
                                     {
-                                      "width": 8.0,
+                                      "width": 8,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -699,7 +700,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "#13A780",
-                                        "fontSize": 16.0,
+                                        "fontSize": 16,
                                         "fontWeight": "w600"
                                       },
                                       "textDirection": "ltr",
@@ -746,7 +747,7 @@
                       "type": "gestureDetector"
                     },
                     {
-                      "height": 10.0,
+                      "height": 10,
                       "type": "sizedBox"
                     },
                     {
@@ -758,21 +759,21 @@
                             "color": "#F4FDFF",
                             "border": {
                               "color": "#20C4D8",
-                              "width": 1.0
+                              "width": 1
                             },
                             "borderRadius": {
-                              "topLeft": 10.0,
-                              "topRight": 10.0,
-                              "bottomLeft": 10.0,
-                              "bottomRight": 10.0
+                              "topLeft": 10,
+                              "topRight": 10,
+                              "bottomLeft": 10,
+                              "bottomRight": 10
                             }
                           },
                           "child": {
                             "padding": {
-                              "left": 12.0,
-                              "top": 12.0,
-                              "right": 12.0,
-                              "bottom": 12.0
+                              "left": 12,
+                              "top": 12,
+                              "right": 12,
+                              "bottom": 12
                             },
                             "child": {
                               "crossAxisAlignment": "stretch",
@@ -785,12 +786,12 @@
                                       "decoration": {
                                         "border": {
                                           "color": "{{appColors.current.input.borderEnabled}}",
-                                          "width": 1.0
+                                          "width": 1
                                         },
                                         "shape": "circle"
                                       },
-                                      "width": 18.0,
-                                      "height": 18.0,
+                                      "width": 18,
+                                      "height": 18,
                                       "child": {
                                         "type": "visibility",
                                         "visible": "[[crPayAcc2Sel]]",
@@ -800,8 +801,8 @@
                                               "color": "#20C4D8",
                                               "shape": "circle"
                                             },
-                                            "width": 8.0,
-                                            "height": 8.0,
+                                            "width": 8,
+                                            "height": 8,
                                             "type": "container"
                                           },
                                           "type": "center"
@@ -813,7 +814,7 @@
                                       "type": "container"
                                     },
                                     {
-                                      "width": 10.0,
+                                      "width": 10,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -822,7 +823,7 @@
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
-                                          "fontSize": 16.0,
+                                          "fontSize": 16,
                                           "fontWeight": "w500"
                                         },
                                         "textAlign": "right",
@@ -835,7 +836,7 @@
                                   "type": "row"
                                 },
                                 {
-                                  "height": 10.0,
+                                  "height": 10,
                                   "type": "sizedBox"
                                 },
                                 {
@@ -846,14 +847,14 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
-                                        "fontSize": 13.0,
+                                        "fontSize": 13,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "rtl",
                                       "type": "text"
                                     },
                                     {
-                                      "width": 8.0,
+                                      "width": 8,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -861,7 +862,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
-                                        "fontSize": 14.0,
+                                        "fontSize": 14,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "ltr",
@@ -871,7 +872,7 @@
                                   "type": "row"
                                 },
                                 {
-                                  "height": 8.0,
+                                  "height": 8,
                                   "type": "sizedBox"
                                 },
                                 {
@@ -882,14 +883,14 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
-                                        "fontSize": 13.0,
+                                        "fontSize": 13,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "rtl",
                                       "type": "text"
                                     },
                                     {
-                                      "width": 8.0,
+                                      "width": 8,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -897,7 +898,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
-                                        "fontSize": 14.0,
+                                        "fontSize": 14,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "ltr",
@@ -908,10 +909,10 @@
                                 },
                                 {
                                   "color": "#E5E7EB",
-                                  "height": 1.0,
+                                  "height": 1,
                                   "margin": {
-                                    "top": 10.0,
-                                    "bottom": 10.0
+                                    "top": 10,
+                                    "bottom": 10
                                   },
                                   "type": "container"
                                 },
@@ -923,14 +924,14 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "#E31D35",
-                                        "fontSize": 15.0,
+                                        "fontSize": 15,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "rtl",
                                       "type": "text"
                                     },
                                     {
-                                      "width": 8.0,
+                                      "width": 8,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -938,7 +939,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "#E31D35",
-                                        "fontSize": 16.0,
+                                        "fontSize": 16,
                                         "fontWeight": "w600"
                                       },
                                       "textDirection": "ltr",
@@ -952,18 +953,18 @@
                                     },
                                     {
                                       "padding": {
-                                        "left": 8.0,
-                                        "top": 4.0,
-                                        "right": 8.0,
-                                        "bottom": 4.0
+                                        "left": 8,
+                                        "top": 4,
+                                        "right": 8,
+                                        "bottom": 4
                                       },
                                       "decoration": {
                                         "color": "#E31D35",
                                         "borderRadius": {
-                                          "topLeft": 99.0,
-                                          "topRight": 99.0,
-                                          "bottomLeft": 99.0,
-                                          "bottomRight": 99.0
+                                          "topLeft": 99,
+                                          "topRight": 99,
+                                          "bottomLeft": 99,
+                                          "bottomRight": 99
                                         }
                                       },
                                       "child": {
@@ -971,7 +972,7 @@
                                         "style": {
                                           "type": "custom",
                                           "color": "#FFFFFF",
-                                          "fontSize": 11.0,
+                                          "fontSize": 11,
                                           "fontWeight": "w500"
                                         },
                                         "textDirection": "rtl",
@@ -994,21 +995,21 @@
                             "color": "{{appColors.current.background.surface}}",
                             "border": {
                               "color": "{{appColors.current.input.borderEnabled}}",
-                              "width": 1.0
+                              "width": 1
                             },
                             "borderRadius": {
-                              "topLeft": 10.0,
-                              "topRight": 10.0,
-                              "bottomLeft": 10.0,
-                              "bottomRight": 10.0
+                              "topLeft": 10,
+                              "topRight": 10,
+                              "bottomLeft": 10,
+                              "bottomRight": 10
                             }
                           },
                           "child": {
                             "padding": {
-                              "left": 12.0,
-                              "top": 12.0,
-                              "right": 12.0,
-                              "bottom": 12.0
+                              "left": 12,
+                              "top": 12,
+                              "right": 12,
+                              "bottom": 12
                             },
                             "child": {
                               "crossAxisAlignment": "stretch",
@@ -1021,12 +1022,12 @@
                                       "decoration": {
                                         "border": {
                                           "color": "{{appColors.current.input.borderEnabled}}",
-                                          "width": 1.0
+                                          "width": 1
                                         },
                                         "shape": "circle"
                                       },
-                                      "width": 18.0,
-                                      "height": 18.0,
+                                      "width": 18,
+                                      "height": 18,
                                       "child": {
                                         "type": "visibility",
                                         "visible": "[[crPayAcc2Sel]]",
@@ -1036,8 +1037,8 @@
                                               "color": "#20C4D8",
                                               "shape": "circle"
                                             },
-                                            "width": 8.0,
-                                            "height": 8.0,
+                                            "width": 8,
+                                            "height": 8,
                                             "type": "container"
                                           },
                                           "type": "center"
@@ -1049,7 +1050,7 @@
                                       "type": "container"
                                     },
                                     {
-                                      "width": 10.0,
+                                      "width": 10,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -1058,7 +1059,7 @@
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
-                                          "fontSize": 16.0,
+                                          "fontSize": 16,
                                           "fontWeight": "w500"
                                         },
                                         "textAlign": "right",
@@ -1071,7 +1072,7 @@
                                   "type": "row"
                                 },
                                 {
-                                  "height": 10.0,
+                                  "height": 10,
                                   "type": "sizedBox"
                                 },
                                 {
@@ -1082,14 +1083,14 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
-                                        "fontSize": 13.0,
+                                        "fontSize": 13,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "rtl",
                                       "type": "text"
                                     },
                                     {
-                                      "width": 8.0,
+                                      "width": 8,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -1097,7 +1098,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
-                                        "fontSize": 14.0,
+                                        "fontSize": 14,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "ltr",
@@ -1107,7 +1108,7 @@
                                   "type": "row"
                                 },
                                 {
-                                  "height": 8.0,
+                                  "height": 8,
                                   "type": "sizedBox"
                                 },
                                 {
@@ -1118,14 +1119,14 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
-                                        "fontSize": 13.0,
+                                        "fontSize": 13,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "rtl",
                                       "type": "text"
                                     },
                                     {
-                                      "width": 8.0,
+                                      "width": 8,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -1133,7 +1134,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
-                                        "fontSize": 14.0,
+                                        "fontSize": 14,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "ltr",
@@ -1144,10 +1145,10 @@
                                 },
                                 {
                                   "color": "#E5E7EB",
-                                  "height": 1.0,
+                                  "height": 1,
                                   "margin": {
-                                    "top": 10.0,
-                                    "bottom": 10.0
+                                    "top": 10,
+                                    "bottom": 10
                                   },
                                   "type": "container"
                                 },
@@ -1159,14 +1160,14 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "#E31D35",
-                                        "fontSize": 15.0,
+                                        "fontSize": 15,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "rtl",
                                       "type": "text"
                                     },
                                     {
-                                      "width": 8.0,
+                                      "width": 8,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -1174,7 +1175,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "#E31D35",
-                                        "fontSize": 16.0,
+                                        "fontSize": 16,
                                         "fontWeight": "w600"
                                       },
                                       "textDirection": "ltr",
@@ -1188,18 +1189,18 @@
                                     },
                                     {
                                       "padding": {
-                                        "left": 8.0,
-                                        "top": 4.0,
-                                        "right": 8.0,
-                                        "bottom": 4.0
+                                        "left": 8,
+                                        "top": 4,
+                                        "right": 8,
+                                        "bottom": 4
                                       },
                                       "decoration": {
                                         "color": "#E31D35",
                                         "borderRadius": {
-                                          "topLeft": 99.0,
-                                          "topRight": 99.0,
-                                          "bottomLeft": 99.0,
-                                          "bottomRight": 99.0
+                                          "topLeft": 99,
+                                          "topRight": 99,
+                                          "bottomLeft": 99,
+                                          "bottomRight": 99
                                         }
                                       },
                                       "child": {
@@ -1207,7 +1208,7 @@
                                         "style": {
                                           "type": "custom",
                                           "color": "#FFFFFF",
-                                          "fontSize": 11.0,
+                                          "fontSize": 11,
                                           "fontWeight": "w500"
                                         },
                                         "textDirection": "rtl",
@@ -1250,7 +1251,7 @@
                       "type": "gestureDetector"
                     },
                     {
-                      "height": 10.0,
+                      "height": 10,
                       "type": "sizedBox"
                     },
                     {
@@ -1262,21 +1263,21 @@
                             "color": "#F4FDFF",
                             "border": {
                               "color": "#20C4D8",
-                              "width": 1.0
+                              "width": 1
                             },
                             "borderRadius": {
-                              "topLeft": 10.0,
-                              "topRight": 10.0,
-                              "bottomLeft": 10.0,
-                              "bottomRight": 10.0
+                              "topLeft": 10,
+                              "topRight": 10,
+                              "bottomLeft": 10,
+                              "bottomRight": 10
                             }
                           },
                           "child": {
                             "padding": {
-                              "left": 12.0,
-                              "top": 12.0,
-                              "right": 12.0,
-                              "bottom": 12.0
+                              "left": 12,
+                              "top": 12,
+                              "right": 12,
+                              "bottom": 12
                             },
                             "child": {
                               "crossAxisAlignment": "stretch",
@@ -1289,12 +1290,12 @@
                                       "decoration": {
                                         "border": {
                                           "color": "{{appColors.current.input.borderEnabled}}",
-                                          "width": 1.0
+                                          "width": 1
                                         },
                                         "shape": "circle"
                                       },
-                                      "width": 18.0,
-                                      "height": 18.0,
+                                      "width": 18,
+                                      "height": 18,
                                       "child": {
                                         "type": "visibility",
                                         "visible": "[[crPayAcc3Sel]]",
@@ -1304,8 +1305,8 @@
                                               "color": "#20C4D8",
                                               "shape": "circle"
                                             },
-                                            "width": 8.0,
-                                            "height": 8.0,
+                                            "width": 8,
+                                            "height": 8,
                                             "type": "container"
                                           },
                                           "type": "center"
@@ -1317,7 +1318,7 @@
                                       "type": "container"
                                     },
                                     {
-                                      "width": 10.0,
+                                      "width": 10,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -1326,7 +1327,7 @@
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
-                                          "fontSize": 16.0,
+                                          "fontSize": 16,
                                           "fontWeight": "w500"
                                         },
                                         "textAlign": "right",
@@ -1339,7 +1340,7 @@
                                   "type": "row"
                                 },
                                 {
-                                  "height": 10.0,
+                                  "height": 10,
                                   "type": "sizedBox"
                                 },
                                 {
@@ -1350,14 +1351,14 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
-                                        "fontSize": 13.0,
+                                        "fontSize": 13,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "rtl",
                                       "type": "text"
                                     },
                                     {
-                                      "width": 8.0,
+                                      "width": 8,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -1365,7 +1366,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
-                                        "fontSize": 14.0,
+                                        "fontSize": 14,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "ltr",
@@ -1375,7 +1376,7 @@
                                   "type": "row"
                                 },
                                 {
-                                  "height": 8.0,
+                                  "height": 8,
                                   "type": "sizedBox"
                                 },
                                 {
@@ -1386,14 +1387,14 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
-                                        "fontSize": 13.0,
+                                        "fontSize": 13,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "rtl",
                                       "type": "text"
                                     },
                                     {
-                                      "width": 8.0,
+                                      "width": 8,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -1401,7 +1402,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
-                                        "fontSize": 14.0,
+                                        "fontSize": 14,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "ltr",
@@ -1412,10 +1413,10 @@
                                 },
                                 {
                                   "color": "#E5E7EB",
-                                  "height": 1.0,
+                                  "height": 1,
                                   "margin": {
-                                    "top": 10.0,
-                                    "bottom": 10.0
+                                    "top": 10,
+                                    "bottom": 10
                                   },
                                   "type": "container"
                                 },
@@ -1427,14 +1428,14 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "#13A780",
-                                        "fontSize": 15.0,
+                                        "fontSize": 15,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "rtl",
                                       "type": "text"
                                     },
                                     {
-                                      "width": 8.0,
+                                      "width": 8,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -1442,7 +1443,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "#13A780",
-                                        "fontSize": 16.0,
+                                        "fontSize": 16,
                                         "fontWeight": "w600"
                                       },
                                       "textDirection": "ltr",
@@ -1469,21 +1470,21 @@
                             "color": "{{appColors.current.background.surface}}",
                             "border": {
                               "color": "{{appColors.current.input.borderEnabled}}",
-                              "width": 1.0
+                              "width": 1
                             },
                             "borderRadius": {
-                              "topLeft": 10.0,
-                              "topRight": 10.0,
-                              "bottomLeft": 10.0,
-                              "bottomRight": 10.0
+                              "topLeft": 10,
+                              "topRight": 10,
+                              "bottomLeft": 10,
+                              "bottomRight": 10
                             }
                           },
                           "child": {
                             "padding": {
-                              "left": 12.0,
-                              "top": 12.0,
-                              "right": 12.0,
-                              "bottom": 12.0
+                              "left": 12,
+                              "top": 12,
+                              "right": 12,
+                              "bottom": 12
                             },
                             "child": {
                               "crossAxisAlignment": "stretch",
@@ -1496,12 +1497,12 @@
                                       "decoration": {
                                         "border": {
                                           "color": "{{appColors.current.input.borderEnabled}}",
-                                          "width": 1.0
+                                          "width": 1
                                         },
                                         "shape": "circle"
                                       },
-                                      "width": 18.0,
-                                      "height": 18.0,
+                                      "width": 18,
+                                      "height": 18,
                                       "child": {
                                         "type": "visibility",
                                         "visible": "[[crPayAcc3Sel]]",
@@ -1511,8 +1512,8 @@
                                               "color": "#20C4D8",
                                               "shape": "circle"
                                             },
-                                            "width": 8.0,
-                                            "height": 8.0,
+                                            "width": 8,
+                                            "height": 8,
                                             "type": "container"
                                           },
                                           "type": "center"
@@ -1524,7 +1525,7 @@
                                       "type": "container"
                                     },
                                     {
-                                      "width": 10.0,
+                                      "width": 10,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -1533,7 +1534,7 @@
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
-                                          "fontSize": 16.0,
+                                          "fontSize": 16,
                                           "fontWeight": "w500"
                                         },
                                         "textAlign": "right",
@@ -1546,7 +1547,7 @@
                                   "type": "row"
                                 },
                                 {
-                                  "height": 10.0,
+                                  "height": 10,
                                   "type": "sizedBox"
                                 },
                                 {
@@ -1557,14 +1558,14 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
-                                        "fontSize": 13.0,
+                                        "fontSize": 13,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "rtl",
                                       "type": "text"
                                     },
                                     {
-                                      "width": 8.0,
+                                      "width": 8,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -1572,7 +1573,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
-                                        "fontSize": 14.0,
+                                        "fontSize": 14,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "ltr",
@@ -1582,7 +1583,7 @@
                                   "type": "row"
                                 },
                                 {
-                                  "height": 8.0,
+                                  "height": 8,
                                   "type": "sizedBox"
                                 },
                                 {
@@ -1593,14 +1594,14 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.subtitle}}",
-                                        "fontSize": 13.0,
+                                        "fontSize": 13,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "rtl",
                                       "type": "text"
                                     },
                                     {
-                                      "width": 8.0,
+                                      "width": 8,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -1608,7 +1609,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
-                                        "fontSize": 14.0,
+                                        "fontSize": 14,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "ltr",
@@ -1619,10 +1620,10 @@
                                 },
                                 {
                                   "color": "#E5E7EB",
-                                  "height": 1.0,
+                                  "height": 1,
                                   "margin": {
-                                    "top": 10.0,
-                                    "bottom": 10.0
+                                    "top": 10,
+                                    "bottom": 10
                                   },
                                   "type": "container"
                                 },
@@ -1634,14 +1635,14 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "#13A780",
-                                        "fontSize": 15.0,
+                                        "fontSize": 15,
                                         "fontWeight": "w500"
                                       },
                                       "textDirection": "rtl",
                                       "type": "text"
                                     },
                                     {
-                                      "width": 8.0,
+                                      "width": 8,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -1649,7 +1650,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "#13A780",
-                                        "fontSize": 16.0,
+                                        "fontSize": 16,
                                         "fontWeight": "w600"
                                       },
                                       "textDirection": "ltr",
@@ -1703,7 +1704,7 @@
               "type": "expanded"
             },
             {
-              "height": 10.0,
+              "height": 10,
               "type": "sizedBox"
             },
             {
@@ -1743,27 +1744,40 @@
                       ]
                     },
                     {
-                      "routeName": "charge_real_payment_success",
                       "navigationStyle": "push",
-                      "actionType": "navigate"
+                      "actionType": "navigate",
+                      "request": {
+                        "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.charge_real_payment_success/1",
+                        "body": {
+                          "operator": "is",
+                          "dimension": {
+                            "app": "mobile"
+                          }
+                        },
+                        "method": "post",
+                        "headers": {
+                          "Accept": "*/*",
+                          "Content-Type": "application/json"
+                        }
+                      }
                     }
                   ]
                 },
                 "style": {
                   "foregroundColor": "{{appColors.current.primary.onPrimary}}",
                   "backgroundColor": "{{appColors.current.primary.color}}",
-                  "elevation": 0.0,
+                  "elevation": 0,
                   "fixedSize": {
-                    "width": 999999.0,
-                    "height": 56.0
+                    "width": 999999,
+                    "height": 56
                   },
                   "shape": {
                     "type": "roundedRectangleBorder",
                     "borderRadius": {
-                      "topLeft": 10.0,
-                      "topRight": 10.0,
-                      "bottomLeft": 10.0,
-                      "bottomRight": 10.0
+                      "topLeft": 10,
+                      "topRight": 10,
+                      "bottomLeft": 10,
+                      "bottomRight": 10
                     }
                   }
                 },
@@ -1772,7 +1786,7 @@
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.primary.onPrimary}}",
-                    "fontSize": 16.0,
+                    "fontSize": 16,
                     "fontWeight": "w700"
                   },
                   "textDirection": "rtl",
@@ -1784,18 +1798,18 @@
                 "style": {
                   "foregroundColor": "#98A2B3",
                   "backgroundColor": "#D0D5DD",
-                  "elevation": 0.0,
+                  "elevation": 0,
                   "fixedSize": {
-                    "width": 999999.0,
-                    "height": 56.0
+                    "width": 999999,
+                    "height": 56
                   },
                   "shape": {
                     "type": "roundedRectangleBorder",
                     "borderRadius": {
-                      "topLeft": 10.0,
-                      "topRight": 10.0,
-                      "bottomLeft": 10.0,
-                      "bottomRight": 10.0
+                      "topLeft": 10,
+                      "topRight": 10,
+                      "bottomLeft": 10,
+                      "bottomRight": 10
                     }
                   }
                 },
@@ -1804,7 +1818,7 @@
                   "style": {
                     "type": "custom",
                     "color": "#98A2B3",
-                    "fontSize": 16.0,
+                    "fontSize": 16,
                     "fontWeight": "w700"
                   },
                   "textDirection": "rtl",

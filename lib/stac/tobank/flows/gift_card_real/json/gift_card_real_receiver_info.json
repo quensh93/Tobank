@@ -48,6 +48,7 @@
         },
         "type": "padding"
       },
+      "automaticallyImplyLeading": true,
       "title": {
         "data": "کارت هدیه",
         "style": {
@@ -421,31 +422,52 @@
                       "actionType": "sequence",
                       "actions": [
                         {
-                          "actionType": "showGiftCardLocationSelectorBottomSheet",
-                          "title": "انتخاب استان",
-                          "selectedKey": "giftCardRealReceiverProvince",
-                          "options": [
-                            "تهران",
-                            "اصفهان",
-                            "فارس",
-                            "خراسان رضوی",
-                            "آذربایجان شرقی",
-                            "خوزستان",
-                            "گیلان",
-                            "مازندران",
-                            "البرز",
-                            "کرمان",
-                            "یزد",
-                            "قم",
-                            "کرمانشاه",
-                            "همدان",
-                            "گلستان",
-                            "مرکزی",
-                            "زنجان",
-                            "اردبیل",
-                            "قزوین",
-                            "سمنان"
-                          ]
+                          "actionType": "showBottomSheet",
+                          "sheet": {
+                            "type": "stateFull",
+                            "onInit": {
+                              "actionType": "sequence",
+                              "actions": [
+                                {
+                                  "actionType": "showGiftCardLocationSelectorBottomSheet",
+                                  "title": "انتخاب استان",
+                                  "selectedKey": "giftCardRealReceiverProvince",
+                                  "options": [
+                                    "تهران",
+                                    "اصفهان",
+                                    "فارس",
+                                    "خراسان رضوی",
+                                    "آذربایجان شرقی",
+                                    "خوزستان",
+                                    "گیلان",
+                                    "مازندران",
+                                    "البرز",
+                                    "کرمان",
+                                    "یزد",
+                                    "قم",
+                                    "کرمانشاه",
+                                    "همدان",
+                                    "گلستان",
+                                    "مرکزی",
+                                    "زنجان",
+                                    "اردبیل",
+                                    "قزوین",
+                                    "سمنان"
+                                  ]
+                                },
+                                {
+                                  "navigationStyle": "pop",
+                                  "actionType": "navigate"
+                                }
+                              ]
+                            },
+                            "child": {
+                              "width": 0.0,
+                              "height": 0.0,
+                              "type": "sizedBox"
+                            }
+                          },
+                          "backgroundColor": "#00000000"
                         },
                         {
                           "actionType": "validateFields",
@@ -547,31 +569,52 @@
                       "actionType": "sequence",
                       "actions": [
                         {
-                          "actionType": "showGiftCardLocationSelectorBottomSheet",
-                          "title": "انتخاب شهر",
-                          "selectedKey": "giftCardRealReceiverCity",
-                          "options": [
-                            "تهران",
-                            "مشهد",
-                            "اصفهان",
-                            "شیراز",
-                            "تبریز",
-                            "اهواز",
-                            "رشت",
-                            "کرج",
-                            "قم",
-                            "کرمانشاه",
-                            "ارومیه",
-                            "یزد",
-                            "همدان",
-                            "قزوین",
-                            "اردبیل",
-                            "زاهدان",
-                            "بندرعباس",
-                            "گرگان",
-                            "زنجان",
-                            "اراک"
-                          ]
+                          "actionType": "showBottomSheet",
+                          "sheet": {
+                            "type": "stateFull",
+                            "onInit": {
+                              "actionType": "sequence",
+                              "actions": [
+                                {
+                                  "actionType": "showGiftCardLocationSelectorBottomSheet",
+                                  "title": "انتخاب شهر",
+                                  "selectedKey": "giftCardRealReceiverCity",
+                                  "options": [
+                                    "تهران",
+                                    "مشهد",
+                                    "اصفهان",
+                                    "شیراز",
+                                    "تبریز",
+                                    "اهواز",
+                                    "رشت",
+                                    "کرج",
+                                    "قم",
+                                    "کرمانشاه",
+                                    "ارومیه",
+                                    "یزد",
+                                    "همدان",
+                                    "قزوین",
+                                    "اردبیل",
+                                    "زاهدان",
+                                    "بندرعباس",
+                                    "گرگان",
+                                    "زنجان",
+                                    "اراک"
+                                  ]
+                                },
+                                {
+                                  "navigationStyle": "pop",
+                                  "actionType": "navigate"
+                                }
+                              ]
+                            },
+                            "child": {
+                              "width": 0.0,
+                              "height": 0.0,
+                              "type": "sizedBox"
+                            }
+                          },
+                          "backgroundColor": "#00000000"
                         },
                         {
                           "actionType": "validateFields",
@@ -802,25 +845,46 @@
               "type": "reactiveElevatedButton",
               "enabledKey": "giftCardRealReceiverContinueEnabled",
               "onPressed": {
-                "actionType": "showGiftCardSelectDateBottomSheet",
-                "title": "لطفا تاریخ و بازه‌زمانی تحویل هدیه را انتخاب کنید",
-                "dateTitle": "تاریخ تحویل",
-                "timeTitle": "محدوده ساعتی تحویل",
-                "confirmText": "تایید",
-                "noDateSelectedText": "تاریخی انتخاب نشده است",
-                "dateOptions": [
-                  "پنج‌شنبه ۱۴۰۵/۰۲/۰۳",
-                  "جمعه ۱۴۰۵/۰۲/۰۴",
-                  "شنبه ۱۴۰۵/۰۲/۰۵"
-                ],
-                "timeOptions": [
-                  "۱۳ - ۱۸",
-                  "۱۰ - ۱۳",
-                  "۱۸ - ۲۱"
-                ],
-                "selectedDateKey": "giftCardRealDeliveryDate",
-                "selectedTimeKey": "giftCardRealDeliveryTime",
-                "confirmAssetPath": "lib/stac/tobank/flows/gift_card_real/json/gift_card_real_confirm.json"
+                "actionType": "showBottomSheet",
+                "sheet": {
+                  "type": "stateFull",
+                  "onInit": {
+                    "actionType": "sequence",
+                    "actions": [
+                      {
+                        "actionType": "showGiftCardSelectDateBottomSheet",
+                        "title": "لطفا تاریخ و بازه‌زمانی تحویل هدیه را انتخاب کنید",
+                        "dateTitle": "تاریخ تحویل",
+                        "timeTitle": "محدوده ساعتی تحویل",
+                        "confirmText": "تایید",
+                        "noDateSelectedText": "تاریخی انتخاب نشده است",
+                        "dateOptions": [
+                          "پنج‌شنبه ۱۴۰۵/۰۲/۰۳",
+                          "جمعه ۱۴۰۵/۰۲/۰۴",
+                          "شنبه ۱۴۰۵/۰۲/۰۵"
+                        ],
+                        "timeOptions": [
+                          "۱۳ - ۱۸",
+                          "۱۰ - ۱۳",
+                          "۱۸ - ۲۱"
+                        ],
+                        "selectedDateKey": "giftCardRealDeliveryDate",
+                        "selectedTimeKey": "giftCardRealDeliveryTime",
+                        "confirmAssetPath": "lib/stac/tobank/flows/gift_card_real/json/gift_card_real_confirm.json"
+                      },
+                      {
+                        "navigationStyle": "pop",
+                        "actionType": "navigate"
+                      }
+                    ]
+                  },
+                  "child": {
+                    "width": 0.0,
+                    "height": 0.0,
+                    "type": "sizedBox"
+                  }
+                },
+                "backgroundColor": "#00000000"
               },
               "style": {
                 "foregroundColor": "{{appColors.current.primary.onPrimary}}",

@@ -7,21 +7,22 @@
     "appBar": {
       "leading": {
         "padding": {
-          "left": 12.0
+          "left": 12
         },
         "child": {
           "child": {
             "src": "{{appAssets.icons.support}}",
             "imageType": "asset",
             "color": "{{appColors.current.text.title}}",
-            "width": 24.0,
-            "height": 24.0,
+            "width": 24,
+            "height": 24,
             "type": "image"
           },
           "type": "center"
         },
         "type": "padding"
       },
+      "automaticallyImplyLeading": true,
       "title": {
         "data": "کارت هدیه",
         "style": {
@@ -34,7 +35,7 @@
       "actions": [
         {
           "padding": {
-            "right": 12.0
+            "right": 12
           },
           "child": {
             "onPressed": {
@@ -45,8 +46,8 @@
               "src": "{{appAssets.icons.arrowBack}}",
               "imageType": "asset",
               "color": "{{appColors.current.text.title}}",
-              "width": 31.0,
-              "height": 31.0,
+              "width": 31,
+              "height": 31,
               "type": "image"
             },
             "type": "iconButton"
@@ -64,9 +65,9 @@
         {
           "child": {
             "padding": {
-              "left": 16.0,
-              "top": 26.0,
-              "right": 16.0
+              "left": 16,
+              "top": 26,
+              "right": 16
             },
             "child": {
               "type": "registryReactive",
@@ -81,7 +82,7 @@
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
-                        "fontSize": 16.0,
+                        "fontSize": 16,
                         "fontWeight": "w600"
                       },
                       "textAlign": "right",
@@ -97,7 +98,7 @@
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
-                        "fontSize": 16.0,
+                        "fontSize": 16,
                         "fontWeight": "w600"
                       },
                       "textAlign": "right",
@@ -106,7 +107,7 @@
                     }
                   },
                   {
-                    "height": 16.0,
+                    "height": 16,
                     "type": "sizedBox"
                   },
                   {
@@ -114,13 +115,13 @@
                       "color": "{{appColors.current.background.surface}}",
                       "border": {
                         "color": "{{appColors.current.input.borderEnabled}}",
-                        "width": 1.0
+                        "width": 1
                       },
                       "borderRadius": {
-                        "topLeft": 12.0,
-                        "topRight": 12.0,
-                        "bottomLeft": 12.0,
-                        "bottomRight": 12.0
+                        "topLeft": 12,
+                        "topRight": 12,
+                        "bottomLeft": 12,
+                        "bottomRight": 12
                       }
                     },
                     "child": {
@@ -133,20 +134,20 @@
                             "decoration": {
                               "color": "{{appColors.current.background.surfaceContainer}}",
                               "borderRadius": {
-                                "topLeft": 12.0,
-                                "topRight": 12.0,
-                                "bottomLeft": 0.0,
-                                "bottomRight": 0.0
+                                "topLeft": 12,
+                                "topRight": 12,
+                                "bottomLeft": 0,
+                                "bottomRight": 0
                               }
                             },
-                            "height": 208.0,
+                            "height": 208,
                             "child": {
                               "children": [
                                 {
-                                  "left": 0.0,
-                                  "top": 0.0,
-                                  "right": 0.0,
-                                  "bottom": 0.0,
+                                  "left": 0,
+                                  "top": 0,
+                                  "right": 0,
+                                  "bottom": 0,
                                   "child": {
                                     "src": "{{giftCardRealSelectedPlanImageUrl}}",
                                     "imageType": "network",
@@ -156,16 +157,16 @@
                                   "type": "positioned"
                                 },
                                 {
-                                  "left": 0.0,
-                                  "top": 0.0,
-                                  "right": 0.0,
+                                  "left": 0,
+                                  "top": 0,
+                                  "right": 0,
                                   "child": {
                                     "padding": {
-                                      "left": 12.0,
-                                      "right": 12.0
+                                      "left": 12,
+                                      "right": 12
                                     },
                                     "color": "#F7FAFD",
-                                    "height": 54.0,
+                                    "height": 54,
                                     "child": {
                                       "mainAxisAlignment": "spaceBetween",
                                       "crossAxisAlignment": "center",
@@ -174,16 +175,16 @@
                                         {
                                           "src": "assets/icons/shetab.svg",
                                           "imageType": "asset",
-                                          "width": 112.0,
-                                          "height": 30.0,
+                                          "width": 112,
+                                          "height": 30,
                                           "fit": "contain",
                                           "type": "image"
                                         },
                                         {
                                           "src": "assets/icons/gardeshgary.svg",
                                           "imageType": "asset",
-                                          "width": 110.0,
-                                          "height": 26.0,
+                                          "width": 110,
+                                          "height": 26,
                                           "fit": "contain",
                                           "type": "image"
                                         }
@@ -204,17 +205,17 @@
                             "decoration": {
                               "color": "#F7FAFD",
                               "borderRadius": {
-                                "topLeft": 0.0,
-                                "topRight": 0.0,
-                                "bottomLeft": 11.0,
-                                "bottomRight": 11.0
+                                "topLeft": 0,
+                                "topRight": 0,
+                                "bottomLeft": 11,
+                                "bottomRight": 11
                               }
                             },
                             "child": {
                               "mainAxisAlignment": "center",
                               "children": [
                                 {
-                                  "height": 12.0,
+                                  "height": 12,
                                   "type": "sizedBox"
                                 },
                                 {
@@ -222,7 +223,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "#000000",
-                                    "fontSize": 16.0,
+                                    "fontSize": 16,
                                     "fontWeight": "w700"
                                   },
                                   "textAlign": "center",
@@ -230,7 +231,7 @@
                                   "type": "text"
                                 },
                                 {
-                                  "height": 12.0,
+                                  "height": 12,
                                   "type": "sizedBox"
                                 },
                                 {
@@ -238,7 +239,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "#000000",
-                                    "fontSize": 19.0,
+                                    "fontSize": 19,
                                     "fontWeight": "w900"
                                   },
                                   "textAlign": "center",
@@ -251,7 +252,7 @@
                             "type": "container"
                           },
                           {
-                            "height": 8.0,
+                            "height": 8,
                             "type": "sizedBox"
                           }
                         ],
@@ -261,7 +262,7 @@
                         "crossAxisAlignment": "stretch",
                         "children": [
                           {
-                            "height": 16.0,
+                            "height": 16,
                             "type": "sizedBox"
                           },
                           {
@@ -269,328 +270,328 @@
                             "children": [
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               }
                             ],
                             "type": "row"
                           },
                           {
-                            "height": 96.0,
+                            "height": 96,
                             "child": {
                               "child": {
                                 "data": "تصویر مورد نظر شما",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
-                                  "fontSize": 18.0,
+                                  "fontSize": 18,
                                   "fontWeight": "w600"
                                 },
                                 "textAlign": "center",
@@ -606,321 +607,321 @@
                             "children": [
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               },
                               {
                                 "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 4.0,
-                                "height": 1.0,
+                                "width": 4,
+                                "height": 1,
                                 "type": "container"
                               }
                             ],
                             "type": "row"
                           },
                           {
-                            "height": 22.0,
+                            "height": 22,
                             "type": "sizedBox"
                           },
                           {
@@ -928,7 +929,7 @@
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
-                              "fontSize": 16.0,
+                              "fontSize": 16,
                               "fontWeight": "w600"
                             },
                             "textAlign": "center",
@@ -936,7 +937,7 @@
                             "type": "text"
                           },
                           {
-                            "height": 16.0,
+                            "height": 16,
                             "type": "sizedBox"
                           },
                           {
@@ -944,7 +945,7 @@
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
-                              "fontSize": 21.0,
+                              "fontSize": 21,
                               "fontWeight": "w900"
                             },
                             "textAlign": "center",
@@ -952,7 +953,7 @@
                             "type": "text"
                           },
                           {
-                            "height": 18.0,
+                            "height": 18,
                             "type": "sizedBox"
                           }
                         ],
@@ -962,7 +963,7 @@
                     "type": "container"
                   },
                   {
-                    "height": 42.0,
+                    "height": 42,
                     "type": "sizedBox"
                   },
                   {
@@ -973,18 +974,18 @@
                             "color": "{{appColors.current.background.surface}}",
                             "border": {
                               "color": "{{appColors.current.input.borderEnabled}}",
-                              "width": 1.0
+                              "width": 1
                             },
                             "shape": "circle"
                           },
-                          "width": 82.0,
-                          "height": 82.0,
+                          "width": 82,
+                          "height": 82,
                           "child": {
                             "child": {
                               "src": "assets/icons/ic_image_text.svg",
                               "imageType": "asset",
-                              "width": 37.0,
-                              "height": 37.0,
+                              "width": 37,
+                              "height": 37,
                               "type": "image"
                             },
                             "type": "center"
@@ -992,7 +993,7 @@
                           "type": "container"
                         },
                         {
-                          "height": 16.0,
+                          "height": 16,
                           "type": "sizedBox"
                         },
                         {
@@ -1000,7 +1001,7 @@
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
-                            "fontSize": 18.0,
+                            "fontSize": 18,
                             "fontWeight": "w700"
                           },
                           "textAlign": "center",
@@ -1011,14 +1012,27 @@
                       "type": "column"
                     },
                     "onTap": {
-                      "routeName": "gift_card_real_select_design",
                       "navigationStyle": "push",
-                      "actionType": "navigate"
+                      "actionType": "navigate",
+                      "request": {
+                        "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.gift_card_real_select_design/1",
+                        "body": {
+                          "operator": "is",
+                          "dimension": {
+                            "app": "mobile"
+                          }
+                        },
+                        "method": "post",
+                        "headers": {
+                          "Accept": "*/*",
+                          "Content-Type": "application/json"
+                        }
+                      }
                     },
                     "type": "gestureDetector"
                   },
                   {
-                    "height": 24.0,
+                    "height": 24,
                     "type": "sizedBox"
                   }
                 ],
@@ -1036,31 +1050,44 @@
             "visible": "[[giftCardRealHasSelection]]",
             "child": {
               "padding": {
-                "left": 16.0,
-                "right": 16.0,
-                "bottom": 24.0
+                "left": 16,
+                "right": 16,
+                "bottom": 24
               },
               "child": {
                 "onPressed": {
-                  "routeName": "gift_card_real_receiver_info",
                   "navigationStyle": "push",
-                  "actionType": "navigate"
+                  "actionType": "navigate",
+                  "request": {
+                    "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.gift_card_real_receiver_info/1",
+                    "body": {
+                      "operator": "is",
+                      "dimension": {
+                        "app": "mobile"
+                      }
+                    },
+                    "method": "post",
+                    "headers": {
+                      "Accept": "*/*",
+                      "Content-Type": "application/json"
+                    }
+                  }
                 },
                 "style": {
                   "foregroundColor": "{{appColors.current.primary.onPrimary}}",
                   "backgroundColor": "{{appColors.current.primary.color}}",
-                  "elevation": 0.0,
+                  "elevation": 0,
                   "fixedSize": {
-                    "width": 999999.0,
-                    "height": 62.0
+                    "width": 999999,
+                    "height": 62
                   },
                   "shape": {
                     "type": "roundedRectangleBorder",
                     "borderRadius": {
-                      "topLeft": 14.0,
-                      "topRight": 14.0,
-                      "bottomLeft": 14.0,
-                      "bottomRight": 14.0
+                      "topLeft": 14,
+                      "topRight": 14,
+                      "bottomLeft": 14,
+                      "bottomRight": 14
                     }
                   }
                 },
@@ -1069,7 +1096,7 @@
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.primary.onPrimary}}",
-                    "fontSize": 18.0,
+                    "fontSize": 18,
                     "fontWeight": "w700"
                   },
                   "textDirection": "rtl",

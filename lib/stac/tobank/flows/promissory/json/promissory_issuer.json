@@ -31,17 +31,18 @@
           "actionType": "navigate"
         },
         "icon": {
-          "src": "assets/icons/ic_right_arrow.svg",
+          "src": "{{appAssets.icons.arrowBack}}",
           "imageType": "asset",
           "color": "{{appColors.current.text.title}}",
-          "width": 24.0,
-          "height": 24.0,
+          "width": 31.0,
+          "height": 31.0,
           "type": "image"
         },
         "type": "iconButton"
       },
+      "automaticallyImplyLeading": true,
       "title": {
-        "data": "{{appStrings.promissory.issuerTitle}} JSON",
+        "data": "{{appStrings.promissory.issuerTitle}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -375,7 +376,7 @@
                 },
                 {
                   "actionType": "navigate",
-                  "assetPath": "lib/stac/tobank/flows/promissory/json/promissory_receiver.json",
+                  "widgetType": "promissory_receiver",
                   "navigationStyle": "push"
                 }
               ]

@@ -1,4 +1,4 @@
-﻿{
+{
   "appBar": {
     "leading": {
       "padding": {
@@ -17,6 +17,7 @@
       },
       "type": "padding"
     },
+    "automaticallyImplyLeading": true,
     "title": {
       "data": "{{appStrings.profile.real.menu.bankInfo}}",
       "style": {
@@ -186,15 +187,15 @@
           },
           "onTap": {
             "actionType": "showBankAddressBottomSheet",
-            "title": "{{appStrings.profile.real.bankInfo.registeredAddressTitle}}",
-            "addressLabel": "{{appStrings.profile.real.bankInfo.addressLabel}}",
+            "title": "آدرس ثبت‌شده در بانک",
+            "addressLabel": "آدرس",
             "address": "{{appStrings.profile.real.bankInfo.addressValue}}",
-            "postalCodeLabel": "{{appStrings.profile.real.bankInfo.postalCodeLabel}}",
+            "postalCodeLabel": "کد پستی",
             "postalCode": "{{appStrings.profile.real.bankInfo.postalCodeValue}}",
-            "editButtonText": "{{appStrings.profile.real.bankInfo.editButtonText}}",
-            "editTitle": "{{appStrings.profile.real.bankInfo.editTitle}}",
-            "postalCodeHint": "{{appStrings.profile.real.bankInfo.postalCodeHint}}",
-            "inquiryButtonText": "{{appStrings.profile.real.bankInfo.inquiryButtonText}}",
+            "editButtonText": "ویرایش",
+            "editTitle": "ویرایش آدرس ثبت‌شده در بانک",
+            "postalCodeHint": "کد پستی محل سکونت را وارد کنید",
+            "inquiryButtonText": "استعلام",
             "postalCodeValueKey": "profileRealPostalCode"
           },
           "type": "gestureDetector"

@@ -19,6 +19,7 @@
         },
         "type": "padding"
       },
+      "automaticallyImplyLeading": true,
       "title": {
         "data": "جزئیات فرآیند",
         "style": {

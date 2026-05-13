@@ -86,20 +86,23 @@
   "child": {
     "appBar": {
       "leading": {
-        "onPressed": {
-          "navigationStyle": "pop",
-          "actionType": "navigate"
+        "padding": {
+          "left": 12.0
         },
-        "icon": {
-          "src": "assets/icons/ic_right_arrow.svg",
-          "imageType": "asset",
-          "color": "{{appColors.current.text.title}}",
-          "width": 24.0,
-          "height": 24.0,
-          "type": "image"
+        "child": {
+          "child": {
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24.0,
+            "height": 24.0,
+            "type": "image"
+          },
+          "type": "center"
         },
-        "type": "iconButton"
+        "type": "padding"
       },
+      "automaticallyImplyLeading": true,
       "title": {
         "data": "{{appStrings.promissory.previewScreenTitle}}",
         "style": {
@@ -109,6 +112,29 @@
         "textDirection": "rtl",
         "type": "text"
       },
+      "actions": [
+        {
+          "padding": {
+            "right": 12.0
+          },
+          "child": {
+            "onPressed": {
+              "navigationStyle": "pop",
+              "actionType": "navigate"
+            },
+            "icon": {
+              "src": "{{appAssets.icons.arrowBack}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 31.0,
+              "height": 31.0,
+              "type": "image"
+            },
+            "type": "iconButton"
+          },
+          "type": "padding"
+        }
+      ],
       "centerTitle": true,
       "type": "appBar"
     },

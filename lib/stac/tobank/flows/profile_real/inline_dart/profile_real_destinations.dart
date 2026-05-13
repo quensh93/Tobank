@@ -9,9 +9,6 @@ StacWidget profileRealDestinations() {
   return StacStatefulWidget(
     onInit: const StacCustomSetValueAction(
       values: [
-        {'key': 'profileRealDestTabCard', 'value': true},
-        {'key': 'profileRealDestTabDeposit', 'value': false},
-        {'key': 'profileRealDestTabIban', 'value': false},
         {'key': 'profileRealShowAddCardSheet', 'value': false},
       ],
     ),
@@ -24,37 +21,36 @@ StacWidget profileRealDestinations() {
       ),
       body: StacStack(
         children: [
-          StacSingleChildScrollView(
-            padding: StacEdgeInsets.all(16),
-            child: StacColumn(
-              crossAxisAlignment: StacCrossAxisAlignment.stretch,
-              children: [
-                _tabSwitcher(),
-                StacSizedBox(height: 16),
-                StacCustomVisibility(
-                  visible: '[[profileRealDestTabCard]]',
-                  child: _cardTabList().toJson(),
-                ),
-                StacCustomVisibility(
-                  visible: '[[profileRealDestTabDeposit]]',
-                  child: _depositTabList().toJson(),
-                ),
-                StacCustomVisibility(
-                  visible: '[[profileRealDestTabIban]]',
-                  child: _ibanTabList().toJson(),
-                ),
-                StacSizedBox(height: 96),
-              ],
-            ),
-          ),
-          StacAlign(
-            alignment: StacAlignmentDirectional.bottomCenter,
-            child: StacCustomVisibility(
-              visible: '[[profileRealDestTabCard]]',
-              child: StacPadding(
-                padding: StacEdgeInsets.only(bottom: 16),
-                child: _addDestinationButton(),
-              ).toJson(),
+          StacDefaultTabController(
+            length: 3,
+            initialIndex: 2,
+            child: StacPadding(
+              padding: StacEdgeInsets.all(16),
+              child: StacColumn(
+                crossAxisAlignment: StacCrossAxisAlignment.stretch,
+                children: [
+                  _tabSwitcher(),
+                  StacSizedBox(height: 16),
+                  StacExpanded(
+                    child: StacTabBarView(
+                      children: [
+                        StacSingleChildScrollView(child: _ibanTabList()),
+                        StacSingleChildScrollView(child: _depositTabList()),
+                        StacSingleChildScrollView(
+                          child: StacColumn(
+                            children: [
+                              _cardTabList(),
+                              StacSizedBox(height: 16),
+                              _addDestinationButton(),
+                              StacSizedBox(height: 24),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           StacCustomVisibility(
@@ -68,117 +64,53 @@ StacWidget profileRealDestinations() {
 }
 
 StacWidget _tabSwitcher() {
-  return StacContainer(
-    padding: StacEdgeInsets.symmetric(horizontal: 8, vertical: 4),
-    decoration: StacBoxDecoration(
-      color: '{{appColors.current.background.surface}}',
-      borderRadius: StacBorderRadius.all(8),
-    ),
-    child: StacRow(
-      textDirection: StacTextDirection.rtl,
-      children: [
-        _tabItem(
-          label: 'کارت',
-          activeKey: 'profileRealDestTabCard',
-          onTap: const StacCustomSetValueAction(
-            values: [
-              {'key': 'profileRealDestTabCard', 'value': true},
-              {'key': 'profileRealDestTabDeposit', 'value': false},
-              {'key': 'profileRealDestTabIban', 'value': false},
-            ],
-          ),
+  return StacStack(
+    children: [
+      StacTabBar(
+        enableFeedback: false,
+        dividerColor: '#00000000',
+        indicatorColor: '{{appColors.current.primary.color}}',
+        indicatorWeight: 2,
+        indicatorSize: StacTabBarIndicatorSize.tab,
+        indicatorPadding: StacEdgeInsets.only(left: 48, top: 42, right: 48),
+        labelStyle: StacCustomTextStyle(
+          fontSize: 16,
+          fontWeight: StacFontWeight.w700,
         ),
-        _tabDivider(),
-        _tabItem(
-          label: 'سپرده',
-          activeKey: 'profileRealDestTabDeposit',
-          onTap: const StacCustomSetValueAction(
-            values: [
-              {'key': 'profileRealDestTabCard', 'value': false},
-              {'key': 'profileRealDestTabDeposit', 'value': true},
-              {'key': 'profileRealDestTabIban', 'value': false},
-            ],
-          ),
+        unselectedLabelStyle: StacCustomTextStyle(
+          fontSize: 16,
+          fontWeight: StacFontWeight.w500,
         ),
-        _tabDivider(),
-        _tabItem(
-          label: 'شبا',
-          activeKey: 'profileRealDestTabIban',
-          onTap: const StacCustomSetValueAction(
-            values: [
-              {'key': 'profileRealDestTabCard', 'value': false},
-              {'key': 'profileRealDestTabDeposit', 'value': false},
-              {'key': 'profileRealDestTabIban', 'value': true},
-            ],
-          ),
-        ),
-      ],
-    ),
-  );
-}
-
-StacWidget _tabDivider() {
-  return StacContainer(
-    width: 1,
-    height: 24,
-    color: '{{appColors.current.input.borderEnabled}}',
-  );
-}
-
-StacWidget _tabItem({
-  required String label,
-  required String activeKey,
-  required StacAction onTap,
-}) {
-  return StacExpanded(
-    child: StacGestureDetector(
-      onTap: onTap,
-      child: StacContainer(
-        padding: StacEdgeInsets.symmetric(vertical: 10),
-        child: StacColumn(
-          mainAxisSize: StacMainAxisSize.min,
+        labelColor: '{{appColors.current.text.title}}',
+        unselectedLabelColor: '{{appColors.current.text.subtitle}}',
+        tabs: const [
+          StacTab(text: 'شبا', height: 44),
+          StacTab(text: 'سپرده', height: 44),
+          StacTab(text: 'کارت', height: 44),
+        ],
+      ),
+      StacPositioned(
+        top: 10,
+        bottom: 10,
+        left: 0,
+        right: 0,
+        child: StacRow(
           children: [
-            StacCustomVisibility(
-              visible: '[[$activeKey]]',
-              child: StacText(
-                data: label,
-                textDirection: StacTextDirection.rtl,
-                textAlign: StacTextAlign.center,
-                style: StacCustomTextStyle(
-                  fontSize: 16,
-                  fontWeight: StacFontWeight.w700,
-                  color: '{{appColors.current.text.title}}',
-                ),
-              ).toJson(),
-              replacement: StacText(
-                data: label,
-                textDirection: StacTextDirection.rtl,
-                textAlign: StacTextAlign.center,
-                style: StacCustomTextStyle(
-                  fontSize: 16,
-                  fontWeight: StacFontWeight.w500,
-                  color: '{{appColors.current.text.subtitle}}',
-                ),
-              ).toJson(),
+            StacExpanded(child: StacSizedBox()),
+            StacContainer(
+              width: 1,
+              color: '{{appColors.current.input.borderEnabled}}',
             ),
-            StacSizedBox(height: 8),
-            StacCustomVisibility(
-              visible: '[[$activeKey]]',
-              child: StacContainer(
-                width: 52,
-                height: 2,
-                color: '{{appColors.current.primary.color}}',
-              ).toJson(),
-              replacement: StacContainer(
-                width: 52,
-                height: 2,
-                color: '#00000000',
-              ).toJson(),
+            StacExpanded(child: StacSizedBox()),
+            StacContainer(
+              width: 1,
+              color: '{{appColors.current.input.borderEnabled}}',
             ),
+            StacExpanded(child: StacSizedBox()),
           ],
         ),
       ),
-    ),
+    ],
   );
 }
 

@@ -17,8 +17,9 @@
       },
       "type": "padding"
     },
+    "automaticallyImplyLeading": true,
     "title": {
-      "data": "{{appStrings.profile.real.inviteFriends.title}}",
+      "data": "دعوت از دوستان",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -101,7 +102,7 @@
                 "type": "sizedBox"
               },
               {
-                "data": "{{appStrings.profile.real.inviteFriends.sectionTitle}}",
+                "data": "دعوت از دوستان",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.title}}",
@@ -117,7 +118,7 @@
                 "type": "sizedBox"
               },
               {
-                "data": "{{appStrings.profile.real.inviteFriends.sectionDescription}}",
+                "data": "کد دعوت را کپی کنید و یا با دوستانتان به اشتراک بگذارید",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.subtitle}}",
@@ -171,7 +172,7 @@
                             },
                             {
                               "child": {
-                                "data": "{{appStrings.profile.real.inviteFriends.inviteCode}}",
+                                "data": "۴۵۳۲۵۰۹۱",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
@@ -210,8 +211,8 @@
                           "child": {
                             "onPressed": {
                               "actionType": "showResult",
-                              "title": "{{appStrings.profile.real.inviteFriends.copyTitle}}",
-                              "content": "{{appStrings.profile.real.inviteFriends.copyContent}}"
+                              "title": "کپی",
+                              "content": "کد دعوت کپی شد."
                             },
                             "icon": {
                               "src": "assets/icons/ic_copy.svg",
@@ -241,8 +242,8 @@
               {
                 "onPressed": {
                   "actionType": "showResult",
-                  "title": "{{appStrings.profile.real.inviteFriends.shareTitle}}",
-                  "content": "{{appStrings.profile.real.inviteFriends.shareContent}}"
+                  "title": "اشتراک‌گذاری کد دعوت",
+                  "content": "امکان اشتراک‌گذاری به زودی فعال می‌شود."
                 },
                 "style": {
                   "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
@@ -278,7 +279,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "{{appStrings.profile.real.inviteFriends.shareButton}}",
+                      "data": "اشتراک‌گذاری کد دعوت",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.button.primary.foregroundColor}}",
@@ -339,7 +340,7 @@
                 },
                 {
                   "child": {
-                    "data": "{{appStrings.profile.real.inviteFriends.referralsTitle}}",
+                    "data": "لیست دعوت‌شدگان",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -377,21 +378,8 @@
           },
           "onTap": {
             "actionType": "navigate",
-            "navigationStyle": "push",
-            "request": {
-              "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.profile_real_customer_referrals/1",
-              "method": "post",
-              "headers": {
-                "Content-Type": "application/json",
-                "Accept": "*/*"
-              },
-              "body": {
-                "operator": "is",
-                "dimension": {
-                  "app": "mobile"
-                }
-              }
-            }
+            "widgetType": "profile_real_customer_referrals",
+            "navigationStyle": "push"
           },
           "type": "gestureDetector"
         }

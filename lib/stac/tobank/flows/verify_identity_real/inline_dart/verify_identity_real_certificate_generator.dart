@@ -190,15 +190,13 @@ StacWidget _buildEnglishInfoField({
   List<Map<String, dynamic>>? inputFormatters,
   int? maxLength,
 }) {
-  final json = <String, dynamic>{
-    'type': 'textFormField',
-    'id': id,
-    'textDirection': 'ltr',
-    'textAlign': 'right',
-    'supportTextDirection': 'rtl',
-    'keyboardType': keyboardType,
-    'textInputAction': textInputAction,
-    'decoration': {
+  final json = StacCustomTextFormField(
+    id: id,
+    textDirection: 'ltr',
+    textAlign: 'right',
+    keyboardType: keyboardType,
+    textInputAction: textInputAction,
+    decoration: {
       ...StacInputDecoration(
         hintText: hintText,
         hintStyle: StacCustomTextStyle(
@@ -227,15 +225,15 @@ StacWidget _buildEnglishInfoField({
       'helperText': ' ',
       'helperStyle': {'type': 'custom', 'height': 0.5},
     },
-    'style': StacCustomTextStyle(
+    style: StacCustomTextStyle(
       fontSize: 16,
       fontWeight: StacFontWeight.w600,
       color: '{{appColors.current.text.title}}',
     ).toJson(),
-    'validatorRules': [
+    validatorRules: [
       {'rule': validatorRule, 'message': validatorMessage},
     ],
-    'onChanged': StacSequenceAction(
+    onChanged: StacSequenceAction(
       actions: [
         StacValidateFieldsAction(
           resultKey: hasValueKey,
@@ -246,7 +244,7 @@ StacWidget _buildEnglishInfoField({
         _certificateValidationAction(),
       ],
     ).toJson(),
-  };
+  ).toJson();
 
   if (maxLength != null) {
     json['maxLength'] = maxLength;

@@ -1,5 +1,6 @@
 {
   "appBar": {
+    "automaticallyImplyLeading": false,
     "title": {
       "data": "{{appStrings.authentication.rulesTitle}}",
       "style": {
@@ -14,7 +15,6 @@
   },
   "backgroundColor": "{{appColors.current.background.surface}}",
   "body": {
-    "type": "safeArea",
     "top": false,
     "bottom": true,
     "child": {
@@ -912,7 +912,8 @@
         "type": "column"
       },
       "type": "padding"
-    }
+    },
+    "type": "safeArea"
   },
   "type": "scaffold"
 }

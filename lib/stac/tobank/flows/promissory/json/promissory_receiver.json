@@ -32,14 +32,15 @@
           "src": "assets/icons/ic_right_arrow.svg",
           "imageType": "asset",
           "color": "{{appColors.current.text.title}}",
-          "width": 24.0,
-          "height": 24.0,
+          "width": 31.0,
+          "height": 31.0,
           "type": "image"
         },
         "type": "iconButton"
       },
+      "automaticallyImplyLeading": true,
       "title": {
-        "data": "اطلاعات ذینفع JSON",
+        "data": "اطلاعات ذینفع",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -230,13 +231,6 @@
                     "id": "receiver_national_code",
                     "textDirection": "rtl",
                     "textAlign": "right",
-                    "maxLength": 10,
-                    "inputFormatters": [
-                      {
-                        "type": "allow",
-                        "rule": "[0-9]"
-                      }
-                    ],
                     "decoration": {
                       "hintText": "کد ملی ذینفع را وارد نمایید",
                       "contentPadding": {
@@ -249,6 +243,13 @@
                     },
                     "keyboardType": "number",
                     "textInputAction": "next",
+                    "maxLength": 10,
+                    "inputFormatters": [
+                      {
+                        "type": "allow",
+                        "rule": "[0-9]"
+                      }
+                    ],
                     "validatorRules": [
                       {
                         "rule": "^\\d{10}$",
@@ -298,13 +299,6 @@
                     "id": "receiver_mobile",
                     "textDirection": "rtl",
                     "textAlign": "right",
-                    "maxLength": 11,
-                    "inputFormatters": [
-                      {
-                        "type": "allow",
-                        "rule": "[0-9]"
-                      }
-                    ],
                     "decoration": {
                       "hintText": "شماره همراه ذینفع را وارد نمایید",
                       "contentPadding": {
@@ -317,6 +311,13 @@
                     },
                     "keyboardType": "phone",
                     "textInputAction": "next",
+                    "maxLength": 11,
+                    "inputFormatters": [
+                      {
+                        "type": "allow",
+                        "rule": "[0-9]"
+                      }
+                    ],
                     "validatorRules": [
                       {
                         "rule": "^09\\d{9}$",
@@ -466,7 +467,7 @@
               "enabledKey": "isReceiverFormValid",
               "onPressed": {
                 "actionType": "navigate",
-                "assetPath": "lib/stac/tobank/flows/promissory/json/promissory_data.json",
+                "widgetType": "promissory_data",
                 "navigationStyle": "push"
               },
               "style": {

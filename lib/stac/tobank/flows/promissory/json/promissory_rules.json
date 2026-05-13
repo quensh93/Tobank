@@ -6,53 +6,49 @@
     "value": false
   },
   "child": {
-    "type": "scaffold",
     "appBar": {
-      "type": "appBar",
       "leading": {
-        "type": "iconButton",
         "onPressed": {
           "navigationStyle": "pop",
           "actionType": "navigate"
         },
         "icon": {
-          "type": "image",
-          "src": "assets/icons/ic_right_arrow.svg",
+          "src": "{{appAssets.icons.arrowBack}}",
           "imageType": "asset",
           "color": "{{appColors.current.text.title}}",
-          "width": 24.0,
-          "height": 24.0
-        }
+          "width": 31.0,
+          "height": 31.0,
+          "type": "image"
+        },
+        "type": "iconButton"
       },
+      "automaticallyImplyLeading": true,
       "title": {
-        "type": "text",
-        "data": "{{appStrings.promissory.rulesTitle}} JSON",
+        "data": "{{appStrings.promissory.rulesTitle}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
         },
-        "textDirection": "rtl"
+        "textDirection": "rtl",
+        "type": "text"
       },
-      "centerTitle": true
+      "centerTitle": true,
+      "type": "appBar"
     },
     "body": {
-      "type": "column",
       "crossAxisAlignment": "stretch",
       "children": [
         {
-          "type": "sizedBox",
-          "height": 16.0
+          "height": 16.0,
+          "type": "sizedBox"
         },
         {
-          "type": "expanded",
           "child": {
-            "type": "padding",
             "padding": {
               "left": 16.0,
               "right": 16.0
             },
             "child": {
-              "type": "container",
               "decoration": {
                 "color": "{{appColors.current.background.surfaceContainer}}",
                 "border": {
@@ -67,11 +63,9 @@
                 }
               },
               "child": {
-                "type": "column",
                 "crossAxisAlignment": "stretch",
                 "children": [
                   {
-                    "type": "padding",
                     "padding": {
                       "left": 16.0,
                       "top": 16.0,
@@ -79,7 +73,6 @@
                       "bottom": 16.0
                     },
                     "child": {
-                      "type": "text",
                       "data": "{{appStrings.promissory.rulesCardTitle}}",
                       "style": {
                         "type": "custom",
@@ -87,18 +80,18 @@
                         "fontSize": 16.0,
                         "fontWeight": "w700"
                       },
-                      "textDirection": "rtl"
-                    }
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    "type": "padding"
                   },
                   {
-                    "type": "container",
                     "color": "{{appColors.current.input.borderEnabled}}",
-                    "height": 1.0
+                    "height": 1.0,
+                    "type": "container"
                   },
                   {
-                    "type": "expanded",
                     "child": {
-                      "type": "singleChildScrollView",
                       "padding": {
                         "left": 16.0,
                         "top": 16.0,
@@ -106,7 +99,6 @@
                         "bottom": 16.0
                       },
                       "child": {
-                        "type": "text",
                         "data": "{{appStrings.promissory.rulesContent}}",
                         "style": {
                           "type": "custom",
@@ -115,46 +107,43 @@
                           "fontWeight": "w500",
                           "height": 1.8
                         },
-                        "textDirection": "rtl"
-                      }
-                    }
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      "type": "singleChildScrollView"
+                    },
+                    "type": "expanded"
                   }
-                ]
-              }
-            }
-          }
+                ],
+                "type": "column"
+              },
+              "type": "container"
+            },
+            "type": "padding"
+          },
+          "type": "expanded"
         },
         {
-          "type": "sizedBox",
-          "height": 24.0
+          "height": 24.0,
+          "type": "sizedBox"
         },
         {
-          "type": "padding",
           "padding": {
             "left": 16.0,
             "right": 16.0
           },
           "child": {
-            "type": "container",
             "padding": {
               "top": 8.0,
               "bottom": 8.0
             },
             "color": "transparent",
             "child": {
-              "type": "row",
               "crossAxisAlignment": "center",
               "textDirection": "rtl",
               "children": [
                 {
-                  "type": "gestureDetector",
-                  "onTap": {
-                    "actionType": "setValue",
-                    "key": "isRulesAccepted",
-                    "value": "{{isRulesAccepted ? false : true}}"
-                  },
                   "child": {
-                    "type": "container",
                     "decoration": {
                       "color": "{{isRulesAccepted ? appColors.current.primary.color : \"transparent\"}}",
                       "border": {
@@ -171,36 +160,35 @@
                     "width": 24.0,
                     "height": 24.0,
                     "child": {
-                      "type": "center",
                       "child": {
                         "type": "opacity",
                         "opacity": "{{isRulesAccepted ? 1.0 : 0.0}}",
                         "child": {
-                          "type": "image",
                           "src": "assets/icons/ic_check.svg",
                           "color": "#FFFFFF",
                           "width": 16.0,
-                          "height": 16.0
+                          "height": 16.0,
+                          "type": "image"
                         }
-                      }
-                    }
-                  }
-                },
-                {
-                  "type": "sizedBox",
-                  "width": 12.0
-                },
-                {
-                  "type": "expanded",
-                  "child": {
-                    "type": "gestureDetector",
-                    "onTap": {
-                      "actionType": "setValue",
-                      "key": "isRulesAccepted",
-                      "value": "{{isRulesAccepted ? false : true}}"
+                      },
+                      "type": "center"
                     },
+                    "type": "container"
+                  },
+                  "onTap": {
+                    "actionType": "setValue",
+                    "key": "isRulesAccepted",
+                    "value": "{{isRulesAccepted ? false : true}}"
+                  },
+                  "type": "gestureDetector"
+                },
+                {
+                  "width": 12.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "child": {
                     "child": {
-                      "type": "text",
                       "data": "{{appStrings.promissory.acceptRulesLabel}}",
                       "style": {
                         "type": "custom",
@@ -209,20 +197,30 @@
                         "fontWeight": "w500",
                         "height": 1.4
                       },
-                      "textDirection": "rtl"
-                    }
-                  }
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    "onTap": {
+                      "actionType": "setValue",
+                      "key": "isRulesAccepted",
+                      "value": "{{isRulesAccepted ? false : true}}"
+                    },
+                    "type": "gestureDetector"
+                  },
+                  "type": "expanded"
                 }
-              ]
-            }
-          }
+              ],
+              "type": "row"
+            },
+            "type": "container"
+          },
+          "type": "padding"
         },
         {
-          "type": "sizedBox",
-          "height": 24.0
+          "height": 24.0,
+          "type": "sizedBox"
         },
         {
-          "type": "padding",
           "padding": {
             "left": 16.0,
             "right": 16.0
@@ -232,9 +230,8 @@
             "enabledKey": "isRulesAccepted",
             "onPressed": {
               "actionType": "navigate",
-              "widgetType": "promissory_real_deposits",
-              "navigationStyle": "push",
-              "_revert_instruction": "TEMPORARY: To revert to Mock flow, REMOVE 'widgetType' and ADD 'assetPath': 'lib/stac/tobank/flows/promissory/json/request_promissory_deposit.json'"
+              "widgetType": "request_promissory_deposit",
+              "navigationStyle": "push"
             },
             "style": {
               "backgroundColor": "{{appColors.current.primary.color}}",
@@ -254,7 +251,6 @@
               }
             },
             "child": {
-              "type": "text",
               "data": "{{appStrings.common.continue}}",
               "style": {
                 "type": "custom",
@@ -262,15 +258,19 @@
                 "fontSize": 18.0,
                 "fontWeight": "bold"
               },
-              "textDirection": "rtl"
+              "textDirection": "rtl",
+              "type": "text"
             }
-          }
+          },
+          "type": "padding"
         },
         {
-          "type": "sizedBox",
-          "height": 16.0
+          "height": 16.0,
+          "type": "sizedBox"
         }
-      ]
-    }
+      ],
+      "type": "column"
+    },
+    "type": "scaffold"
   }
 }

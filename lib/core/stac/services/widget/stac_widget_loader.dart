@@ -1,15 +1,15 @@
 import '../../../../stac/tobank/login/dart/tobank_login.dart' as login_dart;
 import '../../../../stac/tobank/login/dart/verify_otp.dart' as verify_otp_dart;
 import '../../../../stac/tobank/menu/dart/tobank_menu.dart' as tobank_menu_dart;
-import '../../../../stac/tobank/home_page/dart/home_page.dart'
+import '../../../../stac/tobank/flows/home_page/dart/home_page.dart'
     as home_page_dart;
-import '../../../../stac/tobank/home_page/dart/home_page_menu.dart'
+import '../../../../stac/tobank/flows/home_page/dart/home_page_menu.dart'
     as home_page_menu_dart;
-import '../../../../stac/tobank/home_page/dart/tobank_special_services_page.dart'
+import '../../../../stac/tobank/flows/home_page/dart/tobank_special_services_page.dart'
     as tobank_special_services_page_dart;
-import '../../../../stac/tobank/home_page/dart/travel_services_page.dart'
+import '../../../../stac/tobank/flows/home_page/dart/travel_services_page.dart'
     as travel_services_page_dart;
-import '../../../../stac/tobank/home_page/dart/acceptor_services_page.dart'
+import '../../../../stac/tobank/flows/home_page/dart/acceptor_services_page.dart'
     as acceptor_services_page_dart;
 
 import '../../../../stac/tobank/onboarding/dart/tobank_onboarding.dart'
@@ -399,20 +399,6 @@ class StacWidgetLoader {
         charge_real_payment_dart.chargeRealPayment().toJson(),
     'charge_real_payment_success': () =>
         charge_real_payment_success_dart.chargeRealPaymentSuccess().toJson(),
-    'charge_real_simcards': () =>
-        charge_real_intro_dart.chargeRealSimCards().toJson(),
-    'charge_real_simcards_duplicate': () =>
-        charge_real_intro_dart.chargeRealSimCardsDuplicate().toJson(),
-    'charge_real_simcards_selected': () =>
-        charge_real_intro_dart.chargeRealSimCardsSelected().toJson(),
-    'charge_real_add_sim_empty': () =>
-        charge_real_add_sim_dart.chargeRealAddSimEmpty().toJson(),
-    'charge_real_add_sim_filled': () =>
-        charge_real_add_sim_dart.chargeRealAddSimFilled().toJson(),
-    'charge_real_add_sim_invalid': () =>
-        charge_real_add_sim_dart.chargeRealAddSimInvalid().toJson(),
-    'charge_real_add_sim_unsupported': () =>
-        charge_real_add_sim_dart.chargeRealAddSimUnsupported().toJson(),
     'package_real_menu': () =>
         package_real_menu_dart.packageRealMenu().toJson(),
     'package_real_intro': () =>
@@ -425,20 +411,6 @@ class StacWidgetLoader {
         package_real_payment_dart.packageRealPayment().toJson(),
     'package_real_payment_success': () =>
         package_real_payment_success_dart.packageRealPaymentSuccess().toJson(),
-    'package_real_simcards': () =>
-        package_real_intro_dart.packageRealSimCards().toJson(),
-    'package_real_simcards_duplicate': () =>
-        package_real_intro_dart.packageRealSimCardsDuplicate().toJson(),
-    'package_real_simcards_selected': () =>
-        package_real_intro_dart.packageRealSimCardsSelected().toJson(),
-    'package_real_add_sim_empty': () =>
-        package_real_add_sim_dart.packageRealAddSimEmpty().toJson(),
-    'package_real_add_sim_filled': () =>
-        package_real_add_sim_dart.packageRealAddSimFilled().toJson(),
-    'package_real_add_sim_invalid': () =>
-        package_real_add_sim_dart.packageRealAddSimInvalid().toJson(),
-    'package_real_add_sim_unsupported': () =>
-        package_real_add_sim_dart.packageRealAddSimUnsupported().toJson(),
     'gift_card_real_message': () =>
         gift_card_real_message_dart.giftCardRealMessage().toJson(),
     'gift_card_real_receiver_info': () =>

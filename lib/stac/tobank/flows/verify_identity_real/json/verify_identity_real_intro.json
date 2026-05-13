@@ -9,29 +9,22 @@
     "appBar": {
       "leading": {
         "padding": {
-          "left": 12.0
+          "left": 12
         },
         "child": {
           "child": {
-            "width": 42.0,
-            "height": 42.0,
-            "child": {
-              "child": {
-                "src": "{{appAssets.icons.support}}",
-                "imageType": "asset",
-                "color": "{{appColors.current.text.title}}",
-                "width": 24.0,
-                "height": 24.0,
-                "type": "image"
-              },
-              "type": "center"
-            },
-            "type": "container"
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24,
+            "height": 24,
+            "type": "image"
           },
           "type": "center"
         },
         "type": "padding"
       },
+      "automaticallyImplyLeading": true,
       "title": {
         "data": "{{appStrings.menu.items.verifyIdentity}}",
         "style": {
@@ -44,7 +37,7 @@
       "actions": [
         {
           "padding": {
-            "right": 15.0
+            "right": 12
           },
           "child": {
             "onPressed": {
@@ -55,8 +48,8 @@
               "src": "{{appAssets.icons.arrowBack}}",
               "imageType": "asset",
               "color": "{{appColors.current.text.title}}",
-              "width": 30.0,
-              "height": 30.0,
+              "width": 31,
+              "height": 31,
               "type": "image"
             },
             "type": "iconButton"
@@ -69,7 +62,6 @@
     },
     "backgroundColor": "{{appColors.current.background.surface}}",
     "body": {
-      "type": "safeArea",
       "top": false,
       "bottom": true,
       "child": {
@@ -77,32 +69,32 @@
           {
             "child": {
               "padding": {
-                "left": 16.0,
-                "top": 16.0,
-                "right": 16.0,
-                "bottom": 24.0
+                "left": 16,
+                "top": 16,
+                "right": 16,
+                "bottom": 24
               },
               "child": {
                 "crossAxisAlignment": "stretch",
                 "children": [
                   {
                     "padding": {
-                      "left": 20.0,
-                      "top": 20.0,
-                      "right": 20.0,
-                      "bottom": 20.0
+                      "left": 20,
+                      "top": 20,
+                      "right": 20,
+                      "bottom": 20
                     },
                     "decoration": {
                       "color": "{{appColors.current.background.surfaceContainer}}",
                       "border": {
                         "color": "{{appColors.current.input.borderEnabled}}",
-                        "width": 1.0
+                        "width": 1
                       },
                       "borderRadius": {
-                        "topLeft": 16.0,
-                        "topRight": 16.0,
-                        "bottomLeft": 16.0,
-                        "bottomRight": 16.0
+                        "topLeft": 16,
+                        "topRight": 16,
+                        "bottomLeft": 16,
+                        "bottomRight": 16
                       }
                     },
                     "child": {
@@ -113,7 +105,7 @@
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
-                            "fontSize": 17.0,
+                            "fontSize": 17,
                             "fontWeight": "w700"
                           },
                           "textAlign": "right",
@@ -121,12 +113,12 @@
                           "type": "text"
                         },
                         {
-                          "height": 20.0,
+                          "height": 20,
                           "type": "sizedBox"
                         },
                         {
                           "padding": {
-                            "bottom": 12.0
+                            "bottom": 12
                           },
                           "child": {
                             "crossAxisAlignment": "start",
@@ -137,7 +129,7 @@
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
-                                  "fontSize": 22.0,
+                                  "fontSize": 22,
                                   "fontWeight": "w700",
                                   "height": 1.2
                                 },
@@ -145,7 +137,7 @@
                                 "type": "text"
                               },
                               {
-                                "width": 12.0,
+                                "width": 12,
                                 "type": "sizedBox"
                               },
                               {
@@ -154,7 +146,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
-                                    "fontSize": 16.0,
+                                    "fontSize": 16,
                                     "fontWeight": "w500",
                                     "height": 1.6
                                   },
@@ -171,7 +163,7 @@
                         },
                         {
                           "padding": {
-                            "bottom": 12.0
+                            "bottom": 12
                           },
                           "child": {
                             "crossAxisAlignment": "start",
@@ -182,7 +174,7 @@
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
-                                  "fontSize": 22.0,
+                                  "fontSize": 22,
                                   "fontWeight": "w700",
                                   "height": 1.2
                                 },
@@ -190,7 +182,7 @@
                                 "type": "text"
                               },
                               {
-                                "width": 12.0,
+                                "width": 12,
                                 "type": "sizedBox"
                               },
                               {
@@ -199,7 +191,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
-                                    "fontSize": 16.0,
+                                    "fontSize": 16,
                                     "fontWeight": "w500",
                                     "height": 1.6
                                   },
@@ -216,7 +208,7 @@
                         },
                         {
                           "padding": {
-                            "bottom": 12.0
+                            "bottom": 12
                           },
                           "child": {
                             "crossAxisAlignment": "start",
@@ -227,7 +219,7 @@
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
-                                  "fontSize": 22.0,
+                                  "fontSize": 22,
                                   "fontWeight": "w700",
                                   "height": 1.2
                                 },
@@ -235,7 +227,7 @@
                                 "type": "text"
                               },
                               {
-                                "width": 12.0,
+                                "width": 12,
                                 "type": "sizedBox"
                               },
                               {
@@ -244,7 +236,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
-                                    "fontSize": 16.0,
+                                    "fontSize": 16,
                                     "fontWeight": "w500",
                                     "height": 1.6
                                   },
@@ -261,7 +253,7 @@
                         },
                         {
                           "padding": {
-                            "bottom": 12.0
+                            "bottom": 12
                           },
                           "child": {
                             "crossAxisAlignment": "start",
@@ -272,7 +264,7 @@
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
-                                  "fontSize": 22.0,
+                                  "fontSize": 22,
                                   "fontWeight": "w700",
                                   "height": 1.2
                                 },
@@ -280,7 +272,7 @@
                                 "type": "text"
                               },
                               {
-                                "width": 12.0,
+                                "width": 12,
                                 "type": "sizedBox"
                               },
                               {
@@ -289,7 +281,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
-                                    "fontSize": 16.0,
+                                    "fontSize": 16,
                                     "fontWeight": "w500",
                                     "height": 1.6
                                   },
@@ -306,7 +298,7 @@
                         },
                         {
                           "padding": {
-                            "bottom": 12.0
+                            "bottom": 12
                           },
                           "child": {
                             "crossAxisAlignment": "start",
@@ -317,7 +309,7 @@
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
-                                  "fontSize": 22.0,
+                                  "fontSize": 22,
                                   "fontWeight": "w700",
                                   "height": 1.2
                                 },
@@ -325,7 +317,7 @@
                                 "type": "text"
                               },
                               {
-                                "width": 12.0,
+                                "width": 12,
                                 "type": "sizedBox"
                               },
                               {
@@ -334,7 +326,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
-                                    "fontSize": 16.0,
+                                    "fontSize": 16,
                                     "fontWeight": "w500",
                                     "height": 1.6
                                   },
@@ -351,7 +343,7 @@
                         },
                         {
                           "padding": {
-                            "bottom": 12.0
+                            "bottom": 12
                           },
                           "child": {
                             "crossAxisAlignment": "start",
@@ -362,7 +354,7 @@
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
-                                  "fontSize": 22.0,
+                                  "fontSize": 22,
                                   "fontWeight": "w700",
                                   "height": 1.2
                                 },
@@ -370,7 +362,7 @@
                                 "type": "text"
                               },
                               {
-                                "width": 12.0,
+                                "width": 12,
                                 "type": "sizedBox"
                               },
                               {
@@ -379,7 +371,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
-                                    "fontSize": 16.0,
+                                    "fontSize": 16,
                                     "fontWeight": "w500",
                                     "height": 1.6
                                   },
@@ -396,7 +388,7 @@
                         },
                         {
                           "padding": {
-                            "bottom": 12.0
+                            "bottom": 12
                           },
                           "child": {
                             "crossAxisAlignment": "start",
@@ -407,7 +399,7 @@
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
-                                  "fontSize": 22.0,
+                                  "fontSize": 22,
                                   "fontWeight": "w700",
                                   "height": 1.2
                                 },
@@ -415,7 +407,7 @@
                                 "type": "text"
                               },
                               {
-                                "width": 12.0,
+                                "width": 12,
                                 "type": "sizedBox"
                               },
                               {
@@ -424,7 +416,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
-                                    "fontSize": 16.0,
+                                    "fontSize": 16,
                                     "fontWeight": "w500",
                                     "height": 1.6
                                   },
@@ -445,27 +437,27 @@
                     "type": "container"
                   },
                   {
-                    "height": 16.0,
+                    "height": 16,
                     "type": "sizedBox"
                   },
                   {
                     "padding": {
-                      "left": 16.0,
-                      "top": 8.0,
-                      "right": 16.0,
-                      "bottom": 8.0
+                      "left": 16,
+                      "top": 8,
+                      "right": 16,
+                      "bottom": 8
                     },
                     "decoration": {
                       "color": "{{appColors.current.background.surfaceContainer}}",
                       "border": {
                         "color": "{{appColors.current.input.borderEnabled}}",
-                        "width": 1.0
+                        "width": 1
                       },
                       "borderRadius": {
-                        "topLeft": 16.0,
-                        "topRight": 16.0,
-                        "bottomLeft": 16.0,
-                        "bottomRight": 16.0
+                        "topLeft": 16,
+                        "topRight": 16,
+                        "bottomLeft": 16,
+                        "bottomRight": 16
                       }
                     },
                     "child": {
@@ -473,8 +465,8 @@
                       "textDirection": "rtl",
                       "children": [
                         {
-                          "width": 45.0,
-                          "height": 45.0,
+                          "width": 45,
+                          "height": 45,
                           "child": {
                             "fit": "contain",
                             "child": {
@@ -491,7 +483,7 @@
                           "type": "container"
                         },
                         {
-                          "width": 4.0,
+                          "width": 4,
                           "type": "sizedBox"
                         },
                         {
@@ -503,19 +495,20 @@
                                 "onPressed": {
                                   "actionType": "showRulesBottomSheet",
                                   "routeName": "verify_identity_real_rules",
+                                  "assetPath": "lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_rules.json",
                                   "title": "شرایط و مقررات ارائه خدمات توبانک"
                                 },
                                 "style": {
                                   "foregroundColor": "{{appColors.current.secondary.color}}",
                                   "padding": {
-                                    "left": 0.0,
-                                    "top": 0.0,
-                                    "right": 0.0,
-                                    "bottom": 0.0
+                                    "left": 0,
+                                    "top": 0,
+                                    "right": 0,
+                                    "bottom": 0
                                   },
                                   "minimumSize": {
-                                    "width": 0.0,
-                                    "height": 0.0
+                                    "width": 0,
+                                    "height": 0
                                   },
                                   "tapTargetSize": "shrinkWrap"
                                 },
@@ -524,7 +517,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.secondary.color}}",
-                                    "fontSize": 16.0,
+                                    "fontSize": 16,
                                     "fontWeight": "w600"
                                   },
                                   "textDirection": "rtl",
@@ -541,7 +534,7 @@
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
-                                  "fontSize": 16.0,
+                                  "fontSize": 16,
                                   "fontWeight": "w500"
                                 },
                                 "textDirection": "rtl",
@@ -566,9 +559,9 @@
           },
           {
             "padding": {
-              "left": 16.0,
-              "right": 16.0,
-              "bottom": 24.0
+              "left": 16,
+              "right": 16,
+              "bottom": 24
             },
             "child": {
               "type": "reactiveElevatedButton",
@@ -579,50 +572,50 @@
                 "actionType": "navigate",
                 "request": {
                   "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.verify_identity_real_preregister/1",
-                  "method": "post",
-                  "headers": {
-                    "Content-Type": "application/json",
-                    "Accept": "*/*"
-                  },
                   "body": {
                     "operator": "is",
                     "dimension": {
                       "app": "mobile"
                     }
+                  },
+                  "method": "post",
+                  "headers": {
+                    "Accept": "*/*",
+                    "Content-Type": "application/json"
                   }
                 }
               },
               "style": {
                 "backgroundColor": "{{appColors.current.primary.color}}",
-                "elevation": 0.0,
+                "elevation": 0,
                 "fixedSize": {
-                  "width": 999999.0,
-                  "height": 64.0
+                  "width": 999999,
+                  "height": 64
                 },
                 "shape": {
                   "type": "roundedRectangleBorder",
                   "borderRadius": {
-                    "topLeft": 18.0,
-                    "topRight": 18.0,
-                    "bottomLeft": 18.0,
-                    "bottomRight": 18.0
+                    "topLeft": 18,
+                    "topRight": 18,
+                    "bottomLeft": 18,
+                    "bottomRight": 18
                   }
                 }
               },
               "disabledStyle": {
                 "backgroundColor": "{{appColors.current.background.surfaceContainerHigh}}",
-                "elevation": 0.0,
+                "elevation": 0,
                 "fixedSize": {
-                  "width": 999999.0,
-                  "height": 64.0
+                  "width": 999999,
+                  "height": 64
                 },
                 "shape": {
                   "type": "roundedRectangleBorder",
                   "borderRadius": {
-                    "topLeft": 18.0,
-                    "topRight": 18.0,
-                    "bottomLeft": 18.0,
-                    "bottomRight": 18.0
+                    "topLeft": 18,
+                    "topRight": 18,
+                    "bottomLeft": 18,
+                    "bottomRight": 18
                   }
                 }
               },
@@ -631,7 +624,7 @@
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.primary.onPrimary}}",
-                  "fontSize": 18.0,
+                  "fontSize": 18,
                   "fontWeight": "w700"
                 },
                 "textDirection": "rtl",
@@ -642,7 +635,8 @@
           }
         ],
         "type": "column"
-      }
+      },
+      "type": "safeArea"
     },
     "type": "scaffold"
   }

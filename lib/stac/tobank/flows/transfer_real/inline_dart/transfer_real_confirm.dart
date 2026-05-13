@@ -1,5 +1,6 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 
@@ -18,25 +19,9 @@ StacWidget transferRealConfirm() {
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: StacAppBar(
-        title: StacText(
-          data: 'انتقال وجه',
-          textDirection: StacTextDirection.rtl,
-          style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
-        ),
-        centerTitle: true,
-        leading: StacIconButton(
-          onPressed: const StacNavigateAction(
-            navigationStyle: NavigationStyle.pop,
-          ),
-          icon: StacImage(
-            src: '{{appAssets.icons.arrowRight}}',
-            imageType: StacImageType.asset,
-            width: 24,
-            height: 24,
-            color: '{{appColors.current.text.title}}',
-          ),
-        ),
+      appBar: buildTobankFlowAppBar(
+        showSupport: true,
+        title: 'انتقال وجه',
       ),
       body: StacCustomVisibility(
         visible: '[[transferApiTabCard]]',
@@ -126,22 +111,16 @@ StacWidget _cardConfirmContent() {
                             '{{appColors.current.background.surface}}',
                         'height': 56,
                         'minWidth': 132,
-                        'onStart': {
-                          'actionType': 'customSnackBar',
-                          'snackStyle': 'infoCard',
-                          'message': 'رمز پویا با موفقیت ارسال شد.',
-                          'backgroundColor': '#1D2939',
-                          'textColor': '#D0D5DD',
-                          'duration': 2200,
-                        },
-                        'onRetry': {
-                          'actionType': 'customSnackBar',
-                          'snackStyle': 'infoCard',
-                          'message': 'رمز پویا با موفقیت ارسال شد.',
-                          'backgroundColor': '#1D2939',
-                          'textColor': '#D0D5DD',
-                          'duration': 2200,
-                        },
+                        'onStart': const StacCustomSnackBarAction(
+                          title: 'اعلان',
+                          detail: 'رمز پویا با موفقیت ارسال شد.',
+                          duration: 2200,
+                        ).toJson(),
+                        'onRetry': const StacCustomSnackBarAction(
+                          title: 'اعلان',
+                          detail: 'رمز پویا با موفقیت ارسال شد.',
+                          duration: 2200,
+                        ).toJson(),
                       }),
                     ),
                   ],

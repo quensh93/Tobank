@@ -1,5 +1,4 @@
 {
-  "type": "scaffold",
   "backgroundColor": "{{appColors.current.background.surface}}",
   "body": {
     "type": "tobank_onboarding_slider",
@@ -31,8 +30,22 @@
     ],
     "onFinish": {
       "actionType": "navigate",
-      "assetPath": "lib/stac/tobank/flows/login_flow_linear/json/login_flow_linear_login.json",
-      "navigationStyle": "pushReplacement"
+      "navigationStyle": "pushReplacement",
+      "request": {
+        "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.login_flow_linear_login/1",
+        "body": {
+          "operator": "is",
+          "dimension": {
+            "app": "mobile"
+          }
+        },
+        "method": "post",
+        "headers": {
+          "Accept": "*/*",
+          "Content-Type": "application/json"
+        }
+      }
     }
-  }
+  },
+  "type": "scaffold"
 }

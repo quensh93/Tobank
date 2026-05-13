@@ -195,18 +195,6 @@ StacWidget chargeRealAddSim() {
   );
 }
 
-@StacScreen(screenName: 'charge_real_add_sim_empty')
-StacWidget chargeRealAddSimEmpty() => chargeRealAddSim();
-
-@StacScreen(screenName: 'charge_real_add_sim_filled')
-StacWidget chargeRealAddSimFilled() => chargeRealAddSim();
-
-@StacScreen(screenName: 'charge_real_add_sim_invalid')
-StacWidget chargeRealAddSimInvalid() => chargeRealAddSim();
-
-@StacScreen(screenName: 'charge_real_add_sim_unsupported')
-StacWidget chargeRealAddSimUnsupported() => chargeRealAddSim();
-
 StacAction _addValidationAction() {
   return StacSequenceAction(
     actions: [

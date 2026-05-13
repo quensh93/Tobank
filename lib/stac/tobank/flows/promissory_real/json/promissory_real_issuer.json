@@ -161,20 +161,23 @@
     "child": {
       "appBar": {
         "leading": {
-          "onPressed": {
-            "navigationStyle": "pop",
-            "actionType": "navigate"
+          "padding": {
+            "left": 12
           },
-          "icon": {
-            "src": "assets/icons/ic_right_arrow.svg",
-            "imageType": "asset",
-            "color": "{{appColors.current.text.title}}",
-            "width": 24.0,
-            "height": 24.0,
-            "type": "image"
+          "child": {
+            "child": {
+              "src": "{{appAssets.icons.support}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 24,
+              "height": 24,
+              "type": "image"
+            },
+            "type": "center"
           },
-          "type": "iconButton"
+          "type": "padding"
         },
+        "automaticallyImplyLeading": true,
         "title": {
           "data": "{{appStrings.promissory.issuerTitle}}",
           "style": {
@@ -184,6 +187,29 @@
           "textDirection": "rtl",
           "type": "text"
         },
+        "actions": [
+          {
+            "padding": {
+              "right": 12
+            },
+            "child": {
+              "onPressed": {
+                "navigationStyle": "pop",
+                "actionType": "navigate"
+              },
+              "icon": {
+                "src": "{{appAssets.icons.arrowBack}}",
+                "imageType": "asset",
+                "color": "{{appColors.current.text.title}}",
+                "width": 31,
+                "height": 31,
+                "type": "image"
+              },
+              "type": "iconButton"
+            },
+            "type": "padding"
+          }
+        ],
         "centerTitle": true,
         "type": "appBar"
       },
@@ -195,7 +221,7 @@
               "type": "circularProgressIndicator"
             },
             {
-              "height": 16.0,
+              "height": 16,
               "type": "sizedBox"
             },
             {
@@ -203,7 +229,7 @@
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.text.subtitle}}",
-                "fontSize": 16.0
+                "fontSize": 16
               },
               "textDirection": "rtl",
               "type": "text"
@@ -221,20 +247,23 @@
       "child": {
         "appBar": {
           "leading": {
-            "onPressed": {
-              "navigationStyle": "pop",
-              "actionType": "navigate"
+            "padding": {
+              "left": 12
             },
-            "icon": {
-              "src": "assets/icons/ic_right_arrow.svg",
-              "imageType": "asset",
-              "color": "{{appColors.current.text.title}}",
-              "width": 24.0,
-              "height": 24.0,
-              "type": "image"
+            "child": {
+              "child": {
+                "src": "{{appAssets.icons.support}}",
+                "imageType": "asset",
+                "color": "{{appColors.current.text.title}}",
+                "width": 24,
+                "height": 24,
+                "type": "image"
+              },
+              "type": "center"
             },
-            "type": "iconButton"
+            "type": "padding"
           },
+          "automaticallyImplyLeading": true,
           "title": {
             "data": "{{appStrings.promissory.issuerTitle}}",
             "style": {
@@ -244,6 +273,29 @@
             "textDirection": "rtl",
             "type": "text"
           },
+          "actions": [
+            {
+              "padding": {
+                "right": 12
+              },
+              "child": {
+                "onPressed": {
+                  "navigationStyle": "pop",
+                  "actionType": "navigate"
+                },
+                "icon": {
+                  "src": "{{appAssets.icons.arrowBack}}",
+                  "imageType": "asset",
+                  "color": "{{appColors.current.text.title}}",
+                  "width": 31,
+                  "height": 31,
+                  "type": "image"
+                },
+                "type": "iconButton"
+              },
+              "type": "padding"
+            }
+          ],
           "centerTitle": true,
           "type": "appBar"
         },
@@ -253,17 +305,17 @@
             "children": [
               {
                 "padding": {
-                  "left": 16.0,
-                  "top": 16.0,
-                  "right": 16.0,
-                  "bottom": 16.0
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
                 },
                 "child": {
                   "data": "{{issuer.error}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.subtitle}}",
-                    "fontSize": 14.0
+                    "fontSize": 14
                   },
                   "textAlign": "center",
                   "textDirection": "rtl",
@@ -272,7 +324,7 @@
                 "type": "padding"
               },
               {
-                "height": 16.0,
+                "height": 16,
                 "type": "sizedBox"
               },
               {
@@ -436,10 +488,10 @@
                   "shape": {
                     "type": "roundedRectangleBorder",
                     "borderRadius": {
-                      "topLeft": 12.0,
-                      "topRight": 12.0,
-                      "bottomLeft": 12.0,
-                      "bottomRight": 12.0
+                      "topLeft": 12,
+                      "topRight": 12,
+                      "bottomLeft": 12,
+                      "bottomRight": 12
                     }
                   }
                 },
@@ -464,20 +516,23 @@
       "replacement": {
         "appBar": {
           "leading": {
-            "onPressed": {
-              "navigationStyle": "pop",
-              "actionType": "navigate"
+            "padding": {
+              "left": 12
             },
-            "icon": {
-              "src": "assets/icons/ic_right_arrow.svg",
-              "imageType": "asset",
-              "color": "{{appColors.current.text.title}}",
-              "width": 24.0,
-              "height": 24.0,
-              "type": "image"
+            "child": {
+              "child": {
+                "src": "{{appAssets.icons.support}}",
+                "imageType": "asset",
+                "color": "{{appColors.current.text.title}}",
+                "width": 24,
+                "height": 24,
+                "type": "image"
+              },
+              "type": "center"
             },
-            "type": "iconButton"
+            "type": "padding"
           },
+          "automaticallyImplyLeading": true,
           "title": {
             "data": "{{appStrings.promissory.issuerTitle}}",
             "style": {
@@ -487,6 +542,29 @@
             "textDirection": "rtl",
             "type": "text"
           },
+          "actions": [
+            {
+              "padding": {
+                "right": 12
+              },
+              "child": {
+                "onPressed": {
+                  "navigationStyle": "pop",
+                  "actionType": "navigate"
+                },
+                "icon": {
+                  "src": "{{appAssets.icons.arrowBack}}",
+                  "imageType": "asset",
+                  "color": "{{appColors.current.text.title}}",
+                  "width": 31,
+                  "height": 31,
+                  "type": "image"
+                },
+                "type": "iconButton"
+              },
+              "type": "padding"
+            }
+          ],
           "centerTitle": true,
           "type": "appBar"
         },
@@ -496,20 +574,20 @@
             {
               "child": {
                 "padding": {
-                  "left": 16.0,
-                  "top": 16.0,
-                  "right": 16.0,
-                  "bottom": 16.0
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
                 },
                 "child": {
                   "crossAxisAlignment": "stretch",
                   "children": [
                     {
                       "padding": {
-                        "left": 16.0,
-                        "top": 16.0,
-                        "right": 16.0,
-                        "bottom": 16.0
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
                       },
                       "decoration": {
                         "color": "{{appColors.current.background.surfaceContainer}}",
@@ -518,10 +596,10 @@
                           "width": 0.5
                         },
                         "borderRadius": {
-                          "topLeft": 8.0,
-                          "topRight": 8.0,
-                          "bottomLeft": 8.0,
-                          "bottomRight": 8.0
+                          "topLeft": 8,
+                          "topRight": 8,
+                          "bottomLeft": 8,
+                          "bottomRight": 8
                         }
                       },
                       "child": {
@@ -532,14 +610,14 @@
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
-                              "fontSize": 16.0,
+                              "fontSize": 16,
                               "fontWeight": "w700"
                             },
                             "textDirection": "rtl",
                             "type": "text"
                           },
                           {
-                            "height": 16.0,
+                            "height": 16,
                             "type": "sizedBox"
                           },
                           {
@@ -553,7 +631,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
-                                    "fontSize": 14.0
+                                    "fontSize": 14
                                   },
                                   "textDirection": "rtl",
                                   "type": "text"
@@ -561,7 +639,7 @@
                                 "type": "expanded"
                               },
                               {
-                                "width": 16.0,
+                                "width": 16,
                                 "type": "sizedBox"
                               },
                               {
@@ -570,7 +648,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
-                                    "fontSize": 14.0,
+                                    "fontSize": 14,
                                     "fontWeight": "w600"
                                   },
                                   "textAlign": "left",
@@ -583,7 +661,7 @@
                             "type": "row"
                           },
                           {
-                            "height": 16.0,
+                            "height": 16,
                             "type": "sizedBox"
                           },
                           {
@@ -597,7 +675,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
-                                    "fontSize": 14.0
+                                    "fontSize": 14
                                   },
                                   "textDirection": "rtl",
                                   "type": "text"
@@ -605,7 +683,7 @@
                                 "type": "expanded"
                               },
                               {
-                                "width": 16.0,
+                                "width": 16,
                                 "type": "sizedBox"
                               },
                               {
@@ -614,7 +692,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
-                                    "fontSize": 14.0,
+                                    "fontSize": 14,
                                     "fontWeight": "w600"
                                   },
                                   "textAlign": "left",
@@ -627,7 +705,7 @@
                             "type": "row"
                           },
                           {
-                            "height": 16.0,
+                            "height": 16,
                             "type": "sizedBox"
                           },
                           {
@@ -641,7 +719,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
-                                    "fontSize": 14.0
+                                    "fontSize": 14
                                   },
                                   "textDirection": "rtl",
                                   "type": "text"
@@ -649,7 +727,7 @@
                                 "type": "expanded"
                               },
                               {
-                                "width": 16.0,
+                                "width": 16,
                                 "type": "sizedBox"
                               },
                               {
@@ -658,7 +736,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
-                                    "fontSize": 14.0,
+                                    "fontSize": 14,
                                     "fontWeight": "w600"
                                   },
                                   "textAlign": "left",
@@ -676,15 +754,15 @@
                       "type": "container"
                     },
                     {
-                      "height": 16.0,
+                      "height": 16,
                       "type": "sizedBox"
                     },
                     {
                       "padding": {
-                        "left": 16.0,
-                        "top": 16.0,
-                        "right": 16.0,
-                        "bottom": 16.0
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
                       },
                       "decoration": {
                         "color": "{{appColors.current.background.surfaceContainer}}",
@@ -693,10 +771,10 @@
                           "width": 0.5
                         },
                         "borderRadius": {
-                          "topLeft": 8.0,
-                          "topRight": 8.0,
-                          "bottomLeft": 8.0,
-                          "bottomRight": 8.0
+                          "topLeft": 8,
+                          "topRight": 8,
+                          "bottomLeft": 8,
+                          "bottomRight": 8
                         }
                       },
                       "child": {
@@ -707,14 +785,14 @@
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
-                              "fontSize": 16.0,
+                              "fontSize": 16,
                               "fontWeight": "w700"
                             },
                             "textDirection": "rtl",
                             "type": "text"
                           },
                           {
-                            "height": 16.0,
+                            "height": 16,
                             "type": "sizedBox"
                           },
                           {
@@ -722,14 +800,14 @@
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.subtitle}}",
-                              "fontSize": 14.0,
+                              "fontSize": 14,
                               "fontWeight": "w500"
                             },
                             "textDirection": "rtl",
                             "type": "text"
                           },
                           {
-                            "height": 8.0,
+                            "height": 8,
                             "type": "sizedBox"
                           },
                           {
@@ -737,14 +815,14 @@
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
-                              "fontSize": 16.0,
+                              "fontSize": 16,
                               "fontWeight": "w600"
                             },
                             "textDirection": "rtl",
                             "type": "text"
                           },
                           {
-                            "height": 16.0,
+                            "height": 16,
                             "type": "sizedBox"
                           },
                           {
@@ -752,14 +830,14 @@
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.subtitle}}",
-                              "fontSize": 14.0,
+                              "fontSize": 14,
                               "fontWeight": "w500"
                             },
                             "textDirection": "rtl",
                             "type": "text"
                           },
                           {
-                            "height": 8.0,
+                            "height": 8,
                             "type": "sizedBox"
                           },
                           {
@@ -767,7 +845,7 @@
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
-                              "fontSize": 16.0,
+                              "fontSize": 16,
                               "fontWeight": "w600",
                               "height": 1.4
                             },
@@ -788,31 +866,44 @@
             },
             {
               "padding": {
-                "left": 16.0,
-                "top": 16.0,
-                "right": 16.0,
-                "bottom": 16.0
+                "left": 16,
+                "top": 16,
+                "right": 16,
+                "bottom": 16
               },
               "child": {
                 "onPressed": {
-                  "assetPath": "lib/stac/tobank/flows/promissory_real/json/promissory_real_receiver.json",
                   "navigationStyle": "push",
-                  "actionType": "navigate"
+                  "actionType": "navigate",
+                  "request": {
+                    "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.promissory_real_receiver/1",
+                    "body": {
+                      "operator": "is",
+                      "dimension": {
+                        "app": "mobile"
+                      }
+                    },
+                    "method": "post",
+                    "headers": {
+                      "Accept": "*/*",
+                      "Content-Type": "application/json"
+                    }
+                  }
                 },
                 "style": {
                   "backgroundColor": "{{appColors.current.primary.color}}",
-                  "elevation": 0.0,
+                  "elevation": 0,
                   "fixedSize": {
-                    "width": 999999.0,
-                    "height": 56.0
+                    "width": 999999,
+                    "height": 56
                   },
                   "shape": {
                     "type": "roundedRectangleBorder",
                     "borderRadius": {
-                      "topLeft": 12.0,
-                      "topRight": 12.0,
-                      "bottomLeft": 12.0,
-                      "bottomRight": 12.0
+                      "topLeft": 12,
+                      "topRight": 12,
+                      "bottomLeft": 12,
+                      "bottomRight": 12
                     }
                   }
                 },
@@ -821,7 +912,7 @@
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.primary.onPrimary}}",
-                    "fontSize": 18.0,
+                    "fontSize": 18,
                     "fontWeight": "bold"
                   },
                   "type": "text"

@@ -52,6 +52,7 @@
         },
         "type": "padding"
       },
+      "automaticallyImplyLeading": true,
       "title": {
         "data": "کارت هدیه",
         "style": {

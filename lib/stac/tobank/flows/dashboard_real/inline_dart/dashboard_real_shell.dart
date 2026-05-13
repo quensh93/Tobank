@@ -1,11 +1,11 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac/tobank/flows/cartable_real/dart/cartable_real_intro.dart'
     as cartable_real_intro_dart;
-import '../../profile_real/inline_dart/profile_real_intro.dart'
+import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/profile_real_intro.dart'
     as profile_real_intro_dart;
-import '../../transaction_real/inline_dart/transaction_real_intro.dart'
+import 'package:tobank_sdui/stac/tobank/flows/transaction_real/dart/transaction_real_intro.dart'
     as transaction_real_intro_dart;
-import 'package:tobank_sdui/stac/tobank/home_page/dart/home_page.dart'
+import 'package:tobank_sdui/stac/tobank/flows/home_page/dart/home_page.dart'
     as home_page_dart;
 
 @StacScreen(screenName: 'dashboard_real_shell')
@@ -45,7 +45,7 @@ StacWidget dashboardRealShell() {
           enableFeedback: false,
           items: [
             StacBottomNavigationBarItem(
-              label: 'Ù¾Ø±ÙˆÙØ§ÛŒÙ„',
+              label: 'پروفایل',
               icon: StacImage(
                 src: 'assets/icons/ic_profile_main.svg',
                 imageType: StacImageType.asset,
@@ -62,7 +62,7 @@ StacWidget dashboardRealShell() {
               ),
             ),
             StacBottomNavigationBarItem(
-              label: 'Ú©Ø§Ø±ØªØ§Ø¨Ù„',
+              label: 'کارتابل',
               icon: StacImage(
                 src: 'assets/icons/ic_cardboard.svg',
                 imageType: StacImageType.asset,
@@ -79,7 +79,7 @@ StacWidget dashboardRealShell() {
               ),
             ),
             StacBottomNavigationBarItem(
-              label: 'ØªØ±Ø§Ú©Ù†Ø´â€ŒÙ‡Ø§',
+              label: 'تراکنش‌ها',
               icon: StacImage(
                 src: 'assets/icons/ic_transaction_main.svg',
                 imageType: StacImageType.asset,
@@ -96,7 +96,7 @@ StacWidget dashboardRealShell() {
               ),
             ),
             StacBottomNavigationBarItem(
-              label: 'Ø®Ø§Ù†Ù‡',
+              label: 'خانه',
               icon: StacImage(
                 src: 'assets/icons/ic_home_main.svg',
                 imageType: StacImageType.asset,

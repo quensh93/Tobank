@@ -149,8 +149,8 @@ flutter:
     - lib/stac/tobank/flows/gift_card_real/json/
     - lib/stac/tobank/flows/gift_card_real/api_json/
     - lib/stac/tobank/flows/package_real/json/
-    - lib/stac/tobank/home_page/json/
-    - lib/stac/tobank/home_page/api/
+    - lib/stac/tobank/flows/home_page/json/
+    - lib/stac/tobank/flows/home_page/api/
 
 
 

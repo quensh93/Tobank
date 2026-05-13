@@ -17,8 +17,9 @@
       },
       "type": "padding"
     },
+    "automaticallyImplyLeading": true,
     "title": {
-      "data": "{{appStrings.profile.real.settings.title}}",
+      "data": "تنظیمات",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -99,7 +100,7 @@
               },
               {
                 "child": {
-                  "data": "{{appStrings.profile.real.settings.faceId}}",
+                  "data": "فعال سازی تشخیص چهره",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.title}}",
@@ -172,7 +173,7 @@
                 },
                 {
                   "child": {
-                    "data": "{{appStrings.profile.real.settings.themeTitle}}",
+                    "data": "ظاهر برنامه",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -186,7 +187,7 @@
                   "type": "expanded"
                 },
                 {
-                  "data": "{{appStrings.profile.real.settings.themeCurrent}}",
+                  "data": "{{appTheme.currentLabel}}",
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.subtitle}}",
@@ -214,10 +215,10 @@
           },
           "onTap": {
             "actionType": "showThemeSelectorBottomSheet",
-            "title": "{{appStrings.profile.real.settings.themeSheetTitle}}",
-            "lightLabel": "{{appStrings.profile.real.settings.themeLight}}",
-            "darkLabel": "{{appStrings.profile.real.settings.themeDark}}",
-            "systemLabel": "{{appStrings.profile.real.settings.themeSystem}}"
+            "title": "ظاهر برنامه را انتخاب کنید",
+            "lightLabel": "حالت روز",
+            "darkLabel": "حالت شب",
+            "systemLabel": "پیش‌فرض سیستم عامل"
           },
           "type": "gestureDetector"
         },
@@ -262,7 +263,7 @@
                 },
                 {
                   "child": {
-                    "data": "{{appStrings.profile.real.settings.changePassword}}",
+                    "data": "تغییر رمز عبور",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -290,21 +291,8 @@
           },
           "onTap": {
             "actionType": "navigate",
-            "navigationStyle": "push",
-            "request": {
-              "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.profile_real_change_password/1",
-              "method": "post",
-              "headers": {
-                "Content-Type": "application/json",
-                "Accept": "*/*"
-              },
-              "body": {
-                "operator": "is",
-                "dimension": {
-                  "app": "mobile"
-                }
-              }
-            }
+            "widgetType": "profile_real_change_password",
+            "navigationStyle": "push"
           },
           "type": "gestureDetector"
         },
@@ -349,7 +337,7 @@
                 },
                 {
                   "child": {
-                    "data": "{{appStrings.profile.real.settings.deleteAccount}}",
+                    "data": "حذف اطلاعات حساب کاربری",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -377,12 +365,12 @@
           },
           "onTap": {
             "actionType": "showDeleteAccountConfirmBottomSheet",
-            "title": "{{appStrings.profile.real.settings.deleteAccountDialogTitle}}",
-            "description": "{{appStrings.profile.real.settings.deleteAccountDialogDescription}}",
-            "warningMessageOne": "{{appStrings.profile.real.settings.deleteAccountWarningOne}}",
-            "warningMessageTwo": "{{appStrings.profile.real.settings.deleteAccountWarningTwo}}",
-            "confirmText": "{{appStrings.profile.real.settings.deleteAccountConfirm}}",
-            "buttonText": "{{appStrings.profile.real.settings.deleteAccountButton}}",
+            "title": "حذف اطلاعات حساب کاربری",
+            "description": "کاربر گرامی، در صورت انتقال سیم‌کارت یا تمایل به حذف اطلاعات حساب خود می‌توانید اطلاعاتی نظیر تراکنش‌ها، کارت‌های ذخیره شده و ... را از حساب‌کاربری خود حذف کنید.",
+            "warningMessageOne": "حتما قبل از حذف اطلاعات، موجودی کیف پول خود را به شماره دیگر خود انتقال دهید.",
+            "warningMessageTwo": "تا ۲۴ ساعت بعد از حذف حساب‌کاربری امکان ثبت‌نام مجدد نخواهید داشت",
+            "confirmText": "میخواهم اطلاعات حساب کاربری خود را حذف کنم.",
+            "buttonText": "ادامه",
             "warningIconAsset": "assets/icons/ic_warning_red.svg"
           },
           "type": "gestureDetector"
@@ -428,7 +416,7 @@
                 },
                 {
                   "child": {
-                    "data": "{{appStrings.profile.real.settings.logout}}",
+                    "data": "خروج از حساب کاربری",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -455,12 +443,166 @@
             "type": "container"
           },
           "onTap": {
-            "actionType": "showLogoutConfirmDialog",
-            "title": "{{appStrings.profile.real.settings.logoutDialogTitle}}",
-            "description": "{{appStrings.profile.real.settings.logoutDialogDescription}}",
-            "positiveText": "{{appStrings.profile.real.settings.logoutYes}}",
-            "negativeText": "{{appStrings.profile.real.settings.logoutNo}}",
-            "warningIconAsset": "assets/icons/ic_warning_red.svg"
+            "actionType": "showAppDialog",
+            "dialog": {
+              "padding": {
+                "left": 16.0,
+                "top": 16.0,
+                "right": 16.0,
+                "bottom": 14.0
+              },
+              "decoration": {
+                "color": "{{appColors.current.background.surface}}",
+                "borderRadius": {
+                  "topLeft": 12.0,
+                  "topRight": 12.0,
+                  "bottomLeft": 12.0,
+                  "bottomRight": 12.0
+                }
+              },
+              "child": {
+                "mainAxisSize": "min",
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "child": {
+                      "src": "assets/icons/ic_warning_red.svg",
+                      "imageType": "asset",
+                      "width": 56.0,
+                      "height": 56.0,
+                      "fit": "contain",
+                      "type": "image"
+                    },
+                    "type": "center"
+                  },
+                  {
+                    "height": 12.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "مطمئن به خروج از حساب‌کاربری هستید؟",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 17.0,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "center",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 12.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "در صورت خروج از حساب‌کاربری، برای ورود مجدد نیاز به احراز هویت خواهد داشت. احراز هویت مجدد، به منظور افزایش امنیت حساب‌کاربری و جلوگیری از دسترسی غیرمجاز افراد ناشناس به حساب شما می‌باشد.",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.subtitle}}",
+                      "fontSize": 15.0,
+                      "fontWeight": "w500"
+                    },
+                    "textAlign": "center",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 18.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "textDirection": "ltr",
+                    "children": [
+                      {
+                        "child": {
+                          "onPressed": {
+                            "actionType": "closeDialog"
+                          },
+                          "style": {
+                            "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                            "backgroundColor": "{{appColors.current.primary.color}}",
+                            "elevation": 0.0,
+                            "fixedSize": {
+                              "width": 999999.0,
+                              "height": 50.0
+                            },
+                            "shape": {
+                              "type": "roundedRectangleBorder",
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            }
+                          },
+                          "child": {
+                            "data": "بله",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.primary.onPrimary}}",
+                              "fontSize": 16.0,
+                              "fontWeight": "w700"
+                            },
+                            "type": "text"
+                          },
+                          "type": "filledButton"
+                        },
+                        "type": "expanded"
+                      },
+                      {
+                        "width": 10.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "child": {
+                          "onPressed": {
+                            "actionType": "closeDialog"
+                          },
+                          "style": {
+                            "fixedSize": {
+                              "width": 999999.0,
+                              "height": 50.0
+                            },
+                            "side": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1.2
+                            },
+                            "shape": {
+                              "type": "roundedRectangleBorder",
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            }
+                          },
+                          "child": {
+                            "data": "خیر",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 16.0,
+                              "fontWeight": "w700"
+                            },
+                            "type": "text"
+                          },
+                          "type": "outlinedButton"
+                        },
+                        "type": "expanded"
+                      }
+                    ],
+                    "type": "row"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "container"
+            },
+            "barrierDismissible": true,
+            "barrierColor": "#8B63708C"
           },
           "type": "gestureDetector"
         }

@@ -899,13 +899,3 @@ StacWidget _buildDeleteDialogOverlay() {
     ],
   );
 }
-
-// Legacy routes are mapped to the same stateful list page.
-@StacScreen(screenName: 'package_real_simcards')
-StacWidget packageRealSimCards() => packageRealIntro();
-
-@StacScreen(screenName: 'package_real_simcards_duplicate')
-StacWidget packageRealSimCardsDuplicate() => packageRealIntro();
-
-@StacScreen(screenName: 'package_real_simcards_selected')
-StacWidget packageRealSimCardsSelected() => packageRealIntro();

@@ -29,29 +29,22 @@
     "appBar": {
       "leading": {
         "padding": {
-          "left": 12.0
+          "left": 12
         },
         "child": {
           "child": {
-            "width": 42.0,
-            "height": 42.0,
-            "child": {
-              "child": {
-                "src": "{{appAssets.icons.support}}",
-                "imageType": "asset",
-                "color": "{{appColors.current.text.title}}",
-                "width": 24.0,
-                "height": 24.0,
-                "type": "image"
-              },
-              "type": "center"
-            },
-            "type": "container"
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24,
+            "height": 24,
+            "type": "image"
           },
           "type": "center"
         },
         "type": "padding"
       },
+      "automaticallyImplyLeading": true,
       "title": {
         "data": "{{appStrings.menu.items.verifyIdentity}}",
         "style": {
@@ -64,7 +57,7 @@
       "actions": [
         {
           "padding": {
-            "right": 15.0
+            "right": 12
           },
           "child": {
             "onPressed": {
@@ -75,8 +68,8 @@
               "src": "{{appAssets.icons.arrowBack}}",
               "imageType": "asset",
               "color": "{{appColors.current.text.title}}",
-              "width": 30.0,
-              "height": 30.0,
+              "width": 31,
+              "height": 31,
               "type": "image"
             },
             "type": "iconButton"
@@ -89,7 +82,6 @@
     },
     "backgroundColor": "{{appColors.current.background.surface}}",
     "body": {
-      "type": "safeArea",
       "top": false,
       "bottom": true,
       "child": {
@@ -100,16 +92,16 @@
             {
               "child": {
                 "padding": {
-                  "left": 16.0,
-                  "top": 16.0,
-                  "right": 16.0,
-                  "bottom": 16.0
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
                 },
                 "child": {
                   "crossAxisAlignment": "stretch",
                   "children": [
                     {
-                      "height": 8.0,
+                      "height": 8,
                       "type": "sizedBox"
                     },
                     {
@@ -117,7 +109,7 @@
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.subtitle}}",
-                        "fontSize": 16.0,
+                        "fontSize": 16,
                         "fontWeight": "w600",
                         "height": 1.8
                       },
@@ -126,7 +118,7 @@
                       "type": "text"
                     },
                     {
-                      "height": 28.0,
+                      "height": 28,
                       "type": "sizedBox"
                     },
                     {
@@ -134,7 +126,7 @@
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
-                        "fontSize": 16.0,
+                        "fontSize": 16,
                         "fontWeight": "w700"
                       },
                       "textAlign": "right",
@@ -142,7 +134,7 @@
                       "type": "text"
                     },
                     {
-                      "height": 8.0,
+                      "height": 8,
                       "type": "sizedBox"
                     },
                     {
@@ -150,15 +142,12 @@
                       "id": "verify_identity_english_first_name",
                       "textDirection": "ltr",
                       "textAlign": "right",
-                      "supportTextDirection": "rtl",
-                      "keyboardType": "text",
-                      "textInputAction": "next",
                       "decoration": {
                         "hintText": "نام خود را به انگلیسی وارد کنید",
                         "hintStyle": {
                           "type": "custom",
                           "color": "{{appColors.current.text.hint}}",
-                          "fontSize": 14.0,
+                          "fontSize": 14,
                           "fontWeight": "w500"
                         },
                         "helperText": " ",
@@ -172,15 +161,15 @@
                           "child": {
                             "child": {
                               "padding": {
-                                "left": 12.0,
-                                "top": 12.0,
-                                "right": 12.0,
-                                "bottom": 12.0
+                                "left": 12,
+                                "top": 12,
+                                "right": 12,
+                                "bottom": 12
                               },
                               "child": {
                                 "icon": "close",
                                 "iconType": "material",
-                                "size": 20.0,
+                                "size": 20,
                                 "color": "{{appColors.current.text.subtitle}}",
                                 "type": "icon"
                               },
@@ -212,19 +201,21 @@
                           }
                         },
                         "contentPadding": {
-                          "left": 16.0,
-                          "top": 18.0,
-                          "right": 16.0,
-                          "bottom": 18.0
+                          "left": 16,
+                          "top": 18,
+                          "right": 16,
+                          "bottom": 18
                         },
                         "filled": false
                       },
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
-                        "fontSize": 16.0,
+                        "fontSize": 16,
                         "fontWeight": "w600"
                       },
+                      "keyboardType": "text",
+                      "textInputAction": "next",
                       "validatorRules": [
                         {
                           "rule": "^[A-Za-z ]{2,}$",
@@ -276,7 +267,7 @@
                       ]
                     },
                     {
-                      "height": 18.0,
+                      "height": 18,
                       "type": "sizedBox"
                     },
                     {
@@ -284,7 +275,7 @@
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
-                        "fontSize": 16.0,
+                        "fontSize": 16,
                         "fontWeight": "w700"
                       },
                       "textAlign": "right",
@@ -292,7 +283,7 @@
                       "type": "text"
                     },
                     {
-                      "height": 8.0,
+                      "height": 8,
                       "type": "sizedBox"
                     },
                     {
@@ -300,15 +291,12 @@
                       "id": "verify_identity_english_last_name",
                       "textDirection": "ltr",
                       "textAlign": "right",
-                      "supportTextDirection": "rtl",
-                      "keyboardType": "text",
-                      "textInputAction": "next",
                       "decoration": {
                         "hintText": "نام خانوادگی خود را به انگلیسی وارد کنید",
                         "hintStyle": {
                           "type": "custom",
                           "color": "{{appColors.current.text.hint}}",
-                          "fontSize": 14.0,
+                          "fontSize": 14,
                           "fontWeight": "w500"
                         },
                         "helperText": " ",
@@ -322,15 +310,15 @@
                           "child": {
                             "child": {
                               "padding": {
-                                "left": 12.0,
-                                "top": 12.0,
-                                "right": 12.0,
-                                "bottom": 12.0
+                                "left": 12,
+                                "top": 12,
+                                "right": 12,
+                                "bottom": 12
                               },
                               "child": {
                                 "icon": "close",
                                 "iconType": "material",
-                                "size": 20.0,
+                                "size": 20,
                                 "color": "{{appColors.current.text.subtitle}}",
                                 "type": "icon"
                               },
@@ -362,19 +350,21 @@
                           }
                         },
                         "contentPadding": {
-                          "left": 16.0,
-                          "top": 18.0,
-                          "right": 16.0,
-                          "bottom": 18.0
+                          "left": 16,
+                          "top": 18,
+                          "right": 16,
+                          "bottom": 18
                         },
                         "filled": false
                       },
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
-                        "fontSize": 16.0,
+                        "fontSize": 16,
                         "fontWeight": "w600"
                       },
+                      "keyboardType": "text",
+                      "textInputAction": "next",
                       "validatorRules": [
                         {
                           "rule": "^[A-Za-z ]{2,}$",
@@ -426,7 +416,7 @@
                       ]
                     },
                     {
-                      "height": 18.0,
+                      "height": 18,
                       "type": "sizedBox"
                     },
                     {
@@ -434,7 +424,7 @@
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
-                        "fontSize": 16.0,
+                        "fontSize": 16,
                         "fontWeight": "w700"
                       },
                       "textAlign": "right",
@@ -442,7 +432,7 @@
                       "type": "text"
                     },
                     {
-                      "height": 8.0,
+                      "height": 8,
                       "type": "sizedBox"
                     },
                     {
@@ -450,15 +440,12 @@
                       "id": "verify_identity_email",
                       "textDirection": "ltr",
                       "textAlign": "right",
-                      "supportTextDirection": "rtl",
-                      "keyboardType": "emailAddress",
-                      "textInputAction": "next",
                       "decoration": {
                         "hintText": "ایمیل خود را وارد کنید",
                         "hintStyle": {
                           "type": "custom",
                           "color": "{{appColors.current.text.hint}}",
-                          "fontSize": 14.0,
+                          "fontSize": 14,
                           "fontWeight": "w500"
                         },
                         "helperText": " ",
@@ -472,15 +459,15 @@
                           "child": {
                             "child": {
                               "padding": {
-                                "left": 12.0,
-                                "top": 12.0,
-                                "right": 12.0,
-                                "bottom": 12.0
+                                "left": 12,
+                                "top": 12,
+                                "right": 12,
+                                "bottom": 12
                               },
                               "child": {
                                 "icon": "close",
                                 "iconType": "material",
-                                "size": 20.0,
+                                "size": 20,
                                 "color": "{{appColors.current.text.subtitle}}",
                                 "type": "icon"
                               },
@@ -512,19 +499,21 @@
                           }
                         },
                         "contentPadding": {
-                          "left": 16.0,
-                          "top": 18.0,
-                          "right": 16.0,
-                          "bottom": 18.0
+                          "left": 16,
+                          "top": 18,
+                          "right": 16,
+                          "bottom": 18
                         },
                         "filled": false
                       },
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
-                        "fontSize": 16.0,
+                        "fontSize": 16,
                         "fontWeight": "w600"
                       },
+                      "keyboardType": "emailAddress",
+                      "textInputAction": "next",
                       "validatorRules": [
                         {
                           "rule": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",
@@ -570,7 +559,7 @@
                       "maxLength": 80
                     },
                     {
-                      "height": 18.0,
+                      "height": 18,
                       "type": "sizedBox"
                     },
                     {
@@ -578,7 +567,7 @@
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
-                        "fontSize": 16.0,
+                        "fontSize": 16,
                         "fontWeight": "w700"
                       },
                       "textAlign": "right",
@@ -586,7 +575,7 @@
                       "type": "text"
                     },
                     {
-                      "height": 8.0,
+                      "height": 8,
                       "type": "sizedBox"
                     },
                     {
@@ -594,15 +583,12 @@
                       "id": "verify_identity_home_phone",
                       "textDirection": "ltr",
                       "textAlign": "right",
-                      "supportTextDirection": "rtl",
-                      "keyboardType": "phone",
-                      "textInputAction": "done",
                       "decoration": {
                         "hintText": "شماره تلفن منزل را با پیش شماره استان وارد کنید",
                         "hintStyle": {
                           "type": "custom",
                           "color": "{{appColors.current.text.hint}}",
-                          "fontSize": 14.0,
+                          "fontSize": 14,
                           "fontWeight": "w500"
                         },
                         "helperText": " ",
@@ -616,15 +602,15 @@
                           "child": {
                             "child": {
                               "padding": {
-                                "left": 12.0,
-                                "top": 12.0,
-                                "right": 12.0,
-                                "bottom": 12.0
+                                "left": 12,
+                                "top": 12,
+                                "right": 12,
+                                "bottom": 12
                               },
                               "child": {
                                 "icon": "close",
                                 "iconType": "material",
-                                "size": 20.0,
+                                "size": 20,
                                 "color": "{{appColors.current.text.subtitle}}",
                                 "type": "icon"
                               },
@@ -656,19 +642,21 @@
                           }
                         },
                         "contentPadding": {
-                          "left": 16.0,
-                          "top": 18.0,
-                          "right": 16.0,
-                          "bottom": 18.0
+                          "left": 16,
+                          "top": 18,
+                          "right": 16,
+                          "bottom": 18
                         },
                         "filled": false
                       },
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
-                        "fontSize": 16.0,
+                        "fontSize": 16,
                         "fontWeight": "w600"
                       },
+                      "keyboardType": "phone",
+                      "textInputAction": "done",
                       "validatorRules": [
                         {
                           "rule": "^0\\d{10}$",
@@ -728,9 +716,9 @@
             },
             {
               "padding": {
-                "left": 16.0,
-                "right": 16.0,
-                "bottom": 24.0
+                "left": 16,
+                "right": 16,
+                "bottom": 24
               },
               "child": {
                 "type": "reactiveElevatedButton",
@@ -741,50 +729,50 @@
                   "actionType": "navigate",
                   "request": {
                     "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.verify_identity_real_final/1",
-                    "method": "post",
-                    "headers": {
-                      "Content-Type": "application/json",
-                      "Accept": "*/*"
-                    },
                     "body": {
                       "operator": "is",
                       "dimension": {
                         "app": "mobile"
                       }
+                    },
+                    "method": "post",
+                    "headers": {
+                      "Accept": "*/*",
+                      "Content-Type": "application/json"
                     }
                   }
                 },
                 "style": {
                   "backgroundColor": "{{appColors.current.primary.color}}",
-                  "elevation": 0.0,
+                  "elevation": 0,
                   "fixedSize": {
-                    "width": 999999.0,
-                    "height": 56.0
+                    "width": 999999,
+                    "height": 56
                   },
                   "shape": {
                     "type": "roundedRectangleBorder",
                     "borderRadius": {
-                      "topLeft": 12.0,
-                      "topRight": 12.0,
-                      "bottomLeft": 12.0,
-                      "bottomRight": 12.0
+                      "topLeft": 12,
+                      "topRight": 12,
+                      "bottomLeft": 12,
+                      "bottomRight": 12
                     }
                   }
                 },
                 "disabledStyle": {
                   "backgroundColor": "{{appColors.current.background.surfaceContainerHigh}}",
-                  "elevation": 0.0,
+                  "elevation": 0,
                   "fixedSize": {
-                    "width": 999999.0,
-                    "height": 56.0
+                    "width": 999999,
+                    "height": 56
                   },
                   "shape": {
                     "type": "roundedRectangleBorder",
                     "borderRadius": {
-                      "topLeft": 12.0,
-                      "topRight": 12.0,
-                      "bottomLeft": 12.0,
-                      "bottomRight": 12.0
+                      "topLeft": 12,
+                      "topRight": 12,
+                      "bottomLeft": 12,
+                      "bottomRight": 12
                     }
                   }
                 },
@@ -793,7 +781,7 @@
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.primary.onPrimary}}",
-                    "fontSize": 18.0,
+                    "fontSize": 18,
                     "fontWeight": "w700"
                   },
                   "textDirection": "rtl",
@@ -806,7 +794,8 @@
           "type": "column"
         },
         "type": "form"
-      }
+      },
+      "type": "safeArea"
     },
     "type": "scaffold"
   }

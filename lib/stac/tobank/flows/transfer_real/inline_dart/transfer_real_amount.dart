@@ -1,5 +1,6 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
 
@@ -90,9 +91,6 @@ StacWidget transferRealAmount() {
   return StacStatefulWidget(
     onInit: const StacCustomSetValueAction(
       values: [
-        {'key': 'transferApiTabIban', 'value': true},
-        {'key': 'transferApiTabInBank', 'value': false},
-        {'key': 'transferApiTabCard', 'value': false},
         {'key': 'transferApiContinueEnabled', 'value': false},
         {'key': 'transferApiIsSearching', 'value': false},
         {'key': 'transferApiIbanVisible1', 'value': true},
@@ -119,25 +117,9 @@ StacWidget transferRealAmount() {
     ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      appBar: StacAppBar(
-        title: StacText(
-          data: 'انتقال وجه',
-          textDirection: StacTextDirection.rtl,
-          style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
-        ),
-        centerTitle: true,
-        leading: StacIconButton(
-          onPressed: const StacNavigateAction(
-            navigationStyle: NavigationStyle.pop,
-          ),
-          icon: StacImage(
-            src: '{{appAssets.icons.arrowRight}}',
-            imageType: StacImageType.asset,
-            width: 24,
-            height: 24,
-            color: '{{appColors.current.text.title}}',
-          ),
-        ),
+      appBar: buildTobankFlowAppBar(
+        showSupport: true,
+        title: 'انتقال وجه',
       ),
       body: StacForm(
         child: StacPadding(
@@ -147,46 +129,25 @@ StacWidget transferRealAmount() {
             right: 16,
             bottom: 23,
           ),
-          child: StacColumn(
-            crossAxisAlignment: StacCrossAxisAlignment.stretch,
-            children: [
-              _transferTabs(),
-              StacSizedBox(height: 18),
-              StacCustomVisibility(
-                visible: '[[transferApiTabIban]]',
-                child: _ibanInputSection().toJson(),
-                replacement: StacSizedBox().toJson(),
-              ),
-              StacCustomVisibility(
-                visible: '[[transferApiTabInBank]]',
-                child: _inBankInputSection().toJson(),
-                replacement: StacSizedBox().toJson(),
-              ),
-              StacCustomVisibility(
-                visible: '[[transferApiTabCard]]',
-                child: _cardInputSection().toJson(),
-                replacement: StacSizedBox().toJson(),
-              ),
-
-              StacSizedBox(height: 22),
-              StacExpanded(
-                child: StacCustomVisibility(
-                  visible: '[[transferApiTabIban]]',
-                  child: _ibanListScrollable().toJson(),
-                  replacement: StacCustomVisibility(
-                    visible: '[[transferApiTabInBank]]',
-                    child: _inBankContent().toJson(),
-                    replacement: StacCustomVisibility(
-                      visible: '[[transferApiTabCard]]',
-                      child: _cardContent().toJson(),
-                      replacement: _otherTabContent().toJson(),
-                    ).toJson(),
-                  ).toJson(),
+          child: StacDefaultTabController(
+            length: 3,
+            initialIndex: 2,
+            child: StacColumn(
+              crossAxisAlignment: StacCrossAxisAlignment.stretch,
+              children: [
+                _transferTabs(),
+                StacSizedBox(height: 18),
+                StacExpanded(
+                  child: StacTabBarView(
+                    children: [
+                      _cardTabPane(),
+                      _inBankTabPane(),
+                      _ibanTabPane(),
+                    ],
+                  ),
                 ),
-              ),
-              StacSizedBox(height: 12),
-              _bottomPrimaryButton(),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -201,74 +162,93 @@ StacWidget _transferTabs() {
       color: '{{appColors.current.background.surfaceContainer}}',
       borderRadius: StacBorderRadius.all(12),
     ),
-    child: StacRow(
-      textDirection: StacTextDirection.rtl,
+    child: StacStack(
       children: [
-        _tabItem(
-          label: 'بین بانکی',
-          activeKey: 'transferApiTabIban',
-          onTap: const StacCustomSetValueAction(
-            values: [
-              {'key': 'transferApiTabIban', 'value': true},
-              {'key': 'transferApiTabInBank', 'value': false},
-              {'key': 'transferApiTabCard', 'value': false},
-              {'key': 'transferApiContinueEnabled', 'value': false},
-              {'key': 'transferApiInBankHasText', 'value': false},
-              {'key': 'transferApiCardHasText', 'value': false},
-              {'key': 'transferApiCardInput', 'value': ''},
-              {'key': 'transferApiCardVisible1', 'value': true},
-              {'key': 'transferApiCardVisible2', 'value': true},
-              {'key': 'transferApiCardVisible3', 'value': true},
-              {'key': 'transferApiCardVisible4', 'value': true},
-              {'key': 'transferApiCardVisible5', 'value': true},
-            ],
+        StacTabBar(
+          enableFeedback: false,
+          dividerColor: '#00000000',
+          indicatorColor: '{{appColors.current.primary.color}}',
+          indicatorWeight: 2,
+          indicatorSize: StacTabBarIndicatorSize.tab,
+          indicatorPadding: StacEdgeInsets.only(left: 26, top: 44, right: 26),
+          labelStyle: StacCustomTextStyle(
+            fontSize: 15,
+            fontWeight: StacFontWeight.w700,
           ),
-        ),
-        _tabDivider(),
-        _tabItem(
-          label: 'درون بانکی',
-          activeKey: 'transferApiTabInBank',
-          onTap: const StacCustomSetValueAction(
-            values: [
-              {'key': 'transferApiTabIban', 'value': false},
-              {'key': 'transferApiTabInBank', 'value': true},
-              {'key': 'transferApiTabCard', 'value': false},
-              {'key': 'transferApiInBankMyTab', 'value': true},
-              {'key': 'transferApiInBankOthersTab', 'value': false},
-              {'key': 'transferApiContinueEnabled', 'value': false},
-              {'key': 'transferApiCardHasText', 'value': false},
-              {'key': 'transferApiCardInput', 'value': ''},
-              {'key': 'transferApiCardVisible1', 'value': true},
-              {'key': 'transferApiCardVisible2', 'value': true},
-              {'key': 'transferApiCardVisible3', 'value': true},
-              {'key': 'transferApiCardVisible4', 'value': true},
-              {'key': 'transferApiCardVisible5', 'value': true},
-            ],
+          unselectedLabelStyle: StacCustomTextStyle(
+            fontSize: 15,
+            fontWeight: StacFontWeight.w500,
           ),
+          labelColor: '{{appColors.current.text.title}}',
+          unselectedLabelColor: '{{appColors.current.text.subtitle}}',
+          tabs: const [
+            StacTab(text: 'کارت', height: 46),
+            StacTab(text: 'درون بانکی', height: 46),
+            StacTab(text: 'بین بانکی', height: 46),
+          ],
         ),
-        _tabDivider(),
-        _tabItem(
-          label: 'کارت',
-          activeKey: 'transferApiTabCard',
-          onTap: const StacCustomSetValueAction(
-            values: [
-              {'key': 'transferApiTabIban', 'value': false},
-              {'key': 'transferApiTabInBank', 'value': false},
-              {'key': 'transferApiTabCard', 'value': true},
-              {'key': 'transferApiContinueEnabled', 'value': false},
-              {'key': 'transferApiInBankHasText', 'value': false},
-              {'key': 'transferApiCardHasText', 'value': false},
-              {'key': 'transferApiCardInput', 'value': ''},
-              {'key': 'transferApiCardVisible1', 'value': true},
-              {'key': 'transferApiCardVisible2', 'value': true},
-              {'key': 'transferApiCardVisible3', 'value': true},
-              {'key': 'transferApiCardVisible4', 'value': true},
-              {'key': 'transferApiCardVisible5', 'value': true},
+        StacPositioned(
+          top: 10,
+          bottom: 10,
+          left: 0,
+          right: 0,
+          child: StacRow(
+            children: [
+              StacExpanded(child: StacSizedBox()),
+              StacContainer(
+                width: 1,
+                color: '{{appColors.current.input.borderEnabled}}',
+              ),
+              StacExpanded(child: StacSizedBox()),
+              StacContainer(
+                width: 1,
+                color: '{{appColors.current.input.borderEnabled}}',
+              ),
+              StacExpanded(child: StacSizedBox()),
             ],
           ),
         ),
       ],
     ),
+  );
+}
+
+StacWidget _ibanTabPane() {
+  return StacColumn(
+    crossAxisAlignment: StacCrossAxisAlignment.stretch,
+    children: [
+      _ibanInputSection(),
+      StacSizedBox(height: 22),
+      StacExpanded(child: _ibanListScrollable()),
+      StacSizedBox(height: 12),
+      _interBankContinueButton(),
+    ],
+  );
+}
+
+StacWidget _inBankTabPane() {
+  return StacColumn(
+    crossAxisAlignment: StacCrossAxisAlignment.stretch,
+    children: [
+      _inBankInputSection(),
+      StacSizedBox(height: 22),
+      StacExpanded(child: _inBankContent()),
+      StacSizedBox(height: 12),
+      _inBankContinueButton(),
+    ],
+  );
+}
+
+StacWidget _cardTabPane() {
+  return StacColumn(
+    crossAxisAlignment: StacCrossAxisAlignment.stretch,
+    children: [
+      _cardInputSection(),
+      StacSizedBox(height: 22),
+      StacExpanded(child: _cardContent()),
+      StacSizedBox(height: 12),
+      _cardBottomButton(),
+    ],
   );
 }
 
@@ -383,74 +363,6 @@ StacWidget _cardInputSection() {
   );
 }
 
-StacWidget _tabDivider() {
-  return StacContainer(
-    width: 1,
-    height: 24,
-    color: '{{appColors.current.input.borderEnabled}}',
-  );
-}
-
-StacWidget _tabItem({
-  required String label,
-  required String activeKey,
-  required StacAction onTap,
-}) {
-  return StacExpanded(
-    child: StacGestureDetector(
-      onTap: onTap,
-      child: StacContainer(
-        padding: StacEdgeInsets.symmetric(vertical: 10),
-        child: StacColumn(
-          mainAxisSize: StacMainAxisSize.min,
-          children: [
-            StacCustomVisibility(
-              visible: '[[$activeKey]]',
-              child: StacText(
-                data: label,
-                textDirection: StacTextDirection.rtl,
-                textAlign: StacTextAlign.center,
-                style: StacCustomTextStyle(
-                  fontSize: 17,
-                  fontWeight: StacFontWeight.w800,
-                  color: '{{appColors.current.text.title}}',
-                ),
-              ).toJson(),
-              replacement: StacText(
-                data: label,
-                textDirection: StacTextDirection.rtl,
-                textAlign: StacTextAlign.center,
-                style: StacCustomTextStyle(
-                  fontSize: 17,
-                  fontWeight: StacFontWeight.w500,
-                  color: '{{appColors.current.text.subtitle}}',
-                ),
-              ).toJson(),
-            ),
-            StacSizedBox(height: 8),
-            StacCustomVisibility(
-              visible: '[[$activeKey]]',
-              child: StacContainer(
-                width: 56,
-                height: 3,
-                decoration: StacBoxDecoration(
-                  color: '{{appColors.current.primary.color}}',
-                  borderRadius: StacBorderRadius.all(3),
-                ),
-              ).toJson(),
-              replacement: StacContainer(
-                width: 56,
-                height: 3,
-                color: '#00000000',
-              ).toJson(),
-            ),
-          ],
-        ),
-      ),
-    ),
-  );
-}
-
 StacWidget _ibanInputSection() {
   return StacColumn(
     crossAxisAlignment: StacCrossAxisAlignment.stretch,
@@ -466,23 +378,22 @@ StacWidget _ibanInputSection() {
         ),
       ),
       StacSizedBox(height: 10),
-      StacRawJsonWidget({
-        'type': 'textFormField',
-        'id': 'transferApiIbanInput',
-        'textDirection': 'ltr',
-        'textAlign': 'left',
-        'keyboardType': 'number',
-        'maxLength': 24,
-        'inputFormatters': const [
+      StacCustomTextFormField(
+        id: 'transferApiIbanInput',
+        textDirection: 'ltr',
+        textAlign: 'left',
+        keyboardType: 'number',
+        maxLength: 24,
+        inputFormatters: const [
           {'type': 'allow', 'rule': '[0-9]'},
         ],
-        'onChanged': _filterAction().toJson(),
-        'style': StacCustomTextStyle(
+        onChanged: _filterAction().toJson(),
+        style: StacCustomTextStyle(
           fontSize: 16,
           fontWeight: StacFontWeight.w600,
           color: '{{appColors.current.text.title}}',
         ).toJson(),
-        'decoration': {
+        decoration: {
           ...StacInputDecoration(
             hintText: 'شماره شبا را وارد کنید',
             hintStyle: StacCustomTextStyle(
@@ -543,7 +454,7 @@ StacWidget _ibanInputSection() {
           'hintTextDirection': 'rtl',
           'hintTextAlign': 'right',
         },
-      }),
+      ),
     ],
   );
 }
@@ -771,30 +682,6 @@ StacWidget _ibanCard({
             ),
           ),
         ],
-      ),
-    ),
-  );
-}
-
-StacWidget _otherTabContent() {
-  return StacContainer(
-    decoration: StacBoxDecoration(
-      color: '{{appColors.current.background.surfaceContainer}}',
-      borderRadius: StacBorderRadius.all(12),
-      border: StacBorder.all(
-        color: '{{appColors.current.input.borderEnabled}}',
-        width: 1,
-      ),
-    ),
-    child: StacCenter(
-      child: StacText(
-        data: 'این بخش در حال تکمیل است',
-        textDirection: StacTextDirection.rtl,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          fontWeight: StacFontWeight.w500,
-          color: '{{appColors.current.text.subtitle}}',
-        ),
       ),
     ),
   );
@@ -1113,14 +1000,6 @@ StacWidget _cardDestinationItem({
   );
 }
 
-StacWidget _bottomPrimaryButton() {
-  return StacCustomVisibility(
-    visible: '[[transferApiTabCard]]',
-    child: _cardBottomButton().toJson(),
-    replacement: _continueButton().toJson(),
-  );
-}
-
 StacWidget _cardBottomButton() {
   return StacCustomVisibility(
     visible: '[[transferApiCardHasText]]',
@@ -1135,12 +1014,11 @@ StacWidget _cardScanButton() {
       'actionType': 'showTransferCardScanner',
       'fieldId': 'transferApiCardInput',
       'successAction': _cardFilterAction().toJson(),
-      'failedAction': {
-        'actionType': 'customSnackBar',
-        'message': 'اسکن کارت ناموفق بود.',
-        'backgroundColor': '#D32F2F',
-        'duration': 2600,
-      },
+      'failedAction': const StacCustomSnackBarAction(
+        title: 'خطا',
+        detail: 'اسکن کارت ناموفق بود.',
+        duration: 2600,
+      ).toJson(),
     }),
     style: StacButtonStyle(
       fixedSize: const StacSize(999999, 57),
@@ -1228,22 +1106,13 @@ StacAction _cardContinueAction() {
           routeName: 'transfer_real_card_details',
           navigationStyle: NavigationStyle.push,
         ).toJson(),
-        'invalidAction': {
-          'actionType': 'customSnackBar',
-          'message': 'شماره کارت مقصد باید ۱۶ رقم باشد.',
-          'backgroundColor': '#D32F2F',
-          'duration': 2600,
-        },
+        'invalidAction': const StacCustomSnackBarAction(
+          title: 'خطا',
+          detail: 'شماره کارت مقصد باید ۱۶ رقم باشد.',
+          duration: 2600,
+        ).toJson(),
       }),
     ],
-  );
-}
-
-StacWidget _continueButton() {
-  return StacCustomVisibility(
-    visible: '[[transferApiTabIban]]',
-    child: _interBankContinueButton().toJson(),
-    replacement: _inBankContinueButton().toJson(),
   );
 }
 

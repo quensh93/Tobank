@@ -5,7 +5,7 @@ import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/profile_real_int
     as profile_real_intro_dart;
 import 'package:tobank_sdui/stac/tobank/flows/transaction_real/dart/transaction_real_intro.dart'
     as transaction_real_intro_dart;
-import 'package:tobank_sdui/stac/tobank/home_page/dart/home_page.dart'
+import 'package:tobank_sdui/stac/tobank/flows/home_page/dart/home_page.dart'
     as home_page_dart;
 
 @StacScreen(screenName: 'dashboard_real_shell')

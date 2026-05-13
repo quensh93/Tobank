@@ -9,51 +9,197 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="fix reload dashboard in flow for demo">
+    <list default="true" id="44d13ef4-e440-4bbe-b624-422653eddbaf" name="Changes" comment="SDUI actions / core / tabs&#10;bottom sheets &#10;tabs&#10;dialogs&#10;snackbars&#10;replace all this with correct one">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_10_26,_9_24 AM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_10_26__9_24AM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_9_26,_12_27 PM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_9_26,_9_23 AM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_9_26__12_27PM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_9_26__9_23AM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_21_26,_2_02 PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_21_26__2_02PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_22_26,_1_39 PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_22_26__1_39PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_25_26,_10_19 AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_25_26__10_19AM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_26_26,_11_05 AM_[Changes]/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_26_26,_11_05 AM_[Changes]/ic_launcher1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_26_26,_11_05 AM_[Changes]/ic_launcher2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_26_26,_11_05 AM_[Changes]/ic_launcher3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_26_26,_11_05 AM_[Changes]/ic_launcher4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_26_26,_11_05 AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_26_26__11_05AM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_27_26,_10_04 AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_27_26,_11_01 AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_27_26,_12_25 PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_27_26__10_04AM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_27_26__11_01AM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_27_26__12_25PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_5_26,_12_17 PM_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_5_26__12_17PM__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/stac/builders/stac_custom_actions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/builders/stac_custom_actions.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/stac/registry/register_custom_parsers.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/registry/register_custom_parsers.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/core/stac/services/widget/stac_widget_loader.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/stac/services/widget/stac_widget_loader.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/.build/tobank_acceptor_services_page.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_about.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_about.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_bank_info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_bank_info.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_change_password.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_change_password.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_contact.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_contact.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_customer_referrals.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_customer_referrals.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/charge_real_add_sim.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/charge_real_add_sim_empty.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/charge_real_add_sim_filled.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/charge_real_add_sim_invalid.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/charge_real_add_sim_unsupported.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/charge_real_intro.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/charge_real_package_list.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/charge_real_payment.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/charge_real_payment_success.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/charge_real_simcards.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/charge_real_simcards_duplicate.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/charge_real_simcards_selected.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/gift_card_real_confirm.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/gift_card_real_custom_design_selector.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/gift_card_real_custom_message.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/gift_card_real_custom_select_design.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/gift_card_real_design_selector.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/gift_card_real_image_selector.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/gift_card_real_intro.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/gift_card_real_message.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/gift_card_real_receiver_info.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/gift_card_real_select_amount.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/gift_card_real_select_design.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/package_real_add_sim.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/package_real_add_sim_empty.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/package_real_add_sim_filled.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/package_real_add_sim_invalid.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/package_real_add_sim_unsupported.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/package_real_intro.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/package_real_package_list.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/package_real_payment.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/package_real_payment_success.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/package_real_simcards.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/package_real_simcards_duplicate.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/package_real_simcards_selected.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/.build/screens/tobank_acceptor_services_page.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/cartable_real/inline_dart/cartable_real_intro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/cartable_real/inline_dart/cartable_real_intro.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/cartable_real/json/cartable_real_detail.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/cartable_real/json/cartable_real_detail.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/cartable_real/json/cartable_real_intro.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/cartable_real/json/cartable_real_intro.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/charge_real/dart/charge_real_add_sim.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/charge_real/dart/charge_real_add_sim.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/charge_real/dart/charge_real_intro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/charge_real/dart/charge_real_intro.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/charge_real/inline_dart/charge_real_add_sim.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/charge_real/inline_dart/charge_real_add_sim.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/charge_real/inline_dart/charge_real_intro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/charge_real/inline_dart/charge_real_intro.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/charge_real/json/charge_real_add_sim.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/charge_real/json/charge_real_add_sim.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/charge_real/json/charge_real_intro.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/charge_real/json/charge_real_intro.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/charge_real/json/charge_real_package_list.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/charge_real/json/charge_real_package_list.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/charge_real/json/charge_real_payment.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/charge_real/json/charge_real_payment.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/charge_real/json/charge_real_payment_success.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/charge_real/json/charge_real_payment_success.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/dashboard_real/dart/dashboard_real_shell.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/dashboard_real/dart/dashboard_real_shell.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/dashboard_real/inline_dart/dashboard_real_shell.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/dashboard_real/inline_dart/dashboard_real_shell.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/dashboard_real/json/dashboard_real_shell.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/dashboard_real/json/dashboard_real_shell.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_confirm.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_confirm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_custom_design_selector.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_custom_design_selector.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_custom_message.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_custom_message.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_custom_select_design.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_custom_select_design.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_design_selector.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_design_selector.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_image_selector.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_image_selector.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_intro.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_intro.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_message.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_message.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_receiver_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_receiver_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_select_amount.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_select_amount.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_select_design.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/gift_card_real/json/gift_card_real_select_design.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/dart/login_flow_linear_login.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/dart/login_flow_linear_login.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/dart/login_flow_linear_onboarding.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/dart/login_flow_linear_onboarding.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/dart/login_flow_linear_splash.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/dart/login_flow_linear_splash.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/dart/login_flow_linear_verify_otp.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/dart/login_flow_linear_verify_otp.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/json/login_flow_linear_login.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/json/login_flow_linear_login.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/json/login_flow_linear_onboarding.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/json/login_flow_linear_onboarding.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/json/login_flow_linear_splash.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/json/login_flow_linear_splash.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/json/login_flow_linear_verify_otp.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/login_flow_linear/json/login_flow_linear_verify_otp.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/dart/package_real_add_sim.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/dart/package_real_add_sim.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/dart/package_real_intro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/dart/package_real_intro.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/inline_dart/package_real_add_sim.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/inline_dart/package_real_add_sim.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/inline_dart/package_real_intro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/inline_dart/package_real_intro.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/inline_dart/package_real_package_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/inline_dart/package_real_package_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/json/package_real_add_sim.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/json/package_real_add_sim.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/json/package_real_intro.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/json/package_real_intro.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/json/package_real_package_list.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/json/package_real_package_list.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/json/package_real_payment.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/json/package_real_payment.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/json/package_real_payment_success.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/package_real/json/package_real_payment_success.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_destinations.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_destinations.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_intro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_intro.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_invite_friends.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_invite_friends.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_rules.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_rules.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/inline_dart/profile_real_settings.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/dart/tobank_special_services_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/home_page/dart/tobank_special_services_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/menu/dart/tobank_menu.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/menu/dart/tobank_menu.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_about.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_about.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_bank_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_bank_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_change_password.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_change_password.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_contact.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_contact.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_customer_referrals.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_customer_referrals.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_destinations.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_destinations.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_intro.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_intro.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_invite_friends.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_invite_friends.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_rules.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_rules.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/profile_real/json/profile_real_settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_confirm.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_confirm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_deposit_select.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_deposit_select.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_intro.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_intro.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_issuer.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_issuer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_payment.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_payment.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_receiver.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_receiver.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_rules.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_rules.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_sign.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_sign.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_success.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/promissory_success.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/request_promissory_deposit.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory/json/request_promissory_deposit.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_confirm.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_confirm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_intro.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_intro.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_issuer.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_issuer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_payment.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_payment.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_payment_deposits.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_payment_deposits.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_preview.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_preview.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_receiver.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_receiver.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_rules.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_rules.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_sign.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_sign.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_success.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/promissory_real/json/promissory_real_success.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transaction_real/inline_dart/transaction_real_filter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transaction_real/inline_dart/transaction_real_filter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transaction_real/inline_dart/transaction_real_intro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transaction_real/inline_dart/transaction_real_intro.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transaction_real/json/transaction_real_intro.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transaction_real/json/transaction_real_intro.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/inline_dart/transfer_real_amount.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/inline_dart/transfer_real_amount.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/inline_dart/transfer_real_card_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/inline_dart/transfer_real_card_details.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/inline_dart/transfer_real_card_result.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/inline_dart/transfer_real_card_result.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/inline_dart/transfer_real_confirm.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/inline_dart/transfer_real_confirm.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/inline_dart/transfer_real_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/inline_dart/transfer_real_details.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/inline_dart/transfer_real_in_bank_confirm.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/inline_dart/transfer_real_in_bank_confirm.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/inline_dart/transfer_real_in_bank_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/inline_dart/transfer_real_in_bank_details.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/inline_dart/transfer_real_in_bank_result.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/inline_dart/transfer_real_in_bank_result.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/inline_dart/transfer_real_result.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/inline_dart/transfer_real_result.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/json/transfer_real_amount.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/json/transfer_real_amount.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/json/transfer_real_card_details.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/json/transfer_real_card_details.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/json/transfer_real_card_result.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/json/transfer_real_card_result.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/json/transfer_real_confirm.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/json/transfer_real_confirm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/json/transfer_real_details.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/json/transfer_real_details.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/json/transfer_real_in_bank_confirm.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/json/transfer_real_in_bank_confirm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/json/transfer_real_in_bank_details.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/json/transfer_real_in_bank_details.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/json/transfer_real_in_bank_result.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/json/transfer_real_in_bank_result.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/json/transfer_real_result.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/transfer_real/json/transfer_real_result.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/inline_dart/verify_identity_real_certificate_generator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/inline_dart/verify_identity_real_certificate_generator.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/inline_dart/verify_identity_real_intro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/inline_dart/verify_identity_real_intro.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/inline_dart/verify_identity_real_postal_code.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/inline_dart/verify_identity_real_postal_code.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/inline_dart/verify_identity_real_selfie.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/inline_dart/verify_identity_real_selfie.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/inline_dart/verify_identity_real_verify_otp.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/inline_dart/verify_identity_real_verify_otp.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/test_screen.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/test_screen.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_certificate_generator.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_certificate_generator.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_final.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_final.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_intro.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_intro.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_job_selector.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_job_selector.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_national_card_back.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_national_card_back.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_national_card_front.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_national_card_front.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_old_national_card.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_old_national_card.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_postal_code.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_postal_code.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_preregister.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_preregister.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_registration.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_registration.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_rules.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_rules.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_selfie.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_selfie.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_signature.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_signature.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_signature_guide.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_signature_guide.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_signature_visual_guide.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_signature_visual_guide.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_verify_otp.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_verify_otp.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/api/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/api/GET_tobank_acceptor_services_page.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/api/GET_tobank_home_page_dart.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/api/GET_tobank_special_services_page.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/api/GET_tobank_travel_services_page.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/dart/acceptor_services_page.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/dart/home_page.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/dart/home_page_menu.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/dart/tobank_special_services_page.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/dart/travel_services_page.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/inline_dart/acceptor_services_page.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/inline_dart/home_page.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/inline_dart/home_page_menu.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/inline_dart/travel_services_page.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/json/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/json/tobank_acceptor_services_page.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/json/tobank_home_page_dart.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/json/tobank_home_page_menu.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/json/tobank_special_services_page.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/stac/tobank/home_page/json/tobank_travel_services_page.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -505,7 +651,39 @@
       <option name="project" value="LOCAL" />
       <updated>1777282548829</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="complete charge and package section">
+      <option name="closed" value="true" />
+      <created>1778306094253</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1778306094253</updated>
+    </task>
+    <task id="LOCAL-00043" summary="complete charge and package section">
+      <option name="closed" value="true" />
+      <created>1778306364159</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1778306364159</updated>
+    </task>
+    <task id="LOCAL-00044" summary="SDUI actions / core / tabs&#10;bottom sheets &#10;tabs&#10;dialogs&#10;snackbars&#10;replace all this with correct one">
+      <option name="closed" value="true" />
+      <created>1778484849175</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1778484849175</updated>
+    </task>
+    <task id="LOCAL-00045" summary="SDUI actions / core / tabs&#10;bottom sheets &#10;tabs&#10;dialogs&#10;snackbars&#10;replace all this with correct one">
+      <option name="closed" value="true" />
+      <created>1778502693105</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1778502693105</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -574,6 +752,8 @@
     <MESSAGE value="and key to app for release" />
     <MESSAGE value="bug fix for demo" />
     <MESSAGE value="fix reload dashboard in flow for demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix reload dashboard in flow for demo" />
+    <MESSAGE value="complete charge and package section" />
+    <MESSAGE value="SDUI actions / core / tabs&#10;bottom sheets &#10;tabs&#10;dialogs&#10;snackbars&#10;replace all this with correct one" />
+    <option name="LAST_COMMIT_MESSAGE" value="SDUI actions / core / tabs&#10;bottom sheets &#10;tabs&#10;dialogs&#10;snackbars&#10;replace all this with correct one" />
   </component>
 </project>

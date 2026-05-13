@@ -17,29 +17,22 @@
     "appBar": {
       "leading": {
         "padding": {
-          "left": 12.0
+          "left": 12
         },
         "child": {
           "child": {
-            "width": 42.0,
-            "height": 42.0,
-            "child": {
-              "child": {
-                "src": "{{appAssets.icons.support}}",
-                "imageType": "asset",
-                "color": "{{appColors.current.text.title}}",
-                "width": 24.0,
-                "height": 24.0,
-                "type": "image"
-              },
-              "type": "center"
-            },
-            "type": "container"
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24,
+            "height": 24,
+            "type": "image"
           },
           "type": "center"
         },
         "type": "padding"
       },
+      "automaticallyImplyLeading": true,
       "title": {
         "data": "{{appStrings.menu.items.verifyIdentity}}",
         "style": {
@@ -52,7 +45,7 @@
       "actions": [
         {
           "padding": {
-            "right": 15.0
+            "right": 12
           },
           "child": {
             "onPressed": {
@@ -63,8 +56,8 @@
               "src": "{{appAssets.icons.arrowBack}}",
               "imageType": "asset",
               "color": "{{appColors.current.text.title}}",
-              "width": 30.0,
-              "height": 30.0,
+              "width": 31,
+              "height": 31,
               "type": "image"
             },
             "type": "iconButton"
@@ -77,15 +70,14 @@
     },
     "backgroundColor": "{{appColors.current.background.surface}}",
     "body": {
-      "type": "safeArea",
       "top": false,
       "bottom": true,
       "child": {
         "padding": {
-          "left": 16.0,
-          "top": 16.0,
-          "right": 16.0,
-          "bottom": 16.0
+          "left": 16,
+          "top": 16,
+          "right": 16,
+          "bottom": 16
         },
         "child": {
           "crossAxisAlignment": "stretch",
@@ -96,27 +88,27 @@
                   "crossAxisAlignment": "stretch",
                   "children": [
                     {
-                      "height": 16.0,
+                      "height": 16,
                       "type": "sizedBox"
                     },
                     {
                       "padding": {
-                        "left": 16.0,
-                        "top": 16.0,
-                        "right": 16.0,
-                        "bottom": 16.0
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
                       },
                       "decoration": {
                         "color": "{{appColors.current.background.surface}}",
                         "border": {
                           "color": "{{appColors.current.input.borderEnabled}}",
-                          "width": 1.0
+                          "width": 1
                         },
                         "borderRadius": {
-                          "topLeft": 10.0,
-                          "topRight": 10.0,
-                          "bottomLeft": 10.0,
-                          "bottomRight": 10.0
+                          "topLeft": 10,
+                          "topRight": 10,
+                          "bottomLeft": 10,
+                          "bottomRight": 10
                         }
                       },
                       "child": {
@@ -124,7 +116,7 @@
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
-                          "fontSize": 16.0,
+                          "fontSize": 16,
                           "fontWeight": "w500",
                           "height": 1.8
                         },
@@ -135,7 +127,7 @@
                       "type": "container"
                     },
                     {
-                      "height": 32.0,
+                      "height": 32,
                       "type": "sizedBox"
                     },
                     {
@@ -143,7 +135,7 @@
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
-                        "fontSize": 16.0,
+                        "fontSize": 16,
                         "fontWeight": "w700"
                       },
                       "textAlign": "right",
@@ -151,29 +143,29 @@
                       "type": "text"
                     },
                     {
-                      "height": 8.0,
+                      "height": 8,
                       "type": "sizedBox"
                     },
                     {
                       "child": {
                         "padding": {
-                          "left": 16.0,
-                          "right": 16.0
+                          "left": 16,
+                          "right": 16
                         },
                         "decoration": {
                           "color": "{{appColors.current.background.surface}}",
                           "border": {
                             "color": "{{appColors.current.input.borderEnabled}}",
-                            "width": 1.0
+                            "width": 1
                           },
                           "borderRadius": {
-                            "topLeft": 8.0,
-                            "topRight": 8.0,
-                            "bottomLeft": 8.0,
-                            "bottomRight": 8.0
+                            "topLeft": 8,
+                            "topRight": 8,
+                            "bottomLeft": 8,
+                            "bottomRight": 8
                           }
                         },
-                        "height": 56.0,
+                        "height": 56,
                         "child": {
                           "mainAxisAlignment": "spaceBetween",
                           "crossAxisAlignment": "center",
@@ -188,7 +180,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
-                                    "fontSize": 14.0,
+                                    "fontSize": 14,
                                     "fontWeight": "w600"
                                   },
                                   "textAlign": "right",
@@ -199,15 +191,15 @@
                               "type": "expanded"
                             },
                             {
-                              "width": 12.0,
+                              "width": 12,
                               "type": "sizedBox"
                             },
                             {
                               "src": "{{appAssets.icons.arrowCircleDown}}",
                               "imageType": "asset",
                               "color": "{{appColors.current.text.subtitle}}",
-                              "width": 33.0,
-                              "height": 33.0,
+                              "width": 33,
+                              "height": 33,
                               "type": "image"
                             }
                           ],
@@ -230,7 +222,7 @@
             },
             {
               "padding": {
-                "top": 16.0
+                "top": 16
               },
               "child": {
                 "type": "reactiveElevatedButton",
@@ -241,51 +233,51 @@
                   "actionType": "navigate",
                   "request": {
                     "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.test_screen/1",
-                    "method": "post",
-                    "headers": {
-                      "Content-Type": "application/json",
-                      "Accept": "*/*"
-                    },
                     "body": {
                       "operator": "is",
                       "dimension": {
                         "app": "mobile"
                       }
+                    },
+                    "method": "post",
+                    "headers": {
+                      "Accept": "*/*",
+                      "Content-Type": "application/json"
                     }
                   }
                 },
                 "style": {
                   "foregroundColor": "{{appColors.current.primary.onPrimary}}",
                   "backgroundColor": "{{appColors.current.primary.color}}",
-                  "elevation": 0.0,
+                  "elevation": 0,
                   "fixedSize": {
-                    "width": 999999.0,
-                    "height": 56.0
+                    "width": 999999,
+                    "height": 56
                   },
                   "shape": {
                     "type": "roundedRectangleBorder",
                     "borderRadius": {
-                      "topLeft": 12.0,
-                      "topRight": 12.0,
-                      "bottomLeft": 12.0,
-                      "bottomRight": 12.0
+                      "topLeft": 12,
+                      "topRight": 12,
+                      "bottomLeft": 12,
+                      "bottomRight": 12
                     }
                   }
                 },
                 "disabledStyle": {
                   "backgroundColor": "{{appColors.current.background.surfaceContainerHigh}}",
-                  "elevation": 0.0,
+                  "elevation": 0,
                   "fixedSize": {
-                    "width": 999999.0,
-                    "height": 56.0
+                    "width": 999999,
+                    "height": 56
                   },
                   "shape": {
                     "type": "roundedRectangleBorder",
                     "borderRadius": {
-                      "topLeft": 12.0,
-                      "topRight": 12.0,
-                      "bottomLeft": 12.0,
-                      "bottomRight": 12.0
+                      "topLeft": 12,
+                      "topRight": 12,
+                      "bottomLeft": 12,
+                      "bottomRight": 12
                     }
                   }
                 },
@@ -294,7 +286,7 @@
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.primary.onPrimary}}",
-                    "fontSize": 18.0,
+                    "fontSize": 18,
                     "fontWeight": "w700"
                   },
                   "textDirection": "rtl",
@@ -307,7 +299,8 @@
           "type": "column"
         },
         "type": "padding"
-      }
+      },
+      "type": "safeArea"
     },
     "type": "scaffold"
   }

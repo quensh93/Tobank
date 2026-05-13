@@ -159,21 +159,22 @@
     "appBar": {
       "leading": {
         "padding": {
-          "left": 12.0
+          "left": 12
         },
         "child": {
           "child": {
             "src": "{{appAssets.icons.support}}",
             "imageType": "asset",
             "color": "{{appColors.current.text.title}}",
-            "width": 24.0,
-            "height": 24.0,
+            "width": 24,
+            "height": 24,
             "type": "image"
           },
           "type": "center"
         },
         "type": "padding"
       },
+      "automaticallyImplyLeading": true,
       "title": {
         "data": "اینترنت",
         "style": {
@@ -186,7 +187,7 @@
       "actions": [
         {
           "padding": {
-            "right": 12.0
+            "right": 12
           },
           "child": {
             "onPressed": {
@@ -197,8 +198,8 @@
               "src": "{{appAssets.icons.arrowBack}}",
               "imageType": "asset",
               "color": "{{appColors.current.text.title}}",
-              "width": 31.0,
-              "height": 31.0,
+              "width": 31,
+              "height": 31,
               "type": "image"
             },
             "type": "iconButton"
@@ -215,16 +216,16 @@
         {
           "child": {
             "padding": {
-              "left": 16.0,
-              "top": 16.0,
-              "right": 16.0,
-              "bottom": 16.0
+              "left": 16,
+              "top": 16,
+              "right": 16,
+              "bottom": 16
             },
             "child": {
               "crossAxisAlignment": "stretch",
               "children": [
                 {
-                  "height": 24.0,
+                  "height": 24,
                   "type": "sizedBox"
                 },
                 {
@@ -232,7 +233,7 @@
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.text.title}}",
-                    "fontSize": 21.0,
+                    "fontSize": 21,
                     "fontWeight": "w700"
                   },
                   "textAlign": "right",
@@ -240,7 +241,7 @@
                   "type": "text"
                 },
                 {
-                  "height": 16.0,
+                  "height": 16,
                   "type": "sizedBox"
                 },
                 {
@@ -256,22 +257,22 @@
                             "visible": "[[crSimShowDuplicateBanner]]",
                             "child": {
                               "padding": {
-                                "bottom": 18.0
+                                "bottom": 18
                               },
                               "child": {
                                 "padding": {
-                                  "left": 12.0,
-                                  "top": 11.0,
-                                  "right": 12.0,
-                                  "bottom": 11.0
+                                  "left": 12,
+                                  "top": 11,
+                                  "right": 12,
+                                  "bottom": 11
                                 },
                                 "decoration": {
                                   "color": "#FBE4E6",
                                   "borderRadius": {
-                                    "topLeft": 6.0,
-                                    "topRight": 6.0,
-                                    "bottomLeft": 6.0,
-                                    "bottomRight": 6.0
+                                    "topLeft": 6,
+                                    "topRight": 6,
+                                    "bottomLeft": 6,
+                                    "bottomRight": 6
                                   }
                                 },
                                 "child": {
@@ -281,12 +282,12 @@
                                     {
                                       "icon": "error_outline",
                                       "iconType": "material",
-                                      "size": 19.0,
+                                      "size": 19,
                                       "color": "{{appColors.current.feedback.error}}",
                                       "type": "icon"
                                     },
                                     {
-                                      "width": 8.0,
+                                      "width": 8,
                                       "type": "sizedBox"
                                     },
                                     {
@@ -294,7 +295,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.feedback.error}}",
-                                        "fontSize": 15.0,
+                                        "fontSize": 15,
                                         "fontWeight": "w700"
                                       },
                                       "textDirection": "rtl",
@@ -321,7 +322,7 @@
                                   "visible": "[[crSim1Visible]]",
                                   "child": {
                                     "padding": {
-                                      "bottom": 10.0
+                                      "bottom": 10
                                     },
                                     "child": {
                                       "child": {
@@ -331,18 +332,18 @@
                                           "decoration": {
                                             "color": "{{appColors.current.background.surface}}",
                                             "borderRadius": {
-                                              "topLeft": 8.0,
-                                              "topRight": 8.0,
-                                              "bottomLeft": 8.0,
-                                              "bottomRight": 8.0
+                                              "topLeft": 8,
+                                              "topRight": 8,
+                                              "bottomLeft": 8,
+                                              "bottomRight": 8
                                             }
                                           },
                                           "child": {
                                             "padding": {
-                                              "left": 12.0,
-                                              "top": 8.0,
-                                              "right": 12.0,
-                                              "bottom": 8.0
+                                              "left": 12,
+                                              "top": 8,
+                                              "right": 12,
+                                              "bottom": 8
                                             },
                                             "child": {
                                               "crossAxisAlignment": "center",
@@ -351,13 +352,13 @@
                                                 {
                                                   "src": "{{crSim1Logo}}",
                                                   "imageType": "asset",
-                                                  "width": 28.0,
-                                                  "height": 18.0,
+                                                  "width": 28,
+                                                  "height": 18,
                                                   "fit": "contain",
                                                   "type": "image"
                                                 },
                                                 {
-                                                  "width": 8.0,
+                                                  "width": 8,
                                                   "type": "sizedBox"
                                                 },
                                                 {
@@ -365,7 +366,7 @@
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
-                                                    "fontSize": 17.0,
+                                                    "fontSize": 17,
                                                     "fontWeight": "w600"
                                                   },
                                                   "textAlign": "right",
@@ -383,7 +384,7 @@
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
-                                                    "fontSize": 13.0,
+                                                    "fontSize": 13,
                                                     "fontWeight": "w400"
                                                   },
                                                   "textAlign": "left",
@@ -391,13 +392,13 @@
                                                   "type": "text"
                                                 },
                                                 {
-                                                  "width": 10.0,
+                                                  "width": 10,
                                                   "type": "sizedBox"
                                                 },
                                                 {
                                                   "icon": "chevron_left",
                                                   "iconType": "material",
-                                                  "size": 28.0,
+                                                  "size": 28,
                                                   "color": "{{appColors.current.text.title}}",
                                                   "type": "icon"
                                                 }
@@ -412,18 +413,18 @@
                                           "decoration": {
                                             "color": "{{appColors.current.background.surface}}",
                                             "borderRadius": {
-                                              "topLeft": 8.0,
-                                              "topRight": 8.0,
-                                              "bottomLeft": 8.0,
-                                              "bottomRight": 8.0
+                                              "topLeft": 8,
+                                              "topRight": 8,
+                                              "bottomLeft": 8,
+                                              "bottomRight": 8
                                             }
                                           },
                                           "child": {
                                             "padding": {
-                                              "left": 12.0,
-                                              "top": 8.0,
-                                              "right": 12.0,
-                                              "bottom": 8.0
+                                              "left": 12,
+                                              "top": 8,
+                                              "right": 12,
+                                              "bottom": 8
                                             },
                                             "child": {
                                               "crossAxisAlignment": "center",
@@ -432,13 +433,13 @@
                                                 {
                                                   "src": "{{crSim1Logo}}",
                                                   "imageType": "asset",
-                                                  "width": 28.0,
-                                                  "height": 18.0,
+                                                  "width": 28,
+                                                  "height": 18,
                                                   "fit": "contain",
                                                   "type": "image"
                                                 },
                                                 {
-                                                  "width": 8.0,
+                                                  "width": 8,
                                                   "type": "sizedBox"
                                                 },
                                                 {
@@ -446,7 +447,7 @@
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
-                                                    "fontSize": 17.0,
+                                                    "fontSize": 17,
                                                     "fontWeight": "w600"
                                                   },
                                                   "textAlign": "right",
@@ -464,7 +465,7 @@
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
-                                                    "fontSize": 13.0,
+                                                    "fontSize": 13,
                                                     "fontWeight": "w400"
                                                   },
                                                   "textAlign": "left",
@@ -472,13 +473,13 @@
                                                   "type": "text"
                                                 },
                                                 {
-                                                  "width": 10.0,
+                                                  "width": 10,
                                                   "type": "sizedBox"
                                                 },
                                                 {
                                                   "icon": "chevron_left",
                                                   "iconType": "material",
-                                                  "size": 28.0,
+                                                  "size": 28,
                                                   "color": "{{appColors.current.text.title}}",
                                                   "type": "icon"
                                                 }
@@ -527,50 +528,496 @@
                                             ]
                                           },
                                           {
-                                            "routeName": "package_real_package_list",
                                             "navigationStyle": "push",
-                                            "actionType": "navigate"
+                                            "actionType": "navigate",
+                                            "request": {
+                                              "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.package_real_package_list/1",
+                                              "body": {
+                                                "operator": "is",
+                                                "dimension": {
+                                                  "app": "mobile"
+                                                }
+                                              },
+                                              "method": "post",
+                                              "headers": {
+                                                "Accept": "*/*",
+                                                "Content-Type": "application/json"
+                                              }
+                                            }
                                           }
                                         ]
                                       },
                                       "onLongPress": {
-                                        "actionType": "setValue",
-                                        "values": [
+                                        "actionType": "sequence",
+                                        "actions": [
                                           {
-                                            "key": "crSheetTargetSim1",
-                                            "value": true
+                                            "actionType": "setValue",
+                                            "values": [
+                                              {
+                                                "key": "crSheetTargetSim1",
+                                                "value": true
+                                              },
+                                              {
+                                                "key": "crSheetTargetSim2",
+                                                "value": false
+                                              },
+                                              {
+                                                "key": "crSheetTargetSim3",
+                                                "value": false
+                                              },
+                                              {
+                                                "key": "crSheetOperator",
+                                                "value": "{{crSim1Operator}}"
+                                              },
+                                              {
+                                                "key": "crSheetNumber",
+                                                "value": "{{crSim1Number}}"
+                                              },
+                                              {
+                                                "key": "crSheetLogo",
+                                                "value": "{{crSim1Logo}}"
+                                              },
+                                              {
+                                                "key": "crShowSimDeleteDialog",
+                                                "value": false
+                                              }
+                                            ]
                                           },
                                           {
-                                            "key": "crSheetTargetSim2",
-                                            "value": false
-                                          },
-                                          {
-                                            "key": "crSheetTargetSim3",
-                                            "value": false
-                                          },
-                                          {
-                                            "key": "crSheetOperator",
-                                            "value": "{{crSim1Operator}}"
-                                          },
-                                          {
-                                            "key": "crSheetNumber",
-                                            "value": "{{crSim1Number}}"
-                                          },
-                                          {
-                                            "key": "crSheetLogo",
-                                            "value": "{{crSim1Logo}}"
-                                          },
-                                          {
-                                            "key": "crShowSimActionSheet",
-                                            "value": true
-                                          },
-                                          {
-                                            "key": "crShowSimEditSheet",
-                                            "value": false
-                                          },
-                                          {
-                                            "key": "crShowSimDeleteDialog",
-                                            "value": false
+                                            "actionType": "showBottomSheet",
+                                            "sheet": {
+                                              "padding": {
+                                                "left": 14,
+                                                "top": 10,
+                                                "right": 14,
+                                                "bottom": 16
+                                              },
+                                              "decoration": {
+                                                "color": "{{appColors.current.background.surface}}",
+                                                "borderRadius": {
+                                                  "topLeft": 22,
+                                                  "topRight": 22
+                                                }
+                                              },
+                                              "width": 999999,
+                                              "child": {
+                                                "mainAxisSize": "min",
+                                                "crossAxisAlignment": "stretch",
+                                                "children": [
+                                                  {
+                                                    "child": {
+                                                      "decoration": {
+                                                        "color": "#D0D5DD",
+                                                        "borderRadius": {
+                                                          "topLeft": 99,
+                                                          "topRight": 99,
+                                                          "bottomLeft": 99,
+                                                          "bottomRight": 99
+                                                        }
+                                                      },
+                                                      "width": 44,
+                                                      "height": 5,
+                                                      "type": "container"
+                                                    },
+                                                    "type": "center"
+                                                  },
+                                                  {
+                                                    "height": 20,
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "data": "{{crSheetOperator}}",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "{{appColors.current.text.title}}",
+                                                      "fontSize": 24,
+                                                      "fontWeight": "w700"
+                                                    },
+                                                    "textAlign": "center",
+                                                    "textDirection": "rtl",
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "height": 6,
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "data": "{{crSheetNumber}}",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "{{appColors.current.text.title}}",
+                                                      "fontSize": 16,
+                                                      "fontWeight": "w500"
+                                                    },
+                                                    "textAlign": "center",
+                                                    "textDirection": "ltr",
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "height": 18,
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "color": "{{appColors.current.input.borderEnabled}}",
+                                                    "height": 1,
+                                                    "type": "container"
+                                                  },
+                                                  {
+                                                    "child": {
+                                                      "padding": {
+                                                        "top": 14,
+                                                        "bottom": 14
+                                                      },
+                                                      "child": {
+                                                        "textDirection": "rtl",
+                                                        "children": [
+                                                          {
+                                                            "icon": "edit_outlined",
+                                                            "iconType": "material",
+                                                            "size": 22,
+                                                            "color": "{{appColors.current.text.title}}",
+                                                            "type": "icon"
+                                                          },
+                                                          {
+                                                            "width": 8,
+                                                            "type": "sizedBox"
+                                                          },
+                                                          {
+                                                            "data": "ویرایش",
+                                                            "style": {
+                                                              "type": "custom",
+                                                              "color": "{{appColors.current.text.title}}",
+                                                              "fontSize": 16,
+                                                              "fontWeight": "w500"
+                                                            },
+                                                            "textDirection": "rtl",
+                                                            "type": "text"
+                                                          }
+                                                        ],
+                                                        "type": "row"
+                                                      },
+                                                      "type": "padding"
+                                                    },
+                                                    "onTap": {
+                                                      "actionType": "sequence",
+                                                      "actions": [
+                                                        {
+                                                          "navigationStyle": "pop",
+                                                          "actionType": "navigate"
+                                                        },
+                                                        {
+                                                          "actionType": "showBottomSheet",
+                                                          "sheet": {
+                                                            "padding": {
+                                                              "left": 14,
+                                                              "top": 10,
+                                                              "right": 14,
+                                                              "bottom": 16
+                                                            },
+                                                            "decoration": {
+                                                              "color": "{{appColors.current.background.surface}}",
+                                                              "borderRadius": {
+                                                                "topLeft": 22,
+                                                                "topRight": 22
+                                                              }
+                                                            },
+                                                            "width": 999999,
+                                                            "child": {
+                                                              "child": {
+                                                                "mainAxisSize": "min",
+                                                                "crossAxisAlignment": "stretch",
+                                                                "children": [
+                                                                  {
+                                                                    "child": {
+                                                                      "decoration": {
+                                                                        "color": "#D0D5DD",
+                                                                        "borderRadius": {
+                                                                          "topLeft": 99,
+                                                                          "topRight": 99,
+                                                                          "bottomLeft": 99,
+                                                                          "bottomRight": 99
+                                                                        }
+                                                                      },
+                                                                      "width": 44,
+                                                                      "height": 5,
+                                                                      "type": "container"
+                                                                    },
+                                                                    "type": "center"
+                                                                  },
+                                                                  {
+                                                                    "height": 20,
+                                                                    "type": "sizedBox"
+                                                                  },
+                                                                  {
+                                                                    "child": {
+                                                                      "decoration": {
+                                                                        "color": "{{appColors.current.background.surfaceContainer}}",
+                                                                        "border": {
+                                                                          "color": "{{appColors.current.input.borderEnabled}}",
+                                                                          "width": 1
+                                                                        },
+                                                                        "borderRadius": {
+                                                                          "topLeft": 28,
+                                                                          "topRight": 28,
+                                                                          "bottomLeft": 28,
+                                                                          "bottomRight": 28
+                                                                        }
+                                                                      },
+                                                                      "width": 56,
+                                                                      "height": 56,
+                                                                      "child": {
+                                                                        "child": {
+                                                                          "src": "{{crSheetLogo}}",
+                                                                          "imageType": "asset",
+                                                                          "width": 36,
+                                                                          "height": 23,
+                                                                          "fit": "contain",
+                                                                          "type": "image"
+                                                                        },
+                                                                        "type": "center"
+                                                                      },
+                                                                      "type": "container"
+                                                                    },
+                                                                    "type": "center"
+                                                                  },
+                                                                  {
+                                                                    "height": 12,
+                                                                    "type": "sizedBox"
+                                                                  },
+                                                                  {
+                                                                    "data": "{{crSheetNumber}}",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "{{appColors.current.text.title}}",
+                                                                      "fontSize": 16,
+                                                                      "fontWeight": "w500"
+                                                                    },
+                                                                    "textAlign": "center",
+                                                                    "textDirection": "ltr",
+                                                                    "type": "text"
+                                                                  },
+                                                                  {
+                                                                    "height": 14,
+                                                                    "type": "sizedBox"
+                                                                  },
+                                                                  {
+                                                                    "type": "textFormField",
+                                                                    "id": "crEditOperatorField",
+                                                                    "textDirection": "rtl",
+                                                                    "textAlign": "center",
+                                                                    "decoration": {
+                                                                      "contentPadding": {
+                                                                        "left": 12,
+                                                                        "top": 14,
+                                                                        "right": 12,
+                                                                        "bottom": 14
+                                                                      },
+                                                                      "filled": false
+                                                                    },
+                                                                    "maxLength": 20,
+                                                                    "initialValue": "{{crSheetOperator}}"
+                                                                  },
+                                                                  {
+                                                                    "height": 12,
+                                                                    "type": "sizedBox"
+                                                                  },
+                                                                  {
+                                                                    "onPressed": {
+                                                                      "actionType": "sequence",
+                                                                      "actions": [
+                                                                        {
+                                                                          "actionType": "setValue",
+                                                                          "values": [
+                                                                            {
+                                                                              "key": "crSim1Operator",
+                                                                              "value": {
+                                                                                "actionType": "getFormValue",
+                                                                                "id": "crEditOperatorField"
+                                                                              },
+                                                                              "condition": "crSheetTargetSim1"
+                                                                            },
+                                                                            {
+                                                                              "key": "crSim2Operator",
+                                                                              "value": {
+                                                                                "actionType": "getFormValue",
+                                                                                "id": "crEditOperatorField"
+                                                                              },
+                                                                              "condition": "crSheetTargetSim2"
+                                                                            },
+                                                                            {
+                                                                              "key": "crSim3Operator",
+                                                                              "value": {
+                                                                                "actionType": "getFormValue",
+                                                                                "id": "crEditOperatorField"
+                                                                              },
+                                                                              "condition": "crSheetTargetSim3"
+                                                                            },
+                                                                            {
+                                                                              "key": "crSheetOperator",
+                                                                              "value": {
+                                                                                "actionType": "getFormValue",
+                                                                                "id": "crEditOperatorField"
+                                                                              }
+                                                                            }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          "navigationStyle": "pop",
+                                                                          "actionType": "navigate"
+                                                                        }
+                                                                      ]
+                                                                    },
+                                                                    "style": {
+                                                                      "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                                                                      "backgroundColor": "{{appColors.current.primary.color}}",
+                                                                      "elevation": 0,
+                                                                      "fixedSize": {
+                                                                        "width": 999999,
+                                                                        "height": 56
+                                                                      },
+                                                                      "shape": {
+                                                                        "type": "roundedRectangleBorder",
+                                                                        "borderRadius": {
+                                                                          "topLeft": 10,
+                                                                          "topRight": 10,
+                                                                          "bottomLeft": 10,
+                                                                          "bottomRight": 10
+                                                                        }
+                                                                      }
+                                                                    },
+                                                                    "child": {
+                                                                      "data": "ذخیره",
+                                                                      "style": {
+                                                                        "type": "custom",
+                                                                        "color": "{{appColors.current.primary.onPrimary}}",
+                                                                        "fontSize": 16,
+                                                                        "fontWeight": "w700"
+                                                                      },
+                                                                      "textDirection": "rtl",
+                                                                      "type": "text"
+                                                                    },
+                                                                    "type": "filledButton"
+                                                                  }
+                                                                ],
+                                                                "type": "column"
+                                                              },
+                                                              "type": "form"
+                                                            },
+                                                            "type": "container"
+                                                          },
+                                                          "backgroundColor": "#8B63708C"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "gestureDetector"
+                                                  },
+                                                  {
+                                                    "color": "{{appColors.current.input.borderEnabled}}",
+                                                    "height": 1,
+                                                    "type": "container"
+                                                  },
+                                                  {
+                                                    "child": {
+                                                      "padding": {
+                                                        "top": 14,
+                                                        "bottom": 14
+                                                      },
+                                                      "child": {
+                                                        "textDirection": "rtl",
+                                                        "children": [
+                                                          {
+                                                            "icon": "delete_outline",
+                                                            "iconType": "material",
+                                                            "size": 25,
+                                                            "color": "#E31D35",
+                                                            "type": "icon"
+                                                          },
+                                                          {
+                                                            "width": 8,
+                                                            "type": "sizedBox"
+                                                          },
+                                                          {
+                                                            "data": "حذف کردن",
+                                                            "style": {
+                                                              "type": "custom",
+                                                              "color": "#E31D35",
+                                                              "fontSize": 16,
+                                                              "fontWeight": "w500"
+                                                            },
+                                                            "textDirection": "rtl",
+                                                            "type": "text"
+                                                          }
+                                                        ],
+                                                        "type": "row"
+                                                      },
+                                                      "type": "padding"
+                                                    },
+                                                    "onTap": {
+                                                      "actionType": "sequence",
+                                                      "actions": [
+                                                        {
+                                                          "navigationStyle": "pop",
+                                                          "actionType": "navigate"
+                                                        },
+                                                        {
+                                                          "actionType": "setValue",
+                                                          "values": [
+                                                            {
+                                                              "key": "crShowSimDeleteDialog",
+                                                              "value": true
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "gestureDetector"
+                                                  },
+                                                  {
+                                                    "height": 12,
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "onPressed": {
+                                                      "navigationStyle": "pop",
+                                                      "actionType": "navigate"
+                                                    },
+                                                    "style": {
+                                                      "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                                                      "backgroundColor": "{{appColors.current.primary.color}}",
+                                                      "elevation": 0,
+                                                      "fixedSize": {
+                                                        "width": 999999,
+                                                        "height": 56
+                                                      },
+                                                      "shape": {
+                                                        "type": "roundedRectangleBorder",
+                                                        "borderRadius": {
+                                                          "topLeft": 10,
+                                                          "topRight": 10,
+                                                          "bottomLeft": 10,
+                                                          "bottomRight": 10
+                                                        }
+                                                      }
+                                                    },
+                                                    "child": {
+                                                      "data": "انصراف",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.primary.onPrimary}}",
+                                                        "fontSize": 16,
+                                                        "fontWeight": "w700"
+                                                      },
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    },
+                                                    "type": "filledButton"
+                                                  }
+                                                ],
+                                                "type": "column"
+                                              },
+                                              "type": "container"
+                                            },
+                                            "backgroundColor": "#8B63708C"
                                           }
                                         ]
                                       },
@@ -587,7 +1034,7 @@
                                   "visible": "[[crSim2Visible]]",
                                   "child": {
                                     "padding": {
-                                      "bottom": 10.0
+                                      "bottom": 10
                                     },
                                     "child": {
                                       "child": {
@@ -597,18 +1044,18 @@
                                           "decoration": {
                                             "color": "{{appColors.current.background.surface}}",
                                             "borderRadius": {
-                                              "topLeft": 8.0,
-                                              "topRight": 8.0,
-                                              "bottomLeft": 8.0,
-                                              "bottomRight": 8.0
+                                              "topLeft": 8,
+                                              "topRight": 8,
+                                              "bottomLeft": 8,
+                                              "bottomRight": 8
                                             }
                                           },
                                           "child": {
                                             "padding": {
-                                              "left": 12.0,
-                                              "top": 8.0,
-                                              "right": 12.0,
-                                              "bottom": 8.0
+                                              "left": 12,
+                                              "top": 8,
+                                              "right": 12,
+                                              "bottom": 8
                                             },
                                             "child": {
                                               "crossAxisAlignment": "center",
@@ -617,13 +1064,13 @@
                                                 {
                                                   "src": "{{crSim2Logo}}",
                                                   "imageType": "asset",
-                                                  "width": 28.0,
-                                                  "height": 18.0,
+                                                  "width": 28,
+                                                  "height": 18,
                                                   "fit": "contain",
                                                   "type": "image"
                                                 },
                                                 {
-                                                  "width": 8.0,
+                                                  "width": 8,
                                                   "type": "sizedBox"
                                                 },
                                                 {
@@ -631,7 +1078,7 @@
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
-                                                    "fontSize": 17.0,
+                                                    "fontSize": 17,
                                                     "fontWeight": "w600"
                                                   },
                                                   "textAlign": "right",
@@ -649,7 +1096,7 @@
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
-                                                    "fontSize": 13.0,
+                                                    "fontSize": 13,
                                                     "fontWeight": "w400"
                                                   },
                                                   "textAlign": "left",
@@ -657,13 +1104,13 @@
                                                   "type": "text"
                                                 },
                                                 {
-                                                  "width": 10.0,
+                                                  "width": 10,
                                                   "type": "sizedBox"
                                                 },
                                                 {
                                                   "icon": "chevron_left",
                                                   "iconType": "material",
-                                                  "size": 28.0,
+                                                  "size": 28,
                                                   "color": "{{appColors.current.text.title}}",
                                                   "type": "icon"
                                                 }
@@ -678,18 +1125,18 @@
                                           "decoration": {
                                             "color": "{{appColors.current.background.surface}}",
                                             "borderRadius": {
-                                              "topLeft": 8.0,
-                                              "topRight": 8.0,
-                                              "bottomLeft": 8.0,
-                                              "bottomRight": 8.0
+                                              "topLeft": 8,
+                                              "topRight": 8,
+                                              "bottomLeft": 8,
+                                              "bottomRight": 8
                                             }
                                           },
                                           "child": {
                                             "padding": {
-                                              "left": 12.0,
-                                              "top": 8.0,
-                                              "right": 12.0,
-                                              "bottom": 8.0
+                                              "left": 12,
+                                              "top": 8,
+                                              "right": 12,
+                                              "bottom": 8
                                             },
                                             "child": {
                                               "crossAxisAlignment": "center",
@@ -698,13 +1145,13 @@
                                                 {
                                                   "src": "{{crSim2Logo}}",
                                                   "imageType": "asset",
-                                                  "width": 28.0,
-                                                  "height": 18.0,
+                                                  "width": 28,
+                                                  "height": 18,
                                                   "fit": "contain",
                                                   "type": "image"
                                                 },
                                                 {
-                                                  "width": 8.0,
+                                                  "width": 8,
                                                   "type": "sizedBox"
                                                 },
                                                 {
@@ -712,7 +1159,7 @@
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
-                                                    "fontSize": 17.0,
+                                                    "fontSize": 17,
                                                     "fontWeight": "w600"
                                                   },
                                                   "textAlign": "right",
@@ -730,7 +1177,7 @@
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
-                                                    "fontSize": 13.0,
+                                                    "fontSize": 13,
                                                     "fontWeight": "w400"
                                                   },
                                                   "textAlign": "left",
@@ -738,13 +1185,13 @@
                                                   "type": "text"
                                                 },
                                                 {
-                                                  "width": 10.0,
+                                                  "width": 10,
                                                   "type": "sizedBox"
                                                 },
                                                 {
                                                   "icon": "chevron_left",
                                                   "iconType": "material",
-                                                  "size": 28.0,
+                                                  "size": 28,
                                                   "color": "{{appColors.current.text.title}}",
                                                   "type": "icon"
                                                 }
@@ -793,50 +1240,496 @@
                                             ]
                                           },
                                           {
-                                            "routeName": "package_real_package_list",
                                             "navigationStyle": "push",
-                                            "actionType": "navigate"
+                                            "actionType": "navigate",
+                                            "request": {
+                                              "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.package_real_package_list/1",
+                                              "body": {
+                                                "operator": "is",
+                                                "dimension": {
+                                                  "app": "mobile"
+                                                }
+                                              },
+                                              "method": "post",
+                                              "headers": {
+                                                "Accept": "*/*",
+                                                "Content-Type": "application/json"
+                                              }
+                                            }
                                           }
                                         ]
                                       },
                                       "onLongPress": {
-                                        "actionType": "setValue",
-                                        "values": [
+                                        "actionType": "sequence",
+                                        "actions": [
                                           {
-                                            "key": "crSheetTargetSim1",
-                                            "value": false
+                                            "actionType": "setValue",
+                                            "values": [
+                                              {
+                                                "key": "crSheetTargetSim1",
+                                                "value": false
+                                              },
+                                              {
+                                                "key": "crSheetTargetSim2",
+                                                "value": true
+                                              },
+                                              {
+                                                "key": "crSheetTargetSim3",
+                                                "value": false
+                                              },
+                                              {
+                                                "key": "crSheetOperator",
+                                                "value": "{{crSim2Operator}}"
+                                              },
+                                              {
+                                                "key": "crSheetNumber",
+                                                "value": "{{crSim2Number}}"
+                                              },
+                                              {
+                                                "key": "crSheetLogo",
+                                                "value": "{{crSim2Logo}}"
+                                              },
+                                              {
+                                                "key": "crShowSimDeleteDialog",
+                                                "value": false
+                                              }
+                                            ]
                                           },
                                           {
-                                            "key": "crSheetTargetSim2",
-                                            "value": true
-                                          },
-                                          {
-                                            "key": "crSheetTargetSim3",
-                                            "value": false
-                                          },
-                                          {
-                                            "key": "crSheetOperator",
-                                            "value": "{{crSim2Operator}}"
-                                          },
-                                          {
-                                            "key": "crSheetNumber",
-                                            "value": "{{crSim2Number}}"
-                                          },
-                                          {
-                                            "key": "crSheetLogo",
-                                            "value": "{{crSim2Logo}}"
-                                          },
-                                          {
-                                            "key": "crShowSimActionSheet",
-                                            "value": true
-                                          },
-                                          {
-                                            "key": "crShowSimEditSheet",
-                                            "value": false
-                                          },
-                                          {
-                                            "key": "crShowSimDeleteDialog",
-                                            "value": false
+                                            "actionType": "showBottomSheet",
+                                            "sheet": {
+                                              "padding": {
+                                                "left": 14,
+                                                "top": 10,
+                                                "right": 14,
+                                                "bottom": 16
+                                              },
+                                              "decoration": {
+                                                "color": "{{appColors.current.background.surface}}",
+                                                "borderRadius": {
+                                                  "topLeft": 22,
+                                                  "topRight": 22
+                                                }
+                                              },
+                                              "width": 999999,
+                                              "child": {
+                                                "mainAxisSize": "min",
+                                                "crossAxisAlignment": "stretch",
+                                                "children": [
+                                                  {
+                                                    "child": {
+                                                      "decoration": {
+                                                        "color": "#D0D5DD",
+                                                        "borderRadius": {
+                                                          "topLeft": 99,
+                                                          "topRight": 99,
+                                                          "bottomLeft": 99,
+                                                          "bottomRight": 99
+                                                        }
+                                                      },
+                                                      "width": 44,
+                                                      "height": 5,
+                                                      "type": "container"
+                                                    },
+                                                    "type": "center"
+                                                  },
+                                                  {
+                                                    "height": 20,
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "data": "{{crSheetOperator}}",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "{{appColors.current.text.title}}",
+                                                      "fontSize": 24,
+                                                      "fontWeight": "w700"
+                                                    },
+                                                    "textAlign": "center",
+                                                    "textDirection": "rtl",
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "height": 6,
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "data": "{{crSheetNumber}}",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "{{appColors.current.text.title}}",
+                                                      "fontSize": 16,
+                                                      "fontWeight": "w500"
+                                                    },
+                                                    "textAlign": "center",
+                                                    "textDirection": "ltr",
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "height": 18,
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "color": "{{appColors.current.input.borderEnabled}}",
+                                                    "height": 1,
+                                                    "type": "container"
+                                                  },
+                                                  {
+                                                    "child": {
+                                                      "padding": {
+                                                        "top": 14,
+                                                        "bottom": 14
+                                                      },
+                                                      "child": {
+                                                        "textDirection": "rtl",
+                                                        "children": [
+                                                          {
+                                                            "icon": "edit_outlined",
+                                                            "iconType": "material",
+                                                            "size": 22,
+                                                            "color": "{{appColors.current.text.title}}",
+                                                            "type": "icon"
+                                                          },
+                                                          {
+                                                            "width": 8,
+                                                            "type": "sizedBox"
+                                                          },
+                                                          {
+                                                            "data": "ویرایش",
+                                                            "style": {
+                                                              "type": "custom",
+                                                              "color": "{{appColors.current.text.title}}",
+                                                              "fontSize": 16,
+                                                              "fontWeight": "w500"
+                                                            },
+                                                            "textDirection": "rtl",
+                                                            "type": "text"
+                                                          }
+                                                        ],
+                                                        "type": "row"
+                                                      },
+                                                      "type": "padding"
+                                                    },
+                                                    "onTap": {
+                                                      "actionType": "sequence",
+                                                      "actions": [
+                                                        {
+                                                          "navigationStyle": "pop",
+                                                          "actionType": "navigate"
+                                                        },
+                                                        {
+                                                          "actionType": "showBottomSheet",
+                                                          "sheet": {
+                                                            "padding": {
+                                                              "left": 14,
+                                                              "top": 10,
+                                                              "right": 14,
+                                                              "bottom": 16
+                                                            },
+                                                            "decoration": {
+                                                              "color": "{{appColors.current.background.surface}}",
+                                                              "borderRadius": {
+                                                                "topLeft": 22,
+                                                                "topRight": 22
+                                                              }
+                                                            },
+                                                            "width": 999999,
+                                                            "child": {
+                                                              "child": {
+                                                                "mainAxisSize": "min",
+                                                                "crossAxisAlignment": "stretch",
+                                                                "children": [
+                                                                  {
+                                                                    "child": {
+                                                                      "decoration": {
+                                                                        "color": "#D0D5DD",
+                                                                        "borderRadius": {
+                                                                          "topLeft": 99,
+                                                                          "topRight": 99,
+                                                                          "bottomLeft": 99,
+                                                                          "bottomRight": 99
+                                                                        }
+                                                                      },
+                                                                      "width": 44,
+                                                                      "height": 5,
+                                                                      "type": "container"
+                                                                    },
+                                                                    "type": "center"
+                                                                  },
+                                                                  {
+                                                                    "height": 20,
+                                                                    "type": "sizedBox"
+                                                                  },
+                                                                  {
+                                                                    "child": {
+                                                                      "decoration": {
+                                                                        "color": "{{appColors.current.background.surfaceContainer}}",
+                                                                        "border": {
+                                                                          "color": "{{appColors.current.input.borderEnabled}}",
+                                                                          "width": 1
+                                                                        },
+                                                                        "borderRadius": {
+                                                                          "topLeft": 28,
+                                                                          "topRight": 28,
+                                                                          "bottomLeft": 28,
+                                                                          "bottomRight": 28
+                                                                        }
+                                                                      },
+                                                                      "width": 56,
+                                                                      "height": 56,
+                                                                      "child": {
+                                                                        "child": {
+                                                                          "src": "{{crSheetLogo}}",
+                                                                          "imageType": "asset",
+                                                                          "width": 36,
+                                                                          "height": 23,
+                                                                          "fit": "contain",
+                                                                          "type": "image"
+                                                                        },
+                                                                        "type": "center"
+                                                                      },
+                                                                      "type": "container"
+                                                                    },
+                                                                    "type": "center"
+                                                                  },
+                                                                  {
+                                                                    "height": 12,
+                                                                    "type": "sizedBox"
+                                                                  },
+                                                                  {
+                                                                    "data": "{{crSheetNumber}}",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "{{appColors.current.text.title}}",
+                                                                      "fontSize": 16,
+                                                                      "fontWeight": "w500"
+                                                                    },
+                                                                    "textAlign": "center",
+                                                                    "textDirection": "ltr",
+                                                                    "type": "text"
+                                                                  },
+                                                                  {
+                                                                    "height": 14,
+                                                                    "type": "sizedBox"
+                                                                  },
+                                                                  {
+                                                                    "type": "textFormField",
+                                                                    "id": "crEditOperatorField",
+                                                                    "textDirection": "rtl",
+                                                                    "textAlign": "center",
+                                                                    "decoration": {
+                                                                      "contentPadding": {
+                                                                        "left": 12,
+                                                                        "top": 14,
+                                                                        "right": 12,
+                                                                        "bottom": 14
+                                                                      },
+                                                                      "filled": false
+                                                                    },
+                                                                    "maxLength": 20,
+                                                                    "initialValue": "{{crSheetOperator}}"
+                                                                  },
+                                                                  {
+                                                                    "height": 12,
+                                                                    "type": "sizedBox"
+                                                                  },
+                                                                  {
+                                                                    "onPressed": {
+                                                                      "actionType": "sequence",
+                                                                      "actions": [
+                                                                        {
+                                                                          "actionType": "setValue",
+                                                                          "values": [
+                                                                            {
+                                                                              "key": "crSim1Operator",
+                                                                              "value": {
+                                                                                "actionType": "getFormValue",
+                                                                                "id": "crEditOperatorField"
+                                                                              },
+                                                                              "condition": "crSheetTargetSim1"
+                                                                            },
+                                                                            {
+                                                                              "key": "crSim2Operator",
+                                                                              "value": {
+                                                                                "actionType": "getFormValue",
+                                                                                "id": "crEditOperatorField"
+                                                                              },
+                                                                              "condition": "crSheetTargetSim2"
+                                                                            },
+                                                                            {
+                                                                              "key": "crSim3Operator",
+                                                                              "value": {
+                                                                                "actionType": "getFormValue",
+                                                                                "id": "crEditOperatorField"
+                                                                              },
+                                                                              "condition": "crSheetTargetSim3"
+                                                                            },
+                                                                            {
+                                                                              "key": "crSheetOperator",
+                                                                              "value": {
+                                                                                "actionType": "getFormValue",
+                                                                                "id": "crEditOperatorField"
+                                                                              }
+                                                                            }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          "navigationStyle": "pop",
+                                                                          "actionType": "navigate"
+                                                                        }
+                                                                      ]
+                                                                    },
+                                                                    "style": {
+                                                                      "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                                                                      "backgroundColor": "{{appColors.current.primary.color}}",
+                                                                      "elevation": 0,
+                                                                      "fixedSize": {
+                                                                        "width": 999999,
+                                                                        "height": 56
+                                                                      },
+                                                                      "shape": {
+                                                                        "type": "roundedRectangleBorder",
+                                                                        "borderRadius": {
+                                                                          "topLeft": 10,
+                                                                          "topRight": 10,
+                                                                          "bottomLeft": 10,
+                                                                          "bottomRight": 10
+                                                                        }
+                                                                      }
+                                                                    },
+                                                                    "child": {
+                                                                      "data": "ذخیره",
+                                                                      "style": {
+                                                                        "type": "custom",
+                                                                        "color": "{{appColors.current.primary.onPrimary}}",
+                                                                        "fontSize": 16,
+                                                                        "fontWeight": "w700"
+                                                                      },
+                                                                      "textDirection": "rtl",
+                                                                      "type": "text"
+                                                                    },
+                                                                    "type": "filledButton"
+                                                                  }
+                                                                ],
+                                                                "type": "column"
+                                                              },
+                                                              "type": "form"
+                                                            },
+                                                            "type": "container"
+                                                          },
+                                                          "backgroundColor": "#8B63708C"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "gestureDetector"
+                                                  },
+                                                  {
+                                                    "color": "{{appColors.current.input.borderEnabled}}",
+                                                    "height": 1,
+                                                    "type": "container"
+                                                  },
+                                                  {
+                                                    "child": {
+                                                      "padding": {
+                                                        "top": 14,
+                                                        "bottom": 14
+                                                      },
+                                                      "child": {
+                                                        "textDirection": "rtl",
+                                                        "children": [
+                                                          {
+                                                            "icon": "delete_outline",
+                                                            "iconType": "material",
+                                                            "size": 25,
+                                                            "color": "#E31D35",
+                                                            "type": "icon"
+                                                          },
+                                                          {
+                                                            "width": 8,
+                                                            "type": "sizedBox"
+                                                          },
+                                                          {
+                                                            "data": "حذف کردن",
+                                                            "style": {
+                                                              "type": "custom",
+                                                              "color": "#E31D35",
+                                                              "fontSize": 16,
+                                                              "fontWeight": "w500"
+                                                            },
+                                                            "textDirection": "rtl",
+                                                            "type": "text"
+                                                          }
+                                                        ],
+                                                        "type": "row"
+                                                      },
+                                                      "type": "padding"
+                                                    },
+                                                    "onTap": {
+                                                      "actionType": "sequence",
+                                                      "actions": [
+                                                        {
+                                                          "navigationStyle": "pop",
+                                                          "actionType": "navigate"
+                                                        },
+                                                        {
+                                                          "actionType": "setValue",
+                                                          "values": [
+                                                            {
+                                                              "key": "crShowSimDeleteDialog",
+                                                              "value": true
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "gestureDetector"
+                                                  },
+                                                  {
+                                                    "height": 12,
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "onPressed": {
+                                                      "navigationStyle": "pop",
+                                                      "actionType": "navigate"
+                                                    },
+                                                    "style": {
+                                                      "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                                                      "backgroundColor": "{{appColors.current.primary.color}}",
+                                                      "elevation": 0,
+                                                      "fixedSize": {
+                                                        "width": 999999,
+                                                        "height": 56
+                                                      },
+                                                      "shape": {
+                                                        "type": "roundedRectangleBorder",
+                                                        "borderRadius": {
+                                                          "topLeft": 10,
+                                                          "topRight": 10,
+                                                          "bottomLeft": 10,
+                                                          "bottomRight": 10
+                                                        }
+                                                      }
+                                                    },
+                                                    "child": {
+                                                      "data": "انصراف",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.primary.onPrimary}}",
+                                                        "fontSize": 16,
+                                                        "fontWeight": "w700"
+                                                      },
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    },
+                                                    "type": "filledButton"
+                                                  }
+                                                ],
+                                                "type": "column"
+                                              },
+                                              "type": "container"
+                                            },
+                                            "backgroundColor": "#8B63708C"
                                           }
                                         ]
                                       },
@@ -853,7 +1746,7 @@
                                   "visible": "[[crSim3Visible]]",
                                   "child": {
                                     "padding": {
-                                      "bottom": 10.0
+                                      "bottom": 10
                                     },
                                     "child": {
                                       "child": {
@@ -863,18 +1756,18 @@
                                           "decoration": {
                                             "color": "{{appColors.current.background.surface}}",
                                             "borderRadius": {
-                                              "topLeft": 8.0,
-                                              "topRight": 8.0,
-                                              "bottomLeft": 8.0,
-                                              "bottomRight": 8.0
+                                              "topLeft": 8,
+                                              "topRight": 8,
+                                              "bottomLeft": 8,
+                                              "bottomRight": 8
                                             }
                                           },
                                           "child": {
                                             "padding": {
-                                              "left": 12.0,
-                                              "top": 8.0,
-                                              "right": 12.0,
-                                              "bottom": 8.0
+                                              "left": 12,
+                                              "top": 8,
+                                              "right": 12,
+                                              "bottom": 8
                                             },
                                             "child": {
                                               "crossAxisAlignment": "center",
@@ -883,13 +1776,13 @@
                                                 {
                                                   "src": "{{crSim3Logo}}",
                                                   "imageType": "asset",
-                                                  "width": 28.0,
-                                                  "height": 18.0,
+                                                  "width": 28,
+                                                  "height": 18,
                                                   "fit": "contain",
                                                   "type": "image"
                                                 },
                                                 {
-                                                  "width": 8.0,
+                                                  "width": 8,
                                                   "type": "sizedBox"
                                                 },
                                                 {
@@ -897,7 +1790,7 @@
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
-                                                    "fontSize": 17.0,
+                                                    "fontSize": 17,
                                                     "fontWeight": "w600"
                                                   },
                                                   "textAlign": "right",
@@ -915,7 +1808,7 @@
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
-                                                    "fontSize": 13.0,
+                                                    "fontSize": 13,
                                                     "fontWeight": "w400"
                                                   },
                                                   "textAlign": "left",
@@ -923,13 +1816,13 @@
                                                   "type": "text"
                                                 },
                                                 {
-                                                  "width": 10.0,
+                                                  "width": 10,
                                                   "type": "sizedBox"
                                                 },
                                                 {
                                                   "icon": "chevron_left",
                                                   "iconType": "material",
-                                                  "size": 28.0,
+                                                  "size": 28,
                                                   "color": "{{appColors.current.text.title}}",
                                                   "type": "icon"
                                                 }
@@ -944,18 +1837,18 @@
                                           "decoration": {
                                             "color": "{{appColors.current.background.surface}}",
                                             "borderRadius": {
-                                              "topLeft": 8.0,
-                                              "topRight": 8.0,
-                                              "bottomLeft": 8.0,
-                                              "bottomRight": 8.0
+                                              "topLeft": 8,
+                                              "topRight": 8,
+                                              "bottomLeft": 8,
+                                              "bottomRight": 8
                                             }
                                           },
                                           "child": {
                                             "padding": {
-                                              "left": 12.0,
-                                              "top": 8.0,
-                                              "right": 12.0,
-                                              "bottom": 8.0
+                                              "left": 12,
+                                              "top": 8,
+                                              "right": 12,
+                                              "bottom": 8
                                             },
                                             "child": {
                                               "crossAxisAlignment": "center",
@@ -964,13 +1857,13 @@
                                                 {
                                                   "src": "{{crSim3Logo}}",
                                                   "imageType": "asset",
-                                                  "width": 28.0,
-                                                  "height": 18.0,
+                                                  "width": 28,
+                                                  "height": 18,
                                                   "fit": "contain",
                                                   "type": "image"
                                                 },
                                                 {
-                                                  "width": 8.0,
+                                                  "width": 8,
                                                   "type": "sizedBox"
                                                 },
                                                 {
@@ -978,7 +1871,7 @@
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
-                                                    "fontSize": 17.0,
+                                                    "fontSize": 17,
                                                     "fontWeight": "w600"
                                                   },
                                                   "textAlign": "right",
@@ -996,7 +1889,7 @@
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
-                                                    "fontSize": 13.0,
+                                                    "fontSize": 13,
                                                     "fontWeight": "w400"
                                                   },
                                                   "textAlign": "left",
@@ -1004,13 +1897,13 @@
                                                   "type": "text"
                                                 },
                                                 {
-                                                  "width": 10.0,
+                                                  "width": 10,
                                                   "type": "sizedBox"
                                                 },
                                                 {
                                                   "icon": "chevron_left",
                                                   "iconType": "material",
-                                                  "size": 28.0,
+                                                  "size": 28,
                                                   "color": "{{appColors.current.text.title}}",
                                                   "type": "icon"
                                                 }
@@ -1059,50 +1952,496 @@
                                             ]
                                           },
                                           {
-                                            "routeName": "package_real_package_list",
                                             "navigationStyle": "push",
-                                            "actionType": "navigate"
+                                            "actionType": "navigate",
+                                            "request": {
+                                              "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.package_real_package_list/1",
+                                              "body": {
+                                                "operator": "is",
+                                                "dimension": {
+                                                  "app": "mobile"
+                                                }
+                                              },
+                                              "method": "post",
+                                              "headers": {
+                                                "Accept": "*/*",
+                                                "Content-Type": "application/json"
+                                              }
+                                            }
                                           }
                                         ]
                                       },
                                       "onLongPress": {
-                                        "actionType": "setValue",
-                                        "values": [
+                                        "actionType": "sequence",
+                                        "actions": [
                                           {
-                                            "key": "crSheetTargetSim1",
-                                            "value": false
+                                            "actionType": "setValue",
+                                            "values": [
+                                              {
+                                                "key": "crSheetTargetSim1",
+                                                "value": false
+                                              },
+                                              {
+                                                "key": "crSheetTargetSim2",
+                                                "value": false
+                                              },
+                                              {
+                                                "key": "crSheetTargetSim3",
+                                                "value": true
+                                              },
+                                              {
+                                                "key": "crSheetOperator",
+                                                "value": "{{crSim3Operator}}"
+                                              },
+                                              {
+                                                "key": "crSheetNumber",
+                                                "value": "{{crSim3Number}}"
+                                              },
+                                              {
+                                                "key": "crSheetLogo",
+                                                "value": "{{crSim3Logo}}"
+                                              },
+                                              {
+                                                "key": "crShowSimDeleteDialog",
+                                                "value": false
+                                              }
+                                            ]
                                           },
                                           {
-                                            "key": "crSheetTargetSim2",
-                                            "value": false
-                                          },
-                                          {
-                                            "key": "crSheetTargetSim3",
-                                            "value": true
-                                          },
-                                          {
-                                            "key": "crSheetOperator",
-                                            "value": "{{crSim3Operator}}"
-                                          },
-                                          {
-                                            "key": "crSheetNumber",
-                                            "value": "{{crSim3Number}}"
-                                          },
-                                          {
-                                            "key": "crSheetLogo",
-                                            "value": "{{crSim3Logo}}"
-                                          },
-                                          {
-                                            "key": "crShowSimActionSheet",
-                                            "value": true
-                                          },
-                                          {
-                                            "key": "crShowSimEditSheet",
-                                            "value": false
-                                          },
-                                          {
-                                            "key": "crShowSimDeleteDialog",
-                                            "value": false
+                                            "actionType": "showBottomSheet",
+                                            "sheet": {
+                                              "padding": {
+                                                "left": 14,
+                                                "top": 10,
+                                                "right": 14,
+                                                "bottom": 16
+                                              },
+                                              "decoration": {
+                                                "color": "{{appColors.current.background.surface}}",
+                                                "borderRadius": {
+                                                  "topLeft": 22,
+                                                  "topRight": 22
+                                                }
+                                              },
+                                              "width": 999999,
+                                              "child": {
+                                                "mainAxisSize": "min",
+                                                "crossAxisAlignment": "stretch",
+                                                "children": [
+                                                  {
+                                                    "child": {
+                                                      "decoration": {
+                                                        "color": "#D0D5DD",
+                                                        "borderRadius": {
+                                                          "topLeft": 99,
+                                                          "topRight": 99,
+                                                          "bottomLeft": 99,
+                                                          "bottomRight": 99
+                                                        }
+                                                      },
+                                                      "width": 44,
+                                                      "height": 5,
+                                                      "type": "container"
+                                                    },
+                                                    "type": "center"
+                                                  },
+                                                  {
+                                                    "height": 20,
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "data": "{{crSheetOperator}}",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "{{appColors.current.text.title}}",
+                                                      "fontSize": 24,
+                                                      "fontWeight": "w700"
+                                                    },
+                                                    "textAlign": "center",
+                                                    "textDirection": "rtl",
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "height": 6,
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "data": "{{crSheetNumber}}",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "{{appColors.current.text.title}}",
+                                                      "fontSize": 16,
+                                                      "fontWeight": "w500"
+                                                    },
+                                                    "textAlign": "center",
+                                                    "textDirection": "ltr",
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "height": 18,
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "color": "{{appColors.current.input.borderEnabled}}",
+                                                    "height": 1,
+                                                    "type": "container"
+                                                  },
+                                                  {
+                                                    "child": {
+                                                      "padding": {
+                                                        "top": 14,
+                                                        "bottom": 14
+                                                      },
+                                                      "child": {
+                                                        "textDirection": "rtl",
+                                                        "children": [
+                                                          {
+                                                            "icon": "edit_outlined",
+                                                            "iconType": "material",
+                                                            "size": 22,
+                                                            "color": "{{appColors.current.text.title}}",
+                                                            "type": "icon"
+                                                          },
+                                                          {
+                                                            "width": 8,
+                                                            "type": "sizedBox"
+                                                          },
+                                                          {
+                                                            "data": "ویرایش",
+                                                            "style": {
+                                                              "type": "custom",
+                                                              "color": "{{appColors.current.text.title}}",
+                                                              "fontSize": 16,
+                                                              "fontWeight": "w500"
+                                                            },
+                                                            "textDirection": "rtl",
+                                                            "type": "text"
+                                                          }
+                                                        ],
+                                                        "type": "row"
+                                                      },
+                                                      "type": "padding"
+                                                    },
+                                                    "onTap": {
+                                                      "actionType": "sequence",
+                                                      "actions": [
+                                                        {
+                                                          "navigationStyle": "pop",
+                                                          "actionType": "navigate"
+                                                        },
+                                                        {
+                                                          "actionType": "showBottomSheet",
+                                                          "sheet": {
+                                                            "padding": {
+                                                              "left": 14,
+                                                              "top": 10,
+                                                              "right": 14,
+                                                              "bottom": 16
+                                                            },
+                                                            "decoration": {
+                                                              "color": "{{appColors.current.background.surface}}",
+                                                              "borderRadius": {
+                                                                "topLeft": 22,
+                                                                "topRight": 22
+                                                              }
+                                                            },
+                                                            "width": 999999,
+                                                            "child": {
+                                                              "child": {
+                                                                "mainAxisSize": "min",
+                                                                "crossAxisAlignment": "stretch",
+                                                                "children": [
+                                                                  {
+                                                                    "child": {
+                                                                      "decoration": {
+                                                                        "color": "#D0D5DD",
+                                                                        "borderRadius": {
+                                                                          "topLeft": 99,
+                                                                          "topRight": 99,
+                                                                          "bottomLeft": 99,
+                                                                          "bottomRight": 99
+                                                                        }
+                                                                      },
+                                                                      "width": 44,
+                                                                      "height": 5,
+                                                                      "type": "container"
+                                                                    },
+                                                                    "type": "center"
+                                                                  },
+                                                                  {
+                                                                    "height": 20,
+                                                                    "type": "sizedBox"
+                                                                  },
+                                                                  {
+                                                                    "child": {
+                                                                      "decoration": {
+                                                                        "color": "{{appColors.current.background.surfaceContainer}}",
+                                                                        "border": {
+                                                                          "color": "{{appColors.current.input.borderEnabled}}",
+                                                                          "width": 1
+                                                                        },
+                                                                        "borderRadius": {
+                                                                          "topLeft": 28,
+                                                                          "topRight": 28,
+                                                                          "bottomLeft": 28,
+                                                                          "bottomRight": 28
+                                                                        }
+                                                                      },
+                                                                      "width": 56,
+                                                                      "height": 56,
+                                                                      "child": {
+                                                                        "child": {
+                                                                          "src": "{{crSheetLogo}}",
+                                                                          "imageType": "asset",
+                                                                          "width": 36,
+                                                                          "height": 23,
+                                                                          "fit": "contain",
+                                                                          "type": "image"
+                                                                        },
+                                                                        "type": "center"
+                                                                      },
+                                                                      "type": "container"
+                                                                    },
+                                                                    "type": "center"
+                                                                  },
+                                                                  {
+                                                                    "height": 12,
+                                                                    "type": "sizedBox"
+                                                                  },
+                                                                  {
+                                                                    "data": "{{crSheetNumber}}",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "{{appColors.current.text.title}}",
+                                                                      "fontSize": 16,
+                                                                      "fontWeight": "w500"
+                                                                    },
+                                                                    "textAlign": "center",
+                                                                    "textDirection": "ltr",
+                                                                    "type": "text"
+                                                                  },
+                                                                  {
+                                                                    "height": 14,
+                                                                    "type": "sizedBox"
+                                                                  },
+                                                                  {
+                                                                    "type": "textFormField",
+                                                                    "id": "crEditOperatorField",
+                                                                    "textDirection": "rtl",
+                                                                    "textAlign": "center",
+                                                                    "decoration": {
+                                                                      "contentPadding": {
+                                                                        "left": 12,
+                                                                        "top": 14,
+                                                                        "right": 12,
+                                                                        "bottom": 14
+                                                                      },
+                                                                      "filled": false
+                                                                    },
+                                                                    "maxLength": 20,
+                                                                    "initialValue": "{{crSheetOperator}}"
+                                                                  },
+                                                                  {
+                                                                    "height": 12,
+                                                                    "type": "sizedBox"
+                                                                  },
+                                                                  {
+                                                                    "onPressed": {
+                                                                      "actionType": "sequence",
+                                                                      "actions": [
+                                                                        {
+                                                                          "actionType": "setValue",
+                                                                          "values": [
+                                                                            {
+                                                                              "key": "crSim1Operator",
+                                                                              "value": {
+                                                                                "actionType": "getFormValue",
+                                                                                "id": "crEditOperatorField"
+                                                                              },
+                                                                              "condition": "crSheetTargetSim1"
+                                                                            },
+                                                                            {
+                                                                              "key": "crSim2Operator",
+                                                                              "value": {
+                                                                                "actionType": "getFormValue",
+                                                                                "id": "crEditOperatorField"
+                                                                              },
+                                                                              "condition": "crSheetTargetSim2"
+                                                                            },
+                                                                            {
+                                                                              "key": "crSim3Operator",
+                                                                              "value": {
+                                                                                "actionType": "getFormValue",
+                                                                                "id": "crEditOperatorField"
+                                                                              },
+                                                                              "condition": "crSheetTargetSim3"
+                                                                            },
+                                                                            {
+                                                                              "key": "crSheetOperator",
+                                                                              "value": {
+                                                                                "actionType": "getFormValue",
+                                                                                "id": "crEditOperatorField"
+                                                                              }
+                                                                            }
+                                                                          ]
+                                                                        },
+                                                                        {
+                                                                          "navigationStyle": "pop",
+                                                                          "actionType": "navigate"
+                                                                        }
+                                                                      ]
+                                                                    },
+                                                                    "style": {
+                                                                      "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                                                                      "backgroundColor": "{{appColors.current.primary.color}}",
+                                                                      "elevation": 0,
+                                                                      "fixedSize": {
+                                                                        "width": 999999,
+                                                                        "height": 56
+                                                                      },
+                                                                      "shape": {
+                                                                        "type": "roundedRectangleBorder",
+                                                                        "borderRadius": {
+                                                                          "topLeft": 10,
+                                                                          "topRight": 10,
+                                                                          "bottomLeft": 10,
+                                                                          "bottomRight": 10
+                                                                        }
+                                                                      }
+                                                                    },
+                                                                    "child": {
+                                                                      "data": "ذخیره",
+                                                                      "style": {
+                                                                        "type": "custom",
+                                                                        "color": "{{appColors.current.primary.onPrimary}}",
+                                                                        "fontSize": 16,
+                                                                        "fontWeight": "w700"
+                                                                      },
+                                                                      "textDirection": "rtl",
+                                                                      "type": "text"
+                                                                    },
+                                                                    "type": "filledButton"
+                                                                  }
+                                                                ],
+                                                                "type": "column"
+                                                              },
+                                                              "type": "form"
+                                                            },
+                                                            "type": "container"
+                                                          },
+                                                          "backgroundColor": "#8B63708C"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "gestureDetector"
+                                                  },
+                                                  {
+                                                    "color": "{{appColors.current.input.borderEnabled}}",
+                                                    "height": 1,
+                                                    "type": "container"
+                                                  },
+                                                  {
+                                                    "child": {
+                                                      "padding": {
+                                                        "top": 14,
+                                                        "bottom": 14
+                                                      },
+                                                      "child": {
+                                                        "textDirection": "rtl",
+                                                        "children": [
+                                                          {
+                                                            "icon": "delete_outline",
+                                                            "iconType": "material",
+                                                            "size": 25,
+                                                            "color": "#E31D35",
+                                                            "type": "icon"
+                                                          },
+                                                          {
+                                                            "width": 8,
+                                                            "type": "sizedBox"
+                                                          },
+                                                          {
+                                                            "data": "حذف کردن",
+                                                            "style": {
+                                                              "type": "custom",
+                                                              "color": "#E31D35",
+                                                              "fontSize": 16,
+                                                              "fontWeight": "w500"
+                                                            },
+                                                            "textDirection": "rtl",
+                                                            "type": "text"
+                                                          }
+                                                        ],
+                                                        "type": "row"
+                                                      },
+                                                      "type": "padding"
+                                                    },
+                                                    "onTap": {
+                                                      "actionType": "sequence",
+                                                      "actions": [
+                                                        {
+                                                          "navigationStyle": "pop",
+                                                          "actionType": "navigate"
+                                                        },
+                                                        {
+                                                          "actionType": "setValue",
+                                                          "values": [
+                                                            {
+                                                              "key": "crShowSimDeleteDialog",
+                                                              "value": true
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    },
+                                                    "type": "gestureDetector"
+                                                  },
+                                                  {
+                                                    "height": 12,
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "onPressed": {
+                                                      "navigationStyle": "pop",
+                                                      "actionType": "navigate"
+                                                    },
+                                                    "style": {
+                                                      "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                                                      "backgroundColor": "{{appColors.current.primary.color}}",
+                                                      "elevation": 0,
+                                                      "fixedSize": {
+                                                        "width": 999999,
+                                                        "height": 56
+                                                      },
+                                                      "shape": {
+                                                        "type": "roundedRectangleBorder",
+                                                        "borderRadius": {
+                                                          "topLeft": 10,
+                                                          "topRight": 10,
+                                                          "bottomLeft": 10,
+                                                          "bottomRight": 10
+                                                        }
+                                                      }
+                                                    },
+                                                    "child": {
+                                                      "data": "انصراف",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.primary.onPrimary}}",
+                                                        "fontSize": 16,
+                                                        "fontWeight": "w700"
+                                                      },
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    },
+                                                    "type": "filledButton"
+                                                  }
+                                                ],
+                                                "type": "column"
+                                              },
+                                              "type": "container"
+                                            },
+                                            "backgroundColor": "#8B63708C"
                                           }
                                         ]
                                       },
@@ -1130,13 +2469,13 @@
                           {
                             "src": "assets/icons/ic_charge_empty_list_light.svg",
                             "imageType": "asset",
-                            "width": 106.0,
-                            "height": 106.0,
+                            "width": 106,
+                            "height": 106,
                             "fit": "contain",
                             "type": "image"
                           },
                           {
-                            "height": 24.0,
+                            "height": 24,
                             "type": "sizedBox"
                           },
                           {
@@ -1144,7 +2483,7 @@
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
-                              "fontSize": 18.0,
+                              "fontSize": 18,
                               "fontWeight": "w500"
                             },
                             "textAlign": "center",
@@ -1152,7 +2491,7 @@
                             "type": "text"
                           },
                           {
-                            "height": 8.0,
+                            "height": 8,
                             "type": "sizedBox"
                           },
                           {
@@ -1160,7 +2499,7 @@
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.subtitle}}",
-                              "fontSize": 18.0,
+                              "fontSize": 18,
                               "fontWeight": "w500"
                             },
                             "textAlign": "center",
@@ -1176,7 +2515,7 @@
                   "type": "expanded"
                 },
                 {
-                  "height": 12.0,
+                  "height": 12,
                   "type": "sizedBox"
                 },
                 {
@@ -1184,25 +2523,38 @@
                   "children": [
                     {
                       "onPressed": {
-                        "routeName": "package_real_add_sim",
                         "navigationStyle": "push",
-                        "actionType": "navigate"
+                        "actionType": "navigate",
+                        "request": {
+                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.package_real_add_sim/1",
+                          "body": {
+                            "operator": "is",
+                            "dimension": {
+                              "app": "mobile"
+                            }
+                          },
+                          "method": "post",
+                          "headers": {
+                            "Accept": "*/*",
+                            "Content-Type": "application/json"
+                          }
+                        }
                       },
                       "style": {
                         "foregroundColor": "{{appColors.current.primary.onPrimary}}",
                         "backgroundColor": "{{appColors.current.primary.color}}",
-                        "elevation": 0.0,
+                        "elevation": 0,
                         "fixedSize": {
-                          "width": 148.0,
-                          "height": 56.0
+                          "width": 148,
+                          "height": 56
                         },
                         "shape": {
                           "type": "roundedRectangleBorder",
                           "borderRadius": {
-                            "topLeft": 12.0,
-                            "topRight": 12.0,
-                            "bottomLeft": 12.0,
-                            "bottomRight": 12.0
+                            "topLeft": 12,
+                            "topRight": 12,
+                            "bottomLeft": 12,
+                            "bottomRight": 12
                           }
                         }
                       },
@@ -1213,12 +2565,12 @@
                           {
                             "icon": "add",
                             "iconType": "material",
-                            "size": 20.0,
+                            "size": 20,
                             "color": "{{appColors.current.primary.onPrimary}}",
                             "type": "icon"
                           },
                           {
-                            "width": 7.0,
+                            "width": 7,
                             "type": "sizedBox"
                           },
                           {
@@ -1226,7 +2578,7 @@
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.primary.onPrimary}}",
-                              "fontSize": 16.0,
+                              "fontSize": 16,
                               "fontWeight": "w700"
                             },
                             "textDirection": "rtl",
@@ -1249,551 +2601,35 @@
         },
         {
           "type": "visibility",
-          "visible": "[[crShowSimActionSheet]]",
-          "child": {
-            "children": [
-              {
-                "child": {
-                  "color": "#8B63708C",
-                  "width": 999999.0,
-                  "height": 999999.0,
-                  "type": "container"
-                },
-                "onTap": {
-                  "actionType": "setValue",
-                  "values": [
-                    {
-                      "key": "crShowSimActionSheet",
-                      "value": false
-                    }
-                  ]
-                },
-                "type": "gestureDetector"
-              },
-              {
-                "alignment": "bottomCenter",
-                "child": {
-                  "padding": {
-                    "left": 14.0,
-                    "top": 10.0,
-                    "right": 14.0,
-                    "bottom": 16.0
-                  },
-                  "decoration": {
-                    "color": "{{appColors.current.background.surface}}",
-                    "borderRadius": {
-                      "topLeft": 22.0,
-                      "topRight": 22.0
-                    }
-                  },
-                  "width": 999999.0,
-                  "child": {
-                    "mainAxisSize": "min",
-                    "crossAxisAlignment": "stretch",
-                    "children": [
-                      {
-                        "child": {
-                          "decoration": {
-                            "color": "#D0D5DD",
-                            "borderRadius": {
-                              "topLeft": 99.0,
-                              "topRight": 99.0,
-                              "bottomLeft": 99.0,
-                              "bottomRight": 99.0
-                            }
-                          },
-                          "width": 44.0,
-                          "height": 5.0,
-                          "type": "container"
-                        },
-                        "type": "center"
-                      },
-                      {
-                        "height": 20.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "data": "{{crSheetOperator}}",
-                        "style": {
-                          "type": "custom",
-                          "color": "{{appColors.current.text.title}}",
-                          "fontSize": 24.0,
-                          "fontWeight": "w700"
-                        },
-                        "textAlign": "center",
-                        "textDirection": "rtl",
-                        "type": "text"
-                      },
-                      {
-                        "height": 6.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "data": "{{crSheetNumber}}",
-                        "style": {
-                          "type": "custom",
-                          "color": "{{appColors.current.text.title}}",
-                          "fontSize": 16.0,
-                          "fontWeight": "w500"
-                        },
-                        "textAlign": "center",
-                        "textDirection": "ltr",
-                        "type": "text"
-                      },
-                      {
-                        "height": 18.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "color": "{{appColors.current.input.borderEnabled}}",
-                        "height": 1.0,
-                        "type": "container"
-                      },
-                      {
-                        "child": {
-                          "padding": {
-                            "top": 14.0,
-                            "bottom": 14.0
-                          },
-                          "child": {
-                            "textDirection": "rtl",
-                            "children": [
-                              {
-                                "icon": "edit_outlined",
-                                "iconType": "material",
-                                "size": 22.0,
-                                "color": "{{appColors.current.text.title}}",
-                                "type": "icon"
-                              },
-                              {
-                                "width": 8.0,
-                                "type": "sizedBox"
-                              },
-                              {
-                                "data": "ویرایش",
-                                "style": {
-                                  "type": "custom",
-                                  "color": "{{appColors.current.text.title}}",
-                                  "fontSize": 16.0,
-                                  "fontWeight": "w500"
-                                },
-                                "textDirection": "rtl",
-                                "type": "text"
-                              }
-                            ],
-                            "type": "row"
-                          },
-                          "type": "padding"
-                        },
-                        "onTap": {
-                          "actionType": "setValue",
-                          "values": [
-                            {
-                              "key": "crShowSimActionSheet",
-                              "value": false
-                            },
-                            {
-                              "key": "crShowSimEditSheet",
-                              "value": true
-                            },
-                            {
-                              "key": "crShowSimDeleteDialog",
-                              "value": false
-                            }
-                          ]
-                        },
-                        "type": "gestureDetector"
-                      },
-                      {
-                        "color": "{{appColors.current.input.borderEnabled}}",
-                        "height": 1.0,
-                        "type": "container"
-                      },
-                      {
-                        "child": {
-                          "padding": {
-                            "top": 14.0,
-                            "bottom": 14.0
-                          },
-                          "child": {
-                            "textDirection": "rtl",
-                            "children": [
-                              {
-                                "icon": "delete_outline",
-                                "iconType": "material",
-                                "size": 25.0,
-                                "color": "#E31D35",
-                                "type": "icon"
-                              },
-                              {
-                                "width": 8.0,
-                                "type": "sizedBox"
-                              },
-                              {
-                                "data": "حذف کردن",
-                                "style": {
-                                  "type": "custom",
-                                  "color": "#E31D35",
-                                  "fontSize": 16.0,
-                                  "fontWeight": "w500"
-                                },
-                                "textDirection": "rtl",
-                                "type": "text"
-                              }
-                            ],
-                            "type": "row"
-                          },
-                          "type": "padding"
-                        },
-                        "onTap": {
-                          "actionType": "setValue",
-                          "values": [
-                            {
-                              "key": "crShowSimActionSheet",
-                              "value": false
-                            },
-                            {
-                              "key": "crShowSimEditSheet",
-                              "value": false
-                            },
-                            {
-                              "key": "crShowSimDeleteDialog",
-                              "value": true
-                            }
-                          ]
-                        },
-                        "type": "gestureDetector"
-                      },
-                      {
-                        "height": 12.0,
-                        "type": "sizedBox"
-                      },
-                      {
-                        "onPressed": {
-                          "actionType": "setValue",
-                          "values": [
-                            {
-                              "key": "crShowSimActionSheet",
-                              "value": false
-                            }
-                          ]
-                        },
-                        "style": {
-                          "foregroundColor": "{{appColors.current.primary.onPrimary}}",
-                          "backgroundColor": "{{appColors.current.primary.color}}",
-                          "elevation": 0.0,
-                          "fixedSize": {
-                            "width": 999999.0,
-                            "height": 56.0
-                          },
-                          "shape": {
-                            "type": "roundedRectangleBorder",
-                            "borderRadius": {
-                              "topLeft": 10.0,
-                              "topRight": 10.0,
-                              "bottomLeft": 10.0,
-                              "bottomRight": 10.0
-                            }
-                          }
-                        },
-                        "child": {
-                          "data": "انصراف",
-                          "style": {
-                            "type": "custom",
-                            "color": "{{appColors.current.primary.onPrimary}}",
-                            "fontSize": 16.0,
-                            "fontWeight": "w700"
-                          },
-                          "textDirection": "rtl",
-                          "type": "text"
-                        },
-                        "type": "filledButton"
-                      }
-                    ],
-                    "type": "column"
-                  },
-                  "type": "container"
-                },
-                "type": "align"
-              }
-            ],
-            "type": "stack"
-          },
-          "replacement": {
-            "type": "sizedBox"
-          }
-        },
-        {
-          "type": "visibility",
-          "visible": "[[crShowSimEditSheet]]",
-          "child": {
-            "children": [
-              {
-                "child": {
-                  "color": "#8B63708C",
-                  "width": 999999.0,
-                  "height": 999999.0,
-                  "type": "container"
-                },
-                "onTap": {
-                  "actionType": "setValue",
-                  "values": [
-                    {
-                      "key": "crShowSimEditSheet",
-                      "value": false
-                    }
-                  ]
-                },
-                "type": "gestureDetector"
-              },
-              {
-                "alignment": "bottomCenter",
-                "child": {
-                  "padding": {
-                    "left": 14.0,
-                    "top": 10.0,
-                    "right": 14.0,
-                    "bottom": 16.0
-                  },
-                  "decoration": {
-                    "color": "{{appColors.current.background.surface}}",
-                    "borderRadius": {
-                      "topLeft": 22.0,
-                      "topRight": 22.0
-                    }
-                  },
-                  "width": 999999.0,
-                  "child": {
-                    "child": {
-                      "mainAxisSize": "min",
-                      "crossAxisAlignment": "stretch",
-                      "children": [
-                        {
-                          "child": {
-                            "decoration": {
-                              "color": "#D0D5DD",
-                              "borderRadius": {
-                                "topLeft": 99.0,
-                                "topRight": 99.0,
-                                "bottomLeft": 99.0,
-                                "bottomRight": 99.0
-                              }
-                            },
-                            "width": 44.0,
-                            "height": 5.0,
-                            "type": "container"
-                          },
-                          "type": "center"
-                        },
-                        {
-                          "height": 20.0,
-                          "type": "sizedBox"
-                        },
-                        {
-                          "child": {
-                            "decoration": {
-                              "color": "{{appColors.current.background.surfaceContainer}}",
-                              "border": {
-                                "color": "{{appColors.current.input.borderEnabled}}",
-                                "width": 1.0
-                              },
-                              "borderRadius": {
-                                "topLeft": 28.0,
-                                "topRight": 28.0,
-                                "bottomLeft": 28.0,
-                                "bottomRight": 28.0
-                              }
-                            },
-                            "width": 56.0,
-                            "height": 56.0,
-                            "child": {
-                              "child": {
-                                "src": "{{crSheetLogo}}",
-                                "imageType": "asset",
-                                "width": 36.0,
-                                "height": 23.0,
-                                "fit": "contain",
-                                "type": "image"
-                              },
-                              "type": "center"
-                            },
-                            "type": "container"
-                          },
-                          "type": "center"
-                        },
-                        {
-                          "height": 12.0,
-                          "type": "sizedBox"
-                        },
-                        {
-                          "data": "{{crSheetNumber}}",
-                          "style": {
-                            "type": "custom",
-                            "color": "{{appColors.current.text.title}}",
-                            "fontSize": 16.0,
-                            "fontWeight": "w500"
-                          },
-                          "textAlign": "center",
-                          "textDirection": "ltr",
-                          "type": "text"
-                        },
-                        {
-                          "height": 14.0,
-                          "type": "sizedBox"
-                        },
-                        {
-                          "type": "textFormField",
-                          "id": "crEditOperatorField",
-                          "textDirection": "rtl",
-                          "textAlign": "center",
-                          "decoration": {
-                            "contentPadding": {
-                              "left": 12.0,
-                              "top": 14.0,
-                              "right": 12.0,
-                              "bottom": 14.0
-                            },
-                            "filled": false
-                          },
-                          "maxLength": 20,
-                          "initialValue": "{{crSheetOperator}}"
-                        },
-                        {
-                          "height": 12.0,
-                          "type": "sizedBox"
-                        },
-                        {
-                          "onPressed": {
-                            "actionType": "sequence",
-                            "actions": [
-                              {
-                                "actionType": "setValue",
-                                "values": [
-                                  {
-                                    "key": "crSim1Operator",
-                                    "value": {
-                                      "actionType": "getFormValue",
-                                      "id": "crEditOperatorField"
-                                    },
-                                    "condition": "crSheetTargetSim1"
-                                  },
-                                  {
-                                    "key": "crSim2Operator",
-                                    "value": {
-                                      "actionType": "getFormValue",
-                                      "id": "crEditOperatorField"
-                                    },
-                                    "condition": "crSheetTargetSim2"
-                                  },
-                                  {
-                                    "key": "crSim3Operator",
-                                    "value": {
-                                      "actionType": "getFormValue",
-                                      "id": "crEditOperatorField"
-                                    },
-                                    "condition": "crSheetTargetSim3"
-                                  },
-                                  {
-                                    "key": "crSheetOperator",
-                                    "value": {
-                                      "actionType": "getFormValue",
-                                      "id": "crEditOperatorField"
-                                    }
-                                  },
-                                  {
-                                    "key": "crShowSimEditSheet",
-                                    "value": false
-                                  },
-                                  {
-                                    "key": "crShowSimActionSheet",
-                                    "value": false
-                                  },
-                                  {
-                                    "key": "crShowSimDeleteDialog",
-                                    "value": false
-                                  }
-                                ]
-                              }
-                            ]
-                          },
-                          "style": {
-                            "foregroundColor": "{{appColors.current.primary.onPrimary}}",
-                            "backgroundColor": "{{appColors.current.primary.color}}",
-                            "elevation": 0.0,
-                            "fixedSize": {
-                              "width": 999999.0,
-                              "height": 56.0
-                            },
-                            "shape": {
-                              "type": "roundedRectangleBorder",
-                              "borderRadius": {
-                                "topLeft": 10.0,
-                                "topRight": 10.0,
-                                "bottomLeft": 10.0,
-                                "bottomRight": 10.0
-                              }
-                            }
-                          },
-                          "child": {
-                            "data": "ذخیره",
-                            "style": {
-                              "type": "custom",
-                              "color": "{{appColors.current.primary.onPrimary}}",
-                              "fontSize": 16.0,
-                              "fontWeight": "w700"
-                            },
-                            "textDirection": "rtl",
-                            "type": "text"
-                          },
-                          "type": "filledButton"
-                        }
-                      ],
-                      "type": "column"
-                    },
-                    "type": "form"
-                  },
-                  "type": "container"
-                },
-                "type": "align"
-              }
-            ],
-            "type": "stack"
-          },
-          "replacement": {
-            "type": "sizedBox"
-          }
-        },
-        {
-          "type": "visibility",
           "visible": "[[crShowSimDeleteDialog]]",
           "child": {
             "children": [
               {
                 "color": "#8B63708C",
-                "width": 999999.0,
-                "height": 999999.0,
+                "width": 999999,
+                "height": 999999,
                 "type": "container"
               },
               {
                 "child": {
                   "padding": {
-                    "left": 14.0,
-                    "top": 16.0,
-                    "right": 14.0,
-                    "bottom": 14.0
+                    "left": 14,
+                    "top": 16,
+                    "right": 14,
+                    "bottom": 14
                   },
                   "decoration": {
                     "color": "{{appColors.current.background.surface}}",
                     "borderRadius": {
-                      "topLeft": 14.0,
-                      "topRight": 14.0,
-                      "bottomLeft": 14.0,
-                      "bottomRight": 14.0
+                      "topLeft": 14,
+                      "topRight": 14,
+                      "bottomLeft": 14,
+                      "bottomRight": 14
                     }
                   },
                   "margin": {
-                    "left": 18.0,
-                    "right": 18.0
+                    "left": 18,
+                    "right": 18
                   },
                   "child": {
                     "mainAxisSize": "min",
@@ -1805,23 +2641,23 @@
                             "color": "{{appColors.current.background.surfaceContainer}}",
                             "border": {
                               "color": "{{appColors.current.input.borderEnabled}}",
-                              "width": 1.0
+                              "width": 1
                             },
                             "borderRadius": {
-                              "topLeft": 28.0,
-                              "topRight": 28.0,
-                              "bottomLeft": 28.0,
-                              "bottomRight": 28.0
+                              "topLeft": 28,
+                              "topRight": 28,
+                              "bottomLeft": 28,
+                              "bottomRight": 28
                             }
                           },
-                          "width": 56.0,
-                          "height": 56.0,
+                          "width": 56,
+                          "height": 56,
                           "child": {
                             "child": {
                               "src": "{{crSheetLogo}}",
                               "imageType": "asset",
-                              "width": 36.0,
-                              "height": 23.0,
+                              "width": 36,
+                              "height": 23,
                               "fit": "contain",
                               "type": "image"
                             },
@@ -1832,7 +2668,7 @@
                         "type": "center"
                       },
                       {
-                        "height": 12.0,
+                        "height": 12,
                         "type": "sizedBox"
                       },
                       {
@@ -1840,7 +2676,7 @@
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
-                          "fontSize": 16.0,
+                          "fontSize": 16,
                           "fontWeight": "w500"
                         },
                         "textAlign": "center",
@@ -1848,7 +2684,7 @@
                         "type": "text"
                       },
                       {
-                        "height": 12.0,
+                        "height": 12,
                         "type": "sizedBox"
                       },
                       {
@@ -1856,7 +2692,7 @@
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
-                          "fontSize": 16.0,
+                          "fontSize": 16,
                           "fontWeight": "w400"
                         },
                         "textAlign": "center",
@@ -1864,7 +2700,7 @@
                         "type": "text"
                       },
                       {
-                        "height": 16.0,
+                        "height": 16,
                         "type": "sizedBox"
                       },
                       {
@@ -1882,20 +2718,20 @@
                               },
                               "style": {
                                 "fixedSize": {
-                                  "width": 999999.0,
-                                  "height": 52.0
+                                  "width": 999999,
+                                  "height": 52
                                 },
                                 "side": {
                                   "color": "{{appColors.current.input.borderEnabled}}",
-                                  "width": 1.0
+                                  "width": 1
                                 },
                                 "shape": {
                                   "type": "roundedRectangleBorder",
                                   "borderRadius": {
-                                    "topLeft": 10.0,
-                                    "topRight": 10.0,
-                                    "bottomLeft": 10.0,
-                                    "bottomRight": 10.0
+                                    "topLeft": 10,
+                                    "topRight": 10,
+                                    "bottomLeft": 10,
+                                    "bottomRight": 10
                                   }
                                 }
                               },
@@ -1904,7 +2740,7 @@
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
-                                  "fontSize": 16.0,
+                                  "fontSize": 16,
                                   "fontWeight": "w600"
                                 },
                                 "textDirection": "rtl",
@@ -1915,7 +2751,7 @@
                             "type": "expanded"
                           },
                           {
-                            "width": 10.0,
+                            "width": 10,
                             "type": "sizedBox"
                           },
                           {
@@ -1993,18 +2829,18 @@
                               "style": {
                                 "foregroundColor": "{{appColors.current.primary.onPrimary}}",
                                 "backgroundColor": "{{appColors.current.primary.color}}",
-                                "elevation": 0.0,
+                                "elevation": 0,
                                 "fixedSize": {
-                                  "width": 999999.0,
-                                  "height": 52.0
+                                  "width": 999999,
+                                  "height": 52
                                 },
                                 "shape": {
                                   "type": "roundedRectangleBorder",
                                   "borderRadius": {
-                                    "topLeft": 10.0,
-                                    "topRight": 10.0,
-                                    "bottomLeft": 10.0,
-                                    "bottomRight": 10.0
+                                    "topLeft": 10,
+                                    "topRight": 10,
+                                    "bottomLeft": 10,
+                                    "bottomRight": 10
                                   }
                                 }
                               },
@@ -2013,7 +2849,7 @@
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.primary.onPrimary}}",
-                                  "fontSize": 16.0,
+                                  "fontSize": 16,
                                   "fontWeight": "w700"
                                 },
                                 "textDirection": "rtl",
