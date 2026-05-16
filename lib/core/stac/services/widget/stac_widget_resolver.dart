@@ -20,8 +20,8 @@ class StacWidgetResolver {
   StacWidgetResolver._();
 
   static const String _dashboardShellJsonPath =
-      'lib/stac/tobank/flows/dashboard_real/json/dashboard_real_shell.json';
-  static const String _dashboardShellKey = 'dashboard_real_shell';
+      'lib/stac/tobank/flows/dashboard/json/dashboard_shell.json';
+  static const String _dashboardShellKey = 'dashboard_shell';
 
   /// Resolves a widget from widgetJson.
   /// Returns the widget wrapped with theme-awareness (rebuilds on theme change).

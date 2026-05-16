@@ -9,7 +9,6 @@ import '../../../../dummy/simple_api_test_page.dart';
 import '../../../../dummy/news_api_test_page.dart';
 import '../../../tobank_mock_new/presentation/screens/tobank_stac_dart_screen.dart';
 import '../../../tobank_mock_new/presentation/screens/promissory_real_flow_screen.dart';
-import '../../../../core/stac/parsers/widgets/promissory_real_loader_parser.dart';
 import '../../providers/theme_controller_provider.dart';
 import '../widgets/menu_card.dart';
 import '../widgets/debug_tool_item.dart';
@@ -132,21 +131,19 @@ class _PreLaunchScreenState extends ConsumerState<PreLaunchScreen> {
         ),
         MenuCard(
           icon: Icons.view_carousel,
-          title: 'Promissory Real Flow',
+          title: 'Main Flow DART',
           subtitle: 'DART',
           onTap: () => _navigateToPage(
             const PromissoryRealFlowScreen(),
-            '/promissory-real-flow',
+            '/main-flow-dart',
           ),
         ),
         MenuCard(
           icon: Icons.view_carousel,
-          title: 'Promissory Real Flow',
+          title: 'Main Flow JSON',
           subtitle: 'JSON',
-          onTap: () => _navigateToPage(
-            const PromissoryRealLoaderScreen(),
-            '/promissory_real_loader',
-          ),
+          onTap: () =>
+              _navigateToPage(const LoginFlowJsonScreen(), '/main-flow-json'),
         ),
       ],
     );

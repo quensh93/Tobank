@@ -1,0 +1,895 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "setValue",
+    "values": [
+      {
+        "key": "giftCardRealReceiverIsOwner",
+        "value": false
+      },
+      {
+        "key": "giftCardRealReceiverContinueEnabled",
+        "value": false
+      },
+      {
+        "key": "giftCardRealReceiverProvince",
+        "value": "تهران"
+      },
+      {
+        "key": "giftCardRealReceiverCity",
+        "value": "تهران"
+      },
+      {
+        "key": "giftCardRealDeliveryDate",
+        "value": ""
+      },
+      {
+        "key": "giftCardRealDeliveryTime",
+        "value": ""
+      }
+    ]
+  },
+  "child": {
+    "appBar": {
+      "leading": {
+        "padding": {
+          "left": 12.0
+        },
+        "child": {
+          "child": {
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24.0,
+            "height": 24.0,
+            "type": "image"
+          },
+          "type": "center"
+        },
+        "type": "padding"
+      },
+      "title": {
+        "data": "کارت هدیه",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "actions": [
+        {
+          "padding": {
+            "right": 12.0
+          },
+          "child": {
+            "onPressed": {
+              "navigationStyle": "pop",
+              "actionType": "navigate"
+            },
+            "icon": {
+              "src": "{{appAssets.icons.arrowBack}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 31.0,
+              "height": 31.0,
+              "type": "image"
+            },
+            "type": "iconButton"
+          },
+          "type": "padding"
+        }
+      ],
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "backgroundColor": "{{appColors.current.background.surface}}",
+    "body": {
+      "child": {
+        "crossAxisAlignment": "stretch",
+        "children": [
+          {
+            "child": {
+              "padding": {
+                "left": 16.0,
+                "top": 14.0,
+                "right": 16.0
+              },
+              "child": {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "mainAxisAlignment": "spaceBetween",
+                    "crossAxisAlignment": "center",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "data": "گیرنده خودم هستم",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 18.0,
+                          "fontWeight": "w700"
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "type": "reactiveSwitch",
+                        "valueKey": "giftCardRealReceiverIsOwner",
+                        "initialValue": false,
+                        "onChanged": {
+                          "actionType": "validateFields",
+                          "resultKey": "giftCardRealReceiverContinueEnabled",
+                          "fields": [
+                            {
+                              "id": "gift_card_receiver_name",
+                              "optional": "giftCardRealReceiverIsOwner"
+                            },
+                            {
+                              "id": "gift_card_receiver_mobile",
+                              "rule": "^[0-9]{11}$",
+                              "optional": "giftCardRealReceiverIsOwner"
+                            },
+                            {
+                              "id": "gift_card_receiver_postal_code",
+                              "rule": "^[0-9]{10}$"
+                            },
+                            {
+                              "id": "gift_card_receiver_address"
+                            }
+                          ]
+                        },
+                        "activeColor": "{{appColors.current.secondary.color}}",
+                        "scale": 0.95
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "height": 12.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "height": 1.0,
+                    "type": "container"
+                  },
+                  {
+                    "height": 20.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "type": "visibility",
+                    "visible": "[[!giftCardRealReceiverIsOwner]]",
+                    "child": {
+                      "crossAxisAlignment": "stretch",
+                      "children": [
+                        {
+                          "data": "نام و نام‌خانوادگی",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 18.0,
+                            "fontWeight": "w700"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "height": 8.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "decoration": {
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1.0
+                            },
+                            "borderRadius": {
+                              "topLeft": 12.0,
+                              "topRight": 12.0,
+                              "bottomLeft": 12.0,
+                              "bottomRight": 12.0
+                            }
+                          },
+                          "child": {
+                            "type": "textFormField",
+                            "id": "gift_card_receiver_name",
+                            "textDirection": "rtl",
+                            "textAlign": "right",
+                            "decoration": {
+                              "hintText": "نام و نام‌خانوادگی را وارد کنید",
+                              "hintStyle": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.hint}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w500"
+                              },
+                              "contentPadding": {
+                                "left": 18.0,
+                                "top": 16.0,
+                                "right": 18.0,
+                                "bottom": 16.0
+                              },
+                              "filled": false
+                            },
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 17.0,
+                              "fontWeight": "w600"
+                            },
+                            "minLines": 1,
+                            "maxLines": 1,
+                            "onChanged": {
+                              "actionType": "validateFields",
+                              "resultKey": "giftCardRealReceiverContinueEnabled",
+                              "fields": [
+                                {
+                                  "id": "gift_card_receiver_name",
+                                  "optional": "giftCardRealReceiverIsOwner"
+                                },
+                                {
+                                  "id": "gift_card_receiver_mobile",
+                                  "rule": "^[0-9]{11}$",
+                                  "optional": "giftCardRealReceiverIsOwner"
+                                },
+                                {
+                                  "id": "gift_card_receiver_postal_code",
+                                  "rule": "^[0-9]{10}$"
+                                },
+                                {
+                                  "id": "gift_card_receiver_address"
+                                }
+                              ]
+                            }
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "height": 24.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "شماره همراه گیرنده",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 18.0,
+                            "fontWeight": "w700"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "height": 8.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "decoration": {
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1.0
+                            },
+                            "borderRadius": {
+                              "topLeft": 12.0,
+                              "topRight": 12.0,
+                              "bottomLeft": 12.0,
+                              "bottomRight": 12.0
+                            }
+                          },
+                          "child": {
+                            "type": "textFormField",
+                            "id": "gift_card_receiver_mobile",
+                            "textDirection": "rtl",
+                            "textAlign": "right",
+                            "decoration": {
+                              "hintText": "تلفن همراه تحویل گیرنده را وارد کنید",
+                              "hintStyle": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.hint}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w500"
+                              },
+                              "contentPadding": {
+                                "left": 18.0,
+                                "top": 16.0,
+                                "right": 18.0,
+                                "bottom": 16.0
+                              },
+                              "filled": false
+                            },
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 17.0,
+                              "fontWeight": "w600"
+                            },
+                            "keyboardType": "number",
+                            "maxLength": 11,
+                            "minLines": 1,
+                            "maxLines": 1,
+                            "inputFormatters": [
+                              {
+                                "type": "allow",
+                                "rule": "[0-9]"
+                              }
+                            ],
+                            "onChanged": {
+                              "actionType": "validateFields",
+                              "resultKey": "giftCardRealReceiverContinueEnabled",
+                              "fields": [
+                                {
+                                  "id": "gift_card_receiver_name",
+                                  "optional": "giftCardRealReceiverIsOwner"
+                                },
+                                {
+                                  "id": "gift_card_receiver_mobile",
+                                  "rule": "^[0-9]{11}$",
+                                  "optional": "giftCardRealReceiverIsOwner"
+                                },
+                                {
+                                  "id": "gift_card_receiver_postal_code",
+                                  "rule": "^[0-9]{10}$"
+                                },
+                                {
+                                  "id": "gift_card_receiver_address"
+                                }
+                              ]
+                            }
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "height": 24.0,
+                          "type": "sizedBox"
+                        }
+                      ],
+                      "type": "column"
+                    }
+                  },
+                  {
+                    "data": "استان",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 18.0,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "child": {
+                      "padding": {
+                        "left": 16.0,
+                        "right": 16.0
+                      },
+                      "decoration": {
+                        "border": {
+                          "color": "{{appColors.current.input.borderEnabled}}",
+                          "width": 1.0
+                        },
+                        "borderRadius": {
+                          "topLeft": 12.0,
+                          "topRight": 12.0,
+                          "bottomLeft": 12.0,
+                          "bottomRight": 12.0
+                        }
+                      },
+                      "height": 56.0,
+                      "child": {
+                        "type": "registryReactive",
+                        "child": {
+                          "mainAxisAlignment": "spaceBetween",
+                          "crossAxisAlignment": "center",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "{{giftCardRealReceiverProvince}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 18.0,
+                                "fontWeight": "w600"
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "icon": "keyboard_arrow_down",
+                              "iconType": "material",
+                              "size": 30.0,
+                              "color": "{{appColors.current.text.title}}",
+                              "type": "icon"
+                            }
+                          ],
+                          "type": "row"
+                        }
+                      },
+                      "type": "container"
+                    },
+                    "onTap": {
+                      "actionType": "sequence",
+                      "actions": [
+                        {
+                          "actionType": "showGiftCardLocationSelectorBottomSheet",
+                          "title": "انتخاب استان",
+                          "selectedKey": "giftCardRealReceiverProvince",
+                          "options": [
+                            "تهران",
+                            "اصفهان",
+                            "فارس",
+                            "خراسان رضوی",
+                            "آذربایجان شرقی",
+                            "خوزستان",
+                            "گیلان",
+                            "مازندران",
+                            "البرز",
+                            "کرمان",
+                            "یزد",
+                            "قم",
+                            "کرمانشاه",
+                            "همدان",
+                            "گلستان",
+                            "مرکزی",
+                            "زنجان",
+                            "اردبیل",
+                            "قزوین",
+                            "سمنان"
+                          ]
+                        },
+                        {
+                          "actionType": "validateFields",
+                          "resultKey": "giftCardRealReceiverContinueEnabled",
+                          "fields": [
+                            {
+                              "id": "gift_card_receiver_name",
+                              "optional": "giftCardRealReceiverIsOwner"
+                            },
+                            {
+                              "id": "gift_card_receiver_mobile",
+                              "rule": "^[0-9]{11}$",
+                              "optional": "giftCardRealReceiverIsOwner"
+                            },
+                            {
+                              "id": "gift_card_receiver_postal_code",
+                              "rule": "^[0-9]{10}$"
+                            },
+                            {
+                              "id": "gift_card_receiver_address"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "type": "gestureDetector"
+                  },
+                  {
+                    "height": 24.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "شهر",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 18.0,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "child": {
+                      "padding": {
+                        "left": 16.0,
+                        "right": 16.0
+                      },
+                      "decoration": {
+                        "border": {
+                          "color": "{{appColors.current.input.borderEnabled}}",
+                          "width": 1.0
+                        },
+                        "borderRadius": {
+                          "topLeft": 12.0,
+                          "topRight": 12.0,
+                          "bottomLeft": 12.0,
+                          "bottomRight": 12.0
+                        }
+                      },
+                      "height": 56.0,
+                      "child": {
+                        "type": "registryReactive",
+                        "child": {
+                          "mainAxisAlignment": "spaceBetween",
+                          "crossAxisAlignment": "center",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "{{giftCardRealReceiverCity}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 18.0,
+                                "fontWeight": "w600"
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "icon": "keyboard_arrow_down",
+                              "iconType": "material",
+                              "size": 30.0,
+                              "color": "{{appColors.current.text.title}}",
+                              "type": "icon"
+                            }
+                          ],
+                          "type": "row"
+                        }
+                      },
+                      "type": "container"
+                    },
+                    "onTap": {
+                      "actionType": "sequence",
+                      "actions": [
+                        {
+                          "actionType": "showGiftCardLocationSelectorBottomSheet",
+                          "title": "انتخاب شهر",
+                          "selectedKey": "giftCardRealReceiverCity",
+                          "options": [
+                            "تهران",
+                            "مشهد",
+                            "اصفهان",
+                            "شیراز",
+                            "تبریز",
+                            "اهواز",
+                            "رشت",
+                            "کرج",
+                            "قم",
+                            "کرمانشاه",
+                            "ارومیه",
+                            "یزد",
+                            "همدان",
+                            "قزوین",
+                            "اردبیل",
+                            "زاهدان",
+                            "بندرعباس",
+                            "گرگان",
+                            "زنجان",
+                            "اراک"
+                          ]
+                        },
+                        {
+                          "actionType": "validateFields",
+                          "resultKey": "giftCardRealReceiverContinueEnabled",
+                          "fields": [
+                            {
+                              "id": "gift_card_receiver_name",
+                              "optional": "giftCardRealReceiverIsOwner"
+                            },
+                            {
+                              "id": "gift_card_receiver_mobile",
+                              "rule": "^[0-9]{11}$",
+                              "optional": "giftCardRealReceiverIsOwner"
+                            },
+                            {
+                              "id": "gift_card_receiver_postal_code",
+                              "rule": "^[0-9]{10}$"
+                            },
+                            {
+                              "id": "gift_card_receiver_address"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "type": "gestureDetector"
+                  },
+                  {
+                    "height": 24.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "کد پستی گیرنده",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 18.0,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "decoration": {
+                      "border": {
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "width": 1.0
+                      },
+                      "borderRadius": {
+                        "topLeft": 12.0,
+                        "topRight": 12.0,
+                        "bottomLeft": 12.0,
+                        "bottomRight": 12.0
+                      }
+                    },
+                    "child": {
+                      "type": "textFormField",
+                      "id": "gift_card_receiver_postal_code",
+                      "textDirection": "rtl",
+                      "textAlign": "right",
+                      "decoration": {
+                        "hintText": "کد پستی را وارد کنید",
+                        "hintStyle": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.hint}}",
+                          "fontSize": 16.0,
+                          "fontWeight": "w500"
+                        },
+                        "contentPadding": {
+                          "left": 18.0,
+                          "top": 16.0,
+                          "right": 18.0,
+                          "bottom": 16.0
+                        },
+                        "filled": false
+                      },
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 17.0,
+                        "fontWeight": "w600"
+                      },
+                      "keyboardType": "number",
+                      "maxLength": 10,
+                      "minLines": 1,
+                      "maxLines": 1,
+                      "inputFormatters": [
+                        {
+                          "type": "allow",
+                          "rule": "[0-9]"
+                        }
+                      ],
+                      "onChanged": {
+                        "actionType": "validateFields",
+                        "resultKey": "giftCardRealReceiverContinueEnabled",
+                        "fields": [
+                          {
+                            "id": "gift_card_receiver_name",
+                            "optional": "giftCardRealReceiverIsOwner"
+                          },
+                          {
+                            "id": "gift_card_receiver_mobile",
+                            "rule": "^[0-9]{11}$",
+                            "optional": "giftCardRealReceiverIsOwner"
+                          },
+                          {
+                            "id": "gift_card_receiver_postal_code",
+                            "rule": "^[0-9]{10}$"
+                          },
+                          {
+                            "id": "gift_card_receiver_address"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "container"
+                  },
+                  {
+                    "height": 24.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "آدرس پستی گیرنده",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 18.0,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "decoration": {
+                      "border": {
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "width": 1.0
+                      },
+                      "borderRadius": {
+                        "topLeft": 12.0,
+                        "topRight": 12.0,
+                        "bottomLeft": 12.0,
+                        "bottomRight": 12.0
+                      }
+                    },
+                    "child": {
+                      "type": "textFormField",
+                      "id": "gift_card_receiver_address",
+                      "textDirection": "rtl",
+                      "textAlign": "right",
+                      "decoration": {
+                        "hintText": "آدرس پستی را وارد کنید",
+                        "hintStyle": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.hint}}",
+                          "fontSize": 16.0,
+                          "fontWeight": "w500"
+                        },
+                        "contentPadding": {
+                          "left": 18.0,
+                          "top": 16.0,
+                          "right": 18.0,
+                          "bottom": 16.0
+                        },
+                        "filled": false
+                      },
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 17.0,
+                        "fontWeight": "w600"
+                      },
+                      "minLines": 4,
+                      "maxLines": 4,
+                      "onChanged": {
+                        "actionType": "validateFields",
+                        "resultKey": "giftCardRealReceiverContinueEnabled",
+                        "fields": [
+                          {
+                            "id": "gift_card_receiver_name",
+                            "optional": "giftCardRealReceiverIsOwner"
+                          },
+                          {
+                            "id": "gift_card_receiver_mobile",
+                            "rule": "^[0-9]{11}$",
+                            "optional": "giftCardRealReceiverIsOwner"
+                          },
+                          {
+                            "id": "gift_card_receiver_postal_code",
+                            "rule": "^[0-9]{10}$"
+                          },
+                          {
+                            "id": "gift_card_receiver_address"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "container"
+                  },
+                  {
+                    "height": 24.0,
+                    "type": "sizedBox"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "singleChildScrollView"
+            },
+            "type": "expanded"
+          },
+          {
+            "padding": {
+              "left": 16.0,
+              "right": 16.0,
+              "bottom": 24.0
+            },
+            "child": {
+              "type": "reactiveElevatedButton",
+              "enabledKey": "giftCardRealReceiverContinueEnabled",
+              "onPressed": {
+                "actionType": "showGiftCardSelectDateBottomSheet",
+                "title": "لطفا تاریخ و بازه‌زمانی تحویل هدیه را انتخاب کنید",
+                "dateTitle": "تاریخ تحویل",
+                "timeTitle": "محدوده ساعتی تحویل",
+                "confirmText": "تایید",
+                "noDateSelectedText": "تاریخی انتخاب نشده است",
+                "dateOptions": [
+                  "پنج‌شنبه ۱۴۰۵/۰۲/۰۳",
+                  "جمعه ۱۴۰۵/۰۲/۰۴",
+                  "شنبه ۱۴۰۵/۰۲/۰۵"
+                ],
+                "timeOptions": [
+                  "۱۳ - ۱۸",
+                  "۱۰ - ۱۳",
+                  "۱۸ - ۲۱"
+                ],
+                "selectedDateKey": "giftCardRealDeliveryDate",
+                "selectedTimeKey": "giftCardRealDeliveryTime",
+                "confirmRequest": {
+                  "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.gift_card_confirm/1",
+                  "method": "post",
+                  "headers": {
+                    "Content-Type": "application/json",
+                    "Accept": "*/*"
+                  },
+                  "body": {
+                    "operator": "is",
+                    "dimension": {
+                      "app": "mobile"
+                    }
+                  }
+                }
+              },
+              "style": {
+                "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                "backgroundColor": "{{appColors.current.primary.color}}",
+                "elevation": 0.0,
+                "fixedSize": {
+                  "width": 999999.0,
+                  "height": 62.0
+                },
+                "shape": {
+                  "type": "roundedRectangleBorder",
+                  "borderRadius": {
+                    "topLeft": 14.0,
+                    "topRight": 14.0,
+                    "bottomLeft": 14.0,
+                    "bottomRight": 14.0
+                  }
+                }
+              },
+              "disabledStyle": {
+                "foregroundColor": "{{appColors.current.button.disabled.foregroundColor}}",
+                "backgroundColor": "{{appColors.current.button.disabled.backgroundColor}}",
+                "elevation": 0.0,
+                "fixedSize": {
+                  "width": 999999.0,
+                  "height": 62.0
+                },
+                "shape": {
+                  "type": "roundedRectangleBorder",
+                  "borderRadius": {
+                    "topLeft": 14.0,
+                    "topRight": 14.0,
+                    "bottomLeft": 14.0,
+                    "bottomRight": 14.0
+                  }
+                }
+              },
+              "child": {
+                "data": "ادامه",
+                "style": {
+                  "type": "custom",
+                  "color": "{{appColors.current.primary.onPrimary}}",
+                  "fontSize": 18.0,
+                  "fontWeight": "w700"
+                },
+                "textDirection": "rtl",
+                "type": "text"
+              }
+            },
+            "type": "padding"
+          }
+        ],
+        "type": "column"
+      },
+      "type": "form"
+    },
+    "type": "scaffold"
+  }
+}

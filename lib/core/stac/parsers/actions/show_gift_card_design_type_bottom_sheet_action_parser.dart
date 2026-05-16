@@ -51,7 +51,7 @@ class ShowGiftCardDesignTypeBottomSheetActionModel {
           ? Map<String, dynamic>.from(rawCustomAction)
           : const {
               'actionType': 'navigate',
-              'routeName': 'gift_card_real_custom_design_selector',
+              'routeName': 'gift_card_custom_design_selector',
               'navigationStyle': 'push',
             },
     );

@@ -5,7 +5,7 @@ import 'package:stac/stac.dart';
 import '../../../helpers/logger.dart';
 import '../../builders/stac_promissory_sign_action.dart';
 import '../../../../model/common/sign_document_data.dart';
-// import '../../../../stac/tobank/flows/promissory_real/utils/promissory_sign_util.dart'; // Deprecated
+// import '../../../../stac/tobank/flows/promissory_old/utils/promissory_sign_util.dart'; // Deprecated
 import '../../../../features/signing/signing_service.dart';
 import 'package:secure_plugin/secure_plugin.dart' as secure;
 import '../../../../core/storage/storage_util.dart';

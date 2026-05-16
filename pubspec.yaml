@@ -134,21 +134,21 @@ flutter:
 
     # Promissory Flow
 
-    - lib/stac/tobank/flows/promissory/json/
-    - lib/stac/tobank/flows/promissory/api/
+    - lib/stac/tobank/flows/promissory_old/json/
+    - lib/stac/tobank/flows/promissory_old/api/
 
     # Promissory Real Flow
 
-    - lib/stac/tobank/flows/promissory_real/json/
-    - lib/stac/tobank/flows/promissory_real/api/
-    - lib/stac/tobank/flows/verify_identity_real/json/
-    - lib/stac/tobank/flows/transaction_real/json/
-    - lib/stac/tobank/flows/profile_real/json/
-    - lib/stac/tobank/flows/dashboard_real/json/
-    - lib/stac/tobank/flows/transfer_real/json/
-    - lib/stac/tobank/flows/gift_card_real/json/
-    - lib/stac/tobank/flows/gift_card_real/api_json/
-    - lib/stac/tobank/flows/package_real/json/
+    - lib/stac/tobank/flows/promissory_old/json/
+    - lib/stac/tobank/flows/promissory_old/api/
+    - lib/stac/tobank/flows/verify_identity/json/
+    - lib/stac/tobank/flows/transaction/json/
+    - lib/stac/tobank/flows/profile/json/
+    - lib/stac/tobank/flows/dashboard/json/
+    - lib/stac/tobank/flows/transfer/json/
+    - lib/stac/tobank/flows/gift_card/json/
+    - lib/stac/tobank/flows/gift_card/api_json/
+    - lib/stac/tobank/flows/package/json/
     - lib/stac/tobank/flows/home_page/json/
     - lib/stac/tobank/flows/home_page/api/
 

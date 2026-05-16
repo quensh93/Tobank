@@ -1,45 +1,43 @@
 {
-  "backgroundColor": "{{appColors.current.background.surface}}",
   "appBar": {
+    "leading": {
+      "padding": {
+        "left": 12.0
+      },
+      "child": {
+        "child": {
+          "width": 42.0,
+          "height": 42.0,
+          "child": {
+            "child": {
+              "src": "{{appAssets.icons.support}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 24.0,
+              "height": 24.0,
+              "type": "image"
+            },
+            "type": "center"
+          },
+          "type": "container"
+        },
+        "type": "center"
+      },
+      "type": "padding"
+    },
     "title": {
       "data": "خدمات ویژه توبانک",
-      "textDirection": "rtl",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
       },
+      "textDirection": "rtl",
       "type": "text"
-    },
-    "centerTitle": true,
-    "leading": {
-      "padding": {
-        "left": 12
-      },
-      "child": {
-        "type": "center",
-        "child": {
-          "width": 42,
-          "height": 42,
-          "type": "container",
-          "child": {
-            "type": "center",
-            "child": {
-              "src": "{{appAssets.icons.support}}",
-              "imageType": "asset",
-              "width": 24,
-              "height": 24,
-              "color": "{{appColors.current.text.title}}",
-              "type": "image"
-            }
-          }
-        }
-      },
-      "type": "padding"
     },
     "actions": [
       {
         "padding": {
-          "right": 15
+          "right": 15.0
         },
         "child": {
           "onPressed": {
@@ -49,9 +47,9 @@
           "icon": {
             "src": "{{appAssets.icons.arrowBack}}",
             "imageType": "asset",
-            "width": 30,
-            "height": 30,
             "color": "{{appColors.current.text.title}}",
+            "width": 30.0,
+            "height": 30.0,
             "type": "image"
           },
           "type": "iconButton"
@@ -59,1096 +57,1086 @@
         "type": "padding"
       }
     ],
+    "centerTitle": true,
     "type": "appBar"
   },
+  "backgroundColor": "{{appColors.current.background.surface}}",
   "body": {
     "padding": {
-      "left": 16,
-      "top": 24,
-      "right": 16,
-      "bottom": 24
+      "left": 16.0,
+      "top": 24.0,
+      "right": 16.0,
+      "bottom": 24.0
     },
     "child": {
-      "child": {
-        "crossAxisAlignment": "stretch",
-        "children": [
-          {
-            "textDirection": "rtl",
-            "crossAxisAlignment": "start",
-            "children": [
-              {
+      "crossAxisAlignment": "stretch",
+      "children": [
+        {
+          "crossAxisAlignment": "start",
+          "textDirection": "rtl",
+          "children": [
+            {
+              "child": {
                 "child": {
-                  "onTap": {
-                    "actionType": "showBottomSheet",
-                    "backgroundColor": "#00000000",
-                    "sheet": {
-                      "type": "container",
-                      "decoration": {
-                        "color": "{{appColors.current.background.surface}}",
-                        "borderRadius": {
-                          "topLeft": 18,
-                          "topRight": 18
-                        }
-                      },
-                      "child": {
-                        "type": "padding",
-                        "padding": {
-                          "left": 16,
-                          "top": 10,
-                          "right": 16,
-                          "bottom": 16
-                        },
-                        "child": {
-                          "type": "column",
-                          "mainAxisSize": "min",
-                          "crossAxisAlignment": "stretch",
-                          "children": [
-                            {
-                              "type": "center",
-                              "child": {
-                                "type": "container",
-                                "width": 46,
-                                "height": 6,
-                                "decoration": {
-                                  "color": "{{appColors.current.input.borderEnabled}}",
-                                  "borderRadius": {
-                                    "topLeft": 999,
-                                    "topRight": 999,
-                                    "bottomLeft": 999,
-                                    "bottomRight": 999
-                                  }
-                                }
-                              }
-                            },
-                            {
-                              "type": "sizedBox",
-                              "height": 20
-                            },
-                            {
-                              "type": "text",
-                              "data": "خدمات موبایل بانک",
-                              "textDirection": "rtl",
-                              "textAlign": "right",
-                              "style": {
-                                "type": "custom",
-                                "fontSize": 16,
-                                "fontWeight": "w800",
-                                "color": "{{appColors.current.text.title}}"
-                              }
-                            },
-                            {
-                              "type": "sizedBox",
-                              "height": 16
-                            },
-                            {
-                              "type": "gestureDetector",
-                              "onTap": {
-                                "actionType": "closeDialog",
-                                "result": {
-                                  "actionType": "fingerPrint",
-                                  "title": "احراز هویت",
-                                  "description": "برای صدور اولیه رمز موبایل بانک احراز هویت کنید",
-                                  "onSuccess": {
-                                    "actionType": "customSnackBar",
-                                    "backgroundColor": "#00000000",
-                                    "duration": 10000,
-                                    "child": {
-                                      "type": "container",
-                                      "decoration": {
-                                        "color": "{{appColors.current.background.surfaceContainer}}",
-                                        "borderRadius": {
-                                          "topLeft": 8,
-                                          "topRight": 8,
-                                          "bottomLeft": 8,
-                                          "bottomRight": 8
-                                        },
-                                        "border": {
-                                          "color": "{{appColors.current.input.borderEnabled}}",
-                                          "width": 1
-                                        }
-                                      },
-                                      "padding": {
-                                        "left": 12,
-                                        "top": 10,
-                                        "right": 12,
-                                        "bottom": 10
-                                      },
-                                      "child": {
-                                        "type": "row",
-                                        "textDirection": "ltr",
-                                        "crossAxisAlignment": "center",
-                                        "children": [
-                                          {
-                                            "type": "gestureDetector",
-                                            "onTap": {
-                                              "actionType": "hideSnackBar"
-                                            },
-                                            "child": {
-                                              "type": "container",
-                                              "padding": {
-                                                "left": 10,
-                                                "top": 5,
-                                                "right": 10,
-                                                "bottom": 5
-                                              },
-                                              "decoration": {
-                                                "color": "#E31A2F",
-                                                "borderRadius": {
-                                                  "topLeft": 8,
-                                                  "topRight": 8,
-                                                  "bottomLeft": 8,
-                                                  "bottomRight": 8
-                                                }
-                                              },
-                                              "child": {
-                                                "type": "text",
-                                                "data": "بستن",
-                                                "textDirection": "rtl",
-                                                "style": {
-                                                  "type": "custom",
-                                                  "fontSize": 12,
-                                                  "fontWeight": "w700",
-                                                  "color": "#FFFFFF"
-                                                }
-                                              }
-                                            }
-                                          },
-                                          {
-                                            "type": "sizedBox",
-                                            "width": 10
-                                          },
-                                          {
-                                            "type": "expanded",
-                                            "child": {
-                                              "type": "column",
-                                              "mainAxisSize": "min",
-                                              "crossAxisAlignment": "end",
-                                              "children": [
-                                                {
-                                                  "type": "text",
-                                                  "data": "درخواست شما با موفقیت ثبت شد!",
-                                                  "textDirection": "rtl",
-                                                  "textAlign": "right",
-                                                  "style": {
-                                                    "type": "custom",
-                                                    "fontSize": 14,
-                                                    "fontWeight": "w700",
-                                                    "color": "{{appColors.current.text.title}}",
-                                                    "height": 1.45
-                                                  }
-                                                },
-                                                {
-                                                  "type": "sizedBox",
-                                                  "height": 4
-                                                },
-                                                {
-                                                  "type": "text",
-                                                  "data": "مراتب از طریق پیامک به شما اطلاع داده خواهد شد.",
-                                                  "textDirection": "rtl",
-                                                  "textAlign": "right",
-                                                  "style": {
-                                                    "type": "custom",
-                                                    "fontSize": 13,
-                                                    "fontWeight": "w500",
-                                                    "color": "{{appColors.current.text.subtitle}}",
-                                                    "height": 1.45
-                                                  }
-                                                }
-                                              ]
-                                            }
-                                          },
-                                          {
-                                            "type": "sizedBox",
-                                            "width": 10
-                                          },
-                                          {
-                                            "type": "container",
-                                            "width": 1,
-                                            "height": 20,
-                                            "decoration": {
-                                              "color": "{{appColors.current.input.borderEnabled}}",
-                                              "borderRadius": {
-                                                "topLeft": 999,
-                                                "topRight": 999,
-                                                "bottomLeft": 999,
-                                                "bottomRight": 999
-                                              }
-                                            }
-                                          },
-                                          {
-                                            "type": "sizedBox",
-                                            "width": 8
-                                          },
-                                          {
-                                            "type": "image",
-                                            "src": "assets/icons/ic_info.svg",
-                                            "imageType": "asset",
-                                            "width": 20,
-                                            "height": 20,
-                                            "color": "{{appColors.current.text.subtitle}}"
-                                          }
-                                        ]
-                                      }
-                                    }
-                                  },
-                                  "onFailure": {
-                                    "actionType": "customSnackBar",
-                                    "backgroundColor": "#00000000",
-                                    "duration": 10000,
-                                    "child": {
-                                      "type": "container",
-                                      "decoration": {
-                                        "color": "{{appColors.current.background.surfaceContainer}}",
-                                        "borderRadius": {
-                                          "topLeft": 8,
-                                          "topRight": 8,
-                                          "bottomLeft": 8,
-                                          "bottomRight": 8
-                                        },
-                                        "border": {
-                                          "color": "{{appColors.current.input.borderEnabled}}",
-                                          "width": 1
-                                        }
-                                      },
-                                      "padding": {
-                                        "left": 12,
-                                        "top": 10,
-                                        "right": 12,
-                                        "bottom": 10
-                                      },
-                                      "child": {
-                                        "type": "row",
-                                        "textDirection": "ltr",
-                                        "crossAxisAlignment": "center",
-                                        "children": [
-                                          {
-                                            "type": "gestureDetector",
-                                            "onTap": {
-                                              "actionType": "hideSnackBar"
-                                            },
-                                            "child": {
-                                              "type": "container",
-                                              "padding": {
-                                                "left": 10,
-                                                "top": 5,
-                                                "right": 10,
-                                                "bottom": 5
-                                              },
-                                              "decoration": {
-                                                "color": "#E31A2F",
-                                                "borderRadius": {
-                                                  "topLeft": 8,
-                                                  "topRight": 8,
-                                                  "bottomLeft": 8,
-                                                  "bottomRight": 8
-                                                }
-                                              },
-                                              "child": {
-                                                "type": "text",
-                                                "data": "بستن",
-                                                "textDirection": "rtl",
-                                                "style": {
-                                                  "type": "custom",
-                                                  "fontSize": 12,
-                                                  "fontWeight": "w700",
-                                                  "color": "#FFFFFF"
-                                                }
-                                              }
-                                            }
-                                          },
-                                          {
-                                            "type": "sizedBox",
-                                            "width": 10
-                                          },
-                                          {
-                                            "type": "expanded",
-                                            "child": {
-                                              "type": "column",
-                                              "mainAxisSize": "min",
-                                              "crossAxisAlignment": "end",
-                                              "children": [
-                                                {
-                                                  "type": "text",
-                                                  "data": "احراز هویت ناموفق بود.",
-                                                  "textDirection": "rtl",
-                                                  "textAlign": "right",
-                                                  "style": {
-                                                    "type": "custom",
-                                                    "fontSize": 14,
-                                                    "fontWeight": "w700",
-                                                    "color": "{{appColors.current.text.title}}",
-                                                    "height": 1.45
-                                                  }
-                                                },
-                                                {
-                                                  "type": "sizedBox",
-                                                  "height": 4
-                                                },
-                                                {
-                                                  "type": "text",
-                                                  "data": "احراز هویت ناموفق بود. عملیات \"صدور اولیه رمز موبایل بانک\" انجام نشد.",
-                                                  "textDirection": "rtl",
-                                                  "textAlign": "right",
-                                                  "style": {
-                                                    "type": "custom",
-                                                    "fontSize": 13,
-                                                    "fontWeight": "w500",
-                                                    "color": "{{appColors.current.text.subtitle}}",
-                                                    "height": 1.45
-                                                  }
-                                                }
-                                              ]
-                                            }
-                                          },
-                                          {
-                                            "type": "sizedBox",
-                                            "width": 10
-                                          },
-                                          {
-                                            "type": "container",
-                                            "width": 1,
-                                            "height": 20,
-                                            "decoration": {
-                                              "color": "{{appColors.current.input.borderEnabled}}",
-                                              "borderRadius": {
-                                                "topLeft": 999,
-                                                "topRight": 999,
-                                                "bottomLeft": 999,
-                                                "bottomRight": 999
-                                              }
-                                            }
-                                          },
-                                          {
-                                            "type": "sizedBox",
-                                            "width": 8
-                                          },
-                                          {
-                                            "type": "image",
-                                            "src": "assets/icons/ic_info.svg",
-                                            "imageType": "asset",
-                                            "width": 20,
-                                            "height": 20,
-                                            "color": "{{appColors.current.text.subtitle}}"
-                                          }
-                                        ]
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              "child": {
-                                "type": "container",
-                                "decoration": {
-                                  "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                                  "borderRadius": {
-                                    "topLeft": 14,
-                                    "topRight": 14,
-                                    "bottomLeft": 14,
-                                    "bottomRight": 14
-                                  },
-                                  "border": {
-                                    "color": "{{appColors.current.input.borderEnabled}}",
-                                    "width": 1
-                                  }
-                                },
-                                "child": {
-                                  "type": "padding",
-                                  "padding": {
-                                    "left": 16,
-                                    "top": 8,
-                                    "right": 16,
-                                    "bottom": 8
-                                  },
-                                  "child": {
-                                    "type": "row",
-                                    "textDirection": "rtl",
-                                    "crossAxisAlignment": "center",
-                                    "children": [
-                                      {
-                                        "type": "container",
-                                        "width": 44,
-                                        "height": 44,
-                                        "decoration": {
-                                          "color": "{{appColors.current.background.surfaceContainer}}",
-                                          "shape": "circle"
-                                        },
-                                        "child": {
-                                          "type": "center",
-                                          "child": {
-                                            "type": "image",
-                                            "src": "assets/icons/ic_bank_lock.svg",
-                                            "imageType": "asset",
-                                            "width": 28,
-                                            "height": 28
-                                          }
-                                        }
-                                      },
-                                      {
-                                        "type": "sizedBox",
-                                        "width": 12
-                                      },
-                                      {
-                                        "type": "expanded",
-                                        "child": {
-                                          "type": "text",
-                                          "data": "صدور اولیه رمز موبایل بانک",
-                                          "textDirection": "rtl",
-                                          "textAlign": "right",
-                                          "style": {
-                                            "type": "custom",
-                                            "fontSize": 14,
-                                            "fontWeight": "w700",
-                                            "color": "{{appColors.current.text.title}}",
-                                            "height": 1.5
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              }
-                            },
-                            {
-                              "type": "sizedBox",
-                              "height": 12
-                            },
-                            {
-                              "type": "gestureDetector",
-                              "onTap": {
-                                "actionType": "closeDialog",
-                                "result": {
-                                  "actionType": "showBottomSheet",
-                                  "backgroundColor": "#00000000",
-                                  "sheet": {
-                                    "type": "container",
-                                    "decoration": {
-                                      "color": "{{appColors.current.background.surface}}",
-                                      "borderRadius": {
-                                        "topLeft": 18,
-                                        "topRight": 18
-                                      }
-                                    },
-                                    "child": {
-                                      "type": "padding",
-                                      "padding": {
-                                        "left": 16,
-                                        "top": 10,
-                                        "right": 16,
-                                        "bottom": 16
-                                      },
-                                      "child": {
-                                        "type": "column",
-                                        "mainAxisSize": "min",
-                                        "crossAxisAlignment": "stretch",
-                                        "children": [
-                                          {
-                                            "type": "center",
-                                            "child": {
-                                              "type": "container",
-                                              "width": 46,
-                                              "height": 6,
-                                              "decoration": {
-                                                "color": "{{appColors.current.input.borderEnabled}}",
-                                                "borderRadius": {
-                                                  "topLeft": 999,
-                                                  "topRight": 999,
-                                                  "bottomLeft": 999,
-                                                  "bottomRight": 999
-                                                }
-                                              }
-                                            }
-                                          },
-                                          {
-                                            "type": "sizedBox",
-                                            "height": 20
-                                          },
-                                          {
-                                            "type": "text",
-                                            "data": "خدمات موبایل بانک",
-                                            "textDirection": "rtl",
-                                            "textAlign": "right",
-                                            "style": {
-                                              "type": "custom",
-                                              "fontSize": 16,
-                                              "fontWeight": "w800",
-                                              "color": "{{appColors.current.text.title}}"
-                                            }
-                                          },
-                                          {
-                                            "type": "sizedBox",
-                                            "height": 16
-                                          },
-                                          {
-                                            "type": "text",
-                                            "data": "نام کاربری موبایل بانک",
-                                            "textDirection": "rtl",
-                                            "textAlign": "right",
-                                            "style": {
-                                              "type": "custom",
-                                              "fontSize": 16,
-                                              "fontWeight": "w700",
-                                              "color": "{{appColors.current.text.title}}"
-                                            }
-                                          },
-                                          {
-                                            "type": "sizedBox",
-                                            "height": 8
-                                          },
-                                          {
-                                            "type": "container",
-                                            "decoration": {
-                                              "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                                              "border": {
-                                                "color": "{{appColors.current.input.borderEnabled}}",
-                                                "width": 1
-                                              },
-                                              "borderRadius": {
-                                                "topLeft": 12,
-                                                "topRight": 12,
-                                                "bottomLeft": 12,
-                                                "bottomRight": 12
-                                              }
-                                            },
-                                            "child": {
-                                              "type": "textFormField",
-                                              "id": "mobileBankRecoveryUsername",
-                                              "textDirection": "ltr",
-                                              "textAlign": "right",
-                                              "keyboardType": "number",
-                                              "decoration": {
-                                                "hintText": "نام کاربری موبایل بانک",
-                                                "hintStyle": {
-                                                  "type": "custom",
-                                                  "fontSize": 14,
-                                                  "fontWeight": "w400",
-                                                  "color": "{{appColors.current.text.hint}}"
-                                                },
-                                                "filled": false,
-                                                "contentPadding": {
-                                                  "left": 16,
-                                                  "right": 16,
-                                                  "top": 20,
-                                                  "bottom": 20
-                                                },
-                                                "border": {
-                                                  "type": "none"
-                                                },
-                                                "enabledBorder": {
-                                                  "type": "none"
-                                                },
-                                                "focusedBorder": {
-                                                  "type": "none"
-                                                },
-                                                "errorBorder": {
-                                                  "type": "none"
-                                                },
-                                                "focusedErrorBorder": {
-                                                  "type": "none"
-                                                },
-                                                "disabledBorder": {
-                                                  "type": "none"
-                                                },
-                                                "prefixIcon": {
-                                                  "type": "padding",
-                                                  "padding": {
-                                                    "left": 8,
-                                                    "right": 8,
-                                                    "top": 8,
-                                                    "bottom": 8
-                                                  },
-                                                  "child": {
-                                                    "type": "icon",
-                                                    "icon": "close",
-                                                    "size": 18,
-                                                    "color": "{{appColors.current.text.subtitle}}"
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          },
-                                          {
-                                            "type": "sizedBox",
-                                            "height": 24
-                                          },
-                                          {
-                                            "type": "filledButton",
-                                            "onPressed": {
-                                              "actionType": "closeDialog",
-                                              "result": {
-                                                "actionType": "fingerPrint",
-                                                "title": "احراز هویت",
-                                                "description": "برای بازیابی رمز موبایل بانک احراز هویت کنید",
-                                                "onSuccess": {
-                                                  "actionType": "customSnackBar",
-                                                  "backgroundColor": "#00000000",
-                                                  "duration": 10000,
-                                                  "child": {
-                                                    "type": "container",
-                                                    "decoration": {
-                                                      "color": "{{appColors.current.background.surfaceContainer}}",
-                                                      "borderRadius": {
-                                                        "topLeft": 8,
-                                                        "topRight": 8,
-                                                        "bottomLeft": 8,
-                                                        "bottomRight": 8
-                                                      },
-                                                      "border": {
-                                                        "color": "{{appColors.current.input.borderEnabled}}",
-                                                        "width": 1
-                                                      }
-                                                    },
-                                                    "padding": {
-                                                      "left": 12,
-                                                      "top": 10,
-                                                      "right": 12,
-                                                      "bottom": 10
-                                                    },
-                                                    "child": {
-                                                      "type": "row",
-                                                      "textDirection": "ltr",
-                                                      "crossAxisAlignment": "center",
-                                                      "children": [
-                                                        {
-                                                          "type": "gestureDetector",
-                                                          "onTap": {
-                                                            "actionType": "hideSnackBar"
-                                                          },
-                                                          "child": {
-                                                            "type": "container",
-                                                            "padding": {
-                                                              "left": 10,
-                                                              "top": 5,
-                                                              "right": 10,
-                                                              "bottom": 5
-                                                            },
-                                                            "decoration": {
-                                                              "color": "#E31A2F",
-                                                              "borderRadius": {
-                                                                "topLeft": 8,
-                                                                "topRight": 8,
-                                                                "bottomLeft": 8,
-                                                                "bottomRight": 8
-                                                              }
-                                                            },
-                                                            "child": {
-                                                              "type": "text",
-                                                              "data": "بستن",
-                                                              "textDirection": "rtl",
-                                                              "style": {
-                                                                "type": "custom",
-                                                                "fontSize": 12,
-                                                                "fontWeight": "w700",
-                                                                "color": "#FFFFFF"
-                                                              }
-                                                            }
-                                                          }
-                                                        },
-                                                        {
-                                                          "type": "sizedBox",
-                                                          "width": 10
-                                                        },
-                                                        {
-                                                          "type": "expanded",
-                                                          "child": {
-                                                            "type": "column",
-                                                            "mainAxisSize": "min",
-                                                            "crossAxisAlignment": "end",
-                                                            "children": [
-                                                              {
-                                                                "type": "text",
-                                                                "data": "درخواست شما با موفقیت ثبت شد!",
-                                                                "textDirection": "rtl",
-                                                                "textAlign": "right",
-                                                                "style": {
-                                                                  "type": "custom",
-                                                                  "fontSize": 14,
-                                                                  "fontWeight": "w700",
-                                                                  "color": "{{appColors.current.text.title}}",
-                                                                  "height": 1.45
-                                                                }
-                                                              },
-                                                              {
-                                                                "type": "sizedBox",
-                                                                "height": 4
-                                                              },
-                                                              {
-                                                                "type": "text",
-                                                                "data": "مراتب از طریق پیامک به شما اطلاع داده خواهد شد.",
-                                                                "textDirection": "rtl",
-                                                                "textAlign": "right",
-                                                                "style": {
-                                                                  "type": "custom",
-                                                                  "fontSize": 13,
-                                                                  "fontWeight": "w500",
-                                                                  "color": "{{appColors.current.text.subtitle}}",
-                                                                  "height": 1.45
-                                                                }
-                                                              }
-                                                            ]
-                                                          }
-                                                        },
-                                                        {
-                                                          "type": "sizedBox",
-                                                          "width": 10
-                                                        },
-                                                        {
-                                                          "type": "container",
-                                                          "width": 1,
-                                                          "height": 20,
-                                                          "decoration": {
-                                                            "color": "{{appColors.current.input.borderEnabled}}",
-                                                            "borderRadius": {
-                                                              "topLeft": 999,
-                                                              "topRight": 999,
-                                                              "bottomLeft": 999,
-                                                              "bottomRight": 999
-                                                            }
-                                                          }
-                                                        },
-                                                        {
-                                                          "type": "sizedBox",
-                                                          "width": 8
-                                                        },
-                                                        {
-                                                          "type": "image",
-                                                          "src": "assets/icons/ic_info.svg",
-                                                          "imageType": "asset",
-                                                          "width": 20,
-                                                          "height": 20,
-                                                          "color": "{{appColors.current.text.subtitle}}"
-                                                        }
-                                                      ]
-                                                    }
-                                                  }
-                                                },
-                                                "onFailure": {
-                                                  "actionType": "customSnackBar",
-                                                  "backgroundColor": "#00000000",
-                                                  "duration": 10000,
-                                                  "child": {
-                                                    "type": "container",
-                                                    "decoration": {
-                                                      "color": "{{appColors.current.background.surfaceContainer}}",
-                                                      "borderRadius": {
-                                                        "topLeft": 8,
-                                                        "topRight": 8,
-                                                        "bottomLeft": 8,
-                                                        "bottomRight": 8
-                                                      },
-                                                      "border": {
-                                                        "color": "{{appColors.current.input.borderEnabled}}",
-                                                        "width": 1
-                                                      }
-                                                    },
-                                                    "padding": {
-                                                      "left": 12,
-                                                      "top": 10,
-                                                      "right": 12,
-                                                      "bottom": 10
-                                                    },
-                                                    "child": {
-                                                      "type": "row",
-                                                      "textDirection": "ltr",
-                                                      "crossAxisAlignment": "center",
-                                                      "children": [
-                                                        {
-                                                          "type": "gestureDetector",
-                                                          "onTap": {
-                                                            "actionType": "hideSnackBar"
-                                                          },
-                                                          "child": {
-                                                            "type": "container",
-                                                            "padding": {
-                                                              "left": 10,
-                                                              "top": 5,
-                                                              "right": 10,
-                                                              "bottom": 5
-                                                            },
-                                                            "decoration": {
-                                                              "color": "#E31A2F",
-                                                              "borderRadius": {
-                                                                "topLeft": 8,
-                                                                "topRight": 8,
-                                                                "bottomLeft": 8,
-                                                                "bottomRight": 8
-                                                              }
-                                                            },
-                                                            "child": {
-                                                              "type": "text",
-                                                              "data": "بستن",
-                                                              "textDirection": "rtl",
-                                                              "style": {
-                                                                "type": "custom",
-                                                                "fontSize": 12,
-                                                                "fontWeight": "w700",
-                                                                "color": "#FFFFFF"
-                                                              }
-                                                            }
-                                                          }
-                                                        },
-                                                        {
-                                                          "type": "sizedBox",
-                                                          "width": 10
-                                                        },
-                                                        {
-                                                          "type": "expanded",
-                                                          "child": {
-                                                            "type": "column",
-                                                            "mainAxisSize": "min",
-                                                            "crossAxisAlignment": "end",
-                                                            "children": [
-                                                              {
-                                                                "type": "text",
-                                                                "data": "احراز هویت ناموفق بود.",
-                                                                "textDirection": "rtl",
-                                                                "textAlign": "right",
-                                                                "style": {
-                                                                  "type": "custom",
-                                                                  "fontSize": 14,
-                                                                  "fontWeight": "w700",
-                                                                  "color": "{{appColors.current.text.title}}",
-                                                                  "height": 1.45
-                                                                }
-                                                              },
-                                                              {
-                                                                "type": "sizedBox",
-                                                                "height": 4
-                                                              },
-                                                              {
-                                                                "type": "text",
-                                                                "data": "احراز هویت ناموفق بود. عملیات \"بازیابی رمز موبایل بانک\" انجام نشد.",
-                                                                "textDirection": "rtl",
-                                                                "textAlign": "right",
-                                                                "style": {
-                                                                  "type": "custom",
-                                                                  "fontSize": 13,
-                                                                  "fontWeight": "w500",
-                                                                  "color": "{{appColors.current.text.subtitle}}",
-                                                                  "height": 1.45
-                                                                }
-                                                              }
-                                                            ]
-                                                          }
-                                                        },
-                                                        {
-                                                          "type": "sizedBox",
-                                                          "width": 10
-                                                        },
-                                                        {
-                                                          "type": "container",
-                                                          "width": 1,
-                                                          "height": 20,
-                                                          "decoration": {
-                                                            "color": "{{appColors.current.input.borderEnabled}}",
-                                                            "borderRadius": {
-                                                              "topLeft": 999,
-                                                              "topRight": 999,
-                                                              "bottomLeft": 999,
-                                                              "bottomRight": 999
-                                                            }
-                                                          }
-                                                        },
-                                                        {
-                                                          "type": "sizedBox",
-                                                          "width": 8
-                                                        },
-                                                        {
-                                                          "type": "image",
-                                                          "src": "assets/icons/ic_info.svg",
-                                                          "imageType": "asset",
-                                                          "width": 20,
-                                                          "height": 20,
-                                                          "color": "{{appColors.current.text.subtitle}}"
-                                                        }
-                                                      ]
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            },
-                                            "style": {
-                                              "backgroundColor": "#E31A2F",
-                                              "foregroundColor": "#FFFFFF",
-                                              "minimumSize": {
-                                                "width": 0,
-                                                "height": 56
-                                              },
-                                              "shape": {
-                                                "type": "roundedRectangleBorder",
-                                                "borderRadius": {
-                                                  "topLeft": 8,
-                                                  "topRight": 8,
-                                                  "bottomLeft": 8,
-                                                  "bottomRight": 8
-                                                }
-                                              },
-                                              "elevation": 0
-                                            },
-                                            "child": {
-                                              "type": "text",
-                                              "data": "تایید و بازیابی رمز موبایل بانک",
-                                              "textDirection": "rtl",
-                                              "style": {
-                                                "type": "custom",
-                                                "fontSize": 16,
-                                                "fontWeight": "w600",
-                                                "color": "#FFFFFF"
-                                              }
-                                            }
-                                          }
-                                        ]
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              "child": {
-                                "type": "container",
-                                "decoration": {
-                                  "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                                  "borderRadius": {
-                                    "topLeft": 14,
-                                    "topRight": 14,
-                                    "bottomLeft": 14,
-                                    "bottomRight": 14
-                                  },
-                                  "border": {
-                                    "color": "{{appColors.current.input.borderEnabled}}",
-                                    "width": 1
-                                  }
-                                },
-                                "child": {
-                                  "type": "padding",
-                                  "padding": {
-                                    "left": 16,
-                                    "top": 8,
-                                    "right": 16,
-                                    "bottom": 8
-                                  },
-                                  "child": {
-                                    "type": "row",
-                                    "textDirection": "rtl",
-                                    "crossAxisAlignment": "center",
-                                    "children": [
-                                      {
-                                        "type": "container",
-                                        "width": 44,
-                                        "height": 44,
-                                        "decoration": {
-                                          "color": "{{appColors.current.background.surfaceContainer}}",
-                                          "shape": "circle"
-                                        },
-                                        "child": {
-                                          "type": "center",
-                                          "child": {
-                                            "type": "image",
-                                            "src": "assets/icons/ic_lock_retrieval.svg",
-                                            "imageType": "asset",
-                                            "width": 28,
-                                            "height": 28
-                                          }
-                                        }
-                                      },
-                                      {
-                                        "type": "sizedBox",
-                                        "width": 12
-                                      },
-                                      {
-                                        "type": "expanded",
-                                        "child": {
-                                          "type": "text",
-                                          "data": "بازیابی رمز موبایل بانک",
-                                          "textDirection": "rtl",
-                                          "textAlign": "right",
-                                          "style": {
-                                            "type": "custom",
-                                            "fontSize": 14,
-                                            "fontWeight": "w700",
-                                            "color": "{{appColors.current.text.title}}",
-                                            "height": 1.5
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              }
-                            },
-                            {
-                              "type": "sizedBox",
-                              "height": 8
-                            }
-                          ]
-                        }
-                      }
+                  "decoration": {
+                    "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                    "border": {
+                      "color": "{{appColors.current.input.borderEnabled}}",
+                      "width": 1.0
+                    },
+                    "borderRadius": {
+                      "topLeft": 16.0,
+                      "topRight": 16.0,
+                      "bottomLeft": 16.0,
+                      "bottomRight": 16.0
                     }
                   },
+                  "height": 176.0,
                   "child": {
-                    "height": 176,
+                    "padding": {
+                      "left": 16.0,
+                      "top": 16.0,
+                      "right": 16.0,
+                      "bottom": 16.0
+                    },
+                    "child": {
+                      "mainAxisAlignment": "center",
+                      "crossAxisAlignment": "center",
+                      "children": [
+                        {
+                          "src": "assets/icons/ic_menu_mobile.svg",
+                          "imageType": "asset",
+                          "width": 32.0,
+                          "height": 32.0,
+                          "type": "image"
+                        },
+                        {
+                          "height": 18.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "خدمات موبایل بانک",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w700",
+                            "height": 1.5
+                          },
+                          "textAlign": "center",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "height": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "فعال سازی خدمات و صدور رمز",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 12.0,
+                            "fontWeight": "w500",
+                            "height": 1.65
+                          },
+                          "textAlign": "center",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        }
+                      ],
+                      "type": "column"
+                    },
+                    "type": "padding"
+                  },
+                  "type": "container"
+                },
+                "onTap": {
+                  "actionType": "showBottomSheet",
+                  "sheet": {
                     "decoration": {
-                      "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                      "color": "{{appColors.current.background.surface}}",
                       "borderRadius": {
-                        "topLeft": 16,
-                        "topRight": 16,
-                        "bottomLeft": 16,
-                        "bottomRight": 16
-                      },
-                      "border": {
-                        "color": "{{appColors.current.input.borderEnabled}}",
-                        "width": 1
+                        "topLeft": 18.0,
+                        "topRight": 18.0
                       }
                     },
                     "child": {
                       "padding": {
-                        "left": 16,
-                        "top": 16,
-                        "right": 16,
-                        "bottom": 16
+                        "left": 16.0,
+                        "top": 10.0,
+                        "right": 16.0,
+                        "bottom": 16.0
                       },
                       "child": {
-                        "mainAxisAlignment": "center",
-                        "crossAxisAlignment": "center",
+                        "mainAxisSize": "min",
+                        "crossAxisAlignment": "stretch",
                         "children": [
                           {
-                            "src": "assets/icons/ic_menu_mobile.svg",
-                            "imageType": "asset",
-                            "width": 32,
-                            "height": 32,
-                            "type": "image"
+                            "child": {
+                              "decoration": {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "borderRadius": {
+                                  "topLeft": 999.0,
+                                  "topRight": 999.0,
+                                  "bottomLeft": 999.0,
+                                  "bottomRight": 999.0
+                                }
+                              },
+                              "width": 46.0,
+                              "height": 6.0,
+                              "type": "container"
+                            },
+                            "type": "center"
                           },
                           {
-                            "height": 18,
+                            "height": 20.0,
                             "type": "sizedBox"
                           },
                           {
                             "data": "خدمات موبایل بانک",
-                            "textDirection": "rtl",
-                            "textAlign": "center",
                             "style": {
                               "type": "custom",
-                              "fontSize": 14,
-                              "fontWeight": "w700",
                               "color": "{{appColors.current.text.title}}",
-                              "height": 1.5
+                              "fontSize": 16.0,
+                              "fontWeight": "w800"
                             },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
                             "type": "text"
                           },
                           {
-                            "height": 12,
+                            "height": 16.0,
                             "type": "sizedBox"
                           },
                           {
-                            "data": "فعال سازی خدمات و صدور رمز",
-                            "textDirection": "rtl",
-                            "textAlign": "center",
-                            "style": {
-                              "type": "custom",
-                              "fontSize": 12,
-                              "fontWeight": "w500",
-                              "color": "{{appColors.current.text.subtitle}}",
-                              "height": 1.65
+                            "child": {
+                              "decoration": {
+                                "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                "border": {
+                                  "color": "{{appColors.current.input.borderEnabled}}",
+                                  "width": 1.0
+                                },
+                                "borderRadius": {
+                                  "topLeft": 14.0,
+                                  "topRight": 14.0,
+                                  "bottomLeft": 14.0,
+                                  "bottomRight": 14.0
+                                }
+                              },
+                              "child": {
+                                "padding": {
+                                  "left": 16.0,
+                                  "top": 8.0,
+                                  "right": 16.0,
+                                  "bottom": 8.0
+                                },
+                                "child": {
+                                  "crossAxisAlignment": "center",
+                                  "textDirection": "rtl",
+                                  "children": [
+                                    {
+                                      "decoration": {
+                                        "color": "{{appColors.current.background.surfaceContainer}}",
+                                        "shape": "circle"
+                                      },
+                                      "width": 44.0,
+                                      "height": 44.0,
+                                      "child": {
+                                        "child": {
+                                          "src": "assets/icons/ic_bank_lock.svg",
+                                          "imageType": "asset",
+                                          "width": 28.0,
+                                          "height": 28.0,
+                                          "type": "image"
+                                        },
+                                        "type": "center"
+                                      },
+                                      "type": "container"
+                                    },
+                                    {
+                                      "width": 12.0,
+                                      "type": "sizedBox"
+                                    },
+                                    {
+                                      "child": {
+                                        "data": "صدور اولیه رمز موبایل بانک",
+                                        "style": {
+                                          "type": "custom",
+                                          "color": "{{appColors.current.text.title}}",
+                                          "fontSize": 14.0,
+                                          "fontWeight": "w700",
+                                          "height": 1.5
+                                        },
+                                        "textAlign": "right",
+                                        "textDirection": "rtl",
+                                        "type": "text"
+                                      },
+                                      "type": "expanded"
+                                    }
+                                  ],
+                                  "type": "row"
+                                },
+                                "type": "padding"
+                              },
+                              "type": "container"
                             },
-                            "type": "text"
+                            "onTap": {
+                              "actionType": "closeDialog",
+                              "result": {
+                                "actionType": "showBottomSheet",
+                                "sheet": {
+                                  "decoration": {
+                                    "color": "{{appColors.current.background.surface}}",
+                                    "borderRadius": {
+                                      "topLeft": 18.0,
+                                      "topRight": 18.0
+                                    }
+                                  },
+                                  "child": {
+                                    "padding": {
+                                      "left": 16.0,
+                                      "top": 10.0,
+                                      "right": 16.0,
+                                      "bottom": 16.0
+                                    },
+                                    "child": {
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "stretch",
+                                      "children": [
+                                        {
+                                          "child": {
+                                            "decoration": {
+                                              "color": "{{appColors.current.input.borderEnabled}}",
+                                              "borderRadius": {
+                                                "topLeft": 999.0,
+                                                "topRight": 999.0,
+                                                "bottomLeft": 999.0,
+                                                "bottomRight": 999.0
+                                              }
+                                            },
+                                            "width": 46.0,
+                                            "height": 6.0,
+                                            "type": "container"
+                                          },
+                                          "type": "center"
+                                        },
+                                        {
+                                          "height": 20.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "mainAxisAlignment": "start",
+                                          "textDirection": "rtl",
+                                          "children": [
+                                            {
+                                              "src": "assets/icons/ic_info.svg",
+                                              "imageType": "asset",
+                                              "color": "{{appColors.current.text.title}}",
+                                              "width": 20.0,
+                                              "height": 20.0,
+                                              "type": "image"
+                                            },
+                                            {
+                                              "width": 8.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "data": "توجه",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "{{appColors.current.text.title}}",
+                                                "fontSize": 15.0,
+                                                "fontWeight": "w700"
+                                              },
+                                              "textDirection": "rtl",
+                                              "type": "text"
+                                            }
+                                          ],
+                                          "type": "row"
+                                        },
+                                        {
+                                          "height": 14.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "کاربر گرامی، جهت دریافت نام‌کاربری و رمزعبور، نیازمند فعال سازی سرویس می‌باشید",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 13.0,
+                                            "fontWeight": "w500",
+                                            "height": 1.7
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 22.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "onPressed": {
+                                            "actionType": "closeDialog",
+                                            "result": {
+                                              "actionType": "fingerPrint",
+                                              "title": "احراز هویت",
+                                              "description": "برای صدور اولیه رمز موبایل بانک احراز هویت کنید",
+                                              "onSuccess": {
+                                                "actionType": "customSnackBar",
+                                                "backgroundColor": "#00000000",
+                                                "duration": 10000,
+                                                "permanent": false,
+                                                "permenent": false,
+                                                "child": {
+                                                  "type": "container",
+                                                  "decoration": {
+                                                    "color": "{{appColors.current.background.surfaceContainer}}",
+                                                    "borderRadius": {
+                                                      "topLeft": 8,
+                                                      "topRight": 8,
+                                                      "bottomLeft": 8,
+                                                      "bottomRight": 8
+                                                    },
+                                                    "border": {
+                                                      "color": "{{appColors.current.input.borderEnabled}}",
+                                                      "width": 1
+                                                    }
+                                                  },
+                                                  "padding": {
+                                                    "left": 12,
+                                                    "top": 10,
+                                                    "right": 12,
+                                                    "bottom": 10
+                                                  },
+                                                  "child": {
+                                                    "type": "row",
+                                                    "textDirection": "ltr",
+                                                    "crossAxisAlignment": "center",
+                                                    "children": [
+                                                      {
+                                                        "type": "expanded",
+                                                        "child": {
+                                                          "type": "column",
+                                                          "mainAxisSize": "min",
+                                                          "crossAxisAlignment": "end",
+                                                          "children": [
+                                                            {
+                                                              "type": "text",
+                                                              "data": "درخواست شما با موفقیت ثبت شد!",
+                                                              "textDirection": "rtl",
+                                                              "textAlign": "right",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "fontSize": 14,
+                                                                "fontWeight": "w700",
+                                                                "color": "{{appColors.current.text.title}}",
+                                                                "height": 1.45
+                                                              }
+                                                            },
+                                                            {
+                                                              "type": "sizedBox",
+                                                              "height": 4
+                                                            },
+                                                            {
+                                                              "type": "text",
+                                                              "data": "مراتب از طریق پیامک به شما اطلاع داده خواهد شد.",
+                                                              "textDirection": "rtl",
+                                                              "textAlign": "right",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "fontSize": 13,
+                                                                "fontWeight": "w500",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "height": 1.45
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      },
+                                                      {
+                                                        "type": "sizedBox",
+                                                        "width": 10
+                                                      },
+                                                      {
+                                                        "type": "container",
+                                                        "width": 1,
+                                                        "height": 20,
+                                                        "decoration": {
+                                                          "color": "{{appColors.current.input.borderEnabled}}",
+                                                          "borderRadius": {
+                                                            "topLeft": 999,
+                                                            "topRight": 999,
+                                                            "bottomLeft": 999,
+                                                            "bottomRight": 999
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "type": "sizedBox",
+                                                        "width": 8
+                                                      },
+                                                      {
+                                                        "type": "image",
+                                                        "src": "assets/icons/ic_info.svg",
+                                                        "imageType": "asset",
+                                                        "width": 20,
+                                                        "height": 20,
+                                                        "color": "{{appColors.current.text.subtitle}}"
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              },
+                                              "onFailure": {
+                                                "actionType": "customSnackBar",
+                                                "backgroundColor": "#00000000",
+                                                "duration": 10000,
+                                                "permanent": false,
+                                                "permenent": false,
+                                                "child": {
+                                                  "type": "container",
+                                                  "decoration": {
+                                                    "color": "{{appColors.current.background.surfaceContainer}}",
+                                                    "borderRadius": {
+                                                      "topLeft": 8,
+                                                      "topRight": 8,
+                                                      "bottomLeft": 8,
+                                                      "bottomRight": 8
+                                                    },
+                                                    "border": {
+                                                      "color": "{{appColors.current.input.borderEnabled}}",
+                                                      "width": 1
+                                                    }
+                                                  },
+                                                  "padding": {
+                                                    "left": 12,
+                                                    "top": 10,
+                                                    "right": 12,
+                                                    "bottom": 10
+                                                  },
+                                                  "child": {
+                                                    "type": "row",
+                                                    "textDirection": "ltr",
+                                                    "crossAxisAlignment": "center",
+                                                    "children": [
+                                                      {
+                                                        "type": "expanded",
+                                                        "child": {
+                                                          "type": "column",
+                                                          "mainAxisSize": "min",
+                                                          "crossAxisAlignment": "end",
+                                                          "children": [
+                                                            {
+                                                              "type": "text",
+                                                              "data": "احراز هویت ناموفق بود.",
+                                                              "textDirection": "rtl",
+                                                              "textAlign": "right",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "fontSize": 14,
+                                                                "fontWeight": "w700",
+                                                                "color": "{{appColors.current.text.title}}",
+                                                                "height": 1.45
+                                                              }
+                                                            },
+                                                            {
+                                                              "type": "sizedBox",
+                                                              "height": 4
+                                                            },
+                                                            {
+                                                              "type": "text",
+                                                              "data": "احراز هویت ناموفق بود. عملیات \"صدور اولیه رمز موبایل بانک\" انجام نشد.",
+                                                              "textDirection": "rtl",
+                                                              "textAlign": "right",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "fontSize": 13,
+                                                                "fontWeight": "w500",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "height": 1.45
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      },
+                                                      {
+                                                        "type": "sizedBox",
+                                                        "width": 10
+                                                      },
+                                                      {
+                                                        "type": "container",
+                                                        "width": 1,
+                                                        "height": 20,
+                                                        "decoration": {
+                                                          "color": "{{appColors.current.input.borderEnabled}}",
+                                                          "borderRadius": {
+                                                            "topLeft": 999,
+                                                            "topRight": 999,
+                                                            "bottomLeft": 999,
+                                                            "bottomRight": 999
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "type": "sizedBox",
+                                                        "width": 8
+                                                      },
+                                                      {
+                                                        "type": "image",
+                                                        "src": "assets/icons/ic_info.svg",
+                                                        "imageType": "asset",
+                                                        "width": 20,
+                                                        "height": 20,
+                                                        "color": "{{appColors.current.text.subtitle}}"
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "style": {
+                                            "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+                                            "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                                            "padding": {
+                                              "top": 8.0,
+                                              "bottom": 8.0
+                                            },
+                                            "minimumSize": {
+                                              "width": 0.0,
+                                              "height": 56.0
+                                            },
+                                            "shape": {
+                                              "type": "roundedRectangleBorder",
+                                              "borderRadius": {
+                                                "topLeft": 8.0,
+                                                "topRight": 8.0,
+                                                "bottomLeft": 8.0,
+                                                "bottomRight": 8.0
+                                              }
+                                            }
+                                          },
+                                          "child": {
+                                            "data": "فعال‌سازی",
+                                            "style": {
+                                              "type": "custom",
+                                              "fontSize": 14.0,
+                                              "fontWeight": "w700"
+                                            },
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          },
+                                          "type": "filledButton"
+                                        }
+                                      ],
+                                      "type": "column"
+                                    },
+                                    "type": "padding"
+                                  },
+                                  "type": "container"
+                                },
+                                "backgroundColor": "#00000000"
+                              }
+                            },
+                            "type": "gestureDetector"
+                          },
+                          {
+                            "height": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "child": {
+                              "decoration": {
+                                "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                "border": {
+                                  "color": "{{appColors.current.input.borderEnabled}}",
+                                  "width": 1.0
+                                },
+                                "borderRadius": {
+                                  "topLeft": 14.0,
+                                  "topRight": 14.0,
+                                  "bottomLeft": 14.0,
+                                  "bottomRight": 14.0
+                                }
+                              },
+                              "child": {
+                                "padding": {
+                                  "left": 16.0,
+                                  "top": 8.0,
+                                  "right": 16.0,
+                                  "bottom": 8.0
+                                },
+                                "child": {
+                                  "crossAxisAlignment": "center",
+                                  "textDirection": "rtl",
+                                  "children": [
+                                    {
+                                      "decoration": {
+                                        "color": "{{appColors.current.background.surfaceContainer}}",
+                                        "shape": "circle"
+                                      },
+                                      "width": 44.0,
+                                      "height": 44.0,
+                                      "child": {
+                                        "child": {
+                                          "src": "assets/icons/ic_lock_retrieval.svg",
+                                          "imageType": "asset",
+                                          "width": 28.0,
+                                          "height": 28.0,
+                                          "type": "image"
+                                        },
+                                        "type": "center"
+                                      },
+                                      "type": "container"
+                                    },
+                                    {
+                                      "width": 12.0,
+                                      "type": "sizedBox"
+                                    },
+                                    {
+                                      "child": {
+                                        "data": "بازیابی رمز موبایل بانک",
+                                        "style": {
+                                          "type": "custom",
+                                          "color": "{{appColors.current.text.title}}",
+                                          "fontSize": 14.0,
+                                          "fontWeight": "w700",
+                                          "height": 1.5
+                                        },
+                                        "textAlign": "right",
+                                        "textDirection": "rtl",
+                                        "type": "text"
+                                      },
+                                      "type": "expanded"
+                                    }
+                                  ],
+                                  "type": "row"
+                                },
+                                "type": "padding"
+                              },
+                              "type": "container"
+                            },
+                            "onTap": {
+                              "actionType": "closeDialog",
+                              "result": {
+                                "actionType": "showBottomSheet",
+                                "sheet": {
+                                  "decoration": {
+                                    "color": "{{appColors.current.background.surface}}",
+                                    "borderRadius": {
+                                      "topLeft": 18.0,
+                                      "topRight": 18.0
+                                    }
+                                  },
+                                  "child": {
+                                    "padding": {
+                                      "left": 16.0,
+                                      "top": 10.0,
+                                      "right": 16.0,
+                                      "bottom": 16.0
+                                    },
+                                    "child": {
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "stretch",
+                                      "children": [
+                                        {
+                                          "child": {
+                                            "decoration": {
+                                              "color": "{{appColors.current.input.borderEnabled}}",
+                                              "borderRadius": {
+                                                "topLeft": 999.0,
+                                                "topRight": 999.0,
+                                                "bottomLeft": 999.0,
+                                                "bottomRight": 999.0
+                                              }
+                                            },
+                                            "width": 46.0,
+                                            "height": 6.0,
+                                            "type": "container"
+                                          },
+                                          "type": "center"
+                                        },
+                                        {
+                                          "height": 20.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "خدمات موبایل بانک",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w800"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 16.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "نام کاربری موبایل بانک",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w700"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 8.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "decoration": {
+                                            "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                            "border": {
+                                              "color": "{{appColors.current.input.borderEnabled}}",
+                                              "width": 1.0
+                                            },
+                                            "borderRadius": {
+                                              "topLeft": 12.0,
+                                              "topRight": 12.0,
+                                              "bottomLeft": 12.0,
+                                              "bottomRight": 12.0
+                                            }
+                                          },
+                                          "child": {
+                                            "type": "textFormField",
+                                            "id": "mobileBankRecoveryUsername",
+                                            "textDirection": "ltr",
+                                            "textAlign": "right",
+                                            "keyboardType": "number",
+                                            "decoration": {
+                                              "hintText": "نام کاربری موبایل بانک",
+                                              "hintStyle": {
+                                                "type": "custom",
+                                                "fontSize": 14,
+                                                "fontWeight": "w400",
+                                                "color": "{{appColors.current.text.hint}}"
+                                              },
+                                              "filled": false,
+                                              "contentPadding": {
+                                                "left": 16,
+                                                "right": 16,
+                                                "top": 20,
+                                                "bottom": 20
+                                              },
+                                              "border": {
+                                                "type": "none"
+                                              },
+                                              "enabledBorder": {
+                                                "type": "none"
+                                              },
+                                              "focusedBorder": {
+                                                "type": "none"
+                                              },
+                                              "errorBorder": {
+                                                "type": "none"
+                                              },
+                                              "focusedErrorBorder": {
+                                                "type": "none"
+                                              },
+                                              "disabledBorder": {
+                                                "type": "none"
+                                              },
+                                              "prefixIcon": {
+                                                "type": "padding",
+                                                "padding": {
+                                                  "left": 8,
+                                                  "right": 8,
+                                                  "top": 8,
+                                                  "bottom": 8
+                                                },
+                                                "child": {
+                                                  "type": "icon",
+                                                  "icon": "close",
+                                                  "size": 18,
+                                                  "color": "{{appColors.current.text.subtitle}}"
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "type": "container"
+                                        },
+                                        {
+                                          "height": 24.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "onPressed": {
+                                            "actionType": "closeDialog",
+                                            "result": {
+                                              "actionType": "fingerPrint",
+                                              "title": "احراز هویت",
+                                              "description": "برای بازیابی رمز موبایل بانک احراز هویت کنید",
+                                              "onSuccess": {
+                                                "actionType": "customSnackBar",
+                                                "backgroundColor": "#00000000",
+                                                "duration": 10000,
+                                                "permanent": false,
+                                                "permenent": false,
+                                                "child": {
+                                                  "type": "container",
+                                                  "decoration": {
+                                                    "color": "{{appColors.current.background.surfaceContainer}}",
+                                                    "borderRadius": {
+                                                      "topLeft": 8,
+                                                      "topRight": 8,
+                                                      "bottomLeft": 8,
+                                                      "bottomRight": 8
+                                                    },
+                                                    "border": {
+                                                      "color": "{{appColors.current.input.borderEnabled}}",
+                                                      "width": 1
+                                                    }
+                                                  },
+                                                  "padding": {
+                                                    "left": 12,
+                                                    "top": 10,
+                                                    "right": 12,
+                                                    "bottom": 10
+                                                  },
+                                                  "child": {
+                                                    "type": "row",
+                                                    "textDirection": "ltr",
+                                                    "crossAxisAlignment": "center",
+                                                    "children": [
+                                                      {
+                                                        "type": "expanded",
+                                                        "child": {
+                                                          "type": "column",
+                                                          "mainAxisSize": "min",
+                                                          "crossAxisAlignment": "end",
+                                                          "children": [
+                                                            {
+                                                              "type": "text",
+                                                              "data": "درخواست شما با موفقیت ثبت شد!",
+                                                              "textDirection": "rtl",
+                                                              "textAlign": "right",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "fontSize": 14,
+                                                                "fontWeight": "w700",
+                                                                "color": "{{appColors.current.text.title}}",
+                                                                "height": 1.45
+                                                              }
+                                                            },
+                                                            {
+                                                              "type": "sizedBox",
+                                                              "height": 4
+                                                            },
+                                                            {
+                                                              "type": "text",
+                                                              "data": "مراتب از طریق پیامک به شما اطلاع داده خواهد شد.",
+                                                              "textDirection": "rtl",
+                                                              "textAlign": "right",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "fontSize": 13,
+                                                                "fontWeight": "w500",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "height": 1.45
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      },
+                                                      {
+                                                        "type": "sizedBox",
+                                                        "width": 10
+                                                      },
+                                                      {
+                                                        "type": "container",
+                                                        "width": 1,
+                                                        "height": 20,
+                                                        "decoration": {
+                                                          "color": "{{appColors.current.input.borderEnabled}}",
+                                                          "borderRadius": {
+                                                            "topLeft": 999,
+                                                            "topRight": 999,
+                                                            "bottomLeft": 999,
+                                                            "bottomRight": 999
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "type": "sizedBox",
+                                                        "width": 8
+                                                      },
+                                                      {
+                                                        "type": "image",
+                                                        "src": "assets/icons/ic_info.svg",
+                                                        "imageType": "asset",
+                                                        "width": 20,
+                                                        "height": 20,
+                                                        "color": "{{appColors.current.text.subtitle}}"
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              },
+                                              "onFailure": {
+                                                "actionType": "customSnackBar",
+                                                "backgroundColor": "#00000000",
+                                                "duration": 10000,
+                                                "permanent": false,
+                                                "permenent": false,
+                                                "child": {
+                                                  "type": "container",
+                                                  "decoration": {
+                                                    "color": "{{appColors.current.background.surfaceContainer}}",
+                                                    "borderRadius": {
+                                                      "topLeft": 8,
+                                                      "topRight": 8,
+                                                      "bottomLeft": 8,
+                                                      "bottomRight": 8
+                                                    },
+                                                    "border": {
+                                                      "color": "{{appColors.current.input.borderEnabled}}",
+                                                      "width": 1
+                                                    }
+                                                  },
+                                                  "padding": {
+                                                    "left": 12,
+                                                    "top": 10,
+                                                    "right": 12,
+                                                    "bottom": 10
+                                                  },
+                                                  "child": {
+                                                    "type": "row",
+                                                    "textDirection": "ltr",
+                                                    "crossAxisAlignment": "center",
+                                                    "children": [
+                                                      {
+                                                        "type": "expanded",
+                                                        "child": {
+                                                          "type": "column",
+                                                          "mainAxisSize": "min",
+                                                          "crossAxisAlignment": "end",
+                                                          "children": [
+                                                            {
+                                                              "type": "text",
+                                                              "data": "احراز هویت ناموفق بود.",
+                                                              "textDirection": "rtl",
+                                                              "textAlign": "right",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "fontSize": 14,
+                                                                "fontWeight": "w700",
+                                                                "color": "{{appColors.current.text.title}}",
+                                                                "height": 1.45
+                                                              }
+                                                            },
+                                                            {
+                                                              "type": "sizedBox",
+                                                              "height": 4
+                                                            },
+                                                            {
+                                                              "type": "text",
+                                                              "data": "احراز هویت ناموفق بود. عملیات \"بازیابی رمز موبایل بانک\" انجام نشد.",
+                                                              "textDirection": "rtl",
+                                                              "textAlign": "right",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "fontSize": 13,
+                                                                "fontWeight": "w500",
+                                                                "color": "{{appColors.current.text.subtitle}}",
+                                                                "height": 1.45
+                                                              }
+                                                            }
+                                                          ]
+                                                        }
+                                                      },
+                                                      {
+                                                        "type": "sizedBox",
+                                                        "width": 10
+                                                      },
+                                                      {
+                                                        "type": "container",
+                                                        "width": 1,
+                                                        "height": 20,
+                                                        "decoration": {
+                                                          "color": "{{appColors.current.input.borderEnabled}}",
+                                                          "borderRadius": {
+                                                            "topLeft": 999,
+                                                            "topRight": 999,
+                                                            "bottomLeft": 999,
+                                                            "bottomRight": 999
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "type": "sizedBox",
+                                                        "width": 8
+                                                      },
+                                                      {
+                                                        "type": "image",
+                                                        "src": "assets/icons/ic_info.svg",
+                                                        "imageType": "asset",
+                                                        "width": 20,
+                                                        "height": 20,
+                                                        "color": "{{appColors.current.text.subtitle}}"
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "style": {
+                                            "foregroundColor": "#FFFFFF",
+                                            "backgroundColor": "#E31A2F",
+                                            "elevation": 0.0,
+                                            "minimumSize": {
+                                              "width": 0.0,
+                                              "height": 56.0
+                                            },
+                                            "shape": {
+                                              "type": "roundedRectangleBorder",
+                                              "borderRadius": {
+                                                "topLeft": 8.0,
+                                                "topRight": 8.0,
+                                                "bottomLeft": 8.0,
+                                                "bottomRight": 8.0
+                                              }
+                                            }
+                                          },
+                                          "child": {
+                                            "data": "تایید و بازیابی رمز موبایل بانک",
+                                            "style": {
+                                              "type": "custom",
+                                              "color": "#FFFFFF",
+                                              "fontSize": 16.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          },
+                                          "type": "filledButton"
+                                        }
+                                      ],
+                                      "type": "column"
+                                    },
+                                    "type": "padding"
+                                  },
+                                  "type": "container"
+                                },
+                                "backgroundColor": "#00000000"
+                              }
+                            },
+                            "type": "gestureDetector"
+                          },
+                          {
+                            "height": 8.0,
+                            "type": "sizedBox"
                           }
                         ],
                         "type": "column"
@@ -1157,36 +1145,39 @@
                     },
                     "type": "container"
                   },
-                  "type": "gestureDetector"
+                  "backgroundColor": "#00000000"
                 },
-                "type": "expanded"
+                "type": "gestureDetector"
               },
-              {
-                "width": 16,
-                "type": "sizedBox"
-              },
-              {
+              "type": "expanded"
+            },
+            {
+              "width": 16.0,
+              "type": "sizedBox"
+            },
+            {
+              "child": {
                 "child": {
-                  "height": 176,
                   "decoration": {
                     "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                    "borderRadius": {
-                      "topLeft": 16,
-                      "topRight": 16,
-                      "bottomLeft": 16,
-                      "bottomRight": 16
-                    },
                     "border": {
                       "color": "{{appColors.current.input.borderEnabled}}",
-                      "width": 1
+                      "width": 1.0
+                    },
+                    "borderRadius": {
+                      "topLeft": 16.0,
+                      "topRight": 16.0,
+                      "bottomLeft": 16.0,
+                      "bottomRight": 16.0
                     }
                   },
+                  "height": 176.0,
                   "child": {
                     "padding": {
-                      "left": 16,
-                      "top": 16,
-                      "right": 16,
-                      "bottom": 16
+                      "left": 16.0,
+                      "top": 16.0,
+                      "right": 16.0,
+                      "bottom": 16.0
                     },
                     "child": {
                       "mainAxisAlignment": "center",
@@ -1195,42 +1186,42 @@
                         {
                           "src": "assets/icons/ic_menu_internet.svg",
                           "imageType": "asset",
-                          "width": 32,
-                          "height": 32,
+                          "width": 32.0,
+                          "height": 32.0,
                           "type": "image"
                         },
                         {
-                          "height": 18,
+                          "height": 18.0,
                           "type": "sizedBox"
                         },
                         {
                           "data": "خدمات اینترنت بانک",
-                          "textDirection": "rtl",
-                          "textAlign": "center",
                           "style": {
                             "type": "custom",
-                            "fontSize": 14,
-                            "fontWeight": "w700",
                             "color": "{{appColors.current.text.title}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w700",
                             "height": 1.5
                           },
+                          "textAlign": "center",
+                          "textDirection": "rtl",
                           "type": "text"
                         },
                         {
-                          "height": 12,
+                          "height": 12.0,
                           "type": "sizedBox"
                         },
                         {
                           "data": "فعال سازی خدمات و صدور رمز",
-                          "textDirection": "rtl",
-                          "textAlign": "center",
                           "style": {
                             "type": "custom",
-                            "fontSize": 12,
-                            "fontWeight": "w500",
                             "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 12.0,
+                            "fontWeight": "w500",
                             "height": 1.65
                           },
+                          "textAlign": "center",
+                          "textDirection": "rtl",
                           "type": "text"
                         }
                       ],
@@ -1240,343 +1231,262 @@
                   },
                   "type": "container"
                 },
-                "type": "expanded"
-              }
-            ],
-            "type": "row"
-          },
-          {
-            "height": 16,
-            "type": "sizedBox"
-          },
-          {
-            "textDirection": "rtl",
-            "crossAxisAlignment": "start",
-            "children": [
-              {
-                "child": {
-                  "height": 176,
-                  "decoration": {
-                    "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                    "borderRadius": {
-                      "topLeft": 16,
-                      "topRight": 16,
-                      "bottomLeft": 16,
-                      "bottomRight": 16
-                    },
-                    "border": {
-                      "color": "{{appColors.current.input.borderEnabled}}",
-                      "width": 1
-                    }
-                  },
-                  "child": {
-                    "padding": {
-                      "left": 16,
-                      "top": 16,
-                      "right": 16,
-                      "bottom": 16
-                    },
-                    "child": {
-                      "mainAxisAlignment": "center",
-                      "crossAxisAlignment": "center",
-                      "children": [
-                        {
-                          "src": "assets/icons/ic_safe_box.svg",
-                          "imageType": "asset",
-                          "width": 32,
-                          "height": 32,
-                          "type": "image"
-                        },
-                        {
-                          "height": 18,
-                          "type": "sizedBox"
-                        },
-                        {
-                          "data": "صندوق امانات",
-                          "textDirection": "rtl",
-                          "textAlign": "center",
-                          "style": {
-                            "type": "custom",
-                            "fontSize": 14,
-                            "fontWeight": "w700",
-                            "color": "{{appColors.current.text.title}}",
-                            "height": 1.5
-                          },
-                          "type": "text"
-                        },
-                        {
-                          "height": 12,
-                          "type": "sizedBox"
-                        },
-                        {
-                          "data": "اجاره صندوق، رزرو زمان بازدید",
-                          "textDirection": "rtl",
-                          "textAlign": "center",
-                          "style": {
-                            "type": "custom",
-                            "fontSize": 12,
-                            "fontWeight": "w500",
-                            "color": "{{appColors.current.text.subtitle}}",
-                            "height": 1.65
-                          },
-                          "type": "text"
-                        }
-                      ],
-                      "type": "column"
-                    },
-                    "type": "padding"
-                  },
-                  "type": "container"
+                "onTap": {
+                  "routeName": "charge_intro",
+                  "navigationStyle": "push",
+                  "actionType": "navigate"
                 },
-                "type": "expanded"
+                "type": "gestureDetector"
               },
-              {
-                "width": 16,
-                "type": "sizedBox"
-              },
-              {
-                "child": {
-                  "height": 176,
-                  "decoration": {
-                    "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                    "borderRadius": {
-                      "topLeft": 16,
-                      "topRight": 16,
-                      "bottomLeft": 16,
-                      "bottomRight": 16
-                    },
-                    "border": {
-                      "color": "{{appColors.current.input.borderEnabled}}",
-                      "width": 1
-                    }
+              "type": "expanded"
+            }
+          ],
+          "type": "row"
+        },
+        {
+          "height": 16.0,
+          "type": "sizedBox"
+        },
+        {
+          "crossAxisAlignment": "start",
+          "textDirection": "rtl",
+          "children": [
+            {
+              "child": {
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1.0
                   },
-                  "child": {
-                    "padding": {
-                      "left": 16,
-                      "top": 16,
-                      "right": 16,
-                      "bottom": 16
-                    },
-                    "child": {
-                      "mainAxisAlignment": "center",
-                      "crossAxisAlignment": "center",
-                      "children": [
-                        {
-                          "src": "assets/icons/ic_military_guarantee.svg",
-                          "imageType": "asset",
-                          "width": 32,
-                          "height": 32,
-                          "type": "image"
-                        },
-                        {
-                          "height": 18,
-                          "type": "sizedBox"
-                        },
-                        {
-                          "data": "ضمانت نامه نظام وظیفه",
-                          "textDirection": "rtl",
-                          "textAlign": "center",
-                          "style": {
-                            "type": "custom",
-                            "fontSize": 14,
-                            "fontWeight": "w700",
-                            "color": "{{appColors.current.text.title}}",
-                            "height": 1.5
-                          },
-                          "type": "text"
-                        },
-                        {
-                          "height": 12,
-                          "type": "sizedBox"
-                        },
-                        {
-                          "data": "ثبت ضمانتنامه",
-                          "textDirection": "rtl",
-                          "textAlign": "center",
-                          "style": {
-                            "type": "custom",
-                            "fontSize": 12,
-                            "fontWeight": "w500",
-                            "color": "{{appColors.current.text.subtitle}}",
-                            "height": 1.65
-                          },
-                          "type": "text"
-                        }
-                      ],
-                      "type": "column"
-                    },
-                    "type": "padding"
-                  },
-                  "type": "container"
+                  "borderRadius": {
+                    "topLeft": 16.0,
+                    "topRight": 16.0,
+                    "bottomLeft": 16.0,
+                    "bottomRight": 16.0
+                  }
                 },
-                "type": "expanded"
-              }
-            ],
-            "type": "row"
-          },
-          {
-            "height": 16,
-            "type": "sizedBox"
-          },
-          {
-            "textDirection": "rtl",
-            "crossAxisAlignment": "start",
-            "children": [
-              {
+                "height": 176.0,
                 "child": {
-                  "onTap": {
-                    "routeName": "promissory_real_intro",
-                    "navigationStyle": "push",
-                    "actionType": "navigate"
+                  "padding": {
+                    "left": 16.0,
+                    "top": 16.0,
+                    "right": 16.0,
+                    "bottom": 16.0
                   },
                   "child": {
-                    "height": 176,
-                    "decoration": {
-                      "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                      "borderRadius": {
-                        "topLeft": 16,
-                        "topRight": 16,
-                        "bottomLeft": 16,
-                        "bottomRight": 16
+                    "mainAxisAlignment": "center",
+                    "crossAxisAlignment": "center",
+                    "children": [
+                      {
+                        "src": "assets/icons/ic_safe_box.svg",
+                        "imageType": "asset",
+                        "width": 32.0,
+                        "height": 32.0,
+                        "type": "image"
                       },
-                      "border": {
-                        "color": "{{appColors.current.input.borderEnabled}}",
-                        "width": 1
+                      {
+                        "height": 18.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "data": "صندوق امانات",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w700",
+                          "height": 1.5
+                        },
+                        "textAlign": "center",
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "height": 12.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "data": "اجاره صندوق، رزرو زمان بازدید",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.subtitle}}",
+                          "fontSize": 12.0,
+                          "fontWeight": "w500",
+                          "height": 1.65
+                        },
+                        "textAlign": "center",
+                        "textDirection": "rtl",
+                        "type": "text"
                       }
-                    },
-                    "child": {
-                      "padding": {
-                        "left": 16,
-                        "top": 16,
-                        "right": 16,
-                        "bottom": 16
-                      },
-                      "child": {
-                        "mainAxisAlignment": "center",
-                        "crossAxisAlignment": "center",
-                        "children": [
-                          {
-                            "src": "assets/icons/ic_promissory.svg",
-                            "imageType": "asset",
-                            "width": 32,
-                            "height": 32,
-                            "type": "image"
-                          },
-                          {
-                            "height": 18,
-                            "type": "sizedBox"
-                          },
-                          {
-                            "data": "سفته آنلاین",
-                            "textDirection": "rtl",
-                            "textAlign": "center",
-                            "style": {
-                              "type": "custom",
-                              "fontSize": 14,
-                              "fontWeight": "w700",
-                              "color": "{{appColors.current.text.title}}",
-                              "height": 1.5
-                            },
-                            "type": "text"
-                          },
-                          {
-                            "height": 12,
-                            "type": "sizedBox"
-                          },
-                          {
-                            "data": "صدور و خدمات",
-                            "textDirection": "rtl",
-                            "textAlign": "center",
-                            "style": {
-                              "type": "custom",
-                              "fontSize": 12,
-                              "fontWeight": "w500",
-                              "color": "{{appColors.current.text.subtitle}}",
-                              "height": 1.65
-                            },
-                            "type": "text"
-                          }
-                        ],
-                        "type": "column"
-                      },
-                      "type": "padding"
-                    },
-                    "type": "container"
+                    ],
+                    "type": "column"
                   },
-                  "type": "gestureDetector"
+                  "type": "padding"
                 },
-                "type": "expanded"
+                "type": "container"
               },
-              {
-                "width": 16,
-                "type": "sizedBox"
-              },
-              {
+              "type": "expanded"
+            },
+            {
+              "width": 16.0,
+              "type": "sizedBox"
+            },
+            {
+              "child": {
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1.0
+                  },
+                  "borderRadius": {
+                    "topLeft": 16.0,
+                    "topRight": 16.0,
+                    "bottomLeft": 16.0,
+                    "bottomRight": 16.0
+                  }
+                },
+                "height": 176.0,
                 "child": {
-                  "height": 176,
-                  "decoration": {
-                    "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                    "borderRadius": {
-                      "topLeft": 16,
-                      "topRight": 16,
-                      "bottomLeft": 16,
-                      "bottomRight": 16
-                    },
-                    "border": {
-                      "color": "{{appColors.current.input.borderEnabled}}",
-                      "width": 1
-                    }
+                  "padding": {
+                    "left": 16.0,
+                    "top": 16.0,
+                    "right": 16.0,
+                    "bottom": 16.0
                   },
                   "child": {
+                    "mainAxisAlignment": "center",
+                    "crossAxisAlignment": "center",
+                    "children": [
+                      {
+                        "src": "assets/icons/ic_military_guarantee.svg",
+                        "imageType": "asset",
+                        "width": 32.0,
+                        "height": 32.0,
+                        "type": "image"
+                      },
+                      {
+                        "height": 18.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "data": "ضمانت نامه نظام وظیفه",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w700",
+                          "height": 1.5
+                        },
+                        "textAlign": "center",
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "height": 12.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "data": "ثبت ضمانتنامه",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.subtitle}}",
+                          "fontSize": 12.0,
+                          "fontWeight": "w500",
+                          "height": 1.65
+                        },
+                        "textAlign": "center",
+                        "textDirection": "rtl",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "column"
+                  },
+                  "type": "padding"
+                },
+                "type": "container"
+              },
+              "type": "expanded"
+            }
+          ],
+          "type": "row"
+        },
+        {
+          "height": 16.0,
+          "type": "sizedBox"
+        },
+        {
+          "crossAxisAlignment": "start",
+          "textDirection": "rtl",
+          "children": [
+            {
+              "child": {
+                "child": {
+                  "decoration": {
+                    "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                    "border": {
+                      "color": "{{appColors.current.input.borderEnabled}}",
+                      "width": 1.0
+                    },
+                    "borderRadius": {
+                      "topLeft": 16.0,
+                      "topRight": 16.0,
+                      "bottomLeft": 16.0,
+                      "bottomRight": 16.0
+                    }
+                  },
+                  "height": 176.0,
+                  "child": {
                     "padding": {
-                      "left": 16,
-                      "top": 16,
-                      "right": 16,
-                      "bottom": 16
+                      "left": 16.0,
+                      "top": 16.0,
+                      "right": 16.0,
+                      "bottom": 16.0
                     },
                     "child": {
                       "mainAxisAlignment": "center",
                       "crossAxisAlignment": "center",
                       "children": [
                         {
-                          "src": "assets/icons/ic_cbs_search.svg",
+                          "src": "assets/icons/ic_promissory.svg",
                           "imageType": "asset",
-                          "width": 32,
-                          "height": 32,
+                          "width": 32.0,
+                          "height": 32.0,
                           "type": "image"
                         },
                         {
-                          "height": 18,
+                          "height": 18.0,
                           "type": "sizedBox"
                         },
                         {
-                          "data": "اعتبارسنجی",
-                          "textDirection": "rtl",
-                          "textAlign": "center",
+                          "data": "سفته آنلاین",
                           "style": {
                             "type": "custom",
-                            "fontSize": 14,
-                            "fontWeight": "w700",
                             "color": "{{appColors.current.text.title}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w700",
                             "height": 1.5
                           },
+                          "textAlign": "center",
+                          "textDirection": "rtl",
                           "type": "text"
                         },
                         {
-                          "height": 12,
+                          "height": 12.0,
                           "type": "sizedBox"
                         },
                         {
-                          "data": "اعتبارسنجی خود و سایرین",
-                          "textDirection": "rtl",
-                          "textAlign": "center",
+                          "data": "صدور و خدمات",
                           "style": {
                             "type": "custom",
-                            "fontSize": 12,
-                            "fontWeight": "w500",
                             "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 12.0,
+                            "fontWeight": "w500",
                             "height": 1.65
                           },
+                          "textAlign": "center",
+                          "textDirection": "rtl",
                           "type": "text"
                         }
                       ],
@@ -1586,18 +1496,103 @@
                   },
                   "type": "container"
                 },
-                "type": "expanded"
-              }
-            ],
-            "type": "row"
-          }
-        ],
-        "type": "column"
-      },
-      "type": "singleChildScrollView"
+                "onTap": {
+                  "routeName": "promissory_intro",
+                  "navigationStyle": "push",
+                  "actionType": "navigate"
+                },
+                "type": "gestureDetector"
+              },
+              "type": "expanded"
+            },
+            {
+              "width": 16.0,
+              "type": "sizedBox"
+            },
+            {
+              "child": {
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1.0
+                  },
+                  "borderRadius": {
+                    "topLeft": 16.0,
+                    "topRight": 16.0,
+                    "bottomLeft": 16.0,
+                    "bottomRight": 16.0
+                  }
+                },
+                "height": 176.0,
+                "child": {
+                  "padding": {
+                    "left": 16.0,
+                    "top": 16.0,
+                    "right": 16.0,
+                    "bottom": 16.0
+                  },
+                  "child": {
+                    "mainAxisAlignment": "center",
+                    "crossAxisAlignment": "center",
+                    "children": [
+                      {
+                        "src": "assets/icons/ic_cbs_search.svg",
+                        "imageType": "asset",
+                        "width": 32.0,
+                        "height": 32.0,
+                        "type": "image"
+                      },
+                      {
+                        "height": 18.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "data": "اعتبارسنجی",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w700",
+                          "height": 1.5
+                        },
+                        "textAlign": "center",
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "height": 12.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "data": "اعتبارسنجی خود و سایرین",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.subtitle}}",
+                          "fontSize": 12.0,
+                          "fontWeight": "w500",
+                          "height": 1.65
+                        },
+                        "textAlign": "center",
+                        "textDirection": "rtl",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "column"
+                  },
+                  "type": "padding"
+                },
+                "type": "container"
+              },
+              "type": "expanded"
+            }
+          ],
+          "type": "row"
+        }
+      ],
+      "type": "column"
     },
-    "type": "padding"
+    "type": "singleChildScrollView"
   },
   "type": "scaffold"
 }
-

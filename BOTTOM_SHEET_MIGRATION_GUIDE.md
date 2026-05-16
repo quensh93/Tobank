@@ -5,14 +5,14 @@ This guide explains exactly how to convert a screen that uses a dedicated custom
 ## What was changed in the reference case
 
 Reference file:
-- `lib/stac/tobank/flows/gift_card_real/dart/gift_card_real_intro.dart`
+- `lib/stac/tobank/flows/gift_card/dart/gift_card_intro.dart`
 
 ### 1) Replace button action usage
 Before:
 ```dart
 onPressed: const StacShowGiftCardPurchaseBottomSheetAction(
   continueAction: StacNavigateAction(
-    routeName: 'gift_card_real_select_amount',
+    routeName: 'gift_card_select_amount',
     navigationStyle: NavigationStyle.push,
   ),
 ),

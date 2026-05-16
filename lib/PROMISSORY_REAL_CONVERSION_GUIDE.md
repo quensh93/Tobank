@@ -1,8 +1,8 @@
-# راهنمای تبدیل فایل‌های promissory_real به نسخه آماده ساخت (Single-Import & Inline)
+# راهنمای تبدیل فایل‌های promissory به نسخه آماده ساخت (Single-Import & Inline)
 
 این سند دستورالعمل دقیقی برای تبدیل فایل‌های دایرکتوری زیر به فرمت «آماده ساخت» ارائه می‌دهد:
 
-- منبع: `/lib/stac/tobank/flows/promissory_real/dart`
+- منبع: `/lib/stac/tobank/flows/promissory_old/dart`
 - مقصد: `/lib/stac/ready_for_build`
 - مرجع الگو: `/lib/stac/ready_for_build_stable`
 

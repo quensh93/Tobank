@@ -212,7 +212,7 @@ Use this as the implementation checklist for the next AI agent.
 
 - [x] Add a new Tobank menu item in `lib/stac/tobank/menu/dart/tobank_menu.dart`, next to the existing real-flow buttons such as promissory, verify identity, and dashboard.
 - [x] The new menu item should use `_buildSingleButtonMenuItemCard(...)` and navigate to a new widget route such as `biometric_test_menu`.
-- [x] Register the new test widget route in `lib/core/stac/services/widget/stac_widget_loader.dart`, following the same pattern as `verify_identity_real_menu`, `promissory_real_menu`, and `dashboard_real_menu`.
+- [x] Register the new test widget route in `lib/core/stac/services/widget/stac_widget_loader.dart`, following the same pattern as `verify_identity_menu`, `promissory_menu`, and `dashboard_menu`.
 - [x] The test route should open a dedicated SDUI biometric test screen, not production UX.
 
 ### Logging and verification

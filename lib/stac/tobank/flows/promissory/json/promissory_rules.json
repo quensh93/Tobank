@@ -2,29 +2,39 @@
   "type": "stateFull",
   "onInit": {
     "actionType": "setValue",
-    "key": "isRulesAccepted",
-    "value": false
+    "values": [
+      {
+        "key": "isRulesAccepted",
+        "value": false
+      },
+      {
+        "key": "isSanaLoading",
+        "value": false
+      }
+    ]
   },
   "child": {
     "appBar": {
       "leading": {
-        "onPressed": {
-          "navigationStyle": "pop",
-          "actionType": "navigate"
+        "padding": {
+          "left": 12.0
         },
-        "icon": {
-          "src": "{{appAssets.icons.arrowBack}}",
-          "imageType": "asset",
-          "color": "{{appColors.current.text.title}}",
-          "width": 31.0,
-          "height": 31.0,
-          "type": "image"
+        "child": {
+          "child": {
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24.0,
+            "height": 24.0,
+            "type": "image"
+          },
+          "type": "center"
         },
-        "type": "iconButton"
+        "type": "padding"
       },
       "automaticallyImplyLeading": true,
       "title": {
-        "data": "{{appStrings.promissory.rulesTitle}}",
+        "data": "{{appStrings.promissory.requestPromissory}}",
         "style": {
           "type": "alias",
           "value": "{{appStyles.appbarStyle}}"
@@ -32,6 +42,29 @@
         "textDirection": "rtl",
         "type": "text"
       },
+      "actions": [
+        {
+          "padding": {
+            "right": 12.0
+          },
+          "child": {
+            "onPressed": {
+              "navigationStyle": "pop",
+              "actionType": "navigate"
+            },
+            "icon": {
+              "src": "{{appAssets.icons.arrowBack}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 31.0,
+              "height": 31.0,
+              "type": "image"
+            },
+            "type": "iconButton"
+          },
+          "type": "padding"
+        }
+      ],
       "centerTitle": true,
       "type": "appBar"
     },
@@ -99,7 +132,7 @@
                         "bottom": 16.0
                       },
                       "child": {
-                        "data": "{{appStrings.promissory.rulesContent}}",
+                        "data": "{{appStrings.promissory.rulesContentPromissory}}",
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
@@ -124,41 +157,59 @@
           "type": "expanded"
         },
         {
-          "height": 24.0,
+          "height": 20.0,
           "type": "sizedBox"
         },
         {
           "padding": {
             "left": 16.0,
-            "right": 16.0
+            "top": 4.0,
+            "right": 16.0,
+            "bottom": 4.0
           },
           "child": {
             "padding": {
-              "top": 8.0,
-              "bottom": 8.0
+              "top": 16.0,
+              "bottom": 16.0
             },
-            "color": "transparent",
+            "decoration": {
+              "color": "{{appColors.current.background.surfaceContainer}}",
+              "border": {
+                "color": "{{appColors.current.input.borderEnabled}}",
+                "width": 1.0
+              },
+              "borderRadius": {
+                "topLeft": 8.0,
+                "topRight": 8.0,
+                "bottomLeft": 8.0,
+                "bottomRight": 8.0
+              }
+            },
             "child": {
               "crossAxisAlignment": "center",
               "textDirection": "rtl",
               "children": [
                 {
+                  "width": 8.0,
+                  "type": "sizedBox"
+                },
+                {
                   "child": {
                     "decoration": {
-                      "color": "{{isRulesAccepted ? appColors.current.primary.color : \"transparent\"}}",
+                      "color": "{{isRulesAccepted ? appColors.current.secondary.color : \"transparent\"}}",
                       "border": {
-                        "color": "{{isRulesAccepted ? appColors.current.primary.color : appColors.current.text.subtitle}}",
+                        "color": "{{isRulesAccepted ? appColors.current.secondary.color : appColors.current.text.subtitle}}",
                         "width": 2.0
                       },
                       "borderRadius": {
-                        "topLeft": 6.0,
-                        "topRight": 6.0,
-                        "bottomLeft": 6.0,
-                        "bottomRight": 6.0
+                        "topLeft": 3.0,
+                        "topRight": 3.0,
+                        "bottomLeft": 3.0,
+                        "bottomRight": 3.0
                       }
                     },
-                    "width": 24.0,
-                    "height": 24.0,
+                    "width": 21.0,
+                    "height": 21.0,
                     "child": {
                       "child": {
                         "type": "opacity",
@@ -166,8 +217,8 @@
                         "child": {
                           "src": "assets/icons/ic_check.svg",
                           "color": "#FFFFFF",
-                          "width": 16.0,
-                          "height": 16.0,
+                          "width": 19.0,
+                          "height": 19.0,
                           "type": "image"
                         }
                       },
@@ -228,10 +279,283 @@
           "child": {
             "type": "reactiveElevatedButton",
             "enabledKey": "isRulesAccepted",
+            "loadingKey": "isSanaLoading",
             "onPressed": {
-              "actionType": "navigate",
-              "widgetType": "request_promissory_deposit",
-              "navigationStyle": "push"
+              "actionType": "sequence",
+              "actions": [
+                {
+                  "actionType": "setValue",
+                  "key": "isSanaLoading",
+                  "value": true
+                },
+                {
+                  "actionType": "networkRequest",
+                  "url": "http://192.168.107.22:8280/api/digitalbanking/governance/v1.0/sana/__STAC_OPEN__userData.nationalCode}}/1",
+                  "method": "get",
+                  "headers": {
+                    "accept": "application/json",
+                    "authorization": "__STAC_OPEN__auth.accessToken}}"
+                  },
+                  "results": [
+                    {
+                      "statusCode": 200,
+                      "action": {
+                        "actionType": "sequence",
+                        "actions": [
+                          {
+                            "actionType": "setValue",
+                            "key": "isSanaLoading",
+                            "value": false
+                          },
+                          {
+                            "routeName": "promissory_issuer",
+                            "navigationStyle": "push",
+                            "actionType": "navigate"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "statusCode": 500,
+                      "action": {
+                        "actionType": "sequence",
+                        "actions": [
+                          {
+                            "actionType": "setValue",
+                            "key": "isSanaLoading",
+                            "value": false
+                          },
+                          {
+                            "actionType": "customSnackBar",
+                            "backgroundColor": "#00000000",
+                            "duration": 4000,
+                            "permanent": false,
+                            "permenent": false,
+                            "child": {
+                              "type": "container",
+                              "decoration": {
+                                "color": "__STAC_OPEN__appColors.current.background.surfaceContainer}}",
+                                "borderRadius": {
+                                  "topLeft": 8,
+                                  "topRight": 8,
+                                  "bottomLeft": 8,
+                                  "bottomRight": 8
+                                },
+                                "border": {
+                                  "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                  "width": 1
+                                }
+                              },
+                              "padding": {
+                                "left": 12,
+                                "top": 10,
+                                "right": 12,
+                                "bottom": 10
+                              },
+                              "child": {
+                                "type": "row",
+                                "textDirection": "ltr",
+                                "crossAxisAlignment": "center",
+                                "children": [
+                                  {
+                                    "type": "expanded",
+                                    "child": {
+                                      "type": "column",
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "end",
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "data": "خطا",
+                                          "textDirection": "rtl",
+                                          "textAlign": "right",
+                                          "style": {
+                                            "type": "custom",
+                                            "fontSize": 14,
+                                            "fontWeight": "w700",
+                                            "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                            "height": 1.45
+                                          }
+                                        },
+                                        {
+                                          "type": "sizedBox",
+                                          "height": 4
+                                        },
+                                        {
+                                          "type": "text",
+                                          "data": "__STAC_OPEN__appStrings.promissory.serverConnectionError}}",
+                                          "textDirection": "rtl",
+                                          "textAlign": "right",
+                                          "style": {
+                                            "type": "custom",
+                                            "fontSize": 13,
+                                            "fontWeight": "w500",
+                                            "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                            "height": 1.45
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "type": "sizedBox",
+                                    "width": 10
+                                  },
+                                  {
+                                    "type": "container",
+                                    "width": 1,
+                                    "height": 20,
+                                    "decoration": {
+                                      "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                      "borderRadius": {
+                                        "topLeft": 999,
+                                        "topRight": 999,
+                                        "bottomLeft": 999,
+                                        "bottomRight": 999
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "sizedBox",
+                                    "width": 8
+                                  },
+                                  {
+                                    "type": "image",
+                                    "src": "assets/icons/ic_info.svg",
+                                    "imageType": "asset",
+                                    "width": 20,
+                                    "height": 20,
+                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}"
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "statusCode": -1,
+                      "action": {
+                        "actionType": "sequence",
+                        "actions": [
+                          {
+                            "actionType": "setValue",
+                            "key": "isSanaLoading",
+                            "value": false
+                          },
+                          {
+                            "actionType": "customSnackBar",
+                            "backgroundColor": "#00000000",
+                            "duration": 4000,
+                            "permanent": false,
+                            "permenent": false,
+                            "child": {
+                              "type": "container",
+                              "decoration": {
+                                "color": "__STAC_OPEN__appColors.current.background.surfaceContainer}}",
+                                "borderRadius": {
+                                  "topLeft": 8,
+                                  "topRight": 8,
+                                  "bottomLeft": 8,
+                                  "bottomRight": 8
+                                },
+                                "border": {
+                                  "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                  "width": 1
+                                }
+                              },
+                              "padding": {
+                                "left": 12,
+                                "top": 10,
+                                "right": 12,
+                                "bottom": 10
+                              },
+                              "child": {
+                                "type": "row",
+                                "textDirection": "ltr",
+                                "crossAxisAlignment": "center",
+                                "children": [
+                                  {
+                                    "type": "expanded",
+                                    "child": {
+                                      "type": "column",
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "end",
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "data": "خطا",
+                                          "textDirection": "rtl",
+                                          "textAlign": "right",
+                                          "style": {
+                                            "type": "custom",
+                                            "fontSize": 14,
+                                            "fontWeight": "w700",
+                                            "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                            "height": 1.45
+                                          }
+                                        },
+                                        {
+                                          "type": "sizedBox",
+                                          "height": 4
+                                        },
+                                        {
+                                          "type": "text",
+                                          "data": "__STAC_OPEN__data.status.message.0}}",
+                                          "textDirection": "rtl",
+                                          "textAlign": "right",
+                                          "style": {
+                                            "type": "custom",
+                                            "fontSize": 13,
+                                            "fontWeight": "w500",
+                                            "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                            "height": 1.45
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "type": "sizedBox",
+                                    "width": 10
+                                  },
+                                  {
+                                    "type": "container",
+                                    "width": 1,
+                                    "height": 20,
+                                    "decoration": {
+                                      "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                      "borderRadius": {
+                                        "topLeft": 999,
+                                        "topRight": 999,
+                                        "bottomLeft": 999,
+                                        "bottomRight": 999
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "sizedBox",
+                                    "width": 8
+                                  },
+                                  {
+                                    "type": "image",
+                                    "src": "assets/icons/ic_info.svg",
+                                    "imageType": "asset",
+                                    "width": 20,
+                                    "height": 20,
+                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}"
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
             },
             "style": {
               "backgroundColor": "{{appColors.current.primary.color}}",

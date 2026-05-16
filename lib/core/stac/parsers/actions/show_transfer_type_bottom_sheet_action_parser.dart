@@ -305,7 +305,7 @@ class ShowTransferTypeBottomSheetActionParser
 
     await Stac.onCallFromJson(const {
       'actionType': 'navigate',
-      'routeName': 'transfer_real_confirm',
+      'routeName': 'transfer_confirm',
       'navigationStyle': 'push',
     }, context);
   }

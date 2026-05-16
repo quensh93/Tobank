@@ -167,7 +167,7 @@ Use `routeName` with the screen name defined in `@StacScreen(screenName: '...')`
 
 ```dart
 onTap: StacNavigateAction(
-  routeName: 'promissory_real_rules',
+  routeName: 'promissory_rules',
   navigationStyle: NavigationStyle.push,
 ),
 ```
@@ -178,7 +178,7 @@ When navigation intentionally targets an asset JSON file, use typed `assetPath`:
 
 ```dart
 onPressed: StacNavigateAction(
-  assetPath: 'lib/stac/tobank/flows/promissory_real/json/promissory_real_payment.json',
+  assetPath: 'lib/stac/tobank/flows/promissory_old/json/promissory_payment.json',
   navigationStyle: NavigationStyle.push,
 ),
 ```
@@ -189,7 +189,7 @@ If you are inside a map/list that expects JSON values, still use typed STAC and 
 
 ```dart
 'onPressed': StacNavigateAction(
-  routeName: 'promissory_real_sign',
+  routeName: 'promissory_sign',
   navigationStyle: NavigationStyle.pushReplacement,
 ).toJson(),
 ```

@@ -1,4 +1,4 @@
-﻿{
+{
   "backgroundColor": "{{appColors.current.background.surface}}",
   "body": {
     "child": {

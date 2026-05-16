@@ -1,7 +1,7 @@
 # ReactiveElevatedButton Premature Template Resolution Fix
 
 ## Summary
-In `promissory_real_payment_deposits_screen.dart`, the draft API request uses:
+In `promissory_payment_deposits_screen.dart`, the draft API request uses:
 
 - `{{selectedDeposit.depositNumber}}`
 - `{{selectedDeposit.depositIban}}`

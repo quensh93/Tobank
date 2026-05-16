@@ -1,0 +1,54 @@
+{
+  "type": "onMountAction",
+  "delay": 5000,
+  "action": {
+    "routeName": "login_onboarding",
+    "navigationStyle": "pushReplacement",
+    "actionType": "navigate"
+  },
+  "child": {
+    "backgroundColor": "{{appColors.current.background.surface}}",
+    "body": {
+      "child": {
+        "decoration": {
+          "borderRadius": {
+            "topLeft": 24.0,
+            "topRight": 24.0,
+            "bottomLeft": 24.0,
+            "bottomRight": 24.0
+          },
+          "boxShadow": [
+            {
+              "color": "#1A000000",
+              "blurRadius": 90.0,
+              "offset": {
+                "dx": 0.0,
+                "dy": 4.0
+              }
+            }
+          ]
+        },
+        "child": {
+          "borderRadius": {
+            "topLeft": 24.0,
+            "topRight": 24.0,
+            "bottomLeft": 24.0,
+            "bottomRight": 24.0
+          },
+          "child": {
+            "src": "assets/icons/ic_tobank_logo.svg",
+            "imageType": "asset",
+            "width": 150.0,
+            "height": 150.0,
+            "fit": "contain",
+            "type": "image"
+          },
+          "type": "clipRRect"
+        },
+        "type": "container"
+      },
+      "type": "center"
+    },
+    "type": "scaffold"
+  }
+}

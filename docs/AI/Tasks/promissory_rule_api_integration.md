@@ -16,15 +16,15 @@ Update the Promissory Intro screen to navigate to the Promissory Rule screen usi
 
 ## Flow Overview (Real API Integration)
 
-### 1. Intro Screen (`promissory_real_intro`)
-- **Widget Type**: `promissory_real_intro`
+### 1. Intro Screen (`promissory_intro`)
+- **Widget Type**: `promissory_intro`
 - **Description**: The entry point for the real promissory flow.
 - **Action**: Navigates to the Login flow.
 
-### 2. Login Flow (`promissory_real_login_form`)
-- **Widget Type**: `promissory_real_login_form` (Dynamic Widget)
-- **Dart File**: `lib/stac/tobank/flows/promissory_real/dart/promissory_real_screen.dart`
-- **Auth Service**: `lib/stac/tobank/flows/promissory_real/dart/promissory_real_auth_service.dart`
+### 2. Login Flow (`promissory_login_form`)
+- **Widget Type**: `promissory_login_form` (Dynamic Widget)
+- **Dart File**: `lib/stac/tobank/flows/promissory_old/dart/promissory_screen.dart`
+- **Auth Service**: `lib/stac/tobank/flows/promissory_old/dart/promissory_auth_service.dart`
 - **Action**: 
     - User enters National ID, Mobile, etc.
     - Submit calls `PromissoryRealAuthService.login`.
@@ -32,19 +32,19 @@ Update the Promissory Intro screen to navigate to the Promissory Rule screen usi
     - On success (200 + Token), navigates to Rules screen.
 
 ### 3. Rules Screen (`promissory_rules`)
-- **API Endpoint**: `https://api.tobank.com/flows/promissory/promissory_rules` (Mapped to local JSON via interceptor for now, or real API if configured).
-- **File**: `lib/stac/tobank/flows/promissory/api/GET_promissory_rules.json`
-- **Action**: User accepts rules -> Navigates to Deposits screen (`promissory_real_deposits`).
+- **API Endpoint**: `https://api.tobank.com/flows/promissory_old/promissory_rules` (Mapped to local JSON via interceptor for now, or real API if configured).
+- **File**: `lib/stac/tobank/flows/promissory_old/api/GET_promissory_rules.json`
+- **Action**: User accepts rules -> Navigates to Deposits screen (`promissory_deposits`).
 
-### 4. Deposits Screen (`promissory_real_deposits`)
-- **Widget Type**: `promissory_real_deposits`
-- **Dart File**: `lib/stac/tobank/flows/promissory_real/dart/promissory_real_deposits_screen.dart`
-- **Service**: `lib/stac/tobank/flows/promissory_real/dart/promissory_real_service.dart`
+### 4. Deposits Screen (`promissory_deposits`)
+- **Widget Type**: `promissory_deposits`
+- **Dart File**: `lib/stac/tobank/flows/promissory_old/dart/promissory_deposits_screen.dart`
+- **Service**: `lib/stac/tobank/flows/promissory_old/dart/promissory_service.dart`
 - **Action**:
     - `PromissoryRealService.getDeposits` is called on init.
     - API: `GET http://192.168.107.22:8280/api/digitalbanking/deposits/v1.0/customer/{customerId}`
     - response is mapped to UI model.
-    - `requestPromissoryDepositPage` (in `promissory_real_deposits_screen.dart`) is rendered with the fetched data.
+    - `requestPromissoryDepositPage` (in `promissory_deposits_screen.dart`) is rendered with the fetched data.
     - **Navigation Logic**:
         - `PromissoryRealService.getDeposits` fetches data.
         - `requestPromissoryDepositPage` builds the list.
@@ -60,7 +60,7 @@ Update the Promissory Intro screen to navigate to the Promissory Rule screen usi
     - `PromissoryRealDepositsScreen`: Stateful widget that fetches data and renders the deposit list.
     - `request_promissory_deposit_page.dart`: Builds the dynamic UI for deposit selection (Fixed `RenderFlex` overflow here).
 - **Configuration**:
-    - `stac_widget_loader.dart`: Maps `promissory_real_deposits` to the correct screen.
+    - `stac_widget_loader.dart`: Maps `promissory_deposits` to the correct screen.
 
 ## Progress Log
 - **2026-01-28**: Created task file.

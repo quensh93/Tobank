@@ -1,8 +1,8 @@
-# Converting promissory_real Files to Ready-for-Build (Single-Import & Inline)
+# Converting promissory Files to Ready-for-Build (Single-Import & Inline)
 
 This document provides an exact, repeatable procedure to convert files from the source directory into a “ready-for-build” format that uses a single import and inlined helpers.
 
-- Source: `/lib/stac/tobank/flows/promissory_real/dart`
+- Source: `/lib/stac/tobank/flows/promissory_old/dart`
 - Destination: `/lib/stac/ready_for_build`
 - Reference template: `/lib/stac/ready_for_build_stable`
 

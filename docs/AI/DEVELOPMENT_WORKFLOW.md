@@ -132,7 +132,7 @@ To avoid building all files every time, we use a selective build approach:
 1. **Copy the Dart file** you want to build to the `ready_for_build` folder:
    ```bash
    # Copy the file
-   cp lib/stac/tobank/flows/promissory/dart/promissory_intro.dart lib/stac/ready_for_build/
+   cp lib/stac/tobank/flows/promissory_old/dart/promissory_intro.dart lib/stac/ready_for_build/
    
    # Or create a symlink (Windows)
    mklink lib\stac\ready_for_build\promissory_intro.dart lib\stac\tobank\flows\promissory\dart\promissory_intro.dart

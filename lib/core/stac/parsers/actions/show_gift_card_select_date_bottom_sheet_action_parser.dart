@@ -65,7 +65,7 @@ class ShowGiftCardSelectDateBottomSheetActionModel {
       selectedTimeKey:
           json['selectedTimeKey'] as String? ?? 'giftCardRealDeliveryTime',
       confirmRouteName:
-          json['confirmRouteName'] as String? ?? 'gift_card_real_confirm',
+          json['confirmRouteName'] as String? ?? 'gift_card_confirm',
       confirmAssetPath: (json['confirmAssetPath'] as String?)?.trim().isEmpty ==
               true
           ? null
@@ -415,19 +415,19 @@ void _prepareConfirmSummaryValues({
       ? 'خودم'
       : _readController(
           controllers,
-          'gift_card_real_receiver_name',
+          'gift_card_receiver_name',
           fallback: '---',
         );
   final receiverMobile = isOwner
       ? '---'
       : _readController(
           controllers,
-          'gift_card_real_receiver_mobile',
+          'gift_card_receiver_mobile',
           fallback: '---',
         );
   final receiverAddress = _readController(
     controllers,
-    'gift_card_real_receiver_address',
+    'gift_card_receiver_address',
     fallback: '---',
   );
 

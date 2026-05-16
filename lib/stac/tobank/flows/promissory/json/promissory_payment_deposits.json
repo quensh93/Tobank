@@ -1,0 +1,1303 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "sequence",
+    "actions": [
+      {
+        "actionType": "setValue",
+        "values": [
+          {
+            "key": "deposits.isLoaded",
+            "value": false
+          },
+          {
+            "key": "deposits.rawData"
+          },
+          {
+            "key": "deposits.error"
+          },
+          {
+            "key": "selectedDepositId"
+          },
+          {
+            "key": "hasSelection",
+            "value": false
+          },
+          {
+            "key": "isDraftLoading",
+            "value": false
+          },
+          {
+            "key": "selectedDeposit.depositNumber"
+          },
+          {
+            "key": "selectedDeposit.depositIban"
+          },
+          {
+            "key": "form.selected_deposit_id"
+          },
+          {
+            "key": "form.selected_deposit_title"
+          },
+          {
+            "key": "form.selected_deposit_number"
+          },
+          {
+            "key": "form.selected_shaba_number"
+          }
+        ]
+      },
+      {
+        "actionType": "networkRequest",
+        "url": "http://192.168.107.22:8280/api/digitalbanking/deposits/v1.0/customer/{{userData.nationalCode}}",
+        "method": "get",
+        "headers": {
+          "accept": "application/json",
+          "content-type": "application/json",
+          "app-platform": "android",
+          "app-store": "application/json",
+          "app-version": "456",
+          "device-uuid": "5109ab4c-77ca-4f0c-9858-da4df58031d2",
+          "serviceauthorization": "Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==",
+          "authorization": "{{auth.accessToken}}"
+        },
+        "results": [
+          {
+            "statusCode": 200,
+            "action": {
+              "actionType": "sequence",
+              "actions": [
+                {
+                  "actionType": "log",
+                  "message": "DEBUG: payment deposits fetch success. payload={{data_payload}}"
+                },
+                {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "key": "deposits.rawData",
+                      "value": "{{data_payload}}"
+                    },
+                    {
+                      "key": "deposits.isLoaded",
+                      "value": true
+                    },
+                    {
+                      "key": "deposits.error"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "statusCode": 403,
+            "action": {
+              "actionType": "setValue",
+              "values": [
+                {
+                  "key": "deposits.isLoaded",
+                  "value": true
+                },
+                {
+                  "key": "deposits.rawData"
+                },
+                {
+                  "key": "deposits.error",
+                  "value": "Access forbidden. Please check your permissions."
+                }
+              ]
+            }
+          },
+          {
+            "statusCode": 401,
+            "action": {
+              "actionType": "setValue",
+              "values": [
+                {
+                  "key": "deposits.isLoaded",
+                  "value": true
+                },
+                {
+                  "key": "deposits.rawData"
+                },
+                {
+                  "key": "deposits.error",
+                  "value": "Authentication failed. Please login again."
+                }
+              ]
+            }
+          },
+          {
+            "statusCode": 520,
+            "action": {
+              "actionType": "setValue",
+              "values": [
+                {
+                  "key": "deposits.isLoaded",
+                  "value": true
+                },
+                {
+                  "key": "deposits.rawData"
+                },
+                {
+                  "key": "deposits.error",
+                  "value": "Server Error (520): Unknown Response from Gateway. Please try again later."
+                }
+              ]
+            }
+          },
+          {
+            "statusCode": 500,
+            "action": {
+              "actionType": "setValue",
+              "values": [
+                {
+                  "key": "deposits.isLoaded",
+                  "value": true
+                },
+                {
+                  "key": "deposits.rawData"
+                },
+                {
+                  "key": "deposits.error",
+                  "value": "Internal Server Error. Please try again later."
+                }
+              ]
+            }
+          },
+          {
+            "statusCode": -1,
+            "action": {
+              "actionType": "setValue",
+              "values": [
+                {
+                  "key": "deposits.isLoaded",
+                  "value": true
+                },
+                {
+                  "key": "deposits.rawData"
+                },
+                {
+                  "key": "deposits.error",
+                  "value": "{{appStrings.promissory.serverConnectionErrorDetail}}"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "child": {
+    "appBar": {
+      "leading": {
+        "padding": {
+          "left": 12.0
+        },
+        "child": {
+          "child": {
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24.0,
+            "height": 24.0,
+            "type": "image"
+          },
+          "type": "center"
+        },
+        "type": "padding"
+      },
+      "automaticallyImplyLeading": true,
+      "title": {
+        "data": "{{appStrings.promissory.selectPaymentDepositTitle}}",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "actions": [
+        {
+          "padding": {
+            "right": 12.0
+          },
+          "child": {
+            "onPressed": {
+              "navigationStyle": "pop",
+              "actionType": "navigate"
+            },
+            "icon": {
+              "src": "{{appAssets.icons.arrowBack}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 31.0,
+              "height": 31.0,
+              "type": "image"
+            },
+            "type": "iconButton"
+          },
+          "type": "padding"
+        }
+      ],
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "body": {
+      "crossAxisAlignment": "stretch",
+      "children": [
+        {
+          "height": 24.0,
+          "type": "sizedBox"
+        },
+        {
+          "padding": {
+            "left": 16.0,
+            "right": 16.0
+          },
+          "child": {
+            "data": "{{appStrings.promissory.selectDepositForPromissory}}",
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.text.title}}",
+              "fontSize": 16.0,
+              "fontWeight": "w600"
+            },
+            "textDirection": "rtl",
+            "type": "text"
+          },
+          "type": "padding"
+        },
+        {
+          "height": 16.0,
+          "type": "sizedBox"
+        },
+        {
+          "child": {
+            "type": "reactiveListView",
+            "dataKey": "deposits.rawData",
+            "dataPath": "data",
+            "isLoadedKey": "deposits.isLoaded",
+            "errorKey": "deposits.error",
+            "itemIdField": "depositNumber",
+            "selectedIdKey": "selectedDepositId",
+            "padding": {
+              "left": 16.0,
+              "right": 16.0,
+              "top": 8.0,
+              "bottom": 8.0
+            },
+            "separator": {
+              "height": 16.0,
+              "type": "sizedBox"
+            },
+            "loadingWidget": {
+              "child": {
+                "mainAxisSize": "min",
+                "children": [
+                  {
+                    "type": "circularProgressIndicator"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{appStrings.promissory.loadingDeposits}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.subtitle}}",
+                      "fontSize": 16.0
+                    },
+                    "textDirection": "rtl",
+                    "type": "text"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "center"
+            },
+            "errorWidget": {
+              "child": {
+                "mainAxisAlignment": "center",
+                "children": [
+                  {
+                    "padding": {
+                      "left": 16.0,
+                      "top": 16.0,
+                      "right": 16.0,
+                      "bottom": 16.0
+                    },
+                    "child": {
+                      "data": "{{error}}",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.subtitle}}",
+                        "fontSize": 14.0
+                      },
+                      "textAlign": "center",
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    "type": "padding"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "onPressed": {
+                      "actionType": "sequence",
+                      "actions": [
+                        {
+                          "actionType": "setValue",
+                          "values": [
+                            {
+                              "key": "deposits.isLoaded",
+                              "value": false
+                            },
+                            {
+                              "key": "deposits.rawData"
+                            },
+                            {
+                              "key": "deposits.error"
+                            },
+                            {
+                              "key": "selectedDepositId"
+                            },
+                            {
+                              "key": "hasSelection",
+                              "value": false
+                            },
+                            {
+                              "key": "isDraftLoading",
+                              "value": false
+                            },
+                            {
+                              "key": "selectedDeposit.depositNumber"
+                            },
+                            {
+                              "key": "selectedDeposit.depositIban"
+                            },
+                            {
+                              "key": "form.selected_deposit_id"
+                            },
+                            {
+                              "key": "form.selected_deposit_title"
+                            },
+                            {
+                              "key": "form.selected_deposit_number"
+                            },
+                            {
+                              "key": "form.selected_shaba_number"
+                            }
+                          ]
+                        },
+                        {
+                          "actionType": "networkRequest",
+                          "url": "http://192.168.107.22:8280/api/digitalbanking/deposits/v1.0/customer/{{userData.nationalCode}}",
+                          "method": "get",
+                          "headers": {
+                            "accept": "application/json",
+                            "content-type": "application/json",
+                            "app-platform": "android",
+                            "app-store": "application/json",
+                            "app-version": "456",
+                            "device-uuid": "5109ab4c-77ca-4f0c-9858-da4df58031d2",
+                            "serviceauthorization": "Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==",
+                            "authorization": "{{auth.accessToken}}"
+                          },
+                          "results": [
+                            {
+                              "statusCode": 200,
+                              "action": {
+                                "actionType": "sequence",
+                                "actions": [
+                                  {
+                                    "actionType": "log",
+                                    "message": "DEBUG: payment deposits fetch success. payload={{data_payload}}"
+                                  },
+                                  {
+                                    "actionType": "setValue",
+                                    "values": [
+                                      {
+                                        "key": "deposits.rawData",
+                                        "value": "{{data_payload}}"
+                                      },
+                                      {
+                                        "key": "deposits.isLoaded",
+                                        "value": true
+                                      },
+                                      {
+                                        "key": "deposits.error"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "statusCode": 403,
+                              "action": {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "deposits.isLoaded",
+                                    "value": true
+                                  },
+                                  {
+                                    "key": "deposits.rawData"
+                                  },
+                                  {
+                                    "key": "deposits.error",
+                                    "value": "Access forbidden. Please check your permissions."
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "statusCode": 401,
+                              "action": {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "deposits.isLoaded",
+                                    "value": true
+                                  },
+                                  {
+                                    "key": "deposits.rawData"
+                                  },
+                                  {
+                                    "key": "deposits.error",
+                                    "value": "Authentication failed. Please login again."
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "statusCode": 520,
+                              "action": {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "deposits.isLoaded",
+                                    "value": true
+                                  },
+                                  {
+                                    "key": "deposits.rawData"
+                                  },
+                                  {
+                                    "key": "deposits.error",
+                                    "value": "Server Error (520): Unknown Response from Gateway. Please try again later."
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "statusCode": 500,
+                              "action": {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "deposits.isLoaded",
+                                    "value": true
+                                  },
+                                  {
+                                    "key": "deposits.rawData"
+                                  },
+                                  {
+                                    "key": "deposits.error",
+                                    "value": "Internal Server Error. Please try again later."
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "statusCode": -1,
+                              "action": {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "deposits.isLoaded",
+                                    "value": true
+                                  },
+                                  {
+                                    "key": "deposits.rawData"
+                                  },
+                                  {
+                                    "key": "deposits.error",
+                                    "value": "{{appStrings.promissory.serverConnectionErrorDetail}}"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "style": {
+                      "backgroundColor": "{{appColors.current.primary.color}}",
+                      "shape": {
+                        "type": "roundedRectangleBorder",
+                        "borderRadius": {
+                          "topLeft": 12.0,
+                          "topRight": 12.0,
+                          "bottomLeft": 12.0,
+                          "bottomRight": 12.0
+                        }
+                      }
+                    },
+                    "child": {
+                      "data": "{{appStrings.common.tryAgain}}",
+                      "style": {
+                        "type": "custom",
+                        "color": "white",
+                        "fontWeight": "bold"
+                      },
+                      "type": "text"
+                    },
+                    "type": "elevatedButton"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "center"
+            },
+            "emptyWidget": {
+              "child": {
+                "data": "{{appStrings.promissory.noDepositFound}}",
+                "style": {
+                  "type": "custom",
+                  "color": "{{appColors.current.text.subtitle}}",
+                  "fontSize": 14.0
+                },
+                "textDirection": "rtl",
+                "type": "text"
+              },
+              "type": "center"
+            },
+            "onItemTap": {
+              "actionType": "sequence",
+              "actions": [
+                {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "key": "selectedDepositId",
+                      "value": "{{item.depositNumber}}"
+                    }
+                  ]
+                },
+                {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "key": "hasSelection",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "key": "form.selected_deposit_id",
+                      "value": "{{item.depositNumber}}"
+                    }
+                  ]
+                },
+                {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "key": "form.selected_deposit_title",
+                      "value": "{{item.depositTitle}}"
+                    }
+                  ]
+                },
+                {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "key": "form.selected_deposit_number",
+                      "value": "{{item.depositNumber}}"
+                    }
+                  ]
+                },
+                {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "key": "form.selected_shaba_number",
+                      "value": "{{item.depositIban}}"
+                    }
+                  ]
+                },
+                {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "key": "selectedDeposit.depositNumber",
+                      "value": "{{item.depositNumber}}"
+                    }
+                  ]
+                },
+                {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "key": "selectedDeposit.depositIban",
+                      "value": "{{item.depositIban}}"
+                    }
+                  ]
+                }
+              ]
+            },
+            "itemTemplate": {
+              "padding": {
+                "left": 16.0,
+                "top": 16.0,
+                "right": 16.0,
+                "bottom": 16.0
+              },
+              "decoration": {
+                "color": "{{appColors.current.background.surfaceContainer}}",
+                "border": {
+                  "color": "{{isSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}",
+                  "width": 1.0
+                },
+                "borderRadius": {
+                  "topLeft": 8.0,
+                  "topRight": 8.0,
+                  "bottomLeft": 8.0,
+                  "bottomRight": 8.0
+                }
+              },
+              "child": {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "mainAxisAlignment": "spaceBetween",
+                    "crossAxisAlignment": "center",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "child": {
+                          "data": "{{item.depositTitle}}",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w600"
+                          },
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        "type": "expanded"
+                      },
+                      {
+                        "decoration": {
+                          "border": {
+                            "color": "{{isSelected ? appColors.current.secondary.color : appColors.current.text.subtitle}}",
+                            "width": 2.0
+                          },
+                          "shape": "circle"
+                        },
+                        "width": 24.0,
+                        "height": 24.0,
+                        "child": {
+                          "child": {
+                            "type": "opacity",
+                            "opacity": "{{isSelected ? 1.0 : 0.0}}",
+                            "child": {
+                              "decoration": {
+                                "color": "{{appColors.current.secondary.color}}",
+                                "shape": "circle"
+                              },
+                              "width": 12.0,
+                              "height": 12.0,
+                              "type": "container"
+                            }
+                          },
+                          "type": "center"
+                        },
+                        "type": "container"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "height": 14.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "height": 1.0,
+                    "type": "container"
+                  },
+                  {
+                    "height": 14.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "data": "{{appStrings.promissory.depositNumberLabel}}",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.subtitle}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w400"
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "child": {
+                          "data": "{{item.depositNumber}}",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w500"
+                          },
+                          "textAlign": "left",
+                          "textDirection": "ltr",
+                          "type": "text"
+                        },
+                        "type": "expanded"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "data": "{{appStrings.promissory.ibanLabel}}",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.subtitle}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w400"
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "child": {
+                          "data": "{{item.depositIban}}",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w500"
+                          },
+                          "textAlign": "left",
+                          "textDirection": "ltr",
+                          "type": "text"
+                        },
+                        "type": "expanded"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "height": 1.0,
+                    "type": "container"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "data": "{{appStrings.promissory.balanceLabel}}",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.subtitle}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w400"
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "child": {
+                          "type": "container"
+                        },
+                        "type": "expanded"
+                      },
+                      {
+                        "data": "{{formatNumber(item.availableAmount)}} {{appStrings.common.rial}}",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w600"
+                        },
+                        "textDirection": "ltr",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "row"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "container"
+            }
+          },
+          "type": "expanded"
+        },
+        {
+          "padding": {
+            "left": 16.0,
+            "top": 16.0,
+            "right": 16.0,
+            "bottom": 16.0
+          },
+          "child": {
+            "type": "reactiveElevatedButton",
+            "enabledKey": "hasSelection",
+            "loadingKey": "isDraftLoading",
+            "onPressed": {
+              "actionType": "sequence",
+              "actions": [
+                {
+                  "actionType": "setValue",
+                  "key": "isDraftLoading",
+                  "value": true
+                },
+                {
+                  "actionType": "setValue",
+                  "key": "hasSelection",
+                  "value": true
+                },
+                {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "key": "payload.recipientType",
+                      "value": "I",
+                      "condition": "recipientType"
+                    },
+                    {
+                      "key": "payload.recipientBirthDate",
+                      "value": "__STAC_OPEN__replace(receiver.birthDate, '/', '')}}",
+                      "condition": "recipientType"
+                    },
+                    {
+                      "key": "payload.recipientNationalId",
+                      "value": "__STAC_OPEN__receiver.nationalCode}}",
+                      "condition": "recipientType"
+                    },
+                    {
+                      "key": "payload.recipientCellphone",
+                      "value": "__STAC_OPEN__removeLeadingZero(receiver.mobile)}}",
+                      "condition": "recipientType"
+                    },
+                    {
+                      "key": "payload.recipientType",
+                      "value": "C",
+                      "condition": "!recipientType"
+                    },
+                    {
+                      "key": "payload.recipientBirthDate",
+                      "condition": "!recipientType"
+                    },
+                    {
+                      "key": "payload.recipientNationalId",
+                      "value": "__STAC_OPEN__receiverIdentity.nationalId}}",
+                      "condition": "!recipientType"
+                    },
+                    {
+                      "key": "payload.recipientCellphone",
+                      "value": "__STAC_OPEN__receiverIdentity.phone}}",
+                      "condition": "!recipientType"
+                    }
+                  ]
+                },
+                {
+                  "actionType": "networkRequest",
+                  "url": "http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/draft",
+                  "method": "post",
+                  "data": {
+                    "issuerType": "I",
+                    "sourceAccount": "__STAC_OPEN__selectedDeposit.depositNumber}}",
+                    "issuerBirthDate": "__STAC_OPEN__replace(userData.birthDate, '/', '')}}",
+                    "issuerNN": "__STAC_OPEN__userData.nationalCode}}",
+                    "issuerSanaCheck": true,
+                    "issuerCellphone": "__STAC_OPEN__removeLeadingZero(userData.mobile)}}",
+                    "issuerFullName": "__STAC_OPEN__userData.fullName}}",
+                    "issuerAccountNumber": "__STAC_OPEN__selectedDeposit.depositIban}}",
+                    "issuerAddress": "__STAC_OPEN__userData.address}}",
+                    "issuerPostalCode": "__STAC_OPEN__userData.postalCode}}",
+                    "recipientType": "__STAC_OPEN__payload.recipientType}}",
+                    "recipientBirthDate": "__STAC_OPEN__payload.recipientBirthDate}}",
+                    "recipientNationalId": "__STAC_OPEN__payload.recipientNationalId}}",
+                    "recipientCellphone": "__STAC_OPEN__payload.recipientCellphone}}",
+                    "recipientFullName": "__STAC_OPEN__receiverIdentity.fullName}}",
+                    "paymentPlace": "__STAC_OPEN__form.paymentPlace}}",
+                    "amount": "__STAC_OPEN__toInt(form.promissory_amount)}}",
+                    "dueDate": "__STAC_OPEN__replace(form.promissory_due_date, '/', '')}}",
+                    "description": "__STAC_OPEN__form.description}}",
+                    "transferable": "__STAC_OPEN__form.transferable}}"
+                  },
+                  "headers": {
+                    "accept": "application/json",
+                    "authorization": "__STAC_OPEN__auth.accessToken}}",
+                    "content-type": "application/json"
+                  },
+                  "results": [
+                    {
+                      "statusCode": 200,
+                      "action": {
+                        "actionType": "sequence",
+                        "actions": [
+                          {
+                            "actionType": "setValue",
+                            "values": [
+                              {
+                                "key": "isDraftLoading",
+                                "value": false
+                              },
+                              {
+                                "key": "hasSelection",
+                                "value": true
+                              },
+                              {
+                                "key": "form.unsigned_pdf_id",
+                                "value": "__STAC_OPEN__data_payload.unSignedPdfId}}"
+                              },
+                              {
+                                "key": "form.promissory_id",
+                                "value": "__STAC_OPEN__data_payload.id}}"
+                              },
+                              {
+                                "key": "rawTransactionTime",
+                                "value": "__STAC_OPEN__data.meta.time}}"
+                              }
+                            ]
+                          },
+                          {
+                            "actionType": "formatDate",
+                            "sourceKey": "rawTransactionTime",
+                            "destinationKey": "transactionTime"
+                          },
+                          {
+                            "routeName": "promissory_sign",
+                            "navigationStyle": "push",
+                            "actionType": "navigate"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "statusCode": 422,
+                      "action": {
+                        "actionType": "sequence",
+                        "actions": [
+                          {
+                            "actionType": "setValue",
+                            "values": [
+                              {
+                                "key": "isDraftLoading",
+                                "value": false
+                              },
+                              {
+                                "key": "hasSelection",
+                                "value": true
+                              }
+                            ]
+                          },
+                          {
+                            "actionType": "customSnackBar",
+                            "backgroundColor": "#00000000",
+                            "duration": 10000,
+                            "permanent": false,
+                            "permenent": false,
+                            "child": {
+                              "type": "container",
+                              "decoration": {
+                                "color": "__STAC_OPEN__appColors.current.background.surfaceContainer}}",
+                                "borderRadius": {
+                                  "topLeft": 8,
+                                  "topRight": 8,
+                                  "bottomLeft": 8,
+                                  "bottomRight": 8
+                                },
+                                "border": {
+                                  "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                  "width": 1
+                                }
+                              },
+                              "padding": {
+                                "left": 12,
+                                "top": 10,
+                                "right": 12,
+                                "bottom": 10
+                              },
+                              "child": {
+                                "type": "row",
+                                "textDirection": "ltr",
+                                "crossAxisAlignment": "center",
+                                "children": [
+                                  {
+                                    "type": "expanded",
+                                    "child": {
+                                      "type": "column",
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "end",
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "data": "خطا",
+                                          "textDirection": "rtl",
+                                          "textAlign": "right",
+                                          "style": {
+                                            "type": "custom",
+                                            "fontSize": 14,
+                                            "fontWeight": "w700",
+                                            "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                            "height": 1.45
+                                          }
+                                        },
+                                        {
+                                          "type": "sizedBox",
+                                          "height": 4
+                                        },
+                                        {
+                                          "type": "text",
+                                          "data": "__STAC_OPEN__data.status.message.0}}",
+                                          "textDirection": "rtl",
+                                          "textAlign": "right",
+                                          "style": {
+                                            "type": "custom",
+                                            "fontSize": 13,
+                                            "fontWeight": "w500",
+                                            "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                            "height": 1.45
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "type": "sizedBox",
+                                    "width": 10
+                                  },
+                                  {
+                                    "type": "container",
+                                    "width": 1,
+                                    "height": 20,
+                                    "decoration": {
+                                      "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                      "borderRadius": {
+                                        "topLeft": 999,
+                                        "topRight": 999,
+                                        "bottomLeft": 999,
+                                        "bottomRight": 999
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "sizedBox",
+                                    "width": 8
+                                  },
+                                  {
+                                    "type": "image",
+                                    "src": "assets/icons/ic_info.svg",
+                                    "imageType": "asset",
+                                    "width": 20,
+                                    "height": 20,
+                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}"
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "statusCode": -1,
+                      "action": {
+                        "actionType": "sequence",
+                        "actions": [
+                          {
+                            "actionType": "setValue",
+                            "values": [
+                              {
+                                "key": "isDraftLoading",
+                                "value": false
+                              },
+                              {
+                                "key": "hasSelection",
+                                "value": true
+                              }
+                            ]
+                          },
+                          {
+                            "actionType": "customSnackBar",
+                            "backgroundColor": "#00000000",
+                            "duration": 10000,
+                            "permanent": false,
+                            "permenent": false,
+                            "child": {
+                              "type": "container",
+                              "decoration": {
+                                "color": "__STAC_OPEN__appColors.current.background.surfaceContainer}}",
+                                "borderRadius": {
+                                  "topLeft": 8,
+                                  "topRight": 8,
+                                  "bottomLeft": 8,
+                                  "bottomRight": 8
+                                },
+                                "border": {
+                                  "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                  "width": 1
+                                }
+                              },
+                              "padding": {
+                                "left": 12,
+                                "top": 10,
+                                "right": 12,
+                                "bottom": 10
+                              },
+                              "child": {
+                                "type": "row",
+                                "textDirection": "ltr",
+                                "crossAxisAlignment": "center",
+                                "children": [
+                                  {
+                                    "type": "expanded",
+                                    "child": {
+                                      "type": "column",
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "end",
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "data": "خطا",
+                                          "textDirection": "rtl",
+                                          "textAlign": "right",
+                                          "style": {
+                                            "type": "custom",
+                                            "fontSize": 14,
+                                            "fontWeight": "w700",
+                                            "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                            "height": 1.45
+                                          }
+                                        },
+                                        {
+                                          "type": "sizedBox",
+                                          "height": 4
+                                        },
+                                        {
+                                          "type": "text",
+                                          "data": "__STAC_OPEN__data.status.message.0}}",
+                                          "textDirection": "rtl",
+                                          "textAlign": "right",
+                                          "style": {
+                                            "type": "custom",
+                                            "fontSize": 13,
+                                            "fontWeight": "w500",
+                                            "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                            "height": 1.45
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "type": "sizedBox",
+                                    "width": 10
+                                  },
+                                  {
+                                    "type": "container",
+                                    "width": 1,
+                                    "height": 20,
+                                    "decoration": {
+                                      "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                      "borderRadius": {
+                                        "topLeft": 999,
+                                        "topRight": 999,
+                                        "bottomLeft": 999,
+                                        "bottomRight": 999
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "type": "sizedBox",
+                                    "width": 8
+                                  },
+                                  {
+                                    "type": "image",
+                                    "src": "assets/icons/ic_info.svg",
+                                    "imageType": "asset",
+                                    "width": 20,
+                                    "height": 20,
+                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}"
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "style": {
+              "backgroundColor": "{{appColors.current.primary.color}}",
+              "elevation": 0.0,
+              "fixedSize": {
+                "width": 999999.0,
+                "height": 56.0
+              },
+              "shape": {
+                "type": "roundedRectangleBorder",
+                "borderRadius": {
+                  "topLeft": 12.0,
+                  "topRight": 12.0,
+                  "bottomLeft": 12.0,
+                  "bottomRight": 12.0
+                }
+              }
+            },
+            "child": {
+              "data": "{{appStrings.common.continue}}",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.primary.onPrimary}}",
+                "fontSize": 18.0,
+                "fontWeight": "bold"
+              },
+              "textDirection": "rtl",
+              "type": "text"
+            }
+          },
+          "type": "padding"
+        }
+      ],
+      "type": "column"
+    },
+    "type": "scaffold"
+  }
+}

@@ -338,6 +338,10 @@ StacWidget _buildServicesTab() {
               fourth: _buildServiceGridItem(
                 label: 'شارژ',
                 iconPath: '{{appAssets.current.icons.simCharge}}',
+                onTap: const StacNavigateAction(
+                  routeName: 'charge_intro',
+                  navigationStyle: NavigationStyle.push,
+                ),
               ),
             ),
             StacSizedBox(height: 16),
@@ -345,6 +349,10 @@ StacWidget _buildServicesTab() {
               first: _buildServiceGridItem(
                 label: 'بسته اینترنت',
                 iconPath: '{{appAssets.current.icons.internet}}',
+                onTap: const StacNavigateAction(
+                  routeName: 'package_intro',
+                  navigationStyle: NavigationStyle.push,
+                ),
               ),
               second: _buildServiceGridItem(
                 label: 'خدمات سفر',
@@ -357,6 +365,10 @@ StacWidget _buildServicesTab() {
               third: _buildServiceGridItem(
                 label: 'کارت هدیه',
                 iconPath: '{{appAssets.current.icons.giftCard}}',
+                onTap: const StacNavigateAction(
+                  routeName: 'gift_card_intro',
+                  navigationStyle: NavigationStyle.push,
+                ),
               ),
               fourth: _buildServiceGridItem(
                 label: 'قبض',
@@ -441,8 +453,13 @@ StacWidget _buildServiceGridItem({
     ],
   );
 
-  final content = onTap == null ? item : StacGestureDetector(onTap: onTap, child: item);
-  return StacAlign(alignment: StacAlignmentDirectional.topCenter, child: content);
+  final content = onTap == null
+      ? item
+      : StacGestureDetector(onTap: onTap, child: item);
+  return StacAlign(
+    alignment: StacAlignmentDirectional.topCenter,
+    child: content,
+  );
 }
 
 StacWidget _buildInvestmentTab() {
@@ -658,94 +675,94 @@ StacWidget _buildWalletCard() {
   return StacGestureDetector(
     onTap: StacRawJsonAction({
       'actionType': 'navigate',
-      'widgetType': 'dashboard_real_cards_management',
+      'widgetType': 'dashboard_cards_management',
       'navigationStyle': 'push',
     }),
     child: StacContainer(
-    height: 125,
-    padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 14),
-    decoration: StacBoxDecoration(
-      gradient: StacLinearGradient(
-        begin: StacAlignment.bottomLeft,
-        end: StacAlignment.topRight,
-        colors: ['#15A0A0', '#50E8E8'],
-      ),
-      borderRadius: StacBorderRadius.only(
-        topLeft: 20,
-        topRight: 20,
-        bottomLeft: 11,
-        bottomRight: 11,
-      ),
-      boxShadow: [
-        StacBoxShadow(
-          color: '#141B1F44',
-          blurRadius: 30,
-          offset: StacOffset(dx: 0, dy: 16),
+      height: 125,
+      padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      decoration: StacBoxDecoration(
+        gradient: StacLinearGradient(
+          begin: StacAlignment.bottomLeft,
+          end: StacAlignment.topRight,
+          colors: ['#15A0A0', '#50E8E8'],
         ),
-      ],
-    ),
-    child: StacRow(
-      mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-      crossAxisAlignment: StacCrossAxisAlignment.center,
-      textDirection: StacTextDirection.rtl,
-      children: [
-        StacExpanded(
-          child: StacColumn(
-            crossAxisAlignment: StacCrossAxisAlignment.end,
-            mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-            children: [
-              StacRow(
-                mainAxisAlignment: StacMainAxisAlignment.end,
-                children: [
-                  StacText(
-                    data: 'کیف پول توبانک',
-                    textDirection: StacTextDirection.rtl,
-                    textAlign: StacTextAlign.right,
-                    style: StacCustomTextStyle(
-                      fontSize: 34 / 2,
-                      fontWeight: StacFontWeight.w700,
-                      color: '#FFFFFF',
-                    ),
-                  ),
-                  StacSizedBox(width: 12),
-                  _buildWalletTargetIcon(),
-                ],
-              ),
-
-              StacPadding(
-                padding: StacEdgeInsets.only(bottom: 18),
-                child: StacRow(
+        borderRadius: StacBorderRadius.only(
+          topLeft: 20,
+          topRight: 20,
+          bottomLeft: 11,
+          bottomRight: 11,
+        ),
+        boxShadow: [
+          StacBoxShadow(
+            color: '#141B1F44',
+            blurRadius: 30,
+            offset: StacOffset(dx: 0, dy: 16),
+          ),
+        ],
+      ),
+      child: StacRow(
+        mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+        crossAxisAlignment: StacCrossAxisAlignment.center,
+        textDirection: StacTextDirection.rtl,
+        children: [
+          StacExpanded(
+            child: StacColumn(
+              crossAxisAlignment: StacCrossAxisAlignment.end,
+              mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+              children: [
+                StacRow(
                   mainAxisAlignment: StacMainAxisAlignment.end,
-                  textDirection: StacTextDirection.rtl,
                   children: [
                     StacText(
-                      data: '۳۳,۲۲۲',
+                      data: 'کیف پول توبانک',
                       textDirection: StacTextDirection.rtl,
+                      textAlign: StacTextAlign.right,
                       style: StacCustomTextStyle(
-                        fontSize: 18,
-                        fontWeight: StacFontWeight.w600,
+                        fontSize: 34 / 2,
+                        fontWeight: StacFontWeight.w700,
                         color: '#FFFFFF',
                       ),
                     ),
-                    StacSizedBox(width: 6),
-                    StacText(
-                      data: 'ریال',
-                      textDirection: StacTextDirection.rtl,
-                      style: StacCustomTextStyle(
-                        fontSize: 18 / 1.5,
-                        fontWeight: StacFontWeight.w600,
-                        color: '#FFFFFF',
-                      ),
-                    ),
+                    StacSizedBox(width: 12),
+                    _buildWalletTargetIcon(),
                   ],
                 ),
-              ),
-            ],
+
+                StacPadding(
+                  padding: StacEdgeInsets.only(bottom: 18),
+                  child: StacRow(
+                    mainAxisAlignment: StacMainAxisAlignment.end,
+                    textDirection: StacTextDirection.rtl,
+                    children: [
+                      StacText(
+                        data: '۳۳,۲۲۲',
+                        textDirection: StacTextDirection.rtl,
+                        style: StacCustomTextStyle(
+                          fontSize: 18,
+                          fontWeight: StacFontWeight.w600,
+                          color: '#FFFFFF',
+                        ),
+                      ),
+                      StacSizedBox(width: 6),
+                      StacText(
+                        data: 'ریال',
+                        textDirection: StacTextDirection.rtl,
+                        style: StacCustomTextStyle(
+                          fontSize: 18 / 1.5,
+                          fontWeight: StacFontWeight.w600,
+                          color: '#FFFFFF',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     ),
-   ),
   );
 }
 
@@ -765,87 +782,87 @@ StacWidget _buildBankCardItem({
   return StacGestureDetector(
     onTap: StacRawJsonAction({
       'actionType': 'navigate',
-      'widgetType': 'dashboard_real_cards_management',
+      'widgetType': 'dashboard_cards_management',
       'navigationStyle': 'push',
     }),
     child: StacContainer(
-    height: 112,
-    padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 12),
-    decoration: StacBoxDecoration(
-      gradient: StacLinearGradient(
-        begin: StacAlignment.bottomLeft,
-        end: StacAlignment.topRight,
-        colors: ['#EE3E62', '#FD6F8E'],
+      height: 112,
+      padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      decoration: StacBoxDecoration(
+        gradient: StacLinearGradient(
+          begin: StacAlignment.bottomLeft,
+          end: StacAlignment.topRight,
+          colors: ['#EE3E62', '#FD6F8E'],
+        ),
+        borderRadius: StacBorderRadius.all(15),
+        boxShadow: [
+          StacBoxShadow(
+            color: '#0A101828',
+            blurRadius: 15,
+            offset: StacOffset(dx: 0, dy: 2),
+          ),
+        ],
       ),
-      borderRadius: StacBorderRadius.all(15),
-      boxShadow: [
-        StacBoxShadow(
-          color: '#0A101828',
-          blurRadius: 15,
-          offset: StacOffset(dx: 0, dy: 2),
-        ),
-      ],
+      child: StacColumn(
+        crossAxisAlignment: StacCrossAxisAlignment.stretch,
+        mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+        children: [
+          StacRow(
+            mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+            crossAxisAlignment: StacCrossAxisAlignment.center,
+            textDirection: StacTextDirection.rtl,
+            children: [
+              StacRow(
+                textDirection: StacTextDirection.rtl,
+                children: [
+                  StacImage(
+                    src: '{{appAssets.current.icons.gardeshgari}}',
+                    imageType: StacImageType.asset,
+                    width: 24,
+                    height: 24,
+                    color: '#FFFFFF',
+                  ),
+                  StacSizedBox(width: 8),
+                  StacText(
+                    data: 'بانک‌گردشگری',
+                    textDirection: StacTextDirection.rtl,
+                    style: StacCustomTextStyle(
+                      fontSize: 14,
+                      fontWeight: StacFontWeight.w700,
+                      color: '#FFFFFF',
+                    ),
+                  ),
+                ],
+              ),
+              StacColumn(
+                children: [
+                  StacText(
+                    data: cardNumber,
+                    textDirection: StacTextDirection.rtl,
+                    textAlign: StacTextAlign.left,
+                    style: StacCustomTextStyle(
+                      fontSize: 15,
+                      fontWeight: StacFontWeight.w600,
+                      color: '#FFFFFF',
+                    ),
+                  ),
+                  StacText(
+                    data: subtitle,
+                    textDirection: StacTextDirection.ltr,
+                    textAlign: StacTextAlign.right,
+                    style: StacCustomTextStyle(
+                      fontSize: 13,
+                      fontWeight: StacFontWeight.w600,
+                      color: '#FFFFFF',
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
     ),
-    child: StacColumn(
-      crossAxisAlignment: StacCrossAxisAlignment.stretch,
-      mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-      children: [
-        StacRow(
-          mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-          crossAxisAlignment: StacCrossAxisAlignment.center,
-          textDirection: StacTextDirection.rtl,
-          children: [
-            StacRow(
-              textDirection: StacTextDirection.rtl,
-              children: [
-                StacImage(
-                  src: '{{appAssets.current.icons.gardeshgari}}',
-                  imageType: StacImageType.asset,
-                  width: 24,
-                  height: 24,
-                  color: '#FFFFFF',
-                ),
-                StacSizedBox(width: 8),
-                StacText(
-                  data: 'بانک‌گردشگری',
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 14,
-                    fontWeight: StacFontWeight.w700,
-                    color: '#FFFFFF',
-                  ),
-                ),
-              ],
-            ),
-            StacColumn(
-              children: [
-                StacText(
-                  data: cardNumber,
-                  textDirection: StacTextDirection.rtl,
-                  textAlign: StacTextAlign.left,
-                  style: StacCustomTextStyle(
-                    fontSize: 15,
-                    fontWeight: StacFontWeight.w600,
-                    color: '#FFFFFF',
-                  ),
-                ),
-                StacText(
-                  data: subtitle,
-                  textDirection: StacTextDirection.ltr,
-                  textAlign: StacTextAlign.right,
-                  style: StacCustomTextStyle(
-                    fontSize: 13,
-                    fontWeight: StacFontWeight.w600,
-                    color: '#FFFFFF',
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ],
-    ),
-   ),
   );
 }
 

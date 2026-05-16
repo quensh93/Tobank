@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
-import 'package:tobank_sdui/stac/tobank/flows/verify_identity_real/dart/verify_identity_real_job_selector.dart'
-    as verify_identity_real_job_selector_dart;
+import 'package:tobank_sdui/stac/tobank/flows/verify_identity/dart/verify_identity_job_selector.dart'
+    as verify_identity_job_selector_dart;
 
 import '../../utils/registry_notifier.dart';
 import '../../registry/custom_component_registry.dart';
@@ -68,7 +68,7 @@ class ShowJobSelectorBottomSheetActionParser
               child: Padding(
                 padding: EdgeInsets.fromLTRB(0, 0, 0, bottomInset + 8),
                 child: _JobSelectorBottomSheet(
-                  jobTitles: verify_identity_real_job_selector_dart
+                  jobTitles: verify_identity_job_selector_dart
                       .verifyIdentityRealJobTitles,
                 ),
               ),

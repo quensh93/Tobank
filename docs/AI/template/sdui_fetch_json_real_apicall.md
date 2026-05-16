@@ -1,7 +1,7 @@
 # SDUI API Navigation Integration Template
 
 **Use Case**: Converting a mock/static navigation step to a real API-driven SDUI call.
-**Reference Code**: `lib/stac/tobank/flows/promissory_real` (contains verified API call structures).
+**Reference Code**: `lib/stac/tobank/flows/promissory` (contains verified API call structures).
 
 ## 1. Task Setup
 - [ ] **Define the Goal**: Connect screen [A] to screen [B] using Real API.

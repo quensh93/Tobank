@@ -288,7 +288,7 @@ class ShowTransferInBankTypeBottomSheetActionParser
 
     await Stac.onCallFromJson(const {
       'actionType': 'navigate',
-      'routeName': 'transfer_real_in_bank_confirm',
+      'routeName': 'transfer_in_bank_confirm',
       'navigationStyle': 'push',
     }, context);
   }

@@ -1425,7 +1425,7 @@
               {
                 "child": {
                   "onTap": {
-                    "routeName": "promissory_real_intro",
+                    "routeName": "promissory_intro",
                     "navigationStyle": "push",
                     "actionType": "navigate"
                   },

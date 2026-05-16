@@ -7,7 +7,7 @@ class VerifyIdentityRealLoaderParser extends StacParser<Map<String, dynamic>> {
   const VerifyIdentityRealLoaderParser();
 
   @override
-  String get type => 'verify_identity_real_loader';
+  String get type => 'verify_identity_loader';
 
   @override
   Map<String, dynamic> getModel(Map<String, dynamic> json) => json;
@@ -56,7 +56,7 @@ class _VerifyIdentityRealLoaderScreenState
 
     try {
       final sduiJson = await _configApiService.fetchSduiConfig(
-        pathKey: 'ipaam.builder.form.form.verify_identity_real_intro',
+        pathKey: 'ipaam.builder.form.form.verify_identity_intro',
         build: 1,
       );
 

@@ -7,7 +7,7 @@ class PromissoryRealLoaderParser extends StacParser<Map<String, dynamic>> {
   const PromissoryRealLoaderParser();
 
   @override
-  String get type => 'promissory_real_loader';
+  String get type => 'promissory_loader';
 
   @override
   Map<String, dynamic> getModel(Map<String, dynamic> json) => json;

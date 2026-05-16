@@ -41,7 +41,7 @@ The **Promissory Real** flow demonstrates how to fetch and render SDUI (Server-D
 
 | Path | Description |
 |------|-------------|
-| `lib/stac/tobank/flows/promissory_real/dart/promissory_real_screen.dart` | Main screen widget |
+| `lib/stac/tobank/flows/promissory_old/dart/promissory_screen.dart` | Main screen widget |
 | `lib/core/api/config_api/config_api_service.dart` | API service |
 | `lib/core/api/config_api/config_api_models.dart` | Response models |
 | `lib/core/api/config_api/config_api.dart` | Barrel file |
@@ -119,12 +119,12 @@ The flow is added to the menu in `GET_menu-items.json`:
   "title": "سفته (API واقعی)",
   "description": "صدور سفته با استفاده از API واقعی",
   "icon": "{{appAssets.icons.wallet}}",
-  "dartPath": "lib/stac/tobank/flows/promissory_real/dart/promissory_real_screen.dart",
+  "dartPath": "lib/stac/tobank/flows/promissory_old/dart/promissory_screen.dart",
   "jsonPath": null,
   "apiPath": null,
-  "widgetType": "promissory_real_intro",
+  "widgetType": "promissory_intro",
   "flowSteps": [
-    "promissory_real_intro"
+    "promissory_intro"
   ]
 }
 ```

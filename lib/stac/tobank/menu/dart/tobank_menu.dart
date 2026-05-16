@@ -65,43 +65,43 @@ StacWidget tobankMenuDart() {
         ),
         _buildSingleButtonMenuItemCard(
           title: 'سفته (API واقعی)',
-          widgetType: 'promissory_real_menu',
+          widgetType: 'promissory_menu',
         ),
         _buildSingleButtonMenuItemCard(
           title: 'احراز هویت (API واقعی)',
-          widgetType: 'verify_identity_real_menu',
+          widgetType: 'verify_identity_menu',
         ),
         _buildSingleButtonMenuItemCard(
           title: 'پروفایل (API واقعی)',
-          widgetType: 'profile_real_menu',
+          widgetType: 'profile_menu',
         ),
         _buildSingleButtonMenuItemCard(
           title: 'کارتابل (API واقعی)',
-          widgetType: 'cartable_real_menu',
+          widgetType: 'cartable_menu',
         ),
         _buildSingleButtonMenuItemCard(
           title: 'تراکنش‌ها (API واقعی)',
-          widgetType: 'transaction_real_menu',
+          widgetType: 'transaction_menu',
         ),
         _buildSingleButtonMenuItemCard(
           title: 'داشبورد (ناوبری واقعی)',
-          widgetType: 'dashboard_real_menu',
+          widgetType: 'dashboard_menu',
         ),
         _buildSingleButtonMenuItemCard(
           title: 'کارت هدیه (API واقعی)',
-          widgetType: 'gift_card_real_menu',
+          widgetType: 'gift_card_menu',
         ),
         _buildSingleButtonMenuItemCard(
           title: 'انتقال وجه (واقعی)',
-          widgetType: 'transfer_real_menu',
+          widgetType: 'transfer_menu',
         ),
         _buildSingleButtonMenuItemCard(
           title: 'شارژ (API واقعی)',
-          widgetType: 'charge_real_menu',
+          widgetType: 'charge_menu',
         ),
         _buildSingleButtonMenuItemCard(
           title: 'پکیج اینترنت (API واقعی)',
-          widgetType: 'package_real_menu',
+          widgetType: 'package_menu',
         ),
         StacSizedBox(height: 20),
         _buildSectionHeader('ماژول ها'),

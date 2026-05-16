@@ -29,10 +29,10 @@
           {
             "child": {
               "padding": {
-                "left": 16,
-                "top": 16,
-                "right": 16,
-                "bottom": 16
+                "left": 16.0,
+                "top": 16.0,
+                "right": 16.0,
+                "bottom": 16.0
               },
               "child": {
                 "crossAxisAlignment": "stretch",
@@ -48,7 +48,7 @@
                     "type": "text"
                   },
                   {
-                    "height": 16,
+                    "height": 16.0,
                     "type": "sizedBox"
                   },
                   {
@@ -61,7 +61,7 @@
                     "type": "text"
                   },
                   {
-                    "height": 16,
+                    "height": 16.0,
                     "type": "sizedBox"
                   },
                   {
@@ -78,7 +78,7 @@
                         "type": "text"
                       },
                       {
-                        "height": 8,
+                        "height": 8.0,
                         "type": "sizedBox"
                       },
                       {
@@ -91,14 +91,14 @@
                           "hintStyle": {
                             "type": "custom",
                             "color": "{{appStyles.input.login.hintStyleColor}}",
-                            "fontSize": 14,
+                            "fontSize": 14.0,
                             "fontWeight": "w500"
                           },
                           "contentPadding": {
-                            "left": 20,
-                            "top": 16,
-                            "right": 20,
-                            "bottom": 16
+                            "left": 20.0,
+                            "top": 16.0,
+                            "right": 20.0,
+                            "bottom": 16.0
                           },
                           "filled": false,
                           "fillColor": "{{appStyles.input.login.fillColor}}"
@@ -106,7 +106,7 @@
                         "style": {
                           "type": "custom",
                           "color": "{{appStyles.input.login.textStyleColor}}",
-                          "fontSize": 16,
+                          "fontSize": 16.0,
                           "fontWeight": "w600"
                         },
                         "keyboardType": "number",
@@ -144,7 +144,7 @@
                         }
                       },
                       {
-                        "height": 16,
+                        "height": 16.0,
                         "type": "sizedBox"
                       },
                       {
@@ -157,7 +157,7 @@
                         "type": "text"
                       },
                       {
-                        "height": 8,
+                        "height": 8.0,
                         "type": "sizedBox"
                       },
                       {
@@ -170,14 +170,14 @@
                           "hintStyle": {
                             "type": "custom",
                             "color": "{{appStyles.input.login.hintStyleColor}}",
-                            "fontSize": 14,
+                            "fontSize": 14.0,
                             "fontWeight": "w500"
                           },
                           "contentPadding": {
-                            "left": 20,
-                            "top": 16,
-                            "right": 20,
-                            "bottom": 16
+                            "left": 20.0,
+                            "top": 16.0,
+                            "right": 20.0,
+                            "bottom": 16.0
                           },
                           "filled": false,
                           "fillColor": "{{appStyles.input.login.fillColor}}"
@@ -185,7 +185,7 @@
                         "style": {
                           "type": "custom",
                           "color": "{{appStyles.input.login.textStyleColor}}",
-                          "fontSize": 16,
+                          "fontSize": 16.0,
                           "fontWeight": "w600"
                         },
                         "keyboardType": "number",
@@ -223,7 +223,7 @@
                         }
                       },
                       {
-                        "height": 16,
+                        "height": 16.0,
                         "type": "sizedBox"
                       },
                       {
@@ -236,7 +236,7 @@
                         "type": "text"
                       },
                       {
-                        "height": 8,
+                        "height": 8.0,
                         "type": "sizedBox"
                       },
                       {
@@ -247,32 +247,32 @@
                             "hintStyle": {
                               "type": "custom",
                               "color": "{{appStyles.input.loginDatePicker.hintStyleColor}}",
-                              "fontSize": 14,
+                              "fontSize": 14.0,
                               "fontWeight": "w500"
                             },
                             "prefixIcon": {
                               "padding": {
-                                "left": 8,
-                                "top": 8,
-                                "right": 8,
-                                "bottom": 8
+                                "left": 8.0,
+                                "top": 8.0,
+                                "right": 8.0,
+                                "bottom": 8.0
                               },
                               "child": {
                                 "src": "assets/icons/ic_calendar.svg",
                                 "imageType": "asset",
                                 "color": "{{appStyles.input.loginDatePicker.suffixIconColor}}",
-                                "width": 24,
-                                "height": 24,
+                                "width": 24.0,
+                                "height": 24.0,
                                 "fit": "scaleDown",
                                 "type": "image"
                               },
                               "type": "padding"
                             },
                             "contentPadding": {
-                              "left": 16,
-                              "top": 16,
-                              "right": 16,
-                              "bottom": 16
+                              "left": 16.0,
+                              "top": 16.0,
+                              "right": 16.0,
+                              "bottom": 16.0
                             },
                             "filled": false,
                             "fillColor": "{{appStyles.input.loginDatePicker.fillColor}}"
@@ -281,7 +281,7 @@
                           "style": {
                             "type": "custom",
                             "color": "{{appStyles.input.loginDatePicker.textStyleColor}}",
-                            "fontSize": 16,
+                            "fontSize": 16.0,
                             "fontWeight": "w600"
                           },
                           "textAlign": "right",
@@ -323,7 +323,7 @@
                         "type": "gestureDetector"
                       },
                       {
-                        "height": 24,
+                        "height": 24.0,
                         "type": "sizedBox"
                       },
                       {
@@ -387,10 +387,10 @@
           },
           {
             "padding": {
-              "left": 16,
-              "top": 16,
-              "right": 16,
-              "bottom": 16
+              "left": 16.0,
+              "top": 16.0,
+              "right": 16.0,
+              "bottom": 16.0
             },
             "child": {
               "type": "reactiveElevatedButton",
@@ -458,7 +458,7 @@
                             "textDirection": "rtl",
                             "style": {
                               "type": "custom",
-                              "fontSize": 18,
+                              "fontSize": 18.0,
                               "fontWeight": "w700",
                               "color": "__STAC_OPEN__appColors.current.text.title}}"
                             }
@@ -477,7 +477,7 @@
                                   "textDirection": "rtl",
                                   "style": {
                                     "type": "custom",
-                                    "fontSize": 14,
+                                    "fontSize": 14.0,
                                     "fontWeight": "w600",
                                     "color": "__STAC_OPEN__appColors.current.text.title}}"
                                   }
@@ -492,7 +492,7 @@
                                   "textDirection": "ltr",
                                   "style": {
                                     "type": "custom",
-                                    "fontSize": 11,
+                                    "fontSize": 11.0,
                                     "fontFamily": "monospace",
                                     "color": "__STAC_OPEN__appColors.current.text.title}}"
                                   }
@@ -507,7 +507,7 @@
                                   "textDirection": "rtl",
                                   "style": {
                                     "type": "custom",
-                                    "fontSize": 14,
+                                    "fontSize": 14.0,
                                     "fontWeight": "w600",
                                     "color": "__STAC_OPEN__appColors.current.text.title}}"
                                   }
@@ -522,7 +522,7 @@
                                   "textDirection": "ltr",
                                   "style": {
                                     "type": "custom",
-                                    "fontSize": 11,
+                                    "fontSize": 11.0,
                                     "fontFamily": "monospace",
                                     "color": "__STAC_OPEN__appColors.current.text.title}}"
                                   }
@@ -581,21 +581,8 @@
                                   },
                                   {
                                     "actionType": "navigate",
-                                    "navigationStyle": "pushReplacement",
-                                    "request": {
-                                      "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.login_flow_linear_verify_otp/1",
-                                      "body": {
-                                        "operator": "is",
-                                        "dimension": {
-                                          "app": "mobile"
-                                        }
-                                      },
-                                      "method": "post",
-                                      "headers": {
-                                        "Accept": "*/*",
-                                        "Content-Type": "application/json"
-                                      }
-                                    }
+                                    "widgetType": "login_flow_linear_verify_otp",
+                                    "navigationStyle": "pushReplacement"
                                   }
                                 ]
                               }
@@ -611,28 +598,28 @@
               },
               "style": {
                 "backgroundColor": "{{appStyles.button.primary.backgroundColor}}",
-                "elevation": 0,
+                "elevation": 0.0,
                 "textStyle": {
                   "type": "custom",
                   "color": "{{appStyles.button.primary.textStyleColor}}",
-                  "fontSize": 16,
+                  "fontSize": 16.0,
                   "fontWeight": "w600"
                 },
                 "padding": {
-                  "top": 8,
-                  "bottom": 8
+                  "top": 8.0,
+                  "bottom": 8.0
                 },
                 "fixedSize": {
-                  "width": 999999,
-                  "height": 56
+                  "width": 999999.0,
+                  "height": 56.0
                 },
                 "shape": {
                   "type": "roundedRectangleBorder",
                   "borderRadius": {
-                    "topLeft": 10,
-                    "topRight": 10,
-                    "bottomLeft": 10,
-                    "bottomRight": 10
+                    "topLeft": 10.0,
+                    "topRight": 10.0,
+                    "bottomLeft": 10.0,
+                    "bottomRight": 10.0
                   }
                 }
               },
@@ -641,7 +628,7 @@
                 "style": {
                   "type": "custom",
                   "color": "{{appStyles.button.primary.textStyleColor}}",
-                  "fontSize": 16,
+                  "fontSize": 16.0,
                   "fontWeight": "w600"
                 },
                 "textDirection": "rtl",
@@ -651,7 +638,7 @@
             "type": "padding"
           },
           {
-            "height": 24,
+            "height": 24.0,
             "type": "sizedBox"
           }
         ],

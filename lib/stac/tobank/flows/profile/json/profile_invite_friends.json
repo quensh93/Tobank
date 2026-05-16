@@ -1,0 +1,392 @@
+{
+  "appBar": {
+    "leading": {
+      "padding": {
+        "left": 12.0
+      },
+      "child": {
+        "child": {
+          "src": "{{appAssets.icons.support}}",
+          "imageType": "asset",
+          "color": "{{appColors.current.text.title}}",
+          "width": 24.0,
+          "height": 24.0,
+          "type": "image"
+        },
+        "type": "center"
+      },
+      "type": "padding"
+    },
+    "automaticallyImplyLeading": true,
+    "title": {
+      "data": "دعوت از دوستان",
+      "style": {
+        "type": "alias",
+        "value": "{{appStyles.appbarStyle}}"
+      },
+      "textDirection": "rtl",
+      "type": "text"
+    },
+    "actions": [
+      {
+        "padding": {
+          "right": 12.0
+        },
+        "child": {
+          "onPressed": {
+            "navigationStyle": "pop",
+            "actionType": "navigate"
+          },
+          "icon": {
+            "src": "{{appAssets.icons.arrowBack}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 31.0,
+            "height": 31.0,
+            "type": "image"
+          },
+          "type": "iconButton"
+        },
+        "type": "padding"
+      }
+    ],
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "backgroundColor": "{{appColors.current.background.surface}}",
+  "body": {
+    "padding": {
+      "left": 16.0,
+      "top": 16.0,
+      "right": 16.0,
+      "bottom": 16.0
+    },
+    "child": {
+      "crossAxisAlignment": "stretch",
+      "children": [
+        {
+          "padding": {
+            "left": 16.0,
+            "top": 16.0,
+            "right": 16.0,
+            "bottom": 16.0
+          },
+          "decoration": {
+            "color": "{{appColors.current.background.surface}}",
+            "border": {
+              "color": "{{appColors.current.input.borderEnabled}}",
+              "width": 1.0
+            },
+            "borderRadius": {
+              "topLeft": 8.0,
+              "topRight": 8.0,
+              "bottomLeft": 8.0,
+              "bottomRight": 8.0
+            }
+          },
+          "child": {
+            "crossAxisAlignment": "stretch",
+            "children": [
+              {
+                "child": {
+                  "src": "assets/icons/ic_invite_header.svg",
+                  "imageType": "asset",
+                  "width": 205.0,
+                  "height": 189.0,
+                  "type": "image"
+                },
+                "type": "center"
+              },
+              {
+                "height": 16.0,
+                "type": "sizedBox"
+              },
+              {
+                "data": "دعوت از دوستان",
+                "style": {
+                  "type": "custom",
+                  "color": "{{appColors.current.text.title}}",
+                  "fontSize": 16.0,
+                  "fontWeight": "w600"
+                },
+                "textAlign": "right",
+                "textDirection": "rtl",
+                "type": "text"
+              },
+              {
+                "height": 8.0,
+                "type": "sizedBox"
+              },
+              {
+                "data": "کد دعوت را کپی کنید و یا با دوستانتان به اشتراک بگذارید",
+                "style": {
+                  "type": "custom",
+                  "color": "{{appColors.current.text.subtitle}}",
+                  "fontSize": 16.0,
+                  "fontWeight": "w400"
+                },
+                "textAlign": "right",
+                "textDirection": "rtl",
+                "type": "text"
+              },
+              {
+                "height": 16.0,
+                "type": "sizedBox"
+              },
+              {
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "borderRadius": {
+                    "topLeft": 10.0,
+                    "topRight": 10.0,
+                    "bottomLeft": 10.0,
+                    "bottomRight": 10.0
+                  }
+                },
+                "height": 61.0,
+                "child": {
+                  "textDirection": "ltr",
+                  "children": [
+                    {
+                      "child": {
+                        "height": 64.0,
+                        "child": {
+                          "children": [
+                            {
+                              "alignment": "topEnd",
+                              "child": {
+                                "padding": {
+                                  "top": 2.0,
+                                  "right": 24.0
+                                },
+                                "child": {
+                                  "src": "assets/icons/ic_invite_code.svg",
+                                  "imageType": "asset",
+                                  "width": 99.0,
+                                  "height": 61.0,
+                                  "type": "image"
+                                },
+                                "type": "padding"
+                              },
+                              "type": "align"
+                            },
+                            {
+                              "child": {
+                                "data": "۴۵۳۲۵۰۹۱",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.title}}",
+                                  "fontSize": 20.0,
+                                  "fontWeight": "w600"
+                                },
+                                "textAlign": "center",
+                                "textDirection": "ltr",
+                                "type": "text"
+                              },
+                              "type": "center"
+                            }
+                          ],
+                          "type": "stack"
+                        },
+                        "type": "container"
+                      },
+                      "type": "expanded"
+                    },
+                    {
+                      "width": 64.0,
+                      "height": 64.0,
+                      "child": {
+                        "child": {
+                          "decoration": {
+                            "color": "#33D61F2C",
+                            "borderRadius": {
+                              "topLeft": 8.0,
+                              "topRight": 8.0,
+                              "bottomLeft": 8.0,
+                              "bottomRight": 8.0
+                            }
+                          },
+                          "width": 48.0,
+                          "height": 48.0,
+                          "child": {
+                            "onPressed": {
+                              "actionType": "showResult",
+                              "title": "کپی",
+                              "content": "کد دعوت کپی شد."
+                            },
+                            "icon": {
+                              "src": "assets/icons/ic_copy.svg",
+                              "imageType": "asset",
+                              "color": "{{appColors.current.primary.color}}",
+                              "width": 35.0,
+                              "height": 35.0,
+                              "type": "image"
+                            },
+                            "type": "iconButton"
+                          },
+                          "type": "container"
+                        },
+                        "type": "center"
+                      },
+                      "type": "container"
+                    }
+                  ],
+                  "type": "row"
+                },
+                "type": "container"
+              },
+              {
+                "height": 16.0,
+                "type": "sizedBox"
+              },
+              {
+                "onPressed": {
+                  "actionType": "showResult",
+                  "title": "اشتراک‌گذاری کد دعوت",
+                  "content": "امکان اشتراک‌گذاری به زودی فعال می‌شود."
+                },
+                "style": {
+                  "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                  "elevation": 0.0,
+                  "fixedSize": {
+                    "width": 999999.0,
+                    "height": 56.0
+                  },
+                  "shape": {
+                    "type": "roundedRectangleBorder",
+                    "borderRadius": {
+                      "topLeft": 10.0,
+                      "topRight": 10.0,
+                      "bottomLeft": 10.0,
+                      "bottomRight": 10.0
+                    }
+                  }
+                },
+                "child": {
+                  "mainAxisAlignment": "center",
+                  "textDirection": "rtl",
+                  "children": [
+                    {
+                      "src": "assets/icons/ic_share.svg",
+                      "imageType": "asset",
+                      "color": "{{appColors.current.button.primary.foregroundColor}}",
+                      "width": 20.0,
+                      "height": 20.0,
+                      "type": "image"
+                    },
+                    {
+                      "width": 8.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "data": "اشتراک‌گذاری کد دعوت",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.button.primary.foregroundColor}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w500"
+                      },
+                      "type": "text"
+                    }
+                  ],
+                  "type": "row"
+                },
+                "type": "filledButton"
+              }
+            ],
+            "type": "column"
+          },
+          "type": "container"
+        },
+        {
+          "height": 16.0,
+          "type": "sizedBox"
+        },
+        {
+          "child": {
+            "padding": {
+              "left": 16.0,
+              "top": 16.0,
+              "right": 16.0,
+              "bottom": 16.0
+            },
+            "decoration": {
+              "color": "{{appColors.current.background.surface}}",
+              "border": {
+                "color": "{{appColors.current.input.borderEnabled}}",
+                "width": 1.0
+              },
+              "borderRadius": {
+                "topLeft": 8.0,
+                "topRight": 8.0,
+                "bottomLeft": 8.0,
+                "bottomRight": 8.0
+              }
+            },
+            "child": {
+              "textDirection": "rtl",
+              "children": [
+                {
+                  "src": "assets/icons/ic_person.svg",
+                  "imageType": "asset",
+                  "color": "{{appColors.current.text.subtitle}}",
+                  "width": 24.0,
+                  "height": 24.0,
+                  "type": "image"
+                },
+                {
+                  "width": 8.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "child": {
+                    "data": "لیست دعوت‌شدگان",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w600"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  "type": "expanded"
+                },
+                {
+                  "color": "{{appColors.current.input.borderEnabled}}",
+                  "width": 2.0,
+                  "height": 16.0,
+                  "type": "container"
+                },
+                {
+                  "width": 8.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "src": "{{appAssets.icons.arrowLeft}}",
+                  "imageType": "asset",
+                  "color": "{{appColors.current.text.title}}",
+                  "width": 31.0,
+                  "height": 31.0,
+                  "type": "image"
+                }
+              ],
+              "type": "row"
+            },
+            "type": "container"
+          },
+          "onTap": {
+            "actionType": "navigate",
+            "widgetType": "profile_customer_referrals",
+            "navigationStyle": "push"
+          },
+          "type": "gestureDetector"
+        }
+      ],
+      "type": "column"
+    },
+    "type": "singleChildScrollView"
+  },
+  "type": "scaffold"
+}

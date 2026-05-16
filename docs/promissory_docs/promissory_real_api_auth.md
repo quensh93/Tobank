@@ -4,7 +4,7 @@ This document details the implementation of the "Real API" Promissory Flow authe
 
 ## Overview
 
-Two new login mechanisms have been added to the `promissory_real_intro` screen:
+Two new login mechanisms have been added to the `promissory_intro` screen:
 1.  **Static Login (Nooshin):** A one-tap button that performs a background login using hardcoded test credentials.
 2.  **Dynamic Login:** A form-based screen where users can manually input credentials to log in.
 
@@ -14,8 +14,8 @@ Both methods authenticate against the real API and store the resulting access to
 
 This method allows for quick token retrieval without manual input.
 
-*   **Trigger:** "Static Login (Nooshin)" button on `promissory_real_intro` screen.
-*   **Action Parser:** `PromissoryLoginActionParser` (`promissory_real_login` action type).
+*   **Trigger:** "Static Login (Nooshin)" button on `promissory_intro` screen.
+*   **Action Parser:** `PromissoryLoginActionParser` (`promissory_login` action type).
 *   **Credentials (Hardcoded):**
     *   National ID: `0063192373`
     *   Mobile: `09121877519`
@@ -32,8 +32,8 @@ This method allows for quick token retrieval without manual input.
 
 This method allows testing with arbitrary user credentials.
 
-*   **Trigger:** "Dynamic Login" button on `promissory_real_intro` screen.
-*   **Navigation:** Navigates to `PromissoryRealLoginScreen` (widget type: `promissory_real_login_form`).
+*   **Trigger:** "Dynamic Login" button on `promissory_intro` screen.
+*   **Navigation:** Navigates to `PromissoryRealLoginScreen` (widget type: `promissory_login_form`).
 *   **UI:** A form requesting National ID, Mobile Number, GPay Token, Birth Date, and CIF.
 *   **Behavior:**
     1.  User fills out the form and taps "Login & Save Token".
@@ -59,10 +59,10 @@ The `AuthManager` class is used to store the retrieved token.
     *   Subsequent API calls using `ConfigApiService` or other services utilizing `AuthInterceptor` (or manually retrieving via `AuthManager.getAccessToken()`) will automatically include this token in the `Authorization: Bearer <token>` header.
 
 ### Key Files
-*   `lib/stac/tobank/flows/promissory_real/dart/promissory_real_auth_service.dart`: Shared logic for API call and token saving.
-*   `lib/stac/tobank/flows/promissory_real/dart/promissory_login_action_parser.dart`: Parser for the static login action.
-*   `lib/stac/tobank/flows/promissory_real/dart/promissory_real_login_screen.dart`: The form UI for dynamic login.
-*   `lib/core/stac/parsers/widgets/promissory_real_login_parser.dart`: Parser to register the login screen in STAC.
+*   `lib/stac/tobank/flows/promissory_old/dart/promissory_auth_service.dart`: Shared logic for API call and token saving.
+*   `lib/stac/tobank/flows/promissory_old/dart/promissory_login_action_parser.dart`: Parser for the static login action.
+*   `lib/stac/tobank/flows/promissory_old/dart/promissory_login_screen.dart`: The form UI for dynamic login.
+*   `lib/core/stac/parsers/widgets/promissory_login_parser.dart`: Parser to register the login screen in STAC.
 
 ## 4. How to Use Saved Token
 
@@ -85,7 +85,7 @@ if (token != null) {
 ```
 
 ## 5. Troubleshooting
-*   **LogCategory.network errors:** Check `promissory_real_auth_service.dart` and ensure it imports the correct `logger.dart` and uses `LogCategory.network` or `LogCategory.auth` (if defined in your updated generic category list).
-*   **"No token found in successful login response":** The login API response structure might have changed. Check the `login` method in `promissory_real_auth_service.dart` to ensure it parses the JSON correctly (currently checks `access_token`, `token`, `result['access_token']`, etc.).
+*   **LogCategory.network errors:** Check `promissory_auth_service.dart` and ensure it imports the correct `logger.dart` and uses `LogCategory.network` or `LogCategory.auth` (if defined in your updated generic category list).
+*   **"No token found in successful login response":** The login API response structure might have changed. Check the `login` method in `promissory_auth_service.dart` to ensure it parses the JSON correctly (currently checks `access_token`, `token`, `result['access_token']`, etc.).
 
 

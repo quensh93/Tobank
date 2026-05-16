@@ -30,21 +30,8 @@
     ],
     "onFinish": {
       "actionType": "navigate",
-      "navigationStyle": "pushReplacement",
-      "request": {
-        "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.login_flow_linear_login/1",
-        "body": {
-          "operator": "is",
-          "dimension": {
-            "app": "mobile"
-          }
-        },
-        "method": "post",
-        "headers": {
-          "Accept": "*/*",
-          "Content-Type": "application/json"
-        }
-      }
+      "widgetType": "login_flow_linear_login",
+      "navigationStyle": "pushReplacement"
     }
   },
   "type": "scaffold"

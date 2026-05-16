@@ -1,0 +1,727 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actions": [
+      {
+        "actionType": "setValue",
+        "key": "isDataFormValid",
+        "value": false
+      },
+      {
+        "actionType": "setValue",
+        "key": "isOnDemand",
+        "value": false
+      },
+      {
+        "actionType": "setValue",
+        "key": "isTransferable",
+        "value": true
+      }
+    ],
+    "sync": false,
+    "actionType": "multiAction"
+  },
+  "child": {
+    "appBar": {
+      "leading": {
+        "onPressed": {
+          "navigationStyle": "pop",
+          "actionType": "navigate"
+        },
+        "icon": {
+          "src": "assets/icons/ic_right_arrow.svg",
+          "imageType": "asset",
+          "color": "{{appColors.current.text.title}}",
+          "width": 31.0,
+          "height": 31.0,
+          "type": "image"
+        },
+        "type": "iconButton"
+      },
+      "automaticallyImplyLeading": true,
+      "title": {
+        "data": "اطلاعات سفته",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "body": {
+      "autovalidateMode": "onUserInteraction",
+      "child": {
+        "crossAxisAlignment": "stretch",
+        "children": [
+          {
+            "child": {
+              "padding": {
+                "left": 16.0,
+                "right": 16.0
+              },
+              "child": {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "padding": {
+                      "left": 16.0,
+                      "top": 16.0,
+                      "right": 16.0,
+                      "bottom": 16.0
+                    },
+                    "decoration": {
+                      "color": "{{appColors.current.background.surfaceContainer}}",
+                      "border": {
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "width": 0.5
+                      },
+                      "borderRadius": {
+                        "topLeft": 8.0,
+                        "topRight": 8.0,
+                        "bottomLeft": 8.0,
+                        "bottomRight": 8.0
+                      }
+                    },
+                    "child": {
+                      "crossAxisAlignment": "stretch",
+                      "children": [
+                        {
+                          "data": "اطلاعات ذینفع (دریافت‌کننده)",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w700"
+                          },
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "height": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "mainAxisAlignment": "spaceBetween",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "کد ملی",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "data": "{{form.receiver_national_code}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w600"
+                              },
+                              "textDirection": "ltr",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        {
+                          "height": 8.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "mainAxisAlignment": "spaceBetween",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "شماره همراه",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "data": "{{form.receiver_mobile}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w600"
+                              },
+                              "textDirection": "ltr",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        {
+                          "height": 8.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "mainAxisAlignment": "spaceBetween",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "نام و نام خانوادگی",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "data": "{{receiverData.fullName}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w600"
+                              },
+                              "textDirection": "ltr",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        }
+                      ],
+                      "type": "column"
+                    },
+                    "type": "container"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "padding": {
+                      "left": 16.0,
+                      "top": 16.0,
+                      "right": 16.0,
+                      "bottom": 16.0
+                    },
+                    "decoration": {
+                      "color": "{{appColors.current.background.surfaceContainer}}",
+                      "border": {
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "width": 0.5
+                      },
+                      "borderRadius": {
+                        "topLeft": 8.0,
+                        "topRight": 8.0,
+                        "bottomLeft": 8.0,
+                        "bottomRight": 8.0
+                      }
+                    },
+                    "child": {
+                      "crossAxisAlignment": "stretch",
+                      "children": [
+                        {
+                          "data": "اطلاعات سفته",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w700"
+                          },
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "height": 16.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "mainAxisAlignment": "spaceBetween",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "مبلغ سفته",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w600"
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "data": "",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 12.0,
+                                "fontWeight": "w400"
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        {
+                          "height": 8.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "type": "textFormField",
+                          "id": "promissory_amount",
+                          "textDirection": "ltr",
+                          "textAlign": "right",
+                          "decoration": {
+                            "hintText": "مبلغ سفته را وارد نمایید",
+                            "suffixText": "{{appStrings.common.rial}}",
+                            "contentPadding": {
+                              "left": 16.0,
+                              "top": 16.0,
+                              "right": 16.0,
+                              "bottom": 16.0
+                            },
+                            "filled": false
+                          },
+                          "keyboardType": "number",
+                          "textInputAction": "next",
+                          "inputFormatters": [
+                            {
+                              "type": "allow",
+                              "rule": "[0-9]"
+                            }
+                          ],
+                          "validatorRules": [
+                            {
+                              "rule": "^\\d+$",
+                              "message": "مبلغ سفته را وارد نمایید"
+                            }
+                          ],
+                          "onChanged": {
+                            "actionType": "validateFields",
+                            "resultKey": "isDataFormValid",
+                            "fields": [
+                              {
+                                "id": "promissory_amount",
+                                "rule": "^\\d+$"
+                              },
+                              {
+                                "id": "promissory_due_date",
+                                "rule": "^\\d{4}/\\d{2}/\\d{2}$",
+                                "optional": "isOnDemand"
+                              },
+                              {
+                                "id": "promissory_payment_place",
+                                "rule": "^.{1,200}$"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "height": 16.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "mainAxisAlignment": "spaceBetween",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "تاریخ سررسید",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w600"
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "mainAxisSize": "min",
+                              "textDirection": "rtl",
+                              "children": [
+                                {
+                                  "data": "عندالمطالبه",
+                                  "style": {
+                                    "type": "custom",
+                                    "fontSize": 12.0,
+                                    "fontWeight": "w500"
+                                  },
+                                  "textDirection": "rtl",
+                                  "type": "text"
+                                },
+                                {
+                                  "width": 8.0,
+                                  "type": "sizedBox"
+                                },
+                                {
+                                  "type": "reactiveSwitch",
+                                  "id": "dueDateSwitch",
+                                  "valueKey": "isOnDemand",
+                                  "activeColor": "{{appColors.current.primary.color}}",
+                                  "onChanged": {
+                                    "actionType": "validateFields",
+                                    "resultKey": "isDataFormValid",
+                                    "fields": [
+                                      {
+                                        "id": "promissory_amount",
+                                        "rule": "^\\d+$"
+                                      },
+                                      {
+                                        "id": "promissory_due_date",
+                                        "rule": "^\\d{4}/\\d{2}/\\d{2}$",
+                                        "optional": "isOnDemand"
+                                      },
+                                      {
+                                        "id": "promissory_payment_place",
+                                        "rule": "^.{1,200}$"
+                                      }
+                                    ]
+                                  }
+                                }
+                              ],
+                              "type": "row"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        {
+                          "height": 8.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "type": "visibility",
+                          "visible": "{{!isOnDemand}}",
+                          "child": {
+                            "child": {
+                              "id": "promissory_due_date",
+                              "decoration": {
+                                "hintText": "تاریخ سررسید سفته را انتخاب نمایید",
+                                "prefixIcon": {
+                                  "padding": {
+                                    "left": 8.0,
+                                    "top": 8.0,
+                                    "right": 8.0,
+                                    "bottom": 8.0
+                                  },
+                                  "child": {
+                                    "src": "assets/icons/ic_calendar.svg",
+                                    "imageType": "asset",
+                                    "color": "{{appColors.current.text.subtitle}}",
+                                    "width": 24.0,
+                                    "height": 24.0,
+                                    "type": "image"
+                                  },
+                                  "type": "padding"
+                                },
+                                "contentPadding": {
+                                  "left": 16.0,
+                                  "top": 16.0,
+                                  "right": 16.0,
+                                  "bottom": 16.0
+                                },
+                                "filled": false
+                              },
+                              "textAlign": "right",
+                              "textDirection": "ltr",
+                              "readOnly": true,
+                              "enabled": false,
+                              "validatorRules": [
+                                {
+                                  "rule": "^\\d{4}/\\d{2}/\\d{2}$",
+                                  "message": "تاریخ سررسید را انتخاب نمایید"
+                                }
+                              ],
+                              "type": "textFormField"
+                            },
+                            "onTap": {
+                              "actionType": "persianDatePicker",
+                              "formFieldId": "promissory_due_date",
+                              "firstDate": "1403/01/01",
+                              "lastDate": "1420/12/29",
+                              "onDateSelected": {
+                                "actionType": "validateFields",
+                                "resultKey": "isDataFormValid",
+                                "fields": [
+                                  {
+                                    "id": "promissory_amount",
+                                    "rule": "^\\d+$"
+                                  },
+                                  {
+                                    "id": "promissory_due_date",
+                                    "rule": "^\\d{4}/\\d{2}/\\d{2}$",
+                                    "optional": "isOnDemand"
+                                  },
+                                  {
+                                    "id": "promissory_payment_place",
+                                    "rule": "^.{1,200}$"
+                                  }
+                                ]
+                              }
+                            },
+                            "type": "gestureDetector"
+                          }
+                        },
+                        {
+                          "height": 16.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "mainAxisAlignment": "spaceBetween",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "child": {
+                                "data": "قابل انتقال به شخص ثالث (حواله کرد)",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.title}}",
+                                  "fontSize": 14.0,
+                                  "fontWeight": "w600"
+                                },
+                                "textDirection": "rtl",
+                                "type": "text"
+                              },
+                              "type": "expanded"
+                            },
+                            {
+                              "type": "reactiveSwitch",
+                              "id": "transferableSwitch",
+                              "valueKey": "isTransferable",
+                              "activeColor": "{{appColors.current.primary.color}}"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        {
+                          "height": 16.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "محل پرداخت",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w600"
+                          },
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "height": 8.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "type": "textFormField",
+                          "id": "promissory_payment_place",
+                          "textDirection": "rtl",
+                          "textAlign": "right",
+                          "decoration": {
+                            "hintText": "محل پرداخت سفته را وارد نمایید",
+                            "contentPadding": {
+                              "left": 16.0,
+                              "top": 16.0,
+                              "right": 16.0,
+                              "bottom": 16.0
+                            },
+                            "filled": false
+                          },
+                          "textInputAction": "next",
+                          "minLines": 2,
+                          "maxLines": 3,
+                          "validatorRules": [
+                            {
+                              "rule": "^.{1,200}$",
+                              "message": "محل پرداخت را وارد نمایید"
+                            }
+                          ],
+                          "onChanged": {
+                            "actionType": "validateFields",
+                            "resultKey": "isDataFormValid",
+                            "fields": [
+                              {
+                                "id": "promissory_amount",
+                                "rule": "^\\d+$"
+                              },
+                              {
+                                "id": "promissory_due_date",
+                                "rule": "^\\d{4}/\\d{2}/\\d{2}$",
+                                "optional": "isOnDemand"
+                              },
+                              {
+                                "id": "promissory_payment_place",
+                                "rule": "^.{1,200}$"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "height": 16.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "توضیحات (اختیاری)",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w600"
+                          },
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "height": 8.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "id": "promissory_description",
+                          "decoration": {
+                            "hintText": "توضیحات مورد نظر را وارد نمایید",
+                            "contentPadding": {
+                              "left": 16.0,
+                              "top": 16.0,
+                              "right": 16.0,
+                              "bottom": 16.0
+                            },
+                            "filled": false
+                          },
+                          "textInputAction": "done",
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "maxLines": 4,
+                          "minLines": 2,
+                          "type": "textFormField"
+                        }
+                      ],
+                      "type": "column"
+                    },
+                    "type": "container"
+                  },
+                  {
+                    "height": 40.0,
+                    "type": "sizedBox"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "singleChildScrollView"
+            },
+            "type": "expanded"
+          },
+          {
+            "padding": {
+              "left": 16.0,
+              "top": 16.0,
+              "right": 16.0,
+              "bottom": 16.0
+            },
+            "child": {
+              "type": "reactiveElevatedButton",
+              "enabledKey": "isDataFormValid",
+              "enabled": false,
+              "onPressed": {
+                "actions": [
+                  {
+                    "actionType": "setValue",
+                    "key": "form.promissory_amount",
+                    "value": {
+                      "actionType": "getFormValue",
+                      "id": "promissory_amount"
+                    }
+                  },
+                  {
+                    "actionType": "setValue",
+                    "key": "form.promissory_due_date",
+                    "value": {
+                      "actionType": "getFormValue",
+                      "id": "promissory_due_date"
+                    }
+                  },
+                  {
+                    "actionType": "setValue",
+                    "key": "form.promissory_payment_place",
+                    "value": {
+                      "actionType": "getFormValue",
+                      "id": "promissory_payment_place"
+                    }
+                  },
+                  {
+                    "actionType": "setValue",
+                    "key": "form.promissory_description",
+                    "value": {
+                      "actionType": "getFormValue",
+                      "id": "promissory_description"
+                    }
+                  },
+                  {
+                    "actionType": "setValue",
+                    "key": "form.isOnDemand",
+                    "value": "__STAC_OPEN__isOnDemand}}"
+                  },
+                  {
+                    "actionType": "setValue",
+                    "key": "form.isTransferable",
+                    "value": "__STAC_OPEN__isTransferable}}"
+                  },
+                  {
+                    "actionType": "navigate",
+                    "widgetType": "promissory_confirm",
+                    "navigationStyle": "push"
+                  }
+                ],
+                "sync": false,
+                "actionType": "multiAction"
+              },
+              "style": {
+                "backgroundColor": "{{appColors.current.primary.color}}",
+                "elevation": 0.0,
+                "fixedSize": {
+                  "width": 999999.0,
+                  "height": 56.0
+                },
+                "shape": {
+                  "type": "roundedRectangleBorder",
+                  "borderRadius": {
+                    "topLeft": 12.0,
+                    "topRight": 12.0,
+                    "bottomLeft": 12.0,
+                    "bottomRight": 12.0
+                  }
+                }
+              },
+              "child": {
+                "data": "ادامه",
+                "style": {
+                  "type": "custom",
+                  "color": "{{appColors.current.primary.onPrimary}}",
+                  "fontSize": 18.0,
+                  "fontWeight": "bold"
+                },
+                "textDirection": "rtl",
+                "type": "text"
+              }
+            },
+            "type": "padding"
+          }
+        ],
+        "type": "column"
+      },
+      "type": "form"
+    },
+    "type": "scaffold"
+  }
+}

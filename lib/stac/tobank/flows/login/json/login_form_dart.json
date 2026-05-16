@@ -1,0 +1,580 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "setValue",
+    "values": [
+      {
+        "key": "isLoginFormValid",
+        "value": false
+      },
+      {
+        "key": "isLoginLoading",
+        "value": false
+      }
+    ]
+  },
+  "child": {
+    "appBar": {
+      "title": {
+        "mainAxisAlignment": "end",
+        "children": [
+          {
+            "data": "{{appStrings.login.validationTitle}}",
+            "style": {
+              "type": "alias",
+              "value": "{{appStyles.appbarStyle}}"
+            },
+            "type": "text"
+          }
+        ],
+        "type": "row"
+      },
+      "centerTitle": false,
+      "type": "appBar"
+    },
+    "body": {
+      "autovalidateMode": "onUserInteraction",
+      "child": {
+        "crossAxisAlignment": "stretch",
+        "textDirection": "rtl",
+        "children": [
+          {
+            "child": {
+              "padding": {
+                "left": 16.0,
+                "top": 16.0,
+                "right": 16.0,
+                "bottom": 16.0
+              },
+              "child": {
+                "crossAxisAlignment": "stretch",
+                "textDirection": "rtl",
+                "children": [
+                  {
+                    "data": "{{appStrings.login.validationInstructions}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 15.0,
+                      "fontWeight": "w400"
+                    },
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 24.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "crossAxisAlignment": "stretch",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "data": "{{appStrings.login.mobileNumberLabel}}",
+                        "style": {
+                          "type": "alias",
+                          "value": "{{appStyles.text.label}}"
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "height": 8.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "type": "textFormField",
+                        "id": "mobile_number",
+                        "textDirection": "rtl",
+                        "textAlign": "right",
+                        "decoration": {
+                          "hintText": "{{appStrings.login.mobileNumberPlaceholder}}",
+                          "contentPadding": {
+                            "left": 16.0,
+                            "top": 12.0,
+                            "right": 16.0,
+                            "bottom": 12.0
+                          },
+                          "filled": false
+                        },
+                        "keyboardType": "phone",
+                        "textInputAction": "next",
+                        "maxLength": 11,
+                        "inputFormatters": [
+                          {
+                            "type": "allow",
+                            "rule": "[0-9]"
+                          }
+                        ],
+                        "validatorRules": [
+                          {
+                            "rule": "^09\\d{9}$",
+                            "message": "{{appStrings.login.mobileNumberError}}"
+                          }
+                        ],
+                        "onChanged": {
+                          "actionType": "validateFields",
+                          "resultKey": "isLoginFormValid",
+                          "fields": [
+                            {
+                              "id": "mobile_number",
+                              "rule": "^09\\d{9}$"
+                            },
+                            {
+                              "id": "national_code",
+                              "rule": "^\\d{10}$"
+                            },
+                            {
+                              "id": "birthdate",
+                              "rule": ".+"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "type": "column"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "crossAxisAlignment": "stretch",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "data": "{{appStrings.login.nationalCodeTitle}}",
+                        "style": {
+                          "type": "alias",
+                          "value": "{{appStyles.text.label}}"
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "height": 8.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "type": "textFormField",
+                        "id": "national_code",
+                        "textDirection": "rtl",
+                        "textAlign": "right",
+                        "decoration": {
+                          "hintText": "{{appStrings.login.nationalCodePlaceholder}}",
+                          "contentPadding": {
+                            "left": 16.0,
+                            "top": 12.0,
+                            "right": 16.0,
+                            "bottom": 12.0
+                          },
+                          "filled": false
+                        },
+                        "keyboardType": "number",
+                        "textInputAction": "next",
+                        "maxLength": 10,
+                        "inputFormatters": [
+                          {
+                            "type": "allow",
+                            "rule": "[0-9]"
+                          }
+                        ],
+                        "validatorRules": [
+                          {
+                            "rule": "^\\d{10}$",
+                            "message": "{{appStrings.login.nationalCodeError}}"
+                          }
+                        ],
+                        "onChanged": {
+                          "actionType": "validateFields",
+                          "resultKey": "isLoginFormValid",
+                          "fields": [
+                            {
+                              "id": "mobile_number",
+                              "rule": "^09\\d{9}$"
+                            },
+                            {
+                              "id": "national_code",
+                              "rule": "^\\d{10}$"
+                            },
+                            {
+                              "id": "birthdate",
+                              "rule": ".+"
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "type": "column"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "child": {
+                      "type": "textFormField",
+                      "id": "gpay_token",
+                      "textDirection": "ltr",
+                      "textAlign": "left",
+                      "decoration": {
+                        "hintText": "1234",
+                        "contentPadding": {
+                          "left": 16.0,
+                          "top": 12.0,
+                          "right": 16.0,
+                          "bottom": 12.0
+                        },
+                        "filled": false
+                      },
+                      "keyboardType": "text",
+                      "textInputAction": "next",
+                      "onChanged": {
+                        "actionType": "validateFields",
+                        "resultKey": "isLoginFormValid",
+                        "fields": [
+                          {
+                            "id": "mobile_number",
+                            "rule": "^09\\d{9}$"
+                          },
+                          {
+                            "id": "national_code",
+                            "rule": "^\\d{10}$"
+                          },
+                          {
+                            "id": "birthdate",
+                            "rule": ".+"
+                          }
+                        ]
+                      }
+                    },
+                    "visible": false,
+                    "type": "visibility"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "child": {
+                      "type": "textFormField",
+                      "id": "cif",
+                      "textDirection": "ltr",
+                      "textAlign": "left",
+                      "decoration": {
+                        "hintText": "123",
+                        "contentPadding": {
+                          "left": 16.0,
+                          "top": 12.0,
+                          "right": 16.0,
+                          "bottom": 12.0
+                        },
+                        "filled": false
+                      },
+                      "keyboardType": "text",
+                      "textInputAction": "next",
+                      "onChanged": {
+                        "actionType": "validateFields",
+                        "resultKey": "isLoginFormValid",
+                        "fields": [
+                          {
+                            "id": "mobile_number",
+                            "rule": "^09\\d{9}$"
+                          },
+                          {
+                            "id": "national_code",
+                            "rule": "^\\d{10}$"
+                          },
+                          {
+                            "id": "birthdate",
+                            "rule": ".+"
+                          }
+                        ]
+                      }
+                    },
+                    "visible": false,
+                    "type": "visibility"
+                  },
+                  {
+                    "crossAxisAlignment": "stretch",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "data": "{{appStrings.login.birthdateLabel}}",
+                        "style": {
+                          "type": "alias",
+                          "value": "{{appStyles.text.label}}"
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "height": 8.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "child": {
+                          "id": "birthdate",
+                          "decoration": {
+                            "hintText": "{{appStrings.login.birthdatePlaceholder}}",
+                            "hintStyle": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.hint}}",
+                              "fontSize": 14.0,
+                              "fontWeight": "w500"
+                            },
+                            "prefixIcon": {
+                              "padding": {
+                                "left": 8.0,
+                                "top": 8.0,
+                                "right": 8.0,
+                                "bottom": 8.0
+                              },
+                              "child": {
+                                "src": "assets/icons/ic_calendar.svg",
+                                "imageType": "asset",
+                                "color": "{{appColors.current.secondary.color}}",
+                                "width": 24.0,
+                                "height": 24.0,
+                                "fit": "scaleDown",
+                                "type": "image"
+                              },
+                              "type": "padding"
+                            },
+                            "contentPadding": {
+                              "left": 16.0,
+                              "top": 12.0,
+                              "right": 16.0,
+                              "bottom": 12.0
+                            },
+                            "filled": false
+                          },
+                          "keyboardType": "text",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w500"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "readOnly": true,
+                          "enabled": false,
+                          "validatorRules": [
+                            {
+                              "rule": ".+",
+                              "message": "{{appStrings.login.birthdateError}}"
+                            }
+                          ],
+                          "type": "textFormField"
+                        },
+                        "onTap": {
+                          "actionType": "persianDatePicker",
+                          "formFieldId": "birthdate",
+                          "firstDate": "1300/01/01",
+                          "lastDate": "1450/12/29",
+                          "onDateSelected": {
+                            "actionType": "validateFields",
+                            "resultKey": "isLoginFormValid",
+                            "fields": [
+                              {
+                                "id": "mobile_number",
+                                "rule": "^09\\d{9}$"
+                              },
+                              {
+                                "id": "national_code",
+                                "rule": "^\\d{10}$"
+                              },
+                              {
+                                "id": "birthdate",
+                                "rule": ".+"
+                              }
+                            ]
+                          }
+                        },
+                        "type": "gestureDetector"
+                      }
+                    ],
+                    "type": "column"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "singleChildScrollView"
+            },
+            "type": "expanded"
+          },
+          {
+            "padding": {
+              "left": 16.0,
+              "top": 16.0,
+              "right": 16.0,
+              "bottom": 16.0
+            },
+            "child": {
+              "type": "reactiveElevatedButton",
+              "enabledKey": "isLoginFormValid",
+              "loadingKey": "isLoginLoading",
+              "onPressed": {
+                "actionType": "sequence",
+                "actions": [
+                  {
+                    "actionType": "setValue",
+                    "values": [
+                      {
+                        "key": "isLoginLoading",
+                        "value": true
+                      },
+                      {
+                        "key": "login.mobile",
+                        "value": {
+                          "actionType": "getFormValue",
+                          "id": "mobile_number"
+                        }
+                      },
+                      {
+                        "key": "login.nationalCode",
+                        "value": {
+                          "actionType": "getFormValue",
+                          "id": "national_code"
+                        }
+                      },
+                      {
+                        "key": "login.gpayToken",
+                        "value": {
+                          "actionType": "getFormValue",
+                          "id": "gpay_token"
+                        }
+                      },
+                      {
+                        "key": "login.cif",
+                        "value": {
+                          "actionType": "getFormValue",
+                          "id": "cif"
+                        }
+                      },
+                      {
+                        "key": "login.birthDate",
+                        "value": {
+                          "actionType": "getFormValue",
+                          "id": "birthdate"
+                        }
+                      },
+                      {
+                        "key": "login.birthDateClean",
+                        "value": "__STAC_OPEN__replace(login.birthDate,'/','')}}"
+                      }
+                    ]
+                  },
+                  {
+                    "actionType": "networkRequest",
+                    "url": "http://192.168.107.22:8280/api/digitalbanking/logins/v1.0/tobank/users",
+                    "method": "post",
+                    "data": {
+                      "nationalId": "__STAC_OPEN__login.nationalCode}}",
+                      "mobileNumber": "__STAC_OPEN__login.mobile}}",
+                      "gpayToken": "__STAC_OPEN__login.gpayToken}}",
+                      "birthDate": "__STAC_OPEN__login.birthDateClean}}",
+                      "cif": "__STAC_OPEN__login.cif}}"
+                    },
+                    "headers": {
+                      "accept": "*/*",
+                      "app-platform": "android",
+                      "app-store": "application/json",
+                      "app-version": "456",
+                      "authorization": "Bearer null",
+                      "content-type": "application/json",
+                      "device-uuid": "5109ab4c-77ca-4f0c-9858-da4df58031d2",
+                      "serviceauthorization": "Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ=="
+                    },
+                    "results": [
+                      {
+                        "statusCode": 200,
+                        "action": {
+                          "actionType": "sequence",
+                          "actions": [
+                            {
+                              "actionType": "setValue",
+                              "values": [
+                                {
+                                  "key": "isLoginLoading",
+                                  "value": false
+                                },
+                                {
+                                  "key": "auth.accessToken",
+                                  "value": "__STAC_OPEN__data.result.data.access_token}}"
+                                },
+                                {
+                                  "key": "auth.accessTokenRaw",
+                                  "value": "__STAC_OPEN__replace(data.result.data.access_token,'Bearer ','')}}"
+                                },
+                                {
+                                  "key": "userData.nationalCode",
+                                  "value": "__STAC_OPEN__login.nationalCode}}"
+                                }
+                              ]
+                            },
+                            {
+                              "actionType": "auth_persist",
+                              "accessToken": "__STAC_OPEN__data.result.data.access_token}}",
+                              "nationalCode": "__STAC_OPEN__login.nationalCode}}"
+                            },
+                            {
+                              "actionType": "navigate",
+                              "widgetType": "dashboard_shell",
+                              "navigationStyle": "pushReplacement"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "statusCode": -1,
+                        "action": {
+                          "actionType": "setValue",
+                          "key": "isLoginLoading",
+                          "value": false
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "style": {
+                "backgroundColor": "{{appColors.current.primary.color}}",
+                "elevation": 0.0,
+                "fixedSize": {
+                  "width": 999999.0,
+                  "height": 56.0
+                },
+                "shape": {
+                  "type": "roundedRectangleBorder",
+                  "borderRadius": {
+                    "topLeft": 8.0,
+                    "topRight": 8.0,
+                    "bottomLeft": 8.0,
+                    "bottomRight": 8.0
+                  }
+                }
+              },
+              "child": {
+                "data": "{{appStrings.login.receiveVerificationCode}}",
+                "style": {
+                  "type": "custom",
+                  "color": "{{appColors.current.primary.onPrimary}}",
+                  "fontSize": 16.0,
+                  "fontWeight": "bold"
+                },
+                "textDirection": "rtl",
+                "type": "text"
+              }
+            },
+            "type": "padding"
+          }
+        ],
+        "type": "column"
+      },
+      "type": "form"
+    },
+    "type": "scaffold"
+  }
+}
