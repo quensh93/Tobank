@@ -1,7 +1,7 @@
 ﻿import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
-import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/widgets/profile_real_app_bar.dart';
+import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 const _serviceTopUpTitle = '{{appStrings.cardsManagement.services.topUp}}';
 const _serviceTransferTitle =
@@ -20,7 +20,11 @@ const _servicePlaceholderContent =
 StacWidget dashboardRealCardsManagement() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildProfileRealAppBar(title: 'مدیریت کارت‌ها'),
+    appBar: buildTobankFlowAppBar(
+      showSupport: true,
+      showBack: true,
+      title: 'مدیریت کارت‌ها',
+    ),
     body: StacSingleChildScrollView(
       padding: StacEdgeInsets.only(left: 16, right: 16, top: 16, bottom: 24),
       child: StacColumn(
@@ -1150,6 +1154,6 @@ StacWidget _serviceIcon({required String registryKey, String? color}) {
     'imageType': 'asset',
     'width': 32,
     'height': 28,
-    if (color != null) 'color': color,
+    ...?(color == null ? null : {'color': color}),
   });
 }

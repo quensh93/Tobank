@@ -1,11 +1,11 @@
 import 'package:stac_core/stac_core.dart';
-import 'package:tobank_sdui/stac/tobank/flows/cartable_real/dart/cartable_real_intro.dart'
+import 'package:tobank_sdui/stac/tobank/flows/cartable/dart/cartable_intro.dart'
     as cartable_real_intro_dart;
-import 'package:tobank_sdui/stac/tobank/flows/profile_real/dart/profile_real_intro.dart'
+import 'package:tobank_sdui/stac/tobank/flows/profile/dart/profile_intro.dart'
     as profile_real_intro_dart;
-import 'package:tobank_sdui/stac/tobank/flows/transaction_real/dart/transaction_real_intro.dart'
+import 'package:tobank_sdui/stac/tobank/flows/transaction/dart/transaction_intro.dart'
     as transaction_real_intro_dart;
-import 'package:tobank_sdui/stac/tobank/home_page/dart/home_page.dart'
+import 'package:tobank_sdui/stac/tobank/flows/home_page/dart/home_page.dart'
     as home_page_dart;
 
 @StacScreen(screenName: 'dashboard_real_shell')

@@ -47,3 +47,7 @@ VeTransfer/
 
 # Archived STAC framework files
 docs/Archived/.stac/
+
+# Graphify generated output
+graphify-out/
+**/graphify-out/
