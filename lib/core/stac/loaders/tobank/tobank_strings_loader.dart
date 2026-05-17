@@ -25,6 +25,24 @@ class TobankStringsLoader {
   static final List<String> _storedKeys = []; // Track all keys we stored
   static const String _stringsUrl = 'https://api.tobank.com/strings';
   static const String _prefix = 'appStrings';
+  static const Map<String, String> _fallbackStrings = {
+    'appStrings.cardsManagement.services.topUp':
+        '\u0627\u0641\u0632\u0627\u06cc\u0634 \u0645\u0648\u062c\u0648\u062f\u06cc',
+    'appStrings.cardsManagement.services.transfer':
+        '\u0627\u0646\u062a\u0642\u0627\u0644 \u0648\u062c\u0647',
+    'appStrings.cardsManagement.services.firstPin':
+        '\u0631\u0645\u0632 \u0627\u0648\u0644',
+    'appStrings.cardsManagement.services.secondPin':
+        '\u0631\u0645\u0632 \u062f\u0648\u0645',
+    'appStrings.cardsManagement.services.reissue':
+        '\u06a9\u0627\u0631\u062a \u0627\u0644\u0645\u062b\u0646\u06cc',
+    'appStrings.cardsManagement.services.block':
+        '\u0645\u0633\u062f\u0648\u062f\u0633\u0627\u0632\u06cc',
+    'appStrings.cardsManagement.services.balance':
+        '\u0645\u0648\u062c\u0648\u062f\u06cc',
+    'appStrings.cardsManagement.services.placeholder':
+        '\u0627\u06cc\u0646 \u0628\u062e\u0634 \u0628\u0647 \u0632\u0648\u062f\u06cc \u0641\u0639\u0627\u0644 \u0645\u06cc\u200c\u0634\u0648\u062f.',
+  };
 
   /// Load strings from API and store in StacRegistry
   ///
@@ -39,6 +57,8 @@ class TobankStringsLoader {
     if (_storedKeys.isNotEmpty) {
       _clearStoredKeys();
     }
+
+    _storeFallbackStrings();
 
     if (_loaded && !forceReload) {
       AppLogger.dc(LogCategory.string, 'Strings already loaded, skipping');
@@ -75,6 +95,7 @@ class TobankStringsLoader {
       // Flatten nested structure and store with dot-notation keys
       // This allows {{appStrings.login.validationTitle}} syntax to work
       _flattenAndStore(stringsData, _prefix);
+      _storeFallbackStrings(overwrite: false);
 
       _loaded = true;
       AppLogger.ic(
@@ -129,9 +150,22 @@ class TobankStringsLoader {
         e,
         stackTrace,
       );
+      _storeFallbackStrings(overwrite: false);
       // Don't throw - app can still work with fallback strings
       // Or you could set default/fallback strings here
     }
+  }
+
+  static void _storeFallbackStrings({bool overwrite = true}) {
+    _fallbackStrings.forEach((key, value) {
+      if (!overwrite && StacRegistry.instance.getValue(key) != null) {
+        return;
+      }
+      StacRegistry.instance.setValue(key, value);
+      if (!_storedKeys.contains(key)) {
+        _storedKeys.add(key);
+      }
+    });
   }
 
   /// Recursively flatten nested Map structure and store in StacRegistry

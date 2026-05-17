@@ -1,0 +1,112 @@
+﻿# flows/verify_identity_real/json/test_screen.json
+
+Source: lib/stac/tobank/flows/verify_identity_real/json/test_screen.json
+
+## JSON Paths (sample)
+- Could not parse JSON structure for path extraction.
+
+## Raw JSON
+```json
+{
+  "appBar": {
+    "leading": {
+      "padding": {
+        "left": 12.0
+      },
+      "child": {
+        "child": {
+          "width": 42.0,
+          "height": 42.0,
+          "child": {
+            "child": {
+              "src": "{{appAssets.icons.support}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 24.0,
+              "height": 24.0,
+              "type": "image"
+            },
+            "type": "center"
+          },
+          "type": "container"
+        },
+        "type": "center"
+      },
+      "type": "padding"
+    },
+    "title": {
+      "data": "Ø§Ø­Ø±Ø§Ø² Ù‡ÙˆÛŒØª",
+      "style": {
+        "type": "alias",
+        "value": "{{appStyles.appbarStyle}}"
+      },
+      "textDirection": "rtl",
+      "type": "text"
+    },
+    "actions": [
+      {
+        "padding": {
+          "right": 15.0
+        },
+        "child": {
+          "onPressed": {
+            "navigationStyle": "pop",
+            "actionType": "navigate"
+          },
+          "icon": {
+            "src": "{{appAssets.icons.arrowBack}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 30.0,
+            "height": 30.0,
+            "type": "image"
+          },
+          "type": "iconButton"
+        },
+        "type": "padding"
+      }
+    ],
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "backgroundColor": "{{appColors.current.background.surface}}",
+  "body": {
+    "type": "safeArea",
+    "top": false,
+    "bottom": true,
+    "child": {
+      "child": {
+        "mainAxisSize": "min",
+        "children": [
+          {
+            "src": "{{appAssets.icons.success}}",
+            "imageType": "asset",
+            "width": 88.0,
+            "height": 88.0,
+            "type": "image"
+          },
+          {
+            "height": 16.0,
+            "type": "sizedBox"
+          },
+          {
+            "data": "Ø§Ø­Ø±Ø§Ø² Ù‡ÙˆÛŒØª Ø¨Ø§ Ù…ÙˆÙÙ‚ÛŒØª Ø§Ù†Ø¬Ø§Ù… Ø´Ø¯",
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.text.title}}",
+              "fontSize": 20.0,
+              "fontWeight": "w700"
+            },
+            "textAlign": "center",
+            "textDirection": "rtl",
+            "type": "text"
+          }
+        ],
+        "type": "column"
+      },
+      "type": "center"
+    }
+  },
+  "type": "scaffold"
+}
+```

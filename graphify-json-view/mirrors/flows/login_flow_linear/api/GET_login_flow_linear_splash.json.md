@@ -1,0 +1,164 @@
+﻿# flows/login_flow_linear/api/GET_login_flow_linear_splash.json
+
+Source: lib/stac/tobank/flows/login_flow_linear/api/GET_login_flow_linear_splash.json
+
+## JSON Paths (sample)
+- Could not parse JSON structure for path extraction.
+
+## Raw JSON
+```json
+{
+  "GET": {
+    "statusCode": 200,
+    "data": {
+      "type": "stateFull",
+      "onInit": {
+        "actionType": "sequence",
+        "actions": [
+          {
+            "actionType": "setValue",
+            "key": "splashStartTime",
+            "value": "{{now()}}"
+          },
+          {
+            "actionType": "log",
+            "message": "onInit: splash initialized"
+          },
+          {
+            "actionType": "delay",
+            "duration": 2000
+          },
+          {
+            "actionType": "navigate",
+            "request": {
+              "url": "https://api.tobank.com/flows/login_flow_linear/login_flow_linear_onboarding",
+              "method": "get"
+            },
+            "navigationStyle": "pushReplacement"
+          }
+        ]
+      },
+      "onBuild": {
+        "actionType": "log",
+        "message": "onBuild: splash build"
+      },
+      "onDependenciesChanged": {
+        "actionType": "log",
+        "message": "didChangeDependencies: splash"
+      },
+      "onWidgetUpdated": {
+        "actionType": "log",
+        "message": "didUpdateWidget: splash"
+      },
+      "onReassemble": {
+        "actionType": "log",
+        "message": "reassemble (hot reload): splash"
+      },
+      "onDeactivate": {
+        "actionType": "log",
+        "message": "deactivate: splash"
+      },
+      "onResume": {
+        "actionType": "log",
+        "message": "appLifecycle resumed: splash"
+      },
+      "onPause": {
+        "actionType": "log",
+        "message": "appLifecycle paused: splash"
+      },
+      "onInactive": {
+        "actionType": "log",
+        "message": "appLifecycle inactive: splash"
+      },
+      "onHidden": {
+        "actionType": "log",
+        "message": "appLifecycle hidden: splash"
+      },
+      "onDetached": {
+        "actionType": "log",
+        "message": "appLifecycle detached: splash"
+      },
+      "onDispose": {
+        "actionType": "sequence",
+        "actions": [
+          {
+            "actionType": "log",
+            "message": "onDispose: splash disposed"
+          },
+          {
+            "actionType": "log",
+            "message": "splash duration: {{now() - splashStartTime}}ms"
+          }
+        ]
+      },
+      "child": {
+        "type": "scaffold",
+        "backgroundColor": "{{appColors.current.background.surface}}",
+        "body": {
+          "type": "stack",
+          "children": [
+            {
+              "type": "align",
+              "alignment": "center",
+              "child": {
+                "type": "column",
+                "mainAxisSize": "min",
+                "crossAxisAlignment": "center",
+                "children": [
+                  {
+                    "type": "image",
+                    "src": "{{appAssets.icons.logoRed}}",
+                    "imageType": "asset",
+                    "width": 229.0,
+                    "height": 36.0,
+                    "fit": "contain"
+                  },
+                  {
+                    "type": "sizedBox",
+                    "height": 27.0
+                  },
+                  {
+                    "type": "text",
+                    "data": "{{appStrings.splash.slogan}}",
+                    "textDirection": "rtl",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 20.0,
+                      "fontWeight": "bold",
+                      "fontFamily": "IranYekan"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "align",
+              "alignment": "bottomCenter",
+              "child": {
+                "type": "padding",
+                "padding": {
+                  "bottom": 49.0
+                },
+                "child": {
+                  "type": "text",
+                  "data": "{{appStrings.splash.version}} {{appData.version}}",
+                  "textDirection": "rtl",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.text.subtitle}}",
+                    "fontSize": 16.0,
+                    "fontWeight": "w400",
+                    "fontFamily": "IranYekan"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "comment": "Complete standalone JSON - ready for server deployment. Includes onMountAction wrapper with navigation action and full splash screen UI structure."
+    }
+  }
+}
+```

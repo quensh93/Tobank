@@ -1,0 +1,737 @@
+﻿# flows/promissory_real/json_upload/promissory_real_receiver.json
+
+Source: lib/stac/tobank/flows/promissory_real/json_upload/promissory_real_receiver.json
+
+## JSON Paths (sample)
+- Could not parse JSON structure for path extraction.
+
+## Raw JSON
+```json
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "sequence",
+    "actions": [
+      {
+        "actionType": "setValue",
+        "key": "isIndividualSelected",
+        "value": true
+      },
+      {
+        "actionType": "setValue",
+        "key": "isLegalSelected",
+        "value": false
+      },
+      {
+        "actionType": "setValue",
+        "key": "isReceiverFormValid",
+        "value": false
+      }
+    ]
+  },
+  "child": {
+    "appBar": {
+      "leading": {
+        "onPressed": {
+          "navigationStyle": "pop",
+          "actionType": "navigate"
+        },
+        "icon": {
+          "src": "assets/icons/ic_right_arrow.svg",
+          "imageType": "asset",
+          "color": "{{appColors.current.text.title}}",
+          "width": 24.0,
+          "height": 24.0,
+          "type": "image"
+        },
+        "type": "iconButton"
+      },
+      "title": {
+        "data": "{{appStrings.promissory.receiverTitle}}",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "body": {
+      "autovalidateMode": "onUserInteraction",
+      "child": {
+        "crossAxisAlignment": "stretch",
+        "children": [
+          {
+            "child": {
+              "padding": {
+                "left": 16.0,
+                "right": 16.0
+              },
+              "child": {
+                "crossAxisAlignment": "stretch",
+                "textDirection": "rtl",
+                "children": [
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{appStrings.promissory.receiverSubtitle}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w700"
+                    },
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "child": {
+                          "child": {
+                            "padding": {
+                              "top": 12.0,
+                              "bottom": 12.0
+                            },
+                            "decoration": {
+                              "color": "{{isIndividualSelected ? appColors.current.primary.color : appColors.current.background.surfaceContainer}}",
+                              "border": {
+                                "color": "{{isIndividualSelected ? appColors.current.primary.color : appColors.current.input.borderEnabled}}",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 8.0,
+                                "topRight": 8.0,
+                                "bottomLeft": 8.0,
+                                "bottomRight": 8.0
+                              }
+                            },
+                            "child": {
+                              "child": {
+                                "data": "{{appStrings.promissory.receiverTypeIndividual}}",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{isIndividualSelected ? appColors.current.primary.onPrimary : appColors.current.text.title}}",
+                                  "fontSize": 14.0,
+                                  "fontWeight": "w600"
+                                },
+                                "textDirection": "rtl",
+                                "type": "text"
+                              },
+                              "type": "center"
+                            },
+                            "type": "container"
+                          },
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "key": "isIndividualSelected",
+                                "value": true
+                              },
+                              {
+                                "actionType": "setValue",
+                                "key": "isLegalSelected",
+                                "value": false
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        },
+                        "type": "expanded"
+                      },
+                      {
+                        "width": 8.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "child": {
+                          "child": {
+                            "padding": {
+                              "top": 12.0,
+                              "bottom": 12.0
+                            },
+                            "decoration": {
+                              "color": "{{isLegalSelected ? appColors.current.primary.color : appColors.current.background.surfaceContainer}}",
+                              "border": {
+                                "color": "{{isLegalSelected ? appColors.current.primary.color : appColors.current.input.borderEnabled}}",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 8.0,
+                                "topRight": 8.0,
+                                "bottomLeft": 8.0,
+                                "bottomRight": 8.0
+                              }
+                            },
+                            "child": {
+                              "child": {
+                                "data": "{{appStrings.promissory.receiverTypeLegal}}",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{isLegalSelected ? appColors.current.primary.onPrimary : appColors.current.text.title}}",
+                                  "fontSize": 14.0,
+                                  "fontWeight": "w600"
+                                },
+                                "textDirection": "rtl",
+                                "type": "text"
+                              },
+                              "type": "center"
+                            },
+                            "type": "container"
+                          },
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "key": "isLegalSelected",
+                                "value": true
+                              },
+                              {
+                                "actionType": "setValue",
+                                "key": "isIndividualSelected",
+                                "value": false
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        },
+                        "type": "expanded"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{appStrings.promissory.nationalCode}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 14.0,
+                      "fontWeight": "w600"
+                    },
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "type": "textFormField",
+                    "id": "receiver_national_code",
+                    "textDirection": "rtl",
+                    "textAlign": "right",
+                    "maxLength": 10,
+                    "inputFormatters": [
+                      {
+                        "type": "allow",
+                        "rule": "[0-9]"
+                      }
+                    ],
+                    "decoration": {
+                      "hintText": "{{appStrings.promissory.enterReceiverNationalCode}}",
+                      "contentPadding": {
+                        "left": 16.0,
+                        "top": 16.0,
+                        "right": 16.0,
+                        "bottom": 16.0
+                      },
+                      "filled": false
+                    },
+                    "keyboardType": "number",
+                    "textInputAction": "next",
+                    "validatorRules": [
+                      {
+                        "rule": "^\\d{10}$",
+                        "message": "{{appStrings.promissory.nationalCodeError}}"
+                      }
+                    ],
+                    "onChanged": {
+                      "actionType": "validateFields",
+                      "resultKey": "isReceiverFormValid",
+                      "fields": [
+                        {
+                          "id": "receiver_national_code",
+                          "rule": "^\\d{10}$"
+                        },
+                        {
+                          "id": "receiver_mobile",
+                          "rule": "^09\\d{9}$"
+                        },
+                        {
+                          "id": "receiver_birthdate",
+                          "rule": "^\\d{4}/\\d{2}/\\d{2}$"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{appStrings.promissory.mobileNumber}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 14.0,
+                      "fontWeight": "w600"
+                    },
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "type": "textFormField",
+                    "id": "receiver_mobile",
+                    "textDirection": "rtl",
+                    "textAlign": "right",
+                    "maxLength": 11,
+                    "inputFormatters": [
+                      {
+                        "type": "allow",
+                        "rule": "[0-9]"
+                      }
+                    ],
+                    "decoration": {
+                      "hintText": "{{appStrings.promissory.enterReceiverMobile}}",
+                      "contentPadding": {
+                        "left": 16.0,
+                        "top": 16.0,
+                        "right": 16.0,
+                        "bottom": 16.0
+                      },
+                      "filled": false
+                    },
+                    "keyboardType": "phone",
+                    "textInputAction": "next",
+                    "validatorRules": [
+                      {
+                        "rule": "^09\\d{9}$",
+                        "message": "{{appStrings.promissory.mobileNumberError}}"
+                      }
+                    ],
+                    "onChanged": {
+                      "actionType": "validateFields",
+                      "resultKey": "isReceiverFormValid",
+                      "fields": [
+                        {
+                          "id": "receiver_national_code",
+                          "rule": "^\\d{10}$"
+                        },
+                        {
+                          "id": "receiver_mobile",
+                          "rule": "^09\\d{9}$"
+                        },
+                        {
+                          "id": "receiver_birthdate",
+                          "rule": "^\\d{4}/\\d{2}/\\d{2}$"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{appStrings.promissory.birthdate}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 14.0,
+                      "fontWeight": "w600"
+                    },
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "child": {
+                      "id": "receiver_birthdate",
+                      "decoration": {
+                        "hintText": "{{appStrings.promissory.selectReceiverBirthdate}}",
+                        "hintStyle": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.subtitle}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w500"
+                        },
+                        "prefixIcon": {
+                          "padding": {
+                            "left": 8.0,
+                            "top": 8.0,
+                            "right": 8.0,
+                            "bottom": 8.0
+                          },
+                          "child": {
+                            "src": "assets/icons/ic_calendar.svg",
+                            "imageType": "asset",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "width": 24.0,
+                            "height": 24.0,
+                            "fit": "scaleDown",
+                            "type": "image"
+                          },
+                          "type": "padding"
+                        },
+                        "contentPadding": {
+                          "left": 16.0,
+                          "top": 16.0,
+                          "right": 16.0,
+                          "bottom": 16.0
+                        },
+                        "filled": false
+                      },
+                      "keyboardType": "text",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w600"
+                      },
+                      "textAlign": "right",
+                      "textDirection": "rtl",
+                      "readOnly": true,
+                      "enabled": false,
+                      "validatorRules": [
+                        {
+                          "rule": "^\\d{4}/\\d{2}/\\d{2}$",
+                          "message": "{{appStrings.promissory.selectBirthdateError}}"
+                        }
+                      ],
+                      "type": "textFormField"
+                    },
+                    "onTap": {
+                      "actionType": "persianDatePicker",
+                      "formFieldId": "receiver_birthdate",
+                      "firstDate": "1350/01/01",
+                      "lastDate": "1450/12/29",
+                      "onDateSelected": {
+                        "actionType": "validateFields",
+                        "resultKey": "isReceiverFormValid",
+                        "fields": [
+                          {
+                            "id": "receiver_national_code",
+                            "rule": "^\\d{10}$"
+                          },
+                          {
+                            "id": "receiver_mobile",
+                            "rule": "^09\\d{9}$"
+                          },
+                          {
+                            "id": "receiver_birthdate",
+                            "rule": "^\\d{4}/\\d{2}/\\d{2}$"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "gestureDetector"
+                  },
+                  {
+                    "height": 40.0,
+                    "type": "sizedBox"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "singleChildScrollView"
+            },
+            "type": "expanded"
+          },
+          {
+            "padding": {
+              "left": 16.0,
+              "top": 16.0,
+              "right": 16.0,
+              "bottom": 16.0
+            },
+            "child": {
+              "type": "reactiveElevatedButton",
+              "enabledKey": "isReceiverFormValid",
+              "loadingKey": "receiver.isLoading",
+              "onPressed": {
+                "actionType": "sequence",
+                "actions": [
+                  {
+                    "actionType": "setValue",
+                    "values": [
+                      {
+                        "key": "receiver.isLoading",
+                        "value": true
+                      },
+                      {
+                        "key": "receiver.error"
+                      }
+                    ]
+                  },
+                  {
+                    "actionType": "setValue",
+                    "values": [
+                      {
+                        "key": "receiver.nationalCode",
+                        "value": {
+                          "actionType": "getFormValue",
+                          "id": "receiver_national_code"
+                        }
+                      },
+                      {
+                        "key": "form.receiver_national_code",
+                        "value": {
+                          "actionType": "getFormValue",
+                          "id": "receiver_national_code"
+                        }
+                      },
+                      {
+                        "key": "receiver.mobile",
+                        "value": {
+                          "actionType": "getFormValue",
+                          "id": "receiver_mobile"
+                        }
+                      },
+                      {
+                        "key": "form.receiver_mobile",
+                        "value": {
+                          "actionType": "getFormValue",
+                          "id": "receiver_mobile"
+                        }
+                      },
+                      {
+                        "key": "receiver.birthDate",
+                        "value": {
+                          "actionType": "getFormValue",
+                          "id": "receiver_birthdate"
+                        }
+                      },
+                      {
+                        "key": "form.receiver_birthdate",
+                        "value": {
+                          "actionType": "getFormValue",
+                          "id": "receiver_birthdate"
+                        }
+                      },
+                      {
+                        "key": "receiver.birthDateCompact",
+                        "value": "{{replace(receiver.birthDate,'/','')}}"
+                      }
+                    ]
+                  },
+                  {
+                    "actionType": "networkRequest",
+                    "url": "http://192.168.107.22:8280/api/digitalbanking/customers/v1.0/identity/{{receiver.nationalCode}}/{{receiver.birthDateCompact}}",
+                    "method": "get",
+                    "headers": {
+                      "accept": "*/*",
+                      "app-platform": "android",
+                      "app-store": "application/json",
+                      "app-version": "456",
+                      "device-uuid": "5109ab4c-77ca-4f0c-9858-da4df58031d2",
+                      "serviceauthorization": "Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==",
+                      "authorization": "{{auth.accessToken}}"
+                    },
+                    "results": [
+                      {
+                        "statusCode": 200,
+                        "action": {
+                          "actionType": "sequence",
+                          "actions": [
+                            {
+                              "actionType": "setValue",
+                              "values": [
+                                {
+                                  "key": "receiver.isLoading",
+                                  "value": false
+                                },
+                                {
+                                  "key": "receiverIdentity.raw",
+                                  "value": "{{data.data}}"
+                                },
+                                {
+                                  "key": "receiverIdentity.name",
+                                  "value": "{{data.data.name}}"
+                                },
+                                {
+                                  "key": "receiverIdentity.family",
+                                  "value": "{{data.data.family}}"
+                                },
+                                {
+                                  "key": "receiverIdentity.fullName",
+                                  "value": "{{data.data.name}} {{data.data.family}}"
+                                },
+                                {
+                                  "key": "receiverIdentity.fatherName",
+                                  "value": "{{data.data.fatherName}}"
+                                },
+                                {
+                                  "key": "receiverIdentity.gender",
+                                  "value": "{{data.data.gender}}"
+                                },
+                                {
+                                  "key": "receiverIdentity.nationalId",
+                                  "value": "{{data.data.nationalId}}"
+                                }
+                              ]
+                            },
+                            {
+                              "actionType": "navigate",
+                              "navigationStyle": "push",
+                              "request": {
+                                "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.promissory_real_data/1",
+                                "method": "post",
+                                "headers": {
+                                  "Content-Type": "application/json",
+                                  "Accept": "*/*"
+                                },
+                                "body": {
+                                  "operator": "is",
+                                  "dimension": {
+                                    "app": "mobile"
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "statusCode": 422,
+                        "action": {
+                          "actionType": "sequence",
+                          "actions": [
+                            {
+                              "actionType": "setValue",
+                              "values": [
+                                {
+                                  "key": "receiver.isLoading",
+                                  "value": false
+                                },
+                                {
+                                  "key": "receiver.error",
+                                  "value": "{{appStrings.promissory.invalidDataError}}"
+                                }
+                              ]
+                            },
+                            {
+                              "actionType": "customSnackBar",
+                              "message": "{{appStrings.promissory.invalidDataErrorDetail}}",
+                              "backgroundColor": "#D32F2F",
+                              "duration": 4000
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "statusCode": 401,
+                        "action": {
+                          "actionType": "sequence",
+                          "actions": [
+                            {
+                              "actionType": "setValue",
+                              "values": [
+                                {
+                                  "key": "receiver.isLoading",
+                                  "value": false
+                                }
+                              ]
+                            },
+                            {
+                              "actionType": "customSnackBar",
+                              "message": "{{appStrings.promissory.sessionExpiredError}}",
+                              "backgroundColor": "#D32F2F",
+                              "duration": 4000
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "statusCode": -1,
+                        "action": {
+                          "actionType": "sequence",
+                          "actions": [
+                            {
+                              "actionType": "setValue",
+                              "values": [
+                                {
+                                  "key": "receiver.isLoading",
+                                  "value": false
+                                },
+                                {
+                                  "key": "receiver.error",
+                                  "value": "{{appStrings.promissory.serverConnectionError}}"
+                                }
+                              ]
+                            },
+                            {
+                              "actionType": "customSnackBar",
+                              "message": "{{appStrings.promissory.serverConnectionErrorDetail}}",
+                              "backgroundColor": "#D32F2F",
+                              "duration": 4000
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "style": {
+                "backgroundColor": "{{appColors.current.primary.color}}",
+                "elevation": 0.0,
+                "fixedSize": {
+                  "width": 999999.0,
+                  "height": 56.0
+                },
+                "shape": {
+                  "type": "roundedRectangleBorder",
+                  "borderRadius": {
+                    "topLeft": 12.0,
+                    "topRight": 12.0,
+                    "bottomLeft": 12.0,
+                    "bottomRight": 12.0
+                  }
+                }
+              },
+              "child": {
+                "data": "{{appStrings.common.continue}}",
+                "style": {
+                  "type": "custom",
+                  "color": "{{appColors.current.primary.onPrimary}}",
+                  "fontSize": 18.0,
+                  "fontWeight": "bold"
+                },
+                "textDirection": "rtl",
+                "type": "text"
+              }
+            },
+            "type": "padding"
+          }
+        ],
+        "type": "column"
+      },
+      "type": "form"
+    },
+    "type": "scaffold"
+  }
+}
+```

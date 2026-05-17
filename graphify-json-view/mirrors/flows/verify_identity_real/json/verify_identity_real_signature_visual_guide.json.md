@@ -1,0 +1,162 @@
+﻿# flows/verify_identity_real/json/verify_identity_real_signature_visual_guide.json
+
+Source: lib/stac/tobank/flows/verify_identity_real/json/verify_identity_real_signature_visual_guide.json
+
+## JSON Paths (sample)
+- Could not parse JSON structure for path extraction.
+
+## Raw JSON
+```json
+{
+  "appBar": {
+    "leading": {
+      "onPressed": {
+        "navigationStyle": "pop",
+        "actionType": "navigate"
+      },
+      "icon": {
+        "src": "{{appAssets.icons.arrowBack}}",
+        "imageType": "asset",
+        "color": "{{appColors.current.text.title}}",
+        "width": 30.0,
+        "height": 30.0,
+        "type": "image"
+      },
+      "type": "iconButton"
+    },
+    "title": {
+      "data": "Ø±Ø§Ù‡Ù†Ù…Ø§ÛŒ ØªØµÙˆÛŒØ±ÛŒ Ø§Ù…Ø¶Ø§",
+      "style": {
+        "type": "alias",
+        "value": "{{appStyles.appbarStyle}}"
+      },
+      "textDirection": "rtl",
+      "type": "text"
+    },
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "backgroundColor": "{{appColors.current.background.surface}}",
+  "body": {
+    "type": "safeArea",
+    "top": false,
+    "bottom": true,
+    "child": {
+      "children": [
+        {
+          "color": "{{appColors.current.background.surface}}",
+          "width": 999999.0,
+          "height": 999999.0,
+          "type": "container"
+        },
+        {
+          "crossAxisAlignment": "stretch",
+          "children": [
+            {
+              "child": {
+                "padding": {
+                  "left": 16.0,
+                  "top": 16.0,
+                  "right": 16.0,
+                  "bottom": 16.0
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "height": 20.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "decoration": {
+                        "color": "{{appColors.current.background.surfaceContainer}}",
+                        "border": {
+                          "color": "{{appColors.current.input.borderEnabled}}",
+                          "width": 1.0
+                        },
+                        "borderRadius": {
+                          "topLeft": 18.0,
+                          "topRight": 18.0,
+                          "bottomLeft": 18.0,
+                          "bottomRight": 18.0
+                        }
+                      },
+                      "height": 530.0,
+                      "child": {
+                        "borderRadius": {
+                          "topLeft": 18.0,
+                          "topRight": 18.0,
+                          "bottomLeft": 18.0,
+                          "bottomRight": 18.0
+                        },
+                        "child": {
+                          "src": "{{appAssets.images.signatureSample}}",
+                          "imageType": "asset",
+                          "fit": "contain",
+                          "type": "image"
+                        },
+                        "type": "clipRRect"
+                      },
+                      "type": "container"
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "singleChildScrollView"
+              },
+              "type": "expanded"
+            },
+            {
+              "padding": {
+                "left": 16.0,
+                "right": 16.0,
+                "bottom": 24.0
+              },
+              "child": {
+                "onPressed": {
+                  "navigationStyle": "pop",
+                  "actionType": "navigate"
+                },
+                "style": {
+                  "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                  "backgroundColor": "{{appColors.current.primary.color}}",
+                  "elevation": 0.0,
+                  "minimumSize": {
+                    "width": 999999.0,
+                    "height": 54.0
+                  },
+                  "shape": {
+                    "type": "roundedRectangleBorder",
+                    "borderRadius": {
+                      "topLeft": 12.0,
+                      "topRight": 12.0,
+                      "bottomLeft": 12.0,
+                      "bottomRight": 12.0
+                    }
+                  }
+                },
+                "child": {
+                  "data": "Ø¨Ø§Ø²Ú¯Ø´Øª",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.primary.onPrimary}}",
+                    "fontSize": 16.0,
+                    "fontWeight": "w700"
+                  },
+                  "textDirection": "rtl",
+                  "type": "text"
+                },
+                "type": "filledButton"
+              },
+              "type": "padding"
+            }
+          ],
+          "type": "column"
+        }
+      ],
+      "type": "stack"
+    }
+  },
+  "type": "scaffold"
+}
+```

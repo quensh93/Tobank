@@ -1,4 +1,4 @@
-import 'package:stac_core/stac_core.dart';
+﻿import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
@@ -338,10 +338,6 @@ StacWidget _buildServicesTab() {
               fourth: _buildServiceGridItem(
                 label: 'شارژ',
                 iconPath: '{{appAssets.current.icons.simCharge}}',
-                onTap: const StacNavigateAction(
-                  routeName: 'charge_intro',
-                  navigationStyle: NavigationStyle.push,
-                ),
               ),
             ),
             StacSizedBox(height: 16),
@@ -349,10 +345,6 @@ StacWidget _buildServicesTab() {
               first: _buildServiceGridItem(
                 label: 'بسته اینترنت',
                 iconPath: '{{appAssets.current.icons.internet}}',
-                onTap: const StacNavigateAction(
-                  routeName: 'package_intro',
-                  navigationStyle: NavigationStyle.push,
-                ),
               ),
               second: _buildServiceGridItem(
                 label: 'خدمات سفر',
@@ -365,10 +357,6 @@ StacWidget _buildServicesTab() {
               third: _buildServiceGridItem(
                 label: 'کارت هدیه',
                 iconPath: '{{appAssets.current.icons.giftCard}}',
-                onTap: const StacNavigateAction(
-                  routeName: 'gift_card_intro',
-                  navigationStyle: NavigationStyle.push,
-                ),
               ),
               fourth: _buildServiceGridItem(
                 label: 'قبض',
@@ -620,26 +608,32 @@ StacWidget _buildCardsTab() {
             _buildBankCardItem(
               cardNumber: '۵۵۰۴ ۱۶۱۷ ۰۲۸۲ ۲۳۳۳',
               subtitle: 'حساب قرض الحسنه گردشگری',
+              selectedIndex: 1,
             ).toJson(),
             _buildBankCardItem(
               cardNumber: '۵۵۰۴ ۱۶۱۷ ۰۵۰۳ ۰۶۰۳',
               subtitle: 'حساب قرض الحسنه گردشگری',
+              selectedIndex: 3,
             ).toJson(),
             _buildBankCardItem(
               cardNumber: '۵۵۰۴ ۱۶۶۰ ۱۱۶۵ ۰۶۳۴',
               subtitle: 'حساب قرض الحسنه گردشگری',
+              selectedIndex: 2,
             ).toJson(),
             _buildBankCardItem(
               cardNumber: '۵۵۰۴ ۱۶۷۸ ۳۴۹۱ ۶۲۴۰',
               subtitle: 'حساب قرض الحسنه گردشگری',
+              selectedIndex: 4,
             ).toJson(),
             _buildBankCardItem(
               cardNumber: '۵۰۲۲ ۲۲۹۸ ۷۷۴۵ ۱۲۰۱',
               subtitle: 'حساب قرض الحسنه گردشگری',
+              selectedIndex: 5,
             ).toJson(),
             _buildBankCardItem(
               cardNumber: '۵۸۹۲ ۱۰۱۰ ۶۵۴۳ ۷۹۹۸',
               subtitle: 'حساب قرض الحسنه گردشگری',
+              selectedIndex: 5,
             ).toJson(),
           ],
         ),
@@ -673,11 +667,7 @@ StacWidget _buildWalletCardWithHandle() {
 
 StacWidget _buildWalletCard() {
   return StacGestureDetector(
-    onTap: StacRawJsonAction({
-      'actionType': 'navigate',
-      'widgetType': 'dashboard_cards_management',
-      'navigationStyle': 'push',
-    }),
+    onTap: _openCardsManagementAction(0),
     child: StacContainer(
       height: 125,
       padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 14),
@@ -775,16 +765,29 @@ StacWidget _buildWalletTargetIcon() {
   );
 }
 
+StacAction _openCardsManagementAction(int selectedIndex) {
+  return StacSequenceAction(
+    actions: [
+      StacCustomSetValueAction(
+        key: 'cardsManagement.initialPage',
+        value: selectedIndex,
+      ),
+      StacRawJsonAction({
+        'actionType': 'navigate',
+        'widgetType': 'dashboard_real_cards_management',
+        'navigationStyle': 'push',
+      }),
+    ],
+  );
+}
+
 StacWidget _buildBankCardItem({
   required String cardNumber,
   required String subtitle,
+  required int selectedIndex,
 }) {
   return StacGestureDetector(
-    onTap: StacRawJsonAction({
-      'actionType': 'navigate',
-      'widgetType': 'dashboard_cards_management',
-      'navigationStyle': 'push',
-    }),
+    onTap: _openCardsManagementAction(selectedIndex),
     child: StacContainer(
       height: 112,
       padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 12),

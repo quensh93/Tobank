@@ -202,7 +202,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "Ã˜Â®Ã˜Â¯Ã™â€¦Ã˜Â§Ã˜Âª",
+                                  "data": "Ø®Ø¯Ù…Ø§Øª",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -242,7 +242,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "Ã˜Â®Ã˜Â¯Ã™â€¦Ã˜Â§Ã˜Âª",
+                                  "data": "Ø®Ø¯Ù…Ø§Øª",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -337,7 +337,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "Ã˜Â³Ã˜Â±Ã™â€¦Ã˜Â§Ã›Å’Ã™â€¡Ã¢â‚¬Å’ÃšÂ¯Ã˜Â°Ã˜Â§Ã˜Â±Ã›Å’",
+                                  "data": "Ø³Ø±Ù…Ø§ÛŒÙ‡â€ŒÚ¯Ø°Ø§Ø±ÛŒ",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -377,7 +377,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "Ã˜Â³Ã˜Â±Ã™â€¦Ã˜Â§Ã›Å’Ã™â€¡Ã¢â‚¬Å’ÃšÂ¯Ã˜Â°Ã˜Â§Ã˜Â±Ã›Å’",
+                                  "data": "Ø³Ø±Ù…Ø§ÛŒÙ‡â€ŒÚ¯Ø°Ø§Ø±ÛŒ",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -472,7 +472,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "ÃšÂ©Ã˜Â§Ã˜Â±Ã˜ÂªÃ¢â‚¬Å’Ã™â€¡Ã˜Â§",
+                                  "data": "Ú©Ø§Ø±Øªâ€ŒÙ‡Ø§",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -512,7 +512,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "ÃšÂ©Ã˜Â§Ã˜Â±Ã˜ÂªÃ¢â‚¬Å’Ã™â€¡Ã˜Â§",
+                                  "data": "Ú©Ø§Ø±Øªâ€ŒÙ‡Ø§",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -607,7 +607,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡Ã¢â‚¬Å’Ã™â€¡Ã˜Â§",
+                                  "data": "Ø³Ù¾Ø±Ø¯Ù‡â€ŒÙ‡Ø§",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
@@ -647,7 +647,7 @@
                                   "type": "sizedBox"
                                 },
                                 {
-                                  "data": "Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡Ã¢â‚¬Å’Ã™â€¡Ã˜Â§",
+                                  "data": "Ø³Ù¾Ø±Ø¯Ù‡â€ŒÙ‡Ø§",
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
@@ -705,127 +705,145 @@
                             "clipBehavior": "none",
                             "children": [
                               {
-                                "padding": {
-                                  "left": 16.0,
-                                  "top": 14.0,
-                                  "right": 16.0,
-                                  "bottom": 14.0
-                                },
-                                "decoration": {
-                                  "borderRadius": {
-                                    "topLeft": 20.0,
-                                    "topRight": 20.0,
-                                    "bottomLeft": 11.0,
-                                    "bottomRight": 11.0
-                                  },
-                                  "boxShadow": [
-                                    {
-                                      "color": "#141B1F44",
-                                      "blurRadius": 30.0,
-                                      "offset": {
-                                        "dx": 0.0,
-                                        "dy": 16.0
-                                      }
-                                    }
-                                  ],
-                                  "gradient": {
-                                    "gradientType": "linear",
-                                    "colors": [
-                                      "#15A0A0",
-                                      "#50E8E8"
-                                    ],
-                                    "begin": "bottomLeft",
-                                    "end": "topRight"
-                                  }
-                                },
-                                "height": 125.0,
                                 "child": {
-                                  "mainAxisAlignment": "spaceBetween",
-                                  "crossAxisAlignment": "center",
-                                  "textDirection": "rtl",
-                                  "children": [
-                                    {
-                                      "child": {
-                                        "mainAxisAlignment": "spaceBetween",
-                                        "crossAxisAlignment": "end",
-                                        "children": [
-                                          {
-                                            "mainAxisAlignment": "end",
-                                            "children": [
-                                              {
-                                                "data": "ÃšÂ©Ã›Å’Ã™Â Ã™Â¾Ã™Ë†Ã™â€ž Ã˜ÂªÃ™Ë†Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©",
-                                                "style": {
-                                                  "type": "custom",
-                                                  "color": "#FFFFFF",
-                                                  "fontSize": 17.0,
-                                                  "fontWeight": "w700"
-                                                },
-                                                "textAlign": "right",
-                                                "textDirection": "rtl",
-                                                "type": "text"
-                                              },
-                                              {
-                                                "width": 12.0,
-                                                "type": "sizedBox"
-                                              },
-                                              {
-                                                "src": "{{appAssets.current.icons.tobankLogo}}",
-                                                "imageType": "asset",
-                                                "width": 34.0,
-                                                "height": 34.0,
-                                                "type": "image"
-                                              }
-                                            ],
-                                            "type": "row"
-                                          },
-                                          {
-                                            "padding": {
-                                              "bottom": 18.0
-                                            },
-                                            "child": {
+                                  "padding": {
+                                    "left": 16.0,
+                                    "top": 14.0,
+                                    "right": 16.0,
+                                    "bottom": 14.0
+                                  },
+                                  "decoration": {
+                                    "borderRadius": {
+                                      "topLeft": 20.0,
+                                      "topRight": 20.0,
+                                      "bottomLeft": 11.0,
+                                      "bottomRight": 11.0
+                                    },
+                                    "boxShadow": [
+                                      {
+                                        "color": "#141B1F44",
+                                        "blurRadius": 30.0,
+                                        "offset": {
+                                          "dx": 0.0,
+                                          "dy": 16.0
+                                        }
+                                      }
+                                    ],
+                                    "gradient": {
+                                      "gradientType": "linear",
+                                      "colors": [
+                                        "#15A0A0",
+                                        "#50E8E8"
+                                      ],
+                                      "begin": "bottomLeft",
+                                      "end": "topRight"
+                                    }
+                                  },
+                                  "height": 125.0,
+                                  "child": {
+                                    "mainAxisAlignment": "spaceBetween",
+                                    "crossAxisAlignment": "center",
+                                    "textDirection": "rtl",
+                                    "children": [
+                                      {
+                                        "child": {
+                                          "mainAxisAlignment": "spaceBetween",
+                                          "crossAxisAlignment": "end",
+                                          "children": [
+                                            {
                                               "mainAxisAlignment": "end",
-                                              "textDirection": "rtl",
                                               "children": [
                                                 {
-                                                  "data": "Ã›Â³Ã›Â³,Ã›Â²Ã›Â²Ã›Â²",
+                                                  "data": "Ú©ÛŒÙ Ù¾ÙˆÙ„ ØªÙˆØ¨Ø§Ù†Ú©",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "#FFFFFF",
-                                                    "fontSize": 18.0,
-                                                    "fontWeight": "w600"
+                                                    "fontSize": 17.0,
+                                                    "fontWeight": "w700"
                                                   },
+                                                  "textAlign": "right",
                                                   "textDirection": "rtl",
                                                   "type": "text"
                                                 },
                                                 {
-                                                  "width": 6.0,
+                                                  "width": 12.0,
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "Ã˜Â±Ã›Å’Ã˜Â§Ã™â€ž",
-                                                  "style": {
-                                                    "type": "custom",
-                                                    "color": "#FFFFFF",
-                                                    "fontSize": 12.0,
-                                                    "fontWeight": "w600"
-                                                  },
-                                                  "textDirection": "rtl",
-                                                  "type": "text"
+                                                  "src": "{{appAssets.current.icons.tobankLogo}}",
+                                                  "imageType": "asset",
+                                                  "width": 34.0,
+                                                  "height": 34.0,
+                                                  "type": "image"
                                                 }
                                               ],
                                               "type": "row"
                                             },
-                                            "type": "padding"
-                                          }
-                                        ],
-                                        "type": "column"
-                                      },
-                                      "type": "expanded"
-                                    }
-                                  ],
-                                  "type": "row"
+                                            {
+                                              "padding": {
+                                                "bottom": 18.0
+                                              },
+                                              "child": {
+                                                "mainAxisAlignment": "end",
+                                                "textDirection": "rtl",
+                                                "children": [
+                                                  {
+                                                    "data": "Û³Û³,Û²Û²Û²",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "#FFFFFF",
+                                                      "fontSize": 18.0,
+                                                      "fontWeight": "w600"
+                                                    },
+                                                    "textDirection": "rtl",
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "width": 6.0,
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "data": "Ø±ÛŒØ§Ù„",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "#FFFFFF",
+                                                      "fontSize": 12.0,
+                                                      "fontWeight": "w600"
+                                                    },
+                                                    "textDirection": "rtl",
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "type": "row"
+                                              },
+                                              "type": "padding"
+                                            }
+                                          ],
+                                          "type": "column"
+                                        },
+                                        "type": "expanded"
+                                      }
+                                    ],
+                                    "type": "row"
+                                  },
+                                  "type": "container"
                                 },
-                                "type": "container"
+                                "onTap": {
+                                  "actionType": "sequence",
+                                  "actions": [
+                                    {
+                                      "actionType": "setValue",
+                                      "key": "cardsManagement.initialPage",
+                                      "value": 0
+                                    },
+                                    {
+                                      "actionType": "navigate",
+                                      "widgetType": "dashboard_real_cards_management",
+                                      "navigationStyle": "push"
+                                    }
+                                  ]
+                                },
+                                "type": "gestureDetector"
                               },
                               {
                                 "left": 0.0,
@@ -849,664 +867,772 @@
                           },
                           "cards": [
                             {
-                              "padding": {
-                                "left": 16.0,
-                                "top": 12.0,
-                                "right": 16.0,
-                                "bottom": 12.0
-                              },
-                              "decoration": {
-                                "borderRadius": {
-                                  "topLeft": 15.0,
-                                  "topRight": 15.0,
-                                  "bottomLeft": 15.0,
-                                  "bottomRight": 15.0
-                                },
-                                "boxShadow": [
-                                  {
-                                    "color": "#0A101828",
-                                    "blurRadius": 15.0,
-                                    "offset": {
-                                      "dx": 0.0,
-                                      "dy": 2.0
-                                    }
-                                  }
-                                ],
-                                "gradient": {
-                                  "gradientType": "linear",
-                                  "colors": [
-                                    "#EE3E62",
-                                    "#FD6F8E"
-                                  ],
-                                  "begin": "bottomLeft",
-                                  "end": "topRight"
-                                }
-                              },
-                              "height": 112.0,
                               "child": {
-                                "mainAxisAlignment": "spaceBetween",
-                                "crossAxisAlignment": "stretch",
-                                "children": [
-                                  {
-                                    "mainAxisAlignment": "spaceBetween",
-                                    "crossAxisAlignment": "center",
-                                    "textDirection": "rtl",
-                                    "children": [
-                                      {
-                                        "textDirection": "rtl",
-                                        "children": [
-                                          {
-                                            "src": "{{appAssets.current.icons.gardeshgari}}",
-                                            "imageType": "asset",
-                                            "color": "#FFFFFF",
-                                            "width": 24.0,
-                                            "height": 24.0,
-                                            "type": "image"
-                                          },
-                                          {
-                                            "width": 8.0,
-                                            "type": "sizedBox"
-                                          },
-                                          {
-                                            "data": "Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©Ã¢â‚¬Å’ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "#FFFFFF",
-                                              "fontSize": 14.0,
-                                              "fontWeight": "w700"
-                                            },
-                                            "textDirection": "rtl",
-                                            "type": "text"
-                                          }
-                                        ],
-                                        "type": "row"
-                                      },
-                                      {
-                                        "children": [
-                                          {
-                                            "data": "Ã›ÂµÃ›ÂµÃ›Â°Ã›Â´ Ã›Â±Ã›Â¶Ã›Â±Ã›Â· Ã›Â°Ã›Â²Ã›Â¸Ã›Â² Ã›Â²Ã›Â³Ã›Â³Ã›Â³",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "#FFFFFF",
-                                              "fontSize": 15.0,
-                                              "fontWeight": "w600"
-                                            },
-                                            "textAlign": "left",
-                                            "textDirection": "rtl",
-                                            "type": "text"
-                                          },
-                                          {
-                                            "data": "Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "#FFFFFF",
-                                              "fontSize": 13.0,
-                                              "fontWeight": "w600"
-                                            },
-                                            "textAlign": "right",
-                                            "textDirection": "ltr",
-                                            "type": "text"
-                                          }
-                                        ],
-                                        "type": "column"
+                                "padding": {
+                                  "left": 16.0,
+                                  "top": 12.0,
+                                  "right": 16.0,
+                                  "bottom": 12.0
+                                },
+                                "decoration": {
+                                  "borderRadius": {
+                                    "topLeft": 15.0,
+                                    "topRight": 15.0,
+                                    "bottomLeft": 15.0,
+                                    "bottomRight": 15.0
+                                  },
+                                  "boxShadow": [
+                                    {
+                                      "color": "#0A101828",
+                                      "blurRadius": 15.0,
+                                      "offset": {
+                                        "dx": 0.0,
+                                        "dy": 2.0
                                       }
+                                    }
+                                  ],
+                                  "gradient": {
+                                    "gradientType": "linear",
+                                    "colors": [
+                                      "#EE3E62",
+                                      "#FD6F8E"
                                     ],
-                                    "type": "row"
+                                    "begin": "bottomLeft",
+                                    "end": "topRight"
                                   }
-                                ],
-                                "type": "column"
+                                },
+                                "height": 112.0,
+                                "child": {
+                                  "mainAxisAlignment": "spaceBetween",
+                                  "crossAxisAlignment": "stretch",
+                                  "children": [
+                                    {
+                                      "mainAxisAlignment": "spaceBetween",
+                                      "crossAxisAlignment": "center",
+                                      "textDirection": "rtl",
+                                      "children": [
+                                        {
+                                          "textDirection": "rtl",
+                                          "children": [
+                                            {
+                                              "src": "{{appAssets.current.icons.gardeshgari}}",
+                                              "imageType": "asset",
+                                              "color": "#FFFFFF",
+                                              "width": 24.0,
+                                              "height": 24.0,
+                                              "type": "image"
+                                            },
+                                            {
+                                              "width": 8.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "data": "Ø¨Ø§Ù†Ú©â€ŒÚ¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "#FFFFFF",
+                                                "fontSize": 14.0,
+                                                "fontWeight": "w700"
+                                              },
+                                              "textDirection": "rtl",
+                                              "type": "text"
+                                            }
+                                          ],
+                                          "type": "row"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "data": "ÛµÛµÛ°Û´ Û±Û¶Û±Û· Û°Û²Û¸Û² Û²Û³Û³Û³",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "#FFFFFF",
+                                                "fontSize": 15.0,
+                                                "fontWeight": "w600"
+                                              },
+                                              "textAlign": "left",
+                                              "textDirection": "rtl",
+                                              "type": "text"
+                                            },
+                                            {
+                                              "data": "Ø­Ø³Ø§Ø¨ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ú¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "#FFFFFF",
+                                                "fontSize": 13.0,
+                                                "fontWeight": "w600"
+                                              },
+                                              "textAlign": "right",
+                                              "textDirection": "ltr",
+                                              "type": "text"
+                                            }
+                                          ],
+                                          "type": "column"
+                                        }
+                                      ],
+                                      "type": "row"
+                                    }
+                                  ],
+                                  "type": "column"
+                                },
+                                "type": "container"
                               },
-                              "type": "container"
+                              "onTap": {
+                                "actionType": "sequence",
+                                "actions": [
+                                  {
+                                    "actionType": "setValue",
+                                    "key": "cardsManagement.initialPage",
+                                    "value": 1
+                                  },
+                                  {
+                                    "actionType": "navigate",
+                                    "widgetType": "dashboard_real_cards_management",
+                                    "navigationStyle": "push"
+                                  }
+                                ]
+                              },
+                              "type": "gestureDetector"
                             },
                             {
-                              "padding": {
-                                "left": 16.0,
-                                "top": 12.0,
-                                "right": 16.0,
-                                "bottom": 12.0
-                              },
-                              "decoration": {
-                                "borderRadius": {
-                                  "topLeft": 15.0,
-                                  "topRight": 15.0,
-                                  "bottomLeft": 15.0,
-                                  "bottomRight": 15.0
-                                },
-                                "boxShadow": [
-                                  {
-                                    "color": "#0A101828",
-                                    "blurRadius": 15.0,
-                                    "offset": {
-                                      "dx": 0.0,
-                                      "dy": 2.0
-                                    }
-                                  }
-                                ],
-                                "gradient": {
-                                  "gradientType": "linear",
-                                  "colors": [
-                                    "#EE3E62",
-                                    "#FD6F8E"
-                                  ],
-                                  "begin": "bottomLeft",
-                                  "end": "topRight"
-                                }
-                              },
-                              "height": 112.0,
                               "child": {
-                                "mainAxisAlignment": "spaceBetween",
-                                "crossAxisAlignment": "stretch",
-                                "children": [
-                                  {
-                                    "mainAxisAlignment": "spaceBetween",
-                                    "crossAxisAlignment": "center",
-                                    "textDirection": "rtl",
-                                    "children": [
-                                      {
-                                        "textDirection": "rtl",
-                                        "children": [
-                                          {
-                                            "src": "{{appAssets.current.icons.gardeshgari}}",
-                                            "imageType": "asset",
-                                            "color": "#FFFFFF",
-                                            "width": 24.0,
-                                            "height": 24.0,
-                                            "type": "image"
-                                          },
-                                          {
-                                            "width": 8.0,
-                                            "type": "sizedBox"
-                                          },
-                                          {
-                                            "data": "Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©Ã¢â‚¬Å’ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "#FFFFFF",
-                                              "fontSize": 14.0,
-                                              "fontWeight": "w700"
-                                            },
-                                            "textDirection": "rtl",
-                                            "type": "text"
-                                          }
-                                        ],
-                                        "type": "row"
-                                      },
-                                      {
-                                        "children": [
-                                          {
-                                            "data": "Ã›ÂµÃ›ÂµÃ›Â°Ã›Â´ Ã›Â±Ã›Â¶Ã›Â±Ã›Â· Ã›Â°Ã›ÂµÃ›Â°Ã›Â³ Ã›Â°Ã›Â¶Ã›Â°Ã›Â³",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "#FFFFFF",
-                                              "fontSize": 15.0,
-                                              "fontWeight": "w600"
-                                            },
-                                            "textAlign": "left",
-                                            "textDirection": "rtl",
-                                            "type": "text"
-                                          },
-                                          {
-                                            "data": "Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "#FFFFFF",
-                                              "fontSize": 13.0,
-                                              "fontWeight": "w600"
-                                            },
-                                            "textAlign": "right",
-                                            "textDirection": "ltr",
-                                            "type": "text"
-                                          }
-                                        ],
-                                        "type": "column"
+                                "padding": {
+                                  "left": 16.0,
+                                  "top": 12.0,
+                                  "right": 16.0,
+                                  "bottom": 12.0
+                                },
+                                "decoration": {
+                                  "borderRadius": {
+                                    "topLeft": 15.0,
+                                    "topRight": 15.0,
+                                    "bottomLeft": 15.0,
+                                    "bottomRight": 15.0
+                                  },
+                                  "boxShadow": [
+                                    {
+                                      "color": "#0A101828",
+                                      "blurRadius": 15.0,
+                                      "offset": {
+                                        "dx": 0.0,
+                                        "dy": 2.0
                                       }
+                                    }
+                                  ],
+                                  "gradient": {
+                                    "gradientType": "linear",
+                                    "colors": [
+                                      "#EE3E62",
+                                      "#FD6F8E"
                                     ],
-                                    "type": "row"
+                                    "begin": "bottomLeft",
+                                    "end": "topRight"
                                   }
-                                ],
-                                "type": "column"
+                                },
+                                "height": 112.0,
+                                "child": {
+                                  "mainAxisAlignment": "spaceBetween",
+                                  "crossAxisAlignment": "stretch",
+                                  "children": [
+                                    {
+                                      "mainAxisAlignment": "spaceBetween",
+                                      "crossAxisAlignment": "center",
+                                      "textDirection": "rtl",
+                                      "children": [
+                                        {
+                                          "textDirection": "rtl",
+                                          "children": [
+                                            {
+                                              "src": "{{appAssets.current.icons.gardeshgari}}",
+                                              "imageType": "asset",
+                                              "color": "#FFFFFF",
+                                              "width": 24.0,
+                                              "height": 24.0,
+                                              "type": "image"
+                                            },
+                                            {
+                                              "width": 8.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "data": "Ø¨Ø§Ù†Ú©â€ŒÚ¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "#FFFFFF",
+                                                "fontSize": 14.0,
+                                                "fontWeight": "w700"
+                                              },
+                                              "textDirection": "rtl",
+                                              "type": "text"
+                                            }
+                                          ],
+                                          "type": "row"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "data": "ÛµÛµÛ°Û´ Û±Û¶Û±Û· Û°ÛµÛ°Û³ Û°Û¶Û°Û³",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "#FFFFFF",
+                                                "fontSize": 15.0,
+                                                "fontWeight": "w600"
+                                              },
+                                              "textAlign": "left",
+                                              "textDirection": "rtl",
+                                              "type": "text"
+                                            },
+                                            {
+                                              "data": "Ø­Ø³Ø§Ø¨ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ú¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "#FFFFFF",
+                                                "fontSize": 13.0,
+                                                "fontWeight": "w600"
+                                              },
+                                              "textAlign": "right",
+                                              "textDirection": "ltr",
+                                              "type": "text"
+                                            }
+                                          ],
+                                          "type": "column"
+                                        }
+                                      ],
+                                      "type": "row"
+                                    }
+                                  ],
+                                  "type": "column"
+                                },
+                                "type": "container"
                               },
-                              "type": "container"
+                              "onTap": {
+                                "actionType": "sequence",
+                                "actions": [
+                                  {
+                                    "actionType": "setValue",
+                                    "key": "cardsManagement.initialPage",
+                                    "value": 3
+                                  },
+                                  {
+                                    "actionType": "navigate",
+                                    "widgetType": "dashboard_real_cards_management",
+                                    "navigationStyle": "push"
+                                  }
+                                ]
+                              },
+                              "type": "gestureDetector"
                             },
                             {
-                              "padding": {
-                                "left": 16.0,
-                                "top": 12.0,
-                                "right": 16.0,
-                                "bottom": 12.0
-                              },
-                              "decoration": {
-                                "borderRadius": {
-                                  "topLeft": 15.0,
-                                  "topRight": 15.0,
-                                  "bottomLeft": 15.0,
-                                  "bottomRight": 15.0
-                                },
-                                "boxShadow": [
-                                  {
-                                    "color": "#0A101828",
-                                    "blurRadius": 15.0,
-                                    "offset": {
-                                      "dx": 0.0,
-                                      "dy": 2.0
-                                    }
-                                  }
-                                ],
-                                "gradient": {
-                                  "gradientType": "linear",
-                                  "colors": [
-                                    "#EE3E62",
-                                    "#FD6F8E"
-                                  ],
-                                  "begin": "bottomLeft",
-                                  "end": "topRight"
-                                }
-                              },
-                              "height": 112.0,
                               "child": {
-                                "mainAxisAlignment": "spaceBetween",
-                                "crossAxisAlignment": "stretch",
-                                "children": [
-                                  {
-                                    "mainAxisAlignment": "spaceBetween",
-                                    "crossAxisAlignment": "center",
-                                    "textDirection": "rtl",
-                                    "children": [
-                                      {
-                                        "textDirection": "rtl",
-                                        "children": [
-                                          {
-                                            "src": "{{appAssets.current.icons.gardeshgari}}",
-                                            "imageType": "asset",
-                                            "color": "#FFFFFF",
-                                            "width": 24.0,
-                                            "height": 24.0,
-                                            "type": "image"
-                                          },
-                                          {
-                                            "width": 8.0,
-                                            "type": "sizedBox"
-                                          },
-                                          {
-                                            "data": "Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©Ã¢â‚¬Å’ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "#FFFFFF",
-                                              "fontSize": 14.0,
-                                              "fontWeight": "w700"
-                                            },
-                                            "textDirection": "rtl",
-                                            "type": "text"
-                                          }
-                                        ],
-                                        "type": "row"
-                                      },
-                                      {
-                                        "children": [
-                                          {
-                                            "data": "Ã›ÂµÃ›ÂµÃ›Â°Ã›Â´ Ã›Â±Ã›Â¶Ã›Â¶Ã›Â° Ã›Â±Ã›Â±Ã›Â¶Ã›Âµ Ã›Â°Ã›Â¶Ã›Â³Ã›Â´",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "#FFFFFF",
-                                              "fontSize": 15.0,
-                                              "fontWeight": "w600"
-                                            },
-                                            "textAlign": "left",
-                                            "textDirection": "rtl",
-                                            "type": "text"
-                                          },
-                                          {
-                                            "data": "Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "#FFFFFF",
-                                              "fontSize": 13.0,
-                                              "fontWeight": "w600"
-                                            },
-                                            "textAlign": "right",
-                                            "textDirection": "ltr",
-                                            "type": "text"
-                                          }
-                                        ],
-                                        "type": "column"
+                                "padding": {
+                                  "left": 16.0,
+                                  "top": 12.0,
+                                  "right": 16.0,
+                                  "bottom": 12.0
+                                },
+                                "decoration": {
+                                  "borderRadius": {
+                                    "topLeft": 15.0,
+                                    "topRight": 15.0,
+                                    "bottomLeft": 15.0,
+                                    "bottomRight": 15.0
+                                  },
+                                  "boxShadow": [
+                                    {
+                                      "color": "#0A101828",
+                                      "blurRadius": 15.0,
+                                      "offset": {
+                                        "dx": 0.0,
+                                        "dy": 2.0
                                       }
+                                    }
+                                  ],
+                                  "gradient": {
+                                    "gradientType": "linear",
+                                    "colors": [
+                                      "#EE3E62",
+                                      "#FD6F8E"
                                     ],
-                                    "type": "row"
+                                    "begin": "bottomLeft",
+                                    "end": "topRight"
                                   }
-                                ],
-                                "type": "column"
+                                },
+                                "height": 112.0,
+                                "child": {
+                                  "mainAxisAlignment": "spaceBetween",
+                                  "crossAxisAlignment": "stretch",
+                                  "children": [
+                                    {
+                                      "mainAxisAlignment": "spaceBetween",
+                                      "crossAxisAlignment": "center",
+                                      "textDirection": "rtl",
+                                      "children": [
+                                        {
+                                          "textDirection": "rtl",
+                                          "children": [
+                                            {
+                                              "src": "{{appAssets.current.icons.gardeshgari}}",
+                                              "imageType": "asset",
+                                              "color": "#FFFFFF",
+                                              "width": 24.0,
+                                              "height": 24.0,
+                                              "type": "image"
+                                            },
+                                            {
+                                              "width": 8.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "data": "Ø¨Ø§Ù†Ú©â€ŒÚ¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "#FFFFFF",
+                                                "fontSize": 14.0,
+                                                "fontWeight": "w700"
+                                              },
+                                              "textDirection": "rtl",
+                                              "type": "text"
+                                            }
+                                          ],
+                                          "type": "row"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "data": "ÛµÛµÛ°Û´ Û±Û¶Û¶Û° Û±Û±Û¶Ûµ Û°Û¶Û³Û´",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "#FFFFFF",
+                                                "fontSize": 15.0,
+                                                "fontWeight": "w600"
+                                              },
+                                              "textAlign": "left",
+                                              "textDirection": "rtl",
+                                              "type": "text"
+                                            },
+                                            {
+                                              "data": "Ø­Ø³Ø§Ø¨ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ú¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "#FFFFFF",
+                                                "fontSize": 13.0,
+                                                "fontWeight": "w600"
+                                              },
+                                              "textAlign": "right",
+                                              "textDirection": "ltr",
+                                              "type": "text"
+                                            }
+                                          ],
+                                          "type": "column"
+                                        }
+                                      ],
+                                      "type": "row"
+                                    }
+                                  ],
+                                  "type": "column"
+                                },
+                                "type": "container"
                               },
-                              "type": "container"
+                              "onTap": {
+                                "actionType": "sequence",
+                                "actions": [
+                                  {
+                                    "actionType": "setValue",
+                                    "key": "cardsManagement.initialPage",
+                                    "value": 2
+                                  },
+                                  {
+                                    "actionType": "navigate",
+                                    "widgetType": "dashboard_real_cards_management",
+                                    "navigationStyle": "push"
+                                  }
+                                ]
+                              },
+                              "type": "gestureDetector"
                             },
                             {
-                              "padding": {
-                                "left": 16.0,
-                                "top": 12.0,
-                                "right": 16.0,
-                                "bottom": 12.0
-                              },
-                              "decoration": {
-                                "borderRadius": {
-                                  "topLeft": 15.0,
-                                  "topRight": 15.0,
-                                  "bottomLeft": 15.0,
-                                  "bottomRight": 15.0
-                                },
-                                "boxShadow": [
-                                  {
-                                    "color": "#0A101828",
-                                    "blurRadius": 15.0,
-                                    "offset": {
-                                      "dx": 0.0,
-                                      "dy": 2.0
-                                    }
-                                  }
-                                ],
-                                "gradient": {
-                                  "gradientType": "linear",
-                                  "colors": [
-                                    "#EE3E62",
-                                    "#FD6F8E"
-                                  ],
-                                  "begin": "bottomLeft",
-                                  "end": "topRight"
-                                }
-                              },
-                              "height": 112.0,
                               "child": {
-                                "mainAxisAlignment": "spaceBetween",
-                                "crossAxisAlignment": "stretch",
-                                "children": [
-                                  {
-                                    "mainAxisAlignment": "spaceBetween",
-                                    "crossAxisAlignment": "center",
-                                    "textDirection": "rtl",
-                                    "children": [
-                                      {
-                                        "textDirection": "rtl",
-                                        "children": [
-                                          {
-                                            "src": "{{appAssets.current.icons.gardeshgari}}",
-                                            "imageType": "asset",
-                                            "color": "#FFFFFF",
-                                            "width": 24.0,
-                                            "height": 24.0,
-                                            "type": "image"
-                                          },
-                                          {
-                                            "width": 8.0,
-                                            "type": "sizedBox"
-                                          },
-                                          {
-                                            "data": "Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©Ã¢â‚¬Å’ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "#FFFFFF",
-                                              "fontSize": 14.0,
-                                              "fontWeight": "w700"
-                                            },
-                                            "textDirection": "rtl",
-                                            "type": "text"
-                                          }
-                                        ],
-                                        "type": "row"
-                                      },
-                                      {
-                                        "children": [
-                                          {
-                                            "data": "Ã›ÂµÃ›ÂµÃ›Â°Ã›Â´ Ã›Â±Ã›Â¶Ã›Â·Ã›Â¸ Ã›Â³Ã›Â´Ã›Â¹Ã›Â± Ã›Â¶Ã›Â²Ã›Â´Ã›Â°",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "#FFFFFF",
-                                              "fontSize": 15.0,
-                                              "fontWeight": "w600"
-                                            },
-                                            "textAlign": "left",
-                                            "textDirection": "rtl",
-                                            "type": "text"
-                                          },
-                                          {
-                                            "data": "Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "#FFFFFF",
-                                              "fontSize": 13.0,
-                                              "fontWeight": "w600"
-                                            },
-                                            "textAlign": "right",
-                                            "textDirection": "ltr",
-                                            "type": "text"
-                                          }
-                                        ],
-                                        "type": "column"
+                                "padding": {
+                                  "left": 16.0,
+                                  "top": 12.0,
+                                  "right": 16.0,
+                                  "bottom": 12.0
+                                },
+                                "decoration": {
+                                  "borderRadius": {
+                                    "topLeft": 15.0,
+                                    "topRight": 15.0,
+                                    "bottomLeft": 15.0,
+                                    "bottomRight": 15.0
+                                  },
+                                  "boxShadow": [
+                                    {
+                                      "color": "#0A101828",
+                                      "blurRadius": 15.0,
+                                      "offset": {
+                                        "dx": 0.0,
+                                        "dy": 2.0
                                       }
+                                    }
+                                  ],
+                                  "gradient": {
+                                    "gradientType": "linear",
+                                    "colors": [
+                                      "#EE3E62",
+                                      "#FD6F8E"
                                     ],
-                                    "type": "row"
+                                    "begin": "bottomLeft",
+                                    "end": "topRight"
                                   }
-                                ],
-                                "type": "column"
+                                },
+                                "height": 112.0,
+                                "child": {
+                                  "mainAxisAlignment": "spaceBetween",
+                                  "crossAxisAlignment": "stretch",
+                                  "children": [
+                                    {
+                                      "mainAxisAlignment": "spaceBetween",
+                                      "crossAxisAlignment": "center",
+                                      "textDirection": "rtl",
+                                      "children": [
+                                        {
+                                          "textDirection": "rtl",
+                                          "children": [
+                                            {
+                                              "src": "{{appAssets.current.icons.gardeshgari}}",
+                                              "imageType": "asset",
+                                              "color": "#FFFFFF",
+                                              "width": 24.0,
+                                              "height": 24.0,
+                                              "type": "image"
+                                            },
+                                            {
+                                              "width": 8.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "data": "Ø¨Ø§Ù†Ú©â€ŒÚ¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "#FFFFFF",
+                                                "fontSize": 14.0,
+                                                "fontWeight": "w700"
+                                              },
+                                              "textDirection": "rtl",
+                                              "type": "text"
+                                            }
+                                          ],
+                                          "type": "row"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "data": "ÛµÛµÛ°Û´ Û±Û¶Û·Û¸ Û³Û´Û¹Û± Û¶Û²Û´Û°",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "#FFFFFF",
+                                                "fontSize": 15.0,
+                                                "fontWeight": "w600"
+                                              },
+                                              "textAlign": "left",
+                                              "textDirection": "rtl",
+                                              "type": "text"
+                                            },
+                                            {
+                                              "data": "Ø­Ø³Ø§Ø¨ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ú¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "#FFFFFF",
+                                                "fontSize": 13.0,
+                                                "fontWeight": "w600"
+                                              },
+                                              "textAlign": "right",
+                                              "textDirection": "ltr",
+                                              "type": "text"
+                                            }
+                                          ],
+                                          "type": "column"
+                                        }
+                                      ],
+                                      "type": "row"
+                                    }
+                                  ],
+                                  "type": "column"
+                                },
+                                "type": "container"
                               },
-                              "type": "container"
+                              "onTap": {
+                                "actionType": "sequence",
+                                "actions": [
+                                  {
+                                    "actionType": "setValue",
+                                    "key": "cardsManagement.initialPage",
+                                    "value": 4
+                                  },
+                                  {
+                                    "actionType": "navigate",
+                                    "widgetType": "dashboard_real_cards_management",
+                                    "navigationStyle": "push"
+                                  }
+                                ]
+                              },
+                              "type": "gestureDetector"
                             },
                             {
-                              "padding": {
-                                "left": 16.0,
-                                "top": 12.0,
-                                "right": 16.0,
-                                "bottom": 12.0
-                              },
-                              "decoration": {
-                                "borderRadius": {
-                                  "topLeft": 15.0,
-                                  "topRight": 15.0,
-                                  "bottomLeft": 15.0,
-                                  "bottomRight": 15.0
-                                },
-                                "boxShadow": [
-                                  {
-                                    "color": "#0A101828",
-                                    "blurRadius": 15.0,
-                                    "offset": {
-                                      "dx": 0.0,
-                                      "dy": 2.0
-                                    }
-                                  }
-                                ],
-                                "gradient": {
-                                  "gradientType": "linear",
-                                  "colors": [
-                                    "#EE3E62",
-                                    "#FD6F8E"
-                                  ],
-                                  "begin": "bottomLeft",
-                                  "end": "topRight"
-                                }
-                              },
-                              "height": 112.0,
                               "child": {
-                                "mainAxisAlignment": "spaceBetween",
-                                "crossAxisAlignment": "stretch",
-                                "children": [
-                                  {
-                                    "mainAxisAlignment": "spaceBetween",
-                                    "crossAxisAlignment": "center",
-                                    "textDirection": "rtl",
-                                    "children": [
-                                      {
-                                        "textDirection": "rtl",
-                                        "children": [
-                                          {
-                                            "src": "{{appAssets.current.icons.gardeshgari}}",
-                                            "imageType": "asset",
-                                            "color": "#FFFFFF",
-                                            "width": 24.0,
-                                            "height": 24.0,
-                                            "type": "image"
-                                          },
-                                          {
-                                            "width": 8.0,
-                                            "type": "sizedBox"
-                                          },
-                                          {
-                                            "data": "Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©Ã¢â‚¬Å’ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "#FFFFFF",
-                                              "fontSize": 14.0,
-                                              "fontWeight": "w700"
-                                            },
-                                            "textDirection": "rtl",
-                                            "type": "text"
-                                          }
-                                        ],
-                                        "type": "row"
-                                      },
-                                      {
-                                        "children": [
-                                          {
-                                            "data": "Ã›ÂµÃ›Â°Ã›Â²Ã›Â² Ã›Â²Ã›Â²Ã›Â¹Ã›Â¸ Ã›Â·Ã›Â·Ã›Â´Ã›Âµ Ã›Â±Ã›Â²Ã›Â°Ã›Â±",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "#FFFFFF",
-                                              "fontSize": 15.0,
-                                              "fontWeight": "w600"
-                                            },
-                                            "textAlign": "left",
-                                            "textDirection": "rtl",
-                                            "type": "text"
-                                          },
-                                          {
-                                            "data": "Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "#FFFFFF",
-                                              "fontSize": 13.0,
-                                              "fontWeight": "w600"
-                                            },
-                                            "textAlign": "right",
-                                            "textDirection": "ltr",
-                                            "type": "text"
-                                          }
-                                        ],
-                                        "type": "column"
+                                "padding": {
+                                  "left": 16.0,
+                                  "top": 12.0,
+                                  "right": 16.0,
+                                  "bottom": 12.0
+                                },
+                                "decoration": {
+                                  "borderRadius": {
+                                    "topLeft": 15.0,
+                                    "topRight": 15.0,
+                                    "bottomLeft": 15.0,
+                                    "bottomRight": 15.0
+                                  },
+                                  "boxShadow": [
+                                    {
+                                      "color": "#0A101828",
+                                      "blurRadius": 15.0,
+                                      "offset": {
+                                        "dx": 0.0,
+                                        "dy": 2.0
                                       }
+                                    }
+                                  ],
+                                  "gradient": {
+                                    "gradientType": "linear",
+                                    "colors": [
+                                      "#EE3E62",
+                                      "#FD6F8E"
                                     ],
-                                    "type": "row"
+                                    "begin": "bottomLeft",
+                                    "end": "topRight"
                                   }
-                                ],
-                                "type": "column"
+                                },
+                                "height": 112.0,
+                                "child": {
+                                  "mainAxisAlignment": "spaceBetween",
+                                  "crossAxisAlignment": "stretch",
+                                  "children": [
+                                    {
+                                      "mainAxisAlignment": "spaceBetween",
+                                      "crossAxisAlignment": "center",
+                                      "textDirection": "rtl",
+                                      "children": [
+                                        {
+                                          "textDirection": "rtl",
+                                          "children": [
+                                            {
+                                              "src": "{{appAssets.current.icons.gardeshgari}}",
+                                              "imageType": "asset",
+                                              "color": "#FFFFFF",
+                                              "width": 24.0,
+                                              "height": 24.0,
+                                              "type": "image"
+                                            },
+                                            {
+                                              "width": 8.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "data": "Ø¨Ø§Ù†Ú©â€ŒÚ¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "#FFFFFF",
+                                                "fontSize": 14.0,
+                                                "fontWeight": "w700"
+                                              },
+                                              "textDirection": "rtl",
+                                              "type": "text"
+                                            }
+                                          ],
+                                          "type": "row"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "data": "ÛµÛ°Û²Û² Û²Û²Û¹Û¸ Û·Û·Û´Ûµ Û±Û²Û°Û±",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "#FFFFFF",
+                                                "fontSize": 15.0,
+                                                "fontWeight": "w600"
+                                              },
+                                              "textAlign": "left",
+                                              "textDirection": "rtl",
+                                              "type": "text"
+                                            },
+                                            {
+                                              "data": "Ø­Ø³Ø§Ø¨ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ú¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "#FFFFFF",
+                                                "fontSize": 13.0,
+                                                "fontWeight": "w600"
+                                              },
+                                              "textAlign": "right",
+                                              "textDirection": "ltr",
+                                              "type": "text"
+                                            }
+                                          ],
+                                          "type": "column"
+                                        }
+                                      ],
+                                      "type": "row"
+                                    }
+                                  ],
+                                  "type": "column"
+                                },
+                                "type": "container"
                               },
-                              "type": "container"
+                              "onTap": {
+                                "actionType": "sequence",
+                                "actions": [
+                                  {
+                                    "actionType": "setValue",
+                                    "key": "cardsManagement.initialPage",
+                                    "value": 5
+                                  },
+                                  {
+                                    "actionType": "navigate",
+                                    "widgetType": "dashboard_real_cards_management",
+                                    "navigationStyle": "push"
+                                  }
+                                ]
+                              },
+                              "type": "gestureDetector"
                             },
                             {
-                              "padding": {
-                                "left": 16.0,
-                                "top": 12.0,
-                                "right": 16.0,
-                                "bottom": 12.0
-                              },
-                              "decoration": {
-                                "borderRadius": {
-                                  "topLeft": 15.0,
-                                  "topRight": 15.0,
-                                  "bottomLeft": 15.0,
-                                  "bottomRight": 15.0
-                                },
-                                "boxShadow": [
-                                  {
-                                    "color": "#0A101828",
-                                    "blurRadius": 15.0,
-                                    "offset": {
-                                      "dx": 0.0,
-                                      "dy": 2.0
-                                    }
-                                  }
-                                ],
-                                "gradient": {
-                                  "gradientType": "linear",
-                                  "colors": [
-                                    "#EE3E62",
-                                    "#FD6F8E"
-                                  ],
-                                  "begin": "bottomLeft",
-                                  "end": "topRight"
-                                }
-                              },
-                              "height": 112.0,
                               "child": {
-                                "mainAxisAlignment": "spaceBetween",
-                                "crossAxisAlignment": "stretch",
-                                "children": [
-                                  {
-                                    "mainAxisAlignment": "spaceBetween",
-                                    "crossAxisAlignment": "center",
-                                    "textDirection": "rtl",
-                                    "children": [
-                                      {
-                                        "textDirection": "rtl",
-                                        "children": [
-                                          {
-                                            "src": "{{appAssets.current.icons.gardeshgari}}",
-                                            "imageType": "asset",
-                                            "color": "#FFFFFF",
-                                            "width": 24.0,
-                                            "height": 24.0,
-                                            "type": "image"
-                                          },
-                                          {
-                                            "width": 8.0,
-                                            "type": "sizedBox"
-                                          },
-                                          {
-                                            "data": "Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©Ã¢â‚¬Å’ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "#FFFFFF",
-                                              "fontSize": 14.0,
-                                              "fontWeight": "w700"
-                                            },
-                                            "textDirection": "rtl",
-                                            "type": "text"
-                                          }
-                                        ],
-                                        "type": "row"
-                                      },
-                                      {
-                                        "children": [
-                                          {
-                                            "data": "Ã›ÂµÃ›Â¸Ã›Â¹Ã›Â² Ã›Â±Ã›Â°Ã›Â±Ã›Â° Ã›Â¶Ã›ÂµÃ›Â´Ã›Â³ Ã›Â·Ã›Â¹Ã›Â¹Ã›Â¸",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "#FFFFFF",
-                                              "fontSize": 15.0,
-                                              "fontWeight": "w600"
-                                            },
-                                            "textAlign": "left",
-                                            "textDirection": "rtl",
-                                            "type": "text"
-                                          },
-                                          {
-                                            "data": "Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
-                                            "style": {
-                                              "type": "custom",
-                                              "color": "#FFFFFF",
-                                              "fontSize": 13.0,
-                                              "fontWeight": "w600"
-                                            },
-                                            "textAlign": "right",
-                                            "textDirection": "ltr",
-                                            "type": "text"
-                                          }
-                                        ],
-                                        "type": "column"
+                                "padding": {
+                                  "left": 16.0,
+                                  "top": 12.0,
+                                  "right": 16.0,
+                                  "bottom": 12.0
+                                },
+                                "decoration": {
+                                  "borderRadius": {
+                                    "topLeft": 15.0,
+                                    "topRight": 15.0,
+                                    "bottomLeft": 15.0,
+                                    "bottomRight": 15.0
+                                  },
+                                  "boxShadow": [
+                                    {
+                                      "color": "#0A101828",
+                                      "blurRadius": 15.0,
+                                      "offset": {
+                                        "dx": 0.0,
+                                        "dy": 2.0
                                       }
+                                    }
+                                  ],
+                                  "gradient": {
+                                    "gradientType": "linear",
+                                    "colors": [
+                                      "#EE3E62",
+                                      "#FD6F8E"
                                     ],
-                                    "type": "row"
+                                    "begin": "bottomLeft",
+                                    "end": "topRight"
                                   }
-                                ],
-                                "type": "column"
+                                },
+                                "height": 112.0,
+                                "child": {
+                                  "mainAxisAlignment": "spaceBetween",
+                                  "crossAxisAlignment": "stretch",
+                                  "children": [
+                                    {
+                                      "mainAxisAlignment": "spaceBetween",
+                                      "crossAxisAlignment": "center",
+                                      "textDirection": "rtl",
+                                      "children": [
+                                        {
+                                          "textDirection": "rtl",
+                                          "children": [
+                                            {
+                                              "src": "{{appAssets.current.icons.gardeshgari}}",
+                                              "imageType": "asset",
+                                              "color": "#FFFFFF",
+                                              "width": 24.0,
+                                              "height": 24.0,
+                                              "type": "image"
+                                            },
+                                            {
+                                              "width": 8.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "data": "Ø¨Ø§Ù†Ú©â€ŒÚ¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "#FFFFFF",
+                                                "fontSize": 14.0,
+                                                "fontWeight": "w700"
+                                              },
+                                              "textDirection": "rtl",
+                                              "type": "text"
+                                            }
+                                          ],
+                                          "type": "row"
+                                        },
+                                        {
+                                          "children": [
+                                            {
+                                              "data": "ÛµÛ¸Û¹Û² Û±Û°Û±Û° Û¶ÛµÛ´Û³ Û·Û¹Û¹Û¸",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "#FFFFFF",
+                                                "fontSize": 15.0,
+                                                "fontWeight": "w600"
+                                              },
+                                              "textAlign": "left",
+                                              "textDirection": "rtl",
+                                              "type": "text"
+                                            },
+                                            {
+                                              "data": "Ø­Ø³Ø§Ø¨ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ú¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "#FFFFFF",
+                                                "fontSize": 13.0,
+                                                "fontWeight": "w600"
+                                              },
+                                              "textAlign": "right",
+                                              "textDirection": "ltr",
+                                              "type": "text"
+                                            }
+                                          ],
+                                          "type": "column"
+                                        }
+                                      ],
+                                      "type": "row"
+                                    }
+                                  ],
+                                  "type": "column"
+                                },
+                                "type": "container"
                               },
-                              "type": "container"
+                              "onTap": {
+                                "actionType": "sequence",
+                                "actions": [
+                                  {
+                                    "actionType": "setValue",
+                                    "key": "cardsManagement.initialPage",
+                                    "value": 5
+                                  },
+                                  {
+                                    "actionType": "navigate",
+                                    "widgetType": "dashboard_real_cards_management",
+                                    "navigationStyle": "push"
+                                  }
+                                ]
+                              },
+                              "type": "gestureDetector"
                             }
                           ],
                           "topSpacerHeight": 26.0,
@@ -1552,267 +1678,7 @@
                                 "children": [
                                   {
                                     "child": {
-                                      "mainAxisSize": "min",
-                                      "children": [
-                                        {
-                                          "alignment": "center",
-                                          "decoration": {
-                                            "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                                            "borderRadius": {
-                                              "topLeft": 8.0,
-                                              "topRight": 8.0,
-                                              "bottomLeft": 8.0,
-                                              "bottomRight": 8.0
-                                            }
-                                          },
-                                          "width": 40.0,
-                                          "height": 40.0,
-                                          "child": {
-                                            "src": "{{appAssets.current.icons.cardToCard}}",
-                                            "imageType": "asset",
-                                            "width": 28.0,
-                                            "height": 28.0,
-                                            "type": "image"
-                                          },
-                                          "type": "container"
-                                        },
-                                        {
-                                          "height": 8.0,
-                                          "type": "sizedBox"
-                                        },
-                                        {
-                                          "data": "ÃšÂ©Ã˜Â§Ã˜Â±Ã˜Âª Ã˜Â¨Ã™â€¡ ÃšÂ©Ã˜Â§Ã˜Â±Ã˜Âª",
-                                          "style": {
-                                            "type": "custom",
-                                            "color": "{{appColors.current.text.title}}",
-                                            "fontSize": 13.0,
-                                            "fontWeight": "w500"
-                                          },
-                                          "textAlign": "center",
-                                          "textDirection": "rtl",
-                                          "type": "text"
-                                        }
-                                      ],
-                                      "type": "column"
-                                    },
-                                    "type": "expanded"
-                                  },
-                                  {
-                                    "width": 8.0,
-                                    "type": "sizedBox"
-                                  },
-                                  {
-                                    "child": {
-                                      "mainAxisSize": "min",
-                                      "children": [
-                                        {
-                                          "alignment": "center",
-                                          "decoration": {
-                                            "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                                            "borderRadius": {
-                                              "topLeft": 8.0,
-                                              "topRight": 8.0,
-                                              "bottomLeft": 8.0,
-                                              "bottomRight": 8.0
-                                            }
-                                          },
-                                          "width": 40.0,
-                                          "height": 40.0,
-                                          "child": {
-                                            "src": "{{appAssets.current.icons.checkReceive}}",
-                                            "imageType": "asset",
-                                            "width": 28.0,
-                                            "height": 28.0,
-                                            "type": "image"
-                                          },
-                                          "type": "container"
-                                        },
-                                        {
-                                          "height": 8.0,
-                                          "type": "sizedBox"
-                                        },
-                                        {
-                                          "data": "Ãšâ€ ÃšÂ© Ã˜ÂµÃ›Å’Ã˜Â§Ã˜Â¯Ã›Å’",
-                                          "style": {
-                                            "type": "custom",
-                                            "color": "{{appColors.current.text.title}}",
-                                            "fontSize": 13.0,
-                                            "fontWeight": "w500"
-                                          },
-                                          "textAlign": "center",
-                                          "textDirection": "rtl",
-                                          "type": "text"
-                                        }
-                                      ],
-                                      "type": "column"
-                                    },
-                                    "type": "expanded"
-                                  },
-                                  {
-                                    "width": 8.0,
-                                    "type": "sizedBox"
-                                  },
-                                  {
-                                    "child": {
-                                      "mainAxisSize": "min",
-                                      "children": [
-                                        {
-                                          "alignment": "center",
-                                          "decoration": {
-                                            "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                                            "borderRadius": {
-                                              "topLeft": 8.0,
-                                              "topRight": 8.0,
-                                              "bottomLeft": 8.0,
-                                              "bottomRight": 8.0
-                                            }
-                                          },
-                                          "width": 40.0,
-                                          "height": 40.0,
-                                          "child": {
-                                            "src": "{{appAssets.current.icons.cardBalance}}",
-                                            "imageType": "asset",
-                                            "width": 28.0,
-                                            "height": 28.0,
-                                            "type": "image"
-                                          },
-                                          "type": "container"
-                                        },
-                                        {
-                                          "height": 8.0,
-                                          "type": "sizedBox"
-                                        },
-                                        {
-                                          "data": "Ã™â€¦Ã™Ë†Ã˜Â¬Ã™Ë†Ã˜Â¯Ã›Å’",
-                                          "style": {
-                                            "type": "custom",
-                                            "color": "{{appColors.current.text.title}}",
-                                            "fontSize": 13.0,
-                                            "fontWeight": "w500"
-                                          },
-                                          "textAlign": "center",
-                                          "textDirection": "rtl",
-                                          "type": "text"
-                                        }
-                                      ],
-                                      "type": "column"
-                                    },
-                                    "type": "expanded"
-                                  },
-                                  {
-                                    "width": 8.0,
-                                    "type": "sizedBox"
-                                  },
-                                  {
-                                    "child": {
-                                      "mainAxisSize": "min",
-                                      "children": [
-                                        {
-                                          "alignment": "center",
-                                          "decoration": {
-                                            "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                                            "borderRadius": {
-                                              "topLeft": 8.0,
-                                              "topRight": 8.0,
-                                              "bottomLeft": 8.0,
-                                              "bottomRight": 8.0
-                                            }
-                                          },
-                                          "width": 40.0,
-                                          "height": 40.0,
-                                          "child": {
-                                            "src": "{{appAssets.current.icons.simCharge}}",
-                                            "imageType": "asset",
-                                            "width": 28.0,
-                                            "height": 28.0,
-                                            "type": "image"
-                                          },
-                                          "type": "container"
-                                        },
-                                        {
-                                          "height": 8.0,
-                                          "type": "sizedBox"
-                                        },
-                                        {
-                                          "data": "Ã˜Â´Ã˜Â§Ã˜Â±ÃšËœ",
-                                          "style": {
-                                            "type": "custom",
-                                            "color": "{{appColors.current.text.title}}",
-                                            "fontSize": 13.0,
-                                            "fontWeight": "w500"
-                                          },
-                                          "textAlign": "center",
-                                          "textDirection": "rtl",
-                                          "type": "text"
-                                        }
-                                      ],
-                                      "type": "column"
-                                    },
-                                    "type": "expanded"
-                                  }
-                                ],
-                                "type": "row"
-                              },
-                              {
-                                "height": 16.0,
-                                "type": "sizedBox"
-                              },
-                              {
-                                "textDirection": "rtl",
-                                "children": [
-                                  {
-                                    "child": {
-                                      "mainAxisSize": "min",
-                                      "children": [
-                                        {
-                                          "alignment": "center",
-                                          "decoration": {
-                                            "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                                            "borderRadius": {
-                                              "topLeft": 8.0,
-                                              "topRight": 8.0,
-                                              "bottomLeft": 8.0,
-                                              "bottomRight": 8.0
-                                            }
-                                          },
-                                          "width": 40.0,
-                                          "height": 40.0,
-                                          "child": {
-                                            "src": "{{appAssets.current.icons.internet}}",
-                                            "imageType": "asset",
-                                            "width": 28.0,
-                                            "height": 28.0,
-                                            "type": "image"
-                                          },
-                                          "type": "container"
-                                        },
-                                        {
-                                          "height": 8.0,
-                                          "type": "sizedBox"
-                                        },
-                                        {
-                                          "data": "Ã˜Â¨Ã˜Â³Ã˜ÂªÃ™â€¡ Ã˜Â§Ã›Å’Ã™â€ Ã˜ÂªÃ˜Â±Ã™â€ Ã˜Âª",
-                                          "style": {
-                                            "type": "custom",
-                                            "color": "{{appColors.current.text.title}}",
-                                            "fontSize": 13.0,
-                                            "fontWeight": "w500"
-                                          },
-                                          "textAlign": "center",
-                                          "textDirection": "rtl",
-                                          "type": "text"
-                                        }
-                                      ],
-                                      "type": "column"
-                                    },
-                                    "type": "expanded"
-                                  },
-                                  {
-                                    "width": 8.0,
-                                    "type": "sizedBox"
-                                  },
-                                  {
-                                    "child": {
+                                      "alignment": "topCenter",
                                       "child": {
                                         "mainAxisSize": "min",
                                         "children": [
@@ -1830,7 +1696,7 @@
                                             "width": 40.0,
                                             "height": 40.0,
                                             "child": {
-                                              "src": "{{appAssets.current.icons.megagasht}}",
+                                              "src": "{{appAssets.current.icons.cardToCard}}",
                                               "imageType": "asset",
                                               "width": 28.0,
                                               "height": 28.0,
@@ -1843,7 +1709,7 @@
                                             "type": "sizedBox"
                                           },
                                           {
-                                            "data": "Ã˜Â®Ã˜Â¯Ã™â€¦Ã˜Â§Ã˜Âª Ã˜Â³Ã™ÂÃ˜Â±",
+                                            "data": "Ú©Ø§Ø±Øª Ø¨Ù‡ Ú©Ø§Ø±Øª",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -1857,12 +1723,62 @@
                                         ],
                                         "type": "column"
                                       },
-                                      "onTap": {
-                                        "assetPath": "lib/stac/tobank/flows/home_page/api/GET_tobank_travel_services_page.json",
-                                        "navigationStyle": "push",
-                                        "actionType": "navigate"
+                                      "type": "align"
+                                    },
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "width": 8.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "child": {
+                                      "alignment": "topCenter",
+                                      "child": {
+                                        "mainAxisSize": "min",
+                                        "children": [
+                                          {
+                                            "alignment": "center",
+                                            "decoration": {
+                                              "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                              "borderRadius": {
+                                                "topLeft": 8.0,
+                                                "topRight": 8.0,
+                                                "bottomLeft": 8.0,
+                                                "bottomRight": 8.0
+                                              }
+                                            },
+                                            "width": 40.0,
+                                            "height": 40.0,
+                                            "child": {
+                                              "src": "{{appAssets.current.icons.checkReceive}}",
+                                              "imageType": "asset",
+                                              "width": 28.0,
+                                              "height": 28.0,
+                                              "type": "image"
+                                            },
+                                            "type": "container"
+                                          },
+                                          {
+                                            "height": 8.0,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "data": "Ú†Ú© ØµÛŒØ§Ø¯ÛŒ",
+                                            "style": {
+                                              "type": "custom",
+                                              "color": "{{appColors.current.text.title}}",
+                                              "fontSize": 13.0,
+                                              "fontWeight": "w500"
+                                            },
+                                            "textAlign": "center",
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "type": "column"
                                       },
-                                      "type": "gestureDetector"
+                                      "type": "align"
                                     },
                                     "type": "expanded"
                                   },
@@ -1872,48 +1788,52 @@
                                   },
                                   {
                                     "child": {
-                                      "mainAxisSize": "min",
-                                      "children": [
-                                        {
-                                          "alignment": "center",
-                                          "decoration": {
-                                            "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                                            "borderRadius": {
-                                              "topLeft": 8.0,
-                                              "topRight": 8.0,
-                                              "bottomLeft": 8.0,
-                                              "bottomRight": 8.0
-                                            }
+                                      "alignment": "topCenter",
+                                      "child": {
+                                        "mainAxisSize": "min",
+                                        "children": [
+                                          {
+                                            "alignment": "center",
+                                            "decoration": {
+                                              "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                              "borderRadius": {
+                                                "topLeft": 8.0,
+                                                "topRight": 8.0,
+                                                "bottomLeft": 8.0,
+                                                "bottomRight": 8.0
+                                              }
+                                            },
+                                            "width": 40.0,
+                                            "height": 40.0,
+                                            "child": {
+                                              "src": "{{appAssets.current.icons.cardBalance}}",
+                                              "imageType": "asset",
+                                              "width": 28.0,
+                                              "height": 28.0,
+                                              "type": "image"
+                                            },
+                                            "type": "container"
                                           },
-                                          "width": 40.0,
-                                          "height": 40.0,
-                                          "child": {
-                                            "src": "{{appAssets.current.icons.giftCard}}",
-                                            "imageType": "asset",
-                                            "width": 28.0,
-                                            "height": 28.0,
-                                            "type": "image"
+                                          {
+                                            "height": 8.0,
+                                            "type": "sizedBox"
                                           },
-                                          "type": "container"
-                                        },
-                                        {
-                                          "height": 8.0,
-                                          "type": "sizedBox"
-                                        },
-                                        {
-                                          "data": "ÃšÂ©Ã˜Â§Ã˜Â±Ã˜Âª Ã™â€¡Ã˜Â¯Ã›Å’Ã™â€¡",
-                                          "style": {
-                                            "type": "custom",
-                                            "color": "{{appColors.current.text.title}}",
-                                            "fontSize": 13.0,
-                                            "fontWeight": "w500"
-                                          },
-                                          "textAlign": "center",
-                                          "textDirection": "rtl",
-                                          "type": "text"
-                                        }
-                                      ],
-                                      "type": "column"
+                                          {
+                                            "data": "Ù…ÙˆØ¬ÙˆØ¯ÛŒ",
+                                            "style": {
+                                              "type": "custom",
+                                              "color": "{{appColors.current.text.title}}",
+                                              "fontSize": 13.0,
+                                              "fontWeight": "w500"
+                                            },
+                                            "textAlign": "center",
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "type": "column"
+                                      },
+                                      "type": "align"
                                     },
                                     "type": "expanded"
                                   },
@@ -1923,48 +1843,52 @@
                                   },
                                   {
                                     "child": {
-                                      "mainAxisSize": "min",
-                                      "children": [
-                                        {
-                                          "alignment": "center",
-                                          "decoration": {
-                                            "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                                            "borderRadius": {
-                                              "topLeft": 8.0,
-                                              "topRight": 8.0,
-                                              "bottomLeft": 8.0,
-                                              "bottomRight": 8.0
-                                            }
+                                      "alignment": "topCenter",
+                                      "child": {
+                                        "mainAxisSize": "min",
+                                        "children": [
+                                          {
+                                            "alignment": "center",
+                                            "decoration": {
+                                              "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                              "borderRadius": {
+                                                "topLeft": 8.0,
+                                                "topRight": 8.0,
+                                                "bottomLeft": 8.0,
+                                                "bottomRight": 8.0
+                                              }
+                                            },
+                                            "width": 40.0,
+                                            "height": 40.0,
+                                            "child": {
+                                              "src": "{{appAssets.current.icons.simCharge}}",
+                                              "imageType": "asset",
+                                              "width": 28.0,
+                                              "height": 28.0,
+                                              "type": "image"
+                                            },
+                                            "type": "container"
                                           },
-                                          "width": 40.0,
-                                          "height": 40.0,
-                                          "child": {
-                                            "src": "{{appAssets.current.icons.invoice}}",
-                                            "imageType": "asset",
-                                            "width": 28.0,
-                                            "height": 28.0,
-                                            "type": "image"
+                                          {
+                                            "height": 8.0,
+                                            "type": "sizedBox"
                                           },
-                                          "type": "container"
-                                        },
-                                        {
-                                          "height": 8.0,
-                                          "type": "sizedBox"
-                                        },
-                                        {
-                                          "data": "Ã™â€šÃ˜Â¨Ã˜Â¶",
-                                          "style": {
-                                            "type": "custom",
-                                            "color": "{{appColors.current.text.title}}",
-                                            "fontSize": 13.0,
-                                            "fontWeight": "w500"
-                                          },
-                                          "textAlign": "center",
-                                          "textDirection": "rtl",
-                                          "type": "text"
-                                        }
-                                      ],
-                                      "type": "column"
+                                          {
+                                            "data": "Ø´Ø§Ø±Ú˜",
+                                            "style": {
+                                              "type": "custom",
+                                              "color": "{{appColors.current.text.title}}",
+                                              "fontSize": 13.0,
+                                              "fontWeight": "w500"
+                                            },
+                                            "textAlign": "center",
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "type": "column"
+                                      },
+                                      "type": "align"
                                     },
                                     "type": "expanded"
                                   }
@@ -1980,55 +1904,295 @@
                                 "children": [
                                   {
                                     "child": {
-                                      "mainAxisSize": "min",
-                                      "children": [
-                                        {
-                                          "alignment": "center",
-                                          "decoration": {
-                                            "color": "{{appColors.current.background.surfaceContainerLowest}}",
-                                            "borderRadius": {
-                                              "topLeft": 8.0,
-                                              "topRight": 8.0,
-                                              "bottomLeft": 8.0,
-                                              "bottomRight": 8.0
+                                      "alignment": "topCenter",
+                                      "child": {
+                                        "mainAxisSize": "min",
+                                        "children": [
+                                          {
+                                            "alignment": "center",
+                                            "decoration": {
+                                              "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                              "borderRadius": {
+                                                "topLeft": 8.0,
+                                                "topRight": 8.0,
+                                                "bottomLeft": 8.0,
+                                                "bottomRight": 8.0
+                                              }
+                                            },
+                                            "width": 40.0,
+                                            "height": 40.0,
+                                            "child": {
+                                              "src": "{{appAssets.current.icons.internet}}",
+                                              "imageType": "asset",
+                                              "width": 28.0,
+                                              "height": 28.0,
+                                              "type": "image"
+                                            },
+                                            "type": "container"
+                                          },
+                                          {
+                                            "height": 8.0,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "data": "Ø¨Ø³ØªÙ‡ Ø§ÛŒÙ†ØªØ±Ù†Øª",
+                                            "style": {
+                                              "type": "custom",
+                                              "color": "{{appColors.current.text.title}}",
+                                              "fontSize": 13.0,
+                                              "fontWeight": "w500"
+                                            },
+                                            "textAlign": "center",
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "type": "column"
+                                      },
+                                      "type": "align"
+                                    },
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "width": 8.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "child": {
+                                      "alignment": "topCenter",
+                                      "child": {
+                                        "child": {
+                                          "mainAxisSize": "min",
+                                          "children": [
+                                            {
+                                              "alignment": "center",
+                                              "decoration": {
+                                                "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                                "borderRadius": {
+                                                  "topLeft": 8.0,
+                                                  "topRight": 8.0,
+                                                  "bottomLeft": 8.0,
+                                                  "bottomRight": 8.0
+                                                }
+                                              },
+                                              "width": 40.0,
+                                              "height": 40.0,
+                                              "child": {
+                                                "src": "{{appAssets.current.icons.megagasht}}",
+                                                "imageType": "asset",
+                                                "width": 28.0,
+                                                "height": 28.0,
+                                                "type": "image"
+                                              },
+                                              "type": "container"
+                                            },
+                                            {
+                                              "height": 8.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "data": "Ø®Ø¯Ù…Ø§Øª Ø³ÙØ±",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "{{appColors.current.text.title}}",
+                                                "fontSize": 13.0,
+                                                "fontWeight": "w500"
+                                              },
+                                              "textAlign": "center",
+                                              "textDirection": "rtl",
+                                              "type": "text"
                                             }
-                                          },
-                                          "width": 40.0,
-                                          "height": 40.0,
-                                          "child": {
-                                            "src": "{{appAssets.current.icons.acceptor}}",
-                                            "imageType": "asset",
-                                            "width": 28.0,
-                                            "height": 28.0,
-                                            "type": "image"
-                                          },
-                                          "type": "container"
+                                          ],
+                                          "type": "column"
                                         },
-                                        {
-                                          "height": 8.0,
-                                          "type": "sizedBox"
+                                        "onTap": {
+                                          "routeName": "tobank_travel_services_page",
+                                          "navigationStyle": "push",
+                                          "actionType": "navigate"
                                         },
-                                        {
-                                          "data": "Ù¾Ø°ÛŒØ±Ù†Ø¯Ú¯ÛŒ",
-                                          "style": {
-                                            "type": "custom",
-                                            "color": "{{appColors.current.text.title}}",
-                                            "fontSize": 13.0,
-                                            "fontWeight": "w500"
+                                        "type": "gestureDetector"
+                                      },
+                                      "type": "align"
+                                    },
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "width": 8.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "child": {
+                                      "alignment": "topCenter",
+                                      "child": {
+                                        "mainAxisSize": "min",
+                                        "children": [
+                                          {
+                                            "alignment": "center",
+                                            "decoration": {
+                                              "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                              "borderRadius": {
+                                                "topLeft": 8.0,
+                                                "topRight": 8.0,
+                                                "bottomLeft": 8.0,
+                                                "bottomRight": 8.0
+                                              }
+                                            },
+                                            "width": 40.0,
+                                            "height": 40.0,
+                                            "child": {
+                                              "src": "{{appAssets.current.icons.giftCard}}",
+                                              "imageType": "asset",
+                                              "width": 28.0,
+                                              "height": 28.0,
+                                              "type": "image"
+                                            },
+                                            "type": "container"
                                           },
-                                          "textAlign": "center",
-                                          "textDirection": "rtl",
-                                          "type": "text"
-                                        }
-                                      ],
-                                      "type": "column"
+                                          {
+                                            "height": 8.0,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "data": "Ú©Ø§Ø±Øª Ù‡Ø¯ÛŒÙ‡",
+                                            "style": {
+                                              "type": "custom",
+                                              "color": "{{appColors.current.text.title}}",
+                                              "fontSize": 13.0,
+                                              "fontWeight": "w500"
+                                            },
+                                            "textAlign": "center",
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "type": "column"
+                                      },
+                                      "type": "align"
                                     },
-                                    "onTap": {
-                                      "assetPath": "lib/stac/tobank/flows/home_page/api/GET_tobank_acceptor_services_page.json",
-                                      "navigationStyle": "push",
-                                      "actionType": "navigate"
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "width": 8.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "child": {
+                                      "alignment": "topCenter",
+                                      "child": {
+                                        "mainAxisSize": "min",
+                                        "children": [
+                                          {
+                                            "alignment": "center",
+                                            "decoration": {
+                                              "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                              "borderRadius": {
+                                                "topLeft": 8.0,
+                                                "topRight": 8.0,
+                                                "bottomLeft": 8.0,
+                                                "bottomRight": 8.0
+                                              }
+                                            },
+                                            "width": 40.0,
+                                            "height": 40.0,
+                                            "child": {
+                                              "src": "{{appAssets.current.icons.invoice}}",
+                                              "imageType": "asset",
+                                              "width": 28.0,
+                                              "height": 28.0,
+                                              "type": "image"
+                                            },
+                                            "type": "container"
+                                          },
+                                          {
+                                            "height": 8.0,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "data": "Ù‚Ø¨Ø¶",
+                                            "style": {
+                                              "type": "custom",
+                                              "color": "{{appColors.current.text.title}}",
+                                              "fontSize": 13.0,
+                                              "fontWeight": "w500"
+                                            },
+                                            "textAlign": "center",
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          }
+                                        ],
+                                        "type": "column"
+                                      },
+                                      "type": "align"
                                     },
-                                    "type": "gestureDetector"
+                                    "type": "expanded"
+                                  }
+                                ],
+                                "type": "row"
+                              },
+                              {
+                                "height": 16.0,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "alignment": "topCenter",
+                                      "child": {
+                                        "child": {
+                                          "mainAxisSize": "min",
+                                          "children": [
+                                            {
+                                              "alignment": "center",
+                                              "decoration": {
+                                                "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                                "borderRadius": {
+                                                  "topLeft": 8.0,
+                                                  "topRight": 8.0,
+                                                  "bottomLeft": 8.0,
+                                                  "bottomRight": 8.0
+                                                }
+                                              },
+                                              "width": 40.0,
+                                              "height": 40.0,
+                                              "child": {
+                                                "src": "{{appAssets.current.icons.acceptor}}",
+                                                "imageType": "asset",
+                                                "width": 28.0,
+                                                "height": 28.0,
+                                                "type": "image"
+                                              },
+                                              "type": "container"
+                                            },
+                                            {
+                                              "height": 8.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "data": "Ù¾Ø°ÛŒØ±Ù†Ø¯Ú¯ÛŒ",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "{{appColors.current.text.title}}",
+                                                "fontSize": 13.0,
+                                                "fontWeight": "w500"
+                                              },
+                                              "textAlign": "center",
+                                              "textDirection": "rtl",
+                                              "type": "text"
+                                            }
+                                          ],
+                                          "type": "column"
+                                        },
+                                        "onTap": {
+                                          "routeName": "tobank_acceptor_services_page",
+                                          "actionType": "navigate"
+                                        },
+                                        "type": "gestureDetector"
+                                      },
+                                      "type": "align"
+                                    },
+                                    "type": "expanded"
                                   },
                                   {
                                     "width": 8.0,
@@ -2149,7 +2313,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "Ã˜Â§Ã™ÂÃ˜ÂªÃ˜ÂªÃ˜Â§Ã˜Â­ Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡ Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ© ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’",
+                                                    "data": "Ø§ÙØªØªØ§Ø­ Ø³Ù¾Ø±Ø¯Ù‡ Ø¨Ø§Ù†Ú© Ú¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -2179,7 +2343,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "ÃšÂ©Ã™Ë†Ã˜ÂªÃ˜Â§Ã™â€¡ Ã™â€¦Ã˜Â¯Ã˜ÂªÃ˜Å’ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ Ã™Â¾Ã˜Â³ Ã˜Â§Ã™â€ Ã˜Â¯Ã˜Â§Ã˜Â²Ã˜Å’ Ã˜Â¨Ã™â€žÃ™â€ Ã˜Â¯Ã™â€¦Ã˜Â¯Ã˜Âª Ã™Ë† ...",
+                                                    "data": "Ú©ÙˆØªØ§Ù‡ Ù…Ø¯ØªØŒ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ù¾Ø³ Ø§Ù†Ø¯Ø§Ø²ØŒ Ø¨Ù„Ù†Ø¯Ù…Ø¯Øª Ùˆ ...",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.subtitle}}",
@@ -2215,7 +2379,7 @@
                                                   "textDirection": "rtl",
                                                   "children": [
                                                     {
-                                                      "data": "Ã˜Â§Ã™ÂÃ˜ÂªÃ˜ÂªÃ˜Â§Ã˜Â­ Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡",
+                                                      "data": "Ø§ÙØªØªØ§Ø­ Ø³Ù¾Ø±Ø¯Ù‡",
                                                       "style": {
                                                         "type": "custom",
                                                         "fontSize": 16.0,
@@ -2380,7 +2544,7 @@
                                                                             "type": "sizedBox"
                                                                           },
                                                                           {
-                                                                            "data": "Ã˜Â±Ã›Å’Ã˜Â§Ã™â€ž",
+                                                                            "data": "Ø±ÛŒØ§Ù„",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "color": "{{appColors.current.text.title}}",
@@ -2410,7 +2574,7 @@
                                                                         "textDirection": "rtl",
                                                                         "children": [
                                                                           {
-                                                                            "data": "Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤",
+                                                                            "data": "â¬¤â¬¤â¬¤â¬¤â¬¤â¬¤â¬¤",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "color": "{{appColors.current.text.title}}",
@@ -2468,7 +2632,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ Ã˜Â¬Ã˜Â§Ã˜Â±Ã›Å’ Ã˜ÂªÃ™Ë†Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©",
+                                                          "data": "Ø­Ø³Ø§Ø¨ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ø¬Ø§Ø±ÛŒ ØªÙˆØ¨Ø§Ù†Ú©",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -2549,7 +2713,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡",
+                                                          "data": "Ú¯Ø±Ø¯Ø´ Ø³Ù¾Ø±Ø¯Ù‡",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -2612,7 +2776,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã˜Â§Ã™â€ Ã˜ÂªÃ™â€šÃ˜Â§Ã™â€ž Ã™Ë†Ã˜Â¬Ã™â€¡",
+                                                          "data": "Ø§Ù†ØªÙ‚Ø§Ù„ ÙˆØ¬Ù‡",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -2675,7 +2839,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã˜Â¨Ã›Å’Ã˜Â´Ã˜ÂªÃ˜Â±",
+                                                          "data": "Ø¨ÛŒØ´ØªØ±",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -2832,7 +2996,7 @@
                                                                             "type": "sizedBox"
                                                                           },
                                                                           {
-                                                                            "data": "Ã˜Â±Ã›Å’Ã˜Â§Ã™â€ž",
+                                                                            "data": "Ø±ÛŒØ§Ù„",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "color": "{{appColors.current.text.title}}",
@@ -2862,7 +3026,7 @@
                                                                         "textDirection": "rtl",
                                                                         "children": [
                                                                           {
-                                                                            "data": "Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤",
+                                                                            "data": "â¬¤â¬¤â¬¤â¬¤â¬¤â¬¤â¬¤",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "color": "{{appColors.current.text.title}}",
@@ -2920,7 +3084,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ Ã˜Â¬Ã˜Â§Ã˜Â±Ã›Å’ Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡ Ã˜Â¯Ã™Ë†Ã™â€¦",
+                                                          "data": "Ø­Ø³Ø§Ø¨ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ø¬Ø§Ø±ÛŒ Ø³Ù¾Ø±Ø¯Ù‡ Ø¯ÙˆÙ…",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -3001,7 +3165,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡",
+                                                          "data": "Ú¯Ø±Ø¯Ø´ Ø³Ù¾Ø±Ø¯Ù‡",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3064,7 +3228,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã˜Â§Ã™â€ Ã˜ÂªÃ™â€šÃ˜Â§Ã™â€ž Ã™Ë†Ã˜Â¬Ã™â€¡",
+                                                          "data": "Ø§Ù†ØªÙ‚Ø§Ù„ ÙˆØ¬Ù‡",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3127,7 +3291,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã˜Â¨Ã›Å’Ã˜Â´Ã˜ÂªÃ˜Â±",
+                                                          "data": "Ø¨ÛŒØ´ØªØ±",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3284,7 +3448,7 @@
                                                                             "type": "sizedBox"
                                                                           },
                                                                           {
-                                                                            "data": "Ã˜Â±Ã›Å’Ã˜Â§Ã™â€ž",
+                                                                            "data": "Ø±ÛŒØ§Ù„",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "color": "{{appColors.current.text.title}}",
@@ -3314,7 +3478,7 @@
                                                                         "textDirection": "rtl",
                                                                         "children": [
                                                                           {
-                                                                            "data": "Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤Ã¢Â¬Â¤",
+                                                                            "data": "â¬¤â¬¤â¬¤â¬¤â¬¤â¬¤â¬¤",
                                                                             "style": {
                                                                               "type": "custom",
                                                                               "color": "{{appColors.current.text.title}}",
@@ -3372,7 +3536,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã˜Â­Ã˜Â³Ã˜Â§Ã˜Â¨ Ã™â€šÃ˜Â±Ã˜Â¶ Ã˜Â§Ã™â€žÃ˜Â­Ã˜Â³Ã™â€ Ã™â€¡ Ã˜Â¬Ã˜Â§Ã˜Â±Ã›Å’ Ã˜Â­Ã™â€šÃ›Å’Ã™â€šÃ›Å’ Ã˜ÂªÃ™Ë†Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©",
+                                                          "data": "Ø­Ø³Ø§Ø¨ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ø¬Ø§Ø±ÛŒ Ø­Ù‚ÛŒÙ‚ÛŒ ØªÙˆØ¨Ø§Ù†Ú©",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -3453,7 +3617,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡",
+                                                          "data": "Ú¯Ø±Ø¯Ø´ Ø³Ù¾Ø±Ø¯Ù‡",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3516,7 +3680,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã˜Â§Ã™â€ Ã˜ÂªÃ™â€šÃ˜Â§Ã™â€ž Ã™Ë†Ã˜Â¬Ã™â€¡",
+                                                          "data": "Ø§Ù†ØªÙ‚Ø§Ù„ ÙˆØ¬Ù‡",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3579,7 +3743,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "Ã˜Â¨Ã›Å’Ã˜Â´Ã˜ÂªÃ˜Â±",
+                                                          "data": "Ø¨ÛŒØ´ØªØ±",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -3649,7 +3813,7 @@
                                       "crossAxisAlignment": "stretch",
                                       "children": [
                                         {
-                                          "data": "ÃšÂ©Ã˜Â§Ã˜Â±Ã˜Â¨Ã˜Â± ÃšÂ¯Ã˜Â±Ã˜Â§Ã™â€¦Ã›Å’Ã˜Å’ Ã˜Â¨Ã˜Â±Ã˜Â§Ã›Å’ Ã™ÂÃ˜Â¹Ã˜Â§Ã™â€ž Ã˜Â³Ã˜Â§Ã˜Â²Ã›Å’ Ã˜Â®Ã˜Â¯Ã™â€¦Ã˜Â§Ã˜Âª Ã™â€¦Ã˜Â±Ã˜ÂªÃ˜Â¨Ã˜Â· Ã˜Â¨Ã˜Â§ Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡Ã¢â‚¬Å’Ã™â€¡Ã˜Â§Ã›Å’ Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ© ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ÃšÂ¯Ã˜Â±Ã›Å’Ã˜Å’ Ã™â€žÃ˜Â·Ã™ÂÃ˜Â§ Ã™ÂÃ˜Â±Ã˜Â¢Ã›Å’Ã™â€ Ã˜Â¯ Ã˜Â§Ã˜Â­Ã˜Â±Ã˜Â§Ã˜Â² Ã™â€¡Ã™Ë†Ã›Å’Ã˜Âª Ã˜Â±Ã˜Â§ Ã˜ÂªÃšÂ©Ã™â€¦Ã›Å’Ã™â€ž Ã™â€ Ã™â€¦Ã˜Â§Ã›Å’Ã›Å’Ã˜Â¯.",
+                                          "data": "Ú©Ø§Ø±Ø¨Ø± Ú¯Ø±Ø§Ù…ÛŒØŒ Ø¨Ø±Ø§ÛŒ ÙØ¹Ø§Ù„ Ø³Ø§Ø²ÛŒ Ø®Ø¯Ù…Ø§Øª Ù…Ø±ØªØ¨Ø· Ø¨Ø§ Ø³Ù¾Ø±Ø¯Ù‡â€ŒÙ‡Ø§ÛŒ Ø¨Ø§Ù†Ú© Ú¯Ø±Ø¯Ø´Ú¯Ø±ÛŒØŒ Ù„Ø·ÙØ§ ÙØ±Ø¢ÛŒÙ†Ø¯ Ø§Ø­Ø±Ø§Ø² Ù‡ÙˆÛŒØª Ø±Ø§ ØªÚ©Ù…ÛŒÙ„ Ù†Ù…Ø§ÛŒÛŒØ¯.",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -3721,7 +3885,7 @@
                                             }
                                           },
                                           "child": {
-                                            "data": "Ã˜Â§Ã˜Â­Ã˜Â±Ã˜Â§Ã˜Â² Ã™â€¡Ã™Ë†Ã›Å’Ã˜Âª",
+                                            "data": "Ø§Ø­Ø±Ø§Ø² Ù‡ÙˆÛŒØª",
                                             "style": {
                                               "type": "custom",
                                               "fontSize": 14.0,
@@ -3792,7 +3956,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "ÃšÂ¯Ã˜Â±Ã˜Â¯Ã˜Â´ Ã˜Â³Ã™Â¾Ã˜Â±Ã˜Â¯Ã™â€¡",
+                                                      "data": "Ú¯Ø±Ø¯Ø´ Ø³Ù¾Ø±Ø¯Ù‡",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -3855,7 +4019,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "Ã˜Â§Ã™â€ Ã˜ÂªÃ™â€šÃ˜Â§Ã™â€ž Ã™Ë†Ã˜Â¬Ã™â€¡",
+                                                      "data": "Ø§Ù†ØªÙ‚Ø§Ù„ ÙˆØ¬Ù‡",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -3918,7 +4082,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "Ã˜Â¨Ã›Å’Ã˜Â´Ã˜ÂªÃ˜Â±",
+                                                      "data": "Ø¨ÛŒØ´ØªØ±",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -3952,7 +4116,7 @@
                                 "type": "sizedBox"
                               },
                               {
-                                "data": "Ã˜Â®Ã˜Â¯Ã™â€¦Ã˜Â§Ã˜Âª Ã™Ë†Ã›Å’ÃšËœÃ™â€¡ Ã˜ÂªÃ™Ë†Ã˜Â¨Ã˜Â§Ã™â€ ÃšÂ©",
+                                "data": "Ø®Ø¯Ù…Ø§Øª ÙˆÛŒÚ˜Ù‡ ØªÙˆØ¨Ø§Ù†Ú©",
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
@@ -4019,7 +4183,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "Ã˜Â³Ã˜Â§Ã›Å’Ã˜Â± Ã˜Â®Ã˜Â¯Ã™â€¦Ã˜Â§Ã˜Âª",
+                                                    "data": "Ø³Ø§ÛŒØ± Ø®Ø¯Ù…Ø§Øª",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -4038,7 +4202,7 @@
                                                 "type": "sizedBox"
                                               },
                                               {
-                                                "data": "Ã˜Â³Ã™ÂÃ˜ÂªÃ™â€¡ Ã˜Â§Ã™â€žÃšÂ©Ã˜ÂªÃ˜Â±Ã™Ë†Ã™â€ Ã›Å’ÃšÂ© ...",
+                                                "data": "Ø³ÙØªÙ‡ Ø§Ù„Ú©ØªØ±ÙˆÙ†ÛŒÚ© ...",
                                                 "style": {
                                                   "type": "custom",
                                                   "color": "{{appColors.current.text.subtitle}}",
@@ -4119,7 +4283,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "Ã˜Â§Ã™â€ Ã™Ë†Ã˜Â§Ã˜Â¹ Ã˜ÂªÃ˜Â³Ã™â€¡Ã›Å’Ã™â€žÃ˜Â§Ã˜Âª",
+                                                  "data": "Ø§Ù†ÙˆØ§Ø¹ ØªØ³Ù‡ÛŒÙ„Ø§Øª",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -4138,7 +4302,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "Ã˜Â§Ã˜Â²Ã˜Â¯Ã™Ë†Ã˜Â§Ã˜Â¬Ã˜Å’ ÃšÂ©Ã˜Â§Ã˜Â±Ã˜Âª Ã˜Â§Ã˜Â¹Ã˜ÂªÃ˜Â¨Ã˜Â§Ã˜Â±Ã›Å’ ...",
+                                              "data": "Ø§Ø²Ø¯ÙˆØ§Ø¬ØŒ Ú©Ø§Ø±Øª Ø§Ø¹ØªØ¨Ø§Ø±ÛŒ ...",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -4302,7 +4466,7 @@
                                         "type": "sizedBox"
                                       },
                                       {
-                                        "data": "Ã˜ÂµÃ™â€ Ã˜Â¯Ã™Ë†Ã™â€š Ã˜Â³Ã˜Â±Ã™â€¦Ã˜Â§Ã›Å’Ã™â€¡Ã¢â‚¬Å’ÃšÂ¯Ã˜Â°Ã˜Â§Ã˜Â±Ã›Å’",
+                                        "data": "ØµÙ†Ø¯ÙˆÙ‚ Ø³Ø±Ù…Ø§ÛŒÙ‡â€ŒÚ¯Ø°Ø§Ø±ÛŒ",
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
@@ -4339,7 +4503,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "Ã™â€¦Ã˜Â¹Ã˜Â§Ã™Â Ã˜Â§Ã˜Â² Ã™â€¦Ã˜Â§Ã™â€žÃ›Å’Ã˜Â§Ã˜Âª",
+                                              "data": "Ù…Ø¹Ø§Ù Ø§Ø² Ù…Ø§Ù„ÛŒØ§Øª",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -4381,7 +4545,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "Ã˜ÂªÃ˜Â­Ã˜Âª Ã™â€¦Ã˜Â¬Ã™Ë†Ã˜Â² Ã™Ë† Ã™â€ Ã˜Â¸Ã˜Â§Ã˜Â±Ã˜Âª Ã˜Â³Ã˜Â§Ã˜Â²Ã™â€¦Ã˜Â§Ã™â€  Ã˜Â¨Ã™Ë†Ã˜Â±Ã˜Â³",
+                                              "data": "ØªØ­Øª Ù…Ø¬ÙˆØ² Ùˆ Ù†Ø¸Ø§Ø±Øª Ø³Ø§Ø²Ù…Ø§Ù† Ø¨ÙˆØ±Ø³",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -4442,7 +4606,7 @@
                                           }
                                         },
                                         "child": {
-                                          "data": "Ã˜Â´Ã˜Â±Ã™Ë†Ã˜Â¹ Ã˜Â³Ã˜Â±Ã™â€¦Ã˜Â§Ã›Å’Ã™â€¡ ÃšÂ¯Ã˜Â°Ã˜Â§Ã˜Â±Ã›Å’",
+                                          "data": "Ø´Ø±ÙˆØ¹ Ø³Ø±Ù…Ø§ÛŒÙ‡ Ú¯Ø°Ø§Ø±ÛŒ",
                                           "style": {
                                             "type": "custom",
                                             "color": "#FFFFFF",
@@ -4534,4 +4698,3 @@
     "type": "scaffold"
   }
 }
-

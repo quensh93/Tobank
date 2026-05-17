@@ -1,0 +1,634 @@
+﻿# flows/gift_card_real/api_json/gift_card_real_image_selector.json
+
+Source: lib/stac/tobank/flows/gift_card_real/api_json/gift_card_real_image_selector.json
+
+## JSON Paths (sample)
+- Could not parse JSON structure for path extraction.
+
+## Raw JSON
+```json
+{
+  "type": "stateFull",
+  "onInit": {
+    "values": [
+      {
+        "key": "giftCardRealCustomImagePath",
+        "value": ""
+      },
+      {
+        "key": "giftCardRealCustomImageName",
+        "value": ""
+      },
+      {
+        "key": "giftCardRealCustomHasImage",
+        "value": false
+      },
+      {
+        "key": "giftCardRealCustomContinueEnabled",
+        "value": false
+      }
+    ],
+    "actionType": "setValue"
+  },
+  "child": {
+    "appBar": {
+      "leading": {
+        "padding": {
+          "left": 12.0
+        },
+        "child": {
+          "child": {
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24.0,
+            "height": 24.0,
+            "type": "image"
+          },
+          "type": "center"
+        },
+        "type": "padding"
+      },
+      "title": {
+        "data": "Ú©Ø§Ø±Øª Ù‡Ø¯ÛŒÙ‡",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "actions": [
+        {
+          "padding": {
+            "right": 12.0
+          },
+          "child": {
+            "onPressed": {
+              "actionType": "sequence",
+              "actions": [
+                {
+                  "values": [
+                    {
+                      "key": "giftCardRealCustomImagePath",
+                      "value": ""
+                    },
+                    {
+                      "key": "giftCardRealCustomImageName",
+                      "value": ""
+                    },
+                    {
+                      "key": "giftCardRealCustomHasImage",
+                      "value": false
+                    },
+                    {
+                      "key": "giftCardRealCustomContinueEnabled",
+                      "value": false
+                    }
+                  ],
+                  "actionType": "setValue"
+                },
+                {
+                  "navigationStyle": "pop",
+                  "actionType": "navigate"
+                }
+              ]
+            },
+            "icon": {
+              "src": "{{appAssets.icons.arrowBack}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 31.0,
+              "height": 31.0,
+              "type": "image"
+            },
+            "type": "iconButton"
+          },
+          "type": "padding"
+        }
+      ],
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "backgroundColor": "{{appColors.current.background.surface}}",
+    "body": {
+      "child": {
+        "crossAxisAlignment": "stretch",
+        "children": [
+          {
+            "child": {
+              "padding": {
+                "left": 16.0,
+                "top": 18.0,
+                "right": 16.0
+              },
+              "child": {
+                "type": "registryReactive",
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "decoration": {
+                        "color": "{{appColors.current.background.surface}}",
+                        "border": {
+                          "color": "{{appColors.current.input.borderEnabled}}",
+                          "width": 1.0
+                        },
+                        "borderRadius": {
+                          "topLeft": 10.0,
+                          "topRight": 10.0,
+                          "bottomLeft": 10.0,
+                          "bottomRight": 10.0
+                        }
+                      },
+                      "child": {
+                        "padding": {
+                          "left": 16.0,
+                          "top": 16.0,
+                          "right": 16.0,
+                          "bottom": 16.0
+                        },
+                        "child": {
+                          "data": "Ø¨Ø®Ø´ Ù…ÙˆØ±Ø¯ Ù†Ø¸Ø± Ø¹Ú©Ø³ Ø®ÙˆØ¯ Ø±Ø§ Ø¯Ø± Ú©Ø§Ø¯Ø± Ø¨Ø¯ÙˆÙ† Ø±Ù†Ú¯ Ù‚Ø±Ø§Ø± Ø¯Ù‡ÛŒØ¯",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.subtitle}}",
+                            "fontSize": 14.0,
+                            "fontWeight": "w600"
+                          },
+                          "textAlign": "center",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        "type": "padding"
+                      },
+                      "type": "container"
+                    },
+                    {
+                      "height": 16.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "child": {
+                        "decoration": {
+                          "color": "{{appColors.current.background.surface}}",
+                          "border": {
+                            "color": "{{appColors.current.input.borderEnabled}}",
+                            "width": 1.0
+                          },
+                          "borderRadius": {
+                            "topLeft": 10.0,
+                            "topRight": 10.0,
+                            "bottomLeft": 10.0,
+                            "bottomRight": 10.0
+                          }
+                        },
+                        "child": {
+                          "type": "visibility",
+                          "visible": "[[giftCardRealCustomHasImage]]",
+                          "child": {
+                            "child": {
+                              "decoration": {
+                                "color": "{{appColors.current.background.surface}}",
+                                "border": {
+                                  "color": "{{appColors.current.input.borderEnabled}}",
+                                  "width": 1.0
+                                },
+                                "borderRadius": {
+                                  "topLeft": 10.0,
+                                  "topRight": 10.0,
+                                  "bottomLeft": 10.0,
+                                  "bottomRight": 10.0
+                                }
+                              },
+                              "child": {
+                                "crossAxisAlignment": "stretch",
+                                "children": [
+                                  {
+                                    "padding": {
+                                      "left": 8.0,
+                                      "right": 8.0
+                                    },
+                                    "color": "#F7FAFD",
+                                    "height": 45.0,
+                                    "child": {
+                                      "mainAxisAlignment": "spaceBetween",
+                                      "crossAxisAlignment": "center",
+                                      "textDirection": "rtl",
+                                      "children": [
+                                        {
+                                          "src": "assets/icons/gardeshgary.svg",
+                                          "imageType": "asset",
+                                          "width": 120.0,
+                                          "height": 30.0,
+                                          "fit": "contain",
+                                          "type": "image"
+                                        },
+                                        {
+                                          "src": "assets/icons/shetab.svg",
+                                          "imageType": "asset",
+                                          "width": 62.0,
+                                          "height": 25.0,
+                                          "fit": "contain",
+                                          "type": "image"
+                                        }
+                                      ],
+                                      "type": "row"
+                                    },
+                                    "type": "container"
+                                  },
+                                  {
+                                    "height": 4.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "height": 118.0,
+                                    "child": {
+                                      "type": "registryReactive",
+                                      "child": {
+                                        "type": "image",
+                                        "src": "{{giftCardRealCustomImagePath}}",
+                                        "registryKey": "giftCardRealCustomImagePath",
+                                        "fit": "cover",
+                                        "errorBuilder": {
+                                          "type": "center",
+                                          "child": {
+                                            "type": "icon",
+                                            "icon": "image_outlined",
+                                            "size": 32,
+                                            "color": "{{appColors.current.text.subtitle}}"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "type": "container"
+                                  },
+                                  {
+                                    "color": "#F7FAFD",
+                                    "height": 51.0,
+                                    "type": "container"
+                                  }
+                                ],
+                                "type": "column"
+                              },
+                              "clipBehavior": "hardEdge",
+                              "type": "container"
+                            },
+                            "type": "container"
+                          },
+                          "replacement": {
+                            "padding": {
+                              "left": 16.0,
+                              "top": 22.0,
+                              "right": 16.0,
+                              "bottom": 22.0
+                            },
+                            "child": {
+                              "data": "Ø§Ù†ØªØ®Ø§Ø¨ Ø¹Ú©Ø³ Ø§Ø² Ú¯Ø§Ù„Ø±ÛŒ",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 17.0,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "center",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "padding"
+                          }
+                        },
+                        "type": "container"
+                      },
+                      "onTap": {
+                        "actionType": "sequence",
+                        "actions": [
+                          {
+                            "actionType": "pickFile",
+                            "fileType": "image",
+                            "allowMultiple": false,
+                            "targetKey": "giftCardRealCustomImagePath",
+                            "hasValueKey": "giftCardRealCustomHasImage",
+                            "fileNameKey": "giftCardRealCustomImageName",
+                            "source": "gallery",
+                            "cropImage": true,
+                            "cropAspectRatioX": 3.0,
+                            "cropAspectRatioY": 1.0,
+                            "previewBeforeConfirm": true,
+                            "previewSheetTitle": "ØªØµÙˆÛŒØ± Ø§Ù†ØªØ®Ø§Ø¨ Ø´Ø¯Ù‡ Ù…ÙˆØ±Ø¯ ØªØ§ÛŒÛŒØ¯ Ø´Ù…Ø§ Ø§Ø³ØªØŸ",
+                            "confirmButtonText": "ØªØ§ÛŒÛŒØ¯",
+                            "retryButtonText": "Ø¨Ø§Ø²Ú¯Ø´Øª"
+                          },
+                          {
+                            "actionType": "validateFields",
+                            "resultKey": "giftCardRealCustomMessageValid",
+                            "fields": [
+                              {
+                                "id": "gift_card_real_custom_design_message",
+                                "rule": "^.{1,40}$"
+                              }
+                            ]
+                          },
+                          {
+                            "actionType": "setValue",
+                            "key": "giftCardRealCustomContinueEnabled",
+                            "value": "{{giftCardRealCustomHasImage ? giftCardRealCustomMessageValid : false}}"
+                          }
+                        ]
+                      },
+                      "type": "gestureDetector"
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[giftCardRealCustomHasImage]]",
+                      "child": {
+                        "padding": {
+                          "top": 10.0
+                        },
+                        "child": {
+                          "mainAxisAlignment": "center",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "child": {
+                                "mainAxisSize": "min",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "icon": "delete_outline",
+                                    "iconType": "material",
+                                    "size": 20.0,
+                                    "color": "{{appColors.current.primary.color}}",
+                                    "type": "icon"
+                                  },
+                                  {
+                                    "width": 6.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "Ø­Ø°Ù",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.primary.color}}",
+                                      "fontSize": 15.0,
+                                      "fontWeight": "w600"
+                                    },
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "row"
+                              },
+                              "onTap": {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "giftCardRealCustomImagePath",
+                                    "value": ""
+                                  },
+                                  {
+                                    "key": "giftCardRealCustomImageName",
+                                    "value": ""
+                                  },
+                                  {
+                                    "key": "giftCardRealCustomHasImage",
+                                    "value": false
+                                  },
+                                  {
+                                    "key": "giftCardRealCustomContinueEnabled",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              "type": "gestureDetector"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        "type": "padding"
+                      }
+                    },
+                    {
+                      "height": 18.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "color": "{{appColors.current.input.borderEnabled}}",
+                      "height": 1.0,
+                      "type": "container"
+                    },
+                    {
+                      "height": 22.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "data": "Ù…ØªÙ† Ú©Ø§Ø±Øª Ù‡Ø¯ÛŒÙ‡",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 18.0,
+                        "fontWeight": "w700"
+                      },
+                      "textAlign": "right",
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    {
+                      "height": 14.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "decoration": {
+                        "border": {
+                          "color": "{{appColors.current.input.borderEnabled}}",
+                          "width": 1.0
+                        },
+                        "borderRadius": {
+                          "topLeft": 12.0,
+                          "topRight": 12.0,
+                          "bottomLeft": 12.0,
+                          "bottomRight": 12.0
+                        }
+                      },
+                      "child": {
+                        "type": "textFormField",
+                        "id": "gift_card_real_custom_design_message",
+                        "textDirection": "rtl",
+                        "textAlign": "right",
+                        "decoration": {
+                          "hintText": "Ù…ØªÙ† Ø¯Ù„Ø®ÙˆØ§Ù‡ØªØ§Ù† Ø±Ø§ Ø¨Ù†ÙˆÛŒØ³ÛŒØ¯ (ØªØ§ Û´Û° Ú©Ø§Ø±Ø§Ú©ØªØ±)",
+                          "hintStyle": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.hint}}",
+                            "fontSize": 16.0,
+                            "fontWeight": "w500"
+                          },
+                          "contentPadding": {
+                            "left": 16.0,
+                            "top": 16.0,
+                            "right": 16.0,
+                            "bottom": 16.0
+                          },
+                          "filled": false
+                        },
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 16.0,
+                          "fontWeight": "w600"
+                        },
+                        "keyboardType": "multiline",
+                        "textInputAction": "newline",
+                        "maxLength": 40,
+                        "minLines": 3,
+                        "maxLines": 4,
+                        "onChanged": {
+                          "actionType": "sequence",
+                          "actions": [
+                            {
+                              "actionType": "setValue",
+                              "key": "giftCardRealCustomMessage",
+                              "value": {
+                                "actionType": "getFormValue",
+                                "id": "gift_card_real_custom_design_message"
+                              }
+                            },
+                            {
+                              "actionType": "validateFields",
+                              "resultKey": "giftCardRealCustomMessageValid",
+                              "fields": [
+                                {
+                                  "id": "gift_card_real_custom_design_message",
+                                  "rule": "^.{1,40}$"
+                                }
+                              ]
+                            },
+                            {
+                              "actionType": "setValue",
+                              "key": "giftCardRealCustomContinueEnabled",
+                              "value": "{{giftCardRealCustomHasImage ? giftCardRealCustomMessageValid : false}}"
+                            }
+                          ]
+                        }
+                      },
+                      "type": "container"
+                    }
+                  ],
+                  "type": "column"
+                }
+              },
+              "type": "singleChildScrollView"
+            },
+            "type": "expanded"
+          },
+          {
+            "padding": {
+              "left": 16.0,
+              "right": 16.0,
+              "bottom": 24.0
+            },
+            "child": {
+              "type": "reactiveElevatedButton",
+              "enabledKey": "giftCardRealCustomContinueEnabled",
+              "onPressed": {
+                "actionType": "sequence",
+                "actions": [
+                  {
+                    "actionType": "setValue",
+                    "key": "giftCardRealCustomMessage",
+                    "value": {
+                      "actionType": "getFormValue",
+                      "id": "gift_card_real_custom_design_message"
+                    }
+                  },
+                  {
+                    "actionType": "setValue",
+                    "values": [
+                      {
+                        "key": "giftCardRealFinalMessage",
+                        "value": "__STAC_OPEN__giftCardRealCustomMessage}}"
+                      },
+                      {
+                        "key": "giftCardRealSelectedPlanImageUrl",
+                        "value": "__STAC_OPEN__giftCardRealCustomImagePath}}"
+                      },
+                      {
+                        "key": "giftCardRealHasSelection",
+                        "value": false
+                      },
+                      {
+                        "key": "giftCardRealCustomHasSelection",
+                        "value": false
+                      },
+                      {
+                        "key": "giftCardRealSelectedCategory",
+                        "value": "Ø·Ø±Ø­ Ø³ÙØ§Ø±Ø´ÛŒ"
+                      }
+                    ]
+                  },
+                  {
+                    "routeName": "gift_card_real_custom_select_design",
+                    "navigationStyle": "push",
+                    "actionType": "navigate"
+                  }
+                ]
+              },
+              "style": {
+                "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                "backgroundColor": "{{appColors.current.primary.color}}",
+                "elevation": 0.0,
+                "fixedSize": {
+                  "width": 999999.0,
+                  "height": 62.0
+                },
+                "shape": {
+                  "type": "roundedRectangleBorder",
+                  "borderRadius": {
+                    "topLeft": 14.0,
+                    "topRight": 14.0,
+                    "bottomLeft": 14.0,
+                    "bottomRight": 14.0
+                  }
+                }
+              },
+              "disabledStyle": {
+                "foregroundColor": "{{appColors.current.button.disabled.foregroundColor}}",
+                "backgroundColor": "{{appColors.current.button.disabled.backgroundColor}}",
+                "elevation": 0.0,
+                "fixedSize": {
+                  "width": 999999.0,
+                  "height": 62.0
+                },
+                "shape": {
+                  "type": "roundedRectangleBorder",
+                  "borderRadius": {
+                    "topLeft": 14.0,
+                    "topRight": 14.0,
+                    "bottomLeft": 14.0,
+                    "bottomRight": 14.0
+                  }
+                }
+              },
+              "child": {
+                "data": "Ø§Ø¯Ø§Ù…Ù‡",
+                "style": {
+                  "type": "custom",
+                  "color": "{{appColors.current.primary.onPrimary}}",
+                  "fontSize": 18.0,
+                  "fontWeight": "w700"
+                },
+                "textDirection": "rtl",
+                "type": "text"
+              }
+            },
+            "type": "padding"
+          }
+        ],
+        "type": "column"
+      },
+      "type": "form"
+    },
+    "type": "scaffold"
+  }
+}
+```

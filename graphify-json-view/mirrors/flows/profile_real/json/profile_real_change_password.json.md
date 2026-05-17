@@ -1,0 +1,399 @@
+﻿# flows/profile_real/json/profile_real_change_password.json
+
+Source: lib/stac/tobank/flows/profile_real/json/profile_real_change_password.json
+
+## JSON Paths (sample)
+- Could not parse JSON structure for path extraction.
+
+## Raw JSON
+```json
+{
+  "appBar": {
+    "leading": {
+      "padding": {
+        "left": 12.0
+      },
+      "child": {
+        "child": {
+          "src": "{{appAssets.icons.support}}",
+          "imageType": "asset",
+          "color": "{{appColors.current.text.title}}",
+          "width": 24.0,
+          "height": 24.0,
+          "type": "image"
+        },
+        "type": "center"
+      },
+      "type": "padding"
+    },
+    "title": {
+      "data": "{{appStrings.profile.real.changePassword.title}}",
+      "style": {
+        "type": "alias",
+        "value": "{{appStyles.appbarStyle}}"
+      },
+      "textDirection": "rtl",
+      "type": "text"
+    },
+    "actions": [
+      {
+        "padding": {
+          "right": 12.0
+        },
+        "child": {
+          "onPressed": {
+            "navigationStyle": "pop",
+            "actionType": "navigate"
+          },
+          "icon": {
+            "src": "{{appAssets.icons.arrowBack}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 31.0,
+            "height": 31.0,
+            "type": "image"
+          },
+          "type": "iconButton"
+        },
+        "type": "padding"
+      }
+    ],
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "backgroundColor": "{{appColors.current.background.surface}}",
+  "body": {
+    "crossAxisAlignment": "stretch",
+    "children": [
+      {
+        "child": {
+          "padding": {
+            "left": 16.0,
+            "top": 16.0,
+            "right": 16.0,
+            "bottom": 16.0
+          },
+          "child": {
+            "crossAxisAlignment": "stretch",
+            "children": [
+              {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "data": "{{appStrings.profile.real.changePassword.currentPasswordLabel}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "id": "profileRealCurrentPassword",
+                    "decoration": {
+                      "hintText": "{{appStrings.profile.real.changePassword.currentPasswordHint}}",
+                      "hintStyle": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.hint}}",
+                        "fontSize": 14.0,
+                        "fontWeight": "w400"
+                      },
+                      "contentPadding": {
+                        "left": 16.0,
+                        "top": 20.0,
+                        "right": 16.0,
+                        "bottom": 20.0
+                      },
+                      "filled": false
+                    },
+                    "keyboardType": "visiblePassword",
+                    "textInputAction": "next",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w600"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "ltr",
+                    "obscuringCharacter": "*",
+                    "obscureText": true,
+                    "type": "textFormField"
+                  }
+                ],
+                "type": "column"
+              },
+              {
+                "height": 16.0,
+                "type": "sizedBox"
+              },
+              {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "data": "{{appStrings.profile.real.changePassword.newPasswordLabel}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "id": "profileRealNewPassword",
+                    "decoration": {
+                      "hintText": "{{appStrings.profile.real.changePassword.newPasswordHint}}",
+                      "hintStyle": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.hint}}",
+                        "fontSize": 14.0,
+                        "fontWeight": "w400"
+                      },
+                      "contentPadding": {
+                        "left": 16.0,
+                        "top": 20.0,
+                        "right": 16.0,
+                        "bottom": 20.0
+                      },
+                      "filled": false
+                    },
+                    "keyboardType": "visiblePassword",
+                    "textInputAction": "next",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w600"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "ltr",
+                    "obscuringCharacter": "*",
+                    "obscureText": true,
+                    "type": "textFormField"
+                  }
+                ],
+                "type": "column"
+              },
+              {
+                "height": 12.0,
+                "type": "sizedBox"
+              },
+              {
+                "mainAxisAlignment": "start",
+                "textDirection": "rtl",
+                "children": [
+                  {
+                    "icon": "info_outline",
+                    "iconType": "material",
+                    "size": 16.0,
+                    "color": "{{appColors.current.text.hint}}",
+                    "type": "icon"
+                  },
+                  {
+                    "width": 4.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{appStrings.profile.real.changePassword.ruleUpperLower}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.hint}}",
+                      "fontSize": 13.0,
+                      "fontWeight": "w500"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  }
+                ],
+                "type": "row"
+              },
+              {
+                "height": 8.0,
+                "type": "sizedBox"
+              },
+              {
+                "mainAxisAlignment": "start",
+                "textDirection": "rtl",
+                "children": [
+                  {
+                    "icon": "info_outline",
+                    "iconType": "material",
+                    "size": 16.0,
+                    "color": "{{appColors.current.text.hint}}",
+                    "type": "icon"
+                  },
+                  {
+                    "width": 4.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{appStrings.profile.real.changePassword.ruleMinLength}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.hint}}",
+                      "fontSize": 13.0,
+                      "fontWeight": "w500"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  }
+                ],
+                "type": "row"
+              },
+              {
+                "height": 8.0,
+                "type": "sizedBox"
+              },
+              {
+                "mainAxisAlignment": "start",
+                "textDirection": "rtl",
+                "children": [
+                  {
+                    "icon": "info_outline",
+                    "iconType": "material",
+                    "size": 16.0,
+                    "color": "{{appColors.current.text.hint}}",
+                    "type": "icon"
+                  },
+                  {
+                    "width": 4.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "{{appStrings.profile.real.changePassword.ruleHasNumber}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.hint}}",
+                      "fontSize": 13.0,
+                      "fontWeight": "w500"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  }
+                ],
+                "type": "row"
+              },
+              {
+                "height": 20.0,
+                "type": "sizedBox"
+              },
+              {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "data": "{{appStrings.profile.real.changePassword.confirmPasswordLabel}}",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "id": "profileRealConfirmNewPassword",
+                    "decoration": {
+                      "hintText": "{{appStrings.profile.real.changePassword.confirmPasswordHint}}",
+                      "hintStyle": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.hint}}",
+                        "fontSize": 14.0,
+                        "fontWeight": "w400"
+                      },
+                      "contentPadding": {
+                        "left": 16.0,
+                        "top": 20.0,
+                        "right": 16.0,
+                        "bottom": 20.0
+                      },
+                      "filled": false
+                    },
+                    "keyboardType": "visiblePassword",
+                    "textInputAction": "done",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w600"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "ltr",
+                    "obscuringCharacter": "*",
+                    "obscureText": true,
+                    "type": "textFormField"
+                  }
+                ],
+                "type": "column"
+              }
+            ],
+            "type": "column"
+          },
+          "type": "singleChildScrollView"
+        },
+        "type": "expanded"
+      },
+      {
+        "padding": {
+          "left": 16.0,
+          "top": 16.0,
+          "right": 16.0,
+          "bottom": 16.0
+        },
+        "child": {
+          "decoration": {
+            "color": "#A4A7AC",
+            "borderRadius": {
+              "topLeft": 10.0,
+              "topRight": 10.0,
+              "bottomLeft": 10.0,
+              "bottomRight": 10.0
+            }
+          },
+          "height": 56.0,
+          "child": {
+            "child": {
+              "data": "{{appStrings.profile.real.changePassword.submit}}",
+              "style": {
+                "type": "custom",
+                "color": "#F4F4F5",
+                "fontSize": 16.0,
+                "fontWeight": "w700"
+              },
+              "textDirection": "rtl",
+              "type": "text"
+            },
+            "type": "center"
+          },
+          "type": "container"
+        },
+        "type": "padding"
+      }
+    ],
+    "type": "column"
+  },
+  "type": "scaffold"
+}
+```

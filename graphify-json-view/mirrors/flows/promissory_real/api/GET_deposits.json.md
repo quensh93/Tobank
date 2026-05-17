@@ -1,0 +1,55 @@
+﻿# flows/promissory_real/api/GET_deposits.json
+
+Source: lib/stac/tobank/flows/promissory_real/api/GET_deposits.json
+
+## JSON Paths (sample)
+- Could not parse JSON structure for path extraction.
+
+## Raw JSON
+```json
+{
+    "GET": {
+        "statusCode": 200,
+        "data": {
+            "birthDate": "1990/01/01",
+            "bookNo": 0,
+            "bookRow": 0,
+            "deathStatus": 0,
+            "family": "Test Family",
+            "fatherName": "Test Father",
+            "gender": 1,
+            "name": "Test Name",
+            "nationalId": "0063192373",
+            "deposits": [
+                {
+                    "depositNumber": "110.7007.1824413.1",
+                    "currency": "IRR",
+                    "balance": 50000000,
+                    "blockedBalance": 0,
+                    "availableBalance": 50000000,
+                    "status": "active",
+                    "type": "short_term"
+                },
+                {
+                    "depositNumber": "110.9290.1824413.3",
+                    "currency": "IRR",
+                    "balance": 25000000,
+                    "blockedBalance": 0,
+                    "availableBalance": 25000000,
+                    "status": "active",
+                    "type": "saving"
+                },
+                {
+                    "depositNumber": "110.9992.1824413.1",
+                    "currency": "IRR",
+                    "balance": 100000000,
+                    "blockedBalance": 0,
+                    "availableBalance": 100000000,
+                    "status": "active",
+                    "type": "current"
+                }
+            ]
+        }
+    }
+}
+```

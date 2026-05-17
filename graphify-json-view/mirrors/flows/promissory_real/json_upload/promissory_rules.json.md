@@ -1,0 +1,298 @@
+﻿# flows/promissory_real/json_upload/promissory_rules.json
+
+Source: lib/stac/tobank/flows/promissory_real/json_upload/promissory_rules.json
+
+## JSON Paths (sample)
+- Could not parse JSON structure for path extraction.
+
+## Raw JSON
+```json
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "setValue",
+    "key": "isRulesAccepted",
+    "value": false
+  },
+  "child": {
+    "appBar": {
+      "leading": {
+        "onPressed": {
+          "navigationStyle": "pop",
+          "actionType": "navigate"
+        },
+        "icon": {
+          "src": "assets/icons/ic_right_arrow.svg",
+          "imageType": "asset",
+          "color": "{{appColors.current.text.title}}",
+          "width": 24.0,
+          "height": 24.0,
+          "type": "image"
+        },
+        "type": "iconButton"
+      },
+      "title": {
+        "data": "{{appStrings.promissory.rulesTitle}}",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "body": {
+      "crossAxisAlignment": "stretch",
+      "children": [
+        {
+          "height": 16.0,
+          "type": "sizedBox"
+        },
+        {
+          "child": {
+            "padding": {
+              "left": 16.0,
+              "right": 16.0
+            },
+            "child": {
+              "decoration": {
+                "color": "{{appColors.current.background.surfaceContainer}}",
+                "border": {
+                  "color": "{{appColors.current.input.borderEnabled}}",
+                  "width": 1.0
+                },
+                "borderRadius": {
+                  "topLeft": 12.0,
+                  "topRight": 12.0,
+                  "bottomLeft": 12.0,
+                  "bottomRight": 12.0
+                }
+              },
+              "child": {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "padding": {
+                      "left": 16.0,
+                      "top": 16.0,
+                      "right": 16.0,
+                      "bottom": 16.0
+                    },
+                    "child": {
+                      "data": "{{appStrings.promissory.rulesCardTitle}}",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w700"
+                      },
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    "type": "padding"
+                  },
+                  {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "height": 1.0,
+                    "type": "container"
+                  },
+                  {
+                    "child": {
+                      "padding": {
+                        "left": 16.0,
+                        "top": 16.0,
+                        "right": 16.0,
+                        "bottom": 16.0
+                      },
+                      "child": {
+                        "data": "{{appStrings.promissory.rulesContent}}",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w500",
+                          "height": 1.8
+                        },
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      "type": "singleChildScrollView"
+                    },
+                    "type": "expanded"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "container"
+            },
+            "type": "padding"
+          },
+          "type": "expanded"
+        },
+        {
+          "height": 24.0,
+          "type": "sizedBox"
+        },
+        {
+          "padding": {
+            "left": 16.0,
+            "right": 16.0
+          },
+          "child": {
+            "padding": {
+              "top": 8.0,
+              "bottom": 8.0
+            },
+            "color": "transparent",
+            "child": {
+              "crossAxisAlignment": "center",
+              "textDirection": "rtl",
+              "children": [
+                {
+                  "child": {
+                    "decoration": {
+                      "color": "{{isRulesAccepted ? appColors.current.primary.color : \"transparent\"}}",
+                      "border": {
+                        "color": "{{isRulesAccepted ? appColors.current.primary.color : appColors.current.text.subtitle}}",
+                        "width": 2.0
+                      },
+                      "borderRadius": {
+                        "topLeft": 6.0,
+                        "topRight": 6.0,
+                        "bottomLeft": 6.0,
+                        "bottomRight": 6.0
+                      }
+                    },
+                    "width": 24.0,
+                    "height": 24.0,
+                    "child": {
+                      "child": {
+                        "type": "opacity",
+                        "opacity": "{{isRulesAccepted ? 1.0 : 0.0}}",
+                        "child": {
+                          "src": "assets/icons/ic_check.svg",
+                          "color": "#FFFFFF",
+                          "width": 16.0,
+                          "height": 16.0,
+                          "type": "image"
+                        }
+                      },
+                      "type": "center"
+                    },
+                    "type": "container"
+                  },
+                  "onTap": {
+                    "actionType": "setValue",
+                    "key": "isRulesAccepted",
+                    "value": "{{isRulesAccepted ? false : true}}"
+                  },
+                  "type": "gestureDetector"
+                },
+                {
+                  "width": 12.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "child": {
+                    "child": {
+                      "data": "{{appStrings.promissory.acceptRulesLabel}}",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 14.0,
+                        "fontWeight": "w500",
+                        "height": 1.4
+                      },
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    "onTap": {
+                      "actionType": "setValue",
+                      "key": "isRulesAccepted",
+                      "value": "{{isRulesAccepted ? false : true}}"
+                    },
+                    "type": "gestureDetector"
+                  },
+                  "type": "expanded"
+                }
+              ],
+              "type": "row"
+            },
+            "type": "container"
+          },
+          "type": "padding"
+        },
+        {
+          "height": 24.0,
+          "type": "sizedBox"
+        },
+        {
+          "padding": {
+            "left": 16.0,
+            "right": 16.0
+          },
+          "child": {
+            "type": "reactiveElevatedButton",
+            "enabledKey": "isRulesAccepted",
+            "onPressed": {
+              "actionType": "navigate",
+              "navigationStyle": "push",
+              "request": {
+                "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.promissory_real_deposits/1",
+                "method": "post",
+                "headers": {
+                  "Content-Type": "application/json",
+                  "Accept": "*/*"
+                },
+                "body": {
+                  "operator": "is",
+                  "dimension": {
+                    "app": "mobile"
+                  }
+                }
+              }
+            },
+            "style": {
+              "backgroundColor": "{{appColors.current.primary.color}}",
+              "elevation": 0.0,
+              "fixedSize": {
+                "width": 999999.0,
+                "height": 56.0
+              },
+              "shape": {
+                "type": "roundedRectangleBorder",
+                "borderRadius": {
+                  "topLeft": 12.0,
+                  "topRight": 12.0,
+                  "bottomLeft": 12.0,
+                  "bottomRight": 12.0
+                }
+              }
+            },
+            "child": {
+              "data": "{{appStrings.common.continue}}",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.primary.onPrimary}}",
+                "fontSize": 18.0,
+                "fontWeight": "bold"
+              },
+              "textDirection": "rtl",
+              "type": "text"
+            }
+          },
+          "type": "padding"
+        },
+        {
+          "height": 16.0,
+          "type": "sizedBox"
+        }
+      ],
+      "type": "column"
+    },
+    "type": "scaffold"
+  }
+}
+```

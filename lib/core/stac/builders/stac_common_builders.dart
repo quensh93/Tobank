@@ -550,6 +550,53 @@ class StacShareFileAction extends StacAction {
   };
 }
 
+/// Builder for custom 'copyToClipboard' action.
+class StacCopyToClipboardAction extends StacAction {
+  const StacCopyToClipboardAction({
+    this.text,
+    this.valueKey,
+    this.successMessage,
+    this.duration,
+  });
+
+  final String? text;
+  final String? valueKey;
+  final String? successMessage;
+  final int? duration;
+
+  @override
+  String get actionType => 'copyToClipboard';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': actionType,
+    if (text != null) 'text': text,
+    if (valueKey != null) 'valueKey': valueKey,
+    if (successMessage != null) 'successMessage': successMessage,
+    if (duration != null) 'duration': duration,
+  };
+}
+
+/// Builder for custom 'shareText' action.
+class StacShareTextAction extends StacAction {
+  const StacShareTextAction({this.text, this.valueKey, this.subject});
+
+  final String? text;
+  final String? valueKey;
+  final String? subject;
+
+  @override
+  String get actionType => 'shareText';
+
+  @override
+  Map<String, dynamic> toJson() => {
+    'actionType': actionType,
+    if (text != null) 'text': text,
+    if (valueKey != null) 'valueKey': valueKey,
+    if (subject != null) 'subject': subject,
+  };
+}
+
 /// Helper class to support alias text styles in StacText
 class StacAliasTextStyle implements StacTextStyle {
   final String alias;
@@ -655,9 +702,17 @@ class StacTobankCardManagementSlider extends StacWidget {
   const StacTobankCardManagementSlider({
     required this.pages,
     this.enabledStates,
+    this.cardTypes,
     this.selectedEnabledKey,
+    this.selectedIndexKey,
+    this.selectedTypeKey,
+    this.selectedIsWalletKey,
+    this.selectedIsGardeshgaryKey,
+    this.selectedIsNonTobankKey,
+    this.selectedIsBlockedKey,
     this.height,
     this.initialPage,
+    this.initialPageKey,
     this.indicatorTopSpacing,
     this.indicatorActiveColor,
     this.indicatorInactiveColor,
@@ -667,9 +722,17 @@ class StacTobankCardManagementSlider extends StacWidget {
 
   final List<Map<String, dynamic>> pages;
   final List<bool>? enabledStates;
+  final List<String>? cardTypes;
   final String? selectedEnabledKey;
+  final String? selectedIndexKey;
+  final String? selectedTypeKey;
+  final String? selectedIsWalletKey;
+  final String? selectedIsGardeshgaryKey;
+  final String? selectedIsNonTobankKey;
+  final String? selectedIsBlockedKey;
   final double? height;
   final int? initialPage;
+  final String? initialPageKey;
   final double? indicatorTopSpacing;
   final String? indicatorActiveColor;
   final String? indicatorInactiveColor;
@@ -684,9 +747,20 @@ class StacTobankCardManagementSlider extends StacWidget {
     'type': type,
     'pages': pages,
     if (enabledStates != null) 'enabledStates': enabledStates,
+    if (cardTypes != null) 'cardTypes': cardTypes,
     if (selectedEnabledKey != null) 'selectedEnabledKey': selectedEnabledKey,
+    if (selectedIndexKey != null) 'selectedIndexKey': selectedIndexKey,
+    if (selectedTypeKey != null) 'selectedTypeKey': selectedTypeKey,
+    if (selectedIsWalletKey != null) 'selectedIsWalletKey': selectedIsWalletKey,
+    if (selectedIsGardeshgaryKey != null)
+      'selectedIsGardeshgaryKey': selectedIsGardeshgaryKey,
+    if (selectedIsNonTobankKey != null)
+      'selectedIsNonTobankKey': selectedIsNonTobankKey,
+    if (selectedIsBlockedKey != null)
+      'selectedIsBlockedKey': selectedIsBlockedKey,
     if (height != null) 'height': height,
     if (initialPage != null) 'initialPage': initialPage,
+    if (initialPageKey != null) 'initialPageKey': initialPageKey,
     if (indicatorTopSpacing != null) 'indicatorTopSpacing': indicatorTopSpacing,
     if (indicatorActiveColor != null)
       'indicatorActiveColor': indicatorActiveColor,

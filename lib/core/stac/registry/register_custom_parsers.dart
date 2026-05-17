@@ -28,6 +28,8 @@ import '../parsers/widgets/verify_identity_real_loader_parser.dart';
 import '../../../../stac/tobank/flows/promissory/service/promissory_login_action_parser.dart';
 import '../parsers/actions/save_file_action_parser.dart';
 import '../parsers/actions/share_file_action_parser.dart';
+import '../parsers/actions/copy_to_clipboard_action_parser.dart';
+import '../parsers/actions/share_text_action_parser.dart';
 import '../parsers/actions/format_number_action_parser.dart';
 import '../parsers/actions/format_date_action_parser.dart';
 import '../parsers/actions/amount_to_words_action_parser.dart';
@@ -570,6 +572,14 @@ void _registerExampleParsers() {
   // Register shareFile action parser for sharing files via share_plus
   CustomComponentRegistry.instance.registerAction(
     const ShareFileActionParser(),
+  );
+
+  // Register generic copy/share text actions
+  CustomComponentRegistry.instance.registerAction(
+    const CopyToClipboardActionParser(),
+  );
+  CustomComponentRegistry.instance.registerAction(
+    const ShareTextActionParser(),
   );
 
   // Register pdfPreview widget parser for rendering base64 PDFs

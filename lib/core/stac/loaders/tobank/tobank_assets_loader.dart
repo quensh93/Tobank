@@ -19,6 +19,29 @@ class TobankAssetsLoader {
   static final List<String> _aliasKeys = []; // Track theme-aware aliases
   static const String _assetsUrl = 'https://api.tobank.com/assets';
   static const String _prefix = 'appAssets';
+  static const Map<String, ({String light, String dark})>
+  _serviceIconFallbacks = {
+    'icons.cardService': (
+      light: 'assets/icons/ic_card_service.svg',
+      dark: 'assets/icons/ic_card_service_dark.svg',
+    ),
+    'icons.cardServicePasswordChange': (
+      light: 'assets/icons/ic_card_service_password_change.svg',
+      dark: 'assets/icons/ic_card_service_password_change_dark.svg',
+    ),
+    'icons.cardServiceReissue': (
+      light: 'assets/icons/ic_card_service_reissue.svg',
+      dark: 'assets/icons/ic_card_service_reissue_dark.svg',
+    ),
+    'icons.cardServiceBlock': (
+      light: 'assets/icons/ic_card_service_block.svg',
+      dark: 'assets/icons/ic_card_service_block_dark.svg',
+    ),
+    'icons.cardBalance': (
+      light: 'assets/icons/ic_card_balance.svg',
+      dark: 'assets/icons/ic_card_balance_dark.svg',
+    ),
+  };
 
   /// Load assets from API and store in StacRegistry
   ///
@@ -28,6 +51,11 @@ class TobankAssetsLoader {
     if (_storedKeys.isNotEmpty) {
       _clearStoredKeys();
     }
+
+    final currentTheme =
+        (StacRegistry.instance.getValue('appTheme.current') ?? 'light')
+            .toString();
+    _storeServiceIconFallbacks(currentTheme);
 
     if (_loaded && !forceReload) {
       AppLogger.d('Assets already loaded, skipping');
@@ -52,16 +80,17 @@ class TobankAssetsLoader {
       // This allows {{appAssets.icons.login}} syntax to work
       _flattenAndStore(assetsData, _prefix);
 
-      final currentTheme =
-          (StacRegistry.instance.getValue('appTheme.current') ?? 'light')
-              .toString();
       _createCurrentThemeAliases(assetsData, currentTheme);
+      _storeServiceIconFallbacks(currentTheme);
 
       _loaded = true;
       AppLogger.i('Assets loaded and cached in StacRegistry');
       AppLogger.d('   Total keys stored: ${_storedKeys.length}');
     } catch (e, stackTrace) {
       AppLogger.e('Failed to load assets', e, stackTrace);
+      _cachedAssetsData ??= const {};
+      _storeServiceIconFallbacks(currentTheme);
+      _loaded = true;
     }
   }
 
@@ -148,7 +177,31 @@ class TobankAssetsLoader {
     _aliasKeys.clear();
 
     _createCurrentThemeAliases(_cachedAssetsData!, newTheme);
+    _storeServiceIconFallbacks(newTheme);
     AppLogger.i('Synced appAssets current aliases to theme: $newTheme');
+  }
+
+  static void _storeServiceIconFallbacks(String currentTheme) {
+    final isDark = currentTheme == 'dark';
+
+    _serviceIconFallbacks.forEach((path, pair) {
+      final lightKey = '$_prefix.$path';
+      final darkKey = '${lightKey}Dark';
+      final currentKey = '$_prefix.current.$path';
+      final selectedValue = isDark ? pair.dark : pair.light;
+
+      StacRegistry.instance.setValue(lightKey, pair.light);
+      StacRegistry.instance.setValue(darkKey, pair.dark);
+      StacRegistry.instance.setValue(currentKey, selectedValue);
+
+      for (final key in [lightKey, darkKey, currentKey]) {
+        if (!_aliasKeys.contains(key)) {
+          _aliasKeys.add(key);
+        }
+      }
+    });
+
+    AppLogger.d('Synced card-management service icon fallbacks');
   }
 
   /// Clear all stored asset keys from registry
