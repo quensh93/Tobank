@@ -1,0 +1,1584 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "sequence",
+    "actions": [
+      {
+        "actionType": "setValue",
+        "values": [
+          {
+            "key": "dtFilterLatestSelected",
+            "value": true
+          },
+          {
+            "key": "dtFilterTimeSelected",
+            "value": false
+          },
+          {
+            "key": "dtFromDate",
+            "value": "۱۴۰۵/۰۱/۲۹"
+          },
+          {
+            "key": "dtToDate",
+            "value": "۱۴۰۵/۰۲/۲۸"
+          }
+        ]
+      },
+      {
+        "actionType": "showBottomSheet",
+        "sheet": {
+          "decoration": {
+            "color": "{{appColors.current.background.surface}}",
+            "borderRadius": {
+              "topLeft": 18.0,
+              "topRight": 18.0
+            }
+          },
+          "child": {
+            "padding": {
+              "left": 16.0,
+              "top": 10.0,
+              "right": 16.0,
+              "bottom": 16.0
+            },
+            "child": {
+              "mainAxisSize": "min",
+              "crossAxisAlignment": "stretch",
+              "children": [
+                {
+                  "child": {
+                    "decoration": {
+                      "color": "{{appColors.current.input.borderEnabled}}",
+                      "borderRadius": {
+                        "topLeft": 99.0,
+                        "topRight": 99.0,
+                        "bottomLeft": 99.0,
+                        "bottomRight": 99.0
+                      }
+                    },
+                    "width": 38.0,
+                    "height": 4.0,
+                    "type": "container"
+                  },
+                  "type": "center"
+                },
+                {
+                  "height": 24.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "data": "گردش سپرده",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.text.title}}",
+                    "fontSize": 19.0,
+                    "fontWeight": "w700"
+                  },
+                  "textAlign": "right",
+                  "textDirection": "rtl",
+                  "type": "text"
+                },
+                {
+                  "height": 20.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "padding": {
+                    "left": 16.0,
+                    "top": 15.0,
+                    "right": 16.0,
+                    "bottom": 15.0
+                  },
+                  "decoration": {
+                    "color": "{{appColors.current.background.surfaceContainer}}",
+                    "border": {
+                      "color": "{{appColors.current.input.borderEnabled}}",
+                      "width": 1.0
+                    },
+                    "borderRadius": {
+                      "topLeft": 8.0,
+                      "topRight": 8.0,
+                      "bottomLeft": 8.0,
+                      "bottomRight": 8.0
+                    }
+                  },
+                  "child": {
+                    "mainAxisAlignment": "spaceBetween",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "data": "شماره سپرده",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.subtitle}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w500"
+                        },
+                        "type": "text"
+                      },
+                      {
+                        "data": "۱۴۴.۹۹۶۶.۷۶۳۰۲۰.۱",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 16.0,
+                          "fontWeight": "w700"
+                        },
+                        "textDirection": "ltr",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  "type": "container"
+                },
+                {
+                  "height": 22.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "data": "بر اساس",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.text.title}}",
+                    "fontSize": 18.0,
+                    "fontWeight": "w700"
+                  },
+                  "textAlign": "right",
+                  "textDirection": "rtl",
+                  "type": "text"
+                },
+                {
+                  "height": 12.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "children": [
+                    {
+                      "child": {
+                        "type": "visibility",
+                        "visible": "[[dtFilterLatestSelected]]",
+                        "child": {
+                          "child": {
+                            "padding": {
+                              "left": 14.0,
+                              "top": 15.5,
+                              "right": 14.0,
+                              "bottom": 15.5
+                            },
+                            "decoration": {
+                              "color": "{{appColors.current.secondary.secondaryContainer}}",
+                              "border": {
+                                "color": "{{appColors.current.secondary.color}}",
+                                "width": 1.4
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            },
+                            "child": {
+                              "mainAxisAlignment": "spaceBetween",
+                              "textDirection": "rtl",
+                              "children": [
+                                {
+                                  "data": "گردش آخر ۱۰",
+                                  "style": {
+                                    "type": "custom",
+                                    "color": "{{appColors.current.secondary.color}}",
+                                    "fontSize": 16.0,
+                                    "fontWeight": "w700"
+                                  },
+                                  "type": "text"
+                                },
+                                {
+                                  "decoration": {
+                                    "border": {
+                                      "color": "{{appColors.current.secondary.color}}",
+                                      "width": 2.0
+                                    },
+                                    "shape": "circle"
+                                  },
+                                  "width": 24.0,
+                                  "height": 24.0,
+                                  "child": {
+                                    "child": {
+                                      "decoration": {
+                                        "color": "{{appColors.current.secondary.color}}",
+                                        "shape": "circle"
+                                      },
+                                      "width": 10.0,
+                                      "height": 10.0,
+                                      "type": "container"
+                                    },
+                                    "type": "center"
+                                  },
+                                  "type": "container"
+                                }
+                              ],
+                              "type": "row"
+                            },
+                            "type": "container"
+                          },
+                          "onTap": {
+                            "actionType": "setValue",
+                            "values": [
+                              {
+                                "key": "dtFilterLatestSelected",
+                                "value": true
+                              },
+                              {
+                                "key": "dtFilterTimeSelected",
+                                "value": false
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        },
+                        "replacement": {
+                          "child": {
+                            "padding": {
+                              "left": 14.0,
+                              "top": 15.5,
+                              "right": 14.0,
+                              "bottom": 15.5
+                            },
+                            "decoration": {
+                              "color": "{{appColors.current.background.surfaceContainer}}",
+                              "border": {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "width": 1.4
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            },
+                            "child": {
+                              "mainAxisAlignment": "spaceBetween",
+                              "textDirection": "rtl",
+                              "children": [
+                                {
+                                  "data": "گردش آخر ۱۰",
+                                  "style": {
+                                    "type": "custom",
+                                    "color": "{{appColors.current.text.title}}",
+                                    "fontSize": 16.0,
+                                    "fontWeight": "w700"
+                                  },
+                                  "type": "text"
+                                },
+                                {
+                                  "decoration": {
+                                    "border": {
+                                      "color": "{{appColors.current.text.title}}",
+                                      "width": 2.0
+                                    },
+                                    "shape": "circle"
+                                  },
+                                  "width": 24.0,
+                                  "height": 24.0,
+                                  "type": "container"
+                                }
+                              ],
+                              "type": "row"
+                            },
+                            "type": "container"
+                          },
+                          "onTap": {
+                            "actionType": "setValue",
+                            "values": [
+                              {
+                                "key": "dtFilterLatestSelected",
+                                "value": true
+                              },
+                              {
+                                "key": "dtFilterTimeSelected",
+                                "value": false
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        }
+                      },
+                      "type": "expanded"
+                    },
+                    {
+                      "width": 12.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "child": {
+                        "type": "visibility",
+                        "visible": "[[dtFilterTimeSelected]]",
+                        "child": {
+                          "child": {
+                            "padding": {
+                              "left": 14.0,
+                              "top": 15.5,
+                              "right": 14.0,
+                              "bottom": 15.5
+                            },
+                            "decoration": {
+                              "color": "{{appColors.current.secondary.secondaryContainer}}",
+                              "border": {
+                                "color": "{{appColors.current.secondary.color}}",
+                                "width": 1.4
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            },
+                            "child": {
+                              "mainAxisAlignment": "spaceBetween",
+                              "textDirection": "rtl",
+                              "children": [
+                                {
+                                  "data": "بازه زمانی",
+                                  "style": {
+                                    "type": "custom",
+                                    "color": "{{appColors.current.secondary.color}}",
+                                    "fontSize": 16.0,
+                                    "fontWeight": "w700"
+                                  },
+                                  "type": "text"
+                                },
+                                {
+                                  "decoration": {
+                                    "border": {
+                                      "color": "{{appColors.current.secondary.color}}",
+                                      "width": 2.0
+                                    },
+                                    "shape": "circle"
+                                  },
+                                  "width": 24.0,
+                                  "height": 24.0,
+                                  "child": {
+                                    "child": {
+                                      "decoration": {
+                                        "color": "{{appColors.current.secondary.color}}",
+                                        "shape": "circle"
+                                      },
+                                      "width": 10.0,
+                                      "height": 10.0,
+                                      "type": "container"
+                                    },
+                                    "type": "center"
+                                  },
+                                  "type": "container"
+                                }
+                              ],
+                              "type": "row"
+                            },
+                            "type": "container"
+                          },
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "dtFilterLatestSelected",
+                                    "value": false
+                                  },
+                                  {
+                                    "key": "dtFilterTimeSelected",
+                                    "value": true
+                                  }
+                                ]
+                              },
+                              {
+                                "actionType": "persianDateRangePicker",
+                                "startDateKey": "dtFromDate",
+                                "endDateKey": "dtToDate",
+                                "helpText": "انتخاب بازه زمانی",
+                                "confirmText": "تایید",
+                                "cancelText": "انصراف",
+                                "firstDate": "1400/01/01",
+                                "lastDate": "1450/12/29"
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        },
+                        "replacement": {
+                          "child": {
+                            "padding": {
+                              "left": 14.0,
+                              "top": 15.5,
+                              "right": 14.0,
+                              "bottom": 15.5
+                            },
+                            "decoration": {
+                              "color": "{{appColors.current.background.surfaceContainer}}",
+                              "border": {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "width": 1.4
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            },
+                            "child": {
+                              "mainAxisAlignment": "spaceBetween",
+                              "textDirection": "rtl",
+                              "children": [
+                                {
+                                  "data": "بازه زمانی",
+                                  "style": {
+                                    "type": "custom",
+                                    "color": "{{appColors.current.text.title}}",
+                                    "fontSize": 16.0,
+                                    "fontWeight": "w700"
+                                  },
+                                  "type": "text"
+                                },
+                                {
+                                  "decoration": {
+                                    "border": {
+                                      "color": "{{appColors.current.text.title}}",
+                                      "width": 2.0
+                                    },
+                                    "shape": "circle"
+                                  },
+                                  "width": 24.0,
+                                  "height": 24.0,
+                                  "type": "container"
+                                }
+                              ],
+                              "type": "row"
+                            },
+                            "type": "container"
+                          },
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "dtFilterLatestSelected",
+                                    "value": false
+                                  },
+                                  {
+                                    "key": "dtFilterTimeSelected",
+                                    "value": true
+                                  }
+                                ]
+                              },
+                              {
+                                "actionType": "persianDateRangePicker",
+                                "startDateKey": "dtFromDate",
+                                "endDateKey": "dtToDate",
+                                "helpText": "انتخاب بازه زمانی",
+                                "confirmText": "تایید",
+                                "cancelText": "انصراف",
+                                "firstDate": "1400/01/01",
+                                "lastDate": "1450/12/29"
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        }
+                      },
+                      "type": "expanded"
+                    }
+                  ],
+                  "type": "row"
+                },
+                {
+                  "type": "visibility",
+                  "visible": "[[dtFilterTimeSelected]]",
+                  "child": {
+                    "crossAxisAlignment": "stretch",
+                    "children": [
+                      {
+                        "height": 14.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "children": [
+                          {
+                            "child": {
+                              "data": "تا تاریخ",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w600"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "width": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "child": {
+                              "data": "از تاریخ",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w600"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "height": 8.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "children": [
+                          {
+                            "child": {
+                              "child": {
+                                "padding": {
+                                  "left": 14.0,
+                                  "top": 15.5,
+                                  "right": 14.0,
+                                  "bottom": 15.5
+                                },
+                                "decoration": {
+                                  "color": "{{appColors.current.background.surfaceContainer}}",
+                                  "border": {
+                                    "color": "{{appColors.current.input.borderEnabled}}",
+                                    "width": 1.0
+                                  },
+                                  "borderRadius": {
+                                    "topLeft": 10.0,
+                                    "topRight": 10.0,
+                                    "bottomLeft": 10.0,
+                                    "bottomRight": 10.0
+                                  }
+                                },
+                                "child": {
+                                  "mainAxisAlignment": "spaceBetween",
+                                  "textDirection": "rtl",
+                                  "children": [
+                                    {
+                                      "type": "registryReactive",
+                                      "registryKey": "dtToDate",
+                                      "child": {
+                                        "data": "{{dtToDate}}",
+                                        "style": {
+                                          "type": "custom",
+                                          "color": "{{appColors.current.text.title}}",
+                                          "fontSize": 16.0,
+                                          "fontWeight": "w700"
+                                        },
+                                        "type": "text"
+                                      }
+                                    },
+                                    {
+                                      "src": "{{appAssets.current.icons.calendar}}",
+                                      "imageType": "asset",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "width": 24.0,
+                                      "height": 24.0,
+                                      "type": "image"
+                                    }
+                                  ],
+                                  "type": "row"
+                                },
+                                "type": "container"
+                              },
+                              "onTap": {
+                                "actionType": "persianDateRangePicker",
+                                "startDateKey": "dtFromDate",
+                                "endDateKey": "dtToDate",
+                                "helpText": "انتخاب بازه زمانی",
+                                "confirmText": "تایید",
+                                "cancelText": "انصراف",
+                                "firstDate": "1400/01/01",
+                                "lastDate": "1450/12/29"
+                              },
+                              "type": "gestureDetector"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "width": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "child": {
+                              "child": {
+                                "padding": {
+                                  "left": 14.0,
+                                  "top": 15.5,
+                                  "right": 14.0,
+                                  "bottom": 15.5
+                                },
+                                "decoration": {
+                                  "color": "{{appColors.current.background.surfaceContainer}}",
+                                  "border": {
+                                    "color": "{{appColors.current.input.borderEnabled}}",
+                                    "width": 1.0
+                                  },
+                                  "borderRadius": {
+                                    "topLeft": 10.0,
+                                    "topRight": 10.0,
+                                    "bottomLeft": 10.0,
+                                    "bottomRight": 10.0
+                                  }
+                                },
+                                "child": {
+                                  "mainAxisAlignment": "spaceBetween",
+                                  "textDirection": "rtl",
+                                  "children": [
+                                    {
+                                      "type": "registryReactive",
+                                      "registryKey": "dtFromDate",
+                                      "child": {
+                                        "data": "{{dtFromDate}}",
+                                        "style": {
+                                          "type": "custom",
+                                          "color": "{{appColors.current.text.title}}",
+                                          "fontSize": 16.0,
+                                          "fontWeight": "w700"
+                                        },
+                                        "type": "text"
+                                      }
+                                    },
+                                    {
+                                      "src": "{{appAssets.current.icons.calendar}}",
+                                      "imageType": "asset",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "width": 24.0,
+                                      "height": 24.0,
+                                      "type": "image"
+                                    }
+                                  ],
+                                  "type": "row"
+                                },
+                                "type": "container"
+                              },
+                              "onTap": {
+                                "actionType": "persianDateRangePicker",
+                                "startDateKey": "dtFromDate",
+                                "endDateKey": "dtToDate",
+                                "helpText": "انتخاب بازه زمانی",
+                                "confirmText": "تایید",
+                                "cancelText": "انصراف",
+                                "firstDate": "1400/01/01",
+                                "lastDate": "1450/12/29"
+                              },
+                              "type": "gestureDetector"
+                            },
+                            "type": "expanded"
+                          }
+                        ],
+                        "type": "row"
+                      }
+                    ],
+                    "type": "column"
+                  },
+                  "replacement": {
+                    "type": "sizedBox"
+                  }
+                },
+                {
+                  "height": 22.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "onPressed": {
+                    "actionType": "closeDialog",
+                    "result": {
+                      "actionType": "fingerPrint",
+                      "title": "صدور اولیه رمز موبایل بانک",
+                      "description": "لطفا برای ادامه از اثر انگشت استفاده کنید",
+                      "onSuccess": {
+                        "actionType": "navigate",
+                        "navigationStyle": "push",
+                        "request": {
+                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.deposit_turnover_transactions/1",
+                          "method": "post",
+                          "headers": {
+                            "Content-Type": "application/json",
+                            "Accept": "*/*"
+                          },
+                          "body": {
+                            "operator": "is",
+                            "dimension": {
+                              "app": "mobile"
+                            }
+                          }
+                        }
+                      },
+                      "onFailure": {
+                        "actionType": "showSnackBar",
+                        "title": "احراز هویت ناموفق بود",
+                        "detail": "لطفا دوباره تلاش کنید.",
+                        "type": "error"
+                      }
+                    }
+                  },
+                  "style": {
+                    "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+                    "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                    "fixedSize": {
+                      "width": 999999.0,
+                      "height": 52.0
+                    },
+                    "shape": {
+                      "type": "roundedRectangleBorder",
+                      "borderRadius": {
+                        "topLeft": 12.0,
+                        "topRight": 12.0,
+                        "bottomLeft": 12.0,
+                        "bottomRight": 12.0
+                      }
+                    }
+                  },
+                  "child": {
+                    "data": "تایید و ادامه",
+                    "style": {
+                      "type": "custom",
+                      "fontSize": 18.0,
+                      "fontWeight": "w700"
+                    },
+                    "type": "text"
+                  },
+                  "type": "filledButton"
+                }
+              ],
+              "type": "column"
+            },
+            "type": "padding"
+          },
+          "type": "container"
+        },
+        "isScrollControlled": true,
+        "useSafeArea": true,
+        "backgroundColor": "#00000000",
+        "barrierColor": "#8B000000"
+      }
+    ]
+  },
+  "child": {
+    "backgroundColor": "{{appColors.current.background.surface}}",
+    "body": {
+      "padding": {
+        "left": 16.0,
+        "top": 26.0,
+        "right": 16.0,
+        "bottom": 24.0
+      },
+      "child": {
+        "mainAxisAlignment": "center",
+        "crossAxisAlignment": "stretch",
+        "children": [
+          {
+            "onPressed": {
+              "actionType": "showBottomSheet",
+              "sheet": {
+                "decoration": {
+                  "color": "{{appColors.current.background.surface}}",
+                  "borderRadius": {
+                    "topLeft": 18.0,
+                    "topRight": 18.0
+                  }
+                },
+                "child": {
+                  "padding": {
+                    "left": 16.0,
+                    "top": 10.0,
+                    "right": 16.0,
+                    "bottom": 16.0
+                  },
+                  "child": {
+                    "mainAxisSize": "min",
+                    "crossAxisAlignment": "stretch",
+                    "children": [
+                      {
+                        "child": {
+                          "decoration": {
+                            "color": "{{appColors.current.input.borderEnabled}}",
+                            "borderRadius": {
+                              "topLeft": 99.0,
+                              "topRight": 99.0,
+                              "bottomLeft": 99.0,
+                              "bottomRight": 99.0
+                            }
+                          },
+                          "width": 38.0,
+                          "height": 4.0,
+                          "type": "container"
+                        },
+                        "type": "center"
+                      },
+                      {
+                        "height": 24.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "data": "گردش سپرده",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 19.0,
+                          "fontWeight": "w700"
+                        },
+                        "textAlign": "right",
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "height": 20.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "padding": {
+                          "left": 16.0,
+                          "top": 15.0,
+                          "right": 16.0,
+                          "bottom": 15.0
+                        },
+                        "decoration": {
+                          "color": "{{appColors.current.background.surfaceContainer}}",
+                          "border": {
+                            "color": "{{appColors.current.input.borderEnabled}}",
+                            "width": 1.0
+                          },
+                          "borderRadius": {
+                            "topLeft": 8.0,
+                            "topRight": 8.0,
+                            "bottomLeft": 8.0,
+                            "bottomRight": 8.0
+                          }
+                        },
+                        "child": {
+                          "mainAxisAlignment": "spaceBetween",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "شماره سپرده",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14.0,
+                                "fontWeight": "w500"
+                              },
+                              "type": "text"
+                            },
+                            {
+                              "data": "۱۴۴.۹۹۶۶.۷۶۳۰۲۰.۱",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w700"
+                              },
+                              "textDirection": "ltr",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        "type": "container"
+                      },
+                      {
+                        "height": 22.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "data": "بر اساس",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 18.0,
+                          "fontWeight": "w700"
+                        },
+                        "textAlign": "right",
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "height": 12.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "children": [
+                          {
+                            "child": {
+                              "type": "visibility",
+                              "visible": "[[dtFilterLatestSelected]]",
+                              "child": {
+                                "child": {
+                                  "padding": {
+                                    "left": 14.0,
+                                    "top": 15.5,
+                                    "right": 14.0,
+                                    "bottom": 15.5
+                                  },
+                                  "decoration": {
+                                    "color": "{{appColors.current.secondary.secondaryContainer}}",
+                                    "border": {
+                                      "color": "{{appColors.current.secondary.color}}",
+                                      "width": 1.4
+                                    },
+                                    "borderRadius": {
+                                      "topLeft": 10.0,
+                                      "topRight": 10.0,
+                                      "bottomLeft": 10.0,
+                                      "bottomRight": 10.0
+                                    }
+                                  },
+                                  "child": {
+                                    "mainAxisAlignment": "spaceBetween",
+                                    "textDirection": "rtl",
+                                    "children": [
+                                      {
+                                        "data": "گردش آخر ۱۰",
+                                        "style": {
+                                          "type": "custom",
+                                          "color": "{{appColors.current.secondary.color}}",
+                                          "fontSize": 16.0,
+                                          "fontWeight": "w700"
+                                        },
+                                        "type": "text"
+                                      },
+                                      {
+                                        "decoration": {
+                                          "border": {
+                                            "color": "{{appColors.current.secondary.color}}",
+                                            "width": 2.0
+                                          },
+                                          "shape": "circle"
+                                        },
+                                        "width": 24.0,
+                                        "height": 24.0,
+                                        "child": {
+                                          "child": {
+                                            "decoration": {
+                                              "color": "{{appColors.current.secondary.color}}",
+                                              "shape": "circle"
+                                            },
+                                            "width": 10.0,
+                                            "height": 10.0,
+                                            "type": "container"
+                                          },
+                                          "type": "center"
+                                        },
+                                        "type": "container"
+                                      }
+                                    ],
+                                    "type": "row"
+                                  },
+                                  "type": "container"
+                                },
+                                "onTap": {
+                                  "actionType": "setValue",
+                                  "values": [
+                                    {
+                                      "key": "dtFilterLatestSelected",
+                                      "value": true
+                                    },
+                                    {
+                                      "key": "dtFilterTimeSelected",
+                                      "value": false
+                                    }
+                                  ]
+                                },
+                                "type": "gestureDetector"
+                              },
+                              "replacement": {
+                                "child": {
+                                  "padding": {
+                                    "left": 14.0,
+                                    "top": 15.5,
+                                    "right": 14.0,
+                                    "bottom": 15.5
+                                  },
+                                  "decoration": {
+                                    "color": "{{appColors.current.background.surfaceContainer}}",
+                                    "border": {
+                                      "color": "{{appColors.current.input.borderEnabled}}",
+                                      "width": 1.4
+                                    },
+                                    "borderRadius": {
+                                      "topLeft": 10.0,
+                                      "topRight": 10.0,
+                                      "bottomLeft": 10.0,
+                                      "bottomRight": 10.0
+                                    }
+                                  },
+                                  "child": {
+                                    "mainAxisAlignment": "spaceBetween",
+                                    "textDirection": "rtl",
+                                    "children": [
+                                      {
+                                        "data": "گردش آخر ۱۰",
+                                        "style": {
+                                          "type": "custom",
+                                          "color": "{{appColors.current.text.title}}",
+                                          "fontSize": 16.0,
+                                          "fontWeight": "w700"
+                                        },
+                                        "type": "text"
+                                      },
+                                      {
+                                        "decoration": {
+                                          "border": {
+                                            "color": "{{appColors.current.text.title}}",
+                                            "width": 2.0
+                                          },
+                                          "shape": "circle"
+                                        },
+                                        "width": 24.0,
+                                        "height": 24.0,
+                                        "type": "container"
+                                      }
+                                    ],
+                                    "type": "row"
+                                  },
+                                  "type": "container"
+                                },
+                                "onTap": {
+                                  "actionType": "setValue",
+                                  "values": [
+                                    {
+                                      "key": "dtFilterLatestSelected",
+                                      "value": true
+                                    },
+                                    {
+                                      "key": "dtFilterTimeSelected",
+                                      "value": false
+                                    }
+                                  ]
+                                },
+                                "type": "gestureDetector"
+                              }
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "width": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "child": {
+                              "type": "visibility",
+                              "visible": "[[dtFilterTimeSelected]]",
+                              "child": {
+                                "child": {
+                                  "padding": {
+                                    "left": 14.0,
+                                    "top": 15.5,
+                                    "right": 14.0,
+                                    "bottom": 15.5
+                                  },
+                                  "decoration": {
+                                    "color": "{{appColors.current.secondary.secondaryContainer}}",
+                                    "border": {
+                                      "color": "{{appColors.current.secondary.color}}",
+                                      "width": 1.4
+                                    },
+                                    "borderRadius": {
+                                      "topLeft": 10.0,
+                                      "topRight": 10.0,
+                                      "bottomLeft": 10.0,
+                                      "bottomRight": 10.0
+                                    }
+                                  },
+                                  "child": {
+                                    "mainAxisAlignment": "spaceBetween",
+                                    "textDirection": "rtl",
+                                    "children": [
+                                      {
+                                        "data": "بازه زمانی",
+                                        "style": {
+                                          "type": "custom",
+                                          "color": "{{appColors.current.secondary.color}}",
+                                          "fontSize": 16.0,
+                                          "fontWeight": "w700"
+                                        },
+                                        "type": "text"
+                                      },
+                                      {
+                                        "decoration": {
+                                          "border": {
+                                            "color": "{{appColors.current.secondary.color}}",
+                                            "width": 2.0
+                                          },
+                                          "shape": "circle"
+                                        },
+                                        "width": 24.0,
+                                        "height": 24.0,
+                                        "child": {
+                                          "child": {
+                                            "decoration": {
+                                              "color": "{{appColors.current.secondary.color}}",
+                                              "shape": "circle"
+                                            },
+                                            "width": 10.0,
+                                            "height": 10.0,
+                                            "type": "container"
+                                          },
+                                          "type": "center"
+                                        },
+                                        "type": "container"
+                                      }
+                                    ],
+                                    "type": "row"
+                                  },
+                                  "type": "container"
+                                },
+                                "onTap": {
+                                  "actionType": "sequence",
+                                  "actions": [
+                                    {
+                                      "actionType": "setValue",
+                                      "values": [
+                                        {
+                                          "key": "dtFilterLatestSelected",
+                                          "value": false
+                                        },
+                                        {
+                                          "key": "dtFilterTimeSelected",
+                                          "value": true
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "actionType": "persianDateRangePicker",
+                                      "startDateKey": "dtFromDate",
+                                      "endDateKey": "dtToDate",
+                                      "helpText": "انتخاب بازه زمانی",
+                                      "confirmText": "تایید",
+                                      "cancelText": "انصراف",
+                                      "firstDate": "1400/01/01",
+                                      "lastDate": "1450/12/29"
+                                    }
+                                  ]
+                                },
+                                "type": "gestureDetector"
+                              },
+                              "replacement": {
+                                "child": {
+                                  "padding": {
+                                    "left": 14.0,
+                                    "top": 15.5,
+                                    "right": 14.0,
+                                    "bottom": 15.5
+                                  },
+                                  "decoration": {
+                                    "color": "{{appColors.current.background.surfaceContainer}}",
+                                    "border": {
+                                      "color": "{{appColors.current.input.borderEnabled}}",
+                                      "width": 1.4
+                                    },
+                                    "borderRadius": {
+                                      "topLeft": 10.0,
+                                      "topRight": 10.0,
+                                      "bottomLeft": 10.0,
+                                      "bottomRight": 10.0
+                                    }
+                                  },
+                                  "child": {
+                                    "mainAxisAlignment": "spaceBetween",
+                                    "textDirection": "rtl",
+                                    "children": [
+                                      {
+                                        "data": "بازه زمانی",
+                                        "style": {
+                                          "type": "custom",
+                                          "color": "{{appColors.current.text.title}}",
+                                          "fontSize": 16.0,
+                                          "fontWeight": "w700"
+                                        },
+                                        "type": "text"
+                                      },
+                                      {
+                                        "decoration": {
+                                          "border": {
+                                            "color": "{{appColors.current.text.title}}",
+                                            "width": 2.0
+                                          },
+                                          "shape": "circle"
+                                        },
+                                        "width": 24.0,
+                                        "height": 24.0,
+                                        "type": "container"
+                                      }
+                                    ],
+                                    "type": "row"
+                                  },
+                                  "type": "container"
+                                },
+                                "onTap": {
+                                  "actionType": "sequence",
+                                  "actions": [
+                                    {
+                                      "actionType": "setValue",
+                                      "values": [
+                                        {
+                                          "key": "dtFilterLatestSelected",
+                                          "value": false
+                                        },
+                                        {
+                                          "key": "dtFilterTimeSelected",
+                                          "value": true
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "actionType": "persianDateRangePicker",
+                                      "startDateKey": "dtFromDate",
+                                      "endDateKey": "dtToDate",
+                                      "helpText": "انتخاب بازه زمانی",
+                                      "confirmText": "تایید",
+                                      "cancelText": "انصراف",
+                                      "firstDate": "1400/01/01",
+                                      "lastDate": "1450/12/29"
+                                    }
+                                  ]
+                                },
+                                "type": "gestureDetector"
+                              }
+                            },
+                            "type": "expanded"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "type": "visibility",
+                        "visible": "[[dtFilterTimeSelected]]",
+                        "child": {
+                          "crossAxisAlignment": "stretch",
+                          "children": [
+                            {
+                              "height": 14.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "child": {
+                                    "data": "تا تاریخ",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "fontSize": 16.0,
+                                      "fontWeight": "w600"
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  },
+                                  "type": "expanded"
+                                },
+                                {
+                                  "width": 12.0,
+                                  "type": "sizedBox"
+                                },
+                                {
+                                  "child": {
+                                    "data": "از تاریخ",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "fontSize": 16.0,
+                                      "fontWeight": "w600"
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  },
+                                  "type": "expanded"
+                                }
+                              ],
+                              "type": "row"
+                            },
+                            {
+                              "height": 8.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "child": {
+                                    "child": {
+                                      "padding": {
+                                        "left": 14.0,
+                                        "top": 15.5,
+                                        "right": 14.0,
+                                        "bottom": 15.5
+                                      },
+                                      "decoration": {
+                                        "color": "{{appColors.current.background.surfaceContainer}}",
+                                        "border": {
+                                          "color": "{{appColors.current.input.borderEnabled}}",
+                                          "width": 1.0
+                                        },
+                                        "borderRadius": {
+                                          "topLeft": 10.0,
+                                          "topRight": 10.0,
+                                          "bottomLeft": 10.0,
+                                          "bottomRight": 10.0
+                                        }
+                                      },
+                                      "child": {
+                                        "mainAxisAlignment": "spaceBetween",
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "type": "registryReactive",
+                                            "registryKey": "dtToDate",
+                                            "child": {
+                                              "data": "{{dtToDate}}",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "{{appColors.current.text.title}}",
+                                                "fontSize": 16.0,
+                                                "fontWeight": "w700"
+                                              },
+                                              "type": "text"
+                                            }
+                                          },
+                                          {
+                                            "src": "{{appAssets.current.icons.calendar}}",
+                                            "imageType": "asset",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "width": 24.0,
+                                            "height": 24.0,
+                                            "type": "image"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "type": "container"
+                                    },
+                                    "onTap": {
+                                      "actionType": "persianDateRangePicker",
+                                      "startDateKey": "dtFromDate",
+                                      "endDateKey": "dtToDate",
+                                      "helpText": "انتخاب بازه زمانی",
+                                      "confirmText": "تایید",
+                                      "cancelText": "انصراف",
+                                      "firstDate": "1400/01/01",
+                                      "lastDate": "1450/12/29"
+                                    },
+                                    "type": "gestureDetector"
+                                  },
+                                  "type": "expanded"
+                                },
+                                {
+                                  "width": 12.0,
+                                  "type": "sizedBox"
+                                },
+                                {
+                                  "child": {
+                                    "child": {
+                                      "padding": {
+                                        "left": 14.0,
+                                        "top": 15.5,
+                                        "right": 14.0,
+                                        "bottom": 15.5
+                                      },
+                                      "decoration": {
+                                        "color": "{{appColors.current.background.surfaceContainer}}",
+                                        "border": {
+                                          "color": "{{appColors.current.input.borderEnabled}}",
+                                          "width": 1.0
+                                        },
+                                        "borderRadius": {
+                                          "topLeft": 10.0,
+                                          "topRight": 10.0,
+                                          "bottomLeft": 10.0,
+                                          "bottomRight": 10.0
+                                        }
+                                      },
+                                      "child": {
+                                        "mainAxisAlignment": "spaceBetween",
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "type": "registryReactive",
+                                            "registryKey": "dtFromDate",
+                                            "child": {
+                                              "data": "{{dtFromDate}}",
+                                              "style": {
+                                                "type": "custom",
+                                                "color": "{{appColors.current.text.title}}",
+                                                "fontSize": 16.0,
+                                                "fontWeight": "w700"
+                                              },
+                                              "type": "text"
+                                            }
+                                          },
+                                          {
+                                            "src": "{{appAssets.current.icons.calendar}}",
+                                            "imageType": "asset",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "width": 24.0,
+                                            "height": 24.0,
+                                            "type": "image"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "type": "container"
+                                    },
+                                    "onTap": {
+                                      "actionType": "persianDateRangePicker",
+                                      "startDateKey": "dtFromDate",
+                                      "endDateKey": "dtToDate",
+                                      "helpText": "انتخاب بازه زمانی",
+                                      "confirmText": "تایید",
+                                      "cancelText": "انصراف",
+                                      "firstDate": "1400/01/01",
+                                      "lastDate": "1450/12/29"
+                                    },
+                                    "type": "gestureDetector"
+                                  },
+                                  "type": "expanded"
+                                }
+                              ],
+                              "type": "row"
+                            }
+                          ],
+                          "type": "column"
+                        },
+                        "replacement": {
+                          "type": "sizedBox"
+                        }
+                      },
+                      {
+                        "height": 22.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "onPressed": {
+                          "actionType": "closeDialog",
+                          "result": {
+                            "actionType": "fingerPrint",
+                            "title": "صدور اولیه رمز موبایل بانک",
+                            "description": "لطفا برای ادامه از اثر انگشت استفاده کنید",
+                            "onSuccess": {
+                              "actionType": "navigate",
+                              "navigationStyle": "push",
+                              "request": {
+                                "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.deposit_turnover_transactions/1",
+                                "method": "post",
+                                "headers": {
+                                  "Content-Type": "application/json",
+                                  "Accept": "*/*"
+                                },
+                                "body": {
+                                  "operator": "is",
+                                  "dimension": {
+                                    "app": "mobile"
+                                  }
+                                }
+                              }
+                            },
+                            "onFailure": {
+                              "actionType": "showSnackBar",
+                              "title": "احراز هویت ناموفق بود",
+                              "detail": "لطفا دوباره تلاش کنید.",
+                              "type": "error"
+                            }
+                          }
+                        },
+                        "style": {
+                          "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+                          "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                          "fixedSize": {
+                            "width": 999999.0,
+                            "height": 52.0
+                          },
+                          "shape": {
+                            "type": "roundedRectangleBorder",
+                            "borderRadius": {
+                              "topLeft": 12.0,
+                              "topRight": 12.0,
+                              "bottomLeft": 12.0,
+                              "bottomRight": 12.0
+                            }
+                          }
+                        },
+                        "child": {
+                          "data": "تایید و ادامه",
+                          "style": {
+                            "type": "custom",
+                            "fontSize": 18.0,
+                            "fontWeight": "w700"
+                          },
+                          "type": "text"
+                        },
+                        "type": "filledButton"
+                      }
+                    ],
+                    "type": "column"
+                  },
+                  "type": "padding"
+                },
+                "type": "container"
+              },
+              "isScrollControlled": true,
+              "useSafeArea": true,
+              "backgroundColor": "#00000000",
+              "barrierColor": "#8B000000"
+            },
+            "style": {
+              "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+              "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+              "fixedSize": {
+                "width": 999999.0,
+                "height": 48.0
+              },
+              "shape": {
+                "type": "roundedRectangleBorder",
+                "borderRadius": {
+                  "topLeft": 10.0,
+                  "topRight": 10.0,
+                  "bottomLeft": 10.0,
+                  "bottomRight": 10.0
+                }
+              }
+            },
+            "child": {
+              "data": "نمایش گردش سپرده",
+              "style": {
+                "type": "custom",
+                "fontSize": 16.0,
+                "fontWeight": "w600"
+              },
+              "type": "text"
+            },
+            "type": "filledButton"
+          }
+        ],
+        "type": "column"
+      },
+      "type": "padding"
+    },
+    "type": "scaffold"
+  }
+}

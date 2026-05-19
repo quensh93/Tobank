@@ -58,9 +58,18 @@ StacWidget transferRealCardDetails() {
               StacSizedBox(height: 12),
               StacCustomReactiveElevatedButton(
                 enabledKey: 'transferApiCardDetailsContinueEnabled',
-                onPressed: const StacNavigateAction(
-                  routeName: 'transfer_confirm',
-                  navigationStyle: NavigationStyle.push,
+                onPressed: const StacSequenceAction(
+                  actions: [
+                    StacCustomSetValueAction(
+                      values: [
+                        {'key': 'transferApiIsCardToCardFlow', 'value': true},
+                      ],
+                    ),
+                    StacNavigateAction(
+                      routeName: 'transfer_confirm',
+                      navigationStyle: NavigationStyle.push,
+                    ),
+                  ],
                 ),
                 style: StacButtonStyle(
                   fixedSize: const StacSize(999999, 57),

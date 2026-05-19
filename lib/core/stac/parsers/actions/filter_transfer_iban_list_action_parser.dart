@@ -119,8 +119,12 @@ class FilterTransferIbanListActionParser
 
   String _readFieldValue(String fieldId) {
     final controller = TextFormFieldControllerRegistry.instance.get(fieldId);
-    final fromController = controller?.text ?? '';
-    if (fromController.isNotEmpty) return fromController;
+    // If a controller exists, trust it even when empty.
+    // Falling back to registry on empty text keeps stale previous selections
+    // and prevents restoring the full list after clear.
+    if (controller != null) {
+      return controller.text;
+    }
 
     final fromRegistry = StacRegistry.instance.getValue(fieldId)?.toString();
     return fromRegistry ?? '';

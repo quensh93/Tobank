@@ -56,7 +56,7 @@
   "backgroundColor": "{{appColors.current.background.surface}}",
   "body": {
     "type": "visibility",
-    "visible": "[[transferApiTabCard]]",
+    "visible": "[[transferApiIsCardToCardFlow]]",
     "child": {
       "padding": {
         "left": 16.0,

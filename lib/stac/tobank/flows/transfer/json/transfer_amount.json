@@ -304,7 +304,74 @@
                                   "right": 16.0,
                                   "bottom": 19.5
                                 },
-                                "filled": false
+                                "filled": false,
+                                "prefixIcon": {
+                                  "type": "visibility",
+                                  "visible": "[[transferApiCardHasText]]",
+                                  "child": {
+                                    "onTap": {
+                                      "actionType": "sequence",
+                                      "actions": [
+                                        {
+                                          "actionType": "setValue",
+                                          "values": [
+                                            {
+                                              "key": "transferApiCardInput",
+                                              "value": ""
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationNumber",
+                                              "value": ""
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationName",
+                                              "value": ""
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationIcon",
+                                              "value": ""
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "actionType": "filterTransferIbanList",
+                                          "fieldId": "transferApiCardInput",
+                                          "ibanValues": [
+                                            "5054161018168058",
+                                            "5054161702844691",
+                                            "5054161702994710",
+                                            "5022913100939467",
+                                            "5041771080766026"
+                                          ],
+                                          "visibleKeys": [
+                                            "transferApiCardVisible1",
+                                            "transferApiCardVisible2",
+                                            "transferApiCardVisible3",
+                                            "transferApiCardVisible4",
+                                            "transferApiCardVisible5"
+                                          ],
+                                          "isSearchingKey": "transferApiCardHasText"
+                                        }
+                                      ]
+                                    },
+                                    "child": {
+                                      "padding": {
+                                        "left": 12.0,
+                                        "top": 12.0,
+                                        "right": 12.0,
+                                        "bottom": 12.0
+                                      },
+                                      "child": {
+                                        "icon": "close",
+                                        "size": 20.0,
+                                        "color": "{{appColors.current.text.subtitle}}",
+                                        "type": "icon"
+                                      },
+                                      "type": "padding"
+                                    },
+                                    "type": "gestureDetector"
+                                  }
+                                }
                               },
                               "style": {
                                 "type": "custom",
@@ -1138,9 +1205,23 @@
                                     "assets/icons/ic_in.svg"
                                   ],
                                   "validAction": {
-                                    "routeName": "transfer_card_details",
-                                    "navigationStyle": "push",
-                                    "actionType": "navigate"
+                                    "actionType": "sequence",
+                                    "actions": [
+                                      {
+                                        "actionType": "setValue",
+                                        "values": [
+                                          {
+                                            "key": "transferApiIsCardToCardFlow",
+                                            "value": true
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "assetPath": "lib/stac/tobank/flows/transfer/json/transfer_card_details.json",
+                                        "navigationStyle": "push",
+                                        "actionType": "navigate"
+                                      }
+                                    ]
                                   },
                                   "invalidAction": {
                                     "actionType": "customSnackBar",
@@ -2219,7 +2300,16 @@
                                 "value": "درون بانکی"
                               },
                               {
-                                "routeName": "transfer_in_bank_details",
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "transferApiIsCardToCardFlow",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "assetPath": "lib/stac/tobank/flows/transfer/json/transfer_in_bank_details.json",
                                 "navigationStyle": "push",
                                 "actionType": "navigate"
                               }
@@ -3251,7 +3341,16 @@
                                 "value": ""
                               },
                               {
-                                "routeName": "transfer_details",
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "transferApiIsCardToCardFlow",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "assetPath": "lib/stac/tobank/flows/transfer/json/transfer_details.json",
                                 "navigationStyle": "push",
                                 "actionType": "navigate"
                               }

@@ -67,7 +67,7 @@
     "backgroundColor": "{{appColors.current.background.surface}}",
     "body": {
       "type": "visibility",
-      "visible": "[[transferApiTabCard]]",
+      "visible": "[[transferApiIsCardToCardFlow]]",
       "child": {
         "padding": {
           "left": 16.0,
@@ -1081,7 +1081,7 @@
                                     "actionType": "closeDialog"
                                   },
                                   {
-                                    "routeName": "transfer_card_result",
+                                    "assetPath": "lib/stac/tobank/flows/transfer/json/transfer_card_result.json",
                                     "navigationStyle": "push",
                                     "actionType": "navigate"
                                   }
@@ -1566,7 +1566,7 @@
             },
             {
               "onPressed": {
-                "routeName": "transfer_result",
+                "assetPath": "lib/stac/tobank/flows/transfer/json/transfer_result.json",
                 "navigationStyle": "push",
                 "actionType": "navigate"
               },

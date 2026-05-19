@@ -24,7 +24,7 @@ StacWidget transferRealConfirm() {
         title: 'انتقال وجه',
       ),
       body: StacCustomVisibility(
-        visible: '[[transferApiTabCard]]',
+        visible: '[[transferApiIsCardToCardFlow]]',
         child: _cardConfirmContent().toJson(),
         replacement: _defaultConfirmContent().toJson(),
       ),

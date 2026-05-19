@@ -1,0 +1,2721 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "setValue",
+    "values": [
+      {
+        "key": "ntfGeneralCard1Unread",
+        "value": true
+      },
+      {
+        "key": "ntfGeneralCard2Unread",
+        "value": true
+      },
+      {
+        "key": "ntfGeneralCard3Unread",
+        "value": true
+      },
+      {
+        "key": "ntfGeneralCard4Unread",
+        "value": true
+      },
+      {
+        "key": "ntfGeneralCard5Unread",
+        "value": true
+      },
+      {
+        "key": "ntfGeneralCard6Unread",
+        "value": true
+      },
+      {
+        "key": "ntfUpdateCard1Unread",
+        "value": true
+      },
+      {
+        "key": "ntfUpdateCard2Unread",
+        "value": false
+      },
+      {
+        "key": "ntfUpdateCard3Unread",
+        "value": false
+      }
+    ]
+  },
+  "child": {
+    "appBar": {
+      "leading": {
+        "padding": {
+          "left": 12.0
+        },
+        "child": {
+          "child": {
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24.0,
+            "height": 24.0,
+            "type": "image"
+          },
+          "type": "center"
+        },
+        "type": "padding"
+      },
+      "automaticallyImplyLeading": true,
+      "title": {
+        "data": "اعلان‌ها",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "actions": [
+        {
+          "padding": {
+            "right": 12.0
+          },
+          "child": {
+            "onPressed": {
+              "navigationStyle": "pop",
+              "actionType": "navigate"
+            },
+            "icon": {
+              "src": "{{appAssets.icons.arrowBack}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 31.0,
+              "height": 31.0,
+              "type": "image"
+            },
+            "type": "iconButton"
+          },
+          "type": "padding"
+        }
+      ],
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "backgroundColor": "{{appColors.current.background.surface}}",
+    "body": {
+      "length": 2,
+      "initialIndex": 1,
+      "child": {
+        "crossAxisAlignment": "stretch",
+        "children": [
+          {
+            "height": 8.0,
+            "type": "sizedBox"
+          },
+          {
+            "decoration": {
+              "color": "{{appColors.current.background.surfaceContainer}}",
+              "borderRadius": {
+                "topLeft": 14.0,
+                "topRight": 14.0,
+                "bottomLeft": 14.0,
+                "bottomRight": 14.0
+              }
+            },
+            "margin": {
+              "left": 16.0,
+              "right": 16.0
+            },
+            "child": {
+              "children": [
+                {
+                  "tabs": [
+                    {
+                      "text": "بروزرسانی‌ها",
+                      "height": 54.0,
+                      "type": "tab"
+                    },
+                    {
+                      "text": "اعلان‌های عمومی",
+                      "height": 54.0,
+                      "type": "tab"
+                    }
+                  ],
+                  "indicatorColor": "{{appColors.current.primary.color}}",
+                  "indicatorWeight": 3.0,
+                  "indicatorPadding": {
+                    "left": 34.0,
+                    "top": 50.0,
+                    "right": 34.0
+                  },
+                  "indicatorSize": "tab",
+                  "labelColor": "{{appColors.current.text.title}}",
+                  "labelStyle": {
+                    "type": "custom",
+                    "fontSize": 18.0,
+                    "fontWeight": "w700"
+                  },
+                  "unselectedLabelColor": "{{appColors.current.text.hint}}",
+                  "unselectedLabelStyle": {
+                    "type": "custom",
+                    "fontSize": 18.0,
+                    "fontWeight": "w500"
+                  },
+                  "dividerColor": "#00000000",
+                  "type": "tabBar"
+                },
+                {
+                  "left": 0.0,
+                  "top": 12.0,
+                  "right": 0.0,
+                  "bottom": 12.0,
+                  "child": {
+                    "child": {
+                      "color": "{{appColors.current.input.borderEnabled}}",
+                      "width": 1.0,
+                      "type": "container"
+                    },
+                    "type": "center"
+                  },
+                  "type": "positioned"
+                }
+              ],
+              "type": "stack"
+            },
+            "type": "container"
+          },
+          {
+            "height": 10.0,
+            "type": "sizedBox"
+          },
+          {
+            "child": {
+              "children": [
+                {
+                  "child": {
+                    "padding": {
+                      "left": 16.0,
+                      "top": 10.0,
+                      "right": 16.0,
+                      "bottom": 10.0
+                    },
+                    "child": {
+                      "crossAxisAlignment": "stretch",
+                      "children": [
+                        {
+                          "child": {
+                            "decoration": {
+                              "color": "{{appColors.current.background.surfaceContainer}}",
+                              "border": {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.5,
+                                "topRight": 10.5,
+                                "bottomLeft": 10.5,
+                                "bottomRight": 10.5
+                              }
+                            },
+                            "child": {
+                              "padding": {
+                                "left": 16.0,
+                                "top": 16.0,
+                                "right": 16.0,
+                                "bottom": 16.0
+                              },
+                              "child": {
+                                "crossAxisAlignment": "stretch",
+                                "children": [
+                                  {
+                                    "mainAxisAlignment": "end",
+                                    "textDirection": "rtl",
+                                    "children": [
+                                      {
+                                        "type": "visibility",
+                                        "visible": "[[ntfUpdateCard1Unread]]",
+                                        "child": {
+                                          "children": [
+                                            {
+                                              "width": 6.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "decoration": {
+                                                "color": "#D32F2F",
+                                                "borderRadius": {
+                                                  "topLeft": 999.0,
+                                                  "topRight": 999.0,
+                                                  "bottomLeft": 999.0,
+                                                  "bottomRight": 999.0
+                                                }
+                                              },
+                                              "width": 8.0,
+                                              "height": 8.0,
+                                              "type": "container"
+                                            }
+                                          ],
+                                          "type": "row"
+                                        },
+                                        "replacement": {
+                                          "type": "sizedBox"
+                                        }
+                                      },
+                                      {
+                                        "child": {
+                                          "data": "نسخه جدید اپلیکیشن در دسترس است",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w700"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        "type": "expanded"
+                                      }
+                                    ],
+                                    "type": "row"
+                                  },
+                                  {
+                                    "height": 12.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "برای استفاده از قابلیت‌های جدید و بهبود امنیت، لطفا اپلیکیشن را به آخرین نسخه بروزرسانی کنید.",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.subtitle}}",
+                                      "fontSize": 14.0,
+                                      "fontWeight": "w500",
+                                      "height": 1.6
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  },
+                                  {
+                                    "height": 8.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۲۰ اردیبهشت ۱۴۰۵ - ۰۹:۱۵",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.hint}}",
+                                      "fontSize": 12.0,
+                                      "fontWeight": "w500"
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "column"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "container"
+                          },
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "ntfUpdateCard1Unread",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "actionType": "showBottomSheet",
+                                "sheet": {
+                                  "decoration": {
+                                    "color": "{{appColors.current.background.surface}}",
+                                    "borderRadius": {
+                                      "topLeft": 12.0,
+                                      "topRight": 12.0
+                                    }
+                                  },
+                                  "child": {
+                                    "padding": {
+                                      "left": 24.0,
+                                      "top": 8.0,
+                                      "right": 24.0,
+                                      "bottom": 24.0
+                                    },
+                                    "child": {
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "stretch",
+                                      "children": [
+                                        {
+                                          "height": 11.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "child": {
+                                            "decoration": {
+                                              "color": "#D0D5DD",
+                                              "borderRadius": {
+                                                "topLeft": 99.0,
+                                                "topRight": 99.0,
+                                                "bottomLeft": 99.0,
+                                                "bottomRight": 99.0
+                                              }
+                                            },
+                                            "width": 48.0,
+                                            "height": 5.0,
+                                            "type": "container"
+                                          },
+                                          "type": "center"
+                                        },
+                                        {
+                                          "height": 22.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "نسخه جدید اپلیکیشن در دسترس است",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 18.0,
+                                            "fontWeight": "bold"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 12.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "برای استفاده از قابلیت‌های جدید و بهبود امنیت، لطفا اپلیکیشن را به آخرین نسخه بروزرسانی کنید.",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.subtitle}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w500",
+                                            "height": 1.7
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 10.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "۲۰ اردیبهشت ۱۴۰۵ - ۰۹:۱۵",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.hint}}",
+                                            "fontSize": 12.0,
+                                            "fontWeight": "w500"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 38.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "onPressed": {
+                                            "actionType": "closeDialog"
+                                          },
+                                          "style": {
+                                            "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+                                            "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                                            "fixedSize": {
+                                              "width": 999999.0,
+                                              "height": 55.0
+                                            },
+                                            "shape": {
+                                              "type": "roundedRectangleBorder",
+                                              "borderRadius": {
+                                                "topLeft": 10.0,
+                                                "topRight": 10.0,
+                                                "bottomLeft": 10.0,
+                                                "bottomRight": 10.0
+                                              }
+                                            }
+                                          },
+                                          "child": {
+                                            "data": "بازگشت",
+                                            "style": {
+                                              "type": "custom",
+                                              "fontSize": 16.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "type": "text"
+                                          },
+                                          "type": "filledButton"
+                                        }
+                                      ],
+                                      "type": "column"
+                                    },
+                                    "type": "padding"
+                                  },
+                                  "type": "container"
+                                },
+                                "isScrollControlled": true,
+                                "useSafeArea": true,
+                                "backgroundColor": "#00000000",
+                                "barrierColor": "#8B000000"
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        },
+                        {
+                          "height": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "decoration": {
+                              "color": "{{appColors.current.background.surfaceContainer}}",
+                              "border": {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.5,
+                                "topRight": 10.5,
+                                "bottomLeft": 10.5,
+                                "bottomRight": 10.5
+                              }
+                            },
+                            "child": {
+                              "padding": {
+                                "left": 16.0,
+                                "top": 16.0,
+                                "right": 16.0,
+                                "bottom": 16.0
+                              },
+                              "child": {
+                                "crossAxisAlignment": "stretch",
+                                "children": [
+                                  {
+                                    "mainAxisAlignment": "end",
+                                    "textDirection": "rtl",
+                                    "children": [
+                                      {
+                                        "type": "visibility",
+                                        "visible": "[[ntfUpdateCard2Unread]]",
+                                        "child": {
+                                          "children": [
+                                            {
+                                              "width": 6.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "decoration": {
+                                                "color": "#D32F2F",
+                                                "borderRadius": {
+                                                  "topLeft": 999.0,
+                                                  "topRight": 999.0,
+                                                  "bottomLeft": 999.0,
+                                                  "bottomRight": 999.0
+                                                }
+                                              },
+                                              "width": 8.0,
+                                              "height": 8.0,
+                                              "type": "container"
+                                            }
+                                          ],
+                                          "type": "row"
+                                        },
+                                        "replacement": {
+                                          "type": "sizedBox"
+                                        }
+                                      },
+                                      {
+                                        "child": {
+                                          "data": "بهبود عملکرد بخش تراکنش‌ها",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w700"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        "type": "expanded"
+                                      }
+                                    ],
+                                    "type": "row"
+                                  },
+                                  {
+                                    "height": 12.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "مشکل نمایش برخی تراکنش‌های کیف پول برطرف شد. در صورت نیاز، یکبار از حساب خارج و مجددا وارد شوید.",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.subtitle}}",
+                                      "fontSize": 14.0,
+                                      "fontWeight": "w500",
+                                      "height": 1.6
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  },
+                                  {
+                                    "height": 8.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۱۸ اردیبهشت ۱۴۰۵ - ۱۷:۴۰",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.hint}}",
+                                      "fontSize": 12.0,
+                                      "fontWeight": "w500"
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "column"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "container"
+                          },
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "ntfUpdateCard2Unread",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "actionType": "showBottomSheet",
+                                "sheet": {
+                                  "decoration": {
+                                    "color": "{{appColors.current.background.surface}}",
+                                    "borderRadius": {
+                                      "topLeft": 12.0,
+                                      "topRight": 12.0
+                                    }
+                                  },
+                                  "child": {
+                                    "padding": {
+                                      "left": 24.0,
+                                      "top": 8.0,
+                                      "right": 24.0,
+                                      "bottom": 24.0
+                                    },
+                                    "child": {
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "stretch",
+                                      "children": [
+                                        {
+                                          "height": 11.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "child": {
+                                            "decoration": {
+                                              "color": "#D0D5DD",
+                                              "borderRadius": {
+                                                "topLeft": 99.0,
+                                                "topRight": 99.0,
+                                                "bottomLeft": 99.0,
+                                                "bottomRight": 99.0
+                                              }
+                                            },
+                                            "width": 48.0,
+                                            "height": 5.0,
+                                            "type": "container"
+                                          },
+                                          "type": "center"
+                                        },
+                                        {
+                                          "height": 22.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "بهبود عملکرد بخش تراکنش‌ها",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 18.0,
+                                            "fontWeight": "bold"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 12.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "مشکل نمایش برخی تراکنش‌های کیف پول برطرف شد. در صورت نیاز، یکبار از حساب خارج و مجددا وارد شوید.",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.subtitle}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w500",
+                                            "height": 1.7
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 10.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "۱۸ اردیبهشت ۱۴۰۵ - ۱۷:۴۰",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.hint}}",
+                                            "fontSize": 12.0,
+                                            "fontWeight": "w500"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 38.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "onPressed": {
+                                            "actionType": "closeDialog"
+                                          },
+                                          "style": {
+                                            "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+                                            "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                                            "fixedSize": {
+                                              "width": 999999.0,
+                                              "height": 55.0
+                                            },
+                                            "shape": {
+                                              "type": "roundedRectangleBorder",
+                                              "borderRadius": {
+                                                "topLeft": 10.0,
+                                                "topRight": 10.0,
+                                                "bottomLeft": 10.0,
+                                                "bottomRight": 10.0
+                                              }
+                                            }
+                                          },
+                                          "child": {
+                                            "data": "بازگشت",
+                                            "style": {
+                                              "type": "custom",
+                                              "fontSize": 16.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "type": "text"
+                                          },
+                                          "type": "filledButton"
+                                        }
+                                      ],
+                                      "type": "column"
+                                    },
+                                    "type": "padding"
+                                  },
+                                  "type": "container"
+                                },
+                                "isScrollControlled": true,
+                                "useSafeArea": true,
+                                "backgroundColor": "#00000000",
+                                "barrierColor": "#8B000000"
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        },
+                        {
+                          "height": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "decoration": {
+                              "color": "{{appColors.current.background.surfaceContainer}}",
+                              "border": {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.5,
+                                "topRight": 10.5,
+                                "bottomLeft": 10.5,
+                                "bottomRight": 10.5
+                              }
+                            },
+                            "child": {
+                              "padding": {
+                                "left": 16.0,
+                                "top": 16.0,
+                                "right": 16.0,
+                                "bottom": 16.0
+                              },
+                              "child": {
+                                "crossAxisAlignment": "stretch",
+                                "children": [
+                                  {
+                                    "mainAxisAlignment": "end",
+                                    "textDirection": "rtl",
+                                    "children": [
+                                      {
+                                        "type": "visibility",
+                                        "visible": "[[ntfUpdateCard3Unread]]",
+                                        "child": {
+                                          "children": [
+                                            {
+                                              "width": 6.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "decoration": {
+                                                "color": "#D32F2F",
+                                                "borderRadius": {
+                                                  "topLeft": 999.0,
+                                                  "topRight": 999.0,
+                                                  "bottomLeft": 999.0,
+                                                  "bottomRight": 999.0
+                                                }
+                                              },
+                                              "width": 8.0,
+                                              "height": 8.0,
+                                              "type": "container"
+                                            }
+                                          ],
+                                          "type": "row"
+                                        },
+                                        "replacement": {
+                                          "type": "sizedBox"
+                                        }
+                                      },
+                                      {
+                                        "child": {
+                                          "data": "افزودن میانبرهای جدید",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w700"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        "type": "expanded"
+                                      }
+                                    ],
+                                    "type": "row"
+                                  },
+                                  {
+                                    "height": 12.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "میانبرهای سریع برای انتقال وجه و خرید شارژ به صفحه اصلی اضافه شد.",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.subtitle}}",
+                                      "fontSize": 14.0,
+                                      "fontWeight": "w500",
+                                      "height": 1.6
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  },
+                                  {
+                                    "height": 8.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۱۵ اردیبهشت ۱۴۰۵ - ۱۲:۰۵",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.hint}}",
+                                      "fontSize": 12.0,
+                                      "fontWeight": "w500"
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "column"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "container"
+                          },
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "ntfUpdateCard3Unread",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "actionType": "showBottomSheet",
+                                "sheet": {
+                                  "decoration": {
+                                    "color": "{{appColors.current.background.surface}}",
+                                    "borderRadius": {
+                                      "topLeft": 12.0,
+                                      "topRight": 12.0
+                                    }
+                                  },
+                                  "child": {
+                                    "padding": {
+                                      "left": 24.0,
+                                      "top": 8.0,
+                                      "right": 24.0,
+                                      "bottom": 24.0
+                                    },
+                                    "child": {
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "stretch",
+                                      "children": [
+                                        {
+                                          "height": 11.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "child": {
+                                            "decoration": {
+                                              "color": "#D0D5DD",
+                                              "borderRadius": {
+                                                "topLeft": 99.0,
+                                                "topRight": 99.0,
+                                                "bottomLeft": 99.0,
+                                                "bottomRight": 99.0
+                                              }
+                                            },
+                                            "width": 48.0,
+                                            "height": 5.0,
+                                            "type": "container"
+                                          },
+                                          "type": "center"
+                                        },
+                                        {
+                                          "height": 22.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "افزودن میانبرهای جدید",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 18.0,
+                                            "fontWeight": "bold"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 12.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "میانبرهای سریع برای انتقال وجه و خرید شارژ به صفحه اصلی اضافه شد.",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.subtitle}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w500",
+                                            "height": 1.7
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 10.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "۱۵ اردیبهشت ۱۴۰۵ - ۱۲:۰۵",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.hint}}",
+                                            "fontSize": 12.0,
+                                            "fontWeight": "w500"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 38.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "onPressed": {
+                                            "actionType": "closeDialog"
+                                          },
+                                          "style": {
+                                            "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+                                            "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                                            "fixedSize": {
+                                              "width": 999999.0,
+                                              "height": 55.0
+                                            },
+                                            "shape": {
+                                              "type": "roundedRectangleBorder",
+                                              "borderRadius": {
+                                                "topLeft": 10.0,
+                                                "topRight": 10.0,
+                                                "bottomLeft": 10.0,
+                                                "bottomRight": 10.0
+                                              }
+                                            }
+                                          },
+                                          "child": {
+                                            "data": "بازگشت",
+                                            "style": {
+                                              "type": "custom",
+                                              "fontSize": 16.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "type": "text"
+                                          },
+                                          "type": "filledButton"
+                                        }
+                                      ],
+                                      "type": "column"
+                                    },
+                                    "type": "padding"
+                                  },
+                                  "type": "container"
+                                },
+                                "isScrollControlled": true,
+                                "useSafeArea": true,
+                                "backgroundColor": "#00000000",
+                                "barrierColor": "#8B000000"
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        },
+                        {
+                          "height": 10.0,
+                          "type": "sizedBox"
+                        }
+                      ],
+                      "type": "column"
+                    },
+                    "type": "padding"
+                  },
+                  "type": "singleChildScrollView"
+                },
+                {
+                  "child": {
+                    "padding": {
+                      "left": 16.0,
+                      "top": 10.0,
+                      "right": 16.0,
+                      "bottom": 10.0
+                    },
+                    "child": {
+                      "crossAxisAlignment": "stretch",
+                      "children": [
+                        {
+                          "child": {
+                            "decoration": {
+                              "color": "{{appColors.current.background.surfaceContainer}}",
+                              "border": {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.5,
+                                "topRight": 10.5,
+                                "bottomLeft": 10.5,
+                                "bottomRight": 10.5
+                              }
+                            },
+                            "child": {
+                              "padding": {
+                                "left": 16.0,
+                                "top": 16.0,
+                                "right": 16.0,
+                                "bottom": 16.0
+                              },
+                              "child": {
+                                "crossAxisAlignment": "stretch",
+                                "children": [
+                                  {
+                                    "mainAxisAlignment": "end",
+                                    "textDirection": "rtl",
+                                    "children": [
+                                      {
+                                        "type": "visibility",
+                                        "visible": "[[ntfGeneralCard1Unread]]",
+                                        "child": {
+                                          "children": [
+                                            {
+                                              "width": 6.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "decoration": {
+                                                "color": "#D32F2F",
+                                                "borderRadius": {
+                                                  "topLeft": 999.0,
+                                                  "topRight": 999.0,
+                                                  "bottomLeft": 999.0,
+                                                  "bottomRight": 999.0
+                                                }
+                                              },
+                                              "width": 8.0,
+                                              "height": 8.0,
+                                              "type": "container"
+                                            }
+                                          ],
+                                          "type": "row"
+                                        },
+                                        "replacement": {
+                                          "type": "sizedBox"
+                                        }
+                                      },
+                                      {
+                                        "child": {
+                                          "data": "بازپرداخت به کیف پول توبانک",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w700"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        "type": "expanded"
+                                      }
+                                    ],
+                                    "type": "row"
+                                  },
+                                  {
+                                    "height": 12.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "کاربر عزیز\nمبلغ ۳۱۳,۰۰۰ ریال کارمزد صدور سفته با شماره پیگیری ۲۹۲۹ به کیف پول شما بازگشت.",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.subtitle}}",
+                                      "fontSize": 14.0,
+                                      "fontWeight": "w500",
+                                      "height": 1.6
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  },
+                                  {
+                                    "height": 8.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۲۸",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.hint}}",
+                                      "fontSize": 12.0,
+                                      "fontWeight": "w500"
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "column"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "container"
+                          },
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "ntfGeneralCard1Unread",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "actionType": "showBottomSheet",
+                                "sheet": {
+                                  "decoration": {
+                                    "color": "{{appColors.current.background.surface}}",
+                                    "borderRadius": {
+                                      "topLeft": 12.0,
+                                      "topRight": 12.0
+                                    }
+                                  },
+                                  "child": {
+                                    "padding": {
+                                      "left": 24.0,
+                                      "top": 8.0,
+                                      "right": 24.0,
+                                      "bottom": 24.0
+                                    },
+                                    "child": {
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "stretch",
+                                      "children": [
+                                        {
+                                          "height": 11.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "child": {
+                                            "decoration": {
+                                              "color": "#D0D5DD",
+                                              "borderRadius": {
+                                                "topLeft": 99.0,
+                                                "topRight": 99.0,
+                                                "bottomLeft": 99.0,
+                                                "bottomRight": 99.0
+                                              }
+                                            },
+                                            "width": 48.0,
+                                            "height": 5.0,
+                                            "type": "container"
+                                          },
+                                          "type": "center"
+                                        },
+                                        {
+                                          "height": 22.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "بازپرداخت به کیف پول توبانک",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 18.0,
+                                            "fontWeight": "bold"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 12.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "کاربر عزیز\nمبلغ ۳۱۳,۰۰۰ ریال کارمزد صدور سفته با شماره پیگیری ۲۹۲۹ به کیف پول شما بازگشت.",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.subtitle}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w500",
+                                            "height": 1.7
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 10.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۲۸",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.hint}}",
+                                            "fontSize": 12.0,
+                                            "fontWeight": "w500"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 38.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "onPressed": {
+                                            "actionType": "closeDialog"
+                                          },
+                                          "style": {
+                                            "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+                                            "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                                            "fixedSize": {
+                                              "width": 999999.0,
+                                              "height": 55.0
+                                            },
+                                            "shape": {
+                                              "type": "roundedRectangleBorder",
+                                              "borderRadius": {
+                                                "topLeft": 10.0,
+                                                "topRight": 10.0,
+                                                "bottomLeft": 10.0,
+                                                "bottomRight": 10.0
+                                              }
+                                            }
+                                          },
+                                          "child": {
+                                            "data": "بازگشت",
+                                            "style": {
+                                              "type": "custom",
+                                              "fontSize": 16.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "type": "text"
+                                          },
+                                          "type": "filledButton"
+                                        }
+                                      ],
+                                      "type": "column"
+                                    },
+                                    "type": "padding"
+                                  },
+                                  "type": "container"
+                                },
+                                "isScrollControlled": true,
+                                "useSafeArea": true,
+                                "backgroundColor": "#00000000",
+                                "barrierColor": "#8B000000"
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        },
+                        {
+                          "height": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "decoration": {
+                              "color": "{{appColors.current.background.surfaceContainer}}",
+                              "border": {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.5,
+                                "topRight": 10.5,
+                                "bottomLeft": 10.5,
+                                "bottomRight": 10.5
+                              }
+                            },
+                            "child": {
+                              "padding": {
+                                "left": 16.0,
+                                "top": 16.0,
+                                "right": 16.0,
+                                "bottom": 16.0
+                              },
+                              "child": {
+                                "crossAxisAlignment": "stretch",
+                                "children": [
+                                  {
+                                    "mainAxisAlignment": "end",
+                                    "textDirection": "rtl",
+                                    "children": [
+                                      {
+                                        "type": "visibility",
+                                        "visible": "[[ntfGeneralCard2Unread]]",
+                                        "child": {
+                                          "children": [
+                                            {
+                                              "width": 6.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "decoration": {
+                                                "color": "#D32F2F",
+                                                "borderRadius": {
+                                                  "topLeft": 999.0,
+                                                  "topRight": 999.0,
+                                                  "bottomLeft": 999.0,
+                                                  "bottomRight": 999.0
+                                                }
+                                              },
+                                              "width": 8.0,
+                                              "height": 8.0,
+                                              "type": "container"
+                                            }
+                                          ],
+                                          "type": "row"
+                                        },
+                                        "replacement": {
+                                          "type": "sizedBox"
+                                        }
+                                      },
+                                      {
+                                        "child": {
+                                          "data": "پرداخت موفق",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w700"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        "type": "expanded"
+                                      }
+                                    ],
+                                    "type": "row"
+                                  },
+                                  {
+                                    "height": 12.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "کاربر عزیز\nمبلغ ۳۱۳,۰۰۰ ریال با شماره پیگیری ۷۳۵۴۱۴۷۴۴ پرداخت شد.",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.subtitle}}",
+                                      "fontSize": 14.0,
+                                      "fontWeight": "w500",
+                                      "height": 1.6
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  },
+                                  {
+                                    "height": 8.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۲۸",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.hint}}",
+                                      "fontSize": 12.0,
+                                      "fontWeight": "w500"
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "column"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "container"
+                          },
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "ntfGeneralCard2Unread",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "actionType": "showBottomSheet",
+                                "sheet": {
+                                  "decoration": {
+                                    "color": "{{appColors.current.background.surface}}",
+                                    "borderRadius": {
+                                      "topLeft": 12.0,
+                                      "topRight": 12.0
+                                    }
+                                  },
+                                  "child": {
+                                    "padding": {
+                                      "left": 24.0,
+                                      "top": 8.0,
+                                      "right": 24.0,
+                                      "bottom": 24.0
+                                    },
+                                    "child": {
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "stretch",
+                                      "children": [
+                                        {
+                                          "height": 11.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "child": {
+                                            "decoration": {
+                                              "color": "#D0D5DD",
+                                              "borderRadius": {
+                                                "topLeft": 99.0,
+                                                "topRight": 99.0,
+                                                "bottomLeft": 99.0,
+                                                "bottomRight": 99.0
+                                              }
+                                            },
+                                            "width": 48.0,
+                                            "height": 5.0,
+                                            "type": "container"
+                                          },
+                                          "type": "center"
+                                        },
+                                        {
+                                          "height": 22.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "پرداخت موفق",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 18.0,
+                                            "fontWeight": "bold"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 12.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "کاربر عزیز\nمبلغ ۳۱۳,۰۰۰ ریال با شماره پیگیری ۷۳۵۴۱۴۷۴۴ پرداخت شد.",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.subtitle}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w500",
+                                            "height": 1.7
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 10.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۲۸",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.hint}}",
+                                            "fontSize": 12.0,
+                                            "fontWeight": "w500"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 38.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "onPressed": {
+                                            "actionType": "closeDialog"
+                                          },
+                                          "style": {
+                                            "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+                                            "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                                            "fixedSize": {
+                                              "width": 999999.0,
+                                              "height": 55.0
+                                            },
+                                            "shape": {
+                                              "type": "roundedRectangleBorder",
+                                              "borderRadius": {
+                                                "topLeft": 10.0,
+                                                "topRight": 10.0,
+                                                "bottomLeft": 10.0,
+                                                "bottomRight": 10.0
+                                              }
+                                            }
+                                          },
+                                          "child": {
+                                            "data": "بازگشت",
+                                            "style": {
+                                              "type": "custom",
+                                              "fontSize": 16.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "type": "text"
+                                          },
+                                          "type": "filledButton"
+                                        }
+                                      ],
+                                      "type": "column"
+                                    },
+                                    "type": "padding"
+                                  },
+                                  "type": "container"
+                                },
+                                "isScrollControlled": true,
+                                "useSafeArea": true,
+                                "backgroundColor": "#00000000",
+                                "barrierColor": "#8B000000"
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        },
+                        {
+                          "height": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "decoration": {
+                              "color": "{{appColors.current.background.surfaceContainer}}",
+                              "border": {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.5,
+                                "topRight": 10.5,
+                                "bottomLeft": 10.5,
+                                "bottomRight": 10.5
+                              }
+                            },
+                            "child": {
+                              "padding": {
+                                "left": 16.0,
+                                "top": 16.0,
+                                "right": 16.0,
+                                "bottom": 16.0
+                              },
+                              "child": {
+                                "crossAxisAlignment": "stretch",
+                                "children": [
+                                  {
+                                    "mainAxisAlignment": "end",
+                                    "textDirection": "rtl",
+                                    "children": [
+                                      {
+                                        "type": "visibility",
+                                        "visible": "[[ntfGeneralCard3Unread]]",
+                                        "child": {
+                                          "children": [
+                                            {
+                                              "width": 6.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "decoration": {
+                                                "color": "#D32F2F",
+                                                "borderRadius": {
+                                                  "topLeft": 999.0,
+                                                  "topRight": 999.0,
+                                                  "bottomLeft": 999.0,
+                                                  "bottomRight": 999.0
+                                                }
+                                              },
+                                              "width": 8.0,
+                                              "height": 8.0,
+                                              "type": "container"
+                                            }
+                                          ],
+                                          "type": "row"
+                                        },
+                                        "replacement": {
+                                          "type": "sizedBox"
+                                        }
+                                      },
+                                      {
+                                        "child": {
+                                          "data": "انتقال وجه به کیف پول",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w700"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        "type": "expanded"
+                                      }
+                                    ],
+                                    "type": "row"
+                                  },
+                                  {
+                                    "height": 12.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "کاربر عزیز\nمبلغ ۱۰,۰۰۰ ریال با شماره پیگیری ۷۳۴۳۸۸۸۵۲۵ انتقال یافت.",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.subtitle}}",
+                                      "fontSize": 14.0,
+                                      "fontWeight": "w500",
+                                      "height": 1.6
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  },
+                                  {
+                                    "height": 8.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۲۰",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.hint}}",
+                                      "fontSize": 12.0,
+                                      "fontWeight": "w500"
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "column"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "container"
+                          },
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "ntfGeneralCard3Unread",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "actionType": "showBottomSheet",
+                                "sheet": {
+                                  "decoration": {
+                                    "color": "{{appColors.current.background.surface}}",
+                                    "borderRadius": {
+                                      "topLeft": 12.0,
+                                      "topRight": 12.0
+                                    }
+                                  },
+                                  "child": {
+                                    "padding": {
+                                      "left": 24.0,
+                                      "top": 8.0,
+                                      "right": 24.0,
+                                      "bottom": 24.0
+                                    },
+                                    "child": {
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "stretch",
+                                      "children": [
+                                        {
+                                          "height": 11.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "child": {
+                                            "decoration": {
+                                              "color": "#D0D5DD",
+                                              "borderRadius": {
+                                                "topLeft": 99.0,
+                                                "topRight": 99.0,
+                                                "bottomLeft": 99.0,
+                                                "bottomRight": 99.0
+                                              }
+                                            },
+                                            "width": 48.0,
+                                            "height": 5.0,
+                                            "type": "container"
+                                          },
+                                          "type": "center"
+                                        },
+                                        {
+                                          "height": 22.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "انتقال وجه به کیف پول",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 18.0,
+                                            "fontWeight": "bold"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 12.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "کاربر عزیز\nمبلغ ۱۰,۰۰۰ ریال با شماره پیگیری ۷۳۴۳۸۸۸۵۲۵ انتقال یافت.",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.subtitle}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w500",
+                                            "height": 1.7
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 10.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۲۰",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.hint}}",
+                                            "fontSize": 12.0,
+                                            "fontWeight": "w500"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 38.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "onPressed": {
+                                            "actionType": "closeDialog"
+                                          },
+                                          "style": {
+                                            "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+                                            "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                                            "fixedSize": {
+                                              "width": 999999.0,
+                                              "height": 55.0
+                                            },
+                                            "shape": {
+                                              "type": "roundedRectangleBorder",
+                                              "borderRadius": {
+                                                "topLeft": 10.0,
+                                                "topRight": 10.0,
+                                                "bottomLeft": 10.0,
+                                                "bottomRight": 10.0
+                                              }
+                                            }
+                                          },
+                                          "child": {
+                                            "data": "بازگشت",
+                                            "style": {
+                                              "type": "custom",
+                                              "fontSize": 16.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "type": "text"
+                                          },
+                                          "type": "filledButton"
+                                        }
+                                      ],
+                                      "type": "column"
+                                    },
+                                    "type": "padding"
+                                  },
+                                  "type": "container"
+                                },
+                                "isScrollControlled": true,
+                                "useSafeArea": true,
+                                "backgroundColor": "#00000000",
+                                "barrierColor": "#8B000000"
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        },
+                        {
+                          "height": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "decoration": {
+                              "color": "{{appColors.current.background.surfaceContainer}}",
+                              "border": {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.5,
+                                "topRight": 10.5,
+                                "bottomLeft": 10.5,
+                                "bottomRight": 10.5
+                              }
+                            },
+                            "child": {
+                              "padding": {
+                                "left": 16.0,
+                                "top": 16.0,
+                                "right": 16.0,
+                                "bottom": 16.0
+                              },
+                              "child": {
+                                "crossAxisAlignment": "stretch",
+                                "children": [
+                                  {
+                                    "mainAxisAlignment": "end",
+                                    "textDirection": "rtl",
+                                    "children": [
+                                      {
+                                        "type": "visibility",
+                                        "visible": "[[ntfGeneralCard4Unread]]",
+                                        "child": {
+                                          "children": [
+                                            {
+                                              "width": 6.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "decoration": {
+                                                "color": "#D32F2F",
+                                                "borderRadius": {
+                                                  "topLeft": 999.0,
+                                                  "topRight": 999.0,
+                                                  "bottomLeft": 999.0,
+                                                  "bottomRight": 999.0
+                                                }
+                                              },
+                                              "width": 8.0,
+                                              "height": 8.0,
+                                              "type": "container"
+                                            }
+                                          ],
+                                          "type": "row"
+                                        },
+                                        "replacement": {
+                                          "type": "sizedBox"
+                                        }
+                                      },
+                                      {
+                                        "child": {
+                                          "data": "انتقال وجه به کیف پول",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w700"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        "type": "expanded"
+                                      }
+                                    ],
+                                    "type": "row"
+                                  },
+                                  {
+                                    "height": 12.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "کاربر عزیز\nمبلغ ۲۱۰,۰۰۰ ریال با شماره پیگیری ۷۳۳۶۳۵۳۰۶ انتقال یافت.",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.subtitle}}",
+                                      "fontSize": 14.0,
+                                      "fontWeight": "w500",
+                                      "height": 1.6
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  },
+                                  {
+                                    "height": 8.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۱۹",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.hint}}",
+                                      "fontSize": 12.0,
+                                      "fontWeight": "w500"
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "column"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "container"
+                          },
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "ntfGeneralCard4Unread",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "actionType": "showBottomSheet",
+                                "sheet": {
+                                  "decoration": {
+                                    "color": "{{appColors.current.background.surface}}",
+                                    "borderRadius": {
+                                      "topLeft": 12.0,
+                                      "topRight": 12.0
+                                    }
+                                  },
+                                  "child": {
+                                    "padding": {
+                                      "left": 24.0,
+                                      "top": 8.0,
+                                      "right": 24.0,
+                                      "bottom": 24.0
+                                    },
+                                    "child": {
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "stretch",
+                                      "children": [
+                                        {
+                                          "height": 11.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "child": {
+                                            "decoration": {
+                                              "color": "#D0D5DD",
+                                              "borderRadius": {
+                                                "topLeft": 99.0,
+                                                "topRight": 99.0,
+                                                "bottomLeft": 99.0,
+                                                "bottomRight": 99.0
+                                              }
+                                            },
+                                            "width": 48.0,
+                                            "height": 5.0,
+                                            "type": "container"
+                                          },
+                                          "type": "center"
+                                        },
+                                        {
+                                          "height": 22.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "انتقال وجه به کیف پول",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 18.0,
+                                            "fontWeight": "bold"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 12.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "کاربر عزیز\nمبلغ ۲۱۰,۰۰۰ ریال با شماره پیگیری ۷۳۳۶۳۵۳۰۶ انتقال یافت.",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.subtitle}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w500",
+                                            "height": 1.7
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 10.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "۲۲ اردیبهشت ۱۴۰۵ - ۱۱:۱۹",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.hint}}",
+                                            "fontSize": 12.0,
+                                            "fontWeight": "w500"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 38.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "onPressed": {
+                                            "actionType": "closeDialog"
+                                          },
+                                          "style": {
+                                            "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+                                            "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                                            "fixedSize": {
+                                              "width": 999999.0,
+                                              "height": 55.0
+                                            },
+                                            "shape": {
+                                              "type": "roundedRectangleBorder",
+                                              "borderRadius": {
+                                                "topLeft": 10.0,
+                                                "topRight": 10.0,
+                                                "bottomLeft": 10.0,
+                                                "bottomRight": 10.0
+                                              }
+                                            }
+                                          },
+                                          "child": {
+                                            "data": "بازگشت",
+                                            "style": {
+                                              "type": "custom",
+                                              "fontSize": 16.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "type": "text"
+                                          },
+                                          "type": "filledButton"
+                                        }
+                                      ],
+                                      "type": "column"
+                                    },
+                                    "type": "padding"
+                                  },
+                                  "type": "container"
+                                },
+                                "isScrollControlled": true,
+                                "useSafeArea": true,
+                                "backgroundColor": "#00000000",
+                                "barrierColor": "#8B000000"
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        },
+                        {
+                          "height": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "decoration": {
+                              "color": "{{appColors.current.background.surfaceContainer}}",
+                              "border": {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.5,
+                                "topRight": 10.5,
+                                "bottomLeft": 10.5,
+                                "bottomRight": 10.5
+                              }
+                            },
+                            "child": {
+                              "padding": {
+                                "left": 16.0,
+                                "top": 16.0,
+                                "right": 16.0,
+                                "bottom": 16.0
+                              },
+                              "child": {
+                                "crossAxisAlignment": "stretch",
+                                "children": [
+                                  {
+                                    "mainAxisAlignment": "end",
+                                    "textDirection": "rtl",
+                                    "children": [
+                                      {
+                                        "type": "visibility",
+                                        "visible": "[[ntfGeneralCard5Unread]]",
+                                        "child": {
+                                          "children": [
+                                            {
+                                              "width": 6.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "decoration": {
+                                                "color": "#D32F2F",
+                                                "borderRadius": {
+                                                  "topLeft": 999.0,
+                                                  "topRight": 999.0,
+                                                  "bottomLeft": 999.0,
+                                                  "bottomRight": 999.0
+                                                }
+                                              },
+                                              "width": 8.0,
+                                              "height": 8.0,
+                                              "type": "container"
+                                            }
+                                          ],
+                                          "type": "row"
+                                        },
+                                        "replacement": {
+                                          "type": "sizedBox"
+                                        }
+                                      },
+                                      {
+                                        "child": {
+                                          "data": "واریز سود سپرده",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w700"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        "type": "expanded"
+                                      }
+                                    ],
+                                    "type": "row"
+                                  },
+                                  {
+                                    "height": 12.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "کاربر عزیز\nسود سپرده شما به مبلغ ۴۵۰,۰۰۰ ریال به حساب معرفی‌شده واریز شد.",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.subtitle}}",
+                                      "fontSize": 14.0,
+                                      "fontWeight": "w500",
+                                      "height": 1.6
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  },
+                                  {
+                                    "height": 8.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۲۱ اردیبهشت ۱۴۰۵ - ۰۹:۴۸",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.hint}}",
+                                      "fontSize": 12.0,
+                                      "fontWeight": "w500"
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "column"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "container"
+                          },
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "ntfGeneralCard5Unread",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "actionType": "showBottomSheet",
+                                "sheet": {
+                                  "decoration": {
+                                    "color": "{{appColors.current.background.surface}}",
+                                    "borderRadius": {
+                                      "topLeft": 12.0,
+                                      "topRight": 12.0
+                                    }
+                                  },
+                                  "child": {
+                                    "padding": {
+                                      "left": 24.0,
+                                      "top": 8.0,
+                                      "right": 24.0,
+                                      "bottom": 24.0
+                                    },
+                                    "child": {
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "stretch",
+                                      "children": [
+                                        {
+                                          "height": 11.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "child": {
+                                            "decoration": {
+                                              "color": "#D0D5DD",
+                                              "borderRadius": {
+                                                "topLeft": 99.0,
+                                                "topRight": 99.0,
+                                                "bottomLeft": 99.0,
+                                                "bottomRight": 99.0
+                                              }
+                                            },
+                                            "width": 48.0,
+                                            "height": 5.0,
+                                            "type": "container"
+                                          },
+                                          "type": "center"
+                                        },
+                                        {
+                                          "height": 22.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "واریز سود سپرده",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 18.0,
+                                            "fontWeight": "bold"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 12.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "کاربر عزیز\nسود سپرده شما به مبلغ ۴۵۰,۰۰۰ ریال به حساب معرفی‌شده واریز شد.",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.subtitle}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w500",
+                                            "height": 1.7
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 10.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "۲۱ اردیبهشت ۱۴۰۵ - ۰۹:۴۸",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.hint}}",
+                                            "fontSize": 12.0,
+                                            "fontWeight": "w500"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 38.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "onPressed": {
+                                            "actionType": "closeDialog"
+                                          },
+                                          "style": {
+                                            "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+                                            "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                                            "fixedSize": {
+                                              "width": 999999.0,
+                                              "height": 55.0
+                                            },
+                                            "shape": {
+                                              "type": "roundedRectangleBorder",
+                                              "borderRadius": {
+                                                "topLeft": 10.0,
+                                                "topRight": 10.0,
+                                                "bottomLeft": 10.0,
+                                                "bottomRight": 10.0
+                                              }
+                                            }
+                                          },
+                                          "child": {
+                                            "data": "بازگشت",
+                                            "style": {
+                                              "type": "custom",
+                                              "fontSize": 16.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "type": "text"
+                                          },
+                                          "type": "filledButton"
+                                        }
+                                      ],
+                                      "type": "column"
+                                    },
+                                    "type": "padding"
+                                  },
+                                  "type": "container"
+                                },
+                                "isScrollControlled": true,
+                                "useSafeArea": true,
+                                "backgroundColor": "#00000000",
+                                "barrierColor": "#8B000000"
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        },
+                        {
+                          "height": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "decoration": {
+                              "color": "{{appColors.current.background.surfaceContainer}}",
+                              "border": {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "width": 1.0
+                              },
+                              "borderRadius": {
+                                "topLeft": 10.5,
+                                "topRight": 10.5,
+                                "bottomLeft": 10.5,
+                                "bottomRight": 10.5
+                              }
+                            },
+                            "child": {
+                              "padding": {
+                                "left": 16.0,
+                                "top": 16.0,
+                                "right": 16.0,
+                                "bottom": 16.0
+                              },
+                              "child": {
+                                "crossAxisAlignment": "stretch",
+                                "children": [
+                                  {
+                                    "mainAxisAlignment": "end",
+                                    "textDirection": "rtl",
+                                    "children": [
+                                      {
+                                        "type": "visibility",
+                                        "visible": "[[ntfGeneralCard6Unread]]",
+                                        "child": {
+                                          "children": [
+                                            {
+                                              "width": 6.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "decoration": {
+                                                "color": "#D32F2F",
+                                                "borderRadius": {
+                                                  "topLeft": 999.0,
+                                                  "topRight": 999.0,
+                                                  "bottomLeft": 999.0,
+                                                  "bottomRight": 999.0
+                                                }
+                                              },
+                                              "width": 8.0,
+                                              "height": 8.0,
+                                              "type": "container"
+                                            }
+                                          ],
+                                          "type": "row"
+                                        },
+                                        "replacement": {
+                                          "type": "sizedBox"
+                                        }
+                                      },
+                                      {
+                                        "child": {
+                                          "data": "تایید برداشت از کیف پول",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w700"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        "type": "expanded"
+                                      }
+                                    ],
+                                    "type": "row"
+                                  },
+                                  {
+                                    "height": 12.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "کاربر عزیز\nبرداشت مبلغ ۸۵,۰۰۰ ریال از کیف پول توبانک با موفقیت انجام شد.",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.subtitle}}",
+                                      "fontSize": 14.0,
+                                      "fontWeight": "w500",
+                                      "height": 1.6
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  },
+                                  {
+                                    "height": 8.0,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۲۱ اردیبهشت ۱۴۰۵ - ۰۸:۳۲",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.hint}}",
+                                      "fontSize": 12.0,
+                                      "fontWeight": "w500"
+                                    },
+                                    "textAlign": "right",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "column"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "container"
+                          },
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "ntfGeneralCard6Unread",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "actionType": "showBottomSheet",
+                                "sheet": {
+                                  "decoration": {
+                                    "color": "{{appColors.current.background.surface}}",
+                                    "borderRadius": {
+                                      "topLeft": 12.0,
+                                      "topRight": 12.0
+                                    }
+                                  },
+                                  "child": {
+                                    "padding": {
+                                      "left": 24.0,
+                                      "top": 8.0,
+                                      "right": 24.0,
+                                      "bottom": 24.0
+                                    },
+                                    "child": {
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "stretch",
+                                      "children": [
+                                        {
+                                          "height": 11.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "child": {
+                                            "decoration": {
+                                              "color": "#D0D5DD",
+                                              "borderRadius": {
+                                                "topLeft": 99.0,
+                                                "topRight": 99.0,
+                                                "bottomLeft": 99.0,
+                                                "bottomRight": 99.0
+                                              }
+                                            },
+                                            "width": 48.0,
+                                            "height": 5.0,
+                                            "type": "container"
+                                          },
+                                          "type": "center"
+                                        },
+                                        {
+                                          "height": 22.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "تایید برداشت از کیف پول",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 18.0,
+                                            "fontWeight": "bold"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 12.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "کاربر عزیز\nبرداشت مبلغ ۸۵,۰۰۰ ریال از کیف پول توبانک با موفقیت انجام شد.",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.subtitle}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w500",
+                                            "height": 1.7
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 10.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "۲۱ اردیبهشت ۱۴۰۵ - ۰۸:۳۲",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.hint}}",
+                                            "fontSize": 12.0,
+                                            "fontWeight": "w500"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 38.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "onPressed": {
+                                            "actionType": "closeDialog"
+                                          },
+                                          "style": {
+                                            "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+                                            "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                                            "fixedSize": {
+                                              "width": 999999.0,
+                                              "height": 55.0
+                                            },
+                                            "shape": {
+                                              "type": "roundedRectangleBorder",
+                                              "borderRadius": {
+                                                "topLeft": 10.0,
+                                                "topRight": 10.0,
+                                                "bottomLeft": 10.0,
+                                                "bottomRight": 10.0
+                                              }
+                                            }
+                                          },
+                                          "child": {
+                                            "data": "بازگشت",
+                                            "style": {
+                                              "type": "custom",
+                                              "fontSize": 16.0,
+                                              "fontWeight": "w600"
+                                            },
+                                            "type": "text"
+                                          },
+                                          "type": "filledButton"
+                                        }
+                                      ],
+                                      "type": "column"
+                                    },
+                                    "type": "padding"
+                                  },
+                                  "type": "container"
+                                },
+                                "isScrollControlled": true,
+                                "useSafeArea": true,
+                                "backgroundColor": "#00000000",
+                                "barrierColor": "#8B000000"
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        },
+                        {
+                          "height": 10.0,
+                          "type": "sizedBox"
+                        }
+                      ],
+                      "type": "column"
+                    },
+                    "type": "padding"
+                  },
+                  "type": "singleChildScrollView"
+                }
+              ],
+              "type": "tabBarView"
+            },
+            "type": "expanded"
+          }
+        ],
+        "type": "column"
+      },
+      "type": "defaultTabController"
+    },
+    "type": "scaffold"
+  }
+}

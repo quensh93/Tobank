@@ -1,0 +1,184 @@
+{
+  "appBar": {
+    "leading": {
+      "padding": {
+        "left": 12.0
+      },
+      "child": {
+        "child": {
+          "src": "{{appAssets.icons.support}}",
+          "imageType": "asset",
+          "color": "{{appColors.current.text.title}}",
+          "width": 24.0,
+          "height": 24.0,
+          "type": "image"
+        },
+        "type": "center"
+      },
+      "type": "padding"
+    },
+    "automaticallyImplyLeading": true,
+    "title": {
+      "data": "آدرس دریافت کارت بانکی",
+      "style": {
+        "type": "alias",
+        "value": "{{appStyles.appbarStyle}}"
+      },
+      "textDirection": "rtl",
+      "type": "text"
+    },
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "backgroundColor": "{{appColors.current.background.surface}}",
+  "body": {
+    "padding": {
+      "left": 16.0,
+      "top": 16.0,
+      "right": 16.0,
+      "bottom": 16.0
+    },
+    "child": {
+      "crossAxisAlignment": "stretch",
+      "children": [
+        {
+          "decoration": {
+            "color": "{{appColors.current.background.card}}",
+            "border": {
+              "color": "{{appColors.current.divider.color}}",
+              "width": 1.0
+            },
+            "borderRadius": {
+              "topLeft": 12.0,
+              "topRight": 12.0,
+              "bottomLeft": 12.0,
+              "bottomRight": 12.0
+            }
+          },
+          "child": {
+            "padding": {
+              "left": 16.0,
+              "top": 24.0,
+              "right": 16.0,
+              "bottom": 24.0
+            },
+            "child": {
+              "crossAxisAlignment": "center",
+              "children": [
+                {
+                  "decoration": {
+                    "color": "#E8F5E9",
+                    "borderRadius": {
+                      "topLeft": 32.0,
+                      "topRight": 32.0,
+                      "bottomLeft": 32.0,
+                      "bottomRight": 32.0
+                    }
+                  },
+                  "width": 64.0,
+                  "height": 64.0,
+                  "child": {
+                    "child": {
+                      "src": "{{appAssets.current.icons.successCheck}}",
+                      "imageType": "asset",
+                      "width": 36.0,
+                      "height": 36.0,
+                      "type": "image"
+                    },
+                    "type": "center"
+                  },
+                  "type": "container"
+                },
+                {
+                  "height": 16.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "data": "درخواست شما با موفقیت ثبت شد!",
+                  "style": {
+                    "type": "custom",
+                    "color": "#43A047",
+                    "fontSize": 16.0,
+                    "fontWeight": "w700"
+                  },
+                  "textAlign": "center",
+                  "textDirection": "rtl",
+                  "type": "text"
+                },
+                {
+                  "height": 10.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "data": "درخواست صدور کارت توسط همکاران ما بررسی می‌شود و نتیجه از طریق پیامک اطلاع‌رسانی خواهد شد.",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.text.hint}}",
+                    "fontSize": 14.0,
+                    "fontWeight": "w500"
+                  },
+                  "textAlign": "center",
+                  "textDirection": "rtl",
+                  "type": "text"
+                }
+              ],
+              "type": "column"
+            },
+            "type": "padding"
+          },
+          "type": "container"
+        },
+        {
+          "child": {
+            "height": 0.0,
+            "type": "sizedBox"
+          },
+          "type": "expanded"
+        },
+        {
+          "onPressed": {
+            "navigationStyle": "pop",
+            "actionType": "navigate"
+          },
+          "style": {
+            "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+            "backgroundColor": "{{appColors.current.primary.color}}",
+            "elevation": 0.0,
+            "fixedSize": {
+              "width": 999999.0,
+              "height": 56.0
+            },
+            "shape": {
+              "type": "roundedRectangleBorder",
+              "borderRadius": {
+                "topLeft": 16.0,
+                "topRight": 16.0,
+                "bottomLeft": 16.0,
+                "bottomRight": 16.0
+              }
+            }
+          },
+          "child": {
+            "data": "بازگشت",
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.primary.onPrimary}}",
+              "fontSize": 18.0,
+              "fontWeight": "w700"
+            },
+            "textDirection": "rtl",
+            "type": "text"
+          },
+          "type": "filledButton"
+        },
+        {
+          "height": 8.0,
+          "type": "sizedBox"
+        }
+      ],
+      "type": "column"
+    },
+    "type": "padding"
+  },
+  "type": "scaffold"
+}

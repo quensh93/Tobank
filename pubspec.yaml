@@ -143,6 +143,9 @@ flutter:
     - lib/stac/tobank/flows/promissory_old/api/
     - lib/stac/tobank/flows/verify_identity/json/
     - lib/stac/tobank/flows/transaction/json/
+    - lib/stac/tobank/flows/notification/json/
+    - lib/stac/tobank/flows/deposit_turnover/json/
+    - lib/stac/tobank/flows/deposit_more/json/
     - lib/stac/tobank/flows/profile/json/
     - lib/stac/tobank/flows/dashboard/json/
     - lib/stac/tobank/flows/transfer/json/
