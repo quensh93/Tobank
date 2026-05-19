@@ -153,6 +153,30 @@ import '../../../../stac/tobank/flows/dashboard/dart/dashboard_shell.dart'
     as dashboard_shell_dart;
 import '../../../../stac/tobank/flows/dashboard/dart/cards_management_screen.dart'
     as cards_management_screen_dart;
+import '../../../../stac/tobank/flows/dashboard/dart/card_management/widgets/card_edit_screen.dart'
+    as card_edit_screen_dart;
+import '../../../../stac/tobank/flows/dashboard/dart/card_management/wallet/wallet_transfer_receipt.dart'
+    as wallet_transfer_receipt_dart;
+import '../../../../stac/tobank/flows/dashboard/dart/card_management/pin/primary_pin_get_screen.dart'
+    as primary_pin_get_dart;
+import '../../../../stac/tobank/flows/dashboard/dart/card_management/pin/primary_pin_change_screen.dart'
+    as primary_pin_change_dart;
+import '../../../../stac/tobank/flows/dashboard/dart/card_management/pin/primary_pin_result_screen.dart'
+    as primary_pin_result_dart;
+import '../../../../stac/tobank/flows/dashboard/dart/card_management/pin/secondary_pin_get_screen.dart'
+    as secondary_pin_get_dart;
+import '../../../../stac/tobank/flows/dashboard/dart/card_management/pin/secondary_pin_change_screen.dart'
+    as secondary_pin_change_dart;
+import '../../../../stac/tobank/flows/dashboard/dart/card_management/pin/secondary_pin_receipt_screen.dart'
+    as secondary_pin_receipt_dart;
+import '../../../../stac/tobank/flows/dashboard/dart/card_management/reissue/reissue_request_screen.dart'
+    as reissue_request_dart;
+import '../../../../stac/tobank/flows/dashboard/dart/card_management/reissue/reissue_select_card_color_screen.dart'
+    as reissue_select_card_color_dart;
+import '../../../../stac/tobank/flows/dashboard/dart/card_management/reissue/reissue_receipt_screen.dart'
+    as reissue_receipt_dart;
+import '../../../../stac/tobank/flows/dashboard/dart/card_management/balance/card_balance_screen.dart'
+    as card_balance_screen_dart;
 import '../../../../stac/tobank/flows/gift_card/menu/gift_card_menu.dart'
     as gift_card_menu_dart;
 import '../../../../stac/tobank/flows/transfer/menu/transfer_menu.dart'
@@ -346,9 +370,33 @@ class StacWidgetLoader {
     'biometric_test_menu': () =>
         biometric_test_menu_dart.biometricTestMenu().toJson(),
     'dashboard_shell': () =>
-        dashboard_shell_dart.dashboardRealShell().toJson(),
+        dashboard_shell_dart.dashboardShell().toJson(),
     'dashboard_cards_management': () =>
-        cards_management_screen_dart.dashboardRealCardsManagement().toJson(),
+        cards_management_screen_dart.dashboardCardsManagement().toJson(),
+    'dashboard_card_edit': () =>
+        card_edit_screen_dart.dashboardCardEdit().toJson(),
+    'dashboard_wallet_transfer_receipt': () =>
+        wallet_transfer_receipt_dart.dashboardWalletTransferReceipt().toJson(),
+    'dashboard_primary_pin_get': () =>
+        primary_pin_get_dart.dashboardPrimaryPinGet().toJson(),
+    'dashboard_primary_pin_change': () =>
+        primary_pin_change_dart.dashboardPrimaryPinChange().toJson(),
+    'dashboard_primary_pin_result': () =>
+        primary_pin_result_dart.dashboardPrimaryPinResult().toJson(),
+    'dashboard_secondary_pin_get': () =>
+        secondary_pin_get_dart.dashboardSecondaryPinGet().toJson(),
+    'dashboard_secondary_pin_change': () =>
+        secondary_pin_change_dart.dashboardSecondaryPinChange().toJson(),
+    'dashboard_secondary_pin_result': () =>
+        secondary_pin_receipt_dart.dashboardSecondaryPinResult().toJson(),
+    'dashboard_card_reissue_request': () =>
+        reissue_request_dart.dashboardCardReissueRequest().toJson(),
+    'dashboard_card_reissue_select_card_color': () =>
+        reissue_select_card_color_dart.dashboardCardReissueSelectCardColor().toJson(),
+    'dashboard_card_reissue_receipt': () =>
+        reissue_receipt_dart.dashboardCardReissueReceipt().toJson(),
+    'dashboard_card_balance': () =>
+        card_balance_screen_dart.dashboardCardBalance().toJson(),
     'gift_card_menu': () =>
         gift_card_menu_dart.giftCardRealMenu().toJson(),
     'transfer_menu': () =>

@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
@@ -774,7 +774,7 @@ StacAction _openCardsManagementAction(int selectedIndex) {
       ),
       StacRawJsonAction({
         'actionType': 'navigate',
-        'widgetType': 'dashboard_real_cards_management',
+        'widgetType': 'dashboard_cards_management',
         'navigationStyle': 'push',
       }),
     ],

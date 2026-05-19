@@ -1,0 +1,343 @@
+{
+  "appBar": {
+    "leading": {
+      "onPressed": {
+        "navigationStyle": "pop",
+        "actionType": "navigate"
+      },
+      "icon": {
+        "src": "{{appAssets.icons.arrowBack}}",
+        "imageType": "asset",
+        "color": "{{appColors.current.text.title}}",
+        "width": 31.0,
+        "height": 31.0,
+        "type": "image"
+      },
+      "type": "iconButton"
+    },
+    "automaticallyImplyLeading": true,
+    "title": {
+      "data": "صدور کارت المثنی",
+      "style": {
+        "type": "alias",
+        "value": "{{appStyles.appbarStyle}}"
+      },
+      "textDirection": "rtl",
+      "type": "text"
+    },
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "backgroundColor": "{{appColors.current.background.surface}}",
+  "body": {
+    "padding": {
+      "left": 16.0,
+      "top": 16.0,
+      "right": 16.0,
+      "bottom": 16.0
+    },
+    "child": {
+      "crossAxisAlignment": "stretch",
+      "children": [
+        {
+          "data": "رنگ کارت خود را انتخاب کنید",
+          "style": {
+            "type": "custom",
+            "color": "{{appColors.current.text.title}}",
+            "fontSize": 15.0,
+            "fontWeight": "w600"
+          },
+          "textAlign": "right",
+          "textDirection": "rtl",
+          "type": "text"
+        },
+        {
+          "height": 24.0,
+          "type": "sizedBox"
+        },
+        {
+          "child": {
+            "decoration": {
+              "color": "#1E1E1E",
+              "borderRadius": {
+                "topLeft": 16.0,
+                "topRight": 16.0,
+                "bottomLeft": 16.0,
+                "bottomRight": 16.0
+              }
+            },
+            "width": 260.0,
+            "height": 160.0,
+            "child": {
+              "padding": {
+                "left": 16.0,
+                "top": 16.0,
+                "right": 16.0,
+                "bottom": 16.0
+              },
+              "child": {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "mainAxisAlignment": "spaceBetween",
+                    "children": [
+                      {
+                        "data": "TOBANK",
+                        "style": {
+                          "type": "custom",
+                          "color": "#FFFFFF",
+                          "fontSize": 14.0,
+                          "fontWeight": "w700"
+                        },
+                        "textDirection": "ltr",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "child": {
+                      "height": 0.0,
+                      "type": "sizedBox"
+                    },
+                    "type": "expanded"
+                  },
+                  {
+                    "data": "گردشگری",
+                    "style": {
+                      "type": "custom",
+                      "color": "#FFFFFF",
+                      "fontSize": 12.0,
+                      "fontWeight": "w400"
+                    },
+                    "textDirection": "rtl",
+                    "type": "text"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "padding"
+            },
+            "type": "container"
+          },
+          "type": "center"
+        },
+        {
+          "height": 24.0,
+          "type": "sizedBox"
+        },
+        {
+          "data": "روی کارت",
+          "style": {
+            "type": "custom",
+            "color": "{{appColors.current.text.hint}}",
+            "fontSize": 13.0,
+            "fontWeight": "w500"
+          },
+          "textAlign": "right",
+          "textDirection": "rtl",
+          "type": "text"
+        },
+        {
+          "height": 12.0,
+          "type": "sizedBox"
+        },
+        {
+          "mainAxisAlignment": "center",
+          "children": [
+            {
+              "child": {
+                "decoration": {
+                  "color": "#1E1E1E",
+                  "borderRadius": {
+                    "topLeft": 20.0,
+                    "topRight": 20.0,
+                    "bottomLeft": 20.0,
+                    "bottomRight": 20.0
+                  }
+                },
+                "width": 40.0,
+                "height": 40.0,
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "cardsManagement.reissue.selectedTemplate",
+                "value": "black"
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "width": 12.0,
+              "type": "sizedBox"
+            },
+            {
+              "child": {
+                "decoration": {
+                  "color": "#8F8F8F",
+                  "borderRadius": {
+                    "topLeft": 20.0,
+                    "topRight": 20.0,
+                    "bottomLeft": 20.0,
+                    "bottomRight": 20.0
+                  }
+                },
+                "width": 40.0,
+                "height": 40.0,
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "cardsManagement.reissue.selectedTemplate",
+                "value": "gray"
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "width": 12.0,
+              "type": "sizedBox"
+            },
+            {
+              "child": {
+                "decoration": {
+                  "color": "#1FA3E3",
+                  "borderRadius": {
+                    "topLeft": 20.0,
+                    "topRight": 20.0,
+                    "bottomLeft": 20.0,
+                    "bottomRight": 20.0
+                  }
+                },
+                "width": 40.0,
+                "height": 40.0,
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "cardsManagement.reissue.selectedTemplate",
+                "value": "blue"
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "width": 12.0,
+              "type": "sizedBox"
+            },
+            {
+              "child": {
+                "decoration": {
+                  "color": "#E31A2F",
+                  "borderRadius": {
+                    "topLeft": 20.0,
+                    "topRight": 20.0,
+                    "bottomLeft": 20.0,
+                    "bottomRight": 20.0
+                  }
+                },
+                "width": 40.0,
+                "height": 40.0,
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "cardsManagement.reissue.selectedTemplate",
+                "value": "red"
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "width": 12.0,
+              "type": "sizedBox"
+            },
+            {
+              "child": {
+                "decoration": {
+                  "color": "#43A047",
+                  "borderRadius": {
+                    "topLeft": 20.0,
+                    "topRight": 20.0,
+                    "bottomLeft": 20.0,
+                    "bottomRight": 20.0
+                  }
+                },
+                "width": 40.0,
+                "height": 40.0,
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "cardsManagement.reissue.selectedTemplate",
+                "value": "green"
+              },
+              "type": "gestureDetector"
+            }
+          ],
+          "type": "row"
+        },
+        {
+          "child": {
+            "height": 0.0,
+            "type": "sizedBox"
+          },
+          "type": "expanded"
+        },
+        {
+          "onPressed": {
+            "actionType": "showAppDialog",
+            "title": "تایید انتخاب",
+            "description": "آیا از انتخاب رنگ کارت المثنی اطمینان دارید؟",
+            "positiveText": "تایید",
+            "negativeText": "انصراف",
+            "positiveAction": {
+              "actionType": "sequence",
+              "actions": [
+                {
+                  "actionType": "closeDialog"
+                },
+                {
+                  "actionType": "navigate",
+                  "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_card_reissue_receipt.json",
+                  "navigationStyle": "push"
+                }
+              ]
+            },
+            "negativeAction": {
+              "actionType": "closeDialog"
+            }
+          },
+          "style": {
+            "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+            "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+            "padding": {
+              "top": 16.0,
+              "bottom": 16.0
+            },
+            "shape": {
+              "type": "roundedRectangleBorder",
+              "borderRadius": {
+                "topLeft": 16.0,
+                "topRight": 16.0,
+                "bottomLeft": 16.0,
+                "bottomRight": 16.0
+              }
+            }
+          },
+          "child": {
+            "data": "تایید و ادامه",
+            "style": {
+              "type": "custom",
+              "fontSize": 16.0,
+              "fontWeight": "w600"
+            },
+            "textDirection": "rtl",
+            "type": "text"
+          },
+          "type": "filledButton"
+        }
+      ],
+      "type": "column"
+    },
+    "type": "padding"
+  },
+  "type": "scaffold"
+}

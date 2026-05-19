@@ -774,7 +774,7 @@ StacAction _openCardsManagementAction(int selectedIndex) {
       ),
       StacRawJsonAction({
         'actionType': 'navigate',
-        'widgetType': 'dashboard_real_cards_management',
+        'widgetType': 'dashboard_cards_management',
         'navigationStyle': 'push',
       }),
     ],

@@ -1,0 +1,343 @@
+{
+  "appBar": {
+    "leading": {
+      "onPressed": {
+        "navigationStyle": "pop",
+        "actionType": "navigate"
+      },
+      "icon": {
+        "src": "{{appAssets.icons.arrowBack}}",
+        "imageType": "asset",
+        "color": "{{appColors.current.text.title}}",
+        "width": 31.0,
+        "height": 31.0,
+        "type": "image"
+      },
+      "type": "iconButton"
+    },
+    "automaticallyImplyLeading": true,
+    "title": {
+      "data": "ØµØ¯ÙˆØ± Ú©Ø§Ø±Øª Ø§Ù„Ù…Ø«Ù†ÛŒ",
+      "style": {
+        "type": "alias",
+        "value": "{{appStyles.appbarStyle}}"
+      },
+      "textDirection": "rtl",
+      "type": "text"
+    },
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "backgroundColor": "{{appColors.current.background.surface}}",
+  "body": {
+    "padding": {
+      "left": 16.0,
+      "top": 16.0,
+      "right": 16.0,
+      "bottom": 16.0
+    },
+    "child": {
+      "crossAxisAlignment": "stretch",
+      "children": [
+        {
+          "data": "Ø±Ù†Ú¯ Ú©Ø§Ø±Øª Ø®ÙˆØ¯ Ø±Ø§ Ø§Ù†ØªØ®Ø§Ø¨ Ú©Ù†ÛŒØ¯",
+          "style": {
+            "type": "custom",
+            "color": "{{appColors.current.text.title}}",
+            "fontSize": 15.0,
+            "fontWeight": "w600"
+          },
+          "textAlign": "right",
+          "textDirection": "rtl",
+          "type": "text"
+        },
+        {
+          "height": 24.0,
+          "type": "sizedBox"
+        },
+        {
+          "child": {
+            "decoration": {
+              "color": "#1E1E1E",
+              "borderRadius": {
+                "topLeft": 16.0,
+                "topRight": 16.0,
+                "bottomLeft": 16.0,
+                "bottomRight": 16.0
+              }
+            },
+            "width": 260.0,
+            "height": 160.0,
+            "child": {
+              "padding": {
+                "left": 16.0,
+                "top": 16.0,
+                "right": 16.0,
+                "bottom": 16.0
+              },
+              "child": {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "mainAxisAlignment": "spaceBetween",
+                    "children": [
+                      {
+                        "data": "TOBANK",
+                        "style": {
+                          "type": "custom",
+                          "color": "#FFFFFF",
+                          "fontSize": 14.0,
+                          "fontWeight": "w700"
+                        },
+                        "textDirection": "ltr",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  {
+                    "child": {
+                      "height": 0.0,
+                      "type": "sizedBox"
+                    },
+                    "type": "expanded"
+                  },
+                  {
+                    "data": "Ú¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
+                    "style": {
+                      "type": "custom",
+                      "color": "#FFFFFF",
+                      "fontSize": 12.0,
+                      "fontWeight": "w400"
+                    },
+                    "textDirection": "rtl",
+                    "type": "text"
+                  }
+                ],
+                "type": "column"
+              },
+              "type": "padding"
+            },
+            "type": "container"
+          },
+          "type": "center"
+        },
+        {
+          "height": 24.0,
+          "type": "sizedBox"
+        },
+        {
+          "data": "Ø±ÙˆÛŒ Ú©Ø§Ø±Øª",
+          "style": {
+            "type": "custom",
+            "color": "{{appColors.current.text.hint}}",
+            "fontSize": 13.0,
+            "fontWeight": "w500"
+          },
+          "textAlign": "right",
+          "textDirection": "rtl",
+          "type": "text"
+        },
+        {
+          "height": 12.0,
+          "type": "sizedBox"
+        },
+        {
+          "mainAxisAlignment": "center",
+          "children": [
+            {
+              "child": {
+                "decoration": {
+                  "color": "#1E1E1E",
+                  "borderRadius": {
+                    "topLeft": 20.0,
+                    "topRight": 20.0,
+                    "bottomLeft": 20.0,
+                    "bottomRight": 20.0
+                  }
+                },
+                "width": 40.0,
+                "height": 40.0,
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "cardsManagement.reissue.selectedTemplate",
+                "value": "black"
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "width": 12.0,
+              "type": "sizedBox"
+            },
+            {
+              "child": {
+                "decoration": {
+                  "color": "#8F8F8F",
+                  "borderRadius": {
+                    "topLeft": 20.0,
+                    "topRight": 20.0,
+                    "bottomLeft": 20.0,
+                    "bottomRight": 20.0
+                  }
+                },
+                "width": 40.0,
+                "height": 40.0,
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "cardsManagement.reissue.selectedTemplate",
+                "value": "gray"
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "width": 12.0,
+              "type": "sizedBox"
+            },
+            {
+              "child": {
+                "decoration": {
+                  "color": "#1FA3E3",
+                  "borderRadius": {
+                    "topLeft": 20.0,
+                    "topRight": 20.0,
+                    "bottomLeft": 20.0,
+                    "bottomRight": 20.0
+                  }
+                },
+                "width": 40.0,
+                "height": 40.0,
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "cardsManagement.reissue.selectedTemplate",
+                "value": "blue"
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "width": 12.0,
+              "type": "sizedBox"
+            },
+            {
+              "child": {
+                "decoration": {
+                  "color": "#E31A2F",
+                  "borderRadius": {
+                    "topLeft": 20.0,
+                    "topRight": 20.0,
+                    "bottomLeft": 20.0,
+                    "bottomRight": 20.0
+                  }
+                },
+                "width": 40.0,
+                "height": 40.0,
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "cardsManagement.reissue.selectedTemplate",
+                "value": "red"
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "width": 12.0,
+              "type": "sizedBox"
+            },
+            {
+              "child": {
+                "decoration": {
+                  "color": "#43A047",
+                  "borderRadius": {
+                    "topLeft": 20.0,
+                    "topRight": 20.0,
+                    "bottomLeft": 20.0,
+                    "bottomRight": 20.0
+                  }
+                },
+                "width": 40.0,
+                "height": 40.0,
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "cardsManagement.reissue.selectedTemplate",
+                "value": "green"
+              },
+              "type": "gestureDetector"
+            }
+          ],
+          "type": "row"
+        },
+        {
+          "child": {
+            "height": 0.0,
+            "type": "sizedBox"
+          },
+          "type": "expanded"
+        },
+        {
+          "onPressed": {
+            "actionType": "showAppDialog",
+            "title": "ØªØ§ÛŒÛŒØ¯ Ø§Ù†ØªØ®Ø§Ø¨",
+            "description": "Ø¢ÛŒØ§ Ø§Ø² Ø§Ù†ØªØ®Ø§Ø¨ Ø±Ù†Ú¯ Ú©Ø§Ø±Øª Ø§Ù„Ù…Ø«Ù†ÛŒ Ø§Ø·Ù…ÛŒÙ†Ø§Ù† Ø¯Ø§Ø±ÛŒØ¯ØŸ",
+            "positiveText": "ØªØ§ÛŒÛŒØ¯",
+            "negativeText": "Ø§Ù†ØµØ±Ø§Ù",
+            "positiveAction": {
+              "actionType": "sequence",
+              "actions": [
+                {
+                  "actionType": "closeDialog"
+                },
+                {
+                  "actionType": "navigate",
+                  "widgetType": "dashboard_card_reissue_receipt",
+                  "navigationStyle": "push"
+                }
+              ]
+            },
+            "negativeAction": {
+              "actionType": "closeDialog"
+            }
+          },
+          "style": {
+            "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+            "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+            "padding": {
+              "top": 16.0,
+              "bottom": 16.0
+            },
+            "shape": {
+              "type": "roundedRectangleBorder",
+              "borderRadius": {
+                "topLeft": 16.0,
+                "topRight": 16.0,
+                "bottomLeft": 16.0,
+                "bottomRight": 16.0
+              }
+            }
+          },
+          "child": {
+            "data": "ØªØ§ÛŒÛŒØ¯ Ùˆ Ø§Ø¯Ø§Ù…Ù‡",
+            "style": {
+              "type": "custom",
+              "fontSize": 16.0,
+              "fontWeight": "w600"
+            },
+            "textDirection": "rtl",
+            "type": "text"
+          },
+          "type": "filledButton"
+        }
+      ],
+      "type": "column"
+    },
+    "type": "padding"
+  },
+  "type": "scaffold"
+}

@@ -1,0 +1,432 @@
+{
+  "appBar": {
+    "automaticallyImplyLeading": false,
+    "title": {
+      "data": "ÙˆÛŒØ±Ø§ÛŒØ´ Ú©Ø§Ø±Øª",
+      "style": {
+        "type": "alias",
+        "value": "{{appStyles.appbarStyle}}"
+      },
+      "textDirection": "rtl",
+      "type": "text"
+    },
+    "actions": [
+      {
+        "padding": {
+          "right": 12.0
+        },
+        "child": {
+          "onPressed": {
+            "navigationStyle": "pop",
+            "actionType": "navigate"
+          },
+          "icon": {
+            "src": "{{appAssets.icons.arrowBack}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 31.0,
+            "height": 31.0,
+            "type": "image"
+          },
+          "type": "iconButton"
+        },
+        "type": "padding"
+      }
+    ],
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "backgroundColor": "{{appColors.current.background.surface}}",
+  "body": {
+    "autovalidateMode": "onUserInteraction",
+    "child": {
+      "padding": {
+        "left": 16.0,
+        "top": 24.0,
+        "right": 16.0,
+        "bottom": 32.0
+      },
+      "child": {
+        "crossAxisAlignment": "stretch",
+        "children": [
+          {
+            "padding": {
+              "left": 16.0,
+              "top": 14.0,
+              "right": 16.0,
+              "bottom": 14.0
+            },
+            "decoration": {
+              "color": "{{appColors.current.background.card}}",
+              "border": {
+                "color": "{{appColors.current.input.borderEnabled}}",
+                "width": 1.0
+              },
+              "borderRadius": {
+                "topLeft": 12.0,
+                "topRight": 12.0,
+                "bottomLeft": 12.0,
+                "bottomRight": 12.0
+              }
+            },
+            "child": {
+              "mainAxisAlignment": "spaceBetween",
+              "textDirection": "rtl",
+              "children": [
+                {
+                  "data": "Ø´Ù…Ø§Ø±Ù‡ Ú©Ø§Ø±Øª",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.text.hint}}",
+                    "fontSize": 13.0,
+                    "fontWeight": "w400"
+                  },
+                  "textDirection": "rtl",
+                  "type": "text"
+                },
+                {
+                  "mainAxisSize": "min",
+                  "textDirection": "ltr",
+                  "children": [
+                    {
+                      "type": "visibility",
+                      "visible": "[[cardsManagement.selectedIsGardeshgary]]",
+                      "child": {
+                        "src": "{{appAssets.current.icons.tobankLogo}}",
+                        "imageType": "asset",
+                        "width": 32.0,
+                        "height": 32.0,
+                        "type": "image"
+                      },
+                      "replacement": {
+                        "src": "{{appAssets.current.icons.bank}}",
+                        "imageType": "asset",
+                        "color": "{{appColors.current.text.hint}}",
+                        "width": 32.0,
+                        "height": 32.0,
+                        "type": "image"
+                      }
+                    },
+                    {
+                      "width": 10.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "type": "registryReactive",
+                      "registryKey": "cardsManagement.sheet.cardNumber",
+                      "child": {
+                        "type": "text",
+                        "data": "{{cardsManagement.sheet.cardNumber}}",
+                        "textDirection": "ltr",
+                        "style": {
+                          "type": "custom",
+                          "fontSize": 15,
+                          "fontWeight": "w600",
+                          "color": "{{appColors.current.text.title}}"
+                        }
+                      }
+                    }
+                  ],
+                  "type": "row"
+                }
+              ],
+              "type": "row"
+            },
+            "type": "container"
+          },
+          {
+            "height": 24.0,
+            "type": "sizedBox"
+          },
+          {
+            "data": "ØªØ§Ø±ÛŒØ® Ø§Ù†Ù‚Ø¶Ø§Ø¡",
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.text.title}}",
+              "fontSize": 14.0,
+              "fontWeight": "w600"
+            },
+            "textAlign": "right",
+            "textDirection": "rtl",
+            "type": "text"
+          },
+          {
+            "height": 8.0,
+            "type": "sizedBox"
+          },
+          {
+            "type": "textFormField",
+            "id": "cardEditExpireInput",
+            "textDirection": "ltr",
+            "textAlign": "right",
+            "decoration": {
+              "hintText": "Û°Û¶/Û±Û°",
+              "hintStyle": {
+                "type": "custom",
+                "fontSize": 16,
+                "fontWeight": "w500",
+                "color": "{{appColors.current.text.hint}}"
+              },
+              "enabledBorder": {
+                "type": "outline",
+                "borderSide": {
+                  "color": "{{appColors.current.input.borderEnabled}}",
+                  "width": 1
+                },
+                "borderRadius": {
+                  "all": 12
+                }
+              },
+              "focusedBorder": {
+                "type": "outline",
+                "borderSide": {
+                  "color": "{{appColors.current.button.primary.backgroundColor}}",
+                  "width": 1.5
+                },
+                "borderRadius": {
+                  "all": 12
+                }
+              },
+              "contentPadding": {
+                "left": 16,
+                "top": 14,
+                "right": 16,
+                "bottom": 14
+              }
+            },
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.text.title}}",
+              "fontSize": 16.0,
+              "fontWeight": "w600"
+            },
+            "keyboardType": "number",
+            "maxLength": 5,
+            "onTap": {
+              "actionType": "showCardExpireSelectBottomSheet",
+              "formFieldId": "cardEditExpireInput",
+              "title": "ØªØ§Ø±ÛŒØ® Ø§Ù†Ù‚Ø¶Ø§ÛŒ Ú©Ø§Ø±Øª Ø±Ø§ Ø§Ù†ØªØ®Ø§Ø¨ Ù†Ù…Ø§ÛŒÛŒØ¯",
+              "monthTitle": "Ù…Ø§Ù‡",
+              "yearTitle": "Ø³Ø§Ù„",
+              "confirmText": "ØªØ§ÛŒÛŒØ¯"
+            },
+            "initialValue": "{{cardsManagement.sheet.expDate}}",
+            "readOnly": true
+          },
+          {
+            "height": 24.0,
+            "type": "sizedBox"
+          },
+          {
+            "data": "Ø¹Ù†ÙˆØ§Ù† Ú©Ø§Ø±Øª",
+            "style": {
+              "type": "custom",
+              "color": "{{appColors.current.text.title}}",
+              "fontSize": 14.0,
+              "fontWeight": "w600"
+            },
+            "textAlign": "right",
+            "textDirection": "rtl",
+            "type": "text"
+          },
+          {
+            "height": 8.0,
+            "type": "sizedBox"
+          },
+          {
+            "type": "registryReactive",
+            "registryKey": "cardsManagement.sheet.title",
+            "child": {
+              "type": "textFormField",
+              "id": "card_edit_title",
+              "textDirection": "rtl",
+              "textAlign": "right",
+              "decoration": {
+                "enabledBorder": {
+                  "type": "outline",
+                  "borderSide": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "all": 12
+                  }
+                },
+                "focusedBorder": {
+                  "type": "outline",
+                  "borderSide": {
+                    "color": "{{appColors.current.button.primary.backgroundColor}}",
+                    "width": 1.5
+                  },
+                  "borderRadius": {
+                    "all": 12
+                  }
+                },
+                "contentPadding": {
+                  "left": 16,
+                  "top": 14,
+                  "right": 16,
+                  "bottom": 14
+                }
+              },
+              "initialValue": "{{cardsManagement.sheet.title}}"
+            }
+          },
+          {
+            "height": 32.0,
+            "type": "sizedBox"
+          },
+          {
+            "onPressed": {
+              "actionType": "sequence",
+              "actions": [
+                {
+                  "actionType": "customSnackBar",
+                  "backgroundColor": "#00000000",
+                  "duration": 3000,
+                  "permanent": false,
+                  "permenent": false,
+                  "child": {
+                    "type": "container",
+                    "decoration": {
+                      "color": "{{appColors.current.background.surfaceContainer}}",
+                      "borderRadius": {
+                        "topLeft": 8,
+                        "topRight": 8,
+                        "bottomLeft": 8,
+                        "bottomRight": 8
+                      },
+                      "border": {
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "width": 1
+                      }
+                    },
+                    "padding": {
+                      "left": 12,
+                      "top": 10,
+                      "right": 12,
+                      "bottom": 10
+                    },
+                    "child": {
+                      "type": "row",
+                      "textDirection": "ltr",
+                      "crossAxisAlignment": "center",
+                      "children": [
+                        {
+                          "type": "expanded",
+                          "child": {
+                            "type": "column",
+                            "mainAxisSize": "min",
+                            "crossAxisAlignment": "end",
+                            "children": [
+                              {
+                                "type": "text",
+                                "data": "Ø°Ø®ÛŒØ±Ù‡ Ø´Ø¯",
+                                "textDirection": "rtl",
+                                "textAlign": "right",
+                                "style": {
+                                  "type": "custom",
+                                  "fontSize": 14,
+                                  "fontWeight": "w700",
+                                  "color": "{{appColors.current.text.title}}",
+                                  "height": 1.45
+                                }
+                              },
+                              {
+                                "type": "sizedBox",
+                                "height": 4
+                              },
+                              {
+                                "type": "text",
+                                "data": "Ø¹Ù†ÙˆØ§Ù† Ú©Ø§Ø±Øª Ø¨Ø§ Ù…ÙˆÙÙ‚ÛŒØª Ø¨Ù‡â€ŒØ±ÙˆØ²Ø±Ø³Ø§Ù†ÛŒ Ø´Ø¯.",
+                                "textDirection": "rtl",
+                                "textAlign": "right",
+                                "style": {
+                                  "type": "custom",
+                                  "fontSize": 13,
+                                  "fontWeight": "w500",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "height": 1.45
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "sizedBox",
+                          "width": 10
+                        },
+                        {
+                          "type": "container",
+                          "width": 1,
+                          "height": 20,
+                          "decoration": {
+                            "color": "{{appColors.current.input.borderEnabled}}",
+                            "borderRadius": {
+                              "topLeft": 999,
+                              "topRight": 999,
+                              "bottomLeft": 999,
+                              "bottomRight": 999
+                            }
+                          }
+                        },
+                        {
+                          "type": "sizedBox",
+                          "width": 8
+                        },
+                        {
+                          "type": "image",
+                          "src": "assets/icons/ic_info.svg",
+                          "imageType": "asset",
+                          "width": 20,
+                          "height": 20,
+                          "color": "{{appColors.current.text.subtitle}}"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "navigationStyle": "pop",
+                  "actionType": "navigate"
+                }
+              ]
+            },
+            "style": {
+              "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+              "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+              "padding": {
+                "top": 16.0,
+                "bottom": 16.0
+              },
+              "shape": {
+                "type": "roundedRectangleBorder",
+                "borderRadius": {
+                  "topLeft": 16.0,
+                  "topRight": 16.0,
+                  "bottomLeft": 16.0,
+                  "bottomRight": 16.0
+                }
+              }
+            },
+            "child": {
+              "data": "Ø°Ø®ÛŒØ±Ù‡ ØªØºÛŒÛŒØ±Ø§Øª",
+              "style": {
+                "type": "custom",
+                "fontSize": 16.0,
+                "fontWeight": "w600"
+              },
+              "textDirection": "rtl",
+              "type": "text"
+            },
+            "type": "filledButton"
+          }
+        ],
+        "type": "column"
+      },
+      "type": "singleChildScrollView"
+    },
+    "type": "form"
+  },
+  "type": "scaffold"
+}

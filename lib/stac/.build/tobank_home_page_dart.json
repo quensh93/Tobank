@@ -838,7 +838,7 @@
                                     },
                                     {
                                       "actionType": "navigate",
-                                      "widgetType": "dashboard_real_cards_management",
+                                      "widgetType": "dashboard_cards_management",
                                       "navigationStyle": "push"
                                     }
                                   ]
@@ -987,7 +987,7 @@
                                   },
                                   {
                                     "actionType": "navigate",
-                                    "widgetType": "dashboard_real_cards_management",
+                                    "widgetType": "dashboard_cards_management",
                                     "navigationStyle": "push"
                                   }
                                 ]
@@ -1115,7 +1115,7 @@
                                   },
                                   {
                                     "actionType": "navigate",
-                                    "widgetType": "dashboard_real_cards_management",
+                                    "widgetType": "dashboard_cards_management",
                                     "navigationStyle": "push"
                                   }
                                 ]
@@ -1243,7 +1243,7 @@
                                   },
                                   {
                                     "actionType": "navigate",
-                                    "widgetType": "dashboard_real_cards_management",
+                                    "widgetType": "dashboard_cards_management",
                                     "navigationStyle": "push"
                                   }
                                 ]
@@ -1371,7 +1371,7 @@
                                   },
                                   {
                                     "actionType": "navigate",
-                                    "widgetType": "dashboard_real_cards_management",
+                                    "widgetType": "dashboard_cards_management",
                                     "navigationStyle": "push"
                                   }
                                 ]
@@ -1499,7 +1499,7 @@
                                   },
                                   {
                                     "actionType": "navigate",
-                                    "widgetType": "dashboard_real_cards_management",
+                                    "widgetType": "dashboard_cards_management",
                                     "navigationStyle": "push"
                                   }
                                 ]
@@ -1627,7 +1627,7 @@
                                   },
                                   {
                                     "actionType": "navigate",
-                                    "widgetType": "dashboard_real_cards_management",
+                                    "widgetType": "dashboard_cards_management",
                                     "navigationStyle": "push"
                                   }
                                 ]

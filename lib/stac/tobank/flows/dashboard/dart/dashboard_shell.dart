@@ -9,7 +9,7 @@ import 'package:tobank_sdui/stac/tobank/flows/home_page/dart/home_page.dart'
     as home_page_dart;
 
 @StacScreen(screenName: 'dashboard_shell')
-StacWidget dashboardRealShell() {
+StacWidget dashboardShell() {
   return StacDefaultBottomNavigationController(
     length: 4,
     initialIndex: 3,

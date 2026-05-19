@@ -31,7 +31,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "حساب کاربری",
+                      "data": "Ø­Ø³Ø§Ø¨ Ú©Ø§Ø±Ø¨Ø±ÛŒ",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -126,8 +126,8 @@
                       },
                       "onTap": {
                         "actionType": "showResult",
-                        "title": "ویرایش تصویر",
-                        "content": "این بخش به زودی فعال می‌شود."
+                        "title": "ÙˆÛŒØ±Ø§ÛŒØ´ ØªØµÙˆÛŒØ±",
+                        "content": "Ø§ÛŒÙ† Ø¨Ø®Ø´ Ø¨Ù‡ Ø²ÙˆØ¯ÛŒ ÙØ¹Ø§Ù„ Ù…ÛŒâ€ŒØ´ÙˆØ¯."
                       },
                       "type": "gestureDetector"
                     },
@@ -136,7 +136,7 @@
                       "type": "sizedBox"
                     },
                     {
-                      "data": "مهدی جمشیدپور",
+                      "data": "Ù…Ù‡Ø¯ÛŒ Ø¬Ù…Ø´ÛŒØ¯Ù¾ÙˆØ±",
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.text.title}}",
@@ -215,7 +215,7 @@
                                           },
                                           {
                                             "child": {
-                                              "data": "اطلاعات بانکی",
+                                              "data": "Ø§Ø·Ù„Ø§Ø¹Ø§Øª Ø¨Ø§Ù†Ú©ÛŒ",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -289,7 +289,7 @@
                                           },
                                           {
                                             "child": {
-                                              "data": "دعوت از دوستان",
+                                              "data": "Ø¯Ø¹ÙˆØª Ø§Ø² Ø¯ÙˆØ³ØªØ§Ù†",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -363,7 +363,7 @@
                                           },
                                           {
                                             "child": {
-                                              "data": "مدیریت مقصدها",
+                                              "data": "Ù…Ø¯ÛŒØ±ÛŒØª Ù…Ù‚ØµØ¯Ù‡Ø§",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -437,7 +437,7 @@
                                           },
                                           {
                                             "child": {
-                                              "data": "تنظیمات",
+                                              "data": "ØªÙ†Ø¸ÛŒÙ…Ø§Øª",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -511,7 +511,7 @@
                                           },
                                           {
                                             "child": {
-                                              "data": "قوانین و مقررات",
+                                              "data": "Ù‚ÙˆØ§Ù†ÛŒÙ† Ùˆ Ù…Ù‚Ø±Ø±Ø§Øª",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -585,7 +585,7 @@
                                           },
                                           {
                                             "child": {
-                                              "data": "درباره ما",
+                                              "data": "Ø¯Ø±Ø¨Ø§Ø±Ù‡ Ù…Ø§",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -659,7 +659,7 @@
                                           },
                                           {
                                             "child": {
-                                              "data": "تماس با ما",
+                                              "data": "ØªÙ…Ø§Ø³ Ø¨Ø§ Ù…Ø§",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -698,7 +698,7 @@
                               "type": "padding"
                             },
                             {
-                              "data": "نسخه برنامه ۳.۲.۶",
+                              "data": "Ù†Ø³Ø®Ù‡ Ø¨Ø±Ù†Ø§Ù…Ù‡ Û³.Û².Û¶",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
@@ -778,12 +778,12 @@
                         {
                           "tabs": [
                             {
-                              "text": "تاریخچه فعالیت‌ها",
+                              "text": "ØªØ§Ø±ÛŒØ®Ú†Ù‡ ÙØ¹Ø§Ù„ÛŒØªâ€ŒÙ‡Ø§",
                               "height": 62.0,
                               "type": "tab"
                             },
                             {
-                              "text": "کارتابل",
+                              "text": "Ú©Ø§Ø±ØªØ§Ø¨Ù„",
                               "height": 62.0,
                               "type": "tab"
                             }
@@ -878,7 +878,7 @@
                                             "bottom": 6.0
                                           },
                                           "child": {
-                                            "data": "همه",
+                                            "data": "Ù‡Ù…Ù‡",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.secondary.color}}",
@@ -913,7 +913,7 @@
                                             "bottom": 6.0
                                           },
                                           "child": {
-                                            "data": "همه",
+                                            "data": "Ù‡Ù…Ù‡",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -988,7 +988,7 @@
                                             "bottom": 6.0
                                           },
                                           "child": {
-                                            "data": "درخواست‌های باز",
+                                            "data": "Ø¯Ø±Ø®ÙˆØ§Ø³Øªâ€ŒÙ‡Ø§ÛŒ Ø¨Ø§Ø²",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.secondary.color}}",
@@ -1023,7 +1023,7 @@
                                             "bottom": 6.0
                                           },
                                           "child": {
-                                            "data": "درخواست‌های باز",
+                                            "data": "Ø¯Ø±Ø®ÙˆØ§Ø³Øªâ€ŒÙ‡Ø§ÛŒ Ø¨Ø§Ø²",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -1098,7 +1098,7 @@
                                             "bottom": 6.0
                                           },
                                           "child": {
-                                            "data": "درخواست‌های بسته",
+                                            "data": "Ø¯Ø±Ø®ÙˆØ§Ø³Øªâ€ŒÙ‡Ø§ÛŒ Ø¨Ø³ØªÙ‡",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.secondary.color}}",
@@ -1133,7 +1133,7 @@
                                             "bottom": 6.0
                                           },
                                           "child": {
-                                            "data": "درخواست‌های بسته",
+                                            "data": "Ø¯Ø±Ø®ÙˆØ§Ø³Øªâ€ŒÙ‡Ø§ÛŒ Ø¨Ø³ØªÙ‡",
                                             "style": {
                                               "type": "custom",
                                               "color": "{{appColors.current.text.title}}",
@@ -1226,7 +1226,7 @@
                                                       "crossAxisAlignment": "stretch",
                                                       "children": [
                                                         {
-                                                          "data": "وام قرض الحسنه ازدواج",
+                                                          "data": "ÙˆØ§Ù… Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ø§Ø²Ø¯ÙˆØ§Ø¬",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -1250,7 +1250,7 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "وضعیت درخواست",
+                                                                  "data": "ÙˆØ¶Ø¹ÛŒØª Ø¯Ø±Ø®ÙˆØ§Ø³Øª",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -1280,7 +1280,7 @@
                                                               "type": "row"
                                                             },
                                                             {
-                                                              "data": "باز",
+                                                              "data": "Ø¨Ø§Ø²",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -1307,7 +1307,7 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "تاریخ ثبت درخواست",
+                                                                  "data": "ØªØ§Ø±ÛŒØ® Ø«Ø¨Øª Ø¯Ø±Ø®ÙˆØ§Ø³Øª",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -1337,7 +1337,7 @@
                                                               "type": "row"
                                                             },
                                                             {
-                                                              "data": "۶ دی ۱۴۰۴",
+                                                              "data": "Û¶ Ø¯ÛŒ Û±Û´Û°Û´",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -1388,7 +1388,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "جزئیات",
+                                                              "data": "Ø¬Ø²Ø¦ÛŒØ§Øª",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -1484,7 +1484,7 @@
                                                       "crossAxisAlignment": "stretch",
                                                       "children": [
                                                         {
-                                                          "data": "تکمیل مدارک",
+                                                          "data": "ØªÚ©Ù…ÛŒÙ„ Ù…Ø¯Ø§Ø±Ú©",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -1508,7 +1508,7 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "وضعیت درخواست",
+                                                                  "data": "ÙˆØ¶Ø¹ÛŒØª Ø¯Ø±Ø®ÙˆØ§Ø³Øª",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -1538,7 +1538,7 @@
                                                               "type": "row"
                                                             },
                                                             {
-                                                              "data": "بسته",
+                                                              "data": "Ø¨Ø³ØªÙ‡",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -1565,7 +1565,7 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "تاریخ ثبت درخواست",
+                                                                  "data": "ØªØ§Ø±ÛŒØ® Ø«Ø¨Øª Ø¯Ø±Ø®ÙˆØ§Ø³Øª",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -1595,7 +1595,7 @@
                                                               "type": "row"
                                                             },
                                                             {
-                                                              "data": "۲۴ فروردین ۱۴۰۵",
+                                                              "data": "Û²Û´ ÙØ±ÙˆØ±Ø¯ÛŒÙ† Û±Û´Û°Ûµ",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -1646,7 +1646,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "جزئیات",
+                                                              "data": "Ø¬Ø²Ø¦ÛŒØ§Øª",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -1730,7 +1730,7 @@
                                                       "crossAxisAlignment": "stretch",
                                                       "children": [
                                                         {
-                                                          "data": "تکمیل مدارک",
+                                                          "data": "ØªÚ©Ù…ÛŒÙ„ Ù…Ø¯Ø§Ø±Ú©",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -1754,7 +1754,7 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "وضعیت درخواست",
+                                                                  "data": "ÙˆØ¶Ø¹ÛŒØª Ø¯Ø±Ø®ÙˆØ§Ø³Øª",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -1784,7 +1784,7 @@
                                                               "type": "row"
                                                             },
                                                             {
-                                                              "data": "بسته",
+                                                              "data": "Ø¨Ø³ØªÙ‡",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -1811,7 +1811,7 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "تاریخ ثبت درخواست",
+                                                                  "data": "ØªØ§Ø±ÛŒØ® Ø«Ø¨Øª Ø¯Ø±Ø®ÙˆØ§Ø³Øª",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -1841,7 +1841,7 @@
                                                               "type": "row"
                                                             },
                                                             {
-                                                              "data": "۲۳ فروردین ۱۴۰۵",
+                                                              "data": "Û²Û³ ÙØ±ÙˆØ±Ø¯ÛŒÙ† Û±Û´Û°Ûµ",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -1892,7 +1892,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "جزئیات",
+                                                              "data": "Ø¬Ø²Ø¦ÛŒØ§Øª",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -1976,7 +1976,7 @@
                                                       "crossAxisAlignment": "stretch",
                                                       "children": [
                                                         {
-                                                          "data": "تکمیل مدارک",
+                                                          "data": "ØªÚ©Ù…ÛŒÙ„ Ù…Ø¯Ø§Ø±Ú©",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -2000,7 +2000,7 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "وضعیت درخواست",
+                                                                  "data": "ÙˆØ¶Ø¹ÛŒØª Ø¯Ø±Ø®ÙˆØ§Ø³Øª",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -2030,7 +2030,7 @@
                                                               "type": "row"
                                                             },
                                                             {
-                                                              "data": "بسته",
+                                                              "data": "Ø¨Ø³ØªÙ‡",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -2057,7 +2057,7 @@
                                                               "textDirection": "rtl",
                                                               "children": [
                                                                 {
-                                                                  "data": "تاریخ ثبت درخواست",
+                                                                  "data": "ØªØ§Ø±ÛŒØ® Ø«Ø¨Øª Ø¯Ø±Ø®ÙˆØ§Ø³Øª",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -2087,7 +2087,7 @@
                                                               "type": "row"
                                                             },
                                                             {
-                                                              "data": "۲۳ فروردین ۱۴۰۵",
+                                                              "data": "Û²Û³ ÙØ±ÙˆØ±Ø¯ÛŒÙ† Û±Û´Û°Ûµ",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -2138,7 +2138,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "جزئیات",
+                                                              "data": "Ø¬Ø²Ø¦ÛŒØ§Øª",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -2249,7 +2249,7 @@
                                           "crossAxisAlignment": "stretch",
                                           "children": [
                                             {
-                                              "data": "نوع درخواست: تسهیلات قرض الحسنه ازدواج",
+                                              "data": "Ù†ÙˆØ¹ Ø¯Ø±Ø®ÙˆØ§Ø³Øª: ØªØ³Ù‡ÛŒÙ„Ø§Øª Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ø§Ø²Ø¯ÙˆØ§Ø¬",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -2268,7 +2268,7 @@
                                               "textDirection": "rtl",
                                               "children": [
                                                 {
-                                                  "data": "مرحله بعد",
+                                                  "data": "Ù…Ø±Ø­Ù„Ù‡ Ø¨Ø¹Ø¯",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -2285,7 +2285,7 @@
                                                 },
                                                 {
                                                   "child": {
-                                                    "data": "اصلاح اطلاعات محل سکونت متقاضی",
+                                                    "data": "Ø§ØµÙ„Ø§Ø­ Ø§Ø·Ù„Ø§Ø¹Ø§Øª Ù…Ø­Ù„ Ø³Ú©ÙˆÙ†Øª Ù…ØªÙ‚Ø§Ø¶ÛŒ",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -2348,7 +2348,7 @@
                                                         "type": "sizedBox"
                                                       },
                                                       {
-                                                        "data": "جزئیات",
+                                                        "data": "Ø¬Ø²Ø¦ÛŒØ§Øª",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.title}}",
@@ -2427,7 +2427,7 @@
                                                         "type": "sizedBox"
                                                       },
                                                       {
-                                                        "data": "ادامه فرآیند",
+                                                        "data": "Ø§Ø¯Ø§Ù…Ù‡ ÙØ±Ø¢ÛŒÙ†Ø¯",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.title}}",
@@ -2443,8 +2443,8 @@
                                                 },
                                                 "onTap": {
                                                   "actionType": "showResult",
-                                                  "title": "ادامه فرآیند",
-                                                  "content": "ادامه فرآیند به زودی فعال می‌شود."
+                                                  "title": "Ø§Ø¯Ø§Ù…Ù‡ ÙØ±Ø¢ÛŒÙ†Ø¯",
+                                                  "content": "Ø§Ø¯Ø§Ù…Ù‡ ÙØ±Ø¢ÛŒÙ†Ø¯ Ø¨Ù‡ Ø²ÙˆØ¯ÛŒ ÙØ¹Ø§Ù„ Ù…ÛŒâ€ŒØ´ÙˆØ¯."
                                                 },
                                                 "type": "gestureDetector"
                                               },
@@ -2608,12 +2608,12 @@
                         {
                           "tabs": [
                             {
-                              "text": "سپرده‌ها",
+                              "text": "Ø³Ù¾Ø±Ø¯Ù‡â€ŒÙ‡Ø§",
                               "height": 54.0,
                               "type": "tab"
                             },
                             {
-                              "text": "توبانک",
+                              "text": "ØªÙˆØ¨Ø§Ù†Ú©",
                               "height": 54.0,
                               "type": "tab"
                             }
@@ -2725,7 +2725,7 @@
                                               "children": [
                                                 {
                                                   "child": {
-                                                    "data": "پل",
+                                                    "data": "Ù¾Ù„",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -2743,7 +2743,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۲۹۹,۹۰۰,۰۰۰ ریال",
+                                                  "data": "Û²Û¹Û¹,Û¹Û°Û°,Û°Û°Û° Ø±ÛŒØ§Ù„",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -2762,7 +2762,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "انتقال به مهدی جمشیدپور",
+                                              "data": "Ø§Ù†ØªÙ‚Ø§Ù„ Ø¨Ù‡ Ù…Ù‡Ø¯ÛŒ Ø¬Ù…Ø´ÛŒØ¯Ù¾ÙˆØ±",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -2835,7 +2835,7 @@
                                               "children": [
                                                 {
                                                   "child": {
-                                                    "data": "پل",
+                                                    "data": "Ù¾Ù„",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -2853,7 +2853,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۵۰۰,۰۰۰,۰۰۰ ریال",
+                                                  "data": "ÛµÛ°Û°,Û°Û°Û°,Û°Û°Û° Ø±ÛŒØ§Ù„",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -2872,7 +2872,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "انتقال به مهدی جمشیدپور",
+                                              "data": "Ø§Ù†ØªÙ‚Ø§Ù„ Ø¨Ù‡ Ù…Ù‡Ø¯ÛŒ Ø¬Ù…Ø´ÛŒØ¯Ù¾ÙˆØ±",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -2945,7 +2945,7 @@
                                               "children": [
                                                 {
                                                   "child": {
-                                                    "data": "پل",
+                                                    "data": "Ù¾Ù„",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -2963,7 +2963,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۵۰۰,۰۰۰,۰۰۰ ریال",
+                                                  "data": "ÛµÛ°Û°,Û°Û°Û°,Û°Û°Û° Ø±ÛŒØ§Ù„",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -2982,7 +2982,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "انتقال به مهدی جمشیدپور",
+                                              "data": "Ø§Ù†ØªÙ‚Ø§Ù„ Ø¨Ù‡ Ù…Ù‡Ø¯ÛŒ Ø¬Ù…Ø´ÛŒØ¯Ù¾ÙˆØ±",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -3055,7 +3055,7 @@
                                               "children": [
                                                 {
                                                   "child": {
-                                                    "data": "پل",
+                                                    "data": "Ù¾Ù„",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -3073,7 +3073,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۱۰,۵۰۰,۰۰۰ ریال",
+                                                  "data": "Û±Û°,ÛµÛ°Û°,Û°Û°Û° Ø±ÛŒØ§Ù„",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -3092,7 +3092,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "انتقال به مهدی جمشیدپور",
+                                              "data": "Ø§Ù†ØªÙ‚Ø§Ù„ Ø¨Ù‡ Ù…Ù‡Ø¯ÛŒ Ø¬Ù…Ø´ÛŒØ¯Ù¾ÙˆØ±",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -3165,7 +3165,7 @@
                                               "children": [
                                                 {
                                                   "child": {
-                                                    "data": "پایا",
+                                                    "data": "Ù¾Ø§ÛŒØ§",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -3183,7 +3183,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۵۴۳,۸۰۰,۰۰۰ ریال",
+                                                  "data": "ÛµÛ´Û³,Û¸Û°Û°,Û°Û°Û° Ø±ÛŒØ§Ù„",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -3202,7 +3202,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "انتقال به مهدی جمشیدپور",
+                                              "data": "Ø§Ù†ØªÙ‚Ø§Ù„ Ø¨Ù‡ Ù…Ù‡Ø¯ÛŒ Ø¬Ù…Ø´ÛŒØ¯Ù¾ÙˆØ±",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -3275,7 +3275,7 @@
                                               "children": [
                                                 {
                                                   "child": {
-                                                    "data": "پایا",
+                                                    "data": "Ù¾Ø§ÛŒØ§",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -3293,7 +3293,7 @@
                                                   "type": "sizedBox"
                                                 },
                                                 {
-                                                  "data": "۵۴۳,۹۰۰,۰۰۰ ریال",
+                                                  "data": "ÛµÛ´Û³,Û¹Û°Û°,Û°Û°Û° Ø±ÛŒØ§Ù„",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -3312,7 +3312,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "انتقال به مهدی جمشیدپور",
+                                              "data": "Ø§Ù†ØªÙ‚Ø§Ù„ Ø¨Ù‡ Ù…Ù‡Ø¯ÛŒ Ø¬Ù…Ø´ÛŒØ¯Ù¾ÙˆØ±",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.subtitle}}",
@@ -3389,7 +3389,7 @@
                                               "type": "sizedBox"
                                             },
                                             {
-                                              "data": "فیلترها",
+                                              "data": "ÙÛŒÙ„ØªØ±Ù‡Ø§",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -3449,7 +3449,7 @@
                                           "height": 36.0,
                                           "child": {
                                             "child": {
-                                              "data": "همه",
+                                              "data": "Ù‡Ù…Ù‡",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.secondary.color}}",
@@ -3485,7 +3485,7 @@
                                           "height": 36.0,
                                           "child": {
                                             "child": {
-                                              "data": "همه",
+                                              "data": "Ù‡Ù…Ù‡",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -3553,7 +3553,7 @@
                                           "height": 36.0,
                                           "child": {
                                             "child": {
-                                              "data": "تراکنش های کیف پول",
+                                              "data": "ØªØ±Ø§Ú©Ù†Ø´ Ù‡Ø§ÛŒ Ú©ÛŒÙ Ù¾ÙˆÙ„",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.secondary.color}}",
@@ -3589,7 +3589,7 @@
                                           "height": 36.0,
                                           "child": {
                                             "child": {
-                                              "data": "تراکنش های کیف پول",
+                                              "data": "ØªØ±Ø§Ú©Ù†Ø´ Ù‡Ø§ÛŒ Ú©ÛŒÙ Ù¾ÙˆÙ„",
                                               "style": {
                                                 "type": "custom",
                                                 "color": "{{appColors.current.text.title}}",
@@ -3685,7 +3685,7 @@
                                                           "children": [
                                                             {
                                                               "child": {
-                                                                "data": "پرداخت اقساط",
+                                                                "data": "Ù¾Ø±Ø¯Ø§Ø®Øª Ø§Ù‚Ø³Ø§Ø·",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -3703,7 +3703,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۱,۰۰۶,۰۰۰ ریال",
+                                                              "data": "Û±,Û°Û°Û¶,Û°Û°Û° Ø±ÛŒØ§Ù„",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -3722,7 +3722,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۰۱ فروردین ۱۴۰۵ - ۱۱:۴۳",
+                                                          "data": "Û°Û± ÙØ±ÙˆØ±Ø¯ÛŒÙ† Û±Û´Û°Ûµ - Û±Û±:Û´Û³",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -3795,7 +3795,7 @@
                                                           "children": [
                                                             {
                                                               "child": {
-                                                                "data": "سرویس کارمزد سفته",
+                                                                "data": "Ø³Ø±ÙˆÛŒØ³ Ú©Ø§Ø±Ù…Ø²Ø¯ Ø³ÙØªÙ‡",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -3813,7 +3813,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۳۸,۰۰۰ ریال",
+                                                              "data": "Û³Û¸,Û°Û°Û° Ø±ÛŒØ§Ù„",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -3832,7 +3832,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۰۲ اسفند ۱۴۰۴ - ۱۵:۲۷",
+                                                          "data": "Û°Û² Ø§Ø³ÙÙ†Ø¯ Û±Û´Û°Û´ - Û±Ûµ:Û²Û·",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -3905,7 +3905,7 @@
                                                           "children": [
                                                             {
                                                               "child": {
-                                                                "data": "کارت به کارت",
+                                                                "data": "Ú©Ø§Ø±Øª Ø¨Ù‡ Ú©Ø§Ø±Øª",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -3923,7 +3923,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۱۰,۰۰۰ ریال",
+                                                              "data": "Û±Û°,Û°Û°Û° Ø±ÛŒØ§Ù„",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -3942,7 +3942,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۰۶ دی ۱۴۰۴ - ۱۱:۰۲",
+                                                          "data": "Û°Û¶ Ø¯ÛŒ Û±Û´Û°Û´ - Û±Û±:Û°Û²",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -4027,7 +4027,7 @@
                                                           "children": [
                                                             {
                                                               "child": {
-                                                                "data": "سرویس کارمزد سفته",
+                                                                "data": "Ø³Ø±ÙˆÛŒØ³ Ú©Ø§Ø±Ù…Ø²Ø¯ Ø³ÙØªÙ‡",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -4045,7 +4045,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۳۱۳,۰۰۰ ریال",
+                                                              "data": "Û³Û±Û³,Û°Û°Û° Ø±ÛŒØ§Ù„",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -4064,7 +4064,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۵۸ بهمن ۱۴۰۴ - ۱۰:۰۵",
+                                                          "data": "ÛµÛ¸ Ø¨Ù‡Ù…Ù† Û±Û´Û°Û´ - Û±Û°:Û°Ûµ",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -4137,7 +4137,7 @@
                                                           "children": [
                                                             {
                                                               "child": {
-                                                                "data": "شارژ کیف پول توبانک",
+                                                                "data": "Ø´Ø§Ø±Ú˜ Ú©ÛŒÙ Ù¾ÙˆÙ„ ØªÙˆØ¨Ø§Ù†Ú©",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -4155,7 +4155,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۵۰,۰۰۰ ریال",
+                                                              "data": "ÛµÛ°,Û°Û°Û° Ø±ÛŒØ§Ù„",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -4174,7 +4174,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۵۸ دی ۱۴۰۴ - ۱۴:۰۳",
+                                                          "data": "ÛµÛ¸ Ø¯ÛŒ Û±Û´Û°Û´ - Û±Û´:Û°Û³",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -4247,7 +4247,7 @@
                                                           "children": [
                                                             {
                                                               "child": {
-                                                                "data": "کارت به کارت",
+                                                                "data": "Ú©Ø§Ø±Øª Ø¨Ù‡ Ú©Ø§Ø±Øª",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -4265,7 +4265,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۱۰,۰۰۰ ریال",
+                                                              "data": "Û±Û°,Û°Û°Û° Ø±ÛŒØ§Ù„",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -4284,7 +4284,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۰۶ دی ۱۴۰۴ - ۱۵:۰۸",
+                                                          "data": "Û°Û¶ Ø¯ÛŒ Û±Û´Û°Û´ - Û±Ûµ:Û°Û¸",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -4377,7 +4377,7 @@
                                                           "children": [
                                                             {
                                                               "child": {
-                                                                "data": "تراکنش کیف پول",
+                                                                "data": "ØªØ±Ø§Ú©Ù†Ø´ Ú©ÛŒÙ Ù¾ÙˆÙ„",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -4395,7 +4395,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۱۰,۰۰۰ ریال",
+                                                              "data": "Û±Û°,Û°Û°Û° Ø±ÛŒØ§Ù„",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -4414,7 +4414,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۰۳ دی ۱۴۰۴ - ۱۳:۳۰",
+                                                          "data": "Û°Û³ Ø¯ÛŒ Û±Û´Û°Û´ - Û±Û³:Û³Û°",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -4487,7 +4487,7 @@
                                                           "children": [
                                                             {
                                                               "child": {
-                                                                "data": "سرویس اعتبارسنجی",
+                                                                "data": "Ø³Ø±ÙˆÛŒØ³ Ø§Ø¹ØªØ¨Ø§Ø±Ø³Ù†Ø¬ÛŒ",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -4505,7 +4505,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۸,۰۰۰ ریال",
+                                                              "data": "Û¸,Û°Û°Û° Ø±ÛŒØ§Ù„",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -4524,7 +4524,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۰۱ دی ۱۴۰۴ - ۱۲:۰۱",
+                                                          "data": "Û°Û± Ø¯ÛŒ Û±Û´Û°Û´ - Û±Û²:Û°Û±",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -4597,7 +4597,7 @@
                                                           "children": [
                                                             {
                                                               "child": {
-                                                                "data": "سرویس اعتبارسنجی",
+                                                                "data": "Ø³Ø±ÙˆÛŒØ³ Ø§Ø¹ØªØ¨Ø§Ø±Ø³Ù†Ø¬ÛŒ",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -4615,7 +4615,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۸۰,۰۰۰ ریال",
+                                                              "data": "Û¸Û°,Û°Û°Û° Ø±ÛŒØ§Ù„",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -4634,7 +4634,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۲۶ آذر ۱۴۰۴ - ۱۱:۱۶",
+                                                          "data": "Û²Û¶ Ø¢Ø°Ø± Û±Û´Û°Û´ - Û±Û±:Û±Û¶",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -4707,7 +4707,7 @@
                                                           "children": [
                                                             {
                                                               "child": {
-                                                                "data": "سفارش کارت هدیه",
+                                                                "data": "Ø³ÙØ§Ø±Ø´ Ú©Ø§Ø±Øª Ù‡Ø¯ÛŒÙ‡",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -4725,7 +4725,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۱,۳۶۸,۵۰۰ ریال",
+                                                              "data": "Û±,Û³Û¶Û¸,ÛµÛ°Û° Ø±ÛŒØ§Ù„",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -4744,7 +4744,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۲۶ آذر ۱۴۰۴ - ۱۱:۵۰",
+                                                          "data": "Û²Û¶ Ø¢Ø°Ø± Û±Û´Û°Û´ - Û±Û±:ÛµÛ°",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -4817,7 +4817,7 @@
                                                           "children": [
                                                             {
                                                               "child": {
-                                                                "data": "تراکنش کیف پول",
+                                                                "data": "ØªØ±Ø§Ú©Ù†Ø´ Ú©ÛŒÙ Ù¾ÙˆÙ„",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -4835,7 +4835,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۱,۴۰۰,۰۰۰ ریال",
+                                                              "data": "Û±,Û´Û°Û°,Û°Û°Û° Ø±ÛŒØ§Ù„",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -4854,7 +4854,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۲۶ آذر ۱۴۰۴ - ۱۱:۴۰",
+                                                          "data": "Û²Û¶ Ø¢Ø°Ø± Û±Û´Û°Û´ - Û±Û±:Û´Û°",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -4939,7 +4939,7 @@
                                                           "children": [
                                                             {
                                                               "child": {
-                                                                "data": "شارژ کیف پول توبانک",
+                                                                "data": "Ø´Ø§Ø±Ú˜ Ú©ÛŒÙ Ù¾ÙˆÙ„ ØªÙˆØ¨Ø§Ù†Ú©",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -4957,7 +4957,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۵۰,۰۰۰ ریال",
+                                                              "data": "ÛµÛ°,Û°Û°Û° Ø±ÛŒØ§Ù„",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -4976,7 +4976,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۰۸ دی ۱۴۰۴ - ۱۴:۰۳",
+                                                          "data": "Û°Û¸ Ø¯ÛŒ Û±Û´Û°Û´ - Û±Û´:Û°Û³",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -5049,7 +5049,7 @@
                                                           "children": [
                                                             {
                                                               "child": {
-                                                                "data": "انتقال کیف پول",
+                                                                "data": "Ø§Ù†ØªÙ‚Ø§Ù„ Ú©ÛŒÙ Ù¾ÙˆÙ„",
                                                                 "style": {
                                                                   "type": "custom",
                                                                   "color": "{{appColors.current.text.title}}",
@@ -5067,7 +5067,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "۲۵,۰۰۰ ریال",
+                                                              "data": "Û²Ûµ,Û°Û°Û° Ø±ÛŒØ§Ù„",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -5086,7 +5086,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "۰۸ دی ۱۴۰۴ - ۱۰:۱۶",
+                                                          "data": "Û°Û¸ Ø¯ÛŒ Û±Û´Û°Û´ - Û±Û°:Û±Û¶",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.subtitle}}",
@@ -5349,7 +5349,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "خدمات",
+                                          "data": "Ø®Ø¯Ù…Ø§Øª",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -5389,7 +5389,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "خدمات",
+                                          "data": "Ø®Ø¯Ù…Ø§Øª",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -5484,7 +5484,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "سرمایه‌گذاری",
+                                          "data": "Ø³Ø±Ù…Ø§ÛŒÙ‡â€ŒÚ¯Ø°Ø§Ø±ÛŒ",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -5524,7 +5524,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "سرمایه‌گذاری",
+                                          "data": "Ø³Ø±Ù…Ø§ÛŒÙ‡â€ŒÚ¯Ø°Ø§Ø±ÛŒ",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -5619,7 +5619,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "کارت‌ها",
+                                          "data": "Ú©Ø§Ø±Øªâ€ŒÙ‡Ø§",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -5659,7 +5659,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "کارت‌ها",
+                                          "data": "Ú©Ø§Ø±Øªâ€ŒÙ‡Ø§",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -5754,7 +5754,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "سپرده‌ها",
+                                          "data": "Ø³Ù¾Ø±Ø¯Ù‡â€ŒÙ‡Ø§",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.title}}",
@@ -5794,7 +5794,7 @@
                                           "type": "sizedBox"
                                         },
                                         {
-                                          "data": "سپرده‌ها",
+                                          "data": "Ø³Ù¾Ø±Ø¯Ù‡â€ŒÙ‡Ø§",
                                           "style": {
                                             "type": "custom",
                                             "color": "{{appColors.current.text.subtitle}}",
@@ -5901,7 +5901,7 @@
                                                       "mainAxisAlignment": "end",
                                                       "children": [
                                                         {
-                                                          "data": "کیف پول توبانک",
+                                                          "data": "Ú©ÛŒÙ Ù¾ÙˆÙ„ ØªÙˆØ¨Ø§Ù†Ú©",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "#FFFFFF",
@@ -5935,7 +5935,7 @@
                                                         "textDirection": "rtl",
                                                         "children": [
                                                           {
-                                                            "data": "۳۳,۲۲۲",
+                                                            "data": "Û³Û³,Û²Û²Û²",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "#FFFFFF",
@@ -5950,7 +5950,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "ریال",
+                                                            "data": "Ø±ÛŒØ§Ù„",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "#FFFFFF",
@@ -5985,7 +5985,7 @@
                                             },
                                             {
                                               "actionType": "navigate",
-                                              "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                              "widgetType": "dashboard_cards_management",
                                               "navigationStyle": "push"
                                             }
                                           ]
@@ -6074,7 +6074,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بانک‌گردشگری",
+                                                      "data": "Ø¨Ø§Ù†Ú©â€ŒÚ¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -6090,7 +6090,7 @@
                                                 {
                                                   "children": [
                                                     {
-                                                      "data": "۵۵۰۴ ۱۶۱۷ ۰۲۸۲ ۲۳۳۳",
+                                                      "data": "ÛµÛµÛ°Û´ Û±Û¶Û±Û· Û°Û²Û¸Û² Û²Û³Û³Û³",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -6102,7 +6102,7 @@
                                                       "type": "text"
                                                     },
                                                     {
-                                                      "data": "حساب قرض الحسنه گردشگری",
+                                                      "data": "Ø­Ø³Ø§Ø¨ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ú¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -6134,7 +6134,7 @@
                                           },
                                           {
                                             "actionType": "navigate",
-                                            "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                            "widgetType": "dashboard_cards_management",
                                             "navigationStyle": "push"
                                           }
                                         ]
@@ -6202,7 +6202,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بانک‌گردشگری",
+                                                      "data": "Ø¨Ø§Ù†Ú©â€ŒÚ¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -6218,7 +6218,7 @@
                                                 {
                                                   "children": [
                                                     {
-                                                      "data": "۵۵۰۴ ۱۶۱۷ ۰۵۰۳ ۰۶۰۳",
+                                                      "data": "ÛµÛµÛ°Û´ Û±Û¶Û±Û· Û°ÛµÛ°Û³ Û°Û¶Û°Û³",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -6230,7 +6230,7 @@
                                                       "type": "text"
                                                     },
                                                     {
-                                                      "data": "حساب قرض الحسنه گردشگری",
+                                                      "data": "Ø­Ø³Ø§Ø¨ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ú¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -6262,7 +6262,7 @@
                                           },
                                           {
                                             "actionType": "navigate",
-                                            "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                            "widgetType": "dashboard_cards_management",
                                             "navigationStyle": "push"
                                           }
                                         ]
@@ -6330,7 +6330,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بانک‌گردشگری",
+                                                      "data": "Ø¨Ø§Ù†Ú©â€ŒÚ¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -6346,7 +6346,7 @@
                                                 {
                                                   "children": [
                                                     {
-                                                      "data": "۵۵۰۴ ۱۶۶۰ ۱۱۶۵ ۰۶۳۴",
+                                                      "data": "ÛµÛµÛ°Û´ Û±Û¶Û¶Û° Û±Û±Û¶Ûµ Û°Û¶Û³Û´",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -6358,7 +6358,7 @@
                                                       "type": "text"
                                                     },
                                                     {
-                                                      "data": "حساب قرض الحسنه گردشگری",
+                                                      "data": "Ø­Ø³Ø§Ø¨ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ú¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -6390,7 +6390,7 @@
                                           },
                                           {
                                             "actionType": "navigate",
-                                            "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                            "widgetType": "dashboard_cards_management",
                                             "navigationStyle": "push"
                                           }
                                         ]
@@ -6458,7 +6458,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بانک‌گردشگری",
+                                                      "data": "Ø¨Ø§Ù†Ú©â€ŒÚ¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -6474,7 +6474,7 @@
                                                 {
                                                   "children": [
                                                     {
-                                                      "data": "۵۵۰۴ ۱۶۷۸ ۳۴۹۱ ۶۲۴۰",
+                                                      "data": "ÛµÛµÛ°Û´ Û±Û¶Û·Û¸ Û³Û´Û¹Û± Û¶Û²Û´Û°",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -6486,7 +6486,7 @@
                                                       "type": "text"
                                                     },
                                                     {
-                                                      "data": "حساب قرض الحسنه گردشگری",
+                                                      "data": "Ø­Ø³Ø§Ø¨ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ú¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -6518,7 +6518,7 @@
                                           },
                                           {
                                             "actionType": "navigate",
-                                            "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                            "widgetType": "dashboard_cards_management",
                                             "navigationStyle": "push"
                                           }
                                         ]
@@ -6586,7 +6586,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بانک‌گردشگری",
+                                                      "data": "Ø¨Ø§Ù†Ú©â€ŒÚ¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -6602,7 +6602,7 @@
                                                 {
                                                   "children": [
                                                     {
-                                                      "data": "۵۰۲۲ ۲۲۹۸ ۷۷۴۵ ۱۲۰۱",
+                                                      "data": "ÛµÛ°Û²Û² Û²Û²Û¹Û¸ Û·Û·Û´Ûµ Û±Û²Û°Û±",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -6614,7 +6614,7 @@
                                                       "type": "text"
                                                     },
                                                     {
-                                                      "data": "حساب قرض الحسنه گردشگری",
+                                                      "data": "Ø­Ø³Ø§Ø¨ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ú¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -6646,7 +6646,7 @@
                                           },
                                           {
                                             "actionType": "navigate",
-                                            "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                            "widgetType": "dashboard_cards_management",
                                             "navigationStyle": "push"
                                           }
                                         ]
@@ -6714,7 +6714,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "بانک‌گردشگری",
+                                                      "data": "Ø¨Ø§Ù†Ú©â€ŒÚ¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -6730,7 +6730,7 @@
                                                 {
                                                   "children": [
                                                     {
-                                                      "data": "۵۸۹۲ ۱۰۱۰ ۶۵۴۳ ۷۹۹۸",
+                                                      "data": "ÛµÛ¸Û¹Û² Û±Û°Û±Û° Û¶ÛµÛ´Û³ Û·Û¹Û¹Û¸",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -6742,7 +6742,7 @@
                                                       "type": "text"
                                                     },
                                                     {
-                                                      "data": "حساب قرض الحسنه گردشگری",
+                                                      "data": "Ø­Ø³Ø§Ø¨ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ú¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "#FFFFFF",
@@ -6774,7 +6774,7 @@
                                           },
                                           {
                                             "actionType": "navigate",
-                                            "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                            "widgetType": "dashboard_cards_management",
                                             "navigationStyle": "push"
                                           }
                                         ]
@@ -6856,7 +6856,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "کارت به کارت",
+                                                    "data": "Ú©Ø§Ø±Øª Ø¨Ù‡ Ú©Ø§Ø±Øª",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -6911,7 +6911,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "چک صیادی",
+                                                    "data": "Ú†Ú© ØµÛŒØ§Ø¯ÛŒ",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -6966,7 +6966,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "موجودی",
+                                                    "data": "Ù…ÙˆØ¬ÙˆØ¯ÛŒ",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -7021,7 +7021,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "شارژ",
+                                                    "data": "Ø´Ø§Ø±Ú˜",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -7082,7 +7082,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "بسته اینترنت",
+                                                    "data": "Ø¨Ø³ØªÙ‡ Ø§ÛŒÙ†ØªØ±Ù†Øª",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -7138,7 +7138,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "خدمات سفر",
+                                                      "data": "Ø®Ø¯Ù…Ø§Øª Ø³ÙØ±",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -7200,7 +7200,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "کارت هدیه",
+                                                    "data": "Ú©Ø§Ø±Øª Ù‡Ø¯ÛŒÙ‡",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -7255,7 +7255,7 @@
                                                     "type": "sizedBox"
                                                   },
                                                   {
-                                                    "data": "قبض",
+                                                    "data": "Ù‚Ø¨Ø¶",
                                                     "style": {
                                                       "type": "custom",
                                                       "color": "{{appColors.current.text.title}}",
@@ -7317,7 +7317,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "پذیرندگی",
+                                                      "data": "Ù¾Ø°ÛŒØ±Ù†Ø¯Ú¯ÛŒ",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.title}}",
@@ -7460,7 +7460,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "افتتاح سپرده بانک گردشگری",
+                                                            "data": "Ø§ÙØªØªØ§Ø­ Ø³Ù¾Ø±Ø¯Ù‡ Ø¨Ø§Ù†Ú© Ú¯Ø±Ø¯Ø´Ú¯Ø±ÛŒ",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -7490,7 +7490,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "کوتاه مدت، قرض الحسنه پس انداز، بلندمدت و ...",
+                                                            "data": "Ú©ÙˆØªØ§Ù‡ Ù…Ø¯ØªØŒ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ù¾Ø³ Ø§Ù†Ø¯Ø§Ø²ØŒ Ø¨Ù„Ù†Ø¯Ù…Ø¯Øª Ùˆ ...",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.subtitle}}",
@@ -7526,7 +7526,7 @@
                                                           "textDirection": "rtl",
                                                           "children": [
                                                             {
-                                                              "data": "افتتاح سپرده",
+                                                              "data": "Ø§ÙØªØªØ§Ø­ Ø³Ù¾Ø±Ø¯Ù‡",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "fontSize": 16.0,
@@ -7691,7 +7691,7 @@
                                                                                     "type": "sizedBox"
                                                                                   },
                                                                                   {
-                                                                                    "data": "ریال",
+                                                                                    "data": "Ø±ÛŒØ§Ù„",
                                                                                     "style": {
                                                                                       "type": "custom",
                                                                                       "color": "{{appColors.current.text.title}}",
@@ -7721,7 +7721,7 @@
                                                                                 "textDirection": "rtl",
                                                                                 "children": [
                                                                                   {
-                              "data": "•••••••",
+                                                                                    "data": "â¬¤â¬¤â¬¤â¬¤â¬¤â¬¤â¬¤",
                                                                                     "style": {
                                                                                       "type": "custom",
                                                                                       "color": "{{appColors.current.text.title}}",
@@ -7779,7 +7779,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "حساب قرض الحسنه جاری توبانک",
+                                                                  "data": "Ø­Ø³Ø§Ø¨ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ø¬Ø§Ø±ÛŒ ØªÙˆØ¨Ø§Ù†Ú©",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -7860,7 +7860,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "گردش سپرده",
+                                                                  "data": "Ú¯Ø±Ø¯Ø´ Ø³Ù¾Ø±Ø¯Ù‡",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.title}}",
@@ -7923,7 +7923,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "انتقال وجه",
+                                                                  "data": "Ø§Ù†ØªÙ‚Ø§Ù„ ÙˆØ¬Ù‡",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.title}}",
@@ -7986,7 +7986,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "بیشتر",
+                                                                  "data": "Ø¨ÛŒØ´ØªØ±",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.title}}",
@@ -8143,7 +8143,7 @@
                                                                                     "type": "sizedBox"
                                                                                   },
                                                                                   {
-                                                                                    "data": "ریال",
+                                                                                    "data": "Ø±ÛŒØ§Ù„",
                                                                                     "style": {
                                                                                       "type": "custom",
                                                                                       "color": "{{appColors.current.text.title}}",
@@ -8173,7 +8173,7 @@
                                                                                 "textDirection": "rtl",
                                                                                 "children": [
                                                                                   {
-                              "data": "•••••••",
+                                                                                    "data": "â¬¤â¬¤â¬¤â¬¤â¬¤â¬¤â¬¤",
                                                                                     "style": {
                                                                                       "type": "custom",
                                                                                       "color": "{{appColors.current.text.title}}",
@@ -8231,7 +8231,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "حساب قرض الحسنه جاری سپرده دوم",
+                                                                  "data": "Ø­Ø³Ø§Ø¨ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ø¬Ø§Ø±ÛŒ Ø³Ù¾Ø±Ø¯Ù‡ Ø¯ÙˆÙ…",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -8312,7 +8312,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "گردش سپرده",
+                                                                  "data": "Ú¯Ø±Ø¯Ø´ Ø³Ù¾Ø±Ø¯Ù‡",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.title}}",
@@ -8375,7 +8375,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "انتقال وجه",
+                                                                  "data": "Ø§Ù†ØªÙ‚Ø§Ù„ ÙˆØ¬Ù‡",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.title}}",
@@ -8438,7 +8438,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "بیشتر",
+                                                                  "data": "Ø¨ÛŒØ´ØªØ±",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.title}}",
@@ -8595,7 +8595,7 @@
                                                                                     "type": "sizedBox"
                                                                                   },
                                                                                   {
-                                                                                    "data": "ریال",
+                                                                                    "data": "Ø±ÛŒØ§Ù„",
                                                                                     "style": {
                                                                                       "type": "custom",
                                                                                       "color": "{{appColors.current.text.title}}",
@@ -8625,7 +8625,7 @@
                                                                                 "textDirection": "rtl",
                                                                                 "children": [
                                                                                   {
-                              "data": "•••••••",
+                                                                                    "data": "â¬¤â¬¤â¬¤â¬¤â¬¤â¬¤â¬¤",
                                                                                     "style": {
                                                                                       "type": "custom",
                                                                                       "color": "{{appColors.current.text.title}}",
@@ -8683,7 +8683,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "حساب قرض الحسنه جاری حقیقی توبانک",
+                                                                  "data": "Ø­Ø³Ø§Ø¨ Ù‚Ø±Ø¶ Ø§Ù„Ø­Ø³Ù†Ù‡ Ø¬Ø§Ø±ÛŒ Ø­Ù‚ÛŒÙ‚ÛŒ ØªÙˆØ¨Ø§Ù†Ú©",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.subtitle}}",
@@ -8764,7 +8764,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "گردش سپرده",
+                                                                  "data": "Ú¯Ø±Ø¯Ø´ Ø³Ù¾Ø±Ø¯Ù‡",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.title}}",
@@ -8827,7 +8827,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "انتقال وجه",
+                                                                  "data": "Ø§Ù†ØªÙ‚Ø§Ù„ ÙˆØ¬Ù‡",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.title}}",
@@ -8890,7 +8890,7 @@
                                                                   "type": "sizedBox"
                                                                 },
                                                                 {
-                                                                  "data": "بیشتر",
+                                                                  "data": "Ø¨ÛŒØ´ØªØ±",
                                                                   "style": {
                                                                     "type": "custom",
                                                                     "color": "{{appColors.current.text.title}}",
@@ -8960,7 +8960,7 @@
                                               "crossAxisAlignment": "stretch",
                                               "children": [
                                                 {
-                                                  "data": "کاربر گرامی، برای فعال سازی خدمات مرتبط با سپرده‌های بانک گردشگری، لطفا فرآیند احراز هویت را تکمیل نمایید.",
+                                                  "data": "Ú©Ø§Ø±Ø¨Ø± Ú¯Ø±Ø§Ù…ÛŒØŒ Ø¨Ø±Ø§ÛŒ ÙØ¹Ø§Ù„ Ø³Ø§Ø²ÛŒ Ø®Ø¯Ù…Ø§Øª Ù…Ø±ØªØ¨Ø· Ø¨Ø§ Ø³Ù¾Ø±Ø¯Ù‡â€ŒÙ‡Ø§ÛŒ Ø¨Ø§Ù†Ú© Ú¯Ø±Ø¯Ø´Ú¯Ø±ÛŒØŒ Ù„Ø·ÙØ§ ÙØ±Ø¢ÛŒÙ†Ø¯ Ø§Ø­Ø±Ø§Ø² Ù‡ÙˆÛŒØª Ø±Ø§ ØªÚ©Ù…ÛŒÙ„ Ù†Ù…Ø§ÛŒÛŒØ¯.",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -9032,7 +9032,7 @@
                                                     }
                                                   },
                                                   "child": {
-                                                    "data": "احراز هویت",
+                                                    "data": "Ø§Ø­Ø±Ø§Ø² Ù‡ÙˆÛŒØª",
                                                     "style": {
                                                       "type": "custom",
                                                       "fontSize": 14.0,
@@ -9103,7 +9103,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "گردش سپرده",
+                                                              "data": "Ú¯Ø±Ø¯Ø´ Ø³Ù¾Ø±Ø¯Ù‡",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -9166,7 +9166,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "انتقال وجه",
+                                                              "data": "Ø§Ù†ØªÙ‚Ø§Ù„ ÙˆØ¬Ù‡",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -9229,7 +9229,7 @@
                                                               "type": "sizedBox"
                                                             },
                                                             {
-                                                              "data": "بیشتر",
+                                                              "data": "Ø¨ÛŒØ´ØªØ±",
                                                               "style": {
                                                                 "type": "custom",
                                                                 "color": "{{appColors.current.text.title}}",
@@ -9263,7 +9263,7 @@
                                         "type": "sizedBox"
                                       },
                                       {
-                                        "data": "خدمات ویژه توبانک",
+                                        "data": "Ø®Ø¯Ù…Ø§Øª ÙˆÛŒÚ˜Ù‡ ØªÙˆØ¨Ø§Ù†Ú©",
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
@@ -9330,7 +9330,7 @@
                                                             "type": "sizedBox"
                                                           },
                                                           {
-                                                            "data": "سایر خدمات",
+                                                            "data": "Ø³Ø§ÛŒØ± Ø®Ø¯Ù…Ø§Øª",
                                                             "style": {
                                                               "type": "custom",
                                                               "color": "{{appColors.current.text.title}}",
@@ -9349,7 +9349,7 @@
                                                         "type": "sizedBox"
                                                       },
                                                       {
-                                                        "data": "سفته الکترونیک ...",
+                                                        "data": "Ø³ÙØªÙ‡ Ø§Ù„Ú©ØªØ±ÙˆÙ†ÛŒÚ© ...",
                                                         "style": {
                                                           "type": "custom",
                                                           "color": "{{appColors.current.text.subtitle}}",
@@ -9430,7 +9430,7 @@
                                                           "type": "sizedBox"
                                                         },
                                                         {
-                                                          "data": "انواع تسهیلات",
+                                                          "data": "Ø§Ù†ÙˆØ§Ø¹ ØªØ³Ù‡ÛŒÙ„Ø§Øª",
                                                           "style": {
                                                             "type": "custom",
                                                             "color": "{{appColors.current.text.title}}",
@@ -9449,7 +9449,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "ازدواج، کارت اعتباری ...",
+                                                      "data": "Ø§Ø²Ø¯ÙˆØ§Ø¬ØŒ Ú©Ø§Ø±Øª Ø§Ø¹ØªØ¨Ø§Ø±ÛŒ ...",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -9613,7 +9613,7 @@
                                                 "type": "sizedBox"
                                               },
                                               {
-                                                "data": "صندوق سرمایه‌گذاری",
+                                                "data": "ØµÙ†Ø¯ÙˆÙ‚ Ø³Ø±Ù…Ø§ÛŒÙ‡â€ŒÚ¯Ø°Ø§Ø±ÛŒ",
                                                 "style": {
                                                   "type": "custom",
                                                   "color": "{{appColors.current.text.title}}",
@@ -9650,7 +9650,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "معاف از مالیات",
+                                                      "data": "Ù…Ø¹Ø§Ù Ø§Ø² Ù…Ø§Ù„ÛŒØ§Øª",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -9692,7 +9692,7 @@
                                                       "type": "sizedBox"
                                                     },
                                                     {
-                                                      "data": "تحت مجوز و نظارت سازمان بورس",
+                                                      "data": "ØªØ­Øª Ù…Ø¬ÙˆØ² Ùˆ Ù†Ø¸Ø§Ø±Øª Ø³Ø§Ø²Ù…Ø§Ù† Ø¨ÙˆØ±Ø³",
                                                       "style": {
                                                         "type": "custom",
                                                         "color": "{{appColors.current.text.subtitle}}",
@@ -9753,7 +9753,7 @@
                                                   }
                                                 },
                                                 "child": {
-                                                  "data": "شروع سرمایه گذاری",
+                                                  "data": "Ø´Ø±ÙˆØ¹ Ø³Ø±Ù…Ø§ÛŒÙ‡ Ú¯Ø°Ø§Ø±ÛŒ",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "#FFFFFF",
@@ -9869,7 +9869,7 @@
               "height": 24.0,
               "type": "image"
             },
-            "label": "پروفایل",
+            "label": "Ù¾Ø±ÙˆÙØ§ÛŒÙ„",
             "activeIcon": {
               "src": "assets/icons/ic_profile_main_selected.svg",
               "imageType": "asset",
@@ -9888,7 +9888,7 @@
               "height": 24.0,
               "type": "image"
             },
-            "label": "کارتابل",
+            "label": "Ú©Ø§Ø±ØªØ§Ø¨Ù„",
             "activeIcon": {
               "src": "assets/icons/ic_cardboard_selected.svg",
               "imageType": "asset",
@@ -9907,7 +9907,7 @@
               "height": 24.0,
               "type": "image"
             },
-            "label": "تراکنش‌ها",
+            "label": "ØªØ±Ø§Ú©Ù†Ø´â€ŒÙ‡Ø§",
             "activeIcon": {
               "src": "assets/icons/ic_transaction_main_selected.svg",
               "imageType": "asset",
@@ -9926,7 +9926,7 @@
               "height": 24.0,
               "type": "image"
             },
-            "label": "خانه",
+            "label": "Ø®Ø§Ù†Ù‡",
             "activeIcon": {
               "src": "assets/icons/ic_home_main_selected.svg",
               "imageType": "asset",
