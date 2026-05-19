@@ -51,3 +51,13 @@ docs/Archived/.stac/
 # Graphify generated output
 graphify-out/
 **/graphify-out/
+
+# Local AI agent/tool configuration
+.codex/
+**/.codex/
+.claude/
+**/.claude/
+AGENTS.md
+
+# RuVector database cache
+ruvector.db
