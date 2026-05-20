@@ -4,15 +4,15 @@
     "appBar": {
       "leading": {
         "padding": {
-          "left": 12.0
+          "left": 12
         },
         "child": {
           "child": {
             "src": "{{appAssets.icons.support}}",
             "imageType": "asset",
             "color": "{{appColors.current.text.title}}",
-            "width": 24.0,
-            "height": 24.0,
+            "width": 24,
+            "height": 24,
             "type": "image"
           },
           "type": "center"
@@ -32,7 +32,7 @@
       "actions": [
         {
           "padding": {
-            "right": 12.0
+            "right": 12
           },
           "child": {
             "onPressed": {
@@ -43,8 +43,8 @@
               "src": "{{appAssets.icons.arrowBack}}",
               "imageType": "asset",
               "color": "{{appColors.current.text.title}}",
-              "width": 31.0,
-              "height": 31.0,
+              "width": 31,
+              "height": 31,
               "type": "image"
             },
             "type": "iconButton"
@@ -57,10 +57,10 @@
     },
     "body": {
       "padding": {
-        "left": 16.0,
-        "top": 16.0,
-        "right": 16.0,
-        "bottom": 16.0
+        "left": 16,
+        "top": 16,
+        "right": 16,
+        "bottom": 16
       },
       "child": {
         "crossAxisAlignment": "stretch",
@@ -69,33 +69,33 @@
             "decoration": {
               "border": {
                 "color": "{{appColors.current.input.borderEnabled}}",
-                "width": 1.0
+                "width": 1
               },
               "borderRadius": {
-                "topLeft": 8.0,
-                "topRight": 8.0,
-                "bottomLeft": 8.0,
-                "bottomRight": 8.0
+                "topLeft": 8,
+                "topRight": 8,
+                "bottomLeft": 8,
+                "bottomRight": 8
               }
             },
             "child": {
               "padding": {
-                "left": 16.0,
-                "top": 16.0,
-                "right": 16.0,
-                "bottom": 16.0
+                "left": 16,
+                "top": 16,
+                "right": 16,
+                "bottom": 16
               },
               "child": {
                 "children": [
                   {
                     "src": "assets/icons/ic_success_new.svg",
                     "imageType": "asset",
-                    "width": 40.0,
-                    "height": 40.0,
+                    "width": 40,
+                    "height": 40,
                     "type": "image"
                   },
                   {
-                    "height": 16.0,
+                    "height": 16,
                     "type": "sizedBox"
                   },
                   {
@@ -103,7 +103,7 @@
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
-                      "fontSize": 14.0,
+                      "fontSize": 14,
                       "fontWeight": "w600"
                     },
                     "textAlign": "center",
@@ -111,7 +111,7 @@
                     "type": "text"
                   },
                   {
-                    "height": 16.0,
+                    "height": 16,
                     "type": "sizedBox"
                   },
                   {
@@ -119,7 +119,7 @@
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.subtitle}}",
-                      "fontSize": 14.0,
+                      "fontSize": 14,
                       "fontWeight": "w500",
                       "height": 1.6
                     },
@@ -149,16 +149,16 @@
               "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
               "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
               "minimumSize": {
-                "width": 0.0,
-                "height": 64.0
+                "width": 0,
+                "height": 64
               },
               "shape": {
                 "type": "roundedRectangleBorder",
                 "borderRadius": {
-                  "topLeft": 12.0,
-                  "topRight": 12.0,
-                  "bottomLeft": 12.0,
-                  "bottomRight": 12.0
+                  "topLeft": 12,
+                  "topRight": 12,
+                  "bottomLeft": 12,
+                  "bottomRight": 12
                 }
               }
             },
@@ -166,7 +166,7 @@
               "data": "بازگشت",
               "style": {
                 "type": "custom",
-                "fontSize": 18.0,
+                "fontSize": 18,
                 "fontWeight": "w700"
               },
               "textDirection": "rtl",

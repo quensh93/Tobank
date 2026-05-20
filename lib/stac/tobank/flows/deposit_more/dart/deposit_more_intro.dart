@@ -103,7 +103,7 @@ StacWidget _buildDepositServicesBottomSheet() {
               children: [
                 _buildDepositServiceTile(
                   title: 'صدور کارت',
-                  iconPath: 'assets/icons/ic_request_card.svg',
+                  iconPath: '{{appAssets.icons.requestCardCurrent}}',
                   onTap: const StacCloseDialogAction(
                     result: {
                       'actionType': 'navigate',
@@ -118,7 +118,7 @@ StacWidget _buildDepositServicesBottomSheet() {
           ),
           _buildDepositServiceTile(
             title: 'بستن سپرده',
-            iconPath: 'assets/icons/ic_close_deposit.svg',
+            iconPath: '{{appAssets.icons.closeDepositCurrent}}',
             onTap: const StacCloseDialogAction(
               result: {
                 'actionType': 'navigate',
@@ -130,7 +130,7 @@ StacWidget _buildDepositServicesBottomSheet() {
           StacSizedBox(height: 10),
           _buildDepositServiceTile(
             title: 'جزئیات سپرده',
-            iconPath: 'assets/icons/ic_deposit_detail.svg',
+            iconPath: '{{appAssets.icons.depositDetailCurrent}}',
             onTap: _openDepositDetailsBottomSheetAction(),
           ),
           StacSizedBox(height: 4),
@@ -263,14 +263,14 @@ StacWidget _buildDepositDetailsBottomSheet() {
           _depositDetailsItem(
             title: 'شماره سپرده',
             valueKey: 'depositMore.details.depositNumber',
-            rightIconAsset: 'assets/icons/ic_share_deposit.svg',
+            rightIconAsset: '{{appAssets.icons.shareDepositCurrent}}',
             ltrValue: false,
           ),
           StacSizedBox(height: 16),
           _depositDetailsItem(
             title: 'شماره شبا',
             valueKey: 'depositMore.details.iban',
-            rightIconAsset: 'assets/icons/ic_share_iban.svg',
+            rightIconAsset: '{{appAssets.icons.shareIbanCurrent}}',
             ltrValue: true,
           ),
         ],
@@ -351,7 +351,7 @@ StacWidget _depositDetailsItem({
             child: StacPadding(
               padding: StacEdgeInsets.all(8),
               child: StacImage(
-                src: 'assets/icons/ic_copy.svg',
+                src: '{{appAssets.icons.copyCurrent}}',
                 imageType: StacImageType.asset,
                 width: 24,
                 height: 24,
@@ -364,7 +364,7 @@ StacWidget _depositDetailsItem({
             child: StacPadding(
               padding: StacEdgeInsets.all(8),
               child: StacImage(
-                src: 'assets/icons/ic_share.svg',
+                src: '{{appAssets.icons.shareCurrent}}',
                 imageType: StacImageType.asset,
                 width: 24,
                 height: 24,

@@ -77,15 +77,15 @@
     "appBar": {
       "leading": {
         "padding": {
-          "left": 12.0
+          "left": 12
         },
         "child": {
           "child": {
             "src": "{{appAssets.icons.support}}",
             "imageType": "asset",
             "color": "{{appColors.current.text.title}}",
-            "width": 24.0,
-            "height": 24.0,
+            "width": 24,
+            "height": 24,
             "type": "image"
           },
           "type": "center"
@@ -105,7 +105,7 @@
       "actions": [
         {
           "padding": {
-            "right": 12.0
+            "right": 12
           },
           "child": {
             "onPressed": {
@@ -116,8 +116,8 @@
               "src": "{{appAssets.icons.arrowBack}}",
               "imageType": "asset",
               "color": "{{appColors.current.text.title}}",
-              "width": 31.0,
-              "height": 31.0,
+              "width": 31,
+              "height": 31,
               "type": "image"
             },
             "type": "iconButton"
@@ -132,10 +132,10 @@
     "body": {
       "child": {
         "padding": {
-          "left": 16.0,
-          "top": 16.0,
-          "right": 16.0,
-          "bottom": 16.0
+          "left": 16,
+          "top": 16,
+          "right": 16,
+          "bottom": 16
         },
         "child": {
           "crossAxisAlignment": "stretch",
@@ -145,7 +145,7 @@
               "style": {
                 "type": "custom",
                 "color": "{{appColors.current.text.title}}",
-                "fontSize": 20.0,
+                "fontSize": 20,
                 "fontWeight": "w700"
               },
               "textAlign": "right",
@@ -153,7 +153,7 @@
               "type": "text"
             },
             {
-              "height": 10.0,
+              "height": 10,
               "type": "sizedBox"
             },
             {
@@ -170,7 +170,7 @@
                       "hintStyle": {
                         "type": "custom",
                         "color": "{{appColors.current.text.hint}}",
-                        "fontSize": 14.0,
+                        "fontSize": 14,
                         "fontWeight": "w500"
                       },
                       "prefixIcon": {
@@ -179,15 +179,15 @@
                         "child": {
                           "child": {
                             "padding": {
-                              "left": 12.0,
-                              "top": 12.0,
-                              "right": 12.0,
-                              "bottom": 12.0
+                              "left": 12,
+                              "top": 12,
+                              "right": 12,
+                              "bottom": 12
                             },
                             "child": {
                               "icon": "close",
                               "iconType": "material",
-                              "size": 20.0,
+                              "size": 20,
                               "color": "{{appColors.current.text.title}}",
                               "type": "icon"
                             },
@@ -294,17 +294,17 @@
                         }
                       },
                       "contentPadding": {
-                        "left": 16.0,
-                        "top": 18.0,
-                        "right": 16.0,
-                        "bottom": 18.0
+                        "left": 16,
+                        "top": 18,
+                        "right": 16,
+                        "bottom": 18
                       },
                       "counterText": ""
                     },
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
-                      "fontSize": 18.0,
+                      "fontSize": 18,
                       "fontWeight": "w600"
                     },
                     "keyboardType": "number",
@@ -356,7 +356,7 @@
                   "type": "expanded"
                 },
                 {
-                  "width": 10.0,
+                  "width": 10,
                   "type": "sizedBox"
                 },
                 {
@@ -366,40 +366,40 @@
                   "style": {
                     "foregroundColor": "{{appColors.current.primary.onPrimary}}",
                     "backgroundColor": "{{appColors.current.primary.color}}",
-                    "elevation": 0.0,
+                    "elevation": 0,
                     "padding": {
-                      "left": 24.0,
-                      "top": 21.0,
-                      "right": 24.0,
-                      "bottom": 21.0
+                      "left": 24,
+                      "top": 21,
+                      "right": 24,
+                      "bottom": 21
                     },
                     "shape": {
                       "type": "roundedRectangleBorder",
                       "borderRadius": {
-                        "topLeft": 10.0,
-                        "topRight": 10.0,
-                        "bottomLeft": 10.0,
-                        "bottomRight": 10.0
+                        "topLeft": 10,
+                        "topRight": 10,
+                        "bottomLeft": 10,
+                        "bottomRight": 10
                       }
                     }
                   },
                   "disabledStyle": {
                     "foregroundColor": "{{appColors.current.text.subtitle}}",
                     "backgroundColor": "{{appColors.current.background.surfaceContainerHigh}}",
-                    "elevation": 0.0,
+                    "elevation": 0,
                     "padding": {
-                      "left": 24.0,
-                      "top": 21.0,
-                      "right": 24.0,
-                      "bottom": 21.0
+                      "left": 24,
+                      "top": 21,
+                      "right": 24,
+                      "bottom": 21
                     },
                     "shape": {
                       "type": "roundedRectangleBorder",
                       "borderRadius": {
-                        "topLeft": 10.0,
-                        "topRight": 10.0,
-                        "bottomLeft": 10.0,
-                        "bottomRight": 10.0
+                        "topLeft": 10,
+                        "topRight": 10,
+                        "bottomLeft": 10,
+                        "bottomRight": 10
                       }
                     }
                   },
@@ -408,7 +408,7 @@
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.primary.onPrimary}}",
-                      "fontSize": 16.0,
+                      "fontSize": 16,
                       "fontWeight": "w700"
                     },
                     "textDirection": "rtl",
@@ -500,7 +500,7 @@
               "type": "row"
             },
             {
-              "height": 20.0,
+              "height": 20,
               "type": "sizedBox"
             },
             {
@@ -514,7 +514,7 @@
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
-                      "fontSize": 20.0,
+                      "fontSize": 20,
                       "fontWeight": "w700"
                     },
                     "textAlign": "right",
@@ -522,7 +522,7 @@
                     "type": "text"
                   },
                   {
-                    "height": 8.0,
+                    "height": 8,
                     "type": "sizedBox"
                   },
                   {
@@ -530,21 +530,21 @@
                       "color": "{{appColors.current.background.surface}}",
                       "border": {
                         "color": "{{appColors.current.input.borderEnabled}}",
-                        "width": 1.0
+                        "width": 1
                       },
                       "borderRadius": {
-                        "topLeft": 12.0,
-                        "topRight": 12.0,
-                        "bottomLeft": 12.0,
-                        "bottomRight": 12.0
+                        "topLeft": 12,
+                        "topRight": 12,
+                        "bottomLeft": 12,
+                        "bottomRight": 12
                       }
                     },
                     "child": {
                       "padding": {
-                        "left": 16.0,
-                        "top": 16.0,
-                        "right": 16.0,
-                        "bottom": 16.0
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
                       },
                       "child": {
                         "textDirection": "rtl",
@@ -555,7 +555,7 @@
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.hint}}",
-                                "fontSize": 18.0,
+                                "fontSize": 18,
                                 "fontWeight": "w500"
                               },
                               "textAlign": "right",
@@ -569,12 +569,12 @@
                             "visible": false,
                             "child": {
                               "padding": {
-                                "right": 8.0
+                                "right": 8
                               },
                               "child": {
                                 "icon": "close",
                                 "iconType": "material",
-                                "size": 20.0,
+                                "size": 20,
                                 "color": "{{appColors.current.text.title}}",
                                 "type": "icon"
                               },
@@ -589,7 +589,7 @@
                     "type": "container"
                   },
                   {
-                    "height": 14.0,
+                    "height": 14,
                     "type": "sizedBox"
                   },
                   {
@@ -597,7 +597,7 @@
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
-                      "fontSize": 20.0,
+                      "fontSize": 20,
                       "fontWeight": "w700"
                     },
                     "textAlign": "right",
@@ -605,7 +605,7 @@
                     "type": "text"
                   },
                   {
-                    "height": 8.0,
+                    "height": 8,
                     "type": "sizedBox"
                   },
                   {
@@ -613,21 +613,21 @@
                       "color": "{{appColors.current.background.surface}}",
                       "border": {
                         "color": "{{appColors.current.input.borderEnabled}}",
-                        "width": 1.0
+                        "width": 1
                       },
                       "borderRadius": {
-                        "topLeft": 12.0,
-                        "topRight": 12.0,
-                        "bottomLeft": 12.0,
-                        "bottomRight": 12.0
+                        "topLeft": 12,
+                        "topRight": 12,
+                        "bottomLeft": 12,
+                        "bottomRight": 12
                       }
                     },
                     "child": {
                       "padding": {
-                        "left": 16.0,
-                        "top": 16.0,
-                        "right": 16.0,
-                        "bottom": 16.0
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
                       },
                       "child": {
                         "textDirection": "rtl",
@@ -638,7 +638,7 @@
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.hint}}",
-                                "fontSize": 18.0,
+                                "fontSize": 18,
                                 "fontWeight": "w500"
                               },
                               "textAlign": "right",
@@ -652,12 +652,12 @@
                             "visible": false,
                             "child": {
                               "padding": {
-                                "right": 8.0
+                                "right": 8
                               },
                               "child": {
                                 "icon": "close",
                                 "iconType": "material",
-                                "size": 20.0,
+                                "size": 20,
                                 "color": "{{appColors.current.text.title}}",
                                 "type": "icon"
                               },
@@ -672,7 +672,7 @@
                     "type": "container"
                   },
                   {
-                    "height": 14.0,
+                    "height": 14,
                     "type": "sizedBox"
                   },
                   {
@@ -680,7 +680,7 @@
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
-                      "fontSize": 20.0,
+                      "fontSize": 20,
                       "fontWeight": "w700"
                     },
                     "textAlign": "right",
@@ -688,7 +688,7 @@
                     "type": "text"
                   },
                   {
-                    "height": 8.0,
+                    "height": 8,
                     "type": "sizedBox"
                   },
                   {
@@ -701,7 +701,7 @@
                       "hintStyle": {
                         "type": "custom",
                         "color": "{{appColors.current.text.hint}}",
-                        "fontSize": 14.0,
+                        "fontSize": 14,
                         "fontWeight": "w500"
                       },
                       "prefixIcon": {
@@ -710,15 +710,15 @@
                         "child": {
                           "child": {
                             "padding": {
-                              "left": 12.0,
-                              "top": 12.0,
-                              "right": 12.0,
-                              "bottom": 12.0
+                              "left": 12,
+                              "top": 12,
+                              "right": 12,
+                              "bottom": 12
                             },
                             "child": {
                               "icon": "close",
                               "iconType": "material",
-                              "size": 20.0,
+                              "size": 20,
                               "color": "{{appColors.current.text.title}}",
                               "type": "icon"
                             },
@@ -771,17 +771,17 @@
                         }
                       },
                       "contentPadding": {
-                        "left": 16.0,
-                        "top": 16.0,
-                        "right": 16.0,
-                        "bottom": 16.0
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
                       },
                       "counterText": ""
                     },
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
-                      "fontSize": 18.0,
+                      "fontSize": 18,
                       "fontWeight": "w500"
                     },
                     "onChanged": {
@@ -830,7 +830,7 @@
                     "initialValue": "{{depositCardIssue.county}}"
                   },
                   {
-                    "height": 14.0,
+                    "height": 14,
                     "type": "sizedBox"
                   },
                   {
@@ -838,7 +838,7 @@
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
-                      "fontSize": 20.0,
+                      "fontSize": 20,
                       "fontWeight": "w700"
                     },
                     "textAlign": "right",
@@ -846,7 +846,7 @@
                     "type": "text"
                   },
                   {
-                    "height": 8.0,
+                    "height": 8,
                     "type": "sizedBox"
                   },
                   {
@@ -859,7 +859,7 @@
                       "hintStyle": {
                         "type": "custom",
                         "color": "{{appColors.current.text.hint}}",
-                        "fontSize": 14.0,
+                        "fontSize": 14,
                         "fontWeight": "w500"
                       },
                       "prefixIcon": {
@@ -868,15 +868,15 @@
                         "child": {
                           "child": {
                             "padding": {
-                              "left": 12.0,
-                              "top": 12.0,
-                              "right": 12.0,
-                              "bottom": 12.0
+                              "left": 12,
+                              "top": 12,
+                              "right": 12,
+                              "bottom": 12
                             },
                             "child": {
                               "icon": "close",
                               "iconType": "material",
-                              "size": 20.0,
+                              "size": 20,
                               "color": "{{appColors.current.text.title}}",
                               "type": "icon"
                             },
@@ -929,17 +929,17 @@
                         }
                       },
                       "contentPadding": {
-                        "left": 16.0,
-                        "top": 16.0,
-                        "right": 16.0,
-                        "bottom": 16.0
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
                       },
                       "counterText": ""
                     },
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
-                      "fontSize": 18.0,
+                      "fontSize": 18,
                       "fontWeight": "w500"
                     },
                     "onChanged": {
@@ -988,7 +988,7 @@
                     "initialValue": "{{depositCardIssue.mainStreet}}"
                   },
                   {
-                    "height": 14.0,
+                    "height": 14,
                     "type": "sizedBox"
                   },
                   {
@@ -996,7 +996,7 @@
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
-                      "fontSize": 20.0,
+                      "fontSize": 20,
                       "fontWeight": "w700"
                     },
                     "textAlign": "right",
@@ -1004,7 +1004,7 @@
                     "type": "text"
                   },
                   {
-                    "height": 8.0,
+                    "height": 8,
                     "type": "sizedBox"
                   },
                   {
@@ -1017,7 +1017,7 @@
                       "hintStyle": {
                         "type": "custom",
                         "color": "{{appColors.current.text.hint}}",
-                        "fontSize": 14.0,
+                        "fontSize": 14,
                         "fontWeight": "w500"
                       },
                       "prefixIcon": {
@@ -1026,15 +1026,15 @@
                         "child": {
                           "child": {
                             "padding": {
-                              "left": 12.0,
-                              "top": 12.0,
-                              "right": 12.0,
-                              "bottom": 12.0
+                              "left": 12,
+                              "top": 12,
+                              "right": 12,
+                              "bottom": 12
                             },
                             "child": {
                               "icon": "close",
                               "iconType": "material",
-                              "size": 20.0,
+                              "size": 20,
                               "color": "{{appColors.current.text.title}}",
                               "type": "icon"
                             },
@@ -1087,17 +1087,17 @@
                         }
                       },
                       "contentPadding": {
-                        "left": 16.0,
-                        "top": 16.0,
-                        "right": 16.0,
-                        "bottom": 16.0
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
                       },
                       "counterText": ""
                     },
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
-                      "fontSize": 18.0,
+                      "fontSize": 18,
                       "fontWeight": "w500"
                     },
                     "onChanged": {
@@ -1146,7 +1146,7 @@
                     "initialValue": "{{depositCardIssue.subStreet}}"
                   },
                   {
-                    "height": 14.0,
+                    "height": 14,
                     "type": "sizedBox"
                   },
                   {
@@ -1154,7 +1154,7 @@
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
-                      "fontSize": 20.0,
+                      "fontSize": 20,
                       "fontWeight": "w700"
                     },
                     "textAlign": "right",
@@ -1162,7 +1162,7 @@
                     "type": "text"
                   },
                   {
-                    "height": 8.0,
+                    "height": 8,
                     "type": "sizedBox"
                   },
                   {
@@ -1175,7 +1175,7 @@
                       "hintStyle": {
                         "type": "custom",
                         "color": "{{appColors.current.text.hint}}",
-                        "fontSize": 14.0,
+                        "fontSize": 14,
                         "fontWeight": "w500"
                       },
                       "prefixIcon": {
@@ -1184,15 +1184,15 @@
                         "child": {
                           "child": {
                             "padding": {
-                              "left": 12.0,
-                              "top": 12.0,
-                              "right": 12.0,
-                              "bottom": 12.0
+                              "left": 12,
+                              "top": 12,
+                              "right": 12,
+                              "bottom": 12
                             },
                             "child": {
                               "icon": "close",
                               "iconType": "material",
-                              "size": 20.0,
+                              "size": 20,
                               "color": "{{appColors.current.text.title}}",
                               "type": "icon"
                             },
@@ -1245,17 +1245,17 @@
                         }
                       },
                       "contentPadding": {
-                        "left": 16.0,
-                        "top": 16.0,
-                        "right": 16.0,
-                        "bottom": 16.0
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
                       },
                       "counterText": ""
                     },
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
-                      "fontSize": 18.0,
+                      "fontSize": 18,
                       "fontWeight": "w500"
                     },
                     "keyboardType": "number",
@@ -1305,7 +1305,7 @@
                     "initialValue": "{{depositCardIssue.plaque}}"
                   },
                   {
-                    "height": 14.0,
+                    "height": 14,
                     "type": "sizedBox"
                   },
                   {
@@ -1313,7 +1313,7 @@
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
-                      "fontSize": 20.0,
+                      "fontSize": 20,
                       "fontWeight": "w700"
                     },
                     "textAlign": "right",
@@ -1321,7 +1321,7 @@
                     "type": "text"
                   },
                   {
-                    "height": 8.0,
+                    "height": 8,
                     "type": "sizedBox"
                   },
                   {
@@ -1334,7 +1334,7 @@
                       "hintStyle": {
                         "type": "custom",
                         "color": "{{appColors.current.text.hint}}",
-                        "fontSize": 14.0,
+                        "fontSize": 14,
                         "fontWeight": "w500"
                       },
                       "prefixIcon": {
@@ -1343,15 +1343,15 @@
                         "child": {
                           "child": {
                             "padding": {
-                              "left": 12.0,
-                              "top": 12.0,
-                              "right": 12.0,
-                              "bottom": 12.0
+                              "left": 12,
+                              "top": 12,
+                              "right": 12,
+                              "bottom": 12
                             },
                             "child": {
                               "icon": "close",
                               "iconType": "material",
-                              "size": 20.0,
+                              "size": 20,
                               "color": "{{appColors.current.text.title}}",
                               "type": "icon"
                             },
@@ -1404,17 +1404,17 @@
                         }
                       },
                       "contentPadding": {
-                        "left": 16.0,
-                        "top": 16.0,
-                        "right": 16.0,
-                        "bottom": 16.0
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
                       },
                       "counterText": ""
                     },
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
-                      "fontSize": 18.0,
+                      "fontSize": 18,
                       "fontWeight": "w500"
                     },
                     "keyboardType": "number",
@@ -1464,7 +1464,7 @@
                     "initialValue": "{{depositCardIssue.unit}}"
                   },
                   {
-                    "height": 35.0,
+                    "height": 35,
                     "type": "sizedBox"
                   },
                   {
@@ -1474,36 +1474,36 @@
                     "style": {
                       "foregroundColor": "{{appColors.current.primary.onPrimary}}",
                       "backgroundColor": "{{appColors.current.primary.color}}",
-                      "elevation": 0.0,
+                      "elevation": 0,
                       "padding": {
-                        "top": 23.0,
-                        "bottom": 23.0
+                        "top": 23,
+                        "bottom": 23
                       },
                       "shape": {
                         "type": "roundedRectangleBorder",
                         "borderRadius": {
-                          "topLeft": 11.0,
-                          "topRight": 11.0,
-                          "bottomLeft": 11.0,
-                          "bottomRight": 11.0
+                          "topLeft": 11,
+                          "topRight": 11,
+                          "bottomLeft": 11,
+                          "bottomRight": 11
                         }
                       }
                     },
                     "disabledStyle": {
                       "foregroundColor": "{{appColors.current.text.subtitle}}",
                       "backgroundColor": "{{appColors.current.background.surfaceContainerHigh}}",
-                      "elevation": 0.0,
+                      "elevation": 0,
                       "padding": {
-                        "top": 23.0,
-                        "bottom": 23.0
+                        "top": 23,
+                        "bottom": 23
                       },
                       "shape": {
                         "type": "roundedRectangleBorder",
                         "borderRadius": {
-                          "topLeft": 11.0,
-                          "topRight": 11.0,
-                          "bottomLeft": 11.0,
-                          "bottomRight": 11.0
+                          "topLeft": 11,
+                          "topRight": 11,
+                          "bottomLeft": 11,
+                          "bottomRight": 11
                         }
                       }
                     },
@@ -1512,7 +1512,7 @@
                       "style": {
                         "type": "custom",
                         "color": "{{appColors.current.primary.onPrimary}}",
-                        "fontSize": 18.0,
+                        "fontSize": 18,
                         "fontWeight": "w600"
                       },
                       "textDirection": "rtl",

@@ -193,7 +193,9 @@ StacWidget _transactionIcon(bool isDeposit) {
       child: StacPadding(
         padding: StacEdgeInsets.all(8),
         child: StacImage(
-          src: isDeposit ? 'assets/icons/ic_in.svg' : 'assets/icons/ic_out.svg',
+          src: isDeposit
+              ? '{{appAssets.icons.inCurrent}}'
+              : '{{appAssets.icons.outCurrent}}',
           imageType: StacImageType.asset,
           width: 24,
           height: 24,

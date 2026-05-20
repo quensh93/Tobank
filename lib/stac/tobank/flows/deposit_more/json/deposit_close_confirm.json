@@ -13,15 +13,15 @@
     "appBar": {
       "leading": {
         "padding": {
-          "left": 12.0
+          "left": 12
         },
         "child": {
           "child": {
             "src": "{{appAssets.icons.support}}",
             "imageType": "asset",
             "color": "{{appColors.current.text.title}}",
-            "width": 24.0,
-            "height": 24.0,
+            "width": 24,
+            "height": 24,
             "type": "image"
           },
           "type": "center"
@@ -41,7 +41,7 @@
       "actions": [
         {
           "padding": {
-            "right": 12.0
+            "right": 12
           },
           "child": {
             "onPressed": {
@@ -52,8 +52,8 @@
               "src": "{{appAssets.icons.arrowBack}}",
               "imageType": "asset",
               "color": "{{appColors.current.text.title}}",
-              "width": 31.0,
-              "height": 31.0,
+              "width": 31,
+              "height": 31,
               "type": "image"
             },
             "type": "iconButton"
@@ -66,10 +66,10 @@
     },
     "body": {
       "padding": {
-        "left": 16.0,
-        "top": 16.0,
-        "right": 16.0,
-        "bottom": 16.0
+        "left": 16,
+        "top": 16,
+        "right": 16,
+        "bottom": 16
       },
       "child": {
         "crossAxisAlignment": "stretch",
@@ -78,21 +78,21 @@
             "decoration": {
               "border": {
                 "color": "{{appColors.current.input.borderEnabled}}",
-                "width": 1.0
+                "width": 1
               },
               "borderRadius": {
-                "topLeft": 8.0,
-                "topRight": 8.0,
-                "bottomLeft": 8.0,
-                "bottomRight": 8.0
+                "topLeft": 8,
+                "topRight": 8,
+                "bottomLeft": 8,
+                "bottomRight": 8
               }
             },
             "child": {
               "padding": {
-                "left": 16.0,
-                "top": 16.0,
-                "right": 16.0,
-                "bottom": 16.0
+                "left": 16,
+                "top": 16,
+                "right": 16,
+                "bottom": 16
               },
               "child": {
                 "crossAxisAlignment": "stretch",
@@ -104,24 +104,24 @@
                         "decoration": {
                           "color": "{{appColors.current.background.surfaceContainer}}",
                           "borderRadius": {
-                            "topLeft": 8.0,
-                            "topRight": 8.0,
-                            "bottomLeft": 8.0,
-                            "bottomRight": 8.0
+                            "topLeft": 8,
+                            "topRight": 8,
+                            "bottomLeft": 8,
+                            "bottomRight": 8
                           }
                         },
                         "child": {
                           "padding": {
-                            "left": 4.0,
-                            "top": 4.0,
-                            "right": 4.0,
-                            "bottom": 4.0
+                            "left": 4,
+                            "top": 4,
+                            "right": 4,
+                            "bottom": 4
                           },
                           "child": {
                             "src": "assets/icons/ic_warning.svg",
                             "imageType": "asset",
-                            "width": 30.0,
-                            "height": 30.0,
+                            "width": 30,
+                            "height": 30,
                             "type": "image"
                           },
                           "type": "padding"
@@ -129,7 +129,7 @@
                         "type": "container"
                       },
                       {
-                        "width": 8.0,
+                        "width": 8,
                         "type": "sizedBox"
                       },
                       {
@@ -138,7 +138,7 @@
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
-                            "fontSize": 14.0,
+                            "fontSize": 14,
                             "fontWeight": "w600",
                             "height": 1.6
                           },
@@ -152,7 +152,7 @@
                     "type": "row"
                   },
                   {
-                    "height": 16.0,
+                    "height": 16,
                     "type": "sizedBox"
                   },
                   {
@@ -160,7 +160,7 @@
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.subtitle}}",
-                      "fontSize": 14.0,
+                      "fontSize": 14,
                       "fontWeight": "w500",
                       "height": 1.6
                     },
@@ -185,28 +185,28 @@
             "decoration": {
               "border": {
                 "color": "{{appColors.current.input.borderEnabled}}",
-                "width": 1.0
+                "width": 1
               },
               "borderRadius": {
-                "topLeft": 8.0,
-                "topRight": 8.0,
-                "bottomLeft": 8.0,
-                "bottomRight": 8.0
+                "topLeft": 8,
+                "topRight": 8,
+                "bottomLeft": 8,
+                "bottomRight": 8
               }
             },
             "child": {
               "padding": {
-                "left": 8.0,
-                "top": 8.0,
-                "right": 8.0,
-                "bottom": 8.0
+                "left": 8,
+                "top": 8,
+                "right": 8,
+                "bottom": 8
               },
               "child": {
                 "crossAxisAlignment": "center",
                 "textDirection": "rtl",
                 "children": [
                   {
-                    "width": 4.0,
+                    "width": 4,
                     "type": "sizedBox"
                   },
                   {
@@ -215,17 +215,17 @@
                         "color": "{{depositCloseConfirmRulesChecked ? appColors.current.secondary.color : \"transparent\"}}",
                         "border": {
                           "color": "{{appColors.current.text.title}}",
-                          "width": 1.0
+                          "width": 1
                         },
                         "borderRadius": {
-                          "topLeft": 3.0,
-                          "topRight": 3.0,
-                          "bottomLeft": 3.0,
-                          "bottomRight": 3.0
+                          "topLeft": 3,
+                          "topRight": 3,
+                          "bottomLeft": 3,
+                          "bottomRight": 3
                         }
                       },
-                      "width": 22.0,
-                      "height": 22.0,
+                      "width": 22,
+                      "height": 22,
                       "child": {
                         "child": {
                           "type": "opacity",
@@ -234,8 +234,8 @@
                             "src": "assets/icons/ic_check.svg",
                             "imageType": "asset",
                             "color": "#FFFFFF",
-                            "width": 20.0,
-                            "height": 20.0,
+                            "width": 20,
+                            "height": 20,
                             "type": "image"
                           }
                         },
@@ -251,7 +251,7 @@
                     "type": "gestureDetector"
                   },
                   {
-                    "width": 12.0,
+                    "width": 12,
                     "type": "sizedBox"
                   },
                   {
@@ -261,7 +261,7 @@
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
-                          "fontSize": 14.0,
+                          "fontSize": 14,
                           "fontWeight": "w600",
                           "height": 1.6
                         },
@@ -286,31 +286,31 @@
             "type": "container"
           },
           {
-            "height": 40.0,
+            "height": 40,
             "type": "sizedBox"
           },
           {
             "type": "reactiveElevatedButton",
             "enabledKey": "depositCloseConfirmRulesChecked",
             "onPressed": {
+              "routeName": "deposit_close_selector",
               "navigationStyle": "push",
-              "actionType": "navigate",
-              "assetPath": "lib/stac/tobank/flows/deposit_more/json/deposit_close_selector.json"
+              "actionType": "navigate"
             },
             "style": {
               "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
               "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
               "minimumSize": {
-                "width": 0.0,
-                "height": 64.0
+                "width": 0,
+                "height": 64
               },
               "shape": {
                 "type": "roundedRectangleBorder",
                 "borderRadius": {
-                  "topLeft": 12.0,
-                  "topRight": 12.0,
-                  "bottomLeft": 12.0,
-                  "bottomRight": 12.0
+                  "topLeft": 12,
+                  "topRight": 12,
+                  "bottomLeft": 12,
+                  "bottomRight": 12
                 }
               }
             },
@@ -318,16 +318,16 @@
               "foregroundColor": "{{appColors.current.text.subtitle}}",
               "backgroundColor": "{{appColors.current.input.borderEnabled}}",
               "minimumSize": {
-                "width": 0.0,
-                "height": 64.0
+                "width": 0,
+                "height": 64
               },
               "shape": {
                 "type": "roundedRectangleBorder",
                 "borderRadius": {
-                  "topLeft": 12.0,
-                  "topRight": 12.0,
-                  "bottomLeft": 12.0,
-                  "bottomRight": 12.0
+                  "topLeft": 12,
+                  "topRight": 12,
+                  "bottomLeft": 12,
+                  "bottomRight": 12
                 }
               }
             },
@@ -335,7 +335,7 @@
               "data": "مرحله بعد",
               "style": {
                 "type": "custom",
-                "fontSize": 18.0,
+                "fontSize": 18,
                 "fontWeight": "w700"
               },
               "textDirection": "rtl",
