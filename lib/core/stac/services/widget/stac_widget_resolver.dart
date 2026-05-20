@@ -56,10 +56,10 @@ class StacWidgetResolver {
     BuildContext context,
     StacNetworkRequest request,
   ) {
-    if (_isDashboardShellNetworkRequest(request)) {
+    if (_shouldSingleParseNetworkRequest(request)) {
       AppLogger.dc(
         LogCategory.stacNavigation,
-        'StacWidgetResolver: Using single-fetch cache for dashboard shell network request: ${request.url}',
+        'StacWidgetResolver: Using single-fetch cache for network request: ${request.url}',
       );
       return _SingleParseStacNetworkWidget(request: request);
     }
@@ -130,6 +130,16 @@ class StacWidgetResolver {
   static bool _isDashboardShellNetworkRequest(StacNetworkRequest request) {
     final url = request.url.toLowerCase();
     return url.contains(_dashboardShellKey);
+  }
+
+  static bool _isDepositMoreIntroNetworkRequest(StacNetworkRequest request) {
+    final url = request.url.toLowerCase();
+    return url.contains('ipaam.builder.form.form.deposit_more_intro');
+  }
+
+  static bool _shouldSingleParseNetworkRequest(StacNetworkRequest request) {
+    return _isDashboardShellNetworkRequest(request) ||
+        _isDepositMoreIntroNetworkRequest(request);
   }
 
   /// Extracts widget JSON from various nested structures

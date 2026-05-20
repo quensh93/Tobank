@@ -86,11 +86,23 @@ StacWidget transferRealMenu() {
           ),
           StacSizedBox(height: 16),
           StacOutlinedButton(
-            onPressed: const StacNavigateAction(
-              assetPath:
-                  'lib/stac/tobank/flows/transfer/api/GET_transfer_amount.json',
-              navigationStyle: NavigationStyle.push,
-            ),
+            onPressed: StacNavigateAction.fromJson({
+              'actionType': 'navigate',
+              'navigationStyle': 'push',
+              'request': {
+                'url':
+                    'http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.transfer_amount/1',
+                'method': 'post',
+                'headers': {
+                  'Content-Type': 'application/json',
+                  'Accept': '*/*',
+                },
+                'body': {
+                  'operator': 'is',
+                  'dimension': {'app': 'mobile'},
+                },
+              },
+            }),
             style: StacButtonStyle(
               backgroundColor:
                   '{{appColors.current.button.primary.backgroundColor}}',
