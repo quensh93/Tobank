@@ -22,6 +22,10 @@ class StacWidgetResolver {
   static const String _dashboardShellJsonPath =
       'lib/stac/tobank/flows/dashboard/json/dashboard_shell.json';
   static const String _dashboardShellKey = 'dashboard_shell';
+  static const String _depositTurnoverIntroJsonPath =
+      'lib/stac/tobank/flows/deposit_turnover/json/deposit_turnover_intro.json';
+  static const String _depositMoreIntroJsonPath =
+      'lib/stac/tobank/flows/deposit_more/json/deposit_more_intro.json';
 
   /// Resolves a widget from widgetJson.
   /// Returns the widget wrapped with theme-awareness (rebuilds on theme change).
@@ -137,9 +141,21 @@ class StacWidgetResolver {
     return url.contains('ipaam.builder.form.form.deposit_more_intro');
   }
 
+  static bool _isDepositTurnoverIntroNetworkRequest(StacNetworkRequest request) {
+    final url = request.url.toLowerCase();
+    return url.contains('ipaam.builder.form.form.deposit_turnover_intro');
+  }
+
   static bool _shouldSingleParseNetworkRequest(StacNetworkRequest request) {
     return _isDashboardShellNetworkRequest(request) ||
-        _isDepositMoreIntroNetworkRequest(request);
+        _isDepositMoreIntroNetworkRequest(request) ||
+        _isDepositTurnoverIntroNetworkRequest(request);
+  }
+
+  static bool _shouldSingleParseAssetPath(String normalizedPath) {
+    return normalizedPath == _dashboardShellJsonPath ||
+        normalizedPath == _depositMoreIntroJsonPath ||
+        normalizedPath == _depositTurnoverIntroJsonPath;
   }
 
   /// Extracts widget JSON from various nested structures
@@ -222,7 +238,7 @@ class StacWidgetResolver {
       // Dashboard shell must remain stable while navigating to child pages.
       // Parse it once and reuse the same widget tree to avoid bottom-nav resets
       // when returning with back navigation.
-      if (normalizedPath == _dashboardShellJsonPath) {
+      if (_shouldSingleParseAssetPath(normalizedPath)) {
         AppLogger.dc(
           LogCategory.stacNavigation,
           'StacWidgetResolver: Using single-parse cache for $normalizedPath',
