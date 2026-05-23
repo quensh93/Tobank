@@ -1,0 +1,1737 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "setValue",
+    "values": [
+      {
+        "key": "depositCardIssue.postalCode",
+        "value": ""
+      },
+      {
+        "key": "depositCardIssue.hasPostalCodeInput",
+        "value": false
+      },
+      {
+        "key": "depositCardIssue.isPostalCodeComplete",
+        "value": false
+      },
+      {
+        "key": "depositCardIssue.hasAddressData",
+        "value": false
+      },
+      {
+        "key": "depositCardIssue.province",
+        "value": ""
+      },
+      {
+        "key": "depositCardIssue.city",
+        "value": ""
+      },
+      {
+        "key": "depositCardIssue.county",
+        "value": ""
+      },
+      {
+        "key": "depositCardIssue.mainStreet",
+        "value": ""
+      },
+      {
+        "key": "depositCardIssue.subStreet",
+        "value": ""
+      },
+      {
+        "key": "depositCardIssue.plaque",
+        "value": ""
+      },
+      {
+        "key": "depositCardIssue.unit",
+        "value": ""
+      },
+      {
+        "key": "depositCardIssue.hasCountyInput",
+        "value": false
+      },
+      {
+        "key": "depositCardIssue.hasMainStreetInput",
+        "value": false
+      },
+      {
+        "key": "depositCardIssue.hasSubStreetInput",
+        "value": false
+      },
+      {
+        "key": "depositCardIssue.hasPlaqueInput",
+        "value": false
+      },
+      {
+        "key": "depositCardIssue.hasUnitInput",
+        "value": false
+      },
+      {
+        "key": "depositCardIssue.isAddressFormComplete",
+        "value": false
+      }
+    ]
+  },
+  "child": {
+    "appBar": {
+      "leading": {
+        "padding": {
+          "left": 12
+        },
+        "child": {
+          "child": {
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24,
+            "height": 24,
+            "type": "image"
+          },
+          "type": "center"
+        },
+        "type": "padding"
+      },
+      "automaticallyImplyLeading": true,
+      "title": {
+        "data": "آدرس دریافت کارت بانکی",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "actions": [
+        {
+          "padding": {
+            "right": 12
+          },
+          "child": {
+            "onPressed": {
+              "navigationStyle": "pop",
+              "actionType": "navigate"
+            },
+            "icon": {
+              "src": "{{appAssets.icons.arrowBack}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 31,
+              "height": 31,
+              "type": "image"
+            },
+            "type": "iconButton"
+          },
+          "type": "padding"
+        }
+      ],
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "backgroundColor": "{{appColors.current.background.surface}}",
+    "body": {
+      "child": {
+        "padding": {
+          "left": 16,
+          "top": 16,
+          "right": 16,
+          "bottom": 16
+        },
+        "child": {
+          "crossAxisAlignment": "stretch",
+          "children": [
+            {
+              "data": "کد پستی محل سکونت",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.title}}",
+                "fontSize": 20,
+                "fontWeight": "w700"
+              },
+              "textAlign": "right",
+              "textDirection": "rtl",
+              "type": "text"
+            },
+            {
+              "height": 10,
+              "type": "sizedBox"
+            },
+            {
+              "textDirection": "rtl",
+              "children": [
+                {
+                  "child": {
+                    "type": "textFormField",
+                    "id": "deposit_card_issue_postal_code",
+                    "textDirection": "rtl",
+                    "textAlign": "right",
+                    "decoration": {
+                      "hintText": "کد پستی محل سکونت را وارد کنید",
+                      "hintStyle": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.hint}}",
+                        "fontSize": 14,
+                        "fontWeight": "w500"
+                      },
+                      "prefixIcon": {
+                        "type": "visibility",
+                        "visible": "[[depositCardIssue.hasPostalCodeInput]]",
+                        "child": {
+                          "child": {
+                            "padding": {
+                              "left": 12,
+                              "top": 12,
+                              "right": 12,
+                              "bottom": 12
+                            },
+                            "child": {
+                              "icon": "close",
+                              "iconType": "material",
+                              "size": 20,
+                              "color": "{{appColors.current.text.title}}",
+                              "type": "icon"
+                            },
+                            "type": "padding"
+                          },
+                          "onTap": {
+                            "actionType": "setValue",
+                            "values": [
+                              {
+                                "key": "deposit_card_issue_postal_code",
+                                "value": ""
+                              },
+                              {
+                                "key": "depositCardIssue.postalCode",
+                                "value": ""
+                              },
+                              {
+                                "key": "depositCardIssue.hasPostalCodeInput",
+                                "value": false
+                              },
+                              {
+                                "key": "depositCardIssue.isPostalCodeComplete",
+                                "value": false
+                              },
+                              {
+                                "key": "depositCardIssue.hasAddressData",
+                                "value": false
+                              },
+                              {
+                                "key": "depositCardIssue.province",
+                                "value": ""
+                              },
+                              {
+                                "key": "depositCardIssue.city",
+                                "value": ""
+                              },
+                              {
+                                "key": "depositCardIssue.county",
+                                "value": ""
+                              },
+                              {
+                                "key": "depositCardIssue.mainStreet",
+                                "value": ""
+                              },
+                              {
+                                "key": "depositCardIssue.subStreet",
+                                "value": ""
+                              },
+                              {
+                                "key": "depositCardIssue.plaque",
+                                "value": ""
+                              },
+                              {
+                                "key": "depositCardIssue.unit",
+                                "value": ""
+                              },
+                              {
+                                "key": "depositCardIssue.hasCountyInput",
+                                "value": false
+                              },
+                              {
+                                "key": "depositCardIssue.hasMainStreetInput",
+                                "value": false
+                              },
+                              {
+                                "key": "depositCardIssue.hasSubStreetInput",
+                                "value": false
+                              },
+                              {
+                                "key": "depositCardIssue.hasPlaqueInput",
+                                "value": false
+                              },
+                              {
+                                "key": "depositCardIssue.hasUnitInput",
+                                "value": false
+                              },
+                              {
+                                "key": "deposit_card_issue_county",
+                                "value": ""
+                              },
+                              {
+                                "key": "deposit_card_issue_main_street",
+                                "value": ""
+                              },
+                              {
+                                "key": "deposit_card_issue_sub_street",
+                                "value": ""
+                              },
+                              {
+                                "key": "deposit_card_issue_plaque",
+                                "value": ""
+                              },
+                              {
+                                "key": "deposit_card_issue_unit",
+                                "value": ""
+                              },
+                              {
+                                "key": "depositCardIssue.isAddressFormComplete",
+                                "value": false
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        }
+                      },
+                      "contentPadding": {
+                        "left": 16,
+                        "top": 18,
+                        "right": 16,
+                        "bottom": 18
+                      },
+                      "counterText": ""
+                    },
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 18,
+                      "fontWeight": "w600"
+                    },
+                    "keyboardType": "number",
+                    "maxLength": 10,
+                    "inputFormatters": [
+                      {
+                        "type": "allow",
+                        "rule": "[0-9]"
+                      }
+                    ],
+                    "onChanged": {
+                      "actionType": "sequence",
+                      "actions": [
+                        {
+                          "actionType": "setValue",
+                          "key": "depositCardIssue.postalCode",
+                          "value": {
+                            "actionType": "getFormValue",
+                            "id": "deposit_card_issue_postal_code"
+                          }
+                        },
+                        {
+                          "actionType": "validateFields",
+                          "resultKey": "depositCardIssue.hasPostalCodeInput",
+                          "fields": [
+                            {
+                              "id": "deposit_card_issue_postal_code"
+                            }
+                          ]
+                        },
+                        {
+                          "actionType": "validateFields",
+                          "resultKey": "depositCardIssue.isPostalCodeComplete",
+                          "fields": [
+                            {
+                              "id": "deposit_card_issue_postal_code",
+                              "rule": "^\\d{10}$"
+                            }
+                          ]
+                        },
+                        {
+                          "actionType": "setValue",
+                          "key": "depositCardIssue.hasAddressData",
+                          "value": false
+                        }
+                      ]
+                    }
+                  },
+                  "type": "expanded"
+                },
+                {
+                  "width": 10,
+                  "type": "sizedBox"
+                },
+                {
+                  "type": "reactiveElevatedButton",
+                  "enabledKey": "depositCardIssue.isPostalCodeComplete",
+                  "enabled": true,
+                  "style": {
+                    "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                    "backgroundColor": "{{appColors.current.primary.color}}",
+                    "elevation": 0,
+                    "padding": {
+                      "left": 24,
+                      "top": 21,
+                      "right": 24,
+                      "bottom": 21
+                    },
+                    "shape": {
+                      "type": "roundedRectangleBorder",
+                      "borderRadius": {
+                        "topLeft": 10,
+                        "topRight": 10,
+                        "bottomLeft": 10,
+                        "bottomRight": 10
+                      }
+                    }
+                  },
+                  "disabledStyle": {
+                    "foregroundColor": "{{appColors.current.text.subtitle}}",
+                    "backgroundColor": "{{appColors.current.background.surfaceContainerHigh}}",
+                    "elevation": 0,
+                    "padding": {
+                      "left": 24,
+                      "top": 21,
+                      "right": 24,
+                      "bottom": 21
+                    },
+                    "shape": {
+                      "type": "roundedRectangleBorder",
+                      "borderRadius": {
+                        "topLeft": 10,
+                        "topRight": 10,
+                        "bottomLeft": 10,
+                        "bottomRight": 10
+                      }
+                    }
+                  },
+                  "child": {
+                    "data": "استعلام",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.primary.onPrimary}}",
+                      "fontSize": 16,
+                      "fontWeight": "w700"
+                    },
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  "onPressed": {
+                    "actionType": "setValue",
+                    "values": [
+                      {
+                        "key": "depositCardIssue.hasAddressData",
+                        "value": true
+                      },
+                      {
+                        "key": "depositCardIssue.province",
+                        "value": "تهران"
+                      },
+                      {
+                        "key": "depositCardIssue.city",
+                        "value": "تهران"
+                      },
+                      {
+                        "key": "depositCardIssue.county",
+                        "value": "تهران"
+                      },
+                      {
+                        "key": "depositCardIssue.mainStreet",
+                        "value": "شهرک صدرا خیابان چهل و نهم"
+                      },
+                      {
+                        "key": "depositCardIssue.subStreet",
+                        "value": "خیابان نصر پنجم"
+                      },
+                      {
+                        "key": "depositCardIssue.plaque",
+                        "value": ""
+                      },
+                      {
+                        "key": "depositCardIssue.unit",
+                        "value": ""
+                      },
+                      {
+                        "key": "depositCardIssue.hasCountyInput",
+                        "value": true
+                      },
+                      {
+                        "key": "depositCardIssue.hasMainStreetInput",
+                        "value": true
+                      },
+                      {
+                        "key": "depositCardIssue.hasSubStreetInput",
+                        "value": true
+                      },
+                      {
+                        "key": "depositCardIssue.hasPlaqueInput",
+                        "value": false
+                      },
+                      {
+                        "key": "depositCardIssue.hasUnitInput",
+                        "value": false
+                      },
+                      {
+                        "key": "deposit_card_issue_county",
+                        "value": "تهران"
+                      },
+                      {
+                        "key": "deposit_card_issue_main_street",
+                        "value": "شهرک صدرا خیابان چهل و نهم"
+                      },
+                      {
+                        "key": "deposit_card_issue_sub_street",
+                        "value": "خیابان نصر پنجم"
+                      },
+                      {
+                        "key": "deposit_card_issue_plaque",
+                        "value": ""
+                      },
+                      {
+                        "key": "deposit_card_issue_unit",
+                        "value": ""
+                      },
+                      {
+                        "key": "depositCardIssue.isAddressFormComplete",
+                        "value": false
+                      }
+                    ]
+                  }
+                }
+              ],
+              "type": "row"
+            },
+            {
+              "height": 20,
+              "type": "sizedBox"
+            },
+            {
+              "type": "visibility",
+              "visible": "[[depositCardIssue.hasAddressData]]",
+              "child": {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "data": "استان",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 20,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "decoration": {
+                      "color": "{{appColors.current.background.surface}}",
+                      "border": {
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "width": 1
+                      },
+                      "borderRadius": {
+                        "topLeft": 12,
+                        "topRight": 12,
+                        "bottomLeft": 12,
+                        "bottomRight": 12
+                      }
+                    },
+                    "child": {
+                      "padding": {
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
+                      },
+                      "child": {
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "child": {
+                              "data": "{{depositCardIssue.province}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.hint}}",
+                                "fontSize": 18,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "type": "visibility",
+                            "visible": false,
+                            "child": {
+                              "padding": {
+                                "right": 8
+                              },
+                              "child": {
+                                "icon": "close",
+                                "iconType": "material",
+                                "size": 20,
+                                "color": "{{appColors.current.text.title}}",
+                                "type": "icon"
+                              },
+                              "type": "padding"
+                            }
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      "type": "padding"
+                    },
+                    "type": "container"
+                  },
+                  {
+                    "height": 14,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "شهر",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 20,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "decoration": {
+                      "color": "{{appColors.current.background.surface}}",
+                      "border": {
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "width": 1
+                      },
+                      "borderRadius": {
+                        "topLeft": 12,
+                        "topRight": 12,
+                        "bottomLeft": 12,
+                        "bottomRight": 12
+                      }
+                    },
+                    "child": {
+                      "padding": {
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
+                      },
+                      "child": {
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "child": {
+                              "data": "{{depositCardIssue.city}}",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.hint}}",
+                                "fontSize": 18,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "type": "visibility",
+                            "visible": false,
+                            "child": {
+                              "padding": {
+                                "right": 8
+                              },
+                              "child": {
+                                "icon": "close",
+                                "iconType": "material",
+                                "size": 20,
+                                "color": "{{appColors.current.text.title}}",
+                                "type": "icon"
+                              },
+                              "type": "padding"
+                            }
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      "type": "padding"
+                    },
+                    "type": "container"
+                  },
+                  {
+                    "height": 14,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "شهرستان",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 20,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "type": "textFormField",
+                    "id": "deposit_card_issue_county",
+                    "textDirection": "rtl",
+                    "textAlign": "right",
+                    "decoration": {
+                      "hintText": "مقدار شهرستان را وارد نمایید",
+                      "hintStyle": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.hint}}",
+                        "fontSize": 14,
+                        "fontWeight": "w500"
+                      },
+                      "prefixIcon": {
+                        "type": "visibility",
+                        "visible": "[[depositCardIssue.hasCountyInput]]",
+                        "child": {
+                          "child": {
+                            "padding": {
+                              "left": 12,
+                              "top": 12,
+                              "right": 12,
+                              "bottom": 12
+                            },
+                            "child": {
+                              "icon": "close",
+                              "iconType": "material",
+                              "size": 20,
+                              "color": "{{appColors.current.text.title}}",
+                              "type": "icon"
+                            },
+                            "type": "padding"
+                          },
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "deposit_card_issue_county",
+                                    "value": ""
+                                  },
+                                  {
+                                    "key": "depositCardIssue.county",
+                                    "value": ""
+                                  },
+                                  {
+                                    "key": "depositCardIssue.hasCountyInput",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "actionType": "validateFields",
+                                "resultKey": "depositCardIssue.isAddressFormComplete",
+                                "fields": [
+                                  {
+                                    "id": "deposit_card_issue_county"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_main_street"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_sub_street"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_plaque"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_unit"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        }
+                      },
+                      "contentPadding": {
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
+                      },
+                      "counterText": ""
+                    },
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 18,
+                      "fontWeight": "w500"
+                    },
+                    "onChanged": {
+                      "actionType": "sequence",
+                      "actions": [
+                        {
+                          "actionType": "setValue",
+                          "key": "depositCardIssue.county",
+                          "value": {
+                            "actionType": "getFormValue",
+                            "id": "deposit_card_issue_county"
+                          }
+                        },
+                        {
+                          "actionType": "validateFields",
+                          "resultKey": "depositCardIssue.hasCountyInput",
+                          "fields": [
+                            {
+                              "id": "deposit_card_issue_county"
+                            }
+                          ]
+                        },
+                        {
+                          "actionType": "validateFields",
+                          "resultKey": "depositCardIssue.isAddressFormComplete",
+                          "fields": [
+                            {
+                              "id": "deposit_card_issue_county"
+                            },
+                            {
+                              "id": "deposit_card_issue_main_street"
+                            },
+                            {
+                              "id": "deposit_card_issue_sub_street"
+                            },
+                            {
+                              "id": "deposit_card_issue_plaque"
+                            },
+                            {
+                              "id": "deposit_card_issue_unit"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "initialValue": "{{depositCardIssue.county}}"
+                  },
+                  {
+                    "height": 14,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "خیابان اصلی",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 20,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "type": "textFormField",
+                    "id": "deposit_card_issue_main_street",
+                    "textDirection": "rtl",
+                    "textAlign": "right",
+                    "decoration": {
+                      "hintText": "خیابان اصلی خود را وارد نمایید",
+                      "hintStyle": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.hint}}",
+                        "fontSize": 14,
+                        "fontWeight": "w500"
+                      },
+                      "prefixIcon": {
+                        "type": "visibility",
+                        "visible": "[[depositCardIssue.hasMainStreetInput]]",
+                        "child": {
+                          "child": {
+                            "padding": {
+                              "left": 12,
+                              "top": 12,
+                              "right": 12,
+                              "bottom": 12
+                            },
+                            "child": {
+                              "icon": "close",
+                              "iconType": "material",
+                              "size": 20,
+                              "color": "{{appColors.current.text.title}}",
+                              "type": "icon"
+                            },
+                            "type": "padding"
+                          },
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "deposit_card_issue_main_street",
+                                    "value": ""
+                                  },
+                                  {
+                                    "key": "depositCardIssue.mainStreet",
+                                    "value": ""
+                                  },
+                                  {
+                                    "key": "depositCardIssue.hasMainStreetInput",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "actionType": "validateFields",
+                                "resultKey": "depositCardIssue.isAddressFormComplete",
+                                "fields": [
+                                  {
+                                    "id": "deposit_card_issue_county"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_main_street"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_sub_street"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_plaque"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_unit"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        }
+                      },
+                      "contentPadding": {
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
+                      },
+                      "counterText": ""
+                    },
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 18,
+                      "fontWeight": "w500"
+                    },
+                    "onChanged": {
+                      "actionType": "sequence",
+                      "actions": [
+                        {
+                          "actionType": "setValue",
+                          "key": "depositCardIssue.mainStreet",
+                          "value": {
+                            "actionType": "getFormValue",
+                            "id": "deposit_card_issue_main_street"
+                          }
+                        },
+                        {
+                          "actionType": "validateFields",
+                          "resultKey": "depositCardIssue.hasMainStreetInput",
+                          "fields": [
+                            {
+                              "id": "deposit_card_issue_main_street"
+                            }
+                          ]
+                        },
+                        {
+                          "actionType": "validateFields",
+                          "resultKey": "depositCardIssue.isAddressFormComplete",
+                          "fields": [
+                            {
+                              "id": "deposit_card_issue_county"
+                            },
+                            {
+                              "id": "deposit_card_issue_main_street"
+                            },
+                            {
+                              "id": "deposit_card_issue_sub_street"
+                            },
+                            {
+                              "id": "deposit_card_issue_plaque"
+                            },
+                            {
+                              "id": "deposit_card_issue_unit"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "initialValue": "{{depositCardIssue.mainStreet}}"
+                  },
+                  {
+                    "height": 14,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "خیابان فرعی",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 20,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "type": "textFormField",
+                    "id": "deposit_card_issue_sub_street",
+                    "textDirection": "rtl",
+                    "textAlign": "right",
+                    "decoration": {
+                      "hintText": "خیابان فرعی خود را وارد نمایید",
+                      "hintStyle": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.hint}}",
+                        "fontSize": 14,
+                        "fontWeight": "w500"
+                      },
+                      "prefixIcon": {
+                        "type": "visibility",
+                        "visible": "[[depositCardIssue.hasSubStreetInput]]",
+                        "child": {
+                          "child": {
+                            "padding": {
+                              "left": 12,
+                              "top": 12,
+                              "right": 12,
+                              "bottom": 12
+                            },
+                            "child": {
+                              "icon": "close",
+                              "iconType": "material",
+                              "size": 20,
+                              "color": "{{appColors.current.text.title}}",
+                              "type": "icon"
+                            },
+                            "type": "padding"
+                          },
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "deposit_card_issue_sub_street",
+                                    "value": ""
+                                  },
+                                  {
+                                    "key": "depositCardIssue.subStreet",
+                                    "value": ""
+                                  },
+                                  {
+                                    "key": "depositCardIssue.hasSubStreetInput",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "actionType": "validateFields",
+                                "resultKey": "depositCardIssue.isAddressFormComplete",
+                                "fields": [
+                                  {
+                                    "id": "deposit_card_issue_county"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_main_street"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_sub_street"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_plaque"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_unit"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        }
+                      },
+                      "contentPadding": {
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
+                      },
+                      "counterText": ""
+                    },
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 18,
+                      "fontWeight": "w500"
+                    },
+                    "onChanged": {
+                      "actionType": "sequence",
+                      "actions": [
+                        {
+                          "actionType": "setValue",
+                          "key": "depositCardIssue.subStreet",
+                          "value": {
+                            "actionType": "getFormValue",
+                            "id": "deposit_card_issue_sub_street"
+                          }
+                        },
+                        {
+                          "actionType": "validateFields",
+                          "resultKey": "depositCardIssue.hasSubStreetInput",
+                          "fields": [
+                            {
+                              "id": "deposit_card_issue_sub_street"
+                            }
+                          ]
+                        },
+                        {
+                          "actionType": "validateFields",
+                          "resultKey": "depositCardIssue.isAddressFormComplete",
+                          "fields": [
+                            {
+                              "id": "deposit_card_issue_county"
+                            },
+                            {
+                              "id": "deposit_card_issue_main_street"
+                            },
+                            {
+                              "id": "deposit_card_issue_sub_street"
+                            },
+                            {
+                              "id": "deposit_card_issue_plaque"
+                            },
+                            {
+                              "id": "deposit_card_issue_unit"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "initialValue": "{{depositCardIssue.subStreet}}"
+                  },
+                  {
+                    "height": 14,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "پلاک",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 20,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "type": "textFormField",
+                    "id": "deposit_card_issue_plaque",
+                    "textDirection": "rtl",
+                    "textAlign": "right",
+                    "decoration": {
+                      "hintText": "پلاک خود را وارد نمایید",
+                      "hintStyle": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.hint}}",
+                        "fontSize": 14,
+                        "fontWeight": "w500"
+                      },
+                      "prefixIcon": {
+                        "type": "visibility",
+                        "visible": "[[depositCardIssue.hasPlaqueInput]]",
+                        "child": {
+                          "child": {
+                            "padding": {
+                              "left": 12,
+                              "top": 12,
+                              "right": 12,
+                              "bottom": 12
+                            },
+                            "child": {
+                              "icon": "close",
+                              "iconType": "material",
+                              "size": 20,
+                              "color": "{{appColors.current.text.title}}",
+                              "type": "icon"
+                            },
+                            "type": "padding"
+                          },
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "deposit_card_issue_plaque",
+                                    "value": ""
+                                  },
+                                  {
+                                    "key": "depositCardIssue.plaque",
+                                    "value": ""
+                                  },
+                                  {
+                                    "key": "depositCardIssue.hasPlaqueInput",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "actionType": "validateFields",
+                                "resultKey": "depositCardIssue.isAddressFormComplete",
+                                "fields": [
+                                  {
+                                    "id": "deposit_card_issue_county"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_main_street"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_sub_street"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_plaque"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_unit"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        }
+                      },
+                      "contentPadding": {
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
+                      },
+                      "counterText": ""
+                    },
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 18,
+                      "fontWeight": "w500"
+                    },
+                    "keyboardType": "number",
+                    "onChanged": {
+                      "actionType": "sequence",
+                      "actions": [
+                        {
+                          "actionType": "setValue",
+                          "key": "depositCardIssue.plaque",
+                          "value": {
+                            "actionType": "getFormValue",
+                            "id": "deposit_card_issue_plaque"
+                          }
+                        },
+                        {
+                          "actionType": "validateFields",
+                          "resultKey": "depositCardIssue.hasPlaqueInput",
+                          "fields": [
+                            {
+                              "id": "deposit_card_issue_plaque"
+                            }
+                          ]
+                        },
+                        {
+                          "actionType": "validateFields",
+                          "resultKey": "depositCardIssue.isAddressFormComplete",
+                          "fields": [
+                            {
+                              "id": "deposit_card_issue_county"
+                            },
+                            {
+                              "id": "deposit_card_issue_main_street"
+                            },
+                            {
+                              "id": "deposit_card_issue_sub_street"
+                            },
+                            {
+                              "id": "deposit_card_issue_plaque"
+                            },
+                            {
+                              "id": "deposit_card_issue_unit"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "initialValue": "{{depositCardIssue.plaque}}"
+                  },
+                  {
+                    "height": 14,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "واحد",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 20,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "type": "textFormField",
+                    "id": "deposit_card_issue_unit",
+                    "textDirection": "rtl",
+                    "textAlign": "right",
+                    "decoration": {
+                      "hintText": "واحد خود را وارد نمایید",
+                      "hintStyle": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.hint}}",
+                        "fontSize": 14,
+                        "fontWeight": "w500"
+                      },
+                      "prefixIcon": {
+                        "type": "visibility",
+                        "visible": "[[depositCardIssue.hasUnitInput]]",
+                        "child": {
+                          "child": {
+                            "padding": {
+                              "left": 12,
+                              "top": 12,
+                              "right": 12,
+                              "bottom": 12
+                            },
+                            "child": {
+                              "icon": "close",
+                              "iconType": "material",
+                              "size": 20,
+                              "color": "{{appColors.current.text.title}}",
+                              "type": "icon"
+                            },
+                            "type": "padding"
+                          },
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "deposit_card_issue_unit",
+                                    "value": ""
+                                  },
+                                  {
+                                    "key": "depositCardIssue.unit",
+                                    "value": ""
+                                  },
+                                  {
+                                    "key": "depositCardIssue.hasUnitInput",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "actionType": "validateFields",
+                                "resultKey": "depositCardIssue.isAddressFormComplete",
+                                "fields": [
+                                  {
+                                    "id": "deposit_card_issue_county"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_main_street"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_sub_street"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_plaque"
+                                  },
+                                  {
+                                    "id": "deposit_card_issue_unit"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "type": "gestureDetector"
+                        }
+                      },
+                      "contentPadding": {
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
+                      },
+                      "counterText": ""
+                    },
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 18,
+                      "fontWeight": "w500"
+                    },
+                    "keyboardType": "number",
+                    "onChanged": {
+                      "actionType": "sequence",
+                      "actions": [
+                        {
+                          "actionType": "setValue",
+                          "key": "depositCardIssue.unit",
+                          "value": {
+                            "actionType": "getFormValue",
+                            "id": "deposit_card_issue_unit"
+                          }
+                        },
+                        {
+                          "actionType": "validateFields",
+                          "resultKey": "depositCardIssue.hasUnitInput",
+                          "fields": [
+                            {
+                              "id": "deposit_card_issue_unit"
+                            }
+                          ]
+                        },
+                        {
+                          "actionType": "validateFields",
+                          "resultKey": "depositCardIssue.isAddressFormComplete",
+                          "fields": [
+                            {
+                              "id": "deposit_card_issue_county"
+                            },
+                            {
+                              "id": "deposit_card_issue_main_street"
+                            },
+                            {
+                              "id": "deposit_card_issue_sub_street"
+                            },
+                            {
+                              "id": "deposit_card_issue_plaque"
+                            },
+                            {
+                              "id": "deposit_card_issue_unit"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "initialValue": "{{depositCardIssue.unit}}"
+                  },
+                  {
+                    "height": 35,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "type": "reactiveElevatedButton",
+                    "enabledKey": "depositCardIssue.isAddressFormComplete",
+                    "enabled": true,
+                    "style": {
+                      "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                      "backgroundColor": "{{appColors.current.primary.color}}",
+                      "elevation": 0,
+                      "padding": {
+                        "top": 23,
+                        "bottom": 23
+                      },
+                      "shape": {
+                        "type": "roundedRectangleBorder",
+                        "borderRadius": {
+                          "topLeft": 11,
+                          "topRight": 11,
+                          "bottomLeft": 11,
+                          "bottomRight": 11
+                        }
+                      }
+                    },
+                    "disabledStyle": {
+                      "foregroundColor": "{{appColors.current.text.subtitle}}",
+                      "backgroundColor": "{{appColors.current.background.surfaceContainerHigh}}",
+                      "elevation": 0,
+                      "padding": {
+                        "top": 23,
+                        "bottom": 23
+                      },
+                      "shape": {
+                        "type": "roundedRectangleBorder",
+                        "borderRadius": {
+                          "topLeft": 11,
+                          "topRight": 11,
+                          "bottomLeft": 11,
+                          "bottomRight": 11
+                        }
+                      }
+                    },
+                    "child": {
+                      "data": "ادامه",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.primary.onPrimary}}",
+                        "fontSize": 18,
+                        "fontWeight": "w600"
+                      },
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    "onPressed": {
+                      "actionType": "sequence",
+                      "actions": [
+                        {
+                          "actionType": "setValue",
+                          "values": [
+                            {
+                              "key": "depositCardIssue.confirmAddressText",
+                              "value": "استان __STAC_OPEN__depositCardIssue.province}}، شهر __STAC_OPEN__depositCardIssue.city}}، شهرستان __STAC_OPEN__depositCardIssue.county}}، خیابان اصلی __STAC_OPEN__depositCardIssue.mainStreet}}، خیابان فرعی __STAC_OPEN__depositCardIssue.subStreet}}، پلاک __STAC_OPEN__depositCardIssue.plaque}}، واحد __STAC_OPEN__depositCardIssue.unit}}"
+                            },
+                            {
+                              "key": "depositCardIssue.continuePressed",
+                              "value": true
+                            }
+                          ]
+                        },
+                        {
+                          "actionType": "showBottomSheet",
+                          "sheet": {
+                            "type": "safeArea",
+                            "top": false,
+                            "bottom": false,
+                            "child": {
+                              "type": "container",
+                              "decoration": {
+                                "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                "borderRadius": {
+                                  "topLeft": 24,
+                                  "topRight": 24
+                                }
+                              },
+                              "child": {
+                                "type": "padding",
+                                "padding": {
+                                  "left": 16,
+                                  "top": 10,
+                                  "right": 16,
+                                  "bottom": 22
+                                },
+                                "child": {
+                                  "type": "column",
+                                  "mainAxisSize": "min",
+                                  "crossAxisAlignment": "stretch",
+                                  "children": [
+                                    {
+                                      "type": "center",
+                                      "child": {
+                                        "type": "container",
+                                        "width": 44,
+                                        "height": 5,
+                                        "decoration": {
+                                          "color": "__STAC_OPEN__appColors.current.text.disabled}}",
+                                          "borderRadius": {
+                                            "all": 999
+                                          }
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "sizedBox",
+                                      "height": 26
+                                    },
+                                    {
+                                      "type": "text",
+                                      "data": "این آدرس را برای دریافت کارت تایید می‌کنید؟",
+                                      "textDirection": "rtl",
+                                      "textAlign": "center",
+                                      "style": {
+                                        "fontSize": 20,
+                                        "fontWeight": "w700",
+                                        "color": "__STAC_OPEN__appColors.current.text.title}}"
+                                      }
+                                    },
+                                    {
+                                      "type": "sizedBox",
+                                      "height": 22
+                                    },
+                                    {
+                                      "type": "text",
+                                      "data": "__STAC_OPEN__depositCardIssue.confirmAddressText}}",
+                                      "textDirection": "rtl",
+                                      "textAlign": "center",
+                                      "style": {
+                                        "fontSize": 16,
+                                        "fontWeight": "w500",
+                                        "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                        "height": 1.8
+                                      }
+                                    },
+                                    {
+                                      "type": "sizedBox",
+                                      "height": 28
+                                    },
+                                    {
+                                      "type": "row",
+                                      "textDirection": "rtl",
+                                      "children": [
+                                        {
+                                          "type": "expanded",
+                                          "child": {
+                                            "type": "filledButton",
+                                            "onPressed": {
+                                              "actionType": "sequence",
+                                              "actions": [
+                                                {
+                                                  "actionType": "navigate",
+                                                  "navigationStyle": "pop"
+                                                },
+                                                {
+                                                  "actionType": "navigate",
+                                                  "routeName": "deposit_card_issue_template",
+                                                  "navigationStyle": "push"
+                                                }
+                                              ]
+                                            },
+                                            "style": {
+                                              "backgroundColor": "__STAC_OPEN__appColors.current.primary.color}}",
+                                              "foregroundColor": "__STAC_OPEN__appColors.current.primary.onPrimary}}",
+                                              "fixedSize": {
+                                                "width": 999999,
+                                                "height": 50
+                                              },
+                                              "elevation": 0,
+                                              "shape": {
+                                                "type": "roundedRectangleBorder",
+                                                "borderRadius": {
+                                                  "topLeft": 11,
+                                                  "topRight": 11,
+                                                  "bottomLeft": 11,
+                                                  "bottomRight": 11
+                                                }
+                                              }
+                                            },
+                                            "child": {
+                                              "type": "text",
+                                              "data": "تایید آدرس",
+                                              "textDirection": "rtl",
+                                              "style": {
+                                                "fontSize": 18,
+                                                "fontWeight": "w700",
+                                                "color": "__STAC_OPEN__appColors.current.primary.onPrimary}}"
+                                              }
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "type": "sizedBox",
+                                          "width": 12
+                                        },
+                                        {
+                                          "type": "expanded",
+                                          "child": {
+                                            "type": "outlinedButton",
+                                            "onPressed": {
+                                              "actionType": "navigate",
+                                              "navigationStyle": "pop"
+                                            },
+                                            "style": {
+                                              "fixedSize": {
+                                                "width": 999999,
+                                                "height": 50
+                                              },
+                                              "side": {
+                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                "width": 1
+                                              },
+                                              "shape": {
+                                                "type": "roundedRectangleBorder",
+                                                "borderRadius": {
+                                                  "topLeft": 11,
+                                                  "topRight": 11,
+                                                  "bottomLeft": 11,
+                                                  "bottomRight": 11
+                                                }
+                                              }
+                                            },
+                                            "child": {
+                                              "type": "text",
+                                              "data": "اصلاح آدرس",
+                                              "textDirection": "rtl",
+                                              "style": {
+                                                "fontSize": 18,
+                                                "fontWeight": "w600",
+                                                "color": "__STAC_OPEN__appColors.current.text.title}}"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "isScrollControlled": true,
+                          "useSafeArea": false,
+                          "isDismissible": true,
+                          "enableDrag": true
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "type": "column"
+              }
+            }
+          ],
+          "type": "column"
+        },
+        "type": "singleChildScrollView"
+      },
+      "type": "form"
+    },
+    "type": "scaffold"
+  }
+}

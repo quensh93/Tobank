@@ -1,0 +1,3462 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "setValue",
+    "values": [
+      {
+        "key": "transferApiContinueEnabled",
+        "value": false
+      },
+      {
+        "key": "transferApiIsSearching",
+        "value": false
+      },
+      {
+        "key": "transferApiIbanVisible1",
+        "value": true
+      },
+      {
+        "key": "transferApiIbanVisible2",
+        "value": true
+      },
+      {
+        "key": "transferApiIbanVisible3",
+        "value": true
+      },
+      {
+        "key": "transferApiIbanVisible4",
+        "value": true
+      },
+      {
+        "key": "transferApiIbanVisible5",
+        "value": true
+      },
+      {
+        "key": "transferApiInBankMyTab",
+        "value": true
+      },
+      {
+        "key": "transferApiInBankOthersTab",
+        "value": false
+      },
+      {
+        "key": "transferApiInBankHasText",
+        "value": false
+      },
+      {
+        "key": "transferApiCardHasText",
+        "value": false
+      },
+      {
+        "key": "transferApiCardVisible1",
+        "value": true
+      },
+      {
+        "key": "transferApiCardVisible2",
+        "value": true
+      },
+      {
+        "key": "transferApiCardVisible3",
+        "value": true
+      },
+      {
+        "key": "transferApiCardVisible4",
+        "value": true
+      },
+      {
+        "key": "transferApiCardVisible5",
+        "value": true
+      },
+      {
+        "key": "transferApiCardSourceName",
+        "value": "سجاد رحمانی پور"
+      },
+      {
+        "key": "transferApiCardSourceNumber",
+        "value": "۵۰۵۴ ۱۶۱۷ ۰۲۹۹ ۴۷۱۰"
+      },
+      {
+        "key": "transferApiCardSourceIcon",
+        "value": "assets/icons/ic_gardeshgari.svg"
+      }
+    ]
+  },
+  "child": {
+    "appBar": {
+      "leading": {
+        "padding": {
+          "left": 12.0
+        },
+        "child": {
+          "child": {
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24.0,
+            "height": 24.0,
+            "type": "image"
+          },
+          "type": "center"
+        },
+        "type": "padding"
+      },
+      "automaticallyImplyLeading": true,
+      "title": {
+        "data": "انتقال وجه",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "actions": [
+        {
+          "padding": {
+            "right": 12.0
+          },
+          "child": {
+            "onPressed": {
+              "navigationStyle": "pop",
+              "actionType": "navigate"
+            },
+            "icon": {
+              "src": "{{appAssets.icons.arrowBack}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 31.0,
+              "height": 31.0,
+              "type": "image"
+            },
+            "type": "iconButton"
+          },
+          "type": "padding"
+        }
+      ],
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "backgroundColor": "{{appColors.current.background.surface}}",
+    "body": {
+      "child": {
+        "padding": {
+          "left": 16.0,
+          "top": 16.0,
+          "right": 16.0,
+          "bottom": 23.0
+        },
+        "child": {
+          "length": 3,
+          "initialIndex": 2,
+          "child": {
+            "crossAxisAlignment": "stretch",
+            "children": [
+              {
+                "padding": {
+                  "left": 8.0,
+                  "top": 4.0,
+                  "right": 8.0,
+                  "bottom": 4.0
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "borderRadius": {
+                    "topLeft": 12.0,
+                    "topRight": 12.0,
+                    "bottomLeft": 12.0,
+                    "bottomRight": 12.0
+                  }
+                },
+                "child": {
+                  "children": [
+                    {
+                      "tabs": [
+                        {
+                          "text": "کارت",
+                          "height": 46.0,
+                          "type": "tab"
+                        },
+                        {
+                          "text": "درون بانکی",
+                          "height": 46.0,
+                          "type": "tab"
+                        },
+                        {
+                          "text": "بین بانکی",
+                          "height": 46.0,
+                          "type": "tab"
+                        }
+                      ],
+                      "indicatorColor": "{{appColors.current.primary.color}}",
+                      "indicatorWeight": 2.0,
+                      "indicatorPadding": {
+                        "left": 26.0,
+                        "top": 44.0,
+                        "right": 26.0
+                      },
+                      "indicatorSize": "tab",
+                      "labelColor": "{{appColors.current.text.title}}",
+                      "labelStyle": {
+                        "type": "custom",
+                        "fontSize": 15.0,
+                        "fontWeight": "w700"
+                      },
+                      "unselectedLabelColor": "{{appColors.current.text.subtitle}}",
+                      "unselectedLabelStyle": {
+                        "type": "custom",
+                        "fontSize": 15.0,
+                        "fontWeight": "w500"
+                      },
+                      "enableFeedback": false,
+                      "dividerColor": "#00000000",
+                      "type": "tabBar"
+                    },
+                    {
+                      "left": 0.0,
+                      "top": 10.0,
+                      "right": 0.0,
+                      "bottom": 10.0,
+                      "child": {
+                        "children": [
+                          {
+                            "child": {
+                              "type": "sizedBox"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "color": "{{appColors.current.input.borderEnabled}}",
+                            "width": 1.0,
+                            "type": "container"
+                          },
+                          {
+                            "child": {
+                              "type": "sizedBox"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "color": "{{appColors.current.input.borderEnabled}}",
+                            "width": 1.0,
+                            "type": "container"
+                          },
+                          {
+                            "child": {
+                              "type": "sizedBox"
+                            },
+                            "type": "expanded"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      "type": "positioned"
+                    }
+                  ],
+                  "type": "stack"
+                },
+                "type": "container"
+              },
+              {
+                "height": 18.0,
+                "type": "sizedBox"
+              },
+              {
+                "child": {
+                  "children": [
+                    {
+                      "crossAxisAlignment": "stretch",
+                      "children": [
+                        {
+                          "crossAxisAlignment": "stretch",
+                          "children": [
+                            {
+                              "data": "شماره کارت مقصد",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 19.0,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "height": 10.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "type": "textFormField",
+                              "id": "transferApiCardInput",
+                              "textDirection": "ltr",
+                              "textAlign": "right",
+                              "decoration": {
+                                "hintText": "شماره کارت مقصد را وارد یا انتخاب کنید",
+                                "hintStyle": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.hint}}",
+                                  "fontSize": 16.0,
+                                  "fontWeight": "w500"
+                                },
+                                "contentPadding": {
+                                  "left": 16.0,
+                                  "top": 19.5,
+                                  "right": 16.0,
+                                  "bottom": 19.5
+                                },
+                                "filled": false,
+                                "prefixIcon": {
+                                  "type": "visibility",
+                                  "visible": "[[transferApiCardHasText]]",
+                                  "child": {
+                                    "onTap": {
+                                      "actionType": "sequence",
+                                      "actions": [
+                                        {
+                                          "actionType": "setValue",
+                                          "values": [
+                                            {
+                                              "key": "transferApiCardInput",
+                                              "value": ""
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationNumber",
+                                              "value": ""
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationName",
+                                              "value": ""
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationIcon",
+                                              "value": ""
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "actionType": "filterTransferIbanList",
+                                          "fieldId": "transferApiCardInput",
+                                          "ibanValues": [
+                                            "5054161018168058",
+                                            "5054161702844691",
+                                            "5054161702994710",
+                                            "5022913100939467",
+                                            "5041771080766026"
+                                          ],
+                                          "visibleKeys": [
+                                            "transferApiCardVisible1",
+                                            "transferApiCardVisible2",
+                                            "transferApiCardVisible3",
+                                            "transferApiCardVisible4",
+                                            "transferApiCardVisible5"
+                                          ],
+                                          "isSearchingKey": "transferApiCardHasText"
+                                        }
+                                      ]
+                                    },
+                                    "child": {
+                                      "padding": {
+                                        "left": 12.0,
+                                        "top": 12.0,
+                                        "right": 12.0,
+                                        "bottom": 12.0
+                                      },
+                                      "child": {
+                                        "icon": "close",
+                                        "size": 20.0,
+                                        "color": "{{appColors.current.text.subtitle}}",
+                                        "type": "icon"
+                                      },
+                                      "type": "padding"
+                                    },
+                                    "type": "gestureDetector"
+                                  }
+                                }
+                              },
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 18.0,
+                                "fontWeight": "w600"
+                              },
+                              "keyboardType": "number",
+                              "maxLength": 16,
+                              "inputFormatters": [
+                                {
+                                  "type": "allow",
+                                  "rule": "[0-9]"
+                                }
+                              ],
+                              "onChanged": {
+                                "actionType": "filterTransferIbanList",
+                                "fieldId": "transferApiCardInput",
+                                "ibanValues": [
+                                  "5054161018168058",
+                                  "5054161702844691",
+                                  "5054161702994710",
+                                  "5022913100939467",
+                                  "5041771080766026"
+                                ],
+                                "visibleKeys": [
+                                  "transferApiCardVisible1",
+                                  "transferApiCardVisible2",
+                                  "transferApiCardVisible3",
+                                  "transferApiCardVisible4",
+                                  "transferApiCardVisible5"
+                                ],
+                                "isSearchingKey": "transferApiCardHasText"
+                              }
+                            }
+                          ],
+                          "type": "column"
+                        },
+                        {
+                          "height": 22.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "child": {
+                              "crossAxisAlignment": "stretch",
+                              "children": [
+                                {
+                                  "type": "visibility",
+                                  "visible": "[[transferApiCardVisible1]]",
+                                  "child": {
+                                    "child": {
+                                      "padding": {
+                                        "left": 14.0,
+                                        "top": 16.0,
+                                        "right": 14.0,
+                                        "bottom": 16.0
+                                      },
+                                      "decoration": {
+                                        "color": "{{appColors.current.background.surface}}",
+                                        "border": {
+                                          "color": "{{appColors.current.input.borderEnabled}}",
+                                          "width": 1.0
+                                        },
+                                        "borderRadius": {
+                                          "topLeft": 11.0,
+                                          "topRight": 11.0,
+                                          "bottomLeft": 11.0,
+                                          "bottomRight": 11.0
+                                        }
+                                      },
+                                      "child": {
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "src": "assets/icons/ic_gardeshgari.svg",
+                                            "imageType": "asset",
+                                            "width": 26.0,
+                                            "height": 26.0,
+                                            "type": "image"
+                                          },
+                                          {
+                                            "width": 12.0,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "child": {
+                                              "crossAxisAlignment": "stretch",
+                                              "children": [
+                                                {
+                                                  "data": "۵۰۵۴ ۱۶۱۰ ۱۸۱۶ ۸۰۵۸",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.title}}",
+                                                    "fontSize": 17.0,
+                                                    "fontWeight": "w700"
+                                                  },
+                                                  "textAlign": "right",
+                                                  "textDirection": "ltr",
+                                                  "type": "text"
+                                                },
+                                                {
+                                                  "height": 6.0,
+                                                  "type": "sizedBox"
+                                                },
+                                                {
+                                                  "data": "سیدعلیرضا نعمتی شیل سر",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.subtitle}}",
+                                                    "fontSize": 15.0,
+                                                    "fontWeight": "w500"
+                                                  },
+                                                  "textAlign": "right",
+                                                  "textDirection": "rtl",
+                                                  "type": "text"
+                                                }
+                                              ],
+                                              "type": "column"
+                                            },
+                                            "type": "expanded"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "type": "container"
+                                    },
+                                    "onTap": {
+                                      "actionType": "sequence",
+                                      "actions": [
+                                        {
+                                          "actionType": "setValue",
+                                          "values": [
+                                            {
+                                              "key": "transferApiCardInput",
+                                              "value": "5054161018168058"
+                                            },
+                                            {
+                                              "key": "transferApiCardHasText",
+                                              "value": true
+                                            },
+                                            {
+                                              "key": "transferApiDestinationIban",
+                                              "value": "5054161018168058"
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationNumber",
+                                              "value": "۵۰۵۴ ۱۶۱۰ ۱۸۱۶ ۸۰۵۸"
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationName",
+                                              "value": "سیدعلیرضا نعمتی شیل سر"
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationIcon",
+                                              "value": "assets/icons/ic_gardeshgari.svg"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "actionType": "filterTransferIbanList",
+                                          "fieldId": "transferApiCardInput",
+                                          "ibanValues": [
+                                            "5054161018168058",
+                                            "5054161702844691",
+                                            "5054161702994710",
+                                            "5022913100939467",
+                                            "5041771080766026"
+                                          ],
+                                          "visibleKeys": [
+                                            "transferApiCardVisible1",
+                                            "transferApiCardVisible2",
+                                            "transferApiCardVisible3",
+                                            "transferApiCardVisible4",
+                                            "transferApiCardVisible5"
+                                          ],
+                                          "isSearchingKey": "transferApiCardHasText"
+                                        }
+                                      ]
+                                    },
+                                    "type": "gestureDetector"
+                                  },
+                                  "replacement": {
+                                    "type": "sizedBox"
+                                  }
+                                },
+                                {
+                                  "height": 12.0,
+                                  "type": "sizedBox"
+                                },
+                                {
+                                  "type": "visibility",
+                                  "visible": "[[transferApiCardVisible2]]",
+                                  "child": {
+                                    "child": {
+                                      "padding": {
+                                        "left": 14.0,
+                                        "top": 16.0,
+                                        "right": 14.0,
+                                        "bottom": 16.0
+                                      },
+                                      "decoration": {
+                                        "color": "{{appColors.current.background.surface}}",
+                                        "border": {
+                                          "color": "{{appColors.current.input.borderEnabled}}",
+                                          "width": 1.0
+                                        },
+                                        "borderRadius": {
+                                          "topLeft": 11.0,
+                                          "topRight": 11.0,
+                                          "bottomLeft": 11.0,
+                                          "bottomRight": 11.0
+                                        }
+                                      },
+                                      "child": {
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "src": "assets/icons/ic_gardeshgari.svg",
+                                            "imageType": "asset",
+                                            "width": 26.0,
+                                            "height": 26.0,
+                                            "type": "image"
+                                          },
+                                          {
+                                            "width": 12.0,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "child": {
+                                              "crossAxisAlignment": "stretch",
+                                              "children": [
+                                                {
+                                                  "data": "۵۰۵۴ ۱۶۱۷ ۰۲۸۴ ۴۶۹۱",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.title}}",
+                                                    "fontSize": 17.0,
+                                                    "fontWeight": "w700"
+                                                  },
+                                                  "textAlign": "right",
+                                                  "textDirection": "ltr",
+                                                  "type": "text"
+                                                },
+                                                {
+                                                  "height": 6.0,
+                                                  "type": "sizedBox"
+                                                },
+                                                {
+                                                  "data": "علی سینایی اصل",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.subtitle}}",
+                                                    "fontSize": 15.0,
+                                                    "fontWeight": "w500"
+                                                  },
+                                                  "textAlign": "right",
+                                                  "textDirection": "rtl",
+                                                  "type": "text"
+                                                }
+                                              ],
+                                              "type": "column"
+                                            },
+                                            "type": "expanded"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "type": "container"
+                                    },
+                                    "onTap": {
+                                      "actionType": "sequence",
+                                      "actions": [
+                                        {
+                                          "actionType": "setValue",
+                                          "values": [
+                                            {
+                                              "key": "transferApiCardInput",
+                                              "value": "5054161702844691"
+                                            },
+                                            {
+                                              "key": "transferApiCardHasText",
+                                              "value": true
+                                            },
+                                            {
+                                              "key": "transferApiDestinationIban",
+                                              "value": "5054161702844691"
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationNumber",
+                                              "value": "۵۰۵۴ ۱۶۱۷ ۰۲۸۴ ۴۶۹۱"
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationName",
+                                              "value": "علی سینایی اصل"
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationIcon",
+                                              "value": "assets/icons/ic_gardeshgari.svg"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "actionType": "filterTransferIbanList",
+                                          "fieldId": "transferApiCardInput",
+                                          "ibanValues": [
+                                            "5054161018168058",
+                                            "5054161702844691",
+                                            "5054161702994710",
+                                            "5022913100939467",
+                                            "5041771080766026"
+                                          ],
+                                          "visibleKeys": [
+                                            "transferApiCardVisible1",
+                                            "transferApiCardVisible2",
+                                            "transferApiCardVisible3",
+                                            "transferApiCardVisible4",
+                                            "transferApiCardVisible5"
+                                          ],
+                                          "isSearchingKey": "transferApiCardHasText"
+                                        }
+                                      ]
+                                    },
+                                    "type": "gestureDetector"
+                                  },
+                                  "replacement": {
+                                    "type": "sizedBox"
+                                  }
+                                },
+                                {
+                                  "height": 12.0,
+                                  "type": "sizedBox"
+                                },
+                                {
+                                  "type": "visibility",
+                                  "visible": "[[transferApiCardVisible3]]",
+                                  "child": {
+                                    "child": {
+                                      "padding": {
+                                        "left": 14.0,
+                                        "top": 16.0,
+                                        "right": 14.0,
+                                        "bottom": 16.0
+                                      },
+                                      "decoration": {
+                                        "color": "{{appColors.current.background.surface}}",
+                                        "border": {
+                                          "color": "{{appColors.current.input.borderEnabled}}",
+                                          "width": 1.0
+                                        },
+                                        "borderRadius": {
+                                          "topLeft": 11.0,
+                                          "topRight": 11.0,
+                                          "bottomLeft": 11.0,
+                                          "bottomRight": 11.0
+                                        }
+                                      },
+                                      "child": {
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "src": "assets/icons/ic_gardeshgari.svg",
+                                            "imageType": "asset",
+                                            "width": 26.0,
+                                            "height": 26.0,
+                                            "type": "image"
+                                          },
+                                          {
+                                            "width": 12.0,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "child": {
+                                              "crossAxisAlignment": "stretch",
+                                              "children": [
+                                                {
+                                                  "data": "۵۰۵۴ ۱۶۱۷ ۰۲۹۹ ۴۷۱۰",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.title}}",
+                                                    "fontSize": 17.0,
+                                                    "fontWeight": "w700"
+                                                  },
+                                                  "textAlign": "right",
+                                                  "textDirection": "ltr",
+                                                  "type": "text"
+                                                },
+                                                {
+                                                  "height": 6.0,
+                                                  "type": "sizedBox"
+                                                },
+                                                {
+                                                  "data": "گردشگری - شعبه مجازی",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.subtitle}}",
+                                                    "fontSize": 15.0,
+                                                    "fontWeight": "w500"
+                                                  },
+                                                  "textAlign": "right",
+                                                  "textDirection": "rtl",
+                                                  "type": "text"
+                                                }
+                                              ],
+                                              "type": "column"
+                                            },
+                                            "type": "expanded"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "type": "container"
+                                    },
+                                    "onTap": {
+                                      "actionType": "sequence",
+                                      "actions": [
+                                        {
+                                          "actionType": "setValue",
+                                          "values": [
+                                            {
+                                              "key": "transferApiCardInput",
+                                              "value": "5054161702994710"
+                                            },
+                                            {
+                                              "key": "transferApiCardHasText",
+                                              "value": true
+                                            },
+                                            {
+                                              "key": "transferApiDestinationIban",
+                                              "value": "5054161702994710"
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationNumber",
+                                              "value": "۵۰۵۴ ۱۶۱۷ ۰۲۹۹ ۴۷۱۰"
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationName",
+                                              "value": "گردشگری - شعبه مجازی"
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationIcon",
+                                              "value": "assets/icons/ic_gardeshgari.svg"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "actionType": "filterTransferIbanList",
+                                          "fieldId": "transferApiCardInput",
+                                          "ibanValues": [
+                                            "5054161018168058",
+                                            "5054161702844691",
+                                            "5054161702994710",
+                                            "5022913100939467",
+                                            "5041771080766026"
+                                          ],
+                                          "visibleKeys": [
+                                            "transferApiCardVisible1",
+                                            "transferApiCardVisible2",
+                                            "transferApiCardVisible3",
+                                            "transferApiCardVisible4",
+                                            "transferApiCardVisible5"
+                                          ],
+                                          "isSearchingKey": "transferApiCardHasText"
+                                        }
+                                      ]
+                                    },
+                                    "type": "gestureDetector"
+                                  },
+                                  "replacement": {
+                                    "type": "sizedBox"
+                                  }
+                                },
+                                {
+                                  "height": 12.0,
+                                  "type": "sizedBox"
+                                },
+                                {
+                                  "type": "visibility",
+                                  "visible": "[[transferApiCardVisible4]]",
+                                  "child": {
+                                    "child": {
+                                      "padding": {
+                                        "left": 14.0,
+                                        "top": 16.0,
+                                        "right": 14.0,
+                                        "bottom": 16.0
+                                      },
+                                      "decoration": {
+                                        "color": "{{appColors.current.background.surface}}",
+                                        "border": {
+                                          "color": "{{appColors.current.input.borderEnabled}}",
+                                          "width": 1.0
+                                        },
+                                        "borderRadius": {
+                                          "topLeft": 11.0,
+                                          "topRight": 11.0,
+                                          "bottomLeft": 11.0,
+                                          "bottomRight": 11.0
+                                        }
+                                      },
+                                      "child": {
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "src": "assets/icons/ic_iranconcert_dark.svg",
+                                            "imageType": "asset",
+                                            "width": 26.0,
+                                            "height": 26.0,
+                                            "type": "image"
+                                          },
+                                          {
+                                            "width": 12.0,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "child": {
+                                              "crossAxisAlignment": "stretch",
+                                              "children": [
+                                                {
+                                                  "data": "۵۰۲۲ ۹۱۳۱ ۰۰۹۳ ۹۴۶۷",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.title}}",
+                                                    "fontSize": 17.0,
+                                                    "fontWeight": "w700"
+                                                  },
+                                                  "textAlign": "right",
+                                                  "textDirection": "ltr",
+                                                  "type": "text"
+                                                },
+                                                {
+                                                  "height": 6.0,
+                                                  "type": "sizedBox"
+                                                },
+                                                {
+                                                  "data": "ندا رحمانی پور",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.subtitle}}",
+                                                    "fontSize": 15.0,
+                                                    "fontWeight": "w500"
+                                                  },
+                                                  "textAlign": "right",
+                                                  "textDirection": "rtl",
+                                                  "type": "text"
+                                                }
+                                              ],
+                                              "type": "column"
+                                            },
+                                            "type": "expanded"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "type": "container"
+                                    },
+                                    "onTap": {
+                                      "actionType": "sequence",
+                                      "actions": [
+                                        {
+                                          "actionType": "setValue",
+                                          "values": [
+                                            {
+                                              "key": "transferApiCardInput",
+                                              "value": "5022913100939467"
+                                            },
+                                            {
+                                              "key": "transferApiCardHasText",
+                                              "value": true
+                                            },
+                                            {
+                                              "key": "transferApiDestinationIban",
+                                              "value": "5022913100939467"
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationNumber",
+                                              "value": "۵۰۲۲ ۹۱۳۱ ۰۰۹۳ ۹۴۶۷"
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationName",
+                                              "value": "ندا رحمانی پور"
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationIcon",
+                                              "value": "assets/icons/ic_iranconcert_dark.svg"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "actionType": "filterTransferIbanList",
+                                          "fieldId": "transferApiCardInput",
+                                          "ibanValues": [
+                                            "5054161018168058",
+                                            "5054161702844691",
+                                            "5054161702994710",
+                                            "5022913100939467",
+                                            "5041771080766026"
+                                          ],
+                                          "visibleKeys": [
+                                            "transferApiCardVisible1",
+                                            "transferApiCardVisible2",
+                                            "transferApiCardVisible3",
+                                            "transferApiCardVisible4",
+                                            "transferApiCardVisible5"
+                                          ],
+                                          "isSearchingKey": "transferApiCardHasText"
+                                        }
+                                      ]
+                                    },
+                                    "type": "gestureDetector"
+                                  },
+                                  "replacement": {
+                                    "type": "sizedBox"
+                                  }
+                                },
+                                {
+                                  "height": 12.0,
+                                  "type": "sizedBox"
+                                },
+                                {
+                                  "type": "visibility",
+                                  "visible": "[[transferApiCardVisible5]]",
+                                  "child": {
+                                    "child": {
+                                      "padding": {
+                                        "left": 14.0,
+                                        "top": 16.0,
+                                        "right": 14.0,
+                                        "bottom": 16.0
+                                      },
+                                      "decoration": {
+                                        "color": "{{appColors.current.background.surface}}",
+                                        "border": {
+                                          "color": "{{appColors.current.input.borderEnabled}}",
+                                          "width": 1.0
+                                        },
+                                        "borderRadius": {
+                                          "topLeft": 11.0,
+                                          "topRight": 11.0,
+                                          "bottomLeft": 11.0,
+                                          "bottomRight": 11.0
+                                        }
+                                      },
+                                      "child": {
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "src": "assets/icons/ic_in.svg",
+                                            "imageType": "asset",
+                                            "width": 26.0,
+                                            "height": 26.0,
+                                            "type": "image"
+                                          },
+                                          {
+                                            "width": 12.0,
+                                            "type": "sizedBox"
+                                          },
+                                          {
+                                            "child": {
+                                              "crossAxisAlignment": "stretch",
+                                              "children": [
+                                                {
+                                                  "data": "۵۰۴۱ ۷۷۱۰ ۸۰۷۶ ۶۰۲۶",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.title}}",
+                                                    "fontSize": 17.0,
+                                                    "fontWeight": "w700"
+                                                  },
+                                                  "textAlign": "right",
+                                                  "textDirection": "ltr",
+                                                  "type": "text"
+                                                },
+                                                {
+                                                  "height": 6.0,
+                                                  "type": "sizedBox"
+                                                },
+                                                {
+                                                  "data": "سجاد رحمانی پور",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.subtitle}}",
+                                                    "fontSize": 15.0,
+                                                    "fontWeight": "w500"
+                                                  },
+                                                  "textAlign": "right",
+                                                  "textDirection": "rtl",
+                                                  "type": "text"
+                                                }
+                                              ],
+                                              "type": "column"
+                                            },
+                                            "type": "expanded"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      },
+                                      "type": "container"
+                                    },
+                                    "onTap": {
+                                      "actionType": "sequence",
+                                      "actions": [
+                                        {
+                                          "actionType": "setValue",
+                                          "values": [
+                                            {
+                                              "key": "transferApiCardInput",
+                                              "value": "5041771080766026"
+                                            },
+                                            {
+                                              "key": "transferApiCardHasText",
+                                              "value": true
+                                            },
+                                            {
+                                              "key": "transferApiDestinationIban",
+                                              "value": "5041771080766026"
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationNumber",
+                                              "value": "۵۰۴۱ ۷۷۱۰ ۸۰۷۶ ۶۰۲۶"
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationName",
+                                              "value": "سجاد رحمانی پور"
+                                            },
+                                            {
+                                              "key": "transferApiCardDestinationIcon",
+                                              "value": "assets/icons/ic_in.svg"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "actionType": "filterTransferIbanList",
+                                          "fieldId": "transferApiCardInput",
+                                          "ibanValues": [
+                                            "5054161018168058",
+                                            "5054161702844691",
+                                            "5054161702994710",
+                                            "5022913100939467",
+                                            "5041771080766026"
+                                          ],
+                                          "visibleKeys": [
+                                            "transferApiCardVisible1",
+                                            "transferApiCardVisible2",
+                                            "transferApiCardVisible3",
+                                            "transferApiCardVisible4",
+                                            "transferApiCardVisible5"
+                                          ],
+                                          "isSearchingKey": "transferApiCardHasText"
+                                        }
+                                      ]
+                                    },
+                                    "type": "gestureDetector"
+                                  },
+                                  "replacement": {
+                                    "type": "sizedBox"
+                                  }
+                                }
+                              ],
+                              "type": "column"
+                            },
+                            "type": "singleChildScrollView"
+                          },
+                          "type": "expanded"
+                        },
+                        {
+                          "height": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "type": "visibility",
+                          "visible": "[[transferApiCardHasText]]",
+                          "child": {
+                            "onPressed": {
+                              "actionType": "sequence",
+                              "actions": [
+                                {
+                                  "actionType": "setValue",
+                                  "values": [
+                                    {
+                                      "key": "transferApiCardDestinationNumber",
+                                      "value": {
+                                        "actionType": "getFormValue",
+                                        "id": "transferApiCardInput"
+                                      }
+                                    },
+                                    {
+                                      "key": "transferApiCardDestinationName",
+                                      "value": "کارت مقصد"
+                                    },
+                                    {
+                                      "key": "transferApiCardDestinationIcon",
+                                      "value": "assets/icons/ic_gardeshgari.svg"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "actionType": "validateTransferCardContinue",
+                                  "fieldId": "transferApiCardInput",
+                                  "requiredLength": 16,
+                                  "destinationCardKey": "transferApiDestinationIban",
+                                  "destinationDisplayNumberKey": "transferApiCardDestinationNumber",
+                                  "destinationNameKey": "transferApiCardDestinationName",
+                                  "destinationIconKey": "transferApiCardDestinationIcon",
+                                  "cardValues": [
+                                    "5054161018168058",
+                                    "5054161702844691",
+                                    "5054161702994710",
+                                    "5022913100939467",
+                                    "5041771080766026"
+                                  ],
+                                  "cardDisplayValues": [
+                                    "۵۰۵۴ ۱۶۱۰ ۱۸۱۶ ۸۰۵۸",
+                                    "۵۰۵۴ ۱۶۱۷ ۰۲۸۴ ۴۶۹۱",
+                                    "۵۰۵۴ ۱۶۱۷ ۰۲۹۹ ۴۷۱۰",
+                                    "۵۰۲۲ ۹۱۳۱ ۰۰۹۳ ۹۴۶۷",
+                                    "۵۰۴۱ ۷۷۱۰ ۸۰۷۶ ۶۰۲۶"
+                                  ],
+                                  "cardNames": [
+                                    "سیدعلیرضا نعمتی شیل سر",
+                                    "علی سینایی اصل",
+                                    "گردشگری - شعبه مجازی",
+                                    "ندا رحمانی پور",
+                                    "سجاد رحمانی پور"
+                                  ],
+                                  "cardIcons": [
+                                    "assets/icons/ic_gardeshgari.svg",
+                                    "assets/icons/ic_gardeshgari.svg",
+                                    "assets/icons/ic_gardeshgari.svg",
+                                    "assets/icons/ic_iranconcert_dark.svg",
+                                    "assets/icons/ic_in.svg"
+                                  ],
+                                  "validAction": {
+                                    "actionType": "sequence",
+                                    "actions": [
+                                      {
+                                        "actionType": "setValue",
+                                        "values": [
+                                          {
+                                            "key": "transferApiIsCardToCardFlow",
+                                            "value": true
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "navigationStyle": "push",
+                                        "actionType": "navigate",
+                                        "request": {
+                                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.transfer_card_details/1",
+                                          "method": "post",
+                                          "headers": {
+                                            "Content-Type": "application/json",
+                                            "Accept": "*/*"
+                                          },
+                                          "body": {
+                                            "operator": "is",
+                                            "dimension": {
+                                              "app": "mobile"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  "invalidAction": {
+                                    "actionType": "customSnackBar",
+                                    "backgroundColor": "#00000000",
+                                    "duration": 2600,
+                                    "permanent": false,
+                                    "permenent": false,
+                                    "child": {
+                                      "type": "container",
+                                      "decoration": {
+                                        "color": "{{appColors.current.background.surfaceContainer}}",
+                                        "borderRadius": {
+                                          "topLeft": 8,
+                                          "topRight": 8,
+                                          "bottomLeft": 8,
+                                          "bottomRight": 8
+                                        },
+                                        "border": {
+                                          "color": "{{appColors.current.input.borderEnabled}}",
+                                          "width": 1
+                                        }
+                                      },
+                                      "padding": {
+                                        "left": 12,
+                                        "top": 10,
+                                        "right": 12,
+                                        "bottom": 10
+                                      },
+                                      "child": {
+                                        "type": "row",
+                                        "textDirection": "ltr",
+                                        "crossAxisAlignment": "center",
+                                        "children": [
+                                          {
+                                            "type": "expanded",
+                                            "child": {
+                                              "type": "column",
+                                              "mainAxisSize": "min",
+                                              "crossAxisAlignment": "end",
+                                              "children": [
+                                                {
+                                                  "type": "text",
+                                                  "data": "خطا",
+                                                  "textDirection": "rtl",
+                                                  "textAlign": "right",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "fontSize": 14,
+                                                    "fontWeight": "w700",
+                                                    "color": "{{appColors.current.text.title}}",
+                                                    "height": 1.45
+                                                  }
+                                                },
+                                                {
+                                                  "type": "sizedBox",
+                                                  "height": 4
+                                                },
+                                                {
+                                                  "type": "text",
+                                                  "data": "شماره کارت مقصد باید ۱۶ رقم باشد.",
+                                                  "textDirection": "rtl",
+                                                  "textAlign": "right",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "fontSize": 13,
+                                                    "fontWeight": "w500",
+                                                    "color": "{{appColors.current.text.subtitle}}",
+                                                    "height": 1.45
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "type": "sizedBox",
+                                            "width": 10
+                                          },
+                                          {
+                                            "type": "container",
+                                            "width": 1,
+                                            "height": 20,
+                                            "decoration": {
+                                              "color": "{{appColors.current.input.borderEnabled}}",
+                                              "borderRadius": {
+                                                "topLeft": 999,
+                                                "topRight": 999,
+                                                "bottomLeft": 999,
+                                                "bottomRight": 999
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "type": "sizedBox",
+                                            "width": 8
+                                          },
+                                          {
+                                            "type": "image",
+                                            "src": "assets/icons/ic_info.svg",
+                                            "imageType": "asset",
+                                            "width": 20,
+                                            "height": 20,
+                                            "color": "{{appColors.current.text.subtitle}}"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            "style": {
+                              "foregroundColor": "{{appColors.current.text.onPrimary}}",
+                              "backgroundColor": "{{appColors.current.primary.color}}",
+                              "fixedSize": {
+                                "width": 999999.0,
+                                "height": 57.0
+                              },
+                              "shape": {
+                                "type": "roundedRectangleBorder",
+                                "borderRadius": {
+                                  "topLeft": 12.0,
+                                  "topRight": 12.0,
+                                  "bottomLeft": 12.0,
+                                  "bottomRight": 12.0
+                                }
+                              }
+                            },
+                            "child": {
+                              "data": "ادامه",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.onPrimary}}",
+                                "fontSize": 19.0,
+                                "fontWeight": "w700"
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "filledButton"
+                          },
+                          "replacement": {
+                            "onPressed": {
+                              "actionType": "showTransferCardScanner",
+                              "fieldId": "transferApiCardInput",
+                              "successAction": {
+                                "actionType": "filterTransferIbanList",
+                                "fieldId": "transferApiCardInput",
+                                "ibanValues": [
+                                  "5054161018168058",
+                                  "5054161702844691",
+                                  "5054161702994710",
+                                  "5022913100939467",
+                                  "5041771080766026"
+                                ],
+                                "visibleKeys": [
+                                  "transferApiCardVisible1",
+                                  "transferApiCardVisible2",
+                                  "transferApiCardVisible3",
+                                  "transferApiCardVisible4",
+                                  "transferApiCardVisible5"
+                                ],
+                                "isSearchingKey": "transferApiCardHasText"
+                              },
+                              "failedAction": {
+                                "actionType": "customSnackBar",
+                                "backgroundColor": "#00000000",
+                                "duration": 2600,
+                                "permanent": false,
+                                "permenent": false,
+                                "child": {
+                                  "type": "container",
+                                  "decoration": {
+                                    "color": "{{appColors.current.background.surfaceContainer}}",
+                                    "borderRadius": {
+                                      "topLeft": 8,
+                                      "topRight": 8,
+                                      "bottomLeft": 8,
+                                      "bottomRight": 8
+                                    },
+                                    "border": {
+                                      "color": "{{appColors.current.input.borderEnabled}}",
+                                      "width": 1
+                                    }
+                                  },
+                                  "padding": {
+                                    "left": 12,
+                                    "top": 10,
+                                    "right": 12,
+                                    "bottom": 10
+                                  },
+                                  "child": {
+                                    "type": "row",
+                                    "textDirection": "ltr",
+                                    "crossAxisAlignment": "center",
+                                    "children": [
+                                      {
+                                        "type": "expanded",
+                                        "child": {
+                                          "type": "column",
+                                          "mainAxisSize": "min",
+                                          "crossAxisAlignment": "end",
+                                          "children": [
+                                            {
+                                              "type": "text",
+                                              "data": "خطا",
+                                              "textDirection": "rtl",
+                                              "textAlign": "right",
+                                              "style": {
+                                                "type": "custom",
+                                                "fontSize": 14,
+                                                "fontWeight": "w700",
+                                                "color": "{{appColors.current.text.title}}",
+                                                "height": 1.45
+                                              }
+                                            },
+                                            {
+                                              "type": "sizedBox",
+                                              "height": 4
+                                            },
+                                            {
+                                              "type": "text",
+                                              "data": "اسکن کارت ناموفق بود.",
+                                              "textDirection": "rtl",
+                                              "textAlign": "right",
+                                              "style": {
+                                                "type": "custom",
+                                                "fontSize": 13,
+                                                "fontWeight": "w500",
+                                                "color": "{{appColors.current.text.subtitle}}",
+                                                "height": 1.45
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      {
+                                        "type": "sizedBox",
+                                        "width": 10
+                                      },
+                                      {
+                                        "type": "container",
+                                        "width": 1,
+                                        "height": 20,
+                                        "decoration": {
+                                          "color": "{{appColors.current.input.borderEnabled}}",
+                                          "borderRadius": {
+                                            "topLeft": 999,
+                                            "topRight": 999,
+                                            "bottomLeft": 999,
+                                            "bottomRight": 999
+                                          }
+                                        }
+                                      },
+                                      {
+                                        "type": "sizedBox",
+                                        "width": 8
+                                      },
+                                      {
+                                        "type": "image",
+                                        "src": "assets/icons/ic_info.svg",
+                                        "imageType": "asset",
+                                        "width": 20,
+                                        "height": 20,
+                                        "color": "{{appColors.current.text.subtitle}}"
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            "style": {
+                              "foregroundColor": "{{appColors.current.text.title}}",
+                              "fixedSize": {
+                                "width": 999999.0,
+                                "height": 57.0
+                              },
+                              "side": {
+                                "color": "{{appColors.current.text.title}}"
+                              },
+                              "shape": {
+                                "type": "roundedRectangleBorder",
+                                "borderRadius": {
+                                  "topLeft": 12.0,
+                                  "topRight": 12.0,
+                                  "bottomLeft": 12.0,
+                                  "bottomRight": 12.0
+                                }
+                              }
+                            },
+                            "child": {
+                              "mainAxisAlignment": "center",
+                              "children": [
+                                {
+                                  "data": "اسکن کارت",
+                                  "style": {
+                                    "type": "custom",
+                                    "color": "{{appColors.current.text.title}}",
+                                    "fontSize": 18.0,
+                                    "fontWeight": "w600"
+                                  },
+                                  "textDirection": "rtl",
+                                  "type": "text"
+                                },
+                                {
+                                  "width": 10.0,
+                                  "type": "sizedBox"
+                                },
+                                {
+                                  "src": "assets/icons/ic_card_default.svg",
+                                  "imageType": "asset",
+                                  "color": "{{appColors.current.text.title}}",
+                                  "width": 24.0,
+                                  "height": 24.0,
+                                  "type": "image"
+                                }
+                              ],
+                              "type": "row"
+                            },
+                            "type": "outlinedButton"
+                          }
+                        }
+                      ],
+                      "type": "column"
+                    },
+                    {
+                      "crossAxisAlignment": "stretch",
+                      "children": [
+                        {
+                          "crossAxisAlignment": "stretch",
+                          "children": [
+                            {
+                              "data": "شماره حساب",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 19.0,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "height": 10.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "type": "textFormField",
+                              "id": "transferApiInBankAccountInput",
+                              "textDirection": "ltr",
+                              "textAlign": "right",
+                              "decoration": {
+                                "hintText": "شماره حساب را وارد کنید",
+                                "hintStyle": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.hint}}",
+                                  "fontSize": 16.0,
+                                  "fontWeight": "w500"
+                                },
+                                "prefixIcon": {
+                                  "type": "visibility",
+                                  "visible": "[[transferApiInBankHasText]]",
+                                  "child": {
+                                    "child": {
+                                      "padding": {
+                                        "left": 12.0,
+                                        "top": 12.0,
+                                        "right": 12.0,
+                                        "bottom": 12.0
+                                      },
+                                      "child": {
+                                        "icon": "close",
+                                        "iconType": "material",
+                                        "size": 20.0,
+                                        "color": "{{appColors.current.text.subtitle}}",
+                                        "type": "icon"
+                                      },
+                                      "type": "padding"
+                                    },
+                                    "onTap": {
+                                      "actionType": "sequence",
+                                      "actions": [
+                                        {
+                                          "actionType": "setValue",
+                                          "values": [
+                                            {
+                                              "key": "transferApiInBankAccountInput",
+                                              "value": ""
+                                            },
+                                            {
+                                              "key": "transferApiInBankAccountRaw",
+                                              "value": ""
+                                            },
+                                            {
+                                              "key": "transferApiInBankHasText",
+                                              "value": false
+                                            },
+                                            {
+                                              "key": "transferApiContinueEnabled",
+                                              "value": false
+                                            },
+                                            {
+                                              "key": "transferApiDestinationIban",
+                                              "value": ""
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "actionType": "setTransferInBankContinueEnabled",
+                                          "fieldId": "transferApiInBankAccountInput",
+                                          "rawValueKey": "transferApiInBankAccountRaw",
+                                          "continueEnabledKey": "transferApiContinueEnabled",
+                                          "hasTextKey": "transferApiInBankHasText",
+                                          "destinationIbanKey": "transferApiDestinationIban",
+                                          "minLengthExclusive": 15,
+                                          "maxLength": 18
+                                        }
+                                      ]
+                                    },
+                                    "type": "gestureDetector"
+                                  }
+                                },
+                                "contentPadding": {
+                                  "left": 16.0,
+                                  "top": 19.5,
+                                  "right": 16.0,
+                                  "bottom": 19.5
+                                },
+                                "filled": false
+                              },
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w600"
+                              },
+                              "keyboardType": "number",
+                              "maxLength": 18,
+                              "inputFormatters": [
+                                {
+                                  "type": "allow",
+                                  "rule": "[0-9.]"
+                                }
+                              ],
+                              "onChanged": {
+                                "actionType": "setTransferInBankContinueEnabled",
+                                "fieldId": "transferApiInBankAccountInput",
+                                "rawValueKey": "transferApiInBankAccountRaw",
+                                "continueEnabledKey": "transferApiContinueEnabled",
+                                "hasTextKey": "transferApiInBankHasText",
+                                "destinationIbanKey": "transferApiDestinationIban",
+                                "minLengthExclusive": 15,
+                                "maxLength": 18
+                              }
+                            }
+                          ],
+                          "type": "column"
+                        },
+                        {
+                          "height": 22.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "crossAxisAlignment": "stretch",
+                                "children": [
+                                  {
+                                    "textDirection": "rtl",
+                                    "children": [
+                                      {
+                                        "child": {
+                                          "child": {
+                                            "children": [
+                                              {
+                                                "mainAxisAlignment": "center",
+                                                "children": [
+                                                  {
+                                                    "src": "assets/icons/ic_person.svg",
+                                                    "imageType": "asset",
+                                                    "color": "{{appColors.current.text.title}}",
+                                                    "width": 16.0,
+                                                    "height": 16.0,
+                                                    "type": "image"
+                                                  },
+                                                  {
+                                                    "width": 6.0,
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "data": "حساب‌های خودم",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "{{appColors.current.text.title}}",
+                                                      "fontSize": 17.0,
+                                                      "fontWeight": "w600"
+                                                    },
+                                                    "textAlign": "center",
+                                                    "textDirection": "rtl",
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "type": "row"
+                                              },
+                                              {
+                                                "height": 10.0,
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "type": "visibility",
+                                                "visible": "[[transferApiInBankMyTab]]",
+                                                "child": {
+                                                  "color": "{{appColors.current.primary.color}}",
+                                                  "height": 3.0,
+                                                  "type": "container"
+                                                },
+                                                "replacement": {
+                                                  "color": "#00000000",
+                                                  "height": 3.0,
+                                                  "type": "container"
+                                                }
+                                              }
+                                            ],
+                                            "type": "column"
+                                          },
+                                          "onTap": {
+                                            "actionType": "setValue",
+                                            "values": [
+                                              {
+                                                "key": "transferApiInBankMyTab",
+                                                "value": true
+                                              },
+                                              {
+                                                "key": "transferApiInBankOthersTab",
+                                                "value": false
+                                              }
+                                            ]
+                                          },
+                                          "type": "gestureDetector"
+                                        },
+                                        "type": "expanded"
+                                      },
+                                      {
+                                        "child": {
+                                          "child": {
+                                            "children": [
+                                              {
+                                                "mainAxisAlignment": "center",
+                                                "children": [
+                                                  {
+                                                    "src": "assets/icons/ic_others.svg",
+                                                    "imageType": "asset",
+                                                    "color": "{{appColors.current.text.title}}",
+                                                    "width": 16.0,
+                                                    "height": 16.0,
+                                                    "type": "image"
+                                                  },
+                                                  {
+                                                    "width": 6.0,
+                                                    "type": "sizedBox"
+                                                  },
+                                                  {
+                                                    "data": "حساب‌های دیگران",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "{{appColors.current.text.title}}",
+                                                      "fontSize": 17.0,
+                                                      "fontWeight": "w600"
+                                                    },
+                                                    "textAlign": "center",
+                                                    "textDirection": "rtl",
+                                                    "type": "text"
+                                                  }
+                                                ],
+                                                "type": "row"
+                                              },
+                                              {
+                                                "height": 10.0,
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "type": "visibility",
+                                                "visible": "[[transferApiInBankOthersTab]]",
+                                                "child": {
+                                                  "color": "{{appColors.current.primary.color}}",
+                                                  "height": 3.0,
+                                                  "type": "container"
+                                                },
+                                                "replacement": {
+                                                  "color": "#00000000",
+                                                  "height": 3.0,
+                                                  "type": "container"
+                                                }
+                                              }
+                                            ],
+                                            "type": "column"
+                                          },
+                                          "onTap": {
+                                            "actionType": "setValue",
+                                            "values": [
+                                              {
+                                                "key": "transferApiInBankMyTab",
+                                                "value": false
+                                              },
+                                              {
+                                                "key": "transferApiInBankOthersTab",
+                                                "value": true
+                                              }
+                                            ]
+                                          },
+                                          "type": "gestureDetector"
+                                        },
+                                        "type": "expanded"
+                                      }
+                                    ],
+                                    "type": "row"
+                                  },
+                                  {
+                                    "color": "{{appColors.current.input.borderEnabled}}",
+                                    "height": 1.0,
+                                    "type": "container"
+                                  }
+                                ],
+                                "type": "column"
+                              },
+                              {
+                                "height": 16.0,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "child": {
+                                  "child": {
+                                    "type": "visibility",
+                                    "visible": "[[transferApiInBankMyTab]]",
+                                    "child": {
+                                      "crossAxisAlignment": "stretch",
+                                      "children": [
+                                        {
+                                          "child": {
+                                            "padding": {
+                                              "left": 14.0,
+                                              "top": 18.0,
+                                              "right": 14.0,
+                                              "bottom": 18.0
+                                            },
+                                            "decoration": {
+                                              "color": "{{appColors.current.background.surface}}",
+                                              "border": {
+                                                "color": "{{appColors.current.input.borderEnabled}}",
+                                                "width": 1.0
+                                              },
+                                              "borderRadius": {
+                                                "topLeft": 11.0,
+                                                "topRight": 11.0,
+                                                "bottomLeft": 11.0,
+                                                "bottomRight": 11.0
+                                              }
+                                            },
+                                            "child": {
+                                              "crossAxisAlignment": "start",
+                                              "textDirection": "rtl",
+                                              "children": [
+                                                {
+                                                  "child": {
+                                                    "data": "۱۱۰.۹۹۹۲.۱۷۹۳۸۵۸.۱",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "{{appColors.current.text.title}}",
+                                                      "fontSize": 17.0,
+                                                      "fontWeight": "w700"
+                                                    },
+                                                    "textAlign": "right",
+                                                    "textDirection": "ltr",
+                                                    "type": "text"
+                                                  },
+                                                  "type": "expanded"
+                                                },
+                                                {
+                                                  "width": 12.0,
+                                                  "type": "sizedBox"
+                                                },
+                                                {
+                                                  "child": {
+                                                    "data": "سپرده سرمایه گذاری کوتاه مدت",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "{{appColors.current.text.subtitle}}",
+                                                      "fontSize": 16.0,
+                                                      "fontWeight": "w500",
+                                                      "height": 1.4
+                                                    },
+                                                    "textAlign": "right",
+                                                    "textDirection": "rtl",
+                                                    "type": "text"
+                                                  },
+                                                  "type": "expanded"
+                                                }
+                                              ],
+                                              "type": "row"
+                                            },
+                                            "type": "container"
+                                          },
+                                          "onTap": {
+                                            "actionType": "sequence",
+                                            "actions": [
+                                              {
+                                                "actionType": "setValue",
+                                                "values": [
+                                                  {
+                                                    "key": "transferApiInBankAccountInput",
+                                                    "value": "۱۱۰.۹۹۹۲.۱۷۹۳۸۵۸.۱"
+                                                  },
+                                                  {
+                                                    "key": "transferApiDestinationIban",
+                                                    "value": "۱۱۰.۹۹۹۲.۱۷۹۳۸۵۸.۱"
+                                                  },
+                                                  {
+                                                    "key": "transferApiDestinationName",
+                                                    "value": "سپرده سرمایه گذاری کوتاه مدت"
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "actionType": "setTransferInBankContinueEnabled",
+                                                "fieldId": "transferApiInBankAccountInput",
+                                                "rawValueKey": "transferApiInBankAccountRaw",
+                                                "continueEnabledKey": "transferApiContinueEnabled",
+                                                "hasTextKey": "transferApiInBankHasText",
+                                                "destinationIbanKey": "transferApiDestinationIban",
+                                                "minLengthExclusive": 15,
+                                                "maxLength": 18
+                                              }
+                                            ]
+                                          },
+                                          "type": "gestureDetector"
+                                        },
+                                        {
+                                          "height": 12.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "child": {
+                                            "padding": {
+                                              "left": 14.0,
+                                              "top": 18.0,
+                                              "right": 14.0,
+                                              "bottom": 18.0
+                                            },
+                                            "decoration": {
+                                              "color": "{{appColors.current.background.surface}}",
+                                              "border": {
+                                                "color": "{{appColors.current.input.borderEnabled}}",
+                                                "width": 1.0
+                                              },
+                                              "borderRadius": {
+                                                "topLeft": 11.0,
+                                                "topRight": 11.0,
+                                                "bottomLeft": 11.0,
+                                                "bottomRight": 11.0
+                                              }
+                                            },
+                                            "child": {
+                                              "crossAxisAlignment": "start",
+                                              "textDirection": "rtl",
+                                              "children": [
+                                                {
+                                                  "child": {
+                                                    "data": "۱۱۰.۷۹۱.۱۷۹۳۸۵۸.۱",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "{{appColors.current.text.title}}",
+                                                      "fontSize": 17.0,
+                                                      "fontWeight": "w700"
+                                                    },
+                                                    "textAlign": "right",
+                                                    "textDirection": "ltr",
+                                                    "type": "text"
+                                                  },
+                                                  "type": "expanded"
+                                                },
+                                                {
+                                                  "width": 12.0,
+                                                  "type": "sizedBox"
+                                                },
+                                                {
+                                                  "child": {
+                                                    "data": "حساب قرض الحسنه جاری حقیقی توبانک",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "{{appColors.current.text.subtitle}}",
+                                                      "fontSize": 16.0,
+                                                      "fontWeight": "w500",
+                                                      "height": 1.4
+                                                    },
+                                                    "textAlign": "right",
+                                                    "textDirection": "rtl",
+                                                    "type": "text"
+                                                  },
+                                                  "type": "expanded"
+                                                }
+                                              ],
+                                              "type": "row"
+                                            },
+                                            "type": "container"
+                                          },
+                                          "onTap": {
+                                            "actionType": "sequence",
+                                            "actions": [
+                                              {
+                                                "actionType": "setValue",
+                                                "values": [
+                                                  {
+                                                    "key": "transferApiInBankAccountInput",
+                                                    "value": "۱۱۰.۷۹۱.۱۷۹۳۸۵۸.۱"
+                                                  },
+                                                  {
+                                                    "key": "transferApiDestinationIban",
+                                                    "value": "۱۱۰.۷۹۱.۱۷۹۳۸۵۸.۱"
+                                                  },
+                                                  {
+                                                    "key": "transferApiDestinationName",
+                                                    "value": "حساب قرض الحسنه جاری حقیقی توبانک"
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "actionType": "setTransferInBankContinueEnabled",
+                                                "fieldId": "transferApiInBankAccountInput",
+                                                "rawValueKey": "transferApiInBankAccountRaw",
+                                                "continueEnabledKey": "transferApiContinueEnabled",
+                                                "hasTextKey": "transferApiInBankHasText",
+                                                "destinationIbanKey": "transferApiDestinationIban",
+                                                "minLengthExclusive": 15,
+                                                "maxLength": 18
+                                              }
+                                            ]
+                                          },
+                                          "type": "gestureDetector"
+                                        }
+                                      ],
+                                      "type": "column"
+                                    },
+                                    "replacement": {
+                                      "crossAxisAlignment": "stretch",
+                                      "children": [
+                                        {
+                                          "child": {
+                                            "padding": {
+                                              "left": 14.0,
+                                              "top": 18.0,
+                                              "right": 14.0,
+                                              "bottom": 18.0
+                                            },
+                                            "decoration": {
+                                              "color": "{{appColors.current.background.surface}}",
+                                              "border": {
+                                                "color": "{{appColors.current.input.borderEnabled}}",
+                                                "width": 1.0
+                                              },
+                                              "borderRadius": {
+                                                "topLeft": 11.0,
+                                                "topRight": 11.0,
+                                                "bottomLeft": 11.0,
+                                                "bottomRight": 11.0
+                                              }
+                                            },
+                                            "child": {
+                                              "crossAxisAlignment": "start",
+                                              "textDirection": "rtl",
+                                              "children": [
+                                                {
+                                                  "child": {
+                                                    "data": "۱۱۰.۹۹۹۳.۷۶۳۴۰۵۰.۱",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "{{appColors.current.text.title}}",
+                                                      "fontSize": 17.0,
+                                                      "fontWeight": "w700"
+                                                    },
+                                                    "textAlign": "right",
+                                                    "textDirection": "ltr",
+                                                    "type": "text"
+                                                  },
+                                                  "type": "expanded"
+                                                },
+                                                {
+                                                  "width": 12.0,
+                                                  "type": "sizedBox"
+                                                },
+                                                {
+                                                  "child": {
+                                                    "data": "علیرضا حیدریان",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "{{appColors.current.text.subtitle}}",
+                                                      "fontSize": 16.0,
+                                                      "fontWeight": "w500",
+                                                      "height": 1.4
+                                                    },
+                                                    "textAlign": "right",
+                                                    "textDirection": "rtl",
+                                                    "type": "text"
+                                                  },
+                                                  "type": "expanded"
+                                                }
+                                              ],
+                                              "type": "row"
+                                            },
+                                            "type": "container"
+                                          },
+                                          "onTap": {
+                                            "actionType": "sequence",
+                                            "actions": [
+                                              {
+                                                "actionType": "setValue",
+                                                "values": [
+                                                  {
+                                                    "key": "transferApiInBankAccountInput",
+                                                    "value": "۱۱۰.۹۹۹۳.۷۶۳۴۰۵۰.۱"
+                                                  },
+                                                  {
+                                                    "key": "transferApiDestinationIban",
+                                                    "value": "۱۱۰.۹۹۹۳.۷۶۳۴۰۵۰.۱"
+                                                  },
+                                                  {
+                                                    "key": "transferApiDestinationName",
+                                                    "value": "علیرضا حیدریان"
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "actionType": "setTransferInBankContinueEnabled",
+                                                "fieldId": "transferApiInBankAccountInput",
+                                                "rawValueKey": "transferApiInBankAccountRaw",
+                                                "continueEnabledKey": "transferApiContinueEnabled",
+                                                "hasTextKey": "transferApiInBankHasText",
+                                                "destinationIbanKey": "transferApiDestinationIban",
+                                                "minLengthExclusive": 15,
+                                                "maxLength": 18
+                                              }
+                                            ]
+                                          },
+                                          "type": "gestureDetector"
+                                        },
+                                        {
+                                          "height": 12.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "child": {
+                                            "padding": {
+                                              "left": 14.0,
+                                              "top": 18.0,
+                                              "right": 14.0,
+                                              "bottom": 18.0
+                                            },
+                                            "decoration": {
+                                              "color": "{{appColors.current.background.surface}}",
+                                              "border": {
+                                                "color": "{{appColors.current.input.borderEnabled}}",
+                                                "width": 1.0
+                                              },
+                                              "borderRadius": {
+                                                "topLeft": 11.0,
+                                                "topRight": 11.0,
+                                                "bottomLeft": 11.0,
+                                                "bottomRight": 11.0
+                                              }
+                                            },
+                                            "child": {
+                                              "crossAxisAlignment": "start",
+                                              "textDirection": "rtl",
+                                              "children": [
+                                                {
+                                                  "child": {
+                                                    "data": "۱۱۰.۹۹۹۲.۱۷۹۴۸۸۵.۱",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "{{appColors.current.text.title}}",
+                                                      "fontSize": 17.0,
+                                                      "fontWeight": "w700"
+                                                    },
+                                                    "textAlign": "right",
+                                                    "textDirection": "ltr",
+                                                    "type": "text"
+                                                  },
+                                                  "type": "expanded"
+                                                },
+                                                {
+                                                  "width": 12.0,
+                                                  "type": "sizedBox"
+                                                },
+                                                {
+                                                  "child": {
+                                                    "data": "مهدی جمشید پور",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "{{appColors.current.text.subtitle}}",
+                                                      "fontSize": 16.0,
+                                                      "fontWeight": "w500",
+                                                      "height": 1.4
+                                                    },
+                                                    "textAlign": "right",
+                                                    "textDirection": "rtl",
+                                                    "type": "text"
+                                                  },
+                                                  "type": "expanded"
+                                                }
+                                              ],
+                                              "type": "row"
+                                            },
+                                            "type": "container"
+                                          },
+                                          "onTap": {
+                                            "actionType": "sequence",
+                                            "actions": [
+                                              {
+                                                "actionType": "setValue",
+                                                "values": [
+                                                  {
+                                                    "key": "transferApiInBankAccountInput",
+                                                    "value": "۱۱۰.۹۹۹۲.۱۷۹۴۸۸۵.۱"
+                                                  },
+                                                  {
+                                                    "key": "transferApiDestinationIban",
+                                                    "value": "۱۱۰.۹۹۹۲.۱۷۹۴۸۸۵.۱"
+                                                  },
+                                                  {
+                                                    "key": "transferApiDestinationName",
+                                                    "value": "مهدی جمشید پور"
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "actionType": "setTransferInBankContinueEnabled",
+                                                "fieldId": "transferApiInBankAccountInput",
+                                                "rawValueKey": "transferApiInBankAccountRaw",
+                                                "continueEnabledKey": "transferApiContinueEnabled",
+                                                "hasTextKey": "transferApiInBankHasText",
+                                                "destinationIbanKey": "transferApiDestinationIban",
+                                                "minLengthExclusive": 15,
+                                                "maxLength": 18
+                                              }
+                                            ]
+                                          },
+                                          "type": "gestureDetector"
+                                        }
+                                      ],
+                                      "type": "column"
+                                    }
+                                  },
+                                  "type": "singleChildScrollView"
+                                },
+                                "type": "expanded"
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "expanded"
+                        },
+                        {
+                          "height": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "type": "reactiveElevatedButton",
+                          "enabledKey": "transferApiContinueEnabled",
+                          "onPressed": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "key": "transferApiTransferTypeTitle",
+                                "value": "درون بانکی"
+                              },
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "transferApiIsCardToCardFlow",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "navigationStyle": "push",
+                                "actionType": "navigate",
+                                "request": {
+                                  "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.transfer_in_bank_details/1",
+                                  "method": "post",
+                                  "headers": {
+                                    "Content-Type": "application/json",
+                                    "Accept": "*/*"
+                                  },
+                                  "body": {
+                                    "operator": "is",
+                                    "dimension": {
+                                      "app": "mobile"
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          "style": {
+                            "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+                            "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                            "fixedSize": {
+                              "width": 999999.0,
+                              "height": 57.0
+                            },
+                            "shape": {
+                              "type": "roundedRectangleBorder",
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            }
+                          },
+                          "disabledStyle": {
+                            "foregroundColor": "{{appColors.current.text.hint}}",
+                            "backgroundColor": "{{appColors.current.background.surfaceContainerHigh}}",
+                            "fixedSize": {
+                              "width": 999999.0,
+                              "height": 57.0
+                            },
+                            "shape": {
+                              "type": "roundedRectangleBorder",
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            }
+                          },
+                          "child": {
+                            "data": "ادامه",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.button.primary.foregroundColor}}",
+                              "fontSize": 18.0,
+                              "fontWeight": "w700"
+                            },
+                            "type": "text"
+                          }
+                        }
+                      ],
+                      "type": "column"
+                    },
+                    {
+                      "crossAxisAlignment": "stretch",
+                      "children": [
+                        {
+                          "crossAxisAlignment": "stretch",
+                          "children": [
+                            {
+                              "data": "شماره شبا",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 19.0,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "height": 10.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "type": "textFormField",
+                              "id": "transferApiIbanInput",
+                              "textDirection": "ltr",
+                              "textAlign": "left",
+                              "decoration": {
+                                "hintText": "شماره شبا را وارد کنید",
+                                "hintStyle": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.hint}}",
+                                  "fontSize": 16.0,
+                                  "fontWeight": "w500"
+                                },
+                                "prefixIcon": {
+                                  "width": 74.0,
+                                  "child": {
+                                    "padding": {
+                                      "left": 4.0,
+                                      "top": 10.0,
+                                      "right": 2.0,
+                                      "bottom": 10.0
+                                    },
+                                    "child": {
+                                      "mainAxisAlignment": "center",
+                                      "textDirection": "ltr",
+                                      "children": [
+                                        {
+                                          "data": "IR",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 22.0,
+                                            "fontWeight": "w700"
+                                          },
+                                          "textDirection": "ltr",
+                                          "type": "text"
+                                        }
+                                      ],
+                                      "type": "row"
+                                    },
+                                    "type": "padding"
+                                  },
+                                  "type": "sizedBox"
+                                },
+                                "suffixIcon": {
+                                  "type": "visibility",
+                                  "visible": "[[transferApiIsSearching]]",
+                                  "child": {
+                                    "child": {
+                                      "padding": {
+                                        "left": 10.0,
+                                        "right": 10.0
+                                      },
+                                      "child": {
+                                        "icon": "close",
+                                        "iconType": "material",
+                                        "size": 19.0,
+                                        "color": "{{appColors.current.text.subtitle}}",
+                                        "type": "icon"
+                                      },
+                                      "type": "padding"
+                                    },
+                                    "onTap": {
+                                      "actionType": "sequence",
+                                      "actions": [
+                                        {
+                                          "actionType": "setValue",
+                                          "values": [
+                                            {
+                                              "key": "transferApiIbanInput",
+                                              "value": ""
+                                            },
+                                            {
+                                              "key": "transferApiDestinationIban",
+                                              "value": ""
+                                            },
+                                            {
+                                              "key": "transferApiDestinationName",
+                                              "value": ""
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "actionType": "filterTransferIbanList",
+                                          "fieldId": "transferApiIbanInput",
+                                          "ibanValues": [
+                                            "830700001000117894304001",
+                                            "490100000000340340070004",
+                                            "980640011070075034070001",
+                                            "240750005151124000000156",
+                                            "860130100000003318427752"
+                                          ],
+                                          "visibleKeys": [
+                                            "transferApiIbanVisible1",
+                                            "transferApiIbanVisible2",
+                                            "transferApiIbanVisible3",
+                                            "transferApiIbanVisible4",
+                                            "transferApiIbanVisible5"
+                                          ],
+                                          "continueEnabledKey": "transferApiContinueEnabled",
+                                          "isSearchingKey": "transferApiIsSearching"
+                                        }
+                                      ]
+                                    },
+                                    "type": "gestureDetector"
+                                  },
+                                  "replacement": {
+                                    "width": 24.0,
+                                    "type": "sizedBox"
+                                  }
+                                },
+                                "contentPadding": {
+                                  "left": 8.0,
+                                  "top": 19.5,
+                                  "right": 16.0,
+                                  "bottom": 19.5
+                                },
+                                "filled": false,
+                                "hintTextDirection": "rtl",
+                                "hintTextAlign": "right"
+                              },
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w600"
+                              },
+                              "keyboardType": "number",
+                              "maxLength": 24,
+                              "inputFormatters": [
+                                {
+                                  "type": "allow",
+                                  "rule": "[0-9]"
+                                }
+                              ],
+                              "onChanged": {
+                                "actionType": "filterTransferIbanList",
+                                "fieldId": "transferApiIbanInput",
+                                "ibanValues": [
+                                  "830700001000117894304001",
+                                  "490100000000340340070004",
+                                  "980640011070075034070001",
+                                  "240750005151124000000156",
+                                  "860130100000003318427752"
+                                ],
+                                "visibleKeys": [
+                                  "transferApiIbanVisible1",
+                                  "transferApiIbanVisible2",
+                                  "transferApiIbanVisible3",
+                                  "transferApiIbanVisible4",
+                                  "transferApiIbanVisible5"
+                                ],
+                                "continueEnabledKey": "transferApiContinueEnabled",
+                                "isSearchingKey": "transferApiIsSearching"
+                              }
+                            }
+                          ],
+                          "type": "column"
+                        },
+                        {
+                          "height": 22.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "child": {
+                              "crossAxisAlignment": "stretch",
+                              "children": [
+                                {
+                                  "type": "visibility",
+                                  "visible": "[[transferApiIbanVisible1]]",
+                                  "child": {
+                                    "children": [
+                                      {
+                                        "child": {
+                                          "padding": {
+                                            "left": 14.0,
+                                            "top": 14.0,
+                                            "right": 14.0,
+                                            "bottom": 14.0
+                                          },
+                                          "decoration": {
+                                            "color": "{{appColors.current.background.surface}}",
+                                            "border": {
+                                              "color": "{{appColors.current.input.borderEnabled}}",
+                                              "width": 1.0
+                                            },
+                                            "borderRadius": {
+                                              "topLeft": 11.0,
+                                              "topRight": 11.0,
+                                              "bottomLeft": 11.0,
+                                              "bottomRight": 11.0
+                                            }
+                                          },
+                                          "child": {
+                                            "textDirection": "rtl",
+                                            "children": [
+                                              {
+                                                "decoration": {
+                                                  "color": "{{appColors.current.background.surfaceContainer}}",
+                                                  "borderRadius": {
+                                                    "topLeft": 999.0,
+                                                    "topRight": 999.0,
+                                                    "bottomLeft": 999.0,
+                                                    "bottomRight": 999.0
+                                                  }
+                                                },
+                                                "width": 34.0,
+                                                "height": 34.0,
+                                                "child": {
+                                                  "child": {
+                                                    "src": "assets/icons/ic_gardeshgari.svg",
+                                                    "imageType": "asset",
+                                                    "width": 24.0,
+                                                    "height": 24.0,
+                                                    "type": "image"
+                                                  },
+                                                  "type": "center"
+                                                },
+                                                "type": "container"
+                                              },
+                                              {
+                                                "width": 10.0,
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "child": {
+                                                  "crossAxisAlignment": "stretch",
+                                                  "children": [
+                                                    {
+                                                      "data": "IR۸۳۰۷۰۰۰۰۱۰۰۰۱۱۷۸۹۴۳۰۴۰۰۱",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.text.title}}",
+                                                        "fontSize": 16.0,
+                                                        "fontWeight": "w700"
+                                                      },
+                                                      "textAlign": "right",
+                                                      "textDirection": "ltr",
+                                                      "type": "text"
+                                                    },
+                                                    {
+                                                      "height": 8.0,
+                                                      "type": "sizedBox"
+                                                    },
+                                                    {
+                                                      "data": "سجاد رحمانی پور",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.text.subtitle}}",
+                                                        "fontSize": 15.0,
+                                                        "fontWeight": "w500"
+                                                      },
+                                                      "textAlign": "right",
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    }
+                                                  ],
+                                                  "type": "column"
+                                                },
+                                                "type": "expanded"
+                                              }
+                                            ],
+                                            "type": "row"
+                                          },
+                                          "type": "container"
+                                        },
+                                        "onTap": {
+                                          "actionType": "sequence",
+                                          "actions": [
+                                            {
+                                              "actionType": "setValue",
+                                              "key": "transferApiIbanInput",
+                                              "value": "830700001000117894304001"
+                                            },
+                                            {
+                                              "actionType": "setValue",
+                                              "key": "transferApiDestinationName",
+                                              "value": "سجاد رحمانی پور"
+                                            },
+                                            {
+                                              "actionType": "setValue",
+                                              "key": "transferApiDestinationIban",
+                                              "value": "830700001000117894304001"
+                                            },
+                                            {
+                                              "actionType": "filterTransferIbanList",
+                                              "fieldId": "transferApiIbanInput",
+                                              "ibanValues": [
+                                                "830700001000117894304001",
+                                                "490100000000340340070004",
+                                                "980640011070075034070001",
+                                                "240750005151124000000156",
+                                                "860130100000003318427752"
+                                              ],
+                                              "visibleKeys": [
+                                                "transferApiIbanVisible1",
+                                                "transferApiIbanVisible2",
+                                                "transferApiIbanVisible3",
+                                                "transferApiIbanVisible4",
+                                                "transferApiIbanVisible5"
+                                              ],
+                                              "continueEnabledKey": "transferApiContinueEnabled",
+                                              "isSearchingKey": "transferApiIsSearching"
+                                            }
+                                          ]
+                                        },
+                                        "type": "gestureDetector"
+                                      },
+                                      {
+                                        "height": 12.0,
+                                        "type": "sizedBox"
+                                      }
+                                    ],
+                                    "type": "column"
+                                  }
+                                },
+                                {
+                                  "type": "visibility",
+                                  "visible": "[[transferApiIbanVisible2]]",
+                                  "child": {
+                                    "children": [
+                                      {
+                                        "child": {
+                                          "padding": {
+                                            "left": 14.0,
+                                            "top": 14.0,
+                                            "right": 14.0,
+                                            "bottom": 14.0
+                                          },
+                                          "decoration": {
+                                            "color": "{{appColors.current.background.surface}}",
+                                            "border": {
+                                              "color": "{{appColors.current.input.borderEnabled}}",
+                                              "width": 1.0
+                                            },
+                                            "borderRadius": {
+                                              "topLeft": 11.0,
+                                              "topRight": 11.0,
+                                              "bottomLeft": 11.0,
+                                              "bottomRight": 11.0
+                                            }
+                                          },
+                                          "child": {
+                                            "textDirection": "rtl",
+                                            "children": [
+                                              {
+                                                "decoration": {
+                                                  "color": "{{appColors.current.background.surfaceContainer}}",
+                                                  "borderRadius": {
+                                                    "topLeft": 999.0,
+                                                    "topRight": 999.0,
+                                                    "bottomLeft": 999.0,
+                                                    "bottomRight": 999.0
+                                                  }
+                                                },
+                                                "width": 34.0,
+                                                "height": 34.0,
+                                                "child": {
+                                                  "child": {
+                                                    "src": "assets/icons/ic_gardeshgari.svg",
+                                                    "imageType": "asset",
+                                                    "width": 24.0,
+                                                    "height": 24.0,
+                                                    "type": "image"
+                                                  },
+                                                  "type": "center"
+                                                },
+                                                "type": "container"
+                                              },
+                                              {
+                                                "width": 10.0,
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "child": {
+                                                  "crossAxisAlignment": "stretch",
+                                                  "children": [
+                                                    {
+                                                      "data": "IR۴۹۰۱۰۰۰۰۰۰۰۰۳۴۰۳۴۰۰۷۰۰۰۴",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.text.title}}",
+                                                        "fontSize": 16.0,
+                                                        "fontWeight": "w700"
+                                                      },
+                                                      "textAlign": "right",
+                                                      "textDirection": "ltr",
+                                                      "type": "text"
+                                                    },
+                                                    {
+                                                      "height": 8.0,
+                                                      "type": "sizedBox"
+                                                    },
+                                                    {
+                                                      "data": "مینا عاشوری",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.text.subtitle}}",
+                                                        "fontSize": 15.0,
+                                                        "fontWeight": "w500"
+                                                      },
+                                                      "textAlign": "right",
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    }
+                                                  ],
+                                                  "type": "column"
+                                                },
+                                                "type": "expanded"
+                                              }
+                                            ],
+                                            "type": "row"
+                                          },
+                                          "type": "container"
+                                        },
+                                        "onTap": {
+                                          "actionType": "sequence",
+                                          "actions": [
+                                            {
+                                              "actionType": "setValue",
+                                              "key": "transferApiIbanInput",
+                                              "value": "490100000000340340070004"
+                                            },
+                                            {
+                                              "actionType": "setValue",
+                                              "key": "transferApiDestinationName",
+                                              "value": "مینا عاشوری"
+                                            },
+                                            {
+                                              "actionType": "setValue",
+                                              "key": "transferApiDestinationIban",
+                                              "value": "490100000000340340070004"
+                                            },
+                                            {
+                                              "actionType": "filterTransferIbanList",
+                                              "fieldId": "transferApiIbanInput",
+                                              "ibanValues": [
+                                                "830700001000117894304001",
+                                                "490100000000340340070004",
+                                                "980640011070075034070001",
+                                                "240750005151124000000156",
+                                                "860130100000003318427752"
+                                              ],
+                                              "visibleKeys": [
+                                                "transferApiIbanVisible1",
+                                                "transferApiIbanVisible2",
+                                                "transferApiIbanVisible3",
+                                                "transferApiIbanVisible4",
+                                                "transferApiIbanVisible5"
+                                              ],
+                                              "continueEnabledKey": "transferApiContinueEnabled",
+                                              "isSearchingKey": "transferApiIsSearching"
+                                            }
+                                          ]
+                                        },
+                                        "type": "gestureDetector"
+                                      },
+                                      {
+                                        "height": 12.0,
+                                        "type": "sizedBox"
+                                      }
+                                    ],
+                                    "type": "column"
+                                  }
+                                },
+                                {
+                                  "type": "visibility",
+                                  "visible": "[[transferApiIbanVisible3]]",
+                                  "child": {
+                                    "children": [
+                                      {
+                                        "child": {
+                                          "padding": {
+                                            "left": 14.0,
+                                            "top": 14.0,
+                                            "right": 14.0,
+                                            "bottom": 14.0
+                                          },
+                                          "decoration": {
+                                            "color": "{{appColors.current.background.surface}}",
+                                            "border": {
+                                              "color": "{{appColors.current.input.borderEnabled}}",
+                                              "width": 1.0
+                                            },
+                                            "borderRadius": {
+                                              "topLeft": 11.0,
+                                              "topRight": 11.0,
+                                              "bottomLeft": 11.0,
+                                              "bottomRight": 11.0
+                                            }
+                                          },
+                                          "child": {
+                                            "textDirection": "rtl",
+                                            "children": [
+                                              {
+                                                "decoration": {
+                                                  "color": "{{appColors.current.background.surfaceContainer}}",
+                                                  "borderRadius": {
+                                                    "topLeft": 999.0,
+                                                    "topRight": 999.0,
+                                                    "bottomLeft": 999.0,
+                                                    "bottomRight": 999.0
+                                                  }
+                                                },
+                                                "width": 34.0,
+                                                "height": 34.0,
+                                                "child": {
+                                                  "child": {
+                                                    "src": "assets/icons/ic_gardeshgari.svg",
+                                                    "imageType": "asset",
+                                                    "width": 24.0,
+                                                    "height": 24.0,
+                                                    "type": "image"
+                                                  },
+                                                  "type": "center"
+                                                },
+                                                "type": "container"
+                                              },
+                                              {
+                                                "width": 10.0,
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "child": {
+                                                  "crossAxisAlignment": "stretch",
+                                                  "children": [
+                                                    {
+                                                      "data": "IR۹۸۰۶۴۰۰۱۱۰۷۰۰۷۵۰۳۴۰۷۰۰۱",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.text.title}}",
+                                                        "fontSize": 16.0,
+                                                        "fontWeight": "w700"
+                                                      },
+                                                      "textAlign": "right",
+                                                      "textDirection": "ltr",
+                                                      "type": "text"
+                                                    },
+                                                    {
+                                                      "height": 8.0,
+                                                      "type": "sizedBox"
+                                                    },
+                                                    {
+                                                      "data": "محسن مقدم",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.text.subtitle}}",
+                                                        "fontSize": 15.0,
+                                                        "fontWeight": "w500"
+                                                      },
+                                                      "textAlign": "right",
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    }
+                                                  ],
+                                                  "type": "column"
+                                                },
+                                                "type": "expanded"
+                                              }
+                                            ],
+                                            "type": "row"
+                                          },
+                                          "type": "container"
+                                        },
+                                        "onTap": {
+                                          "actionType": "sequence",
+                                          "actions": [
+                                            {
+                                              "actionType": "setValue",
+                                              "key": "transferApiIbanInput",
+                                              "value": "980640011070075034070001"
+                                            },
+                                            {
+                                              "actionType": "setValue",
+                                              "key": "transferApiDestinationName",
+                                              "value": "محسن مقدم"
+                                            },
+                                            {
+                                              "actionType": "setValue",
+                                              "key": "transferApiDestinationIban",
+                                              "value": "980640011070075034070001"
+                                            },
+                                            {
+                                              "actionType": "filterTransferIbanList",
+                                              "fieldId": "transferApiIbanInput",
+                                              "ibanValues": [
+                                                "830700001000117894304001",
+                                                "490100000000340340070004",
+                                                "980640011070075034070001",
+                                                "240750005151124000000156",
+                                                "860130100000003318427752"
+                                              ],
+                                              "visibleKeys": [
+                                                "transferApiIbanVisible1",
+                                                "transferApiIbanVisible2",
+                                                "transferApiIbanVisible3",
+                                                "transferApiIbanVisible4",
+                                                "transferApiIbanVisible5"
+                                              ],
+                                              "continueEnabledKey": "transferApiContinueEnabled",
+                                              "isSearchingKey": "transferApiIsSearching"
+                                            }
+                                          ]
+                                        },
+                                        "type": "gestureDetector"
+                                      },
+                                      {
+                                        "height": 12.0,
+                                        "type": "sizedBox"
+                                      }
+                                    ],
+                                    "type": "column"
+                                  }
+                                },
+                                {
+                                  "type": "visibility",
+                                  "visible": "[[transferApiIbanVisible4]]",
+                                  "child": {
+                                    "children": [
+                                      {
+                                        "child": {
+                                          "padding": {
+                                            "left": 14.0,
+                                            "top": 14.0,
+                                            "right": 14.0,
+                                            "bottom": 14.0
+                                          },
+                                          "decoration": {
+                                            "color": "{{appColors.current.background.surface}}",
+                                            "border": {
+                                              "color": "{{appColors.current.input.borderEnabled}}",
+                                              "width": 1.0
+                                            },
+                                            "borderRadius": {
+                                              "topLeft": 11.0,
+                                              "topRight": 11.0,
+                                              "bottomLeft": 11.0,
+                                              "bottomRight": 11.0
+                                            }
+                                          },
+                                          "child": {
+                                            "textDirection": "rtl",
+                                            "children": [
+                                              {
+                                                "decoration": {
+                                                  "color": "{{appColors.current.background.surfaceContainer}}",
+                                                  "borderRadius": {
+                                                    "topLeft": 999.0,
+                                                    "topRight": 999.0,
+                                                    "bottomLeft": 999.0,
+                                                    "bottomRight": 999.0
+                                                  }
+                                                },
+                                                "width": 34.0,
+                                                "height": 34.0,
+                                                "child": {
+                                                  "child": {
+                                                    "src": "assets/icons/ic_gardeshgari.svg",
+                                                    "imageType": "asset",
+                                                    "width": 24.0,
+                                                    "height": 24.0,
+                                                    "type": "image"
+                                                  },
+                                                  "type": "center"
+                                                },
+                                                "type": "container"
+                                              },
+                                              {
+                                                "width": 10.0,
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "child": {
+                                                  "crossAxisAlignment": "stretch",
+                                                  "children": [
+                                                    {
+                                                      "data": "IR۲۴۰۷۵۰۰۰۵۱۵۱۱۲۴۰۰۰۰۰۰۱۵۶",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.text.title}}",
+                                                        "fontSize": 16.0,
+                                                        "fontWeight": "w700"
+                                                      },
+                                                      "textAlign": "right",
+                                                      "textDirection": "ltr",
+                                                      "type": "text"
+                                                    },
+                                                    {
+                                                      "height": 8.0,
+                                                      "type": "sizedBox"
+                                                    },
+                                                    {
+                                                      "data": "یکانه سادات ترابی خرق",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.text.subtitle}}",
+                                                        "fontSize": 15.0,
+                                                        "fontWeight": "w500"
+                                                      },
+                                                      "textAlign": "right",
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    }
+                                                  ],
+                                                  "type": "column"
+                                                },
+                                                "type": "expanded"
+                                              }
+                                            ],
+                                            "type": "row"
+                                          },
+                                          "type": "container"
+                                        },
+                                        "onTap": {
+                                          "actionType": "sequence",
+                                          "actions": [
+                                            {
+                                              "actionType": "setValue",
+                                              "key": "transferApiIbanInput",
+                                              "value": "240750005151124000000156"
+                                            },
+                                            {
+                                              "actionType": "setValue",
+                                              "key": "transferApiDestinationName",
+                                              "value": "یکانه سادات ترابی خرق"
+                                            },
+                                            {
+                                              "actionType": "setValue",
+                                              "key": "transferApiDestinationIban",
+                                              "value": "240750005151124000000156"
+                                            },
+                                            {
+                                              "actionType": "filterTransferIbanList",
+                                              "fieldId": "transferApiIbanInput",
+                                              "ibanValues": [
+                                                "830700001000117894304001",
+                                                "490100000000340340070004",
+                                                "980640011070075034070001",
+                                                "240750005151124000000156",
+                                                "860130100000003318427752"
+                                              ],
+                                              "visibleKeys": [
+                                                "transferApiIbanVisible1",
+                                                "transferApiIbanVisible2",
+                                                "transferApiIbanVisible3",
+                                                "transferApiIbanVisible4",
+                                                "transferApiIbanVisible5"
+                                              ],
+                                              "continueEnabledKey": "transferApiContinueEnabled",
+                                              "isSearchingKey": "transferApiIsSearching"
+                                            }
+                                          ]
+                                        },
+                                        "type": "gestureDetector"
+                                      },
+                                      {
+                                        "height": 12.0,
+                                        "type": "sizedBox"
+                                      }
+                                    ],
+                                    "type": "column"
+                                  }
+                                },
+                                {
+                                  "type": "visibility",
+                                  "visible": "[[transferApiIbanVisible5]]",
+                                  "child": {
+                                    "children": [
+                                      {
+                                        "child": {
+                                          "padding": {
+                                            "left": 14.0,
+                                            "top": 14.0,
+                                            "right": 14.0,
+                                            "bottom": 14.0
+                                          },
+                                          "decoration": {
+                                            "color": "{{appColors.current.background.surface}}",
+                                            "border": {
+                                              "color": "{{appColors.current.input.borderEnabled}}",
+                                              "width": 1.0
+                                            },
+                                            "borderRadius": {
+                                              "topLeft": 11.0,
+                                              "topRight": 11.0,
+                                              "bottomLeft": 11.0,
+                                              "bottomRight": 11.0
+                                            }
+                                          },
+                                          "child": {
+                                            "textDirection": "rtl",
+                                            "children": [
+                                              {
+                                                "decoration": {
+                                                  "color": "{{appColors.current.background.surfaceContainer}}",
+                                                  "borderRadius": {
+                                                    "topLeft": 999.0,
+                                                    "topRight": 999.0,
+                                                    "bottomLeft": 999.0,
+                                                    "bottomRight": 999.0
+                                                  }
+                                                },
+                                                "width": 34.0,
+                                                "height": 34.0,
+                                                "child": {
+                                                  "child": {
+                                                    "src": "assets/icons/ic_gardeshgari.svg",
+                                                    "imageType": "asset",
+                                                    "width": 24.0,
+                                                    "height": 24.0,
+                                                    "type": "image"
+                                                  },
+                                                  "type": "center"
+                                                },
+                                                "type": "container"
+                                              },
+                                              {
+                                                "width": 10.0,
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "child": {
+                                                  "crossAxisAlignment": "stretch",
+                                                  "children": [
+                                                    {
+                                                      "data": "IR۸۶۰۱۳۰۱۰۰۰۰۰۰۰۳۳۱۸۴۲۷۵۲",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.text.title}}",
+                                                        "fontSize": 16.0,
+                                                        "fontWeight": "w700"
+                                                      },
+                                                      "textAlign": "right",
+                                                      "textDirection": "ltr",
+                                                      "type": "text"
+                                                    },
+                                                    {
+                                                      "height": 8.0,
+                                                      "type": "sizedBox"
+                                                    },
+                                                    {
+                                                      "data": "سید پارسا بنی طبا",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.text.subtitle}}",
+                                                        "fontSize": 15.0,
+                                                        "fontWeight": "w500"
+                                                      },
+                                                      "textAlign": "right",
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    }
+                                                  ],
+                                                  "type": "column"
+                                                },
+                                                "type": "expanded"
+                                              }
+                                            ],
+                                            "type": "row"
+                                          },
+                                          "type": "container"
+                                        },
+                                        "onTap": {
+                                          "actionType": "sequence",
+                                          "actions": [
+                                            {
+                                              "actionType": "setValue",
+                                              "key": "transferApiIbanInput",
+                                              "value": "860130100000003318427752"
+                                            },
+                                            {
+                                              "actionType": "setValue",
+                                              "key": "transferApiDestinationName",
+                                              "value": "سید پارسا بنی طبا"
+                                            },
+                                            {
+                                              "actionType": "setValue",
+                                              "key": "transferApiDestinationIban",
+                                              "value": "860130100000003318427752"
+                                            },
+                                            {
+                                              "actionType": "filterTransferIbanList",
+                                              "fieldId": "transferApiIbanInput",
+                                              "ibanValues": [
+                                                "830700001000117894304001",
+                                                "490100000000340340070004",
+                                                "980640011070075034070001",
+                                                "240750005151124000000156",
+                                                "860130100000003318427752"
+                                              ],
+                                              "visibleKeys": [
+                                                "transferApiIbanVisible1",
+                                                "transferApiIbanVisible2",
+                                                "transferApiIbanVisible3",
+                                                "transferApiIbanVisible4",
+                                                "transferApiIbanVisible5"
+                                              ],
+                                              "continueEnabledKey": "transferApiContinueEnabled",
+                                              "isSearchingKey": "transferApiIsSearching"
+                                            }
+                                          ]
+                                        },
+                                        "type": "gestureDetector"
+                                      },
+                                      {
+                                        "height": 12.0,
+                                        "type": "sizedBox"
+                                      }
+                                    ],
+                                    "type": "column"
+                                  }
+                                }
+                              ],
+                              "type": "column"
+                            },
+                            "type": "singleChildScrollView"
+                          },
+                          "type": "expanded"
+                        },
+                        {
+                          "height": 12.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "type": "reactiveElevatedButton",
+                          "enabledKey": "transferApiContinueEnabled",
+                          "onPressed": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setTransferDestinationFromIban",
+                                "fieldId": "transferApiIbanInput",
+                                "ibanValues": [
+                                  "830700001000117894304001",
+                                  "490100000000340340070004",
+                                  "980640011070075034070001",
+                                  "240750005151124000000156",
+                                  "860130100000003318427752"
+                                ],
+                                "destinationNames": [
+                                  "سجاد رحمانی پور",
+                                  "مینا عاشوری",
+                                  "محسن مقدم",
+                                  "یکانه سادات ترابی خرق",
+                                  "سید پارسا بنی طبا"
+                                ],
+                                "destinationIbanKey": "transferApiDestinationIban",
+                                "destinationNameKey": "transferApiDestinationName"
+                              },
+                              {
+                                "actionType": "setValue",
+                                "key": "transferApiTransferTypeTitle",
+                                "value": ""
+                              },
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "transferApiIsCardToCardFlow",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "navigationStyle": "push",
+                                "actionType": "navigate",
+                                "request": {
+                                  "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.transfer_details/1",
+                                  "method": "post",
+                                  "headers": {
+                                    "Content-Type": "application/json",
+                                    "Accept": "*/*"
+                                  },
+                                  "body": {
+                                    "operator": "is",
+                                    "dimension": {
+                                      "app": "mobile"
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          "style": {
+                            "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+                            "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                            "fixedSize": {
+                              "width": 999999.0,
+                              "height": 57.0
+                            },
+                            "shape": {
+                              "type": "roundedRectangleBorder",
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            }
+                          },
+                          "disabledStyle": {
+                            "foregroundColor": "{{appColors.current.text.hint}}",
+                            "backgroundColor": "{{appColors.current.background.surfaceContainerHigh}}",
+                            "fixedSize": {
+                              "width": 999999.0,
+                              "height": 57.0
+                            },
+                            "shape": {
+                              "type": "roundedRectangleBorder",
+                              "borderRadius": {
+                                "topLeft": 10.0,
+                                "topRight": 10.0,
+                                "bottomLeft": 10.0,
+                                "bottomRight": 10.0
+                              }
+                            }
+                          },
+                          "child": {
+                            "data": "ادامه",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.button.primary.foregroundColor}}",
+                              "fontSize": 18.0,
+                              "fontWeight": "w700"
+                            },
+                            "type": "text"
+                          }
+                        }
+                      ],
+                      "type": "column"
+                    }
+                  ],
+                  "type": "tabBarView"
+                },
+                "type": "expanded"
+              }
+            ],
+            "type": "column"
+          },
+          "type": "defaultTabController"
+        },
+        "type": "padding"
+      },
+      "type": "form"
+    },
+    "type": "scaffold"
+  }
+}

@@ -11,7 +11,7 @@ StacWidget transferRealResult() {
       title: 'انتقال وجه',
     ),
     body: StacCustomVisibility(
-      visible: '[[transferApiTabCard]]',
+      visible: '[[transferApiIsCardToCardFlow]]',
       child: _cardResultContent().toJson(),
       replacement: _defaultResultContent().toJson(),
     ),

@@ -1,0 +1,2956 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "setValue",
+    "values": [
+      {
+        "key": "depositTurnoverExpanded0",
+        "value": false
+      },
+      {
+        "key": "depositTurnoverExpanded1",
+        "value": false
+      },
+      {
+        "key": "depositTurnoverExpanded2",
+        "value": false
+      },
+      {
+        "key": "depositTurnoverExpanded3",
+        "value": false
+      },
+      {
+        "key": "depositTurnoverExpanded4",
+        "value": false
+      },
+      {
+        "key": "depositTurnoverExpanded5",
+        "value": false
+      },
+      {
+        "key": "depositTurnoverExpanded6",
+        "value": false
+      },
+      {
+        "key": "depositTurnoverExpanded7",
+        "value": false
+      },
+      {
+        "key": "depositTurnoverExpanded8",
+        "value": false
+      },
+      {
+        "key": "depositTurnoverExpanded9",
+        "value": false
+      }
+    ]
+  },
+  "child": {
+    "type": "visibility",
+    "visible": "[[dtFilterLatestSelected]]",
+    "child": {
+      "appBar": {
+        "leading": {
+          "padding": {
+            "left": 12
+          },
+          "child": {
+            "child": {
+              "src": "{{appAssets.icons.support}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 24,
+              "height": 24,
+              "type": "image"
+            },
+            "type": "center"
+          },
+          "type": "padding"
+        },
+        "automaticallyImplyLeading": true,
+        "title": {
+          "data": "۱۰ گردش آخر",
+          "style": {
+            "type": "alias",
+            "value": "{{appStyles.appbarStyle}}"
+          },
+          "textDirection": "rtl",
+          "type": "text"
+        },
+        "actions": [
+          {
+            "padding": {
+              "right": 12
+            },
+            "child": {
+              "onPressed": {
+                "navigationStyle": "pop",
+                "actionType": "navigate"
+              },
+              "icon": {
+                "src": "{{appAssets.icons.arrowBack}}",
+                "imageType": "asset",
+                "color": "{{appColors.current.text.title}}",
+                "width": 31,
+                "height": 31,
+                "type": "image"
+              },
+              "type": "iconButton"
+            },
+            "type": "padding"
+          }
+        ],
+        "centerTitle": true,
+        "type": "appBar"
+      },
+      "backgroundColor": "{{appColors.current.background.surface}}",
+      "body": {
+        "child": {
+          "padding": {
+            "left": 16,
+            "top": 16,
+            "right": 16,
+            "bottom": 24
+          },
+          "children": [
+            {
+              "padding": {
+                "left": 16,
+                "top": 16,
+                "right": 16,
+                "bottom": 16
+              },
+              "decoration": {
+                "color": "{{appColors.current.background.surfaceContainer}}",
+                "border": {
+                  "color": "{{appColors.current.input.borderEnabled}}",
+                  "width": 1
+                },
+                "borderRadius": {
+                  "topLeft": 8,
+                  "topRight": 8,
+                  "bottomLeft": 8,
+                  "bottomRight": 8
+                }
+              },
+              "child": {
+                "mainAxisAlignment": "spaceBetween",
+                "textDirection": "rtl",
+                "children": [
+                  {
+                    "data": "شماره سپرده",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.subtitle}}",
+                      "fontSize": 14,
+                      "fontWeight": "w500"
+                    },
+                    "type": "text"
+                  },
+                  {
+                    "data": "۱۴۴.۹۹۶۶.۷۶۳۰۲۰.۱",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16,
+                      "fontWeight": "w700"
+                    },
+                    "textDirection": "ltr",
+                    "type": "text"
+                  }
+                ],
+                "type": "row"
+              },
+              "type": "container"
+            },
+            {
+              "height": 14,
+              "type": "sizedBox"
+            },
+            {
+              "child": {
+                "padding": {
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "topLeft": 10,
+                    "topRight": 10,
+                    "bottomLeft": 10,
+                    "bottomRight": 10
+                  }
+                },
+                "margin": {
+                  "top": 12
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "decoration": {
+                            "color": "{{appColors.current.background.surfaceContainer}}",
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1
+                            },
+                            "shape": "circle"
+                          },
+                          "width": 48,
+                          "height": 48,
+                          "child": {
+                            "child": {
+                              "padding": {
+                                "left": 8,
+                                "top": 8,
+                                "right": 8,
+                                "bottom": 8
+                              },
+                              "child": {
+                                "src": "{{appAssets.icons.inCurrent}}",
+                                "imageType": "asset",
+                                "width": 24,
+                                "height": 24,
+                                "type": "image"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "center"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "width": 12,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "crossAxisAlignment": "start",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "data": "واریز وجه",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.title}}",
+                                        "fontSize": 18,
+                                        "fontWeight": "w700"
+                                      },
+                                      "textAlign": "right",
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "width": 12,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۱۰,۰۰۰ ریال",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "fontSize": 18,
+                                      "fontWeight": "w700"
+                                    },
+                                    "textAlign": "left",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "row"
+                              },
+                              {
+                                "height": 10,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": "۱۴۰۵/۰۲/۱۶ - ۱۰:۳۶",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 15,
+                                  "fontWeight": "w500"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[depositTurnoverExpanded0]]",
+                      "child": {
+                        "padding": {
+                          "top": 16
+                        },
+                        "child": {
+                          "crossAxisAlignment": "stretch",
+                          "children": [
+                            {
+                              "height": 1,
+                              "thickness": 1,
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "type": "divider"
+                            },
+                            {
+                              "height": 16,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "توضیحات:",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "height": 8,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "واریز وجه به سپرده از طریق انتقال داخلی بانک برای تکمیل موجودی حساب انجام شده است.",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14,
+                                "fontWeight": "w500",
+                                "height": 1.75
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "column"
+                        },
+                        "type": "padding"
+                      },
+                      "replacement": {
+                        "height": 0,
+                        "type": "sizedBox"
+                      }
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "depositTurnoverExpanded0",
+                "value": "{{depositTurnoverExpanded0 ? false : true}}"
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "child": {
+                "padding": {
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "topLeft": 10,
+                    "topRight": 10,
+                    "bottomLeft": 10,
+                    "bottomRight": 10
+                  }
+                },
+                "margin": {
+                  "top": 12
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "decoration": {
+                            "color": "{{appColors.current.background.surfaceContainer}}",
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1
+                            },
+                            "shape": "circle"
+                          },
+                          "width": 48,
+                          "height": 48,
+                          "child": {
+                            "child": {
+                              "padding": {
+                                "left": 8,
+                                "top": 8,
+                                "right": 8,
+                                "bottom": 8
+                              },
+                              "child": {
+                                "src": "{{appAssets.icons.outCurrent}}",
+                                "imageType": "asset",
+                                "width": 24,
+                                "height": 24,
+                                "type": "image"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "center"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "width": 12,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "crossAxisAlignment": "start",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "data": "برداشت وجه",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.title}}",
+                                        "fontSize": 18,
+                                        "fontWeight": "w700"
+                                      },
+                                      "textAlign": "right",
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "width": 12,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۱۰,۰۰۰ ریال",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "fontSize": 18,
+                                      "fontWeight": "w700"
+                                    },
+                                    "textAlign": "left",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "row"
+                              },
+                              {
+                                "height": 10,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": "۱۴۰۵/۰۲/۱۲ - ۰۴:۳۶",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 15,
+                                  "fontWeight": "w500"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[depositTurnoverExpanded1]]",
+                      "child": {
+                        "padding": {
+                          "top": 16
+                        },
+                        "child": {
+                          "crossAxisAlignment": "stretch",
+                          "children": [
+                            {
+                              "height": 1,
+                              "thickness": 1,
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "type": "divider"
+                            },
+                            {
+                              "height": 16,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "توضیحات:",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "height": 8,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "برداشت برای کارمزد دستور پرداخت پل با شماره پیگیری ۱۴۰۵۰۲۱۲۰۴۳۶۰۰۳۷۲۱۸۵۹۸ ثبت شده است.",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14,
+                                "fontWeight": "w500",
+                                "height": 1.75
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "column"
+                        },
+                        "type": "padding"
+                      },
+                      "replacement": {
+                        "height": 0,
+                        "type": "sizedBox"
+                      }
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "depositTurnoverExpanded1",
+                "value": "{{depositTurnoverExpanded1 ? false : true}}"
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "child": {
+                "padding": {
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "topLeft": 10,
+                    "topRight": 10,
+                    "bottomLeft": 10,
+                    "bottomRight": 10
+                  }
+                },
+                "margin": {
+                  "top": 12
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "decoration": {
+                            "color": "{{appColors.current.background.surfaceContainer}}",
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1
+                            },
+                            "shape": "circle"
+                          },
+                          "width": 48,
+                          "height": 48,
+                          "child": {
+                            "child": {
+                              "padding": {
+                                "left": 8,
+                                "top": 8,
+                                "right": 8,
+                                "bottom": 8
+                              },
+                              "child": {
+                                "src": "{{appAssets.icons.inCurrent}}",
+                                "imageType": "asset",
+                                "width": 24,
+                                "height": 24,
+                                "type": "image"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "center"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "width": 12,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "crossAxisAlignment": "start",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "data": "واریز وجه",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.title}}",
+                                        "fontSize": 18,
+                                        "fontWeight": "w700"
+                                      },
+                                      "textAlign": "right",
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "width": 12,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۱۰,۰۰۰ ریال",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "fontSize": 18,
+                                      "fontWeight": "w700"
+                                    },
+                                    "textAlign": "left",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "row"
+                              },
+                              {
+                                "height": 10,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": "۱۴۰۵/۰۲/۰۲ - ۰۹:۱۳",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 15,
+                                  "fontWeight": "w500"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[depositTurnoverExpanded2]]",
+                      "child": {
+                        "padding": {
+                          "top": 16
+                        },
+                        "child": {
+                          "crossAxisAlignment": "stretch",
+                          "children": [
+                            {
+                              "height": 1,
+                              "thickness": 1,
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "type": "divider"
+                            },
+                            {
+                              "height": 16,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "توضیحات:",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "height": 8,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "واریز از مبدا کارت داخلی به این سپرده با هدف افزایش موجودی روزانه انجام شده است.",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14,
+                                "fontWeight": "w500",
+                                "height": 1.75
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "column"
+                        },
+                        "type": "padding"
+                      },
+                      "replacement": {
+                        "height": 0,
+                        "type": "sizedBox"
+                      }
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "depositTurnoverExpanded2",
+                "value": "{{depositTurnoverExpanded2 ? false : true}}"
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "child": {
+                "padding": {
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "topLeft": 10,
+                    "topRight": 10,
+                    "bottomLeft": 10,
+                    "bottomRight": 10
+                  }
+                },
+                "margin": {
+                  "top": 12
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "decoration": {
+                            "color": "{{appColors.current.background.surfaceContainer}}",
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1
+                            },
+                            "shape": "circle"
+                          },
+                          "width": 48,
+                          "height": 48,
+                          "child": {
+                            "child": {
+                              "padding": {
+                                "left": 8,
+                                "top": 8,
+                                "right": 8,
+                                "bottom": 8
+                              },
+                              "child": {
+                                "src": "{{appAssets.icons.outCurrent}}",
+                                "imageType": "asset",
+                                "width": 24,
+                                "height": 24,
+                                "type": "image"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "center"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "width": 12,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "crossAxisAlignment": "start",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "data": "برداشت وجه",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.title}}",
+                                        "fontSize": 18,
+                                        "fontWeight": "w700"
+                                      },
+                                      "textAlign": "right",
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "width": 12,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۲,۲۰۹,۳۵۳ ریال",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "fontSize": 18,
+                                      "fontWeight": "w700"
+                                    },
+                                    "textAlign": "left",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "row"
+                              },
+                              {
+                                "height": 10,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": "۱۴۰۴/۱۲/۱۲ - ۰۵:۱۶",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 15,
+                                  "fontWeight": "w500"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[depositTurnoverExpanded3]]",
+                      "child": {
+                        "padding": {
+                          "top": 16
+                        },
+                        "child": {
+                          "crossAxisAlignment": "stretch",
+                          "children": [
+                            {
+                              "height": 1,
+                              "thickness": 1,
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "type": "divider"
+                            },
+                            {
+                              "height": 16,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "توضیحات:",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "height": 8,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "برداشت وجه بابت انتقال به حساب مقصد بانک پاسارگاد با شناسه پیگیری ۹۸۷۶۵۴۳ ثبت شده است.",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14,
+                                "fontWeight": "w500",
+                                "height": 1.75
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "column"
+                        },
+                        "type": "padding"
+                      },
+                      "replacement": {
+                        "height": 0,
+                        "type": "sizedBox"
+                      }
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "depositTurnoverExpanded3",
+                "value": "{{depositTurnoverExpanded3 ? false : true}}"
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "child": {
+                "padding": {
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "topLeft": 10,
+                    "topRight": 10,
+                    "bottomLeft": 10,
+                    "bottomRight": 10
+                  }
+                },
+                "margin": {
+                  "top": 12
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "decoration": {
+                            "color": "{{appColors.current.background.surfaceContainer}}",
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1
+                            },
+                            "shape": "circle"
+                          },
+                          "width": 48,
+                          "height": 48,
+                          "child": {
+                            "child": {
+                              "padding": {
+                                "left": 8,
+                                "top": 8,
+                                "right": 8,
+                                "bottom": 8
+                              },
+                              "child": {
+                                "src": "{{appAssets.icons.outCurrent}}",
+                                "imageType": "asset",
+                                "width": 24,
+                                "height": 24,
+                                "type": "image"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "center"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "width": 12,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "crossAxisAlignment": "start",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "data": "برداشت وجه",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.title}}",
+                                        "fontSize": 18,
+                                        "fontWeight": "w700"
+                                      },
+                                      "textAlign": "right",
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "width": 12,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۱۳۳,۹۶۲,۵۰۰ ریال",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "fontSize": 18,
+                                      "fontWeight": "w700"
+                                    },
+                                    "textAlign": "left",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "row"
+                              },
+                              {
+                                "height": 10,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": "۱۴۰۴/۱۲/۰۶ - ۱۷:۰۶",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 15,
+                                  "fontWeight": "w500"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[depositTurnoverExpanded4]]",
+                      "child": {
+                        "padding": {
+                          "top": 16
+                        },
+                        "child": {
+                          "crossAxisAlignment": "stretch",
+                          "children": [
+                            {
+                              "height": 1,
+                              "thickness": 1,
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "type": "divider"
+                            },
+                            {
+                              "height": 16,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "توضیحات:",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "height": 8,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "مبلغ بابت تسویه درخواست انتقال پایا از سپرده کسر شده و در انتظار نهایی‌سازی بین‌بانکی است.",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14,
+                                "fontWeight": "w500",
+                                "height": 1.75
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "column"
+                        },
+                        "type": "padding"
+                      },
+                      "replacement": {
+                        "height": 0,
+                        "type": "sizedBox"
+                      }
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "depositTurnoverExpanded4",
+                "value": "{{depositTurnoverExpanded4 ? false : true}}"
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "child": {
+                "padding": {
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "topLeft": 10,
+                    "topRight": 10,
+                    "bottomLeft": 10,
+                    "bottomRight": 10
+                  }
+                },
+                "margin": {
+                  "top": 12
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "decoration": {
+                            "color": "{{appColors.current.background.surfaceContainer}}",
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1
+                            },
+                            "shape": "circle"
+                          },
+                          "width": 48,
+                          "height": 48,
+                          "child": {
+                            "child": {
+                              "padding": {
+                                "left": 8,
+                                "top": 8,
+                                "right": 8,
+                                "bottom": 8
+                              },
+                              "child": {
+                                "src": "{{appAssets.icons.inCurrent}}",
+                                "imageType": "asset",
+                                "width": 24,
+                                "height": 24,
+                                "type": "image"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "center"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "width": 12,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "crossAxisAlignment": "start",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "data": "واریز وجه",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.title}}",
+                                        "fontSize": 18,
+                                        "fontWeight": "w700"
+                                      },
+                                      "textAlign": "right",
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "width": 12,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۸۴,۷۰۰,۰۰۰ ریال",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "fontSize": 18,
+                                      "fontWeight": "w700"
+                                    },
+                                    "textAlign": "left",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "row"
+                              },
+                              {
+                                "height": 10,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": "۱۴۰۴/۱۲/۰۶ - ۱۶:۵۹",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 15,
+                                  "fontWeight": "w500"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[depositTurnoverExpanded5]]",
+                      "child": {
+                        "padding": {
+                          "top": 16
+                        },
+                        "child": {
+                          "crossAxisAlignment": "stretch",
+                          "children": [
+                            {
+                              "height": 1,
+                              "thickness": 1,
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "type": "divider"
+                            },
+                            {
+                              "height": 16,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "توضیحات:",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "height": 8,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "واریز از طریق شعبه بانک برای تامین موجودی سپرده سرمایه‌گذاری ثبت شده است.",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14,
+                                "fontWeight": "w500",
+                                "height": 1.75
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "column"
+                        },
+                        "type": "padding"
+                      },
+                      "replacement": {
+                        "height": 0,
+                        "type": "sizedBox"
+                      }
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "depositTurnoverExpanded5",
+                "value": "{{depositTurnoverExpanded5 ? false : true}}"
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "child": {
+                "padding": {
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "topLeft": 10,
+                    "topRight": 10,
+                    "bottomLeft": 10,
+                    "bottomRight": 10
+                  }
+                },
+                "margin": {
+                  "top": 12
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "decoration": {
+                            "color": "{{appColors.current.background.surfaceContainer}}",
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1
+                            },
+                            "shape": "circle"
+                          },
+                          "width": 48,
+                          "height": 48,
+                          "child": {
+                            "child": {
+                              "padding": {
+                                "left": 8,
+                                "top": 8,
+                                "right": 8,
+                                "bottom": 8
+                              },
+                              "child": {
+                                "src": "{{appAssets.icons.inCurrent}}",
+                                "imageType": "asset",
+                                "width": 24,
+                                "height": 24,
+                                "type": "image"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "center"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "width": 12,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "crossAxisAlignment": "start",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "data": "واریز وجه",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.title}}",
+                                        "fontSize": 18,
+                                        "fontWeight": "w700"
+                                      },
+                                      "textAlign": "right",
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "width": 12,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۴۰,۰۰۰,۰۰۰ ریال",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "fontSize": 18,
+                                      "fontWeight": "w700"
+                                    },
+                                    "textAlign": "left",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "row"
+                              },
+                              {
+                                "height": 10,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": "۱۴۰۴/۱۲/۰۵ - ۱۱:۲۲",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 15,
+                                  "fontWeight": "w500"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[depositTurnoverExpanded6]]",
+                      "child": {
+                        "padding": {
+                          "top": 16
+                        },
+                        "child": {
+                          "crossAxisAlignment": "stretch",
+                          "children": [
+                            {
+                              "height": 1,
+                              "thickness": 1,
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "type": "divider"
+                            },
+                            {
+                              "height": 16,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "توضیحات:",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "height": 8,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "واریز وجه از حساب مبدأ مشتری جهت تکمیل موجودی مورد نیاز این سپرده انجام شده است.",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14,
+                                "fontWeight": "w500",
+                                "height": 1.75
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "column"
+                        },
+                        "type": "padding"
+                      },
+                      "replacement": {
+                        "height": 0,
+                        "type": "sizedBox"
+                      }
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "depositTurnoverExpanded6",
+                "value": "{{depositTurnoverExpanded6 ? false : true}}"
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "child": {
+                "padding": {
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "topLeft": 10,
+                    "topRight": 10,
+                    "bottomLeft": 10,
+                    "bottomRight": 10
+                  }
+                },
+                "margin": {
+                  "top": 12
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "decoration": {
+                            "color": "{{appColors.current.background.surfaceContainer}}",
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1
+                            },
+                            "shape": "circle"
+                          },
+                          "width": 48,
+                          "height": 48,
+                          "child": {
+                            "child": {
+                              "padding": {
+                                "left": 8,
+                                "top": 8,
+                                "right": 8,
+                                "bottom": 8
+                              },
+                              "child": {
+                                "src": "{{appAssets.icons.outCurrent}}",
+                                "imageType": "asset",
+                                "width": 24,
+                                "height": 24,
+                                "type": "image"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "center"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "width": 12,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "crossAxisAlignment": "start",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "data": "برداشت وجه",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.title}}",
+                                        "fontSize": 18,
+                                        "fontWeight": "w700"
+                                      },
+                                      "textAlign": "right",
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "width": 12,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۷۵,۰۰۰,۰۰۰ ریال",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "fontSize": 18,
+                                      "fontWeight": "w700"
+                                    },
+                                    "textAlign": "left",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "row"
+                              },
+                              {
+                                "height": 10,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": "۱۴۰۴/۱۲/۰۴ - ۱۴:۰۷",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 15,
+                                  "fontWeight": "w500"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[depositTurnoverExpanded7]]",
+                      "child": {
+                        "padding": {
+                          "top": 16
+                        },
+                        "child": {
+                          "crossAxisAlignment": "stretch",
+                          "children": [
+                            {
+                              "height": 1,
+                              "thickness": 1,
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "type": "divider"
+                            },
+                            {
+                              "height": 16,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "توضیحات:",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "height": 8,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "برداشت بابت انتقال وجه ساتنا به مقصد معرفی‌شده مشتری با ثبت موفق در سامانه انجام شده است.",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14,
+                                "fontWeight": "w500",
+                                "height": 1.75
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "column"
+                        },
+                        "type": "padding"
+                      },
+                      "replacement": {
+                        "height": 0,
+                        "type": "sizedBox"
+                      }
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "depositTurnoverExpanded7",
+                "value": "{{depositTurnoverExpanded7 ? false : true}}"
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "child": {
+                "padding": {
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "topLeft": 10,
+                    "topRight": 10,
+                    "bottomLeft": 10,
+                    "bottomRight": 10
+                  }
+                },
+                "margin": {
+                  "top": 12
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "decoration": {
+                            "color": "{{appColors.current.background.surfaceContainer}}",
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1
+                            },
+                            "shape": "circle"
+                          },
+                          "width": 48,
+                          "height": 48,
+                          "child": {
+                            "child": {
+                              "padding": {
+                                "left": 8,
+                                "top": 8,
+                                "right": 8,
+                                "bottom": 8
+                              },
+                              "child": {
+                                "src": "{{appAssets.icons.inCurrent}}",
+                                "imageType": "asset",
+                                "width": 24,
+                                "height": 24,
+                                "type": "image"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "center"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "width": 12,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "crossAxisAlignment": "start",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "data": "واریز وجه",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.title}}",
+                                        "fontSize": 18,
+                                        "fontWeight": "w700"
+                                      },
+                                      "textAlign": "right",
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "width": 12,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۴,۵۰۰,۰۰۰ ریال",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "fontSize": 18,
+                                      "fontWeight": "w700"
+                                    },
+                                    "textAlign": "left",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "row"
+                              },
+                              {
+                                "height": 10,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": "۱۴۰۴/۱۲/۰۳ - ۰۸:۲۸",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 15,
+                                  "fontWeight": "w500"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[depositTurnoverExpanded8]]",
+                      "child": {
+                        "padding": {
+                          "top": 16
+                        },
+                        "child": {
+                          "crossAxisAlignment": "stretch",
+                          "children": [
+                            {
+                              "height": 1,
+                              "thickness": 1,
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "type": "divider"
+                            },
+                            {
+                              "height": 16,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "توضیحات:",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "height": 8,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "واریز خودکار سود یا برگشت وجه به این سپرده در ابتدای روز ثبت شده است.",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14,
+                                "fontWeight": "w500",
+                                "height": 1.75
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "column"
+                        },
+                        "type": "padding"
+                      },
+                      "replacement": {
+                        "height": 0,
+                        "type": "sizedBox"
+                      }
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "depositTurnoverExpanded8",
+                "value": "{{depositTurnoverExpanded8 ? false : true}}"
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "child": {
+                "padding": {
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "topLeft": 10,
+                    "topRight": 10,
+                    "bottomLeft": 10,
+                    "bottomRight": 10
+                  }
+                },
+                "margin": {
+                  "top": 12
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "decoration": {
+                            "color": "{{appColors.current.background.surfaceContainer}}",
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1
+                            },
+                            "shape": "circle"
+                          },
+                          "width": 48,
+                          "height": 48,
+                          "child": {
+                            "child": {
+                              "padding": {
+                                "left": 8,
+                                "top": 8,
+                                "right": 8,
+                                "bottom": 8
+                              },
+                              "child": {
+                                "src": "{{appAssets.icons.outCurrent}}",
+                                "imageType": "asset",
+                                "width": 24,
+                                "height": 24,
+                                "type": "image"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "center"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "width": 12,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "crossAxisAlignment": "start",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "data": "برداشت وجه",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.title}}",
+                                        "fontSize": 18,
+                                        "fontWeight": "w700"
+                                      },
+                                      "textAlign": "right",
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "width": 12,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۹,۹۰۰,۰۰۰ ریال",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "fontSize": 18,
+                                      "fontWeight": "w700"
+                                    },
+                                    "textAlign": "left",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "row"
+                              },
+                              {
+                                "height": 10,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": "۱۴۰۴/۱۲/۰۱ - ۱۹:۴۳",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 15,
+                                  "fontWeight": "w500"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[depositTurnoverExpanded9]]",
+                      "child": {
+                        "padding": {
+                          "top": 16
+                        },
+                        "child": {
+                          "crossAxisAlignment": "stretch",
+                          "children": [
+                            {
+                              "height": 1,
+                              "thickness": 1,
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "type": "divider"
+                            },
+                            {
+                              "height": 16,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "توضیحات:",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "height": 8,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "برداشت وجه بابت انتقال کارت به کارت مشتری با شماره پیگیری ۵۵۱۲۴۳۰۱ انجام شده است.",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14,
+                                "fontWeight": "w500",
+                                "height": 1.75
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "column"
+                        },
+                        "type": "padding"
+                      },
+                      "replacement": {
+                        "height": 0,
+                        "type": "sizedBox"
+                      }
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "depositTurnoverExpanded9",
+                "value": "{{depositTurnoverExpanded9 ? false : true}}"
+              },
+              "type": "gestureDetector"
+            }
+          ],
+          "type": "listView"
+        },
+        "type": "safeArea"
+      },
+      "type": "scaffold"
+    },
+    "replacement": {
+      "appBar": {
+        "leading": {
+          "padding": {
+            "left": 12
+          },
+          "child": {
+            "child": {
+              "src": "{{appAssets.icons.support}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 24,
+              "height": 24,
+              "type": "image"
+            },
+            "type": "center"
+          },
+          "type": "padding"
+        },
+        "automaticallyImplyLeading": true,
+        "title": {
+          "data": "گردش سپرده",
+          "style": {
+            "type": "alias",
+            "value": "{{appStyles.appbarStyle}}"
+          },
+          "textDirection": "rtl",
+          "type": "text"
+        },
+        "actions": [
+          {
+            "padding": {
+              "right": 12
+            },
+            "child": {
+              "onPressed": {
+                "navigationStyle": "pop",
+                "actionType": "navigate"
+              },
+              "icon": {
+                "src": "{{appAssets.icons.arrowBack}}",
+                "imageType": "asset",
+                "color": "{{appColors.current.text.title}}",
+                "width": 31,
+                "height": 31,
+                "type": "image"
+              },
+              "type": "iconButton"
+            },
+            "type": "padding"
+          }
+        ],
+        "centerTitle": true,
+        "type": "appBar"
+      },
+      "backgroundColor": "{{appColors.current.background.surface}}",
+      "body": {
+        "child": {
+          "padding": {
+            "left": 16,
+            "top": 16,
+            "right": 16,
+            "bottom": 24
+          },
+          "children": [
+            {
+              "padding": {
+                "left": 16,
+                "top": 16,
+                "right": 16,
+                "bottom": 16
+              },
+              "decoration": {
+                "color": "{{appColors.current.background.surfaceContainer}}",
+                "border": {
+                  "color": "{{appColors.current.input.borderEnabled}}",
+                  "width": 1
+                },
+                "borderRadius": {
+                  "topLeft": 8,
+                  "topRight": 8,
+                  "bottomLeft": 8,
+                  "bottomRight": 8
+                }
+              },
+              "child": {
+                "mainAxisAlignment": "spaceBetween",
+                "textDirection": "rtl",
+                "children": [
+                  {
+                    "data": "شماره سپرده",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.subtitle}}",
+                      "fontSize": 14,
+                      "fontWeight": "w500"
+                    },
+                    "type": "text"
+                  },
+                  {
+                    "data": "۱۴۴.۹۹۶۶.۷۶۳۰۲۰.۱",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16,
+                      "fontWeight": "w700"
+                    },
+                    "textDirection": "ltr",
+                    "type": "text"
+                  }
+                ],
+                "type": "row"
+              },
+              "type": "container"
+            },
+            {
+              "height": 14,
+              "type": "sizedBox"
+            },
+            {
+              "child": {
+                "padding": {
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "topLeft": 10,
+                    "topRight": 10,
+                    "bottomLeft": 10,
+                    "bottomRight": 10
+                  }
+                },
+                "margin": {
+                  "top": 12
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "decoration": {
+                            "color": "{{appColors.current.background.surfaceContainer}}",
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1
+                            },
+                            "shape": "circle"
+                          },
+                          "width": 48,
+                          "height": 48,
+                          "child": {
+                            "child": {
+                              "padding": {
+                                "left": 8,
+                                "top": 8,
+                                "right": 8,
+                                "bottom": 8
+                              },
+                              "child": {
+                                "src": "{{appAssets.icons.inCurrent}}",
+                                "imageType": "asset",
+                                "width": 24,
+                                "height": 24,
+                                "type": "image"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "center"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "width": 12,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "crossAxisAlignment": "start",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "data": "واریز وجه",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.title}}",
+                                        "fontSize": 18,
+                                        "fontWeight": "w700"
+                                      },
+                                      "textAlign": "right",
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "width": 12,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۱۰,۰۰۰ ریال",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "fontSize": 18,
+                                      "fontWeight": "w700"
+                                    },
+                                    "textAlign": "left",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "row"
+                              },
+                              {
+                                "height": 10,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": "۱۴۰۵/۰۲/۱۶ - ۱۰:۳۶",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 15,
+                                  "fontWeight": "w500"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[depositTurnoverExpanded0]]",
+                      "child": {
+                        "padding": {
+                          "top": 16
+                        },
+                        "child": {
+                          "crossAxisAlignment": "stretch",
+                          "children": [
+                            {
+                              "height": 1,
+                              "thickness": 1,
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "type": "divider"
+                            },
+                            {
+                              "height": 16,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "توضیحات:",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "height": 8,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "واریز وجه به سپرده از طریق انتقال داخلی بانک برای تکمیل موجودی حساب انجام شده است.",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14,
+                                "fontWeight": "w500",
+                                "height": 1.75
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "column"
+                        },
+                        "type": "padding"
+                      },
+                      "replacement": {
+                        "height": 0,
+                        "type": "sizedBox"
+                      }
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "depositTurnoverExpanded0",
+                "value": "{{depositTurnoverExpanded0 ? false : true}}"
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "child": {
+                "padding": {
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "topLeft": 10,
+                    "topRight": 10,
+                    "bottomLeft": 10,
+                    "bottomRight": 10
+                  }
+                },
+                "margin": {
+                  "top": 12
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "decoration": {
+                            "color": "{{appColors.current.background.surfaceContainer}}",
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1
+                            },
+                            "shape": "circle"
+                          },
+                          "width": 48,
+                          "height": 48,
+                          "child": {
+                            "child": {
+                              "padding": {
+                                "left": 8,
+                                "top": 8,
+                                "right": 8,
+                                "bottom": 8
+                              },
+                              "child": {
+                                "src": "{{appAssets.icons.outCurrent}}",
+                                "imageType": "asset",
+                                "width": 24,
+                                "height": 24,
+                                "type": "image"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "center"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "width": 12,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "crossAxisAlignment": "start",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "data": "برداشت وجه",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.title}}",
+                                        "fontSize": 18,
+                                        "fontWeight": "w700"
+                                      },
+                                      "textAlign": "right",
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "width": 12,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۱۰,۰۰۰ ریال",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "fontSize": 18,
+                                      "fontWeight": "w700"
+                                    },
+                                    "textAlign": "left",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "row"
+                              },
+                              {
+                                "height": 10,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": "۱۴۰۵/۰۲/۱۲ - ۰۴:۳۶",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 15,
+                                  "fontWeight": "w500"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[depositTurnoverExpanded1]]",
+                      "child": {
+                        "padding": {
+                          "top": 16
+                        },
+                        "child": {
+                          "crossAxisAlignment": "stretch",
+                          "children": [
+                            {
+                              "height": 1,
+                              "thickness": 1,
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "type": "divider"
+                            },
+                            {
+                              "height": 16,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "توضیحات:",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "height": 8,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "برداشت برای کارمزد دستور پرداخت پل با شماره پیگیری ۱۴۰۵۰۲۱۲۰۴۳۶۰۰۳۷۲۱۸۵۹۸ ثبت شده است.",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14,
+                                "fontWeight": "w500",
+                                "height": 1.75
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "column"
+                        },
+                        "type": "padding"
+                      },
+                      "replacement": {
+                        "height": 0,
+                        "type": "sizedBox"
+                      }
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "depositTurnoverExpanded1",
+                "value": "{{depositTurnoverExpanded1 ? false : true}}"
+              },
+              "type": "gestureDetector"
+            },
+            {
+              "child": {
+                "padding": {
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
+                },
+                "decoration": {
+                  "color": "{{appColors.current.background.surfaceContainer}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "topLeft": 10,
+                    "topRight": 10,
+                    "bottomLeft": 10,
+                    "bottomRight": 10
+                  }
+                },
+                "margin": {
+                  "top": 12
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "crossAxisAlignment": "start",
+                      "textDirection": "rtl",
+                      "children": [
+                        {
+                          "decoration": {
+                            "color": "{{appColors.current.background.surfaceContainer}}",
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1
+                            },
+                            "shape": "circle"
+                          },
+                          "width": 48,
+                          "height": 48,
+                          "child": {
+                            "child": {
+                              "padding": {
+                                "left": 8,
+                                "top": 8,
+                                "right": 8,
+                                "bottom": 8
+                              },
+                              "child": {
+                                "src": "{{appAssets.icons.inCurrent}}",
+                                "imageType": "asset",
+                                "width": 24,
+                                "height": 24,
+                                "type": "image"
+                              },
+                              "type": "padding"
+                            },
+                            "type": "center"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "width": 12,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "crossAxisAlignment": "start",
+                                "textDirection": "rtl",
+                                "children": [
+                                  {
+                                    "child": {
+                                      "data": "واریز وجه",
+                                      "style": {
+                                        "type": "custom",
+                                        "color": "{{appColors.current.text.title}}",
+                                        "fontSize": 18,
+                                        "fontWeight": "w700"
+                                      },
+                                      "textAlign": "right",
+                                      "textDirection": "rtl",
+                                      "type": "text"
+                                    },
+                                    "type": "expanded"
+                                  },
+                                  {
+                                    "width": 12,
+                                    "type": "sizedBox"
+                                  },
+                                  {
+                                    "data": "۱۰,۰۰۰ ریال",
+                                    "style": {
+                                      "type": "custom",
+                                      "color": "{{appColors.current.text.title}}",
+                                      "fontSize": 18,
+                                      "fontWeight": "w700"
+                                    },
+                                    "textAlign": "left",
+                                    "textDirection": "rtl",
+                                    "type": "text"
+                                  }
+                                ],
+                                "type": "row"
+                              },
+                              {
+                                "height": 10,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "data": "۱۴۰۵/۰۲/۰۲ - ۰۹:۱۳",
+                                "style": {
+                                  "type": "custom",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "fontSize": 15,
+                                  "fontWeight": "w500"
+                                },
+                                "textAlign": "right",
+                                "textDirection": "rtl",
+                                "type": "text"
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "expanded"
+                        }
+                      ],
+                      "type": "row"
+                    },
+                    {
+                      "type": "visibility",
+                      "visible": "[[depositTurnoverExpanded2]]",
+                      "child": {
+                        "padding": {
+                          "top": 16
+                        },
+                        "child": {
+                          "crossAxisAlignment": "stretch",
+                          "children": [
+                            {
+                              "height": 1,
+                              "thickness": 1,
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "type": "divider"
+                            },
+                            {
+                              "height": 16,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "توضیحات:",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 14,
+                                "fontWeight": "w700"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "height": 8,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "واریز از مبدا کارت داخلی به این سپرده با هدف افزایش موجودی روزانه انجام شده است.",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 14,
+                                "fontWeight": "w500",
+                                "height": 1.75
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "column"
+                        },
+                        "type": "padding"
+                      },
+                      "replacement": {
+                        "height": 0,
+                        "type": "sizedBox"
+                      }
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "container"
+              },
+              "onTap": {
+                "actionType": "setValue",
+                "key": "depositTurnoverExpanded2",
+                "value": "{{depositTurnoverExpanded2 ? false : true}}"
+              },
+              "type": "gestureDetector"
+            }
+          ],
+          "type": "listView"
+        },
+        "type": "safeArea"
+      },
+      "type": "scaffold"
+    }
+  }
+}

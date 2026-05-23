@@ -1353,7 +1353,16 @@
                               "actionType": "navigate"
                             },
                             {
-                              "routeName": "transfer_in_bank_confirm",
+                              "actionType": "setValue",
+                              "values": [
+                                {
+                                  "key": "transferApiIsCardToCardFlow",
+                                  "value": false
+                                }
+                              ]
+                            },
+                            {
+                              "assetPath": "lib/stac/tobank/flows/transfer/json/transfer_in_bank_confirm.json",
                               "navigationStyle": "push",
                               "actionType": "navigate"
                             }

@@ -145,6 +145,32 @@ import '../../../../stac/tobank/flows/transaction/dart/transaction_intro.dart'
     as transaction_intro_dart;
 import '../../../../stac/tobank/flows/transaction/dart/transaction_filter.dart'
     as transaction_filter_dart;
+import '../../../../stac/tobank/flows/notification/menu/notification_menu.dart'
+    as notification_menu_dart;
+import '../../../../stac/tobank/flows/notification/dart/notification_intro.dart'
+    as notification_intro_dart;
+import '../../../../stac/tobank/flows/deposit_turnover/menu/deposit_turnover_menu.dart'
+    as deposit_turnover_menu_dart;
+import '../../../../stac/tobank/flows/deposit_turnover/dart/deposit_turnover_intro.dart'
+    as deposit_turnover_intro_dart;
+import '../../../../stac/tobank/flows/deposit_turnover/dart/deposit_turnover_transactions.dart'
+    as deposit_turnover_transactions_dart;
+import '../../../../stac/tobank/flows/deposit_more/menu/deposit_more_menu.dart'
+    as deposit_more_menu_dart;
+import '../../../../stac/tobank/flows/deposit_more/dart/deposit_more_intro.dart'
+    as deposit_more_intro_dart;
+import '../../../../stac/tobank/flows/deposit_more/dart/deposit_card_issue_address.dart'
+    as deposit_card_issue_address_dart;
+import '../../../../stac/tobank/flows/deposit_more/dart/deposit_card_issue_template.dart'
+    as deposit_card_issue_template_dart;
+import '../../../../stac/tobank/flows/deposit_more/dart/deposit_card_issue_result.dart'
+    as deposit_card_issue_result_dart;
+import '../../../../stac/tobank/flows/deposit_more/dart/deposit_close_confirm.dart'
+    as deposit_close_confirm_dart;
+import '../../../../stac/tobank/flows/deposit_more/dart/deposit_close_selector.dart'
+    as deposit_close_selector_dart;
+import '../../../../stac/tobank/flows/deposit_more/dart/deposit_close_result.dart'
+    as deposit_close_result_dart;
 import '../../../../stac/tobank/flows/dashboard/menu/dashboard_menu.dart'
     as dashboard_menu_dart;
 import '../../../../stac/tobank/flows/biometric_test/menu/biometric_test_menu.dart'
@@ -329,10 +355,8 @@ class StacWidgetLoader {
         promissory_debug_dart.promissoryRealDebugMenu().toJson(),
     'verify_identity_menu': () =>
         verify_identity_menu_dart.verifyIdentityRealMenu().toJson(),
-    'profile_menu': () =>
-        profile_menu_dart.profileRealMenu().toJson(),
-    'profile_intro': () =>
-        profile_intro_dart.profileRealIntro().toJson(),
+    'profile_menu': () => profile_menu_dart.profileRealMenu().toJson(),
+    'profile_intro': () => profile_intro_dart.profileRealIntro().toJson(),
     'profile_bank_info': () =>
         profile_bank_info_dart.profileRealBankInfo().toJson(),
     'profile_invite_friends': () =>
@@ -343,30 +367,47 @@ class StacWidgetLoader {
         profile_settings_dart.profileRealSettings().toJson(),
     'profile_change_password': () =>
         profile_change_password_dart.profileRealChangePassword().toJson(),
-    'profile_rules': () =>
-        profile_rules_dart.profileRealRules().toJson(),
-    'profile_about': () =>
-        profile_about_dart.profileRealAbout().toJson(),
-    'profile_contact': () =>
-        profile_contact_dart.profileRealContact().toJson(),
+    'profile_rules': () => profile_rules_dart.profileRealRules().toJson(),
+    'profile_about': () => profile_about_dart.profileRealAbout().toJson(),
+    'profile_contact': () => profile_contact_dart.profileRealContact().toJson(),
     'profile_customer_referrals': () =>
-        profile_customer_referrals_dart
-            .profileRealCustomerReferrals()
-            .toJson(),
-    'cartable_menu': () =>
-        cartable_menu_dart.cartableRealMenu().toJson(),
-    'cartable_intro': () =>
-        cartable_intro_dart.cartableRealIntro().toJson(),
-    'cartable_detail': () =>
-        cartable_detail_dart.cartableRealDetail().toJson(),
+        profile_customer_referrals_dart.profileRealCustomerReferrals().toJson(),
+    'cartable_menu': () => cartable_menu_dart.cartableRealMenu().toJson(),
+    'cartable_intro': () => cartable_intro_dart.cartableRealIntro().toJson(),
+    'cartable_detail': () => cartable_detail_dart.cartableRealDetail().toJson(),
     'transaction_menu': () =>
         transaction_menu_dart.transactionRealMenu().toJson(),
     'transaction_intro': () =>
         transaction_intro_dart.transactionRealIntro().toJson(),
     'transaction_filter': () =>
         transaction_filter_dart.transactionRealFilter().toJson(),
-    'dashboard_menu': () =>
-        dashboard_menu_dart.dashboardRealMenu().toJson(),
+    'notification_menu': () =>
+        notification_menu_dart.notificationRealMenu().toJson(),
+    'notification_intro': () =>
+        notification_intro_dart.notificationRealIntro().toJson(),
+    'deposit_turnover_menu': () =>
+        deposit_turnover_menu_dart.depositTurnoverRealMenu().toJson(),
+    'deposit_turnover_intro': () =>
+        deposit_turnover_intro_dart.depositTurnoverIntro().toJson(),
+    'deposit_turnover_transactions': () => deposit_turnover_transactions_dart
+        .depositTurnoverTransactions()
+        .toJson(),
+    'deposit_more_menu': () => deposit_more_menu_dart.depositMoreMenu().toJson(),
+    'deposit_more_intro': () =>
+        deposit_more_intro_dart.depositMoreIntro().toJson(),
+    'deposit_card_issue_address': () =>
+        deposit_card_issue_address_dart.depositCardIssueAddress().toJson(),
+    'deposit_card_issue_template': () =>
+        deposit_card_issue_template_dart.depositCardIssueTemplate().toJson(),
+    'deposit_card_issue_result': () =>
+        deposit_card_issue_result_dart.depositCardIssueResult().toJson(),
+    'deposit_close_confirm': () =>
+        deposit_close_confirm_dart.depositCloseConfirm().toJson(),
+    'deposit_close_selector': () =>
+        deposit_close_selector_dart.depositCloseSelector().toJson(),
+    'deposit_close_result': () =>
+        deposit_close_result_dart.depositCloseResult().toJson(),
+    'dashboard_menu': () => dashboard_menu_dart.dashboardRealMenu().toJson(),
     'biometric_test_menu': () =>
         biometric_test_menu_dart.biometricTestMenu().toJson(),
     'dashboard_shell': () =>
@@ -407,8 +448,7 @@ class StacWidgetLoader {
         transfer_details_dart.transferRealDetails().toJson(),
     'transfer_confirm': () =>
         transfer_confirm_dart.transferRealConfirm().toJson(),
-    'transfer_result': () =>
-        transfer_result_dart.transferRealResult().toJson(),
+    'transfer_result': () => transfer_result_dart.transferRealResult().toJson(),
     'transfer_card_result': () =>
         transfer_card_result_dart.transferRealCardResult().toJson(),
     'transfer_in_bank_details': () =>
@@ -419,48 +459,38 @@ class StacWidgetLoader {
         transfer_in_bank_result_dart.transferRealInBankResult().toJson(),
     'transfer_card_details': () =>
         transfer_card_details_dart.transferRealCardDetails().toJson(),
-    'gift_card_intro': () =>
-        gift_card_intro_dart.giftCardRealIntro().toJson(),
+    'gift_card_intro': () => gift_card_intro_dart.giftCardRealIntro().toJson(),
     'gift_card_select_amount': () =>
         gift_card_select_amount_dart.giftCardRealSelectAmount().toJson(),
-    'gift_card_design_selector': () => gift_card_design_selector_dart
-        .giftCardRealDesignSelector()
-        .toJson(),
+    'gift_card_design_selector': () =>
+        gift_card_design_selector_dart.giftCardRealDesignSelector().toJson(),
     'gift_card_custom_design_selector': () =>
         gift_card_custom_design_selector_dart
             .giftCardRealCustomDesignSelector()
             .toJson(),
     'gift_card_image_selector': () =>
         gift_card_image_selector_dart.giftCardRealImageSelector().toJson(),
-    'gift_card_custom_select_design': () =>
-        gift_card_custom_select_design_dart
-            .giftCardRealCustomSelectDesign()
-            .toJson(),
+    'gift_card_custom_select_design': () => gift_card_custom_select_design_dart
+        .giftCardRealCustomSelectDesign()
+        .toJson(),
     'gift_card_custom_message': () =>
         gift_card_custom_message_dart.giftCardRealCustomMessage().toJson(),
     'gift_card_select_design': () =>
         gift_card_select_design_dart.giftCardRealSelectDesign().toJson(),
     'charge_menu': () => charge_menu_dart.chargeRealMenu().toJson(),
-    'charge_intro': () =>
-        charge_intro_dart.chargeRealIntro().toJson(),
-    'charge_add_sim': () =>
-        charge_add_sim_dart.chargeRealAddSim().toJson(),
+    'charge_intro': () => charge_intro_dart.chargeRealIntro().toJson(),
+    'charge_add_sim': () => charge_add_sim_dart.chargeRealAddSim().toJson(),
     'charge_package_list': () =>
         charge_package_list_dart.chargeRealPackageList().toJson(),
-    'charge_payment': () =>
-        charge_payment_dart.chargeRealPayment().toJson(),
+    'charge_payment': () => charge_payment_dart.chargeRealPayment().toJson(),
     'charge_payment_success': () =>
         charge_payment_success_dart.chargeRealPaymentSuccess().toJson(),
-    'package_menu': () =>
-        package_menu_dart.packageRealMenu().toJson(),
-    'package_intro': () =>
-        package_intro_dart.packageRealIntro().toJson(),
-    'package_add_sim': () =>
-        package_add_sim_dart.packageRealAddSim().toJson(),
+    'package_menu': () => package_menu_dart.packageRealMenu().toJson(),
+    'package_intro': () => package_intro_dart.packageRealIntro().toJson(),
+    'package_add_sim': () => package_add_sim_dart.packageRealAddSim().toJson(),
     'package_package_list': () =>
         package_package_list_dart.packageRealPackageList().toJson(),
-    'package_payment': () =>
-        package_payment_dart.packageRealPayment().toJson(),
+    'package_payment': () => package_payment_dart.packageRealPayment().toJson(),
     'package_payment_success': () =>
         package_payment_success_dart.packageRealPaymentSuccess().toJson(),
     'gift_card_message': () =>
@@ -471,14 +501,11 @@ class StacWidgetLoader {
         gift_card_confirm_dart.giftCardRealConfirm().toJson(),
     'verify_identity_intro': () =>
         verify_identity_intro_dart.verifyIdentityRealIntro().toJson(),
-    'verify_identity_preregister': () =>
-        verify_identity_preregister_dart
-            .verifyIdentityRealPreRegister()
-            .toJson(),
+    'verify_identity_preregister': () => verify_identity_preregister_dart
+        .verifyIdentityRealPreRegister()
+        .toJson(),
     'verify_identity_verify_otp': () =>
-        verify_identity_verify_otp_dart
-            .verifyIdentityRealVerifyOtp()
-            .toJson(),
+        verify_identity_verify_otp_dart.verifyIdentityRealVerifyOtp().toJson(),
     'verify_identity_national_card_front': () =>
         verify_identity_national_card_front_dart
             .verifyIdentityRealNationalCardFront()
@@ -493,15 +520,13 @@ class StacWidgetLoader {
             .toJson(),
     'verify_identity_selfie': () =>
         verify_identity_selfie_dart.verifyIdentityRealSelfie().toJson(),
-    'verify_identity_postal_code': () =>
-        verify_identity_postal_code_dart
-            .verifyIdentityRealPostalCode()
-            .toJson(),
+    'verify_identity_postal_code': () => verify_identity_postal_code_dart
+        .verifyIdentityRealPostalCode()
+        .toJson(),
     'verify_identity_rules': () =>
         verify_identity_rules_dart.verifyIdentityRealRules().toJson(),
-    'verify_identity_signature': () => verify_identity_signature_dart
-        .verifyIdentityRealSignature()
-        .toJson(),
+    'verify_identity_signature': () =>
+        verify_identity_signature_dart.verifyIdentityRealSignature().toJson(),
     'verify_identity_certificate_generator': () =>
         verify_identity_certificate_generator_dart
             .verifyIdentityRealCertificateGenerator()
@@ -516,57 +541,45 @@ class StacWidgetLoader {
             .toJson(),
     'verify_identity_final': () =>
         verify_identity_final_dart.verifyIdentityRealFinal().toJson(),
-    'verify_identity_registration': () =>
-        verify_identity_registration_dart
-            .verifyIdentityRealRegistration()
-            .toJson(),
-    'verify_identity_job_selector': () =>
-        verify_identity_job_selector_dart
-            .verifyIdentityRealJobSelector()
-            .toJson(),
+    'verify_identity_registration': () => verify_identity_registration_dart
+        .verifyIdentityRealRegistration()
+        .toJson(),
+    'verify_identity_job_selector': () => verify_identity_job_selector_dart
+        .verifyIdentityRealJobSelector()
+        .toJson(),
     'test_screen': () => test_screen_dart.testScreen().toJson(),
     'promissory_loader': () => {'type': 'promissory_loader'},
-    'verify_identity_loader': () => {
-      'type': 'verify_identity_loader',
-    },
-    'promissory_old_deposit_select': () =>
-        promissory_old_deposit_select_dart
-            .promissoryDepositSelectPage()
-            .toJson(),
+    'verify_identity_loader': () => {'type': 'verify_identity_loader'},
+    'promissory_old_deposit_select': () => promissory_old_deposit_select_dart
+        .promissoryDepositSelectPage()
+        .toJson(),
     'request_promissory_old_deposit': () =>
         request_promissory_old_deposit_page_dart
-        .requestPromissoryDepositPage()
-        .toJson(),
-    'promissory_intro': () =>
-        promissory_dart.promissoryRealIntro().toJson(),
-    'login_form_dart': () =>
-        login_screen_dart.loginForm().toJson(),
+            .requestPromissoryDepositPage()
+            .toJson(),
+    'promissory_intro': () => promissory_dart.promissoryRealIntro().toJson(),
+    'login_form_dart': () => login_screen_dart.loginForm().toJson(),
     'promissory_rules': () =>
         promissory_real_rules_dart.promissoryRealRules().toJson(),
     'promissory_issuer': () =>
         promissory_issuer_dart.promissoryRealIssuer().toJson(),
     'promissory_receiver': () =>
         promissory_receiver_dart.promissoryRealReceiver().toJson(),
-    'promissory_data': () =>
-        promissory_data_dart.promissoryRealData().toJson(),
+    'promissory_data': () => promissory_data_dart.promissoryRealData().toJson(),
     'promissory_confirm': () =>
         promissory_confirm_dart.promissoryRealConfirm().toJson(),
     'promissory_payment': () =>
         promissory_payment_dart.promissoryRealPayment().toJson(),
-    'promissory_payment_deposits': () =>
-        promissory_payment_deposits_dart
-            .promissoryRealPaymentDeposits()
-            .toJson(),
-    'promissory_sign': () =>
-        promissory_sign_dart.promissoryRealSign().toJson(),
+    'promissory_payment_deposits': () => promissory_payment_deposits_dart
+        .promissoryRealPaymentDeposits()
+        .toJson(),
+    'promissory_sign': () => promissory_sign_dart.promissoryRealSign().toJson(),
     'promissory_success': () =>
         promissory_success_dart.promissoryRealSuccess().toJson(),
     'promissory_preview': () =>
         promissory_preview_dart.promissoryRealPreview().toJson(),
-    'login_onboarding': () =>
-        login_onboarding_dart.loginOnboarding().toJson(),
-    'login_splash': () =>
-        login_splash_dart.loginSplash().toJson(),
+    'login_onboarding': () => login_onboarding_dart.loginOnboarding().toJson(),
+    'login_splash': () => login_splash_dart.loginSplash().toJson(),
   };
 
   /// Registers a widget loader for a specific widget type.

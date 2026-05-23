@@ -84,6 +84,18 @@ StacWidget tobankMenuDart() {
           widgetType: 'transaction_menu',
         ),
         _buildSingleButtonMenuItemCard(
+          title: 'اعلانات (API واقعی)',
+          widgetType: 'notification_menu',
+        ),
+        _buildSingleButtonMenuItemCard(
+          title: 'گردش سپرده (API واقعی)',
+          widgetType: 'deposit_turnover_menu',
+        ),
+        _buildSingleButtonMenuItemCard(
+          title: 'بیشتر(سپرده)',
+          widgetType: 'deposit_more_menu',
+        ),
+        _buildSingleButtonMenuItemCard(
           title: 'داشبورد (ناوبری واقعی)',
           widgetType: 'dashboard_menu',
         ),

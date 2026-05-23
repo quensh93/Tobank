@@ -610,9 +610,23 @@
               "type": "reactiveElevatedButton",
               "enabledKey": "transferApiCardDetailsContinueEnabled",
               "onPressed": {
-                "routeName": "transfer_confirm",
-                "navigationStyle": "push",
-                "actionType": "navigate"
+                "actionType": "sequence",
+                "actions": [
+                  {
+                    "actionType": "setValue",
+                    "values": [
+                      {
+                        "key": "transferApiIsCardToCardFlow",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "routeName": "transfer_confirm",
+                    "navigationStyle": "push",
+                    "actionType": "navigate"
+                  }
+                ]
               },
               "style": {
                 "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",

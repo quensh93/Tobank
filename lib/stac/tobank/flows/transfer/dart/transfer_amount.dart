@@ -357,6 +357,21 @@ StacWidget _cardInputSection() {
             vertical: 19.5,
           ),
           filled: false,
+          prefixIcon: StacRawJsonWidget({
+            'type': 'visibility',
+            'visible': '[[transferApiCardHasText]]',
+            'child': StacGestureDetector(
+              onTap: _clearCardInputAction(),
+              child: StacPadding(
+                padding: StacEdgeInsets.all(12),
+                child: StacIcon(
+                  icon: StacIcons.close,
+                  size: 20,
+                  color: '{{appColors.current.text.subtitle}}',
+                ),
+              ),
+            ).toJson(),
+          }),
         ).toJson(),
       ),
     ],
@@ -493,6 +508,22 @@ StacAction _cardFilterAction() {
     'visibleKeys': _cardVisibleKeys,
     'isSearchingKey': 'transferApiCardHasText',
   });
+}
+
+StacAction _clearCardInputAction() {
+  return StacSequenceAction(
+    actions: [
+      const StacCustomSetValueAction(
+        values: [
+          {'key': 'transferApiCardInput', 'value': ''},
+          {'key': 'transferApiCardDestinationNumber', 'value': ''},
+          {'key': 'transferApiCardDestinationName', 'value': ''},
+          {'key': 'transferApiCardDestinationIcon', 'value': ''},
+        ],
+      ),
+      _cardFilterAction(),
+    ],
+  );
 }
 
 StacAction _inBankInputChangedAction() {

@@ -12,6 +12,7 @@ import '../parsers/widgets/reactive_switch_parser.dart';
 import '../parsers/widgets/registry_reactive_widget_parser.dart';
 import '../parsers/actions/example_action_parser.dart';
 import '../parsers/actions/persian_date_picker_action_parser.dart';
+import '../parsers/actions/persian_date_range_picker_action_parser.dart';
 import '../parsers/actions/close_dialog_action_parser.dart';
 import '../parsers/actions/calculate_sum_action_parser.dart';
 import '../parsers/actions/log_action_parser.dart';
@@ -96,6 +97,7 @@ import '../parsers/widgets/tobank_card_management_slider_parser.dart';
 import '../parsers/widgets/tobank_cards_stack_scroller_parser.dart';
 import '../parsers/widgets/tobank_mega_gasht_webview_parser.dart';
 import '../parsers/widgets/tobank_acceptor_webview_parser.dart';
+import '../parsers/widgets/deposit_card_template_picker_parser.dart';
 
 /// Register all custom STAC parsers with the STAC framework.
 ///
@@ -412,6 +414,7 @@ void _registerExampleParsers() {
 
   // Register Persian date picker action parser
   registerPersianDatePickerActionParser();
+  registerPersianDateRangePickerActionParser();
 
   // Register close dialog action parser
   registerCloseDialogActionParser();
@@ -489,6 +492,7 @@ void _registerExampleParsers() {
   registerTobankCardsStackScrollerParser();
   registerTobankMegaGashtWebViewParser();
   registerTobankAcceptorWebViewParser();
+  registerDepositCardTemplatePickerParser();
 
   // Register signature pad parser for hand-drawn signature capture
   CustomComponentRegistry.instance.registerWidget(const SignaturePadParser());

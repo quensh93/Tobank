@@ -400,7 +400,7 @@
           },
           {
             "onPressed": {
-              "routeName": "transfer_in_bank_result",
+              "assetPath": "lib/stac/tobank/flows/transfer/json/transfer_in_bank_result.json",
               "navigationStyle": "push",
               "actionType": "navigate"
             },

@@ -1447,7 +1447,16 @@
                               "actionType": "navigate"
                             },
                             {
-                              "routeName": "transfer_confirm",
+                              "actionType": "setValue",
+                              "values": [
+                                {
+                                  "key": "transferApiIsCardToCardFlow",
+                                  "value": false
+                                }
+                              ]
+                            },
+                            {
+                              "assetPath": "lib/stac/tobank/flows/transfer/json/transfer_confirm.json",
                               "navigationStyle": "push",
                               "actionType": "navigate"
                             }
@@ -1560,7 +1569,16 @@
                               "actionType": "navigate"
                             },
                             {
-                              "routeName": "transfer_confirm",
+                              "actionType": "setValue",
+                              "values": [
+                                {
+                                  "key": "transferApiIsCardToCardFlow",
+                                  "value": false
+                                }
+                              ]
+                            },
+                            {
+                              "assetPath": "lib/stac/tobank/flows/transfer/json/transfer_confirm.json",
                               "navigationStyle": "push",
                               "actionType": "navigate"
                             }
