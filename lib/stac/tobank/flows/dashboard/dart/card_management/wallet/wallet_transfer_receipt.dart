@@ -77,21 +77,22 @@ StacWidget dashboardWalletTransferReceipt() {
           StacFilledButton(
             onPressed: StacNavigateAction(navigationStyle: NavigationStyle.pop),
             style: StacButtonStyle(
-              padding: StacEdgeInsets.symmetric(vertical: 16),
+              padding: StacEdgeInsets.symmetric(vertical: 8),
+              minimumSize: const StacSize(0, 56),
               backgroundColor:
                   '{{appColors.current.button.primary.backgroundColor}}',
               foregroundColor:
                   '{{appColors.current.button.primary.foregroundColor}}',
               shape: StacRoundedRectangleBorder(
-                borderRadius: StacBorderRadius.all(16),
+                borderRadius: StacBorderRadius.all(8),
               ),
             ),
             child: StacText(
               data: 'بازگشت به کارت‌ها',
               textDirection: StacTextDirection.rtl,
-              style: StacTextStyle(
-                fontSize: 16,
-                fontWeight: StacFontWeight.w600,
+              style: StacCustomTextStyle(
+                fontSize: 14,
+                fontWeight: StacFontWeight.w700,
               ),
             ),
           ),

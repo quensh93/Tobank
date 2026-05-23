@@ -1,19 +1,21 @@
-{
+﻿{
   "appBar": {
     "leading": {
-      "onPressed": {
-        "navigationStyle": "pop",
-        "actionType": "navigate"
+      "padding": {
+        "left": 12.0
       },
-      "icon": {
-        "src": "{{appAssets.icons.arrowBack}}",
-        "imageType": "asset",
-        "color": "{{appColors.current.text.title}}",
-        "width": 31.0,
-        "height": 31.0,
-        "type": "image"
+      "child": {
+        "child": {
+          "src": "{{appAssets.icons.support}}",
+          "imageType": "asset",
+          "color": "{{appColors.current.text.title}}",
+          "width": 24.0,
+          "height": 24.0,
+          "type": "image"
+        },
+        "type": "center"
       },
-      "type": "iconButton"
+      "type": "padding"
     },
     "automaticallyImplyLeading": true,
     "title": {
@@ -25,6 +27,29 @@
       "textDirection": "rtl",
       "type": "text"
     },
+    "actions": [
+      {
+        "padding": {
+          "right": 12.0
+        },
+        "child": {
+          "onPressed": {
+            "navigationStyle": "pop",
+            "actionType": "navigate"
+          },
+          "icon": {
+            "src": "{{appAssets.icons.arrowBack}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 31.0,
+            "height": 31.0,
+            "type": "image"
+          },
+          "type": "iconButton"
+        },
+        "type": "padding"
+      }
+    ],
     "centerTitle": true,
     "type": "appBar"
   },
@@ -40,124 +65,329 @@
       "crossAxisAlignment": "stretch",
       "children": [
         {
-          "padding": {
-            "left": 16.0,
-            "top": 16.0,
-            "right": 16.0,
-            "bottom": 16.0
+          "data": "رعایت این موارد الزامیست...",
+          "style": {
+            "type": "custom",
+            "color": "{{appColors.current.text.title}}",
+            "fontSize": 14.0,
+            "fontWeight": "w700"
           },
-          "decoration": {
-            "border": {
-              "color": "{{appColors.current.input.borderEnabled}}",
-              "width": 1.0
+          "textAlign": "right",
+          "textDirection": "rtl",
+          "type": "text"
+        },
+        {
+          "height": 12.0,
+          "type": "sizedBox"
+        },
+        {
+          "crossAxisAlignment": "start",
+          "textDirection": "rtl",
+          "children": [
+            {
+              "padding": {
+                "top": 2.0
+              },
+              "child": {
+                "src": "{{appAssets.current.icons.successCheck}}",
+                "imageType": "asset",
+                "color": "{{appColors.current.button.primary.backgroundColor}}",
+                "width": 18.0,
+                "height": 18.0,
+                "type": "image"
+              },
+              "type": "padding"
             },
-            "borderRadius": {
-              "topLeft": 8.0,
-              "topRight": 8.0,
-              "bottomLeft": 8.0,
-              "bottomRight": 8.0
-            }
-          },
-          "child": {
-            "mainAxisAlignment": "spaceBetween",
-            "textDirection": "rtl",
-            "children": [
-              {
-                "data": "شماره کارت:",
+            {
+              "width": 8.0,
+              "type": "sizedBox"
+            },
+            {
+              "child": {
+                "data": "رمز اول کارت باید ۴ رقم باشد",
                 "style": {
                   "type": "custom",
                   "color": "{{appColors.current.text.hint}}",
-                  "fontSize": 14.0,
+                  "fontSize": 13.0,
                   "fontWeight": "w400"
                 },
                 "textDirection": "rtl",
                 "type": "text"
               },
-              {
-                "data": "۵۰۵۴ - ۱۶۱۷ - ۰۳۰۲ - ۰۳۹۰",
-                "style": {
-                  "type": "custom",
-                  "color": "{{appColors.current.text.title}}",
-                  "fontSize": 14.0,
-                  "fontWeight": "w600"
-                },
-                "textDirection": "ltr",
-                "type": "text"
-              }
-            ],
-            "type": "row"
-          },
-          "type": "container"
+              "type": "expanded"
+            }
+          ],
+          "type": "row"
         },
         {
-          "height": 16.0,
+          "height": 8.0,
           "type": "sizedBox"
         },
         {
-          "padding": {
-            "left": 16.0,
-            "top": 16.0,
-            "right": 16.0,
-            "bottom": 16.0
-          },
-          "decoration": {
-            "color": "{{appColors.current.background.surfaceContainerLowest}}",
-            "borderRadius": {
-              "topLeft": 8.0,
-              "topRight": 8.0,
-              "bottomLeft": 8.0,
-              "bottomRight": 8.0
-            }
-          },
-          "child": {
-            "data": "رمز جدید از طریق دستگاه خودپرداز یا اینترنت‌بانک تعیین می‌شود.",
-            "style": {
-              "type": "custom",
-              "color": "{{appColors.current.text.hint}}",
-              "fontSize": 13.0,
-              "fontWeight": "w400"
+          "crossAxisAlignment": "start",
+          "textDirection": "rtl",
+          "children": [
+            {
+              "padding": {
+                "top": 2.0
+              },
+              "child": {
+                "src": "{{appAssets.current.icons.successCheck}}",
+                "imageType": "asset",
+                "color": "{{appColors.current.button.primary.backgroundColor}}",
+                "width": 18.0,
+                "height": 18.0,
+                "type": "image"
+              },
+              "type": "padding"
             },
-            "textDirection": "rtl",
-            "type": "text"
-          },
-          "type": "container"
+            {
+              "width": 8.0,
+              "type": "sizedBox"
+            },
+            {
+              "child": {
+                "data": "از انتخاب رمز ساده نظیر ۱۱۱۱ یا ۱۲۳۴ خودداری کنید",
+                "style": {
+                  "type": "custom",
+                  "color": "{{appColors.current.text.hint}}",
+                  "fontSize": 13.0,
+                  "fontWeight": "w400"
+                },
+                "textDirection": "rtl",
+                "type": "text"
+              },
+              "type": "expanded"
+            }
+          ],
+          "type": "row"
         },
         {
-          "child": {
-            "height": 0.0,
-            "type": "sizedBox"
+          "height": 24.0,
+          "type": "sizedBox"
+        },
+        {
+          "data": "رمز فعلی",
+          "style": {
+            "type": "custom",
+            "color": "{{appColors.current.text.title}}",
+            "fontSize": 14.0,
+            "fontWeight": "w600"
           },
-          "type": "expanded"
+          "textAlign": "right",
+          "textDirection": "rtl",
+          "type": "text"
+        },
+        {
+          "height": 8.0,
+          "type": "sizedBox"
+        },
+        {
+          "type": "textFormField",
+          "id": "primary_pin_current",
+          "textDirection": "rtl",
+          "textAlign": "right",
+          "decoration": {
+            "hintText": "رمز عبور فعلی را وارد کنید",
+            "hintStyle": {
+              "textDirection": "rtl",
+              "style": {
+                "color": "{{appColors.current.text.hint}}",
+                "fontSize": 14
+              }
+            },
+            "enabledBorder": {
+              "type": "outline",
+              "borderSide": {
+                "color": "{{appColors.current.input.borderEnabled}}",
+                "width": 1
+              },
+              "borderRadius": {
+                "all": 12
+              }
+            },
+            "focusedBorder": {
+              "type": "outline",
+              "borderSide": {
+                "color": "{{appColors.current.button.primary.backgroundColor}}",
+                "width": 1.5
+              },
+              "borderRadius": {
+                "all": 12
+              }
+            },
+            "contentPadding": {
+              "left": 16,
+              "top": 16,
+              "right": 16,
+              "bottom": 16
+            }
+          },
+          "keyboardType": "number"
+        },
+        {
+          "height": 20.0,
+          "type": "sizedBox"
+        },
+        {
+          "data": "رمز جدید",
+          "style": {
+            "type": "custom",
+            "color": "{{appColors.current.text.title}}",
+            "fontSize": 14.0,
+            "fontWeight": "w600"
+          },
+          "textAlign": "right",
+          "textDirection": "rtl",
+          "type": "text"
+        },
+        {
+          "height": 8.0,
+          "type": "sizedBox"
+        },
+        {
+          "type": "textFormField",
+          "id": "primary_pin_new",
+          "textDirection": "rtl",
+          "textAlign": "right",
+          "decoration": {
+            "hintText": "رمز جدید را وارد کنید",
+            "hintStyle": {
+              "textDirection": "rtl",
+              "style": {
+                "color": "{{appColors.current.text.hint}}",
+                "fontSize": 14
+              }
+            },
+            "enabledBorder": {
+              "type": "outline",
+              "borderSide": {
+                "color": "{{appColors.current.input.borderEnabled}}",
+                "width": 1
+              },
+              "borderRadius": {
+                "all": 12
+              }
+            },
+            "focusedBorder": {
+              "type": "outline",
+              "borderSide": {
+                "color": "{{appColors.current.button.primary.backgroundColor}}",
+                "width": 1.5
+              },
+              "borderRadius": {
+                "all": 12
+              }
+            },
+            "contentPadding": {
+              "left": 16,
+              "top": 16,
+              "right": 16,
+              "bottom": 16
+            }
+          },
+          "keyboardType": "number"
+        },
+        {
+          "height": 20.0,
+          "type": "sizedBox"
+        },
+        {
+          "data": "تکرار رمز جدید",
+          "style": {
+            "type": "custom",
+            "color": "{{appColors.current.text.title}}",
+            "fontSize": 14.0,
+            "fontWeight": "w600"
+          },
+          "textAlign": "right",
+          "textDirection": "rtl",
+          "type": "text"
+        },
+        {
+          "height": 8.0,
+          "type": "sizedBox"
+        },
+        {
+          "type": "textFormField",
+          "id": "primary_pin_confirm",
+          "textDirection": "rtl",
+          "textAlign": "right",
+          "decoration": {
+            "hintText": "رمز جدید را تکرار کنید",
+            "hintStyle": {
+              "textDirection": "rtl",
+              "style": {
+                "color": "{{appColors.current.text.hint}}",
+                "fontSize": 14
+              }
+            },
+            "enabledBorder": {
+              "type": "outline",
+              "borderSide": {
+                "color": "{{appColors.current.input.borderEnabled}}",
+                "width": 1
+              },
+              "borderRadius": {
+                "all": 12
+              }
+            },
+            "focusedBorder": {
+              "type": "outline",
+              "borderSide": {
+                "color": "{{appColors.current.button.primary.backgroundColor}}",
+                "width": 1.5
+              },
+              "borderRadius": {
+                "all": 12
+              }
+            },
+            "contentPadding": {
+              "left": 16,
+              "top": 16,
+              "right": 16,
+              "bottom": 16
+            }
+          },
+          "keyboardType": "number"
+        },
+        {
+          "height": 32.0,
+          "type": "sizedBox"
         },
         {
           "onPressed": {
             "actionType": "navigate",
-            "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_primary_pin_result.json",
+            "widgetType": "dashboard_primary_pin_result",
             "navigationStyle": "push"
           },
           "style": {
             "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
             "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
             "padding": {
-              "top": 16.0,
-              "bottom": 16.0
+              "top": 8.0,
+              "bottom": 8.0
+            },
+            "minimumSize": {
+              "width": 0.0,
+              "height": 56.0
             },
             "shape": {
               "type": "roundedRectangleBorder",
               "borderRadius": {
-                "topLeft": 16.0,
-                "topRight": 16.0,
-                "bottomLeft": 16.0,
-                "bottomRight": 16.0
+                "topLeft": 8.0,
+                "topRight": 8.0,
+                "bottomLeft": 8.0,
+                "bottomRight": 8.0
               }
             }
           },
           "child": {
-            "data": "تایید و تغییر رمز اول",
+            "data": "تغییر رمز اول",
             "style": {
               "type": "custom",
-              "fontSize": 16.0,
-              "fontWeight": "w600"
+              "fontSize": 14.0,
+              "fontWeight": "w700"
             },
             "textDirection": "rtl",
             "type": "text"
@@ -167,7 +397,7 @@
       ],
       "type": "column"
     },
-    "type": "padding"
+    "type": "singleChildScrollView"
   },
   "type": "scaffold"
 }

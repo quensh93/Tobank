@@ -589,22 +589,22 @@ StacWidget _buildWalletServices() {
     children: [
       StacExpanded(
         child: _serviceTile(
-          title: _serviceTopUpTitle,
+          title: _serviceTransferTitle,
           iconRegistryKey: 'appAssets.current.icons.cardService',
           onTap: StacShowBottomSheetAction(
             backgroundColor: '#00000000',
-            sheet: _walletChargeBottomSheet().toJson(),
+            sheet: _walletTransferBottomSheet().toJson(),
           ),
         ),
       ),
       StacSizedBox(width: 12),
       StacExpanded(
         child: _serviceTile(
-          title: _serviceTransferTitle,
+          title: _serviceTopUpTitle,
           iconRegistryKey: 'appAssets.current.icons.cardService',
           onTap: StacShowBottomSheetAction(
             backgroundColor: '#00000000',
-            sheet: _walletTransferBottomSheet().toJson(),
+            sheet: _walletChargeBottomSheet().toJson(),
           ),
         ),
       ),
@@ -641,24 +641,24 @@ StacWidget _buildCardServiceGrid() {
         children: [
           StacExpanded(
             child: _serviceTile(
-              title: _serviceFirstPinTitle,
-              iconRegistryKey:
-                  'appAssets.current.icons.cardServicePasswordChange',
-              onTap: StacShowBottomSheetAction(
-                backgroundColor: '#00000000',
-                sheet: _primaryPinSelectBottomSheet().toJson(),
-              ),
-            ),
-          ),
-          StacSizedBox(width: 12),
-          StacExpanded(
-            child: _serviceTile(
               title: _serviceSecondPinTitle,
               iconRegistryKey:
                   'appAssets.current.icons.cardServicePasswordChange',
               onTap: StacShowBottomSheetAction(
                 backgroundColor: '#00000000',
                 sheet: _secondaryPinSelectBottomSheet().toJson(),
+              ),
+            ),
+          ),
+          StacSizedBox(width: 12),
+          StacExpanded(
+            child: _serviceTile(
+              title: _serviceFirstPinTitle,
+              iconRegistryKey:
+                  'appAssets.current.icons.cardServicePasswordChange',
+              onTap: StacShowBottomSheetAction(
+                backgroundColor: '#00000000',
+                sheet: _primaryPinSelectBottomSheet().toJson(),
               ),
             ),
           ),
@@ -669,22 +669,22 @@ StacWidget _buildCardServiceGrid() {
         children: [
           StacExpanded(
             child: _serviceTile(
-              title: _serviceReissueTitle,
-              iconRegistryKey: 'appAssets.current.icons.cardServiceReissue',
+              title: _serviceBlockTitle,
+              iconRegistryKey: 'appAssets.current.icons.cardServiceBlock',
               onTap: StacShowBottomSheetAction(
                 backgroundColor: '#00000000',
-                sheet: _reissuePostalCodeBottomSheet().toJson(),
+                sheet: _cardBlockBottomSheet().toJson(),
               ),
             ),
           ),
           StacSizedBox(width: 12),
           StacExpanded(
             child: _serviceTile(
-              title: _serviceBlockTitle,
-              iconRegistryKey: 'appAssets.current.icons.cardServiceBlock',
+              title: _serviceReissueTitle,
+              iconRegistryKey: 'appAssets.current.icons.cardServiceReissue',
               onTap: StacShowBottomSheetAction(
                 backgroundColor: '#00000000',
-                sheet: _cardBlockBottomSheet().toJson(),
+                sheet: _reissuePostalCodeBottomSheet().toJson(),
               ),
             ),
           ),
@@ -1076,7 +1076,7 @@ StacWidget _buildDisabledServices() {
         children: [
           StacExpanded(
             child: _serviceTile(
-              title: _serviceFirstPinTitle,
+              title: _serviceSecondPinTitle,
               iconRegistryKey:
                   'appAssets.current.icons.cardServicePasswordChange',
               enabled: false,
@@ -1085,7 +1085,7 @@ StacWidget _buildDisabledServices() {
           StacSizedBox(width: 12),
           StacExpanded(
             child: _serviceTile(
-              title: _serviceSecondPinTitle,
+              title: _serviceFirstPinTitle,
               iconRegistryKey:
                   'appAssets.current.icons.cardServicePasswordChange',
               enabled: false,
@@ -1098,20 +1098,20 @@ StacWidget _buildDisabledServices() {
         children: [
           StacExpanded(
             child: _serviceTile(
+              title: _serviceBlockTitle,
+              iconRegistryKey: 'appAssets.current.icons.cardServiceBlock',
+              enabled: false,
+            ),
+          ),
+          StacSizedBox(width: 12),
+          StacExpanded(
+            child: _serviceTile(
               title: _serviceReissueTitle,
               iconRegistryKey: 'appAssets.current.icons.cardServiceReissue',
               onTap: StacShowBottomSheetAction(
                 backgroundColor: '#00000000',
                 sheet: _reissuePostalCodeBottomSheet().toJson(),
               ),
-            ),
-          ),
-          StacSizedBox(width: 12),
-          StacExpanded(
-            child: _serviceTile(
-              title: _serviceBlockTitle,
-              iconRegistryKey: 'appAssets.current.icons.cardServiceBlock',
-              enabled: false,
             ),
           ),
         ],
@@ -1204,7 +1204,7 @@ StacWidget _walletChargeBottomSheet() {
           ),
           StacSizedBox(height: 16),
           StacText(
-            data: 'افزایش موجودی کیف پول',
+            data: 'شارژ کیف پول',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -1213,7 +1213,39 @@ StacWidget _walletChargeBottomSheet() {
               color: '{{appColors.current.text.title}}',
             ),
           ),
-          StacSizedBox(height: 24),
+          StacSizedBox(height: 12),
+          StacContainer(
+            padding: StacEdgeInsets.all(16),
+            decoration: StacBoxDecoration(
+              borderRadius: StacBorderRadius.all(8),
+              border: StacBorder.all(
+                color: '{{appColors.current.input.borderEnabled}}',
+                width: 1,
+              ),
+            ),
+            child: StacText(
+              data: 'مبلغ کیف پول شما قابل برداشت نیست و فقط در بخش خدمات توبانک قابل استفاده میباشد',
+              textDirection: StacTextDirection.rtl,
+              textAlign: StacTextAlign.right,
+              style: StacCustomTextStyle(
+                fontSize: 13,
+                fontWeight: StacFontWeight.w400,
+                color: '{{appColors.current.text.hint}}',
+              ),
+            ),
+          ),
+          StacSizedBox(height: 20),
+          StacText(
+            data: 'مبلغ شارژ',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 14,
+              fontWeight: StacFontWeight.w500,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacSizedBox(height: 8),
           StacCustomTextFormField(
             id: 'wallet_charge_amount',
             textDirection: 'rtl',
@@ -1226,15 +1258,15 @@ StacWidget _walletChargeBottomSheet() {
               value: '[[wallet_charge_amount]]',
             ),
             decoration: {
-              'labelText': 'مبلغ (ریال)',
-              'labelStyle': {
+              'hintText': 'مبلغ شارژ را به ریال وارد کنید',
+              'hintStyle': {
                 'textDirection': 'rtl',
                 'style': {
                   'color': '{{appColors.current.text.hint}}',
                   'fontSize': 14,
                 },
               },
-              'helperText': 'حداقل ۱۰،۰۰۰ ریال',
+              'helperText': 'حداقل مبلغ شارژ ۱۰،۰۰۰ ریال و سقف موجودی ۵۰،۰۰۰،۰۰۰ ریال',
               'helperStyle': {
                 'textDirection': 'rtl',
                 'style': {
@@ -1267,16 +1299,25 @@ StacWidget _walletChargeBottomSheet() {
             },
           ),
           StacSizedBox(height: 12),
-          StacRow(
-            textDirection: StacTextDirection.rtl,
+          StacColumn(
             children: [
-              _amountChip('۵۰،۰۰۰', '50000'),
-              StacSizedBox(width: 8),
-              _amountChip('۱۰۰،۰۰۰', '100000'),
-              StacSizedBox(width: 8),
-              _amountChip('۲۰۰،۰۰۰', '200000'),
-              StacSizedBox(width: 8),
-              _amountChip('۵۰۰،۰۰۰', '500000'),
+              StacRow(
+                textDirection: StacTextDirection.rtl,
+                children: [
+                  _amountChip('۵۰،۰۰۰ ریال', '50000'),
+                  StacSizedBox(width: 8),
+                  _amountChip('۲۰۰،۰۰۰ ریال', '200000'),
+                ],
+              ),
+              StacSizedBox(height: 8),
+              StacRow(
+                textDirection: StacTextDirection.rtl,
+                children: [
+                  _amountChip('۵۰۰،۰۰۰ ریال', '500000'),
+                  StacSizedBox(width: 8),
+                  _amountChip('۱،۰۰۰،۰۰۰ ریال', '1000000'),
+                ],
+              ),
             ],
           ),
           StacSizedBox(height: 24),
@@ -1286,17 +1327,18 @@ StacWidget _walletChargeBottomSheet() {
               sheet: _walletPaymentMethodBottomSheet().toJson(),
             ),
             style: StacButtonStyle(
-              padding: StacEdgeInsets.symmetric(vertical: 16),
+              padding: StacEdgeInsets.symmetric(vertical: 8),
+              minimumSize: const StacSize(0, 56),
               backgroundColor: '{{appColors.current.button.primary.backgroundColor}}',
               foregroundColor: '{{appColors.current.button.primary.foregroundColor}}',
               shape: StacRoundedRectangleBorder(
-                borderRadius: StacBorderRadius.all(16),
+                borderRadius: StacBorderRadius.all(8),
               ),
             ),
             child: StacText(
               data: 'ادامه',
               textDirection: StacTextDirection.rtl,
-              style: StacTextStyle(fontSize: 16, fontWeight: StacFontWeight.w600),
+              style: StacCustomTextStyle(fontSize: 14, fontWeight: StacFontWeight.w700),
             ),
           ),
         ],
@@ -1329,7 +1371,7 @@ StacWidget _amountChip(String label, String value) {
           style: StacCustomTextStyle(
             fontSize: 13,
             fontWeight: StacFontWeight.w500,
-            color: '{{appColors.current.text.body}}',
+            color: '{{appColors.current.text.title}}',
           ),
         ),
       ),
@@ -1517,7 +1559,7 @@ StacWidget _walletTransferBottomSheet() {
           ),
           StacSizedBox(height: 16),
           StacText(
-            data: 'انتقال وجه از کیف پول',
+            data: 'انتقال وجه کیف پول',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -1527,6 +1569,17 @@ StacWidget _walletTransferBottomSheet() {
             ),
           ),
           StacSizedBox(height: 24),
+          StacText(
+            data: 'شماره موبایل',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 14,
+              fontWeight: StacFontWeight.w500,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacSizedBox(height: 8),
           StacRow(
             textDirection: StacTextDirection.rtl,
             children: [
@@ -1542,8 +1595,8 @@ StacWidget _walletTransferBottomSheet() {
                     value: '[[wallet_transfer_phone]]',
                   ),
                   decoration: {
-                    'labelText': 'شماره تلفن همراه مقصد',
-                    'labelStyle': {
+                    'hintText': 'شماره همراه مقصد را وارد کنید',
+                    'hintStyle': {
                       'textDirection': 'rtl',
                       'style': {
                         'color': '{{appColors.current.text.hint}}',
@@ -1579,9 +1632,11 @@ StacWidget _walletTransferBottomSheet() {
               ),
               StacSizedBox(width: 8),
               StacGestureDetector(
-                onTap: StacShowBottomSheetAction(
-                  backgroundColor: '#00000000',
-                  sheet: _walletTransferContactPicker().toJson(),
+                onTap: StacPickContactPhoneAction(
+                  formFieldId: 'wallet_transfer_phone',
+                  targetKey: 'cardsManagement.wallet.transferPhone',
+                  permissionDeniedMessage: 'دسترسی مخاطبین مجاز نیست',
+                  invalidMobileMessage: 'شماره همراه معتبر در مخاطب یافت نشد',
                 ),
                 child: StacContainer(
                   width: 52,
@@ -1595,11 +1650,11 @@ StacWidget _walletTransferBottomSheet() {
                   ),
                   child: StacCenter(
                     child: StacImage(
-                      src: '{{appAssets.current.icons.contacts}}',
+                      src: 'assets/icons/ic_contact_list.svg',
                       imageType: StacImageType.asset,
                       width: 24,
                       height: 24,
-                      color: '{{appColors.current.text.body}}',
+                      color: '{{appColors.current.button.primary}}',
                     ),
                   ),
                 ),
@@ -1607,6 +1662,17 @@ StacWidget _walletTransferBottomSheet() {
             ],
           ),
           StacSizedBox(height: 16),
+          StacText(
+            data: 'مبلغ انتقال',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 14,
+              fontWeight: StacFontWeight.w500,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacSizedBox(height: 8),
           StacCustomTextFormField(
             id: 'wallet_transfer_amount',
             textDirection: 'rtl',
@@ -1619,8 +1685,8 @@ StacWidget _walletTransferBottomSheet() {
               value: '[[wallet_transfer_amount]]',
             ),
             decoration: {
-              'labelText': 'مبلغ (ریال)',
-              'labelStyle': {
+              'hintText': 'مبلغ را به ریال وارد کنید',
+              'hintStyle': {
                 'textDirection': 'rtl',
                 'style': {
                   'color': '{{appColors.current.text.hint}}',
@@ -1653,6 +1719,17 @@ StacWidget _walletTransferBottomSheet() {
             },
           ),
           StacSizedBox(height: 16),
+          StacText(
+            data: 'توضیحات(اختیاری)',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 14,
+              fontWeight: StacFontWeight.w500,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacSizedBox(height: 8),
           StacCustomTextFormField(
             id: 'wallet_transfer_desc',
             textDirection: 'rtl',
@@ -1663,8 +1740,8 @@ StacWidget _walletTransferBottomSheet() {
               value: '[[wallet_transfer_desc]]',
             ),
             decoration: {
-              'labelText': 'توضیحات (اختیاری)',
-              'labelStyle': {
+              'hintText': 'توضیحات انتقال وجه را وارد کنید',
+              'hintStyle': {
                 'textDirection': 'rtl',
                 'style': {
                   'color': '{{appColors.current.text.hint}}',
@@ -1703,19 +1780,20 @@ StacWidget _walletTransferBottomSheet() {
               sheet: _walletTransferConfirmBottomSheet().toJson(),
             ),
             style: StacButtonStyle(
-              padding: StacEdgeInsets.symmetric(vertical: 16),
+              padding: StacEdgeInsets.symmetric(vertical: 8),
+              minimumSize: const StacSize(0, 56),
               backgroundColor:
                   '{{appColors.current.button.primary.backgroundColor}}',
               foregroundColor:
                   '{{appColors.current.button.primary.foregroundColor}}',
               shape: StacRoundedRectangleBorder(
-                borderRadius: StacBorderRadius.all(16),
+                borderRadius: StacBorderRadius.all(8),
               ),
             ),
             child: StacText(
               data: 'ادامه',
               textDirection: StacTextDirection.rtl,
-              style: StacTextStyle(fontSize: 16, fontWeight: StacFontWeight.w600),
+              style: StacCustomTextStyle(fontSize: 14, fontWeight: StacFontWeight.w700),
             ),
           ),
         ],
@@ -1905,19 +1983,20 @@ StacWidget _walletTransferConfirmBottomSheet() {
               negativeAction: const StacCloseDialogAction(),
             ),
             style: StacButtonStyle(
-              padding: StacEdgeInsets.symmetric(vertical: 16),
+              padding: StacEdgeInsets.symmetric(vertical: 8),
+              minimumSize: const StacSize(0, 56),
               backgroundColor:
                   '{{appColors.current.button.primary.backgroundColor}}',
               foregroundColor:
                   '{{appColors.current.button.primary.foregroundColor}}',
               shape: StacRoundedRectangleBorder(
-                borderRadius: StacBorderRadius.all(16),
+                borderRadius: StacBorderRadius.all(8),
               ),
             ),
             child: StacText(
               data: 'ادامه',
               textDirection: StacTextDirection.rtl,
-              style: StacTextStyle(fontSize: 16, fontWeight: StacFontWeight.w600),
+              style: StacCustomTextStyle(fontSize: 14, fontWeight: StacFontWeight.w700),
             ),
           ),
         ],
@@ -2021,6 +2100,7 @@ StacWidget _primaryPinSelectBottomSheet() {
           StacSizedBox(height: 24),
           _pinServiceRow(
             label: 'دریافت رمز اول',
+            selectedKey: 'cardsManagement.pin.primaryEventIsGet',
             onTap: StacCustomSetValueAction(
               values: [
                 {
@@ -2038,6 +2118,7 @@ StacWidget _primaryPinSelectBottomSheet() {
           StacSizedBox(height: 12),
           _pinServiceRow(
             label: 'تغییر رمز اول',
+            selectedKey: 'cardsManagement.pin.primaryEventIsChange',
             onTap: StacCustomSetValueAction(
               values: [
                 {
@@ -2083,17 +2164,17 @@ StacWidget _primaryPinSelectBottomSheet() {
   );
 }
 
-StacWidget _pinServiceRow({required String label, required StacAction onTap}) {
-  return StacGestureDetector(
-    onTap: onTap,
-    child: StacContainer(
+StacWidget _pinServiceRow({
+  required String label,
+  required String selectedKey,
+  required StacAction onTap,
+}) {
+  StacWidget _rowContent({required String borderColor, required double borderWidth}) {
+    return StacContainer(
       padding: StacEdgeInsets.all(16),
       decoration: StacBoxDecoration(
         borderRadius: StacBorderRadius.all(8),
-        border: StacBorder.all(
-          color: '{{appColors.current.input.borderEnabled}}',
-          width: 1,
-        ),
+        border: StacBorder.all(color: borderColor, width: borderWidth),
       ),
       child: StacRow(
         textDirection: StacTextDirection.rtl,
@@ -2129,6 +2210,24 @@ StacWidget _pinServiceRow({required String label, required StacAction onTap}) {
           ),
         ],
       ),
+    );
+  }
+
+  return StacGestureDetector(
+    onTap: onTap,
+    child: StacCustomRegistryReactive(
+      registryKey: selectedKey,
+      child: StacCustomVisibility(
+        visible: '[[${selectedKey}]]',
+        child: _rowContent(
+          borderColor: '{{appColors.current.button.primary.backgroundColor}}',
+          borderWidth: 1.5,
+        ).toJson(),
+        replacement: _rowContent(
+          borderColor: '{{appColors.current.input.borderEnabled}}',
+          borderWidth: 1,
+        ).toJson(),
+      ).toJson(),
     ),
   );
 }
@@ -2146,15 +2245,16 @@ StacWidget _pinContinueButton({required String screenName}) {
       ],
     ),
     style: StacButtonStyle(
-      padding: StacEdgeInsets.symmetric(vertical: 16),
+      padding: StacEdgeInsets.symmetric(vertical: 8),
+      minimumSize: const StacSize(0, 56),
       backgroundColor: '{{appColors.current.button.primary.backgroundColor}}',
       foregroundColor: '{{appColors.current.button.primary.foregroundColor}}',
-      shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(16)),
+      shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(8)),
     ),
     child: StacText(
       data: 'ادامه',
       textDirection: StacTextDirection.rtl,
-      style: StacTextStyle(fontSize: 16, fontWeight: StacFontWeight.w600),
+      style: StacCustomTextStyle(fontSize: 14, fontWeight: StacFontWeight.w700),
     ),
   );
 }
@@ -2167,15 +2267,16 @@ StacWidget _pinDisabledButton() {
       duration: 2000,
     ),
     style: StacButtonStyle(
-      padding: StacEdgeInsets.symmetric(vertical: 16),
+      padding: StacEdgeInsets.symmetric(vertical: 8),
+      minimumSize: const StacSize(0, 56),
       backgroundColor: '{{appColors.current.input.borderEnabled}}',
       foregroundColor: '{{appColors.current.text.hint}}',
-      shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(16)),
+      shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(8)),
     ),
     child: StacText(
       data: 'ادامه',
       textDirection: StacTextDirection.rtl,
-      style: StacTextStyle(fontSize: 16, fontWeight: StacFontWeight.w600),
+      style: StacCustomTextStyle(fontSize: 14, fontWeight: StacFontWeight.w700),
     ),
   );
 }
@@ -2218,6 +2319,7 @@ StacWidget _secondaryPinSelectBottomSheet() {
           StacSizedBox(height: 24),
           _secPinServiceRow(
             label: 'دریافت رمز دوم',
+            selectedKey: 'cardsManagement.pin.secondaryEventIsGet',
             onTap: StacCustomSetValueAction(
               values: [
                 {
@@ -2238,6 +2340,7 @@ StacWidget _secondaryPinSelectBottomSheet() {
           StacSizedBox(height: 12),
           _secPinServiceRow(
             label: 'تغییر رمز دوم',
+            selectedKey: 'cardsManagement.pin.secondaryEventIsChange',
             onTap: StacCustomSetValueAction(
               values: [
                 {
@@ -2285,18 +2388,15 @@ StacWidget _secondaryPinSelectBottomSheet() {
 
 StacWidget _secPinServiceRow({
   required String label,
+  required String selectedKey,
   required StacAction onTap,
 }) {
-  return StacGestureDetector(
-    onTap: onTap,
-    child: StacContainer(
+  StacWidget _rowContent({required String borderColor, required double borderWidth}) {
+    return StacContainer(
       padding: StacEdgeInsets.all(16),
       decoration: StacBoxDecoration(
         borderRadius: StacBorderRadius.all(8),
-        border: StacBorder.all(
-          color: '{{appColors.current.input.borderEnabled}}',
-          width: 1,
-        ),
+        border: StacBorder.all(color: borderColor, width: borderWidth),
       ),
       child: StacRow(
         textDirection: StacTextDirection.rtl,
@@ -2332,6 +2432,24 @@ StacWidget _secPinServiceRow({
           ),
         ],
       ),
+    );
+  }
+
+  return StacGestureDetector(
+    onTap: onTap,
+    child: StacCustomRegistryReactive(
+      registryKey: selectedKey,
+      child: StacCustomVisibility(
+        visible: '[[${selectedKey}]]',
+        child: _rowContent(
+          borderColor: '{{appColors.current.button.primary.backgroundColor}}',
+          borderWidth: 1.5,
+        ).toJson(),
+        replacement: _rowContent(
+          borderColor: '{{appColors.current.input.borderEnabled}}',
+          borderWidth: 1,
+        ).toJson(),
+      ).toJson(),
     ),
   );
 }
@@ -2349,15 +2467,16 @@ StacWidget _secContinueButton({required String screenName}) {
       ],
     ),
     style: StacButtonStyle(
-      padding: StacEdgeInsets.symmetric(vertical: 16),
+      padding: StacEdgeInsets.symmetric(vertical: 8),
+      minimumSize: const StacSize(0, 56),
       backgroundColor: '{{appColors.current.button.primary.backgroundColor}}',
       foregroundColor: '{{appColors.current.button.primary.foregroundColor}}',
-      shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(16)),
+      shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(8)),
     ),
     child: StacText(
       data: 'ادامه',
       textDirection: StacTextDirection.rtl,
-      style: StacTextStyle(fontSize: 16, fontWeight: StacFontWeight.w600),
+      style: StacCustomTextStyle(fontSize: 14, fontWeight: StacFontWeight.w700),
     ),
   );
 }
@@ -2370,15 +2489,16 @@ StacWidget _secDisabledButton() {
       duration: 2000,
     ),
     style: StacButtonStyle(
-      padding: StacEdgeInsets.symmetric(vertical: 16),
+      padding: StacEdgeInsets.symmetric(vertical: 8),
+      minimumSize: const StacSize(0, 56),
       backgroundColor: '{{appColors.current.input.borderEnabled}}',
       foregroundColor: '{{appColors.current.text.hint}}',
-      shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(16)),
+      shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(8)),
     ),
     child: StacText(
       data: 'ادامه',
       textDirection: StacTextDirection.rtl,
-      style: StacTextStyle(fontSize: 16, fontWeight: StacFontWeight.w600),
+      style: StacCustomTextStyle(fontSize: 14, fontWeight: StacFontWeight.w700),
     ),
   );
 }
@@ -2452,7 +2572,7 @@ StacWidget _reissuePostalCodeBottomSheet() {
               value: '[[reissue_postal_code]]',
             ),
             decoration: {
-              'hintText': 'کد پستی ۱۰ رقمی',
+              'hintText': 'کد پستی محل سکونت را وارد کنید',
               'hintStyle': {
                 'textDirection': 'rtl',
                 'style': {
@@ -2499,19 +2619,20 @@ StacWidget _reissuePostalCodeBottomSheet() {
               ],
             ),
             style: StacButtonStyle(
-              padding: StacEdgeInsets.symmetric(vertical: 16),
+              padding: StacEdgeInsets.symmetric(vertical: 8),
+              minimumSize: const StacSize(0, 56),
               backgroundColor:
                   '{{appColors.current.button.primary.backgroundColor}}',
               foregroundColor:
                   '{{appColors.current.button.primary.foregroundColor}}',
               shape: StacRoundedRectangleBorder(
-                borderRadius: StacBorderRadius.all(16),
+                borderRadius: StacBorderRadius.all(8),
               ),
             ),
             child: StacText(
               data: 'استعلام',
               textDirection: StacTextDirection.rtl,
-              style: StacTextStyle(fontSize: 16, fontWeight: StacFontWeight.w600),
+              style: StacCustomTextStyle(fontSize: 14, fontWeight: StacFontWeight.w700),
             ),
           ),
         ],
@@ -2532,7 +2653,7 @@ StacWidget _infoBullet({required String text}) {
           imageType: StacImageType.asset,
           width: 18,
           height: 18,
-          color: '{{appColors.current.button.primary.backgroundColor}}',
+          color: '{{appColors.current.text.hint}}',
         ),
       ),
       StacSizedBox(width: 8),
@@ -2579,6 +2700,30 @@ StacWidget _cardBlockBottomSheet() {
               ),
             ),
           ),
+          StacSizedBox(height: 20),
+          StacRow(
+            textDirection: StacTextDirection.rtl,
+            mainAxisAlignment: StacMainAxisAlignment.start,
+            children: [
+              StacContainer(
+                width: 56,
+                height: 56,
+                decoration: StacBoxDecoration(
+                  color: '#FF6D00',
+                  borderRadius: StacBorderRadius.all(28),
+                ),
+                child: StacCenter(
+                  child: StacImage(
+                    src: 'assets/icons/ic_warning.svg',
+                    imageType: StacImageType.asset,
+                    width: 28,
+                    height: 28,
+                    color: '#FFFFFF',
+                  ),
+                ),
+              ),
+            ],
+          ),
           StacSizedBox(height: 16),
           StacText(
             data: 'مسدودسازی کارت',
@@ -2590,9 +2735,9 @@ StacWidget _cardBlockBottomSheet() {
               color: '{{appColors.current.text.title}}',
             ),
           ),
-          StacSizedBox(height: 8),
+          StacSizedBox(height: 12),
           StacText(
-            data: 'دلیل مسدودسازی را انتخاب نمایید',
+            data: 'در صورت ارسال درخواست مسدودی، تمامی امکانات کارت شما غیرفعال می‌شود و برای استفاده مجدد از کارت باید به صورت حضوری به شعبه بانک مراجعه نمایید.',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -2602,13 +2747,20 @@ StacWidget _cardBlockBottomSheet() {
             ),
           ),
           StacSizedBox(height: 20),
-          _blockReasonRow(label: 'گم‌شدن کارت', reasonId: '1'),
+          StacText(
+            data: 'دلیل مسدودی را انتخاب نمایید',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 14,
+              fontWeight: StacFontWeight.w600,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacSizedBox(height: 20),
+          _blockReasonRow(label: 'مفقودی کارت', reasonId: '1'),
           StacSizedBox(height: 12),
           _blockReasonRow(label: 'سرقت کارت', reasonId: '2'),
-          StacSizedBox(height: 12),
-          _blockReasonRow(label: 'آسیب فیزیکی', reasonId: '3'),
-          StacSizedBox(height: 12),
-          _blockReasonRow(label: 'سایر دلایل', reasonId: '4'),
           StacSizedBox(height: 32),
           StacFilledButton(
             onPressed: StacShowDialogAction(
@@ -2631,17 +2783,18 @@ StacWidget _cardBlockBottomSheet() {
               negativeAction: const StacCloseDialogAction(),
             ),
             style: StacButtonStyle(
-              padding: StacEdgeInsets.symmetric(vertical: 16),
+              padding: StacEdgeInsets.symmetric(vertical: 8),
+              minimumSize: const StacSize(0, 56),
               backgroundColor: '#D32F2F',
               foregroundColor: '#FFFFFF',
               shape: StacRoundedRectangleBorder(
-                borderRadius: StacBorderRadius.all(16),
+                borderRadius: StacBorderRadius.all(8),
               ),
             ),
             child: StacText(
-              data: 'ادامه',
+              data: 'مسدودسازی کارت',
               textDirection: StacTextDirection.rtl,
-              style: StacTextStyle(fontSize: 16, fontWeight: StacFontWeight.w600),
+              style: StacCustomTextStyle(fontSize: 14, fontWeight: StacFontWeight.w700),
             ),
           ),
         ],

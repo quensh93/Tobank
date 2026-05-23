@@ -6,7 +6,7 @@ import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 StacWidget dashboardSecondaryPinChange() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildTobankFlowAppBar(title: 'تغییر رمز دوم', showBack: true),
+    appBar: buildTobankFlowAppBar(title: 'تغییر رمز دوم', showSupport: true, showBack: true),
     body: StacSingleChildScrollView(
       padding: StacEdgeInsets.all(16),
       child: StacColumn(
@@ -189,21 +189,22 @@ StacWidget dashboardSecondaryPinChange() {
               'navigationStyle': 'push',
             }),
             style: StacButtonStyle(
-              padding: StacEdgeInsets.symmetric(vertical: 16),
+              padding: StacEdgeInsets.symmetric(vertical: 8),
+              minimumSize: const StacSize(0, 56),
               backgroundColor:
                   '{{appColors.current.button.primary.backgroundColor}}',
               foregroundColor:
                   '{{appColors.current.button.primary.foregroundColor}}',
               shape: StacRoundedRectangleBorder(
-                borderRadius: StacBorderRadius.all(16),
+                borderRadius: StacBorderRadius.all(8),
               ),
             ),
             child: StacText(
               data: 'تغییر رمز دوم',
               textDirection: StacTextDirection.rtl,
-              style: StacTextStyle(
-                fontSize: 16,
-                fontWeight: StacFontWeight.w600,
+              style: StacCustomTextStyle(
+                fontSize: 14,
+                fontWeight: StacFontWeight.w700,
               ),
             ),
           ),

@@ -6,65 +6,182 @@ import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 StacWidget dashboardPrimaryPinChange() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildTobankFlowAppBar(title: 'تغییر رمز اول', showBack: true),
-    body: StacPadding(
+    appBar: buildTobankFlowAppBar(title: 'تغییر رمز اول', showSupport: true, showBack: true),
+    body: StacSingleChildScrollView(
       padding: StacEdgeInsets.all(16),
       child: StacColumn(
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
-          StacContainer(
-            padding: StacEdgeInsets.all(16),
-            decoration: StacBoxDecoration(
-              borderRadius: StacBorderRadius.all(8),
-              border: StacBorder.all(
-                color: '{{appColors.current.input.borderEnabled}}',
-                width: 1,
-              ),
-            ),
-            child: StacRow(
-              textDirection: StacTextDirection.rtl,
-              mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-              children: [
-                StacText(
-                  data: 'شماره کارت:',
-                  textDirection: StacTextDirection.rtl,
-                  style: StacCustomTextStyle(
-                    fontSize: 14,
-                    fontWeight: StacFontWeight.w400,
-                    color: '{{appColors.current.text.hint}}',
-                  ),
-                ),
-                StacText(
-                  data: '۵۰۵۴ - ۱۶۱۷ - ۰۳۰۲ - ۰۳۹۰',
-                  textDirection: StacTextDirection.ltr,
-                  style: StacCustomTextStyle(
-                    fontSize: 14,
-                    fontWeight: StacFontWeight.w600,
-                    color: '{{appColors.current.text.title}}',
-                  ),
-                ),
-              ],
+          StacText(
+            data: 'رعایت این موارد الزامیست...',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 14,
+              fontWeight: StacFontWeight.w700,
+              color: '{{appColors.current.text.title}}',
             ),
           ),
-          StacSizedBox(height: 16),
-          StacContainer(
-            padding: StacEdgeInsets.all(16),
-            decoration: StacBoxDecoration(
-              color: '{{appColors.current.background.surfaceContainerLowest}}',
-              borderRadius: StacBorderRadius.all(8),
-            ),
-            child: StacText(
-              data:
-                  'رمز جدید از طریق دستگاه خودپرداز یا اینترنت‌بانک تعیین می‌شود.',
-              textDirection: StacTextDirection.rtl,
-              style: StacCustomTextStyle(
-                fontSize: 13,
-                fontWeight: StacFontWeight.w400,
-                color: '{{appColors.current.text.hint}}',
-              ),
+          StacSizedBox(height: 12),
+          _ruleRow(text: 'رمز اول کارت باید ۴ رقم باشد'),
+          StacSizedBox(height: 8),
+          _ruleRow(
+            text: 'از انتخاب رمز ساده نظیر ۱۱۱۱ یا ۱۲۳۴ خودداری کنید',
+          ),
+          StacSizedBox(height: 24),
+          StacText(
+            data: 'رمز فعلی',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 14,
+              fontWeight: StacFontWeight.w600,
+              color: '{{appColors.current.text.title}}',
             ),
           ),
-          StacExpanded(child: StacSizedBox(height: 0)),
+          StacSizedBox(height: 8),
+          StacCustomTextFormField(
+            id: 'primary_pin_current',
+            textDirection: 'rtl',
+            textAlign: 'right',
+            keyboardType: 'number',
+            decoration: {
+              'hintText': 'رمز عبور فعلی را وارد کنید',
+              'hintStyle': {
+                'textDirection': 'rtl',
+                'style': {
+                  'color': '{{appColors.current.text.hint}}',
+                  'fontSize': 14,
+                },
+              },
+              'enabledBorder': {
+                'type': 'outline',
+                'borderSide': {
+                  'color': '{{appColors.current.input.borderEnabled}}',
+                  'width': 1,
+                },
+                'borderRadius': {'all': 12},
+              },
+              'focusedBorder': {
+                'type': 'outline',
+                'borderSide': {
+                  'color':
+                      '{{appColors.current.button.primary.backgroundColor}}',
+                  'width': 1.5,
+                },
+                'borderRadius': {'all': 12},
+              },
+              'contentPadding': {
+                'left': 16,
+                'top': 16,
+                'right': 16,
+                'bottom': 16,
+              },
+            },
+          ),
+          StacSizedBox(height: 20),
+          StacText(
+            data: 'رمز جدید',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 14,
+              fontWeight: StacFontWeight.w600,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacSizedBox(height: 8),
+          StacCustomTextFormField(
+            id: 'primary_pin_new',
+            textDirection: 'rtl',
+            textAlign: 'right',
+            keyboardType: 'number',
+            decoration: {
+              'hintText': 'رمز جدید را وارد کنید',
+              'hintStyle': {
+                'textDirection': 'rtl',
+                'style': {
+                  'color': '{{appColors.current.text.hint}}',
+                  'fontSize': 14,
+                },
+              },
+              'enabledBorder': {
+                'type': 'outline',
+                'borderSide': {
+                  'color': '{{appColors.current.input.borderEnabled}}',
+                  'width': 1,
+                },
+                'borderRadius': {'all': 12},
+              },
+              'focusedBorder': {
+                'type': 'outline',
+                'borderSide': {
+                  'color':
+                      '{{appColors.current.button.primary.backgroundColor}}',
+                  'width': 1.5,
+                },
+                'borderRadius': {'all': 12},
+              },
+              'contentPadding': {
+                'left': 16,
+                'top': 16,
+                'right': 16,
+                'bottom': 16,
+              },
+            },
+          ),
+          StacSizedBox(height: 20),
+          StacText(
+            data: 'تکرار رمز جدید',
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.right,
+            style: StacCustomTextStyle(
+              fontSize: 14,
+              fontWeight: StacFontWeight.w600,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          StacSizedBox(height: 8),
+          StacCustomTextFormField(
+            id: 'primary_pin_confirm',
+            textDirection: 'rtl',
+            textAlign: 'right',
+            keyboardType: 'number',
+            decoration: {
+              'hintText': 'رمز جدید را تکرار کنید',
+              'hintStyle': {
+                'textDirection': 'rtl',
+                'style': {
+                  'color': '{{appColors.current.text.hint}}',
+                  'fontSize': 14,
+                },
+              },
+              'enabledBorder': {
+                'type': 'outline',
+                'borderSide': {
+                  'color': '{{appColors.current.input.borderEnabled}}',
+                  'width': 1,
+                },
+                'borderRadius': {'all': 12},
+              },
+              'focusedBorder': {
+                'type': 'outline',
+                'borderSide': {
+                  'color':
+                      '{{appColors.current.button.primary.backgroundColor}}',
+                  'width': 1.5,
+                },
+                'borderRadius': {'all': 12},
+              },
+              'contentPadding': {
+                'left': 16,
+                'top': 16,
+                'right': 16,
+                'bottom': 16,
+              },
+            },
+          ),
+          StacSizedBox(height: 32),
           StacFilledButton(
             onPressed: StacRawJsonAction({
               'actionType': 'navigate',
@@ -72,26 +189,58 @@ StacWidget dashboardPrimaryPinChange() {
               'navigationStyle': 'push',
             }),
             style: StacButtonStyle(
-              padding: StacEdgeInsets.symmetric(vertical: 16),
+              padding: StacEdgeInsets.symmetric(vertical: 8),
+              minimumSize: const StacSize(0, 56),
               backgroundColor:
                   '{{appColors.current.button.primary.backgroundColor}}',
               foregroundColor:
                   '{{appColors.current.button.primary.foregroundColor}}',
               shape: StacRoundedRectangleBorder(
-                borderRadius: StacBorderRadius.all(16),
+                borderRadius: StacBorderRadius.all(8),
               ),
             ),
             child: StacText(
-              data: 'تایید و تغییر رمز اول',
+              data: 'تغییر رمز اول',
               textDirection: StacTextDirection.rtl,
-              style: StacTextStyle(
-                fontSize: 16,
-                fontWeight: StacFontWeight.w600,
+              style: StacCustomTextStyle(
+                fontSize: 14,
+                fontWeight: StacFontWeight.w700,
               ),
             ),
           ),
         ],
       ),
     ),
+  );
+}
+
+StacWidget _ruleRow({required String text}) {
+  return StacRow(
+    textDirection: StacTextDirection.rtl,
+    crossAxisAlignment: StacCrossAxisAlignment.start,
+    children: [
+      StacPadding(
+        padding: StacEdgeInsets.only(top: 2),
+        child: StacImage(
+          src: '{{appAssets.current.icons.successCheck}}',
+          imageType: StacImageType.asset,
+          width: 18,
+          height: 18,
+          color: '{{appColors.current.button.primary.backgroundColor}}',
+        ),
+      ),
+      StacSizedBox(width: 8),
+      StacExpanded(
+        child: StacText(
+          data: text,
+          textDirection: StacTextDirection.rtl,
+          style: StacCustomTextStyle(
+            fontSize: 13,
+            fontWeight: StacFontWeight.w400,
+            color: '{{appColors.current.text.hint}}',
+          ),
+        ),
+      ),
+    ],
   );
 }

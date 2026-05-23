@@ -1,6 +1,23 @@
-{
+﻿{
   "appBar": {
-    "automaticallyImplyLeading": false,
+    "leading": {
+      "padding": {
+        "left": 12.0
+      },
+      "child": {
+        "child": {
+          "src": "{{appAssets.icons.support}}",
+          "imageType": "asset",
+          "color": "{{appColors.current.text.title}}",
+          "width": 24.0,
+          "height": 24.0,
+          "type": "image"
+        },
+        "type": "center"
+      },
+      "type": "padding"
+    },
+    "automaticallyImplyLeading": true,
     "title": {
       "data": "تغییر رمز دوم",
       "style": {
@@ -10,6 +27,29 @@
       "textDirection": "rtl",
       "type": "text"
     },
+    "actions": [
+      {
+        "padding": {
+          "right": 12.0
+        },
+        "child": {
+          "onPressed": {
+            "navigationStyle": "pop",
+            "actionType": "navigate"
+          },
+          "icon": {
+            "src": "{{appAssets.icons.arrowBack}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 31.0,
+            "height": 31.0,
+            "type": "image"
+          },
+          "type": "iconButton"
+        },
+        "type": "padding"
+      }
+    ],
     "centerTitle": true,
     "type": "appBar"
   },
@@ -425,16 +465,20 @@
             "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
             "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
             "padding": {
-              "top": 16.0,
-              "bottom": 16.0
+              "top": 8.0,
+              "bottom": 8.0
+            },
+            "minimumSize": {
+              "width": 0.0,
+              "height": 56.0
             },
             "shape": {
               "type": "roundedRectangleBorder",
               "borderRadius": {
-                "topLeft": 16.0,
-                "topRight": 16.0,
-                "bottomLeft": 16.0,
-                "bottomRight": 16.0
+                "topLeft": 8.0,
+                "topRight": 8.0,
+                "bottomLeft": 8.0,
+                "bottomRight": 8.0
               }
             }
           },
@@ -442,8 +486,8 @@
             "data": "بازگشت به لیست خدمات کارت",
             "style": {
               "type": "custom",
-              "fontSize": 16.0,
-              "fontWeight": "w600"
+              "fontSize": 14.0,
+              "fontWeight": "w700"
             },
             "textDirection": "rtl",
             "type": "text"

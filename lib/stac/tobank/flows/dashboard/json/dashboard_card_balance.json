@@ -259,16 +259,20 @@
             "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
             "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
             "padding": {
-              "top": 16.0,
-              "bottom": 16.0
+              "top": 8.0,
+              "bottom": 8.0
+            },
+            "minimumSize": {
+              "width": 0.0,
+              "height": 56.0
             },
             "shape": {
               "type": "roundedRectangleBorder",
               "borderRadius": {
-                "topLeft": 16.0,
-                "topRight": 16.0,
-                "bottomLeft": 16.0,
-                "bottomRight": 16.0
+                "topLeft": 8.0,
+                "topRight": 8.0,
+                "bottomLeft": 8.0,
+                "bottomRight": 8.0
               }
             }
           },
@@ -276,8 +280,8 @@
             "data": "تلاش مجدد",
             "style": {
               "type": "custom",
-              "fontSize": 16.0,
-              "fontWeight": "w600"
+              "fontSize": 14.0,
+              "fontWeight": "w700"
             },
             "textDirection": "rtl",
             "type": "text"
