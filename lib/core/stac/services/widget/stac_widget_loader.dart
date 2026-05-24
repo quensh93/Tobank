@@ -1,4 +1,11 @@
-import '../../../../stac/tobank/login/dart/tobank_login.dart' as login_dart;
+import '../../../../stac/tobank/flows/user_validation/dart/user_validation_intro.dart'
+    as login_dart;
+import '../../../../stac/tobank/flows/user_validation/dart/user_validation_receipt.dart'
+    as user_validation_receipt_dart;
+import '../../../../stac/tobank/flows/user_validation/dart/user_validation_preview.dart'
+    as user_validation_preview_dart;
+import '../../../../stac/tobank/flows/user_validation/dart/user_validation_report_detail.dart'
+    as user_validation_report_detail_dart;
 import '../../../../stac/tobank/login/dart/verify_otp.dart' as verify_otp_dart;
 import '../../../../stac/tobank/menu/dart/tobank_menu.dart' as tobank_menu_dart;
 import '../../../../stac/tobank/flows/home_page/dart/home_page.dart'
@@ -71,6 +78,8 @@ import '../../../../stac/tobank/flows/promissory/menu/promissory_menu.dart'
     as promissory_debug_dart;
 import '../../../../stac/tobank/flows/verify_identity/menu/verify_identity_menu.dart'
     as verify_identity_menu_dart;
+import '../../../../stac/tobank/flows/user_validation/menu/user_validation_menu.dart'
+    as user_validation_menu_dart;
 import '../../../../stac/tobank/flows/verify_identity/dart/verify_identity_intro.dart'
     as verify_identity_intro_dart;
 import '../../../../stac/tobank/flows/verify_identity/dart/verify_identity_preregister.dart'
@@ -288,6 +297,15 @@ class StacWidgetLoader {
   /// Extensible - new widget types can be registered without modifying this class.
   static final Map<String, Map<String, dynamic> Function()> _widgetLoaders = {
     'tobank_login_dart': () => login_dart.tobankLoginDart().toJson(),
+    'user_validation_receipt': () =>
+        user_validation_receipt_dart.userValidationReceipt().toJson(),
+    'user_validation_preview': () =>
+        user_validation_preview_dart.userValidationPreview().toJson(),
+    'user_validation_report_detail': () => user_validation_report_detail_dart
+        .userValidationReportDetail()
+        .toJson(),
+    'tobank_user_validation': () =>
+        user_validation_menu_dart.userValidationMenu().toJson(),
     'tobank_verify_otp_dart': () =>
         verify_otp_dart.tobankVerifyOtpDart().toJson(),
     'tobank_menu_dart': () => tobank_menu_dart.tobankMenuDart().toJson(),

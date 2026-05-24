@@ -72,6 +72,10 @@ StacWidget tobankMenuDart() {
           widgetType: 'verify_identity_menu',
         ),
         _buildSingleButtonMenuItemCard(
+          title: 'اعتبارسنجی (API واقعی)',
+          widgetType: 'tobank_user_validation',
+        ),
+        _buildSingleButtonMenuItemCard(
           title: 'پروفایل (API واقعی)',
           widgetType: 'profile_menu',
         ),
