@@ -4796,6 +4796,17 @@
                                           "id": "wallet_transfer_phone",
                                           "textDirection": "rtl",
                                           "textAlign": "right",
+                                          "autovalidateMode": "onUserInteraction",
+                                          "maxLength": 11,
+                                          "inputFormatters": [
+                                            {"type": "allow", "rule": "[0-9]"}
+                                          ],
+                                          "validatorRules": [
+                                            {
+                                              "rule": "^09\\d{9}$",
+                                              "message": "شماره موبایل معتبر نیست"
+                                            }
+                                          ],
                                           "decoration": {
                                             "hintText": "شماره همراه مقصد را وارد کنید",
                                             "hintStyle": {
@@ -4805,7 +4816,6 @@
                                                 "fontSize": 14
                                               }
                                             },
-                                            "counterText": "",
                                             "enabledBorder": {
                                               "type": "outline",
                                               "borderSide": {
@@ -4834,11 +4844,23 @@
                                             }
                                           },
                                           "keyboardType": "phone",
-                                          "maxLength": 11,
                                           "onChanged": {
-                                            "actionType": "setValue",
-                                            "key": "cardsManagement.wallet.transferPhone",
-                                            "value": "[[wallet_transfer_phone]]"
+                                            "actionType": "sequence",
+                                            "actions": [
+                                              {
+                                                "actionType": "setValue",
+                                                "key": "cardsManagement.wallet.transferPhone",
+                                                "value": {"actionType": "getFormValue", "id": "wallet_transfer_phone"}
+                                              },
+                                              {
+                                                "actionType": "validateFields",
+                                                "resultKey": "cardsManagement.wallet.isTransferFormValid",
+                                                "fields": [
+                                                  {"id": "wallet_transfer_phone", "rule": "^09\\d{9}$"},
+                                                  {"id": "wallet_transfer_amount", "rule": "^[0-9،]{6,}$"}
+                                                ]
+                                              }
+                                            ]
                                           }
                                         },
                                         "type": "expanded"
@@ -4913,8 +4935,15 @@
                                     "id": "wallet_transfer_amount",
                                     "textDirection": "rtl",
                                     "textAlign": "right",
+                                    "autovalidateMode": "onUserInteraction",
                                     "formatThousands": true,
                                     "thousandsSeparator": "،",
+                                    "validatorRules": [
+                                      {
+                                        "rule": "^\\d{5,}$",
+                                        "message": "حداقل مبلغ انتقال ۱۰،۰۰۰ ریال است"
+                                      }
+                                    ],
                                     "decoration": {
                                       "hintText": "مبلغ را به ریال وارد کنید",
                                       "hintStyle": {
@@ -4953,9 +4982,22 @@
                                     },
                                     "keyboardType": "number",
                                     "onChanged": {
-                                      "actionType": "setValue",
-                                      "key": "cardsManagement.wallet.transferAmount",
-                                      "value": "[[wallet_transfer_amount]]"
+                                      "actionType": "sequence",
+                                      "actions": [
+                                        {
+                                          "actionType": "setValue",
+                                          "key": "cardsManagement.wallet.transferAmount",
+                                          "value": {"actionType": "getFormValue", "id": "wallet_transfer_amount"}
+                                        },
+                                        {
+                                          "actionType": "validateFields",
+                                          "resultKey": "cardsManagement.wallet.isTransferFormValid",
+                                          "fields": [
+                                            {"id": "wallet_transfer_phone", "rule": "^09\\d{9}$"},
+                                            {"id": "wallet_transfer_amount", "rule": "^[0-9،]{6,}$"}
+                                          ]
+                                        }
+                                      ]
                                     }
                                   },
                                   {
@@ -5023,7 +5065,7 @@
                                     "onChanged": {
                                       "actionType": "setValue",
                                       "key": "cardsManagement.wallet.transferDescription",
-                                      "value": "[[wallet_transfer_desc]]"
+                                      "value": {"actionType": "getFormValue", "id": "wallet_transfer_desc"}
                                     }
                                   },
                                   {
@@ -5032,7 +5074,13 @@
                                   },
                                   {
                                     "onPressed": {
-                                      "actionType": "showBottomSheet",
+                                      "actionType": "sequence",
+                                      "actions": [
+                                        {"actionType": "setValue", "key": "cardsManagement.wallet.transferPhone", "value": {"actionType": "getFormValue", "id": "wallet_transfer_phone"}},
+                                        {"actionType": "setValue", "key": "cardsManagement.wallet.transferAmount", "value": {"actionType": "getFormValue", "id": "wallet_transfer_amount"}},
+                                        {"actionType": "setValue", "key": "cardsManagement.wallet.transferDescription", "value": {"actionType": "getFormValue", "id": "wallet_transfer_desc"}},
+                                        {
+                                          "actionType": "showBottomSheet",
                                       "sheet": {
                                         "decoration": {
                                           "color": "{{appColors.current.background.surface}}",
@@ -5074,158 +5122,186 @@
                                                 "type": "sizedBox"
                                               },
                                               {
-                                                "data": "تایید انتقال وجه",
-                                                "style": {
-                                                  "type": "custom",
-                                                  "color": "{{appColors.current.text.title}}",
-                                                  "fontSize": 16.0,
-                                                  "fontWeight": "w700"
+                                                "child": {
+                                                  "decoration": {
+                                                    "color": "{{appColors.current.background.card}}",
+                                                    "borderRadius": {
+                                                      "topLeft": 28.0,
+                                                      "topRight": 28.0,
+                                                      "bottomLeft": 28.0,
+                                                      "bottomRight": 28.0
+                                                    },
+                                                    "border": {
+                                                      "color": "{{appColors.current.input.borderEnabled}}",
+                                                      "width": 1.0
+                                                    }
+                                                  },
+                                                  "width": 56.0,
+                                                  "height": 56.0,
+                                                  "child": {
+                                                    "child": {
+                                                      "src": "assets/icons/ic_wallet.svg",
+                                                      "imageType": "asset",
+                                                      "color": "{{appColors.current.text.body}}",
+                                                      "width": 28.0,
+                                                      "height": 28.0,
+                                                      "type": "image"
+                                                    },
+                                                    "type": "center"
+                                                  },
+                                                  "type": "container"
                                                 },
-                                                "textAlign": "right",
+                                                "type": "center"
+                                              },
+                                              {
+                                                "height": 16.0,
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "mainAxisAlignment": "spaceBetween",
                                                 "textDirection": "rtl",
-                                                "type": "text"
+                                                "children": [
+                                                  {
+                                                    "data": "مبلغ انتقال",
+                                                    "style": {
+                                                      "type": "custom",
+                                                      "color": "{{appColors.current.text.hint}}",
+                                                      "fontSize": 14.0,
+                                                      "fontWeight": "w400"
+                                                    },
+                                                    "textDirection": "rtl",
+                                                    "type": "text"
+                                                  },
+                                                  {
+                                                    "child": {
+                                                      "data": "{{cardsManagement.wallet.transferAmount}} ریال",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.text.title}}",
+                                                        "fontSize": 16.0,
+                                                        "fontWeight": "w700"
+                                                      },
+                                                      "textAlign": "left",
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    },
+                                                    "type": "flexible"
+                                                  }
+                                                ],
+                                                "type": "row"
+                                              },
+                                              {
+                                                "height": 16.0,
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "padding": {
+                                                  "left": 16.0,
+                                                  "top": 16.0,
+                                                  "right": 16.0,
+                                                  "bottom": 16.0
+                                                },
+                                                "decoration": {
+                                                  "color": "{{appColors.current.background.card}}",
+                                                  "borderRadius": {
+                                                    "topLeft": 12.0,
+                                                    "topRight": 12.0,
+                                                    "bottomLeft": 12.0,
+                                                    "bottomRight": 12.0
+                                                  },
+                                                  "border": {
+                                                    "color": "{{appColors.current.input.borderEnabled}}",
+                                                    "width": 1.0
+                                                  }
+                                                },
+                                                "child": {
+                                                  "crossAxisAlignment": "stretch",
+                                                  "children": [
+                                                    {
+                                                      "mainAxisAlignment": "spaceBetween",
+                                                      "textDirection": "rtl",
+                                                      "children": [
+                                                        {
+                                                          "data": "کیف پول مقصد",
+                                                          "style": {
+                                                            "type": "custom",
+                                                            "color": "{{appColors.current.text.hint}}",
+                                                            "fontSize": 14.0,
+                                                            "fontWeight": "w400"
+                                                          },
+                                                          "textDirection": "rtl",
+                                                          "type": "text"
+                                                        },
+                                                        {
+                                                          "child": {
+                                                            "data": "{{cardsManagement.wallet.transferPhone}}",
+                                                            "style": {
+                                                              "type": "custom",
+                                                              "color": "{{appColors.current.text.body}}",
+                                                              "fontSize": 14.0,
+                                                              "fontWeight": "w500"
+                                                            },
+                                                            "textAlign": "left",
+                                                            "textDirection": "rtl",
+                                                            "type": "text"
+                                                          },
+                                                          "type": "flexible"
+                                                        }
+                                                      ],
+                                                      "type": "row"
+                                                    },
+                                                    {
+                                                      "height": 12.0,
+                                                      "type": "sizedBox"
+                                                    },
+                                                    {
+                                                      "mainAxisAlignment": "spaceBetween",
+                                                      "textDirection": "rtl",
+                                                      "children": [
+                                                        {
+                                                          "data": "توضیحات",
+                                                          "style": {
+                                                            "type": "custom",
+                                                            "color": "{{appColors.current.text.hint}}",
+                                                            "fontSize": 14.0,
+                                                            "fontWeight": "w400"
+                                                          },
+                                                          "textDirection": "rtl",
+                                                          "type": "text"
+                                                        },
+                                                        {
+                                                          "child": {
+                                                            "data": "{{cardsManagement.wallet.transferDescription}}",
+                                                            "style": {
+                                                              "type": "custom",
+                                                              "color": "{{appColors.current.text.body}}",
+                                                              "fontSize": 14.0,
+                                                              "fontWeight": "w500"
+                                                            },
+                                                            "textAlign": "left",
+                                                            "textDirection": "rtl",
+                                                            "type": "text"
+                                                          },
+                                                          "type": "flexible"
+                                                        }
+                                                      ],
+                                                      "type": "row"
+                                                    }
+                                                  ],
+                                                  "type": "column"
+                                                },
+                                                "type": "container"
                                               },
                                               {
                                                 "height": 24.0,
                                                 "type": "sizedBox"
                                               },
                                               {
-                                                "mainAxisAlignment": "spaceBetween",
-                                                "textDirection": "rtl",
-                                                "children": [
-                                                  {
-                                                    "data": "کیف پول توبانک",
-                                                    "style": {
-                                                      "type": "custom",
-                                                      "color": "{{appColors.current.text.body}}",
-                                                      "fontSize": 14.0,
-                                                      "fontWeight": "w500"
-                                                    },
-                                                    "textDirection": "rtl",
-                                                    "type": "text"
-                                                  },
-                                                  {
-                                                    "data": "از",
-                                                    "style": {
-                                                      "type": "custom",
-                                                      "color": "{{appColors.current.text.hint}}",
-                                                      "fontSize": 14.0,
-                                                      "fontWeight": "w400"
-                                                    },
-                                                    "textDirection": "rtl",
-                                                    "type": "text"
-                                                  }
-                                                ],
-                                                "type": "row"
-                                              },
-                                              {
-                                                "height": 12.0,
-                                                "type": "sizedBox"
-                                              },
-                                              {
-                                                "mainAxisAlignment": "spaceBetween",
-                                                "textDirection": "rtl",
-                                                "children": [
-                                                  {
-                                                    "data": "[[cardsManagement.wallet.transferPhone]]",
-                                                    "style": {
-                                                      "type": "custom",
-                                                      "color": "{{appColors.current.text.body}}",
-                                                      "fontSize": 14.0,
-                                                      "fontWeight": "w500"
-                                                    },
-                                                    "textDirection": "rtl",
-                                                    "type": "text"
-                                                  },
-                                                  {
-                                                    "data": "به",
-                                                    "style": {
-                                                      "type": "custom",
-                                                      "color": "{{appColors.current.text.hint}}",
-                                                      "fontSize": 14.0,
-                                                      "fontWeight": "w400"
-                                                    },
-                                                    "textDirection": "rtl",
-                                                    "type": "text"
-                                                  }
-                                                ],
-                                                "type": "row"
-                                              },
-                                              {
-                                                "height": 12.0,
-                                                "type": "sizedBox"
-                                              },
-                                              {
-                                                "mainAxisAlignment": "spaceBetween",
-                                                "textDirection": "rtl",
-                                                "children": [
-                                                  {
-                                                    "data": "[[cardsManagement.wallet.transferAmount]]",
-                                                    "style": {
-                                                      "type": "custom",
-                                                      "color": "{{appColors.current.text.body}}",
-                                                      "fontSize": 14.0,
-                                                      "fontWeight": "w500"
-                                                    },
-                                                    "textDirection": "rtl",
-                                                    "type": "text"
-                                                  },
-                                                  {
-                                                    "data": "مبلغ (ریال)",
-                                                    "style": {
-                                                      "type": "custom",
-                                                      "color": "{{appColors.current.text.hint}}",
-                                                      "fontSize": 14.0,
-                                                      "fontWeight": "w400"
-                                                    },
-                                                    "textDirection": "rtl",
-                                                    "type": "text"
-                                                  }
-                                                ],
-                                                "type": "row"
-                                              },
-                                              {
-                                                "height": 12.0,
-                                                "type": "sizedBox"
-                                              },
-                                              {
-                                                "mainAxisAlignment": "spaceBetween",
-                                                "textDirection": "rtl",
-                                                "children": [
-                                                  {
-                                                    "data": "[[cardsManagement.wallet.transferDescription]]",
-                                                    "style": {
-                                                      "type": "custom",
-                                                      "color": "{{appColors.current.text.body}}",
-                                                      "fontSize": 14.0,
-                                                      "fontWeight": "w500"
-                                                    },
-                                                    "textDirection": "rtl",
-                                                    "type": "text"
-                                                  },
-                                                  {
-                                                    "data": "توضیحات",
-                                                    "style": {
-                                                      "type": "custom",
-                                                      "color": "{{appColors.current.text.hint}}",
-                                                      "fontSize": 14.0,
-                                                      "fontWeight": "w400"
-                                                    },
-                                                    "textDirection": "rtl",
-                                                    "type": "text"
-                                                  }
-                                                ],
-                                                "type": "row"
-                                              },
-                                              {
-                                                "height": 32.0,
-                                                "type": "sizedBox"
-                                              },
-                                              {
                                                 "onPressed": {
-                                                  "actionType": "showAppDialog",
-                                                  "title": "تایید نهایی",
-                                                  "description": "آیا از انتقال وجه اطمینان دارید؟",
+                                                  "actionType": "showLogoutConfirmDialog",
+                                                  "warningIconAsset": "assets/icons/ic_warning_red.svg",
+                                                  "title": "آیا از پرداخت وجه مطمئن هستید؟",
+                                                  "description": "بعد از پرداخت، بازگشت وجه امکان پذیر نیست. لذا از دستور پرداخت اطمینان حاصل فرمایید",
                                                   "positiveText": "تایید",
                                                   "negativeText": "انصراف",
                                                   "positiveAction": {
@@ -5238,17 +5314,11 @@
                                                         "actionType": "closeDialog"
                                                       },
                                                       {
-                                                        "actionType": "closeDialog"
-                                                      },
-                                                      {
                                                         "actionType": "navigate",
                                                         "widgetType": "dashboard_wallet_transfer_receipt",
                                                         "navigationStyle": "push"
                                                       }
                                                     ]
-                                                  },
-                                                  "negativeAction": {
-                                                    "actionType": "closeDialog"
                                                   }
                                                 },
                                                 "style": {
@@ -5273,7 +5343,7 @@
                                                   }
                                                 },
                                                 "child": {
-                                                  "data": "ادامه",
+                                                  "data": "پرداخت",
                                                   "style": {
                                                     "type": "custom",
                                                     "fontSize": 14.0,
@@ -5291,11 +5361,35 @@
                                         },
                                         "type": "container"
                                       },
-                                      "backgroundColor": "#00000000"
+                                          "backgroundColor": "#00000000"
+                                        }
+                                      ]
                                     },
+                                    "enabledKey": "cardsManagement.wallet.isTransferFormValid",
                                     "style": {
                                       "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
                                       "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                                      "padding": {
+                                        "top": 8.0,
+                                        "bottom": 8.0
+                                      },
+                                      "minimumSize": {
+                                        "width": 0.0,
+                                        "height": 56.0
+                                      },
+                                      "shape": {
+                                        "type": "roundedRectangleBorder",
+                                        "borderRadius": {
+                                          "topLeft": 8.0,
+                                          "topRight": 8.0,
+                                          "bottomLeft": 8.0,
+                                          "bottomRight": 8.0
+                                        }
+                                      }
+                                    },
+                                    "disabledStyle": {
+                                      "foregroundColor": "{{appColors.current.text.subtitle}}",
+                                      "backgroundColor": "{{appColors.current.input.borderEnabled}}",
                                       "padding": {
                                         "top": 8.0,
                                         "bottom": 8.0
@@ -5324,7 +5418,7 @@
                                       "textDirection": "rtl",
                                       "type": "text"
                                     },
-                                    "type": "filledButton"
+                                    "type": "reactiveElevatedButton"
                                   }
                                 ],
                                 "type": "column"

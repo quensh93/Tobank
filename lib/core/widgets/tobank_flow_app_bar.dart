@@ -5,6 +5,7 @@ StacAppBar buildTobankFlowAppBar({
   required String title,
   bool showSupport = false,
   bool showBack = true,
+  bool backOnRight = false,
   StacAction? backAction,
   String backIconSrc = '{{appAssets.icons.arrowBack}}',
 }) {
@@ -25,6 +26,18 @@ StacAppBar buildTobankFlowAppBar({
     );
   }
 
+  final List<StacWidget> actionsList = [];
+  if (backOnRight && showBack) {
+    actionsList.add(buildBackButton());
+  } else if (showSupport && showBack) {
+    actionsList.add(
+      StacPadding(
+        padding: StacEdgeInsets.only(right: 12),
+        child: buildBackButton(),
+      ),
+    );
+  }
+
   return StacAppBar(
     title: StacText(
       data: title,
@@ -32,8 +45,10 @@ StacAppBar buildTobankFlowAppBar({
       style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
     ),
     centerTitle: true,
-    automaticallyImplyLeading: showBack || showSupport,
-    leading: showSupport
+    automaticallyImplyLeading: !backOnRight && (showBack || showSupport),
+    leading: backOnRight
+        ? null
+        : showSupport
         ? StacPadding(
             padding: StacEdgeInsets.only(left: 12),
             child: StacCenter(
@@ -47,13 +62,6 @@ StacAppBar buildTobankFlowAppBar({
             ),
           )
         : (showBack ? buildBackButton() : null),
-    actions: showSupport && showBack
-        ? [
-            StacPadding(
-              padding: StacEdgeInsets.only(right: 12),
-              child: buildBackButton(),
-            ),
-          ]
-        : [],
+    actions: actionsList,
   );
 }

@@ -115,9 +115,31 @@ class CustomSetValueActionParser
 
         // Resolve the form value
         final formValueId = valueToStore['id'] as String?;
-        if (formValueId != null && formScope != null) {
-          final formValue = formScope.formData[formValueId]?.toString();
-          if (formValue != null) {
+        if (formValueId != null) {
+          String? formValue;
+
+          // 1. Try formScope.formData
+          if (formScope != null) {
+            formValue = formScope.formData[formValueId]?.toString();
+          }
+
+          // 2. Fallback: TextFormFieldControllerRegistry
+          if (formValue == null || formValue.isEmpty) {
+            formValue = TextFormFieldControllerRegistry.instance
+                .get(formValueId)
+                ?.text
+                .trim();
+          }
+
+          // 3. Fallback: StacRegistry 'form.<id>'
+          if (formValue == null || formValue.isEmpty) {
+            formValue = StacRegistry.instance
+                .getValue('form.$formValueId')
+                ?.toString()
+                .trim();
+          }
+
+          if (formValue != null && formValue.isNotEmpty) {
             valueToStore = formValue;
             AppLogger.d('Resolved form value for $key: $formValue');
           } else {
@@ -125,7 +147,7 @@ class CustomSetValueActionParser
             valueToStore = '';
           }
         } else {
-          AppLogger.w('Cannot resolve form value: formScope or id is null');
+          AppLogger.w('Cannot resolve form value: id is null');
           valueToStore = '';
         }
       }

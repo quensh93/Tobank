@@ -6,7 +6,7 @@ import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 StacWidget dashboardWalletTransferReceipt() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildTobankFlowAppBar(title: 'رسید انتقال وجه', showBack: true),
+    appBar: buildTobankFlowAppBar(title: '{{appStrings.cardsManagement.wallet.receiptTitle}}', showBack: true, backOnRight: true),
     body: StacSingleChildScrollView(
       padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 24),
       child: StacColumn(
@@ -17,23 +17,23 @@ StacWidget dashboardWalletTransferReceipt() {
               width: 72,
               height: 72,
               decoration: StacBoxDecoration(
-                color: '#E8F5E9',
+                color: '{{appColors.current.state.successContainer}}',
                 borderRadius: StacBorderRadius.all(36),
               ),
               child: StacCenter(
                 child: StacImage(
-                  src: '{{appAssets.current.icons.successCheck}}',
+                  src: '{{appAssets.icons.successCheck}}',
                   imageType: StacImageType.asset,
                   width: 40,
                   height: 40,
-                  color: '#43A047',
+                  color: '{{appColors.current.state.success}}',
                 ),
               ),
             ),
           ),
           StacSizedBox(height: 16),
           StacText(
-            data: 'انتقال وجه با موفقیت انجام شد',
+            data: '{{appStrings.cardsManagement.wallet.transferSuccess}}',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.center,
             style: StacCustomTextStyle(
@@ -50,11 +50,11 @@ StacWidget dashboardWalletTransferReceipt() {
             children: [
               StacExpanded(
                 child: _actionChip(
-                  label: 'اشتراک‌گذاری',
+                  label: '{{appStrings.common.share}}',
                   iconAsset: '{{appAssets.current.icons.share}}',
                   onTap: const StacCustomSnackBarAction(
-                    title: 'اشتراک‌گذاری (mock)',
-                    detail: 'این قابلیت در نسخه بعدی فعال می‌شود.',
+                    title: '{{appStrings.common.share}}',
+                    detail: '{{appStrings.common.comingSoon}}',
                     duration: 3000,
                   ),
                 ),
@@ -62,39 +62,16 @@ StacWidget dashboardWalletTransferReceipt() {
               StacSizedBox(width: 12),
               StacExpanded(
                 child: _actionChip(
-                  label: 'چاپ رسید',
-                  iconAsset: '{{appAssets.current.icons.print}}',
+                  label: '{{appStrings.common.printReceipt}}',
+                  iconAsset: '{{appAssets.icons.printReceipt}}',
                   onTap: const StacCustomSnackBarAction(
-                    title: 'چاپ رسید (mock)',
-                    detail: 'این قابلیت در نسخه بعدی فعال می‌شود.',
+                    title: '{{appStrings.common.printReceipt}}',
+                    detail: '{{appStrings.common.comingSoon}}',
                     duration: 3000,
                   ),
                 ),
               ),
             ],
-          ),
-          StacSizedBox(height: 16),
-          StacFilledButton(
-            onPressed: StacNavigateAction(navigationStyle: NavigationStyle.pop),
-            style: StacButtonStyle(
-              padding: StacEdgeInsets.symmetric(vertical: 8),
-              minimumSize: const StacSize(0, 56),
-              backgroundColor:
-                  '{{appColors.current.button.primary.backgroundColor}}',
-              foregroundColor:
-                  '{{appColors.current.button.primary.foregroundColor}}',
-              shape: StacRoundedRectangleBorder(
-                borderRadius: StacBorderRadius.all(8),
-              ),
-            ),
-            child: StacText(
-              data: 'بازگشت به کارت‌ها',
-              textDirection: StacTextDirection.rtl,
-              style: StacCustomTextStyle(
-                fontSize: 14,
-                fontWeight: StacFontWeight.w700,
-              ),
-            ),
           ),
         ],
       ),
@@ -112,21 +89,21 @@ StacWidget _receiptCard() {
     child: StacColumn(
       crossAxisAlignment: StacCrossAxisAlignment.stretch,
       children: [
-        _receiptRow(label: 'از', value: 'کیف پول توبانک'),
+        _receiptRow(label: '{{appStrings.cardsManagement.wallet.from}}', value: '{{appStrings.cardsManagement.wallet.title}}'),
         StacSizedBox(height: 16),
         _receiptRowRegistry(
-          label: 'به',
+          label: '{{appStrings.cardsManagement.wallet.to}}',
           valueKey: 'cardsManagement.wallet.transferPhone',
         ),
         StacSizedBox(height: 16),
         _receiptRowRegistry(
-          label: 'مبلغ (ریال)',
+          label: '{{appStrings.cardsManagement.wallet.amountLabel}}',
           valueKey: 'cardsManagement.wallet.transferAmount',
         ),
         StacSizedBox(height: 16),
-        _receiptRow(label: 'وضعیت', value: 'موفق'),
+        _receiptRow(label: '{{appStrings.cardsManagement.wallet.statusLabel}}', value: 'موفق'),
         StacSizedBox(height: 16),
-        _receiptRow(label: 'شماره پیگیری', value: '1234567890'),
+        _receiptRow(label: '{{appStrings.cardsManagement.wallet.trackingNumber}}', value: '1234567890'),
       ],
     ),
   );
@@ -168,7 +145,7 @@ StacWidget _receiptRowRegistry({
     mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
     children: [
       StacText(
-        data: '[[$valueKey]]',
+        data: '{{$valueKey}}',
         textDirection: StacTextDirection.rtl,
         style: StacCustomTextStyle(
           fontSize: 14,
@@ -214,7 +191,7 @@ StacWidget _actionChip({
             imageType: StacImageType.asset,
             width: 20,
             height: 20,
-            color: '{{appColors.current.text.body}}',
+            color: '{{appColors.current.text.title}}',
           ),
           StacSizedBox(width: 8),
           StacText(
@@ -223,7 +200,7 @@ StacWidget _actionChip({
             style: StacCustomTextStyle(
               fontSize: 14,
               fontWeight: StacFontWeight.w500,
-              color: '{{appColors.current.text.body}}',
+              color: '{{appColors.current.text.title}}',
             ),
           ),
         ],

@@ -1,21 +1,6 @@
 {
   "appBar": {
-    "leading": {
-      "onPressed": {
-        "navigationStyle": "pop",
-        "actionType": "navigate"
-      },
-      "icon": {
-        "src": "{{appAssets.icons.arrowBack}}",
-        "imageType": "asset",
-        "color": "{{appColors.current.text.title}}",
-        "width": 31.0,
-        "height": 31.0,
-        "type": "image"
-      },
-      "type": "iconButton"
-    },
-    "automaticallyImplyLeading": true,
+    "automaticallyImplyLeading": false,
     "title": {
       "data": "رسید انتقال وجه",
       "style": {
@@ -26,6 +11,23 @@
       "type": "text"
     },
     "centerTitle": true,
+    "actions": [
+      {
+        "onPressed": {
+          "navigationStyle": "pop",
+          "actionType": "navigate"
+        },
+        "icon": {
+          "src": "{{appAssets.icons.arrowBack}}",
+          "imageType": "asset",
+          "color": "{{appColors.current.text.title}}",
+          "width": 31.0,
+          "height": 31.0,
+          "type": "image"
+        },
+        "type": "iconButton"
+      }
+    ],
     "type": "appBar"
   },
   "backgroundColor": "{{appColors.current.background.surface}}",
@@ -144,7 +146,7 @@
                 "textDirection": "rtl",
                 "children": [
                   {
-                    "data": "[[cardsManagement.wallet.transferPhone]]",
+                    "data": "{{cardsManagement.wallet.transferPhone}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -177,7 +179,7 @@
                 "textDirection": "rtl",
                 "children": [
                   {
-                    "data": "[[cardsManagement.wallet.transferAmount]]",
+                    "data": "{{cardsManagement.wallet.transferAmount}}",
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
@@ -305,7 +307,7 @@
                       {
                         "src": "{{appAssets.current.icons.share}}",
                         "imageType": "asset",
-                        "color": "{{appColors.current.text.body}}",
+                        "color": "{{appColors.current.text.title}}",
                         "width": 20.0,
                         "height": 20.0,
                         "type": "image"
@@ -318,7 +320,7 @@
                         "data": "اشتراک‌گذاری",
                         "style": {
                           "type": "custom",
-                          "color": "{{appColors.current.text.body}}",
+                          "color": "{{appColors.current.text.title}}",
                           "fontSize": 14.0,
                           "fontWeight": "w500"
                         },
@@ -468,9 +470,9 @@
                     "textDirection": "rtl",
                     "children": [
                       {
-                        "src": "{{appAssets.current.icons.print}}",
+                        "src": "assets/icons/ic_share_image.svg",
                         "imageType": "asset",
-                        "color": "{{appColors.current.text.body}}",
+                        "color": "{{appColors.current.text.title}}",
                         "width": 20.0,
                         "height": 20.0,
                         "type": "image"
@@ -483,7 +485,7 @@
                         "data": "چاپ رسید",
                         "style": {
                           "type": "custom",
-                          "color": "{{appColors.current.text.body}}",
+                          "color": "{{appColors.current.text.title}}",
                           "fontSize": 14.0,
                           "fontWeight": "w500"
                         },
@@ -607,48 +609,6 @@
             }
           ],
           "type": "row"
-        },
-        {
-          "height": 16.0,
-          "type": "sizedBox"
-        },
-        {
-          "onPressed": {
-            "navigationStyle": "pop",
-            "actionType": "navigate"
-          },
-          "style": {
-            "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
-            "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
-            "padding": {
-              "top": 8.0,
-              "bottom": 8.0
-            },
-            "minimumSize": {
-              "width": 0.0,
-              "height": 56.0
-            },
-            "shape": {
-              "type": "roundedRectangleBorder",
-              "borderRadius": {
-                "topLeft": 8.0,
-                "topRight": 8.0,
-                "bottomLeft": 8.0,
-                "bottomRight": 8.0
-              }
-            }
-          },
-          "child": {
-            "data": "بازگشت به کارت‌ها",
-            "style": {
-              "type": "custom",
-              "fontSize": 14.0,
-              "fontWeight": "w700"
-            },
-            "textDirection": "rtl",
-            "type": "text"
-          },
-          "type": "filledButton"
         }
       ],
       "type": "column"
