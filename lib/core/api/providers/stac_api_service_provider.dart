@@ -9,7 +9,7 @@ part 'stac_api_service_provider.g.dart';
 /// STAC API service provider
 ///
 /// Provides the appropriate API service implementation based on the current configuration.
-/// Automatically switches between mock, Supabase, and custom API services.
+/// Automatically switches between mock and custom API services.
 ///
 /// Example usage:
 /// ```dart

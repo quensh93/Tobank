@@ -1,7 +1,7 @@
 /// Abstract interface for STAC API services
 ///
 /// This interface defines the contract for fetching and managing
-/// STAC JSON configurations from various sources (mock, Supabase, custom API).
+/// STAC JSON configurations from various sources (mock, custom API).
 abstract class StacApiService {
   /// Fetch JSON configuration by screen name
   ///

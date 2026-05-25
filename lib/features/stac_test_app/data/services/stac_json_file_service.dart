@@ -8,7 +8,7 @@ import '../../../../core/helpers/logger.dart';
 /// Supports:
 /// - Local file paths (relative to project root or base directory)
 /// - Absolute file paths
-/// - HTTP/HTTPS URLs (Supabase, etc.)
+/// - HTTP/HTTPS URLs
 /// - Optional caching for URL-fetched JSON
 class StacJsonFileService {
   /// Cache for URL-fetched JSON (optional, can be disabled)
@@ -34,7 +34,7 @@ class StacJsonFileService {
   /// Supports:
   /// - Local file paths (relative to project root or baseDir)
   /// - Absolute file paths
-  /// - HTTP/HTTPS URLs (Supabase, etc.)
+  /// - HTTP/HTTPS URLs
   ///
   /// [path] - File path or URL
   /// [baseDir] - Optional base directory for resolving relative paths

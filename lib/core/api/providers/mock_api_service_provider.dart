@@ -20,7 +20,7 @@ MockApiService mockApiService(Ref ref) {
 ///
 /// Returns the appropriate API service based on the current configuration.
 /// Currently only supports MockApiService, but will be extended to support
-/// Supabase and custom API services.
+/// custom API services.
 @riverpod
 StacApiService stacApiService(Ref ref) {
   final config = ref.watch(apiConfigProvider);

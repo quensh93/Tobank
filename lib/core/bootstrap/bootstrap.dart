@@ -72,7 +72,6 @@ Future<void> bootstrap() async {
     await AppInitializer.initialize();
     await AppConfig.initialize(AppInitializer.prefs);
 
-    // Supabase uses standard HTTP clients and does not require a global initializer.
     AppLogger.i('App starting…');
 
     // Initialize flutter_performance_pulse if Debug Panel is enabled

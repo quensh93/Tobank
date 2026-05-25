@@ -39,7 +39,6 @@ class BuildConfig {
     debugPrint('Bundle ID: $bundleId');
     debugPrint('Environment: ${environment.environment.name}');
     debugPrint('API Base URL: ${environment.apiBaseUrl}');
-    debugPrint('Supabase URL: ${environment.supabaseUrl ?? "N/A"}');
     debugPrint('Debug Features: ${environment.enableDebugFeatures}');
     debugPrint('Log Level: ${environment.logLevel}');
     debugPrint('');
@@ -49,7 +48,6 @@ class BuildConfig {
     debugPrint('Visual Editor: ${features.isVisualEditorEnabled}');
     debugPrint('STAC Logs: ${features.isStacLogsEnabled}');
     debugPrint('Mock API: ${features.isMockApiEnabled}');
-    debugPrint('Supabase API: ${features.isSupabaseApiEnabled}');
     debugPrint('Custom API: ${features.isCustomApiEnabled}');
     debugPrint('Analytics: ${features.isAnalyticsEnabled}');
     debugPrint('Crash Reporting: ${features.isCrashReportingEnabled}');
