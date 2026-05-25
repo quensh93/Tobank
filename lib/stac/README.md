@@ -1,23 +1,22 @@
-# STAC Folder - Core STAC Files
+# STAC Folder - Screen DSL Files
 
-This folder contains all STAC (Server-Driven UI) related files for the Tobank SDUI project.
+This folder contains STAC screen definitions (Dart DSL) and build tooling for the Tobank SDUI project.
 
-See [STAC Folder Structure Documentation](../../docs/stac/STAC_FOLDER_STRUCTURE.md) for complete details.
+## Structure
 
-## Quick Reference
+- **`.build/`** - Generated JSON files (output of `stac build`, temporary)
+- **`ready_for_build/`** - Place Dart screen files here before running `stac build`
+- **`config/`** - App config JSON files (assets, strings)
+- **`design_system/`** - Theme and color definition files
+- **`tobank/`** - Feature-based screen definitions (flows, menu, onboarding, auth)
 
-- **`.build/`** - Generated JSON files (STAC build output)
-- **`api_mock/`** - Mock API responses for development
-- **`design_system/`** - Theme and UI design system files
-- **`localization/`** - Localization/translation strings
-- **`actions/`** - Custom STAC actions (empty for now)
-- **`widgets/`** - Custom STAC widgets (empty for now)
-- **`registry/`** - STAC component registry
-- **`tobank/`** - Feature-based screen definitions
-- **`default_stac_options.dart`** - STAC CLI configuration
+## Build Workflow
 
-## Asset Path Note
+1. Copy dart screen file into `ready_for_build/`
+2. Run `stac build`
+3. JSON output appears in `.build/`
 
-⚠️ **Important**: Some assets may need to remain accessible from root level for Flutter's asset system. If asset loading fails, we may need to:
-1. Create symlinks from root `stac/` to `lib/stac/`
-2. Or update asset loading to use file system access instead of `rootBundle`
+## Key Files (in core)
+
+- `default_stac_options.dart` → `lib/core/stac/default_stac_options.dart` (STAC CLI config)
+- Registry → `lib/core/stac/registry/` (parser registration)

@@ -20,10 +20,6 @@ import '../stac/loaders/tobank/tobank_assets_loader.dart';
 import '../stac/loaders/tobank/tobank_colors_loader.dart';
 import '../stac/loaders/tobank/tobank_version_loader.dart';
 
-// Test Pages for Routing
-import '../../dummy/stac_test_page.dart';
-import '../../dummy/simple_api_test_page.dart';
-import '../../dummy/news_api_test_page.dart';
 import '../../features/tobank_mock_new/presentation/screens/tobank_stac_dart_screen.dart';
 import '../stac/parsers/widgets/promissory_real_loader_parser.dart';
 
@@ -153,9 +149,6 @@ class _AppRootState extends ConsumerState<AppRoot> {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: {
-          '/stac-test': (context) => const StacTestPage(),
-          '/simple-api-test': (context) => const SimpleApiTestPage(),
-          '/network-layer-test': (context) => const NetworkLayerTestPage(),
           '/tobank-stac-dart': (context) => const TobankStacDartScreen(),
         },
         home: const Scaffold(body: Center(child: CircularProgressIndicator())),
@@ -196,9 +189,6 @@ class _AppRootState extends ConsumerState<AppRoot> {
                 ? [observer, observer.ispectObserver]
                 : [],
             routes: {
-              '/stac-test': (context) => const StacTestPage(),
-              '/simple-api-test': (context) => const SimpleApiTestPage(),
-              '/network-layer-test': (context) => const NetworkLayerTestPage(),
               '/tobank-stac-dart': (context) => const TobankStacDartScreen(),
             },
             builder: (context, child) {
@@ -306,9 +296,6 @@ class _AppRootState extends ConsumerState<AppRoot> {
                 ? [observer, observer.ispectObserver]
                 : [],
             routes: {
-              '/stac-test': (context) => const StacTestPage(),
-              '/simple-api-test': (context) => const SimpleApiTestPage(),
-              '/network-layer-test': (context) => const NetworkLayerTestPage(),
               '/tobank-stac-dart': (context) => const TobankStacDartScreen(),
             },
             builder: (context, child) {

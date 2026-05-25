@@ -22,7 +22,7 @@
             "type": "iconButton",
             "icon": {
               "type": "image",
-              "src": "assets/icons/ic_theme.svg",
+              "src": "{{appAssets.icons.generated.menu__api__GET_tobank_menu.src_ic_theme_001}}",
               "imageType": "asset",
               "width": 24,
               "height": 24,
@@ -125,7 +125,7 @@
               },
               "trailing": {
                 "type": "image",
-                "src": "assets/icons/ic_arrow_left.svg",
+                "src": "{{appAssets.icons.generated.menu__api__GET_tobank_menu.src_ic_arrow_left_002}}",
                 "imageType": "asset",
                 "width": 16,
                 "height": 16,

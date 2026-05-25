@@ -3,10 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../../core/stac/parsers/widgets/promissory_real_loader_parser.dart';
 import '../../../../core/helpers/logger.dart';
-import '../../../../dummy/stac_test_page.dart';
-import '../../../../dummy/simple_api_test_page.dart';
-import '../../../../dummy/news_api_test_page.dart';
 import '../../../tobank_mock_new/presentation/screens/tobank_stac_dart_screen.dart';
 import '../../../tobank_mock_new/presentation/screens/promissory_real_flow_screen.dart';
 import '../../providers/theme_controller_provider.dart';
@@ -88,38 +86,11 @@ class _PreLaunchScreenState extends ConsumerState<PreLaunchScreen> {
     );
   }
 
-  /// Build Main Menu grid with test page cards
+  /// Build Main Menu list with full-width cards
   Widget _buildMainMenuGrid() {
-    return GridView.count(
-      crossAxisCount: 2,
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      crossAxisSpacing: 8,
-      mainAxisSpacing: 8,
-      childAspectRatio: 1.2,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        MenuCard(
-          icon: Icons.palette,
-          title: 'STAC Test Page',
-          subtitle: 'Test STAC framework',
-          onTap: () => _navigateToPage(const StacTestPage(), '/stac-test'),
-        ),
-        MenuCard(
-          icon: Icons.api,
-          title: 'HTTPBin API Test',
-          subtitle: 'API testing',
-          onTap: () =>
-              _navigateToPage(const SimpleApiTestPage(), '/simple-api-test'),
-        ),
-        MenuCard(
-          icon: Icons.network_check,
-          title: 'Network Layer Test',
-          subtitle: 'Network layer testing',
-          onTap: () => _navigateToPage(
-            const NetworkLayerTestPage(),
-            '/network-layer-test',
-          ),
-        ),
         MenuCard(
           icon: Icons.code,
           title: 'Tobank SDUI',
@@ -129,6 +100,7 @@ class _PreLaunchScreenState extends ConsumerState<PreLaunchScreen> {
             '/tobank-stac-dart',
           ),
         ),
+        const SizedBox(height: 8),
         MenuCard(
           icon: Icons.view_carousel,
           title: 'Main Flow DART',
@@ -138,12 +110,23 @@ class _PreLaunchScreenState extends ConsumerState<PreLaunchScreen> {
             '/main-flow-dart',
           ),
         ),
+        const SizedBox(height: 8),
         MenuCard(
           icon: Icons.view_carousel,
           title: 'Main Flow JSON',
           subtitle: 'JSON',
           onTap: () =>
               _navigateToPage(const LoginFlowJsonScreen(), '/main-flow-json'),
+        ),
+        const SizedBox(height: 8),
+        MenuCard(
+          icon: Icons.cloud_download,
+          title: 'Main Flow API',
+          subtitle: 'API',
+          onTap: () => _navigateToPage(
+            const PromissoryRealLoaderScreen(),
+            '/main-flow-api',
+          ),
         ),
       ],
     );

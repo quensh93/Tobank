@@ -119,7 +119,7 @@ StacWidget tobankMenuDart() {
         _buildSectionHeader('ماژول ها'),
         StacSizedBox(height: 8),
         _buildSingleButtonMenuItemCard(
-          title: 'بیومتریک ( تست ماژول)',
+          title: 'بیومتریک (تست ماژول)',
           widgetType: 'biometric_test_menu',
         ),
       ],
@@ -169,6 +169,8 @@ StacWidget _buildSingleButtonMenuItemCard({
               data: title,
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
+              maxLines: 1,
+              overflow: StacTextOverflow.ellipsis,
               style: StacCustomTextStyle(
                 fontSize: 15,
                 fontWeight: StacFontWeight.w500,
@@ -218,6 +220,8 @@ StacWidget _buildMenuItemCard({
               data: title,
               textDirection: StacTextDirection.rtl,
               textAlign: StacTextAlign.right,
+              maxLines: 1,
+              overflow: StacTextOverflow.ellipsis,
               style: StacCustomTextStyle(
                 fontSize: 15,
                 fontWeight: StacFontWeight.w500,
@@ -226,12 +230,9 @@ StacWidget _buildMenuItemCard({
             ),
           ),
           StacSizedBox(width: 8),
-          StacFlexible(
-            flex: 0,
-            fit: StacFlexFit.loose,
-            child: StacRow(
-              mainAxisSize: StacMainAxisSize.min,
-              children: [
+          StacRow(
+            mainAxisSize: StacMainAxisSize.min,
+            children: [
                 _buildButtonWidget(
                   label: 'Dart',
                   path: dartPath,
@@ -250,8 +251,7 @@ StacWidget _buildMenuItemCard({
                   path: apiPath,
                   buttonType: 'api',
                 ),
-              ],
-            ),
+            ],
           ),
         ],
       ),

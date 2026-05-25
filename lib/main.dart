@@ -11,7 +11,7 @@ import 'core/stac/loaders/tobank/tobank_assets_loader.dart';
 import 'core/stac/utils/variable_resolver_debug.dart';
 import 'core/bootstrap/bootstrap.dart';
 import 'core/helpers/logger.dart';
-import 'stac/default_stac_options.dart';
+import 'core/stac/default_stac_options.dart';
 
 void main() async {
   // CRITICAL: Initialize Flutter bindings FIRST

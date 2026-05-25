@@ -1,0 +1,3867 @@
+{
+    "light": {
+        "button": {
+            "primary": {
+                "backgroundColor": "#d61f2c",
+                "foregroundColor": "#ffffff"
+            }
+        },
+        "text": {
+            "title": "#101828",
+            "subtitle": "#667085",
+            "hint": "#667085",
+            "onPrimary": "#ffffff",
+            "inverse": "#ffffff"
+        },
+        "input": {
+            "hint": "#9eacba",
+            "borderEnabled": "#d0d5dd",
+            "borderFocused": "#344054"
+        },
+        "background": {
+            "surface": "#f9fafb",
+            "onSurface": "#101828",
+            "onSurfaceVariant": "#667085",
+            "surfaceContainerLowest": "#ffffff",
+            "surfaceContainerLow": "#f2f4f7",
+            "surfaceContainer": "#ffffff",
+            "surfaceContainerHigh": "#eaecf0"
+        },
+        "primary": {
+            "color": "#d61f2c",
+            "onPrimary": "#ffffff",
+            "onPrimaryContainer": "#0fd61f2c"
+        },
+        "secondary": {
+            "color": "#00baba",
+            "onSecondary": "#66d6d6",
+            "secondaryContainer": "#0a00baba"
+        },
+        "tertiary": {
+            "color": "#f7941d",
+            "onTertiary": "#fcb900",
+            "onTertiaryContainer": "#fff9ea"
+        },
+        "base": {
+            "white": "#ffffff",
+            "staticWhite": "#ffffff",
+            "black": "#101828",
+            "green": "#039855"
+        },
+        "error": {
+            "color": "#d61f2c"
+        },
+        "success": {
+            "color": "#039855"
+        },
+        "warning": {
+            "color": "#f9a200"
+        },
+        "brand": {
+            "primary": "#d61f2c"
+        },
+        "state": {
+            "error": "#d61f2c",
+            "success": "#039855",
+            "warning": "#f9a200",
+            "successContainer": "#e8f5e9",
+            "warningContainer": "#fff4d6"
+        },
+        "generated": {
+            "flows__verify_identity__json__verify_identity_rules": {
+                "foregroundColor_001": "#D61F2C",
+                "backgroundColor_002": "#FFFFFF",
+                "color_003": "#D61F2C",
+                "color_004": "#D61F2C"
+            },
+            "flows__verify_identity__json__verify_identity_signature": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__verify_identity__json__verify_identity_verify_otp": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__transfer__json__transfer_amount": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#00000000",
+                "color_004": "#00000000"
+            },
+            "flows__transfer__json__transfer_card_details": {
+                "color_001": "#FFFFFF",
+                "color_002": "#FFFFFF"
+            },
+            "flows__transfer__json__transfer_card_result": {
+                "color_001": "#12B76A"
+            },
+            "flows__transfer__json__transfer_confirm": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "foregroundColor_003": "#FFFFFF",
+                "backgroundColor_004": "#E31B2F",
+                "color_005": "#FFFFFF"
+            },
+            "flows__transfer__json__transfer_details": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C"
+            },
+            "flows__transfer__json__transfer_in_bank_confirm": {
+                "foregroundColor_001": "#FFFFFF",
+                "backgroundColor_002": "#E31B2F",
+                "color_003": "#FFFFFF"
+            },
+            "flows__transfer__json__transfer_in_bank_details": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C"
+            },
+            "flows__transfer__json__transfer_result": {
+                "color_001": "#12B76A"
+            },
+            "flows__transfer__json_upload__transfer_amount": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#00000000",
+                "color_004": "#00000000"
+            },
+            "flows__transfer__json_upload__transfer_card_details": {
+                "color_001": "#FFFFFF",
+                "color_002": "#FFFFFF"
+            },
+            "flows__transfer__json_upload__transfer_card_result": {
+                "color_001": "#12B76A"
+            },
+            "flows__transfer__json_upload__transfer_confirm": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "foregroundColor_003": "#FFFFFF",
+                "backgroundColor_004": "#E31B2F",
+                "color_005": "#FFFFFF"
+            },
+            "flows__transfer__json_upload__transfer_details": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C"
+            },
+            "flows__transfer__json_upload__transfer_in_bank_confirm": {
+                "foregroundColor_001": "#FFFFFF",
+                "backgroundColor_002": "#E31B2F",
+                "color_003": "#FFFFFF"
+            },
+            "flows__transfer__json_upload__transfer_in_bank_details": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C"
+            },
+            "flows__transfer__json_upload__transfer_result": {
+                "color_001": "#12B76A"
+            },
+            "flows__promissory_old__api__GET_promissory_rules": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__promissory_old__json__promissory_rules": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__promissory__json__promissory_issuer": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__promissory__json__promissory_payment": {
+                "color_001": "#000000"
+            },
+            "flows__promissory__json__promissory_payment_deposits": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000"
+            },
+            "flows__promissory__json__promissory_preview": {
+                "color_001": "#D32F2F",
+                "foregroundColor_002": "#FFFFFF",
+                "backgroundColor_003": "#D32F2F",
+                "color_004": "#FFFFFF",
+                "foregroundColor_005": "#D32F2F",
+                "backgroundColor_006": "#FFFFFF",
+                "color_007": "#D32F2F",
+                "color_008": "#D32F2F"
+            },
+            "flows__promissory__json__promissory_receiver": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "backgroundColor_003": "#00000000",
+                "backgroundColor_004": "#00000000",
+                "backgroundColor_005": "#00000000",
+                "backgroundColor_006": "#00000000"
+            },
+            "flows__promissory__json__promissory_rules": {
+                "color_001": "#FFFFFF",
+                "backgroundColor_002": "#00000000",
+                "backgroundColor_003": "#00000000"
+            },
+            "flows__promissory__json__promissory_sign": {
+                "color_001": "#D32F2F",
+                "color_002": "#000000",
+                "backgroundColor_003": "#00000000",
+                "backgroundColor_004": "#00000000",
+                "backgroundColor_005": "#00000000"
+            },
+            "flows__promissory__json_upload__promissory_receiver": {
+                "backgroundColor_001": "#D32F2F",
+                "backgroundColor_002": "#D32F2F",
+                "backgroundColor_003": "#D32F2F"
+            },
+            "flows__promissory__json_upload__promissory_rules": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__profile__json__profile_change_password": {
+                "color_001": "#A4A7AC",
+                "color_002": "#F4F4F5"
+            },
+            "flows__profile__json__profile_contact": {
+                "color_001": "#FDF3F4",
+                "color_002": "#FDF3F4",
+                "color_003": "#FDF3F4",
+                "color_004": "#FDF3F4",
+                "color_005": "#FDF3F4",
+                "color_006": "#FDF3F4"
+            },
+            "flows__profile__json__profile_destinations": {
+                "color_001": "#9F000000",
+                "color_002": "#668790A3"
+            },
+            "flows__profile__json__profile_intro": {
+                "color_001": "#F2F4F7",
+                "color_002": "#FFFFFF",
+                "color_003": "#D0D5DD"
+            },
+            "flows__profile__json__profile_invite_friends": {
+                "color_001": "#33D61F2C"
+            },
+            "flows__package__json__package_add_sim": {
+                "color_001": "#98A2B3",
+                "foregroundColor_002": "#98A2B3",
+                "backgroundColor_003": "#D0D5DD",
+                "color_004": "#98A2B3",
+                "color_005": "#2B8BFA",
+                "color_006": "#FFCD29",
+                "color_007": "#FFFFFF",
+                "backgroundColor_008": "#8B63708C",
+                "color_009": "#D0D5DD",
+                "color_010": "#20C4D8",
+                "color_011": "#20C4D8",
+                "color_012": "#FFFFFF",
+                "color_013": "#20C4D8",
+                "color_014": "#FFFFFF",
+                "color_015": "#20C4D8",
+                "color_016": "#20C4D8",
+                "color_017": "#FFFFFF",
+                "color_018": "#20C4D8",
+                "color_019": "#FFFFFF",
+                "color_020": "#20C4D8",
+                "color_021": "#20C4D8",
+                "color_022": "#FFFFFF",
+                "color_023": "#20C4D8",
+                "color_024": "#FFFFFF",
+                "color_025": "#D0D5DD",
+                "color_026": "#20C4D8",
+                "color_027": "#20C4D8",
+                "color_028": "#FFFFFF",
+                "color_029": "#20C4D8",
+                "color_030": "#FFFFFF",
+                "color_031": "#20C4D8",
+                "color_032": "#20C4D8",
+                "color_033": "#FFFFFF",
+                "color_034": "#20C4D8",
+                "color_035": "#FFFFFF",
+                "backgroundColor_036": "#8B63708C",
+                "backgroundColor_037": "#8B63708C"
+            },
+            "flows__package__json__package_intro": {
+                "color_001": "#FBE4E6",
+                "color_002": "#D0D5DD",
+                "color_003": "#D0D5DD",
+                "backgroundColor_004": "#8B63708C",
+                "color_005": "#E31D35",
+                "color_006": "#E31D35",
+                "backgroundColor_007": "#8B63708C",
+                "color_008": "#D0D5DD",
+                "color_009": "#D0D5DD",
+                "backgroundColor_010": "#8B63708C",
+                "color_011": "#E31D35",
+                "color_012": "#E31D35",
+                "backgroundColor_013": "#8B63708C",
+                "color_014": "#D0D5DD",
+                "color_015": "#D0D5DD",
+                "backgroundColor_016": "#8B63708C",
+                "color_017": "#E31D35",
+                "color_018": "#E31D35",
+                "backgroundColor_019": "#8B63708C",
+                "color_020": "#8B63708C"
+            },
+            "flows__package__json__package_package_list": {
+                "color_001": "#EAFBFD",
+                "color_002": "#20C4D8",
+                "color_003": "#F4FDFF",
+                "color_004": "#20C4D8",
+                "color_005": "#F4FDFF",
+                "color_006": "#20C4D8",
+                "color_007": "#F4FDFF",
+                "color_008": "#20C4D8",
+                "color_009": "#F4FDFF",
+                "color_010": "#20C4D8",
+                "color_011": "#F4FDFF",
+                "color_012": "#20C4D8",
+                "color_013": "#F4FDFF",
+                "color_014": "#20C4D8",
+                "color_015": "#F4FDFF",
+                "color_016": "#20C4D8",
+                "color_017": "#F4FDFF",
+                "color_018": "#20C4D8",
+                "color_019": "#F4FDFF",
+                "color_020": "#20C4D8",
+                "color_021": "#F4FDFF",
+                "color_022": "#20C4D8",
+                "color_023": "#F4FDFF",
+                "color_024": "#20C4D8",
+                "color_025": "#F4FDFF",
+                "color_026": "#20C4D8",
+                "color_027": "#F4FDFF",
+                "color_028": "#20C4D8",
+                "color_029": "#F4FDFF",
+                "color_030": "#20C4D8",
+                "color_031": "#F4FDFF",
+                "color_032": "#20C4D8",
+                "color_033": "#F4FDFF",
+                "color_034": "#20C4D8",
+                "color_035": "#F4FDFF",
+                "color_036": "#20C4D8",
+                "color_037": "#F4FDFF",
+                "color_038": "#20C4D8",
+                "foregroundColor_039": "#667085",
+                "backgroundColor_040": "#D0D5DD",
+                "color_041": "#667085"
+            },
+            "flows__package__json__package_payment": {
+                "color_001": "#F2F4F7",
+                "color_002": "#F4FDFF",
+                "color_003": "#20C4D8",
+                "color_004": "#20C4D8",
+                "color_005": "#E5E7EB",
+                "color_006": "#13A780",
+                "color_007": "#13A780",
+                "color_008": "#20C4D8",
+                "color_009": "#E5E7EB",
+                "color_010": "#13A780",
+                "color_011": "#13A780",
+                "color_012": "#F4FDFF",
+                "color_013": "#20C4D8",
+                "color_014": "#20C4D8",
+                "color_015": "#E5E7EB",
+                "color_016": "#E31D35",
+                "color_017": "#E31D35",
+                "color_018": "#E31D35",
+                "color_019": "#FFFFFF",
+                "color_020": "#20C4D8",
+                "color_021": "#E5E7EB",
+                "color_022": "#E31D35",
+                "color_023": "#E31D35",
+                "color_024": "#E31D35",
+                "color_025": "#FFFFFF",
+                "color_026": "#F4FDFF",
+                "color_027": "#20C4D8",
+                "color_028": "#20C4D8",
+                "color_029": "#E5E7EB",
+                "color_030": "#13A780",
+                "color_031": "#13A780",
+                "color_032": "#20C4D8",
+                "color_033": "#E5E7EB",
+                "color_034": "#13A780",
+                "color_035": "#13A780",
+                "foregroundColor_036": "#98A2B3",
+                "backgroundColor_037": "#D0D5DD",
+                "color_038": "#98A2B3"
+            },
+            "flows__package__json__package_payment_success": {
+                "color_001": "#E7F7ED",
+                "color_002": "#BFEFD0",
+                "color_003": "#24B76A",
+                "color_004": "#FFFFFF",
+                "color_005": "#17945A",
+                "color_006": "#E5E7EB",
+                "color_007": "#E5E7EB",
+                "color_008": "#E5E7EB",
+                "color_009": "#E5E7EB",
+                "color_010": "#E5E7EB"
+            },
+            "flows__notification__json__notification_intro": {
+                "color_001": "#D32F2F",
+                "color_002": "#D0D5DD",
+                "backgroundColor_003": "#00000000",
+                "color_004": "#D32F2F",
+                "color_005": "#D0D5DD",
+                "backgroundColor_006": "#00000000",
+                "color_007": "#D32F2F",
+                "color_008": "#D0D5DD",
+                "backgroundColor_009": "#00000000",
+                "color_010": "#D32F2F",
+                "color_011": "#D0D5DD",
+                "backgroundColor_012": "#00000000",
+                "color_013": "#D32F2F",
+                "color_014": "#D0D5DD",
+                "backgroundColor_015": "#00000000",
+                "color_016": "#D32F2F",
+                "color_017": "#D0D5DD",
+                "backgroundColor_018": "#00000000",
+                "color_019": "#D32F2F",
+                "color_020": "#D0D5DD",
+                "backgroundColor_021": "#00000000",
+                "color_022": "#D32F2F",
+                "color_023": "#D0D5DD",
+                "backgroundColor_024": "#00000000",
+                "color_025": "#D32F2F",
+                "color_026": "#D0D5DD",
+                "backgroundColor_027": "#00000000"
+            },
+            "flows__notification__json_upload__notification_intro": {
+                "color_001": "#D32F2F",
+                "color_002": "#D0D5DD",
+                "backgroundColor_003": "#00000000",
+                "color_004": "#D32F2F",
+                "color_005": "#D0D5DD",
+                "backgroundColor_006": "#00000000",
+                "color_007": "#D32F2F",
+                "color_008": "#D0D5DD",
+                "backgroundColor_009": "#00000000",
+                "color_010": "#D32F2F",
+                "color_011": "#D0D5DD",
+                "backgroundColor_012": "#00000000",
+                "color_013": "#D32F2F",
+                "color_014": "#D0D5DD",
+                "backgroundColor_015": "#00000000",
+                "color_016": "#D32F2F",
+                "color_017": "#D0D5DD",
+                "backgroundColor_018": "#00000000",
+                "color_019": "#D32F2F",
+                "color_020": "#D0D5DD",
+                "backgroundColor_021": "#00000000",
+                "color_022": "#D32F2F",
+                "color_023": "#D0D5DD",
+                "backgroundColor_024": "#00000000",
+                "color_025": "#D32F2F",
+                "color_026": "#D0D5DD",
+                "backgroundColor_027": "#00000000"
+            },
+            "flows__login__json__login_splash": {
+                "color_001": "#1A000000"
+            },
+            "flows__home_page__api__GET_tobank_home_page_dart": {
+                "color_001": "#141B1F44",
+                "color_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "color_004": "#FFFFFF",
+                "color_005": "#0A101828",
+                "color_006": "#FFFFFF",
+                "color_007": "#FFFFFF",
+                "color_008": "#FFFFFF",
+                "color_009": "#FFFFFF",
+                "color_010": "#0A101828",
+                "color_011": "#FFFFFF",
+                "color_012": "#FFFFFF",
+                "color_013": "#FFFFFF",
+                "color_014": "#FFFFFF",
+                "color_015": "#0A101828",
+                "color_016": "#FFFFFF",
+                "color_017": "#FFFFFF",
+                "color_018": "#FFFFFF",
+                "color_019": "#FFFFFF",
+                "color_020": "#0A101828",
+                "color_021": "#FFFFFF",
+                "color_022": "#FFFFFF",
+                "color_023": "#FFFFFF",
+                "color_024": "#FFFFFF",
+                "color_025": "#0A101828",
+                "color_026": "#FFFFFF",
+                "color_027": "#FFFFFF",
+                "color_028": "#FFFFFF",
+                "color_029": "#FFFFFF",
+                "color_030": "#0A101828",
+                "color_031": "#FFFFFF",
+                "color_032": "#FFFFFF",
+                "color_033": "#FFFFFF",
+                "color_034": "#FFFFFF",
+                "foregroundColor_035": "#FFFFFF",
+                "backgroundColor_036": "#E31A2F",
+                "color_037": "#FFFFFF",
+                "color_038": "#FFFFFF",
+                "color_039": "#1F101828",
+                "walletGradientStart": "#15A0A0",
+                "walletGradientEnd": "#50E8E8",
+                "walletShadow": "#141B1F44",
+                "walletOnCard": "#FFFFFF",
+                "bankCardGradientStart": "#EE3E62",
+                "bankCardGradientEnd": "#FD6F8E",
+                "bankCardShadow": "#0A101828",
+                "bankCardOnCard": "#FFFFFF",
+                "cardsAddButtonBackground": "#FFFFFF",
+                "cardsAddButtonShadow": "#1F101828"
+            },
+            "flows__home_page__api__GET_tobank_special_services_page": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#E31A2F",
+                "color_004": "#FFFFFF",
+                "backgroundColor_005": "#00000000",
+                "color_006": "#E31A2F",
+                "color_007": "#FFFFFF",
+                "backgroundColor_008": "#00000000",
+                "backgroundColor_009": "#00000000",
+                "color_010": "#E31A2F",
+                "color_011": "#FFFFFF",
+                "backgroundColor_012": "#00000000",
+                "color_013": "#E31A2F",
+                "color_014": "#FFFFFF",
+                "backgroundColor_015": "#E31A2F",
+                "foregroundColor_016": "#FFFFFF",
+                "color_017": "#FFFFFF"
+            },
+            "flows__home_page__json__tobank_home_page_dart": {
+                "color_001": "#141B1F44",
+                "color_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "color_004": "#FFFFFF",
+                "color_005": "#0A101828",
+                "color_006": "#FFFFFF",
+                "color_007": "#FFFFFF",
+                "color_008": "#FFFFFF",
+                "color_009": "#FFFFFF",
+                "color_010": "#0A101828",
+                "color_011": "#FFFFFF",
+                "color_012": "#FFFFFF",
+                "color_013": "#FFFFFF",
+                "color_014": "#FFFFFF",
+                "color_015": "#0A101828",
+                "color_016": "#FFFFFF",
+                "color_017": "#FFFFFF",
+                "color_018": "#FFFFFF",
+                "color_019": "#FFFFFF",
+                "color_020": "#0A101828",
+                "color_021": "#FFFFFF",
+                "color_022": "#FFFFFF",
+                "color_023": "#FFFFFF",
+                "color_024": "#FFFFFF",
+                "color_025": "#0A101828",
+                "color_026": "#FFFFFF",
+                "color_027": "#FFFFFF",
+                "color_028": "#FFFFFF",
+                "color_029": "#FFFFFF",
+                "color_030": "#0A101828",
+                "color_031": "#FFFFFF",
+                "color_032": "#FFFFFF",
+                "color_033": "#FFFFFF",
+                "color_034": "#FFFFFF",
+                "foregroundColor_035": "#FFFFFF",
+                "backgroundColor_036": "#E31A2F",
+                "color_037": "#FFFFFF",
+                "color_038": "#FFFFFF",
+                "color_039": "#1F101828",
+                "walletGradientStart": "#15A0A0",
+                "walletGradientEnd": "#50E8E8",
+                "walletShadow": "#141B1F44",
+                "walletOnCard": "#FFFFFF",
+                "bankCardGradientStart": "#EE3E62",
+                "bankCardGradientEnd": "#FD6F8E",
+                "bankCardShadow": "#0A101828",
+                "bankCardOnCard": "#FFFFFF",
+                "cardsAddButtonBackground": "#FFFFFF",
+                "cardsAddButtonShadow": "#1F101828"
+            },
+            "flows__home_page__json__tobank_special_services_page": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "backgroundColor_003": "#00000000",
+                "backgroundColor_004": "#00000000",
+                "backgroundColor_005": "#00000000",
+                "foregroundColor_006": "#FFFFFF",
+                "backgroundColor_007": "#E31A2F",
+                "color_008": "#FFFFFF",
+                "backgroundColor_009": "#00000000",
+                "backgroundColor_010": "#00000000"
+            },
+            "flows__gift_card__api_json__gift_card_custom_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000",
+                "color_005": "#F7FAFD",
+                "color_006": "#F7FAFD",
+                "color_007": "#F7FAFD",
+                "color_008": "#000000",
+                "color_009": "#000000",
+                "color_010": "#F7FAFD",
+                "color_011": "#F7FAFD",
+                "color_012": "#000000",
+                "color_013": "#000000"
+            },
+            "flows__gift_card__api_json__gift_card_custom_select_design": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#F7FAFD",
+                "color_004": "#F7FAFD",
+                "color_005": "#F7FAFD",
+                "color_006": "#F7FAFD",
+                "color_007": "#F7FAFD",
+                "color_008": "#F7FAFD"
+            },
+            "flows__gift_card__api_json__gift_card_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000"
+            },
+            "flows__gift_card__api_json__gift_card_image_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD"
+            },
+            "flows__gift_card__api_json__gift_card_select_design": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#F7FAFD",
+                "color_004": "#F7FAFD",
+                "color_005": "#F7FAFD",
+                "color_006": "#F7FAFD",
+                "color_007": "#F7FAFD",
+                "color_008": "#F7FAFD"
+            },
+            "flows__gift_card__json__gift_card_confirm": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__gift_card__json__gift_card_custom_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000",
+                "color_005": "#F7FAFD",
+                "color_006": "#F7FAFD",
+                "color_007": "#F7FAFD",
+                "color_008": "#000000",
+                "color_009": "#000000",
+                "color_010": "#F7FAFD",
+                "color_011": "#F7FAFD",
+                "color_012": "#000000",
+                "color_013": "#000000"
+            },
+            "flows__gift_card__json__gift_card_custom_select_design": {
+                "color_001": "#F7FAFD",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#F7FAFD",
+                "backgroundColor_004": "#00000000",
+                "color_005": "#F7FAFD",
+                "backgroundColor_006": "#00000000",
+                "color_007": "#F7FAFD",
+                "backgroundColor_008": "#00000000",
+                "color_009": "#F7FAFD",
+                "backgroundColor_010": "#00000000",
+                "color_011": "#F7FAFD",
+                "backgroundColor_012": "#00000000",
+                "color_013": "#F7FAFD",
+                "backgroundColor_014": "#00000000",
+                "color_015": "#F7FAFD",
+                "backgroundColor_016": "#00000000"
+            },
+            "flows__gift_card__json__gift_card_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000"
+            },
+            "flows__gift_card__json__gift_card_image_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD"
+            },
+            "flows__gift_card__json__gift_card_intro": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__gift_card__json__gift_card_message": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__gift_card__json__gift_card_receiver_info": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "backgroundColor_003": "#00000000"
+            },
+            "flows__gift_card__json__gift_card_select_amount": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "backgroundColor_003": "#00000000",
+                "backgroundColor_004": "#00000000",
+                "backgroundColor_005": "#00000000"
+            },
+            "flows__gift_card__json__gift_card_select_design": {
+                "color_001": "#F7FAFD",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#F7FAFD",
+                "backgroundColor_004": "#00000000",
+                "color_005": "#F7FAFD",
+                "backgroundColor_006": "#00000000",
+                "color_007": "#F7FAFD",
+                "backgroundColor_008": "#00000000",
+                "color_009": "#F7FAFD",
+                "backgroundColor_010": "#00000000",
+                "color_011": "#F7FAFD",
+                "backgroundColor_012": "#00000000",
+                "color_013": "#F7FAFD",
+                "backgroundColor_014": "#00000000",
+                "color_015": "#F7FAFD",
+                "backgroundColor_016": "#00000000"
+            },
+            "flows__gift_card__json_upload__gift_card_confirm": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__gift_card__json_upload__gift_card_custom_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000",
+                "color_005": "#F7FAFD",
+                "color_006": "#F7FAFD",
+                "color_007": "#F7FAFD",
+                "color_008": "#000000",
+                "color_009": "#000000",
+                "color_010": "#F7FAFD",
+                "color_011": "#F7FAFD",
+                "color_012": "#000000",
+                "color_013": "#000000"
+            },
+            "flows__gift_card__json_upload__gift_card_custom_select_design": {
+                "color_001": "#F7FAFD",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#F7FAFD",
+                "backgroundColor_004": "#00000000",
+                "color_005": "#F7FAFD",
+                "backgroundColor_006": "#00000000",
+                "color_007": "#F7FAFD",
+                "backgroundColor_008": "#00000000",
+                "color_009": "#F7FAFD",
+                "backgroundColor_010": "#00000000",
+                "color_011": "#F7FAFD",
+                "backgroundColor_012": "#00000000",
+                "color_013": "#F7FAFD",
+                "backgroundColor_014": "#00000000",
+                "color_015": "#F7FAFD",
+                "backgroundColor_016": "#00000000"
+            },
+            "flows__gift_card__json_upload__gift_card_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000"
+            },
+            "flows__gift_card__json_upload__gift_card_image_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD"
+            },
+            "flows__gift_card__json_upload__gift_card_intro": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__gift_card__json_upload__gift_card_message": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__gift_card__json_upload__gift_card_receiver_info": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "backgroundColor_003": "#00000000"
+            },
+            "flows__gift_card__json_upload__gift_card_select_amount": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "backgroundColor_003": "#00000000",
+                "backgroundColor_004": "#00000000",
+                "backgroundColor_005": "#00000000"
+            },
+            "flows__gift_card__json_upload__gift_card_select_design": {
+                "color_001": "#F7FAFD",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#F7FAFD",
+                "backgroundColor_004": "#00000000",
+                "color_005": "#F7FAFD",
+                "backgroundColor_006": "#00000000",
+                "color_007": "#F7FAFD",
+                "backgroundColor_008": "#00000000",
+                "color_009": "#F7FAFD",
+                "backgroundColor_010": "#00000000",
+                "color_011": "#F7FAFD",
+                "backgroundColor_012": "#00000000",
+                "color_013": "#F7FAFD",
+                "backgroundColor_014": "#00000000",
+                "color_015": "#F7FAFD",
+                "backgroundColor_016": "#00000000"
+            },
+            "flows__deposit_turnover__json__deposit_turnover_intro": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000"
+            },
+            "flows__deposit_turnover__json_upload__deposit_turnover_intro": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000"
+            },
+            "flows__deposit_more__json__deposit_card_issue_result": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047"
+            },
+            "flows__deposit_more__json__deposit_close_confirm": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__deposit_more__json__deposit_close_selector": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__deposit_more__json_upload__deposit_card_issue_result": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047"
+            },
+            "flows__deposit_more__json_upload__deposit_close_confirm": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__deposit_more__json_upload__deposit_close_selector": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__dashboard__json__dashboard_cards_management": {
+                "color_001": "#FFFFFF",
+                "color_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "color_004": "#FFFFFF",
+                "color_005": "#FFFFFF",
+                "color_006": "#FFFFFF",
+                "color_007": "#FFFFFF",
+                "color_008": "#FFFFFF",
+                "color_009": "#FFFFFF",
+                "color_010": "#FFFFFF",
+                "color_011": "#FFFFFF",
+                "color_012": "#FFFFFF",
+                "color_013": "#FFFFFF",
+                "backgroundColor_014": "#00000000",
+                "backgroundColor_015": "#00000000",
+                "color_016": "#FFFFFF",
+                "backgroundColor_017": "#00000000",
+                "color_018": "#FFFFFF",
+                "color_019": "#FFFFFF",
+                "color_020": "#FFFFFF",
+                "color_021": "#FFFFFF",
+                "color_022": "#FFFFFF",
+                "color_023": "#FFFFFF",
+                "backgroundColor_024": "#00000000",
+                "backgroundColor_025": "#00000000",
+                "color_026": "#FFFFFF",
+                "backgroundColor_027": "#00000000",
+                "color_028": "#FFFFFF",
+                "color_029": "#FFFFFF",
+                "color_030": "#FFFFFF",
+                "color_031": "#FFFFFF",
+                "color_032": "#FFFFFF",
+                "color_033": "#FFFFFF",
+                "color_034": "#FFFFFF",
+                "color_035": "#FFFFFF",
+                "color_036": "#FFFFFF",
+                "color_037": "#FFFFFF",
+                "color_038": "#FFFFFF",
+                "backgroundColor_039": "#00000000",
+                "backgroundColor_040": "#00000000",
+                "color_041": "#FFFFFF",
+                "backgroundColor_042": "#00000000",
+                "color_043": "#FFFFFF",
+                "color_044": "#FFFFFF",
+                "color_045": "#FFFFFF",
+                "color_046": "#FFFFFF",
+                "color_047": "#FFFFFF",
+                "color_048": "#FFFFFF",
+                "backgroundColor_049": "#00000000",
+                "backgroundColor_050": "#00000000",
+                "color_051": "#FFFFFF",
+                "backgroundColor_052": "#00000000",
+                "color_053": "#FFFFFF",
+                "color_054": "#FFFFFF",
+                "color_055": "#FFFFFF",
+                "color_056": "#FFFFFF",
+                "color_057": "#1E2538",
+                "backgroundColor_058": "#00000000",
+                "backgroundColor_059": "#00000000",
+                "backgroundColor_060": "#00000000",
+                "backgroundColor_061": "#00000000",
+                "backgroundColor_062": "#00000000",
+                "backgroundColor_063": "#00000000",
+                "backgroundColor_064": "#00000000",
+                "backgroundColor_065": "#00000000",
+                "backgroundColor_066": "#00000000",
+                "backgroundColor_067": "#00000000",
+                "backgroundColor_068": "#00000000",
+                "color_069": "#FF6D00",
+                "color_070": "#FFFFFF",
+                "color_071": "#FFFFFF",
+                "color_072": "#FFFFFF",
+                "backgroundColor_073": "#00000000",
+                "foregroundColor_074": "#FFFFFF",
+                "backgroundColor_075": "#D32F2F",
+                "backgroundColor_076": "#00000000",
+                "backgroundColor_077": "#00000000",
+                "backgroundColor_078": "#00000000",
+                "walletGradientStart": "#15A0A0",
+                "walletGradientEnd": "#50E8E8",
+                "walletOnCard": "#FFFFFF",
+                "tobankGradientStart": "#EF3A55",
+                "tobankGradientEnd": "#FF5F87",
+                "tobankOnCard": "#FFFFFF",
+                "thirdPartyGradientStart": "#1FA3E3",
+                "thirdPartyGradientEnd": "#83DBF8",
+                "thirdPartyOnCard": "#FFFFFF",
+                "blockedGradientStart": "#B9B9B9",
+                "blockedGradientEnd": "#8F8F8F",
+                "blockedOnCard": "#FFFFFF",
+                "blockedIcon": "#1E2538"
+            },
+            "flows__dashboard__json__dashboard_card_balance": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__dashboard__json__dashboard_card_edit": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__dashboard__json__dashboard_card_reissue_receipt": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047"
+            },
+            "flows__dashboard__json__dashboard_card_reissue_request": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__dashboard__json__dashboard_card_reissue_select_card_color": {
+                "color_001": "#1E1E1E",
+                "color_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "color_004": "#1E1E1E",
+                "color_005": "#8F8F8F",
+                "color_006": "#1FA3E3",
+                "color_007": "#E31A2F",
+                "color_008": "#43A047"
+            },
+            "flows__dashboard__json__dashboard_primary_pin_result": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047"
+            },
+            "flows__dashboard__json__dashboard_secondary_pin_result": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047",
+                "color_003": "#43A047",
+                "backgroundColor_004": "#00000000",
+                "backgroundColor_005": "#00000000"
+            },
+            "flows__dashboard__json__dashboard_shell": {
+                "color_001": "#F2F4F7",
+                "color_002": "#FFFFFF",
+                "color_003": "#D0D5DD",
+                "color_004": "#141B1F44",
+                "color_005": "#FFFFFF",
+                "color_006": "#FFFFFF",
+                "color_007": "#FFFFFF",
+                "color_008": "#0A101828",
+                "color_009": "#FFFFFF",
+                "color_010": "#FFFFFF",
+                "color_011": "#FFFFFF",
+                "color_012": "#FFFFFF",
+                "color_013": "#0A101828",
+                "color_014": "#FFFFFF",
+                "color_015": "#FFFFFF",
+                "color_016": "#FFFFFF",
+                "color_017": "#FFFFFF",
+                "color_018": "#0A101828",
+                "color_019": "#FFFFFF",
+                "color_020": "#FFFFFF",
+                "color_021": "#FFFFFF",
+                "color_022": "#FFFFFF",
+                "color_023": "#0A101828",
+                "color_024": "#FFFFFF",
+                "color_025": "#FFFFFF",
+                "color_026": "#FFFFFF",
+                "color_027": "#FFFFFF",
+                "color_028": "#0A101828",
+                "color_029": "#FFFFFF",
+                "color_030": "#FFFFFF",
+                "color_031": "#FFFFFF",
+                "color_032": "#FFFFFF",
+                "color_033": "#0A101828",
+                "color_034": "#FFFFFF",
+                "color_035": "#FFFFFF",
+                "color_036": "#FFFFFF",
+                "color_037": "#FFFFFF",
+                "foregroundColor_038": "#FFFFFF",
+                "backgroundColor_039": "#E31A2F",
+                "color_040": "#FFFFFF",
+                "color_041": "#FFFFFF",
+                "color_042": "#1F101828",
+                "walletGradientStart": "#15A0A0",
+                "walletGradientEnd": "#50E8E8",
+                "walletShadow": "#141B1F44",
+                "walletOnCard": "#FFFFFF",
+                "bankCardGradientStart": "#EE3E62",
+                "bankCardGradientEnd": "#FD6F8E",
+                "bankCardShadow": "#0A101828",
+                "bankCardOnCard": "#FFFFFF",
+                "cardsAddButtonShadow": "#1F101828"
+            },
+            "flows__dashboard__json__dashboard_wallet_transfer_receipt": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047",
+                "backgroundColor_003": "#00000000",
+                "backgroundColor_004": "#00000000"
+            },
+            "flows__charge__json__charge_add_sim": {
+                "color_001": "#98A2B3",
+                "foregroundColor_002": "#98A2B3",
+                "backgroundColor_003": "#D0D5DD",
+                "color_004": "#98A2B3",
+                "color_005": "#2B8BFA",
+                "color_006": "#FFCD29",
+                "color_007": "#FFFFFF",
+                "backgroundColor_008": "#8B63708C",
+                "color_009": "#D0D5DD",
+                "color_010": "#20C4D8",
+                "color_011": "#20C4D8",
+                "color_012": "#FFFFFF",
+                "color_013": "#20C4D8",
+                "color_014": "#FFFFFF",
+                "color_015": "#20C4D8",
+                "color_016": "#20C4D8",
+                "color_017": "#FFFFFF",
+                "color_018": "#20C4D8",
+                "color_019": "#FFFFFF",
+                "color_020": "#20C4D8",
+                "color_021": "#20C4D8",
+                "color_022": "#FFFFFF",
+                "color_023": "#20C4D8",
+                "color_024": "#FFFFFF",
+                "color_025": "#D0D5DD",
+                "color_026": "#20C4D8",
+                "color_027": "#20C4D8",
+                "color_028": "#FFFFFF",
+                "color_029": "#20C4D8",
+                "color_030": "#FFFFFF",
+                "color_031": "#20C4D8",
+                "color_032": "#20C4D8",
+                "color_033": "#FFFFFF",
+                "color_034": "#20C4D8",
+                "color_035": "#FFFFFF",
+                "backgroundColor_036": "#8B63708C",
+                "backgroundColor_037": "#8B63708C"
+            },
+            "flows__charge__json__charge_intro": {
+                "color_001": "#FBE4E6",
+                "color_002": "#D0D5DD",
+                "color_003": "#EAFBFD",
+                "color_004": "#20C4D8",
+                "color_005": "#EAFBFD",
+                "color_006": "#20C4D8",
+                "color_007": "#EAFBFD",
+                "color_008": "#20C4D8",
+                "color_009": "#EAFBFD",
+                "color_010": "#20C4D8",
+                "color_011": "#EAFBFD",
+                "color_012": "#20C4D8",
+                "color_013": "#98A2B3",
+                "color_014": "#98A2B3",
+                "color_015": "#EAECF0",
+                "color_016": "#C4C4C4",
+                "backgroundColor_017": "#8B63708C",
+                "color_018": "#D0D5DD",
+                "color_019": "#D0D5DD",
+                "backgroundColor_020": "#8B63708C",
+                "color_021": "#E31D35",
+                "color_022": "#E31D35",
+                "backgroundColor_023": "#8B63708C",
+                "color_024": "#D0D5DD",
+                "color_025": "#EAFBFD",
+                "color_026": "#20C4D8",
+                "color_027": "#EAFBFD",
+                "color_028": "#20C4D8",
+                "color_029": "#EAFBFD",
+                "color_030": "#20C4D8",
+                "color_031": "#EAFBFD",
+                "color_032": "#20C4D8",
+                "color_033": "#EAFBFD",
+                "color_034": "#20C4D8",
+                "color_035": "#98A2B3",
+                "color_036": "#98A2B3",
+                "color_037": "#EAECF0",
+                "color_038": "#C4C4C4",
+                "backgroundColor_039": "#8B63708C",
+                "color_040": "#D0D5DD",
+                "color_041": "#D0D5DD",
+                "backgroundColor_042": "#8B63708C",
+                "color_043": "#E31D35",
+                "color_044": "#E31D35",
+                "backgroundColor_045": "#8B63708C",
+                "color_046": "#D0D5DD",
+                "color_047": "#EAFBFD",
+                "color_048": "#20C4D8",
+                "color_049": "#EAFBFD",
+                "color_050": "#20C4D8",
+                "color_051": "#EAFBFD",
+                "color_052": "#20C4D8",
+                "color_053": "#EAFBFD",
+                "color_054": "#20C4D8",
+                "color_055": "#EAFBFD",
+                "color_056": "#20C4D8",
+                "color_057": "#98A2B3",
+                "color_058": "#98A2B3",
+                "color_059": "#EAECF0",
+                "color_060": "#C4C4C4",
+                "backgroundColor_061": "#8B63708C",
+                "color_062": "#D0D5DD",
+                "color_063": "#D0D5DD",
+                "backgroundColor_064": "#8B63708C",
+                "color_065": "#E31D35",
+                "color_066": "#E31D35",
+                "backgroundColor_067": "#8B63708C",
+                "color_068": "#8B63708C"
+            },
+            "flows__charge__json__charge_package_list": {
+                "color_001": "#D0D5DD",
+                "color_002": "#EAFBFD",
+                "color_003": "#20C4D8",
+                "color_004": "#EAFBFD",
+                "color_005": "#20C4D8",
+                "color_006": "#EAFBFD",
+                "color_007": "#20C4D8",
+                "color_008": "#EAFBFD",
+                "color_009": "#20C4D8",
+                "color_010": "#EAFBFD",
+                "color_011": "#20C4D8",
+                "color_012": "#98A2B3",
+                "color_013": "#98A2B3",
+                "color_014": "#EAECF0",
+                "color_015": "#C4C4C4",
+                "backgroundColor_016": "#8B63708C"
+            },
+            "flows__charge__json__charge_payment": {
+                "color_001": "#F2F4F7",
+                "color_002": "#F4FDFF",
+                "color_003": "#20C4D8",
+                "color_004": "#20C4D8",
+                "color_005": "#E5E7EB",
+                "color_006": "#13A780",
+                "color_007": "#13A780",
+                "color_008": "#20C4D8",
+                "color_009": "#E5E7EB",
+                "color_010": "#13A780",
+                "color_011": "#13A780",
+                "color_012": "#F4FDFF",
+                "color_013": "#20C4D8",
+                "color_014": "#20C4D8",
+                "color_015": "#E5E7EB",
+                "color_016": "#E31D35",
+                "color_017": "#E31D35",
+                "color_018": "#E31D35",
+                "color_019": "#FFFFFF",
+                "color_020": "#20C4D8",
+                "color_021": "#E5E7EB",
+                "color_022": "#E31D35",
+                "color_023": "#E31D35",
+                "color_024": "#E31D35",
+                "color_025": "#FFFFFF",
+                "color_026": "#F4FDFF",
+                "color_027": "#20C4D8",
+                "color_028": "#20C4D8",
+                "color_029": "#E5E7EB",
+                "color_030": "#13A780",
+                "color_031": "#13A780",
+                "color_032": "#20C4D8",
+                "color_033": "#E5E7EB",
+                "color_034": "#13A780",
+                "color_035": "#13A780",
+                "foregroundColor_036": "#98A2B3",
+                "backgroundColor_037": "#D0D5DD",
+                "color_038": "#98A2B3"
+            },
+            "flows__charge__json__charge_payment_success": {
+                "color_001": "#E7F7ED",
+                "color_002": "#BFEFD0",
+                "color_003": "#24B76A",
+                "color_004": "#FFFFFF",
+                "color_005": "#17945A",
+                "color_006": "#E5E7EB",
+                "color_007": "#E5E7EB",
+                "color_008": "#E5E7EB",
+                "color_009": "#E5E7EB",
+                "color_010": "#E5E7EB"
+            },
+            "flows__cartable__json__cartable_detail": {
+                "color_001": "#D3F2F4",
+                "color_002": "#33A8B2",
+                "color_003": "#D3F2F4",
+                "color_004": "#33A8B2",
+                "color_005": "#D3F2F4",
+                "color_006": "#33A8B2",
+                "color_007": "#DDF3E8",
+                "color_008": "#5DA181",
+                "color_009": "#DDF3E8",
+                "color_010": "#5DA181",
+                "color_011": "#DDF3E8",
+                "color_012": "#5DA181",
+                "color_013": "#DDF3E8",
+                "color_014": "#5DA181"
+            },
+            "flows__verify_identity__dart__verify_identity_job_selector": {
+                "color_001": "#D9DDE5"
+            },
+            "flows__verify_identity__dart__verify_identity_rules": {
+                "backgroundColor_001": "#FFFFFF",
+                "foregroundColor_002": "#D61F2C",
+                "color_003": "#D61F2C",
+                "color_004": "#D61F2C"
+            },
+            "flows__verify_identity__inline_dart__verify_identity_job_selector": {
+                "color_001": "#D9DDE5"
+            },
+            "flows__verify_identity__inline_dart__verify_identity_rules": {
+                "backgroundColor_001": "#FFFFFF",
+                "foregroundColor_002": "#D61F2C",
+                "color_003": "#D61F2C",
+                "color_004": "#D61F2C"
+            },
+            "flows__transfer__dart__transfer_amount": {
+                "color_001": "#00000000",
+                "color_002": "#00000000"
+            },
+            "flows__transfer__dart__transfer_card_details": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__transfer__dart__transfer_card_result": {
+                "color_001": "#12B76A"
+            },
+            "flows__transfer__dart__transfer_confirm": {
+                "backgroundColor_001": "#E31B2F",
+                "foregroundColor_002": "#FFFFFF",
+                "color_003": "#FFFFFF"
+            },
+            "flows__transfer__dart__transfer_details": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C"
+            },
+            "flows__transfer__dart__transfer_in_bank_confirm": {
+                "backgroundColor_001": "#E31B2F",
+                "foregroundColor_002": "#FFFFFF",
+                "color_003": "#FFFFFF"
+            },
+            "flows__transfer__dart__transfer_in_bank_details": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C"
+            },
+            "flows__transfer__dart__transfer_result": {
+                "color_001": "#12B76A"
+            },
+            "flows__transfer__inline_dart__transfer_amount": {
+                "color_001": "#00000000",
+                "color_002": "#00000000"
+            },
+            "flows__transfer__inline_dart__transfer_card_details": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__transfer__inline_dart__transfer_card_result": {
+                "color_001": "#12B76A"
+            },
+            "flows__transfer__inline_dart__transfer_confirm": {
+                "backgroundColor_001": "#E31B2F",
+                "foregroundColor_002": "#FFFFFF",
+                "color_003": "#FFFFFF"
+            },
+            "flows__transfer__inline_dart__transfer_details": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C"
+            },
+            "flows__transfer__inline_dart__transfer_in_bank_confirm": {
+                "backgroundColor_001": "#E31B2F",
+                "foregroundColor_002": "#FFFFFF",
+                "color_003": "#FFFFFF"
+            },
+            "flows__transfer__inline_dart__transfer_in_bank_details": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C"
+            },
+            "flows__transfer__inline_dart__transfer_result": {
+                "color_001": "#12B76A"
+            },
+            "flows__promissory_old__dart__promissory_rules": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__promissory_old__inline_dart__promissory_rules": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__promissory__dart__promissory_issuer_screen": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__promissory__dart__promissory_payment_screen": {
+                "color_001": "#000000"
+            },
+            "flows__promissory__dart__promissory_preview_screen": {
+                "backgroundColor_001": "#D32F2F",
+                "foregroundColor_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "backgroundColor_004": "#FFFFFF",
+                "foregroundColor_005": "#D32F2F",
+                "color_006": "#D32F2F",
+                "color_007": "#D32F2F"
+            },
+            "flows__promissory__dart__promissory_rules": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__promissory__dart__promissory_sign_screen": {
+                "color_001": "#000000"
+            },
+            "flows__promissory__inline_dart__promissory_issuer_screen": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__promissory__inline_dart__promissory_payment_screen": {
+                "color_001": "#000000"
+            },
+            "flows__promissory__inline_dart__promissory_preview_screen": {
+                "backgroundColor_001": "#D32F2F",
+                "foregroundColor_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "backgroundColor_004": "#FFFFFF",
+                "foregroundColor_005": "#D32F2F",
+                "color_006": "#D32F2F",
+                "color_007": "#D32F2F"
+            },
+            "flows__promissory__inline_dart__promissory_rules": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__promissory__inline_dart__promissory_sign_screen": {
+                "color_001": "#000000"
+            },
+            "flows__profile__dart__profile_change_password": {
+                "color_001": "#A4A7AC",
+                "color_002": "#F4F4F5"
+            },
+            "flows__profile__dart__profile_contact": {
+                "color_001": "#FDF3F4"
+            },
+            "flows__profile__dart__profile_destinations": {
+                "color_001": "#9F000000",
+                "color_002": "#668790A3"
+            },
+            "flows__profile__dart__profile_intro": {
+                "color_001": "#F2F4F7",
+                "color_002": "#FFFFFF",
+                "color_003": "#D0D5DD"
+            },
+            "flows__profile__dart__profile_invite_friends": {
+                "color_001": "#33D61F2C"
+            },
+            "flows__profile__inline_dart__profile_change_password": {
+                "color_001": "#A4A7AC",
+                "color_002": "#F4F4F5"
+            },
+            "flows__profile__inline_dart__profile_contact": {
+                "color_001": "#FDF3F4"
+            },
+            "flows__profile__inline_dart__profile_destinations": {
+                "color_001": "#9F000000",
+                "color_002": "#668790A3"
+            },
+            "flows__profile__inline_dart__profile_intro": {
+                "color_001": "#F2F4F7",
+                "color_002": "#FFFFFF",
+                "color_003": "#D0D5DD"
+            },
+            "flows__profile__inline_dart__profile_invite_friends": {
+                "color_001": "#33D61F2C"
+            },
+            "flows__package__dart__package_add_sim": {
+                "color_001": "#98A2B3",
+                "backgroundColor_002": "#8B63708C",
+                "backgroundColor_003": "#8B63708C",
+                "backgroundColor_004": "#8B63708C",
+                "backgroundColor_005": "#D0D5DD",
+                "foregroundColor_006": "#98A2B3",
+                "color_007": "#98A2B3",
+                "color_008": "#D0D5DD",
+                "color_009": "#20C4D8",
+                "color_010": "#FFFFFF",
+                "color_011": "#20C4D8",
+                "color_012": "#D0D5DD",
+                "color_013": "#20C4D8",
+                "color_014": "#FFFFFF",
+                "color_015": "#20C4D8",
+                "color_016": "#2B8BFA",
+                "color_017": "#FFCD29",
+                "color_018": "#FFFFFF"
+            },
+            "flows__package__dart__package_intro": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C",
+                "color_003": "#D0D5DD",
+                "color_004": "#E31D35",
+                "color_005": "#E31D35",
+                "color_006": "#D0D5DD",
+                "color_007": "#8B63708C"
+            },
+            "flows__package__dart__package_package_list": {
+                "color_001": "#EAFBFD",
+                "color_002": "#20C4D8",
+                "color_003": "#F4FDFF",
+                "color_004": "#20C4D8"
+            },
+            "flows__package__dart__package_payment": {
+                "color_001": "#F2F4F7",
+                "color_002": "#20C4D8",
+                "color_003": "#E5E7EB",
+                "color_004": "#E31D35",
+                "color_005": "#FFFFFF",
+                "color_006": "#F4FDFF",
+                "color_007": "#20C4D8"
+            },
+            "flows__package__dart__package_payment_success": {
+                "color_001": "#E7F7ED",
+                "color_002": "#BFEFD0",
+                "color_003": "#24B76A",
+                "color_004": "#FFFFFF",
+                "color_005": "#17945A",
+                "color_006": "#E5E7EB"
+            },
+            "flows__package__inline_dart__package_add_sim": {
+                "color_001": "#98A2B3",
+                "backgroundColor_002": "#8B63708C",
+                "backgroundColor_003": "#8B63708C",
+                "backgroundColor_004": "#8B63708C",
+                "backgroundColor_005": "#D0D5DD",
+                "foregroundColor_006": "#98A2B3",
+                "color_007": "#98A2B3",
+                "color_008": "#D0D5DD",
+                "color_009": "#20C4D8",
+                "color_010": "#FFFFFF",
+                "color_011": "#20C4D8",
+                "color_012": "#D0D5DD",
+                "color_013": "#20C4D8",
+                "color_014": "#FFFFFF",
+                "color_015": "#20C4D8",
+                "color_016": "#2B8BFA",
+                "color_017": "#FFCD29",
+                "color_018": "#FFFFFF"
+            },
+            "flows__package__inline_dart__package_intro": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C",
+                "color_003": "#D0D5DD",
+                "color_004": "#E31D35",
+                "color_005": "#E31D35",
+                "color_006": "#D0D5DD",
+                "color_007": "#8B63708C"
+            },
+            "flows__package__inline_dart__package_package_list": {
+                "color_001": "#EAFBFD",
+                "color_002": "#20C4D8",
+                "color_003": "#F4FDFF",
+                "color_004": "#20C4D8"
+            },
+            "flows__package__inline_dart__package_payment": {
+                "color_001": "#F2F4F7",
+                "color_002": "#20C4D8",
+                "color_003": "#E5E7EB",
+                "color_004": "#E31D35",
+                "color_005": "#FFFFFF",
+                "color_006": "#F4FDFF",
+                "color_007": "#20C4D8"
+            },
+            "flows__package__inline_dart__package_payment_success": {
+                "color_001": "#E7F7ED",
+                "color_002": "#BFEFD0",
+                "color_003": "#24B76A",
+                "color_004": "#FFFFFF",
+                "color_005": "#17945A",
+                "color_006": "#E5E7EB"
+            },
+            "flows__package__inline_dart__widgets__package_widgets": {
+                "color_001": "#FBE4E6"
+            },
+            "flows__package__dart__widgets__package_widgets": {
+                "color_001": "#FBE4E6"
+            },
+            "flows__notification__dart__notification_intro": {
+                "color_001": "#D32F2F",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#D0D5DD"
+            },
+            "flows__notification__inline_dart__notification_intro": {
+                "color_001": "#D32F2F",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#D0D5DD"
+            },
+            "flows__login__dart__login_splash": {
+                "color_001": "#1A000000"
+            },
+            "flows__login__inline_dart__login_splash": {
+                "color_001": "#1A000000"
+            },
+            "flows__home_page__dart__home_page": {
+                "backgroundColor_001": "#E31A2F",
+                "foregroundColor_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "color_004": "#141B1F44",
+                "color_005": "#FFFFFF",
+                "color_006": "#FFFFFF",
+                "color_007": "#FFFFFF",
+                "color_008": "#0A101828",
+                "color_009": "#FFFFFF",
+                "color_010": "#FFFFFF",
+                "color_011": "#FFFFFF",
+                "color_012": "#FFFFFF",
+                "color_013": "#FFFFFF",
+                "color_014": "#1F101828",
+                "walletGradientStart": "#15A0A0",
+                "walletGradientEnd": "#50E8E8",
+                "walletShadow": "#141B1F44",
+                "walletOnCard": "#FFFFFF",
+                "bankCardGradientStart": "#EE3E62",
+                "bankCardGradientEnd": "#FD6F8E",
+                "bankCardShadow": "#0A101828",
+                "bankCardOnCard": "#FFFFFF",
+                "cardsAddButtonBackground": "#FFFFFF",
+                "cardsAddButtonShadow": "#1F101828"
+            },
+            "flows__home_page__dart__tobank_special_services_page": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "backgroundColor_003": "#00000000",
+                "backgroundColor_004": "#E31A2F",
+                "foregroundColor_005": "#FFFFFF",
+                "color_006": "#FFFFFF"
+            },
+            "flows__home_page__inline_dart__home_page": {
+                "backgroundColor_001": "#E31A2F",
+                "foregroundColor_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "color_004": "#141B1F44",
+                "color_005": "#FFFFFF",
+                "color_006": "#FFFFFF",
+                "color_007": "#FFFFFF",
+                "color_008": "#0A101828",
+                "color_009": "#FFFFFF",
+                "color_010": "#FFFFFF",
+                "color_011": "#FFFFFF",
+                "color_012": "#FFFFFF",
+                "color_013": "#FFFFFF",
+                "color_014": "#1F101828"
+            },
+            "flows__home_page__inline_dart__tobank_special_services_page": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "backgroundColor_003": "#00000000",
+                "backgroundColor_004": "#E31A2F",
+                "foregroundColor_005": "#FFFFFF",
+                "color_006": "#FFFFFF"
+            },
+            "flows__gift_card__dart__gift_card_confirm": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__gift_card__dart__gift_card_custom_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000",
+                "color_005": "#F7FAFD",
+                "color_006": "#F7FAFD",
+                "color_007": "#000000",
+                "color_008": "#000000",
+                "color_009": "#F7FAFD",
+                "color_010": "#F7FAFD",
+                "color_011": "#F7FAFD",
+                "color_012": "#000000",
+                "color_013": "#000000"
+            },
+            "flows__gift_card__dart__gift_card_custom_select_design": {
+                "color_001": "#F7FAFD",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#737373"
+            },
+            "flows__gift_card__dart__gift_card_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000"
+            },
+            "flows__gift_card__dart__gift_card_image_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD"
+            },
+            "flows__gift_card__dart__gift_card_intro": {
+                "backgroundColor_001": "#00000000",
+                "color_002": "#737373",
+                "color_003": "#FFFFFF",
+                "backgroundColor_004": "#D61F2C",
+                "foregroundColor_005": "#FFFFFF",
+                "backgroundColor_006": "#ADADAD",
+                "foregroundColor_007": "#FFFFFF",
+                "color_008": "#FFFFFF"
+            },
+            "flows__gift_card__dart__gift_card_message": {
+                "backgroundColor_001": "#00000000",
+                "color_002": "#737373"
+            },
+            "flows__gift_card__dart__gift_card_receiver_info": {
+                "color_001": "#737373",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#737373"
+            },
+            "flows__gift_card__dart__gift_card_select_amount": {
+                "color_001": "#737373",
+                "color_002": "#737373",
+                "backgroundColor_003": "#00000000",
+                "color_004": "#737373"
+            },
+            "flows__gift_card__dart__gift_card_select_design": {
+                "color_001": "#F7FAFD",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#737373"
+            },
+            "flows__gift_card__inline_dart__gift_card_confirm": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__gift_card__inline_dart__gift_card_custom_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000",
+                "color_005": "#F7FAFD",
+                "color_006": "#F7FAFD",
+                "color_007": "#000000",
+                "color_008": "#000000",
+                "color_009": "#F7FAFD",
+                "color_010": "#F7FAFD",
+                "color_011": "#F7FAFD",
+                "color_012": "#000000",
+                "color_013": "#000000"
+            },
+            "flows__gift_card__inline_dart__gift_card_custom_select_design": {
+                "color_001": "#F7FAFD",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#737373"
+            },
+            "flows__gift_card__inline_dart__gift_card_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000"
+            },
+            "flows__gift_card__inline_dart__gift_card_image_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD"
+            },
+            "flows__gift_card__inline_dart__gift_card_intro": {
+                "backgroundColor_001": "#00000000",
+                "color_002": "#737373",
+                "color_003": "#FFFFFF",
+                "backgroundColor_004": "#D61F2C",
+                "foregroundColor_005": "#FFFFFF",
+                "backgroundColor_006": "#ADADAD",
+                "foregroundColor_007": "#FFFFFF",
+                "color_008": "#FFFFFF"
+            },
+            "flows__gift_card__inline_dart__gift_card_message": {
+                "backgroundColor_001": "#00000000",
+                "color_002": "#737373"
+            },
+            "flows__gift_card__inline_dart__gift_card_receiver_info": {
+                "color_001": "#737373",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#737373"
+            },
+            "flows__gift_card__inline_dart__gift_card_select_amount": {
+                "color_001": "#737373",
+                "color_002": "#737373",
+                "backgroundColor_003": "#00000000",
+                "color_004": "#737373"
+            },
+            "flows__gift_card__inline_dart__gift_card_select_design": {
+                "color_001": "#F7FAFD",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#737373"
+            },
+            "flows__deposit_turnover__dart__deposit_turnover_intro": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000"
+            },
+            "flows__deposit_turnover__inline_dart__deposit_turnover_intro": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000"
+            },
+            "flows__deposit_more__dart__deposit_card_issue_result": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047"
+            },
+            "flows__deposit_more__dart__deposit_close_confirm": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__deposit_more__inline_dart__deposit_card_issue_result": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047"
+            },
+            "flows__deposit_more__inline_dart__deposit_close_confirm": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__dashboard__dart__cards_management_screen": {
+                "color_001": "#FFFFFF",
+                "color_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "color_004": "#FFFFFF",
+                "color_005": "#FFFFFF",
+                "color_006": "#FFFFFF",
+                "color_007": "#FFFFFF",
+                "color_008": "#FFFFFF",
+                "color_009": "#FFFFFF",
+                "color_010": "#FFFFFF",
+                "color_011": "#FFFFFF",
+                "color_012": "#FFFFFF",
+                "color_013": "#FFFFFF",
+                "color_014": "#FFFFFF",
+                "color_015": "#FFFFFF",
+                "color_016": "#FFFFFF",
+                "color_017": "#FFFFFF",
+                "color_018": "#FFFFFF",
+                "color_019": "#FFFFFF",
+                "color_020": "#FFFFFF",
+                "color_021": "#FFFFFF",
+                "color_022": "#FFFFFF",
+                "color_023": "#FFFFFF",
+                "color_024": "#FFFFFF",
+                "color_025": "#FFFFFF",
+                "color_026": "#1E2538",
+                "backgroundColor_027": "#00000000",
+                "backgroundColor_028": "#00000000",
+                "backgroundColor_029": "#00000000",
+                "backgroundColor_030": "#00000000",
+                "backgroundColor_031": "#00000000",
+                "backgroundColor_032": "#00000000",
+                "backgroundColor_033": "#00000000",
+                "backgroundColor_034": "#00000000",
+                "backgroundColor_035": "#00000000",
+                "backgroundColor_036": "#00000000",
+                "backgroundColor_037": "#00000000",
+                "color_038": "#FFFFFF",
+                "color_039": "#FFFFFF",
+                "walletGradientStart": "#15A0A0",
+                "walletGradientEnd": "#50E8E8",
+                "walletOnCard": "#FFFFFF",
+                "tobankGradientStart": "#EF3A55",
+                "tobankGradientEnd": "#FF5F87",
+                "tobankOnCard": "#FFFFFF",
+                "thirdPartyGradientStart": "#1FA3E3",
+                "thirdPartyGradientEnd": "#83DBF8",
+                "thirdPartyOnCard": "#FFFFFF",
+                "blockedGradientStart": "#B9B9B9",
+                "blockedGradientEnd": "#8F8F8F",
+                "blockedOnCard": "#FFFFFF",
+                "blockedIcon": "#1E2538"
+            },
+            "flows__dashboard__inline_dart__cards_management_screen": {
+                "color_001": "#FFFFFF",
+                "color_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "color_004": "#FFFFFF",
+                "color_005": "#FFFFFF",
+                "color_006": "#FFFFFF",
+                "color_007": "#FFFFFF",
+                "color_008": "#FFFFFF",
+                "color_009": "#FFFFFF",
+                "color_010": "#FFFFFF66",
+                "color_011": "#FFFFFF",
+                "color_012": "#FFFFFF",
+                "color_013": "#FFFFFF",
+                "color_014": "#FFFFFF",
+                "color_015": "#FFFFFF",
+                "color_016": "#FFFFFF",
+                "color_017": "#FFFFFF66",
+                "color_018": "#FFFFFF",
+                "color_019": "#FFFFFF",
+                "color_020": "#FFFFFF",
+                "color_021": "#FFFFFF",
+                "color_022": "#FFFFFF",
+                "color_023": "#FFFFFF",
+                "color_024": "#1E2538"
+            },
+            "flows__dashboard__dart__card_management__pin__primary_pin_result_screen": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047"
+            },
+            "flows__dashboard__dart__card_management__pin__secondary_pin_receipt_screen": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047",
+                "color_003": "#43A047"
+            },
+            "flows__dashboard__dart__card_management__reissue__reissue_receipt_screen": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047"
+            },
+            "flows__dashboard__dart__card_management__reissue__reissue_select_card_color_screen": {
+                "color_001": "#1E1E1E",
+                "color_002": "#FFFFFF",
+                "color_003": "#FFFFFF"
+            },
+            "flows__charge__dart__charge_add_sim": {
+                "color_001": "#98A2B3",
+                "backgroundColor_002": "#8B63708C",
+                "backgroundColor_003": "#8B63708C",
+                "backgroundColor_004": "#8B63708C",
+                "backgroundColor_005": "#D0D5DD",
+                "foregroundColor_006": "#98A2B3",
+                "color_007": "#98A2B3",
+                "color_008": "#D0D5DD",
+                "color_009": "#20C4D8",
+                "color_010": "#FFFFFF",
+                "color_011": "#20C4D8",
+                "color_012": "#D0D5DD",
+                "color_013": "#20C4D8",
+                "color_014": "#FFFFFF",
+                "color_015": "#20C4D8",
+                "color_016": "#2B8BFA",
+                "color_017": "#FFCD29",
+                "color_018": "#FFFFFF"
+            },
+            "flows__charge__dart__charge_intro": {
+                "backgroundColor_001": "#8B63708C",
+                "color_002": "#D0D5DD",
+                "color_003": "#98A2B3",
+                "color_004": "#98A2B3",
+                "color_005": "#EAECF0",
+                "color_006": "#C4C4C4",
+                "color_007": "#EAFBFD",
+                "color_008": "#20C4D8",
+                "backgroundColor_009": "#8B63708C",
+                "backgroundColor_010": "#8B63708C",
+                "color_011": "#D0D5DD",
+                "color_012": "#E31D35",
+                "color_013": "#E31D35",
+                "color_014": "#D0D5DD",
+                "color_015": "#8B63708C"
+            },
+            "flows__charge__dart__charge_package_list": {
+                "backgroundColor_001": "#8B63708C",
+                "color_002": "#D0D5DD",
+                "color_003": "#98A2B3",
+                "color_004": "#98A2B3",
+                "color_005": "#EAECF0",
+                "color_006": "#C4C4C4",
+                "color_007": "#EAFBFD",
+                "color_008": "#20C4D8"
+            },
+            "flows__charge__dart__charge_payment": {
+                "color_001": "#F2F4F7",
+                "color_002": "#20C4D8",
+                "color_003": "#E5E7EB",
+                "color_004": "#E31D35",
+                "color_005": "#FFFFFF",
+                "color_006": "#F4FDFF",
+                "color_007": "#20C4D8"
+            },
+            "flows__charge__dart__charge_payment_success": {
+                "color_001": "#E7F7ED",
+                "color_002": "#BFEFD0",
+                "color_003": "#24B76A",
+                "color_004": "#FFFFFF",
+                "color_005": "#17945A",
+                "color_006": "#E5E7EB"
+            },
+            "flows__charge__inline_dart__charge_add_sim": {
+                "color_001": "#98A2B3",
+                "backgroundColor_002": "#8B63708C",
+                "backgroundColor_003": "#8B63708C",
+                "backgroundColor_004": "#8B63708C",
+                "backgroundColor_005": "#D0D5DD",
+                "foregroundColor_006": "#98A2B3",
+                "color_007": "#98A2B3",
+                "color_008": "#D0D5DD",
+                "color_009": "#20C4D8",
+                "color_010": "#FFFFFF",
+                "color_011": "#20C4D8",
+                "color_012": "#D0D5DD",
+                "color_013": "#20C4D8",
+                "color_014": "#FFFFFF",
+                "color_015": "#20C4D8",
+                "color_016": "#2B8BFA",
+                "color_017": "#FFCD29",
+                "color_018": "#FFFFFF"
+            },
+            "flows__charge__inline_dart__charge_intro": {
+                "backgroundColor_001": "#8B63708C",
+                "color_002": "#D0D5DD",
+                "color_003": "#98A2B3",
+                "color_004": "#98A2B3",
+                "color_005": "#EAECF0",
+                "color_006": "#C4C4C4",
+                "color_007": "#EAFBFD",
+                "color_008": "#20C4D8",
+                "backgroundColor_009": "#8B63708C",
+                "backgroundColor_010": "#8B63708C",
+                "color_011": "#D0D5DD",
+                "color_012": "#E31D35",
+                "color_013": "#E31D35",
+                "color_014": "#D0D5DD",
+                "color_015": "#8B63708C"
+            },
+            "flows__charge__inline_dart__charge_package_list": {
+                "backgroundColor_001": "#8B63708C",
+                "color_002": "#D0D5DD",
+                "color_003": "#98A2B3",
+                "color_004": "#98A2B3",
+                "color_005": "#EAECF0",
+                "color_006": "#C4C4C4",
+                "color_007": "#EAFBFD",
+                "color_008": "#20C4D8"
+            },
+            "flows__charge__inline_dart__charge_payment": {
+                "color_001": "#F2F4F7",
+                "color_002": "#20C4D8",
+                "color_003": "#E5E7EB",
+                "color_004": "#E31D35",
+                "color_005": "#FFFFFF",
+                "color_006": "#F4FDFF",
+                "color_007": "#20C4D8"
+            },
+            "flows__charge__inline_dart__charge_payment_success": {
+                "color_001": "#E7F7ED",
+                "color_002": "#BFEFD0",
+                "color_003": "#24B76A",
+                "color_004": "#FFFFFF",
+                "color_005": "#17945A",
+                "color_006": "#E5E7EB"
+            },
+            "flows__charge__inline_dart__widgets__charge_widgets": {
+                "color_001": "#FBE4E6"
+            },
+            "flows__charge__dart__widgets__charge_widgets": {
+                "color_001": "#FBE4E6"
+            }
+        }
+    },
+    "dark": {
+        "button": {
+            "primary": {
+                "backgroundColor": "#d61f2c",
+                "foregroundColor": "#ffffff"
+            }
+        },
+        "text": {
+            "title": "#f9fafb",
+            "subtitle": "#BFCCE0",
+            "hint": "#98a2b3",
+            "onPrimary": "#ffffff",
+            "inverse": "#101828"
+        },
+        "input": {
+            "hint": "#98a2b3",
+            "borderEnabled": "#475467",
+            "borderFocused": "#f9fafb"
+        },
+        "background": {
+            "surface": "#101828",
+            "onSurface": "#f9fafb",
+            "onSurfaceVariant": "#98a2b3",
+            "surfaceContainerLowest": "#0c111d",
+            "surfaceContainerLow": "#161b26",
+            "surfaceContainer": "#1d2939",
+            "surfaceContainerHigh": "#344054"
+        },
+        "primary": {
+            "color": "#d61f2c",
+            "onPrimary": "#ffffff",
+            "onPrimaryContainer": "#0fd61f2c"
+        },
+        "secondary": {
+            "color": "#00baba",
+            "onSecondary": "#66d6d6",
+            "secondaryContainer": "#0a00baba"
+        },
+        "tertiary": {
+            "color": "#f7941d",
+            "onTertiary": "#fcb900",
+            "onTertiaryContainer": "#fff9ea"
+        },
+        "base": {
+            "white": "#101828",
+            "staticWhite": "#ffffff",
+            "black": "#ffffff",
+            "green": "#039855"
+        },
+        "error": {
+            "color": "#f24a4d"
+        },
+        "success": {
+            "color": "#039855"
+        },
+        "warning": {
+            "color": "#f9a200"
+        },
+        "lightSecondery": {
+            "color": "#00babac9"
+        },
+        "brand": {
+            "primary": "#d61f2c"
+        },
+        "state": {
+            "error": "#f24a4d",
+            "success": "#039855",
+            "warning": "#f9a200",
+            "successContainer": "#123f2d",
+            "warningContainer": "#4b2e00"
+        },
+        "generated": {
+            "flows__verify_identity__json__verify_identity_rules": {
+                "foregroundColor_001": "#D61F2C",
+                "backgroundColor_002": "#FFFFFF",
+                "color_003": "#D61F2C",
+                "color_004": "#D61F2C"
+            },
+            "flows__verify_identity__json__verify_identity_signature": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__verify_identity__json__verify_identity_verify_otp": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__transfer__json__transfer_amount": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#00000000",
+                "color_004": "#00000000"
+            },
+            "flows__transfer__json__transfer_card_details": {
+                "color_001": "#FFFFFF",
+                "color_002": "#FFFFFF"
+            },
+            "flows__transfer__json__transfer_card_result": {
+                "color_001": "#12B76A"
+            },
+            "flows__transfer__json__transfer_confirm": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "foregroundColor_003": "#FFFFFF",
+                "backgroundColor_004": "#E31B2F",
+                "color_005": "#FFFFFF"
+            },
+            "flows__transfer__json__transfer_details": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C"
+            },
+            "flows__transfer__json__transfer_in_bank_confirm": {
+                "foregroundColor_001": "#FFFFFF",
+                "backgroundColor_002": "#E31B2F",
+                "color_003": "#FFFFFF"
+            },
+            "flows__transfer__json__transfer_in_bank_details": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C"
+            },
+            "flows__transfer__json__transfer_result": {
+                "color_001": "#12B76A"
+            },
+            "flows__transfer__json_upload__transfer_amount": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#00000000",
+                "color_004": "#00000000"
+            },
+            "flows__transfer__json_upload__transfer_card_details": {
+                "color_001": "#FFFFFF",
+                "color_002": "#FFFFFF"
+            },
+            "flows__transfer__json_upload__transfer_card_result": {
+                "color_001": "#12B76A"
+            },
+            "flows__transfer__json_upload__transfer_confirm": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "foregroundColor_003": "#FFFFFF",
+                "backgroundColor_004": "#E31B2F",
+                "color_005": "#FFFFFF"
+            },
+            "flows__transfer__json_upload__transfer_details": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C"
+            },
+            "flows__transfer__json_upload__transfer_in_bank_confirm": {
+                "foregroundColor_001": "#FFFFFF",
+                "backgroundColor_002": "#E31B2F",
+                "color_003": "#FFFFFF"
+            },
+            "flows__transfer__json_upload__transfer_in_bank_details": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C"
+            },
+            "flows__transfer__json_upload__transfer_result": {
+                "color_001": "#12B76A"
+            },
+            "flows__promissory_old__api__GET_promissory_rules": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__promissory_old__json__promissory_rules": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__promissory__json__promissory_issuer": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__promissory__json__promissory_payment": {
+                "color_001": "#000000"
+            },
+            "flows__promissory__json__promissory_payment_deposits": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000"
+            },
+            "flows__promissory__json__promissory_preview": {
+                "color_001": "#D32F2F",
+                "foregroundColor_002": "#FFFFFF",
+                "backgroundColor_003": "#D32F2F",
+                "color_004": "#FFFFFF",
+                "foregroundColor_005": "#D32F2F",
+                "backgroundColor_006": "#FFFFFF",
+                "color_007": "#D32F2F",
+                "color_008": "#D32F2F"
+            },
+            "flows__promissory__json__promissory_receiver": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "backgroundColor_003": "#00000000",
+                "backgroundColor_004": "#00000000",
+                "backgroundColor_005": "#00000000",
+                "backgroundColor_006": "#00000000"
+            },
+            "flows__promissory__json__promissory_rules": {
+                "color_001": "#FFFFFF",
+                "backgroundColor_002": "#00000000",
+                "backgroundColor_003": "#00000000"
+            },
+            "flows__promissory__json__promissory_sign": {
+                "color_001": "#D32F2F",
+                "color_002": "#000000",
+                "backgroundColor_003": "#00000000",
+                "backgroundColor_004": "#00000000",
+                "backgroundColor_005": "#00000000"
+            },
+            "flows__promissory__json_upload__promissory_receiver": {
+                "backgroundColor_001": "#D32F2F",
+                "backgroundColor_002": "#D32F2F",
+                "backgroundColor_003": "#D32F2F"
+            },
+            "flows__promissory__json_upload__promissory_rules": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__profile__json__profile_change_password": {
+                "color_001": "#A4A7AC",
+                "color_002": "#F4F4F5"
+            },
+            "flows__profile__json__profile_contact": {
+                "color_001": "#FDF3F4",
+                "color_002": "#FDF3F4",
+                "color_003": "#FDF3F4",
+                "color_004": "#FDF3F4",
+                "color_005": "#FDF3F4",
+                "color_006": "#FDF3F4"
+            },
+            "flows__profile__json__profile_destinations": {
+                "color_001": "#9F000000",
+                "color_002": "#668790A3"
+            },
+            "flows__profile__json__profile_intro": {
+                "color_001": "#F2F4F7",
+                "color_002": "#FFFFFF",
+                "color_003": "#D0D5DD"
+            },
+            "flows__profile__json__profile_invite_friends": {
+                "color_001": "#33D61F2C"
+            },
+            "flows__package__json__package_add_sim": {
+                "color_001": "#98A2B3",
+                "foregroundColor_002": "#98A2B3",
+                "backgroundColor_003": "#D0D5DD",
+                "color_004": "#98A2B3",
+                "color_005": "#2B8BFA",
+                "color_006": "#FFCD29",
+                "color_007": "#FFFFFF",
+                "backgroundColor_008": "#8B63708C",
+                "color_009": "#D0D5DD",
+                "color_010": "#20C4D8",
+                "color_011": "#20C4D8",
+                "color_012": "#FFFFFF",
+                "color_013": "#20C4D8",
+                "color_014": "#FFFFFF",
+                "color_015": "#20C4D8",
+                "color_016": "#20C4D8",
+                "color_017": "#FFFFFF",
+                "color_018": "#20C4D8",
+                "color_019": "#FFFFFF",
+                "color_020": "#20C4D8",
+                "color_021": "#20C4D8",
+                "color_022": "#FFFFFF",
+                "color_023": "#20C4D8",
+                "color_024": "#FFFFFF",
+                "color_025": "#D0D5DD",
+                "color_026": "#20C4D8",
+                "color_027": "#20C4D8",
+                "color_028": "#FFFFFF",
+                "color_029": "#20C4D8",
+                "color_030": "#FFFFFF",
+                "color_031": "#20C4D8",
+                "color_032": "#20C4D8",
+                "color_033": "#FFFFFF",
+                "color_034": "#20C4D8",
+                "color_035": "#FFFFFF",
+                "backgroundColor_036": "#8B63708C",
+                "backgroundColor_037": "#8B63708C"
+            },
+            "flows__package__json__package_intro": {
+                "color_001": "#FBE4E6",
+                "color_002": "#D0D5DD",
+                "color_003": "#D0D5DD",
+                "backgroundColor_004": "#8B63708C",
+                "color_005": "#E31D35",
+                "color_006": "#E31D35",
+                "backgroundColor_007": "#8B63708C",
+                "color_008": "#D0D5DD",
+                "color_009": "#D0D5DD",
+                "backgroundColor_010": "#8B63708C",
+                "color_011": "#E31D35",
+                "color_012": "#E31D35",
+                "backgroundColor_013": "#8B63708C",
+                "color_014": "#D0D5DD",
+                "color_015": "#D0D5DD",
+                "backgroundColor_016": "#8B63708C",
+                "color_017": "#E31D35",
+                "color_018": "#E31D35",
+                "backgroundColor_019": "#8B63708C",
+                "color_020": "#8B63708C"
+            },
+            "flows__package__json__package_package_list": {
+                "color_001": "#EAFBFD",
+                "color_002": "#20C4D8",
+                "color_003": "#F4FDFF",
+                "color_004": "#20C4D8",
+                "color_005": "#F4FDFF",
+                "color_006": "#20C4D8",
+                "color_007": "#F4FDFF",
+                "color_008": "#20C4D8",
+                "color_009": "#F4FDFF",
+                "color_010": "#20C4D8",
+                "color_011": "#F4FDFF",
+                "color_012": "#20C4D8",
+                "color_013": "#F4FDFF",
+                "color_014": "#20C4D8",
+                "color_015": "#F4FDFF",
+                "color_016": "#20C4D8",
+                "color_017": "#F4FDFF",
+                "color_018": "#20C4D8",
+                "color_019": "#F4FDFF",
+                "color_020": "#20C4D8",
+                "color_021": "#F4FDFF",
+                "color_022": "#20C4D8",
+                "color_023": "#F4FDFF",
+                "color_024": "#20C4D8",
+                "color_025": "#F4FDFF",
+                "color_026": "#20C4D8",
+                "color_027": "#F4FDFF",
+                "color_028": "#20C4D8",
+                "color_029": "#F4FDFF",
+                "color_030": "#20C4D8",
+                "color_031": "#F4FDFF",
+                "color_032": "#20C4D8",
+                "color_033": "#F4FDFF",
+                "color_034": "#20C4D8",
+                "color_035": "#F4FDFF",
+                "color_036": "#20C4D8",
+                "color_037": "#F4FDFF",
+                "color_038": "#20C4D8",
+                "foregroundColor_039": "#667085",
+                "backgroundColor_040": "#D0D5DD",
+                "color_041": "#667085"
+            },
+            "flows__package__json__package_payment": {
+                "color_001": "#F2F4F7",
+                "color_002": "#F4FDFF",
+                "color_003": "#20C4D8",
+                "color_004": "#20C4D8",
+                "color_005": "#E5E7EB",
+                "color_006": "#13A780",
+                "color_007": "#13A780",
+                "color_008": "#20C4D8",
+                "color_009": "#E5E7EB",
+                "color_010": "#13A780",
+                "color_011": "#13A780",
+                "color_012": "#F4FDFF",
+                "color_013": "#20C4D8",
+                "color_014": "#20C4D8",
+                "color_015": "#E5E7EB",
+                "color_016": "#E31D35",
+                "color_017": "#E31D35",
+                "color_018": "#E31D35",
+                "color_019": "#FFFFFF",
+                "color_020": "#20C4D8",
+                "color_021": "#E5E7EB",
+                "color_022": "#E31D35",
+                "color_023": "#E31D35",
+                "color_024": "#E31D35",
+                "color_025": "#FFFFFF",
+                "color_026": "#F4FDFF",
+                "color_027": "#20C4D8",
+                "color_028": "#20C4D8",
+                "color_029": "#E5E7EB",
+                "color_030": "#13A780",
+                "color_031": "#13A780",
+                "color_032": "#20C4D8",
+                "color_033": "#E5E7EB",
+                "color_034": "#13A780",
+                "color_035": "#13A780",
+                "foregroundColor_036": "#98A2B3",
+                "backgroundColor_037": "#D0D5DD",
+                "color_038": "#98A2B3"
+            },
+            "flows__package__json__package_payment_success": {
+                "color_001": "#E7F7ED",
+                "color_002": "#BFEFD0",
+                "color_003": "#24B76A",
+                "color_004": "#FFFFFF",
+                "color_005": "#17945A",
+                "color_006": "#E5E7EB",
+                "color_007": "#E5E7EB",
+                "color_008": "#E5E7EB",
+                "color_009": "#E5E7EB",
+                "color_010": "#E5E7EB"
+            },
+            "flows__notification__json__notification_intro": {
+                "color_001": "#D32F2F",
+                "color_002": "#D0D5DD",
+                "backgroundColor_003": "#00000000",
+                "color_004": "#D32F2F",
+                "color_005": "#D0D5DD",
+                "backgroundColor_006": "#00000000",
+                "color_007": "#D32F2F",
+                "color_008": "#D0D5DD",
+                "backgroundColor_009": "#00000000",
+                "color_010": "#D32F2F",
+                "color_011": "#D0D5DD",
+                "backgroundColor_012": "#00000000",
+                "color_013": "#D32F2F",
+                "color_014": "#D0D5DD",
+                "backgroundColor_015": "#00000000",
+                "color_016": "#D32F2F",
+                "color_017": "#D0D5DD",
+                "backgroundColor_018": "#00000000",
+                "color_019": "#D32F2F",
+                "color_020": "#D0D5DD",
+                "backgroundColor_021": "#00000000",
+                "color_022": "#D32F2F",
+                "color_023": "#D0D5DD",
+                "backgroundColor_024": "#00000000",
+                "color_025": "#D32F2F",
+                "color_026": "#D0D5DD",
+                "backgroundColor_027": "#00000000"
+            },
+            "flows__notification__json_upload__notification_intro": {
+                "color_001": "#D32F2F",
+                "color_002": "#D0D5DD",
+                "backgroundColor_003": "#00000000",
+                "color_004": "#D32F2F",
+                "color_005": "#D0D5DD",
+                "backgroundColor_006": "#00000000",
+                "color_007": "#D32F2F",
+                "color_008": "#D0D5DD",
+                "backgroundColor_009": "#00000000",
+                "color_010": "#D32F2F",
+                "color_011": "#D0D5DD",
+                "backgroundColor_012": "#00000000",
+                "color_013": "#D32F2F",
+                "color_014": "#D0D5DD",
+                "backgroundColor_015": "#00000000",
+                "color_016": "#D32F2F",
+                "color_017": "#D0D5DD",
+                "backgroundColor_018": "#00000000",
+                "color_019": "#D32F2F",
+                "color_020": "#D0D5DD",
+                "backgroundColor_021": "#00000000",
+                "color_022": "#D32F2F",
+                "color_023": "#D0D5DD",
+                "backgroundColor_024": "#00000000",
+                "color_025": "#D32F2F",
+                "color_026": "#D0D5DD",
+                "backgroundColor_027": "#00000000"
+            },
+            "flows__login__json__login_splash": {
+                "color_001": "#1A000000"
+            },
+            "flows__home_page__api__GET_tobank_home_page_dart": {
+                "color_001": "#141B1F44",
+                "color_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "color_004": "#FFFFFF",
+                "color_005": "#0A101828",
+                "color_006": "#FFFFFF",
+                "color_007": "#FFFFFF",
+                "color_008": "#FFFFFF",
+                "color_009": "#FFFFFF",
+                "color_010": "#0A101828",
+                "color_011": "#FFFFFF",
+                "color_012": "#FFFFFF",
+                "color_013": "#FFFFFF",
+                "color_014": "#FFFFFF",
+                "color_015": "#0A101828",
+                "color_016": "#FFFFFF",
+                "color_017": "#FFFFFF",
+                "color_018": "#FFFFFF",
+                "color_019": "#FFFFFF",
+                "color_020": "#0A101828",
+                "color_021": "#FFFFFF",
+                "color_022": "#FFFFFF",
+                "color_023": "#FFFFFF",
+                "color_024": "#FFFFFF",
+                "color_025": "#0A101828",
+                "color_026": "#FFFFFF",
+                "color_027": "#FFFFFF",
+                "color_028": "#FFFFFF",
+                "color_029": "#FFFFFF",
+                "color_030": "#0A101828",
+                "color_031": "#FFFFFF",
+                "color_032": "#FFFFFF",
+                "color_033": "#FFFFFF",
+                "color_034": "#FFFFFF",
+                "foregroundColor_035": "#FFFFFF",
+                "backgroundColor_036": "#E31A2F",
+                "color_037": "#FFFFFF",
+                "color_038": "#FFFFFF",
+                "color_039": "#1F101828",
+                "walletGradientStart": "#15A0A0",
+                "walletGradientEnd": "#50E8E8",
+                "walletShadow": "#141B1F44",
+                "walletOnCard": "#FFFFFF",
+                "bankCardGradientStart": "#EE3E62",
+                "bankCardGradientEnd": "#FD6F8E",
+                "bankCardShadow": "#0A101828",
+                "bankCardOnCard": "#FFFFFF",
+                "cardsAddButtonBackground": "#FFFFFF",
+                "cardsAddButtonShadow": "#1F101828"
+            },
+            "flows__home_page__api__GET_tobank_special_services_page": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#E31A2F",
+                "color_004": "#FFFFFF",
+                "backgroundColor_005": "#00000000",
+                "color_006": "#E31A2F",
+                "color_007": "#FFFFFF",
+                "backgroundColor_008": "#00000000",
+                "backgroundColor_009": "#00000000",
+                "color_010": "#E31A2F",
+                "color_011": "#FFFFFF",
+                "backgroundColor_012": "#00000000",
+                "color_013": "#E31A2F",
+                "color_014": "#FFFFFF",
+                "backgroundColor_015": "#E31A2F",
+                "foregroundColor_016": "#FFFFFF",
+                "color_017": "#FFFFFF"
+            },
+            "flows__home_page__json__tobank_home_page_dart": {
+                "color_001": "#141B1F44",
+                "color_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "color_004": "#FFFFFF",
+                "color_005": "#0A101828",
+                "color_006": "#FFFFFF",
+                "color_007": "#FFFFFF",
+                "color_008": "#FFFFFF",
+                "color_009": "#FFFFFF",
+                "color_010": "#0A101828",
+                "color_011": "#FFFFFF",
+                "color_012": "#FFFFFF",
+                "color_013": "#FFFFFF",
+                "color_014": "#FFFFFF",
+                "color_015": "#0A101828",
+                "color_016": "#FFFFFF",
+                "color_017": "#FFFFFF",
+                "color_018": "#FFFFFF",
+                "color_019": "#FFFFFF",
+                "color_020": "#0A101828",
+                "color_021": "#FFFFFF",
+                "color_022": "#FFFFFF",
+                "color_023": "#FFFFFF",
+                "color_024": "#FFFFFF",
+                "color_025": "#0A101828",
+                "color_026": "#FFFFFF",
+                "color_027": "#FFFFFF",
+                "color_028": "#FFFFFF",
+                "color_029": "#FFFFFF",
+                "color_030": "#0A101828",
+                "color_031": "#FFFFFF",
+                "color_032": "#FFFFFF",
+                "color_033": "#FFFFFF",
+                "color_034": "#FFFFFF",
+                "foregroundColor_035": "#FFFFFF",
+                "backgroundColor_036": "#E31A2F",
+                "color_037": "#FFFFFF",
+                "color_038": "#FFFFFF",
+                "color_039": "#1F101828",
+                "walletGradientStart": "#15A0A0",
+                "walletGradientEnd": "#50E8E8",
+                "walletShadow": "#141B1F44",
+                "walletOnCard": "#FFFFFF",
+                "bankCardGradientStart": "#EE3E62",
+                "bankCardGradientEnd": "#FD6F8E",
+                "bankCardShadow": "#0A101828",
+                "bankCardOnCard": "#FFFFFF",
+                "cardsAddButtonBackground": "#FFFFFF",
+                "cardsAddButtonShadow": "#1F101828"
+            },
+            "flows__home_page__json__tobank_special_services_page": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "backgroundColor_003": "#00000000",
+                "backgroundColor_004": "#00000000",
+                "backgroundColor_005": "#00000000",
+                "foregroundColor_006": "#FFFFFF",
+                "backgroundColor_007": "#E31A2F",
+                "color_008": "#FFFFFF",
+                "backgroundColor_009": "#00000000",
+                "backgroundColor_010": "#00000000"
+            },
+            "flows__gift_card__api_json__gift_card_custom_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000",
+                "color_005": "#F7FAFD",
+                "color_006": "#F7FAFD",
+                "color_007": "#F7FAFD",
+                "color_008": "#000000",
+                "color_009": "#000000",
+                "color_010": "#F7FAFD",
+                "color_011": "#F7FAFD",
+                "color_012": "#000000",
+                "color_013": "#000000"
+            },
+            "flows__gift_card__api_json__gift_card_custom_select_design": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#F7FAFD",
+                "color_004": "#F7FAFD",
+                "color_005": "#F7FAFD",
+                "color_006": "#F7FAFD",
+                "color_007": "#F7FAFD",
+                "color_008": "#F7FAFD"
+            },
+            "flows__gift_card__api_json__gift_card_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000"
+            },
+            "flows__gift_card__api_json__gift_card_image_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD"
+            },
+            "flows__gift_card__api_json__gift_card_select_design": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#F7FAFD",
+                "color_004": "#F7FAFD",
+                "color_005": "#F7FAFD",
+                "color_006": "#F7FAFD",
+                "color_007": "#F7FAFD",
+                "color_008": "#F7FAFD"
+            },
+            "flows__gift_card__json__gift_card_confirm": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__gift_card__json__gift_card_custom_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000",
+                "color_005": "#F7FAFD",
+                "color_006": "#F7FAFD",
+                "color_007": "#F7FAFD",
+                "color_008": "#000000",
+                "color_009": "#000000",
+                "color_010": "#F7FAFD",
+                "color_011": "#F7FAFD",
+                "color_012": "#000000",
+                "color_013": "#000000"
+            },
+            "flows__gift_card__json__gift_card_custom_select_design": {
+                "color_001": "#F7FAFD",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#F7FAFD",
+                "backgroundColor_004": "#00000000",
+                "color_005": "#F7FAFD",
+                "backgroundColor_006": "#00000000",
+                "color_007": "#F7FAFD",
+                "backgroundColor_008": "#00000000",
+                "color_009": "#F7FAFD",
+                "backgroundColor_010": "#00000000",
+                "color_011": "#F7FAFD",
+                "backgroundColor_012": "#00000000",
+                "color_013": "#F7FAFD",
+                "backgroundColor_014": "#00000000",
+                "color_015": "#F7FAFD",
+                "backgroundColor_016": "#00000000"
+            },
+            "flows__gift_card__json__gift_card_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000"
+            },
+            "flows__gift_card__json__gift_card_image_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD"
+            },
+            "flows__gift_card__json__gift_card_intro": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__gift_card__json__gift_card_message": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__gift_card__json__gift_card_receiver_info": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "backgroundColor_003": "#00000000"
+            },
+            "flows__gift_card__json__gift_card_select_amount": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "backgroundColor_003": "#00000000",
+                "backgroundColor_004": "#00000000",
+                "backgroundColor_005": "#00000000"
+            },
+            "flows__gift_card__json__gift_card_select_design": {
+                "color_001": "#F7FAFD",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#F7FAFD",
+                "backgroundColor_004": "#00000000",
+                "color_005": "#F7FAFD",
+                "backgroundColor_006": "#00000000",
+                "color_007": "#F7FAFD",
+                "backgroundColor_008": "#00000000",
+                "color_009": "#F7FAFD",
+                "backgroundColor_010": "#00000000",
+                "color_011": "#F7FAFD",
+                "backgroundColor_012": "#00000000",
+                "color_013": "#F7FAFD",
+                "backgroundColor_014": "#00000000",
+                "color_015": "#F7FAFD",
+                "backgroundColor_016": "#00000000"
+            },
+            "flows__gift_card__json_upload__gift_card_confirm": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__gift_card__json_upload__gift_card_custom_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000",
+                "color_005": "#F7FAFD",
+                "color_006": "#F7FAFD",
+                "color_007": "#F7FAFD",
+                "color_008": "#000000",
+                "color_009": "#000000",
+                "color_010": "#F7FAFD",
+                "color_011": "#F7FAFD",
+                "color_012": "#000000",
+                "color_013": "#000000"
+            },
+            "flows__gift_card__json_upload__gift_card_custom_select_design": {
+                "color_001": "#F7FAFD",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#F7FAFD",
+                "backgroundColor_004": "#00000000",
+                "color_005": "#F7FAFD",
+                "backgroundColor_006": "#00000000",
+                "color_007": "#F7FAFD",
+                "backgroundColor_008": "#00000000",
+                "color_009": "#F7FAFD",
+                "backgroundColor_010": "#00000000",
+                "color_011": "#F7FAFD",
+                "backgroundColor_012": "#00000000",
+                "color_013": "#F7FAFD",
+                "backgroundColor_014": "#00000000",
+                "color_015": "#F7FAFD",
+                "backgroundColor_016": "#00000000"
+            },
+            "flows__gift_card__json_upload__gift_card_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000"
+            },
+            "flows__gift_card__json_upload__gift_card_image_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD"
+            },
+            "flows__gift_card__json_upload__gift_card_intro": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__gift_card__json_upload__gift_card_message": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__gift_card__json_upload__gift_card_receiver_info": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "backgroundColor_003": "#00000000"
+            },
+            "flows__gift_card__json_upload__gift_card_select_amount": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "backgroundColor_003": "#00000000",
+                "backgroundColor_004": "#00000000",
+                "backgroundColor_005": "#00000000"
+            },
+            "flows__gift_card__json_upload__gift_card_select_design": {
+                "color_001": "#F7FAFD",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#F7FAFD",
+                "backgroundColor_004": "#00000000",
+                "color_005": "#F7FAFD",
+                "backgroundColor_006": "#00000000",
+                "color_007": "#F7FAFD",
+                "backgroundColor_008": "#00000000",
+                "color_009": "#F7FAFD",
+                "backgroundColor_010": "#00000000",
+                "color_011": "#F7FAFD",
+                "backgroundColor_012": "#00000000",
+                "color_013": "#F7FAFD",
+                "backgroundColor_014": "#00000000",
+                "color_015": "#F7FAFD",
+                "backgroundColor_016": "#00000000"
+            },
+            "flows__deposit_turnover__json__deposit_turnover_intro": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000"
+            },
+            "flows__deposit_turnover__json_upload__deposit_turnover_intro": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000"
+            },
+            "flows__deposit_more__json__deposit_card_issue_result": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047"
+            },
+            "flows__deposit_more__json__deposit_close_confirm": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__deposit_more__json__deposit_close_selector": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__deposit_more__json_upload__deposit_card_issue_result": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047"
+            },
+            "flows__deposit_more__json_upload__deposit_close_confirm": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__deposit_more__json_upload__deposit_close_selector": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__dashboard__json__dashboard_cards_management": {
+                "color_001": "#FFFFFF",
+                "color_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "color_004": "#FFFFFF",
+                "color_005": "#FFFFFF",
+                "color_006": "#FFFFFF",
+                "color_007": "#FFFFFF",
+                "color_008": "#FFFFFF",
+                "color_009": "#FFFFFF",
+                "color_010": "#FFFFFF",
+                "color_011": "#FFFFFF",
+                "color_012": "#FFFFFF",
+                "color_013": "#FFFFFF",
+                "backgroundColor_014": "#00000000",
+                "backgroundColor_015": "#00000000",
+                "color_016": "#FFFFFF",
+                "backgroundColor_017": "#00000000",
+                "color_018": "#FFFFFF",
+                "color_019": "#FFFFFF",
+                "color_020": "#FFFFFF",
+                "color_021": "#FFFFFF",
+                "color_022": "#FFFFFF",
+                "color_023": "#FFFFFF",
+                "backgroundColor_024": "#00000000",
+                "backgroundColor_025": "#00000000",
+                "color_026": "#FFFFFF",
+                "backgroundColor_027": "#00000000",
+                "color_028": "#FFFFFF",
+                "color_029": "#FFFFFF",
+                "color_030": "#FFFFFF",
+                "color_031": "#FFFFFF",
+                "color_032": "#FFFFFF",
+                "color_033": "#FFFFFF",
+                "color_034": "#FFFFFF",
+                "color_035": "#FFFFFF",
+                "color_036": "#FFFFFF",
+                "color_037": "#FFFFFF",
+                "color_038": "#FFFFFF",
+                "backgroundColor_039": "#00000000",
+                "backgroundColor_040": "#00000000",
+                "color_041": "#FFFFFF",
+                "backgroundColor_042": "#00000000",
+                "color_043": "#FFFFFF",
+                "color_044": "#FFFFFF",
+                "color_045": "#FFFFFF",
+                "color_046": "#FFFFFF",
+                "color_047": "#FFFFFF",
+                "color_048": "#FFFFFF",
+                "backgroundColor_049": "#00000000",
+                "backgroundColor_050": "#00000000",
+                "color_051": "#FFFFFF",
+                "backgroundColor_052": "#00000000",
+                "color_053": "#FFFFFF",
+                "color_054": "#FFFFFF",
+                "color_055": "#FFFFFF",
+                "color_056": "#FFFFFF",
+                "color_057": "#1E2538",
+                "backgroundColor_058": "#00000000",
+                "backgroundColor_059": "#00000000",
+                "backgroundColor_060": "#00000000",
+                "backgroundColor_061": "#00000000",
+                "backgroundColor_062": "#00000000",
+                "backgroundColor_063": "#00000000",
+                "backgroundColor_064": "#00000000",
+                "backgroundColor_065": "#00000000",
+                "backgroundColor_066": "#00000000",
+                "backgroundColor_067": "#00000000",
+                "backgroundColor_068": "#00000000",
+                "color_069": "#FF6D00",
+                "color_070": "#FFFFFF",
+                "color_071": "#FFFFFF",
+                "color_072": "#FFFFFF",
+                "backgroundColor_073": "#00000000",
+                "foregroundColor_074": "#FFFFFF",
+                "backgroundColor_075": "#D32F2F",
+                "backgroundColor_076": "#00000000",
+                "backgroundColor_077": "#00000000",
+                "backgroundColor_078": "#00000000",
+                "walletGradientStart": "#15A0A0",
+                "walletGradientEnd": "#50E8E8",
+                "walletOnCard": "#FFFFFF",
+                "tobankGradientStart": "#EF3A55",
+                "tobankGradientEnd": "#FF5F87",
+                "tobankOnCard": "#FFFFFF",
+                "thirdPartyGradientStart": "#1FA3E3",
+                "thirdPartyGradientEnd": "#83DBF8",
+                "thirdPartyOnCard": "#FFFFFF",
+                "blockedGradientStart": "#B9B9B9",
+                "blockedGradientEnd": "#8F8F8F",
+                "blockedOnCard": "#FFFFFF",
+                "blockedIcon": "#1E2538"
+            },
+            "flows__dashboard__json__dashboard_card_balance": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__dashboard__json__dashboard_card_edit": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__dashboard__json__dashboard_card_reissue_receipt": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047"
+            },
+            "flows__dashboard__json__dashboard_card_reissue_request": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__dashboard__json__dashboard_card_reissue_select_card_color": {
+                "color_001": "#1E1E1E",
+                "color_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "color_004": "#1E1E1E",
+                "color_005": "#8F8F8F",
+                "color_006": "#1FA3E3",
+                "color_007": "#E31A2F",
+                "color_008": "#43A047"
+            },
+            "flows__dashboard__json__dashboard_primary_pin_result": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047"
+            },
+            "flows__dashboard__json__dashboard_secondary_pin_result": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047",
+                "color_003": "#43A047",
+                "backgroundColor_004": "#00000000",
+                "backgroundColor_005": "#00000000"
+            },
+            "flows__dashboard__json__dashboard_shell": {
+                "color_001": "#F2F4F7",
+                "color_002": "#FFFFFF",
+                "color_003": "#D0D5DD",
+                "color_004": "#141B1F44",
+                "color_005": "#FFFFFF",
+                "color_006": "#FFFFFF",
+                "color_007": "#FFFFFF",
+                "color_008": "#0A101828",
+                "color_009": "#FFFFFF",
+                "color_010": "#FFFFFF",
+                "color_011": "#FFFFFF",
+                "color_012": "#FFFFFF",
+                "color_013": "#0A101828",
+                "color_014": "#FFFFFF",
+                "color_015": "#FFFFFF",
+                "color_016": "#FFFFFF",
+                "color_017": "#FFFFFF",
+                "color_018": "#0A101828",
+                "color_019": "#FFFFFF",
+                "color_020": "#FFFFFF",
+                "color_021": "#FFFFFF",
+                "color_022": "#FFFFFF",
+                "color_023": "#0A101828",
+                "color_024": "#FFFFFF",
+                "color_025": "#FFFFFF",
+                "color_026": "#FFFFFF",
+                "color_027": "#FFFFFF",
+                "color_028": "#0A101828",
+                "color_029": "#FFFFFF",
+                "color_030": "#FFFFFF",
+                "color_031": "#FFFFFF",
+                "color_032": "#FFFFFF",
+                "color_033": "#0A101828",
+                "color_034": "#FFFFFF",
+                "color_035": "#FFFFFF",
+                "color_036": "#FFFFFF",
+                "color_037": "#FFFFFF",
+                "foregroundColor_038": "#FFFFFF",
+                "backgroundColor_039": "#E31A2F",
+                "color_040": "#FFFFFF",
+                "color_041": "#FFFFFF",
+                "color_042": "#1F101828",
+                "walletGradientStart": "#15A0A0",
+                "walletGradientEnd": "#50E8E8",
+                "walletShadow": "#141B1F44",
+                "walletOnCard": "#FFFFFF",
+                "bankCardGradientStart": "#EE3E62",
+                "bankCardGradientEnd": "#FD6F8E",
+                "bankCardShadow": "#0A101828",
+                "bankCardOnCard": "#FFFFFF",
+                "cardsAddButtonShadow": "#1F101828"
+            },
+            "flows__dashboard__json__dashboard_wallet_transfer_receipt": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047",
+                "backgroundColor_003": "#00000000",
+                "backgroundColor_004": "#00000000"
+            },
+            "flows__charge__json__charge_add_sim": {
+                "color_001": "#98A2B3",
+                "foregroundColor_002": "#98A2B3",
+                "backgroundColor_003": "#D0D5DD",
+                "color_004": "#98A2B3",
+                "color_005": "#2B8BFA",
+                "color_006": "#FFCD29",
+                "color_007": "#FFFFFF",
+                "backgroundColor_008": "#8B63708C",
+                "color_009": "#D0D5DD",
+                "color_010": "#20C4D8",
+                "color_011": "#20C4D8",
+                "color_012": "#FFFFFF",
+                "color_013": "#20C4D8",
+                "color_014": "#FFFFFF",
+                "color_015": "#20C4D8",
+                "color_016": "#20C4D8",
+                "color_017": "#FFFFFF",
+                "color_018": "#20C4D8",
+                "color_019": "#FFFFFF",
+                "color_020": "#20C4D8",
+                "color_021": "#20C4D8",
+                "color_022": "#FFFFFF",
+                "color_023": "#20C4D8",
+                "color_024": "#FFFFFF",
+                "color_025": "#D0D5DD",
+                "color_026": "#20C4D8",
+                "color_027": "#20C4D8",
+                "color_028": "#FFFFFF",
+                "color_029": "#20C4D8",
+                "color_030": "#FFFFFF",
+                "color_031": "#20C4D8",
+                "color_032": "#20C4D8",
+                "color_033": "#FFFFFF",
+                "color_034": "#20C4D8",
+                "color_035": "#FFFFFF",
+                "backgroundColor_036": "#8B63708C",
+                "backgroundColor_037": "#8B63708C"
+            },
+            "flows__charge__json__charge_intro": {
+                "color_001": "#FBE4E6",
+                "color_002": "#D0D5DD",
+                "color_003": "#EAFBFD",
+                "color_004": "#20C4D8",
+                "color_005": "#EAFBFD",
+                "color_006": "#20C4D8",
+                "color_007": "#EAFBFD",
+                "color_008": "#20C4D8",
+                "color_009": "#EAFBFD",
+                "color_010": "#20C4D8",
+                "color_011": "#EAFBFD",
+                "color_012": "#20C4D8",
+                "color_013": "#98A2B3",
+                "color_014": "#98A2B3",
+                "color_015": "#EAECF0",
+                "color_016": "#C4C4C4",
+                "backgroundColor_017": "#8B63708C",
+                "color_018": "#D0D5DD",
+                "color_019": "#D0D5DD",
+                "backgroundColor_020": "#8B63708C",
+                "color_021": "#E31D35",
+                "color_022": "#E31D35",
+                "backgroundColor_023": "#8B63708C",
+                "color_024": "#D0D5DD",
+                "color_025": "#EAFBFD",
+                "color_026": "#20C4D8",
+                "color_027": "#EAFBFD",
+                "color_028": "#20C4D8",
+                "color_029": "#EAFBFD",
+                "color_030": "#20C4D8",
+                "color_031": "#EAFBFD",
+                "color_032": "#20C4D8",
+                "color_033": "#EAFBFD",
+                "color_034": "#20C4D8",
+                "color_035": "#98A2B3",
+                "color_036": "#98A2B3",
+                "color_037": "#EAECF0",
+                "color_038": "#C4C4C4",
+                "backgroundColor_039": "#8B63708C",
+                "color_040": "#D0D5DD",
+                "color_041": "#D0D5DD",
+                "backgroundColor_042": "#8B63708C",
+                "color_043": "#E31D35",
+                "color_044": "#E31D35",
+                "backgroundColor_045": "#8B63708C",
+                "color_046": "#D0D5DD",
+                "color_047": "#EAFBFD",
+                "color_048": "#20C4D8",
+                "color_049": "#EAFBFD",
+                "color_050": "#20C4D8",
+                "color_051": "#EAFBFD",
+                "color_052": "#20C4D8",
+                "color_053": "#EAFBFD",
+                "color_054": "#20C4D8",
+                "color_055": "#EAFBFD",
+                "color_056": "#20C4D8",
+                "color_057": "#98A2B3",
+                "color_058": "#98A2B3",
+                "color_059": "#EAECF0",
+                "color_060": "#C4C4C4",
+                "backgroundColor_061": "#8B63708C",
+                "color_062": "#D0D5DD",
+                "color_063": "#D0D5DD",
+                "backgroundColor_064": "#8B63708C",
+                "color_065": "#E31D35",
+                "color_066": "#E31D35",
+                "backgroundColor_067": "#8B63708C",
+                "color_068": "#8B63708C"
+            },
+            "flows__charge__json__charge_package_list": {
+                "color_001": "#D0D5DD",
+                "color_002": "#EAFBFD",
+                "color_003": "#20C4D8",
+                "color_004": "#EAFBFD",
+                "color_005": "#20C4D8",
+                "color_006": "#EAFBFD",
+                "color_007": "#20C4D8",
+                "color_008": "#EAFBFD",
+                "color_009": "#20C4D8",
+                "color_010": "#EAFBFD",
+                "color_011": "#20C4D8",
+                "color_012": "#98A2B3",
+                "color_013": "#98A2B3",
+                "color_014": "#EAECF0",
+                "color_015": "#C4C4C4",
+                "backgroundColor_016": "#8B63708C"
+            },
+            "flows__charge__json__charge_payment": {
+                "color_001": "#F2F4F7",
+                "color_002": "#F4FDFF",
+                "color_003": "#20C4D8",
+                "color_004": "#20C4D8",
+                "color_005": "#E5E7EB",
+                "color_006": "#13A780",
+                "color_007": "#13A780",
+                "color_008": "#20C4D8",
+                "color_009": "#E5E7EB",
+                "color_010": "#13A780",
+                "color_011": "#13A780",
+                "color_012": "#F4FDFF",
+                "color_013": "#20C4D8",
+                "color_014": "#20C4D8",
+                "color_015": "#E5E7EB",
+                "color_016": "#E31D35",
+                "color_017": "#E31D35",
+                "color_018": "#E31D35",
+                "color_019": "#FFFFFF",
+                "color_020": "#20C4D8",
+                "color_021": "#E5E7EB",
+                "color_022": "#E31D35",
+                "color_023": "#E31D35",
+                "color_024": "#E31D35",
+                "color_025": "#FFFFFF",
+                "color_026": "#F4FDFF",
+                "color_027": "#20C4D8",
+                "color_028": "#20C4D8",
+                "color_029": "#E5E7EB",
+                "color_030": "#13A780",
+                "color_031": "#13A780",
+                "color_032": "#20C4D8",
+                "color_033": "#E5E7EB",
+                "color_034": "#13A780",
+                "color_035": "#13A780",
+                "foregroundColor_036": "#98A2B3",
+                "backgroundColor_037": "#D0D5DD",
+                "color_038": "#98A2B3"
+            },
+            "flows__charge__json__charge_payment_success": {
+                "color_001": "#E7F7ED",
+                "color_002": "#BFEFD0",
+                "color_003": "#24B76A",
+                "color_004": "#FFFFFF",
+                "color_005": "#17945A",
+                "color_006": "#E5E7EB",
+                "color_007": "#E5E7EB",
+                "color_008": "#E5E7EB",
+                "color_009": "#E5E7EB",
+                "color_010": "#E5E7EB"
+            },
+            "flows__cartable__json__cartable_detail": {
+                "color_001": "#D3F2F4",
+                "color_002": "#33A8B2",
+                "color_003": "#D3F2F4",
+                "color_004": "#33A8B2",
+                "color_005": "#D3F2F4",
+                "color_006": "#33A8B2",
+                "color_007": "#DDF3E8",
+                "color_008": "#5DA181",
+                "color_009": "#DDF3E8",
+                "color_010": "#5DA181",
+                "color_011": "#DDF3E8",
+                "color_012": "#5DA181",
+                "color_013": "#DDF3E8",
+                "color_014": "#5DA181"
+            },
+            "flows__verify_identity__dart__verify_identity_job_selector": {
+                "color_001": "#D9DDE5"
+            },
+            "flows__verify_identity__dart__verify_identity_rules": {
+                "backgroundColor_001": "#FFFFFF",
+                "foregroundColor_002": "#D61F2C",
+                "color_003": "#D61F2C",
+                "color_004": "#D61F2C"
+            },
+            "flows__verify_identity__inline_dart__verify_identity_job_selector": {
+                "color_001": "#D9DDE5"
+            },
+            "flows__verify_identity__inline_dart__verify_identity_rules": {
+                "backgroundColor_001": "#FFFFFF",
+                "foregroundColor_002": "#D61F2C",
+                "color_003": "#D61F2C",
+                "color_004": "#D61F2C"
+            },
+            "flows__transfer__dart__transfer_amount": {
+                "color_001": "#00000000",
+                "color_002": "#00000000"
+            },
+            "flows__transfer__dart__transfer_card_details": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__transfer__dart__transfer_card_result": {
+                "color_001": "#12B76A"
+            },
+            "flows__transfer__dart__transfer_confirm": {
+                "backgroundColor_001": "#E31B2F",
+                "foregroundColor_002": "#FFFFFF",
+                "color_003": "#FFFFFF"
+            },
+            "flows__transfer__dart__transfer_details": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C"
+            },
+            "flows__transfer__dart__transfer_in_bank_confirm": {
+                "backgroundColor_001": "#E31B2F",
+                "foregroundColor_002": "#FFFFFF",
+                "color_003": "#FFFFFF"
+            },
+            "flows__transfer__dart__transfer_in_bank_details": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C"
+            },
+            "flows__transfer__dart__transfer_result": {
+                "color_001": "#12B76A"
+            },
+            "flows__transfer__inline_dart__transfer_amount": {
+                "color_001": "#00000000",
+                "color_002": "#00000000"
+            },
+            "flows__transfer__inline_dart__transfer_card_details": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__transfer__inline_dart__transfer_card_result": {
+                "color_001": "#12B76A"
+            },
+            "flows__transfer__inline_dart__transfer_confirm": {
+                "backgroundColor_001": "#E31B2F",
+                "foregroundColor_002": "#FFFFFF",
+                "color_003": "#FFFFFF"
+            },
+            "flows__transfer__inline_dart__transfer_details": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C"
+            },
+            "flows__transfer__inline_dart__transfer_in_bank_confirm": {
+                "backgroundColor_001": "#E31B2F",
+                "foregroundColor_002": "#FFFFFF",
+                "color_003": "#FFFFFF"
+            },
+            "flows__transfer__inline_dart__transfer_in_bank_details": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C"
+            },
+            "flows__transfer__inline_dart__transfer_result": {
+                "color_001": "#12B76A"
+            },
+            "flows__promissory_old__dart__promissory_rules": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__promissory_old__inline_dart__promissory_rules": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__promissory__dart__promissory_issuer_screen": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__promissory__dart__promissory_payment_screen": {
+                "color_001": "#000000"
+            },
+            "flows__promissory__dart__promissory_preview_screen": {
+                "backgroundColor_001": "#D32F2F",
+                "foregroundColor_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "backgroundColor_004": "#FFFFFF",
+                "foregroundColor_005": "#D32F2F",
+                "color_006": "#D32F2F",
+                "color_007": "#D32F2F"
+            },
+            "flows__promissory__dart__promissory_rules": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__promissory__dart__promissory_sign_screen": {
+                "color_001": "#000000"
+            },
+            "flows__promissory__inline_dart__promissory_issuer_screen": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__promissory__inline_dart__promissory_payment_screen": {
+                "color_001": "#000000"
+            },
+            "flows__promissory__inline_dart__promissory_preview_screen": {
+                "backgroundColor_001": "#D32F2F",
+                "foregroundColor_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "backgroundColor_004": "#FFFFFF",
+                "foregroundColor_005": "#D32F2F",
+                "color_006": "#D32F2F",
+                "color_007": "#D32F2F"
+            },
+            "flows__promissory__inline_dart__promissory_rules": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__promissory__inline_dart__promissory_sign_screen": {
+                "color_001": "#000000"
+            },
+            "flows__profile__dart__profile_change_password": {
+                "color_001": "#A4A7AC",
+                "color_002": "#F4F4F5"
+            },
+            "flows__profile__dart__profile_contact": {
+                "color_001": "#FDF3F4"
+            },
+            "flows__profile__dart__profile_destinations": {
+                "color_001": "#9F000000",
+                "color_002": "#668790A3"
+            },
+            "flows__profile__dart__profile_intro": {
+                "color_001": "#F2F4F7",
+                "color_002": "#FFFFFF",
+                "color_003": "#D0D5DD"
+            },
+            "flows__profile__dart__profile_invite_friends": {
+                "color_001": "#33D61F2C"
+            },
+            "flows__profile__inline_dart__profile_change_password": {
+                "color_001": "#A4A7AC",
+                "color_002": "#F4F4F5"
+            },
+            "flows__profile__inline_dart__profile_contact": {
+                "color_001": "#FDF3F4"
+            },
+            "flows__profile__inline_dart__profile_destinations": {
+                "color_001": "#9F000000",
+                "color_002": "#668790A3"
+            },
+            "flows__profile__inline_dart__profile_intro": {
+                "color_001": "#F2F4F7",
+                "color_002": "#FFFFFF",
+                "color_003": "#D0D5DD"
+            },
+            "flows__profile__inline_dart__profile_invite_friends": {
+                "color_001": "#33D61F2C"
+            },
+            "flows__package__dart__package_add_sim": {
+                "color_001": "#98A2B3",
+                "backgroundColor_002": "#8B63708C",
+                "backgroundColor_003": "#8B63708C",
+                "backgroundColor_004": "#8B63708C",
+                "backgroundColor_005": "#D0D5DD",
+                "foregroundColor_006": "#98A2B3",
+                "color_007": "#98A2B3",
+                "color_008": "#D0D5DD",
+                "color_009": "#20C4D8",
+                "color_010": "#FFFFFF",
+                "color_011": "#20C4D8",
+                "color_012": "#D0D5DD",
+                "color_013": "#20C4D8",
+                "color_014": "#FFFFFF",
+                "color_015": "#20C4D8",
+                "color_016": "#2B8BFA",
+                "color_017": "#FFCD29",
+                "color_018": "#FFFFFF"
+            },
+            "flows__package__dart__package_intro": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C",
+                "color_003": "#D0D5DD",
+                "color_004": "#E31D35",
+                "color_005": "#E31D35",
+                "color_006": "#D0D5DD",
+                "color_007": "#8B63708C"
+            },
+            "flows__package__dart__package_package_list": {
+                "color_001": "#EAFBFD",
+                "color_002": "#20C4D8",
+                "color_003": "#F4FDFF",
+                "color_004": "#20C4D8"
+            },
+            "flows__package__dart__package_payment": {
+                "color_001": "#F2F4F7",
+                "color_002": "#20C4D8",
+                "color_003": "#E5E7EB",
+                "color_004": "#E31D35",
+                "color_005": "#FFFFFF",
+                "color_006": "#F4FDFF",
+                "color_007": "#20C4D8"
+            },
+            "flows__package__dart__package_payment_success": {
+                "color_001": "#E7F7ED",
+                "color_002": "#BFEFD0",
+                "color_003": "#24B76A",
+                "color_004": "#FFFFFF",
+                "color_005": "#17945A",
+                "color_006": "#E5E7EB"
+            },
+            "flows__package__inline_dart__package_add_sim": {
+                "color_001": "#98A2B3",
+                "backgroundColor_002": "#8B63708C",
+                "backgroundColor_003": "#8B63708C",
+                "backgroundColor_004": "#8B63708C",
+                "backgroundColor_005": "#D0D5DD",
+                "foregroundColor_006": "#98A2B3",
+                "color_007": "#98A2B3",
+                "color_008": "#D0D5DD",
+                "color_009": "#20C4D8",
+                "color_010": "#FFFFFF",
+                "color_011": "#20C4D8",
+                "color_012": "#D0D5DD",
+                "color_013": "#20C4D8",
+                "color_014": "#FFFFFF",
+                "color_015": "#20C4D8",
+                "color_016": "#2B8BFA",
+                "color_017": "#FFCD29",
+                "color_018": "#FFFFFF"
+            },
+            "flows__package__inline_dart__package_intro": {
+                "backgroundColor_001": "#8B63708C",
+                "backgroundColor_002": "#8B63708C",
+                "color_003": "#D0D5DD",
+                "color_004": "#E31D35",
+                "color_005": "#E31D35",
+                "color_006": "#D0D5DD",
+                "color_007": "#8B63708C"
+            },
+            "flows__package__inline_dart__package_package_list": {
+                "color_001": "#EAFBFD",
+                "color_002": "#20C4D8",
+                "color_003": "#F4FDFF",
+                "color_004": "#20C4D8"
+            },
+            "flows__package__inline_dart__package_payment": {
+                "color_001": "#F2F4F7",
+                "color_002": "#20C4D8",
+                "color_003": "#E5E7EB",
+                "color_004": "#E31D35",
+                "color_005": "#FFFFFF",
+                "color_006": "#F4FDFF",
+                "color_007": "#20C4D8"
+            },
+            "flows__package__inline_dart__package_payment_success": {
+                "color_001": "#E7F7ED",
+                "color_002": "#BFEFD0",
+                "color_003": "#24B76A",
+                "color_004": "#FFFFFF",
+                "color_005": "#17945A",
+                "color_006": "#E5E7EB"
+            },
+            "flows__package__inline_dart__widgets__package_widgets": {
+                "color_001": "#FBE4E6"
+            },
+            "flows__package__dart__widgets__package_widgets": {
+                "color_001": "#FBE4E6"
+            },
+            "flows__notification__dart__notification_intro": {
+                "color_001": "#D32F2F",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#D0D5DD"
+            },
+            "flows__notification__inline_dart__notification_intro": {
+                "color_001": "#D32F2F",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#D0D5DD"
+            },
+            "flows__login__dart__login_splash": {
+                "color_001": "#1A000000"
+            },
+            "flows__login__inline_dart__login_splash": {
+                "color_001": "#1A000000"
+            },
+            "flows__home_page__dart__home_page": {
+                "backgroundColor_001": "#E31A2F",
+                "foregroundColor_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "color_004": "#141B1F44",
+                "color_005": "#FFFFFF",
+                "color_006": "#FFFFFF",
+                "color_007": "#FFFFFF",
+                "color_008": "#0A101828",
+                "color_009": "#FFFFFF",
+                "color_010": "#FFFFFF",
+                "color_011": "#FFFFFF",
+                "color_012": "#FFFFFF",
+                "color_013": "#FFFFFF",
+                "color_014": "#1F101828",
+                "walletGradientStart": "#15A0A0",
+                "walletGradientEnd": "#50E8E8",
+                "walletShadow": "#141B1F44",
+                "walletOnCard": "#FFFFFF",
+                "bankCardGradientStart": "#EE3E62",
+                "bankCardGradientEnd": "#FD6F8E",
+                "bankCardShadow": "#0A101828",
+                "bankCardOnCard": "#FFFFFF",
+                "cardsAddButtonBackground": "#FFFFFF",
+                "cardsAddButtonShadow": "#1F101828"
+            },
+            "flows__home_page__dart__tobank_special_services_page": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "backgroundColor_003": "#00000000",
+                "backgroundColor_004": "#E31A2F",
+                "foregroundColor_005": "#FFFFFF",
+                "color_006": "#FFFFFF"
+            },
+            "flows__home_page__inline_dart__home_page": {
+                "backgroundColor_001": "#E31A2F",
+                "foregroundColor_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "color_004": "#141B1F44",
+                "color_005": "#FFFFFF",
+                "color_006": "#FFFFFF",
+                "color_007": "#FFFFFF",
+                "color_008": "#0A101828",
+                "color_009": "#FFFFFF",
+                "color_010": "#FFFFFF",
+                "color_011": "#FFFFFF",
+                "color_012": "#FFFFFF",
+                "color_013": "#FFFFFF",
+                "color_014": "#1F101828"
+            },
+            "flows__home_page__inline_dart__tobank_special_services_page": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000",
+                "backgroundColor_003": "#00000000",
+                "backgroundColor_004": "#E31A2F",
+                "foregroundColor_005": "#FFFFFF",
+                "color_006": "#FFFFFF"
+            },
+            "flows__gift_card__dart__gift_card_confirm": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__gift_card__dart__gift_card_custom_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000",
+                "color_005": "#F7FAFD",
+                "color_006": "#F7FAFD",
+                "color_007": "#000000",
+                "color_008": "#000000",
+                "color_009": "#F7FAFD",
+                "color_010": "#F7FAFD",
+                "color_011": "#F7FAFD",
+                "color_012": "#000000",
+                "color_013": "#000000"
+            },
+            "flows__gift_card__dart__gift_card_custom_select_design": {
+                "color_001": "#F7FAFD",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#737373"
+            },
+            "flows__gift_card__dart__gift_card_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000"
+            },
+            "flows__gift_card__dart__gift_card_image_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD"
+            },
+            "flows__gift_card__dart__gift_card_intro": {
+                "backgroundColor_001": "#00000000",
+                "color_002": "#737373",
+                "color_003": "#FFFFFF",
+                "backgroundColor_004": "#D61F2C",
+                "foregroundColor_005": "#FFFFFF",
+                "backgroundColor_006": "#ADADAD",
+                "foregroundColor_007": "#FFFFFF",
+                "color_008": "#FFFFFF"
+            },
+            "flows__gift_card__dart__gift_card_message": {
+                "backgroundColor_001": "#00000000",
+                "color_002": "#737373"
+            },
+            "flows__gift_card__dart__gift_card_receiver_info": {
+                "color_001": "#737373",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#737373"
+            },
+            "flows__gift_card__dart__gift_card_select_amount": {
+                "color_001": "#737373",
+                "color_002": "#737373",
+                "backgroundColor_003": "#00000000",
+                "color_004": "#737373"
+            },
+            "flows__gift_card__dart__gift_card_select_design": {
+                "color_001": "#F7FAFD",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#737373"
+            },
+            "flows__gift_card__inline_dart__gift_card_confirm": {
+                "backgroundColor_001": "#00000000"
+            },
+            "flows__gift_card__inline_dart__gift_card_custom_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000",
+                "color_005": "#F7FAFD",
+                "color_006": "#F7FAFD",
+                "color_007": "#000000",
+                "color_008": "#000000",
+                "color_009": "#F7FAFD",
+                "color_010": "#F7FAFD",
+                "color_011": "#F7FAFD",
+                "color_012": "#000000",
+                "color_013": "#000000"
+            },
+            "flows__gift_card__inline_dart__gift_card_custom_select_design": {
+                "color_001": "#F7FAFD",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#737373"
+            },
+            "flows__gift_card__inline_dart__gift_card_design_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD",
+                "color_003": "#000000",
+                "color_004": "#000000"
+            },
+            "flows__gift_card__inline_dart__gift_card_image_selector": {
+                "color_001": "#F7FAFD",
+                "color_002": "#F7FAFD"
+            },
+            "flows__gift_card__inline_dart__gift_card_intro": {
+                "backgroundColor_001": "#00000000",
+                "color_002": "#737373",
+                "color_003": "#FFFFFF",
+                "backgroundColor_004": "#D61F2C",
+                "foregroundColor_005": "#FFFFFF",
+                "backgroundColor_006": "#ADADAD",
+                "foregroundColor_007": "#FFFFFF",
+                "color_008": "#FFFFFF"
+            },
+            "flows__gift_card__inline_dart__gift_card_message": {
+                "backgroundColor_001": "#00000000",
+                "color_002": "#737373"
+            },
+            "flows__gift_card__inline_dart__gift_card_receiver_info": {
+                "color_001": "#737373",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#737373"
+            },
+            "flows__gift_card__inline_dart__gift_card_select_amount": {
+                "color_001": "#737373",
+                "color_002": "#737373",
+                "backgroundColor_003": "#00000000",
+                "color_004": "#737373"
+            },
+            "flows__gift_card__inline_dart__gift_card_select_design": {
+                "color_001": "#F7FAFD",
+                "backgroundColor_002": "#00000000",
+                "color_003": "#737373"
+            },
+            "flows__deposit_turnover__dart__deposit_turnover_intro": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000"
+            },
+            "flows__deposit_turnover__inline_dart__deposit_turnover_intro": {
+                "backgroundColor_001": "#00000000",
+                "backgroundColor_002": "#00000000"
+            },
+            "flows__deposit_more__dart__deposit_card_issue_result": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047"
+            },
+            "flows__deposit_more__dart__deposit_close_confirm": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__deposit_more__inline_dart__deposit_card_issue_result": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047"
+            },
+            "flows__deposit_more__inline_dart__deposit_close_confirm": {
+                "color_001": "#FFFFFF"
+            },
+            "flows__dashboard__dart__cards_management_screen": {
+                "color_001": "#FFFFFF",
+                "color_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "color_004": "#FFFFFF",
+                "color_005": "#FFFFFF",
+                "color_006": "#FFFFFF",
+                "color_007": "#FFFFFF",
+                "color_008": "#FFFFFF",
+                "color_009": "#FFFFFF",
+                "color_010": "#FFFFFF",
+                "color_011": "#FFFFFF",
+                "color_012": "#FFFFFF",
+                "color_013": "#FFFFFF",
+                "color_014": "#FFFFFF",
+                "color_015": "#FFFFFF",
+                "color_016": "#FFFFFF",
+                "color_017": "#FFFFFF",
+                "color_018": "#FFFFFF",
+                "color_019": "#FFFFFF",
+                "color_020": "#FFFFFF",
+                "color_021": "#FFFFFF",
+                "color_022": "#FFFFFF",
+                "color_023": "#FFFFFF",
+                "color_024": "#FFFFFF",
+                "color_025": "#FFFFFF",
+                "color_026": "#1E2538",
+                "backgroundColor_027": "#00000000",
+                "backgroundColor_028": "#00000000",
+                "backgroundColor_029": "#00000000",
+                "backgroundColor_030": "#00000000",
+                "backgroundColor_031": "#00000000",
+                "backgroundColor_032": "#00000000",
+                "backgroundColor_033": "#00000000",
+                "backgroundColor_034": "#00000000",
+                "backgroundColor_035": "#00000000",
+                "backgroundColor_036": "#00000000",
+                "backgroundColor_037": "#00000000",
+                "color_038": "#FFFFFF",
+                "color_039": "#FFFFFF",
+                "walletGradientStart": "#15A0A0",
+                "walletGradientEnd": "#50E8E8",
+                "walletOnCard": "#FFFFFF",
+                "tobankGradientStart": "#EF3A55",
+                "tobankGradientEnd": "#FF5F87",
+                "tobankOnCard": "#FFFFFF",
+                "thirdPartyGradientStart": "#1FA3E3",
+                "thirdPartyGradientEnd": "#83DBF8",
+                "thirdPartyOnCard": "#FFFFFF",
+                "blockedGradientStart": "#B9B9B9",
+                "blockedGradientEnd": "#8F8F8F",
+                "blockedOnCard": "#FFFFFF",
+                "blockedIcon": "#1E2538"
+            },
+            "flows__dashboard__inline_dart__cards_management_screen": {
+                "color_001": "#FFFFFF",
+                "color_002": "#FFFFFF",
+                "color_003": "#FFFFFF",
+                "color_004": "#FFFFFF",
+                "color_005": "#FFFFFF",
+                "color_006": "#FFFFFF",
+                "color_007": "#FFFFFF",
+                "color_008": "#FFFFFF",
+                "color_009": "#FFFFFF",
+                "color_010": "#FFFFFF66",
+                "color_011": "#FFFFFF",
+                "color_012": "#FFFFFF",
+                "color_013": "#FFFFFF",
+                "color_014": "#FFFFFF",
+                "color_015": "#FFFFFF",
+                "color_016": "#FFFFFF",
+                "color_017": "#FFFFFF66",
+                "color_018": "#FFFFFF",
+                "color_019": "#FFFFFF",
+                "color_020": "#FFFFFF",
+                "color_021": "#FFFFFF",
+                "color_022": "#FFFFFF",
+                "color_023": "#FFFFFF",
+                "color_024": "#1E2538"
+            },
+            "flows__dashboard__dart__card_management__pin__primary_pin_result_screen": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047"
+            },
+            "flows__dashboard__dart__card_management__pin__secondary_pin_receipt_screen": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047",
+                "color_003": "#43A047"
+            },
+            "flows__dashboard__dart__card_management__reissue__reissue_receipt_screen": {
+                "color_001": "#E8F5E9",
+                "color_002": "#43A047"
+            },
+            "flows__dashboard__dart__card_management__reissue__reissue_select_card_color_screen": {
+                "color_001": "#1E1E1E",
+                "color_002": "#FFFFFF",
+                "color_003": "#FFFFFF"
+            },
+            "flows__charge__dart__charge_add_sim": {
+                "color_001": "#98A2B3",
+                "backgroundColor_002": "#8B63708C",
+                "backgroundColor_003": "#8B63708C",
+                "backgroundColor_004": "#8B63708C",
+                "backgroundColor_005": "#D0D5DD",
+                "foregroundColor_006": "#98A2B3",
+                "color_007": "#98A2B3",
+                "color_008": "#D0D5DD",
+                "color_009": "#20C4D8",
+                "color_010": "#FFFFFF",
+                "color_011": "#20C4D8",
+                "color_012": "#D0D5DD",
+                "color_013": "#20C4D8",
+                "color_014": "#FFFFFF",
+                "color_015": "#20C4D8",
+                "color_016": "#2B8BFA",
+                "color_017": "#FFCD29",
+                "color_018": "#FFFFFF"
+            },
+            "flows__charge__dart__charge_intro": {
+                "backgroundColor_001": "#8B63708C",
+                "color_002": "#D0D5DD",
+                "color_003": "#98A2B3",
+                "color_004": "#98A2B3",
+                "color_005": "#EAECF0",
+                "color_006": "#C4C4C4",
+                "color_007": "#EAFBFD",
+                "color_008": "#20C4D8",
+                "backgroundColor_009": "#8B63708C",
+                "backgroundColor_010": "#8B63708C",
+                "color_011": "#D0D5DD",
+                "color_012": "#E31D35",
+                "color_013": "#E31D35",
+                "color_014": "#D0D5DD",
+                "color_015": "#8B63708C"
+            },
+            "flows__charge__dart__charge_package_list": {
+                "backgroundColor_001": "#8B63708C",
+                "color_002": "#D0D5DD",
+                "color_003": "#98A2B3",
+                "color_004": "#98A2B3",
+                "color_005": "#EAECF0",
+                "color_006": "#C4C4C4",
+                "color_007": "#EAFBFD",
+                "color_008": "#20C4D8"
+            },
+            "flows__charge__dart__charge_payment": {
+                "color_001": "#F2F4F7",
+                "color_002": "#20C4D8",
+                "color_003": "#E5E7EB",
+                "color_004": "#E31D35",
+                "color_005": "#FFFFFF",
+                "color_006": "#F4FDFF",
+                "color_007": "#20C4D8"
+            },
+            "flows__charge__dart__charge_payment_success": {
+                "color_001": "#E7F7ED",
+                "color_002": "#BFEFD0",
+                "color_003": "#24B76A",
+                "color_004": "#FFFFFF",
+                "color_005": "#17945A",
+                "color_006": "#E5E7EB"
+            },
+            "flows__charge__inline_dart__charge_add_sim": {
+                "color_001": "#98A2B3",
+                "backgroundColor_002": "#8B63708C",
+                "backgroundColor_003": "#8B63708C",
+                "backgroundColor_004": "#8B63708C",
+                "backgroundColor_005": "#D0D5DD",
+                "foregroundColor_006": "#98A2B3",
+                "color_007": "#98A2B3",
+                "color_008": "#D0D5DD",
+                "color_009": "#20C4D8",
+                "color_010": "#FFFFFF",
+                "color_011": "#20C4D8",
+                "color_012": "#D0D5DD",
+                "color_013": "#20C4D8",
+                "color_014": "#FFFFFF",
+                "color_015": "#20C4D8",
+                "color_016": "#2B8BFA",
+                "color_017": "#FFCD29",
+                "color_018": "#FFFFFF"
+            },
+            "flows__charge__inline_dart__charge_intro": {
+                "backgroundColor_001": "#8B63708C",
+                "color_002": "#D0D5DD",
+                "color_003": "#98A2B3",
+                "color_004": "#98A2B3",
+                "color_005": "#EAECF0",
+                "color_006": "#C4C4C4",
+                "color_007": "#EAFBFD",
+                "color_008": "#20C4D8",
+                "backgroundColor_009": "#8B63708C",
+                "backgroundColor_010": "#8B63708C",
+                "color_011": "#D0D5DD",
+                "color_012": "#E31D35",
+                "color_013": "#E31D35",
+                "color_014": "#D0D5DD",
+                "color_015": "#8B63708C"
+            },
+            "flows__charge__inline_dart__charge_package_list": {
+                "backgroundColor_001": "#8B63708C",
+                "color_002": "#D0D5DD",
+                "color_003": "#98A2B3",
+                "color_004": "#98A2B3",
+                "color_005": "#EAECF0",
+                "color_006": "#C4C4C4",
+                "color_007": "#EAFBFD",
+                "color_008": "#20C4D8"
+            },
+            "flows__charge__inline_dart__charge_payment": {
+                "color_001": "#F2F4F7",
+                "color_002": "#20C4D8",
+                "color_003": "#E5E7EB",
+                "color_004": "#E31D35",
+                "color_005": "#FFFFFF",
+                "color_006": "#F4FDFF",
+                "color_007": "#20C4D8"
+            },
+            "flows__charge__inline_dart__charge_payment_success": {
+                "color_001": "#E7F7ED",
+                "color_002": "#BFEFD0",
+                "color_003": "#24B76A",
+                "color_004": "#FFFFFF",
+                "color_005": "#17945A",
+                "color_006": "#E5E7EB"
+            },
+            "flows__charge__inline_dart__widgets__charge_widgets": {
+                "color_001": "#FBE4E6"
+            },
+            "flows__charge__dart__widgets__charge_widgets": {
+                "color_001": "#FBE4E6"
+            }
+        }
+    }
+}

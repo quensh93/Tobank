@@ -1,0 +1,2273 @@
+{
+    "icons": {
+        "logoRed": "assets/icons/ToBank_Red_1.svg",
+        "login": "assets/icons/ic_login.svg",
+        "accountHeaderLight": "assets/icons/ic_account_header.svg",
+        "accountHeaderDark": "assets/icons/ic_account_header_dark.svg",
+        "calendar": "assets/icons/ic_calendar.svg",
+        "edit": "assets/icons/ic_edit.svg",
+        "editProfile": "assets/icons/ic_edit_profile.svg",
+        "editAccountImage": "assets/icons/ic_edit_account_image.svg",
+        "success": "assets/icons/ic_success.svg",
+        "transactionItemSuccess": "assets/icons/ic_transaction_item_success.svg",
+        "transactionItemSuccessDark": "assets/icons/ic_transaction_item_success_dark.svg",
+        "transactionItemFailed": "assets/icons/ic_transaction_item_failed.svg",
+        "transactionItemFailedDark": "assets/icons/ic_transaction_item_failed_dark.svg",
+        "theme": "assets/icons/ic_theme.svg",
+        "arrowRight": "assets/icons/ic_right_arrow.svg",
+        "arrowLeft": "assets/icons/ic_arrow_left.svg",
+        "bankAccount": "assets/icons/ic_bank_account.svg",
+        "inviteMember": "assets/icons/ic_invite_member.svg",
+        "storedDeposit": "assets/icons/ic_stored_deposit.svg",
+        "settings": "assets/icons/ic_settings.svg",
+        "rules": "assets/icons/ic_rules.svg",
+        "aboutUs": "assets/icons/ic_about_us.svg",
+        "contact": "assets/icons/ic_contact.svg",
+        "buttonNext": "assets/icons/ic_button_next.svg",
+        "arrowBack": "assets/icons/ic_arrow_back.svg",
+        "support": "assets/icons/ic_support.svg",
+        "camera": "assets/icons/ic_camera.svg",
+        "cameraDark": "assets/icons/ic_camera_dark.svg",
+        "gallery": "assets/icons/ic_gallery.svg",
+        "galleryDark": "assets/icons/ic_gallery_dark.svg",
+        "refresh": "assets/icons/ic_refresh.svg",
+        "visualTutorialLight": "assets/icons/ic_visual_tutorial.svg",
+        "visualTutorialDark": "assets/icons/ic_visual_tutorial_dark.svg",
+        "voiceTutorialLight": "assets/icons/ic_voice_tutorial.svg",
+        "voiceTutorialDark": "assets/icons/ic_voice_tutorial_dark.svg",
+        "info": "assets/icons/ic_info.svg",
+        "deleteLight": "assets/icons/ic_delete.svg",
+        "deleteDark": "assets/icons/ic_delete_dark.svg",
+        "timer": "assets/icons/ic_timer.svg",
+        "arrowCircleDown": "assets/icons/ic_arrow_circle_down.svg",
+        "videoLight": "assets/icons/video_light.svg",
+        "videoDark": "assets/icons/video_dark.svg",
+        "faceId": "assets/icons/face_id.svg",
+        "fingerprintLight": "assets/icons/ic_fingerprint.svg",
+        "fingerprintDark": "assets/icons/ic_fingerprint_dark.svg",
+        "themeLight": "assets/icons/ic_theme.svg",
+        "themeDark": "assets/icons/ic_theme_dark.svg",
+        "cardServicePasswordChangeLight": "assets/icons/ic_card_service_password_change.svg",
+        "cardServicePasswordChangeDark": "assets/icons/ic_card_service_password_change_dark.svg",
+        "deleteAccountLight": "assets/icons/ic_delete_account.svg",
+        "deleteAccountDark": "assets/icons/ic_delete_account_dark.svg",
+        "logoutLight": "assets/icons/ic_logout.svg",
+        "logoutDark": "assets/icons/ic_logout_dark.svg",
+        "tobankRedLight": "assets/icons/ic_tobank_red.svg",
+        "tobankRedDark": "assets/icons/ic_tobank_red.svg",
+        "supportDark": "assets/icons/ic_support.svg",
+        "notificationUnread": "assets/icons/ic_notification_unread.svg",
+        "notificationUnreadDark": "assets/icons/ic_notification_unread_dark.svg",
+        "map": "assets/icons/ic_map.svg",
+        "mapDark": "assets/icons/ic_map.svg",
+        "other": "assets/icons/ic_other.svg",
+        "otherDark": "assets/icons/ic_other.svg",
+        "otherSelected": "assets/icons/ic_other_selected.svg",
+        "otherSelectedDark": "assets/icons/ic_other_selected.svg",
+        "finance": "assets/icons/ic_finance.svg",
+        "financeDark": "assets/icons/ic_finance.svg",
+        "financeSelected": "assets/icons/ic_finance_selected.svg",
+        "financeSelectedDark": "assets/icons/ic_finance_selected.svg",
+        "card": "assets/icons/ic_card.svg",
+        "cardDark": "assets/icons/ic_card.svg",
+        "cardSelected": "assets/icons/ic_card_selected.svg",
+        "cardSelectedDark": "assets/icons/ic_card_selected.svg",
+        "storedDepositDark": "assets/icons/ic_stored_deposit.svg",
+        "depositSelected": "assets/icons/ic_deposit_selected.svg",
+        "depositSelectedDark": "assets/icons/ic_deposit_selected.svg",
+        "cardToCard": "assets/icons/ic_card_to_card.svg",
+        "cardToCardDark": "assets/icons/ic_card_to_card_dark.svg",
+        "checkReceive": "assets/icons/ic_check_receive.svg",
+        "checkReceiveDark": "assets/icons/ic_check_receive_dark.svg",
+        "cardBalance": "assets/icons/ic_card_balance.svg",
+        "cardBalanceDark": "assets/icons/ic_card_balance_dark.svg",
+        "simCharge": "assets/icons/ic_sim_charge.svg",
+        "simChargeDark": "assets/icons/ic_sim_charge_dark.svg",
+        "internet": "assets/icons/ic_internet.svg",
+        "internetDark": "assets/icons/ic_internet_dark.svg",
+        "megagasht": "assets/icons/ic_megagasht.svg",
+        "megagashtDark": "assets/icons/ic_megagasht_dark.svg",
+        "giftCard": "assets/icons/ic_gift_card.svg",
+        "giftCardDark": "assets/icons/ic_gift_card_dark.svg",
+        "invoice": "assets/icons/ic_invoice.svg",
+        "invoiceDark": "assets/icons/ic_invoice_dark.svg",
+        "acceptor": "assets/icons/ic_acceptor.svg",
+        "acceptorDark": "assets/icons/ic_acceptor_dark.svg",
+        "depositBg": "assets/icons/ic_deposit_bg.svg",
+        "depositBgDark": "assets/icons/ic_deposit_bg_dark.svg",
+        "gardeshgariSarmayeh": "assets/icons/ic_gardeshgari_sarmayeh.svg",
+        "gardeshgariSarmayehDark": "assets/icons/ic_gardeshgari_sarmayeh.svg",
+        "successDark": "assets/icons/ic_success.svg",
+        "scroll": "assets/icons/ic_scroll.svg",
+        "scrollDark": "assets/icons/ic_scroll.svg",
+        "tobankLogo": "assets/icons/ic_tobank_logo.svg",
+        "tobankLogoDark": "assets/icons/ic_tobank_logo.svg",
+        "gardeshgari": "assets/icons/ic_gardeshgari.svg",
+        "gardeshgariDark": "assets/icons/ic_gardeshgari.svg",
+        "addPlus": "assets/icons/ic_add_plus.svg",
+        "addPlusDark": "assets/icons/ic_add_plus.svg",
+        "promissory": "assets/icons/ic_promissory.svg",
+        "promissoryDark": "assets/icons/ic_promissory_dark.svg",
+        "creditCard": "assets/icons/ic_credit_card.svg",
+        "creditCardDark": "assets/icons/ic_credit_card_dark.svg",
+        "refreshDark": "assets/icons/ic_refresh.svg",
+        "shareDeposit": "assets/icons/ic_share_deposit.svg",
+        "shareDepositDark": "assets/icons/ic_share_deposit_dark.svg",
+        "in": "assets/icons/ic_in.svg",
+        "inDark": "assets/icons/ic_in_dark.svg",
+        "out": "assets/icons/ic_out.svg",
+        "outDark": "assets/icons/ic_out_dark.svg",
+        "requestCard": "assets/icons/ic_request_card.svg",
+        "requestCardDark": "assets/icons/ic_request_card_dark.svg",
+        "closeDeposit": "assets/icons/ic_close_deposit.svg",
+        "closeDepositDark": "assets/icons/ic_close_deposit_dark.svg",
+        "depositDetail": "assets/icons/ic_deposit_detail.svg",
+        "depositDetailDark": "assets/icons/ic_deposit_detail_dark.svg",
+        "shareIban": "assets/icons/ic_share_iban.svg",
+        "shareIbanDark": "assets/icons/ic_share_iban_dark.svg",
+        "copy": "assets/icons/ic_copy.svg",
+        "copyDark": "assets/icons/ic_copy_dark.svg",
+        "share": "assets/icons/ic_share.svg",
+        "shareDark": "assets/icons/ic_share_dark.svg",
+        "transferAmount": "assets/icons/ic_transfer_amount.svg",
+        "transferAmountDark": "assets/icons/ic_transfer_amount_dark.svg",
+        "more": "assets/icons/ic_more.svg",
+        "moreDark": "assets/icons/ic_more.svg",
+        "menu": "assets/icons/ic_menu.svg",
+        "warning": "assets/icons/ic_warning.svg",
+        "printReceipt": "assets/icons/ic_share_image.svg",
+        "block": "assets/icons/ic_card_service_block.svg",
+        "generated": {
+            "menu__api__GET_tobank_menu": {
+                "src_ic_theme_001": "assets/icons/ic_theme.svg",
+                "src_ic_arrow_left_002": "assets/icons/ic_arrow_left.svg"
+            },
+            "login__json__tobank_login": {
+                "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
+            },
+            "flows__verify_identity__json__verify_identity_verify_otp": {
+                "src_ic_info_001": "assets/icons/ic_info.svg"
+            },
+            "flows__transfer__json__transfer_amount": {
+                "src_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_002": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_003": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_iranconcert_dark_004": "assets/icons/ic_iranconcert_dark.svg",
+                "src_ic_in_005": "assets/icons/ic_in.svg",
+                "src_ic_info_006": "assets/icons/ic_info.svg",
+                "src_ic_info_007": "assets/icons/ic_info.svg",
+                "src_ic_card_default_008": "assets/icons/ic_card_default.svg",
+                "src_ic_person_009": "assets/icons/ic_person.svg",
+                "src_ic_others_010": "assets/icons/ic_others.svg",
+                "src_ic_gardeshgari_011": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_012": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_013": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_014": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_015": "assets/icons/ic_gardeshgari.svg"
+            },
+            "flows__transfer__json__transfer_card_result": {
+                "src_ic_transaction_success_001": "assets/icons/ic_transaction_success.svg",
+                "src_ic_tobank_002": "assets/icons/ic_tobank.svg",
+                "src_ic_download_003": "assets/icons/ic_download.svg",
+                "src_ic_share_004": "assets/icons/ic_share.svg"
+            },
+            "flows__transfer__json__transfer_confirm": {
+                "src_ic_info_001": "assets/icons/ic_info.svg",
+                "src_ic_info_002": "assets/icons/ic_info.svg",
+                "src_ic_gardeshgari_003": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_004": "assets/icons/ic_gardeshgari.svg"
+            },
+            "flows__transfer__json__transfer_details": {
+                "src_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_bank_transfer_002": "assets/icons/ic_bank_transfer.svg",
+                "src_ic_bank_transfer_003": "assets/icons/ic_bank_transfer.svg",
+                "src_ic_bank_transfer_dark_004": "assets/icons/ic_bank_transfer_dark.svg"
+            },
+            "flows__transfer__json__transfer_in_bank_confirm": {
+                "src_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_002": "assets/icons/ic_gardeshgari.svg"
+            },
+            "flows__transfer__json__transfer_in_bank_details": {
+                "src_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_bank_transfer_dark_002": "assets/icons/ic_bank_transfer_dark.svg",
+                "src_ic_bank_transfer_dark_003": "assets/icons/ic_bank_transfer_dark.svg",
+                "src_ic_bank_transfer_dark_004": "assets/icons/ic_bank_transfer_dark.svg"
+            },
+            "flows__transfer__json__transfer_in_bank_result": {
+                "src_ic_transaction_success_001": "assets/icons/ic_transaction_success.svg",
+                "src_ic_tobank_002": "assets/icons/ic_tobank.svg",
+                "src_ic_download_003": "assets/icons/ic_download.svg",
+                "src_ic_share_004": "assets/icons/ic_share.svg"
+            },
+            "flows__transfer__json__transfer_result": {
+                "src_ic_transaction_success_001": "assets/icons/ic_transaction_success.svg",
+                "src_ic_tobank_002": "assets/icons/ic_tobank.svg",
+                "src_ic_transaction_success_003": "assets/icons/ic_transaction_success.svg",
+                "src_ic_tobank_004": "assets/icons/ic_tobank.svg",
+                "src_ic_download_005": "assets/icons/ic_download.svg",
+                "src_ic_share_006": "assets/icons/ic_share.svg"
+            },
+            "flows__transfer__json_upload__transfer_amount": {
+                "src_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_002": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_003": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_iranconcert_dark_004": "assets/icons/ic_iranconcert_dark.svg",
+                "src_ic_in_005": "assets/icons/ic_in.svg",
+                "src_ic_info_006": "assets/icons/ic_info.svg",
+                "src_ic_info_007": "assets/icons/ic_info.svg",
+                "src_ic_card_default_008": "assets/icons/ic_card_default.svg",
+                "src_ic_person_009": "assets/icons/ic_person.svg",
+                "src_ic_others_010": "assets/icons/ic_others.svg",
+                "src_ic_gardeshgari_011": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_012": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_013": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_014": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_015": "assets/icons/ic_gardeshgari.svg"
+            },
+            "flows__transfer__json_upload__transfer_card_result": {
+                "src_ic_transaction_success_001": "assets/icons/ic_transaction_success.svg",
+                "src_ic_tobank_002": "assets/icons/ic_tobank.svg",
+                "src_ic_download_003": "assets/icons/ic_download.svg",
+                "src_ic_share_004": "assets/icons/ic_share.svg"
+            },
+            "flows__transfer__json_upload__transfer_confirm": {
+                "src_ic_info_001": "assets/icons/ic_info.svg",
+                "src_ic_info_002": "assets/icons/ic_info.svg",
+                "src_ic_gardeshgari_003": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_004": "assets/icons/ic_gardeshgari.svg"
+            },
+            "flows__transfer__json_upload__transfer_details": {
+                "src_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_bank_transfer_002": "assets/icons/ic_bank_transfer.svg",
+                "src_ic_bank_transfer_003": "assets/icons/ic_bank_transfer.svg",
+                "src_ic_bank_transfer_dark_004": "assets/icons/ic_bank_transfer_dark.svg"
+            },
+            "flows__transfer__json_upload__transfer_in_bank_confirm": {
+                "src_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_002": "assets/icons/ic_gardeshgari.svg"
+            },
+            "flows__transfer__json_upload__transfer_in_bank_details": {
+                "src_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_bank_transfer_dark_002": "assets/icons/ic_bank_transfer_dark.svg",
+                "src_ic_bank_transfer_dark_003": "assets/icons/ic_bank_transfer_dark.svg",
+                "src_ic_bank_transfer_dark_004": "assets/icons/ic_bank_transfer_dark.svg"
+            },
+            "flows__transfer__json_upload__transfer_in_bank_result": {
+                "src_ic_transaction_success_001": "assets/icons/ic_transaction_success.svg",
+                "src_ic_tobank_002": "assets/icons/ic_tobank.svg",
+                "src_ic_download_003": "assets/icons/ic_download.svg",
+                "src_ic_share_004": "assets/icons/ic_share.svg"
+            },
+            "flows__transfer__json_upload__transfer_result": {
+                "src_ic_transaction_success_001": "assets/icons/ic_transaction_success.svg",
+                "src_ic_tobank_002": "assets/icons/ic_tobank.svg",
+                "src_ic_transaction_success_003": "assets/icons/ic_transaction_success.svg",
+                "src_ic_tobank_004": "assets/icons/ic_tobank.svg",
+                "src_ic_download_005": "assets/icons/ic_download.svg",
+                "src_ic_share_006": "assets/icons/ic_share.svg"
+            },
+            "flows__promissory_old__api__GET_promissory_intro": {
+                "src_ic_right_arrow_001": "assets/icons/ic_right_arrow.svg",
+                "src_ic_promissory_request_002": "assets/icons/ic_promissory_request.svg",
+                "src_ic_promissory_guarantee_003": "assets/icons/ic_promissory_guarantee.svg",
+                "src_ic_promissory_inquiry_004": "assets/icons/ic_promissory_inquiry.svg"
+            },
+            "flows__promissory_old__api__GET_promissory_rules": {
+                "src_ic_right_arrow_001": "assets/icons/ic_right_arrow.svg",
+                "src_ic_check_002": "assets/icons/ic_check.svg"
+            },
+            "flows__promissory_old__api__GET_request_promissory_deposit": {
+                "src_ic_right_arrow_001": "assets/icons/ic_right_arrow.svg"
+            },
+            "flows__promissory_old__json__promissory_data": {
+                "src_ic_right_arrow_001": "assets/icons/ic_right_arrow.svg",
+                "src_ic_calendar_002": "assets/icons/ic_calendar.svg"
+            },
+            "flows__promissory_old__json__promissory_deposit_select": {
+                "src_ic_right_arrow_001": "assets/icons/ic_right_arrow.svg"
+            },
+            "flows__promissory_old__json__promissory_intro": {
+                "src_ic_right_arrow_001": "assets/icons/ic_right_arrow.svg",
+                "src_ic_promissory_request_002": "assets/icons/ic_promissory_request.svg",
+                "src_ic_promissory_guarantee_003": "assets/icons/ic_promissory_guarantee.svg",
+                "src_ic_promissory_inquiry_004": "assets/icons/ic_promissory_inquiry.svg"
+            },
+            "flows__promissory_old__json__promissory_payment": {
+                "src_ic_promissory_request_001": "assets/icons/ic_promissory_request.svg",
+                "src_ic_wallet_002": "assets/icons/ic_wallet.svg",
+                "src_ic_branch_003": "assets/icons/ic_branch.svg"
+            },
+            "flows__promissory_old__json__promissory_receiver": {
+                "src_ic_right_arrow_001": "assets/icons/ic_right_arrow.svg",
+                "src_ic_calendar_002": "assets/icons/ic_calendar.svg"
+            },
+            "flows__promissory_old__json__promissory_rules": {
+                "src_ic_check_001": "assets/icons/ic_check.svg"
+            },
+            "flows__promissory_old__json__promissory_sign": {
+                "src_ic_right_arrow_001": "assets/icons/ic_right_arrow.svg",
+                "src_sign_pdf_002": "assets/icons/sign-pdf.svg"
+            },
+            "flows__promissory_old__json__promissory_success": {
+                "src_ic_check_circle_001": "assets/icons/ic_check_circle.svg",
+                "src_ic_pdf_file_002": "assets/icons/ic_pdf_file.svg",
+                "src_ic_show_003": "assets/icons/ic_show.svg",
+                "src_ic_share_004": "assets/icons/ic_share.svg"
+            },
+            "flows__promissory_old__json__request_promissory_deposit": {
+                "src_ic_right_arrow_001": "assets/icons/ic_right_arrow.svg"
+            },
+            "flows__promissory__json__promissory_intro": {
+                "src_ic_promissory_request_history_001": "assets/icons/ic_promissory_request_history.svg",
+                "src_ic_promissory_finalize_history_002": "assets/icons/ic_promissory_finalize_history.svg",
+                "src_ic_arrow_circle_up_003": "assets/icons/ic_arrow_circle_up.svg",
+                "src_ic_arrow_circle_down_004": "assets/icons/ic_arrow_circle_down.svg",
+                "src_ic_promissory_request_005": "assets/icons/ic_promissory_request.svg",
+                "src_ic_promissory_guarantee_006": "assets/icons/ic_promissory_guarantee.svg",
+                "src_ic_promissory_inquiry_007": "assets/icons/ic_promissory_inquiry.svg"
+            },
+            "flows__promissory__json__promissory_payment": {
+                "src_ic_promissory_request_001": "assets/icons/ic_promissory_request.svg",
+                "src_ic_wallet_002": "assets/icons/ic_wallet.svg",
+                "src_ic_gateway_003": "assets/icons/ic_gateway.svg",
+                "src_ic_info_004": "assets/icons/ic_info.svg"
+            },
+            "flows__promissory__json__promissory_payment_deposits": {
+                "src_ic_info_001": "assets/icons/ic_info.svg",
+                "src_ic_info_002": "assets/icons/ic_info.svg"
+            },
+            "flows__promissory__json__promissory_preview": {
+                "src_ic_info_001": "assets/icons/ic_info.svg"
+            },
+            "flows__promissory__json__promissory_receiver": {
+                "src_ic_calendar_001": "assets/icons/ic_calendar.svg",
+                "src_ic_gardeshgari_002": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_info_003": "assets/icons/ic_info.svg",
+                "src_ic_info_004": "assets/icons/ic_info.svg",
+                "src_ic_info_005": "assets/icons/ic_info.svg",
+                "src_ic_info_006": "assets/icons/ic_info.svg",
+                "src_ic_info_007": "assets/icons/ic_info.svg",
+                "src_ic_info_008": "assets/icons/ic_info.svg"
+            },
+            "flows__promissory__json__promissory_rules": {
+                "src_ic_check_001": "assets/icons/ic_check.svg",
+                "src_ic_info_002": "assets/icons/ic_info.svg",
+                "src_ic_info_003": "assets/icons/ic_info.svg"
+            },
+            "flows__promissory__json__promissory_sign": {
+                "src_ic_info_001": "assets/icons/ic_info.svg",
+                "src_sign_pdf_002": "assets/icons/sign-pdf.svg",
+                "src_ic_info_003": "assets/icons/ic_info.svg",
+                "src_ic_info_004": "assets/icons/ic_info.svg",
+                "src_ic_info_005": "assets/icons/ic_info.svg",
+                "src_ic_info_006": "assets/icons/ic_info.svg"
+            },
+            "flows__promissory__json__promissory_success": {
+                "src_ic_transaction_success_001": "assets/icons/ic_transaction_success.svg",
+                "src_ic_pdf_file_002": "assets/icons/ic_pdf_file.svg",
+                "src_ic_show_003": "assets/icons/ic_show.svg"
+            },
+            "flows__promissory__json_upload__promissory_confirm": {
+                "src_ic_right_arrow_001": "assets/icons/ic_right_arrow.svg"
+            },
+            "flows__promissory__json_upload__promissory_data": {
+                "src_ic_right_arrow_001": "assets/icons/ic_right_arrow.svg"
+            },
+            "flows__promissory__json_upload__promissory_intro": {
+                "src_ic_right_arrow_001": "assets/icons/ic_right_arrow.svg",
+                "src_ic_promissory_request_002": "assets/icons/ic_promissory_request.svg",
+                "src_ic_promissory_guarantee_003": "assets/icons/ic_promissory_guarantee.svg",
+                "src_ic_promissory_inquiry_004": "assets/icons/ic_promissory_inquiry.svg"
+            },
+            "flows__promissory__json_upload__promissory_payment": {
+                "src_ic_right_arrow_001": "assets/icons/ic_right_arrow.svg",
+                "src_ic_promissory_request_002": "assets/icons/ic_promissory_request.svg",
+                "src_ic_wallet_003": "assets/icons/ic_wallet.svg",
+                "src_ic_branch_004": "assets/icons/ic_branch.svg"
+            },
+            "flows__promissory__json_upload__promissory_receiver": {
+                "src_ic_right_arrow_001": "assets/icons/ic_right_arrow.svg",
+                "src_ic_calendar_002": "assets/icons/ic_calendar.svg"
+            },
+            "flows__promissory__json_upload__promissory_rules": {
+                "src_ic_right_arrow_001": "assets/icons/ic_right_arrow.svg",
+                "src_ic_check_002": "assets/icons/ic_check.svg"
+            },
+            "flows__promissory__json_upload__promissory_sign": {
+                "src_ic_right_arrow_001": "assets/icons/ic_right_arrow.svg",
+                "src_sign_pdf_002": "assets/icons/sign-pdf.svg",
+                "src_ic_info_003": "assets/icons/ic_info.svg"
+            },
+            "flows__promissory__json_upload__promissory_success": {
+                "src_ic_check_circle_001": "assets/icons/ic_check_circle.svg",
+                "src_ic_pdf_file_002": "assets/icons/ic_pdf_file.svg",
+                "src_ic_show_003": "assets/icons/ic_show.svg",
+                "src_ic_share_004": "assets/icons/ic_share.svg"
+            },
+            "flows__profile__json__profile_about": {
+                "src_ic_tobank_red_001": "assets/icons/ic_tobank_red.svg"
+            },
+            "flows__profile__json__profile_bank_info": {
+                "src_ic_location_001": "assets/icons/ic_location.svg"
+            },
+            "flows__profile__json__profile_contact": {
+                "src_ic_website_001": "assets/icons/ic_website.svg",
+                "src_ic_email_002": "assets/icons/ic_email.svg",
+                "src_ic_call_003": "assets/icons/ic_call.svg",
+                "src_ic_aparat_004": "assets/icons/ic_aparat.svg",
+                "src_ic_linkedin_005": "assets/icons/ic_linkedin.svg",
+                "src_ic_instagram_006": "assets/icons/ic_instagram.svg"
+            },
+            "flows__profile__json__profile_destinations": {
+                "src_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_002": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_003": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_004": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_005": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_success_new_006": "assets/icons/ic_success_new.svg",
+                "src_ic_gardeshgari_007": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_success_new_008": "assets/icons/ic_success_new.svg",
+                "src_ic_gardeshgari_009": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_010": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_011": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_012": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_013": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_014": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_015": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_scanner_016": "assets/icons/ic_scanner.svg"
+            },
+            "flows__profile__json__profile_invite_friends": {
+                "src_ic_invite_header_001": "assets/icons/ic_invite_header.svg",
+                "src_ic_invite_code_002": "assets/icons/ic_invite_code.svg",
+                "src_ic_copy_003": "assets/icons/ic_copy.svg",
+                "src_ic_share_004": "assets/icons/ic_share.svg",
+                "src_ic_person_005": "assets/icons/ic_person.svg"
+            },
+            "flows__profile__json__profile_settings": {
+                "src_ic_warning_red_001": "assets/icons/ic_warning_red.svg"
+            },
+            "flows__package__json__package_add_sim": {
+                "src_ic_pick_contact_001": "assets/icons/ic_pick_contact.svg",
+                "src_ic_hamrah_aval_002": "assets/icons/ic_hamrah_aval.svg",
+                "src_ic_hamrah_aval_003": "assets/icons/ic_hamrah_aval.svg",
+                "src_ic_irancell_004": "assets/icons/ic_irancell.svg",
+                "src_ic_irancell_005": "assets/icons/ic_irancell.svg",
+                "src_ic_rightel_006": "assets/icons/ic_rightel.svg",
+                "src_ic_rightel_007": "assets/icons/ic_rightel.svg"
+            },
+            "flows__package__json__package_intro": {
+                "src_ic_charge_empty_list_light_001": "assets/icons/ic_charge_empty_list_light.svg"
+            },
+            "flows__package__json__package_package_list": {
+                "src_ic_package_001": "assets/icons/ic_package.svg",
+                "src_ic_package_002": "assets/icons/ic_package.svg",
+                "src_ic_package_003": "assets/icons/ic_package.svg",
+                "src_ic_package_004": "assets/icons/ic_package.svg",
+                "src_ic_package_005": "assets/icons/ic_package.svg",
+                "src_ic_package_006": "assets/icons/ic_package.svg",
+                "src_ic_package_007": "assets/icons/ic_package.svg",
+                "src_ic_package_008": "assets/icons/ic_package.svg",
+                "src_ic_package_009": "assets/icons/ic_package.svg",
+                "src_ic_package_010": "assets/icons/ic_package.svg",
+                "src_ic_package_011": "assets/icons/ic_package.svg",
+                "src_ic_package_012": "assets/icons/ic_package.svg",
+                "src_ic_package_empty_list_light_013": "assets/icons/ic_package_empty_list_light.svg",
+                "src_ic_package_014": "assets/icons/ic_package.svg",
+                "src_ic_package_015": "assets/icons/ic_package.svg",
+                "src_ic_package_016": "assets/icons/ic_package.svg",
+                "src_ic_package_017": "assets/icons/ic_package.svg",
+                "src_ic_package_018": "assets/icons/ic_package.svg",
+                "src_ic_package_019": "assets/icons/ic_package.svg",
+                "src_ic_package_020": "assets/icons/ic_package.svg",
+                "src_ic_package_021": "assets/icons/ic_package.svg",
+                "src_ic_package_022": "assets/icons/ic_package.svg",
+                "src_ic_package_023": "assets/icons/ic_package.svg",
+                "src_ic_package_024": "assets/icons/ic_package.svg",
+                "src_ic_package_025": "assets/icons/ic_package.svg",
+                "src_ic_package_026": "assets/icons/ic_package.svg",
+                "src_ic_package_027": "assets/icons/ic_package.svg",
+                "src_ic_package_028": "assets/icons/ic_package.svg",
+                "src_ic_package_029": "assets/icons/ic_package.svg",
+                "src_ic_package_030": "assets/icons/ic_package.svg",
+                "src_ic_package_031": "assets/icons/ic_package.svg",
+                "src_ic_package_032": "assets/icons/ic_package.svg",
+                "src_ic_package_033": "assets/icons/ic_package.svg",
+                "src_ic_package_034": "assets/icons/ic_package.svg",
+                "src_ic_package_035": "assets/icons/ic_package.svg",
+                "src_ic_package_036": "assets/icons/ic_package.svg",
+                "src_ic_package_037": "assets/icons/ic_package.svg"
+            },
+            "flows__package__json__package_payment_success": {
+                "src_ic_tobank_red_001": "assets/icons/ic_tobank_red.svg",
+                "src_ic_share_002": "assets/icons/ic_share.svg",
+                "src_ic_download_003": "assets/icons/ic_download.svg"
+            },
+            "flows__login_flow_linear__api__GET_login_flow_linear_login": {
+                "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
+            },
+            "flows__login_flow_linear__json__login_flow_linear_login": {
+                "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
+            },
+            "flows__login__json__login_form_dart": {
+                "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
+            },
+            "flows__login__json__login_splash": {
+                "src_ic_tobank_logo_001": "assets/icons/ic_tobank_logo.svg"
+            },
+            "flows__home_page__api__GET_tobank_special_services_page": {
+                "src_ic_info_001": "assets/icons/ic_info.svg",
+                "src_ic_info_002": "assets/icons/ic_info.svg",
+                "src_ic_bank_lock_003": "assets/icons/ic_bank_lock.svg",
+                "src_ic_info_004": "assets/icons/ic_info.svg",
+                "src_ic_info_005": "assets/icons/ic_info.svg",
+                "src_ic_lock_retrieval_006": "assets/icons/ic_lock_retrieval.svg",
+                "src_ic_menu_mobile_007": "assets/icons/ic_menu_mobile.svg",
+                "src_ic_menu_internet_008": "assets/icons/ic_menu_internet.svg",
+                "src_ic_safe_box_009": "assets/icons/ic_safe_box.svg",
+                "src_ic_military_guarantee_010": "assets/icons/ic_military_guarantee.svg",
+                "src_ic_promissory_011": "assets/icons/ic_promissory.svg",
+                "src_ic_cbs_search_012": "assets/icons/ic_cbs_search.svg"
+            },
+            "flows__home_page__json__tobank_special_services_page": {
+                "src_ic_menu_mobile_001": "assets/icons/ic_menu_mobile.svg",
+                "src_ic_bank_lock_002": "assets/icons/ic_bank_lock.svg",
+                "src_ic_info_003": "assets/icons/ic_info.svg",
+                "src_ic_info_004": "assets/icons/ic_info.svg",
+                "src_ic_info_005": "assets/icons/ic_info.svg",
+                "src_ic_lock_retrieval_006": "assets/icons/ic_lock_retrieval.svg",
+                "src_ic_info_007": "assets/icons/ic_info.svg",
+                "src_ic_info_008": "assets/icons/ic_info.svg",
+                "src_ic_menu_internet_009": "assets/icons/ic_menu_internet.svg",
+                "src_ic_safe_box_010": "assets/icons/ic_safe_box.svg",
+                "src_ic_military_guarantee_011": "assets/icons/ic_military_guarantee.svg",
+                "src_ic_promissory_012": "assets/icons/ic_promissory.svg",
+                "src_ic_cbs_search_013": "assets/icons/ic_cbs_search.svg"
+            },
+            "flows__gift_card__api_json__gift_card_custom_design_selector": {
+                "src_shetab_001": "assets/icons/shetab.svg",
+                "src_gardeshgary_002": "assets/icons/gardeshgary.svg",
+                "src_shetab_003": "assets/icons/shetab.svg",
+                "src_gardeshgary_004": "assets/icons/gardeshgary.svg",
+                "src_shetab_005": "assets/icons/shetab.svg",
+                "src_gardeshgary_006": "assets/icons/gardeshgary.svg",
+                "src_ic_image_text_007": "assets/icons/ic_image_text.svg"
+            },
+            "flows__gift_card__api_json__gift_card_custom_select_design": {
+                "src_shetab_001": "assets/icons/shetab.svg",
+                "src_gardeshgary_002": "assets/icons/gardeshgary.svg",
+                "src_shetab_003": "assets/icons/shetab.svg",
+                "src_gardeshgary_004": "assets/icons/gardeshgary.svg",
+                "src_shetab_005": "assets/icons/shetab.svg",
+                "src_gardeshgary_006": "assets/icons/gardeshgary.svg",
+                "src_shetab_007": "assets/icons/shetab.svg",
+                "src_gardeshgary_008": "assets/icons/gardeshgary.svg",
+                "src_shetab_009": "assets/icons/shetab.svg",
+                "src_gardeshgary_010": "assets/icons/gardeshgary.svg",
+                "src_shetab_011": "assets/icons/shetab.svg",
+                "src_gardeshgary_012": "assets/icons/gardeshgary.svg",
+                "src_shetab_013": "assets/icons/shetab.svg",
+                "src_gardeshgary_014": "assets/icons/gardeshgary.svg",
+                "src_shetab_015": "assets/icons/shetab.svg",
+                "src_gardeshgary_016": "assets/icons/gardeshgary.svg"
+            },
+            "flows__gift_card__api_json__gift_card_design_selector": {
+                "src_shetab_001": "assets/icons/shetab.svg",
+                "src_gardeshgary_002": "assets/icons/gardeshgary.svg",
+                "src_ic_image_text_003": "assets/icons/ic_image_text.svg"
+            },
+            "flows__gift_card__api_json__gift_card_image_selector": {
+                "src_gardeshgary_001": "assets/icons/gardeshgary.svg",
+                "src_shetab_002": "assets/icons/shetab.svg"
+            },
+            "flows__gift_card__api_json__gift_card_select_design": {
+                "src_shetab_001": "assets/icons/shetab.svg",
+                "src_gardeshgary_002": "assets/icons/gardeshgary.svg",
+                "src_shetab_003": "assets/icons/shetab.svg",
+                "src_gardeshgary_004": "assets/icons/gardeshgary.svg",
+                "src_shetab_005": "assets/icons/shetab.svg",
+                "src_gardeshgary_006": "assets/icons/gardeshgary.svg",
+                "src_shetab_007": "assets/icons/shetab.svg",
+                "src_gardeshgary_008": "assets/icons/gardeshgary.svg",
+                "src_shetab_009": "assets/icons/shetab.svg",
+                "src_gardeshgary_010": "assets/icons/gardeshgary.svg",
+                "src_shetab_011": "assets/icons/shetab.svg",
+                "src_gardeshgary_012": "assets/icons/gardeshgary.svg",
+                "src_shetab_013": "assets/icons/shetab.svg",
+                "src_gardeshgary_014": "assets/icons/gardeshgary.svg",
+                "src_shetab_015": "assets/icons/shetab.svg",
+                "src_gardeshgary_016": "assets/icons/gardeshgary.svg"
+            },
+            "flows__gift_card__json__gift_card_custom_design_selector": {
+                "src_shetab_001": "assets/icons/shetab.svg",
+                "src_gardeshgary_002": "assets/icons/gardeshgary.svg",
+                "src_shetab_003": "assets/icons/shetab.svg",
+                "src_gardeshgary_004": "assets/icons/gardeshgary.svg",
+                "src_shetab_005": "assets/icons/shetab.svg",
+                "src_gardeshgary_006": "assets/icons/gardeshgary.svg",
+                "src_ic_image_text_007": "assets/icons/ic_image_text.svg"
+            },
+            "flows__gift_card__json__gift_card_custom_select_design": {
+                "src_shetab_001": "assets/icons/shetab.svg",
+                "src_gardeshgary_002": "assets/icons/gardeshgary.svg",
+                "src_shetab_003": "assets/icons/shetab.svg",
+                "src_gardeshgary_004": "assets/icons/gardeshgary.svg",
+                "src_shetab_005": "assets/icons/shetab.svg",
+                "src_gardeshgary_006": "assets/icons/gardeshgary.svg",
+                "src_shetab_007": "assets/icons/shetab.svg",
+                "src_gardeshgary_008": "assets/icons/gardeshgary.svg",
+                "src_shetab_009": "assets/icons/shetab.svg",
+                "src_gardeshgary_010": "assets/icons/gardeshgary.svg",
+                "src_shetab_011": "assets/icons/shetab.svg",
+                "src_gardeshgary_012": "assets/icons/gardeshgary.svg",
+                "src_shetab_013": "assets/icons/shetab.svg",
+                "src_gardeshgary_014": "assets/icons/gardeshgary.svg",
+                "src_shetab_015": "assets/icons/shetab.svg",
+                "src_gardeshgary_016": "assets/icons/gardeshgary.svg"
+            },
+            "flows__gift_card__json__gift_card_design_selector": {
+                "src_shetab_001": "assets/icons/shetab.svg",
+                "src_gardeshgary_002": "assets/icons/gardeshgary.svg",
+                "src_ic_image_text_003": "assets/icons/ic_image_text.svg"
+            },
+            "flows__gift_card__json__gift_card_image_selector": {
+                "src_gardeshgary_001": "assets/icons/gardeshgary.svg",
+                "src_shetab_002": "assets/icons/shetab.svg"
+            },
+            "flows__gift_card__json__gift_card_select_design": {
+                "src_shetab_001": "assets/icons/shetab.svg",
+                "src_gardeshgary_002": "assets/icons/gardeshgary.svg",
+                "src_shetab_003": "assets/icons/shetab.svg",
+                "src_gardeshgary_004": "assets/icons/gardeshgary.svg",
+                "src_shetab_005": "assets/icons/shetab.svg",
+                "src_gardeshgary_006": "assets/icons/gardeshgary.svg",
+                "src_shetab_007": "assets/icons/shetab.svg",
+                "src_gardeshgary_008": "assets/icons/gardeshgary.svg",
+                "src_shetab_009": "assets/icons/shetab.svg",
+                "src_gardeshgary_010": "assets/icons/gardeshgary.svg",
+                "src_shetab_011": "assets/icons/shetab.svg",
+                "src_gardeshgary_012": "assets/icons/gardeshgary.svg",
+                "src_shetab_013": "assets/icons/shetab.svg",
+                "src_gardeshgary_014": "assets/icons/gardeshgary.svg",
+                "src_shetab_015": "assets/icons/shetab.svg",
+                "src_gardeshgary_016": "assets/icons/gardeshgary.svg"
+            },
+            "flows__gift_card__json_upload__gift_card_custom_design_selector": {
+                "src_shetab_001": "assets/icons/shetab.svg",
+                "src_gardeshgary_002": "assets/icons/gardeshgary.svg",
+                "src_shetab_003": "assets/icons/shetab.svg",
+                "src_gardeshgary_004": "assets/icons/gardeshgary.svg",
+                "src_shetab_005": "assets/icons/shetab.svg",
+                "src_gardeshgary_006": "assets/icons/gardeshgary.svg",
+                "src_ic_image_text_007": "assets/icons/ic_image_text.svg"
+            },
+            "flows__gift_card__json_upload__gift_card_custom_select_design": {
+                "src_shetab_001": "assets/icons/shetab.svg",
+                "src_gardeshgary_002": "assets/icons/gardeshgary.svg",
+                "src_shetab_003": "assets/icons/shetab.svg",
+                "src_gardeshgary_004": "assets/icons/gardeshgary.svg",
+                "src_shetab_005": "assets/icons/shetab.svg",
+                "src_gardeshgary_006": "assets/icons/gardeshgary.svg",
+                "src_shetab_007": "assets/icons/shetab.svg",
+                "src_gardeshgary_008": "assets/icons/gardeshgary.svg",
+                "src_shetab_009": "assets/icons/shetab.svg",
+                "src_gardeshgary_010": "assets/icons/gardeshgary.svg",
+                "src_shetab_011": "assets/icons/shetab.svg",
+                "src_gardeshgary_012": "assets/icons/gardeshgary.svg",
+                "src_shetab_013": "assets/icons/shetab.svg",
+                "src_gardeshgary_014": "assets/icons/gardeshgary.svg",
+                "src_shetab_015": "assets/icons/shetab.svg",
+                "src_gardeshgary_016": "assets/icons/gardeshgary.svg"
+            },
+            "flows__gift_card__json_upload__gift_card_design_selector": {
+                "src_shetab_001": "assets/icons/shetab.svg",
+                "src_gardeshgary_002": "assets/icons/gardeshgary.svg",
+                "src_ic_image_text_003": "assets/icons/ic_image_text.svg"
+            },
+            "flows__gift_card__json_upload__gift_card_image_selector": {
+                "src_gardeshgary_001": "assets/icons/gardeshgary.svg",
+                "src_shetab_002": "assets/icons/shetab.svg"
+            },
+            "flows__gift_card__json_upload__gift_card_select_design": {
+                "src_shetab_001": "assets/icons/shetab.svg",
+                "src_gardeshgary_002": "assets/icons/gardeshgary.svg",
+                "src_shetab_003": "assets/icons/shetab.svg",
+                "src_gardeshgary_004": "assets/icons/gardeshgary.svg",
+                "src_shetab_005": "assets/icons/shetab.svg",
+                "src_gardeshgary_006": "assets/icons/gardeshgary.svg",
+                "src_shetab_007": "assets/icons/shetab.svg",
+                "src_gardeshgary_008": "assets/icons/gardeshgary.svg",
+                "src_shetab_009": "assets/icons/shetab.svg",
+                "src_gardeshgary_010": "assets/icons/gardeshgary.svg",
+                "src_shetab_011": "assets/icons/shetab.svg",
+                "src_gardeshgary_012": "assets/icons/gardeshgary.svg",
+                "src_shetab_013": "assets/icons/shetab.svg",
+                "src_gardeshgary_014": "assets/icons/gardeshgary.svg",
+                "src_shetab_015": "assets/icons/shetab.svg",
+                "src_gardeshgary_016": "assets/icons/gardeshgary.svg"
+            },
+            "flows__deposit_more__json__deposit_close_confirm": {
+                "src_ic_warning_001": "assets/icons/ic_warning.svg",
+                "src_ic_check_002": "assets/icons/ic_check.svg"
+            },
+            "flows__deposit_more__json__deposit_close_result": {
+                "src_ic_success_new_001": "assets/icons/ic_success_new.svg"
+            },
+            "flows__deposit_more__json__deposit_close_selector": {
+                "src_ic_warning_red_001": "assets/icons/ic_warning_red.svg"
+            },
+            "flows__deposit_more__json_upload__deposit_close_confirm": {
+                "src_ic_warning_001": "assets/icons/ic_warning.svg",
+                "src_ic_check_002": "assets/icons/ic_check.svg"
+            },
+            "flows__deposit_more__json_upload__deposit_close_result": {
+                "src_ic_success_new_001": "assets/icons/ic_success_new.svg"
+            },
+            "flows__deposit_more__json_upload__deposit_close_selector": {
+                "src_ic_warning_red_001": "assets/icons/ic_warning_red.svg"
+            },
+            "flows__dashboard__json__dashboard_cards_management": {
+                "src_ic_menu_001": "assets/icons/ic_menu.svg",
+                "src_ic_card_default_002": "assets/icons/ic_card_default.svg",
+                "src_ic_card_edit_003": "assets/icons/ic_card_edit.svg",
+                "src_ic_card_delete_004": "assets/icons/ic_card_delete.svg",
+                "src_ic_info_005": "assets/icons/ic_info.svg",
+                "src_ic_share_006": "assets/icons/ic_share.svg",
+                "src_ic_share_card_007": "assets/icons/ic_share_card.svg",
+                "src_ic_copy_008": "assets/icons/ic_copy.svg",
+                "src_ic_share_009": "assets/icons/ic_share.svg",
+                "src_ic_share_deposit_010": "assets/icons/ic_share_deposit.svg",
+                "src_ic_copy_011": "assets/icons/ic_copy.svg",
+                "src_ic_share_012": "assets/icons/ic_share.svg",
+                "src_ic_menu_013": "assets/icons/ic_menu.svg",
+                "src_ic_card_default_014": "assets/icons/ic_card_default.svg",
+                "src_ic_card_edit_015": "assets/icons/ic_card_edit.svg",
+                "src_ic_card_delete_016": "assets/icons/ic_card_delete.svg",
+                "src_ic_info_017": "assets/icons/ic_info.svg",
+                "src_ic_share_018": "assets/icons/ic_share.svg",
+                "src_ic_share_card_019": "assets/icons/ic_share_card.svg",
+                "src_ic_copy_020": "assets/icons/ic_copy.svg",
+                "src_ic_share_021": "assets/icons/ic_share.svg",
+                "src_ic_share_deposit_022": "assets/icons/ic_share_deposit.svg",
+                "src_ic_copy_023": "assets/icons/ic_copy.svg",
+                "src_ic_share_024": "assets/icons/ic_share.svg",
+                "src_ic_menu_025": "assets/icons/ic_menu.svg",
+                "src_ic_card_default_026": "assets/icons/ic_card_default.svg",
+                "src_ic_card_edit_027": "assets/icons/ic_card_edit.svg",
+                "src_ic_card_delete_028": "assets/icons/ic_card_delete.svg",
+                "src_ic_info_029": "assets/icons/ic_info.svg",
+                "src_ic_share_030": "assets/icons/ic_share.svg",
+                "src_ic_share_card_031": "assets/icons/ic_share_card.svg",
+                "src_ic_copy_032": "assets/icons/ic_copy.svg",
+                "src_ic_share_033": "assets/icons/ic_share.svg",
+                "src_ic_share_deposit_034": "assets/icons/ic_share_deposit.svg",
+                "src_ic_copy_035": "assets/icons/ic_copy.svg",
+                "src_ic_share_036": "assets/icons/ic_share.svg",
+                "src_ic_menu_037": "assets/icons/ic_menu.svg",
+                "src_ic_card_default_038": "assets/icons/ic_card_default.svg",
+                "src_ic_card_edit_039": "assets/icons/ic_card_edit.svg",
+                "src_ic_card_delete_040": "assets/icons/ic_card_delete.svg",
+                "src_ic_info_041": "assets/icons/ic_info.svg",
+                "src_ic_share_042": "assets/icons/ic_share.svg",
+                "src_ic_share_card_043": "assets/icons/ic_share_card.svg",
+                "src_ic_copy_044": "assets/icons/ic_copy.svg",
+                "src_ic_share_045": "assets/icons/ic_share.svg",
+                "src_ic_share_deposit_046": "assets/icons/ic_share_deposit.svg",
+                "src_ic_copy_047": "assets/icons/ic_copy.svg",
+                "src_ic_share_048": "assets/icons/ic_share.svg",
+                "src_ic_contact_list_049": "assets/icons/ic_contact_list.svg",
+                "src_ic_wallet_050": "assets/icons/ic_wallet.svg",
+                "src_ic_info_051": "assets/icons/ic_info.svg",
+                "src_ic_info_052": "assets/icons/ic_info.svg",
+                "src_ic_info_053": "assets/icons/ic_info.svg",
+                "src_ic_info_054": "assets/icons/ic_info.svg",
+                "src_ic_info_055": "assets/icons/ic_info.svg",
+                "src_ic_warning_056": "assets/icons/ic_warning.svg",
+                "src_ic_info_057": "assets/icons/ic_info.svg"
+            },
+            "flows__dashboard__json__dashboard_card_balance": {
+                "src_ic_info_001": "assets/icons/ic_info.svg"
+            },
+            "flows__dashboard__json__dashboard_card_edit": {
+                "src_ic_info_001": "assets/icons/ic_info.svg"
+            },
+            "flows__dashboard__json__dashboard_card_reissue_request": {
+                "src_ic_info_001": "assets/icons/ic_info.svg"
+            },
+            "flows__dashboard__json__dashboard_secondary_pin_result": {
+                "src_ic_eye_001": "assets/icons/ic_eye.svg",
+                "src_ic_info_002": "assets/icons/ic_info.svg",
+                "src_ic_copy_003": "assets/icons/ic_copy.svg",
+                "src_ic_info_004": "assets/icons/ic_info.svg"
+            },
+            "flows__dashboard__json__dashboard_shell": {
+                "src_ic_detail_002": "assets/icons/ic_detail.svg",
+                "src_ic_detail_003": "assets/icons/ic_detail.svg",
+                "src_ic_detail_004": "assets/icons/ic_detail.svg",
+                "src_ic_detail_005": "assets/icons/ic_detail.svg",
+                "src_ic_detail_006": "assets/icons/ic_detail.svg",
+                "src_ic_continue_process_007": "assets/icons/ic_continue_process.svg",
+                "src_ic_profile_main_010": "assets/icons/ic_profile_main.svg",
+                "src_ic_profile_main_selected_011": "assets/icons/ic_profile_main_selected.svg",
+                "src_ic_cardboard_012": "assets/icons/ic_cardboard.svg",
+                "src_ic_cardboard_selected_013": "assets/icons/ic_cardboard_selected.svg",
+                "src_ic_transaction_main_014": "assets/icons/ic_transaction_main.svg",
+                "src_ic_transaction_main_selected_015": "assets/icons/ic_transaction_main_selected.svg",
+                "src_ic_home_main_016": "assets/icons/ic_home_main.svg",
+                "src_ic_home_main_selected_017": "assets/icons/ic_home_main_selected.svg"
+            },
+            "flows__dashboard__json__dashboard_wallet_transfer_receipt": {
+                "src_ic_info_001": "assets/icons/ic_info.svg",
+                "src_ic_share_image_002": "assets/icons/ic_share_image.svg",
+                "src_ic_info_003": "assets/icons/ic_info.svg"
+            },
+            "flows__charge__json__charge_add_sim": {
+                "src_ic_pick_contact_001": "assets/icons/ic_pick_contact.svg",
+                "src_ic_hamrah_aval_002": "assets/icons/ic_hamrah_aval.svg",
+                "src_ic_hamrah_aval_003": "assets/icons/ic_hamrah_aval.svg",
+                "src_ic_irancell_004": "assets/icons/ic_irancell.svg",
+                "src_ic_irancell_005": "assets/icons/ic_irancell.svg",
+                "src_ic_rightel_006": "assets/icons/ic_rightel.svg",
+                "src_ic_rightel_007": "assets/icons/ic_rightel.svg"
+            },
+            "flows__charge__json__charge_intro": {
+                "src_ic_charge_empty_list_light_001": "assets/icons/ic_charge_empty_list_light.svg"
+            },
+            "flows__charge__json__charge_package_list": {
+                "src_ic_pick_contact_001": "assets/icons/ic_pick_contact.svg"
+            },
+            "flows__charge__json__charge_payment_success": {
+                "src_ic_tobank_red_001": "assets/icons/ic_tobank_red.svg",
+                "src_ic_share_002": "assets/icons/ic_share.svg",
+                "src_ic_download_003": "assets/icons/ic_download.svg"
+            },
+            "flows__cartable__json__cartable_intro": {
+                "src_ic_detail_001": "assets/icons/ic_detail.svg",
+                "src_ic_detail_002": "assets/icons/ic_detail.svg",
+                "src_ic_detail_003": "assets/icons/ic_detail.svg",
+                "src_ic_detail_004": "assets/icons/ic_detail.svg",
+                "src_ic_detail_005": "assets/icons/ic_detail.svg",
+                "src_ic_continue_process_006": "assets/icons/ic_continue_process.svg"
+            },
+            "login__dart__tobank_login": {
+                "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
+            },
+            "flows__transfer__dart__transfer_amount": {
+                "src_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_person_002": "assets/icons/ic_person.svg",
+                "src_ic_others_003": "assets/icons/ic_others.svg",
+                "src_ic_card_default_004": "assets/icons/ic_card_default.svg"
+            },
+            "flows__transfer__dart__transfer_card_result": {
+                "iconAsset_ic_download_001": "assets/icons/ic_download.svg",
+                "iconAsset_ic_share_002": "assets/icons/ic_share.svg",
+                "src_ic_transaction_success_003": "assets/icons/ic_transaction_success.svg",
+                "src_ic_tobank_004": "assets/icons/ic_tobank.svg"
+            },
+            "flows__transfer__dart__transfer_confirm": {
+                "iconAsset_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_002": "assets/icons/ic_gardeshgari.svg"
+            },
+            "flows__transfer__dart__transfer_details": {
+                "iconAsset_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
+                "iconAsset_ic_bank_transfer_002": "assets/icons/ic_bank_transfer.svg",
+                "iconAsset_ic_bank_transfer_003": "assets/icons/ic_bank_transfer.svg",
+                "iconAsset_ic_bank_transfer_dark_004": "assets/icons/ic_bank_transfer_dark.svg"
+            },
+            "flows__transfer__dart__transfer_in_bank_confirm": {
+                "iconAsset_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_002": "assets/icons/ic_gardeshgari.svg"
+            },
+            "flows__transfer__dart__transfer_in_bank_details": {
+                "iconAsset_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
+                "iconAsset_ic_bank_transfer_dark_002": "assets/icons/ic_bank_transfer_dark.svg",
+                "iconAsset_ic_bank_transfer_dark_003": "assets/icons/ic_bank_transfer_dark.svg",
+                "iconAsset_ic_bank_transfer_dark_004": "assets/icons/ic_bank_transfer_dark.svg"
+            },
+            "flows__transfer__dart__transfer_in_bank_result": {
+                "iconAsset_ic_download_001": "assets/icons/ic_download.svg",
+                "iconAsset_ic_share_002": "assets/icons/ic_share.svg",
+                "src_ic_transaction_success_003": "assets/icons/ic_transaction_success.svg",
+                "src_ic_tobank_004": "assets/icons/ic_tobank.svg"
+            },
+            "flows__transfer__dart__transfer_result": {
+                "iconAsset_ic_download_001": "assets/icons/ic_download.svg",
+                "iconAsset_ic_share_002": "assets/icons/ic_share.svg",
+                "src_ic_transaction_success_003": "assets/icons/ic_transaction_success.svg",
+                "src_ic_transaction_success_004": "assets/icons/ic_transaction_success.svg",
+                "src_ic_tobank_005": "assets/icons/ic_tobank.svg"
+            },
+            "flows__transfer__inline_dart__transfer_amount": {
+                "src_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_person_002": "assets/icons/ic_person.svg",
+                "src_ic_others_003": "assets/icons/ic_others.svg",
+                "src_ic_card_default_004": "assets/icons/ic_card_default.svg"
+            },
+            "flows__transfer__inline_dart__transfer_card_result": {
+                "iconAsset_ic_download_001": "assets/icons/ic_download.svg",
+                "iconAsset_ic_share_002": "assets/icons/ic_share.svg",
+                "src_ic_transaction_success_003": "assets/icons/ic_transaction_success.svg",
+                "src_ic_tobank_004": "assets/icons/ic_tobank.svg"
+            },
+            "flows__transfer__inline_dart__transfer_confirm": {
+                "iconAsset_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_002": "assets/icons/ic_gardeshgari.svg"
+            },
+            "flows__transfer__inline_dart__transfer_details": {
+                "iconAsset_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
+                "iconAsset_ic_bank_transfer_002": "assets/icons/ic_bank_transfer.svg",
+                "iconAsset_ic_bank_transfer_003": "assets/icons/ic_bank_transfer.svg",
+                "iconAsset_ic_bank_transfer_dark_004": "assets/icons/ic_bank_transfer_dark.svg"
+            },
+            "flows__transfer__inline_dart__transfer_in_bank_confirm": {
+                "iconAsset_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
+                "src_ic_gardeshgari_002": "assets/icons/ic_gardeshgari.svg"
+            },
+            "flows__transfer__inline_dart__transfer_in_bank_details": {
+                "iconAsset_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
+                "iconAsset_ic_bank_transfer_dark_002": "assets/icons/ic_bank_transfer_dark.svg",
+                "iconAsset_ic_bank_transfer_dark_003": "assets/icons/ic_bank_transfer_dark.svg",
+                "iconAsset_ic_bank_transfer_dark_004": "assets/icons/ic_bank_transfer_dark.svg"
+            },
+            "flows__transfer__inline_dart__transfer_in_bank_result": {
+                "iconAsset_ic_download_001": "assets/icons/ic_download.svg",
+                "iconAsset_ic_share_002": "assets/icons/ic_share.svg",
+                "src_ic_transaction_success_003": "assets/icons/ic_transaction_success.svg",
+                "src_ic_tobank_004": "assets/icons/ic_tobank.svg"
+            },
+            "flows__transfer__inline_dart__transfer_result": {
+                "iconAsset_ic_download_001": "assets/icons/ic_download.svg",
+                "iconAsset_ic_share_002": "assets/icons/ic_share.svg",
+                "src_ic_transaction_success_003": "assets/icons/ic_transaction_success.svg",
+                "src_ic_transaction_success_004": "assets/icons/ic_transaction_success.svg",
+                "src_ic_tobank_005": "assets/icons/ic_tobank.svg"
+            },
+            "flows__promissory_old__dart__promissory_data": {
+                "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
+            },
+            "flows__promissory_old__dart__promissory_payment": {
+                "src_ic_promissory_request_001": "assets/icons/ic_promissory_request.svg"
+            },
+            "flows__promissory_old__dart__promissory_receiver": {
+                "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
+            },
+            "flows__promissory_old__dart__promissory_rules": {
+                "src_ic_check_001": "assets/icons/ic_check.svg"
+            },
+            "flows__promissory_old__dart__promissory_sign": {
+                "src_sign_pdf_001": "assets/icons/sign-pdf.svg"
+            },
+            "flows__promissory_old__dart__promissory_success": {
+                "src_ic_check_circle_001": "assets/icons/ic_check_circle.svg",
+                "src_ic_pdf_file_002": "assets/icons/ic_pdf_file.svg",
+                "src_ic_show_003": "assets/icons/ic_show.svg",
+                "src_ic_share_004": "assets/icons/ic_share.svg"
+            },
+            "flows__promissory_old__inline_dart__promissory_data": {
+                "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
+            },
+            "flows__promissory_old__inline_dart__promissory_payment": {
+                "src_ic_promissory_request_001": "assets/icons/ic_promissory_request.svg"
+            },
+            "flows__promissory_old__inline_dart__promissory_receiver": {
+                "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
+            },
+            "flows__promissory_old__inline_dart__promissory_rules": {
+                "src_ic_check_001": "assets/icons/ic_check.svg"
+            },
+            "flows__promissory_old__inline_dart__promissory_sign": {
+                "src_sign_pdf_001": "assets/icons/sign-pdf.svg"
+            },
+            "flows__promissory_old__inline_dart__promissory_success": {
+                "src_ic_check_circle_001": "assets/icons/ic_check_circle.svg",
+                "src_ic_pdf_file_002": "assets/icons/ic_pdf_file.svg",
+                "src_ic_show_003": "assets/icons/ic_show.svg",
+                "src_ic_share_004": "assets/icons/ic_share.svg"
+            },
+            "flows__promissory__dart__promissory_intro": {
+                "src_ic_arrow_circle_up_001": "assets/icons/ic_arrow_circle_up.svg",
+                "src_ic_arrow_circle_down_002": "assets/icons/ic_arrow_circle_down.svg"
+            },
+            "flows__promissory__dart__promissory_payment_screen": {
+                "src_ic_promissory_request_001": "assets/icons/ic_promissory_request.svg",
+                "src_ic_wallet_002": "assets/icons/ic_wallet.svg",
+                "src_ic_gateway_003": "assets/icons/ic_gateway.svg"
+            },
+            "flows__promissory__dart__promissory_receiver_screen": {
+                "src_ic_calendar_001": "assets/icons/ic_calendar.svg",
+                "src_ic_gardeshgari_002": "assets/icons/ic_gardeshgari.svg"
+            },
+            "flows__promissory__dart__promissory_rules": {
+                "src_ic_check_001": "assets/icons/ic_check.svg"
+            },
+            "flows__promissory__dart__promissory_sign_screen": {
+                "src_sign_pdf_001": "assets/icons/sign-pdf.svg"
+            },
+            "flows__promissory__dart__promissory_success_screen": {
+                "src_ic_transaction_success_001": "assets/icons/ic_transaction_success.svg",
+                "src_ic_pdf_file_002": "assets/icons/ic_pdf_file.svg",
+                "src_ic_show_003": "assets/icons/ic_show.svg"
+            },
+            "flows__promissory__inline_dart__promissory_intro": {
+                "src_ic_arrow_circle_up_001": "assets/icons/ic_arrow_circle_up.svg",
+                "src_ic_arrow_circle_down_002": "assets/icons/ic_arrow_circle_down.svg"
+            },
+            "flows__promissory__inline_dart__promissory_payment_screen": {
+                "src_ic_promissory_request_001": "assets/icons/ic_promissory_request.svg",
+                "src_ic_wallet_002": "assets/icons/ic_wallet.svg",
+                "src_ic_gateway_003": "assets/icons/ic_gateway.svg"
+            },
+            "flows__promissory__inline_dart__promissory_receiver_screen": {
+                "src_ic_calendar_001": "assets/icons/ic_calendar.svg",
+                "src_ic_gardeshgari_002": "assets/icons/ic_gardeshgari.svg"
+            },
+            "flows__promissory__inline_dart__promissory_rules": {
+                "src_ic_check_001": "assets/icons/ic_check.svg"
+            },
+            "flows__promissory__inline_dart__promissory_sign_screen": {
+                "src_sign_pdf_001": "assets/icons/sign-pdf.svg"
+            },
+            "flows__promissory__inline_dart__promissory_success_screen": {
+                "src_ic_transaction_success_001": "assets/icons/ic_transaction_success.svg",
+                "src_ic_pdf_file_002": "assets/icons/ic_pdf_file.svg",
+                "src_ic_show_003": "assets/icons/ic_show.svg"
+            },
+            "flows__promissory__menu__promissory_menu": {
+                "src_ic_right_arrow_001": "assets/icons/ic_right_arrow.svg"
+            },
+            "flows__profile__dart__profile_about": {
+                "src_ic_tobank_red_001": "assets/icons/ic_tobank_red.svg"
+            },
+            "flows__profile__dart__profile_bank_info": {
+                "src_ic_location_001": "assets/icons/ic_location.svg"
+            },
+            "flows__profile__dart__profile_destinations": {
+                "src_ic_scanner_001": "assets/icons/ic_scanner.svg"
+            },
+            "flows__profile__dart__profile_invite_friends": {
+                "src_ic_invite_header_001": "assets/icons/ic_invite_header.svg",
+                "src_ic_share_002": "assets/icons/ic_share.svg",
+                "src_ic_person_003": "assets/icons/ic_person.svg",
+                "src_ic_invite_code_004": "assets/icons/ic_invite_code.svg",
+                "src_ic_copy_005": "assets/icons/ic_copy.svg"
+            },
+            "flows__profile__dart__profile_settings": {
+                "src_ic_warning_red_001": "assets/icons/ic_warning_red.svg"
+            },
+            "flows__profile__inline_dart__profile_about": {
+                "src_ic_tobank_red_001": "assets/icons/ic_tobank_red.svg"
+            },
+            "flows__profile__inline_dart__profile_bank_info": {
+                "src_ic_location_001": "assets/icons/ic_location.svg"
+            },
+            "flows__profile__inline_dart__profile_destinations": {
+                "src_ic_scanner_001": "assets/icons/ic_scanner.svg"
+            },
+            "flows__profile__inline_dart__profile_invite_friends": {
+                "src_ic_invite_header_001": "assets/icons/ic_invite_header.svg",
+                "src_ic_share_002": "assets/icons/ic_share.svg",
+                "src_ic_person_003": "assets/icons/ic_person.svg",
+                "src_ic_invite_code_004": "assets/icons/ic_invite_code.svg",
+                "src_ic_copy_005": "assets/icons/ic_copy.svg"
+            },
+            "flows__profile__inline_dart__profile_settings": {
+                "src_ic_warning_red_001": "assets/icons/ic_warning_red.svg"
+            },
+            "flows__package__dart__package_add_sim": {
+                "src_ic_pick_contact_001": "assets/icons/ic_pick_contact.svg"
+            },
+            "flows__package__dart__package_intro": {
+                "src_ic_charge_empty_list_light_001": "assets/icons/ic_charge_empty_list_light.svg"
+            },
+            "flows__package__dart__package_package_list": {
+                "src_ic_package_001": "assets/icons/ic_package.svg",
+                "src_ic_package_empty_list_light_002": "assets/icons/ic_package_empty_list_light.svg"
+            },
+            "flows__package__dart__package_payment_success": {
+                "iconAsset_ic_share_001": "assets/icons/ic_share.svg",
+                "iconAsset_ic_download_002": "assets/icons/ic_download.svg",
+                "src_ic_tobank_red_003": "assets/icons/ic_tobank_red.svg"
+            },
+            "flows__package__inline_dart__package_add_sim": {
+                "src_ic_pick_contact_001": "assets/icons/ic_pick_contact.svg"
+            },
+            "flows__package__inline_dart__package_intro": {
+                "src_ic_charge_empty_list_light_001": "assets/icons/ic_charge_empty_list_light.svg"
+            },
+            "flows__package__inline_dart__package_package_list": {
+                "src_ic_package_001": "assets/icons/ic_package.svg",
+                "src_ic_package_empty_list_light_002": "assets/icons/ic_package_empty_list_light.svg"
+            },
+            "flows__package__inline_dart__package_payment_success": {
+                "iconAsset_ic_share_001": "assets/icons/ic_share.svg",
+                "iconAsset_ic_download_002": "assets/icons/ic_download.svg",
+                "src_ic_tobank_red_003": "assets/icons/ic_tobank_red.svg"
+            },
+            "flows__login_flow_linear__dart__login_flow_linear_login": {
+                "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
+            },
+            "flows__login_flow_linear__inline_dart__login_flow_linear_login": {
+                "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
+            },
+            "flows__login__dart__login_screen": {
+                "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
+            },
+            "flows__login__dart__login_splash": {
+                "src_ic_tobank_logo_001": "assets/icons/ic_tobank_logo.svg"
+            },
+            "flows__login__inline_dart__login_screen": {
+                "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
+            },
+            "flows__login__inline_dart__login_splash": {
+                "src_ic_tobank_logo_001": "assets/icons/ic_tobank_logo.svg"
+            },
+            "flows__home_page__dart__tobank_special_services_page": {
+                "src_ic_info_001": "assets/icons/ic_info.svg"
+            },
+            "flows__home_page__inline_dart__tobank_special_services_page": {
+                "src_ic_info_001": "assets/icons/ic_info.svg"
+            },
+            "flows__gift_card__dart__gift_card_custom_design_selector": {
+                "src_ic_image_text_001": "assets/icons/ic_image_text.svg",
+                "src_shetab_002": "assets/icons/shetab.svg",
+                "src_gardeshgary_003": "assets/icons/gardeshgary.svg",
+                "src_shetab_004": "assets/icons/shetab.svg",
+                "src_gardeshgary_005": "assets/icons/gardeshgary.svg",
+                "src_shetab_006": "assets/icons/shetab.svg",
+                "src_gardeshgary_007": "assets/icons/gardeshgary.svg"
+            },
+            "flows__gift_card__dart__gift_card_custom_select_design": {
+                "src_shetab_001": "assets/icons/shetab.svg",
+                "src_gardeshgary_002": "assets/icons/gardeshgary.svg"
+            },
+            "flows__gift_card__dart__gift_card_design_selector": {
+                "src_ic_image_text_001": "assets/icons/ic_image_text.svg",
+                "src_shetab_002": "assets/icons/shetab.svg",
+                "src_gardeshgary_003": "assets/icons/gardeshgary.svg"
+            },
+            "flows__gift_card__dart__gift_card_image_selector": {
+                "src_gardeshgary_001": "assets/icons/gardeshgary.svg",
+                "src_shetab_002": "assets/icons/shetab.svg"
+            },
+            "flows__gift_card__dart__gift_card_select_design": {
+                "src_shetab_001": "assets/icons/shetab.svg",
+                "src_gardeshgary_002": "assets/icons/gardeshgary.svg"
+            },
+            "flows__gift_card__inline_dart__gift_card_custom_design_selector": {
+                "src_ic_image_text_001": "assets/icons/ic_image_text.svg",
+                "src_shetab_002": "assets/icons/shetab.svg",
+                "src_gardeshgary_003": "assets/icons/gardeshgary.svg",
+                "src_shetab_004": "assets/icons/shetab.svg",
+                "src_gardeshgary_005": "assets/icons/gardeshgary.svg",
+                "src_shetab_006": "assets/icons/shetab.svg",
+                "src_gardeshgary_007": "assets/icons/gardeshgary.svg"
+            },
+            "flows__gift_card__inline_dart__gift_card_custom_select_design": {
+                "src_shetab_001": "assets/icons/shetab.svg",
+                "src_gardeshgary_002": "assets/icons/gardeshgary.svg"
+            },
+            "flows__gift_card__inline_dart__gift_card_design_selector": {
+                "src_ic_image_text_001": "assets/icons/ic_image_text.svg",
+                "src_shetab_002": "assets/icons/shetab.svg",
+                "src_gardeshgary_003": "assets/icons/gardeshgary.svg"
+            },
+            "flows__gift_card__inline_dart__gift_card_image_selector": {
+                "src_gardeshgary_001": "assets/icons/gardeshgary.svg",
+                "src_shetab_002": "assets/icons/shetab.svg"
+            },
+            "flows__gift_card__inline_dart__gift_card_select_design": {
+                "src_shetab_001": "assets/icons/shetab.svg",
+                "src_gardeshgary_002": "assets/icons/gardeshgary.svg"
+            },
+            "flows__deposit_more__dart__deposit_close_confirm": {
+                "src_ic_warning_001": "assets/icons/ic_warning.svg",
+                "src_ic_check_002": "assets/icons/ic_check.svg"
+            },
+            "flows__deposit_more__dart__deposit_close_result": {
+                "src_ic_success_new_001": "assets/icons/ic_success_new.svg"
+            },
+            "flows__deposit_more__dart__deposit_close_selector": {
+                "src_ic_warning_red_001": "assets/icons/ic_warning_red.svg"
+            },
+            "flows__deposit_more__inline_dart__deposit_close_confirm": {
+                "src_ic_warning_001": "assets/icons/ic_warning.svg",
+                "src_ic_check_002": "assets/icons/ic_check.svg"
+            },
+            "flows__deposit_more__inline_dart__deposit_close_result": {
+                "src_ic_success_new_001": "assets/icons/ic_success_new.svg"
+            },
+            "flows__deposit_more__inline_dart__deposit_close_selector": {
+                "src_ic_warning_red_001": "assets/icons/ic_warning_red.svg"
+            },
+            "flows__dashboard__dart__cards_management_screen": {
+                "iconAsset_ic_card_edit_001": "assets/icons/ic_card_edit.svg",
+                "iconAsset_ic_card_delete_002": "assets/icons/ic_card_delete.svg",
+                "iconAsset_ic_share_card_003": "assets/icons/ic_share_card.svg",
+                "iconAsset_ic_share_deposit_004": "assets/icons/ic_share_deposit.svg",
+                "src_ic_copy_005": "assets/icons/ic_copy.svg",
+                "src_ic_contact_list_006": "assets/icons/ic_contact_list.svg",
+                "src_ic_wallet_007": "assets/icons/ic_wallet.svg",
+                "warningIconAsset_ic_warning_red_008": "assets/icons/ic_warning_red.svg"
+            },
+            "flows__dashboard__dart__dashboard_shell": {
+                "src_ic_profile_main_001": "assets/icons/ic_profile_main.svg",
+                "src_ic_profile_main_selected_002": "assets/icons/ic_profile_main_selected.svg",
+                "src_ic_cardboard_003": "assets/icons/ic_cardboard.svg",
+                "src_ic_cardboard_selected_004": "assets/icons/ic_cardboard_selected.svg",
+                "src_ic_transaction_main_005": "assets/icons/ic_transaction_main.svg",
+                "src_ic_transaction_main_selected_006": "assets/icons/ic_transaction_main_selected.svg",
+                "src_ic_home_main_007": "assets/icons/ic_home_main.svg",
+                "src_ic_home_main_selected_008": "assets/icons/ic_home_main_selected.svg"
+            },
+            "flows__dashboard__inline_dart__dashboard_shell": {
+                "src_ic_profile_main_001": "assets/icons/ic_profile_main.svg",
+                "src_ic_profile_main_selected_002": "assets/icons/ic_profile_main_selected.svg",
+                "src_ic_cardboard_003": "assets/icons/ic_cardboard.svg",
+                "src_ic_cardboard_selected_004": "assets/icons/ic_cardboard_selected.svg",
+                "src_ic_transaction_main_005": "assets/icons/ic_transaction_main.svg",
+                "src_ic_transaction_main_selected_006": "assets/icons/ic_transaction_main_selected.svg",
+                "src_ic_home_main_007": "assets/icons/ic_home_main.svg",
+                "src_ic_home_main_selected_008": "assets/icons/ic_home_main_selected.svg"
+            },
+            "flows__dashboard__dart__card_management__pin__secondary_pin_receipt_screen": {
+                "src_ic_eye_001": "assets/icons/ic_eye.svg",
+                "src_ic_copy_002": "assets/icons/ic_copy.svg"
+            },
+            "flows__charge__dart__charge_add_sim": {
+                "src_ic_pick_contact_001": "assets/icons/ic_pick_contact.svg"
+            },
+            "flows__charge__dart__charge_intro": {
+                "src_ic_charge_empty_list_light_001": "assets/icons/ic_charge_empty_list_light.svg"
+            },
+            "flows__charge__dart__charge_package_list": {
+                "src_ic_pick_contact_001": "assets/icons/ic_pick_contact.svg"
+            },
+            "flows__charge__dart__charge_payment_success": {
+                "iconAsset_ic_share_001": "assets/icons/ic_share.svg",
+                "iconAsset_ic_download_002": "assets/icons/ic_download.svg",
+                "src_ic_tobank_red_003": "assets/icons/ic_tobank_red.svg"
+            },
+            "flows__charge__inline_dart__charge_add_sim": {
+                "src_ic_pick_contact_001": "assets/icons/ic_pick_contact.svg"
+            },
+            "flows__charge__inline_dart__charge_intro": {
+                "src_ic_charge_empty_list_light_001": "assets/icons/ic_charge_empty_list_light.svg"
+            },
+            "flows__charge__inline_dart__charge_package_list": {
+                "src_ic_pick_contact_001": "assets/icons/ic_pick_contact.svg"
+            },
+            "flows__charge__inline_dart__charge_payment_success": {
+                "iconAsset_ic_share_001": "assets/icons/ic_share.svg",
+                "iconAsset_ic_download_002": "assets/icons/ic_download.svg",
+                "src_ic_tobank_red_003": "assets/icons/ic_tobank_red.svg"
+            },
+            "flows__cartable__dart__cartable_intro": {
+                "iconAsset_ic_detail_001": "assets/icons/ic_detail.svg",
+                "iconAsset_ic_continue_process_002": "assets/icons/ic_continue_process.svg",
+                "src_ic_detail_003": "assets/icons/ic_detail.svg"
+            },
+            "flows__cartable__inline_dart__cartable_intro": {
+                "iconAsset_ic_detail_001": "assets/icons/ic_detail.svg",
+                "iconAsset_ic_continue_process_002": "assets/icons/ic_continue_process.svg",
+                "src_ic_detail_003": "assets/icons/ic_detail.svg"
+            }
+        }
+    },
+    "images": {
+        "frontNationalSample": "assets/images/front_national.PNG",
+        "backNationalSample": "assets/images/back_national.PNG",
+        "authenticationSuccess": "assets/images/authentication_success.png",
+        "signatureSample": "assets/images/signature_sample.png",
+        "generated": {
+            "flows__profile__json__profile_customer_referrals": {
+                "src_empty_list_001": "assets/images/empty_list.png"
+            },
+            "flows__profile__json__profile_intro": {
+                "src_profile_001": "assets/images/profile.png"
+            },
+            "flows__home_page__api__GET_tobank_home_page_dart": {
+                "src_customer_club_banner_001": "assets/images/customer_club_banner.png",
+                "src_sarmayeh_002": "assets/images/sarmayeh.png"
+            },
+            "flows__home_page__json__tobank_home_page_dart": {
+                "src_customer_club_banner_001": "assets/images/customer_club_banner.png",
+                "src_sarmayeh_002": "assets/images/sarmayeh.png"
+            },
+            "flows__gift_card__api_json__gift_card_intro": {
+                "src_empty_list_001": "assets/images/empty_list.png"
+            },
+            "flows__gift_card__json__gift_card_intro": {
+                "src_empty_list_001": "assets/images/empty_list.png"
+            },
+            "flows__gift_card__json_upload__gift_card_intro": {
+                "src_empty_list_001": "assets/images/empty_list.png"
+            },
+            "flows__dashboard__json__dashboard_shell": {
+                "src_profile_001": "assets/images/profile.png",
+                "src_customer_club_banner_008": "assets/images/customer_club_banner.png",
+                "src_sarmayeh_009": "assets/images/sarmayeh.png"
+            },
+            "flows__profile__dart__profile_customer_referrals": {
+                "src_empty_list_001": "assets/images/empty_list.png"
+            },
+            "flows__profile__dart__profile_intro": {
+                "src_profile_001": "assets/images/profile.png"
+            },
+            "flows__profile__inline_dart__profile_customer_referrals": {
+                "src_empty_list_001": "assets/images/empty_list.png"
+            },
+            "flows__profile__inline_dart__profile_intro": {
+                "src_profile_001": "assets/images/profile.png"
+            },
+            "flows__home_page__dart__home_page": {
+                "src_sarmayeh_001": "assets/images/sarmayeh.png",
+                "src_customer_club_banner_002": "assets/images/customer_club_banner.png"
+            },
+            "flows__home_page__inline_dart__home_page": {
+                "src_sarmayeh_001": "assets/images/sarmayeh.png",
+                "src_customer_club_banner_002": "assets/images/customer_club_banner.png"
+            },
+            "flows__gift_card__dart__gift_card_intro": {
+                "src_empty_list_001": "assets/images/empty_list.png"
+            },
+            "flows__gift_card__inline_dart__gift_card_intro": {
+                "src_empty_list_001": "assets/images/empty_list.png"
+            }
+        }
+    },
+    "onboarding": {
+        "page1": "assets/images/onboarding_1.svg",
+        "page2": "assets/images/onboarding_2.svg",
+        "page3": "assets/images/onboarding_3.svg",
+        "page4": "assets/images/onboarding_4.svg"
+    },
+    "generated": {
+        "onboarding__dart__stac_tobank_onboarding_slider": {
+            "icons": {}
+        },
+        "onboarding__dart__tobank_onboarding": {
+            "icons": {}
+        },
+        "menu__dart__tobank_menu": {
+            "icons": {}
+        },
+        "login__dart__tobank_login": {
+            "icons": {}
+        },
+        "login__dart__verify_otp": {
+            "icons": {}
+        },
+        "flows__verify_identity__dart__test_screen": {
+            "icons": {}
+        },
+        "flows__verify_identity__dart__verify_identity_certificate_generator": {
+            "icons": {}
+        },
+        "flows__verify_identity__dart__verify_identity_final": {
+            "icons": {}
+        },
+        "flows__verify_identity__dart__verify_identity_intro": {
+            "icons": {}
+        },
+        "flows__verify_identity__dart__verify_identity_job_selector": {
+            "icons": {}
+        },
+        "flows__verify_identity__dart__verify_identity_national_card_back": {
+            "icons": {}
+        },
+        "flows__verify_identity__dart__verify_identity_national_card_front": {
+            "icons": {}
+        },
+        "flows__verify_identity__dart__verify_identity_old_national_card": {
+            "icons": {}
+        },
+        "flows__verify_identity__dart__verify_identity_postal_code": {
+            "icons": {}
+        },
+        "flows__verify_identity__dart__verify_identity_preregister": {
+            "icons": {}
+        },
+        "flows__verify_identity__dart__verify_identity_registration": {
+            "icons": {}
+        },
+        "flows__verify_identity__dart__verify_identity_rules": {
+            "icons": {}
+        },
+        "flows__verify_identity__dart__verify_identity_selfie": {
+            "icons": {}
+        },
+        "flows__verify_identity__dart__verify_identity_signature": {
+            "icons": {}
+        },
+        "flows__verify_identity__dart__verify_identity_signature_guide": {
+            "icons": {}
+        },
+        "flows__verify_identity__dart__verify_identity_signature_visual_guide": {
+            "icons": {}
+        },
+        "flows__verify_identity__dart__verify_identity_verify_otp": {
+            "icons": {}
+        },
+        "flows__verify_identity__inline_dart__test_screen": {
+            "icons": {}
+        },
+        "flows__verify_identity__inline_dart__verify_identity_certificate_generator": {
+            "icons": {}
+        },
+        "flows__verify_identity__inline_dart__verify_identity_final": {
+            "icons": {}
+        },
+        "flows__verify_identity__inline_dart__verify_identity_intro": {
+            "icons": {}
+        },
+        "flows__verify_identity__inline_dart__verify_identity_job_selector": {
+            "icons": {}
+        },
+        "flows__verify_identity__inline_dart__verify_identity_national_card_back": {
+            "icons": {}
+        },
+        "flows__verify_identity__inline_dart__verify_identity_national_card_front": {
+            "icons": {}
+        },
+        "flows__verify_identity__inline_dart__verify_identity_old_national_card": {
+            "icons": {}
+        },
+        "flows__verify_identity__inline_dart__verify_identity_postal_code": {
+            "icons": {}
+        },
+        "flows__verify_identity__inline_dart__verify_identity_preregister": {
+            "icons": {}
+        },
+        "flows__verify_identity__inline_dart__verify_identity_registration": {
+            "icons": {}
+        },
+        "flows__verify_identity__inline_dart__verify_identity_rules": {
+            "icons": {}
+        },
+        "flows__verify_identity__inline_dart__verify_identity_selfie": {
+            "icons": {}
+        },
+        "flows__verify_identity__inline_dart__verify_identity_signature": {
+            "icons": {}
+        },
+        "flows__verify_identity__inline_dart__verify_identity_signature_guide": {
+            "icons": {}
+        },
+        "flows__verify_identity__inline_dart__verify_identity_signature_visual_guide": {
+            "icons": {}
+        },
+        "flows__verify_identity__inline_dart__verify_identity_verify_otp": {
+            "icons": {}
+        },
+        "flows__verify_identity__menu__verify_identity_menu": {
+            "icons": {}
+        },
+        "flows__transfer__dart__transfer_amount": {
+            "icons": {}
+        },
+        "flows__transfer__dart__transfer_card_details": {
+            "icons": {}
+        },
+        "flows__transfer__dart__transfer_card_result": {
+            "icons": {}
+        },
+        "flows__transfer__dart__transfer_confirm": {
+            "icons": {}
+        },
+        "flows__transfer__dart__transfer_details": {
+            "icons": {
+                "keyboard_arrow_down_001": "keyboard_arrow_down"
+            }
+        },
+        "flows__transfer__dart__transfer_in_bank_confirm": {
+            "icons": {}
+        },
+        "flows__transfer__dart__transfer_in_bank_details": {
+            "icons": {
+                "keyboard_arrow_down_001": "keyboard_arrow_down"
+            }
+        },
+        "flows__transfer__dart__transfer_in_bank_result": {
+            "icons": {}
+        },
+        "flows__transfer__dart__transfer_result": {
+            "icons": {}
+        },
+        "flows__transfer__inline_dart__transfer_amount": {
+            "icons": {}
+        },
+        "flows__transfer__inline_dart__transfer_card_details": {
+            "icons": {}
+        },
+        "flows__transfer__inline_dart__transfer_card_result": {
+            "icons": {}
+        },
+        "flows__transfer__inline_dart__transfer_confirm": {
+            "icons": {}
+        },
+        "flows__transfer__inline_dart__transfer_details": {
+            "icons": {
+                "keyboard_arrow_down_001": "keyboard_arrow_down"
+            }
+        },
+        "flows__transfer__inline_dart__transfer_in_bank_confirm": {
+            "icons": {}
+        },
+        "flows__transfer__inline_dart__transfer_in_bank_details": {
+            "icons": {
+                "keyboard_arrow_down_001": "keyboard_arrow_down"
+            }
+        },
+        "flows__transfer__inline_dart__transfer_in_bank_result": {
+            "icons": {}
+        },
+        "flows__transfer__inline_dart__transfer_result": {
+            "icons": {}
+        },
+        "flows__transfer__menu__transfer_menu": {
+            "icons": {}
+        },
+        "flows__transaction__dart__transaction_filter": {
+            "icons": {
+                "south_001": "south",
+                "north_002": "north"
+            }
+        },
+        "flows__transaction__dart__transaction_intro": {
+            "icons": {
+                "tune_001": "tune"
+            }
+        },
+        "flows__transaction__inline_dart__transaction_filter": {
+            "icons": {
+                "south_001": "south",
+                "north_002": "north"
+            }
+        },
+        "flows__transaction__inline_dart__transaction_intro": {
+            "icons": {
+                "tune_001": "tune"
+            }
+        },
+        "flows__transaction__menu__transaction_menu": {
+            "icons": {}
+        },
+        "flows__promissory_old__dart__promissory_confirm": {
+            "icons": {}
+        },
+        "flows__promissory_old__dart__promissory_data": {
+            "icons": {}
+        },
+        "flows__promissory_old__dart__promissory_deposit_select": {
+            "icons": {}
+        },
+        "flows__promissory_old__dart__promissory_intro": {
+            "icons": {}
+        },
+        "flows__promissory_old__dart__promissory_issuer": {
+            "icons": {}
+        },
+        "flows__promissory_old__dart__promissory_payment": {
+            "icons": {}
+        },
+        "flows__promissory_old__dart__promissory_receiver": {
+            "icons": {}
+        },
+        "flows__promissory_old__dart__promissory_rules": {
+            "icons": {}
+        },
+        "flows__promissory_old__dart__promissory_sign": {
+            "icons": {}
+        },
+        "flows__promissory_old__dart__promissory_success": {
+            "icons": {}
+        },
+        "flows__promissory_old__dart__request_promissory_deposit_page": {
+            "icons": {}
+        },
+        "flows__promissory_old__inline_dart__promissory_confirm": {
+            "icons": {}
+        },
+        "flows__promissory_old__inline_dart__promissory_data": {
+            "icons": {}
+        },
+        "flows__promissory_old__inline_dart__promissory_deposit_select": {
+            "icons": {}
+        },
+        "flows__promissory_old__inline_dart__promissory_intro": {
+            "icons": {}
+        },
+        "flows__promissory_old__inline_dart__promissory_issuer": {
+            "icons": {}
+        },
+        "flows__promissory_old__inline_dart__promissory_payment": {
+            "icons": {}
+        },
+        "flows__promissory_old__inline_dart__promissory_receiver": {
+            "icons": {}
+        },
+        "flows__promissory_old__inline_dart__promissory_rules": {
+            "icons": {}
+        },
+        "flows__promissory_old__inline_dart__promissory_sign": {
+            "icons": {}
+        },
+        "flows__promissory_old__inline_dart__promissory_success": {
+            "icons": {}
+        },
+        "flows__promissory_old__inline_dart__request_promissory_deposit_page": {
+            "icons": {}
+        },
+        "flows__promissory__dart__promissory_confirm_screen": {
+            "icons": {}
+        },
+        "flows__promissory__dart__promissory_data_screen": {
+            "icons": {}
+        },
+        "flows__promissory__dart__promissory_intro": {
+            "icons": {}
+        },
+        "flows__promissory__dart__promissory_issuer_screen": {
+            "icons": {}
+        },
+        "flows__promissory__dart__promissory_payment_deposits_screen": {
+            "icons": {}
+        },
+        "flows__promissory__dart__promissory_payment_screen": {
+            "icons": {}
+        },
+        "flows__promissory__dart__promissory_preview_screen": {
+            "icons": {}
+        },
+        "flows__promissory__dart__promissory_receiver_screen": {
+            "icons": {}
+        },
+        "flows__promissory__dart__promissory_rules": {
+            "icons": {}
+        },
+        "flows__promissory__dart__promissory_sign_screen": {
+            "icons": {}
+        },
+        "flows__promissory__dart__promissory_success_screen": {
+            "icons": {}
+        },
+        "flows__promissory__inline_dart__promissory_confirm_screen": {
+            "icons": {}
+        },
+        "flows__promissory__inline_dart__promissory_data_screen": {
+            "icons": {}
+        },
+        "flows__promissory__inline_dart__promissory_intro": {
+            "icons": {}
+        },
+        "flows__promissory__inline_dart__promissory_issuer_screen": {
+            "icons": {}
+        },
+        "flows__promissory__inline_dart__promissory_payment_deposits_screen": {
+            "icons": {}
+        },
+        "flows__promissory__inline_dart__promissory_payment_screen": {
+            "icons": {}
+        },
+        "flows__promissory__inline_dart__promissory_preview_screen": {
+            "icons": {}
+        },
+        "flows__promissory__inline_dart__promissory_receiver_screen": {
+            "icons": {}
+        },
+        "flows__promissory__inline_dart__promissory_rules": {
+            "icons": {}
+        },
+        "flows__promissory__inline_dart__promissory_sign_screen": {
+            "icons": {}
+        },
+        "flows__promissory__inline_dart__promissory_success_screen": {
+            "icons": {}
+        },
+        "flows__promissory__menu__promissory_menu": {
+            "icons": {}
+        },
+        "flows__promissory__service__promissory_auth_service": {
+            "icons": {}
+        },
+        "flows__promissory__service__promissory_login_action_parser": {
+            "icons": {}
+        },
+        "flows__promissory__service__promissory_service": {
+            "icons": {}
+        },
+        "flows__promissory__utils__promissory_sign_util": {
+            "icons": {}
+        },
+        "flows__promissory__inline_dart__widgets__promissory_detail_row": {
+            "icons": {}
+        },
+        "flows__promissory__inline_dart__widgets__promissory_divider": {
+            "icons": {}
+        },
+        "flows__promissory__inline_dart__widgets__promissory_error_state": {
+            "icons": {}
+        },
+        "flows__promissory__inline_dart__widgets__promissory_loading_state": {
+            "icons": {}
+        },
+        "flows__promissory__dart__widgets__promissory_detail_row": {
+            "icons": {}
+        },
+        "flows__promissory__dart__widgets__promissory_divider": {
+            "icons": {}
+        },
+        "flows__promissory__dart__widgets__promissory_error_state": {
+            "icons": {}
+        },
+        "flows__promissory__dart__widgets__promissory_loading_state": {
+            "icons": {}
+        },
+        "flows__profile__dart__profile_about": {
+            "icons": {}
+        },
+        "flows__profile__dart__profile_bank_info": {
+            "icons": {}
+        },
+        "flows__profile__dart__profile_change_password": {
+            "icons": {
+                "info_outline_001": "info_outline"
+            }
+        },
+        "flows__profile__dart__profile_contact": {
+            "icons": {}
+        },
+        "flows__profile__dart__profile_customer_referrals": {
+            "icons": {}
+        },
+        "flows__profile__dart__profile_destinations": {
+            "icons": {
+                "more_vert_001": "more_vert",
+                "add_002": "add"
+            }
+        },
+        "flows__profile__dart__profile_intro": {
+            "icons": {}
+        },
+        "flows__profile__dart__profile_invite_friends": {
+            "icons": {}
+        },
+        "flows__profile__dart__profile_rules": {
+            "icons": {}
+        },
+        "flows__profile__dart__profile_settings": {
+            "icons": {}
+        },
+        "flows__profile__inline_dart__profile_about": {
+            "icons": {}
+        },
+        "flows__profile__inline_dart__profile_bank_info": {
+            "icons": {}
+        },
+        "flows__profile__inline_dart__profile_change_password": {
+            "icons": {
+                "info_outline_001": "info_outline"
+            }
+        },
+        "flows__profile__inline_dart__profile_contact": {
+            "icons": {}
+        },
+        "flows__profile__inline_dart__profile_customer_referrals": {
+            "icons": {}
+        },
+        "flows__profile__inline_dart__profile_destinations": {
+            "icons": {
+                "more_vert_001": "more_vert",
+                "add_002": "add"
+            }
+        },
+        "flows__profile__inline_dart__profile_intro": {
+            "icons": {}
+        },
+        "flows__profile__inline_dart__profile_invite_friends": {
+            "icons": {}
+        },
+        "flows__profile__inline_dart__profile_rules": {
+            "icons": {}
+        },
+        "flows__profile__inline_dart__profile_settings": {
+            "icons": {}
+        },
+        "flows__profile__menu__profile_menu": {
+            "icons": {}
+        },
+        "flows__package__dart__package_add_sim": {
+            "icons": {
+                "check_001": "check",
+                "check_002": "check",
+                "error_outline_003": "error_outline"
+            }
+        },
+        "flows__package__dart__package_intro": {
+            "icons": {
+                "edit_outlined_001": "edit_outlined",
+                "delete_outline_002": "delete_outline"
+            }
+        },
+        "flows__package__dart__package_package_list": {
+            "icons": {
+                "chevron_left_001": "chevron_left"
+            }
+        },
+        "flows__package__dart__package_payment": {
+            "icons": {
+                "account_balance_wallet_outlined_001": "account_balance_wallet_outlined"
+            }
+        },
+        "flows__package__dart__package_payment_success": {
+            "icons": {
+                "check_001": "check"
+            }
+        },
+        "flows__package__inline_dart__package_add_sim": {
+            "icons": {
+                "check_001": "check",
+                "check_002": "check",
+                "error_outline_003": "error_outline"
+            }
+        },
+        "flows__package__inline_dart__package_intro": {
+            "icons": {
+                "edit_outlined_001": "edit_outlined",
+                "delete_outline_002": "delete_outline"
+            }
+        },
+        "flows__package__inline_dart__package_package_list": {
+            "icons": {
+                "chevron_left_001": "chevron_left"
+            }
+        },
+        "flows__package__inline_dart__package_payment": {
+            "icons": {
+                "account_balance_wallet_outlined_001": "account_balance_wallet_outlined"
+            }
+        },
+        "flows__package__inline_dart__package_payment_success": {
+            "icons": {
+                "check_001": "check"
+            }
+        },
+        "flows__package__menu__package_menu": {
+            "icons": {}
+        },
+        "flows__package__inline_dart__widgets__package_widgets": {
+            "icons": {
+                "add_001": "add",
+                "chevron_left_002": "chevron_left",
+                "error_outline_003": "error_outline"
+            }
+        },
+        "flows__package__dart__widgets__package_widgets": {
+            "icons": {
+                "add_001": "add",
+                "chevron_left_002": "chevron_left",
+                "error_outline_003": "error_outline"
+            }
+        },
+        "flows__notification__dart__notification_intro": {
+            "icons": {}
+        },
+        "flows__notification__inline_dart__notification_intro": {
+            "icons": {}
+        },
+        "flows__notification__menu__notification_menu": {
+            "icons": {}
+        },
+        "flows__login_flow_linear__dart__login_flow_linear_login": {
+            "icons": {}
+        },
+        "flows__login_flow_linear__dart__login_flow_linear_onboarding": {
+            "icons": {}
+        },
+        "flows__login_flow_linear__dart__login_flow_linear_splash": {
+            "icons": {}
+        },
+        "flows__login_flow_linear__dart__login_flow_linear_verify_otp": {
+            "icons": {}
+        },
+        "flows__login_flow_linear__inline_dart__login_flow_linear_login": {
+            "icons": {}
+        },
+        "flows__login_flow_linear__inline_dart__login_flow_linear_onboarding": {
+            "icons": {}
+        },
+        "flows__login_flow_linear__inline_dart__login_flow_linear_splash": {
+            "icons": {}
+        },
+        "flows__login_flow_linear__inline_dart__login_flow_linear_verify_otp": {
+            "icons": {}
+        },
+        "flows__login__dart__login_onboarding": {
+            "icons": {}
+        },
+        "flows__login__dart__login_screen": {
+            "icons": {}
+        },
+        "flows__login__dart__login_splash": {
+            "icons": {}
+        },
+        "flows__login__inline_dart__login_onboarding": {
+            "icons": {}
+        },
+        "flows__login__inline_dart__login_screen": {
+            "icons": {}
+        },
+        "flows__login__inline_dart__login_splash": {
+            "icons": {}
+        },
+        "flows__home_page__dart__acceptor_services_page": {
+            "icons": {}
+        },
+        "flows__home_page__dart__home_page": {
+            "icons": {}
+        },
+        "flows__home_page__dart__home_page_menu": {
+            "icons": {}
+        },
+        "flows__home_page__dart__tobank_special_services_page": {
+            "icons": {}
+        },
+        "flows__home_page__dart__travel_services_page": {
+            "icons": {}
+        },
+        "flows__home_page__inline_dart__acceptor_services_page": {
+            "icons": {}
+        },
+        "flows__home_page__inline_dart__home_page": {
+            "icons": {}
+        },
+        "flows__home_page__inline_dart__home_page_menu": {
+            "icons": {}
+        },
+        "flows__home_page__inline_dart__tobank_special_services_page": {
+            "icons": {}
+        },
+        "flows__home_page__inline_dart__travel_services_page": {
+            "icons": {}
+        },
+        "flows__gift_card__dart__gift_card_confirm": {
+            "icons": {}
+        },
+        "flows__gift_card__dart__gift_card_custom_design_selector": {
+            "icons": {}
+        },
+        "flows__gift_card__dart__gift_card_custom_message": {
+            "icons": {
+                "radio_button_checked_001": "radio_button_checked",
+                "radio_button_unchecked_002": "radio_button_unchecked"
+            }
+        },
+        "flows__gift_card__dart__gift_card_custom_select_design": {
+            "icons": {}
+        },
+        "flows__gift_card__dart__gift_card_design_selector": {
+            "icons": {}
+        },
+        "flows__gift_card__dart__gift_card_image_selector": {
+            "icons": {
+                "delete_outline_001": "delete_outline"
+            }
+        },
+        "flows__gift_card__dart__gift_card_intro": {
+            "icons": {
+                "add_001": "add",
+                "check_002": "check"
+            }
+        },
+        "flows__gift_card__dart__gift_card_message": {
+            "icons": {
+                "error_outline_001": "error_outline",
+                "radio_button_checked_002": "radio_button_checked",
+                "radio_button_unchecked_003": "radio_button_unchecked"
+            }
+        },
+        "flows__gift_card__dart__gift_card_receiver_info": {
+            "icons": {
+                "keyboard_arrow_down_001": "keyboard_arrow_down"
+            }
+        },
+        "flows__gift_card__dart__gift_card_select_amount": {
+            "icons": {
+                "info_outline_001": "info_outline",
+                "add_002": "add",
+                "keyboard_arrow_down_003": "keyboard_arrow_down",
+                "delete_outline_004": "delete_outline",
+                "add_005": "add",
+                "remove_006": "remove",
+                "chevron_left_007": "chevron_left"
+            }
+        },
+        "flows__gift_card__dart__gift_card_select_design": {
+            "icons": {}
+        },
+        "flows__gift_card__inline_dart__gift_card_confirm": {
+            "icons": {}
+        },
+        "flows__gift_card__inline_dart__gift_card_custom_design_selector": {
+            "icons": {}
+        },
+        "flows__gift_card__inline_dart__gift_card_custom_message": {
+            "icons": {
+                "radio_button_checked_001": "radio_button_checked",
+                "radio_button_unchecked_002": "radio_button_unchecked"
+            }
+        },
+        "flows__gift_card__inline_dart__gift_card_custom_select_design": {
+            "icons": {}
+        },
+        "flows__gift_card__inline_dart__gift_card_design_selector": {
+            "icons": {}
+        },
+        "flows__gift_card__inline_dart__gift_card_image_selector": {
+            "icons": {
+                "delete_outline_001": "delete_outline"
+            }
+        },
+        "flows__gift_card__inline_dart__gift_card_intro": {
+            "icons": {
+                "add_001": "add",
+                "check_002": "check"
+            }
+        },
+        "flows__gift_card__inline_dart__gift_card_message": {
+            "icons": {
+                "error_outline_001": "error_outline",
+                "radio_button_checked_002": "radio_button_checked",
+                "radio_button_unchecked_003": "radio_button_unchecked"
+            }
+        },
+        "flows__gift_card__inline_dart__gift_card_receiver_info": {
+            "icons": {
+                "keyboard_arrow_down_001": "keyboard_arrow_down"
+            }
+        },
+        "flows__gift_card__inline_dart__gift_card_select_amount": {
+            "icons": {
+                "info_outline_001": "info_outline",
+                "add_002": "add",
+                "keyboard_arrow_down_003": "keyboard_arrow_down",
+                "delete_outline_004": "delete_outline",
+                "add_005": "add",
+                "remove_006": "remove",
+                "chevron_left_007": "chevron_left"
+            }
+        },
+        "flows__gift_card__inline_dart__gift_card_select_design": {
+            "icons": {}
+        },
+        "flows__gift_card__menu__gift_card_menu": {
+            "icons": {}
+        },
+        "flows__deposit_turnover__dart__deposit_turnover_intro": {
+            "icons": {}
+        },
+        "flows__deposit_turnover__dart__deposit_turnover_transactions": {
+            "icons": {}
+        },
+        "flows__deposit_turnover__inline_dart__deposit_turnover_intro": {
+            "icons": {}
+        },
+        "flows__deposit_turnover__inline_dart__deposit_turnover_transactions": {
+            "icons": {}
+        },
+        "flows__deposit_turnover__menu__deposit_turnover_menu": {
+            "icons": {}
+        },
+        "flows__deposit_more__dart__deposit_card_issue_address": {
+            "icons": {}
+        },
+        "flows__deposit_more__dart__deposit_card_issue_result": {
+            "icons": {}
+        },
+        "flows__deposit_more__dart__deposit_card_issue_template": {
+            "icons": {}
+        },
+        "flows__deposit_more__dart__deposit_close_confirm": {
+            "icons": {}
+        },
+        "flows__deposit_more__dart__deposit_close_result": {
+            "icons": {}
+        },
+        "flows__deposit_more__dart__deposit_close_selector": {
+            "icons": {}
+        },
+        "flows__deposit_more__dart__deposit_more_intro": {
+            "icons": {}
+        },
+        "flows__deposit_more__inline_dart__deposit_card_issue_address": {
+            "icons": {}
+        },
+        "flows__deposit_more__inline_dart__deposit_card_issue_result": {
+            "icons": {}
+        },
+        "flows__deposit_more__inline_dart__deposit_card_issue_template": {
+            "icons": {}
+        },
+        "flows__deposit_more__inline_dart__deposit_close_confirm": {
+            "icons": {}
+        },
+        "flows__deposit_more__inline_dart__deposit_close_result": {
+            "icons": {}
+        },
+        "flows__deposit_more__inline_dart__deposit_close_selector": {
+            "icons": {}
+        },
+        "flows__deposit_more__inline_dart__deposit_more_intro": {
+            "icons": {}
+        },
+        "flows__deposit_more__menu__deposit_more_menu": {
+            "icons": {}
+        },
+        "flows__dashboard__dart__cards_management_screen": {
+            "icons": {}
+        },
+        "flows__dashboard__dart__dashboard_shell": {
+            "icons": {}
+        },
+        "flows__dashboard__inline_dart__cards_management_screen": {
+            "icons": {}
+        },
+        "flows__dashboard__inline_dart__dashboard_shell": {
+            "icons": {}
+        },
+        "flows__dashboard__menu__dashboard_menu": {
+            "icons": {}
+        },
+        "flows__dashboard__dart__card_management__balance__card_balance_screen": {
+            "icons": {}
+        },
+        "flows__dashboard__dart__card_management__block__card_block_confirm_dialog": {
+            "icons": {}
+        },
+        "flows__dashboard__dart__card_management__pin__primary_pin_change_screen": {
+            "icons": {}
+        },
+        "flows__dashboard__dart__card_management__pin__primary_pin_get_screen": {
+            "icons": {}
+        },
+        "flows__dashboard__dart__card_management__pin__primary_pin_result_screen": {
+            "icons": {}
+        },
+        "flows__dashboard__dart__card_management__pin__secondary_pin_change_screen": {
+            "icons": {}
+        },
+        "flows__dashboard__dart__card_management__pin__secondary_pin_get_screen": {
+            "icons": {}
+        },
+        "flows__dashboard__dart__card_management__pin__secondary_pin_receipt_screen": {
+            "icons": {}
+        },
+        "flows__dashboard__dart__card_management__reissue__reissue_receipt_screen": {
+            "icons": {}
+        },
+        "flows__dashboard__dart__card_management__reissue__reissue_request_screen": {
+            "icons": {}
+        },
+        "flows__dashboard__dart__card_management__reissue__reissue_select_card_color_screen": {
+            "icons": {}
+        },
+        "flows__dashboard__dart__card_management__wallet__wallet_transfer_receipt": {
+            "icons": {}
+        },
+        "flows__dashboard__dart__card_management__widgets__card_delete_confirm_dialog": {
+            "icons": {}
+        },
+        "flows__dashboard__dart__card_management__widgets__card_edit_screen": {
+            "icons": {}
+        },
+        "flows__charge__dart__charge_add_sim": {
+            "icons": {
+                "check_001": "check",
+                "check_002": "check",
+                "error_outline_003": "error_outline"
+            }
+        },
+        "flows__charge__dart__charge_intro": {
+            "icons": {
+                "edit_outlined_001": "edit_outlined",
+                "delete_outline_002": "delete_outline"
+            }
+        },
+        "flows__charge__dart__charge_package_list": {
+            "icons": {}
+        },
+        "flows__charge__dart__charge_payment": {
+            "icons": {
+                "account_balance_wallet_outlined_001": "account_balance_wallet_outlined"
+            }
+        },
+        "flows__charge__dart__charge_payment_success": {
+            "icons": {
+                "check_001": "check"
+            }
+        },
+        "flows__charge__inline_dart__charge_add_sim": {
+            "icons": {
+                "check_001": "check",
+                "check_002": "check",
+                "error_outline_003": "error_outline"
+            }
+        },
+        "flows__charge__inline_dart__charge_intro": {
+            "icons": {
+                "edit_outlined_001": "edit_outlined",
+                "delete_outline_002": "delete_outline"
+            }
+        },
+        "flows__charge__inline_dart__charge_package_list": {
+            "icons": {}
+        },
+        "flows__charge__inline_dart__charge_payment": {
+            "icons": {
+                "account_balance_wallet_outlined_001": "account_balance_wallet_outlined"
+            }
+        },
+        "flows__charge__inline_dart__charge_payment_success": {
+            "icons": {
+                "check_001": "check"
+            }
+        },
+        "flows__charge__menu__charge_menu": {
+            "icons": {}
+        },
+        "flows__charge__inline_dart__widgets__charge_widgets": {
+            "icons": {
+                "add_001": "add",
+                "chevron_left_002": "chevron_left",
+                "error_outline_003": "error_outline"
+            }
+        },
+        "flows__charge__dart__widgets__charge_widgets": {
+            "icons": {
+                "add_001": "add",
+                "chevron_left_002": "chevron_left",
+                "error_outline_003": "error_outline"
+            }
+        },
+        "flows__cartable__dart__cartable_detail": {
+            "icons": {}
+        },
+        "flows__cartable__dart__cartable_intro": {
+            "icons": {}
+        },
+        "flows__cartable__inline_dart__cartable_detail": {
+            "icons": {}
+        },
+        "flows__cartable__inline_dart__cartable_intro": {
+            "icons": {}
+        },
+        "flows__cartable__menu__cartable_menu": {
+            "icons": {}
+        },
+        "flows__biometric_test__menu__biometric_test_menu": {
+            "icons": {}
+        },
+        "auth__dart__register": {
+            "icons": {}
+        }
+    }
+}

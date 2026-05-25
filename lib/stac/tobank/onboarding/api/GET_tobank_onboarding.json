@@ -12,25 +12,25 @@
             {
               "title": "{{appStrings.onboarding.page1.title}}",
               "description": "{{appStrings.onboarding.page1.description}}",
-              "image": "assets/images/onboarding_1.svg",
+              "image": "{{appAssets.icons.onboarding.api.GET_tobank_onboarding.GET.data.child.body.pages.item0.image_onboarding_1_001}}",
               "buttonText": "{{appStrings.onboarding.nextButton}}"
             },
             {
               "title": "{{appStrings.onboarding.page2.title}}",
               "description": "{{appStrings.onboarding.page2.description}}",
-              "image": "assets/images/onboarding_2.svg",
+              "image": "{{appAssets.icons.onboarding.api.GET_tobank_onboarding.GET.data.child.body.pages.item1.image_onboarding_2_002}}",
               "buttonText": "{{appStrings.onboarding.nextButton}}"
             },
             {
               "title": "{{appStrings.onboarding.page3.title}}",
               "description": "{{appStrings.onboarding.page3.description}}",
-              "image": "assets/images/onboarding_3.svg",
+              "image": "{{appAssets.icons.onboarding.api.GET_tobank_onboarding.GET.data.child.body.pages.item2.image_onboarding_3_003}}",
               "buttonText": "{{appStrings.onboarding.nextButton}}"
             },
             {
               "title": "{{appStrings.onboarding.page4.title}}",
               "description": "{{appStrings.onboarding.page4.description}}",
-              "image": "assets/images/onboarding_4.svg",
+              "image": "{{appAssets.icons.onboarding.api.GET_tobank_onboarding.GET.data.child.body.pages.item3.image_onboarding_4_004}}",
               "buttonText": "{{appStrings.onboarding.startButton}}"
             }
           ],

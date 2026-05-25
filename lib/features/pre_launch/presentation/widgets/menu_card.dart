@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 /// A reusable card widget for main menu items in the Pre Launch Screen.
 ///
-/// Displays an icon, title, and subtitle in a card with rounded corners,
-/// subtle border, and tap feedback.
+/// Displays a horizontal button-like card with icon and title.
 class MenuCard extends StatelessWidget {
   /// Creates a [MenuCard].
   const MenuCard({
@@ -17,10 +16,10 @@ class MenuCard extends StatelessWidget {
   /// The icon to display at the top of the card
   final IconData icon;
 
-  /// The title text displayed below the icon
+  /// The title text displayed in the card
   final String title;
 
-  /// The subtitle/description text displayed below the title
+  /// Unused legacy field kept to avoid changing call sites.
   final String subtitle;
 
   /// Callback when the card is tapped
@@ -45,38 +44,23 @@ class MenuCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         child: Padding(
           padding: const EdgeInsets.all(12),
-          child: Column(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(icon, size: 24, color: colorScheme.primary),
-              const SizedBox(height: 8),
-              Flexible(
-                child: Text(
-                  title,
-                  style: theme.textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.w600,
-                    color: colorScheme.onSurface,
-                    fontSize: 13,
-                  ),
-                  textAlign: TextAlign.center,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+              Text(
+                title,
+                style: theme.textTheme.titleSmall?.copyWith(
+                  fontWeight: FontWeight.w600,
+                  color: colorScheme.onSurface,
+                  fontSize: 14,
                 ),
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
-              const SizedBox(height: 2),
-              Flexible(
-                child: Text(
-                  subtitle,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: colorScheme.onSurfaceVariant,
-                    fontSize: 11,
-                  ),
-                  textAlign: TextAlign.center,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
+              const SizedBox(width: 12),
+              Icon(icon, size: 22, color: colorScheme.primary),
             ],
           ),
         ),

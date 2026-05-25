@@ -98,7 +98,7 @@ class TobankStacDartScreen extends ConsumerWidget {
       child: StacPadding(
         padding: StacEdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
         child: StacRow(
-          mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+          mainAxisAlignment: StacMainAxisAlignment.start,
           crossAxisAlignment: StacCrossAxisAlignment.center,
           textDirection: StacTextDirection.rtl,
           children: [
@@ -108,6 +108,8 @@ class TobankStacDartScreen extends ConsumerWidget {
                 data: '{{title}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
+                maxLines: 1,
+                overflow: StacTextOverflow.ellipsis,
                 style: StacCustomTextStyle(
                   fontSize: 15.0,
                   fontWeight: StacFontWeight.w500,
@@ -148,7 +150,7 @@ class TobankStacDartScreen extends ConsumerWidget {
       child: StacPadding(
         padding: StacEdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
         child: StacRow(
-          mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+          mainAxisAlignment: StacMainAxisAlignment.start,
           crossAxisAlignment: StacCrossAxisAlignment.center,
           textDirection: StacTextDirection.rtl,
           children: [
@@ -158,6 +160,8 @@ class TobankStacDartScreen extends ConsumerWidget {
                 data: '{{title}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
+                maxLines: 1,
+                overflow: StacTextOverflow.ellipsis,
                 style: StacCustomTextStyle(
                   fontSize: 15.0,
                   fontWeight: StacFontWeight.w500,
@@ -166,36 +170,32 @@ class TobankStacDartScreen extends ConsumerWidget {
               ),
             ),
             StacSizedBox(width: 8.0),
-            // Buttons on left side - use Flexible to prevent overflow
-            StacFlexible(
-              flex: 0,
-              fit: StacFlexFit.loose,
-              child: StacRow(
-                mainAxisSize: StacMainAxisSize.min,
-                children: [
-                  // Dart button
-                  _buildButtonWidget(
-                    label: 'Dart',
-                    path: '{{dartPath}}',
-                    widgetType: '{{widgetType}}',
-                    buttonType: 'dart',
-                  ),
-                  StacSizedBox(width: 4.0),
-                  // JSON button
-                  _buildButtonWidget(
-                    label: 'JSON',
-                    path: '{{jsonPath}}',
-                    buttonType: 'json',
-                  ),
-                  StacSizedBox(width: 4.0),
-                  // API button
-                  _buildButtonWidget(
-                    label: 'API',
-                    path: '{{apiPath}}',
-                    buttonType: 'api',
-                  ),
-                ],
-              ),
+            // Buttons on left side
+            StacRow(
+              mainAxisSize: StacMainAxisSize.min,
+              children: [
+                    // Dart button
+                    _buildButtonWidget(
+                      label: 'Dart',
+                      path: '{{dartPath}}',
+                      widgetType: '{{widgetType}}',
+                      buttonType: 'dart',
+                    ),
+                    StacSizedBox(width: 4.0),
+                    // JSON button
+                    _buildButtonWidget(
+                      label: 'JSON',
+                      path: '{{jsonPath}}',
+                      buttonType: 'json',
+                    ),
+                    StacSizedBox(width: 4.0),
+                    // API button
+                    _buildButtonWidget(
+                      label: 'API',
+                      path: '{{apiPath}}',
+                      buttonType: 'api',
+                    ),
+              ],
             ),
           ],
         ),

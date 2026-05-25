@@ -83,6 +83,7 @@ class TobankAssetsLoader {
       // Flatten nested structure and store with dot-notation keys
       // This allows {{appAssets.icons.login}} syntax to work
       _flattenAndStore(assetsData, _prefix);
+      _createGeneratedTypeAliases(assetsData);
 
       _createCurrentThemeAliases(assetsData, currentTheme);
       _storeServiceIconFallbacks(currentTheme);
@@ -167,6 +168,36 @@ class TobankAssetsLoader {
     AppLogger.d(
       'Created ${_aliasKeys.length} asset aliases for current theme ($currentTheme)',
     );
+  }
+
+  static void _createGeneratedTypeAliases(Map<String, dynamic> data) {
+    final generated = data['generated'];
+    if (generated is! Map<String, dynamic>) {
+      return;
+    }
+
+    for (final entry in generated.entries) {
+      final screenKey = entry.key;
+      final screenAssets = entry.value;
+      if (screenAssets is! Map<String, dynamic>) {
+        continue;
+      }
+
+      for (final typeEntry in screenAssets.entries) {
+        final assetType = typeEntry.key;
+        final typedAssets = typeEntry.value;
+        if (typedAssets is! Map<String, dynamic>) {
+          continue;
+        }
+
+        typedAssets.forEach((assetKey, assetValue) {
+          final aliasKey =
+              '$_prefix.$assetType.generated.$screenKey.$assetKey';
+          StacRegistry.instance.setValue(aliasKey, assetValue);
+          _storedKeys.add(aliasKey);
+        });
+      }
+    }
   }
 
   static void setCurrentTheme(String newTheme) {

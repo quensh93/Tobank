@@ -120,12 +120,12 @@ Dio setupStacMockDio() {
             isScreenJson = true;
           } else if (path == 'strings') {
             // Localization strings: https://api.tobank.com/strings
-            // -> lib/stac/config/GET_strings.json
-            assetPath = 'lib/stac/config/GET_strings.json';
+            // -> lib/stac/config/strings.json
+            assetPath = 'lib/stac/config/strings.json';
           } else if (path == 'assets') {
             // Assets: https://api.tobank.com/assets
-            // -> lib/stac/config/GET_assets.json
-            assetPath = 'lib/stac/config/GET_assets.json';
+            // -> lib/stac/config/assets.json
+            assetPath = 'lib/stac/config/assets.json';
           } else if (path == 'styles') {
             // Component styles: https://api.tobank.com/styles
             // -> lib/stac/design_system/GET_styles.json
@@ -133,8 +133,8 @@ Dio setupStacMockDio() {
             AppLogger.d('🔍 Loading styles from: $assetPath');
           } else if (path == 'colors') {
             // Color schema: https://api.tobank.com/colors
-            // -> lib/stac/design_system/GET_colors.json
-            assetPath = 'lib/stac/design_system/GET_colors.json';
+            // -> lib/stac/design_system/colors.json
+            assetPath = 'lib/stac/design_system/colors.json';
           } else {
             // Data API: Try to find in feature-specific API locations
             // Pattern: menu-items -> lib/stac/tobank/menu/api/GET_menu-items.json
@@ -489,16 +489,18 @@ Dio setupStacMockDio() {
               );
             }
 
-            // For config and data APIs, extract from method wrapper
+            // For config and data APIs, support either the legacy method wrapper
+            // ({ "GET": { "statusCode": 200, "data": {...} } }) or the new plain payload.
             final methodData = jsonData[method] as Map<String, dynamic>?;
-            if (methodData != null) {
-              final statusCode = methodData['statusCode'] as int? ?? 200;
-              final innerData = methodData['data'];
+            if (methodData != null || !jsonData.containsKey(method)) {
+              final statusCode = methodData?['statusCode'] as int? ?? 200;
+              final innerData = methodData != null ? methodData['data'] : jsonData;
 
               // STAC's targetPath expects the response structure to match
               // If targetPath is 'data.menuItems', response should be {"data": {"menuItems": [...]}}
-              // Our mock files have: {"GET": {"data": {"menuItems": [...]}}}
-              // So we need to wrap innerData in {"data": innerData} to match targetPath expectations
+              // Legacy files have: {"GET": {"data": {"menuItems": [...]}}}
+              // Plain files use: {"menuItems": [...]}
+              // In both cases we wrap the payload in {"data": ...} to match targetPath expectations.
               AppLogger.dc(
                 LogCategory.stacMock,
                 'Mock interceptor: Returning response for $method $path (status: $statusCode)',
