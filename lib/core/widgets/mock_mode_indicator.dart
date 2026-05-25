@@ -182,14 +182,6 @@ class MockModeIndicator extends ConsumerWidget {
           case ApiMode.mock:
             ref.read(apiConfigProvider.notifier).useMockApi();
             break;
-          case ApiMode.supabase:
-            // [TODO]: Prompt for Supabase credentials
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Supabase mode not yet implemented'),
-              ),
-            );
-            break;
           case ApiMode.custom:
             // [TODO]: Prompt for custom API URL
             ScaffoldMessenger.of(context).showSnackBar(
@@ -209,24 +201,6 @@ class MockModeIndicator extends ConsumerWidget {
               const SizedBox(width: 8),
               const Text('Mock API'),
               if (currentMode == ApiMode.mock) ...[
-                const Spacer(),
-                const Icon(Icons.check, size: 18),
-              ],
-            ],
-          ),
-        ),
-        PopupMenuItem(
-          value: ApiMode.supabase,
-          child: Row(
-            children: [
-              Icon(
-                Icons.cloud,
-                color: _getModeColor(ApiMode.supabase),
-                size: 18,
-              ),
-              const SizedBox(width: 8),
-              const Text('Supabase'),
-              if (currentMode == ApiMode.supabase) ...[
                 const Spacer(),
                 const Icon(Icons.check, size: 18),
               ],
@@ -255,8 +229,6 @@ class MockModeIndicator extends ConsumerWidget {
     switch (mode) {
       case ApiMode.mock:
         return Colors.orange;
-      case ApiMode.supabase:
-        return Colors.blue;
       case ApiMode.custom:
         return Colors.green;
     }
@@ -266,8 +238,6 @@ class MockModeIndicator extends ConsumerWidget {
     switch (mode) {
       case ApiMode.mock:
         return Icons.storage;
-      case ApiMode.supabase:
-        return Icons.cloud;
       case ApiMode.custom:
         return Icons.api;
     }
@@ -277,8 +247,6 @@ class MockModeIndicator extends ConsumerWidget {
     switch (mode) {
       case ApiMode.mock:
         return 'Mock API Mode';
-      case ApiMode.supabase:
-        return 'Supabase Mode';
       case ApiMode.custom:
         return 'Custom API Mode';
     }
