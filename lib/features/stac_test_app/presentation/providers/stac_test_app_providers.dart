@@ -6,9 +6,6 @@ import '../../data/services/stac_json_file_service.dart';
 import '../../data/services/stac_template_binding_service.dart';
 import '../../data/utils/stac_error_handler.dart';
 import '../../../../core/helpers/logger.dart';
-import '../../../../core/api/api_config.dart';
-import '../../../../core/api/providers/api_config_provider.dart';
-import '../../../../core/api/providers/stac_api_service_provider.dart';
 
 /// Provider for loading entry point configuration
 final entryPointConfigProvider = FutureProvider.autoDispose
@@ -19,40 +16,6 @@ final entryPointConfigProvider = FutureProvider.autoDispose
       ref.onDispose(() {
         AppLogger.d('entryPointConfigProvider disposed');
       });
-
-      // Check if Supabase is enabled (use read instead of watch to prevent rebuilds)
-      final apiConfig = ref.read(apiConfigProvider);
-      if (apiConfig.mode == ApiMode.supabase) {
-        AppLogger.i(
-          'Fetching entry point config from Supabase: $entryPointPath',
-        );
-        final apiService = ref.read(stacApiServiceProvider);
-        // Remove .json extension but keep the full path structure
-        // e.g. "mock/stac_test_app/app_entry_point.json" -> "mock/stac_test_app/app_entry_point"
-        final configName = entryPointPath.endsWith('.json')
-            ? entryPointPath.substring(0, entryPointPath.length - 5)
-            : entryPointPath;
-        AppLogger.d('Looking for config with name: $configName');
-
-        try {
-          final json = await apiService.fetchConfig(configName);
-          AppLogger.d('Supabase fetchConfig returned ${json.length} keys');
-
-          // Guard: ensure we got a non‑empty JSON payload
-          if (json.isEmpty) {
-            throw EntryPointValidationException(
-              'Supabase returned an empty config for "$configName". '
-              'Make sure the `config` column in `stac_config` contains valid JSON.',
-            );
-          }
-          final config = EntryPointConfig.fromJson(json);
-          AppLogger.i('✅ Entry point config loaded successfully');
-          return config;
-        } catch (e) {
-          AppLogger.e('Error fetching/parsing config from Supabase', e);
-          rethrow;
-        }
-      }
 
       try {
         AppLogger.i('Loading entry point config: $entryPointPath');
@@ -86,14 +49,6 @@ final entryPointConfigProvider = FutureProvider.autoDispose
 /// Provider for loading screen template and data
 final screenDataProvider = FutureProvider.autoDispose
     .family<Map<String, dynamic>, ScreenLoadParams>((ref, params) async {
-      // Check if Supabase is enabled
-      final apiConfig = ref.watch(apiConfigProvider);
-      if (apiConfig.mode == ApiMode.supabase) {
-        AppLogger.i('Fetching screen from Supabase: ${params.screenName}');
-        final apiService = ref.read(stacApiServiceProvider);
-        return apiService.fetchScreen(params.screenName);
-      }
-
       try {
         AppLogger.i('Loading screen from local files: ${params.screenName}');
 
