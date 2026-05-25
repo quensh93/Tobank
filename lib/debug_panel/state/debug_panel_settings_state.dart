@@ -95,8 +95,6 @@ class DebugPanelSettingsState {
     this.leftPanelWidth = 0.6,
     this.topPanelHeight = 0.6,
     this.themeMode = DebugPanelThemeMode.system,
-    // Supabase configuration
-    this.supabaseEnabled = false,
     // Device preview settings
     this.deviceId = '',
     this.isFrameVisible = true,
@@ -131,8 +129,6 @@ class DebugPanelSettingsState {
   final double leftPanelWidth;
   final double topPanelHeight;
   final DebugPanelThemeMode themeMode;
-  // Supabase configuration
-  final bool supabaseEnabled;
   // Device preview settings
   final String deviceId;
   final bool isFrameVisible;
@@ -179,7 +175,6 @@ class DebugPanelSettingsState {
     PerformanceLayoutMode? performanceLayoutMode,
     int? performanceSampleSize,
     int? selectedTabIndex,
-    bool? supabaseEnabled,
     Map<LogCategory, LogCategorySettings>? logCategorySettings,
     Level? stacLoggerLevel,
   }) {
@@ -212,7 +207,6 @@ class DebugPanelSettingsState {
       performanceSampleSize:
           performanceSampleSize ?? this.performanceSampleSize,
       selectedTabIndex: selectedTabIndex ?? this.selectedTabIndex,
-      supabaseEnabled: supabaseEnabled ?? this.supabaseEnabled,
       logCategorySettings: logCategorySettings ?? this.logCategorySettings,
       stacLoggerLevel: stacLoggerLevel ?? this.stacLoggerLevel,
     );
@@ -292,7 +286,6 @@ class DebugPanelSettingsState {
       performanceSampleSize:
           (json['performanceSampleSize'] as num?)?.toInt() ?? 32,
       selectedTabIndex: (json['selectedTabIndex'] as num?)?.toInt() ?? 0,
-      supabaseEnabled: json['supabaseEnabled'] as bool? ?? false,
       logCategorySettings:
           (json['logCategorySettings'] as Map<String, dynamic>?)?.map(
                 (key, value) => MapEntry(
@@ -542,12 +535,6 @@ class DebugPanelSettingsController extends Notifier<DebugPanelSettingsState> {
 
   void setSelectedTabIndex(int index) {
     state = state.copyWith(selectedTabIndex: index);
-    _saveSettings();
-  }
-
-  // Supabase setters (optional, not used directly in UI yet)
-  void setSupabaseEnabled(bool enabled) {
-    state = state.copyWith(supabaseEnabled: enabled);
     _saveSettings();
   }
 
