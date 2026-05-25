@@ -24,9 +24,6 @@ enum ApiSource {
   /// Mock data from local assets
   mock,
 
-  /// Data from Supabase
-  supabase,
-
   /// Data from custom REST API
   custom,
 }
@@ -45,7 +42,7 @@ class StacLogEntry {
   /// Name of the screen being operated on
   final String screenName;
 
-  /// Source of the API data (mock, supabase, custom)
+  /// Source of the API data (mock, custom)
   final ApiSource? source;
 
   /// Duration of the operation

@@ -74,7 +74,7 @@ class StacLogger {
   /// Log a screen fetch operation
   ///
   /// [screenName] - Name of the screen being fetched
-  /// [source] - Source of the data (mock, supabase, custom)
+  /// [source] - Source of the data (mock, custom)
   /// [duration] - Time taken to fetch the screen
   /// [jsonSize] - Size of the JSON data in bytes
   /// [additionalMetadata] - Any additional metadata to include
