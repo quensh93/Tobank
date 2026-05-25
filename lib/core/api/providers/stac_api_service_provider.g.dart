@@ -11,7 +11,7 @@ part of 'stac_api_service_provider.dart';
 /// STAC API service provider
 ///
 /// Provides the appropriate API service implementation based on the current configuration.
-/// Automatically switches between mock, Supabase, and custom API services.
+/// Automatically switches between mock and custom API services.
 ///
 /// Example usage:
 /// ```dart
@@ -33,7 +33,7 @@ const stacApiServiceProvider = StacApiServiceProvider._();
 /// STAC API service provider
 ///
 /// Provides the appropriate API service implementation based on the current configuration.
-/// Automatically switches between mock, Supabase, and custom API services.
+/// Automatically switches between mock and custom API services.
 ///
 /// Example usage:
 /// ```dart
@@ -55,7 +55,7 @@ final class StacApiServiceProvider
   /// STAC API service provider
   ///
   /// Provides the appropriate API service implementation based on the current configuration.
-  /// Automatically switches between mock, Supabase, and custom API services.
+  /// Automatically switches between mock and custom API services.
   ///
   /// Example usage:
   /// ```dart

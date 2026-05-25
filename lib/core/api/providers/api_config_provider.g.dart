@@ -11,7 +11,7 @@ part of 'api_config_provider.dart';
 /// API configuration provider
 ///
 /// Manages the current API configuration for the application.
-/// Supports runtime configuration switching between mock, Supabase, and custom APIs.
+/// Supports runtime configuration switching between mock and custom APIs.
 ///
 /// Example usage:
 /// ```dart
@@ -20,13 +20,6 @@ part of 'api_config_provider.dart';
 ///
 /// // Switch to mock mode
 /// ref.read(apiConfigProvider.notifier).setConfig(ApiConfig.mock());
-///
-/// // Switch to Supabase mode
-/// ref.read(apiConfigProvider.notifier).setConfig(
-///   ApiConfig.supabase('https://project.supabase.co', 'public-anon-key'),
-/// );
-///
-/// // Switch to custom API mode
 ///
 /// // Switch to custom API mode
 /// ref.read(apiConfigProvider.notifier).setConfig(
@@ -40,7 +33,7 @@ const apiConfigProvider = ApiConfigNotifierProvider._();
 /// API configuration provider
 ///
 /// Manages the current API configuration for the application.
-/// Supports runtime configuration switching between mock, Supabase, and custom APIs.
+/// Supports runtime configuration switching between mock and custom APIs.
 ///
 /// Example usage:
 /// ```dart
@@ -49,13 +42,6 @@ const apiConfigProvider = ApiConfigNotifierProvider._();
 ///
 /// // Switch to mock mode
 /// ref.read(apiConfigProvider.notifier).setConfig(ApiConfig.mock());
-///
-/// // Switch to Supabase mode
-/// ref.read(apiConfigProvider.notifier).setConfig(
-///   ApiConfig.supabase('https://project.supabase.co', 'public-anon-key'),
-/// );
-///
-/// // Switch to custom API mode
 ///
 /// // Switch to custom API mode
 /// ref.read(apiConfigProvider.notifier).setConfig(
@@ -67,7 +53,7 @@ final class ApiConfigNotifierProvider
   /// API configuration provider
   ///
   /// Manages the current API configuration for the application.
-  /// Supports runtime configuration switching between mock, Supabase, and custom APIs.
+  /// Supports runtime configuration switching between mock and custom APIs.
   ///
   /// Example usage:
   /// ```dart
@@ -76,13 +62,6 @@ final class ApiConfigNotifierProvider
   ///
   /// // Switch to mock mode
   /// ref.read(apiConfigProvider.notifier).setConfig(ApiConfig.mock());
-  ///
-  /// // Switch to Supabase mode
-  /// ref.read(apiConfigProvider.notifier).setConfig(
-  ///   ApiConfig.supabase('https://project.supabase.co', 'public-anon-key'),
-  /// );
-  ///
-  /// // Switch to custom API mode
   ///
   /// // Switch to custom API mode
   /// ref.read(apiConfigProvider.notifier).setConfig(
@@ -121,7 +100,7 @@ String _$apiConfigNotifierHash() => r'3f7d1d89ad5a2e286210204f999e4dcea62ca1f4';
 /// API configuration provider
 ///
 /// Manages the current API configuration for the application.
-/// Supports runtime configuration switching between mock, Supabase, and custom APIs.
+/// Supports runtime configuration switching between mock and custom APIs.
 ///
 /// Example usage:
 /// ```dart
@@ -130,13 +109,6 @@ String _$apiConfigNotifierHash() => r'3f7d1d89ad5a2e286210204f999e4dcea62ca1f4';
 ///
 /// // Switch to mock mode
 /// ref.read(apiConfigProvider.notifier).setConfig(ApiConfig.mock());
-///
-/// // Switch to Supabase mode
-/// ref.read(apiConfigProvider.notifier).setConfig(
-///   ApiConfig.supabase('https://project.supabase.co', 'public-anon-key'),
-/// );
-///
-/// // Switch to custom API mode
 ///
 /// // Switch to custom API mode
 /// ref.read(apiConfigProvider.notifier).setConfig(
@@ -208,53 +180,6 @@ final class IsMockApiEnabledProvider
 }
 
 String _$isMockApiEnabledHash() => r'd1dbda1a554d21c67a242b9c2d504198d7ddd09b';
-
-/// Provider for checking if Supabase API is enabled
-
-@ProviderFor(isSupabaseApiEnabled)
-const isSupabaseApiEnabledProvider = IsSupabaseApiEnabledProvider._();
-
-/// Provider for checking if Supabase API is enabled
-
-final class IsSupabaseApiEnabledProvider
-    extends $FunctionalProvider<bool, bool, bool>
-    with $Provider<bool> {
-  /// Provider for checking if Supabase API is enabled
-  const IsSupabaseApiEnabledProvider._()
-    : super(
-        from: null,
-        argument: null,
-        retry: null,
-        name: r'isSupabaseApiEnabledProvider',
-        isAutoDispose: true,
-        dependencies: null,
-        $allTransitiveDependencies: null,
-      );
-
-  @override
-  String debugGetCreateSourceHash() => _$isSupabaseApiEnabledHash();
-
-  @$internal
-  @override
-  $ProviderElement<bool> $createElement($ProviderPointer pointer) =>
-      $ProviderElement(pointer);
-
-  @override
-  bool create(Ref ref) {
-    return isSupabaseApiEnabled(ref);
-  }
-
-  /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(bool value) {
-    return $ProviderOverride(
-      origin: this,
-      providerOverride: $SyncValueProvider<bool>(value),
-    );
-  }
-}
-
-String _$isSupabaseApiEnabledHash() =>
-    r'6469a4a72b57ea8cbe3734aef5c5b29c50e76a31';
 
 /// Provider for checking if custom API is enabled
 

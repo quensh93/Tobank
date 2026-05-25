@@ -67,7 +67,7 @@ String _$mockApiServiceHash() => r'3a38f89b31f481a6d3bcb61b25d542bfe70a4aba';
 ///
 /// Returns the appropriate API service based on the current configuration.
 /// Currently only supports MockApiService, but will be extended to support
-/// Supabase and custom API services.
+/// custom API services.
 
 @ProviderFor(stacApiService)
 const stacApiServiceProvider = StacApiServiceProvider._();
@@ -76,7 +76,7 @@ const stacApiServiceProvider = StacApiServiceProvider._();
 ///
 /// Returns the appropriate API service based on the current configuration.
 /// Currently only supports MockApiService, but will be extended to support
-/// Supabase and custom API services.
+/// custom API services.
 
 final class StacApiServiceProvider
     extends $FunctionalProvider<StacApiService, StacApiService, StacApiService>
@@ -85,7 +85,7 @@ final class StacApiServiceProvider
   ///
   /// Returns the appropriate API service based on the current configuration.
   /// Currently only supports MockApiService, but will be extended to support
-  /// Supabase and custom API services.
+  /// custom API services.
   const StacApiServiceProvider._()
     : super(
         from: null,
