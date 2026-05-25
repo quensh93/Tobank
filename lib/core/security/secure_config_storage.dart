@@ -4,7 +4,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 /// Secure storage for sensitive configuration data
 ///
 /// Uses flutter_secure_storage to securely store API keys, tokens,
-/// and Supabase configuration on the device.
+/// and other sensitive configuration on the device.
 class SecureConfigStorage {
   /// Singleton instance
   static final SecureConfigStorage instance = SecureConfigStorage._();
@@ -22,7 +22,6 @@ class SecureConfigStorage {
   static const String _apiKeyKey = 'stac_api_key';
   static const String _authTokenKey = 'stac_auth_token';
   static const String _refreshTokenKey = 'stac_refresh_token';
-  static const String _supabaseConfigKey = 'stac_Supabase_config';
   static const String _customApiUrlKey = 'stac_custom_api_url';
   static const String _userCredentialsKey = 'stac_user_credentials';
   static const String _encryptionKeyKey = 'stac_encryption_key';
@@ -150,53 +149,6 @@ class SecureConfigStorage {
   Future<void> clearAuthTokens() async {
     _ensureInitialized();
     await Future.wait([deleteAuthToken(), deleteRefreshToken()]);
-  }
-
-  // ==================== Supabase Configuration ====================
-
-  /// Save Supabase configuration
-  ///
-  /// Stores Supabase config (project ID, API key, etc.) securely.
-  Future<void> saveSupabaseConfig(Map<String, String> config) async {
-    _ensureInitialized();
-
-    if (config.isEmpty) {
-      throw ArgumentError('Supabase config cannot be empty');
-    }
-
-    final jsonString = jsonEncode(config);
-    await _storage.write(key: _supabaseConfigKey, value: jsonString);
-  }
-
-  /// Get Supabase configuration
-  ///
-  /// Retrieves the stored Supabase config, or null if not set.
-  Future<Map<String, String>?> getSupabaseConfig() async {
-    _ensureInitialized();
-
-    final jsonString = await _storage.read(key: _supabaseConfigKey);
-    if (jsonString == null) return null;
-
-    try {
-      final decoded = jsonDecode(jsonString) as Map<String, dynamic>;
-      return decoded.map((key, value) => MapEntry(key, value.toString()));
-    } catch (e) {
-      // Invalid JSON, return null
-      return null;
-    }
-  }
-
-  /// Delete Supabase configuration
-  Future<void> deleteSupabaseConfig() async {
-    _ensureInitialized();
-    await _storage.delete(key: _supabaseConfigKey);
-  }
-
-  /// Check if Supabase config exists
-  Future<bool> hasSupabaseConfig() async {
-    _ensureInitialized();
-    final config = await getSupabaseConfig();
-    return config != null && config.isNotEmpty;
   }
 
   // ==================== Custom API Configuration ====================
@@ -402,9 +354,6 @@ class SecureConfigStorage {
     final hasApiKey = await this.hasApiKey();
     config['has_api_key'] = hasApiKey;
 
-    final hasSupabaseConfig = await this.hasSupabaseConfig();
-    config['has_Supabase_config'] = hasSupabaseConfig;
-
     return config;
   }
 
@@ -421,7 +370,6 @@ class SecureConfigStorage {
       'has_api_key': await hasApiKey(),
       'has_auth_token': await getAuthToken() != null,
       'has_refresh_token': await getRefreshToken() != null,
-      'has_Supabase_config': await hasSupabaseConfig(),
       'has_custom_api_url': await getCustomApiUrl() != null,
       'has_user_credentials': await getUserCredentials() != null,
       'has_encryption_key': await getEncryptionKey() != null,

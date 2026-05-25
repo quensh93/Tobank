@@ -37,12 +37,6 @@ class EnvironmentConfig {
   /// API base URL
   final String apiBaseUrl;
 
-  /// Supabase project URL
-  final String? supabaseUrl;
-
-  /// Supabase anonymous key
-  final String? supabaseAnonKey;
-
   /// Enable debug features
   final bool enableDebugFeatures;
 
@@ -73,8 +67,6 @@ class EnvironmentConfig {
   const EnvironmentConfig({
     required this.environment,
     required this.apiBaseUrl,
-    this.supabaseUrl,
-    this.supabaseAnonKey,
     required this.enableDebugFeatures,
     required this.enableLogging,
     required this.logLevel,
@@ -91,8 +83,6 @@ class EnvironmentConfig {
     return const EnvironmentConfig(
       environment: Environment.development,
       apiBaseUrl: 'http://localhost:8080',
-      supabaseUrl: 'https://tobank-dev.supabase.co',
-      supabaseAnonKey: 'dev-anon-key',
       enableDebugFeatures: true,
       enableLogging: true,
       logLevel: 'debug',
@@ -110,8 +100,6 @@ class EnvironmentConfig {
     return const EnvironmentConfig(
       environment: Environment.staging,
       apiBaseUrl: 'https://staging-api.tobank.com',
-      supabaseUrl: 'https://tobank-staging.supabase.co',
-      supabaseAnonKey: 'staging-anon-key',
       enableDebugFeatures: true,
       enableLogging: true,
       logLevel: 'info',
@@ -129,8 +117,6 @@ class EnvironmentConfig {
     return const EnvironmentConfig(
       environment: Environment.production,
       apiBaseUrl: 'https://api.tobank.com',
-      supabaseUrl: 'https://tobank-prod.supabase.co',
-      supabaseAnonKey: 'prod-anon-key',
       enableDebugFeatures: false,
       enableLogging: true,
       logLevel: 'error',
@@ -194,8 +180,6 @@ class EnvironmentConfig {
   EnvironmentConfig copyWith({
     Environment? environment,
     String? apiBaseUrl,
-    String? supabaseUrl,
-    String? supabaseAnonKey,
     bool? enableDebugFeatures,
     bool? enableLogging,
     String? logLevel,
@@ -209,8 +193,6 @@ class EnvironmentConfig {
     return EnvironmentConfig(
       environment: environment ?? this.environment,
       apiBaseUrl: apiBaseUrl ?? this.apiBaseUrl,
-      supabaseUrl: supabaseUrl ?? this.supabaseUrl,
-      supabaseAnonKey: supabaseAnonKey ?? this.supabaseAnonKey,
       enableDebugFeatures: enableDebugFeatures ?? this.enableDebugFeatures,
       enableLogging: enableLogging ?? this.enableLogging,
       logLevel: logLevel ?? this.logLevel,

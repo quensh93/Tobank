@@ -35,9 +35,6 @@ class FeatureFlags {
   /// Enable mock API mode
   final bool isMockApiEnabled;
 
-  /// Enable Supabase API mode
-  final bool isSupabaseApiEnabled;
-
   /// Enable custom API mode
   final bool isCustomApiEnabled;
 
@@ -68,12 +65,6 @@ class FeatureFlags {
   /// Enable network simulation (slow network, offline, etc.)
   final bool isNetworkSimulationEnabled;
 
-  /// Enable Supabase CLI tools
-  final bool isSupabaseCliEnabled;
-
-  /// Enable Supabase CRUD interface
-  final bool isSupabaseCrudEnabled;
-
   const FeatureFlags({
     required this.isDebugPanelEnabled,
     required this.isPlaygroundEnabled,
@@ -81,7 +72,6 @@ class FeatureFlags {
     required this.isStacLogsEnabled,
     required this.isPerformanceMonitoringEnabled,
     required this.isMockApiEnabled,
-    required this.isSupabaseApiEnabled,
     required this.isCustomApiEnabled,
     required this.isHotReloadEnabled,
     required this.isJsonValidationEnabled,
@@ -92,8 +82,6 @@ class FeatureFlags {
     required this.isExperimentalFeaturesEnabled,
     required this.isVerboseLoggingEnabled,
     required this.isNetworkSimulationEnabled,
-    required this.isSupabaseCliEnabled,
-    required this.isSupabaseCrudEnabled,
   });
 
   /// Development feature flags (all features enabled)
@@ -105,7 +93,6 @@ class FeatureFlags {
       isStacLogsEnabled: true,
       isPerformanceMonitoringEnabled: true,
       isMockApiEnabled: true,
-      isSupabaseApiEnabled: true,
       isCustomApiEnabled: true,
       isHotReloadEnabled: true,
       isJsonValidationEnabled: true,
@@ -116,8 +103,6 @@ class FeatureFlags {
       isExperimentalFeaturesEnabled: true,
       isVerboseLoggingEnabled: true,
       isNetworkSimulationEnabled: true,
-      isSupabaseCliEnabled: true,
-      isSupabaseCrudEnabled: true,
     );
   }
 
@@ -130,7 +115,6 @@ class FeatureFlags {
       isStacLogsEnabled: true,
       isPerformanceMonitoringEnabled: true,
       isMockApiEnabled: false,
-      isSupabaseApiEnabled: true,
       isCustomApiEnabled: true,
       isHotReloadEnabled: false,
       isJsonValidationEnabled: true,
@@ -141,8 +125,6 @@ class FeatureFlags {
       isExperimentalFeaturesEnabled: false,
       isVerboseLoggingEnabled: false,
       isNetworkSimulationEnabled: false,
-      isSupabaseCliEnabled: true,
-      isSupabaseCrudEnabled: true,
     );
   }
 
@@ -155,7 +137,6 @@ class FeatureFlags {
       isStacLogsEnabled: false,
       isPerformanceMonitoringEnabled: false,
       isMockApiEnabled: false,
-      isSupabaseApiEnabled: false,
       isCustomApiEnabled: true,
       isHotReloadEnabled: false,
       isJsonValidationEnabled: true,
@@ -166,8 +147,6 @@ class FeatureFlags {
       isExperimentalFeaturesEnabled: false,
       isVerboseLoggingEnabled: false,
       isNetworkSimulationEnabled: false,
-      isSupabaseCliEnabled: false,
-      isSupabaseCrudEnabled: false,
     );
   }
 
@@ -219,10 +198,6 @@ class FeatureFlags {
         'MOCK_API',
         baseFlags.isMockApiEnabled,
       ),
-      isSupabaseApiEnabled: _getBoolFromEnvironment(
-        'FIREBASE_API',
-        baseFlags.isSupabaseApiEnabled,
-      ),
       isCustomApiEnabled: _getBoolFromEnvironment(
         'CUSTOM_API',
         baseFlags.isCustomApiEnabled,
@@ -263,14 +238,6 @@ class FeatureFlags {
         'NETWORK_SIMULATION',
         baseFlags.isNetworkSimulationEnabled,
       ),
-      isSupabaseCliEnabled: _getBoolFromEnvironment(
-        'FIREBASE_CLI',
-        baseFlags.isSupabaseCliEnabled,
-      ),
-      isSupabaseCrudEnabled: _getBoolFromEnvironment(
-        'FIREBASE_CRUD',
-        baseFlags.isSupabaseCrudEnabled,
-      ),
     );
   }
 
@@ -297,8 +264,6 @@ class FeatureFlags {
         return const String.fromEnvironment('PERFORMANCE_MONITORING');
       case 'MOCK_API':
         return const String.fromEnvironment('MOCK_API');
-      case 'FIREBASE_API':
-        return const String.fromEnvironment('FIREBASE_API');
       case 'CUSTOM_API':
         return const String.fromEnvironment('CUSTOM_API');
       case 'HOT_RELOAD':
@@ -319,10 +284,6 @@ class FeatureFlags {
         return const String.fromEnvironment('VERBOSE_LOGGING');
       case 'NETWORK_SIMULATION':
         return const String.fromEnvironment('NETWORK_SIMULATION');
-      case 'FIREBASE_CLI':
-        return const String.fromEnvironment('FIREBASE_CLI');
-      case 'FIREBASE_CRUD':
-        return const String.fromEnvironment('FIREBASE_CRUD');
       default:
         return '';
     }
@@ -339,7 +300,7 @@ class FeatureFlags {
 
   /// Check if any API modes are enabled
   bool get hasApiModesEnabled {
-    return isMockApiEnabled || isSupabaseApiEnabled || isCustomApiEnabled;
+    return isMockApiEnabled || isCustomApiEnabled;
   }
 
   @override
@@ -360,7 +321,6 @@ class FeatureFlags {
     bool? isStacLogsEnabled,
     bool? isPerformanceMonitoringEnabled,
     bool? isMockApiEnabled,
-    bool? isSupabaseApiEnabled,
     bool? isCustomApiEnabled,
     bool? isHotReloadEnabled,
     bool? isJsonValidationEnabled,
@@ -371,8 +331,6 @@ class FeatureFlags {
     bool? isExperimentalFeaturesEnabled,
     bool? isVerboseLoggingEnabled,
     bool? isNetworkSimulationEnabled,
-    bool? isSupabaseCliEnabled,
-    bool? isSupabaseCrudEnabled,
   }) {
     return FeatureFlags(
       isDebugPanelEnabled: isDebugPanelEnabled ?? this.isDebugPanelEnabled,
@@ -383,7 +341,6 @@ class FeatureFlags {
       isPerformanceMonitoringEnabled:
           isPerformanceMonitoringEnabled ?? this.isPerformanceMonitoringEnabled,
       isMockApiEnabled: isMockApiEnabled ?? this.isMockApiEnabled,
-      isSupabaseApiEnabled: isSupabaseApiEnabled ?? this.isSupabaseApiEnabled,
       isCustomApiEnabled: isCustomApiEnabled ?? this.isCustomApiEnabled,
       isHotReloadEnabled: isHotReloadEnabled ?? this.isHotReloadEnabled,
       isJsonValidationEnabled:
@@ -399,9 +356,6 @@ class FeatureFlags {
           isVerboseLoggingEnabled ?? this.isVerboseLoggingEnabled,
       isNetworkSimulationEnabled:
           isNetworkSimulationEnabled ?? this.isNetworkSimulationEnabled,
-      isSupabaseCliEnabled: isSupabaseCliEnabled ?? this.isSupabaseCliEnabled,
-      isSupabaseCrudEnabled:
-          isSupabaseCrudEnabled ?? this.isSupabaseCrudEnabled,
     );
   }
 }
