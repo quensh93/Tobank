@@ -2,7 +2,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:tobank_sdui/core/api/api_config.dart';
 import 'package:tobank_sdui/core/api/stac_api_service.dart';
 import 'package:tobank_sdui/core/api/services/mock_api_service.dart';
-import 'package:tobank_sdui/core/api/services/supabase_api_service.dart';
 import 'api_config_provider.dart';
 
 part 'stac_api_service_provider.g.dart';
@@ -32,12 +31,7 @@ StacApiService stacApiService(Ref ref) {
   switch (config.mode) {
     case ApiMode.mock:
       return MockApiService(config: config);
-
-    case ApiMode.supabase:
-      return SupabaseApiService(config: config);
-
     case ApiMode.custom:
-      // CustomApiService to be implemented
       throw UnimplementedError('Custom API service not yet implemented');
   }
 }
