@@ -583,9 +583,7 @@ class StacLogViewer extends StatelessWidget {
     switch (source) {
       case ApiSource.mock:
         return Colors.blue;
-      case ApiSource.supabase:
-        return Colors.orange;
-      case ApiSource.custom:
+case ApiSource.custom:
         return Colors.purple;
     }
   }
