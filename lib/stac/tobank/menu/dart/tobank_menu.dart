@@ -88,6 +88,10 @@ StacWidget tobankMenuDart() {
           widgetType: 'transaction_menu',
         ),
         _buildSingleButtonMenuItemCard(
+          title: 'پرداخت اقساط (API واقعی)',
+          widgetType: 'installment_payment_api_real_menu',
+        ),
+        _buildSingleButtonMenuItemCard(
           title: 'اعلانات (API واقعی)',
           widgetType: 'notification_menu',
         ),

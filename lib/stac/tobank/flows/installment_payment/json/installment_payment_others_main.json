@@ -1,0 +1,618 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "setValue",
+    "key": "othersLoanContinueEnabled",
+    "value": false
+  },
+  "child": {
+    "appBar": {
+      "leading": {
+        "padding": {
+          "left": 12.0
+        },
+        "child": {
+          "child": {
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24.0,
+            "height": 24.0,
+            "type": "image"
+          },
+          "type": "center"
+        },
+        "type": "padding"
+      },
+      "automaticallyImplyLeading": true,
+      "title": {
+        "data": "پرداخت اقساط دیگران",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "actions": [
+        {
+          "padding": {
+            "right": 12.0
+          },
+          "child": {
+            "onPressed": {
+              "navigationStyle": "pop",
+              "actionType": "navigate"
+            },
+            "icon": {
+              "src": "{{appAssets.icons.arrowBack}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 31.0,
+              "height": 31.0,
+              "type": "image"
+            },
+            "type": "iconButton"
+          },
+          "type": "padding"
+        }
+      ],
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "backgroundColor": "{{appColors.current.background.surface}}",
+    "body": {
+      "padding": {
+        "left": 16.0,
+        "top": 16.0,
+        "right": 16.0,
+        "bottom": 16.0
+      },
+      "child": {
+        "padding": {
+          "left": 16.0,
+          "top": 16.0,
+          "right": 16.0,
+          "bottom": 16.0
+        },
+        "decoration": {
+          "border": {
+            "color": "{{appColors.current.input.borderEnabled}}",
+            "width": 1.0
+          },
+          "borderRadius": {
+            "topLeft": 12.0,
+            "topRight": 12.0,
+            "bottomLeft": 12.0,
+            "bottomRight": 12.0
+          }
+        },
+        "child": {
+          "crossAxisAlignment": "stretch",
+          "children": [
+            {
+              "data": "شماره تسهیلات",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.title}}",
+                "fontSize": 18.0,
+                "fontWeight": "w700"
+              },
+              "textAlign": "right",
+              "textDirection": "rtl",
+              "type": "text"
+            },
+            {
+              "height": 16.0,
+              "type": "sizedBox"
+            },
+            {
+              "textDirection": "rtl",
+              "children": [
+                {
+                  "flex": 4,
+                  "child": {
+                    "type": "textFormField",
+                    "id": "others_loan_4",
+                    "textDirection": "ltr",
+                    "textAlign": "center",
+                    "decoration": {
+                      "hintText": "",
+                      "enabledBorder": {
+                        "type": "outline",
+                        "borderSide": {
+                          "color": "{{appColors.current.input.borderEnabled}}",
+                          "width": 1.0
+                        },
+                        "borderRadius": {
+                          "all": 12
+                        }
+                      },
+                      "focusedBorder": {
+                        "type": "outline",
+                        "borderSide": {
+                          "color": "{{appColors.current.input.borderEnabled}}",
+                          "width": 1.0
+                        },
+                        "borderRadius": {
+                          "all": 12
+                        }
+                      },
+                      "contentPadding": {
+                        "left": 8,
+                        "top": 18,
+                        "right": 8,
+                        "bottom": 18
+                      }
+                    },
+                    "style": {
+                      "fontSize": 18,
+                      "fontWeight": "w600",
+                      "color": "{{appColors.current.text.title}}"
+                    },
+                    "keyboardType": "number",
+                    "inputFormatters": [
+                      {
+                        "type": "allow",
+                        "rule": "[0-9۰-۹]"
+                      }
+                    ],
+                    "onChanged": {
+                      "actionType": "validateFields",
+                      "resultKey": "othersLoanContinueEnabled",
+                      "fields": [
+                        {
+                          "id": "others_loan_1"
+                        },
+                        {
+                          "id": "others_loan_2"
+                        },
+                        {
+                          "id": "others_loan_3"
+                        },
+                        {
+                          "id": "others_loan_4"
+                        },
+                        {
+                          "id": "others_national_code",
+                          "rule": "^\\d{10}$"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "expanded"
+                },
+                {
+                  "padding": {
+                    "left": 4.0,
+                    "right": 4.0
+                  },
+                  "child": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 2.0,
+                    "height": 1.0,
+                    "type": "container"
+                  },
+                  "type": "padding"
+                },
+                {
+                  "flex": 7,
+                  "child": {
+                    "type": "textFormField",
+                    "id": "others_loan_3",
+                    "textDirection": "ltr",
+                    "textAlign": "center",
+                    "decoration": {
+                      "hintText": "",
+                      "enabledBorder": {
+                        "type": "outline",
+                        "borderSide": {
+                          "color": "{{appColors.current.input.borderEnabled}}",
+                          "width": 1.0
+                        },
+                        "borderRadius": {
+                          "all": 12
+                        }
+                      },
+                      "focusedBorder": {
+                        "type": "outline",
+                        "borderSide": {
+                          "color": "{{appColors.current.input.borderEnabled}}",
+                          "width": 1.0
+                        },
+                        "borderRadius": {
+                          "all": 12
+                        }
+                      },
+                      "contentPadding": {
+                        "left": 8,
+                        "top": 18,
+                        "right": 8,
+                        "bottom": 18
+                      }
+                    },
+                    "style": {
+                      "fontSize": 18,
+                      "fontWeight": "w600",
+                      "color": "{{appColors.current.text.title}}"
+                    },
+                    "keyboardType": "number",
+                    "inputFormatters": [
+                      {
+                        "type": "allow",
+                        "rule": "[0-9۰-۹]"
+                      }
+                    ],
+                    "onChanged": {
+                      "actionType": "validateFields",
+                      "resultKey": "othersLoanContinueEnabled",
+                      "fields": [
+                        {
+                          "id": "others_loan_1"
+                        },
+                        {
+                          "id": "others_loan_2"
+                        },
+                        {
+                          "id": "others_loan_3"
+                        },
+                        {
+                          "id": "others_loan_4"
+                        },
+                        {
+                          "id": "others_national_code",
+                          "rule": "^\\d{10}$"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "expanded"
+                },
+                {
+                  "padding": {
+                    "left": 4.0,
+                    "right": 4.0
+                  },
+                  "child": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 2.0,
+                    "height": 1.0,
+                    "type": "container"
+                  },
+                  "type": "padding"
+                },
+                {
+                  "flex": 5,
+                  "child": {
+                    "type": "textFormField",
+                    "id": "others_loan_2",
+                    "textDirection": "ltr",
+                    "textAlign": "center",
+                    "decoration": {
+                      "hintText": "",
+                      "enabledBorder": {
+                        "type": "outline",
+                        "borderSide": {
+                          "color": "{{appColors.current.input.borderEnabled}}",
+                          "width": 1.0
+                        },
+                        "borderRadius": {
+                          "all": 12
+                        }
+                      },
+                      "focusedBorder": {
+                        "type": "outline",
+                        "borderSide": {
+                          "color": "{{appColors.current.input.borderEnabled}}",
+                          "width": 1.0
+                        },
+                        "borderRadius": {
+                          "all": 12
+                        }
+                      },
+                      "contentPadding": {
+                        "left": 8,
+                        "top": 18,
+                        "right": 8,
+                        "bottom": 18
+                      }
+                    },
+                    "style": {
+                      "fontSize": 18,
+                      "fontWeight": "w600",
+                      "color": "{{appColors.current.text.title}}"
+                    },
+                    "keyboardType": "number",
+                    "inputFormatters": [
+                      {
+                        "type": "allow",
+                        "rule": "[0-9۰-۹]"
+                      }
+                    ],
+                    "onChanged": {
+                      "actionType": "validateFields",
+                      "resultKey": "othersLoanContinueEnabled",
+                      "fields": [
+                        {
+                          "id": "others_loan_1"
+                        },
+                        {
+                          "id": "others_loan_2"
+                        },
+                        {
+                          "id": "others_loan_3"
+                        },
+                        {
+                          "id": "others_loan_4"
+                        },
+                        {
+                          "id": "others_national_code",
+                          "rule": "^\\d{10}$"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "expanded"
+                },
+                {
+                  "padding": {
+                    "left": 4.0,
+                    "right": 4.0
+                  },
+                  "child": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 2.0,
+                    "height": 1.0,
+                    "type": "container"
+                  },
+                  "type": "padding"
+                },
+                {
+                  "flex": 5,
+                  "child": {
+                    "type": "textFormField",
+                    "id": "others_loan_1",
+                    "textDirection": "ltr",
+                    "textAlign": "center",
+                    "decoration": {
+                      "hintText": "",
+                      "enabledBorder": {
+                        "type": "outline",
+                        "borderSide": {
+                          "color": "{{appColors.current.input.borderEnabled}}",
+                          "width": 1.0
+                        },
+                        "borderRadius": {
+                          "all": 12
+                        }
+                      },
+                      "focusedBorder": {
+                        "type": "outline",
+                        "borderSide": {
+                          "color": "{{appColors.current.input.borderEnabled}}",
+                          "width": 1.0
+                        },
+                        "borderRadius": {
+                          "all": 12
+                        }
+                      },
+                      "contentPadding": {
+                        "left": 8,
+                        "top": 18,
+                        "right": 8,
+                        "bottom": 18
+                      }
+                    },
+                    "style": {
+                      "fontSize": 18,
+                      "fontWeight": "w600",
+                      "color": "{{appColors.current.text.title}}"
+                    },
+                    "keyboardType": "number",
+                    "inputFormatters": [
+                      {
+                        "type": "allow",
+                        "rule": "[0-9۰-۹]"
+                      }
+                    ],
+                    "onChanged": {
+                      "actionType": "validateFields",
+                      "resultKey": "othersLoanContinueEnabled",
+                      "fields": [
+                        {
+                          "id": "others_loan_1"
+                        },
+                        {
+                          "id": "others_loan_2"
+                        },
+                        {
+                          "id": "others_loan_3"
+                        },
+                        {
+                          "id": "others_loan_4"
+                        },
+                        {
+                          "id": "others_national_code",
+                          "rule": "^\\d{10}$"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "expanded"
+                }
+              ],
+              "type": "row"
+            },
+            {
+              "height": 30.0,
+              "type": "sizedBox"
+            },
+            {
+              "data": "کدملی دارنده تسهیلات",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.title}}",
+                "fontSize": 18.0,
+                "fontWeight": "w700"
+              },
+              "textAlign": "right",
+              "textDirection": "rtl",
+              "type": "text"
+            },
+            {
+              "height": 16.0,
+              "type": "sizedBox"
+            },
+            {
+              "type": "textFormField",
+              "id": "others_national_code",
+              "textDirection": "ltr",
+              "textAlign": "center",
+              "decoration": {
+                "hintText": "",
+                "enabledBorder": {
+                  "type": "outline",
+                  "borderSide": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1.0
+                  },
+                  "borderRadius": {
+                    "all": 12
+                  }
+                },
+                "focusedBorder": {
+                  "type": "outline",
+                  "borderSide": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1.0
+                  },
+                  "borderRadius": {
+                    "all": 12
+                  }
+                },
+                "contentPadding": {
+                  "left": 8,
+                  "top": 18,
+                  "right": 8,
+                  "bottom": 18
+                }
+              },
+              "style": {
+                "fontSize": 18,
+                "fontWeight": "w600",
+                "color": "{{appColors.current.text.title}}"
+              },
+              "keyboardType": "number",
+              "maxLength": 10,
+              "inputFormatters": [
+                {
+                  "type": "allow",
+                  "rule": "[0-9۰-۹]"
+                }
+              ],
+              "onChanged": {
+                "actionType": "validateFields",
+                "resultKey": "othersLoanContinueEnabled",
+                "fields": [
+                  {
+                    "id": "others_loan_1"
+                  },
+                  {
+                    "id": "others_loan_2"
+                  },
+                  {
+                    "id": "others_loan_3"
+                  },
+                  {
+                    "id": "others_loan_4"
+                  },
+                  {
+                    "id": "others_national_code",
+                    "rule": "^\\d{10}$"
+                  }
+                ]
+              }
+            },
+            {
+              "height": 30.0,
+              "type": "sizedBox"
+            },
+            {
+              "type": "reactiveElevatedButton",
+              "enabledKey": "othersLoanContinueEnabled",
+              "onPressed": {
+                "actionType": "showInstallmentPaymentOthersResultDialog",
+                "nationalCodeFieldId": "others_national_code",
+                "defaultAction": {
+                  "navigationStyle": "push",
+                  "actionType": "navigate",
+                  "assetPath": "lib/stac/tobank/flows/installment_payment/json/installment_payment_others_detail_main.json"
+                }
+              },
+              "style": {
+                "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                "backgroundColor": "{{appColors.current.primary.color}}",
+                "elevation": 0.0,
+                "fixedSize": {
+                  "width": 999999.0,
+                  "height": 50.0
+                },
+                "shape": {
+                  "type": "roundedRectangleBorder",
+                  "borderRadius": {
+                    "topLeft": 10.0,
+                    "topRight": 10.0,
+                    "bottomLeft": 10.0,
+                    "bottomRight": 10.0
+                  }
+                }
+              },
+              "disabledStyle": {
+                "foregroundColor": "{{appColors.current.text.subtitle}}",
+                "backgroundColor": "{{appColors.current.input.borderEnabled}}",
+                "elevation": 0.0,
+                "fixedSize": {
+                  "width": 999999.0,
+                  "height": 50.0
+                },
+                "shape": {
+                  "type": "roundedRectangleBorder",
+                  "borderRadius": {
+                    "topLeft": 10.0,
+                    "topRight": 10.0,
+                    "bottomLeft": 10.0,
+                    "bottomRight": 10.0
+                  }
+                }
+              },
+              "child": {
+                "data": "ادامه",
+                "style": {
+                  "type": "custom",
+                  "color": "{{appColors.current.primary.onPrimary}}",
+                  "fontSize": 18.0,
+                  "fontWeight": "w600"
+                },
+                "type": "text"
+              },
+              "loadingChild": {
+                "data": "ادامه",
+                "style": {
+                  "type": "custom",
+                  "color": "{{appColors.current.primary.onPrimary}}",
+                  "fontSize": 18.0,
+                  "fontWeight": "w600"
+                },
+                "type": "text"
+              }
+            }
+          ],
+          "type": "column"
+        },
+        "type": "container"
+      },
+      "type": "singleChildScrollView"
+    },
+    "type": "scaffold"
+  }
+}

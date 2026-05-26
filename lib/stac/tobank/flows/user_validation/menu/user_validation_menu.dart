@@ -42,6 +42,62 @@ StacWidget userValidationMenu() {
           ),
           StacSizedBox(height: 32),
           StacFilledButton(
+            onPressed: StacNavigateAction.fromJson({
+              'actionType': 'navigate',
+              'navigationStyle': 'push',
+              'request': {
+                'url':
+                    'http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.user_validation_intro/1',
+                'method': 'post',
+                'headers': {
+                  'Content-Type': 'application/json',
+                  'Accept': '*/*',
+                },
+                'body': {
+                  'operator': 'is',
+                  'dimension': {'app': 'mobile'},
+                },
+              },
+            }),
+            style: StacButtonStyle(
+              padding: StacEdgeInsets.symmetric(vertical: 16),
+              backgroundColor:
+                  '{{appColors.current.button.primary.backgroundColor}}',
+              foregroundColor:
+                  '{{appColors.current.button.primary.foregroundColor}}',
+            ),
+            child: StacText(
+              data: 'لود جیسون از API',
+              style: StacTextStyle(
+                fontSize: 16,
+                fontWeight: StacFontWeight.w600,
+              ),
+            ),
+          ),
+          StacSizedBox(height: 16),
+          StacFilledButton(
+            onPressed: const StacNavigateAction(
+              assetPath:
+                  'lib/stac/tobank/flows/user_validation/json/user_validation_intro.json',
+              navigationStyle: NavigationStyle.push,
+            ),
+            style: StacButtonStyle(
+              padding: StacEdgeInsets.symmetric(vertical: 16),
+              backgroundColor:
+                  '{{appColors.current.button.primary.backgroundColor}}',
+              foregroundColor:
+                  '{{appColors.current.button.primary.foregroundColor}}',
+            ),
+            child: StacText(
+              data: 'بارگیری از JSON محلی',
+              style: StacTextStyle(
+                fontSize: 16,
+                fontWeight: StacFontWeight.w600,
+              ),
+            ),
+          ),
+          StacSizedBox(height: 16),
+          StacFilledButton(
             onPressed: const StacNavigateAction(
               routeName: 'tobank_login_dart',
               navigationStyle: NavigationStyle.push,

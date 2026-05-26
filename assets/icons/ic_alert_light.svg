@@ -1,0 +1,15 @@
+<svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <g id="vuesax_linear_info-circle" transform="translate(-364 -252)">
+        <g id="info-circle">
+            <path d="M10,20A10,10,0,1,0,0,10,10.029,10.029,0,0,0,10,20Z" fill="none" id="Vector"
+                stroke="#292d32" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                transform="translate(366 254)" />
+            <path d="M0,0V5" fill="none" id="Vector-2" stroke="#292d32" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="1.5" transform="translate(376 260)" />
+            <path d="M0,0H.009" fill="none" id="Vector-3" stroke="#292d32" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2" transform="translate(375.995 268)" />
+            <path d="M0,0H24V24H0Z" fill="none" id="Vector-4" opacity="0"
+                transform="translate(364 252)" />
+        </g>
+    </g>
+</svg>

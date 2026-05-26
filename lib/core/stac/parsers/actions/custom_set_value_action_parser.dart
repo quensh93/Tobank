@@ -384,6 +384,18 @@ class CustomSetValueActionParser
 
   /// Evaluates a condition expression and returns a boolean
   bool _evalCondition(String conditionExpr) {
+    final binaryMatch = RegExp(
+      r'^\s*(.+?)\s*(>=|<=|==|!=|>|<)\s*(.+)\s*$',
+    ).firstMatch(conditionExpr);
+    if (binaryMatch != null) {
+      final leftExpr = binaryMatch.group(1)!.trim();
+      final op = binaryMatch.group(2)!.trim();
+      final rightExpr = binaryMatch.group(3)!.trim();
+      final left = _evalOperand(leftExpr);
+      final right = _evalOperand(rightExpr);
+      return _compareValues(left, right, op);
+    }
+
     // Handle negation in condition
     if (conditionExpr.startsWith('!')) {
       final varName = conditionExpr.substring(1).trim();
@@ -394,6 +406,87 @@ class CustomSetValueActionParser
     // Simple variable lookup
     final value = StacRegistry.instance.getValue(conditionExpr);
     return _toBool(value);
+  }
+
+  dynamic _evalOperand(String expr) {
+    final trimmed = expr.trim();
+    if (trimmed.isEmpty) return null;
+
+    // Numeric literals like 10000 or 1.5
+    if (RegExp(r'^-?\d+(\.\d+)?$').hasMatch(trimmed)) {
+      return num.tryParse(trimmed);
+    }
+
+    // Quoted string literals
+    if ((trimmed.startsWith("'") && trimmed.endsWith("'")) ||
+        (trimmed.startsWith('"') && trimmed.endsWith('"'))) {
+      return trimmed.substring(1, trimmed.length - 1);
+    }
+
+    // Boolean/null literals
+    if (trimmed == 'true') return true;
+    if (trimmed == 'false') return false;
+    if (trimmed == 'null') return null;
+
+    return _evalExpression(trimmed);
+  }
+
+  bool _compareValues(dynamic left, dynamic right, String op) {
+    final leftNum = _toNumMaybe(left);
+    final rightNum = _toNumMaybe(right);
+
+    if (leftNum != null && rightNum != null) {
+      switch (op) {
+        case '>':
+          return leftNum > rightNum;
+        case '>=':
+          return leftNum >= rightNum;
+        case '<':
+          return leftNum < rightNum;
+        case '<=':
+          return leftNum <= rightNum;
+        case '==':
+          return leftNum == rightNum;
+        case '!=':
+          return leftNum != rightNum;
+      }
+    }
+
+    final leftStr = left?.toString() ?? '';
+    final rightStr = right?.toString() ?? '';
+    switch (op) {
+      case '==':
+        return leftStr == rightStr;
+      case '!=':
+        return leftStr != rightStr;
+      default:
+        return false;
+    }
+  }
+
+  num? _toNumMaybe(dynamic value) {
+    if (value == null) return null;
+    if (value is num) return value;
+    if (value is bool) return value ? 1 : 0;
+    if (value is String) {
+      final normalized = value
+          .replaceAll('۰', '0')
+          .replaceAll('۱', '1')
+          .replaceAll('۲', '2')
+          .replaceAll('۳', '3')
+          .replaceAll('۴', '4')
+          .replaceAll('۵', '5')
+          .replaceAll('۶', '6')
+          .replaceAll('۷', '7')
+          .replaceAll('۸', '8')
+          .replaceAll('۹', '9')
+          .replaceAll(',', '')
+          .replaceAll(RegExp(r'[^0-9\.\-]'), '')
+          .trim();
+      if (normalized.isEmpty) return null;
+      return num.tryParse(normalized);
+    }
+    return null;
   }
 
   /// Converts a value to boolean

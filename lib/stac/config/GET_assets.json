@@ -138,6 +138,8 @@
                                            "moreDark":  "assets/icons/ic_more.svg",
                                            "menu":  "assets/icons/ic_menu.svg",
                                            "warning":  "assets/icons/ic_warning.svg",
+                                           "alertLight":  "assets/icons/ic_alert_light.svg",
+                                           "alertDark":  "assets/icons/ic_alert_dark.svg",
                                            "printReceipt":  "assets/icons/ic_share_image.svg",
                                            "block":  "assets/icons/ic_card_service_block.svg"
                                        },

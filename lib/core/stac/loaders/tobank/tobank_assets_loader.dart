@@ -45,6 +45,10 @@ class TobankAssetsLoader {
       light: 'assets/icons/ic_check_circle.svg',
       dark: 'assets/icons/ic_check_circle.svg',
     ),
+    'icons.alert': (
+      light: 'assets/icons/ic_alert_light.svg',
+      dark: 'assets/icons/ic_alert_dark.svg',
+    ),
   };
 
   /// Load assets from API and store in StacRegistry

@@ -150,6 +150,12 @@ import '../../../../stac/tobank/flows/cartable/dart/cartable_detail.dart'
     as cartable_detail_dart;
 import '../../../../stac/tobank/flows/transaction/menu/transaction_menu.dart'
     as transaction_menu_dart;
+import '../../../../stac/tobank/flows/installment_payment/menu/installment_payment_api_real_menu.dart'
+    as installment_payment_api_real_menu_dart;
+import '../../../../stac/tobank/flows/installment_payment/dart/installment_payment_list_main.dart'
+    as installment_payment_list_main_dart;
+import '../../../../stac/tobank/flows/installment_payment/dart/installment_payment_detail_main.dart'
+    as installment_payment_detail_main_dart;
 import '../../../../stac/tobank/flows/transaction/dart/transaction_intro.dart'
     as transaction_intro_dart;
 import '../../../../stac/tobank/flows/transaction/dart/transaction_filter.dart'
@@ -395,6 +401,17 @@ class StacWidgetLoader {
     'cartable_detail': () => cartable_detail_dart.cartableRealDetail().toJson(),
     'transaction_menu': () =>
         transaction_menu_dart.transactionRealMenu().toJson(),
+    'installment_payment_api_real_menu': () =>
+        installment_payment_api_real_menu_dart
+            .installmentPaymentApiRealMenu()
+            .toJson(),
+    'installment_payment_list_main': () => installment_payment_list_main_dart
+        .installmentPaymentListMain()
+        .toJson(),
+    'installment_payment_detail_main': () =>
+        installment_payment_detail_main_dart
+            .installmentPaymentDetailMain()
+            .toJson(),
     'transaction_intro': () =>
         transaction_intro_dart.transactionRealIntro().toJson(),
     'transaction_filter': () =>
@@ -410,7 +427,8 @@ class StacWidgetLoader {
     'deposit_turnover_transactions': () => deposit_turnover_transactions_dart
         .depositTurnoverTransactions()
         .toJson(),
-    'deposit_more_menu': () => deposit_more_menu_dart.depositMoreMenu().toJson(),
+    'deposit_more_menu': () =>
+        deposit_more_menu_dart.depositMoreMenu().toJson(),
     'deposit_more_intro': () =>
         deposit_more_intro_dart.depositMoreIntro().toJson(),
     'deposit_card_issue_address': () =>
@@ -428,8 +446,7 @@ class StacWidgetLoader {
     'dashboard_menu': () => dashboard_menu_dart.dashboardRealMenu().toJson(),
     'biometric_test_menu': () =>
         biometric_test_menu_dart.biometricTestMenu().toJson(),
-    'dashboard_shell': () =>
-        dashboard_shell_dart.dashboardShell().toJson(),
+    'dashboard_shell': () => dashboard_shell_dart.dashboardShell().toJson(),
     'dashboard_cards_management': () =>
         cards_management_screen_dart.dashboardCardsManagement().toJson(),
     'dashboard_card_edit': () =>
@@ -451,17 +468,16 @@ class StacWidgetLoader {
     'dashboard_card_reissue_request': () =>
         reissue_request_dart.dashboardCardReissueRequest().toJson(),
     'dashboard_card_reissue_select_card_color': () =>
-        reissue_select_card_color_dart.dashboardCardReissueSelectCardColor().toJson(),
+        reissue_select_card_color_dart
+            .dashboardCardReissueSelectCardColor()
+            .toJson(),
     'dashboard_card_reissue_receipt': () =>
         reissue_receipt_dart.dashboardCardReissueReceipt().toJson(),
     'dashboard_card_balance': () =>
         card_balance_screen_dart.dashboardCardBalance().toJson(),
-    'gift_card_menu': () =>
-        gift_card_menu_dart.giftCardRealMenu().toJson(),
-    'transfer_menu': () =>
-        transfer_menu_dart.transferRealMenu().toJson(),
-    'transfer_amount': () =>
-        transfer_amount_dart.transferRealAmount().toJson(),
+    'gift_card_menu': () => gift_card_menu_dart.giftCardRealMenu().toJson(),
+    'transfer_menu': () => transfer_menu_dart.transferRealMenu().toJson(),
+    'transfer_amount': () => transfer_amount_dart.transferRealAmount().toJson(),
     'transfer_details': () =>
         transfer_details_dart.transferRealDetails().toJson(),
     'transfer_confirm': () =>

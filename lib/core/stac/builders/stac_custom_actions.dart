@@ -101,8 +101,14 @@ class StacCustomSetValueAction extends StacAction {
   final String? key;
   final dynamic value;
   final List<Map<String, dynamic>>? values;
+  final dynamic action;
 
-  const StacCustomSetValueAction({this.key, this.value, this.values});
+  const StacCustomSetValueAction({
+    this.key,
+    this.value,
+    this.values,
+    this.action,
+  });
 
   @override
   String get actionType => 'setValue';
@@ -110,15 +116,39 @@ class StacCustomSetValueAction extends StacAction {
   @override
   Map<String, dynamic> toJson() {
     if (values != null) {
-      return {'actionType': 'setValue', 'values': values};
+      return {
+        'actionType': 'setValue',
+        'values': values!.map(_processEntry).toList(),
+        if (action != null) 'action': _processValue(action),
+      };
     }
-    dynamic processedValue = value;
-    if (value is StacGetFormValueAction) {
-      processedValue = value.toJson();
-    } else if (value is StacAction) {
-      processedValue = value.toJson();
+    final processedValue = _processValue(value);
+    return {
+      'actionType': 'setValue',
+      'key': key,
+      'value': processedValue,
+      if (action != null) 'action': _processValue(action),
+    };
+  }
+
+  Map<String, dynamic> _processEntry(Map<String, dynamic> entry) {
+    return entry.map((key, value) => MapEntry(key, _processValue(value)));
+  }
+
+  dynamic _processValue(dynamic input) {
+    if (input is StacGetFormValueAction) {
+      return input.toJson();
     }
-    return {'actionType': 'setValue', 'key': key, 'value': processedValue};
+    if (input is StacAction) {
+      return input.toJson();
+    }
+    if (input is Map) {
+      return input.map((key, value) => MapEntry(key, _processValue(value)));
+    }
+    if (input is List) {
+      return input.map(_processValue).toList();
+    }
+    return input;
   }
 }
 
