@@ -36,8 +36,8 @@ StacWidget tobankOnboarding() {
           },
         ],
         onFinish: {
-          'actionType': 'flowNext',
-          'fallback': {'actionType': 'navigate', 'navigationStyle': 'pop'},
+          'actionType': 'navigate',
+          'navigationStyle': 'pop',
         },
       ),
     ),

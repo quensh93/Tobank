@@ -193,14 +193,6 @@ class ShowBottomSheetActionParser
   }
 }
 
-class ShowMobileBankServicesBottomSheetActionParser
-    extends ShowBottomSheetActionParser {
-  const ShowMobileBankServicesBottomSheetActionParser();
-
-  @override
-  String get actionType => 'showMobileBankServicesBottomSheet';
-}
-
 Color? _parseColor(String? colorString) {
   if (colorString == null) return null;
   try {
@@ -216,7 +208,4 @@ Color? _parseColor(String? colorString) {
 void registerShowBottomSheetActionParser() {
   final registry = CustomComponentRegistry.instance;
   registry.registerAction(const ShowBottomSheetActionParser());
-  registry.registerAction(
-    const ShowMobileBankServicesBottomSheetActionParser(),
-  );
 }

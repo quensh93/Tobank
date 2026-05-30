@@ -1,5 +1,5 @@
-import 'package:stac_core/stac_core.dart';
-import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
+﻿import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/core/stac/actions/stac_custom_actions.dart';
 import '../../../../core/stac/builders/stac_stateful_widget.dart';
 
 /// Dart STAC version of Tobank OTP verification screen.
@@ -335,11 +335,8 @@ StacWidget tobankVerifyOtpDart() {
                                       'actions': [
                                         {'actionType': 'closeDialog'},
                                         {
-                                          'actionType': 'flowNext',
-                                          'fallback': {
-                                            'actionType': 'navigate',
-                                            'navigationStyle': 'popAll',
-                                          },
+                                          'actionType': 'navigate',
+                                          'navigationStyle': 'popAll',
                                         },
                                       ],
                                     },
@@ -411,3 +408,4 @@ class StacRawJsonWidget implements StacWidget {
 
   String? get id => json['id'] as String?;
 }
+

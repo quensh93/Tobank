@@ -17,7 +17,6 @@ import '../parsers/actions/close_dialog_action_parser.dart';
 import '../parsers/actions/calculate_sum_action_parser.dart';
 import '../parsers/actions/log_action_parser.dart';
 import '../parsers/actions/sequence_action_parser.dart';
-import '../parsers/actions/flow_next_action_parser.dart';
 import '../parsers/actions/validate_fields_action_parser.dart';
 import '../parsers/actions/custom_set_value_action_parser.dart';
 import '../parsers/actions/custom_navigate_action_parser.dart';
@@ -99,6 +98,16 @@ import '../parsers/widgets/tobank_mega_gasht_webview_parser.dart';
 import '../parsers/widgets/tobank_acceptor_webview_parser.dart';
 import '../parsers/widgets/deposit_card_template_picker_parser.dart';
 
+/// Widget parser types we intentionally override on top of Stac built-ins.
+const Set<String> _overridableBuiltinWidgetTypes = {
+  'image',
+  'visibility',
+  'stateful',
+  'stateFull',
+  'bottomNavigationView',
+  'bottomNavigationBar',
+};
+
 /// Register all custom STAC parsers with the STAC framework.
 ///
 /// This function should be called during app initialization, after Stac.initialize()
@@ -122,8 +131,8 @@ Future<void> registerCustomParsers() async {
   try {
     AppLogger.i('🔧 Registering custom STAC parsers...');
 
-    // Register example parsers with custom registry first
-    _registerExampleParsers();
+    // Populate the custom registry with all production parsers first
+    _registerAllParsers();
 
     // Register the registry reactive widget parser
     final customRegistry = CustomComponentRegistry.instance;
@@ -143,12 +152,7 @@ Future<void> registerCustomParsers() async {
         final existingParser = stacRegistry.getParser(type);
         if (existingParser != null) {
           // Allow overriding specific parsers explicitly
-          if (type == 'image' ||
-              type == 'visibility' ||
-              type == 'stateful' ||
-              type == 'stateFull' ||
-              type == 'bottomNavigationView' ||
-              type == 'bottomNavigationBar') {
+          if (_overridableBuiltinWidgetTypes.contains(type)) {
             AppLogger.i('Overriding built-in parser for "$type"');
           } else {
             AppLogger.w(
@@ -161,13 +165,7 @@ Future<void> registerCustomParsers() async {
 
         // Register with STAC framework
         // NOTE: For some core widgets (e.g. 'image') we intentionally override.
-        final success =
-            (type == 'image' ||
-                type == 'visibility' ||
-                type == 'stateful' ||
-                type == 'stateFull' ||
-                type == 'bottomNavigationView' ||
-                type == 'bottomNavigationBar')
+        final success = _overridableBuiltinWidgetTypes.contains(type)
             ? stacRegistry.register(parser, true)
             : stacRegistry.register(parser);
         if (success) {
@@ -400,12 +398,12 @@ Future<void> registerCustomParsers() async {
   }
 }
 
-/// Register example parsers with the custom component registry.
+/// Register all custom widgets and actions with the custom component registry.
 ///
-/// This function registers all example widgets and actions that come with
-/// the framework. You can use this as a reference for registering your own
-/// custom parsers.
-void _registerExampleParsers() {
+/// Despite the legacy comment history, this registers ALL production parsers
+/// (not just examples) into [CustomComponentRegistry]. The outer
+/// [registerCustomParsers] then promotes them into the Stac framework registry.
+void _registerAllParsers() {
   // Register example widget parsers
   registerExampleCardParser();
 
@@ -419,10 +417,6 @@ void _registerExampleParsers() {
   // Register close dialog action parser
   registerCloseDialogActionParser();
 
-  // Register theme toggle action parser
-  // TODO: Fix registerThemeToggleActionParser function
-  // registerThemeToggleActionParser();
-
   // Register calculate sum action parser
   registerCalculateSumActionParser();
 
@@ -431,9 +425,6 @@ void _registerExampleParsers() {
 
   // Register sequence action parser
   CustomComponentRegistry.instance.registerAction(const SequenceActionParser());
-
-  // Register flow next action parser
-  CustomComponentRegistry.instance.registerAction(const FlowNextActionParser());
 
   // Register validate fields action parser
   CustomComponentRegistry.instance.registerAction(

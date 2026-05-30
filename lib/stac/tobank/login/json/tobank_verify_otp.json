@@ -408,11 +408,8 @@
                                         "actionType": "closeDialog"
                                       },
                                       {
-                                        "actionType": "flowNext",
-                                        "fallback": {
-                                          "actionType": "navigate",
-                                          "navigationStyle": "popAll"
-                                        }
+                                        "actionType": "navigate",
+                                        "navigationStyle": "popAll"
                                       }
                                     ]
                                   }
