@@ -8,7 +8,6 @@ import '../api_config.dart';
 import '../../logging/stac_log_interceptor.dart';
 import '../../logging/stac_log_models.dart';
 import '../../logging/stac_logger.dart';
-import '../../validation/stac_json_validator.dart';
 
 /// Mock API service implementation
 ///
@@ -26,9 +25,6 @@ class MockApiService implements StacApiService {
 
   /// Whether to simulate network delays
   final bool simulateDelay;
-
-  /// JSON validator for STAC structures
-  final StacJsonValidator _validator = StacJsonValidator();
 
   MockApiService({
     ApiConfig? config,
@@ -75,45 +71,6 @@ class MockApiService implements StacApiService {
           }
 
           final data = jsonDecode(jsonString) as Map<String, dynamic>;
-
-          // Validate JSON structure before caching
-          final validationResult = _validator.validate(data);
-          if (!validationResult.isValid) {
-            // Log validation errors
-            StacLogger.logError(
-              operation: 'JSON Validation',
-              error: 'Invalid STAC JSON structure in $screenName',
-              jsonPath: screenName,
-              suggestion: validationResult.errors.first.suggestion,
-            );
-
-            // Log all validation errors
-            for (final error in validationResult.errors) {
-              StacLogger.logError(
-                operation: 'Validation Error',
-                error: error.message,
-                jsonPath: error.path,
-                suggestion: error.suggestion,
-              );
-            }
-
-            throw JsonParsingException(
-              'JSON validation failed for $screenName: ${validationResult.summary}',
-              jsonPath: screenName,
-              originalError: validationResult.errors,
-            );
-          }
-
-          // Log validation warnings if any
-          if (validationResult.warnings.isNotEmpty) {
-            for (final warning in validationResult.warnings) {
-              StacLogger.logWarning(
-                operation: 'JSON Validation',
-                message: warning.message,
-                jsonPath: warning.path,
-              );
-            }
-          }
 
           // Cache the data if caching is enabled
           if (config.enableCaching) {
@@ -231,47 +188,6 @@ class MockApiService implements StacApiService {
         }
       } else {
         data = rawData;
-      }
-
-      // Validate JSON structure before caching (if it's a STAC structure)
-      // Config files may not always be STAC structures, so we validate only if they have a 'type' field
-      if (data.containsKey('type')) {
-        final validationResult = _validator.validate(data);
-        if (!validationResult.isValid) {
-          // Log validation errors
-          StacLogger.logError(
-            operation: 'Config Validation',
-            error: 'Invalid STAC JSON structure in config: $configName',
-            jsonPath: configName,
-            suggestion: validationResult.errors.first.suggestion,
-          );
-
-          for (final error in validationResult.errors) {
-            StacLogger.logError(
-              operation: 'Validation Error',
-              error: error.message,
-              jsonPath: error.path,
-              suggestion: error.suggestion,
-            );
-          }
-
-          throw JsonParsingException(
-            'Config validation failed for $configName: ${validationResult.summary}',
-            jsonPath: configName,
-            originalError: validationResult.errors,
-          );
-        }
-
-        // Log validation warnings if any
-        if (validationResult.warnings.isNotEmpty) {
-          for (final warning in validationResult.warnings) {
-            StacLogger.logWarning(
-              operation: 'Config Validation',
-              message: warning.message,
-              jsonPath: warning.path,
-            );
-          }
-        }
       }
 
       // Cache the data if caching is enabled

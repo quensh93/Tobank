@@ -7721,7 +7721,7 @@
                                                                                 "textDirection": "rtl",
                                                                                 "children": [
                                                                                   {
-                              "data": "•••••••",
+                                                                                    "data": "•••••••",
                                                                                     "style": {
                                                                                       "type": "custom",
                                                                                       "color": "{{appColors.current.text.title}}",
@@ -8173,7 +8173,7 @@
                                                                                 "textDirection": "rtl",
                                                                                 "children": [
                                                                                   {
-                              "data": "•••••••",
+                                                                                    "data": "•••••••",
                                                                                     "style": {
                                                                                       "type": "custom",
                                                                                       "color": "{{appColors.current.text.title}}",
@@ -8625,7 +8625,7 @@
                                                                                 "textDirection": "rtl",
                                                                                 "children": [
                                                                                   {
-                              "data": "•••••••",
+                                                                                    "data": "•••••••",
                                                                                     "style": {
                                                                                       "type": "custom",
                                                                                       "color": "{{appColors.current.text.title}}",

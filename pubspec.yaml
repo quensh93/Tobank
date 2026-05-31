@@ -13,36 +13,29 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.8
   collection: ^1.18.0
-  basic_utils: ^5.7.0
   hooks_riverpod: ^3.0.3
-  flutter_hooks:
-  riverpod_annotation: ^3.0.3
-  retrofit: ^4.9.2
+  riverpod_annotation: ^4.0.0
   dio: ^5.9.0
-  json_annotation: ^4.9.0
   logger:
     path: tools/logger
-  fpdart: ^1.2.0
   flutter_secure_storage: ^10.0.0
   path_provider: ^2.1.5
-  talker: ^5.1.9
-  talker_flutter: ^5.1.9
   slow_net_simulator: ^1.0.0
   flutter_performance_pulse: ^1.0.6
-  ispect: ^4.6.0
-  ispectify: ^4.6.0
-  ispectify_dio: ^4.6.0
+  ispect: 4.6.0
+  ispectify: 4.6.0
+  ispectify_dio: 4.6.0
   #stac:
   #  path: .stac/packages/stac
   stac: ^1.1.2
-  stac_core: 1.1.0
+  stac_core: ^1.5.0
   debug_panel:
     path: lib/debug_panel
   uuid: ^4.5.2
   shared_preferences: ^2.5.4
-  file_picker: ^10.3.8
+  file_picker: ^11.0.2
   image_picker: ^1.2.0
-  image_cropper: ^11.0.0
+  image_cropper: ^12.2.1
   flutter_native_contact_picker: ^0.0.10
   permission_handler: ^11.4.0
   share_plus: ^12.0.1
@@ -51,20 +44,14 @@ dependencies:
   webview_flutter: ^4.13.0
   device_frame: ^1.4.0
   package_info_plus: ^9.0.0
-  args: ^2.7.0
   # Missing dependencies
-  intl: ^0.20.2
   crypto: ^3.0.7
   meta: ^1.17.0
-  re_editor: ^0.8.0
-  re_highlight: ^0.0.3
-  flutter_dotenv: ^6.0.0
-  dio_mocked_responses: ^1.6.5
   persian_datetime_picker: ^3.2.0
   flutter_svg: ^2.2.3
   ml_card_scanner: ^0.2.3
-  syncfusion_flutter_pdf: ^28.2.9
-  syncfusion_flutter_pdfviewer: ^28.2.9
+  syncfusion_flutter_pdf: ^31.2.18
+  syncfusion_flutter_pdfviewer: ^31.1.21
   secure_plugin:
     path: secure_plugin
 
@@ -83,10 +70,8 @@ dev_dependencies:
   flutter_lints: ^6.0.0
   build_runner:
   custom_lint:
-  riverpod_generator: ^3.0.3
+  riverpod_generator: ^4.0.0+1
   riverpod_lint: ^3.0.3
-  retrofit_generator: ^10.2.1
-  json_serializable: ^6.10.0
   flutter_launcher_icons: ^0.14.3
   stac_framework: 1.0.0
 

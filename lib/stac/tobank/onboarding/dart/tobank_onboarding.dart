@@ -1,5 +1,5 @@
 import 'package:stac_core/stac_core.dart';
-import '../../../../core/stac/builders/stac_stateful_widget.dart';
+import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
 import 'stac_tobank_onboarding_slider.dart';
 
 /// Tobank Onboarding Screen

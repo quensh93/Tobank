@@ -3,13 +3,13 @@ import 'dart:convert';
 import 'dart:js_interop';
 import 'dart:typed_data';
 
+import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:universal_html/html.dart' as html;
 
 import '../../storage/storage_util.dart';
-import '../../utils/app_util.dart';
-import '../../../widgets/dialogs/web_pin_dialog.dart';
+import '../../widgets/dialogs/web_pin_dialog.dart';
 
 /// WebAuthn Biometric Service for PWA
 /// Uses Web Authentication API (WebAuthn) for biometric authentication
@@ -554,9 +554,7 @@ class WebBiometricService {
             },
             onConfirm: (password) async {
               // Encrypt the entered password and compare with stored password
-              final encryptedPassword = AppUtil.encryptDataWithAES(
-                data: password,
-              );
+              final encryptedPassword = sha256.convert(utf8.encode(password)).toString();
               if (encryptedPassword == storedPassword) {
                 Navigator.of(dialogContext).pop(true);
               } else {

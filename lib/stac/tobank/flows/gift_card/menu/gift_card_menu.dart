@@ -1,5 +1,5 @@
 import 'package:stac_core/stac_core.dart';
-import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 
 /// Gift Card Real Flow - Debug Menu
 @StacScreen(screenName: 'gift_card_menu')

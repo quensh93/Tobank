@@ -1,6 +1,6 @@
 import 'secure_storage_service.dart';
 import 'secure_storage_keys.dart';
-import '../../model/common/auth_info_data.dart';
+import 'auth_info_data.dart';
 import 'dart:convert';
 
 /// StorageUtil wrapper to maintain compatibility with legacy code

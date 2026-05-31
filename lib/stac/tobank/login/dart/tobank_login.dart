@@ -1,9 +1,8 @@
-import 'package:stac_core/stac_core.dart';
-import '../../../../core/stac/builders/stac_stateful_widget.dart';
-import '../../../../core/stac/builders/stac_custom_actions.dart'
+﻿import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
+import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart'
     hide StacPersianDatePickerAction;
-import '../../../../core/stac/parsers/actions/persian_date_picker_action_model.dart';
-import 'package:tobank_sdui/core/stac/parsers/actions/close_dialog_action_parser.dart';
+import 'package:tobank_sdui/stac_core/parsers/actions/date/persian_date_picker_action_model.dart';
 // import 'package:flutter/material.dart' show Method; // Removed incorrect import
 
 /// Dart STAC version of Tobank login/validation screen.
@@ -474,3 +473,4 @@ class StacRawJsonWidget implements StacWidget {
 
   String? get id => json['id'] as String?;
 }
+

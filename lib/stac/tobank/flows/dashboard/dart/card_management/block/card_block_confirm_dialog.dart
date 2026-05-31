@@ -1,6 +1,6 @@
-import 'package:stac_core/stac_core.dart';
-import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
-import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
+﻿import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 
 /// Action builder — shown from "ادامه" in card_block_bottom_sheet.
 /// تایید: closes sheet + dialog, then shows success snackbar (mock).
@@ -26,3 +26,4 @@ StacAction cardBlockConfirmDialogAction() {
     negativeAction: const StacCloseDialogAction(),
   );
 }
+

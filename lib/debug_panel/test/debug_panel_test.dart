@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import '../debug_panel_widget.dart';
 import '../models/device_info.dart';
-import '../state/accessibility_state.dart';
 
 void main() {
   group('DebugPanel', () {
@@ -55,7 +54,6 @@ void main() {
       // Should show device preview tab
       expect(find.text('Device'), findsOneWidget);
       expect(find.text('Logs'), findsOneWidget);
-      expect(find.text('Accessibility'), findsOneWidget);
     });
   });
 
@@ -78,26 +76,6 @@ void main() {
       expect(device.identifier.type, DeviceType.phone);
       expect(device.screenSize, const Size(375, 667));
       expect(device.pixelRatio, 2.0);
-    });
-  });
-
-  group('AccessibilityIssue', () {
-    test('creates accessibility issue with correct properties', () {
-      const issue = AccessibilityIssue(
-        title: 'Test Issue',
-        description: 'Test description',
-        type: AccessibilityIssueType.colorContrast,
-        severity: AccessibilitySeverity.high,
-        details: 'Test details',
-        suggestedFix: 'Test fix',
-      );
-
-      expect(issue.title, 'Test Issue');
-      expect(issue.description, 'Test description');
-      expect(issue.type, AccessibilityIssueType.colorContrast);
-      expect(issue.severity, AccessibilitySeverity.high);
-      expect(issue.details, 'Test details');
-      expect(issue.suggestedFix, 'Test fix');
     });
   });
 }

@@ -7,7 +7,7 @@ import '../helpers/logger.dart';
 import '../../debug_panel/state/debug_panel_settings_state.dart';
 import '../../debug_panel/state/device_preview_state.dart';
 import '../../debug_panel/widgets/custom_logs/screens/logs_screen.dart';
-import '../../features/pre_launch/providers/theme_controller_provider.dart';
+import '../../stac_core/services/theme/theme_controller_provider.dart';
 
 /// ISpect configuration for conditional initialization
 ///

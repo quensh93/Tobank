@@ -1,4 +1,4 @@
-﻿{
+{
   "appBar": {
     "leading": {
       "padding": {
@@ -19,7 +19,7 @@
     },
     "automaticallyImplyLeading": true,
     "title": {
-      "data": "مدیریت کارت‌ها",
+      "data": "{{appStrings.cardsManagement.title}}",
       "style": {
         "type": "alias",
         "value": "{{appStyles.appbarStyle}}"
@@ -98,7 +98,7 @@
                     "top": 16.0,
                     "right": 16.0,
                     "child": {
-                      "src": "{{appAssets.current.icons.tobankLogo}}",
+                      "src": "{{appAssets.icons.tobankLogo}}",
                       "imageType": "asset",
                       "width": 38.0,
                       "height": 38.0,
@@ -110,7 +110,7 @@
                     "left": 16.0,
                     "top": 18.0,
                     "child": {
-                      "data": "کیف پول توبانک",
+                      "data": "{{appStrings.cardsManagement.wallet.title}}",
                       "style": {
                         "type": "custom",
                         "color": "#FFFFFF",
@@ -204,7 +204,7 @@
                         "textDirection": "rtl",
                         "children": [
                           {
-                            "src": "{{appAssets.current.icons.gardeshgari}}",
+                            "src": "{{appAssets.icons.gardeshgari}}",
                             "imageType": "asset",
                             "color": "#FFFFFF",
                             "width": 28.0,
@@ -235,7 +235,7 @@
                         "children": [
                           {
                             "child": {
-                              "src": "{{appAssets.current.icons.refresh}}",
+                              "src": "{{appAssets.icons.refresh}}",
                               "imageType": "asset",
                               "color": "#FFFFFF",
                               "width": 28.0,
@@ -313,7 +313,7 @@
                     "textDirection": "rtl",
                     "children": [
                       {
-                        "data": "گردشگری - شعبه مجازی",
+                        "data": "{{appStrings.cardsManagement.cards.gardeshgariVirtual}}",
                         "style": {
                           "type": "custom",
                           "color": "#FFFFFF",
@@ -362,7 +362,7 @@
                         "children": [
                           {
                             "child": {
-                              "src": "assets/icons/ic_menu.svg",
+                              "src": "{{appAssets.icons.menu}}",
                               "imageType": "asset",
                               "color": "#FFFFFF",
                               "width": 26.0,
@@ -385,7 +385,7 @@
                                     },
                                     {
                                       "key": "cardsManagement.sheet.title",
-                                      "value": "گردشگری - شعبه مجازی"
+                                      "value": "{{appStrings.cardsManagement.cards.gardeshgariVirtual}}"
                                     },
                                     {
                                       "key": "cardsManagement.sheet.cardNumber",
@@ -719,8 +719,8 @@
                                                     "actionType": "showAppDialog",
                                                     "title": "حذف کارت",
                                                     "description": "آیا از حذف این کارت اطمینان دارید؟",
-                                                    "positiveText": "تایید",
-                                                    "negativeText": "انصراف",
+                                                    "positiveText": "{{appStrings.common.confirm}}",
+                                                    "negativeText": "{{appStrings.common.cancel}}",
                                                     "positiveAction": {
                                                       "actionType": "sequence",
                                                       "actions": [
@@ -867,7 +867,7 @@
                           },
                           {
                             "child": {
-                              "src": "assets/icons/ic_share.svg",
+                              "src": "{{appAssets.icons.share}}",
                               "imageType": "asset",
                               "color": "#FFFFFF",
                               "width": 28.0,
@@ -882,7 +882,7 @@
                                   "values": [
                                     {
                                       "key": "cardsManagement.share.title",
-                                      "value": "گردشگری - شعبه مجازی"
+                                      "value": "{{appStrings.cardsManagement.cards.gardeshgariVirtual}}"
                                     },
                                     {
                                       "key": "cardsManagement.share.cardNumber",
@@ -1081,7 +1081,7 @@
                                                         "bottom": 8.0
                                                       },
                                                       "child": {
-                                                        "src": "assets/icons/ic_share.svg",
+                                                        "src": "{{appAssets.icons.share}}",
                                                         "imageType": "asset",
                                                         "color": "{{appColors.current.icon.main}}",
                                                         "width": 20.0,
@@ -1237,7 +1237,7 @@
                                                               "bottom": 8.0
                                                             },
                                                             "child": {
-                                                              "src": "assets/icons/ic_share.svg",
+                                                              "src": "{{appAssets.icons.share}}",
                                                               "imageType": "asset",
                                                               "color": "{{appColors.current.icon.main}}",
                                                               "width": 20.0,
@@ -1335,7 +1335,7 @@
                     "textDirection": "rtl",
                     "children": [
                       {
-                        "data": "بانک سامان",
+                        "data": "{{appStrings.cardsManagement.cards.samanBank}}",
                         "style": {
                           "type": "custom",
                           "color": "#FFFFFF",
@@ -1406,7 +1406,7 @@
                         "children": [
                           {
                             "child": {
-                              "src": "assets/icons/ic_menu.svg",
+                              "src": "{{appAssets.icons.menu}}",
                               "imageType": "asset",
                               "color": "#FFFFFF",
                               "width": 26.0,
@@ -1429,7 +1429,7 @@
                                     },
                                     {
                                       "key": "cardsManagement.sheet.title",
-                                      "value": "بانک سامان"
+                                      "value": "{{appStrings.cardsManagement.cards.samanBank}}"
                                     },
                                     {
                                       "key": "cardsManagement.sheet.cardNumber",
@@ -1763,8 +1763,8 @@
                                                     "actionType": "showAppDialog",
                                                     "title": "حذف کارت",
                                                     "description": "آیا از حذف این کارت اطمینان دارید؟",
-                                                    "positiveText": "تایید",
-                                                    "negativeText": "انصراف",
+                                                    "positiveText": "{{appStrings.common.confirm}}",
+                                                    "negativeText": "{{appStrings.common.cancel}}",
                                                     "positiveAction": {
                                                       "actionType": "sequence",
                                                       "actions": [
@@ -1911,7 +1911,7 @@
                           },
                           {
                             "child": {
-                              "src": "assets/icons/ic_share.svg",
+                              "src": "{{appAssets.icons.share}}",
                               "imageType": "asset",
                               "color": "#FFFFFF",
                               "width": 28.0,
@@ -1926,7 +1926,7 @@
                                   "values": [
                                     {
                                       "key": "cardsManagement.share.title",
-                                      "value": "بانک سامان"
+                                      "value": "{{appStrings.cardsManagement.cards.samanBank}}"
                                     },
                                     {
                                       "key": "cardsManagement.share.cardNumber",
@@ -2125,7 +2125,7 @@
                                                         "bottom": 8.0
                                                       },
                                                       "child": {
-                                                        "src": "assets/icons/ic_share.svg",
+                                                        "src": "{{appAssets.icons.share}}",
                                                         "imageType": "asset",
                                                         "color": "{{appColors.current.icon.main}}",
                                                         "width": 20.0,
@@ -2281,7 +2281,7 @@
                                                               "bottom": 8.0
                                                             },
                                                             "child": {
-                                                              "src": "assets/icons/ic_share.svg",
+                                                              "src": "{{appAssets.icons.share}}",
                                                               "imageType": "asset",
                                                               "color": "{{appColors.current.icon.main}}",
                                                               "width": 20.0,
@@ -2383,7 +2383,7 @@
                         "textDirection": "rtl",
                         "children": [
                           {
-                            "src": "{{appAssets.current.icons.gardeshgari}}",
+                            "src": "{{appAssets.icons.gardeshgari}}",
                             "imageType": "asset",
                             "color": "#FFFFFF",
                             "width": 28.0,
@@ -2414,7 +2414,7 @@
                         "children": [
                           {
                             "child": {
-                              "src": "{{appAssets.current.icons.refresh}}",
+                              "src": "{{appAssets.icons.refresh}}",
                               "imageType": "asset",
                               "color": "#FFFFFF",
                               "width": 28.0,
@@ -2492,7 +2492,7 @@
                     "textDirection": "rtl",
                     "children": [
                       {
-                        "data": "گردشگری - سپرده دوم",
+                        "data": "{{appStrings.cardsManagement.cards.secondDeposit}}",
                         "style": {
                           "type": "custom",
                           "color": "#FFFFFF",
@@ -2541,7 +2541,7 @@
                         "children": [
                           {
                             "child": {
-                              "src": "assets/icons/ic_menu.svg",
+                              "src": "{{appAssets.icons.menu}}",
                               "imageType": "asset",
                               "color": "#FFFFFF",
                               "width": 26.0,
@@ -2564,7 +2564,7 @@
                                     },
                                     {
                                       "key": "cardsManagement.sheet.title",
-                                      "value": "گردشگری - سپرده دوم"
+                                      "value": "{{appStrings.cardsManagement.cards.secondDeposit}}"
                                     },
                                     {
                                       "key": "cardsManagement.sheet.cardNumber",
@@ -2898,8 +2898,8 @@
                                                     "actionType": "showAppDialog",
                                                     "title": "حذف کارت",
                                                     "description": "آیا از حذف این کارت اطمینان دارید؟",
-                                                    "positiveText": "تایید",
-                                                    "negativeText": "انصراف",
+                                                    "positiveText": "{{appStrings.common.confirm}}",
+                                                    "negativeText": "{{appStrings.common.cancel}}",
                                                     "positiveAction": {
                                                       "actionType": "sequence",
                                                       "actions": [
@@ -3046,7 +3046,7 @@
                           },
                           {
                             "child": {
-                              "src": "assets/icons/ic_share.svg",
+                              "src": "{{appAssets.icons.share}}",
                               "imageType": "asset",
                               "color": "#FFFFFF",
                               "width": 28.0,
@@ -3061,7 +3061,7 @@
                                   "values": [
                                     {
                                       "key": "cardsManagement.share.title",
-                                      "value": "گردشگری - سپرده دوم"
+                                      "value": "{{appStrings.cardsManagement.cards.secondDeposit}}"
                                     },
                                     {
                                       "key": "cardsManagement.share.cardNumber",
@@ -3260,7 +3260,7 @@
                                                         "bottom": 8.0
                                                       },
                                                       "child": {
-                                                        "src": "assets/icons/ic_share.svg",
+                                                        "src": "{{appAssets.icons.share}}",
                                                         "imageType": "asset",
                                                         "color": "{{appColors.current.icon.main}}",
                                                         "width": 20.0,
@@ -3416,7 +3416,7 @@
                                                               "bottom": 8.0
                                                             },
                                                             "child": {
-                                                              "src": "assets/icons/ic_share.svg",
+                                                              "src": "{{appAssets.icons.share}}",
                                                               "imageType": "asset",
                                                               "color": "{{appColors.current.icon.main}}",
                                                               "width": 20.0,
@@ -3514,7 +3514,7 @@
                     "textDirection": "rtl",
                     "children": [
                       {
-                        "data": "بانک ملت",
+                        "data": "{{appStrings.cardsManagement.cards.mellatBank}}",
                         "style": {
                           "type": "custom",
                           "color": "#FFFFFF",
@@ -3585,7 +3585,7 @@
                         "children": [
                           {
                             "child": {
-                              "src": "assets/icons/ic_menu.svg",
+                              "src": "{{appAssets.icons.menu}}",
                               "imageType": "asset",
                               "color": "#FFFFFF",
                               "width": 26.0,
@@ -3608,7 +3608,7 @@
                                     },
                                     {
                                       "key": "cardsManagement.sheet.title",
-                                      "value": "بانک ملت"
+                                      "value": "{{appStrings.cardsManagement.cards.mellatBank}}"
                                     },
                                     {
                                       "key": "cardsManagement.sheet.cardNumber",
@@ -3942,8 +3942,8 @@
                                                     "actionType": "showAppDialog",
                                                     "title": "حذف کارت",
                                                     "description": "آیا از حذف این کارت اطمینان دارید؟",
-                                                    "positiveText": "تایید",
-                                                    "negativeText": "انصراف",
+                                                    "positiveText": "{{appStrings.common.confirm}}",
+                                                    "negativeText": "{{appStrings.common.cancel}}",
                                                     "positiveAction": {
                                                       "actionType": "sequence",
                                                       "actions": [
@@ -4090,7 +4090,7 @@
                           },
                           {
                             "child": {
-                              "src": "assets/icons/ic_share.svg",
+                              "src": "{{appAssets.icons.share}}",
                               "imageType": "asset",
                               "color": "#FFFFFF",
                               "width": 28.0,
@@ -4105,7 +4105,7 @@
                                   "values": [
                                     {
                                       "key": "cardsManagement.share.title",
-                                      "value": "بانک ملت"
+                                      "value": "{{appStrings.cardsManagement.cards.mellatBank}}"
                                     },
                                     {
                                       "key": "cardsManagement.share.cardNumber",
@@ -4304,7 +4304,7 @@
                                                         "bottom": 8.0
                                                       },
                                                       "child": {
-                                                        "src": "assets/icons/ic_share.svg",
+                                                        "src": "{{appAssets.icons.share}}",
                                                         "imageType": "asset",
                                                         "color": "{{appColors.current.icon.main}}",
                                                         "width": 20.0,
@@ -4460,7 +4460,7 @@
                                                               "bottom": 8.0
                                                             },
                                                             "child": {
-                                                              "src": "assets/icons/ic_share.svg",
+                                                              "src": "{{appAssets.icons.share}}",
                                                               "imageType": "asset",
                                                               "color": "{{appColors.current.icon.main}}",
                                                               "width": 20.0,
@@ -4583,7 +4583,7 @@
                     "type": "sizedBox"
                   },
                   {
-                    "data": "مسدود شده",
+                    "data": "{{appStrings.cardsManagement.cards.blocked}}",
                     "style": {
                       "type": "custom",
                       "color": "#FFFFFF",
@@ -4596,7 +4596,7 @@
                   {
                     "child": {
                       "child": {
-                        "src": "{{appAssets.current.icons.block}}",
+                        "src": "{{appAssets.icons.block}}",
                         "imageType": "asset",
                         "color": "#1E2538",
                         "width": 58.0,
@@ -4640,8 +4640,8 @@
           "initialPage": 0,
           "initialPageKey": "cardsManagement.initialPage",
           "indicatorTopSpacing": 16.0,
-          "indicatorActiveColor": "#E31A2F",
-          "indicatorInactiveColor": "#F2F4F7",
+          "indicatorActiveColor": "{{appColors.current.brand.primary}}",
+          "indicatorInactiveColor": "{{appColors.current.input.borderEnabled}}",
           "indicatorSpacing": 8.0,
           "indicatorSize": 12.0
         },
@@ -4714,101 +4714,272 @@
                           "type": "container"
                         },
                         "onTap": {
-                          "actionType": "showBottomSheet",
-                          "sheet": {
-                            "decoration": {
-                              "color": "{{appColors.current.background.surface}}",
-                              "borderRadius": {
-                                "topLeft": 18.0,
-                                "topRight": 18.0
-                              }
+                          "actionType": "sequence",
+                          "actions": [
+                            {
+                              "actionType": "setValue",
+                              "values": [
+                                {
+                                  "key": "cardsManagement.wallet.isTransferFormValid",
+                                  "value": false
+                                },
+                                {
+                                  "key": "cardsManagement.wallet.transferPhone",
+                                  "value": ""
+                                },
+                                {
+                                  "key": "cardsManagement.wallet.transferAmount",
+                                  "value": ""
+                                },
+                                {
+                                  "key": "cardsManagement.wallet.transferDescription",
+                                  "value": ""
+                                },
+                                {
+                                  "key": "cardsManagement.wallet.destinationWalletLabel",
+                                  "value": "سینایی"
+                                }
+                              ]
                             },
-                            "child": {
-                              "padding": {
-                                "left": 16.0,
-                                "top": 10.0,
-                                "right": 16.0,
-                                "bottom": 24.0
-                              },
-                              "child": {
-                                "mainAxisSize": "min",
-                                "crossAxisAlignment": "stretch",
-                                "children": [
-                                  {
+                            {
+                              "actionType": "showBottomSheet",
+                              "sheet": {
+                                "decoration": {
+                                  "color": "{{appColors.current.background.surface}}",
+                                  "borderRadius": {
+                                    "topLeft": 18.0,
+                                    "topRight": 18.0
+                                  }
+                                },
+                                "child": {
+                                  "autovalidateMode": "onUserInteraction",
+                                  "child": {
+                                    "padding": {
+                                      "left": 16.0,
+                                      "top": 10.0,
+                                      "right": 16.0,
+                                      "bottom": 24.0
+                                    },
                                     "child": {
-                                      "decoration": {
-                                        "color": "{{appColors.current.input.borderEnabled}}",
-                                        "borderRadius": {
-                                          "topLeft": 4.0,
-                                          "topRight": 4.0,
-                                          "bottomLeft": 4.0,
-                                          "bottomRight": 4.0
-                                        }
-                                      },
-                                      "width": 36.0,
-                                      "height": 4.0,
-                                      "type": "container"
-                                    },
-                                    "type": "center"
-                                  },
-                                  {
-                                    "height": 16.0,
-                                    "type": "sizedBox"
-                                  },
-                                  {
-                                    "data": "انتقال وجه کیف پول",
-                                    "style": {
-                                      "type": "custom",
-                                      "color": "{{appColors.current.text.title}}",
-                                      "fontSize": 16.0,
-                                      "fontWeight": "w700"
-                                    },
-                                    "textAlign": "right",
-                                    "textDirection": "rtl",
-                                    "type": "text"
-                                  },
-                                  {
-                                    "height": 24.0,
-                                    "type": "sizedBox"
-                                  },
-                                  {
-                                    "data": "شماره موبایل",
-                                    "style": {
-                                      "type": "custom",
-                                      "color": "{{appColors.current.text.title}}",
-                                      "fontSize": 14.0,
-                                      "fontWeight": "w500"
-                                    },
-                                    "textAlign": "right",
-                                    "textDirection": "rtl",
-                                    "type": "text"
-                                  },
-                                  {
-                                    "height": 8.0,
-                                    "type": "sizedBox"
-                                  },
-                                  {
-                                    "textDirection": "rtl",
-                                    "children": [
-                                      {
-                                        "child": {
-                                          "type": "textFormField",
-                                          "id": "wallet_transfer_phone",
-                                          "textDirection": "rtl",
+                                      "mainAxisSize": "min",
+                                      "crossAxisAlignment": "stretch",
+                                      "children": [
+                                        {
+                                          "child": {
+                                            "decoration": {
+                                              "color": "{{appColors.current.input.borderEnabled}}",
+                                              "borderRadius": {
+                                                "topLeft": 4.0,
+                                                "topRight": 4.0,
+                                                "bottomLeft": 4.0,
+                                                "bottomRight": 4.0
+                                              }
+                                            },
+                                            "width": 36.0,
+                                            "height": 4.0,
+                                            "type": "container"
+                                          },
+                                          "type": "center"
+                                        },
+                                        {
+                                          "height": 16.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "انتقال وجه کیف پول",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w700"
+                                          },
                                           "textAlign": "right",
-                                          "autovalidateMode": "onUserInteraction",
-                                          "maxLength": 11,
-                                          "inputFormatters": [
-                                            {"type": "allow", "rule": "[0-9]"}
-                                          ],
-                                          "validatorRules": [
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 24.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "شماره موبایل",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 14.0,
+                                            "fontWeight": "w500"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 8.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "textDirection": "rtl",
+                                          "children": [
                                             {
-                                              "rule": "^09\\d{9}$",
-                                              "message": "شماره موبایل معتبر نیست"
+                                              "child": {
+                                                "type": "textFormField",
+                                                "id": "wallet_transfer_phone",
+                                                "textDirection": "rtl",
+                                                "textAlign": "right",
+                                                "decoration": {
+                                                  "hintText": "شماره همراه مقصد را وارد کنید",
+                                                  "hintStyle": {
+                                                    "textDirection": "rtl",
+                                                    "style": {
+                                                      "color": "{{appColors.current.text.hint}}",
+                                                      "fontSize": 14
+                                                    }
+                                                  },
+                                                  "enabledBorder": {
+                                                    "type": "outline",
+                                                    "borderSide": {
+                                                      "color": "{{appColors.current.input.borderEnabled}}",
+                                                      "width": 1
+                                                    },
+                                                    "borderRadius": {
+                                                      "all": 12
+                                                    }
+                                                  },
+                                                  "focusedBorder": {
+                                                    "type": "outline",
+                                                    "borderSide": {
+                                                      "color": "{{appColors.current.button.primary.backgroundColor}}",
+                                                      "width": 1.5
+                                                    },
+                                                    "borderRadius": {
+                                                      "all": 12
+                                                    }
+                                                  },
+                                                  "contentPadding": {
+                                                    "left": 16,
+                                                    "top": 16,
+                                                    "right": 16,
+                                                    "bottom": 16
+                                                  }
+                                                },
+                                                "keyboardType": "phone",
+                                                "maxLength": 11,
+                                                "inputFormatters": [
+                                                  {
+                                                    "type": "allow",
+                                                    "rule": "[0-9]"
+                                                  }
+                                                ],
+                                                "validatorRules": [
+                                                  {
+                                                    "rule": "^09\\d{9}$",
+                                                    "message": "شماره موبایل معتبر نیست"
+                                                  }
+                                                ],
+                                                "onChanged": {
+                                                  "actionType": "sequence",
+                                                  "actions": [
+                                                    {
+                                                      "actionType": "setValue",
+                                                      "key": "cardsManagement.wallet.transferPhone",
+                                                      "value": {
+                                                        "actionType": "getFormValue",
+                                                        "id": "wallet_transfer_phone"
+                                                      }
+                                                    },
+                                                    {
+                                                      "actionType": "validateFields",
+                                                      "resultKey": "cardsManagement.wallet.isTransferFormValid",
+                                                      "fields": [
+                                                        {
+                                                          "id": "wallet_transfer_phone",
+                                                          "rule": "^09\\d{9}$"
+                                                        },
+                                                        {
+                                                          "id": "wallet_transfer_amount",
+                                                          "rule": "^[0-9،]{6,}$"
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "type": "expanded"
+                                            },
+                                            {
+                                              "width": 8.0,
+                                              "type": "sizedBox"
+                                            },
+                                            {
+                                              "child": {
+                                                "decoration": {
+                                                  "border": {
+                                                    "color": "{{appColors.current.input.borderEnabled}}",
+                                                    "width": 1.0
+                                                  },
+                                                  "borderRadius": {
+                                                    "topLeft": 12.0,
+                                                    "topRight": 12.0,
+                                                    "bottomLeft": 12.0,
+                                                    "bottomRight": 12.0
+                                                  }
+                                                },
+                                                "width": 52.0,
+                                                "height": 52.0,
+                                                "child": {
+                                                  "child": {
+                                                    "src": "assets/icons/ic_contact_list.svg",
+                                                    "imageType": "asset",
+                                                    "color": "{{appColors.current.button.primary}}",
+                                                    "width": 24.0,
+                                                    "height": 24.0,
+                                                    "type": "image"
+                                                  },
+                                                  "type": "center"
+                                                },
+                                                "type": "container"
+                                              },
+                                              "onTap": {
+                                                "actionType": "pickContactPhone",
+                                                "formFieldId": "wallet_transfer_phone",
+                                                "targetKey": "cardsManagement.wallet.transferPhone",
+                                                "permissionDeniedMessage": "دسترسی مخاطبین مجاز نیست",
+                                                "invalidMobileMessage": "شماره همراه معتبر در مخاطب یافت نشد"
+                                              },
+                                              "type": "gestureDetector"
                                             }
                                           ],
+                                          "type": "row"
+                                        },
+                                        {
+                                          "height": 16.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "مبلغ انتقال",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 14.0,
+                                            "fontWeight": "w500"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 8.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "type": "textFormField",
+                                          "id": "wallet_transfer_amount",
+                                          "textDirection": "rtl",
+                                          "textAlign": "right",
+                                          "formatThousands": true,
+                                          "thousandsSeparator": "،",
                                           "decoration": {
-                                            "hintText": "شماره همراه مقصد را وارد کنید",
+                                            "hintText": "مبلغ را به ریال وارد کنید",
                                             "hintStyle": {
                                               "textDirection": "rtl",
                                               "style": {
@@ -4843,591 +5014,502 @@
                                               "bottom": 16
                                             }
                                           },
-                                          "keyboardType": "phone",
+                                          "keyboardType": "number",
+                                          "validatorRules": [
+                                            {
+                                              "rule": "^\\d{5,}$",
+                                              "message": "حداقل مبلغ انتقال ۱۰،۰۰۰ ریال است"
+                                            }
+                                          ],
                                           "onChanged": {
                                             "actionType": "sequence",
                                             "actions": [
                                               {
                                                 "actionType": "setValue",
-                                                "key": "cardsManagement.wallet.transferPhone",
-                                                "value": {"actionType": "getFormValue", "id": "wallet_transfer_phone"}
+                                                "key": "cardsManagement.wallet.transferAmount",
+                                                "value": {
+                                                  "actionType": "getFormValue",
+                                                  "id": "wallet_transfer_amount"
+                                                }
                                               },
                                               {
                                                 "actionType": "validateFields",
                                                 "resultKey": "cardsManagement.wallet.isTransferFormValid",
                                                 "fields": [
-                                                  {"id": "wallet_transfer_phone", "rule": "^09\\d{9}$"},
-                                                  {"id": "wallet_transfer_amount", "rule": "^[0-9،]{6,}$"}
+                                                  {
+                                                    "id": "wallet_transfer_phone",
+                                                    "rule": "^09\\d{9}$"
+                                                  },
+                                                  {
+                                                    "id": "wallet_transfer_amount",
+                                                    "rule": "^[0-9،]{6,}$"
+                                                  }
                                                 ]
                                               }
                                             ]
                                           }
                                         },
-                                        "type": "expanded"
-                                      },
-                                      {
-                                        "width": 8.0,
-                                        "type": "sizedBox"
-                                      },
-                                      {
-                                        "child": {
+                                        {
+                                          "height": 16.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "data": "توضیحات(اختیاری)",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 14.0,
+                                            "fontWeight": "w500"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        {
+                                          "height": 8.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "type": "textFormField",
+                                          "id": "wallet_transfer_desc",
+                                          "textDirection": "rtl",
+                                          "textAlign": "right",
                                           "decoration": {
-                                            "borderRadius": {
-                                              "topLeft": 12.0,
-                                              "topRight": 12.0,
-                                              "bottomLeft": 12.0,
-                                              "bottomRight": 12.0
+                                            "hintText": "توضیحات انتقال وجه را وارد کنید",
+                                            "hintStyle": {
+                                              "textDirection": "rtl",
+                                              "style": {
+                                                "color": "{{appColors.current.text.hint}}",
+                                                "fontSize": 14
+                                              }
                                             },
-                                            "border": {
-                                              "color": "{{appColors.current.input.borderEnabled}}",
-                                              "width": 1.0
+                                            "enabledBorder": {
+                                              "type": "outline",
+                                              "borderSide": {
+                                                "color": "{{appColors.current.input.borderEnabled}}",
+                                                "width": 1
+                                              },
+                                              "borderRadius": {
+                                                "all": 12
+                                              }
+                                            },
+                                            "focusedBorder": {
+                                              "type": "outline",
+                                              "borderSide": {
+                                                "color": "{{appColors.current.button.primary.backgroundColor}}",
+                                                "width": 1.5
+                                              },
+                                              "borderRadius": {
+                                                "all": 12
+                                              }
+                                            },
+                                            "contentPadding": {
+                                              "left": 16,
+                                              "top": 16,
+                                              "right": 16,
+                                              "bottom": 16
                                             }
                                           },
-                                          "width": 52.0,
-                                          "height": 52.0,
-                                          "child": {
-                                            "child": {
-                                              "src": "assets/icons/ic_contact_list.svg",
-                                              "imageType": "asset",
-                                              "color": "{{appColors.current.button.primary}}",
-                                              "width": 24.0,
-                                              "height": 24.0,
-                                              "type": "image"
-                                            },
-                                            "type": "center"
-                                          },
-                                          "type": "container"
-                                        },
-                                        "onTap": {
-                                          "actionType": "pickContactPhone",
-                                          "formFieldId": "wallet_transfer_phone",
-                                          "targetKey": "cardsManagement.wallet.transferPhone",
-                                          "permissionDeniedMessage": "دسترسی مخاطبین مجاز نیست",
-                                          "invalidMobileMessage": "شماره همراه معتبر در مخاطب یافت نشد"
-                                        },
-                                        "type": "gestureDetector"
-                                      }
-                                    ],
-                                    "type": "row"
-                                  },
-                                  {
-                                    "height": 16.0,
-                                    "type": "sizedBox"
-                                  },
-                                  {
-                                    "data": "مبلغ انتقال",
-                                    "style": {
-                                      "type": "custom",
-                                      "color": "{{appColors.current.text.title}}",
-                                      "fontSize": 14.0,
-                                      "fontWeight": "w500"
-                                    },
-                                    "textAlign": "right",
-                                    "textDirection": "rtl",
-                                    "type": "text"
-                                  },
-                                  {
-                                    "height": 8.0,
-                                    "type": "sizedBox"
-                                  },
-                                  {
-                                    "type": "textFormField",
-                                    "id": "wallet_transfer_amount",
-                                    "textDirection": "rtl",
-                                    "textAlign": "right",
-                                    "autovalidateMode": "onUserInteraction",
-                                    "formatThousands": true,
-                                    "thousandsSeparator": "،",
-                                    "validatorRules": [
-                                      {
-                                        "rule": "^\\d{5,}$",
-                                        "message": "حداقل مبلغ انتقال ۱۰،۰۰۰ ریال است"
-                                      }
-                                    ],
-                                    "decoration": {
-                                      "hintText": "مبلغ را به ریال وارد کنید",
-                                      "hintStyle": {
-                                        "textDirection": "rtl",
-                                        "style": {
-                                          "color": "{{appColors.current.text.hint}}",
-                                          "fontSize": 14
-                                        }
-                                      },
-                                      "enabledBorder": {
-                                        "type": "outline",
-                                        "borderSide": {
-                                          "color": "{{appColors.current.input.borderEnabled}}",
-                                          "width": 1
-                                        },
-                                        "borderRadius": {
-                                          "all": 12
-                                        }
-                                      },
-                                      "focusedBorder": {
-                                        "type": "outline",
-                                        "borderSide": {
-                                          "color": "{{appColors.current.button.primary.backgroundColor}}",
-                                          "width": 1.5
-                                        },
-                                        "borderRadius": {
-                                          "all": 12
-                                        }
-                                      },
-                                      "contentPadding": {
-                                        "left": 16,
-                                        "top": 16,
-                                        "right": 16,
-                                        "bottom": 16
-                                      }
-                                    },
-                                    "keyboardType": "number",
-                                    "onChanged": {
-                                      "actionType": "sequence",
-                                      "actions": [
-                                        {
-                                          "actionType": "setValue",
-                                          "key": "cardsManagement.wallet.transferAmount",
-                                          "value": {"actionType": "getFormValue", "id": "wallet_transfer_amount"}
-                                        },
-                                        {
-                                          "actionType": "validateFields",
-                                          "resultKey": "cardsManagement.wallet.isTransferFormValid",
-                                          "fields": [
-                                            {"id": "wallet_transfer_phone", "rule": "^09\\d{9}$"},
-                                            {"id": "wallet_transfer_amount", "rule": "^[0-9،]{6,}$"}
-                                          ]
-                                        }
-                                      ]
-                                    }
-                                  },
-                                  {
-                                    "height": 16.0,
-                                    "type": "sizedBox"
-                                  },
-                                  {
-                                    "data": "توضیحات(اختیاری)",
-                                    "style": {
-                                      "type": "custom",
-                                      "color": "{{appColors.current.text.title}}",
-                                      "fontSize": 14.0,
-                                      "fontWeight": "w500"
-                                    },
-                                    "textAlign": "right",
-                                    "textDirection": "rtl",
-                                    "type": "text"
-                                  },
-                                  {
-                                    "height": 8.0,
-                                    "type": "sizedBox"
-                                  },
-                                  {
-                                    "type": "textFormField",
-                                    "id": "wallet_transfer_desc",
-                                    "textDirection": "rtl",
-                                    "textAlign": "right",
-                                    "decoration": {
-                                      "hintText": "توضیحات انتقال وجه را وارد کنید",
-                                      "hintStyle": {
-                                        "textDirection": "rtl",
-                                        "style": {
-                                          "color": "{{appColors.current.text.hint}}",
-                                          "fontSize": 14
-                                        }
-                                      },
-                                      "enabledBorder": {
-                                        "type": "outline",
-                                        "borderSide": {
-                                          "color": "{{appColors.current.input.borderEnabled}}",
-                                          "width": 1
-                                        },
-                                        "borderRadius": {
-                                          "all": 12
-                                        }
-                                      },
-                                      "focusedBorder": {
-                                        "type": "outline",
-                                        "borderSide": {
-                                          "color": "{{appColors.current.button.primary.backgroundColor}}",
-                                          "width": 1.5
-                                        },
-                                        "borderRadius": {
-                                          "all": 12
-                                        }
-                                      },
-                                      "contentPadding": {
-                                        "left": 16,
-                                        "top": 16,
-                                        "right": 16,
-                                        "bottom": 16
-                                      }
-                                    },
-                                    "maxLines": 2,
-                                    "onChanged": {
-                                      "actionType": "setValue",
-                                      "key": "cardsManagement.wallet.transferDescription",
-                                      "value": {"actionType": "getFormValue", "id": "wallet_transfer_desc"}
-                                    }
-                                  },
-                                  {
-                                    "height": 24.0,
-                                    "type": "sizedBox"
-                                  },
-                                  {
-                                    "onPressed": {
-                                      "actionType": "sequence",
-                                      "actions": [
-                                        {"actionType": "setValue", "key": "cardsManagement.wallet.transferPhone", "value": {"actionType": "getFormValue", "id": "wallet_transfer_phone"}},
-                                        {"actionType": "setValue", "key": "cardsManagement.wallet.transferAmount", "value": {"actionType": "getFormValue", "id": "wallet_transfer_amount"}},
-                                        {"actionType": "setValue", "key": "cardsManagement.wallet.transferDescription", "value": {"actionType": "getFormValue", "id": "wallet_transfer_desc"}},
-                                        {
-                                          "actionType": "showBottomSheet",
-                                      "sheet": {
-                                        "decoration": {
-                                          "color": "{{appColors.current.background.surface}}",
-                                          "borderRadius": {
-                                            "topLeft": 18.0,
-                                            "topRight": 18.0
+                                          "maxLines": 2,
+                                          "onChanged": {
+                                            "actionType": "setValue",
+                                            "key": "cardsManagement.wallet.transferDescription",
+                                            "value": {
+                                              "actionType": "getFormValue",
+                                              "id": "wallet_transfer_desc"
+                                            }
                                           }
                                         },
-                                        "child": {
-                                          "padding": {
-                                            "left": 16.0,
-                                            "top": 10.0,
-                                            "right": 16.0,
-                                            "bottom": 24.0
+                                        {
+                                          "height": 24.0,
+                                          "type": "sizedBox"
+                                        },
+                                        {
+                                          "type": "reactiveElevatedButton",
+                                          "enabledKey": "cardsManagement.wallet.isTransferFormValid",
+                                          "onPressed": {
+                                            "actionType": "sequence",
+                                            "actions": [
+                                              {
+                                                "actionType": "setValue",
+                                                "key": "cardsManagement.wallet.transferPhone",
+                                                "value": {
+                                                  "actionType": "getFormValue",
+                                                  "id": "wallet_transfer_phone"
+                                                }
+                                              },
+                                              {
+                                                "actionType": "setValue",
+                                                "key": "cardsManagement.wallet.transferAmount",
+                                                "value": {
+                                                  "actionType": "getFormValue",
+                                                  "id": "wallet_transfer_amount"
+                                                }
+                                              },
+                                              {
+                                                "actionType": "setValue",
+                                                "key": "cardsManagement.wallet.transferDescription",
+                                                "value": {
+                                                  "actionType": "getFormValue",
+                                                  "id": "wallet_transfer_desc"
+                                                }
+                                              },
+                                              {
+                                                "actionType": "setValue",
+                                                "key": "cardsManagement.wallet.destinationWalletLabel",
+                                                "value": "سینایی"
+                                              },
+                                              {
+                                                "actionType": "showBottomSheet",
+                                                "sheet": {
+                                                  "decoration": {
+                                                    "color": "{{appColors.current.background.surface}}",
+                                                    "borderRadius": {
+                                                      "topLeft": 18.0,
+                                                      "topRight": 18.0
+                                                    }
+                                                  },
+                                                  "child": {
+                                                    "padding": {
+                                                      "left": 16.0,
+                                                      "top": 10.0,
+                                                      "right": 16.0,
+                                                      "bottom": 24.0
+                                                    },
+                                                    "child": {
+                                                      "mainAxisSize": "min",
+                                                      "crossAxisAlignment": "stretch",
+                                                      "children": [
+                                                        {
+                                                          "child": {
+                                                            "decoration": {
+                                                              "color": "{{appColors.current.input.borderEnabled}}",
+                                                              "borderRadius": {
+                                                                "topLeft": 4.0,
+                                                                "topRight": 4.0,
+                                                                "bottomLeft": 4.0,
+                                                                "bottomRight": 4.0
+                                                              }
+                                                            },
+                                                            "width": 36.0,
+                                                            "height": 4.0,
+                                                            "type": "container"
+                                                          },
+                                                          "type": "center"
+                                                        },
+                                                        {
+                                                          "height": 16.0,
+                                                          "type": "sizedBox"
+                                                        },
+                                                        {
+                                                          "child": {
+                                                            "decoration": {
+                                                              "color": "{{appColors.current.background.card}}",
+                                                              "border": {
+                                                                "color": "{{appColors.current.input.borderEnabled}}",
+                                                                "width": 1.0
+                                                              },
+                                                              "borderRadius": {
+                                                                "topLeft": 28.0,
+                                                                "topRight": 28.0,
+                                                                "bottomLeft": 28.0,
+                                                                "bottomRight": 28.0
+                                                              }
+                                                            },
+                                                            "width": 56.0,
+                                                            "height": 56.0,
+                                                            "child": {
+                                                              "child": {
+                                                                "src": "assets/icons/ic_wallet.svg",
+                                                                "imageType": "asset",
+                                                                "color": "{{appColors.current.text.body}}",
+                                                                "width": 28.0,
+                                                                "height": 28.0,
+                                                                "type": "image"
+                                                              },
+                                                              "type": "center"
+                                                            },
+                                                            "type": "container"
+                                                          },
+                                                          "type": "center"
+                                                        },
+                                                        {
+                                                          "height": 16.0,
+                                                          "type": "sizedBox"
+                                                        },
+                                                        {
+                                                          "mainAxisAlignment": "spaceBetween",
+                                                          "textDirection": "rtl",
+                                                          "children": [
+                                                            {
+                                                              "data": "مبلغ انتقال",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "{{appColors.current.text.hint}}",
+                                                                "fontSize": 14.0,
+                                                                "fontWeight": "w400"
+                                                              },
+                                                              "textDirection": "rtl",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "child": {
+                                                                "data": "{{cardsManagement.wallet.transferAmount}} ریال",
+                                                                "style": {
+                                                                  "type": "custom",
+                                                                  "color": "{{appColors.current.text.title}}",
+                                                                  "fontSize": 16.0,
+                                                                  "fontWeight": "w700"
+                                                                },
+                                                                "textAlign": "left",
+                                                                "textDirection": "rtl",
+                                                                "type": "text"
+                                                              },
+                                                              "type": "flexible"
+                                                            }
+                                                          ],
+                                                          "type": "row"
+                                                        },
+                                                        {
+                                                          "height": 16.0,
+                                                          "type": "sizedBox"
+                                                        },
+                                                        {
+                                                          "padding": {
+                                                            "left": 16.0,
+                                                            "top": 16.0,
+                                                            "right": 16.0,
+                                                            "bottom": 16.0
+                                                          },
+                                                          "decoration": {
+                                                            "color": "{{appColors.current.background.card}}",
+                                                            "border": {
+                                                              "color": "{{appColors.current.input.borderEnabled}}",
+                                                              "width": 1.0
+                                                            },
+                                                            "borderRadius": {
+                                                              "topLeft": 12.0,
+                                                              "topRight": 12.0,
+                                                              "bottomLeft": 12.0,
+                                                              "bottomRight": 12.0
+                                                            }
+                                                          },
+                                                          "child": {
+                                                            "crossAxisAlignment": "stretch",
+                                                            "children": [
+                                                              {
+                                                                "mainAxisAlignment": "spaceBetween",
+                                                                "textDirection": "rtl",
+                                                                "children": [
+                                                                  {
+                                                                    "data": "کیف پول مقصد",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "{{appColors.current.text.hint}}",
+                                                                      "fontSize": 14.0,
+                                                                      "fontWeight": "w400"
+                                                                    },
+                                                                    "textDirection": "rtl",
+                                                                    "type": "text"
+                                                                  },
+                                                                  {
+                                                                    "child": {
+                                                                      "data": "سینایی",
+                                                                      "style": {
+                                                                        "type": "custom",
+                                                                        "color": "{{appColors.current.text.title}}",
+                                                                        "fontSize": 14.0,
+                                                                        "fontWeight": "w500"
+                                                                      },
+                                                                      "textAlign": "left",
+                                                                      "textDirection": "rtl",
+                                                                      "type": "text"
+                                                                    },
+                                                                    "type": "flexible"
+                                                                  }
+                                                                ],
+                                                                "type": "row"
+                                                              },
+                                                              {
+                                                                "height": 12.0,
+                                                                "type": "sizedBox"
+                                                              },
+                                                              {
+                                                                "mainAxisAlignment": "spaceBetween",
+                                                                "textDirection": "rtl",
+                                                                "children": [
+                                                                  {
+                                                                    "data": "توضیحات",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "{{appColors.current.text.hint}}",
+                                                                      "fontSize": 14.0,
+                                                                      "fontWeight": "w400"
+                                                                    },
+                                                                    "textDirection": "rtl",
+                                                                    "type": "text"
+                                                                  },
+                                                                  {
+                                                                    "child": {
+                                                                      "data": "{{cardsManagement.wallet.transferDescription}}",
+                                                                      "style": {
+                                                                        "type": "custom",
+                                                                        "color": "{{appColors.current.text.title}}",
+                                                                        "fontSize": 14.0,
+                                                                        "fontWeight": "w500"
+                                                                      },
+                                                                      "textAlign": "left",
+                                                                      "textDirection": "rtl",
+                                                                      "type": "text"
+                                                                    },
+                                                                    "type": "flexible"
+                                                                  }
+                                                                ],
+                                                                "type": "row"
+                                                              }
+                                                            ],
+                                                            "type": "column"
+                                                          },
+                                                          "type": "container"
+                                                        },
+                                                        {
+                                                          "height": 24.0,
+                                                          "type": "sizedBox"
+                                                        },
+                                                        {
+                                                          "onPressed": {
+                                                            "actionType": "showLogoutConfirmDialog",
+                                                            "title": "آیا از پرداخت وجه مطمئن هستید؟",
+                                                            "description": "بعد از پرداخت، بازگشت وجه امکان پذیر نیست. لذا از دستور پرداخت اطمینان حاصل فرمایید",
+                                                            "positiveText": "{{appStrings.common.confirm}}",
+                                                            "negativeText": "{{appStrings.common.cancel}}",
+                                                            "warningIconAsset": "assets/icons/ic_warning_red.svg",
+                                                            "positiveAction": {
+                                                              "actionType": "sequence",
+                                                              "actions": [
+                                                                {
+                                                                  "actionType": "closeDialog"
+                                                                },
+                                                                {
+                                                                  "actionType": "closeDialog"
+                                                                },
+                                                                {
+                                                                  "actionType": "navigate",
+                                                                  "widgetType": "dashboard_wallet_transfer_receipt",
+                                                                  "navigationStyle": "push"
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "style": {
+                                                            "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+                                                            "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                                                            "padding": {
+                                                              "top": 8.0,
+                                                              "bottom": 8.0
+                                                            },
+                                                            "minimumSize": {
+                                                              "width": 0.0,
+                                                              "height": 56.0
+                                                            },
+                                                            "shape": {
+                                                              "type": "roundedRectangleBorder",
+                                                              "borderRadius": {
+                                                                "topLeft": 8.0,
+                                                                "topRight": 8.0,
+                                                                "bottomLeft": 8.0,
+                                                                "bottomRight": 8.0
+                                                              }
+                                                            }
+                                                          },
+                                                          "child": {
+                                                            "data": "پرداخت",
+                                                            "style": {
+                                                              "type": "custom",
+                                                              "fontSize": 14.0,
+                                                              "fontWeight": "w700"
+                                                            },
+                                                            "textDirection": "rtl",
+                                                            "type": "text"
+                                                          },
+                                                          "type": "filledButton"
+                                                        }
+                                                      ],
+                                                      "type": "column"
+                                                    },
+                                                    "type": "padding"
+                                                  },
+                                                  "type": "container"
+                                                },
+                                                "backgroundColor": "#00000000"
+                                              }
+                                            ]
+                                          },
+                                          "style": {
+                                            "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+                                            "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                                            "padding": {
+                                              "top": 8.0,
+                                              "bottom": 8.0
+                                            },
+                                            "minimumSize": {
+                                              "width": 0.0,
+                                              "height": 56.0
+                                            },
+                                            "shape": {
+                                              "type": "roundedRectangleBorder",
+                                              "borderRadius": {
+                                                "topLeft": 8.0,
+                                                "topRight": 8.0,
+                                                "bottomLeft": 8.0,
+                                                "bottomRight": 8.0
+                                              }
+                                            }
+                                          },
+                                          "disabledStyle": {
+                                            "foregroundColor": "{{appColors.current.text.subtitle}}",
+                                            "backgroundColor": "{{appColors.current.input.borderEnabled}}",
+                                            "padding": {
+                                              "top": 8.0,
+                                              "bottom": 8.0
+                                            },
+                                            "minimumSize": {
+                                              "width": 0.0,
+                                              "height": 56.0
+                                            },
+                                            "shape": {
+                                              "type": "roundedRectangleBorder",
+                                              "borderRadius": {
+                                                "topLeft": 8.0,
+                                                "topRight": 8.0,
+                                                "bottomLeft": 8.0,
+                                                "bottomRight": 8.0
+                                              }
+                                            }
                                           },
                                           "child": {
-                                            "mainAxisSize": "min",
-                                            "crossAxisAlignment": "stretch",
-                                            "children": [
-                                              {
-                                                "child": {
-                                                  "decoration": {
-                                                    "color": "{{appColors.current.input.borderEnabled}}",
-                                                    "borderRadius": {
-                                                      "topLeft": 4.0,
-                                                      "topRight": 4.0,
-                                                      "bottomLeft": 4.0,
-                                                      "bottomRight": 4.0
-                                                    }
-                                                  },
-                                                  "width": 36.0,
-                                                  "height": 4.0,
-                                                  "type": "container"
-                                                },
-                                                "type": "center"
-                                              },
-                                              {
-                                                "height": 16.0,
-                                                "type": "sizedBox"
-                                              },
-                                              {
-                                                "child": {
-                                                  "decoration": {
-                                                    "color": "{{appColors.current.background.card}}",
-                                                    "borderRadius": {
-                                                      "topLeft": 28.0,
-                                                      "topRight": 28.0,
-                                                      "bottomLeft": 28.0,
-                                                      "bottomRight": 28.0
-                                                    },
-                                                    "border": {
-                                                      "color": "{{appColors.current.input.borderEnabled}}",
-                                                      "width": 1.0
-                                                    }
-                                                  },
-                                                  "width": 56.0,
-                                                  "height": 56.0,
-                                                  "child": {
-                                                    "child": {
-                                                      "src": "assets/icons/ic_wallet.svg",
-                                                      "imageType": "asset",
-                                                      "color": "{{appColors.current.text.body}}",
-                                                      "width": 28.0,
-                                                      "height": 28.0,
-                                                      "type": "image"
-                                                    },
-                                                    "type": "center"
-                                                  },
-                                                  "type": "container"
-                                                },
-                                                "type": "center"
-                                              },
-                                              {
-                                                "height": 16.0,
-                                                "type": "sizedBox"
-                                              },
-                                              {
-                                                "mainAxisAlignment": "spaceBetween",
-                                                "textDirection": "rtl",
-                                                "children": [
-                                                  {
-                                                    "data": "مبلغ انتقال",
-                                                    "style": {
-                                                      "type": "custom",
-                                                      "color": "{{appColors.current.text.hint}}",
-                                                      "fontSize": 14.0,
-                                                      "fontWeight": "w400"
-                                                    },
-                                                    "textDirection": "rtl",
-                                                    "type": "text"
-                                                  },
-                                                  {
-                                                    "child": {
-                                                      "data": "{{cardsManagement.wallet.transferAmount}} ریال",
-                                                      "style": {
-                                                        "type": "custom",
-                                                        "color": "{{appColors.current.text.title}}",
-                                                        "fontSize": 16.0,
-                                                        "fontWeight": "w700"
-                                                      },
-                                                      "textAlign": "left",
-                                                      "textDirection": "rtl",
-                                                      "type": "text"
-                                                    },
-                                                    "type": "flexible"
-                                                  }
-                                                ],
-                                                "type": "row"
-                                              },
-                                              {
-                                                "height": 16.0,
-                                                "type": "sizedBox"
-                                              },
-                                              {
-                                                "padding": {
-                                                  "left": 16.0,
-                                                  "top": 16.0,
-                                                  "right": 16.0,
-                                                  "bottom": 16.0
-                                                },
-                                                "decoration": {
-                                                  "color": "{{appColors.current.background.card}}",
-                                                  "borderRadius": {
-                                                    "topLeft": 12.0,
-                                                    "topRight": 12.0,
-                                                    "bottomLeft": 12.0,
-                                                    "bottomRight": 12.0
-                                                  },
-                                                  "border": {
-                                                    "color": "{{appColors.current.input.borderEnabled}}",
-                                                    "width": 1.0
-                                                  }
-                                                },
-                                                "child": {
-                                                  "crossAxisAlignment": "stretch",
-                                                  "children": [
-                                                    {
-                                                      "mainAxisAlignment": "spaceBetween",
-                                                      "textDirection": "rtl",
-                                                      "children": [
-                                                        {
-                                                          "data": "کیف پول مقصد",
-                                                          "style": {
-                                                            "type": "custom",
-                                                            "color": "{{appColors.current.text.hint}}",
-                                                            "fontSize": 14.0,
-                                                            "fontWeight": "w400"
-                                                          },
-                                                          "textDirection": "rtl",
-                                                          "type": "text"
-                                                        },
-                                                        {
-                                                          "child": {
-                                                            "data": "{{cardsManagement.wallet.transferPhone}}",
-                                                            "style": {
-                                                              "type": "custom",
-                                                              "color": "{{appColors.current.text.body}}",
-                                                              "fontSize": 14.0,
-                                                              "fontWeight": "w500"
-                                                            },
-                                                            "textAlign": "left",
-                                                            "textDirection": "rtl",
-                                                            "type": "text"
-                                                          },
-                                                          "type": "flexible"
-                                                        }
-                                                      ],
-                                                      "type": "row"
-                                                    },
-                                                    {
-                                                      "height": 12.0,
-                                                      "type": "sizedBox"
-                                                    },
-                                                    {
-                                                      "mainAxisAlignment": "spaceBetween",
-                                                      "textDirection": "rtl",
-                                                      "children": [
-                                                        {
-                                                          "data": "توضیحات",
-                                                          "style": {
-                                                            "type": "custom",
-                                                            "color": "{{appColors.current.text.hint}}",
-                                                            "fontSize": 14.0,
-                                                            "fontWeight": "w400"
-                                                          },
-                                                          "textDirection": "rtl",
-                                                          "type": "text"
-                                                        },
-                                                        {
-                                                          "child": {
-                                                            "data": "{{cardsManagement.wallet.transferDescription}}",
-                                                            "style": {
-                                                              "type": "custom",
-                                                              "color": "{{appColors.current.text.body}}",
-                                                              "fontSize": 14.0,
-                                                              "fontWeight": "w500"
-                                                            },
-                                                            "textAlign": "left",
-                                                            "textDirection": "rtl",
-                                                            "type": "text"
-                                                          },
-                                                          "type": "flexible"
-                                                        }
-                                                      ],
-                                                      "type": "row"
-                                                    }
-                                                  ],
-                                                  "type": "column"
-                                                },
-                                                "type": "container"
-                                              },
-                                              {
-                                                "height": 24.0,
-                                                "type": "sizedBox"
-                                              },
-                                              {
-                                                "onPressed": {
-                                                  "actionType": "showLogoutConfirmDialog",
-                                                  "warningIconAsset": "assets/icons/ic_warning_red.svg",
-                                                  "title": "آیا از پرداخت وجه مطمئن هستید؟",
-                                                  "description": "بعد از پرداخت، بازگشت وجه امکان پذیر نیست. لذا از دستور پرداخت اطمینان حاصل فرمایید",
-                                                  "positiveText": "تایید",
-                                                  "negativeText": "انصراف",
-                                                  "positiveAction": {
-                                                    "actionType": "sequence",
-                                                    "actions": [
-                                                      {
-                                                        "actionType": "closeDialog"
-                                                      },
-                                                      {
-                                                        "actionType": "closeDialog"
-                                                      },
-                                                      {
-                                                        "actionType": "navigate",
-                                                        "widgetType": "dashboard_wallet_transfer_receipt",
-                                                        "navigationStyle": "push"
-                                                      }
-                                                    ]
-                                                  }
-                                                },
-                                                "style": {
-                                                  "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
-                                                  "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
-                                                  "padding": {
-                                                    "top": 8.0,
-                                                    "bottom": 8.0
-                                                  },
-                                                  "minimumSize": {
-                                                    "width": 0.0,
-                                                    "height": 56.0
-                                                  },
-                                                  "shape": {
-                                                    "type": "roundedRectangleBorder",
-                                                    "borderRadius": {
-                                                      "topLeft": 8.0,
-                                                      "topRight": 8.0,
-                                                      "bottomLeft": 8.0,
-                                                      "bottomRight": 8.0
-                                                    }
-                                                  }
-                                                },
-                                                "child": {
-                                                  "data": "پرداخت",
-                                                  "style": {
-                                                    "type": "custom",
-                                                    "fontSize": 14.0,
-                                                    "fontWeight": "w700"
-                                                  },
-                                                  "textDirection": "rtl",
-                                                  "type": "text"
-                                                },
-                                                "type": "filledButton"
-                                              }
-                                            ],
-                                            "type": "column"
-                                          },
-                                          "type": "padding"
-                                        },
-                                        "type": "container"
-                                      },
-                                          "backgroundColor": "#00000000"
+                                            "data": "ادامه",
+                                            "style": {
+                                              "type": "custom",
+                                              "fontSize": 14.0,
+                                              "fontWeight": "w700"
+                                            },
+                                            "textDirection": "rtl",
+                                            "type": "text"
+                                          }
                                         }
-                                      ]
+                                      ],
+                                      "type": "column"
                                     },
-                                    "enabledKey": "cardsManagement.wallet.isTransferFormValid",
-                                    "style": {
-                                      "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
-                                      "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
-                                      "padding": {
-                                        "top": 8.0,
-                                        "bottom": 8.0
-                                      },
-                                      "minimumSize": {
-                                        "width": 0.0,
-                                        "height": 56.0
-                                      },
-                                      "shape": {
-                                        "type": "roundedRectangleBorder",
-                                        "borderRadius": {
-                                          "topLeft": 8.0,
-                                          "topRight": 8.0,
-                                          "bottomLeft": 8.0,
-                                          "bottomRight": 8.0
-                                        }
-                                      }
-                                    },
-                                    "disabledStyle": {
-                                      "foregroundColor": "{{appColors.current.text.subtitle}}",
-                                      "backgroundColor": "{{appColors.current.input.borderEnabled}}",
-                                      "padding": {
-                                        "top": 8.0,
-                                        "bottom": 8.0
-                                      },
-                                      "minimumSize": {
-                                        "width": 0.0,
-                                        "height": 56.0
-                                      },
-                                      "shape": {
-                                        "type": "roundedRectangleBorder",
-                                        "borderRadius": {
-                                          "topLeft": 8.0,
-                                          "topRight": 8.0,
-                                          "bottomLeft": 8.0,
-                                          "bottomRight": 8.0
-                                        }
-                                      }
-                                    },
-                                    "child": {
-                                      "data": "ادامه",
-                                      "style": {
-                                        "type": "custom",
-                                        "fontSize": 14.0,
-                                        "fontWeight": "w700"
-                                      },
-                                      "textDirection": "rtl",
-                                      "type": "text"
-                                    },
-                                    "type": "reactiveElevatedButton"
-                                  }
-                                ],
-                                "type": "column"
+                                    "type": "padding"
+                                  },
+                                  "type": "form"
+                                },
+                                "type": "container"
                               },
-                              "type": "padding"
-                            },
-                            "type": "container"
-                          },
-                          "backgroundColor": "#00000000"
+                              "backgroundColor": "#00000000"
+                            }
+                          ]
                         },
                         "type": "gestureDetector"
                       },
@@ -5656,8 +5738,28 @@
                                     "keyboardType": "number",
                                     "onChanged": {
                                       "actionType": "setValue",
-                                      "key": "cardsManagement.wallet.chargeAmount",
-                                      "value": "[[wallet_charge_amount]]"
+                                      "values": [
+                                        {
+                                          "key": "cardsManagement.wallet.chargeAmount",
+                                          "value": "[[wallet_charge_amount]]"
+                                        },
+                                        {
+                                          "key": "cardsManagement.wallet.amountPreset50kSelected",
+                                          "value": false
+                                        },
+                                        {
+                                          "key": "cardsManagement.wallet.amountPreset200kSelected",
+                                          "value": false
+                                        },
+                                        {
+                                          "key": "cardsManagement.wallet.amountPreset500kSelected",
+                                          "value": false
+                                        },
+                                        {
+                                          "key": "cardsManagement.wallet.amountPreset1000kSelected",
+                                          "value": false
+                                        }
+                                      ]
                                     }
                                   },
                                   {
@@ -5672,41 +5774,105 @@
                                           {
                                             "child": {
                                               "child": {
-                                                "padding": {
-                                                  "top": 10.0,
-                                                  "bottom": 10.0
-                                                },
-                                                "decoration": {
-                                                  "color": "{{appColors.current.background.card}}",
-                                                  "border": {
-                                                    "color": "{{appColors.current.input.borderEnabled}}",
-                                                    "width": 1.0
-                                                  },
-                                                  "borderRadius": {
-                                                    "topLeft": 8.0,
-                                                    "topRight": 8.0,
-                                                    "bottomLeft": 8.0,
-                                                    "bottomRight": 8.0
-                                                  }
-                                                },
+                                                "type": "registryReactive",
+                                                "registryKey": "cardsManagement.wallet.amountPreset50kSelected",
                                                 "child": {
-                                                  "data": "۵۰،۰۰۰ ریال",
-                                                  "style": {
-                                                    "type": "custom",
-                                                    "color": "{{appColors.current.text.title}}",
-                                                    "fontSize": 13.0,
-                                                    "fontWeight": "w500"
+                                                  "type": "visibility",
+                                                  "visible": "[[cardsManagement.wallet.amountPreset50kSelected]]",
+                                                  "child": {
+                                                    "padding": {
+                                                      "top": 10.0,
+                                                      "bottom": 10.0
+                                                    },
+                                                    "decoration": {
+                                                      "color": "{{appColors.current.background.card}}",
+                                                      "border": {
+                                                        "color": "{{appColors.current.button.primary.backgroundColor}}",
+                                                        "width": 1.5
+                                                      },
+                                                      "borderRadius": {
+                                                        "topLeft": 8.0,
+                                                        "topRight": 8.0,
+                                                        "bottomLeft": 8.0,
+                                                        "bottomRight": 8.0
+                                                      }
+                                                    },
+                                                    "child": {
+                                                      "data": "۵۰،۰۰۰ ریال",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.text.title}}",
+                                                        "fontSize": 13.0,
+                                                        "fontWeight": "w500"
+                                                      },
+                                                      "textAlign": "center",
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    },
+                                                    "type": "container"
                                                   },
-                                                  "textAlign": "center",
-                                                  "textDirection": "rtl",
-                                                  "type": "text"
-                                                },
-                                                "type": "container"
+                                                  "replacement": {
+                                                    "padding": {
+                                                      "top": 10.0,
+                                                      "bottom": 10.0
+                                                    },
+                                                    "decoration": {
+                                                      "color": "{{appColors.current.background.card}}",
+                                                      "border": {
+                                                        "color": "{{appColors.current.input.borderEnabled}}",
+                                                        "width": 1.0
+                                                      },
+                                                      "borderRadius": {
+                                                        "topLeft": 8.0,
+                                                        "topRight": 8.0,
+                                                        "bottomLeft": 8.0,
+                                                        "bottomRight": 8.0
+                                                      }
+                                                    },
+                                                    "child": {
+                                                      "data": "۵۰،۰۰۰ ریال",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.text.title}}",
+                                                        "fontSize": 13.0,
+                                                        "fontWeight": "w500"
+                                                      },
+                                                      "textAlign": "center",
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    },
+                                                    "type": "container"
+                                                  }
+                                                }
                                               },
                                               "onTap": {
                                                 "actionType": "setValue",
-                                                "key": "cardsManagement.wallet.chargeAmount",
-                                                "value": "50000"
+                                                "values": [
+                                                  {
+                                                    "key": "cardsManagement.wallet.chargeAmount",
+                                                    "value": "50000"
+                                                  },
+                                                  {
+                                                    "key": "wallet_charge_amount",
+                                                    "value": "۵۰،۰۰۰"
+                                                  },
+                                                  {
+                                                    "key": "cardsManagement.wallet.amountPreset50kSelected",
+                                                    "value": true
+                                                  },
+                                                  {
+                                                    "key": "cardsManagement.wallet.amountPreset200kSelected",
+                                                    "value": false
+                                                  },
+                                                  {
+                                                    "key": "cardsManagement.wallet.amountPreset500kSelected",
+                                                    "value": false
+                                                  },
+                                                  {
+                                                    "key": "cardsManagement.wallet.amountPreset1000kSelected",
+                                                    "value": false
+                                                  }
+                                                ]
                                               },
                                               "type": "gestureDetector"
                                             },
@@ -5719,41 +5885,105 @@
                                           {
                                             "child": {
                                               "child": {
-                                                "padding": {
-                                                  "top": 10.0,
-                                                  "bottom": 10.0
-                                                },
-                                                "decoration": {
-                                                  "color": "{{appColors.current.background.card}}",
-                                                  "border": {
-                                                    "color": "{{appColors.current.input.borderEnabled}}",
-                                                    "width": 1.0
-                                                  },
-                                                  "borderRadius": {
-                                                    "topLeft": 8.0,
-                                                    "topRight": 8.0,
-                                                    "bottomLeft": 8.0,
-                                                    "bottomRight": 8.0
-                                                  }
-                                                },
+                                                "type": "registryReactive",
+                                                "registryKey": "cardsManagement.wallet.amountPreset200kSelected",
                                                 "child": {
-                                                  "data": "۲۰۰،۰۰۰ ریال",
-                                                  "style": {
-                                                    "type": "custom",
-                                                    "color": "{{appColors.current.text.title}}",
-                                                    "fontSize": 13.0,
-                                                    "fontWeight": "w500"
+                                                  "type": "visibility",
+                                                  "visible": "[[cardsManagement.wallet.amountPreset200kSelected]]",
+                                                  "child": {
+                                                    "padding": {
+                                                      "top": 10.0,
+                                                      "bottom": 10.0
+                                                    },
+                                                    "decoration": {
+                                                      "color": "{{appColors.current.background.card}}",
+                                                      "border": {
+                                                        "color": "{{appColors.current.button.primary.backgroundColor}}",
+                                                        "width": 1.5
+                                                      },
+                                                      "borderRadius": {
+                                                        "topLeft": 8.0,
+                                                        "topRight": 8.0,
+                                                        "bottomLeft": 8.0,
+                                                        "bottomRight": 8.0
+                                                      }
+                                                    },
+                                                    "child": {
+                                                      "data": "۲۰۰،۰۰۰ ریال",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.text.title}}",
+                                                        "fontSize": 13.0,
+                                                        "fontWeight": "w500"
+                                                      },
+                                                      "textAlign": "center",
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    },
+                                                    "type": "container"
                                                   },
-                                                  "textAlign": "center",
-                                                  "textDirection": "rtl",
-                                                  "type": "text"
-                                                },
-                                                "type": "container"
+                                                  "replacement": {
+                                                    "padding": {
+                                                      "top": 10.0,
+                                                      "bottom": 10.0
+                                                    },
+                                                    "decoration": {
+                                                      "color": "{{appColors.current.background.card}}",
+                                                      "border": {
+                                                        "color": "{{appColors.current.input.borderEnabled}}",
+                                                        "width": 1.0
+                                                      },
+                                                      "borderRadius": {
+                                                        "topLeft": 8.0,
+                                                        "topRight": 8.0,
+                                                        "bottomLeft": 8.0,
+                                                        "bottomRight": 8.0
+                                                      }
+                                                    },
+                                                    "child": {
+                                                      "data": "۲۰۰،۰۰۰ ریال",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.text.title}}",
+                                                        "fontSize": 13.0,
+                                                        "fontWeight": "w500"
+                                                      },
+                                                      "textAlign": "center",
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    },
+                                                    "type": "container"
+                                                  }
+                                                }
                                               },
                                               "onTap": {
                                                 "actionType": "setValue",
-                                                "key": "cardsManagement.wallet.chargeAmount",
-                                                "value": "200000"
+                                                "values": [
+                                                  {
+                                                    "key": "cardsManagement.wallet.chargeAmount",
+                                                    "value": "200000"
+                                                  },
+                                                  {
+                                                    "key": "wallet_charge_amount",
+                                                    "value": "۲۰۰،۰۰۰"
+                                                  },
+                                                  {
+                                                    "key": "cardsManagement.wallet.amountPreset200kSelected",
+                                                    "value": true
+                                                  },
+                                                  {
+                                                    "key": "cardsManagement.wallet.amountPreset50kSelected",
+                                                    "value": false
+                                                  },
+                                                  {
+                                                    "key": "cardsManagement.wallet.amountPreset500kSelected",
+                                                    "value": false
+                                                  },
+                                                  {
+                                                    "key": "cardsManagement.wallet.amountPreset1000kSelected",
+                                                    "value": false
+                                                  }
+                                                ]
                                               },
                                               "type": "gestureDetector"
                                             },
@@ -5772,41 +6002,105 @@
                                           {
                                             "child": {
                                               "child": {
-                                                "padding": {
-                                                  "top": 10.0,
-                                                  "bottom": 10.0
-                                                },
-                                                "decoration": {
-                                                  "color": "{{appColors.current.background.card}}",
-                                                  "border": {
-                                                    "color": "{{appColors.current.input.borderEnabled}}",
-                                                    "width": 1.0
-                                                  },
-                                                  "borderRadius": {
-                                                    "topLeft": 8.0,
-                                                    "topRight": 8.0,
-                                                    "bottomLeft": 8.0,
-                                                    "bottomRight": 8.0
-                                                  }
-                                                },
+                                                "type": "registryReactive",
+                                                "registryKey": "cardsManagement.wallet.amountPreset500kSelected",
                                                 "child": {
-                                                  "data": "۵۰۰،۰۰۰ ریال",
-                                                  "style": {
-                                                    "type": "custom",
-                                                    "color": "{{appColors.current.text.title}}",
-                                                    "fontSize": 13.0,
-                                                    "fontWeight": "w500"
+                                                  "type": "visibility",
+                                                  "visible": "[[cardsManagement.wallet.amountPreset500kSelected]]",
+                                                  "child": {
+                                                    "padding": {
+                                                      "top": 10.0,
+                                                      "bottom": 10.0
+                                                    },
+                                                    "decoration": {
+                                                      "color": "{{appColors.current.background.card}}",
+                                                      "border": {
+                                                        "color": "{{appColors.current.button.primary.backgroundColor}}",
+                                                        "width": 1.5
+                                                      },
+                                                      "borderRadius": {
+                                                        "topLeft": 8.0,
+                                                        "topRight": 8.0,
+                                                        "bottomLeft": 8.0,
+                                                        "bottomRight": 8.0
+                                                      }
+                                                    },
+                                                    "child": {
+                                                      "data": "۵۰۰،۰۰۰ ریال",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.text.title}}",
+                                                        "fontSize": 13.0,
+                                                        "fontWeight": "w500"
+                                                      },
+                                                      "textAlign": "center",
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    },
+                                                    "type": "container"
                                                   },
-                                                  "textAlign": "center",
-                                                  "textDirection": "rtl",
-                                                  "type": "text"
-                                                },
-                                                "type": "container"
+                                                  "replacement": {
+                                                    "padding": {
+                                                      "top": 10.0,
+                                                      "bottom": 10.0
+                                                    },
+                                                    "decoration": {
+                                                      "color": "{{appColors.current.background.card}}",
+                                                      "border": {
+                                                        "color": "{{appColors.current.input.borderEnabled}}",
+                                                        "width": 1.0
+                                                      },
+                                                      "borderRadius": {
+                                                        "topLeft": 8.0,
+                                                        "topRight": 8.0,
+                                                        "bottomLeft": 8.0,
+                                                        "bottomRight": 8.0
+                                                      }
+                                                    },
+                                                    "child": {
+                                                      "data": "۵۰۰،۰۰۰ ریال",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.text.title}}",
+                                                        "fontSize": 13.0,
+                                                        "fontWeight": "w500"
+                                                      },
+                                                      "textAlign": "center",
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    },
+                                                    "type": "container"
+                                                  }
+                                                }
                                               },
                                               "onTap": {
                                                 "actionType": "setValue",
-                                                "key": "cardsManagement.wallet.chargeAmount",
-                                                "value": "500000"
+                                                "values": [
+                                                  {
+                                                    "key": "cardsManagement.wallet.chargeAmount",
+                                                    "value": "500000"
+                                                  },
+                                                  {
+                                                    "key": "wallet_charge_amount",
+                                                    "value": "۵۰۰،۰۰۰"
+                                                  },
+                                                  {
+                                                    "key": "cardsManagement.wallet.amountPreset500kSelected",
+                                                    "value": true
+                                                  },
+                                                  {
+                                                    "key": "cardsManagement.wallet.amountPreset50kSelected",
+                                                    "value": false
+                                                  },
+                                                  {
+                                                    "key": "cardsManagement.wallet.amountPreset200kSelected",
+                                                    "value": false
+                                                  },
+                                                  {
+                                                    "key": "cardsManagement.wallet.amountPreset1000kSelected",
+                                                    "value": false
+                                                  }
+                                                ]
                                               },
                                               "type": "gestureDetector"
                                             },
@@ -5819,41 +6113,105 @@
                                           {
                                             "child": {
                                               "child": {
-                                                "padding": {
-                                                  "top": 10.0,
-                                                  "bottom": 10.0
-                                                },
-                                                "decoration": {
-                                                  "color": "{{appColors.current.background.card}}",
-                                                  "border": {
-                                                    "color": "{{appColors.current.input.borderEnabled}}",
-                                                    "width": 1.0
-                                                  },
-                                                  "borderRadius": {
-                                                    "topLeft": 8.0,
-                                                    "topRight": 8.0,
-                                                    "bottomLeft": 8.0,
-                                                    "bottomRight": 8.0
-                                                  }
-                                                },
+                                                "type": "registryReactive",
+                                                "registryKey": "cardsManagement.wallet.amountPreset1000kSelected",
                                                 "child": {
-                                                  "data": "۱،۰۰۰،۰۰۰ ریال",
-                                                  "style": {
-                                                    "type": "custom",
-                                                    "color": "{{appColors.current.text.title}}",
-                                                    "fontSize": 13.0,
-                                                    "fontWeight": "w500"
+                                                  "type": "visibility",
+                                                  "visible": "[[cardsManagement.wallet.amountPreset1000kSelected]]",
+                                                  "child": {
+                                                    "padding": {
+                                                      "top": 10.0,
+                                                      "bottom": 10.0
+                                                    },
+                                                    "decoration": {
+                                                      "color": "{{appColors.current.background.card}}",
+                                                      "border": {
+                                                        "color": "{{appColors.current.button.primary.backgroundColor}}",
+                                                        "width": 1.5
+                                                      },
+                                                      "borderRadius": {
+                                                        "topLeft": 8.0,
+                                                        "topRight": 8.0,
+                                                        "bottomLeft": 8.0,
+                                                        "bottomRight": 8.0
+                                                      }
+                                                    },
+                                                    "child": {
+                                                      "data": "۱،۰۰۰،۰۰۰ ریال",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.text.title}}",
+                                                        "fontSize": 13.0,
+                                                        "fontWeight": "w500"
+                                                      },
+                                                      "textAlign": "center",
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    },
+                                                    "type": "container"
                                                   },
-                                                  "textAlign": "center",
-                                                  "textDirection": "rtl",
-                                                  "type": "text"
-                                                },
-                                                "type": "container"
+                                                  "replacement": {
+                                                    "padding": {
+                                                      "top": 10.0,
+                                                      "bottom": 10.0
+                                                    },
+                                                    "decoration": {
+                                                      "color": "{{appColors.current.background.card}}",
+                                                      "border": {
+                                                        "color": "{{appColors.current.input.borderEnabled}}",
+                                                        "width": 1.0
+                                                      },
+                                                      "borderRadius": {
+                                                        "topLeft": 8.0,
+                                                        "topRight": 8.0,
+                                                        "bottomLeft": 8.0,
+                                                        "bottomRight": 8.0
+                                                      }
+                                                    },
+                                                    "child": {
+                                                      "data": "۱،۰۰۰،۰۰۰ ریال",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.text.title}}",
+                                                        "fontSize": 13.0,
+                                                        "fontWeight": "w500"
+                                                      },
+                                                      "textAlign": "center",
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    },
+                                                    "type": "container"
+                                                  }
+                                                }
                                               },
                                               "onTap": {
                                                 "actionType": "setValue",
-                                                "key": "cardsManagement.wallet.chargeAmount",
-                                                "value": "1000000"
+                                                "values": [
+                                                  {
+                                                    "key": "cardsManagement.wallet.chargeAmount",
+                                                    "value": "1000000"
+                                                  },
+                                                  {
+                                                    "key": "wallet_charge_amount",
+                                                    "value": "۱،۰۰۰،۰۰۰"
+                                                  },
+                                                  {
+                                                    "key": "cardsManagement.wallet.amountPreset1000kSelected",
+                                                    "value": true
+                                                  },
+                                                  {
+                                                    "key": "cardsManagement.wallet.amountPreset50kSelected",
+                                                    "value": false
+                                                  },
+                                                  {
+                                                    "key": "cardsManagement.wallet.amountPreset200kSelected",
+                                                    "value": false
+                                                  },
+                                                  {
+                                                    "key": "cardsManagement.wallet.amountPreset500kSelected",
+                                                    "value": false
+                                                  }
+                                                ]
                                               },
                                               "type": "gestureDetector"
                                             },
@@ -6011,8 +6369,8 @@
                                                       "actionType": "showAppDialog",
                                                       "title": "تایید افزایش موجودی",
                                                       "description": "مبلغ [[cardsManagement.wallet.chargeAmount]] ریال به کیف پول افزوده می‌شود.",
-                                                      "positiveText": "تایید",
-                                                      "negativeText": "انصراف",
+                                                      "positiveText": "{{appStrings.common.confirm}}",
+                                                      "negativeText": "{{appStrings.common.cancel}}",
                                                       "positiveAction": {
                                                         "actionType": "sequence",
                                                         "actions": [
@@ -6231,8 +6589,8 @@
                                                       "actionType": "showAppDialog",
                                                       "title": "تایید افزایش موجودی",
                                                       "description": "مبلغ [[cardsManagement.wallet.chargeAmount]] ریال به کیف پول افزوده می‌شود.",
-                                                      "positiveText": "تایید",
-                                                      "negativeText": "انصراف",
+                                                      "positiveText": "{{appStrings.common.confirm}}",
+                                                      "negativeText": "{{appStrings.common.cancel}}",
                                                       "positiveAction": {
                                                         "actionType": "sequence",
                                                         "actions": [
@@ -6451,8 +6809,8 @@
                                                       "actionType": "showAppDialog",
                                                       "title": "تایید افزایش موجودی",
                                                       "description": "مبلغ [[cardsManagement.wallet.chargeAmount]] ریال به کیف پول افزوده می‌شود.",
-                                                      "positiveText": "تایید",
-                                                      "negativeText": "انصراف",
+                                                      "positiveText": "{{appStrings.common.confirm}}",
+                                                      "negativeText": "{{appStrings.common.cancel}}",
                                                       "positiveAction": {
                                                         "actionType": "sequence",
                                                         "actions": [
@@ -8160,7 +8518,7 @@
                                         "children": [
                                           {
                                             "decoration": {
-                                              "color": "#FF6D00",
+                                              "color": "{{appColors.current.state.warning}}",
                                               "borderRadius": {
                                                 "topLeft": 28.0,
                                                 "topRight": 28.0,
@@ -8172,7 +8530,7 @@
                                             "height": 56.0,
                                             "child": {
                                               "child": {
-                                                "src": "assets/icons/ic_warning.svg",
+                                                "src": "{{appAssets.icons.warning}}",
                                                 "imageType": "asset",
                                                 "color": "#FFFFFF",
                                                 "width": 28.0,
@@ -8191,7 +8549,7 @@
                                         "type": "sizedBox"
                                       },
                                       {
-                                        "data": "مسدودسازی کارت",
+                                        "data": "{{appStrings.cardsManagement.block.title}}",
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
@@ -8223,7 +8581,7 @@
                                         "type": "sizedBox"
                                       },
                                       {
-                                        "data": "دلیل مسدودی را انتخاب نمایید",
+                                        "data": "{{appStrings.cardsManagement.block.reasonTitle}}",
                                         "style": {
                                           "type": "custom",
                                           "color": "{{appColors.current.text.title}}",
@@ -8266,7 +8624,7 @@
                                               "textDirection": "rtl",
                                               "children": [
                                                 {
-                                                  "data": "مفقودی کارت",
+                                                  "data": "{{appStrings.cardsManagement.block.reasonLost}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -8373,7 +8731,7 @@
                                               "textDirection": "rtl",
                                               "children": [
                                                 {
-                                                  "data": "سرقت کارت",
+                                                  "data": "{{appStrings.cardsManagement.block.reasonStolen}}",
                                                   "style": {
                                                     "type": "custom",
                                                     "color": "{{appColors.current.text.title}}",
@@ -8455,10 +8813,10 @@
                                       {
                                         "onPressed": {
                                           "actionType": "showAppDialog",
-                                          "title": "مسدودسازی کارت",
+                                          "title": "{{appStrings.cardsManagement.block.confirmTitle}}",
                                           "description": "کارت [[cardsManagement.sheet.cardNumber]] مسدود خواهد شد. این عملیات قابل بازگشت نیست.",
-                                          "positiveText": "تایید",
-                                          "negativeText": "انصراف",
+                                          "positiveText": "{{appStrings.common.confirm}}",
+                                          "negativeText": "{{appStrings.common.cancel}}",
                                           "positiveAction": {
                                             "actionType": "sequence",
                                             "actions": [
@@ -8509,7 +8867,7 @@
                                                           "children": [
                                                             {
                                                               "type": "text",
-                                                              "data": "درخواست مسدودسازی ثبت شد",
+                                                              "data": "{{appStrings.cardsManagement.block.successTitle}}",
                                                               "textDirection": "rtl",
                                                               "textAlign": "right",
                                                               "style": {
@@ -8581,8 +8939,8 @@
                                           }
                                         },
                                         "style": {
-                                          "foregroundColor": "#FFFFFF",
-                                          "backgroundColor": "#D32F2F",
+                                          "foregroundColor": "{{appColors.current.text.inverse}}",
+                                          "backgroundColor": "{{appColors.current.state.error}}",
                                           "padding": {
                                             "top": 8.0,
                                             "bottom": 8.0
@@ -8602,7 +8960,7 @@
                                           }
                                         },
                                         "child": {
-                                          "data": "مسدودسازی کارت",
+                                          "data": "{{appStrings.cardsManagement.block.title}}",
                                           "style": {
                                             "type": "custom",
                                             "fontSize": 14.0,

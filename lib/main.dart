@@ -2,16 +2,16 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:stac/stac.dart';
 import 'package:tobank_sdui/core/storage/storage_util.dart';
-import 'core/stac/registry/register_custom_parsers.dart';
-import 'core/stac/mock/stac_mock_dio_setup.dart';
-import 'core/stac/loaders/tobank/tobank_strings_loader.dart';
-import 'core/stac/loaders/tobank/tobank_styles_loader.dart';
-import 'core/stac/loaders/tobank/tobank_colors_loader.dart';
-import 'core/stac/loaders/tobank/tobank_assets_loader.dart';
-import 'core/stac/utils/variable_resolver_debug.dart';
+import 'stac_core/registry/register_custom_parsers.dart';
+import 'stac_core/mock/stac_mock_dio_setup.dart';
+import 'stac_core/loaders/tobank_strings_loader.dart';
+import 'stac_core/loaders/tobank_styles_loader.dart';
+import 'stac_core/loaders/tobank_colors_loader.dart';
+import 'stac_core/loaders/tobank_assets_loader.dart';
+import 'stac_core/utils/variable_resolver_debug.dart';
 import 'core/bootstrap/bootstrap.dart';
 import 'core/helpers/logger.dart';
-import 'core/stac/default_stac_options.dart';
+import 'stac_core/default_stac_options.dart';
 
 void main() async {
   // CRITICAL: Initialize Flutter bindings FIRST

@@ -1,44 +1,37 @@
-import 'dart:ui'; // For PointerDeviceKind
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-// ISpect imports - will be tree-shaken if not used
 import 'package:ispect/ispect.dart';
 import 'package:persian_datetime_picker/persian_datetime_picker.dart';
 import 'package:stac/stac.dart';
 
-import '../design_system/app_theme.dart';
-import '../helpers/logger.dart';
-import '../config/ispect_config.dart';
-import '../config/debug_panel_config.dart';
 import '../../debug_panel/debug_panel_widget.dart';
 import '../../debug_panel/state/debug_panel_settings_state.dart';
-import '../../features/pre_launch/presentation/screens/pre_launch_screen.dart';
-import '../../features/pre_launch/providers/theme_controller_provider.dart';
-import '../../features/tobank_mock_new/data/theme/tobank_theme_loader.dart';
-import '../stac/loaders/tobank/tobank_assets_loader.dart';
-import '../stac/loaders/tobank/tobank_colors_loader.dart';
-import '../stac/loaders/tobank/tobank_version_loader.dart';
-
-import '../../features/tobank_mock_new/presentation/screens/tobank_stac_dart_screen.dart';
-import '../stac/parsers/widgets/promissory_real_loader_parser.dart';
+import '../../dev/screens/pre_launch_screen.dart';
+import '../../dev/screens/tobank_stac_dart_screen.dart';
+import '../../stac_core/loaders/tobank_assets_loader.dart';
+import '../../stac_core/loaders/tobank_colors_loader.dart';
+import '../../stac_core/loaders/tobank_theme_loader.dart';
+import '../../stac_core/loaders/tobank_version_loader.dart';
+import '../../stac_core/parsers/widgets/loader/promissory_real_loader_parser.dart';
+import '../../stac_core/services/theme/theme_controller_provider.dart';
+import '../config/debug_panel_config.dart';
+import '../config/ispect_config.dart';
+import '../design_system/app_theme.dart';
+import '../helpers/logger.dart';
 
 class AppRoot extends ConsumerStatefulWidget {
   const AppRoot({super.key, this.useDevicePreview});
 
-  final bool? useDevicePreview; // if null, auto from kDebugMode
+  final bool? useDevicePreview;
 
-  /// If true, app starts directly from Promissory Real Flow (JSON).
-  /// If false, app starts normally from PreLaunchScreen.
-  /// Usage:
-  /// flutter run --dart-define=START_APP_FROM_PROMISSORY_REAL_FLOW=true
-  /// شروع از اسپلش(سفته)
   static const bool startFromPromissoryRealFlow = bool.fromEnvironment(
     'START_APP_FROM_PROMISSORY_REAL_FLOW',
     defaultValue: false,
   );
 
-  // Global key for the main app's Navigator - allows debug panel to navigate the main app
   static final GlobalKey<NavigatorState> mainAppNavigatorKey =
       GlobalKey<NavigatorState>();
 
@@ -57,41 +50,30 @@ class _AppRootState extends ConsumerState<AppRoot> {
     _loadThemes();
   }
 
-  @override
-  void dispose() {
-    // If we have any active listeners or controllers, dispose them here
-    // Currently relying on provider/Riverpod cleanup
-    super.dispose();
-  }
-
   Future<void> _loadThemes() async {
     try {
       AppLogger.i('Loading Tobank STAC themes...');
       final lightTheme = await TobankThemeLoader.loadLightTheme();
       final darkTheme = await TobankThemeLoader.loadDarkTheme();
-
-      // Load app version for splash screen
       await TobankVersionLoader.loadVersion();
 
-      if (mounted) {
-        setState(() {
-          _lightTheme = lightTheme;
-          _darkTheme = darkTheme;
-          _themesLoaded = true;
-        });
-        AppLogger.i('✅ Tobank STAC themes loaded successfully');
-      }
+      if (!mounted) return;
+      setState(() {
+        _lightTheme = lightTheme;
+        _darkTheme = darkTheme;
+        _themesLoaded = true;
+      });
+      AppLogger.i('Loaded Tobank STAC themes successfully');
     } catch (e, stackTrace) {
       AppLogger.e(
         'Failed to load Tobank STAC themes, falling back to MaterialApp',
         e,
         stackTrace,
       );
-      if (mounted) {
-        setState(() {
-          _themesLoaded = true; // Still set to true to show fallback
-        });
-      }
+      if (!mounted) return;
+      setState(() {
+        _themesLoaded = true;
+      });
     }
   }
 
@@ -105,30 +87,97 @@ class _AppRootState extends ConsumerState<AppRoot> {
     );
   }
 
+  Widget _wrapWithISpect({
+    required Widget child,
+    required ConsoleLoggingNavigatorObserver? observer,
+    required DebugPanelSettingsState settings,
+    required List<DraggablePanelItem> panelItems,
+    required List<DraggablePanelButtonItem> panelButtons,
+  }) {
+    if (observer == null) {
+      debugPrint('ISpect disabled - observer is null');
+      AppLogger.d('ISpect disabled - observer is null');
+      return child;
+    }
+
+    final isEnabled = settings.ispectDraggablePanelEnabled;
+    debugPrint('ISpectBuilder building - isISpectEnabled: $isEnabled');
+    AppLogger.d('ISpectBuilder building - isISpectEnabled: $isEnabled');
+
+    try {
+      // Stable key: do NOT embed isEnabled/debugPanelEnabled. The app renders in
+      // two provider scopes (real app + DebugPanel device-frame preview); keying
+      // on the toggle value churned the ValueKey, remounting ISpectBuilder every
+      // frame and dropping the draggable panel. Stable key = mount once.
+      final ispectBuilder = ISpectBuilder(
+        key: const ValueKey('ispect_builder'),
+        isISpectEnabled: isEnabled,
+        options: ISpectOptions(
+          observer: observer.ispectObserver,
+          locale: const Locale('en'),
+          panelItems: panelItems,
+          panelButtons: panelButtons,
+          actionItems: const [],
+          isInspectorEnabled: false,
+          isColorPickerEnabled: false,
+          isLogPageEnabled: false,
+          isPerformanceEnabled: true,
+        ),
+        child: child,
+      );
+
+      debugPrint('ISpectBuilder created with isISpectEnabled: $isEnabled');
+      AppLogger.d('ISpectBuilder created with isISpectEnabled: $isEnabled');
+      return ispectBuilder;
+    } catch (e, stackTrace) {
+      debugPrint('ISpectBuilder error: $e');
+      debugPrint('Stack: $stackTrace');
+      AppLogger.e('ISpectBuilder error: $e', stackTrace);
+      return child;
+    }
+  }
+
+  Widget _buildLoadingApp() {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      routes: {
+        '/tobank-stac-dart': (context) => const TobankStacDartScreen(),
+      },
+      home: const Scaffold(body: Center(child: CircularProgressIndicator())),
+    );
+  }
+
+  List<LocalizationsDelegate<dynamic>> _localizationDelegates() {
+    return [
+      ...ISpectLocalization.localizationDelegates,
+      PersianMaterialLocalizations.delegate,
+      PersianCupertinoLocalizations.delegate,
+      GlobalMaterialLocalizations.delegate,
+      GlobalWidgetsLocalizations.delegate,
+      GlobalCupertinoLocalizations.delegate,
+    ];
+  }
+
+  List<Locale> _supportedLocales() {
+    return [
+      ...ISpectLocalization.supportedLocales,
+      const Locale('fa', 'IR'),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
-    final Widget homeWidget = AppRoot.startFromPromissoryRealFlow
+    final homeWidget = AppRoot.startFromPromissoryRealFlow
         ? const PromissoryRealLoaderScreen()
         : const PreLaunchScreen();
 
-    // Get the shared observer instance from provider
-    // This observer is created once and shared across the app
     final observer = ref.watch(ispectNavigatorObserverProvider);
-
-    // Get debug panel enabled state from settings
     final settings = ref.watch(debugPanelSettingsProvider);
-
-    // Get custom panel items for ISpect draggable panel (grid items)
     final panelItems = ref.watch(ispectPanelItemsProvider);
-    final panelButtons = ref.watch(
-      ispectPanelButtonsProvider,
-    ); // Should be empty now
-
-    // Watch theme controller for theme mode changes
+    final panelButtons = ref.watch(ispectPanelButtonsProvider);
     final themeAsync = ref.watch(themeControllerProvider);
     final themeMode = themeAsync.value ?? ThemeMode.system;
 
-    // Keep STAC current aliases in sync with the active theme mode
     ref.listen<AsyncValue<ThemeMode>>(themeControllerProvider, (
       previous,
       next,
@@ -139,249 +188,91 @@ class _AppRootState extends ConsumerState<AppRoot> {
       }
     });
 
-    // Ensure STAC current aliases match the active theme when initial value resolves
     if (themeAsync.hasValue) {
       _syncStacThemeAliases(themeMode);
     }
 
-    // Show loading indicator while themes are loading
     if (!_themesLoaded) {
-      return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        routes: {
-          '/tobank-stac-dart': (context) => const TobankStacDartScreen(),
-        },
-        home: const Scaffold(body: Center(child: CircularProgressIndicator())),
-      );
+      return _buildLoadingApp();
     }
 
-    // Use StacApp if themes loaded successfully, otherwise fallback to MaterialApp
+    final navigatorObservers = observer != null
+        ? <NavigatorObserver>[observer, observer.ispectObserver]
+        : const <NavigatorObserver>[];
+
     final app = _lightTheme != null && _darkTheme != null
         ? StacApp(
-            scrollBehavior:
-                MyScrollBehavior(), // Enable mouse scrolling with custom behavior
+            scrollBehavior: MyScrollBehavior(),
             navigatorKey: AppRoot.mainAppNavigatorKey,
             debugShowCheckedModeBanner: false,
-            theme: _lightTheme!,
-            darkTheme: _darkTheme!,
+            theme: StacAppTheme.dsl(theme: _lightTheme!),
+            darkTheme: StacAppTheme.dsl(theme: _darkTheme!),
             themeMode: themeMode,
-            localizationsDelegates: [
-              ...ISpectLocalization.localizationDelegates,
-              // Persian date picker localizations
-              PersianMaterialLocalizations.delegate,
-              PersianCupertinoLocalizations.delegate,
-              // Flutter default localizations
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: [
-              ...ISpectLocalization.supportedLocales,
-              const Locale('fa', 'IR'), // Persian (Farsi) - for date picker
-            ],
-            // Don't set default locale to fa_IR - let ISpect use its default
-            // Persian localization will be used by the date picker when needed
+            localizationsDelegates: _localizationDelegates(),
+            supportedLocales: _supportedLocales(),
             homeBuilder: (context) => homeWidget,
             showPerformanceOverlay: false,
             showSemanticsDebugger: false,
             debugShowMaterialGrid: false,
-            navigatorObservers: observer != null
-                ? [observer, observer.ispectObserver]
-                : [],
+            navigatorObservers: navigatorObservers,
             routes: {
               '/tobank-stac-dart': (context) => const TobankStacDartScreen(),
             },
-            builder: (context, child) {
-              // ISpect should work independently of debug panel
-              // It wraps the actual app content, not the debug panel
-              if (observer != null) {
-                try {
-                  // CRITICAL: Use the SAME observer instance created above
-                  // According to ISpect docs, observer must be in ISpectOptions
-                  // and the same instance used in navigatorObservers for navigation to work
-                  final isEnabled = settings.ispectDraggablePanelEnabled;
-
-                  // Log the current state to verify changes are being detected
-                  debugPrint(
-                    '🔧 ISpectBuilder building - isISpectEnabled: $isEnabled',
-                  );
-                  AppLogger.d(
-                    '🔧 ISpectBuilder building - isISpectEnabled: $isEnabled',
-                  );
-
-                  final ispectBuilder = ISpectBuilder(
-                    // Use a key based on enabled state to force rebuild when setting changes
-                    key: ValueKey(
-                      'ispect_builder_${isEnabled}_${settings.debugPanelEnabled}',
-                    ),
-                    isISpectEnabled:
-                        isEnabled, // Control ISpect panel visibility via settings
-                    options: ISpectOptions(
-                      observer:
-                          observer.ispectObserver, // Pass inner ISpect observer
-                      locale: const Locale('en'),
-                      panelItems: panelItems, // Use panelItems for grid layout
-                      panelButtons:
-                          panelButtons, // Empty list to clear wide buttons
-                      actionItems: [], // Clear default action items
-                      // Disable some default items to prevent overflow (save space)
-                      isInspectorEnabled: false,
-                      isColorPickerEnabled: false,
-                      isLogPageEnabled: false,
-                      isPerformanceEnabled: true,
-                    ),
-                    child: _wrapWithStableAppBarTheme(
-                      context,
-                      child ?? const SizedBox.shrink(),
-                    ),
-                  );
-
-                  // Debug: Log ISpectBuilder creation
-                  debugPrint(
-                    '✅ ISpectBuilder created with isISpectEnabled: $isEnabled',
-                  );
-                  AppLogger.d(
-                    '✅ ISpectBuilder created with isISpectEnabled: $isEnabled',
-                  );
-
-                  return ispectBuilder;
-                } catch (e, stackTrace) {
-                  // Log error and fallback
-                  debugPrint('❌ ISpectBuilder error: $e');
-                  debugPrint('Stack: $stackTrace');
-                  AppLogger.e('❌ ISpectBuilder error: $e', stackTrace);
-                  return _wrapWithStableAppBarTheme(
-                    context,
-                    child ?? const SizedBox.shrink(),
-                  );
-                }
-              }
-              debugPrint('ℹ️ ISpect disabled in builder - panel will not show');
-              AppLogger.d('ℹ️ ISpect disabled in builder - observer is null');
-              return _wrapWithStableAppBarTheme(
+            builder: (context, child) => _wrapWithISpect(
+              observer: observer,
+              settings: settings,
+              panelItems: panelItems,
+              panelButtons: panelButtons,
+              child: _wrapWithStableAppBarTheme(
                 context,
                 child ?? const SizedBox.shrink(),
-              );
-            },
+              ),
+            ),
           )
         : MaterialApp(
-            scrollBehavior:
-                MyScrollBehavior(), // Enable mouse scrolling with custom behavior
+            scrollBehavior: MyScrollBehavior(),
             navigatorKey: AppRoot.mainAppNavigatorKey,
             debugShowCheckedModeBanner: false,
             theme: buildTheme(brightness: Brightness.light),
             darkTheme: buildTheme(brightness: Brightness.dark),
             themeMode: themeMode,
-            localizationsDelegates: [
-              ...ISpectLocalization.localizationDelegates,
-              // Persian date picker localizations
-              PersianMaterialLocalizations.delegate,
-              PersianCupertinoLocalizations.delegate,
-              // Flutter default localizations
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: [
-              ...ISpectLocalization.supportedLocales,
-              const Locale('fa', 'IR'), // Persian (Farsi) - for date picker
-            ],
-            // Don't set default locale to fa_IR - let ISpect use its default
-            // Persian localization will be used by the date picker when needed
+            localizationsDelegates: _localizationDelegates(),
+            supportedLocales: _supportedLocales(),
             home: homeWidget,
             showPerformanceOverlay: false,
             showSemanticsDebugger: false,
             debugShowMaterialGrid: false,
-            navigatorObservers: observer != null
-                ? [observer, observer.ispectObserver]
-                : [],
+            navigatorObservers: navigatorObservers,
             routes: {
               '/tobank-stac-dart': (context) => const TobankStacDartScreen(),
             },
-            builder: (context, child) {
-              // ISpect should work independently of debug panel
-              // It wraps the actual app content, not the debug panel
-              if (observer != null) {
-                try {
-                  // CRITICAL: Use the SAME observer instance created above
-                  // According to ISpect docs, observer must be in ISpectOptions
-                  // and the same instance used in navigatorObservers for navigation to work
-                  final isEnabled = settings.ispectDraggablePanelEnabled;
-
-                  // Log the current state to verify changes are being detected
-                  debugPrint(
-                    '🔧 ISpectBuilder building - isISpectEnabled: $isEnabled',
-                  );
-                  AppLogger.d(
-                    '🔧 ISpectBuilder building - isISpectEnabled: $isEnabled',
-                  );
-
-                  final ispectBuilder = ISpectBuilder(
-                    // Use a key based on enabled state to force rebuild when setting changes
-                    key: ValueKey(
-                      'ispect_builder_${isEnabled}_${settings.debugPanelEnabled}',
-                    ),
-                    isISpectEnabled:
-                        isEnabled, // Control ISpect panel visibility via settings
-                    options: ISpectOptions(
-                      observer:
-                          observer.ispectObserver, // Pass inner ISpect observer
-                      locale: const Locale('en'),
-                      panelButtons:
-                          panelButtons, // Add custom debug panel toggle button with ON/OFF label
-                    ),
-                    child: _wrapWithStableAppBarTheme(
-                      context,
-                      child ?? const SizedBox.shrink(),
-                    ),
-                  );
-
-                  // Debug: Log ISpectBuilder creation
-                  debugPrint(
-                    '✅ ISpectBuilder created with isISpectEnabled: $isEnabled',
-                  );
-                  AppLogger.d(
-                    '✅ ISpectBuilder created with isISpectEnabled: $isEnabled',
-                  );
-
-                  return ispectBuilder;
-                } catch (e, stackTrace) {
-                  // Log error and fallback
-                  debugPrint('❌ ISpectBuilder error: $e');
-                  debugPrint('Stack: $stackTrace');
-                  AppLogger.e('❌ ISpectBuilder error: $e', stackTrace);
-                  return _wrapWithStableAppBarTheme(
-                    context,
-                    child ?? const SizedBox.shrink(),
-                  );
-                }
-              }
-              debugPrint('ℹ️ ISpect disabled in builder - panel will not show');
-              AppLogger.d('ℹ️ ISpect disabled in builder - observer is null');
-              return _wrapWithStableAppBarTheme(
+            builder: (context, child) => _wrapWithISpect(
+              observer: observer,
+              settings: settings,
+              panelItems: panelItems,
+              panelButtons: panelButtons,
+              child: _wrapWithStableAppBarTheme(
                 context,
                 child ?? const SizedBox.shrink(),
-              );
-            },
+              ),
+            ),
           );
 
-    // Wrap app with DebugPanel if flag-based initialization is enabled
-    // DebugPanel wraps ISpect, which wraps the app content
-    // Hierarchy: DebugPanel > StacApp/MaterialApp (with ISpectBuilder) > App Content
-    // Note: DebugPanel.enabled controls visibility, which is managed by persistent settings
-    if (DebugPanelConfig.shouldInitializeByFlag) {
-      // Debug: Log the value being passed to DebugPanel
-      debugPrint('🔧 DebugPanel enabled value: ${settings.debugPanelEnabled}');
+    final appShell = DebugPanelConfig.shouldInitializeByFlag
+        ? DebugPanel(
+            // TEMP force-on: persisted toggle was set false, hiding the panel and
+            // its settings tab (no way to re-enable from UI). Revert to
+            // `settings.debugPanelEnabled` after toggling it back on.
+            enabled: true,
+            child: app,
+          )
+        : app;
 
-      return DebugPanel(
-        enabled:
-            settings.debugPanelEnabled, // Use persistent setting for visibility
-        child: app,
-      );
+    if (DebugPanelConfig.shouldInitializeByFlag) {
+      debugPrint('DebugPanel enabled value: ${settings.debugPanelEnabled}');
     }
 
-    // If not initialized by flag, return app directly (no DebugPanel wrapper)
-    return app;
+    return appShell;
   }
 
   void _syncStacThemeAliases(ThemeMode mode) {
@@ -405,10 +296,10 @@ class _AppRootState extends ConsumerState<AppRoot> {
 class MyScrollBehavior extends MaterialScrollBehavior {
   @override
   Set<PointerDeviceKind> get dragDevices => {
-    PointerDeviceKind.touch,
-    PointerDeviceKind.mouse,
-    PointerDeviceKind.stylus,
-    PointerDeviceKind.trackpad,
-    PointerDeviceKind.unknown,
-  };
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.stylus,
+        PointerDeviceKind.trackpad,
+        PointerDeviceKind.unknown,
+      };
 }

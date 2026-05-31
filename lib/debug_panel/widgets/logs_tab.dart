@@ -41,28 +41,27 @@ class _LogsTabState extends ConsumerState<LogsTab> {
           observer: observer,
           locale: const Locale('en'),
         ),
-        child: Navigator(
-          key: GlobalKey<NavigatorState>(),
-          onGenerateRoute: (settings) {
-            return MaterialPageRoute(
-              builder: (context) {
-                // Navigator.builder creates new context
-                // Wrap in ScaffoldMessenger so bottom sheets can access it
-                return ScaffoldMessenger(
-                  child: Builder(
-                    builder: (builderContext) {
-                      try {
-                        final ispectScope = ISpect.read(builderContext);
-                        return _buildLogsScreenContent(ispectScope);
-                      } catch (e) {
-                        return _buildErrorState(builderContext, e.toString());
-                      }
-                    },
-                  ),
-                );
-              },
-              settings: settings,
-            );
+        child: Builder(
+          builder: (scopeContext) {
+            try {
+              final ispectScope = ISpect.read(scopeContext);
+              return Navigator(
+                key: GlobalKey<NavigatorState>(),
+                onGenerateRoute: (settings) {
+                  return MaterialPageRoute(
+                    settings: settings,
+                    builder: (routeContext) => ISpectScopeController(
+                      model: ispectScope,
+                      child: ScaffoldMessenger(
+                        child: _buildLogsScreenContent(ispectScope),
+                      ),
+                    ),
+                  );
+                },
+              );
+            } catch (e) {
+              return _buildErrorState(scopeContext, e.toString());
+            }
           },
         ),
       ),

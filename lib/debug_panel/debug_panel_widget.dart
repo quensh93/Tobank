@@ -1,23 +1,18 @@
-import 'dart:ui';
+﻿import 'dart:ui';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:device_frame/device_frame.dart';
 import '../core/helpers/logger.dart';
-import '../core/bootstrap/app_root.dart';
 import 'state/device_preview_state.dart';
 import 'state/debug_panel_settings_state.dart';
 import 'themes/debug_panel_theme.dart';
 import 'widgets/device_preview_tab.dart';
 import 'widgets/logs_tab.dart';
-import 'widgets/accessibility_tab.dart';
 import 'widgets/performance_tab.dart';
 import 'widgets/network_tab.dart';
 import 'widgets/settings_tab.dart';
-import 'widgets/playground_tab.dart';
-import 'widgets/visual_editor_tab.dart';
-import 'widgets/color_showcase_screen.dart';
 
 /// Main debug panel widget that wraps the application
 ///
@@ -75,7 +70,7 @@ class _LayoutSelector extends ConsumerWidget {
     );
 
     AppLogger.d(
-      '🔄 _LayoutSelector building - Layout mode: ${layoutMode.name}',
+      'ðŸ”„ _LayoutSelector building - Layout mode: ${layoutMode.name}',
     );
 
     return LayoutBuilder(
@@ -84,7 +79,7 @@ class _LayoutSelector extends ConsumerWidget {
         final isSmall = constraints.maxWidth < 700;
 
         AppLogger.d(
-          '🏗️ Building debug panel layout - Mode: ${layoutMode.name}, isSmall: $isSmall, width: ${constraints.maxWidth}',
+          'ðŸ—ï¸ Building debug panel layout - Mode: ${layoutMode.name}, isSmall: $isSmall, width: ${constraints.maxWidth}',
         );
 
         // Create widget based on layout mode preference
@@ -111,7 +106,7 @@ class _LayoutSelector extends ConsumerWidget {
           layoutKey = 'large';
         }
 
-        AppLogger.d('✅ Returning $layoutKey layout widget');
+        AppLogger.d('âœ… Returning $layoutKey layout widget');
         return layoutWidget;
       },
     );
@@ -402,7 +397,7 @@ class _MobileBottomSheetPanelState
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 9, vsync: this);
+    _tabController = TabController(length: 5, vsync: this);
   }
 
   @override
@@ -415,12 +410,13 @@ class _MobileBottomSheetPanelState
   @override
   Widget build(BuildContext context) {
     final settings = ref.watch(debugPanelSettingsProvider);
+    final targetIndex = settings.selectedTabIndex.clamp(0, 4);
 
     // Sync tab index
-    if (_tabController.index != settings.selectedTabIndex) {
+    if (_tabController.index != targetIndex) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted && _tabController.index != settings.selectedTabIndex) {
-          _tabController.animateTo(settings.selectedTabIndex);
+        if (mounted && _tabController.index != targetIndex) {
+          _tabController.animateTo(targetIndex);
         }
       });
     }
@@ -557,10 +553,6 @@ class _MobileBottomSheetPanelState
                         tabs: [
                           _buildTab(Icons.phone_android, 'Device', settings),
                           _buildTab(Icons.bug_report, 'Logs', settings),
-                          _buildTab(Icons.build, 'Tools', settings),
-                          _buildTab(Icons.code, 'Playground', settings),
-                          _buildTab(Icons.design_services, 'Visual', settings),
-                          _buildTab(Icons.accessibility, 'A11y', settings),
                           _buildTab(Icons.speed, 'Perf', settings),
                           _buildTab(Icons.network_check, 'Network', settings),
                           _buildTab(Icons.settings, 'Settings', settings),
@@ -579,10 +571,6 @@ class _MobileBottomSheetPanelState
                     children: const [
                       DevicePreviewTab(),
                       LogsTab(),
-                      ToolsTab(),
-                      PlaygroundTab(),
-                      VisualEditorTab(),
-                      AccessibilityTab(),
                       PerformanceTab(),
                       NetworkTab(),
                       SettingsTab(),
@@ -842,7 +830,7 @@ class _ToolPanelState extends ConsumerState<ToolPanel>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 9, vsync: this);
+    _tabController = TabController(length: 5, vsync: this);
     _tabController.addListener(_onTabChanged);
   }
 
@@ -872,11 +860,12 @@ class _ToolPanelState extends ConsumerState<ToolPanel>
     final settings = ref.watch(debugPanelSettingsProvider);
 
     // Restore saved tab index when settings change
-    if (_tabController.index != settings.selectedTabIndex) {
+    final targetIndex = settings.selectedTabIndex.clamp(0, 4);
+    if (_tabController.index != targetIndex) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (_tabController.index != settings.selectedTabIndex) {
+        if (_tabController.index != targetIndex) {
           _isRestoringTab = true;
-          _tabController.animateTo(settings.selectedTabIndex);
+          _tabController.animateTo(targetIndex);
           // Reset flag after animation completes
           Future.delayed(const Duration(milliseconds: 100), () {
             if (mounted) {
@@ -993,34 +982,6 @@ class _ToolPanelState extends ConsumerState<ToolPanel>
                                 ),
                                 Tab(
                                   icon: Icon(
-                                    Icons.build,
-                                    size: settings.uiSize.iconSize,
-                                  ),
-                                  text: 'Tools',
-                                ),
-                                Tab(
-                                  icon: Icon(
-                                    Icons.code,
-                                    size: settings.uiSize.iconSize,
-                                  ),
-                                  text: 'Playground',
-                                ),
-                                Tab(
-                                  icon: Icon(
-                                    Icons.design_services,
-                                    size: settings.uiSize.iconSize,
-                                  ),
-                                  text: 'Visual Editor',
-                                ),
-                                Tab(
-                                  icon: Icon(
-                                    Icons.accessibility,
-                                    size: settings.uiSize.iconSize,
-                                  ),
-                                  text: 'Accessibility',
-                                ),
-                                Tab(
-                                  icon: Icon(
                                     Icons.speed,
                                     size: settings.uiSize.iconSize,
                                   ),
@@ -1057,10 +1018,6 @@ class _ToolPanelState extends ConsumerState<ToolPanel>
                         children: const [
                           DevicePreviewTab(),
                           LogsTab(),
-                          ToolsTab(),
-                          PlaygroundTab(),
-                          VisualEditorTab(),
-                          AccessibilityTab(),
                           PerformanceTab(),
                           NetworkTab(),
                           SettingsTab(),
@@ -1092,183 +1049,4 @@ class DebugPanelConstants {
   static const double mobilePanelHeight =
       200.0; // Further reduced height to prevent overflow
   static const double breakpoint = 700.0;
-}
-
-/// Tools tab with various development tools
-class ToolsTab extends StatelessWidget {
-  const ToolsTab({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildSectionHeader(context, 'STAC Tools', Icons.view_stream),
-          const SizedBox(height: 12),
-          _buildToolCard(
-            context,
-            icon: Icons.list_alt,
-            title: 'STAC Logs',
-            description:
-                'View STAC operations including screen fetching, JSON parsing, and component rendering',
-            onTap: () {
-              // Navigate the main app (device frame) using the main app's Navigator key
-              final navigatorKey = AppRoot.mainAppNavigatorKey;
-              final navigator = navigatorKey.currentState;
-              if (navigator != null) {
-                // Note: The actual StacLogsScreen import will be added in the main app
-                // This is a placeholder that shows the feature is available
-                navigator.push(
-                  MaterialPageRoute(
-                    builder: (_) => Scaffold(
-                      appBar: AppBar(title: const Text('STAC Logs')),
-                      body: const Center(
-                        child: Padding(
-                          padding: EdgeInsets.all(24.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.view_stream,
-                                size: 64,
-                                color: Colors.blue,
-                              ),
-                              SizedBox(height: 24),
-                              Text(
-                                'STAC Logs',
-                                style: TextStyle(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              SizedBox(height: 16),
-                              Text(
-                                'The STAC Logs feature is available in lib/debug_panel_extensions/screens/stac_logs_screen.dart',
-                                textAlign: TextAlign.center,
-                              ),
-                              SizedBox(height: 8),
-                              Text(
-                                'Import and use StacLogsScreen in your main app to view STAC operation logs.',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                );
-              }
-            },
-          ),
-          const SizedBox(height: 24),
-          _buildSectionHeader(context, 'Design System Tools', Icons.palette),
-          const SizedBox(height: 12),
-          _buildToolCard(
-            context,
-            icon: Icons.color_lens,
-            title: 'Color Showcase',
-            description:
-                'View all ColorScheme colors applied to Material widgets in a device frame',
-            onTap: () {
-              // Navigate the main app (device frame) using the main app's Navigator key
-              final navigatorKey = AppRoot.mainAppNavigatorKey;
-              final navigator = navigatorKey.currentState;
-              if (navigator != null) {
-                navigator.push(
-                  MaterialPageRoute(
-                    builder: (_) => const ColorShowcaseScreen(),
-                  ),
-                );
-              }
-            },
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildSectionHeader(
-    BuildContext context,
-    String title,
-    IconData icon,
-  ) {
-    return Row(
-      children: [
-        Icon(icon, color: Theme.of(context).colorScheme.primary),
-        const SizedBox(width: 8),
-        Text(
-          title,
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildToolCard(
-    BuildContext context, {
-    required IconData icon,
-    required String title,
-    required String description,
-    required VoidCallback onTap,
-  }) {
-    return Card(
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(12),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primaryContainer,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Icon(
-                  icon,
-                  color: Theme.of(context).colorScheme.onPrimaryContainer,
-                  size: 24,
-                ),
-              ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.w600,
-                          ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      description,
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color:
-                                Theme.of(context).colorScheme.onSurfaceVariant,
-                          ),
-                    ),
-                  ],
-                ),
-              ),
-              Icon(
-                Icons.arrow_forward_ios,
-                size: 16,
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 }

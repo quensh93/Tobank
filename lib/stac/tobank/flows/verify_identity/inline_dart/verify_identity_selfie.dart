@@ -1,7 +1,7 @@
-import 'package:stac_core/stac_core.dart';
-import 'package:tobank_sdui/core/stac/builders/stac_common_builders.dart';
-import 'package:tobank_sdui/core/stac/builders/stac_custom_actions.dart';
-import 'package:tobank_sdui/core/stac/builders/stac_stateful_widget.dart';
+﻿import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
+import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 /// User selfie photo & video capture page.
@@ -560,3 +560,4 @@ StacWidget _buildSelfieDeleteButton({required StacAction onTap}) {
     ),
   );
 }
+
