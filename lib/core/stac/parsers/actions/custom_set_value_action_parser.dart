@@ -263,6 +263,16 @@ class CustomSetValueActionParser
       return DateTime.now().millisecondsSinceEpoch;
     }
 
+    final orParts = _splitByTopLevelOperator(expr, '||');
+    if (orParts.length > 1) {
+      return _evalCondition(expr);
+    }
+
+    final andParts = _splitByTopLevelOperator(expr, '&&');
+    if (andParts.length > 1) {
+      return _evalCondition(expr);
+    }
+
     // removeLeadingZero(value)
     // Examples:
     //   {{removeLeadingZero(userData.mobile)}} -> "912..."
@@ -384,9 +394,38 @@ class CustomSetValueActionParser
 
   /// Evaluates a condition expression and returns a boolean
   bool _evalCondition(String conditionExpr) {
+    final expr = conditionExpr.trim();
+    if (expr.isEmpty) return false;
+
+    // Strip a single layer of wrapping parentheses.
+    if (expr.startsWith('(') && expr.endsWith(')')) {
+      final inner = expr.substring(1, expr.length - 1).trim();
+      if (inner.isNotEmpty) {
+        return _evalCondition(inner);
+      }
+    }
+
+    // Support logical OR with short-circuiting.
+    final orParts = _splitByTopLevelOperator(expr, '||');
+    if (orParts.length > 1) {
+      for (final part in orParts) {
+        if (_evalCondition(part)) return true;
+      }
+      return false;
+    }
+
+    // Support logical AND with short-circuiting.
+    final andParts = _splitByTopLevelOperator(expr, '&&');
+    if (andParts.length > 1) {
+      for (final part in andParts) {
+        if (!_evalCondition(part)) return false;
+      }
+      return true;
+    }
+
     final binaryMatch = RegExp(
       r'^\s*(.+?)\s*(>=|<=|==|!=|>|<)\s*(.+)\s*$',
-    ).firstMatch(conditionExpr);
+    ).firstMatch(expr);
     if (binaryMatch != null) {
       final leftExpr = binaryMatch.group(1)!.trim();
       final op = binaryMatch.group(2)!.trim();
@@ -397,15 +436,65 @@ class CustomSetValueActionParser
     }
 
     // Handle negation in condition
-    if (conditionExpr.startsWith('!')) {
-      final varName = conditionExpr.substring(1).trim();
+    if (expr.startsWith('!')) {
+      final varName = expr.substring(1).trim();
       final value = StacRegistry.instance.getValue(varName);
       return !_toBool(value);
     }
 
     // Simple variable lookup
-    final value = StacRegistry.instance.getValue(conditionExpr);
+    final value = StacRegistry.instance.getValue(expr);
     return _toBool(value);
+  }
+
+  List<String> _splitByTopLevelOperator(String expr, String operator) {
+    final parts = <String>[];
+    final buffer = StringBuffer();
+    var depth = 0;
+    var inSingleQuote = false;
+    var inDoubleQuote = false;
+    var i = 0;
+
+    while (i < expr.length) {
+      final ch = expr[i];
+
+      if (ch == "'" && !inDoubleQuote) {
+        inSingleQuote = !inSingleQuote;
+        buffer.write(ch);
+        i++;
+        continue;
+      }
+
+      if (ch == '"' && !inSingleQuote) {
+        inDoubleQuote = !inDoubleQuote;
+        buffer.write(ch);
+        i++;
+        continue;
+      }
+
+      if (!inSingleQuote && !inDoubleQuote) {
+        if (ch == '(') {
+          depth++;
+        } else if (ch == ')' && depth > 0) {
+          depth--;
+        }
+
+        if (depth == 0 &&
+            i + operator.length <= expr.length &&
+            expr.substring(i, i + operator.length) == operator) {
+          parts.add(buffer.toString().trim());
+          buffer.clear();
+          i += operator.length;
+          continue;
+        }
+      }
+
+      buffer.write(ch);
+      i++;
+    }
+
+    parts.add(buffer.toString().trim());
+    return parts.where((e) => e.isNotEmpty).toList();
   }
 
   dynamic _evalOperand(String expr) {
