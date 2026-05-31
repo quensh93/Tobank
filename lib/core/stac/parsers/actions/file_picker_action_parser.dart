@@ -254,6 +254,9 @@ class FilePickerActionParser extends StacActionParser<FilePickerActionModel> {
 
     final cropped = await ImageCropper().cropImage(
       sourcePath: sourcePath,
+      maxWidth: model.cropMaxWidth,
+      maxHeight: model.cropMaxHeight,
+      compressQuality: model.cropCompressQuality ?? 90,
       aspectRatio: lockAspectRatio
           ? CropAspectRatio(
               ratioX: model.cropAspectRatioX!,

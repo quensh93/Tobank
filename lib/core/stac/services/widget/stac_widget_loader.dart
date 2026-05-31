@@ -152,6 +152,18 @@ import '../../../../stac/tobank/flows/transaction/menu/transaction_menu.dart'
     as transaction_menu_dart;
 import '../../../../stac/tobank/flows/installment_payment/menu/installment_payment_api_real_menu.dart'
     as installment_payment_api_real_menu_dart;
+import '../../../../stac/tobank/flows/child_loan/menu/child_loan_api_real_menu.dart'
+    as child_loan_api_real_menu_dart;
+import '../../../../stac/tobank/flows/child_loan/dart/child_loan_rules.dart'
+    as child_loan_rules_dart;
+import '../../../../stac/tobank/flows/child_loan/dart/child_loan_customer_check.dart'
+    as child_loan_customer_check_dart;
+import '../../../../stac/tobank/flows/child_loan/dart/child_loan_task_list.dart'
+    as child_loan_task_list_dart;
+import '../../../../stac/tobank/flows/child_loan/dart/child_loan_guarantee_address.dart'
+    as child_loan_guarantee_address_dart;
+import '../../../../stac/tobank/flows/child_loan/dart/child_loan_child_check.dart'
+    as child_loan_child_check_dart;
 import '../../../../stac/tobank/flows/installment_payment/dart/installment_payment_list_main.dart'
     as installment_payment_list_main_dart;
 import '../../../../stac/tobank/flows/installment_payment/dart/installment_payment_detail_main.dart'
@@ -405,6 +417,19 @@ class StacWidgetLoader {
         installment_payment_api_real_menu_dart
             .installmentPaymentApiRealMenu()
             .toJson(),
+    'child_loan_api_real_menu': () =>
+        child_loan_api_real_menu_dart.childLoanApiRealMenu().toJson(),
+    'child_loan_rules': () =>
+        child_loan_rules_dart.childLoanRulesScreen().toJson(),
+    'child_loan_customer_check': () =>
+        child_loan_customer_check_dart.childLoanCustomerCheckScreen().toJson(),
+    'child_loan_task_list': () =>
+        child_loan_task_list_dart.childLoanTaskListScreen().toJson(),
+    'child_loan_guarantee_address': () => child_loan_guarantee_address_dart
+        .childLoanGuaranteeAddressScreen()
+        .toJson(),
+    'child_loan_child_check': () =>
+        child_loan_child_check_dart.childLoanChildCheckScreen().toJson(),
     'installment_payment_list_main': () => installment_payment_list_main_dart
         .installmentPaymentListMain()
         .toJson(),

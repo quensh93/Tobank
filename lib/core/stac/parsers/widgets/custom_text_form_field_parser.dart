@@ -228,7 +228,8 @@ class _CustomTextFormFieldWidgetState
   Widget build(BuildContext context) {
     final onTapAction = widget.rawJson?['onTap'] as Map<String, dynamic>?;
     final supportTextDirection = _parseSupportTextDirection();
-    final fieldTextDirection = supportTextDirection ?? widget.model.textDirection?.parse;
+    final fieldTextDirection =
+        supportTextDirection ?? widget.model.textDirection?.parse;
 
     final obscuringCharacter = _normalizeObscuringCharacter(
       widget.model.obscuringCharacter,
@@ -312,6 +313,7 @@ class _CustomTextFormFieldWidgetState
       textCapitalization:
           widget.model.textCapitalization?.parse ?? TextCapitalization.none,
       textAlign: widget.model.textAlign?.parse ?? TextAlign.start,
+      textAlignVertical: _parseTextAlignVertical(),
       // Use supportTextDirection for the whole field so helper/error text
       // follows the expected RTL/LTR layout as well.
       textDirection: fieldTextDirection,
@@ -398,6 +400,24 @@ class _CustomTextFormFieldWidgetState
     }
   }
 
+  TextAlignVertical? _parseTextAlignVertical() {
+    final rawValue = widget.rawJson?['textAlignVertical'];
+    if (rawValue is! String) {
+      return null;
+    }
+
+    switch (rawValue.toLowerCase().trim()) {
+      case 'top':
+        return TextAlignVertical.top;
+      case 'center':
+        return TextAlignVertical.center;
+      case 'bottom':
+        return TextAlignVertical.bottom;
+      default:
+        return null;
+    }
+  }
+
   InputDecoration? _buildDecoration(BuildContext context) {
     final parsedDecoration = widget.model.decoration?.parse(context);
     final rawDecoration = widget.rawJson?['decoration'];
@@ -412,7 +432,8 @@ class _CustomTextFormFieldWidgetState
       // explicit border overrides from raw JSON (e.g. type: none).
       return parsedDecoration?.copyWith(
         border:
-            _parseInputBorder(decorationMap['border']) ?? parsedDecoration.border,
+            _parseInputBorder(decorationMap['border']) ??
+            parsedDecoration.border,
         enabledBorder:
             _parseInputBorder(decorationMap['enabledBorder']) ??
             parsedDecoration.enabledBorder,
@@ -466,7 +487,8 @@ class _CustomTextFormFieldWidgetState
           overflow: TextOverflow.ellipsis,
         ),
       ),
-      border: _parseInputBorder(decorationMap['border']) ?? baseDecoration.border,
+      border:
+          _parseInputBorder(decorationMap['border']) ?? baseDecoration.border,
       enabledBorder:
           _parseInputBorder(decorationMap['enabledBorder']) ??
           baseDecoration.enabledBorder,
@@ -526,7 +548,10 @@ class _CustomTextFormFieldWidgetState
     return Directionality.of(context);
   }
 
-  Alignment _mapHintAlignment(TextAlign textAlign, TextDirection textDirection) {
+  Alignment _mapHintAlignment(
+    TextAlign textAlign,
+    TextDirection textDirection,
+  ) {
     switch (textAlign) {
       case TextAlign.left:
         return Alignment.centerLeft;

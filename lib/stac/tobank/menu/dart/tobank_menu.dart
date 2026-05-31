@@ -92,6 +92,10 @@ StacWidget tobankMenuDart() {
           widgetType: 'installment_payment_api_real_menu',
         ),
         _buildSingleButtonMenuItemCard(
+          title: 'تسهیلات فرزندآوری ( API واقعی)',
+          widgetType: 'child_loan_api_real_menu',
+        ),
+        _buildSingleButtonMenuItemCard(
           title: 'اعلانات (API واقعی)',
           widgetType: 'notification_menu',
         ),

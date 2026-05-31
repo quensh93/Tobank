@@ -271,6 +271,9 @@ class StacFilePickerAction extends StacAction {
   final bool cropImage;
   final double? cropAspectRatioX;
   final double? cropAspectRatioY;
+  final int? cropMaxWidth;
+  final int? cropMaxHeight;
+  final int? cropCompressQuality;
   final List<String>? allowedExtensions;
   final bool previewBeforeConfirm;
   final String? previewSheetTitle;
@@ -288,6 +291,9 @@ class StacFilePickerAction extends StacAction {
     this.cropImage = false,
     this.cropAspectRatioX,
     this.cropAspectRatioY,
+    this.cropMaxWidth,
+    this.cropMaxHeight,
+    this.cropCompressQuality,
     this.allowedExtensions,
     this.previewBeforeConfirm = false,
     this.previewSheetTitle,
@@ -311,6 +317,9 @@ class StacFilePickerAction extends StacAction {
     'cropImage': cropImage,
     if (cropAspectRatioX != null) 'cropAspectRatioX': cropAspectRatioX,
     if (cropAspectRatioY != null) 'cropAspectRatioY': cropAspectRatioY,
+    if (cropMaxWidth != null) 'cropMaxWidth': cropMaxWidth,
+    if (cropMaxHeight != null) 'cropMaxHeight': cropMaxHeight,
+    if (cropCompressQuality != null) 'cropCompressQuality': cropCompressQuality,
     if (allowedExtensions != null) 'allowedExtensions': allowedExtensions,
     'previewBeforeConfirm': previewBeforeConfirm,
     if (previewSheetTitle != null) 'previewSheetTitle': previewSheetTitle,
