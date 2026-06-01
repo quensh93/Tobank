@@ -15,6 +15,7 @@ import 'package:stac/src/parsers/foundation/text/stac_text_input_action_parser.d
 import 'package:stac/src/parsers/foundation/text/stac_text_input_type_parser.dart'
     as kbtype;
 import 'package:stac/src/parsers/foundation/text/stac_text_style_parser.dart';
+import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/input_validations.dart';
 import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
@@ -415,21 +416,22 @@ class _CustomTextFormFieldWidgetState
       // explicit border overrides from raw JSON (e.g. type: none).
       return parsedDecoration?.copyWith(
         border:
-            _parseInputBorder(decorationMap['border']) ?? parsedDecoration.border,
+            _parseInputBorder(context, decorationMap['border']) ??
+            parsedDecoration.border,
         enabledBorder:
-            _parseInputBorder(decorationMap['enabledBorder']) ??
+            _parseInputBorder(context, decorationMap['enabledBorder']) ??
             parsedDecoration.enabledBorder,
         focusedBorder:
-            _parseInputBorder(decorationMap['focusedBorder']) ??
+            _parseInputBorder(context, decorationMap['focusedBorder']) ??
             parsedDecoration.focusedBorder,
         errorBorder:
-            _parseInputBorder(decorationMap['errorBorder']) ??
+            _parseInputBorder(context, decorationMap['errorBorder']) ??
             parsedDecoration.errorBorder,
         focusedErrorBorder:
-            _parseInputBorder(decorationMap['focusedErrorBorder']) ??
+            _parseInputBorder(context, decorationMap['focusedErrorBorder']) ??
             parsedDecoration.focusedErrorBorder,
         disabledBorder:
-            _parseInputBorder(decorationMap['disabledBorder']) ??
+            _parseInputBorder(context, decorationMap['disabledBorder']) ??
             parsedDecoration.disabledBorder,
       );
     }
@@ -469,32 +471,84 @@ class _CustomTextFormFieldWidgetState
           overflow: TextOverflow.ellipsis,
         ),
       ),
-      border: _parseInputBorder(decorationMap['border']) ?? baseDecoration.border,
+      border:
+          _parseInputBorder(context, decorationMap['border']) ??
+          baseDecoration.border,
       enabledBorder:
-          _parseInputBorder(decorationMap['enabledBorder']) ??
+          _parseInputBorder(context, decorationMap['enabledBorder']) ??
           baseDecoration.enabledBorder,
       focusedBorder:
-          _parseInputBorder(decorationMap['focusedBorder']) ??
+          _parseInputBorder(context, decorationMap['focusedBorder']) ??
           baseDecoration.focusedBorder,
       errorBorder:
-          _parseInputBorder(decorationMap['errorBorder']) ??
+          _parseInputBorder(context, decorationMap['errorBorder']) ??
           baseDecoration.errorBorder,
       focusedErrorBorder:
-          _parseInputBorder(decorationMap['focusedErrorBorder']) ??
+          _parseInputBorder(context, decorationMap['focusedErrorBorder']) ??
           baseDecoration.focusedErrorBorder,
       disabledBorder:
-          _parseInputBorder(decorationMap['disabledBorder']) ??
+          _parseInputBorder(context, decorationMap['disabledBorder']) ??
           baseDecoration.disabledBorder,
     );
   }
 
-  InputBorder? _parseInputBorder(dynamic rawBorder) {
+  InputBorder? _parseInputBorder(BuildContext context, dynamic rawBorder) {
     if (rawBorder is! Map) return null;
-    final type = rawBorder['type']?.toString().trim().toLowerCase();
+    final borderMap = Map<String, dynamic>.from(rawBorder);
+    final type = borderMap['type']?.toString().trim().toLowerCase();
     if (type == 'none') {
       return InputBorder.none;
     }
-    return null;
+
+    final sideMap = borderMap['borderSide'] is Map
+        ? Map<String, dynamic>.from(borderMap['borderSide'])
+        : const <String, dynamic>{};
+    final colorValue = sideMap['color'] ?? borderMap['color'];
+    final widthValue = sideMap['width'] ?? borderMap['width'];
+    final borderSide = BorderSide(
+      color: colorValue?.toString().toColor(context) ?? const Color(0xFF000000),
+      width: (widthValue as num?)?.toDouble() ?? 1,
+    );
+    final borderRadius = _parseBorderRadius(borderMap['borderRadius']);
+
+    switch (type) {
+      case 'outlineinputborder':
+        return OutlineInputBorder(
+          borderSide: borderSide,
+          borderRadius: borderRadius ?? BorderRadius.zero,
+          gapPadding: (borderMap['gapPadding'] as num?)?.toDouble() ?? 4,
+        );
+      case 'underlineinputborder':
+        return UnderlineInputBorder(
+          borderSide: borderSide,
+          borderRadius: borderRadius ?? BorderRadius.zero,
+        );
+      default:
+        return null;
+    }
+  }
+
+  BorderRadius? _parseBorderRadius(dynamic rawBorderRadius) {
+    if (rawBorderRadius is num) {
+      return BorderRadius.circular(rawBorderRadius.toDouble());
+    }
+    if (rawBorderRadius is! Map) return null;
+
+    final borderRadiusMap = Map<String, dynamic>.from(rawBorderRadius);
+    final allValue = borderRadiusMap['all'];
+    if (allValue is num) {
+      return BorderRadius.circular(allValue.toDouble());
+    }
+
+    double valueForCorner(String key) =>
+        (borderRadiusMap[key] as num?)?.toDouble() ?? 0;
+
+    return BorderRadius.only(
+      topLeft: Radius.circular(valueForCorner('topLeft')),
+      topRight: Radius.circular(valueForCorner('topRight')),
+      bottomLeft: Radius.circular(valueForCorner('bottomLeft')),
+      bottomRight: Radius.circular(valueForCorner('bottomRight')),
+    );
   }
 
   TextAlign? _parseTextAlign(dynamic value) {

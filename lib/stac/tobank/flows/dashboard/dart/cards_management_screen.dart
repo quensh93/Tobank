@@ -1317,8 +1317,24 @@ StacWidget _walletChargeBottomSheet() {
                   'fontSize': 12,
                 },
               },
+              'border': {
+                'type': 'outlineInputBorder',
+                'borderSide': {
+                  'color': '{{appColors.current.input.borderEnabled}}',
+                  'width': 1,
+                },
+                'borderRadius': {'all': 12},
+              },
               'enabledBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
+                'borderSide': {
+                  'color': '{{appColors.current.input.borderEnabled}}',
+                  'width': 1,
+                },
+                'borderRadius': {'all': 12},
+              },
+              'disabledBorder': {
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color': '{{appColors.current.input.borderEnabled}}',
                   'width': 1,
@@ -1326,9 +1342,9 @@ StacWidget _walletChargeBottomSheet() {
                 'borderRadius': {'all': 12},
               },
               'focusedBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
-                  'color': '{{appColors.current.button.primary.backgroundColor}}',
+                  'color': '{{appColors.current.input.borderFocused}}',
                   'width': 1.5,
                 },
                 'borderRadius': {'all': 12},
@@ -1753,7 +1769,7 @@ StacWidget _walletTransferBottomSheet() {
                       },
                     },
                     'enabledBorder': {
-                      'type': 'outline',
+                      'type': 'outlineInputBorder',
                       'borderSide': {
                         'color': '{{appColors.current.input.borderEnabled}}',
                         'width': 1,
@@ -1761,7 +1777,7 @@ StacWidget _walletTransferBottomSheet() {
                       'borderRadius': {'all': 12},
                     },
                     'focusedBorder': {
-                      'type': 'outline',
+                      'type': 'outlineInputBorder',
                       'borderSide': {
                         'color':
                             '{{appColors.current.button.primary.backgroundColor}}',
@@ -1859,7 +1875,7 @@ StacWidget _walletTransferBottomSheet() {
                 },
               },
               'enabledBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color': '{{appColors.current.input.borderEnabled}}',
                   'width': 1,
@@ -1867,7 +1883,7 @@ StacWidget _walletTransferBottomSheet() {
                 'borderRadius': {'all': 12},
               },
               'focusedBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color':
                       '{{appColors.current.button.primary.backgroundColor}}',
@@ -1914,7 +1930,7 @@ StacWidget _walletTransferBottomSheet() {
                 },
               },
               'enabledBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color': '{{appColors.current.input.borderEnabled}}',
                   'width': 1,
@@ -1922,7 +1938,7 @@ StacWidget _walletTransferBottomSheet() {
                 'borderRadius': {'all': 12},
               },
               'focusedBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color':
                       '{{appColors.current.button.primary.backgroundColor}}',
@@ -2844,7 +2860,7 @@ StacWidget _reissuePostalCodeBottomSheet() {
               },
               'counterText': '',
               'enabledBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color': '{{appColors.current.input.borderEnabled}}',
                   'width': 1,
@@ -2852,7 +2868,7 @@ StacWidget _reissuePostalCodeBottomSheet() {
                 'borderRadius': {'all': 12},
               },
               'focusedBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color':
                       '{{appColors.current.button.primary.backgroundColor}}',
@@ -3133,4 +3149,3 @@ StacWidget _blockReasonRow({required String label, required String reasonId}) {
     ),
   );
 }
-
