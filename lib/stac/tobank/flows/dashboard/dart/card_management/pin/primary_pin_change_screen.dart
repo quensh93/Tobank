@@ -55,7 +55,7 @@ StacWidget dashboardPrimaryPinChange() {
                 },
               },
               'enabledBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color': '{{appColors.current.input.borderEnabled}}',
                   'width': 1,
@@ -63,7 +63,7 @@ StacWidget dashboardPrimaryPinChange() {
                 'borderRadius': {'all': 12},
               },
               'focusedBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color':
                       '{{appColors.current.button.primary.backgroundColor}}',
@@ -106,7 +106,7 @@ StacWidget dashboardPrimaryPinChange() {
                 },
               },
               'enabledBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color': '{{appColors.current.input.borderEnabled}}',
                   'width': 1,
@@ -114,7 +114,7 @@ StacWidget dashboardPrimaryPinChange() {
                 'borderRadius': {'all': 12},
               },
               'focusedBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color':
                       '{{appColors.current.button.primary.backgroundColor}}',
@@ -157,7 +157,7 @@ StacWidget dashboardPrimaryPinChange() {
                 },
               },
               'enabledBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color': '{{appColors.current.input.borderEnabled}}',
                   'width': 1,
@@ -165,7 +165,7 @@ StacWidget dashboardPrimaryPinChange() {
                 'borderRadius': {'all': 12},
               },
               'focusedBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color':
                       '{{appColors.current.button.primary.backgroundColor}}',

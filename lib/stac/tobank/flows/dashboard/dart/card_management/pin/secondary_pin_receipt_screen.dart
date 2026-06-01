@@ -159,7 +159,7 @@ StacWidget _maskedPinRow() {
               duration: 2000,
             ),
             child: StacImage(
-              src: 'assets/icons/ic_eye.svg',
+              src: 'assets/icons/ic_show_password.svg',
               imageType: StacImageType.asset,
               width: 20,
               height: 20,

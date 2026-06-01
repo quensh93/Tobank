@@ -50,10 +50,10 @@ StacWidget dashboardWalletTransferReceipt() {
             children: [
               StacExpanded(
                 child: _actionChip(
-                  label: '{{appStrings.common.share}}',
+                  label: 'اشتراک‌گذاری',
                   iconAsset: '{{appAssets.current.icons.share}}',
                   onTap: const StacCustomSnackBarAction(
-                    title: '{{appStrings.common.share}}',
+                    title: 'اشتراک‌گذاری',
                     detail: '{{appStrings.common.comingSoon}}',
                     duration: 3000,
                   ),
@@ -62,10 +62,10 @@ StacWidget dashboardWalletTransferReceipt() {
               StacSizedBox(width: 12),
               StacExpanded(
                 child: _actionChip(
-                  label: '{{appStrings.common.printReceipt}}',
+                  label: 'پرینت رسید',
                   iconAsset: '{{appAssets.icons.printReceipt}}',
                   onTap: const StacCustomSnackBarAction(
-                    title: '{{appStrings.common.printReceipt}}',
+                    title: 'پرینت رسید',
                     detail: '{{appStrings.common.comingSoon}}',
                     duration: 3000,
                   ),
@@ -194,13 +194,16 @@ StacWidget _actionChip({
             color: '{{appColors.current.text.title}}',
           ),
           StacSizedBox(width: 8),
-          StacText(
-            data: label,
-            textDirection: StacTextDirection.rtl,
-            style: StacCustomTextStyle(
-              fontSize: 14,
-              fontWeight: StacFontWeight.w500,
-              color: '{{appColors.current.text.title}}',
+          StacExpanded(
+            child: StacText(
+              data: label,
+              textDirection: StacTextDirection.rtl,
+              textAlign: StacTextAlign.center,
+              style: StacCustomTextStyle(
+                fontSize: 14,
+                fontWeight: StacFontWeight.w500,
+                color: '{{appColors.current.text.title}}',
+              ),
             ),
           ),
         ],
@@ -208,4 +211,3 @@ StacWidget _actionChip({
     ),
   );
 }
-

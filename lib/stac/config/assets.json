@@ -794,7 +794,7 @@
                 "src_ic_info_001": "assets/icons/ic_info.svg"
             },
             "flows__dashboard__json__dashboard_secondary_pin_result": {
-                "src_ic_eye_001": "assets/icons/ic_eye.svg",
+                "src_ic_eye_001": "assets/icons/ic_show_password.svg",
                 "src_ic_info_002": "assets/icons/ic_info.svg",
                 "src_ic_copy_003": "assets/icons/ic_copy.svg",
                 "src_ic_info_004": "assets/icons/ic_info.svg"
@@ -1229,7 +1229,7 @@
                 "src_ic_home_main_selected_008": "assets/icons/ic_home_main_selected.svg"
             },
             "flows__dashboard__dart__card_management__pin__secondary_pin_receipt_screen": {
-                "src_ic_eye_001": "assets/icons/ic_eye.svg",
+                "src_ic_eye_001": "assets/icons/ic_show_password.svg",
                 "src_ic_copy_002": "assets/icons/ic_copy.svg"
             },
             "flows__charge__dart__charge_add_sim": {

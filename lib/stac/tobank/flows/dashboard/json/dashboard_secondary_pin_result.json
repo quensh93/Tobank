@@ -210,7 +210,7 @@
                 },
                 {
                   "child": {
-                    "src": "assets/icons/ic_eye.svg",
+                    "src": "assets/icons/ic_show_password.svg",
                     "imageType": "asset",
                     "color": "{{appColors.current.icon.main}}",
                     "width": 20.0,

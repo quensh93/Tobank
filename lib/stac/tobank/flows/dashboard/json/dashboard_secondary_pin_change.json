@@ -197,7 +197,7 @@
               }
             },
             "enabledBorder": {
-              "type": "outline",
+              "type": "outlineInputBorder",
               "borderSide": {
                 "color": "{{appColors.current.input.borderEnabled}}",
                 "width": 1
@@ -207,7 +207,7 @@
               }
             },
             "focusedBorder": {
-              "type": "outline",
+              "type": "outlineInputBorder",
               "borderSide": {
                 "color": "{{appColors.current.button.primary.backgroundColor}}",
                 "width": 1.5
@@ -260,7 +260,7 @@
               }
             },
             "enabledBorder": {
-              "type": "outline",
+              "type": "outlineInputBorder",
               "borderSide": {
                 "color": "{{appColors.current.input.borderEnabled}}",
                 "width": 1
@@ -270,7 +270,7 @@
               }
             },
             "focusedBorder": {
-              "type": "outline",
+              "type": "outlineInputBorder",
               "borderSide": {
                 "color": "{{appColors.current.button.primary.backgroundColor}}",
                 "width": 1.5
@@ -323,7 +323,7 @@
               }
             },
             "enabledBorder": {
-              "type": "outline",
+              "type": "outlineInputBorder",
               "borderSide": {
                 "color": "{{appColors.current.input.borderEnabled}}",
                 "width": 1
@@ -333,7 +333,7 @@
               }
             },
             "focusedBorder": {
-              "type": "outline",
+              "type": "outlineInputBorder",
               "borderSide": {
                 "color": "{{appColors.current.button.primary.backgroundColor}}",
                 "width": 1.5
@@ -358,7 +358,7 @@
         {
           "onPressed": {
             "actionType": "navigate",
-            "widgetType": "dashboard_secondary_pin_result",
+            "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_secondary_pin_result.json",
             "navigationStyle": "push"
           },
           "style": {
