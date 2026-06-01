@@ -12,7 +12,7 @@ const bool _showProfileApiReal = true;
 const bool _showCartableApiReal = true;
 const bool _showTransactionApiReal = true;
 
-const bool _showInstallmentPaymentApiReal = false;
+const bool _showInstallmentPaymentApiReal = true;
 const bool _showChildLoanApiReal = false;
 const bool _showDepositTurnoverApiReal = false;
 const bool _showDepositMore = false;

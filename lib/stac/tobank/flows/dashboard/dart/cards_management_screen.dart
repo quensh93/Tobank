@@ -3131,22 +3131,11 @@ StacWidget _cardBlockBottomSheet() {
             textDirection: StacTextDirection.rtl,
             mainAxisAlignment: StacMainAxisAlignment.start,
             children: [
-              StacContainer(
+              StacImage(
+                src: 'assets/icons/ic_warning_red.svg',
+                imageType: StacImageType.asset,
                 width: 56,
                 height: 56,
-                decoration: StacBoxDecoration(
-                  color: '{{appColors.current.state.warning}}',
-                  borderRadius: StacBorderRadius.all(28),
-                ),
-                child: StacCenter(
-                  child: StacImage(
-                    src: '{{appAssets.icons.warning}}',
-                    imageType: StacImageType.asset,
-                    width: 28,
-                    height: 28,
-                    color: '#FFFFFF',
-                  ),
-                ),
               ),
             ],
           ),
@@ -3230,6 +3219,7 @@ StacWidget _cardBlockBottomSheet() {
               style: StacCustomTextStyle(
                 fontSize: 14,
                 fontWeight: StacFontWeight.w700,
+                color: '#FFFFFF',
               ),
             ),
           ),

@@ -18189,51 +18189,18 @@
                                         "spacing": null,
                                         "children": [
                                           {
+                                            "src": "assets/icons/ic_warning_red.svg",
                                             "alignment": null,
-                                            "padding": null,
+                                            "imageType": "asset",
                                             "color": null,
-                                            "decoration": {
-                                              "color": "{{appColors.current.state.warning}}",
-                                              "image": null,
-                                              "border": null,
-                                              "borderRadius": {
-                                                "topLeft": 28.0,
-                                                "topRight": 28.0,
-                                                "bottomLeft": 28.0,
-                                                "bottomRight": 28.0
-                                              },
-                                              "boxShadow": null,
-                                              "gradient": null,
-                                              "backgroundBlendMode": null,
-                                              "shape": null
-                                            },
-                                            "foregroundDecoration": null,
                                             "width": 56.0,
                                             "height": 56.0,
-                                            "constraints": null,
-                                            "margin": null,
-                                            "transformAlignment": null,
-                                            "child": {
-                                              "widthFactor": null,
-                                              "heightFactor": null,
-                                              "child": {
-                                                "src": "{{appAssets.icons.warning}}",
-                                                "alignment": null,
-                                                "imageType": "asset",
-                                                "color": "#FFFFFF",
-                                                "width": 28.0,
-                                                "height": 28.0,
-                                                "fit": null,
-                                                "repeat": null,
-                                                "filterQuality": null,
-                                                "semanticLabel": null,
-                                                "excludeFromSemantics": null,
-                                                "type": "image"
-                                              },
-                                              "type": "center"
-                                            },
-                                            "clipBehavior": null,
-                                            "type": "container"
+                                            "fit": null,
+                                            "repeat": null,
+                                            "filterQuality": null,
+                                            "semanticLabel": null,
+                                            "excludeFromSemantics": null,
+                                            "type": "image"
                                           }
                                         ],
                                         "type": "row"
@@ -19106,7 +19073,7 @@
                                           "style": {
                                             "type": "custom",
                                             "inherit": null,
-                                            "color": null,
+                                            "color": "#FFFFFF",
                                             "backgroundColor": null,
                                             "fontSize": 14.0,
                                             "fontWeight": "w700",
