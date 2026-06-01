@@ -1,0 +1,851 @@
+{
+  "appBar": {
+    "leading": {
+      "padding": {
+        "left": 12.0
+      },
+      "child": {
+        "child": {
+          "src": "{{appAssets.icons.support}}",
+          "imageType": "asset",
+          "color": "{{appColors.current.text.title}}",
+          "width": 24.0,
+          "height": 24.0,
+          "type": "image"
+        },
+        "type": "center"
+      },
+      "type": "padding"
+    },
+    "automaticallyImplyLeading": true,
+    "title": {
+      "data": "پرداخت اقساط خود",
+      "style": {
+        "type": "alias",
+        "value": "{{appStyles.appbarStyle}}"
+      },
+      "textDirection": "rtl",
+      "type": "text"
+    },
+    "actions": [
+      {
+        "padding": {
+          "right": 12.0
+        },
+        "child": {
+          "onPressed": {
+            "navigationStyle": "pop",
+            "actionType": "navigate"
+          },
+          "icon": {
+            "src": "{{appAssets.icons.arrowBack}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 31.0,
+            "height": 31.0,
+            "type": "image"
+          },
+          "type": "iconButton"
+        },
+        "type": "padding"
+      }
+    ],
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "backgroundColor": "{{appColors.current.background.surface}}",
+  "body": {
+    "padding": {
+      "left": 16.0,
+      "top": 16.0,
+      "right": 16.0,
+      "bottom": 16.0
+    },
+    "child": {
+      "children": [
+        {
+          "decoration": {
+            "border": {
+              "color": "{{appColors.current.input.borderEnabled}}",
+              "width": 1.0
+            },
+            "borderRadius": {
+              "topLeft": 12.0,
+              "topRight": 12.0,
+              "bottomLeft": 12.0,
+              "bottomRight": 12.0
+            }
+          },
+          "child": {
+            "padding": {
+              "left": 16.0,
+              "top": 16.0,
+              "right": 16.0,
+              "bottom": 16.0
+            },
+            "child": {
+              "crossAxisAlignment": "stretch",
+              "children": [
+                {
+                  "child": {
+                    "src": "assets/icons/loan_list_item_light.svg",
+                    "imageType": "asset",
+                    "width": 45.0,
+                    "height": 45.0,
+                    "type": "image"
+                  },
+                  "type": "center"
+                },
+                {
+                  "height": 7.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "data": "مراجعه مستاجران حایز شرایط",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.text.title}}",
+                    "fontSize": 16.0,
+                    "fontWeight": "w700"
+                  },
+                  "textAlign": "center",
+                  "textDirection": "rtl",
+                  "type": "text"
+                },
+                {
+                  "height": 16.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "data": "پرداخت بعدی: ۹ روز بعد",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.text.subtitle}}",
+                    "fontSize": 14.0,
+                    "fontWeight": "w500"
+                  },
+                  "textAlign": "center",
+                  "textDirection": "rtl",
+                  "type": "text"
+                },
+                {
+                  "height": 16.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "onPressed": {
+                    "actionType": "sequence",
+                    "actions": [
+                      {
+                        "actionType": "setValue",
+                        "values": [
+                          {
+                            "key": "loanDetail.appBarTitle",
+                            "value": "وام مراجعه مستاجران حایز شرایط"
+                          },
+                          {
+                            "key": "loanDetail.approvedAmount",
+                            "value": "۱,۰۰۰,۰۰۰,۰۰۰ ریال"
+                          },
+                          {
+                            "key": "loanDetail.paidSummary",
+                            "value": "۴۰ از ۴۴ قسط پرداخت شده"
+                          },
+                          {
+                            "key": "loanDetail.settledAmount",
+                            "value": "۱,۱۱۷,۳۷۲,۰۰۰"
+                          },
+                          {
+                            "key": "loanDetail.debtAmount",
+                            "value": "۴۰۶,۲۳۳,۶۴۵"
+                          },
+                          {
+                            "key": "loanDetail.nextInstallmentTitle",
+                            "value": "قسط ۴۵"
+                          },
+                          {
+                            "key": "loanDetail.nextInstallmentAmount",
+                            "value": "۲۵,۳۱۳,۰۰۰"
+                          },
+                          {
+                            "key": "loanDetail.settlementPayableAmount",
+                            "value": "۳۶۶,۹۶۳,۳۱۵"
+                          },
+                          {
+                            "key": "loanDetail.historyDate",
+                            "value": "۱۴۰۵/۰۳/۱۲"
+                          },
+                          {
+                            "key": "loanDetail.progress",
+                            "value": 0.9091
+                          },
+                          {
+                            "key": "loanDetail.totalInstallments",
+                            "value": 44
+                          },
+                          {
+                            "key": "loanDetail.totalInstallmentsLabel",
+                            "value": "۴۴"
+                          },
+                          {
+                            "key": "loanDetail.paidInstallments",
+                            "value": 40
+                          },
+                          {
+                            "key": "loanDetail.remainingInstallments",
+                            "value": 4
+                          },
+                          {
+                            "key": "loanDetail.remainingInstallmentsLabel",
+                            "value": "۴"
+                          },
+                          {
+                            "key": "loanDetail.showUnpaidInstallments",
+                            "value": true
+                          }
+                        ]
+                      },
+                      {
+                        "navigationStyle": "push",
+                        "actionType": "navigate",
+                        "request": {
+                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.installment_payment_detail_main/1",
+                          "method": "post",
+                          "headers": {
+                            "Content-Type": "application/json",
+                            "Accept": "*/*"
+                          },
+                          "body": {
+                            "operator": "is",
+                            "dimension": {
+                              "app": "mobile"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "style": {
+                    "foregroundColor": "#FFFFFF",
+                    "backgroundColor": "#E31C3D",
+                    "padding": {
+                      "top": 20.0,
+                      "bottom": 20.0
+                    },
+                    "shape": {
+                      "type": "roundedRectangleBorder",
+                      "borderRadius": {
+                        "topLeft": 6.0,
+                        "topRight": 6.0,
+                        "bottomLeft": 6.0,
+                        "bottomRight": 6.0
+                      }
+                    }
+                  },
+                  "child": {
+                    "data": "مشاهده جزئیات",
+                    "style": {
+                      "type": "custom",
+                      "fontSize": 16.0,
+                      "fontWeight": "w700"
+                    },
+                    "type": "text"
+                  },
+                  "type": "filledButton"
+                },
+                {
+                  "height": 16.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "padding": {
+                    "left": 12.0,
+                    "top": 10.0,
+                    "right": 12.0,
+                    "bottom": 10.0
+                  },
+                  "decoration": {
+                    "border": {
+                      "color": "#7A828F",
+                      "width": 1.0
+                    },
+                    "borderRadius": {
+                      "topLeft": 8.0,
+                      "topRight": 8.0,
+                      "bottomLeft": 8.0,
+                      "bottomRight": 8.0
+                    }
+                  },
+                  "child": {
+                    "crossAxisAlignment": "center",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "src": "{{appAssets.current.icons.alert}}",
+                        "imageType": "asset",
+                        "color": "#7A828F",
+                        "width": 24.0,
+                        "height": 24.0,
+                        "type": "image"
+                      },
+                      {
+                        "width": 8.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "child": {
+                          "data": "مهلت پرداخت بدون جریمه دیرکرد برای قسط ۴۵ تا پایان روز ۱۲ خرداد ۱۴۰۵ می‌باشد",
+                          "style": {
+                            "type": "custom",
+                            "color": "#7A828F",
+                            "fontSize": 14.0,
+                            "fontWeight": "w500"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "maxLines": 2,
+                          "type": "text"
+                        },
+                        "type": "expanded"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  "type": "container"
+                }
+              ],
+              "type": "column"
+            },
+            "type": "padding"
+          },
+          "type": "container"
+        },
+        {
+          "height": 16.0,
+          "type": "sizedBox"
+        },
+        {
+          "decoration": {
+            "border": {
+              "color": "{{appColors.current.input.borderEnabled}}",
+              "width": 1.0
+            },
+            "borderRadius": {
+              "topLeft": 12.0,
+              "topRight": 12.0,
+              "bottomLeft": 12.0,
+              "bottomRight": 12.0
+            }
+          },
+          "child": {
+            "padding": {
+              "left": 16.0,
+              "top": 16.0,
+              "right": 16.0,
+              "bottom": 16.0
+            },
+            "child": {
+              "crossAxisAlignment": "stretch",
+              "children": [
+                {
+                  "child": {
+                    "src": "assets/icons/loan_list_item_light.svg",
+                    "imageType": "asset",
+                    "width": 45.0,
+                    "height": 45.0,
+                    "type": "image"
+                  },
+                  "type": "center"
+                },
+                {
+                  "height": 7.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "data": "قرض الحسنه طرح پارسا (۲ درصدی) - توبانک",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.text.title}}",
+                    "fontSize": 16.0,
+                    "fontWeight": "w700"
+                  },
+                  "textAlign": "center",
+                  "textDirection": "rtl",
+                  "type": "text"
+                },
+                {
+                  "height": 16.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "data": "پرداخت بعدی: ۲۰ روز بعد",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.text.subtitle}}",
+                    "fontSize": 14.0,
+                    "fontWeight": "w500"
+                  },
+                  "textAlign": "center",
+                  "textDirection": "rtl",
+                  "type": "text"
+                },
+                {
+                  "height": 16.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "onPressed": {
+                    "actionType": "sequence",
+                    "actions": [
+                      {
+                        "actionType": "setValue",
+                        "values": [
+                          {
+                            "key": "loanDetail.appBarTitle",
+                            "value": "وام قرض الحسنه طرح پارسا (۲ درصدی) - توبانک"
+                          },
+                          {
+                            "key": "loanDetail.approvedAmount",
+                            "value": "۷۵۰,۰۰۰,۰۰۰ ریال"
+                          },
+                          {
+                            "key": "loanDetail.paidSummary",
+                            "value": "۲۳ از ۳۶ قسط پرداخت شده"
+                          },
+                          {
+                            "key": "loanDetail.settledAmount",
+                            "value": "۸۴۱,۵۰۰,۰۰۰"
+                          },
+                          {
+                            "key": "loanDetail.debtAmount",
+                            "value": "۱۹۸,۵۰۰,۰۰۰"
+                          },
+                          {
+                            "key": "loanDetail.nextInstallmentTitle",
+                            "value": "قسط ۱۳"
+                          },
+                          {
+                            "key": "loanDetail.nextInstallmentAmount",
+                            "value": "۱۸,۴۸۰,۰۰۰"
+                          },
+                          {
+                            "key": "loanDetail.settlementPayableAmount",
+                            "value": "۱۸۱,۲۴۰,۰۰۰"
+                          },
+                          {
+                            "key": "loanDetail.historyDate",
+                            "value": "۱۴۰۵/۰۳/۲۳"
+                          },
+                          {
+                            "key": "loanDetail.progress",
+                            "value": 0.6389
+                          },
+                          {
+                            "key": "loanDetail.totalInstallments",
+                            "value": 36
+                          },
+                          {
+                            "key": "loanDetail.totalInstallmentsLabel",
+                            "value": "۳۶"
+                          },
+                          {
+                            "key": "loanDetail.paidInstallments",
+                            "value": 23
+                          },
+                          {
+                            "key": "loanDetail.remainingInstallments",
+                            "value": 13
+                          },
+                          {
+                            "key": "loanDetail.remainingInstallmentsLabel",
+                            "value": "۱۳"
+                          },
+                          {
+                            "key": "loanDetail.showUnpaidInstallments",
+                            "value": true
+                          }
+                        ]
+                      },
+                      {
+                        "navigationStyle": "push",
+                        "actionType": "navigate",
+                        "request": {
+                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.installment_payment_detail_main/1",
+                          "method": "post",
+                          "headers": {
+                            "Content-Type": "application/json",
+                            "Accept": "*/*"
+                          },
+                          "body": {
+                            "operator": "is",
+                            "dimension": {
+                              "app": "mobile"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "style": {
+                    "foregroundColor": "#FFFFFF",
+                    "backgroundColor": "#E31C3D",
+                    "padding": {
+                      "top": 20.0,
+                      "bottom": 20.0
+                    },
+                    "shape": {
+                      "type": "roundedRectangleBorder",
+                      "borderRadius": {
+                        "topLeft": 6.0,
+                        "topRight": 6.0,
+                        "bottomLeft": 6.0,
+                        "bottomRight": 6.0
+                      }
+                    }
+                  },
+                  "child": {
+                    "data": "مشاهده جزئیات",
+                    "style": {
+                      "type": "custom",
+                      "fontSize": 16.0,
+                      "fontWeight": "w700"
+                    },
+                    "type": "text"
+                  },
+                  "type": "filledButton"
+                },
+                {
+                  "height": 16.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "padding": {
+                    "left": 12.0,
+                    "top": 10.0,
+                    "right": 12.0,
+                    "bottom": 10.0
+                  },
+                  "decoration": {
+                    "border": {
+                      "color": "#7A828F",
+                      "width": 1.0
+                    },
+                    "borderRadius": {
+                      "topLeft": 8.0,
+                      "topRight": 8.0,
+                      "bottomLeft": 8.0,
+                      "bottomRight": 8.0
+                    }
+                  },
+                  "child": {
+                    "crossAxisAlignment": "center",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "src": "{{appAssets.current.icons.alert}}",
+                        "imageType": "asset",
+                        "color": "#7A828F",
+                        "width": 24.0,
+                        "height": 24.0,
+                        "type": "image"
+                      },
+                      {
+                        "width": 8.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "child": {
+                          "data": "مهلت پرداخت بدون جریمه دیرکرد برای قسط ۱۳ تا پایان روز ۲۳ خرداد ۱۴۰۵ می‌باشد",
+                          "style": {
+                            "type": "custom",
+                            "color": "#7A828F",
+                            "fontSize": 14.0,
+                            "fontWeight": "w500"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "maxLines": 2,
+                          "type": "text"
+                        },
+                        "type": "expanded"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  "type": "container"
+                }
+              ],
+              "type": "column"
+            },
+            "type": "padding"
+          },
+          "type": "container"
+        },
+        {
+          "height": 16.0,
+          "type": "sizedBox"
+        },
+        {
+          "decoration": {
+            "border": {
+              "color": "{{appColors.current.input.borderEnabled}}",
+              "width": 1.0
+            },
+            "borderRadius": {
+              "topLeft": 12.0,
+              "topRight": 12.0,
+              "bottomLeft": 12.0,
+              "bottomRight": 12.0
+            }
+          },
+          "child": {
+            "padding": {
+              "left": 16.0,
+              "top": 16.0,
+              "right": 16.0,
+              "bottom": 16.0
+            },
+            "child": {
+              "crossAxisAlignment": "stretch",
+              "children": [
+                {
+                  "child": {
+                    "src": "assets/icons/loan_list_item_light.svg",
+                    "imageType": "asset",
+                    "width": 45.0,
+                    "height": 45.0,
+                    "type": "image"
+                  },
+                  "type": "center"
+                },
+                {
+                  "height": 7.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "data": "قرض الحسنه طرح پارسا (۲ درصدی) - توبانک",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.text.title}}",
+                    "fontSize": 16.0,
+                    "fontWeight": "w700"
+                  },
+                  "textAlign": "center",
+                  "textDirection": "rtl",
+                  "type": "text"
+                },
+                {
+                  "height": 16.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "data": "پرداخت بعدی: ۳۰ روز بعد",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.text.subtitle}}",
+                    "fontSize": 14.0,
+                    "fontWeight": "w500"
+                  },
+                  "textAlign": "center",
+                  "textDirection": "rtl",
+                  "type": "text"
+                },
+                {
+                  "height": 16.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "onPressed": {
+                    "actionType": "sequence",
+                    "actions": [
+                      {
+                        "actionType": "setValue",
+                        "values": [
+                          {
+                            "key": "loanDetail.appBarTitle",
+                            "value": "وام قرض الحسنه طرح پارسا (۲ درصدی) - توبانک"
+                          },
+                          {
+                            "key": "loanDetail.approvedAmount",
+                            "value": "۶۰۰,۰۰۰,۰۰۰ ریال"
+                          },
+                          {
+                            "key": "loanDetail.paidSummary",
+                            "value": "۱۸ از ۳۰ قسط پرداخت شده"
+                          },
+                          {
+                            "key": "loanDetail.settledAmount",
+                            "value": "۶۷۳,۲۰۰,۰۰۰"
+                          },
+                          {
+                            "key": "loanDetail.debtAmount",
+                            "value": "۱۵۶,۸۰۰,۰۰۰"
+                          },
+                          {
+                            "key": "loanDetail.nextInstallmentTitle",
+                            "value": "قسط ۱۲"
+                          },
+                          {
+                            "key": "loanDetail.nextInstallmentAmount",
+                            "value": "۱۷,۳۰۰,۰۰۰"
+                          },
+                          {
+                            "key": "loanDetail.settlementPayableAmount",
+                            "value": "۱۴۴,۳۷۰,۰۰۰"
+                          },
+                          {
+                            "key": "loanDetail.historyDate",
+                            "value": "۱۴۰۵/۰۳/۲۷"
+                          },
+                          {
+                            "key": "loanDetail.progress",
+                            "value": 0.6
+                          },
+                          {
+                            "key": "loanDetail.totalInstallments",
+                            "value": 30
+                          },
+                          {
+                            "key": "loanDetail.totalInstallmentsLabel",
+                            "value": "۳۰"
+                          },
+                          {
+                            "key": "loanDetail.paidInstallments",
+                            "value": 18
+                          },
+                          {
+                            "key": "loanDetail.remainingInstallments",
+                            "value": 12
+                          },
+                          {
+                            "key": "loanDetail.remainingInstallmentsLabel",
+                            "value": "۱۲"
+                          },
+                          {
+                            "key": "loanDetail.showUnpaidInstallments",
+                            "value": true
+                          }
+                        ]
+                      },
+                      {
+                        "navigationStyle": "push",
+                        "actionType": "navigate",
+                        "request": {
+                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.installment_payment_detail_main/1",
+                          "method": "post",
+                          "headers": {
+                            "Content-Type": "application/json",
+                            "Accept": "*/*"
+                          },
+                          "body": {
+                            "operator": "is",
+                            "dimension": {
+                              "app": "mobile"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "style": {
+                    "foregroundColor": "#FFFFFF",
+                    "backgroundColor": "#E31C3D",
+                    "padding": {
+                      "top": 20.0,
+                      "bottom": 20.0
+                    },
+                    "shape": {
+                      "type": "roundedRectangleBorder",
+                      "borderRadius": {
+                        "topLeft": 6.0,
+                        "topRight": 6.0,
+                        "bottomLeft": 6.0,
+                        "bottomRight": 6.0
+                      }
+                    }
+                  },
+                  "child": {
+                    "data": "مشاهده جزئیات",
+                    "style": {
+                      "type": "custom",
+                      "fontSize": 16.0,
+                      "fontWeight": "w700"
+                    },
+                    "type": "text"
+                  },
+                  "type": "filledButton"
+                },
+                {
+                  "height": 16.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "padding": {
+                    "left": 12.0,
+                    "top": 10.0,
+                    "right": 12.0,
+                    "bottom": 10.0
+                  },
+                  "decoration": {
+                    "border": {
+                      "color": "#7A828F",
+                      "width": 1.0
+                    },
+                    "borderRadius": {
+                      "topLeft": 8.0,
+                      "topRight": 8.0,
+                      "bottomLeft": 8.0,
+                      "bottomRight": 8.0
+                    }
+                  },
+                  "child": {
+                    "crossAxisAlignment": "center",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "src": "{{appAssets.current.icons.alert}}",
+                        "imageType": "asset",
+                        "color": "#7A828F",
+                        "width": 24.0,
+                        "height": 24.0,
+                        "type": "image"
+                      },
+                      {
+                        "width": 8.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "child": {
+                          "data": "مهلت پرداخت بدون جریمه دیرکرد برای قسط ۱۲ تا پایان روز ۲۷ خرداد ۱۴۰۵ می‌باشد",
+                          "style": {
+                            "type": "custom",
+                            "color": "#7A828F",
+                            "fontSize": 14.0,
+                            "fontWeight": "w500"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "maxLines": 2,
+                          "type": "text"
+                        },
+                        "type": "expanded"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  "type": "container"
+                }
+              ],
+              "type": "column"
+            },
+            "type": "padding"
+          },
+          "type": "container"
+        }
+      ],
+      "type": "column"
+    },
+    "type": "singleChildScrollView"
+  },
+  "type": "scaffold"
+}

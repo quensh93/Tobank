@@ -137,6 +137,9 @@ flutter:
     - lib/stac/tobank/flows/package/json/
     - lib/stac/tobank/flows/home_page/json/
     - lib/stac/tobank/flows/home_page/api/
+    - lib/stac/tobank/flows/user_validation/json/
+    - lib/stac/tobank/flows/installment_payment/json/
+    - lib/stac/tobank/flows/installment_payment/json_upload/
 
 
 

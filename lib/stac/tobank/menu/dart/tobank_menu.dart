@@ -72,6 +72,10 @@ StacWidget tobankMenuDart() {
           widgetType: 'verify_identity_menu',
         ),
         _buildSingleButtonMenuItemCard(
+          title: 'اعتبارسنجی (API واقعی)',
+          widgetType: 'tobank_user_validation',
+        ),
+        _buildSingleButtonMenuItemCard(
           title: 'پروفایل (API واقعی)',
           widgetType: 'profile_menu',
         ),
@@ -82,6 +86,14 @@ StacWidget tobankMenuDart() {
         _buildSingleButtonMenuItemCard(
           title: 'تراکنش‌ها (API واقعی)',
           widgetType: 'transaction_menu',
+        ),
+        _buildSingleButtonMenuItemCard(
+          title: 'پرداخت اقساط (API واقعی)',
+          widgetType: 'installment_payment_api_real_menu',
+        ),
+        _buildSingleButtonMenuItemCard(
+          title: 'تسهیلات فرزندآوری ( API واقعی)',
+          widgetType: 'child_loan_api_real_menu',
         ),
         _buildSingleButtonMenuItemCard(
           title: 'اعلانات (API واقعی)',

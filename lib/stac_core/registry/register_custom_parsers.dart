@@ -56,6 +56,7 @@ import '../parsers/actions/transfer/show_transfer_card_confirm_dialog_action_par
 import '../parsers/actions/transfer/show_transfer_card_scanner_action_parser.dart';
 import '../parsers/actions/bottom_sheet/show_bottom_sheet_action_parser.dart';
 import '../parsers/actions/dialog/show_dialog_action_parser.dart';
+import '../parsers/actions/show_installment_payment_others_result_dialog_action_parser.dart';
 import '../parsers/actions/gift_card/show_gift_card_plan_selector_bottom_sheet_action_parser.dart';
 import '../parsers/actions/gift_card/add_gift_card_amount_card_action_parser.dart';
 import '../parsers/actions/gift_card/remove_gift_card_amount_card_action_parser.dart';
@@ -94,6 +95,7 @@ import '../parsers/widgets/carousel/tobank_card_management_slider_parser.dart';
 import '../parsers/widgets/carousel/tobank_cards_stack_scroller_parser.dart';
 import '../parsers/widgets/webview/tobank_mega_gasht_webview_parser.dart';
 import '../parsers/widgets/webview/tobank_acceptor_webview_parser.dart';
+import '../parsers/widgets/tobank_seek_bar_parser.dart';
 import '../parsers/widgets/deposit_card_template_picker_parser.dart';
 
 /// Widget parser types we intentionally override on top of Stac built-ins.
@@ -472,6 +474,7 @@ void _registerAllParsers() {
   registerTobankBannerCarouselParser();
   registerTobankCardsCarouselParser();
   registerTobankCardManagementSliderParser();
+  registerTobankSeekBarParser();
   registerTobankCardsStackScrollerParser();
   registerTobankMegaGashtWebViewParser();
   registerTobankAcceptorWebViewParser();
@@ -527,6 +530,8 @@ void _registerAllParsers() {
   CustomComponentRegistry.instance.registerAction(
     const HideSnackBarActionParser(),
   );
+
+  registerShowInstallmentPaymentOthersResultDialogActionParser();
 
   // Register fingerPrint action parser
   CustomComponentRegistry.instance.registerAction(

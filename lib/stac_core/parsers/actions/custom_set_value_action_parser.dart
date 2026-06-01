@@ -263,6 +263,16 @@ class CustomSetValueActionParser
       return DateTime.now().millisecondsSinceEpoch;
     }
 
+    final orParts = _splitByTopLevelOperator(expr, '||');
+    if (orParts.length > 1) {
+      return _evalCondition(expr);
+    }
+
+    final andParts = _splitByTopLevelOperator(expr, '&&');
+    if (andParts.length > 1) {
+      return _evalCondition(expr);
+    }
+
     // removeLeadingZero(value)
     // Examples:
     //   {{removeLeadingZero(userData.mobile)}} -> "912..."
@@ -384,16 +394,188 @@ class CustomSetValueActionParser
 
   /// Evaluates a condition expression and returns a boolean
   bool _evalCondition(String conditionExpr) {
+    final expr = conditionExpr.trim();
+    if (expr.isEmpty) return false;
+
+    // Strip a single layer of wrapping parentheses.
+    if (expr.startsWith('(') && expr.endsWith(')')) {
+      final inner = expr.substring(1, expr.length - 1).trim();
+      if (inner.isNotEmpty) {
+        return _evalCondition(inner);
+      }
+    }
+
+    // Support logical OR with short-circuiting.
+    final orParts = _splitByTopLevelOperator(expr, '||');
+    if (orParts.length > 1) {
+      for (final part in orParts) {
+        if (_evalCondition(part)) return true;
+      }
+      return false;
+    }
+
+    // Support logical AND with short-circuiting.
+    final andParts = _splitByTopLevelOperator(expr, '&&');
+    if (andParts.length > 1) {
+      for (final part in andParts) {
+        if (!_evalCondition(part)) return false;
+      }
+      return true;
+    }
+
+    final binaryMatch = RegExp(
+      r'^\s*(.+?)\s*(>=|<=|==|!=|>|<)\s*(.+)\s*$',
+    ).firstMatch(expr);
+    if (binaryMatch != null) {
+      final leftExpr = binaryMatch.group(1)!.trim();
+      final op = binaryMatch.group(2)!.trim();
+      final rightExpr = binaryMatch.group(3)!.trim();
+      final left = _evalOperand(leftExpr);
+      final right = _evalOperand(rightExpr);
+      return _compareValues(left, right, op);
+    }
+
     // Handle negation in condition
-    if (conditionExpr.startsWith('!')) {
-      final varName = conditionExpr.substring(1).trim();
+    if (expr.startsWith('!')) {
+      final varName = expr.substring(1).trim();
       final value = StacRegistry.instance.getValue(varName);
       return !_toBool(value);
     }
 
     // Simple variable lookup
-    final value = StacRegistry.instance.getValue(conditionExpr);
+    final value = StacRegistry.instance.getValue(expr);
     return _toBool(value);
+  }
+
+  List<String> _splitByTopLevelOperator(String expr, String operator) {
+    final parts = <String>[];
+    final buffer = StringBuffer();
+    var depth = 0;
+    var inSingleQuote = false;
+    var inDoubleQuote = false;
+    var i = 0;
+
+    while (i < expr.length) {
+      final ch = expr[i];
+
+      if (ch == "'" && !inDoubleQuote) {
+        inSingleQuote = !inSingleQuote;
+        buffer.write(ch);
+        i++;
+        continue;
+      }
+
+      if (ch == '"' && !inSingleQuote) {
+        inDoubleQuote = !inDoubleQuote;
+        buffer.write(ch);
+        i++;
+        continue;
+      }
+
+      if (!inSingleQuote && !inDoubleQuote) {
+        if (ch == '(') {
+          depth++;
+        } else if (ch == ')' && depth > 0) {
+          depth--;
+        }
+
+        if (depth == 0 &&
+            i + operator.length <= expr.length &&
+            expr.substring(i, i + operator.length) == operator) {
+          parts.add(buffer.toString().trim());
+          buffer.clear();
+          i += operator.length;
+          continue;
+        }
+      }
+
+      buffer.write(ch);
+      i++;
+    }
+
+    parts.add(buffer.toString().trim());
+    return parts.where((e) => e.isNotEmpty).toList();
+  }
+
+  dynamic _evalOperand(String expr) {
+    final trimmed = expr.trim();
+    if (trimmed.isEmpty) return null;
+
+    // Numeric literals like 10000 or 1.5
+    if (RegExp(r'^-?\d+(\.\d+)?$').hasMatch(trimmed)) {
+      return num.tryParse(trimmed);
+    }
+
+    // Quoted string literals
+    if ((trimmed.startsWith("'") && trimmed.endsWith("'")) ||
+        (trimmed.startsWith('"') && trimmed.endsWith('"'))) {
+      return trimmed.substring(1, trimmed.length - 1);
+    }
+
+    // Boolean/null literals
+    if (trimmed == 'true') return true;
+    if (trimmed == 'false') return false;
+    if (trimmed == 'null') return null;
+
+    return _evalExpression(trimmed);
+  }
+
+  bool _compareValues(dynamic left, dynamic right, String op) {
+    final leftNum = _toNumMaybe(left);
+    final rightNum = _toNumMaybe(right);
+
+    if (leftNum != null && rightNum != null) {
+      switch (op) {
+        case '>':
+          return leftNum > rightNum;
+        case '>=':
+          return leftNum >= rightNum;
+        case '<':
+          return leftNum < rightNum;
+        case '<=':
+          return leftNum <= rightNum;
+        case '==':
+          return leftNum == rightNum;
+        case '!=':
+          return leftNum != rightNum;
+      }
+    }
+
+    final leftStr = left?.toString() ?? '';
+    final rightStr = right?.toString() ?? '';
+    switch (op) {
+      case '==':
+        return leftStr == rightStr;
+      case '!=':
+        return leftStr != rightStr;
+      default:
+        return false;
+    }
+  }
+
+  num? _toNumMaybe(dynamic value) {
+    if (value == null) return null;
+    if (value is num) return value;
+    if (value is bool) return value ? 1 : 0;
+    if (value is String) {
+      final normalized = value
+          .replaceAll('۰', '0')
+          .replaceAll('۱', '1')
+          .replaceAll('۲', '2')
+          .replaceAll('۳', '3')
+          .replaceAll('۴', '4')
+          .replaceAll('۵', '5')
+          .replaceAll('۶', '6')
+          .replaceAll('۷', '7')
+          .replaceAll('۸', '8')
+          .replaceAll('۹', '9')
+          .replaceAll(',', '')
+          .replaceAll(RegExp(r'[^0-9\.\-]'), '')
+          .trim();
+      if (normalized.isEmpty) return null;
+      return num.tryParse(normalized);
+    }
+    return null;
   }
 
   /// Converts a value to boolean

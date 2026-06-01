@@ -101,8 +101,14 @@ class StacCustomSetValueAction extends StacAction {
   final String? key;
   final dynamic value;
   final List<Map<String, dynamic>>? values;
+  final dynamic action;
 
-  const StacCustomSetValueAction({this.key, this.value, this.values});
+  const StacCustomSetValueAction({
+    this.key,
+    this.value,
+    this.values,
+    this.action,
+  });
 
   @override
   String get actionType => 'setValue';
@@ -110,15 +116,39 @@ class StacCustomSetValueAction extends StacAction {
   @override
   Map<String, dynamic> toJson() {
     if (values != null) {
-      return {'actionType': 'setValue', 'values': values};
+      return {
+        'actionType': 'setValue',
+        'values': values!.map(_processEntry).toList(),
+        if (action != null) 'action': _processValue(action),
+      };
     }
-    dynamic processedValue = value;
-    if (value is StacGetFormValueAction) {
-      processedValue = value.toJson();
-    } else if (value is StacAction) {
-      processedValue = value.toJson();
+    final processedValue = _processValue(value);
+    return {
+      'actionType': 'setValue',
+      'key': key,
+      'value': processedValue,
+      if (action != null) 'action': _processValue(action),
+    };
+  }
+
+  Map<String, dynamic> _processEntry(Map<String, dynamic> entry) {
+    return entry.map((key, value) => MapEntry(key, _processValue(value)));
+  }
+
+  dynamic _processValue(dynamic input) {
+    if (input is StacGetFormValueAction) {
+      return input.toJson();
     }
-    return {'actionType': 'setValue', 'key': key, 'value': processedValue};
+    if (input is StacAction) {
+      return input.toJson();
+    }
+    if (input is Map) {
+      return input.map((key, value) => MapEntry(key, _processValue(value)));
+    }
+    if (input is List) {
+      return input.map(_processValue).toList();
+    }
+    return input;
   }
 }
 
@@ -241,6 +271,9 @@ class StacFilePickerAction extends StacAction {
   final bool cropImage;
   final double? cropAspectRatioX;
   final double? cropAspectRatioY;
+  final int? cropMaxWidth;
+  final int? cropMaxHeight;
+  final int? cropCompressQuality;
   final List<String>? allowedExtensions;
   final bool previewBeforeConfirm;
   final String? previewSheetTitle;
@@ -258,6 +291,9 @@ class StacFilePickerAction extends StacAction {
     this.cropImage = false,
     this.cropAspectRatioX,
     this.cropAspectRatioY,
+    this.cropMaxWidth,
+    this.cropMaxHeight,
+    this.cropCompressQuality,
     this.allowedExtensions,
     this.previewBeforeConfirm = false,
     this.previewSheetTitle,
@@ -281,6 +317,9 @@ class StacFilePickerAction extends StacAction {
     'cropImage': cropImage,
     if (cropAspectRatioX != null) 'cropAspectRatioX': cropAspectRatioX,
     if (cropAspectRatioY != null) 'cropAspectRatioY': cropAspectRatioY,
+    if (cropMaxWidth != null) 'cropMaxWidth': cropMaxWidth,
+    if (cropMaxHeight != null) 'cropMaxHeight': cropMaxHeight,
+    if (cropCompressQuality != null) 'cropCompressQuality': cropCompressQuality,
     if (allowedExtensions != null) 'allowedExtensions': allowedExtensions,
     'previewBeforeConfirm': previewBeforeConfirm,
     if (previewSheetTitle != null) 'previewSheetTitle': previewSheetTitle,

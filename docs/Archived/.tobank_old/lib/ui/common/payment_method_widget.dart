@@ -24,6 +24,13 @@ class PaymentMethodWidget extends StatelessWidget {
   final bool canPayWithWallet;
   final bool canPayWithGateway;
 
+  Color _itemBorderColor(BuildContext context, PaymentType type) {
+    if (currentPaymentType == type) {
+      return context.theme.colorScheme.secondary;
+    }
+    return Get.isDarkMode ? const Color(0xFF344054) : const Color(0xFF98A2B3);
+  }
+
   @override
   Widget build(BuildContext context) {
     //locale
@@ -49,9 +56,8 @@ class PaymentMethodWidget extends StatelessWidget {
                           ? context.theme.colorScheme.secondary.withOpacity(0.15)
                           : Colors.transparent,
                       border: Border.all(
-                        color: currentPaymentType == PaymentType.wallet
-                            ? context.theme.colorScheme.secondary
-                            : context.theme.dividerColor,
+                        color: _itemBorderColor(context, PaymentType.wallet),
+                        width: 1.3,
                       ),
                     ),
                     child: Padding(
@@ -131,9 +137,8 @@ class PaymentMethodWidget extends StatelessWidget {
                           ? context.theme.colorScheme.secondary.withOpacity(0.15)
                           : Colors.transparent,
                       border: Border.all(
-                        color: currentPaymentType == PaymentType.gateway
-                            ? context.theme.colorScheme.secondary
-                            : context.theme.dividerColor,
+                        color: _itemBorderColor(context, PaymentType.gateway),
+                        width: 1.3,
                       ),
                     ),
                     child: Padding(
@@ -193,9 +198,8 @@ class PaymentMethodWidget extends StatelessWidget {
                           ? context.theme.colorScheme.secondary.withOpacity(0.15)
                           : Colors.transparent,
                       border: Border.all(
-                        color: currentPaymentType == PaymentType.deposit
-                            ? context.theme.colorScheme.secondary
-                            : context.theme.dividerColor,
+                        color: _itemBorderColor(context, PaymentType.deposit),
+                        width: 1.3,
                       ),
                     ),
                     child: Padding(

@@ -1,4 +1,10 @@
 import '../../../stac/tobank/login/dart/tobank_login.dart' as login_dart;
+import '../../../stac/tobank/flows/user_validation/dart/user_validation_receipt.dart'
+    as user_validation_receipt_dart;
+import '../../../stac/tobank/flows/user_validation/dart/user_validation_preview.dart'
+    as user_validation_preview_dart;
+import '../../../stac/tobank/flows/user_validation/dart/user_validation_report_detail.dart'
+    as user_validation_report_detail_dart;
 import '../../../stac/tobank/login/dart/verify_otp.dart' as verify_otp_dart;
 import '../../../stac/tobank/menu/dart/tobank_menu.dart' as tobank_menu_dart;
 import '../../../stac/tobank/flows/home_page/dart/home_page.dart'
@@ -71,6 +77,8 @@ import '../../../stac/tobank/flows/promissory/menu/promissory_menu.dart'
     as promissory_debug_dart;
 import '../../../stac/tobank/flows/verify_identity/menu/verify_identity_menu.dart'
     as verify_identity_menu_dart;
+import '../../../stac/tobank/flows/user_validation/menu/user_validation_menu.dart'
+    as user_validation_menu_dart;
 import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_intro.dart'
     as verify_identity_intro_dart;
 import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_preregister.dart'
@@ -141,6 +149,24 @@ import '../../../stac/tobank/flows/cartable/dart/cartable_detail.dart'
     as cartable_detail_dart;
 import '../../../stac/tobank/flows/transaction/menu/transaction_menu.dart'
     as transaction_menu_dart;
+import '../../../stac/tobank/flows/installment_payment/menu/installment_payment_api_real_menu.dart'
+    as installment_payment_api_real_menu_dart;
+import '../../../stac/tobank/flows/child_loan/menu/child_loan_api_real_menu.dart'
+    as child_loan_api_real_menu_dart;
+import '../../../stac/tobank/flows/child_loan/dart/child_loan_rules.dart'
+    as child_loan_rules_dart;
+import '../../../stac/tobank/flows/child_loan/dart/child_loan_customer_check.dart'
+    as child_loan_customer_check_dart;
+import '../../../stac/tobank/flows/child_loan/dart/child_loan_task_list.dart'
+    as child_loan_task_list_dart;
+import '../../../stac/tobank/flows/child_loan/dart/child_loan_guarantee_address.dart'
+    as child_loan_guarantee_address_dart;
+import '../../../stac/tobank/flows/child_loan/dart/child_loan_child_check.dart'
+    as child_loan_child_check_dart;
+import '../../../stac/tobank/flows/installment_payment/dart/installment_payment_list_main.dart'
+    as installment_payment_list_main_dart;
+import '../../../stac/tobank/flows/installment_payment/dart/installment_payment_detail_main.dart'
+    as installment_payment_detail_main_dart;
 import '../../../stac/tobank/flows/transaction/dart/transaction_intro.dart'
     as transaction_intro_dart;
 import '../../../stac/tobank/flows/transaction/dart/transaction_filter.dart'
@@ -288,6 +314,15 @@ class StacWidgetLoader {
   /// Extensible - new widget types can be registered without modifying this class.
   static final Map<String, Map<String, dynamic> Function()> _widgetLoaders = {
     'tobank_login_dart': () => login_dart.tobankLoginDart().toJson(),
+    'user_validation_receipt': () =>
+        user_validation_receipt_dart.userValidationReceipt().toJson(),
+    'user_validation_preview': () =>
+        user_validation_preview_dart.userValidationPreview().toJson(),
+    'user_validation_report_detail': () => user_validation_report_detail_dart
+        .userValidationReportDetail()
+        .toJson(),
+    'tobank_user_validation': () =>
+        user_validation_menu_dart.userValidationMenu().toJson(),
     'tobank_verify_otp_dart': () =>
         verify_otp_dart.tobankVerifyOtpDart().toJson(),
     'tobank_menu_dart': () => tobank_menu_dart.tobankMenuDart().toJson(),
@@ -359,6 +394,30 @@ class StacWidgetLoader {
     'cartable_detail': () => cartable_detail_dart.cartableRealDetail().toJson(),
     'transaction_menu': () =>
         transaction_menu_dart.transactionRealMenu().toJson(),
+    'installment_payment_api_real_menu': () =>
+        installment_payment_api_real_menu_dart
+            .installmentPaymentApiRealMenu()
+            .toJson(),
+    'child_loan_api_real_menu': () =>
+        child_loan_api_real_menu_dart.childLoanApiRealMenu().toJson(),
+    'child_loan_rules': () =>
+        child_loan_rules_dart.childLoanRulesScreen().toJson(),
+    'child_loan_customer_check': () =>
+        child_loan_customer_check_dart.childLoanCustomerCheckScreen().toJson(),
+    'child_loan_task_list': () =>
+        child_loan_task_list_dart.childLoanTaskListScreen().toJson(),
+    'child_loan_guarantee_address': () => child_loan_guarantee_address_dart
+        .childLoanGuaranteeAddressScreen()
+        .toJson(),
+    'child_loan_child_check': () =>
+        child_loan_child_check_dart.childLoanChildCheckScreen().toJson(),
+    'installment_payment_list_main': () => installment_payment_list_main_dart
+        .installmentPaymentListMain()
+        .toJson(),
+    'installment_payment_detail_main': () =>
+        installment_payment_detail_main_dart
+            .installmentPaymentDetailMain()
+            .toJson(),
     'transaction_intro': () =>
         transaction_intro_dart.transactionRealIntro().toJson(),
     'transaction_filter': () =>
@@ -374,7 +433,8 @@ class StacWidgetLoader {
     'deposit_turnover_transactions': () => deposit_turnover_transactions_dart
         .depositTurnoverTransactions()
         .toJson(),
-    'deposit_more_menu': () => deposit_more_menu_dart.depositMoreMenu().toJson(),
+    'deposit_more_menu': () =>
+        deposit_more_menu_dart.depositMoreMenu().toJson(),
     'deposit_more_intro': () =>
         deposit_more_intro_dart.depositMoreIntro().toJson(),
     'deposit_card_issue_address': () =>
@@ -392,8 +452,7 @@ class StacWidgetLoader {
     'dashboard_menu': () => dashboard_menu_dart.dashboardRealMenu().toJson(),
     'biometric_test_menu': () =>
         biometric_test_menu_dart.biometricTestMenu().toJson(),
-    'dashboard_shell': () =>
-        dashboard_shell_dart.dashboardShell().toJson(),
+    'dashboard_shell': () => dashboard_shell_dart.dashboardShell().toJson(),
     'dashboard_cards_management': () =>
         cards_management_screen_dart.dashboardCardsManagement().toJson(),
     'dashboard_card_edit': () =>
@@ -415,17 +474,16 @@ class StacWidgetLoader {
     'dashboard_card_reissue_request': () =>
         reissue_request_dart.dashboardCardReissueRequest().toJson(),
     'dashboard_card_reissue_select_card_color': () =>
-        reissue_select_card_color_dart.dashboardCardReissueSelectCardColor().toJson(),
+        reissue_select_card_color_dart
+            .dashboardCardReissueSelectCardColor()
+            .toJson(),
     'dashboard_card_reissue_receipt': () =>
         reissue_receipt_dart.dashboardCardReissueReceipt().toJson(),
     'dashboard_card_balance': () =>
         card_balance_screen_dart.dashboardCardBalance().toJson(),
-    'gift_card_menu': () =>
-        gift_card_menu_dart.giftCardRealMenu().toJson(),
-    'transfer_menu': () =>
-        transfer_menu_dart.transferRealMenu().toJson(),
-    'transfer_amount': () =>
-        transfer_amount_dart.transferRealAmount().toJson(),
+    'gift_card_menu': () => gift_card_menu_dart.giftCardRealMenu().toJson(),
+    'transfer_menu': () => transfer_menu_dart.transferRealMenu().toJson(),
+    'transfer_amount': () => transfer_amount_dart.transferRealAmount().toJson(),
     'transfer_details': () =>
         transfer_details_dart.transferRealDetails().toJson(),
     'transfer_confirm': () =>

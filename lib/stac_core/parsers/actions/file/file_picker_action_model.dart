@@ -35,6 +35,15 @@ class FilePickerActionModel {
   /// Optional fixed crop ratio Y value (used when both X and Y are provided).
   final double? cropAspectRatioY;
 
+  /// Optional maximum cropped image width.
+  final int? cropMaxWidth;
+
+  /// Optional maximum cropped image height.
+  final int? cropMaxHeight;
+
+  /// Optional cropped image compression quality.
+  final int? cropCompressQuality;
+
   /// Whether to show a preview bottom sheet before committing the file.
   final bool previewBeforeConfirm;
 
@@ -59,6 +68,9 @@ class FilePickerActionModel {
     this.cropImage = false,
     this.cropAspectRatioX,
     this.cropAspectRatioY,
+    this.cropMaxWidth,
+    this.cropMaxHeight,
+    this.cropCompressQuality,
     this.previewBeforeConfirm = false,
     this.previewSheetTitle,
     this.confirmButtonText,
@@ -80,6 +92,9 @@ class FilePickerActionModel {
       cropImage: json['cropImage'] as bool? ?? false,
       cropAspectRatioX: (json['cropAspectRatioX'] as num?)?.toDouble(),
       cropAspectRatioY: (json['cropAspectRatioY'] as num?)?.toDouble(),
+      cropMaxWidth: (json['cropMaxWidth'] as num?)?.toInt(),
+      cropMaxHeight: (json['cropMaxHeight'] as num?)?.toInt(),
+      cropCompressQuality: (json['cropCompressQuality'] as num?)?.toInt(),
       previewBeforeConfirm: json['previewBeforeConfirm'] as bool? ?? false,
       previewSheetTitle: json['previewSheetTitle'] as String?,
       confirmButtonText: json['confirmButtonText'] as String?,
@@ -101,6 +116,10 @@ class FilePickerActionModel {
       'cropImage': cropImage,
       if (cropAspectRatioX != null) 'cropAspectRatioX': cropAspectRatioX,
       if (cropAspectRatioY != null) 'cropAspectRatioY': cropAspectRatioY,
+      if (cropMaxWidth != null) 'cropMaxWidth': cropMaxWidth,
+      if (cropMaxHeight != null) 'cropMaxHeight': cropMaxHeight,
+      if (cropCompressQuality != null)
+        'cropCompressQuality': cropCompressQuality,
       'previewBeforeConfirm': previewBeforeConfirm,
       if (previewSheetTitle != null) 'previewSheetTitle': previewSheetTitle,
       if (confirmButtonText != null) 'confirmButtonText': confirmButtonText,
@@ -120,6 +139,9 @@ class FilePickerActionModel {
     cropImage,
     cropAspectRatioX,
     cropAspectRatioY,
+    cropMaxWidth,
+    cropMaxHeight,
+    cropCompressQuality,
     previewBeforeConfirm,
     previewSheetTitle,
     confirmButtonText,

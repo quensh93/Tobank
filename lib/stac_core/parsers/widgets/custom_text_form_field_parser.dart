@@ -230,7 +230,8 @@ class _CustomTextFormFieldWidgetState
   Widget build(BuildContext context) {
     final onTapAction = widget.rawJson?['onTap'] as Map<String, dynamic>?;
     final supportTextDirection = _parseSupportTextDirection();
-    final fieldTextDirection = supportTextDirection ?? widget.model.textDirection?.parse;
+    final fieldTextDirection =
+        supportTextDirection ?? widget.model.textDirection?.parse;
 
     final obscuringCharacter = _normalizeObscuringCharacter(
       widget.model.obscuringCharacter,
@@ -316,6 +317,7 @@ class _CustomTextFormFieldWidgetState
       textCapitalization:
           widget.model.textCapitalization?.parse ?? TextCapitalization.none,
       textAlign: widget.model.textAlign?.parse ?? TextAlign.start,
+      textAlignVertical: _parseTextAlignVertical(),
       // Use supportTextDirection for the whole field so helper/error text
       // follows the expected RTL/LTR layout as well.
       textDirection: fieldTextDirection,
@@ -397,6 +399,24 @@ class _CustomTextFormFieldWidgetState
         return TextDirection.rtl;
       case 'ltr':
         return TextDirection.ltr;
+      default:
+        return null;
+    }
+  }
+
+  TextAlignVertical? _parseTextAlignVertical() {
+    final rawValue = widget.rawJson?['textAlignVertical'];
+    if (rawValue is! String) {
+      return null;
+    }
+
+    switch (rawValue.toLowerCase().trim()) {
+      case 'top':
+        return TextAlignVertical.top;
+      case 'center':
+        return TextAlignVertical.center;
+      case 'bottom':
+        return TextAlignVertical.bottom;
       default:
         return null;
     }
@@ -583,7 +603,10 @@ class _CustomTextFormFieldWidgetState
     return Directionality.of(context);
   }
 
-  Alignment _mapHintAlignment(TextAlign textAlign, TextDirection textDirection) {
+  Alignment _mapHintAlignment(
+    TextAlign textAlign,
+    TextDirection textDirection,
+  ) {
     switch (textAlign) {
       case TextAlign.left:
         return Alignment.centerLeft;
