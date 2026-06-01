@@ -53,7 +53,7 @@
                                         "decoration": {
                                             "labelText": "کد ملی گیرنده",
                                             "border": {
-                                                "type": "outline"
+                                                "type": "outlineInputBorder"
                                             }
                                         },
                                         "validatorRules": [
@@ -79,7 +79,7 @@
                                             "labelText": "شماره موبایل گیرنده",
                                             "hintText": "0912...",
                                             "border": {
-                                                "type": "outline"
+                                                "type": "outlineInputBorder"
                                             }
                                         },
                                         "validatorRules": [
@@ -104,7 +104,7 @@
                                             "labelText": "تاریخ تولد گیرنده",
                                             "hintText": "1370-01-01",
                                             "border": {
-                                                "type": "outline"
+                                                "type": "outlineInputBorder"
                                             }
                                         }
                                     },

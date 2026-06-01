@@ -42,18 +42,4 @@ String _$themeControllerHash() => r'105a91eb528d11305c0874387df3119eb2e9e604';
 
 abstract class _$ThemeController extends $AsyncNotifier<ThemeMode> {
   FutureOr<ThemeMode> build();
-  @$mustCallSuper
-  @override
-  void runBuild() {
-    final ref = this.ref as $Ref<AsyncValue<ThemeMode>, ThemeMode>;
-    final element =
-        ref.element
-            as $ClassProviderElement<
-              AnyNotifier<AsyncValue<ThemeMode>, ThemeMode>,
-              AsyncValue<ThemeMode>,
-              Object?,
-              Object?
-            >;
-    element.handleCreate(ref, build);
-  }
 }

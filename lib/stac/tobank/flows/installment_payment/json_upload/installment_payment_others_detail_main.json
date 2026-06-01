@@ -324,7 +324,7 @@
                           "color": "{{appColors.current.text.title}}"
                         },
                         "enabledBorder": {
-                          "type": "outline",
+                          "type": "outlineInputBorder",
                           "borderSide": {
                             "color": "{{appColors.current.input.borderEnabled}}",
                             "width": 1.0
@@ -334,7 +334,7 @@
                           }
                         },
                         "focusedBorder": {
-                          "type": "outline",
+                          "type": "outlineInputBorder",
                           "borderSide": {
                             "color": "{{appColors.current.input.borderEnabled}}",
                             "width": 1.0
@@ -422,7 +422,7 @@
                       "decoration": {
                         "hintText": "مبلغ دلخواه",
                         "enabledBorder": {
-                          "type": "outline",
+                          "type": "outlineInputBorder",
                           "borderSide": {
                             "color": "{{appColors.current.input.borderEnabled}}",
                             "width": 1.0
@@ -432,7 +432,7 @@
                           }
                         },
                         "focusedBorder": {
-                          "type": "outline",
+                          "type": "outlineInputBorder",
                           "borderSide": {
                             "color": "{{appColors.current.input.borderEnabled}}",
                             "width": 1.0

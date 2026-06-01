@@ -11,6 +11,17 @@ class ThemeController extends _$ThemeController {
   final _storage = const FlutterSecureStorage();
 
   @override
+  void runBuild() {
+    state = const AsyncValue.loading();
+    Future.sync(build).then(
+      (value) => state = AsyncValue.data(value),
+      onError: (Object error, StackTrace stackTrace) {
+        state = AsyncValue.error(error, stackTrace);
+      },
+    );
+  }
+
+  @override
   Future<ThemeMode> build() async {
     // Load saved theme mode from secure storage
     final savedMode = await _storage.read(key: _themeModeKey);

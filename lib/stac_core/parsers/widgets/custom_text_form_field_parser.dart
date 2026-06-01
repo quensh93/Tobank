@@ -640,11 +640,7 @@ class _CustomTextFormFieldWidgetState
     if (value != null && (widget.model.validatorRules?.isNotEmpty ?? false)) {
       for (final validator in widget.model.validatorRules!) {
         try {
-          if (!InputValidators.validate(
-            validator.rule,
-            value,
-            options: validator.options,
-          )) {
+          if (!InputValidators.validate(validator.rule, value)) {
             return validator.message;
           }
         } catch (e) {

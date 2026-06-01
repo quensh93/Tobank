@@ -22,7 +22,7 @@ StacWidget dashboardCardReissueRequest() {
             initialValue: 'تهران/تهران',
             decoration: {
               'enabledBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color': '{{appColors.current.input.borderEnabled}}',
                   'width': 1,
@@ -30,7 +30,7 @@ StacWidget dashboardCardReissueRequest() {
                 'borderRadius': {'all': 12},
               },
               'focusedBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color':
                       '{{appColors.current.button.primary.backgroundColor}}',
@@ -63,7 +63,7 @@ StacWidget dashboardCardReissueRequest() {
                 },
               },
               'enabledBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color': '{{appColors.current.input.borderEnabled}}',
                   'width': 1,
@@ -71,7 +71,7 @@ StacWidget dashboardCardReissueRequest() {
                 'borderRadius': {'all': 12},
               },
               'focusedBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color':
                       '{{appColors.current.button.primary.backgroundColor}}',
@@ -104,7 +104,7 @@ StacWidget dashboardCardReissueRequest() {
                 },
               },
               'enabledBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color': '{{appColors.current.input.borderEnabled}}',
                   'width': 1,
@@ -112,7 +112,7 @@ StacWidget dashboardCardReissueRequest() {
                 'borderRadius': {'all': 12},
               },
               'focusedBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color':
                       '{{appColors.current.button.primary.backgroundColor}}',
@@ -145,7 +145,7 @@ StacWidget dashboardCardReissueRequest() {
                 },
               },
               'enabledBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color': '{{appColors.current.input.borderEnabled}}',
                   'width': 1,
@@ -153,7 +153,7 @@ StacWidget dashboardCardReissueRequest() {
                 'borderRadius': {'all': 12},
               },
               'focusedBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color':
                       '{{appColors.current.button.primary.backgroundColor}}',
@@ -187,7 +187,7 @@ StacWidget dashboardCardReissueRequest() {
                 },
               },
               'enabledBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color': '{{appColors.current.input.borderEnabled}}',
                   'width': 1,
@@ -195,7 +195,7 @@ StacWidget dashboardCardReissueRequest() {
                 'borderRadius': {'all': 12},
               },
               'focusedBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color':
                       '{{appColors.current.button.primary.backgroundColor}}',
@@ -229,7 +229,7 @@ StacWidget dashboardCardReissueRequest() {
                 },
               },
               'enabledBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color': '{{appColors.current.input.borderEnabled}}',
                   'width': 1,
@@ -237,7 +237,7 @@ StacWidget dashboardCardReissueRequest() {
                 'borderRadius': {'all': 12},
               },
               'focusedBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color':
                       '{{appColors.current.button.primary.backgroundColor}}',

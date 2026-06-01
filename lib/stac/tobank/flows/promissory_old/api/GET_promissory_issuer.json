@@ -83,7 +83,7 @@
                                     "decoration": {
                                         "labelText": "نام و نام خانوادگی",
                                         "border": {
-                                            "type": "outline"
+                                            "type": "outlineInputBorder"
                                         }
                                     }
                                 },
@@ -102,7 +102,7 @@
                                     "decoration": {
                                         "labelText": "کد ملی",
                                         "border": {
-                                            "type": "outline"
+                                            "type": "outlineInputBorder"
                                         }
                                     }
                                 },
@@ -121,7 +121,7 @@
                                     "decoration": {
                                         "labelText": "نشانی",
                                         "border": {
-                                            "type": "outline"
+                                            "type": "outlineInputBorder"
                                         }
                                     }
                                 },
@@ -139,7 +139,7 @@
                                     "decoration": {
                                         "labelText": "کد پستی",
                                         "border": {
-                                            "type": "outline"
+                                            "type": "outlineInputBorder"
                                         }
                                     }
                                 },

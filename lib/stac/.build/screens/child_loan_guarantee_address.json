@@ -1,0 +1,1541 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "setValue",
+    "values": [
+      {
+        "key": "childLoanPostalInquiryEnabled",
+        "value": false
+      },
+      {
+        "key": "childLoanPostalInquirySuccess",
+        "value": false
+      },
+      {
+        "key": "childLoanOwnershipExpanded",
+        "value": false
+      },
+      {
+        "key": "childLoanOwnershipHasValue",
+        "value": false
+      },
+      {
+        "key": "childLoanOwnershipValue",
+        "value": ""
+      }
+    ]
+  },
+  "child": {
+    "appBar": {
+      "leading": {
+        "padding": {
+          "left": 12.0
+        },
+        "child": {
+          "child": {
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24.0,
+            "height": 24.0,
+            "type": "image"
+          },
+          "type": "center"
+        },
+        "type": "padding"
+      },
+      "automaticallyImplyLeading": true,
+      "title": {
+        "data": "تسهیلات فرزندآوری",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "actions": [
+        {
+          "padding": {
+            "right": 12.0
+          },
+          "child": {
+            "onPressed": {
+              "navigationStyle": "pop",
+              "actionType": "navigate"
+            },
+            "icon": {
+              "src": "{{appAssets.icons.arrowBack}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 31.0,
+              "height": 31.0,
+              "type": "image"
+            },
+            "type": "iconButton"
+          },
+          "type": "padding"
+        }
+      ],
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "body": {
+      "child": {
+        "padding": {
+          "left": 16.0,
+          "top": 16.0,
+          "right": 16.0,
+          "bottom": 16.0
+        },
+        "child": {
+          "crossAxisAlignment": "stretch",
+          "children": [
+            {
+              "data": "اطلاعات آدرس متقاضی",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.title}}",
+                "fontSize": 20.0,
+                "fontWeight": "w700"
+              },
+              "textAlign": "right",
+              "textDirection": "rtl",
+              "type": "text"
+            },
+            {
+              "height": 16.0,
+              "type": "sizedBox"
+            },
+            {
+              "data": "کاربر گرامی، لطفا اطلاعات محل سکونت خود را وارد و تصویر اصل سند یا اجاره نامه محل سکونت خود را بارگذاری نمایید.",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.subtitle}}",
+                "fontSize": 16.0,
+                "fontWeight": "w500",
+                "height": 1.7
+              },
+              "textAlign": "right",
+              "textDirection": "rtl",
+              "type": "text"
+            },
+            {
+              "height": 20.0,
+              "type": "sizedBox"
+            },
+            {
+              "data": "کد پستی محل سکونت متقاضی",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.title}}",
+                "fontSize": 18.0,
+                "fontWeight": "w700"
+              },
+              "textAlign": "right",
+              "textDirection": "rtl",
+              "type": "text"
+            },
+            {
+              "height": 8.0,
+              "type": "sizedBox"
+            },
+            {
+              "crossAxisAlignment": "center",
+              "textDirection": "rtl",
+              "children": [
+                {
+                  "child": {
+                    "height": 58.0,
+                    "child": {
+                      "type": "textFormField",
+                      "id": "child_loan_guarantee_postal_code",
+                      "keyboardType": "number",
+                      "maxLength": 10,
+                      "inputFormatters": [
+                        {
+                          "type": "allow",
+                          "rule": "[0-9۰-۹]"
+                        }
+                      ],
+                      "onChanged": {
+                        "actionType": "validateFields",
+                        "resultKey": "childLoanPostalInquiryEnabled",
+                        "fields": [
+                          {
+                            "id": "child_loan_guarantee_postal_code",
+                            "rule": "^[0-9۰-۹]{10}$"
+                          }
+                        ]
+                      },
+                      "supportTextDirection": "ltr",
+                      "textDirection": "ltr",
+                      "textAlign": "center",
+                      "textAlignVertical": "center",
+                      "decoration": {
+                        "hintText": "کد پستی محل سکونت را وارد نمایید",
+                        "hintTextDirection": "rtl",
+                        "hintTextAlign": "center",
+                        "counterText": "",
+                        "isDense": true,
+                        "contentPadding": {
+                          "left": 12,
+                          "top": 0,
+                          "right": 12,
+                          "bottom": 0
+                        },
+                        "enabledBorder": {
+                          "type": "outline",
+                          "borderSide": {
+                            "color": "{{appColors.current.input.borderEnabled}}",
+                            "width": 1.0
+                          },
+                          "borderRadius": {
+                            "all": 6
+                          }
+                        },
+                        "focusedBorder": {
+                          "type": "outline",
+                          "borderSide": {
+                            "color": "{{appColors.current.input.borderEnabled}}",
+                            "width": 1.0
+                          },
+                          "borderRadius": {
+                            "all": 6
+                          }
+                        }
+                      },
+                      "style": {
+                        "fontSize": 20,
+                        "fontWeight": "w600",
+                        "color": "{{appColors.current.text.title}}"
+                      }
+                    },
+                    "type": "sizedBox"
+                  },
+                  "type": "expanded"
+                },
+                {
+                  "width": 12.0,
+                  "type": "sizedBox"
+                },
+                {
+                  "width": 110.0,
+                  "height": 58.0,
+                  "child": {
+                    "type": "reactiveElevatedButton",
+                    "enabledKey": "childLoanPostalInquiryEnabled",
+                    "onPressed": {
+                      "actionType": "setValue",
+                      "key": "childLoanPostalInquirySuccess",
+                      "value": true
+                    },
+                    "style": {
+                      "foregroundColor": "#FFFFFF",
+                      "backgroundColor": "{{appColors.current.primary.color}}",
+                      "elevation": 0.0,
+                      "shape": {
+                        "type": "roundedRectangleBorder",
+                        "borderRadius": {
+                          "topLeft": 8.0,
+                          "topRight": 8.0,
+                          "bottomLeft": 8.0,
+                          "bottomRight": 8.0
+                        }
+                      }
+                    },
+                    "child": {
+                      "data": "استعلام",
+                      "style": {
+                        "type": "custom",
+                        "color": "#FFFFFF",
+                        "fontSize": 16.0,
+                        "fontWeight": "w700"
+                      },
+                      "type": "text"
+                    }
+                  },
+                  "type": "sizedBox"
+                }
+              ],
+              "type": "row"
+            },
+            {
+              "type": "visibility",
+              "visible": "[[childLoanPostalInquirySuccess]]",
+              "child": {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "padding": {
+                      "left": 16.0,
+                      "top": 16.0,
+                      "right": 16.0,
+                      "bottom": 16.0
+                    },
+                    "decoration": {
+                      "color": "{{appColors.current.background.surfaceContainer}}",
+                      "border": {
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "width": 1.0
+                      },
+                      "borderRadius": {
+                        "topLeft": 10.0,
+                        "topRight": 10.0,
+                        "bottomLeft": 10.0,
+                        "bottomRight": 10.0
+                      }
+                    },
+                    "child": {
+                      "crossAxisAlignment": "stretch",
+                      "children": [
+                        {
+                          "data": "استان",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 18.0,
+                            "fontWeight": "w700"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "height": 8.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "padding": {
+                            "left": 14.0,
+                            "top": 16.0,
+                            "right": 14.0,
+                            "bottom": 16.0
+                          },
+                          "decoration": {
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1.0
+                            },
+                            "borderRadius": {
+                              "topLeft": 10.0,
+                              "topRight": 10.0,
+                              "bottomLeft": 10.0,
+                              "bottomRight": 10.0
+                            }
+                          },
+                          "child": {
+                            "data": "تهران",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 16.0,
+                              "fontWeight": "w600"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "height": 16.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "شهر",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 18.0,
+                            "fontWeight": "w700"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "height": 8.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "padding": {
+                            "left": 14.0,
+                            "top": 16.0,
+                            "right": 14.0,
+                            "bottom": 16.0
+                          },
+                          "decoration": {
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1.0
+                            },
+                            "borderRadius": {
+                              "topLeft": 10.0,
+                              "topRight": 10.0,
+                              "bottomLeft": 10.0,
+                              "bottomRight": 10.0
+                            }
+                          },
+                          "child": {
+                            "data": "تهران",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 16.0,
+                              "fontWeight": "w600"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "height": 16.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "شهرستان",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 18.0,
+                            "fontWeight": "w700"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "height": 8.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "padding": {
+                            "left": 14.0,
+                            "top": 16.0,
+                            "right": 14.0,
+                            "bottom": 16.0
+                          },
+                          "decoration": {
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1.0
+                            },
+                            "borderRadius": {
+                              "topLeft": 10.0,
+                              "topRight": 10.0,
+                              "bottomLeft": 10.0,
+                              "bottomRight": 10.0
+                            }
+                          },
+                          "child": {
+                            "data": "تهران",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 16.0,
+                              "fontWeight": "w600"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "height": 16.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "خیابان اصلی",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 18.0,
+                            "fontWeight": "w700"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "height": 8.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "padding": {
+                            "left": 12.0,
+                            "top": 2.0,
+                            "right": 12.0,
+                            "bottom": 2.0
+                          },
+                          "decoration": {
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1.0
+                            },
+                            "borderRadius": {
+                              "topLeft": 10.0,
+                              "topRight": 10.0,
+                              "bottomLeft": 10.0,
+                              "bottomRight": 10.0
+                            }
+                          },
+                          "child": {
+                            "textDirection": "rtl",
+                            "children": [
+                              {
+                                "child": {
+                                  "type": "textFormField",
+                                  "id": "child_loan_main_street",
+                                  "textDirection": "rtl",
+                                  "textAlign": "right",
+                                  "decoration": {
+                                    "hintText": "خیابان اصلی ضامن را وارد نمایید",
+                                    "hintStyle": {
+                                      "fontSize": 14,
+                                      "fontWeight": "w500",
+                                      "color": "{{appColors.current.text.subtitle}}"
+                                    },
+                                    "counterText": "",
+                                    "border": {
+                                      "type": "none"
+                                    },
+                                    "enabledBorder": {
+                                      "type": "none"
+                                    },
+                                    "focusedBorder": {
+                                      "type": "none"
+                                    },
+                                    "contentPadding": {
+                                      "left": 0,
+                                      "top": 14,
+                                      "right": 0,
+                                      "bottom": 14
+                                    }
+                                  },
+                                  "style": {
+                                    "fontSize": 16,
+                                    "fontWeight": "w600",
+                                    "color": "{{appColors.current.text.title}}"
+                                  },
+                                  "initialValue": "شهرک صدرا خیابان چهل و نهم"
+                                },
+                                "type": "expanded"
+                              },
+                              {
+                                "width": 8.0,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "child": {
+                                  "src": "assets/icons/ic_close.svg",
+                                  "imageType": "asset",
+                                  "color": "{{appColors.current.text.title}}",
+                                  "width": 18.0,
+                                  "height": 18.0,
+                                  "type": "image"
+                                },
+                                "onTap": {
+                                  "actionType": "setValue",
+                                  "key": "child_loan_main_street",
+                                  "value": ""
+                                },
+                                "type": "gestureDetector"
+                              }
+                            ],
+                            "type": "row"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "height": 16.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "خیابان فرعی",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 18.0,
+                            "fontWeight": "w700"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "height": 8.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "padding": {
+                            "left": 12.0,
+                            "top": 2.0,
+                            "right": 12.0,
+                            "bottom": 2.0
+                          },
+                          "decoration": {
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1.0
+                            },
+                            "borderRadius": {
+                              "topLeft": 10.0,
+                              "topRight": 10.0,
+                              "bottomLeft": 10.0,
+                              "bottomRight": 10.0
+                            }
+                          },
+                          "child": {
+                            "textDirection": "rtl",
+                            "children": [
+                              {
+                                "child": {
+                                  "type": "textFormField",
+                                  "id": "child_loan_secondary_street",
+                                  "textDirection": "rtl",
+                                  "textAlign": "right",
+                                  "decoration": {
+                                    "hintText": "خیابان فرعی خود را وارد نمایید",
+                                    "hintStyle": {
+                                      "fontSize": 14,
+                                      "fontWeight": "w500",
+                                      "color": "{{appColors.current.text.subtitle}}"
+                                    },
+                                    "counterText": "",
+                                    "border": {
+                                      "type": "none"
+                                    },
+                                    "enabledBorder": {
+                                      "type": "none"
+                                    },
+                                    "focusedBorder": {
+                                      "type": "none"
+                                    },
+                                    "contentPadding": {
+                                      "left": 0,
+                                      "top": 14,
+                                      "right": 0,
+                                      "bottom": 14
+                                    }
+                                  },
+                                  "style": {
+                                    "fontSize": 16,
+                                    "fontWeight": "w600",
+                                    "color": "{{appColors.current.text.title}}"
+                                  },
+                                  "initialValue": "خیابان نصر پنجم"
+                                },
+                                "type": "expanded"
+                              },
+                              {
+                                "width": 8.0,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "child": {
+                                  "src": "assets/icons/ic_close.svg",
+                                  "imageType": "asset",
+                                  "color": "{{appColors.current.text.title}}",
+                                  "width": 18.0,
+                                  "height": 18.0,
+                                  "type": "image"
+                                },
+                                "onTap": {
+                                  "actionType": "setValue",
+                                  "key": "child_loan_secondary_street",
+                                  "value": ""
+                                },
+                                "type": "gestureDetector"
+                              }
+                            ],
+                            "type": "row"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "height": 16.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "پلاک",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 18.0,
+                            "fontWeight": "w700"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "height": 8.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "padding": {
+                            "left": 12.0,
+                            "top": 2.0,
+                            "right": 12.0,
+                            "bottom": 2.0
+                          },
+                          "decoration": {
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1.0
+                            },
+                            "borderRadius": {
+                              "topLeft": 10.0,
+                              "topRight": 10.0,
+                              "bottomLeft": 10.0,
+                              "bottomRight": 10.0
+                            }
+                          },
+                          "child": {
+                            "textDirection": "rtl",
+                            "children": [
+                              {
+                                "child": {
+                                  "type": "textFormField",
+                                  "id": "child_loan_plaque",
+                                  "textDirection": "rtl",
+                                  "textAlign": "right",
+                                  "decoration": {
+                                    "hintText": "پلاک خود را وارد نمایید",
+                                    "hintStyle": {
+                                      "fontSize": 14,
+                                      "fontWeight": "w500",
+                                      "color": "{{appColors.current.text.subtitle}}"
+                                    },
+                                    "counterText": "",
+                                    "border": {
+                                      "type": "none"
+                                    },
+                                    "enabledBorder": {
+                                      "type": "none"
+                                    },
+                                    "focusedBorder": {
+                                      "type": "none"
+                                    },
+                                    "contentPadding": {
+                                      "left": 0,
+                                      "top": 14,
+                                      "right": 0,
+                                      "bottom": 14
+                                    }
+                                  },
+                                  "style": {
+                                    "fontSize": 16,
+                                    "fontWeight": "w600",
+                                    "color": "{{appColors.current.text.title}}"
+                                  },
+                                  "initialValue": "۷۵"
+                                },
+                                "type": "expanded"
+                              },
+                              {
+                                "width": 8.0,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "child": {
+                                  "src": "assets/icons/ic_close.svg",
+                                  "imageType": "asset",
+                                  "color": "{{appColors.current.text.title}}",
+                                  "width": 18.0,
+                                  "height": 18.0,
+                                  "type": "image"
+                                },
+                                "onTap": {
+                                  "actionType": "setValue",
+                                  "key": "child_loan_plaque",
+                                  "value": ""
+                                },
+                                "type": "gestureDetector"
+                              }
+                            ],
+                            "type": "row"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "height": 16.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "واحد",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 18.0,
+                            "fontWeight": "w700"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "height": 8.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "padding": {
+                            "left": 12.0,
+                            "top": 2.0,
+                            "right": 12.0,
+                            "bottom": 2.0
+                          },
+                          "decoration": {
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1.0
+                            },
+                            "borderRadius": {
+                              "topLeft": 10.0,
+                              "topRight": 10.0,
+                              "bottomLeft": 10.0,
+                              "bottomRight": 10.0
+                            }
+                          },
+                          "child": {
+                            "textDirection": "rtl",
+                            "children": [
+                              {
+                                "child": {
+                                  "type": "textFormField",
+                                  "id": "child_loan_unit",
+                                  "textDirection": "rtl",
+                                  "textAlign": "right",
+                                  "decoration": {
+                                    "hintText": "واحد ضامن را وارد کنید",
+                                    "hintStyle": {
+                                      "fontSize": 14,
+                                      "fontWeight": "w500",
+                                      "color": "{{appColors.current.text.subtitle}}"
+                                    },
+                                    "counterText": "",
+                                    "border": {
+                                      "type": "none"
+                                    },
+                                    "enabledBorder": {
+                                      "type": "none"
+                                    },
+                                    "focusedBorder": {
+                                      "type": "none"
+                                    },
+                                    "contentPadding": {
+                                      "left": 0,
+                                      "top": 14,
+                                      "right": 0,
+                                      "bottom": 14
+                                    }
+                                  },
+                                  "style": {
+                                    "fontSize": 16,
+                                    "fontWeight": "w600",
+                                    "color": "{{appColors.current.text.title}}"
+                                  },
+                                  "initialValue": "۲"
+                                },
+                                "type": "expanded"
+                              },
+                              {
+                                "width": 8.0,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "child": {
+                                  "src": "assets/icons/ic_close.svg",
+                                  "imageType": "asset",
+                                  "color": "{{appColors.current.text.title}}",
+                                  "width": 18.0,
+                                  "height": 18.0,
+                                  "type": "image"
+                                },
+                                "onTap": {
+                                  "actionType": "setValue",
+                                  "key": "child_loan_unit",
+                                  "value": ""
+                                },
+                                "type": "gestureDetector"
+                              }
+                            ],
+                            "type": "row"
+                          },
+                          "type": "container"
+                        },
+                        {
+                          "height": 16.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "data": "نوع مالکیت",
+                          "style": {
+                            "type": "custom",
+                            "color": "{{appColors.current.text.title}}",
+                            "fontSize": 18.0,
+                            "fontWeight": "w700"
+                          },
+                          "textAlign": "right",
+                          "textDirection": "rtl",
+                          "type": "text"
+                        },
+                        {
+                          "height": 8.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "crossAxisAlignment": "stretch",
+                          "children": [
+                            {
+                              "child": {
+                                "padding": {
+                                  "left": 14.0,
+                                  "top": 16.0,
+                                  "right": 14.0,
+                                  "bottom": 16.0
+                                },
+                                "decoration": {
+                                  "border": {
+                                    "color": "{{appColors.current.input.borderEnabled}}",
+                                    "width": 1.0
+                                  },
+                                  "borderRadius": {
+                                    "topLeft": 10.0,
+                                    "topRight": 10.0,
+                                    "bottomLeft": 10.0,
+                                    "bottomRight": 10.0
+                                  }
+                                },
+                                "child": {
+                                  "mainAxisAlignment": "spaceBetween",
+                                  "textDirection": "rtl",
+                                  "children": [
+                                    {
+                                      "type": "visibility",
+                                      "visible": "[[!childLoanOwnershipHasValue]]",
+                                      "child": {
+                                        "data": "نوع مالکیت را انتخاب نمایید",
+                                        "style": {
+                                          "type": "custom",
+                                          "color": "{{appColors.current.text.subtitle}}",
+                                          "fontSize": 16.0,
+                                          "fontWeight": "w500"
+                                        },
+                                        "textDirection": "rtl",
+                                        "type": "text"
+                                      }
+                                    },
+                                    {
+                                      "type": "visibility",
+                                      "visible": "[[childLoanOwnershipHasValue]]",
+                                      "child": {
+                                        "data": "{{childLoanOwnershipValue}}",
+                                        "style": {
+                                          "type": "custom",
+                                          "color": "{{appColors.current.text.title}}",
+                                          "fontSize": 16.0,
+                                          "fontWeight": "w600"
+                                        },
+                                        "textDirection": "rtl",
+                                        "type": "text"
+                                      }
+                                    },
+                                    {
+                                      "src": "{{appAssets.icons.arrowCircleDown}}",
+                                      "imageType": "asset",
+                                      "color": "{{appColors.current.text.subtitle}}",
+                                      "width": 20.0,
+                                      "height": 20.0,
+                                      "type": "image"
+                                    }
+                                  ],
+                                  "type": "row"
+                                },
+                                "type": "container"
+                              },
+                              "onTap": {
+                                "actionType": "setValue",
+                                "key": "childLoanOwnershipExpanded",
+                                "value": true
+                              },
+                              "type": "gestureDetector"
+                            },
+                            {
+                              "type": "visibility",
+                              "visible": "[[childLoanOwnershipExpanded]]",
+                              "child": {
+                                "padding": {
+                                  "top": 8.0,
+                                  "bottom": 8.0
+                                },
+                                "decoration": {
+                                  "color": "{{appColors.current.background.surfaceContainer}}",
+                                  "border": {
+                                    "color": "{{appColors.current.input.borderEnabled}}",
+                                    "width": 1.0
+                                  },
+                                  "borderRadius": {
+                                    "topLeft": 8.0,
+                                    "topRight": 8.0,
+                                    "bottomLeft": 8.0,
+                                    "bottomRight": 8.0
+                                  }
+                                },
+                                "margin": {
+                                  "top": 2.0
+                                },
+                                "child": {
+                                  "crossAxisAlignment": "stretch",
+                                  "children": [
+                                    {
+                                      "child": {
+                                        "padding": {
+                                          "left": 14.0,
+                                          "top": 14.0,
+                                          "right": 14.0,
+                                          "bottom": 14.0
+                                        },
+                                        "child": {
+                                          "data": "مالک",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w600"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        "type": "padding"
+                                      },
+                                      "onTap": {
+                                        "actionType": "sequence",
+                                        "actions": [
+                                          {
+                                            "actionType": "setValue",
+                                            "key": "childLoanOwnershipValue",
+                                            "value": "مالک"
+                                          },
+                                          {
+                                            "actionType": "setValue",
+                                            "key": "childLoanOwnershipHasValue",
+                                            "value": true
+                                          },
+                                          {
+                                            "actionType": "setValue",
+                                            "key": "childLoanOwnershipExpanded",
+                                            "value": false
+                                          }
+                                        ]
+                                      },
+                                      "type": "gestureDetector"
+                                    },
+                                    {
+                                      "child": {
+                                        "padding": {
+                                          "left": 14.0,
+                                          "top": 14.0,
+                                          "right": 14.0,
+                                          "bottom": 14.0
+                                        },
+                                        "child": {
+                                          "data": "استیجاری",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w600"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        "type": "padding"
+                                      },
+                                      "onTap": {
+                                        "actionType": "sequence",
+                                        "actions": [
+                                          {
+                                            "actionType": "setValue",
+                                            "key": "childLoanOwnershipValue",
+                                            "value": "استیجاری"
+                                          },
+                                          {
+                                            "actionType": "setValue",
+                                            "key": "childLoanOwnershipHasValue",
+                                            "value": true
+                                          },
+                                          {
+                                            "actionType": "setValue",
+                                            "key": "childLoanOwnershipExpanded",
+                                            "value": false
+                                          }
+                                        ]
+                                      },
+                                      "type": "gestureDetector"
+                                    },
+                                    {
+                                      "child": {
+                                        "padding": {
+                                          "left": 14.0,
+                                          "top": 14.0,
+                                          "right": 14.0,
+                                          "bottom": 14.0
+                                        },
+                                        "child": {
+                                          "data": "سایر",
+                                          "style": {
+                                            "type": "custom",
+                                            "color": "{{appColors.current.text.title}}",
+                                            "fontSize": 16.0,
+                                            "fontWeight": "w600"
+                                          },
+                                          "textAlign": "right",
+                                          "textDirection": "rtl",
+                                          "type": "text"
+                                        },
+                                        "type": "padding"
+                                      },
+                                      "onTap": {
+                                        "actionType": "sequence",
+                                        "actions": [
+                                          {
+                                            "actionType": "setValue",
+                                            "key": "childLoanOwnershipValue",
+                                            "value": "سایر"
+                                          },
+                                          {
+                                            "actionType": "setValue",
+                                            "key": "childLoanOwnershipHasValue",
+                                            "value": true
+                                          },
+                                          {
+                                            "actionType": "setValue",
+                                            "key": "childLoanOwnershipExpanded",
+                                            "value": false
+                                          }
+                                        ]
+                                      },
+                                      "type": "gestureDetector"
+                                    }
+                                  ],
+                                  "type": "column"
+                                },
+                                "type": "container"
+                              }
+                            }
+                          ],
+                          "type": "column"
+                        },
+                        {
+                          "height": 16.0,
+                          "type": "sizedBox"
+                        },
+                        {
+                          "decoration": {
+                            "border": {
+                              "color": "{{appColors.current.input.borderEnabled}}",
+                              "width": 1.0
+                            },
+                            "borderRadius": {
+                              "topLeft": 10.0,
+                              "topRight": 10.0,
+                              "bottomLeft": 10.0,
+                              "bottomRight": 10.0
+                            }
+                          },
+                          "child": {
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "padding": {
+                                  "left": 16.0,
+                                  "top": 16.0,
+                                  "right": 16.0,
+                                  "bottom": 16.0
+                                },
+                                "child": {
+                                  "data": "تصویر سند یا اجاره نامه محل سکونت",
+                                  "style": {
+                                    "type": "custom",
+                                    "color": "{{appColors.current.text.title}}",
+                                    "fontSize": 16.0,
+                                    "fontWeight": "w700"
+                                  },
+                                  "textAlign": "center",
+                                  "textDirection": "rtl",
+                                  "type": "text"
+                                },
+                                "type": "padding"
+                              },
+                              {
+                                "color": "{{appColors.current.input.borderEnabled}}",
+                                "height": 1.0,
+                                "type": "container"
+                              },
+                              {
+                                "padding": {
+                                  "left": 16.0,
+                                  "top": 14.0,
+                                  "right": 16.0,
+                                  "bottom": 14.0
+                                },
+                                "child": {
+                                  "crossAxisAlignment": "stretch",
+                                  "children": [
+                                    {
+                                      "type": "visibility",
+                                      "visible": "[[!childLoanResidenceDocumentHasImage]]",
+                                      "child": {
+                                        "mainAxisAlignment": "spaceEvenly",
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "child": {
+                                              "textDirection": "rtl",
+                                              "children": [
+                                                {
+                                                  "src": "{{appAssets.icons.cameraCurrent}}",
+                                                  "imageType": "asset",
+                                                  "width": 30.0,
+                                                  "height": 30.0,
+                                                  "type": "image"
+                                                },
+                                                {
+                                                  "width": 10.0,
+                                                  "type": "sizedBox"
+                                                },
+                                                {
+                                                  "data": "دوربین",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.title}}",
+                                                    "fontSize": 16.0,
+                                                    "fontWeight": "w600"
+                                                  },
+                                                  "textDirection": "rtl",
+                                                  "type": "text"
+                                                }
+                                              ],
+                                              "type": "row"
+                                            },
+                                            "onTap": {
+                                              "actionType": "sequence",
+                                              "actions": [
+                                                {
+                                                  "actionType": "pickFile",
+                                                  "fileType": "image",
+                                                  "allowMultiple": false,
+                                                  "targetKey": "childLoanResidenceDocumentImage",
+                                                  "hasValueKey": "childLoanResidenceDocumentHasImage",
+                                                  "fileNameKey": "childLoanResidenceDocumentImageName",
+                                                  "source": "camera",
+                                                  "cropImage": true,
+                                                  "cropMaxWidth": 1000,
+                                                  "cropMaxHeight": 1000,
+                                                  "cropCompressQuality": 80,
+                                                  "previewBeforeConfirm": false
+                                                }
+                                              ]
+                                            },
+                                            "type": "gestureDetector"
+                                          },
+                                          {
+                                            "color": "{{appColors.current.input.borderEnabled}}",
+                                            "width": 1.0,
+                                            "height": 28.0,
+                                            "type": "container"
+                                          },
+                                          {
+                                            "child": {
+                                              "textDirection": "rtl",
+                                              "children": [
+                                                {
+                                                  "src": "{{appAssets.icons.galleryCurrent}}",
+                                                  "imageType": "asset",
+                                                  "width": 30.0,
+                                                  "height": 30.0,
+                                                  "type": "image"
+                                                },
+                                                {
+                                                  "width": 10.0,
+                                                  "type": "sizedBox"
+                                                },
+                                                {
+                                                  "data": "گالری",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.title}}",
+                                                    "fontSize": 16.0,
+                                                    "fontWeight": "w600"
+                                                  },
+                                                  "textDirection": "rtl",
+                                                  "type": "text"
+                                                }
+                                              ],
+                                              "type": "row"
+                                            },
+                                            "onTap": {
+                                              "actionType": "sequence",
+                                              "actions": [
+                                                {
+                                                  "actionType": "pickFile",
+                                                  "fileType": "image",
+                                                  "allowMultiple": false,
+                                                  "targetKey": "childLoanResidenceDocumentImage",
+                                                  "hasValueKey": "childLoanResidenceDocumentHasImage",
+                                                  "fileNameKey": "childLoanResidenceDocumentImageName",
+                                                  "source": "gallery",
+                                                  "cropImage": true,
+                                                  "cropMaxWidth": 1000,
+                                                  "cropMaxHeight": 1000,
+                                                  "cropCompressQuality": 80,
+                                                  "previewBeforeConfirm": false
+                                                }
+                                              ]
+                                            },
+                                            "type": "gestureDetector"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      }
+                                    },
+                                    {
+                                      "type": "visibility",
+                                      "visible": "[[childLoanResidenceDocumentHasImage]]",
+                                      "child": {
+                                        "mainAxisAlignment": "spaceBetween",
+                                        "crossAxisAlignment": "center",
+                                        "textDirection": "rtl",
+                                        "children": [
+                                          {
+                                            "mainAxisSize": "min",
+                                            "crossAxisAlignment": "center",
+                                            "textDirection": "rtl",
+                                            "children": [
+                                              {
+                                                "borderRadius": {
+                                                  "topLeft": 2.0,
+                                                  "topRight": 2.0,
+                                                  "bottomLeft": 2.0,
+                                                  "bottomRight": 2.0
+                                                },
+                                                "child": {
+                                                  "type": "image",
+                                                  "src": "{{childLoanResidenceDocumentImage}}",
+                                                  "registryKey": "childLoanResidenceDocumentImage",
+                                                  "fit": "cover",
+                                                  "width": 48,
+                                                  "height": 48
+                                                },
+                                                "type": "clipRRect"
+                                              },
+                                              {
+                                                "width": 10.0,
+                                                "type": "sizedBox"
+                                              },
+                                              {
+                                                "padding": {
+                                                  "left": 8.0,
+                                                  "top": 5.0,
+                                                  "right": 8.0,
+                                                  "bottom": 5.0
+                                                },
+                                                "decoration": {
+                                                  "color": "{{appColors.current.secondary.secondaryContainer}}",
+                                                  "borderRadius": {
+                                                    "topLeft": 6.0,
+                                                    "topRight": 6.0,
+                                                    "bottomLeft": 6.0,
+                                                    "bottomRight": 6.0
+                                                  }
+                                                },
+                                                "child": {
+                                                  "mainAxisSize": "min",
+                                                  "textDirection": "rtl",
+                                                  "children": [
+                                                    {
+                                                      "decoration": {
+                                                        "color": "{{appColors.current.secondary.color}}",
+                                                        "borderRadius": {
+                                                          "topLeft": 999.0,
+                                                          "topRight": 999.0,
+                                                          "bottomLeft": 999.0,
+                                                          "bottomRight": 999.0
+                                                        }
+                                                      },
+                                                      "width": 12.0,
+                                                      "height": 12.0,
+                                                      "type": "container"
+                                                    },
+                                                    {
+                                                      "width": 6.0,
+                                                      "type": "sizedBox"
+                                                    },
+                                                    {
+                                                      "data": "بارگذاری موفق",
+                                                      "style": {
+                                                        "type": "custom",
+                                                        "color": "{{appColors.current.secondary.color}}",
+                                                        "fontSize": 12.0,
+                                                        "fontWeight": "w600"
+                                                      },
+                                                      "textDirection": "rtl",
+                                                      "type": "text"
+                                                    }
+                                                  ],
+                                                  "type": "row"
+                                                },
+                                                "type": "container"
+                                              }
+                                            ],
+                                            "type": "row"
+                                          },
+                                          {
+                                            "child": {
+                                              "mainAxisSize": "min",
+                                              "textDirection": "rtl",
+                                              "children": [
+                                                {
+                                                  "src": "{{appAssets.icons.deleteCurrent}}",
+                                                  "imageType": "asset",
+                                                  "width": 20.0,
+                                                  "height": 20.0,
+                                                  "type": "image"
+                                                },
+                                                {
+                                                  "width": 6.0,
+                                                  "type": "sizedBox"
+                                                },
+                                                {
+                                                  "data": "حذف",
+                                                  "style": {
+                                                    "type": "custom",
+                                                    "color": "{{appColors.current.text.title}}",
+                                                    "fontSize": 13.0,
+                                                    "fontWeight": "w600"
+                                                  },
+                                                  "textDirection": "rtl",
+                                                  "type": "text"
+                                                }
+                                              ],
+                                              "type": "row"
+                                            },
+                                            "onTap": {
+                                              "actionType": "setValue",
+                                              "values": [
+                                                {
+                                                  "key": "childLoanResidenceDocumentImage",
+                                                  "value": ""
+                                                },
+                                                {
+                                                  "key": "childLoanResidenceDocumentHasImage",
+                                                  "value": false
+                                                }
+                                              ]
+                                            },
+                                            "type": "gestureDetector"
+                                          }
+                                        ],
+                                        "type": "row"
+                                      }
+                                    }
+                                  ],
+                                  "type": "column"
+                                },
+                                "type": "padding"
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "container"
+                        }
+                      ],
+                      "type": "column"
+                    },
+                    "type": "container"
+                  },
+                  {
+                    "height": 16.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "type": "reactiveElevatedButton",
+                    "enabledKey": "childLoanPostalInquirySuccess",
+                    "onPressed": {
+                      "actionType": "fingerPrint",
+                      "title": "احراز هویت",
+                      "description": "لطفا برای ادامه از اثر انگشت استفاده کنید",
+                      "onSuccess": {
+                        "actionType": "sequence",
+                        "actions": [
+                          {
+                            "actionType": "setValue",
+                            "key": "childLoanTaskResidenceCompleted",
+                            "value": true
+                          },
+                          {
+                            "actionType": "snackbar",
+                            "title": "ثبت",
+                            "detail": "مرحله با موفقیت ثبت شد",
+                            "duration": 1800
+                          },
+                          {
+                            "actionType": "navigate",
+                            "navigationStyle": "pop"
+                          }
+                        ]
+                      }
+                    },
+                    "style": {
+                      "backgroundColor": "{{appColors.current.primary.color}}",
+                      "fixedSize": {
+                        "width": 999999.0,
+                        "height": 56.0
+                      },
+                      "shape": {
+                        "type": "roundedRectangleBorder",
+                        "borderRadius": {
+                          "topLeft": 12.0,
+                          "topRight": 12.0,
+                          "bottomLeft": 12.0,
+                          "bottomRight": 12.0
+                        }
+                      }
+                    },
+                    "child": {
+                      "data": "ثبت",
+                      "style": {
+                        "type": "custom",
+                        "color": "#FFFFFF",
+                        "fontSize": 20.0,
+                        "fontWeight": "w700"
+                      },
+                      "textDirection": "rtl",
+                      "type": "text"
+                    }
+                  }
+                ],
+                "type": "column"
+              }
+            }
+          ],
+          "type": "column"
+        },
+        "type": "singleChildScrollView"
+      },
+      "type": "form"
+    },
+    "type": "scaffold"
+  }
+}

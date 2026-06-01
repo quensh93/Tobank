@@ -143,7 +143,7 @@ StacWidget dashboardCardEdit() {
                 'color': '{{appColors.current.text.hint}}',
               },
               'enabledBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color': '{{appColors.current.input.borderEnabled}}',
                   'width': 1,
@@ -151,7 +151,7 @@ StacWidget dashboardCardEdit() {
                 'borderRadius': {'all': 12},
               },
               'focusedBorder': {
-                'type': 'outline',
+                'type': 'outlineInputBorder',
                 'borderSide': {
                   'color':
                       '{{appColors.current.button.primary.backgroundColor}}',
@@ -191,7 +191,7 @@ StacWidget dashboardCardEdit() {
               initialValue: '{{cardsManagement.sheet.title}}',
               decoration: {
                 'enabledBorder': {
-                  'type': 'outline',
+                  'type': 'outlineInputBorder',
                   'borderSide': {
                     'color': '{{appColors.current.input.borderEnabled}}',
                     'width': 1,
@@ -199,7 +199,7 @@ StacWidget dashboardCardEdit() {
                   'borderRadius': {'all': 12},
                 },
                 'focusedBorder': {
-                  'type': 'outline',
+                  'type': 'outlineInputBorder',
                   'borderSide': {
                     'color':
                         '{{appColors.current.button.primary.backgroundColor}}',

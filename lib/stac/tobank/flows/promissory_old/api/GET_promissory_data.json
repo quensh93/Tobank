@@ -43,7 +43,7 @@
                                         "decoration": {
                                             "labelText": "مبلغ تعهد (ریال)",
                                             "border": {
-                                                "type": "outline"
+                                                "type": "outlineInputBorder"
                                             }
                                         }
                                     },
@@ -62,7 +62,7 @@
                                             "labelText": "تاریخ سررسید",
                                             "hintText": "مثال: 14050320",
                                             "border": {
-                                                "type": "outline"
+                                                "type": "outlineInputBorder"
                                             }
                                         }
                                     },
@@ -81,7 +81,7 @@
                                         "decoration": {
                                             "labelText": "بابت / توضیحات",
                                             "border": {
-                                                "type": "outline"
+                                                "type": "outlineInputBorder"
                                             }
                                         }
                                     },

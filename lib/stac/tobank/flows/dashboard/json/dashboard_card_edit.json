@@ -168,7 +168,7 @@
                 "color": "{{appColors.current.text.hint}}"
               },
               "enabledBorder": {
-                "type": "outline",
+                "type": "outlineInputBorder",
                 "borderSide": {
                   "color": "{{appColors.current.input.borderEnabled}}",
                   "width": 1
@@ -178,7 +178,7 @@
                 }
               },
               "focusedBorder": {
-                "type": "outline",
+                "type": "outlineInputBorder",
                 "borderSide": {
                   "color": "{{appColors.current.button.primary.backgroundColor}}",
                   "width": 1.5
@@ -243,7 +243,7 @@
               "textAlign": "right",
               "decoration": {
                 "enabledBorder": {
-                  "type": "outline",
+                  "type": "outlineInputBorder",
                   "borderSide": {
                     "color": "{{appColors.current.input.borderEnabled}}",
                     "width": 1
@@ -253,7 +253,7 @@
                   }
                 },
                 "focusedBorder": {
-                  "type": "outline",
+                  "type": "outlineInputBorder",
                   "borderSide": {
                     "color": "{{appColors.current.button.primary.backgroundColor}}",
                     "width": 1.5

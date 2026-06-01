@@ -530,7 +530,7 @@ StacWidget _amountInput({required bool showCurrency}) {
           'color': '{{appColors.current.text.title}}',
         },
       'enabledBorder': {
-        'type': 'outline',
+        'type': 'outlineInputBorder',
         'borderSide': {
           'color': '{{appColors.current.input.borderEnabled}}',
           'width': 1.0,
@@ -538,7 +538,7 @@ StacWidget _amountInput({required bool showCurrency}) {
         'borderRadius': {'all': 12},
       },
       'focusedBorder': {
-        'type': 'outline',
+        'type': 'outlineInputBorder',
         'borderSide': {
           'color': '{{appColors.current.input.borderEnabled}}',
           'width': 1.0,

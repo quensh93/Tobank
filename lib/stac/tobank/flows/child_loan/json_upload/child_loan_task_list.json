@@ -1,0 +1,599 @@
+{
+  "appBar": {
+    "leading": {
+      "padding": {
+        "left": 12.0
+      },
+      "child": {
+        "child": {
+          "src": "{{appAssets.icons.support}}",
+          "imageType": "asset",
+          "color": "{{appColors.current.text.title}}",
+          "width": 24.0,
+          "height": 24.0,
+          "type": "image"
+        },
+        "type": "center"
+      },
+      "type": "padding"
+    },
+    "automaticallyImplyLeading": true,
+    "title": {
+      "data": "تسهیلات فرزندآوری",
+      "style": {
+        "type": "alias",
+        "value": "{{appStyles.appbarStyle}}"
+      },
+      "textDirection": "rtl",
+      "type": "text"
+    },
+    "actions": [
+      {
+        "padding": {
+          "right": 12.0
+        },
+        "child": {
+          "onPressed": {
+            "navigationStyle": "pop",
+            "actionType": "navigate"
+          },
+          "icon": {
+            "src": "{{appAssets.icons.arrowBack}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 31.0,
+            "height": 31.0,
+            "type": "image"
+          },
+          "type": "iconButton"
+        },
+        "type": "padding"
+      }
+    ],
+    "centerTitle": true,
+    "type": "appBar"
+  },
+  "body": {
+    "padding": {
+      "left": 16.0,
+      "top": 16.0,
+      "right": 16.0,
+      "bottom": 16.0
+    },
+    "child": {
+      "crossAxisAlignment": "stretch",
+      "children": [
+        {
+          "type": "visibility",
+          "visible": "[[!childLoanTaskResidenceCompleted]]",
+          "child": {
+            "decoration": {
+              "color": "{{appColors.current.background.surfaceContainer}}",
+              "border": {
+                "color": "{{appColors.current.input.borderEnabled}}",
+                "width": 1.0
+              },
+              "borderRadius": {
+                "topLeft": 10.0,
+                "topRight": 10.0,
+                "bottomLeft": 10.0,
+                "bottomRight": 10.0
+              }
+            },
+            "child": {
+              "crossAxisAlignment": "stretch",
+              "children": [
+                {
+                  "padding": {
+                    "left": 16.0,
+                    "top": 16.0,
+                    "right": 16.0,
+                    "bottom": 16.0
+                  },
+                  "child": {
+                    "data": "اطلاعات محل سکونت متقاضی",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  "type": "padding"
+                },
+                {
+                  "color": "{{appColors.current.input.borderEnabled}}",
+                  "height": 1.0,
+                  "type": "container"
+                },
+                {
+                  "padding": {
+                    "left": 16.0,
+                    "top": 16.0,
+                    "right": 16.0,
+                    "bottom": 16.0
+                  },
+                  "child": {
+                    "mainAxisAlignment": "spaceBetween",
+                    "crossAxisAlignment": "center",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "padding": {
+                          "left": 10.0,
+                          "top": 6.0,
+                          "right": 10.0,
+                          "bottom": 6.0
+                        },
+                        "decoration": {
+                          "color": "{{appColors.current.secondary.secondaryContainer}}",
+                          "borderRadius": {
+                            "topLeft": 8.0,
+                            "topRight": 8.0,
+                            "bottomLeft": 8.0,
+                            "bottomRight": 8.0
+                          }
+                        },
+                        "child": {
+                          "mainAxisSize": "min",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "decoration": {
+                                "color": "{{appColors.current.secondary.color}}",
+                                "borderRadius": {
+                                  "topLeft": 999.0,
+                                  "topRight": 999.0,
+                                  "bottomLeft": 999.0,
+                                  "bottomRight": 999.0
+                                }
+                              },
+                              "width": 14.0,
+                              "height": 14.0,
+                              "type": "container"
+                            },
+                            {
+                              "width": 8.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "در انتظار تکمیل",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.secondary.color}}",
+                                "fontSize": 12.0,
+                                "fontWeight": "w600"
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        "type": "container"
+                      },
+                      {
+                        "child": {
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "تکمیل",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w600"
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "width": 8.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "src": "{{appAssets.icons.arrowLeft}}",
+                              "imageType": "asset",
+                              "color": "{{appColors.current.primary.color}}",
+                              "width": 30.0,
+                              "height": 30.0,
+                              "type": "image"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        "onTap": {
+                          "navigationStyle": "push",
+                          "actionType": "navigate",
+                          "request": {
+                            "method": "post",
+                            "headers": {
+                              "Content-Type": "application/json",
+                              "Accept": "*/*"
+                            },
+                            "body": {
+                              "operator": "is",
+                              "dimension": {
+                                "app": "mobile"
+                              }
+                            },
+                            "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.child_loan_guarantee_address/1"
+                          }
+                        },
+                        "type": "gestureDetector"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  "type": "padding"
+                }
+              ],
+              "type": "column"
+            },
+            "type": "container"
+          }
+        },
+        {
+          "height": 14.0,
+          "type": "sizedBox"
+        },
+        {
+          "type": "visibility",
+          "visible": "[[!childLoanTaskChildInfoCompleted]]",
+          "child": {
+            "decoration": {
+              "color": "{{appColors.current.background.surfaceContainer}}",
+              "border": {
+                "color": "{{appColors.current.input.borderEnabled}}",
+                "width": 1.0
+              },
+              "borderRadius": {
+                "topLeft": 10.0,
+                "topRight": 10.0,
+                "bottomLeft": 10.0,
+                "bottomRight": 10.0
+              }
+            },
+            "child": {
+              "crossAxisAlignment": "stretch",
+              "children": [
+                {
+                  "padding": {
+                    "left": 16.0,
+                    "top": 16.0,
+                    "right": 16.0,
+                    "bottom": 16.0
+                  },
+                  "child": {
+                    "data": "اطلاعات فرزند متقاضی",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  "type": "padding"
+                },
+                {
+                  "color": "{{appColors.current.input.borderEnabled}}",
+                  "height": 1.0,
+                  "type": "container"
+                },
+                {
+                  "padding": {
+                    "left": 16.0,
+                    "top": 16.0,
+                    "right": 16.0,
+                    "bottom": 16.0
+                  },
+                  "child": {
+                    "mainAxisAlignment": "spaceBetween",
+                    "crossAxisAlignment": "center",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "padding": {
+                          "left": 10.0,
+                          "top": 6.0,
+                          "right": 10.0,
+                          "bottom": 6.0
+                        },
+                        "decoration": {
+                          "color": "{{appColors.current.secondary.secondaryContainer}}",
+                          "borderRadius": {
+                            "topLeft": 8.0,
+                            "topRight": 8.0,
+                            "bottomLeft": 8.0,
+                            "bottomRight": 8.0
+                          }
+                        },
+                        "child": {
+                          "mainAxisSize": "min",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "decoration": {
+                                "color": "{{appColors.current.secondary.color}}",
+                                "borderRadius": {
+                                  "topLeft": 999.0,
+                                  "topRight": 999.0,
+                                  "bottomLeft": 999.0,
+                                  "bottomRight": 999.0
+                                }
+                              },
+                              "width": 14.0,
+                              "height": 14.0,
+                              "type": "container"
+                            },
+                            {
+                              "width": 8.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "در انتظار تکمیل",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.secondary.color}}",
+                                "fontSize": 12.0,
+                                "fontWeight": "w600"
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        "type": "container"
+                      },
+                      {
+                        "child": {
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "تکمیل",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w600"
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "width": 8.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "src": "{{appAssets.icons.arrowLeft}}",
+                              "imageType": "asset",
+                              "color": "{{appColors.current.primary.color}}",
+                              "width": 30.0,
+                              "height": 30.0,
+                              "type": "image"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        "onTap": {
+                          "navigationStyle": "push",
+                          "actionType": "navigate",
+                          "request": {
+                            "method": "post",
+                            "headers": {
+                              "Content-Type": "application/json",
+                              "Accept": "*/*"
+                            },
+                            "body": {
+                              "operator": "is",
+                              "dimension": {
+                                "app": "mobile"
+                              }
+                            },
+                            "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.child_loan_child_check/1"
+                          }
+                        },
+                        "type": "gestureDetector"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  "type": "padding"
+                }
+              ],
+              "type": "column"
+            },
+            "type": "container"
+          }
+        },
+        {
+          "height": 14.0,
+          "type": "sizedBox"
+        },
+        {
+          "type": "visibility",
+          "visible": "[[!childLoanTaskDocsCompleted]]",
+          "child": {
+            "decoration": {
+              "color": "{{appColors.current.background.surfaceContainer}}",
+              "border": {
+                "color": "{{appColors.current.input.borderEnabled}}",
+                "width": 1.0
+              },
+              "borderRadius": {
+                "topLeft": 10.0,
+                "topRight": 10.0,
+                "bottomLeft": 10.0,
+                "bottomRight": 10.0
+              }
+            },
+            "child": {
+              "crossAxisAlignment": "stretch",
+              "children": [
+                {
+                  "padding": {
+                    "left": 16.0,
+                    "top": 16.0,
+                    "right": 16.0,
+                    "bottom": 16.0
+                  },
+                  "child": {
+                    "data": "مدارک متقاضی",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  "type": "padding"
+                },
+                {
+                  "color": "{{appColors.current.input.borderEnabled}}",
+                  "height": 1.0,
+                  "type": "container"
+                },
+                {
+                  "padding": {
+                    "left": 16.0,
+                    "top": 16.0,
+                    "right": 16.0,
+                    "bottom": 16.0
+                  },
+                  "child": {
+                    "mainAxisAlignment": "spaceBetween",
+                    "crossAxisAlignment": "center",
+                    "textDirection": "rtl",
+                    "children": [
+                      {
+                        "padding": {
+                          "left": 10.0,
+                          "top": 6.0,
+                          "right": 10.0,
+                          "bottom": 6.0
+                        },
+                        "decoration": {
+                          "color": "{{appColors.current.secondary.secondaryContainer}}",
+                          "borderRadius": {
+                            "topLeft": 8.0,
+                            "topRight": 8.0,
+                            "bottomLeft": 8.0,
+                            "bottomRight": 8.0
+                          }
+                        },
+                        "child": {
+                          "mainAxisSize": "min",
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "decoration": {
+                                "color": "{{appColors.current.secondary.color}}",
+                                "borderRadius": {
+                                  "topLeft": 999.0,
+                                  "topRight": 999.0,
+                                  "bottomLeft": 999.0,
+                                  "bottomRight": 999.0
+                                }
+                              },
+                              "width": 14.0,
+                              "height": 14.0,
+                              "type": "container"
+                            },
+                            {
+                              "width": 8.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "data": "در انتظار تکمیل",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.secondary.color}}",
+                                "fontSize": 12.0,
+                                "fontWeight": "w600"
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        "type": "container"
+                      },
+                      {
+                        "child": {
+                          "textDirection": "rtl",
+                          "children": [
+                            {
+                              "data": "تکمیل",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w600"
+                              },
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            {
+                              "width": 8.0,
+                              "type": "sizedBox"
+                            },
+                            {
+                              "src": "{{appAssets.icons.arrowLeft}}",
+                              "imageType": "asset",
+                              "color": "{{appColors.current.primary.color}}",
+                              "width": 30.0,
+                              "height": 30.0,
+                              "type": "image"
+                            }
+                          ],
+                          "type": "row"
+                        },
+                        "onTap": {
+                          "navigationStyle": "push",
+                          "actionType": "navigate",
+                          "request": {
+                            "method": "post",
+                            "headers": {
+                              "Content-Type": "application/json",
+                              "Accept": "*/*"
+                            },
+                            "body": {
+                              "operator": "is",
+                              "dimension": {
+                                "app": "mobile"
+                              }
+                            },
+                            "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.child_loan_customer_document/1"
+                          }
+                        },
+                        "type": "gestureDetector"
+                      }
+                    ],
+                    "type": "row"
+                  },
+                  "type": "padding"
+                }
+              ],
+              "type": "column"
+            },
+            "type": "container"
+          }
+        }
+      ],
+      "type": "column"
+    },
+    "type": "singleChildScrollView"
+  },
+  "type": "scaffold"
+}

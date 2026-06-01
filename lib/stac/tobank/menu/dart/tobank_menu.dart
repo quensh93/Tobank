@@ -1,5 +1,31 @@
 import 'package:stac_core/stac_core.dart';
 
+// Menu item visibility flags
+const bool _showLinearLogin = true;
+const bool _showPromissory = true;
+const bool _showVerifyIdentity = true;
+const bool _showHome = true;
+const bool _showPromissoryApiReal = true;
+const bool _showVerifyIdentityApiReal = true;
+const bool _showCreditScoringApiReal = false;
+const bool _showProfileApiReal = true;
+const bool _showCartableApiReal = true;
+const bool _showTransactionApiReal = true;
+
+const bool _showInstallmentPaymentApiReal = false;
+const bool _showChildLoanApiReal = false;
+const bool _showDepositTurnoverApiReal = false;
+const bool _showDepositMore = false;
+
+
+const bool _showNotificationApiReal = true;
+const bool _showDashboardRealNavigation = true;
+const bool _showGiftCardApiReal = true;
+const bool _showTransferReal = true;
+const bool _showChargeApiReal = true;
+const bool _showPackageApiReal = true;
+const bool _showBiometricModuleTest = true;
+
 /// Tobank Menu Screen built entirely from Dart (no menu-items JSON dependency).
 @StacScreen(screenName: 'tobank_menu_dart')
 StacWidget tobankMenuDart() {
@@ -32,101 +58,121 @@ StacWidget tobankMenuDart() {
     body: StacListView(
       padding: StacEdgeInsets.all(16),
       children: [
-        _buildMenuItemCard(
-          title: 'لاگین (خطی)',
-          dartPath:
-              'lib/stac/tobank/flows/login_flow_linear/dart/login_flow_linear_splash.dart',
-          jsonPath:
-              'lib/stac/tobank/flows/login_flow_linear/json/login_flow_linear_splash.json',
-          apiPath:
-              'lib/stac/tobank/flows/login_flow_linear/api/GET_login_flow_linear_splash.json',
-          widgetType: 'tobank_login_flow_linear_splash',
-        ),
-        _buildMenuItemCard(
-          title: 'سفته',
-          dartPath:
-              'lib/stac/tobank/flows/promissory/dart/promissory_intro.dart',
-          jsonPath:
-              'lib/stac/tobank/flows/promissory/json/promissory_intro.json',
-          apiPath:
-              'lib/stac/tobank/flows/promissory/api/GET_promissory_intro.json',
-          widgetType: 'promissory_intro',
-        ),
-        _buildMenuItemCard(
-          title: 'احراز هویت',
-          dartPath: 'lib/stac/tobank/login/dart/tobank_login.dart',
-          jsonPath: null,
-          apiPath: null,
-          widgetType: 'tobank_login_dart',
-        ),
-        _buildSingleButtonMenuItemCard(
-          title: 'خانه',
-          widgetType: 'tobank_home_page_menu',
-        ),
-        _buildSingleButtonMenuItemCard(
-          title: 'سفته (API واقعی)',
-          widgetType: 'promissory_menu',
-        ),
-        _buildSingleButtonMenuItemCard(
-          title: 'احراز هویت (API واقعی)',
-          widgetType: 'verify_identity_menu',
-        ),
-        _buildSingleButtonMenuItemCard(
-          title: 'اعتبارسنجی (API واقعی)',
-          widgetType: 'tobank_user_validation',
-        ),
-        _buildSingleButtonMenuItemCard(
-          title: 'پروفایل (API واقعی)',
-          widgetType: 'profile_menu',
-        ),
-        _buildSingleButtonMenuItemCard(
-          title: 'کارتابل (API واقعی)',
-          widgetType: 'cartable_menu',
-        ),
-        _buildSingleButtonMenuItemCard(
-          title: 'تراکنش‌ها (API واقعی)',
-          widgetType: 'transaction_menu',
-        ),
-        _buildSingleButtonMenuItemCard(
-          title: 'پرداخت اقساط (API واقعی)',
-          widgetType: 'installment_payment_api_real_menu',
-        ),
-        _buildSingleButtonMenuItemCard(
-          title: 'تسهیلات فرزندآوری ( API واقعی)',
-          widgetType: 'child_loan_api_real_menu',
-        ),
-        _buildSingleButtonMenuItemCard(
-          title: 'اعلانات (API واقعی)',
-          widgetType: 'notification_menu',
-        ),
-        _buildSingleButtonMenuItemCard(
-          title: 'گردش سپرده (API واقعی)',
-          widgetType: 'deposit_turnover_menu',
-        ),
-        _buildSingleButtonMenuItemCard(
-          title: 'بیشتر(سپرده)',
-          widgetType: 'deposit_more_menu',
-        ),
-        _buildSingleButtonMenuItemCard(
-          title: 'داشبورد (ناوبری واقعی)',
-          widgetType: 'dashboard_menu',
-        ),
-        _buildSingleButtonMenuItemCard(
-          title: 'کارت هدیه (API واقعی)',
-          widgetType: 'gift_card_menu',
-        ),
-        _buildSingleButtonMenuItemCard(
-          title: 'انتقال وجه (واقعی)',
-          widgetType: 'transfer_menu',
-        ),
-        _buildSingleButtonMenuItemCard(
-          title: 'شارژ (API واقعی)',
-          widgetType: 'charge_menu',
-        ),
-        _buildSingleButtonMenuItemCard(
-          title: 'پکیج اینترنت (API واقعی)',
-          widgetType: 'package_menu',
-        ),
+        if (_showLinearLogin)
+          _buildMenuItemCard(
+            title: 'لاگین (خطی)',
+            dartPath:
+                'lib/stac/tobank/flows/login_flow_linear/dart/login_flow_linear_splash.dart',
+            jsonPath:
+                'lib/stac/tobank/flows/login_flow_linear/json/login_flow_linear_splash.json',
+            apiPath:
+                'lib/stac/tobank/flows/login_flow_linear/api/GET_login_flow_linear_splash.json',
+            widgetType: 'tobank_login_flow_linear_splash',
+          ),
+        if (_showPromissory)
+          _buildMenuItemCard(
+            title: 'سفته',
+            dartPath:
+                'lib/stac/tobank/flows/promissory/dart/promissory_intro.dart',
+            jsonPath:
+                'lib/stac/tobank/flows/promissory/json/promissory_intro.json',
+            apiPath:
+                'lib/stac/tobank/flows/promissory/api/GET_promissory_intro.json',
+            widgetType: 'promissory_intro',
+          ),
+        if (_showVerifyIdentity)
+          _buildMenuItemCard(
+            title: 'احراز هویت',
+            dartPath: 'lib/stac/tobank/login/dart/tobank_login.dart',
+            jsonPath: null,
+            apiPath: null,
+            widgetType: 'tobank_login_dart',
+          ),
+        if (_showHome)
+          _buildSingleButtonMenuItemCard(
+            title: 'خانه',
+            widgetType: 'tobank_home_page_menu',
+          ),
+        if (_showPromissoryApiReal)
+          _buildSingleButtonMenuItemCard(
+            title: 'سفته (API واقعی)',
+            widgetType: 'promissory_menu',
+          ),
+        if (_showVerifyIdentityApiReal)
+          _buildSingleButtonMenuItemCard(
+            title: 'احراز هویت (API واقعی)',
+            widgetType: 'verify_identity_menu',
+          ),
+        if (_showCreditScoringApiReal)
+          _buildSingleButtonMenuItemCard(
+            title: 'اعتبارسنجی (API واقعی)',
+            widgetType: 'tobank_user_validation',
+          ),
+        if (_showProfileApiReal)
+          _buildSingleButtonMenuItemCard(
+            title: 'پروفایل (API واقعی)',
+            widgetType: 'profile_menu',
+          ),
+        if (_showCartableApiReal)
+          _buildSingleButtonMenuItemCard(
+            title: 'کارتابل (API واقعی)',
+            widgetType: 'cartable_menu',
+          ),
+        if (_showTransactionApiReal)
+          _buildSingleButtonMenuItemCard(
+            title: 'تراکنش‌ها (API واقعی)',
+            widgetType: 'transaction_menu',
+          ),
+        if (_showInstallmentPaymentApiReal)
+          _buildSingleButtonMenuItemCard(
+            title: 'پرداخت اقساط (API واقعی)',
+            widgetType: 'installment_payment_api_real_menu',
+          ),
+        if (_showChildLoanApiReal)
+          _buildSingleButtonMenuItemCard(
+            title: 'تسهیلات فرزندآوری ( API واقعی)',
+            widgetType: 'child_loan_api_real_menu',
+          ),
+        if (_showNotificationApiReal)
+          _buildSingleButtonMenuItemCard(
+            title: 'اعلانات (API واقعی)',
+            widgetType: 'notification_menu',
+          ),
+        if (_showDepositTurnoverApiReal)
+          _buildSingleButtonMenuItemCard(
+            title: 'گردش سپرده (API واقعی)',
+            widgetType: 'deposit_turnover_menu',
+          ),
+        if (_showDepositMore)
+          _buildSingleButtonMenuItemCard(
+            title: 'بیشتر(سپرده)',
+            widgetType: 'deposit_more_menu',
+          ),
+        if (_showDashboardRealNavigation)
+          _buildSingleButtonMenuItemCard(
+            title: 'داشبورد (ناوبری واقعی)',
+            widgetType: 'dashboard_menu',
+          ),
+        if (_showGiftCardApiReal)
+          _buildSingleButtonMenuItemCard(
+            title: 'کارت هدیه (API واقعی)',
+            widgetType: 'gift_card_menu',
+          ),
+        if (_showTransferReal)
+          _buildSingleButtonMenuItemCard(
+            title: 'انتقال وجه (واقعی)',
+            widgetType: 'transfer_menu',
+          ),
+        if (_showChargeApiReal)
+          _buildSingleButtonMenuItemCard(
+            title: 'شارژ (API واقعی)',
+            widgetType: 'charge_menu',
+          ),
+        if (_showPackageApiReal)
+          _buildSingleButtonMenuItemCard(
+            title: 'پکیج اینترنت (API واقعی)',
+            widgetType: 'package_menu',
+          ),
         StacSizedBox(height: 20),
         _buildSectionHeader('ماژول ها'),
         StacSizedBox(height: 8),
@@ -134,6 +180,11 @@ StacWidget tobankMenuDart() {
           title: 'بیومتریک (تست ماژول)',
           widgetType: 'biometric_test_menu',
         ),
+        if (_showBiometricModuleTest)
+          _buildSingleButtonMenuItemCard(
+            title: 'بیومتریک ( تست ماژول)',
+            widgetType: 'biometric_test_menu',
+          ),
       ],
     ),
   );

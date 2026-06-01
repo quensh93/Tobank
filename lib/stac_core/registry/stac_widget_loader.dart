@@ -159,6 +159,8 @@ import '../../../stac/tobank/flows/child_loan/dart/child_loan_customer_check.dar
     as child_loan_customer_check_dart;
 import '../../../stac/tobank/flows/child_loan/dart/child_loan_task_list.dart'
     as child_loan_task_list_dart;
+import '../../../stac/tobank/flows/child_loan/dart/child_loan_customer_document.dart'
+    as child_loan_customer_document_dart;
 import '../../../stac/tobank/flows/child_loan/dart/child_loan_guarantee_address.dart'
     as child_loan_guarantee_address_dart;
 import '../../../stac/tobank/flows/child_loan/dart/child_loan_child_check.dart'
@@ -406,6 +408,9 @@ class StacWidgetLoader {
         child_loan_customer_check_dart.childLoanCustomerCheckScreen().toJson(),
     'child_loan_task_list': () =>
         child_loan_task_list_dart.childLoanTaskListScreen().toJson(),
+    'child_loan_customer_document': () => child_loan_customer_document_dart
+        .childLoanCustomerDocumentScreen()
+        .toJson(),
     'child_loan_guarantee_address': () => child_loan_guarantee_address_dart
         .childLoanGuaranteeAddressScreen()
         .toJson(),

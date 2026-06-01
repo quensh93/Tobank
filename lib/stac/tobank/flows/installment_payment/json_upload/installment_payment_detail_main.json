@@ -1467,7 +1467,7 @@
                                           }
                                         },
                                         "enabledBorder": {
-                                          "type": "outline",
+                                          "type": "outlineInputBorder",
                                           "borderSide": {
                                             "color": "#8F2B3A",
                                             "width": 1.2
@@ -1477,7 +1477,7 @@
                                           }
                                         },
                                         "focusedBorder": {
-                                          "type": "outline",
+                                          "type": "outlineInputBorder",
                                           "borderSide": {
                                             "color": "#8F2B3A",
                                             "width": 1.2

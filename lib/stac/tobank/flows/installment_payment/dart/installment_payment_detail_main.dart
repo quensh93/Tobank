@@ -1355,12 +1355,12 @@ StacWidget _customDesiredAmountInput() {
         },
       },
       'enabledBorder': {
-        'type': 'outline',
+        'type': 'outlineInputBorder',
         'borderSide': {'color': '#8F2B3A', 'width': 1.2},
         'borderRadius': {'all': 12},
       },
       'focusedBorder': {
-        'type': 'outline',
+        'type': 'outlineInputBorder',
         'borderSide': {'color': '#8F2B3A', 'width': 1.2},
         'borderRadius': {'all': 12},
       },
