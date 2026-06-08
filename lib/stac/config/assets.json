@@ -142,9 +142,6 @@
                 "src_ic_theme_001": "assets/icons/ic_theme.svg",
                 "src_ic_arrow_left_002": "assets/icons/ic_arrow_left.svg"
             },
-            "login__json__tobank_login": {
-                "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
-            },
             "flows__verify_identity__json__verify_identity_verify_otp": {
                 "src_ic_info_001": "assets/icons/ic_info.svg"
             },
@@ -848,9 +845,6 @@
                 "src_ic_detail_005": "assets/icons/ic_detail.svg",
                 "src_ic_continue_process_006": "assets/icons/ic_continue_process.svg"
             },
-            "login__dart__tobank_login": {
-                "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
-            },
             "flows__transfer__dart__transfer_amount": {
                 "src_ic_gardeshgari_001": "assets/icons/ic_gardeshgari.svg",
                 "src_ic_person_002": "assets/icons/ic_person.svg",
@@ -1341,19 +1335,10 @@
         "page4": "assets/images/onboarding_4.svg"
     },
     "generated": {
-        "onboarding__dart__stac_tobank_onboarding_slider": {
-            "icons": {}
-        },
-        "onboarding__dart__tobank_onboarding": {
+        "flows__login__dart__stac_tobank_onboarding_slider": {
             "icons": {}
         },
         "menu__dart__tobank_menu": {
-            "icons": {}
-        },
-        "login__dart__tobank_login": {
-            "icons": {}
-        },
-        "login__dart__verify_otp": {
             "icons": {}
         },
         "flows__verify_identity__dart__test_screen": {

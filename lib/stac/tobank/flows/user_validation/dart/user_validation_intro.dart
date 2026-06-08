@@ -5,7 +5,7 @@ import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 /// First validation screen (CBS style) based on old app layout.
-@StacScreen(screenName: 'tobank_login_dart')
+@StacScreen(screenName: 'user_validation_intro')
 StacWidget tobankLoginDart() {
   return StacStatefulWidget(
     onInit: const StacCustomSetValueAction(

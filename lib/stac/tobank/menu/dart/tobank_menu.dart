@@ -83,10 +83,10 @@ StacWidget tobankMenuDart() {
         if (_showVerifyIdentity)
           _buildMenuItemCard(
             title: 'احراز هویت',
-            dartPath: 'lib/stac/tobank/login/dart/tobank_login.dart',
-            jsonPath: null,
+            dartPath: 'lib/stac/tobank/flows/login/dart/login_splash.dart',
+            jsonPath: 'lib/stac/tobank/flows/login/json/login_splash.json',
             apiPath: null,
-            widgetType: 'tobank_login_dart',
+            widgetType: 'login_splash',
           ),
         if (_showHome)
           _buildSingleButtonMenuItemCard(

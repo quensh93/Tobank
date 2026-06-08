@@ -1,11 +1,9 @@
-import '../../../stac/tobank/login/dart/tobank_login.dart' as login_dart;
 import '../../../stac/tobank/flows/user_validation/dart/user_validation_receipt.dart'
     as user_validation_receipt_dart;
 import '../../../stac/tobank/flows/user_validation/dart/user_validation_preview.dart'
     as user_validation_preview_dart;
 import '../../../stac/tobank/flows/user_validation/dart/user_validation_report_detail.dart'
     as user_validation_report_detail_dart;
-import '../../../stac/tobank/login/dart/verify_otp.dart' as verify_otp_dart;
 import '../../../stac/tobank/menu/dart/tobank_menu.dart' as tobank_menu_dart;
 import '../../../stac/tobank/flows/home_page/dart/home_page.dart'
     as home_page_dart;
@@ -18,8 +16,6 @@ import '../../../stac/tobank/flows/home_page/dart/travel_services_page.dart'
 import '../../../stac/tobank/flows/home_page/dart/acceptor_services_page.dart'
     as acceptor_services_page_dart;
 
-import '../../../stac/tobank/onboarding/dart/tobank_onboarding.dart'
-    as onboarding_dart;
 import '../../../stac/tobank/flows/login_flow_linear/dart/login_flow_linear_splash.dart'
     as linear_splash_dart;
 import '../../../stac/tobank/flows/login_flow_linear/dart/login_flow_linear_onboarding.dart'
@@ -315,7 +311,6 @@ class StacWidgetLoader {
   /// Registry of widget type to loader function mappings.
   /// Extensible - new widget types can be registered without modifying this class.
   static final Map<String, Map<String, dynamic> Function()> _widgetLoaders = {
-    'tobank_login_dart': () => login_dart.tobankLoginDart().toJson(),
     'user_validation_receipt': () =>
         user_validation_receipt_dart.userValidationReceipt().toJson(),
     'user_validation_preview': () =>
@@ -325,8 +320,6 @@ class StacWidgetLoader {
         .toJson(),
     'tobank_user_validation': () =>
         user_validation_menu_dart.userValidationMenu().toJson(),
-    'tobank_verify_otp_dart': () =>
-        verify_otp_dart.tobankVerifyOtpDart().toJson(),
     'tobank_menu_dart': () => tobank_menu_dart.tobankMenuDart().toJson(),
     'tobank_home_page_menu': () =>
         home_page_menu_dart.tobankHomePageMenu().toJson(),
@@ -337,7 +330,7 @@ class StacWidgetLoader {
         travel_services_page_dart.tobankTravelServicesPage().toJson(),
     'tobank_acceptor_services_page': () =>
         acceptor_services_page_dart.tobankAcceptorServicesPage().toJson(),
-    'tobank_onboarding': () => onboarding_dart.tobankOnboarding().toJson(),
+    'tobank_onboarding': () => login_onboarding_dart.loginOnboarding().toJson(),
 
     // Linear flow widgets - each page handles navigation internally
     // Splash: Uses onMountAction to auto-navigate after 2 seconds (handled in Dart file)

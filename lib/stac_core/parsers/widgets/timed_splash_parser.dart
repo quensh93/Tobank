@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
-import 'package:stac_core/stac_core.dart';
 import '../../registry/stac_widget_loader.dart';
 import '../../services/stac_widget_resolver.dart';
 import '../../services/navigation/stac_navigation_service.dart';
@@ -54,7 +53,7 @@ class TimedSplashModel {
 /// {
 ///   "type": "timedSplash",
 ///   "duration": 2000,
-///   "nextWidgetType": "tobank_onboarding",
+///   "nextWidgetType": "login_onboarding",
 ///   "child": { ... splash content ... }
 /// }
 /// ```
@@ -64,7 +63,7 @@ class TimedSplashModel {
 /// {
 ///   "type": "timedSplash",
 ///   "duration": 2000,
-///   "nextWidgetType": "tobank_onboarding",
+///   "nextWidgetType": "login_onboarding",
 ///   "splashWidgetType": "tobank_splash_dart"
 /// }
 /// ```

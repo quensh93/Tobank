@@ -19,17 +19,17 @@ import '../../core/helpers/logger.dart';
 /// ```
 ///
 /// **Mock File Structure:**
-/// - `stac/tobank/login/api/GET_tobank_login.json` - Screen JSONs organized by feature
+/// - `stac/tobank/flows/login/api/GET_login_splash.json` - Flow screen JSONs
 /// - `stac/tobank/menu/api/GET_menu-items.json` - Data APIs organized by feature
 ///
 /// **File Naming Convention:**
 /// - Format: `{METHOD}_{name}.json`
-/// - Example: `GET_tobank_login.json` for screen JSONs
+/// - Example: `GET_login_splash.json` for screen JSONs
 /// - Example: `GET_menu-items.json` for data APIs
 ///
 /// **URL Mapping:**
-/// - Screen URLs like `https://api.tobank.com/screens/tobank_login` map to
-///   `stac/tobank/login/api/GET_tobank_login.json` (returns JSON directly, not wrapped)
+/// - Flow URLs like `https://api.tobank.com/flows/login/login_splash` map to
+///   `stac/tobank/flows/login/api/GET_login_splash.json` (returns JSON directly, not wrapped)
 /// - Data URLs like `https://api.tobank.com/menu-items` map to
 ///   `stac/tobank/menu/api/GET_menu-items.json` (returns wrapped in {"data": {...}})
 Dio setupStacMockDio() {
@@ -66,7 +66,7 @@ Dio setupStacMockDio() {
           if (path.startsWith('screens/')) {
             // Screen JSON: https://api.tobank.com/screens/tobank_login
             // Map screen name to feature folder:
-            // tobank_login -> login/GET_tobank_login.json
+            // login_splash -> flows/login/GET_login_splash.json
             // tobank_menu -> menu/GET_tobank_menu.json
             final screenName = path.replaceFirst('screens/', '');
             final filename = '${method}_$screenName.json';
@@ -90,7 +90,7 @@ Dio setupStacMockDio() {
             }
 
             // Try new structure: lib/stac/tobank/{feature}/api/GET_{screen}.json
-            // Pattern: screens/login/tobank_login -> lib/stac/tobank/login/api/GET_tobank_login.json
+            // Pattern: screens/tobank_menu -> lib/stac/tobank/menu/api/GET_tobank_menu.json
             if (featureFolder != null) {
               assetPath = 'lib/stac/tobank/$featureFolder/api/$filename';
             } else {
@@ -156,7 +156,7 @@ Dio setupStacMockDio() {
             }
 
             // Try new structure: lib/stac/tobank/{feature}/api/GET_{screen}.json
-            // Pattern: login/tobank_login -> lib/stac/tobank/login/api/GET_tobank_login.json
+            // Pattern: menu/tobank_menu -> lib/stac/tobank/menu/api/GET_tobank_menu.json
             if (assetPath == null && path.contains('/')) {
               final parts = path.split('/');
               if (parts.length == 2) {
@@ -198,7 +198,7 @@ Dio setupStacMockDio() {
 
             // Special handling for verify-identity endpoint
             if (assetPath == null && path == 'verify-identity') {
-              final testPath = 'lib/stac/tobank/login/api/$filename';
+              final testPath = 'lib/stac/tobank/flows/login/api/$filename';
               try {
                 await rootBundle.loadString(testPath);
                 assetPath = testPath;
@@ -209,10 +209,9 @@ Dio setupStacMockDio() {
               }
             }
 
-            // Try feature folders (login, otp, menu, home, account, transfer, transactions, profile)
+            // Try feature folders (menu, home, account, transfer, transactions, profile)
             if (assetPath == null) {
               final featureFolders = [
-                'login',
                 'otp',
                 'menu',
                 'home',
@@ -221,6 +220,7 @@ Dio setupStacMockDio() {
                 'transactions',
                 'profile',
                 'stateful_example',
+                'flows/login',
                 'flows/login_flow',
               ];
               for (final folder in featureFolders) {
@@ -494,7 +494,9 @@ Dio setupStacMockDio() {
             final methodData = jsonData[method] as Map<String, dynamic>?;
             if (methodData != null || !jsonData.containsKey(method)) {
               final statusCode = methodData?['statusCode'] as int? ?? 200;
-              final innerData = methodData != null ? methodData['data'] : jsonData;
+              final innerData = methodData != null
+                  ? methodData['data']
+                  : jsonData;
 
               // STAC's targetPath expects the response structure to match
               // If targetPath is 'data.menuItems', response should be {"data": {"menuItems": [...]}}

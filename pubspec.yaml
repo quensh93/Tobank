@@ -101,17 +101,13 @@ flutter:
     - lib/stac/design_system/GET_styles.json
     - lib/stac/config/
     - lib/stac/config/assets.json
-    - lib/stac/tobank/login/json/
-    - lib/stac/tobank/login/api/
     - lib/stac/tobank/menu/api/
-    - lib/stac/tobank/onboarding/json/
-    - lib/stac/tobank/onboarding/api/
-    - lib/stac/tobank/auth/api/
 
 
     # Flows
 
     - lib/stac/tobank/flows/login/json/
+    - lib/stac/tobank/flows/login/api/
     - lib/stac/tobank/flows/login_flow_linear/json/
     - lib/stac/tobank/flows/login_flow_linear/api/
 

@@ -1,5 +1,5 @@
 import 'package:stac_core/stac_core.dart';
-import 'package:tobank_sdui/stac/tobank/onboarding/dart/stac_tobank_onboarding_slider.dart';
+import 'package:tobank_sdui/stac/tobank/flows/login/dart/stac_tobank_onboarding_slider.dart';
 
 /// Linear Login Flow - Onboarding Screen
 ///

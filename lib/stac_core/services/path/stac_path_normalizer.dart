@@ -17,7 +17,7 @@ class StacPathNormalizer {
   /// Converts an asset path to an API URL format that the mock interceptor recognizes.
   ///
   /// Examples:
-  /// - `lib/stac/tobank/login/api/GET_tobank_login.json` -> `https://api.tobank.com/login/tobank_login`
+  /// - `lib/stac/tobank/flows/login/api/GET_login_splash.json` -> `https://api.tobank.com/flows/login/login_splash`
   /// - `lib/stac/tobank/menu/api/GET_menu-items.json` -> `https://api.tobank.com/menu/menu-items`
   /// - `lib/stac/tobank/flows/login_flow_linear/api/GET_login_flow_linear_splash.json` -> `https://api.tobank.com/flows/login_flow_linear/login_flow_linear_splash`
   static String? convertAssetPathToApiUrl(String normalizedPath) {
@@ -46,8 +46,8 @@ class StacPathNormalizer {
               .replaceAll('.json', '');
         }
       } else {
-        // Regular feature: lib/stac/tobank/login/api/GET_tobank_login.json
-        // Extract: login/api/GET_tobank_login.json -> login/tobank_login
+        // Regular feature: lib/stac/tobank/menu/api/GET_tobank_menu.json
+        // Extract: menu/api/GET_tobank_menu.json -> menu/tobank_menu
         final match = RegExp(
           r'lib/stac/tobank/([^/]+)/api/GET_(.+)\.json',
         ).firstMatch(normalizedPath);
