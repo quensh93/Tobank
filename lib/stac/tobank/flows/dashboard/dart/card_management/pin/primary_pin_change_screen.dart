@@ -1,17 +1,25 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
+import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
+
+const _primaryPinCurrentFieldId = 'primary_pin_current';
+const _primaryPinNewFieldId = 'primary_pin_new';
+const _primaryPinConfirmFieldId = 'primary_pin_confirm';
+const _primaryPinEnabledKey = 'cardsManagement.primaryPinChange.submitEnabled';
 
 @StacScreen(screenName: 'dashboard_primary_pin_change')
 StacWidget dashboardPrimaryPinChange() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
     appBar: buildTobankFlowAppBar(title: 'تغییر رمز اول', showSupport: true, showBack: true),
-    body: StacSingleChildScrollView(
-      padding: StacEdgeInsets.all(16),
-      child: StacColumn(
-        crossAxisAlignment: StacCrossAxisAlignment.stretch,
-        children: [
+    body: StacForm(
+      autovalidateMode: StacAutovalidateMode.always,
+      child: StacSingleChildScrollView(
+        padding: StacEdgeInsets.all(16),
+        child: StacColumn(
+          crossAxisAlignment: StacCrossAxisAlignment.stretch,
+          children: [
           StacText(
             data: 'رعایت این موارد الزامیست...',
             textDirection: StacTextDirection.rtl,
@@ -41,10 +49,18 @@ StacWidget dashboardPrimaryPinChange() {
           ),
           StacSizedBox(height: 8),
           StacCustomTextFormField(
-            id: 'primary_pin_current',
+            id: _primaryPinCurrentFieldId,
             textDirection: 'rtl',
             textAlign: 'right',
             keyboardType: 'number',
+            validatorRules: const [
+              {
+                'rule': 'matches',
+                'options': {'pattern': r'.+'},
+                'message': 'رمز فعلی نمی‌تواند خالی باشد',
+              },
+            ],
+            onChanged: _validatePrimaryPinChangeAction(),
             decoration: {
               'hintText': 'رمز عبور فعلی را وارد کنید',
               'hintStyle': {
@@ -92,10 +108,18 @@ StacWidget dashboardPrimaryPinChange() {
           ),
           StacSizedBox(height: 8),
           StacCustomTextFormField(
-            id: 'primary_pin_new',
+            id: _primaryPinNewFieldId,
             textDirection: 'rtl',
             textAlign: 'right',
             keyboardType: 'number',
+            validatorRules: const [
+              {
+                'rule': 'matches',
+                'options': {'pattern': r'.+'},
+                'message': 'رمز جدید نمی‌تواند خالی باشد',
+              },
+            ],
+            onChanged: _validatePrimaryPinChangeAction(),
             decoration: {
               'hintText': 'رمز جدید را وارد کنید',
               'hintStyle': {
@@ -143,10 +167,23 @@ StacWidget dashboardPrimaryPinChange() {
           ),
           StacSizedBox(height: 8),
           StacCustomTextFormField(
-            id: 'primary_pin_confirm',
+            id: _primaryPinConfirmFieldId,
             textDirection: 'rtl',
             textAlign: 'right',
             keyboardType: 'number',
+            validatorRules: const [
+              {
+                'rule': 'matches',
+                'options': {'pattern': r'.+'},
+                'message': 'تکرار رمز جدید نمی‌تواند خالی باشد',
+              },
+              {
+                'rule': 'compare',
+                'message': 'رمز جدید و تکرار رمز جدید باید یکسان باشند',
+                'options': {'fieldId': _primaryPinNewFieldId},
+              },
+            ],
+            onChanged: _validatePrimaryPinChangeAction(),
             decoration: {
               'hintText': 'رمز جدید را تکرار کنید',
               'hintStyle': {
@@ -181,13 +218,14 @@ StacWidget dashboardPrimaryPinChange() {
               },
             },
           ),
-          StacSizedBox(height: 32),
-          StacFilledButton(
+          StacSizedBox(height: 24),
+          StacCustomReactiveElevatedButton(
+            enabledKey: _primaryPinEnabledKey,
             onPressed: StacRawJsonAction({
               'actionType': 'navigate',
               'widgetType': 'dashboard_primary_pin_result',
               'navigationStyle': 'push',
-            }),
+            }).toJson(),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 8),
               minimumSize: const StacSize(0, 56),
@@ -198,7 +236,16 @@ StacWidget dashboardPrimaryPinChange() {
               shape: StacRoundedRectangleBorder(
                 borderRadius: StacBorderRadius.all(8),
               ),
-            ),
+            ).toJson(),
+            disabledStyle: StacButtonStyle(
+              padding: StacEdgeInsets.symmetric(vertical: 8),
+              minimumSize: const StacSize(0, 56),
+              backgroundColor: '{{appColors.current.input.borderEnabled}}',
+              foregroundColor: '{{appColors.current.text.subtitle}}',
+              shape: StacRoundedRectangleBorder(
+                borderRadius: StacBorderRadius.all(8),
+              ),
+            ).toJson(),
             child: StacText(
               data: 'تغییر رمز اول',
               textDirection: StacTextDirection.rtl,
@@ -206,11 +253,27 @@ StacWidget dashboardPrimaryPinChange() {
                 fontSize: 14,
                 fontWeight: StacFontWeight.w700,
               ),
-            ),
+            ).toJson(),
           ),
         ],
       ),
     ),
+      ),
+  );
+}
+
+StacValidateFieldsAction _validatePrimaryPinChangeAction() {
+  return const StacValidateFieldsAction(
+    resultKey: _primaryPinEnabledKey,
+    fields: [
+      {'id': _primaryPinCurrentFieldId, 'rule': r'.+'},
+      {'id': _primaryPinNewFieldId, 'rule': r'.+'},
+      {
+        'id': _primaryPinConfirmFieldId,
+        'rule': 'compare',
+        'options': {'fieldId': _primaryPinNewFieldId},
+      },
+    ],
   );
 }
 

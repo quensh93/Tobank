@@ -1,597 +1,608 @@
 {
-  "appBar": {
-    "leading": {
-      "onPressed": {
-        "navigationStyle": "pop",
-        "actionType": "navigate"
-      },
-      "icon": {
-        "src": "{{appAssets.icons.arrowBack}}",
-        "imageType": "asset",
-        "color": "{{appColors.current.text.title}}",
-        "width": 31.0,
-        "height": 31.0,
-        "type": "image"
-      },
-      "type": "iconButton"
-    },
-    "automaticallyImplyLeading": true,
-    "title": {
-      "data": "صدور کارت المثنی",
-      "style": {
-        "type": "alias",
-        "value": "{{appStyles.appbarStyle}}"
-      },
-      "textDirection": "rtl",
-      "type": "text"
-    },
-    "centerTitle": true,
-    "type": "appBar"
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "setValue",
+    "values": [
+      {
+        "key": "cardsManagement.reissue.addressNextEnabled",
+        "value": false
+      }
+    ]
   },
-  "backgroundColor": "{{appColors.current.background.surface}}",
-  "body": {
-    "padding": {
-      "left": 16.0,
-      "top": 16.0,
-      "right": 16.0,
-      "bottom": 16.0
-    },
-    "child": {
-      "crossAxisAlignment": "stretch",
-      "children": [
+  "child": {
+    "type": "scaffold",
+    "appBar": {
+      "type": "appBar",
+      "leading": null,
+      "automaticallyImplyLeading": false,
+      "actions": [
         {
-          "data": "شهر/شهرستان",
-          "style": {
-            "type": "custom",
-            "color": "{{appColors.current.text.title}}",
-            "fontSize": 14.0,
-            "fontWeight": "w600"
-          },
-          "textAlign": "right",
-          "textDirection": "rtl",
-          "type": "text"
-        },
-        {
-          "height": 8.0,
-          "type": "sizedBox"
-        },
-        {
-          "type": "textFormField",
-          "id": "reissue_city",
-          "textDirection": "rtl",
-          "textAlign": "right",
-          "decoration": {
-            "enabledBorder": {
-              "type": "outlineInputBorder",
-              "borderSide": {
-                "color": "{{appColors.current.input.borderEnabled}}",
-                "width": 1
-              },
-              "borderRadius": {
-                "all": 12
-              }
-            },
-            "focusedBorder": {
-              "type": "outlineInputBorder",
-              "borderSide": {
-                "color": "{{appColors.current.button.primary.backgroundColor}}",
-                "width": 1.5
-              },
-              "borderRadius": {
-                "all": 12
-              }
-            },
-            "contentPadding": {
-              "left": 16,
-              "top": 16,
-              "right": 16,
-              "bottom": 16
-            }
-          },
-          "initialValue": "تهران/تهران"
-        },
-        {
-          "height": 20.0,
-          "type": "sizedBox"
-        },
-        {
-          "data": "شهرستان",
-          "style": {
-            "type": "custom",
-            "color": "{{appColors.current.text.title}}",
-            "fontSize": 14.0,
-            "fontWeight": "w600"
-          },
-          "textAlign": "right",
-          "textDirection": "rtl",
-          "type": "text"
-        },
-        {
-          "height": 8.0,
-          "type": "sizedBox"
-        },
-        {
-          "type": "textFormField",
-          "id": "reissue_county",
-          "textDirection": "rtl",
-          "textAlign": "right",
-          "decoration": {
-            "hintText": "شهرستان خود را وارد نمایید",
-            "hintStyle": {
-              "textDirection": "rtl",
-              "style": {
-                "color": "{{appColors.current.text.hint}}",
-                "fontSize": 14
-              }
-            },
-            "enabledBorder": {
-              "type": "outlineInputBorder",
-              "borderSide": {
-                "color": "{{appColors.current.input.borderEnabled}}",
-                "width": 1
-              },
-              "borderRadius": {
-                "all": 12
-              }
-            },
-            "focusedBorder": {
-              "type": "outlineInputBorder",
-              "borderSide": {
-                "color": "{{appColors.current.button.primary.backgroundColor}}",
-                "width": 1.5
-              },
-              "borderRadius": {
-                "all": 12
-              }
-            },
-            "contentPadding": {
-              "left": 16,
-              "top": 16,
-              "right": 16,
-              "bottom": 16
-            }
-          }
-        },
-        {
-          "height": 20.0,
-          "type": "sizedBox"
-        },
-        {
-          "data": "خیابان اصلی",
-          "style": {
-            "type": "custom",
-            "color": "{{appColors.current.text.title}}",
-            "fontSize": 14.0,
-            "fontWeight": "w600"
-          },
-          "textAlign": "right",
-          "textDirection": "rtl",
-          "type": "text"
-        },
-        {
-          "height": 8.0,
-          "type": "sizedBox"
-        },
-        {
-          "type": "textFormField",
-          "id": "reissue_street",
-          "textDirection": "rtl",
-          "textAlign": "right",
-          "decoration": {
-            "hintText": "خیابان اصلی خود را وارد نمایید",
-            "hintStyle": {
-              "textDirection": "rtl",
-              "style": {
-                "color": "{{appColors.current.text.hint}}",
-                "fontSize": 14
-              }
-            },
-            "enabledBorder": {
-              "type": "outlineInputBorder",
-              "borderSide": {
-                "color": "{{appColors.current.input.borderEnabled}}",
-                "width": 1
-              },
-              "borderRadius": {
-                "all": 12
-              }
-            },
-            "focusedBorder": {
-              "type": "outlineInputBorder",
-              "borderSide": {
-                "color": "{{appColors.current.button.primary.backgroundColor}}",
-                "width": 1.5
-              },
-              "borderRadius": {
-                "all": 12
-              }
-            },
-            "contentPadding": {
-              "left": 16,
-              "top": 16,
-              "right": 16,
-              "bottom": 16
-            }
-          }
-        },
-        {
-          "height": 20.0,
-          "type": "sizedBox"
-        },
-        {
-          "data": "خیابان فرعی",
-          "style": {
-            "type": "custom",
-            "color": "{{appColors.current.text.title}}",
-            "fontSize": 14.0,
-            "fontWeight": "w600"
-          },
-          "textAlign": "right",
-          "textDirection": "rtl",
-          "type": "text"
-        },
-        {
-          "height": 8.0,
-          "type": "sizedBox"
-        },
-        {
-          "type": "textFormField",
-          "id": "reissue_alley",
-          "textDirection": "rtl",
-          "textAlign": "right",
-          "decoration": {
-            "hintText": "خیابان فرعی خود را وارد نمایید",
-            "hintStyle": {
-              "textDirection": "rtl",
-              "style": {
-                "color": "{{appColors.current.text.hint}}",
-                "fontSize": 14
-              }
-            },
-            "enabledBorder": {
-              "type": "outlineInputBorder",
-              "borderSide": {
-                "color": "{{appColors.current.input.borderEnabled}}",
-                "width": 1
-              },
-              "borderRadius": {
-                "all": 12
-              }
-            },
-            "focusedBorder": {
-              "type": "outlineInputBorder",
-              "borderSide": {
-                "color": "{{appColors.current.button.primary.backgroundColor}}",
-                "width": 1.5
-              },
-              "borderRadius": {
-                "all": 12
-              }
-            },
-            "contentPadding": {
-              "left": 16,
-              "top": 16,
-              "right": 16,
-              "bottom": 16
-            }
-          }
-        },
-        {
-          "height": 20.0,
-          "type": "sizedBox"
-        },
-        {
-          "data": "پلاک",
-          "style": {
-            "type": "custom",
-            "color": "{{appColors.current.text.title}}",
-            "fontSize": 14.0,
-            "fontWeight": "w600"
-          },
-          "textAlign": "right",
-          "textDirection": "rtl",
-          "type": "text"
-        },
-        {
-          "height": 8.0,
-          "type": "sizedBox"
-        },
-        {
-          "type": "textFormField",
-          "id": "reissue_plaque",
-          "textDirection": "rtl",
-          "textAlign": "right",
-          "decoration": {
-            "hintText": "پلاک خود را وارد نمایید",
-            "hintStyle": {
-              "textDirection": "rtl",
-              "style": {
-                "color": "{{appColors.current.text.hint}}",
-                "fontSize": 14
-              }
-            },
-            "enabledBorder": {
-              "type": "outlineInputBorder",
-              "borderSide": {
-                "color": "{{appColors.current.input.borderEnabled}}",
-                "width": 1
-              },
-              "borderRadius": {
-                "all": 12
-              }
-            },
-            "focusedBorder": {
-              "type": "outlineInputBorder",
-              "borderSide": {
-                "color": "{{appColors.current.button.primary.backgroundColor}}",
-                "width": 1.5
-              },
-              "borderRadius": {
-                "all": 12
-              }
-            },
-            "contentPadding": {
-              "left": 16,
-              "top": 16,
-              "right": 16,
-              "bottom": 16
-            }
-          },
-          "keyboardType": "number"
-        },
-        {
-          "height": 20.0,
-          "type": "sizedBox"
-        },
-        {
-          "data": "واحد",
-          "style": {
-            "type": "custom",
-            "color": "{{appColors.current.text.title}}",
-            "fontSize": 14.0,
-            "fontWeight": "w600"
-          },
-          "textAlign": "right",
-          "textDirection": "rtl",
-          "type": "text"
-        },
-        {
-          "height": 8.0,
-          "type": "sizedBox"
-        },
-        {
-          "type": "textFormField",
-          "id": "reissue_unit",
-          "textDirection": "rtl",
-          "textAlign": "right",
-          "decoration": {
-            "hintText": "واحد خود را وارد نمایید",
-            "hintStyle": {
-              "textDirection": "rtl",
-              "style": {
-                "color": "{{appColors.current.text.hint}}",
-                "fontSize": 14
-              }
-            },
-            "enabledBorder": {
-              "type": "outlineInputBorder",
-              "borderSide": {
-                "color": "{{appColors.current.input.borderEnabled}}",
-                "width": 1
-              },
-              "borderRadius": {
-                "all": 12
-              }
-            },
-            "focusedBorder": {
-              "type": "outlineInputBorder",
-              "borderSide": {
-                "color": "{{appColors.current.button.primary.backgroundColor}}",
-                "width": 1.5
-              },
-              "borderRadius": {
-                "all": 12
-              }
-            },
-            "contentPadding": {
-              "left": 16,
-              "top": 16,
-              "right": 16,
-              "bottom": 16
-            }
-          },
-          "keyboardType": "number"
-        },
-        {
-          "height": 16.0,
-          "type": "sizedBox"
-        },
-        {
-          "child": {
-            "mainAxisAlignment": "end",
-            "textDirection": "rtl",
-            "children": [
-              {
-                "src": "{{appAssets.current.icons.location}}",
-                "imageType": "asset",
-                "color": "{{appColors.current.button.primary.backgroundColor}}",
-                "width": 20.0,
-                "height": 20.0,
-                "type": "image"
-              },
-              {
-                "width": 4.0,
-                "type": "sizedBox"
-              },
-              {
-                "data": "انتخاب آدرس روی نقشه (اختیاری)",
-                "style": {
-                  "type": "custom",
-                  "color": "{{appColors.current.button.primary.backgroundColor}}",
-                  "fontSize": 13.0,
-                  "fontWeight": "w500"
-                },
-                "textDirection": "rtl",
-                "type": "text"
-              }
-            ],
-            "type": "row"
-          },
-          "onTap": {
-            "actionType": "customSnackBar",
-            "backgroundColor": "#00000000",
-            "duration": 2000,
-            "permanent": false,
-            "permenent": false,
-            "child": {
-              "type": "container",
-              "decoration": {
-                "color": "{{appColors.current.background.surfaceContainer}}",
-                "borderRadius": {
-                  "topLeft": 8,
-                  "topRight": 8,
-                  "bottomLeft": 8,
-                  "bottomRight": 8
-                },
-                "border": {
-                  "color": "{{appColors.current.input.borderEnabled}}",
-                  "width": 1
-                }
-              },
-              "padding": {
-                "left": 12,
-                "top": 10,
-                "right": 12,
-                "bottom": 10
-              },
-              "child": {
-                "type": "row",
-                "textDirection": "ltr",
-                "crossAxisAlignment": "center",
-                "children": [
-                  {
-                    "type": "expanded",
-                    "child": {
-                      "type": "column",
-                      "mainAxisSize": "min",
-                      "crossAxisAlignment": "end",
-                      "children": [
-                        {
-                          "type": "text",
-                          "data": "انتخاب آدرس روی نقشه (mock)",
-                          "textDirection": "rtl",
-                          "textAlign": "right",
-                          "style": {
-                            "type": "custom",
-                            "fontSize": 14,
-                            "fontWeight": "w700",
-                            "color": "{{appColors.current.text.title}}",
-                            "height": 1.45
-                          }
-                        },
-                        {
-                          "type": "sizedBox",
-                          "height": 4
-                        },
-                        {
-                          "type": "text",
-                          "data": "این قابلیت در نسخه واقعی فعال می‌شود.",
-                          "textDirection": "rtl",
-                          "textAlign": "right",
-                          "style": {
-                            "type": "custom",
-                            "fontSize": 13,
-                            "fontWeight": "w500",
-                            "color": "{{appColors.current.text.subtitle}}",
-                            "height": 1.45
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "type": "sizedBox",
-                    "width": 10
-                  },
-                  {
-                    "type": "container",
-                    "width": 1,
-                    "height": 20,
-                    "decoration": {
-                      "color": "{{appColors.current.input.borderEnabled}}",
-                      "borderRadius": {
-                        "topLeft": 999,
-                        "topRight": 999,
-                        "bottomLeft": 999,
-                        "bottomRight": 999
-                      }
-                    }
-                  },
-                  {
-                    "type": "sizedBox",
-                    "width": 8
-                  },
-                  {
-                    "type": "image",
-                    "src": "assets/icons/ic_info.svg",
-                    "imageType": "asset",
-                    "width": 20,
-                    "height": 20,
-                    "color": "{{appColors.current.text.subtitle}}"
-                  }
-                ]
-              }
-            }
-          },
-          "type": "gestureDetector"
-        },
-        {
-          "height": 24.0,
-          "type": "sizedBox"
-        },
-        {
+          "type": "iconButton",
           "onPressed": {
             "actionType": "navigate",
-            "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_card_reissue_select_card_color.json",
-            "navigationStyle": "push"
+            "navigationStyle": "pop"
           },
-          "style": {
-            "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
-            "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
-            "padding": {
-              "top": 8.0,
-              "bottom": 8.0
-            },
-            "minimumSize": {
-              "width": 0.0,
-              "height": 56.0
-            },
-            "shape": {
-              "type": "roundedRectangleBorder",
-              "borderRadius": {
-                "topLeft": 8.0,
-                "topRight": 8.0,
-                "bottomLeft": 8.0,
-                "bottomRight": 8.0
-              }
-            }
-          },
-          "child": {
-            "data": "تایید و ادامه",
-            "style": {
-              "type": "custom",
-              "fontSize": 14.0,
-              "fontWeight": "w700"
-            },
-            "textDirection": "rtl",
-            "type": "text"
-          },
-          "type": "filledButton"
+          "icon": {
+            "type": "image",
+            "src": "{{appAssets.icons.arrowBack}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 31.0,
+            "height": 31.0
+          }
         }
       ],
-      "type": "column"
+      "title": {
+        "type": "text",
+        "data": "صدور کارت المثنی",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl"
+      },
+      "centerTitle": true
     },
-    "type": "singleChildScrollView"
-  },
-  "type": "scaffold"
+    "backgroundColor": "{{appColors.current.background.surface}}",
+    "body": {
+      "type": "form",
+      "autovalidateMode": "onUserInteraction",
+      "child": {
+        "type": "singleChildScrollView",
+        "padding": {
+          "left": 16.0,
+          "top": 16.0,
+          "right": 16.0,
+          "bottom": 16.0
+        },
+        "child": {
+          "type": "column",
+          "crossAxisAlignment": "stretch",
+          "children": [
+            {
+              "type": "text",
+              "data": "شهر/شهرستان",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.title}}",
+                "fontSize": 14.0,
+                "fontWeight": "w600"
+              },
+              "textAlign": "right",
+              "textDirection": "rtl"
+            },
+            {
+              "type": "sizedBox",
+              "height": 8.0
+            },
+            {
+              "type": "textFormField",
+              "id": "reissue_city",
+              "textDirection": "rtl",
+              "textAlign": "right",
+              "initialValue": "تهران/تهران",
+              "readOnly": true,
+              "enabled": false,
+              "style": {
+                "color": "{{appColors.current.text.hint}}",
+                "fontSize": 14.0
+              },
+              "decoration": {
+                "filled": true,
+                "fillColor": "{{appColors.current.background.surfaceContainerLow}}",
+                "disabledBorder": {
+                  "type": "outlineInputBorder",
+                  "borderSide": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "all": 12
+                  }
+                },
+                "enabledBorder": {
+                  "type": "outlineInputBorder",
+                  "borderSide": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "all": 12
+                  }
+                },
+                "contentPadding": {
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
+                }
+              }
+            },
+            {
+              "type": "sizedBox",
+              "height": 20.0
+            },
+            {
+              "type": "text",
+              "data": "شهرستان",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.title}}",
+                "fontSize": 14.0,
+                "fontWeight": "w600"
+              },
+              "textAlign": "right",
+              "textDirection": "rtl"
+            },
+            {
+              "type": "sizedBox",
+              "height": 8.0
+            },
+            {
+              "type": "textFormField",
+              "id": "reissue_county",
+              "textDirection": "rtl",
+              "textAlign": "right",
+              "onChanged": {
+                "actionType": "validateFields",
+                "resultKey": "cardsManagement.reissue.addressNextEnabled",
+                "fields": [
+                  {
+                    "id": "reissue_county"
+                  },
+                  {
+                    "id": "reissue_street"
+                  },
+                  {
+                    "id": "reissue_alley"
+                  },
+                  {
+                    "id": "reissue_plaque"
+                  },
+                  {
+                    "id": "reissue_unit"
+                  }
+                ]
+              },
+              "decoration": {
+                "hintText": "شهرستان خود را وارد نمایید",
+                "hintStyle": {
+                  "textDirection": "rtl",
+                  "style": {
+                    "color": "{{appColors.current.text.hint}}",
+                    "fontSize": 14
+                  }
+                },
+                "enabledBorder": {
+                  "type": "outlineInputBorder",
+                  "borderSide": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "all": 12
+                  }
+                },
+                "focusedBorder": {
+                  "type": "outlineInputBorder",
+                  "borderSide": {
+                    "color": "{{appColors.current.button.primary.backgroundColor}}",
+                    "width": 1.5
+                  },
+                  "borderRadius": {
+                    "all": 12
+                  }
+                },
+                "contentPadding": {
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
+                }
+              }
+            },
+            {
+              "type": "sizedBox",
+              "height": 20.0
+            },
+            {
+              "type": "text",
+              "data": "خیابان اصلی",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.title}}",
+                "fontSize": 14.0,
+                "fontWeight": "w600"
+              },
+              "textAlign": "right",
+              "textDirection": "rtl"
+            },
+            {
+              "type": "sizedBox",
+              "height": 8.0
+            },
+            {
+              "type": "textFormField",
+              "id": "reissue_street",
+              "textDirection": "rtl",
+              "textAlign": "right",
+              "onChanged": {
+                "actionType": "validateFields",
+                "resultKey": "cardsManagement.reissue.addressNextEnabled",
+                "fields": [
+                  {
+                    "id": "reissue_county"
+                  },
+                  {
+                    "id": "reissue_street"
+                  },
+                  {
+                    "id": "reissue_alley"
+                  },
+                  {
+                    "id": "reissue_plaque"
+                  },
+                  {
+                    "id": "reissue_unit"
+                  }
+                ]
+              },
+              "decoration": {
+                "hintText": "خیابان اصلی خود را وارد نمایید",
+                "hintStyle": {
+                  "textDirection": "rtl",
+                  "style": {
+                    "color": "{{appColors.current.text.hint}}",
+                    "fontSize": 14
+                  }
+                },
+                "enabledBorder": {
+                  "type": "outlineInputBorder",
+                  "borderSide": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "all": 12
+                  }
+                },
+                "focusedBorder": {
+                  "type": "outlineInputBorder",
+                  "borderSide": {
+                    "color": "{{appColors.current.button.primary.backgroundColor}}",
+                    "width": 1.5
+                  },
+                  "borderRadius": {
+                    "all": 12
+                  }
+                },
+                "contentPadding": {
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
+                }
+              }
+            },
+            {
+              "type": "sizedBox",
+              "height": 20.0
+            },
+            {
+              "type": "text",
+              "data": "خیابان فرعی",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.title}}",
+                "fontSize": 14.0,
+                "fontWeight": "w600"
+              },
+              "textAlign": "right",
+              "textDirection": "rtl"
+            },
+            {
+              "type": "sizedBox",
+              "height": 8.0
+            },
+            {
+              "type": "textFormField",
+              "id": "reissue_alley",
+              "textDirection": "rtl",
+              "textAlign": "right",
+              "onChanged": {
+                "actionType": "validateFields",
+                "resultKey": "cardsManagement.reissue.addressNextEnabled",
+                "fields": [
+                  {
+                    "id": "reissue_county"
+                  },
+                  {
+                    "id": "reissue_street"
+                  },
+                  {
+                    "id": "reissue_alley"
+                  },
+                  {
+                    "id": "reissue_plaque"
+                  },
+                  {
+                    "id": "reissue_unit"
+                  }
+                ]
+              },
+              "decoration": {
+                "hintText": "خیابان فرعی خود را وارد نمایید",
+                "hintStyle": {
+                  "textDirection": "rtl",
+                  "style": {
+                    "color": "{{appColors.current.text.hint}}",
+                    "fontSize": 14
+                  }
+                },
+                "enabledBorder": {
+                  "type": "outlineInputBorder",
+                  "borderSide": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "all": 12
+                  }
+                },
+                "focusedBorder": {
+                  "type": "outlineInputBorder",
+                  "borderSide": {
+                    "color": "{{appColors.current.button.primary.backgroundColor}}",
+                    "width": 1.5
+                  },
+                  "borderRadius": {
+                    "all": 12
+                  }
+                },
+                "contentPadding": {
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
+                }
+              }
+            },
+            {
+              "type": "sizedBox",
+              "height": 20.0
+            },
+            {
+              "type": "text",
+              "data": "پلاک",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.title}}",
+                "fontSize": 14.0,
+                "fontWeight": "w600"
+              },
+              "textAlign": "right",
+              "textDirection": "rtl"
+            },
+            {
+              "type": "sizedBox",
+              "height": 8.0
+            },
+            {
+              "type": "textFormField",
+              "id": "reissue_plaque",
+              "textDirection": "rtl",
+              "textAlign": "right",
+              "keyboardType": "number",
+              "onChanged": {
+                "actionType": "validateFields",
+                "resultKey": "cardsManagement.reissue.addressNextEnabled",
+                "fields": [
+                  {
+                    "id": "reissue_county"
+                  },
+                  {
+                    "id": "reissue_street"
+                  },
+                  {
+                    "id": "reissue_alley"
+                  },
+                  {
+                    "id": "reissue_plaque"
+                  },
+                  {
+                    "id": "reissue_unit"
+                  }
+                ]
+              },
+              "decoration": {
+                "hintText": "پلاک خود را وارد نمایید",
+                "hintStyle": {
+                  "textDirection": "rtl",
+                  "style": {
+                    "color": "{{appColors.current.text.hint}}",
+                    "fontSize": 14
+                  }
+                },
+                "enabledBorder": {
+                  "type": "outlineInputBorder",
+                  "borderSide": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "all": 12
+                  }
+                },
+                "focusedBorder": {
+                  "type": "outlineInputBorder",
+                  "borderSide": {
+                    "color": "{{appColors.current.button.primary.backgroundColor}}",
+                    "width": 1.5
+                  },
+                  "borderRadius": {
+                    "all": 12
+                  }
+                },
+                "contentPadding": {
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
+                }
+              }
+            },
+            {
+              "type": "sizedBox",
+              "height": 20.0
+            },
+            {
+              "type": "text",
+              "data": "واحد",
+              "style": {
+                "type": "custom",
+                "color": "{{appColors.current.text.title}}",
+                "fontSize": 14.0,
+                "fontWeight": "w600"
+              },
+              "textAlign": "right",
+              "textDirection": "rtl"
+            },
+            {
+              "type": "sizedBox",
+              "height": 8.0
+            },
+            {
+              "type": "textFormField",
+              "id": "reissue_unit",
+              "textDirection": "rtl",
+              "textAlign": "right",
+              "keyboardType": "number",
+              "onChanged": {
+                "actionType": "validateFields",
+                "resultKey": "cardsManagement.reissue.addressNextEnabled",
+                "fields": [
+                  {
+                    "id": "reissue_county"
+                  },
+                  {
+                    "id": "reissue_street"
+                  },
+                  {
+                    "id": "reissue_alley"
+                  },
+                  {
+                    "id": "reissue_plaque"
+                  },
+                  {
+                    "id": "reissue_unit"
+                  }
+                ]
+              },
+              "decoration": {
+                "hintText": "واحد خود را وارد نمایید",
+                "hintStyle": {
+                  "textDirection": "rtl",
+                  "style": {
+                    "color": "{{appColors.current.text.hint}}",
+                    "fontSize": 14
+                  }
+                },
+                "enabledBorder": {
+                  "type": "outlineInputBorder",
+                  "borderSide": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 1
+                  },
+                  "borderRadius": {
+                    "all": 12
+                  }
+                },
+                "focusedBorder": {
+                  "type": "outlineInputBorder",
+                  "borderSide": {
+                    "color": "{{appColors.current.button.primary.backgroundColor}}",
+                    "width": 1.5
+                  },
+                  "borderRadius": {
+                    "all": 12
+                  }
+                },
+                "contentPadding": {
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
+                }
+              }
+            },
+            {
+              "type": "sizedBox",
+              "height": 24.0
+            },
+            {
+              "type": "reactiveElevatedButton",
+              "enabledKey": "cardsManagement.reissue.addressNextEnabled",
+              "onPressed": {
+                "actionType": "navigate",
+                "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_card_reissue_select_card_color.json",
+                "navigationStyle": "push"
+              },
+              "style": {
+                "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+                "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                "padding": {
+                  "top": 8.0,
+                  "bottom": 8.0
+                },
+                "minimumSize": {
+                  "width": 0.0,
+                  "height": 56.0
+                },
+                "shape": {
+                  "type": "roundedRectangleBorder",
+                  "borderRadius": {
+                    "topLeft": 8.0,
+                    "topRight": 8.0,
+                    "bottomLeft": 8.0,
+                    "bottomRight": 8.0
+                  }
+                }
+              },
+              "disabledStyle": {
+                "foregroundColor": "{{appColors.current.text.hint}}",
+                "backgroundColor": "{{appColors.current.background.surfaceContainerHigh}}",
+                "padding": {
+                  "top": 8.0,
+                  "bottom": 8.0
+                },
+                "minimumSize": {
+                  "width": 0.0,
+                  "height": 56.0
+                },
+                "shape": {
+                  "type": "roundedRectangleBorder",
+                  "borderRadius": {
+                    "topLeft": 8.0,
+                    "topRight": 8.0,
+                    "bottomLeft": 8.0,
+                    "bottomRight": 8.0
+                  }
+                }
+              },
+              "child": {
+                "type": "text",
+                "data": "تایید و ادامه",
+                "style": {
+                  "type": "custom",
+                  "fontSize": 14.0,
+                  "fontWeight": "w700"
+                },
+                "textDirection": "rtl"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
 }

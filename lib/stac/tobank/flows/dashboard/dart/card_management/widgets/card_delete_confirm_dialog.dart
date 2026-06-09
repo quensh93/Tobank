@@ -14,7 +14,11 @@ StacAction cardDeleteConfirmDialogAction() {
     positiveAction: StacSequenceAction(
       actions: [
         const StacCloseDialogAction(),
-        const StacCloseDialogAction(),
+        StacRawJsonAction({
+          'actionType': 'navigate',
+          'widgetType': 'dashboard_cards_management',
+          'navigationStyle': 'pushAndRemoveAll',
+        }),
         StacCustomSnackBarAction(
           title: 'کارت حذف شد',
           detail: 'کارت با موفقیت از لیست حذف شد.',
@@ -25,4 +29,3 @@ StacAction cardDeleteConfirmDialogAction() {
     negativeAction: const StacCloseDialogAction(),
   );
 }
-

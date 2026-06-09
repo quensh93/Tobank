@@ -34,7 +34,8 @@
         },
         "child": {
           "onPressed": {
-            "navigationStyle": "pop",
+            "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+            "navigationStyle": "pushAndRemoveAll",
             "actionType": "navigate"
           },
           "icon": {
@@ -130,7 +131,8 @@
         },
         {
           "onPressed": {
-            "navigationStyle": "pop",
+            "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+            "navigationStyle": "pushAndRemoveAll",
             "actionType": "navigate"
           },
           "style": {

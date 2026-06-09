@@ -736,9 +736,21 @@ StacWidget _buildCardServiceGrid() {
             child: _serviceTile(
               title: _serviceReissueTitle,
               iconRegistryKey: 'appAssets.current.icons.cardServiceReissue',
-              onTap: StacShowBottomSheetAction(
-                backgroundColor: '#00000000',
-                sheet: _reissuePostalCodeBottomSheet().toJson(),
+              onTap: StacSequenceAction(
+                actions: [
+                  StacCustomSetValueAction(
+                    key: 'cardsManagement.reissue.postalInquiryEnabled',
+                    value: false,
+                  ),
+                  StacCustomSetValueAction(
+                    key: 'cardsManagement.reissue.postalCode',
+                    value: '',
+                  ),
+                  StacShowBottomSheetAction(
+                    backgroundColor: '#00000000',
+                    sheet: _reissuePostalCodeBottomSheet().toJson(),
+                  ),
+                ],
               ),
             ),
           ),
@@ -867,7 +879,11 @@ StacWidget _cardDetailsBottomSheet() {
                     positiveAction: StacSequenceAction(
                       actions: [
                         const StacCloseDialogAction(),
-                        const StacCloseDialogAction(),
+                        StacRawJsonAction({
+                          'actionType': 'navigate',
+                          'widgetType': 'dashboard_cards_management',
+                          'navigationStyle': 'pushAndRemoveAll',
+                        }),
                         StacCustomSnackBarAction(
                           title: 'کارت حذف شد',
                           detail: 'کارت با موفقیت از لیست حذف شد.',
@@ -1161,9 +1177,21 @@ StacWidget _buildDisabledServices() {
             child: _serviceTile(
               title: _serviceReissueTitle,
               iconRegistryKey: 'appAssets.current.icons.cardServiceReissue',
-              onTap: StacShowBottomSheetAction(
-                backgroundColor: '#00000000',
-                sheet: _reissuePostalCodeBottomSheet().toJson(),
+              onTap: StacSequenceAction(
+                actions: [
+                  StacCustomSetValueAction(
+                    key: 'cardsManagement.reissue.postalInquiryEnabled',
+                    value: false,
+                  ),
+                  StacCustomSetValueAction(
+                    key: 'cardsManagement.reissue.postalCode',
+                    value: '',
+                  ),
+                  StacShowBottomSheetAction(
+                    backgroundColor: '#00000000',
+                    sheet: _reissuePostalCodeBottomSheet().toJson(),
+                  ),
+                ],
               ),
             ),
           ),
@@ -1313,7 +1341,9 @@ StacWidget _walletChargeBottomSheet() {
                 values: [
                   {
                     'key': 'cardsManagement.wallet.chargeAmount',
-                    'value': '[[wallet_charge_amount]]',
+                    'value': const StacGetFormValueAction(
+                      id: 'wallet_charge_amount',
+                    ),
                   },
                   {
                     'key': 'cardsManagement.wallet.isChargeAmountSelected',
@@ -2934,134 +2964,169 @@ StacWidget _reissuePostalCodeBottomSheet() {
       color: '{{appColors.current.background.surface}}',
       borderRadius: const StacBorderRadius.only(topLeft: 18, topRight: 18),
     ),
-    child: StacPadding(
-      padding: StacEdgeInsets.only(left: 16, top: 10, right: 16, bottom: 24),
-      child: StacColumn(
-        mainAxisSize: StacMainAxisSize.min,
-        crossAxisAlignment: StacCrossAxisAlignment.stretch,
-        children: [
-          StacCenter(
-            child: StacContainer(
-              width: 36,
-              height: 4,
-              decoration: StacBoxDecoration(
-                color: '{{appColors.current.input.borderEnabled}}',
-                borderRadius: StacBorderRadius.all(4),
+    child: StacForm(
+      autovalidateMode: StacAutovalidateMode.onUserInteraction,
+      child: StacPadding(
+        padding: StacEdgeInsets.only(left: 16, top: 10, right: 16, bottom: 24),
+        child: StacColumn(
+          mainAxisSize: StacMainAxisSize.min,
+          crossAxisAlignment: StacCrossAxisAlignment.stretch,
+          children: [
+            StacCenter(
+              child: StacContainer(
+                width: 36,
+                height: 4,
+                decoration: StacBoxDecoration(
+                  color: '{{appColors.current.input.borderEnabled}}',
+                  borderRadius: StacBorderRadius.all(4),
+                ),
               ),
             ),
-          ),
-          StacSizedBox(height: 16),
-          StacText(
-            data: 'در صورت درخواست صدور کارت المثنی',
-            textDirection: StacTextDirection.rtl,
-            textAlign: StacTextAlign.right,
-            style: StacCustomTextStyle(
-              fontSize: 15,
-              fontWeight: StacFontWeight.w700,
-              color: '{{appColors.current.text.title}}',
-            ),
-          ),
-          StacSizedBox(height: 16),
-          _infoBullet(
-            text: 'شماره کارت، تاریخ انقضاء و CVV2 کارت بانکی تغییر خواهد کرد',
-          ),
-          StacSizedBox(height: 8),
-          _infoBullet(
-            text:
-                'کارمزد صدور کارت المثنی از سپرده متعلق به کارت بانکی مذکور کسر خواهد شد',
-          ),
-          StacSizedBox(height: 8),
-          _infoBullet(text: 'کارمزد صدور کارت المثنی (۵۷۰٬۰۰۰) ریال می‌باشد.'),
-          StacSizedBox(height: 24),
-          StacText(
-            data: 'کد پستی',
-            textDirection: StacTextDirection.rtl,
-            textAlign: StacTextAlign.right,
-            style: StacCustomTextStyle(
-              fontSize: 14,
-              fontWeight: StacFontWeight.w600,
-              color: '{{appColors.current.text.title}}',
-            ),
-          ),
-          StacSizedBox(height: 8),
-          StacCustomTextFormField(
-            id: 'reissue_postal_code',
-            textDirection: 'rtl',
-            textAlign: 'right',
-            keyboardType: 'number',
-            maxLength: 10,
-            onChanged: StacCustomSetValueAction(
-              key: 'cardsManagement.reissue.postalCode',
-              value: '[[reissue_postal_code]]',
-            ),
-            decoration: {
-              'hintText': 'کد پستی محل سکونت را وارد کنید',
-              'hintStyle': {
-                'textDirection': 'rtl',
-                'style': {
-                  'color': '{{appColors.current.text.hint}}',
-                  'fontSize': 14,
-                },
-              },
-              'counterText': '',
-              'enabledBorder': {
-                'type': 'outlineInputBorder',
-                'borderSide': {
-                  'color': '{{appColors.current.input.borderEnabled}}',
-                  'width': 1,
-                },
-                'borderRadius': {'all': 12},
-              },
-              'focusedBorder': {
-                'type': 'outlineInputBorder',
-                'borderSide': {
-                  'color':
-                      '{{appColors.current.button.primary.backgroundColor}}',
-                  'width': 1.5,
-                },
-                'borderRadius': {'all': 12},
-              },
-              'contentPadding': {
-                'left': 16,
-                'top': 16,
-                'right': 16,
-                'bottom': 16,
-              },
-            },
-          ),
-          StacSizedBox(height: 24),
-          StacFilledButton(
-            onPressed: StacSequenceAction(
-              actions: [
-                const StacCloseDialogAction(),
-                StacRawJsonAction({
-                  'actionType': 'navigate',
-                  'widgetType': 'dashboard_card_reissue_request',
-                  'navigationStyle': 'push',
-                }),
-              ],
-            ),
-            style: StacButtonStyle(
-              padding: StacEdgeInsets.symmetric(vertical: 8),
-              minimumSize: const StacSize(0, 56),
-              backgroundColor:
-                  '{{appColors.current.button.primary.backgroundColor}}',
-              foregroundColor:
-                  '{{appColors.current.button.primary.foregroundColor}}',
-              shape: StacRoundedRectangleBorder(
-                borderRadius: StacBorderRadius.all(8),
-              ),
-            ),
-            child: StacText(
-              data: 'استعلام',
+            StacSizedBox(height: 16),
+            StacText(
+              data: 'در صورت درخواست صدور کارت المثنی',
               textDirection: StacTextDirection.rtl,
+              textAlign: StacTextAlign.right,
+              style: StacCustomTextStyle(
+                fontSize: 15,
+                fontWeight: StacFontWeight.w700,
+                color: '{{appColors.current.text.title}}',
+              ),
+            ),
+            StacSizedBox(height: 16),
+            _infoBullet(
+              text:
+                  'شماره کارت، تاریخ انقضاء و CVV2 کارت بانکی تغییر خواهد کرد',
+            ),
+            StacSizedBox(height: 8),
+            _infoBullet(
+              text:
+                  'کارمزد صدور کارت المثنی از سپرده متعلق به کارت بانکی مذکور کسر خواهد شد',
+            ),
+            StacSizedBox(height: 8),
+            _infoBullet(
+              text: 'کارمزد صدور کارت المثنی (۵۷۰٬۰۰۰) ریال می‌باشد.',
+            ),
+            StacSizedBox(height: 24),
+            StacText(
+              data: 'کد پستی',
+              textDirection: StacTextDirection.rtl,
+              textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
                 fontSize: 14,
-                fontWeight: StacFontWeight.w700,
+                fontWeight: StacFontWeight.w600,
+                color: '{{appColors.current.text.title}}',
               ),
             ),
-          ),
-        ],
+            StacSizedBox(height: 8),
+            StacCustomTextFormField(
+              id: 'reissue_postal_code',
+              textDirection: 'rtl',
+              textAlign: 'right',
+              keyboardType: 'number',
+              maxLength: 10,
+              onChanged: StacSequenceAction(
+                actions: [
+                  StacCustomSetValueAction(
+                    key: 'cardsManagement.reissue.postalCode',
+                    value: '[[reissue_postal_code]]',
+                  ),
+                  const StacValidateFieldsAction(
+                    resultKey: 'cardsManagement.reissue.postalInquiryEnabled',
+                    fields: [
+                      {'id': 'reissue_postal_code', 'rule': r'^[0-9۰-۹]{10}$'},
+                    ],
+                  ),
+                ],
+              ),
+              decoration: {
+                'hintText': 'کد پستی محل سکونت را وارد کنید',
+                'hintStyle': {
+                  'textDirection': 'rtl',
+                  'style': {
+                    'color': '{{appColors.current.text.hint}}',
+                    'fontSize': 14,
+                  },
+                },
+                'counterText': '',
+                'suffixIcon': {
+                  'type': 'icon',
+                  'icon': 'close',
+                  'size': 20,
+                  'color': '{{appColors.current.text.title}}',
+                },
+                'enabledBorder': {
+                  'type': 'outlineInputBorder',
+                  'borderSide': {
+                    'color': '{{appColors.current.input.borderEnabled}}',
+                    'width': 1,
+                  },
+                  'borderRadius': {'all': 12},
+                },
+                'focusedBorder': {
+                  'type': 'outlineInputBorder',
+                  'borderSide': {
+                    'color':
+                        '{{appColors.current.button.primary.backgroundColor}}',
+                    'width': 1.5,
+                  },
+                  'borderRadius': {'all': 12},
+                },
+                'contentPadding': {
+                  'left': 16,
+                  'top': 16,
+                  'right': 16,
+                  'bottom': 16,
+                },
+              },
+            ),
+            StacSizedBox(height: 24),
+            StacCustomReactiveElevatedButton(
+              enabledKey: 'cardsManagement.reissue.postalInquiryEnabled',
+              onPressed: StacSequenceAction(
+                actions: [
+                  const StacCloseDialogAction(),
+                  StacRawJsonAction({
+                    'actionType': 'navigate',
+                    'widgetType': 'dashboard_card_reissue_request',
+                    'navigationStyle': 'push',
+                  }),
+                ],
+              ),
+              style: StacButtonStyle(
+                padding: StacEdgeInsets.symmetric(vertical: 8),
+                minimumSize: const StacSize(0, 56),
+                backgroundColor:
+                    '{{appColors.current.button.primary.backgroundColor}}',
+                foregroundColor:
+                    '{{appColors.current.button.primary.foregroundColor}}',
+                elevation: 0,
+                shape: StacRoundedRectangleBorder(
+                  borderRadius: StacBorderRadius.all(8),
+                ),
+              ).toJson(),
+              disabledStyle: StacButtonStyle(
+                padding: StacEdgeInsets.symmetric(vertical: 8),
+                minimumSize: const StacSize(0, 56),
+                backgroundColor:
+                    '{{appColors.current.background.surfaceContainerHigh}}',
+                foregroundColor: '{{appColors.current.text.hint}}',
+                elevation: 0,
+                shape: StacRoundedRectangleBorder(
+                  borderRadius: StacBorderRadius.all(8),
+                ),
+              ).toJson(),
+              child: StacText(
+                data: 'استعلام',
+                textDirection: StacTextDirection.rtl,
+                style: StacCustomTextStyle(
+                  fontSize: 14,
+                  fontWeight: StacFontWeight.w700,
+                ),
+              ).toJson(),
+            ),
+          ],
+        ),
       ),
     ),
   );
@@ -3184,44 +3249,13 @@ StacWidget _cardBlockBottomSheet() {
             reasonId: '2',
           ),
           StacSizedBox(height: 32),
-          StacFilledButton(
-            onPressed: StacShowDialogAction(
-              title: '{{appStrings.cardsManagement.block.confirmTitle}}',
-              description:
-                  'کارت [[cardsManagement.sheet.cardNumber]] مسدود خواهد شد. این عملیات قابل بازگشت نیست.',
-              positiveText: '{{appStrings.common.confirm}}',
-              negativeText: '{{appStrings.common.cancel}}',
-              positiveAction: StacSequenceAction(
-                actions: [
-                  const StacCloseDialogAction(),
-                  const StacCloseDialogAction(),
-                  StacCustomSnackBarAction(
-                    title: '{{appStrings.cardsManagement.block.successTitle}}',
-                    detail: 'کارت در اسرع وقت مسدود خواهد شد. (mock)',
-                    duration: 3500,
-                  ),
-                ],
-              ),
-              negativeAction: const StacCloseDialogAction(),
-            ),
-            style: StacButtonStyle(
-              padding: StacEdgeInsets.symmetric(vertical: 8),
-              minimumSize: const StacSize(0, 56),
-              backgroundColor: '{{appColors.current.state.error}}',
-              foregroundColor: '{{appColors.current.text.inverse}}',
-              shape: StacRoundedRectangleBorder(
-                borderRadius: StacBorderRadius.all(8),
-              ),
-            ),
-            child: StacText(
-              data: '{{appStrings.cardsManagement.block.title}}',
-              textDirection: StacTextDirection.rtl,
-              style: StacCustomTextStyle(
-                fontSize: 14,
-                fontWeight: StacFontWeight.w700,
-                color: '#FFFFFF',
-              ),
-            ),
+          StacCustomRegistryReactive(
+            registryKey: 'cardsManagement.block.isReasonSelected',
+            child: StacCustomVisibility(
+              visible: '[[cardsManagement.block.isReasonSelected]]',
+              child: _blockSubmitButton().toJson(),
+              replacement: _blockDisabledSubmitButton().toJson(),
+            ).toJson(),
           ),
         ],
       ),
@@ -3230,71 +3264,153 @@ StacWidget _cardBlockBottomSheet() {
 }
 
 StacWidget _blockReasonRow({required String label, required String reasonId}) {
+  StacWidget rowContainer({required bool selected}) {
+    return StacContainer(
+      padding: StacEdgeInsets.all(14),
+      decoration: StacBoxDecoration(
+        borderRadius: StacBorderRadius.all(8),
+        border: StacBorder.all(
+          color: selected
+              ? '{{appColors.current.state.error}}'
+              : '{{appColors.current.input.borderEnabled}}',
+          width: selected ? 1.5 : 1,
+        ),
+      ),
+      child: StacRow(
+        textDirection: StacTextDirection.rtl,
+        mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+        children: [
+          StacText(
+            data: label,
+            textDirection: StacTextDirection.rtl,
+            style: StacCustomTextStyle(
+              fontSize: 14,
+              fontWeight: StacFontWeight.w500,
+              color: '{{appColors.current.text.title}}',
+            ),
+          ),
+          if (selected)
+            StacContainer(
+              width: 20,
+              height: 20,
+              decoration: StacBoxDecoration(
+                color: '{{appColors.current.state.error}}',
+                borderRadius: StacBorderRadius.all(10),
+              ),
+              child: StacCenter(
+                child: StacContainer(
+                  width: 8,
+                  height: 8,
+                  decoration: StacBoxDecoration(
+                    color: '#FFFFFF',
+                    borderRadius: StacBorderRadius.all(4),
+                  ),
+                ),
+              ),
+            )
+          else
+            StacContainer(
+              width: 20,
+              height: 20,
+              decoration: StacBoxDecoration(
+                borderRadius: StacBorderRadius.all(10),
+                border: StacBorder.all(
+                  color: '{{appColors.current.input.borderEnabled}}',
+                  width: 2,
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+
   return StacGestureDetector(
     onTap: StacCustomSetValueAction(
-      key: 'cardsManagement.block.selectedReasonId',
-      value: reasonId,
+      values: [
+        {'key': 'cardsManagement.block.selectedReasonId', 'value': reasonId},
+        {'key': 'cardsManagement.block.isReasonSelected', 'value': true},
+      ],
     ),
     child: StacCustomRegistryReactive(
       registryKey: 'cardsManagement.block.selectedReasonId',
-      child: StacContainer(
-        padding: StacEdgeInsets.all(14),
-        decoration: StacBoxDecoration(
-          borderRadius: StacBorderRadius.all(8),
-          border: StacBorder.all(
-            color: '{{appColors.current.input.borderEnabled}}',
-            width: 1,
-          ),
-        ),
-        child: StacRow(
-          textDirection: StacTextDirection.rtl,
-          mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-          children: [
-            StacText(
-              data: label,
-              textDirection: StacTextDirection.rtl,
-              style: StacCustomTextStyle(
-                fontSize: 14,
-                fontWeight: StacFontWeight.w500,
-                color: '{{appColors.current.text.title}}',
-              ),
-            ),
-            StacCustomVisibility(
-              visible:
-                  '[[cardsManagement.block.selectedReasonId]] == "$reasonId"',
-              child: StacContainer(
-                width: 20,
-                height: 20,
-                decoration: StacBoxDecoration(
-                  color: '{{appColors.current.button.primary.backgroundColor}}',
-                  borderRadius: StacBorderRadius.all(10),
-                ),
-                child: StacCenter(
-                  child: StacContainer(
-                    width: 8,
-                    height: 8,
-                    decoration: StacBoxDecoration(
-                      color: '#FFFFFF',
-                      borderRadius: StacBorderRadius.all(4),
-                    ),
-                  ),
-                ),
-              ).toJson(),
-              replacement: StacContainer(
-                width: 20,
-                height: 20,
-                decoration: StacBoxDecoration(
-                  borderRadius: StacBorderRadius.all(10),
-                  border: StacBorder.all(
-                    color: '{{appColors.current.input.borderEnabled}}',
-                    width: 2,
-                  ),
-                ),
-              ).toJson(),
-            ),
-          ],
-        ),
+      child: StacCustomVisibility(
+        visible: '[[cardsManagement.block.selectedReasonId]] == "$reasonId"',
+        child: rowContainer(selected: true).toJson(),
+        replacement: rowContainer(selected: false).toJson(),
       ).toJson(),
+    ),
+  );
+}
+
+StacWidget _blockSubmitButton() {
+  return StacFilledButton(
+    onPressed: StacShowDialogAction(
+      dialogActionType: 'showLogoutConfirmDialog',
+      warningIconAsset: 'assets/icons/ic_warning_red.svg',
+      title: '{{appStrings.cardsManagement.block.confirmTitle}}',
+      description:
+          'کارت [[cardsManagement.sheet.cardNumber]] مسدود خواهد شد. این عملیات قابل بازگشت نیست.',
+      positiveText: '{{appStrings.common.confirm}}',
+      negativeText: '{{appStrings.common.cancel}}',
+      positiveAction: StacSequenceAction(
+        actions: [
+          const StacCloseDialogAction(),
+          StacRawJsonAction({
+            'actionType': 'navigate',
+            'widgetType': 'dashboard_cards_management',
+            'navigationStyle': 'pushAndRemoveAll',
+          }),
+          StacCustomSnackBarAction(
+            title: '{{appStrings.cardsManagement.block.successTitle}}',
+            detail: 'کارت در اسرع وقت مسدود خواهد شد. (mock)',
+            duration: 3500,
+          ),
+        ],
+      ),
+      negativeAction: const StacCloseDialogAction(),
+    ),
+    style: StacButtonStyle(
+      padding: StacEdgeInsets.symmetric(vertical: 8),
+      minimumSize: const StacSize(0, 56),
+      backgroundColor: '{{appColors.current.state.error}}',
+      foregroundColor: '{{appColors.current.text.inverse}}',
+      shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(8)),
+    ),
+    child: StacText(
+      data: '{{appStrings.cardsManagement.block.title}}',
+      textDirection: StacTextDirection.rtl,
+      style: StacCustomTextStyle(
+        fontSize: 14,
+        fontWeight: StacFontWeight.w700,
+        color: '#FFFFFF',
+      ),
+    ),
+  );
+}
+
+StacWidget _blockDisabledSubmitButton() {
+  return StacFilledButton(
+    onPressed: const StacCustomSnackBarAction(
+      title: 'دلیل مسدودی انتخاب نشده',
+      detail: 'لطفاً دلیل مسدود سازی کارت را انتخاب کنید.',
+      duration: 2000,
+    ),
+    style: StacButtonStyle(
+      padding: StacEdgeInsets.symmetric(vertical: 8),
+      minimumSize: const StacSize(0, 56),
+      backgroundColor: '{{appColors.current.input.borderEnabled}}',
+      foregroundColor: '{{appColors.current.text.hint}}',
+      shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(8)),
+    ),
+    child: StacText(
+      data: '{{appStrings.cardsManagement.block.title}}',
+      textDirection: StacTextDirection.rtl,
+      style: StacCustomTextStyle(
+        fontSize: 14,
+        fontWeight: StacFontWeight.w700,
+        color: '{{appColors.current.text.hint}}',
+      ),
     ),
   );
 }

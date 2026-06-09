@@ -36,14 +36,21 @@ class ValidateFieldRule {
   final String id;
   final String? rule;
   final String? optional;
+  final Map<String, dynamic>? options;
 
-  const ValidateFieldRule({required this.id, this.rule, this.optional});
+  const ValidateFieldRule({
+    required this.id,
+    this.rule,
+    this.optional,
+    this.options,
+  });
 
   factory ValidateFieldRule.fromJson(Map<String, dynamic> json) {
     return ValidateFieldRule(
       id: json['id'] as String,
       rule: json['rule'] as String?,
       optional: json['optional'] as String?,
+      options: json['options'] as Map<String, dynamic>?,
     );
   }
 }
@@ -71,7 +78,6 @@ class ValidateFieldsActionParser
 
     var isValid = true;
     for (final field in model.fields) {
-      // Check if field is optional based on condition
       if (field.optional != null) {
         final isOptional =
             StacRegistry.instance.getValue(field.optional!) == true;
@@ -83,10 +89,24 @@ class ValidateFieldsActionParser
         isValid = false;
         break;
       }
+
       if (field.rule != null && field.rule!.isNotEmpty) {
+        final normalizedValue = _normalizeDigits(value);
+
+        if (field.rule == 'compare') {
+          final comparisonValue = _resolveComparisonValue(
+            formScope,
+            field.options,
+          );
+          if (normalizedValue != _normalizeDigits(comparisonValue)) {
+            isValid = false;
+            break;
+          }
+          continue;
+        }
+
         final regex = RegExp(field.rule!);
-        final normalized = _normalizeDigits(value);
-        if (!regex.hasMatch(normalized)) {
+        if (!regex.hasMatch(normalizedValue)) {
           isValid = false;
           break;
         }
@@ -122,6 +142,20 @@ class ValidateFieldsActionParser
     final fromDirectRegistry =
         StacRegistry.instance.getValue(fieldId)?.toString().trim() ?? '';
     return fromDirectRegistry;
+  }
+
+  String _resolveComparisonValue(
+    StacFormScope? formScope,
+    Map<String, dynamic>? options,
+  ) {
+    if (options == null) return '';
+
+    final fieldId = options['fieldId']?.toString().trim();
+    if (fieldId != null && fieldId.isNotEmpty) {
+      return _resolveFieldValue(formScope, fieldId);
+    }
+
+    return options['comparison']?.toString().trim() ?? '';
   }
 
   String _normalizeDigits(String input) {

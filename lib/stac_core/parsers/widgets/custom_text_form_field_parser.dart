@@ -637,10 +637,24 @@ class _CustomTextFormFieldWidgetState
   }
 
   String? _validate(String? value, StacTextFormField model) {
-    if (value != null && (widget.model.validatorRules?.isNotEmpty ?? false)) {
+    final normalizedValue = value ?? '';
+
+    if (widget.model.validatorRules?.isNotEmpty ?? false) {
       for (final validator in widget.model.validatorRules!) {
         try {
-          if (!InputValidators.validate(validator.rule, value)) {
+          if (validator.rule == 'compare') {
+            final otherValue = _resolveComparisonValue(validator.options);
+            if (_normalizeDigits(normalizedValue) != _normalizeDigits(otherValue)) {
+              return validator.message;
+            }
+            continue;
+          }
+
+          if (!InputValidators.validate(
+            validator.rule,
+            normalizedValue,
+            options: validator.options,
+          )) {
             return validator.message;
           }
         } catch (e) {
@@ -650,5 +664,46 @@ class _CustomTextFormFieldWidgetState
     }
 
     return null;
+  }
+
+  String _resolveComparisonValue(Map<String, dynamic>? options) {
+    if (options == null) return '';
+
+    final fieldId = options['fieldId']?.toString().trim();
+    if (fieldId != null && fieldId.isNotEmpty) {
+      final fromForm = widget.formScope?.formData[fieldId]?.toString().trim();
+      if (fromForm != null && fromForm.isNotEmpty) return fromForm;
+
+      final controller = TextFormFieldControllerRegistry.instance.get(fieldId);
+      final fromController = controller?.text.trim();
+      if (fromController != null && fromController.isNotEmpty) {
+        return fromController;
+      }
+
+      final fromFormRegistry =
+          StacRegistry.instance.getValue('form.$fieldId')?.toString().trim();
+      if (fromFormRegistry != null && fromFormRegistry.isNotEmpty) {
+        return fromFormRegistry;
+      }
+
+      final fromDirectRegistry =
+          StacRegistry.instance.getValue(fieldId)?.toString().trim();
+      if (fromDirectRegistry != null && fromDirectRegistry.isNotEmpty) {
+        return fromDirectRegistry;
+      }
+    }
+
+    return options['comparison']?.toString().trim() ?? '';
+  }
+
+  String _normalizeDigits(String input) {
+    var output = input;
+    const fa = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+    const ar = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+    for (var i = 0; i < 10; i++) {
+      output = output.replaceAll(fa[i], '$i');
+      output = output.replaceAll(ar[i], '$i');
+    }
+    return output;
   }
 }

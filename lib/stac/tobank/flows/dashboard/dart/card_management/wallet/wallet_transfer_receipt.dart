@@ -185,6 +185,7 @@ StacWidget _actionChip({
       child: StacRow(
         textDirection: StacTextDirection.rtl,
         mainAxisAlignment: StacMainAxisAlignment.center,
+        mainAxisSize: StacMainAxisSize.min,
         children: [
           StacImage(
             src: iconAsset,
@@ -194,16 +195,14 @@ StacWidget _actionChip({
             color: '{{appColors.current.text.title}}',
           ),
           StacSizedBox(width: 8),
-          StacExpanded(
-            child: StacText(
-              data: label,
-              textDirection: StacTextDirection.rtl,
-              textAlign: StacTextAlign.center,
-              style: StacCustomTextStyle(
-                fontSize: 14,
-                fontWeight: StacFontWeight.w500,
-                color: '{{appColors.current.text.title}}',
-              ),
+          StacText(
+            data: label,
+            textDirection: StacTextDirection.rtl,
+            textAlign: StacTextAlign.center,
+            style: StacCustomTextStyle(
+              fontSize: 14,
+              fontWeight: StacFontWeight.w500,
+              color: '{{appColors.current.text.title}}',
             ),
           ),
         ],

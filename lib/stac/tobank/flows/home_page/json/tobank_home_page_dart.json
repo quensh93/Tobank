@@ -831,16 +831,16 @@
                                 "onTap": {
                                   "actionType": "sequence",
                                   "actions": [
-                                    {
-                                      "actionType": "setValue",
-                                      "key": "cardsManagement.initialPage",
-                                      "value": 0
-                                    },
-                                    {
-                                      "actionType": "navigate",
-                                      "widgetType": "dashboard_cards_management",
-                                      "navigationStyle": "push"
-                                    }
+                                  {
+                                    "actionType": "setValue",
+                                    "key": "cardsManagement.initialPage",
+                                    "value": 0
+                                  },
+                                  {
+                                    "actionType": "navigate",
+                                    "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                    "navigationStyle": "push"
+                                  }
                                   ]
                                 },
                                 "type": "gestureDetector"
@@ -980,16 +980,16 @@
                               "onTap": {
                                 "actionType": "sequence",
                                 "actions": [
-                                  {
-                                    "actionType": "setValue",
-                                    "key": "cardsManagement.initialPage",
-                                    "value": 1
-                                  },
-                                  {
-                                    "actionType": "navigate",
-                                    "widgetType": "dashboard_cards_management",
-                                    "navigationStyle": "push"
-                                  }
+                                {
+                                  "actionType": "setValue",
+                                  "key": "cardsManagement.initialPage",
+                                  "value": 1
+                                },
+                                {
+                                  "actionType": "navigate",
+                                  "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                  "navigationStyle": "push"
+                                }
                                 ]
                               },
                               "type": "gestureDetector"
@@ -1108,16 +1108,16 @@
                               "onTap": {
                                 "actionType": "sequence",
                                 "actions": [
-                                  {
-                                    "actionType": "setValue",
-                                    "key": "cardsManagement.initialPage",
-                                    "value": 3
-                                  },
-                                  {
-                                    "actionType": "navigate",
-                                    "widgetType": "dashboard_cards_management",
-                                    "navigationStyle": "push"
-                                  }
+                                {
+                                  "actionType": "setValue",
+                                  "key": "cardsManagement.initialPage",
+                                  "value": 3
+                                },
+                                {
+                                  "actionType": "navigate",
+                                  "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                  "navigationStyle": "push"
+                                }
                                 ]
                               },
                               "type": "gestureDetector"
@@ -1236,16 +1236,16 @@
                               "onTap": {
                                 "actionType": "sequence",
                                 "actions": [
-                                  {
-                                    "actionType": "setValue",
-                                    "key": "cardsManagement.initialPage",
-                                    "value": 2
-                                  },
-                                  {
-                                    "actionType": "navigate",
-                                    "widgetType": "dashboard_cards_management",
-                                    "navigationStyle": "push"
-                                  }
+                                {
+                                  "actionType": "setValue",
+                                  "key": "cardsManagement.initialPage",
+                                  "value": 2
+                                },
+                                {
+                                  "actionType": "navigate",
+                                  "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                  "navigationStyle": "push"
+                                }
                                 ]
                               },
                               "type": "gestureDetector"
@@ -1364,16 +1364,16 @@
                               "onTap": {
                                 "actionType": "sequence",
                                 "actions": [
-                                  {
-                                    "actionType": "setValue",
-                                    "key": "cardsManagement.initialPage",
-                                    "value": 4
-                                  },
-                                  {
-                                    "actionType": "navigate",
-                                    "widgetType": "dashboard_cards_management",
-                                    "navigationStyle": "push"
-                                  }
+                                {
+                                  "actionType": "setValue",
+                                  "key": "cardsManagement.initialPage",
+                                  "value": 4
+                                },
+                                {
+                                  "actionType": "navigate",
+                                  "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                  "navigationStyle": "push"
+                                }
                                 ]
                               },
                               "type": "gestureDetector"
@@ -1492,16 +1492,16 @@
                               "onTap": {
                                 "actionType": "sequence",
                                 "actions": [
-                                  {
-                                    "actionType": "setValue",
-                                    "key": "cardsManagement.initialPage",
-                                    "value": 5
-                                  },
-                                  {
-                                    "actionType": "navigate",
-                                    "widgetType": "dashboard_cards_management",
-                                    "navigationStyle": "push"
-                                  }
+                                {
+                                  "actionType": "setValue",
+                                  "key": "cardsManagement.initialPage",
+                                  "value": 5
+                                },
+                                {
+                                  "actionType": "navigate",
+                                  "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                  "navigationStyle": "push"
+                                }
                                 ]
                               },
                               "type": "gestureDetector"
@@ -1620,16 +1620,16 @@
                               "onTap": {
                                 "actionType": "sequence",
                                 "actions": [
-                                  {
-                                    "actionType": "setValue",
-                                    "key": "cardsManagement.initialPage",
-                                    "value": 5
-                                  },
-                                  {
-                                    "actionType": "navigate",
-                                    "widgetType": "dashboard_cards_management",
-                                    "navigationStyle": "push"
-                                  }
+                                {
+                                  "actionType": "setValue",
+                                  "key": "cardsManagement.initialPage",
+                                  "value": 5
+                                },
+                                {
+                                  "actionType": "navigate",
+                                  "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                  "navigationStyle": "push"
+                                }
                                 ]
                               },
                               "type": "gestureDetector"

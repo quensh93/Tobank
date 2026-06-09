@@ -302,6 +302,7 @@
                   },
                   "child": {
                     "mainAxisAlignment": "center",
+                    "mainAxisSize": "min",
                     "textDirection": "rtl",
                     "children": [
                       {
@@ -467,10 +468,11 @@
                   },
                   "child": {
                     "mainAxisAlignment": "center",
+                    "mainAxisSize": "min",
                     "textDirection": "rtl",
                     "children": [
                       {
-                        "src": "assets/icons/ic_share_image.svg",
+                        "src": "{{appAssets.icons.printReceipt}}",
                         "imageType": "asset",
                         "color": "{{appColors.current.text.title}}",
                         "width": 20.0,

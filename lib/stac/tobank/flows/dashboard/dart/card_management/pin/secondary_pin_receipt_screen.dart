@@ -1,4 +1,5 @@
 ﻿import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
@@ -62,7 +63,11 @@ StacWidget dashboardSecondaryPinResult() {
           _maskedPinRow(),
           StacSizedBox(height: 48),
           StacFilledButton(
-            onPressed: StacNavigateAction(navigationStyle: NavigationStyle.pop),
+            onPressed: StacRawJsonAction({
+              'actionType': 'navigate',
+              'widgetType': 'dashboard_cards_management',
+              'navigationStyle': 'pushAndRemoveAll',
+            }),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 8),
               minimumSize: const StacSize(0, 56),
@@ -186,4 +191,3 @@ StacWidget _maskedPinRow() {
     ],
   );
 }
-

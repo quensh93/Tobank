@@ -94,6 +94,17 @@ class CustomVisibilityParser extends StacParser<CustomVisibilityModel> {
     String? key;
     bool negate = false;
 
+    // Handle comparison expressions: [[key]] == "value" or [[key]] == 'value'
+    final comparisonMatch = RegExp(
+      r'''^\[\[([^\]]+)\]\]\s*==\s*["']([^"']*)["']$''',
+    ).firstMatch(value.trim());
+    if (comparisonMatch != null) {
+      final registryKey = comparisonMatch.group(1)!.trim();
+      final expectedValue = comparisonMatch.group(2)!;
+      final registryValue = StacRegistry.instance.getValue(registryKey);
+      return registryValue?.toString() == expectedValue;
+    }
+
     // Check for template syntax {{key}}
     if (value.startsWith('{{') && value.endsWith('}}')) {
       key = value.substring(2, value.length - 2).trim();

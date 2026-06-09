@@ -15,7 +15,11 @@ StacAction cardBlockConfirmDialogAction() {
     positiveAction: StacSequenceAction(
       actions: [
         const StacCloseDialogAction(),
-        const StacCloseDialogAction(),
+        StacRawJsonAction({
+          'actionType': 'navigate',
+          'widgetType': 'dashboard_cards_management',
+          'navigationStyle': 'pushAndRemoveAll',
+        }),
         StacCustomSnackBarAction(
           title: 'درخواست مسدودسازی ثبت شد',
           detail: 'کارت در اسرع وقت مسدود خواهد شد. (mock)',
@@ -26,4 +30,3 @@ StacAction cardBlockConfirmDialogAction() {
     negativeAction: const StacCloseDialogAction(),
   );
 }
-

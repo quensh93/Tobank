@@ -15,7 +15,7 @@ const bool _showTransactionApiReal = true;
 const bool _showInstallmentPaymentApiReal = true;
 const bool _showChildLoanApiReal = false;
 const bool _showDepositTurnoverApiReal = false;
-const bool _showDepositMore = false;
+const bool _showDepositMore = true;
 
 
 const bool _showNotificationApiReal = true;

@@ -1,17 +1,26 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
+import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
+
+const _secondaryPinCurrentFieldId = 'secondary_pin_current';
+const _secondaryPinNewFieldId = 'secondary_pin_new';
+const _secondaryPinConfirmFieldId = 'secondary_pin_confirm';
+const _secondaryPinEnabledKey =
+    'cardsManagement.secondaryPinChange.submitEnabled';
 
 @StacScreen(screenName: 'dashboard_secondary_pin_change')
 StacWidget dashboardSecondaryPinChange() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
     appBar: buildTobankFlowAppBar(title: 'تغییر رمز دوم', showSupport: true, showBack: true),
-    body: StacSingleChildScrollView(
-      padding: StacEdgeInsets.all(16),
-      child: StacColumn(
-        crossAxisAlignment: StacCrossAxisAlignment.stretch,
-        children: [
+    body: StacForm(
+      autovalidateMode: StacAutovalidateMode.always,
+      child: StacSingleChildScrollView(
+        padding: StacEdgeInsets.all(16),
+        child: StacColumn(
+          crossAxisAlignment: StacCrossAxisAlignment.stretch,
+          children: [
           StacText(
             data: 'رعایت این موارد الزامیست...',
             textDirection: StacTextDirection.rtl,
@@ -41,10 +50,18 @@ StacWidget dashboardSecondaryPinChange() {
           ),
           StacSizedBox(height: 8),
           StacCustomTextFormField(
-            id: 'secondary_pin_current',
+            id: _secondaryPinCurrentFieldId,
             textDirection: 'rtl',
             textAlign: 'right',
             keyboardType: 'number',
+            validatorRules: const [
+              {
+                'rule': 'matches',
+                'options': {'pattern': r'.+'},
+                'message': 'رمز فعلی نمی‌تواند خالی باشد',
+              },
+            ],
+            onChanged: _validateSecondaryPinChangeAction(),
             decoration: {
               'hintText': 'رمز عبور فعلی را وارد کنید',
               'hintStyle': {
@@ -92,10 +109,18 @@ StacWidget dashboardSecondaryPinChange() {
           ),
           StacSizedBox(height: 8),
           StacCustomTextFormField(
-            id: 'secondary_pin_new',
+            id: _secondaryPinNewFieldId,
             textDirection: 'rtl',
             textAlign: 'right',
             keyboardType: 'number',
+            validatorRules: const [
+              {
+                'rule': 'matches',
+                'options': {'pattern': r'.+'},
+                'message': 'رمز جدید نمی‌تواند خالی باشد',
+              },
+            ],
+            onChanged: _validateSecondaryPinChangeAction(),
             decoration: {
               'hintText': 'رمز جدید را وارد کنید',
               'hintStyle': {
@@ -143,10 +168,23 @@ StacWidget dashboardSecondaryPinChange() {
           ),
           StacSizedBox(height: 8),
           StacCustomTextFormField(
-            id: 'secondary_pin_confirm',
+            id: _secondaryPinConfirmFieldId,
             textDirection: 'rtl',
             textAlign: 'right',
             keyboardType: 'number',
+            validatorRules: const [
+              {
+                'rule': 'matches',
+                'options': {'pattern': r'.+'},
+                'message': 'تکرار رمز جدید نمی‌تواند خالی باشد',
+              },
+              {
+                'rule': 'compare',
+                'message': 'رمز جدید و تکرار رمز جدید باید یکسان باشند',
+                'options': {'fieldId': _secondaryPinNewFieldId},
+              },
+            ],
+            onChanged: _validateSecondaryPinChangeAction(),
             decoration: {
               'hintText': 'رمز جدید را تکرار کنید',
               'hintStyle': {
@@ -181,13 +219,14 @@ StacWidget dashboardSecondaryPinChange() {
               },
             },
           ),
-          StacSizedBox(height: 32),
-          StacFilledButton(
+          StacSizedBox(height: 24),
+          StacCustomReactiveElevatedButton(
+            enabledKey: _secondaryPinEnabledKey,
             onPressed: StacRawJsonAction({
               'actionType': 'navigate',
               'widgetType': 'dashboard_secondary_pin_result',
               'navigationStyle': 'push',
-            }),
+            }).toJson(),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 8),
               minimumSize: const StacSize(0, 56),
@@ -198,7 +237,16 @@ StacWidget dashboardSecondaryPinChange() {
               shape: StacRoundedRectangleBorder(
                 borderRadius: StacBorderRadius.all(8),
               ),
-            ),
+            ).toJson(),
+            disabledStyle: StacButtonStyle(
+              padding: StacEdgeInsets.symmetric(vertical: 8),
+              minimumSize: const StacSize(0, 56),
+              backgroundColor: '{{appColors.current.input.borderEnabled}}',
+              foregroundColor: '{{appColors.current.text.subtitle}}',
+              shape: StacRoundedRectangleBorder(
+                borderRadius: StacBorderRadius.all(8),
+              ),
+            ).toJson(),
             child: StacText(
               data: 'تغییر رمز دوم',
               textDirection: StacTextDirection.rtl,
@@ -206,11 +254,27 @@ StacWidget dashboardSecondaryPinChange() {
                 fontSize: 14,
                 fontWeight: StacFontWeight.w700,
               ),
-            ),
+            ).toJson(),
           ),
         ],
       ),
     ),
+      ),
+  );
+}
+
+StacValidateFieldsAction _validateSecondaryPinChangeAction() {
+  return const StacValidateFieldsAction(
+    resultKey: _secondaryPinEnabledKey,
+    fields: [
+      {'id': _secondaryPinCurrentFieldId, 'rule': r'.+'},
+      {'id': _secondaryPinNewFieldId, 'rule': r'.+'},
+      {
+        'id': _secondaryPinConfirmFieldId,
+        'rule': 'compare',
+        'options': {'fieldId': _secondaryPinNewFieldId},
+      },
+    ],
   );
 }
 
