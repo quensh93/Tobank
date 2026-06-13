@@ -387,7 +387,7 @@ StacAction _openPackageFlow({
           {'key': 'crSimShowDuplicateBanner', 'value': false},
         ],
       ),
-      NavigationAction(fileName: 'package_package_list', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+      NavigationAction(fileName: 'package_list', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
     ],
   );
 }
@@ -896,4 +896,3 @@ StacWidget _buildDeleteDialogOverlay() {
     ],
   );
 }
-

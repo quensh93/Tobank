@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:tobank_sdui/dev/screens/promissory_real_flow_screen.dart';
+import 'package:tobank_sdui/dev/screens/tobank_stac_dart_screen.dart';
 
 import 'package:tobank_sdui/stac_core/parsers/widgets/loader/promissory_real_loader_parser.dart';
 import '../../core/helpers/logger.dart';
 import '../widgets/menu_card.dart';
 import '../widgets/debug_tool_item.dart';
 import 'package:tobank_sdui/stac_core/services/theme/theme_controller_provider.dart';
-import './tobank_stac_dart_screen.dart';
-import './promissory_real_flow_screen.dart';
 
 /// Server token constant for development/testing
 const String serverToken =

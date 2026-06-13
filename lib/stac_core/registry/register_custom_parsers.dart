@@ -22,6 +22,7 @@ import '../parsers/actions/custom_network_request_action_parser.dart';
 import '../parsers/actions/file/file_picker_action_parser.dart';
 import '../parsers/widgets/custom_text_form_field_parser.dart';
 import '../parsers/widgets/loader/promissory_real_loader_parser.dart';
+import '../parsers/widgets/loader/real_config_loader_parser.dart';
 import '../parsers/widgets/loader/verify_identity_real_loader_parser.dart';
 import '../../../../stac/tobank/flows/promissory/service/promissory_login_action_parser.dart';
 import '../parsers/actions/file/save_file_action_parser.dart';
@@ -491,6 +492,11 @@ void _registerAllParsers() {
   // Register Verify Identity Real Loader parser
   CustomComponentRegistry.instance.registerWidget(
     const VerifyIdentityRealLoaderParser(),
+  );
+
+  // Register generic Real Config Loader parser
+  CustomComponentRegistry.instance.registerWidget(
+    const RealConfigLoaderParser(),
   );
 
   // Register generic ReactiveListView parser for reactive data lists

@@ -856,7 +856,7 @@
                             "value": "__STAC_OPEN__crAddEnteredPhone}}"
                           },
                           {
-                            "fileName": "package_package_list",
+                            "fileName": "package_list",
                             "navMode": "dart",
                             "navigationStyle": "push",
                             "actionType": "navigate"
@@ -2446,7 +2446,7 @@
                                                         "value": "__STAC_OPEN__crAddEnteredPhone}}"
                                                       },
                                                       {
-                                                        "fileName": "package_package_list",
+                                                        "fileName": "package_list",
                                                         "navMode": "dart",
                                                         "navigationStyle": "push",
                                                         "actionType": "navigate"

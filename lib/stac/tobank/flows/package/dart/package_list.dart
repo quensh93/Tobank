@@ -4,7 +4,7 @@ import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
-@StacScreen(screenName: 'package_package_list')
+@StacScreen(screenName: 'package_list')
 StacWidget packageRealPackageList() {
   return StacStatefulWidget(
     onInit: const StacCustomSetValueAction(
@@ -328,4 +328,3 @@ StacWidget _buildContinueButton({required bool enabled}) {
     ),
   );
 }
-

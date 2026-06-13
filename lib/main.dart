@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import 'package:stac/stac.dart';
 import 'package:tobank_sdui/core/storage/storage_util.dart';
@@ -26,11 +27,13 @@ void main() async {
   // Override logging early to catch initialization logs
   AppLogger.overrideFlutterDebugPrint();
 
-  // Setup Dio with MockInterceptor for STAC dynamicView
-  // This allows dynamicView to use mocked API responses from stac/tobank/{feature}/api/
-  final stacDio = setupStacMockDio();
+  // Runtime STAC network uses a normal Dio client.
+  final stacDio = Dio();
 
-  // Initialize STAC framework with options and mocked Dio
+  // Startup design/config loading still uses the mock-aware Dio.
+  final startupMockDio = setupStacMockDio();
+
+  // Initialize STAC framework with a real Dio client.
   // Cache: networkFirst = always fetch fresh from network, fall back to cache
   // only when the network fails. maxAge null => no time-based expiry (cache
   // validity is version-driven, wired in a later phase).
@@ -45,20 +48,20 @@ void main() async {
 
   // Load localization strings ONCE at app startup
   // Strings are stored in StacRegistry and accessible via {{appStrings.*}} syntax
-  await TobankStringsLoader.loadStrings(stacDio);
+  await TobankStringsLoader.loadStrings(startupMockDio);
 
   // Load color schema ONCE at app startup
   // Colors are stored in StacRegistry and accessible via {{appColors.*}} syntax
-  await TobankColorsLoader.loadColors(stacDio);
+  await TobankColorsLoader.loadColors(startupMockDio);
 
   // Load component styles ONCE at app startup
   // Styles are stored in StacRegistry and accessible via {{appStyles.*}} syntax
   // NOTE: Styles should be loaded AFTER colors since styles reference colors
-  await TobankStylesLoader.loadStyles(stacDio);
+  await TobankStylesLoader.loadStyles(startupMockDio);
 
   // Load assets configuration ONCE at app startup
   // Assets are stored in StacRegistry and accessible via {{appAssets.*}} syntax
-  await TobankAssetsLoader.loadAssets(stacDio);
+  await TobankAssetsLoader.loadAssets(startupMockDio);
 
   // Debug: Test variable resolution after strings are loaded
   if (kDebugMode) {

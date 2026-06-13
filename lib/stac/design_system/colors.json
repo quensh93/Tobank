@@ -291,7 +291,7 @@
                 "backgroundColor_019": "#8B63708C",
                 "color_020": "#8B63708C"
             },
-            "flows__package__json__package_package_list": {
+            "flows__package__json__package_list": {
                 "color_001": "#EAFBFD",
                 "color_002": "#20C4D8",
                 "color_003": "#F4FDFF",
@@ -1284,13 +1284,13 @@
             "flows__promissory_old__inline_dart__promissory_rules": {
                 "color_001": "#FFFFFF"
             },
-            "flows__promissory__dart__promissory_issuer_screen": {
+            "flows__promissory__dart__promissory_issuer": {
                 "color_001": "#FFFFFF"
             },
-            "flows__promissory__dart__promissory_payment_screen": {
+            "flows__promissory__dart__promissory_payment": {
                 "color_001": "#000000"
             },
-            "flows__promissory__dart__promissory_preview_screen": {
+            "flows__promissory__dart__promissory_preview": {
                 "backgroundColor_001": "#D32F2F",
                 "foregroundColor_002": "#FFFFFF",
                 "color_003": "#FFFFFF",
@@ -1302,16 +1302,16 @@
             "flows__promissory__dart__promissory_rules": {
                 "color_001": "#FFFFFF"
             },
-            "flows__promissory__dart__promissory_sign_screen": {
+            "flows__promissory__dart__promissory_sign": {
                 "color_001": "#000000"
             },
-            "flows__promissory__inline_dart__promissory_issuer_screen": {
+            "flows__promissory__inline_dart__promissory_issuer": {
                 "color_001": "#FFFFFF"
             },
-            "flows__promissory__inline_dart__promissory_payment_screen": {
+            "flows__promissory__inline_dart__promissory_payment": {
                 "color_001": "#000000"
             },
-            "flows__promissory__inline_dart__promissory_preview_screen": {
+            "flows__promissory__inline_dart__promissory_preview": {
                 "backgroundColor_001": "#D32F2F",
                 "foregroundColor_002": "#FFFFFF",
                 "color_003": "#FFFFFF",
@@ -1323,7 +1323,7 @@
             "flows__promissory__inline_dart__promissory_rules": {
                 "color_001": "#FFFFFF"
             },
-            "flows__promissory__inline_dart__promissory_sign_screen": {
+            "flows__promissory__inline_dart__promissory_sign": {
                 "color_001": "#000000"
             },
             "flows__profile__dart__profile_change_password": {
@@ -1393,7 +1393,7 @@
                 "color_006": "#D0D5DD",
                 "color_007": "#8B63708C"
             },
-            "flows__package__dart__package_package_list": {
+            "flows__package__dart__package_list": {
                 "color_001": "#EAFBFD",
                 "color_002": "#20C4D8",
                 "color_003": "#F4FDFF",
@@ -1445,7 +1445,7 @@
                 "color_006": "#D0D5DD",
                 "color_007": "#8B63708C"
             },
-            "flows__package__inline_dart__package_package_list": {
+            "flows__package__inline_dart__package_list": {
                 "color_001": "#EAFBFD",
                 "color_002": "#20C4D8",
                 "color_003": "#F4FDFF",
@@ -1696,7 +1696,7 @@
             "flows__deposit_more__inline_dart__deposit_close_confirm": {
                 "color_001": "#FFFFFF"
             },
-            "flows__dashboard__dart__cards_management_screen": {
+            "flows__dashboard__dart__cards_management": {
                 "color_001": "#FFFFFF",
                 "color_002": "#FFFFFF",
                 "color_003": "#FFFFFF",
@@ -1750,7 +1750,7 @@
                 "blockedOnCard": "#FFFFFF",
                 "blockedIcon": "#1E2538"
             },
-            "flows__dashboard__inline_dart__cards_management_screen": {
+            "flows__dashboard__inline_dart__cards_management": {
                 "color_001": "#FFFFFF",
                 "color_002": "#FFFFFF",
                 "color_003": "#FFFFFF",
@@ -1776,20 +1776,20 @@
                 "color_023": "#FFFFFF",
                 "color_024": "#1E2538"
             },
-            "flows__dashboard__dart__card_management__pin__primary_pin_result_screen": {
+            "flows__dashboard__dart__card_management__pin__primary_pin_result": {
                 "color_001": "#E8F5E9",
                 "color_002": "#43A047"
             },
-            "flows__dashboard__dart__card_management__pin__secondary_pin_receipt_screen": {
+            "flows__dashboard__dart__card_management__pin__secondary_pin_receipt": {
                 "color_001": "#E8F5E9",
                 "color_002": "#43A047",
                 "color_003": "#43A047"
             },
-            "flows__dashboard__dart__card_management__reissue__reissue_receipt_screen": {
+            "flows__dashboard__dart__card_management__reissue__reissue_receipt": {
                 "color_001": "#E8F5E9",
                 "color_002": "#43A047"
             },
-            "flows__dashboard__dart__card_management__reissue__reissue_select_card_color_screen": {
+            "flows__dashboard__dart__card_management__reissue__reissue_select_card_color": {
                 "color_001": "#1E1E1E",
                 "color_002": "#FFFFFF",
                 "color_003": "#FFFFFF"
@@ -2225,7 +2225,7 @@
                 "backgroundColor_019": "#8B63708C",
                 "color_020": "#8B63708C"
             },
-            "flows__package__json__package_package_list": {
+            "flows__package__json__package_list": {
                 "color_001": "#EAFBFD",
                 "color_002": "#20C4D8",
                 "color_003": "#F4FDFF",
@@ -3218,13 +3218,13 @@
             "flows__promissory_old__inline_dart__promissory_rules": {
                 "color_001": "#FFFFFF"
             },
-            "flows__promissory__dart__promissory_issuer_screen": {
+            "flows__promissory__dart__promissory_issuer": {
                 "color_001": "#FFFFFF"
             },
-            "flows__promissory__dart__promissory_payment_screen": {
+            "flows__promissory__dart__promissory_payment": {
                 "color_001": "#000000"
             },
-            "flows__promissory__dart__promissory_preview_screen": {
+            "flows__promissory__dart__promissory_preview": {
                 "backgroundColor_001": "#D32F2F",
                 "foregroundColor_002": "#FFFFFF",
                 "color_003": "#FFFFFF",
@@ -3236,16 +3236,16 @@
             "flows__promissory__dart__promissory_rules": {
                 "color_001": "#FFFFFF"
             },
-            "flows__promissory__dart__promissory_sign_screen": {
+            "flows__promissory__dart__promissory_sign": {
                 "color_001": "#000000"
             },
-            "flows__promissory__inline_dart__promissory_issuer_screen": {
+            "flows__promissory__inline_dart__promissory_issuer": {
                 "color_001": "#FFFFFF"
             },
-            "flows__promissory__inline_dart__promissory_payment_screen": {
+            "flows__promissory__inline_dart__promissory_payment": {
                 "color_001": "#000000"
             },
-            "flows__promissory__inline_dart__promissory_preview_screen": {
+            "flows__promissory__inline_dart__promissory_preview": {
                 "backgroundColor_001": "#D32F2F",
                 "foregroundColor_002": "#FFFFFF",
                 "color_003": "#FFFFFF",
@@ -3257,7 +3257,7 @@
             "flows__promissory__inline_dart__promissory_rules": {
                 "color_001": "#FFFFFF"
             },
-            "flows__promissory__inline_dart__promissory_sign_screen": {
+            "flows__promissory__inline_dart__promissory_sign": {
                 "color_001": "#000000"
             },
             "flows__profile__dart__profile_change_password": {
@@ -3327,7 +3327,7 @@
                 "color_006": "#D0D5DD",
                 "color_007": "#8B63708C"
             },
-            "flows__package__dart__package_package_list": {
+            "flows__package__dart__package_list": {
                 "color_001": "#EAFBFD",
                 "color_002": "#20C4D8",
                 "color_003": "#F4FDFF",
@@ -3379,7 +3379,7 @@
                 "color_006": "#D0D5DD",
                 "color_007": "#8B63708C"
             },
-            "flows__package__inline_dart__package_package_list": {
+            "flows__package__inline_dart__package_list": {
                 "color_001": "#EAFBFD",
                 "color_002": "#20C4D8",
                 "color_003": "#F4FDFF",
@@ -3630,7 +3630,7 @@
             "flows__deposit_more__inline_dart__deposit_close_confirm": {
                 "color_001": "#FFFFFF"
             },
-            "flows__dashboard__dart__cards_management_screen": {
+            "flows__dashboard__dart__cards_management": {
                 "color_001": "#FFFFFF",
                 "color_002": "#FFFFFF",
                 "color_003": "#FFFFFF",
@@ -3684,7 +3684,7 @@
                 "blockedOnCard": "#FFFFFF",
                 "blockedIcon": "#1E2538"
             },
-            "flows__dashboard__inline_dart__cards_management_screen": {
+            "flows__dashboard__inline_dart__cards_management": {
                 "color_001": "#FFFFFF",
                 "color_002": "#FFFFFF",
                 "color_003": "#FFFFFF",
@@ -3710,20 +3710,20 @@
                 "color_023": "#FFFFFF",
                 "color_024": "#1E2538"
             },
-            "flows__dashboard__dart__card_management__pin__primary_pin_result_screen": {
+            "flows__dashboard__dart__card_management__pin__primary_pin_result": {
                 "color_001": "#E8F5E9",
                 "color_002": "#43A047"
             },
-            "flows__dashboard__dart__card_management__pin__secondary_pin_receipt_screen": {
+            "flows__dashboard__dart__card_management__pin__secondary_pin_receipt": {
                 "color_001": "#E8F5E9",
                 "color_002": "#43A047",
                 "color_003": "#43A047"
             },
-            "flows__dashboard__dart__card_management__reissue__reissue_receipt_screen": {
+            "flows__dashboard__dart__card_management__reissue__reissue_receipt": {
                 "color_001": "#E8F5E9",
                 "color_002": "#43A047"
             },
-            "flows__dashboard__dart__card_management__reissue__reissue_select_card_color_screen": {
+            "flows__dashboard__dart__card_management__reissue__reissue_select_card_color": {
                 "color_001": "#1E1E1E",
                 "color_002": "#FFFFFF",
                 "color_003": "#FFFFFF"

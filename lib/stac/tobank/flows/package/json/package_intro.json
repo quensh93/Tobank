@@ -528,7 +528,7 @@
                                             ]
                                           },
                                           {
-                                            "fileName": "package_package_list",
+                                            "fileName": "package_list",
                                             "navMode": "dart",
                                             "navigationStyle": "push",
                                             "actionType": "navigate"
@@ -1228,7 +1228,7 @@
                                             ]
                                           },
                                           {
-                                            "fileName": "package_package_list",
+                                            "fileName": "package_list",
                                             "navMode": "dart",
                                             "navigationStyle": "push",
                                             "actionType": "navigate"
@@ -1928,7 +1928,7 @@
                                             ]
                                           },
                                           {
-                                            "fileName": "package_package_list",
+                                            "fileName": "package_list",
                                             "navMode": "dart",
                                             "navigationStyle": "push",
                                             "actionType": "navigate"

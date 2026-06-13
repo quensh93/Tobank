@@ -81,7 +81,7 @@ StacWidget verifyIdentityRealRegistration() {
                 child: StacCustomReactiveElevatedButton(
                   enabledKey: 'verifyIdentityHasSelectedJob',
                   enabled: false,
-                  onPressed: NavigationAction(fileName: 'test_screen', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                  onPressed: NavigationAction(fileName: 'test', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
                   style: StacButtonStyle(
                     backgroundColor: '{{appColors.current.primary.color}}',
                     foregroundColor: '{{appColors.current.primary.onPrimary}}',
@@ -166,4 +166,3 @@ StacWidget _buildJobSelector() {
     ),
   );
 }
-

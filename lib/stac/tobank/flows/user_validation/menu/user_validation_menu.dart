@@ -1,6 +1,5 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
-import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 
 /// User Validation - Debug Menu
 @StacScreen(screenName: 'tobank_user_validation')

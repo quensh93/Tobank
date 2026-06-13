@@ -366,7 +366,7 @@ StacAction _normalContinueAction() {
         key: 'crActiveSimNumber',
         value: '{{crAddEnteredPhone}}',
       ),
-      NavigationAction(fileName: 'package_package_list', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+      NavigationAction(fileName: 'package_list', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
     ],
   );
 }
@@ -533,7 +533,7 @@ StacAction _confirmPortedFlowAction() {
         key: 'crActiveSimNumber',
         value: '{{crAddEnteredPhone}}',
       ),
-      NavigationAction(fileName: 'package_package_list', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+      NavigationAction(fileName: 'package_list', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
     ],
   );
 }
@@ -1017,4 +1017,3 @@ StacWidget _buildDuplicateDialog() {
     ),
   );
 }
-

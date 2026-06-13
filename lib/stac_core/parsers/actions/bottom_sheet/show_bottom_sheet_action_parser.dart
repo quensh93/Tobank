@@ -10,6 +10,7 @@ class ShowBottomSheetActionModel {
   final Map<String, dynamic>? sheet;
   final String? title;
   final List<Map<String, dynamic>>? items;
+  final double? heightFactor;
   final bool? isScrollControlled;
   final bool? useSafeArea;
   final bool? isDismissible;
@@ -21,6 +22,7 @@ class ShowBottomSheetActionModel {
     this.sheet,
     this.title,
     this.items,
+    this.heightFactor,
     this.isScrollControlled,
     this.useSafeArea,
     this.isDismissible,
@@ -46,6 +48,7 @@ class ShowBottomSheetActionModel {
                 .map((item) => Map<String, dynamic>.from(item))
                 .toList()
           : null,
+      heightFactor: (json['heightFactor'] as num?)?.toDouble(),
       isScrollControlled: json['isScrollControlled'] as bool?,
       useSafeArea: json['useSafeArea'] as bool?,
       isDismissible: json['isDismissible'] as bool?,
@@ -86,12 +89,29 @@ class ShowBottomSheetActionParser
             _parseColor(model.backgroundColor) ?? Colors.transparent,
         barrierColor: _parseColor(model.barrierColor) ?? Colors.black54,
         builder: (bottomSheetContext) {
+          final screenHeight = MediaQuery.sizeOf(bottomSheetContext).height;
+          final heightFactor = model.heightFactor;
+          final child = () {
           final sheetJson = model.sheet;
           if (sheetJson != null) {
             return Stac.fromJson(sheetJson, bottomSheetContext) ??
                 const SizedBox.shrink();
           }
           return _buildLegacyFallbackSheet(bottomSheetContext, model);
+          }();
+
+          if (heightFactor == null) {
+            return child;
+          }
+
+          return SafeArea(
+            top: false,
+            bottom: false,
+            child: SizedBox(
+              height: screenHeight * heightFactor,
+              child: child,
+            ),
+          );
         },
       );
 

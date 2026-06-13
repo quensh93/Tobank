@@ -1,7 +1,6 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
-import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac/tobank/flows/installment_payment/dart/installment_payment_others_main.dart'
     as installment_payment_others_main_dart;

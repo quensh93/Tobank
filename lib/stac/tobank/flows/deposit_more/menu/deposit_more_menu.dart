@@ -1,6 +1,5 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
-import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 
 /// Deposit More Flow - Debug Menu
 @StacScreen(screenName: 'deposit_more_menu')
