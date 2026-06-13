@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
@@ -895,8 +895,8 @@ StacWidget promissoryRealReceiver() {
                                 },
                                 {
                                   'actionType': 'navigate',
-                                  'widgetType':
-                                      'promissory_data', // Navigate to Real Data Screen
+                                  'fileName': 'promissory_data',
+                                  'navMode': 'dart', // Navigate to Real Data Screen
                                   'navigationStyle': 'push',
                                 },
                               ],
@@ -1134,8 +1134,8 @@ StacWidget promissoryRealReceiver() {
                                 },
                                 {
                                   'actionType': 'navigate',
-                                  'widgetType':
-                                      'promissory_data', // Navigate to Real Data Screen
+                                  'fileName': 'promissory_data',
+                                  'navMode': 'dart', // Navigate to Real Data Screen
                                   'navigationStyle': 'push',
                                 },
                               ],

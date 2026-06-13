@@ -1,4 +1,5 @@
 import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'verify_identity_preregister')
@@ -76,10 +77,7 @@ StacWidget verifyIdentityRealPreRegister() {
           StacPadding(
             padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 24),
             child: StacFilledButton(
-              onPressed: const StacNavigateAction(
-                routeName: 'verify_identity_verify_otp',
-                navigationStyle: NavigationStyle.push,
-              ),
+              onPressed: NavigationAction(fileName: 'verify_identity_verify_otp', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
               style: StacButtonStyle(
                 backgroundColor: '{{appColors.current.primary.color}}',
                 foregroundColor: '{{appColors.current.primary.onPrimary}}',

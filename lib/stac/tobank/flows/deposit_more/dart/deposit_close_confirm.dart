@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -33,10 +33,7 @@ StacWidget depositCloseConfirm() {
             StacSizedBox(height: 40),
             StacCustomReactiveElevatedButton(
               enabledKey: 'depositCloseConfirmRulesChecked',
-              onPressed: const StacNavigateAction(
-                routeName: 'deposit_close_selector',
-                navigationStyle: NavigationStyle.push,
-              ).toJson(),
+              onPressed: NavigationAction(fileName: 'deposit_close_selector', navMode: NavModes.dart, navigationStyle: NavigationStyle.push).toJson(),
               style: StacButtonStyle(
                 minimumSize: const StacSize(0, 64),
                 backgroundColor:

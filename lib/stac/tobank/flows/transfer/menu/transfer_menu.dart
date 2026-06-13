@@ -44,11 +44,7 @@ StacWidget transferRealMenu() {
           ),
           StacSizedBox(height: 32),
           StacFilledButton(
-            onPressed: const StacNavigateAction(
-              assetPath:
-                  'lib/stac/tobank/flows/transfer/json/transfer_amount.json',
-              navigationStyle: NavigationStyle.push,
-            ),
+            onPressed: NavigationAction(fileName: 'transfer_amount', navMode: NavModes.localJson, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -66,10 +62,7 @@ StacWidget transferRealMenu() {
           ),
           StacSizedBox(height: 16),
           StacFilledButton(
-            onPressed: const StacNavigateAction(
-              routeName: 'transfer_amount',
-              navigationStyle: NavigationStyle.push,
-            ),
+            onPressed: NavigationAction(fileName: 'transfer_amount', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -87,23 +80,7 @@ StacWidget transferRealMenu() {
           ),
           StacSizedBox(height: 16),
           StacOutlinedButton(
-            onPressed: StacNavigateAction.fromJson({
-              'actionType': 'navigate',
-              'navigationStyle': 'push',
-              'request': {
-                'url':
-                    SduiConfig.resolveUrl('transfer_amount'),
-                'method': 'post',
-                'headers': {
-                  'Content-Type': 'application/json',
-                  'Accept': '*/*',
-                },
-                'body': {
-                  'operator': 'is',
-                  'dimension': {'app': 'mobile'},
-                },
-              },
-            }),
+            onPressed: NavigationAction(fileName: 'transfer_amount', navMode: NavModes.apiJson, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               backgroundColor:
                   '{{appColors.current.button.primary.backgroundColor}}',

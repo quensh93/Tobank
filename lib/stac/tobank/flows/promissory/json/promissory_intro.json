@@ -511,7 +511,8 @@
                                   "type": "container"
                                 },
                                 "onTap": {
-                                  "routeName": "promissory_rules",
+                                  "fileName": "promissory_rules",
+                                  "navMode": "dart",
                                   "navigationStyle": "push",
                                   "actionType": "navigate"
                                 },

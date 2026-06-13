@@ -1,4 +1,5 @@
 import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac/tobank/flows/installment_payment/dart/installment_payment_others_main.dart'
@@ -86,10 +87,7 @@ StacWidget _loanPaymentBottomSheet() {
             onTap: const StacSequenceAction(
               actions: [
                 StacNavigateAction(navigationStyle: NavigationStyle.pop),
-                StacNavigateAction(
-                  routeName: 'installment_payment_list_main',
-                  navigationStyle: NavigationStyle.push,
-                ),
+                NavigationAction(fileName: 'installment_payment_list_main', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
               ],
             ),
           ),

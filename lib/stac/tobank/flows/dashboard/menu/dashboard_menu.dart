@@ -42,11 +42,7 @@ StacWidget dashboardRealMenu() {
           ),
           StacSizedBox(height: 32),
           StacFilledButton(
-            onPressed: const StacNavigateAction(
-              assetPath:
-                  'lib/stac/tobank/flows/dashboard/json/dashboard_shell.json',
-              navigationStyle: NavigationStyle.push,
-            ),
+            onPressed: NavigationAction(fileName: 'dashboard_shell', navMode: NavModes.localJson, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -64,10 +60,7 @@ StacWidget dashboardRealMenu() {
           ),
           StacSizedBox(height: 16),
           StacFilledButton(
-            onPressed: const StacNavigateAction(
-              routeName: 'dashboard_shell',
-              navigationStyle: NavigationStyle.push,
-            ),
+            onPressed: NavigationAction(fileName: 'dashboard_shell', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:

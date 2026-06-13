@@ -574,20 +574,8 @@
                           {
                             "actionType": "navigate",
                             "navigationStyle": "push",
-                            "request": {
-                              "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.promissory_sign/1",
-                              "method": "post",
-                              "headers": {
-                                "Content-Type": "application/json",
-                                "Accept": "*/*"
-                              },
-                              "body": {
-                                "operator": "is",
-                                "dimension": {
-                                  "app": "mobile"
-                                }
-                              }
-                            }
+                            "fileName": "promissory_sign",
+                            "navMode": "apiJson"
                           }
                         ]
                       },
@@ -661,20 +649,8 @@
               "onPressed": {
                 "actionType": "navigate",
                 "navigationStyle": "push",
-                "request": {
-                  "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.promissory_payment_deposits/1",
-                  "method": "post",
-                  "headers": {
-                    "Content-Type": "application/json",
-                    "Accept": "*/*"
-                  },
-                  "body": {
-                    "operator": "is",
-                    "dimension": {
-                      "app": "mobile"
-                    }
-                  }
-                }
+                "fileName": "promissory_payment_deposits",
+                "navMode": "apiJson"
               },
               "style": {
                 "backgroundColor": "{{appColors.current.primary.color}}",

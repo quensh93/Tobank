@@ -3137,7 +3137,8 @@
                                                             {
                                                               "navigationStyle": "push",
                                                               "actionType": "navigate",
-                                                              "assetPath": "lib/stac/tobank/flows/installment_payment/json/installment_payment_receipt.json"
+                                                              "fileName": "installment_payment_receipt",
+                                                              "navMode": "localJson"
                                                             }
                                                           ]
                                                         },
@@ -4476,7 +4477,8 @@
                                                             {
                                                               "navigationStyle": "push",
                                                               "actionType": "navigate",
-                                                              "assetPath": "lib/stac/tobank/flows/installment_payment/json/installment_payment_receipt.json"
+                                                              "fileName": "installment_payment_receipt",
+                                                              "navMode": "localJson"
                                                             }
                                                           ]
                                                         },

@@ -4263,7 +4263,8 @@
                   },
                   "child": {
                     "onPressed": {
-                      "routeName": "package_payment",
+                      "fileName": "package_payment",
+                      "navMode": "dart",
                       "navigationStyle": "push",
                       "actionType": "navigate"
                     },

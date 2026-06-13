@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 
@@ -47,11 +47,7 @@ StacWidget chargeRealMenu() {
                   key: 'crChargeFlowInitialized',
                   value: false,
                 ),
-                StacNavigateAction(
-                  assetPath:
-                      'lib/stac/tobank/flows/charge/json/charge_intro.json',
-                  navigationStyle: NavigationStyle.push,
-                ),
+                NavigationAction(fileName: 'charge_intro', navMode: NavModes.localJson, navigationStyle: NavigationStyle.push),
               ],
             ),
             style: StacButtonStyle(
@@ -77,10 +73,7 @@ StacWidget chargeRealMenu() {
                   key: 'crChargeFlowInitialized',
                   value: false,
                 ),
-                StacNavigateAction(
-                  routeName: 'charge_intro',
-                  navigationStyle: NavigationStyle.push,
-                ),
+                NavigationAction(fileName: 'charge_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
               ],
             ),
             style: StacButtonStyle(

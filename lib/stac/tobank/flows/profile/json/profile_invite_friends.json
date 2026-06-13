@@ -378,7 +378,8 @@
           },
           "onTap": {
             "actionType": "navigate",
-            "widgetType": "profile_customer_referrals",
+            "fileName": "profile_customer_referrals",
+            "navMode": "dart",
             "navigationStyle": "push"
           },
           "type": "gestureDetector"

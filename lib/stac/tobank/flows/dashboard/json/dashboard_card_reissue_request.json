@@ -544,7 +544,8 @@
               "enabledKey": "cardsManagement.reissue.addressNextEnabled",
               "onPressed": {
                 "actionType": "navigate",
-                "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_card_reissue_select_card_color.json",
+                "fileName": "dashboard_card_reissue_select_card_color",
+                "navMode": "localJson",
                 "navigationStyle": "push"
               },
               "style": {

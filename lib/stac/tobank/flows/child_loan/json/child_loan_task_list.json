@@ -206,7 +206,8 @@
                           "type": "row"
                         },
                         "onTap": {
-                          "routeName": "child_loan_guarantee_address",
+                          "fileName": "child_loan_guarantee_address",
+                          "navMode": "dart",
                           "navigationStyle": "push",
                           "actionType": "navigate"
                         },
@@ -370,7 +371,8 @@
                           "type": "row"
                         },
                         "onTap": {
-                          "routeName": "child_loan_child_check",
+                          "fileName": "child_loan_child_check",
+                          "navMode": "dart",
                           "navigationStyle": "push",
                           "actionType": "navigate"
                         },
@@ -534,7 +536,8 @@
                           "type": "row"
                         },
                         "onTap": {
-                          "routeName": "child_loan_customer_document",
+                          "fileName": "child_loan_customer_document",
+                          "navMode": "dart",
                           "navigationStyle": "push",
                           "actionType": "navigate"
                         },

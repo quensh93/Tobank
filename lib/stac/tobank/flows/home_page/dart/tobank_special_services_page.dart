@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 
@@ -65,10 +65,7 @@ StacWidget tobankSpecialServicesPage() {
               title: 'خدمات اینترنت بانک',
               subtitle: 'فعال سازی خدمات و صدور رمز',
               iconPath: 'assets/icons/ic_menu_internet.svg',
-              onTap: const StacNavigateAction(
-                routeName: 'charge_intro',
-                navigationStyle: NavigationStyle.push,
-              ),
+              onTap: NavigationAction(fileName: 'charge_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
             ),
           ),
           StacSizedBox(height: 16),
@@ -90,10 +87,7 @@ StacWidget tobankSpecialServicesPage() {
               title: 'سفته آنلاین',
               subtitle: 'صدور و خدمات',
               iconPath: 'assets/icons/ic_promissory.svg',
-              onTap: const StacNavigateAction(
-                routeName: 'promissory_intro',
-                navigationStyle: NavigationStyle.push,
-              ),
+              onTap: NavigationAction(fileName: 'promissory_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
             ),
             second: _buildServiceTile(
               title: 'اعتبارسنجی',

@@ -398,20 +398,8 @@
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
                               "navigationStyle": "push",
-                              "request": {
-                                "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.gift_card_custom_message/1",
-                                "method": "post",
-                                "headers": {
-                                  "Content-Type": "application/json",
-                                  "Accept": "*/*"
-                                },
-                                "body": {
-                                  "operator": "is",
-                                  "dimension": {
-                                    "app": "mobile"
-                                  }
-                                }
-                              }
+                              "fileName": "gift_card_custom_message",
+                              "navMode": "apiJson"
                             }
                           },
                           {
@@ -630,20 +618,8 @@
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
                               "navigationStyle": "push",
-                              "request": {
-                                "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.gift_card_custom_message/1",
-                                "method": "post",
-                                "headers": {
-                                  "Content-Type": "application/json",
-                                  "Accept": "*/*"
-                                },
-                                "body": {
-                                  "operator": "is",
-                                  "dimension": {
-                                    "app": "mobile"
-                                  }
-                                }
-                              }
+                              "fileName": "gift_card_custom_message",
+                              "navMode": "apiJson"
                             }
                           },
                           {
@@ -867,20 +843,8 @@
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
                               "navigationStyle": "push",
-                              "request": {
-                                "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.gift_card_custom_message/1",
-                                "method": "post",
-                                "headers": {
-                                  "Content-Type": "application/json",
-                                  "Accept": "*/*"
-                                },
-                                "body": {
-                                  "operator": "is",
-                                  "dimension": {
-                                    "app": "mobile"
-                                  }
-                                }
-                              }
+                              "fileName": "gift_card_custom_message",
+                              "navMode": "apiJson"
                             }
                           },
                           {
@@ -1099,20 +1063,8 @@
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
                               "navigationStyle": "push",
-                              "request": {
-                                "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.gift_card_custom_message/1",
-                                "method": "post",
-                                "headers": {
-                                  "Content-Type": "application/json",
-                                  "Accept": "*/*"
-                                },
-                                "body": {
-                                  "operator": "is",
-                                  "dimension": {
-                                    "app": "mobile"
-                                  }
-                                }
-                              }
+                              "fileName": "gift_card_custom_message",
+                              "navMode": "apiJson"
                             }
                           },
                           {
@@ -1336,20 +1288,8 @@
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
                               "navigationStyle": "push",
-                              "request": {
-                                "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.gift_card_custom_message/1",
-                                "method": "post",
-                                "headers": {
-                                  "Content-Type": "application/json",
-                                  "Accept": "*/*"
-                                },
-                                "body": {
-                                  "operator": "is",
-                                  "dimension": {
-                                    "app": "mobile"
-                                  }
-                                }
-                              }
+                              "fileName": "gift_card_custom_message",
+                              "navMode": "apiJson"
                             }
                           },
                           {
@@ -1568,20 +1508,8 @@
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
                               "navigationStyle": "push",
-                              "request": {
-                                "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.gift_card_custom_message/1",
-                                "method": "post",
-                                "headers": {
-                                  "Content-Type": "application/json",
-                                  "Accept": "*/*"
-                                },
-                                "body": {
-                                  "operator": "is",
-                                  "dimension": {
-                                    "app": "mobile"
-                                  }
-                                }
-                              }
+                              "fileName": "gift_card_custom_message",
+                              "navMode": "apiJson"
                             }
                           },
                           {
@@ -1805,20 +1733,8 @@
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
                               "navigationStyle": "push",
-                              "request": {
-                                "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.gift_card_custom_message/1",
-                                "method": "post",
-                                "headers": {
-                                  "Content-Type": "application/json",
-                                  "Accept": "*/*"
-                                },
-                                "body": {
-                                  "operator": "is",
-                                  "dimension": {
-                                    "app": "mobile"
-                                  }
-                                }
-                              }
+                              "fileName": "gift_card_custom_message",
+                              "navMode": "apiJson"
                             }
                           },
                           {
@@ -2037,20 +1953,8 @@
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
                               "navigationStyle": "push",
-                              "request": {
-                                "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.gift_card_custom_message/1",
-                                "method": "post",
-                                "headers": {
-                                  "Content-Type": "application/json",
-                                  "Accept": "*/*"
-                                },
-                                "body": {
-                                  "operator": "is",
-                                  "dimension": {
-                                    "app": "mobile"
-                                  }
-                                }
-                              }
+                              "fileName": "gift_card_custom_message",
+                              "navMode": "apiJson"
                             }
                           },
                           {

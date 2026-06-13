@@ -567,7 +567,8 @@
               "enabledKey": "isVerifyIdentityRulesAccepted",
               "enabled": false,
               "onPressed": {
-                "routeName": "verify_identity_preregister",
+                "fileName": "verify_identity_preregister",
+                "navMode": "dart",
                 "navigationStyle": "push",
                 "actionType": "navigate"
               },

@@ -559,7 +559,8 @@
                     ]
                   },
                   {
-                    "routeName": "gift_card_custom_select_design",
+                    "fileName": "gift_card_custom_select_design",
+                    "navMode": "dart",
                     "navigationStyle": "push",
                     "actionType": "navigate"
                   }

@@ -633,7 +633,8 @@
               },
               "onPressed": {
                 "actionType": "navigate",
-                "widgetType": "verify_identity_selfie",
+                "fileName": "verify_identity_selfie",
+                "navMode": "dart",
                 "navigationStyle": "push"
               }
             },

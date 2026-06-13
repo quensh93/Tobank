@@ -66,7 +66,8 @@
       "children": [
         {
           "onPressed": {
-            "routeName": "child_loan_rules",
+            "fileName": "child_loan_rules",
+            "navMode": "dart",
             "navigationStyle": "push",
             "actionType": "navigate"
           },
@@ -95,7 +96,8 @@
         },
         {
           "onPressed": {
-            "assetPath": "lib/stac/tobank/flows/child_loan/json/child_loan_rules.json",
+            "fileName": "child_loan_rules",
+            "navMode": "localJson",
             "navigationStyle": "push",
             "actionType": "navigate"
           },
@@ -124,21 +126,8 @@
         },
         {
           "onPressed": {
-            "request": {
-              "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.child_loan_rules/1",
-              "method": "post",
-              "headers": {
-                "Content-Type": "application/json",
-                "Accept": "*/*"
-              },
-              "body": {
-                "operator": "is",
-                "dimension": {
-                  "app": "mobile"
-                }
-              },
-              "actionType": "networkRequest"
-            },
+            "fileName": "child_loan_rules",
+            "navMode": "apiJson",
             "navigationStyle": "push",
             "actionType": "navigate"
           },

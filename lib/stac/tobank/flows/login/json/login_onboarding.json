@@ -31,7 +31,8 @@
         }
       ],
       "onFinish": {
-        "routeName": "login_form_dart",
+        "fileName": "login_form_dart",
+        "navMode": "dart",
         "navigationStyle": "push",
         "actionType": "navigate"
       }

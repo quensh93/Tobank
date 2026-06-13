@@ -86,10 +86,7 @@ StacWidget _taskItemCard(String title, {required String routeName}) {
             children: [
               _statusChip(),
               StacGestureDetector(
-                onTap: StacNavigateAction(
-                  routeName: routeName,
-                  navigationStyle: NavigationStyle.push,
-                ),
+                onTap: NavigationAction(fileName: routeName, navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
                 child: StacRow(
                   textDirection: StacTextDirection.rtl,
                   children: [

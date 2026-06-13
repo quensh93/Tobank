@@ -34,7 +34,8 @@
         },
         "child": {
           "onPressed": {
-            "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+            "fileName": "dashboard_cards_management",
+            "navMode": "localJson",
             "navigationStyle": "pushAndRemoveAll",
             "actionType": "navigate"
           },
@@ -131,7 +132,8 @@
         },
         {
           "onPressed": {
-            "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+            "fileName": "dashboard_cards_management",
+            "navMode": "localJson",
             "navigationStyle": "pushAndRemoveAll",
             "actionType": "navigate"
           },

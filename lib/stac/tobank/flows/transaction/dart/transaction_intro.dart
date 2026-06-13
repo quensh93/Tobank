@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -261,10 +261,7 @@ StacWidget _buildToBankHeaderFilters() {
     textDirection: StacTextDirection.rtl,
     children: [
       StacGestureDetector(
-        onTap: const StacNavigateAction(
-          routeName: 'transaction_filter',
-          navigationStyle: NavigationStyle.push,
-        ),
+        onTap: NavigationAction(fileName: 'transaction_filter', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
 
         child: StacContainer(
           height: 36,

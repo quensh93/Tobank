@@ -337,10 +337,7 @@ StacWidget _buildReportItemCard({
           ),
         ),
         StacGestureDetector(
-          onTap: const StacNavigateAction(
-            routeName: 'user_validation_report_detail',
-            navigationStyle: NavigationStyle.push,
-          ),
+          onTap: NavigationAction(fileName: 'user_validation_report_detail', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
           child: StacContainer(
             padding: StacEdgeInsets.symmetric(vertical: 12),
             decoration: StacBoxDecoration(
@@ -993,10 +990,7 @@ StacWidget _buildPaymentConfirmDialog({required String paymentMethod}) {
 }
 
 StacAction _navigateToValidationReceiptAction({required String paymentMethod}) {
-  return const StacNavigateAction(
-    routeName: 'user_validation_receipt',
-    navigationStyle: NavigationStyle.push,
-  );
+  return NavigationAction(fileName: 'user_validation_receipt', navMode: NavModes.dart, navigationStyle: NavigationStyle.push);
 }
 
 StacWidget _buildDepositOptionCard({

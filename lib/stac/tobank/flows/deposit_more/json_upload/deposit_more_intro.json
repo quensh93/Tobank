@@ -153,20 +153,8 @@
                             "result": {
                               "actionType": "navigate",
                               "navigationStyle": "push",
-                              "request": {
-                                "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.deposit_card_issue_address/1",
-                                "method": "post",
-                                "headers": {
-                                  "Content-Type": "application/json",
-                                  "Accept": "*/*"
-                                },
-                                "body": {
-                                  "operator": "is",
-                                  "dimension": {
-                                    "app": "mobile"
-                                  }
-                                }
-                              }
+                              "fileName": "deposit_card_issue_address",
+                              "navMode": "apiJson"
                             }
                           },
                           "borderRadius": {
@@ -264,20 +252,8 @@
                       "result": {
                         "actionType": "navigate",
                         "navigationStyle": "push",
-                        "request": {
-                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.deposit_close_confirm/1",
-                          "method": "post",
-                          "headers": {
-                            "Content-Type": "application/json",
-                            "Accept": "*/*"
-                          },
-                          "body": {
-                            "operator": "is",
-                            "dimension": {
-                              "app": "mobile"
-                            }
-                          }
-                        }
+                        "fileName": "deposit_close_confirm",
+                        "navMode": "apiJson"
                       }
                     },
                     "borderRadius": {
@@ -927,20 +903,8 @@
                                 "result": {
                                   "actionType": "navigate",
                                   "navigationStyle": "push",
-                                  "request": {
-                                    "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.deposit_card_issue_address/1",
-                                    "method": "post",
-                                    "headers": {
-                                      "Content-Type": "application/json",
-                                      "Accept": "*/*"
-                                    },
-                                    "body": {
-                                      "operator": "is",
-                                      "dimension": {
-                                        "app": "mobile"
-                                      }
-                                    }
-                                  }
+                                  "fileName": "deposit_card_issue_address",
+                                  "navMode": "apiJson"
                                 }
                               },
                               "borderRadius": {
@@ -1038,20 +1002,8 @@
                           "result": {
                             "actionType": "navigate",
                             "navigationStyle": "push",
-                            "request": {
-                              "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.deposit_close_confirm/1",
-                              "method": "post",
-                              "headers": {
-                                "Content-Type": "application/json",
-                                "Accept": "*/*"
-                              },
-                              "body": {
-                                "operator": "is",
-                                "dimension": {
-                                  "app": "mobile"
-                                }
-                              }
-                            }
+                            "fileName": "deposit_close_confirm",
+                            "navMode": "apiJson"
                           }
                         },
                         "borderRadius": {

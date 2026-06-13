@@ -131,20 +131,8 @@
                           {
                             "navigationStyle": "push",
                             "actionType": "navigate",
-                            "request": {
-                              "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.installment_payment_list_main/1",
-                              "method": "post",
-                              "headers": {
-                                "Content-Type": "application/json",
-                                "Accept": "*/*"
-                              },
-                              "body": {
-                                "operator": "is",
-                                "dimension": {
-                                  "app": "mobile"
-                                }
-                              }
-                            }
+                            "fileName": "installment_payment_list_main",
+                            "navMode": "apiJson"
                           }
                         ]
                       },
@@ -189,20 +177,8 @@
                           {
                             "navigationStyle": "push",
                             "actionType": "navigate",
-                            "request": {
-                              "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.installment_payment_others_main/1",
-                              "method": "post",
-                              "headers": {
-                                "Content-Type": "application/json",
-                                "Accept": "*/*"
-                              },
-                              "body": {
-                                "operator": "is",
-                                "dimension": {
-                                  "app": "mobile"
-                                }
-                              }
-                            }
+                            "fileName": "installment_payment_others_main",
+                            "navMode": "apiJson"
                           }
                         ]
                       },
@@ -244,20 +220,8 @@
           "onPressed": {
             "navigationStyle": "push",
             "actionType": "navigate",
-            "request": {
-              "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.installment_payment_start/1",
-              "method": "post",
-              "headers": {
-                "Content-Type": "application/json",
-                "Accept": "*/*"
-              },
-              "body": {
-                "operator": "is",
-                "dimension": {
-                  "app": "mobile"
-                }
-              }
-            }
+            "fileName": "installment_payment_start",
+            "navMode": "apiJson"
           },
           "style": {
             "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
@@ -284,21 +248,8 @@
         },
         {
           "onPressed": {
-            "request": {
-              "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.installment_payment_start/1",
-              "method": "post",
-              "headers": {
-                "Content-Type": "application/json",
-                "Accept": "*/*"
-              },
-              "body": {
-                "operator": "is",
-                "dimension": {
-                  "app": "mobile"
-                }
-              },
-              "actionType": "networkRequest"
-            },
+            "fileName": "installment_payment_start",
+            "navMode": "apiJson",
             "navigationStyle": "push",
             "actionType": "navigate"
           },

@@ -2,7 +2,8 @@
   "type": "onMountAction",
   "delay": 5000,
   "action": {
-    "routeName": "login_onboarding",
+    "fileName": "login_onboarding",
+    "navMode": "dart",
     "navigationStyle": "pushReplacement",
     "actionType": "navigate"
   },

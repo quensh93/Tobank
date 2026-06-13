@@ -838,7 +838,8 @@
                                   },
                                   {
                                     "actionType": "navigate",
-                                    "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                    "fileName": "dashboard_cards_management",
+                                    "navMode": "localJson",
                                     "navigationStyle": "push"
                                   }
                                   ]
@@ -987,7 +988,8 @@
                                 },
                                 {
                                   "actionType": "navigate",
-                                  "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                  "fileName": "dashboard_cards_management",
+                                  "navMode": "localJson",
                                   "navigationStyle": "push"
                                 }
                                 ]
@@ -1115,7 +1117,8 @@
                                 },
                                 {
                                   "actionType": "navigate",
-                                  "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                  "fileName": "dashboard_cards_management",
+                                  "navMode": "localJson",
                                   "navigationStyle": "push"
                                 }
                                 ]
@@ -1243,7 +1246,8 @@
                                 },
                                 {
                                   "actionType": "navigate",
-                                  "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                  "fileName": "dashboard_cards_management",
+                                  "navMode": "localJson",
                                   "navigationStyle": "push"
                                 }
                                 ]
@@ -1371,7 +1375,8 @@
                                 },
                                 {
                                   "actionType": "navigate",
-                                  "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                  "fileName": "dashboard_cards_management",
+                                  "navMode": "localJson",
                                   "navigationStyle": "push"
                                 }
                                 ]
@@ -1499,7 +1504,8 @@
                                 },
                                 {
                                   "actionType": "navigate",
-                                  "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                  "fileName": "dashboard_cards_management",
+                                  "navMode": "localJson",
                                   "navigationStyle": "push"
                                 }
                                 ]
@@ -1627,7 +1633,8 @@
                                 },
                                 {
                                   "actionType": "navigate",
-                                  "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
+                                  "fileName": "dashboard_cards_management",
+                                  "navMode": "localJson",
                                   "navigationStyle": "push"
                                 }
                                 ]
@@ -2006,7 +2013,8 @@
                                           "type": "column"
                                         },
                                         "onTap": {
-                                          "routeName": "tobank_travel_services_page",
+                                          "fileName": "tobank_travel_services_page",
+                                          "navMode": "dart",
                                           "navigationStyle": "push",
                                           "actionType": "navigate"
                                         },
@@ -2185,7 +2193,8 @@
                                           "type": "column"
                                         },
                                         "onTap": {
-                                          "routeName": "tobank_acceptor_services_page",
+                                          "fileName": "tobank_acceptor_services_page",
+                                          "navMode": "dart",
                                           "actionType": "navigate"
                                         },
                                         "type": "gestureDetector"
@@ -4222,7 +4231,8 @@
                                         "type": "card"
                                       },
                                       "onTap": {
-                                        "routeName": "tobank_special_services_page",
+                                        "fileName": "tobank_special_services_page",
+                                        "navMode": "dart",
                                         "navigationStyle": "push",
                                         "actionType": "navigate"
                                       },

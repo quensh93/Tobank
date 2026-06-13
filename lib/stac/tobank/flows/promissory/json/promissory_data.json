@@ -1084,7 +1084,8 @@
                                   ]
                                 },
                                 {
-                                  "routeName": "promissory_confirm",
+                                  "fileName": "promissory_confirm",
+                                  "navMode": "dart",
                                   "navigationStyle": "push",
                                   "actionType": "navigate"
                                 }

@@ -208,7 +208,8 @@
                       {
                         "navigationStyle": "push",
                         "actionType": "navigate",
-                        "assetPath": "lib/stac/tobank/flows/installment_payment/json/installment_payment_detail_main.json"
+                        "fileName": "installment_payment_detail_main",
+                        "navMode": "localJson"
                       }
                     ]
                   },
@@ -456,7 +457,8 @@
                       {
                         "navigationStyle": "push",
                         "actionType": "navigate",
-                        "assetPath": "lib/stac/tobank/flows/installment_payment/json/installment_payment_detail_main.json"
+                        "fileName": "installment_payment_detail_main",
+                        "navMode": "localJson"
                       }
                     ]
                   },
@@ -704,7 +706,8 @@
                       {
                         "navigationStyle": "push",
                         "actionType": "navigate",
-                        "assetPath": "lib/stac/tobank/flows/installment_payment/json/installment_payment_detail_main.json"
+                        "fileName": "installment_payment_detail_main",
+                        "navMode": "localJson"
                       }
                     ]
                   },

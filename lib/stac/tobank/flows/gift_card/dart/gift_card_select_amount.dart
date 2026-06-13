@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -429,12 +429,14 @@ StacAction _giftCardDesignTypeBottomSheetAction() {
     'customDesignTitle': 'طرح سفارشی',
     'readyDesignAction': {
       'actionType': 'navigate',
-      'routeName': 'gift_card_design_selector',
+      'fileName': 'gift_card_design_selector',
+      'navMode': 'dart',
       'navigationStyle': 'push',
     },
     'customDesignAction': {
       'actionType': 'navigate',
-      'routeName': 'gift_card_custom_design_selector',
+      'fileName': 'gift_card_custom_design_selector',
+      'navMode': 'dart',
       'navigationStyle': 'push',
     },
   });
@@ -479,10 +481,7 @@ StacWidget _giftCardDesignTypeBottomSheet() {
             action: const StacSequenceAction(
               actions: [
                 StacNavigateAction(navigationStyle: NavigationStyle.pop),
-                StacNavigateAction(
-                  routeName: 'gift_card_design_selector',
-                  navigationStyle: NavigationStyle.push,
-                ),
+                NavigationAction(fileName: 'gift_card_design_selector', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
               ],
             ),
           ),
@@ -492,10 +491,7 @@ StacWidget _giftCardDesignTypeBottomSheet() {
             action: const StacSequenceAction(
               actions: [
                 StacNavigateAction(navigationStyle: NavigationStyle.pop),
-                StacNavigateAction(
-                  routeName: 'gift_card_custom_design_selector',
-                  navigationStyle: NavigationStyle.push,
-                ),
+                NavigationAction(fileName: 'gift_card_custom_design_selector', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
               ],
             ),
           ),

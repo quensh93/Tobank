@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 
@@ -15,11 +15,7 @@ StacAction cardBlockConfirmDialogAction() {
     positiveAction: StacSequenceAction(
       actions: [
         const StacCloseDialogAction(),
-        StacRawJsonAction({
-          'actionType': 'navigate',
-          'widgetType': 'dashboard_cards_management',
-          'navigationStyle': 'pushAndRemoveAll',
-        }),
+        NavigationAction(fileName: 'dashboard_cards_management', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushAndRemoveAll),
         StacCustomSnackBarAction(
           title: 'درخواست مسدودسازی ثبت شد',
           detail: 'کارت در اسرع وقت مسدود خواهد شد. (mock)',

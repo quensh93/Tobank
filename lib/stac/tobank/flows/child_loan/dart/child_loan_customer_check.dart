@@ -497,7 +497,8 @@ StacWidget _continueButton() {
           },
           {
             'actionType': 'navigate',
-            'routeName': 'child_loan_task_list',
+            'fileName': 'child_loan_task_list',
+            'navMode': 'dart',
             'navigationStyle': 'push',
           },
         ],

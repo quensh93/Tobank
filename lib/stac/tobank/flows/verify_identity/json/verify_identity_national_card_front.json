@@ -589,7 +589,8 @@
                 {
                   "onPressed": {
                     "actionType": "navigate",
-                    "widgetType": "verify_identity_old_national_card",
+                    "fileName": "verify_identity_old_national_card",
+                    "navMode": "dart",
                     "navigationStyle": "push"
                   },
                   "style": {
@@ -680,7 +681,8 @@
                   },
                   "onPressed": {
                     "actionType": "navigate",
-                    "widgetType": "verify_identity_national_card_back",
+                    "fileName": "verify_identity_national_card_back",
+                    "navMode": "dart",
                     "navigationStyle": "push"
                   }
                 }

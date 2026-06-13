@@ -53,10 +53,7 @@ StacWidget userValidationReportDetail() {
                         ),
                       ),
                       StacGestureDetector(
-                        onTap: const StacNavigateAction(
-                          routeName: 'user_validation_preview',
-                          navigationStyle: NavigationStyle.push,
-                        ),
+                        onTap: NavigationAction(fileName: 'user_validation_preview', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
                         child: StacPadding(
                           padding: StacEdgeInsets.all(6),
                           child: StacImage(

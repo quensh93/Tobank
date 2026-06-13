@@ -105,7 +105,8 @@
           },
           {
             "onPressed": {
-              "routeName": "verify_identity_registration",
+              "fileName": "verify_identity_registration",
+              "navMode": "dart",
               "navigationStyle": "push",
               "actionType": "navigate"
             },

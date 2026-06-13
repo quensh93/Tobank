@@ -291,7 +291,8 @@
           },
           "onTap": {
             "actionType": "navigate",
-            "widgetType": "profile_change_password",
+            "fileName": "profile_change_password",
+            "navMode": "dart",
             "navigationStyle": "push"
           },
           "type": "gestureDetector"

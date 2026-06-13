@@ -1425,7 +1425,8 @@
               {
                 "child": {
                   "onTap": {
-                    "routeName": "promissory_intro",
+                    "fileName": "promissory_intro",
+                    "navMode": "dart",
                     "navigationStyle": "push",
                     "actionType": "navigate"
                   },

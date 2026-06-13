@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -207,10 +207,7 @@ StacWidget _buildContinueButton() {
     child: StacCustomReactiveElevatedButton(
       enabledKey: 'isVerifyIdentityRulesAccepted',
       enabled: false,
-      onPressed: const StacNavigateAction(
-        routeName: 'verify_identity_preregister',
-        navigationStyle: NavigationStyle.push,
-      ),
+      onPressed: NavigationAction(fileName: 'verify_identity_preregister', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
       style: StacButtonStyle(
         backgroundColor: '{{appColors.current.primary.color}}',
         elevation: 0,

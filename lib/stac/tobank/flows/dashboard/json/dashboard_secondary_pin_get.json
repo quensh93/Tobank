@@ -124,7 +124,8 @@
         {
           "onPressed": {
             "actionType": "navigate",
-            "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_secondary_pin_result.json",
+            "fileName": "dashboard_secondary_pin_result",
+            "navMode": "localJson",
             "navigationStyle": "push"
           },
           "style": {

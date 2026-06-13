@@ -579,7 +579,8 @@
                   "type": "text"
                 },
                 "onPressed": {
-                  "routeName": "verify_identity_signature",
+                  "fileName": "verify_identity_signature",
+                  "navMode": "dart",
                   "navigationStyle": "push",
                   "actionType": "navigate"
                 }

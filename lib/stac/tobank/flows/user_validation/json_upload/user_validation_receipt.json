@@ -1515,20 +1515,8 @@
                       "onTap": {
                         "navigationStyle": "push",
                         "actionType": "navigate",
-                        "request": {
-                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.user_validation_preview/1",
-                          "method": "post",
-                          "headers": {
-                            "Content-Type": "application/json",
-                            "Accept": "*/*"
-                          },
-                          "body": {
-                            "operator": "is",
-                            "dimension": {
-                              "app": "mobile"
-                            }
-                          }
-                        }
+                        "fileName": "user_validation_preview",
+                        "navMode": "apiJson"
                       },
                       "type": "gestureDetector"
                     },

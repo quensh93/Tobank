@@ -218,8 +218,8 @@
                                         },
                                         "onPressed": {
                                             "actionType": "navigate",
-                                            "widgetType": "promissory_data",
-                                            "assetPath": "lib/stac/tobank/flows/promissory_old/api/GET_promissory_data.json"
+                                            "fileName": "promissory_data",
+                                            "navMode": "apiJson"
                                         }
                                     }
                                 ]

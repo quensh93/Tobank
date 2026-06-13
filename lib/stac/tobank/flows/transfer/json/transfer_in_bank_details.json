@@ -1362,7 +1362,8 @@
                               ]
                             },
                             {
-                              "assetPath": "lib/stac/tobank/flows/transfer/json/transfer_in_bank_confirm.json",
+                              "fileName": "transfer_in_bank_confirm",
+                              "navMode": "localJson",
                               "navigationStyle": "push",
                               "actionType": "navigate"
                             }

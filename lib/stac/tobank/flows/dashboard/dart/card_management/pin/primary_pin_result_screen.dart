@@ -55,11 +55,7 @@ StacWidget dashboardPrimaryPinResult() {
           ),
           StacSizedBox(height: 48),
           StacFilledButton(
-            onPressed: StacRawJsonAction({
-              'actionType': 'navigate',
-              'widgetType': 'dashboard_cards_management',
-              'navigationStyle': 'pushAndRemoveAll',
-            }),
+            onPressed: NavigationAction(fileName: 'dashboard_cards_management', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushAndRemoveAll),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 8),
               minimumSize: const StacSize(0, 56),

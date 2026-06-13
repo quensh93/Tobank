@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
@@ -276,11 +276,7 @@ StacWidget dashboardCardReissueRequest() {
           StacSizedBox(height: 24),
           StacCustomReactiveElevatedButton(
             enabledKey: 'cardsManagement.reissue.addressNextEnabled',
-            onPressed: StacRawJsonAction({
-              'actionType': 'navigate',
-              'widgetType': 'dashboard_card_reissue_select_card_color',
-              'navigationStyle': 'push',
-            }),
+            onPressed: NavigationAction(fileName: 'dashboard_card_reissue_select_card_color', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 8),
               minimumSize: const StacSize(0, 56),

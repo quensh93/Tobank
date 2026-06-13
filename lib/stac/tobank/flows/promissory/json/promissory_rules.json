@@ -308,7 +308,8 @@
                             "value": false
                           },
                           {
-                            "routeName": "promissory_issuer",
+                            "fileName": "promissory_issuer",
+                            "navMode": "dart",
                             "navigationStyle": "push",
                             "actionType": "navigate"
                           }

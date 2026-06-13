@@ -1250,20 +1250,8 @@
                                       "onTap": {
                                         "navigationStyle": "push",
                                         "actionType": "navigate",
-                                        "request": {
-                                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.user_validation_report_detail/1",
-                                          "method": "post",
-                                          "headers": {
-                                            "Content-Type": "application/json",
-                                            "Accept": "*/*"
-                                          },
-                                          "body": {
-                                            "operator": "is",
-                                            "dimension": {
-                                              "app": "mobile"
-                                            }
-                                          }
-                                        }
+                                        "fileName": "user_validation_report_detail",
+                                        "navMode": "apiJson"
                                       },
                                       "type": "gestureDetector"
                                     }
@@ -2042,20 +2030,8 @@
                                       "onTap": {
                                         "navigationStyle": "push",
                                         "actionType": "navigate",
-                                        "request": {
-                                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.user_validation_report_detail/1",
-                                          "method": "post",
-                                          "headers": {
-                                            "Content-Type": "application/json",
-                                            "Accept": "*/*"
-                                          },
-                                          "body": {
-                                            "operator": "is",
-                                            "dimension": {
-                                              "app": "mobile"
-                                            }
-                                          }
-                                        }
+                                        "fileName": "user_validation_report_detail",
+                                        "navMode": "apiJson"
                                       },
                                       "type": "gestureDetector"
                                     }
@@ -2834,20 +2810,8 @@
                                       "onTap": {
                                         "navigationStyle": "push",
                                         "actionType": "navigate",
-                                        "request": {
-                                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.user_validation_report_detail/1",
-                                          "method": "post",
-                                          "headers": {
-                                            "Content-Type": "application/json",
-                                            "Accept": "*/*"
-                                          },
-                                          "body": {
-                                            "operator": "is",
-                                            "dimension": {
-                                              "app": "mobile"
-                                            }
-                                          }
-                                        }
+                                        "fileName": "user_validation_report_detail",
+                                        "navMode": "apiJson"
                                       },
                                       "type": "gestureDetector"
                                     }
@@ -3626,20 +3590,8 @@
                                       "onTap": {
                                         "navigationStyle": "push",
                                         "actionType": "navigate",
-                                        "request": {
-                                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.user_validation_report_detail/1",
-                                          "method": "post",
-                                          "headers": {
-                                            "Content-Type": "application/json",
-                                            "Accept": "*/*"
-                                          },
-                                          "body": {
-                                            "operator": "is",
-                                            "dimension": {
-                                              "app": "mobile"
-                                            }
-                                          }
-                                        }
+                                        "fileName": "user_validation_report_detail",
+                                        "navMode": "apiJson"
                                       },
                                       "type": "gestureDetector"
                                     }
@@ -4427,20 +4379,8 @@
                                       "onTap": {
                                         "navigationStyle": "push",
                                         "actionType": "navigate",
-                                        "request": {
-                                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.user_validation_report_detail/1",
-                                          "method": "post",
-                                          "headers": {
-                                            "Content-Type": "application/json",
-                                            "Accept": "*/*"
-                                          },
-                                          "body": {
-                                            "operator": "is",
-                                            "dimension": {
-                                              "app": "mobile"
-                                            }
-                                          }
-                                        }
+                                        "fileName": "user_validation_report_detail",
+                                        "navMode": "apiJson"
                                       },
                                       "type": "gestureDetector"
                                     }
@@ -5228,20 +5168,8 @@
                                       "onTap": {
                                         "navigationStyle": "push",
                                         "actionType": "navigate",
-                                        "request": {
-                                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.user_validation_report_detail/1",
-                                          "method": "post",
-                                          "headers": {
-                                            "Content-Type": "application/json",
-                                            "Accept": "*/*"
-                                          },
-                                          "body": {
-                                            "operator": "is",
-                                            "dimension": {
-                                              "app": "mobile"
-                                            }
-                                          }
-                                        }
+                                        "fileName": "user_validation_report_detail",
+                                        "navMode": "apiJson"
                                       },
                                       "type": "gestureDetector"
                                     }
@@ -6020,20 +5948,8 @@
                                       "onTap": {
                                         "navigationStyle": "push",
                                         "actionType": "navigate",
-                                        "request": {
-                                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.user_validation_report_detail/1",
-                                          "method": "post",
-                                          "headers": {
-                                            "Content-Type": "application/json",
-                                            "Accept": "*/*"
-                                          },
-                                          "body": {
-                                            "operator": "is",
-                                            "dimension": {
-                                              "app": "mobile"
-                                            }
-                                          }
-                                        }
+                                        "fileName": "user_validation_report_detail",
+                                        "navMode": "apiJson"
                                       },
                                       "type": "gestureDetector"
                                     }
@@ -6812,20 +6728,8 @@
                                       "onTap": {
                                         "navigationStyle": "push",
                                         "actionType": "navigate",
-                                        "request": {
-                                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.user_validation_report_detail/1",
-                                          "method": "post",
-                                          "headers": {
-                                            "Content-Type": "application/json",
-                                            "Accept": "*/*"
-                                          },
-                                          "body": {
-                                            "operator": "is",
-                                            "dimension": {
-                                              "app": "mobile"
-                                            }
-                                          }
-                                        }
+                                        "fileName": "user_validation_report_detail",
+                                        "navMode": "apiJson"
                                       },
                                       "type": "gestureDetector"
                                     }
@@ -8812,20 +8716,8 @@
                                                                                     {
                                                                                       "navigationStyle": "push",
                                                                                       "actionType": "navigate",
-                                                                                      "request": {
-                                                                                        "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.user_validation_receipt/1",
-                                                                                        "method": "post",
-                                                                                        "headers": {
-                                                                                          "Content-Type": "application/json",
-                                                                                          "Accept": "*/*"
-                                                                                        },
-                                                                                        "body": {
-                                                                                          "operator": "is",
-                                                                                          "dimension": {
-                                                                                            "app": "mobile"
-                                                                                          }
-                                                                                        }
-                                                                                      }
+                                                                                      "fileName": "user_validation_receipt",
+                                                                                      "navMode": "apiJson"
                                                                                     }
                                                                                   ]
                                                                                 },
@@ -9063,20 +8955,8 @@
                                                                       {
                                                                         "navigationStyle": "push",
                                                                         "actionType": "navigate",
-                                                                        "request": {
-                                                                          "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.user_validation_receipt/1",
-                                                                          "method": "post",
-                                                                          "headers": {
-                                                                            "Content-Type": "application/json",
-                                                                            "Accept": "*/*"
-                                                                          },
-                                                                          "body": {
-                                                                            "operator": "is",
-                                                                            "dimension": {
-                                                                              "app": "mobile"
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                        "fileName": "user_validation_receipt",
+                                                                        "navMode": "apiJson"
                                                                       }
                                                                     ]
                                                                   },

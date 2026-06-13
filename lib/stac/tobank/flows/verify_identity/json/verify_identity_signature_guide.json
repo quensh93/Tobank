@@ -221,7 +221,8 @@
                   "type": "container"
                 },
                 "onTap": {
-                  "routeName": "verify_identity_signature_visual_guide",
+                  "fileName": "verify_identity_signature_visual_guide",
+                  "navMode": "dart",
                   "navigationStyle": "push",
                   "actionType": "navigate"
                 },

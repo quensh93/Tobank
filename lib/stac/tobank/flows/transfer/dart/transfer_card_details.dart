@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/amount/amount_to_words_action.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
@@ -65,10 +65,7 @@ StacWidget transferRealCardDetails() {
                         {'key': 'transferApiIsCardToCardFlow', 'value': true},
                       ],
                     ),
-                    StacNavigateAction(
-                      routeName: 'transfer_confirm',
-                      navigationStyle: NavigationStyle.push,
-                    ),
+                    NavigationAction(fileName: 'transfer_confirm', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
                   ],
                 ),
                 style: StacButtonStyle(

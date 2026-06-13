@@ -292,7 +292,8 @@
                   ]
                 },
                 {
-                  "routeName": "child_loan_customer_check",
+                  "fileName": "child_loan_customer_check",
+                  "navMode": "dart",
                   "navigationStyle": "push",
                   "actionType": "navigate"
                 }

@@ -44,22 +44,7 @@ StacWidget depositMoreMenu() {
           ),
           StacSizedBox(height: 32),
           StacFilledButton(
-            onPressed: StacNavigateAction.fromJson({
-              'actionType': 'navigate',
-              'navigationStyle': 'push',
-              'request': {
-                'url': SduiConfig.resolveUrl('deposit_more_intro'),
-                'method': 'post',
-                'headers': {
-                  'Content-Type': 'application/json',
-                  'Accept': '*/*',
-                },
-                'body': {
-                  'operator': 'is',
-                  'dimension': {'app': 'mobile'},
-                },
-              },
-            }),
+            onPressed: NavigationAction(fileName: 'deposit_more_intro', navMode: NavModes.apiJson, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -77,11 +62,7 @@ StacWidget depositMoreMenu() {
           ),
           StacSizedBox(height: 16),
           StacFilledButton(
-            onPressed: const StacNavigateAction(
-              assetPath:
-                  'lib/stac/tobank/flows/deposit_more/json/deposit_more_intro.json',
-              navigationStyle: NavigationStyle.push,
-            ),
+            onPressed: NavigationAction(fileName: 'deposit_more_intro', navMode: NavModes.localJson, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -99,10 +80,7 @@ StacWidget depositMoreMenu() {
           ),
           StacSizedBox(height: 16),
           StacFilledButton(
-            onPressed: const StacNavigateAction(
-              routeName: 'deposit_more_intro',
-              navigationStyle: NavigationStyle.push,
-            ),
+            onPressed: NavigationAction(fileName: 'deposit_more_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:

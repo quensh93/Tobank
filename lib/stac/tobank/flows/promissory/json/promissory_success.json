@@ -1470,7 +1470,8 @@
                                   "type": "padding"
                                 },
                                 "onTap": {
-                                  "routeName": "promissory_preview",
+                                  "fileName": "promissory_preview",
+                                  "navMode": "dart",
                                   "navigationStyle": "push",
                                   "actionType": "navigate"
                                 },

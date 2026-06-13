@@ -856,7 +856,8 @@
                             "value": "__STAC_OPEN__crAddEnteredPhone}}"
                           },
                           {
-                            "routeName": "charge_package_list",
+                            "fileName": "charge_package_list",
+                            "navMode": "dart",
                             "navigationStyle": "push",
                             "actionType": "navigate"
                           }
@@ -2436,7 +2437,8 @@
                                                     "value": "__STAC_OPEN__crAddEnteredPhone}}"
                                                   },
                                                   {
-                                                    "routeName": "charge_package_list",
+                                                    "fileName": "charge_package_list",
+                                                    "navMode": "dart",
                                                     "navigationStyle": "push",
                                                     "actionType": "navigate"
                                                   }

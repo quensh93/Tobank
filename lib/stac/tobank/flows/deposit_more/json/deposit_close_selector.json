@@ -357,7 +357,8 @@
                                     },
                                     {
                                       "actionType": "navigate",
-                                      "routeName": "deposit_close_result",
+                                      "fileName": "deposit_close_result",
+                                      "navMode": "dart",
                                       "navigationStyle": "push"
                                     }
                                   ]

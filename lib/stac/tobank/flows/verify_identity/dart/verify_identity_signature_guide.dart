@@ -66,10 +66,7 @@ StacWidget verifyIdentityRealSignatureGuide() {
                   title: 'راهنمای تصویری',
                   subtitle: 'مشاهده نمونه صفحه و محل ثبت امضا',
                   iconAsset: '{{appAssets.icons.visualTutorialCurrent}}',
-                  onTap: const StacNavigateAction(
-                    routeName: 'verify_identity_signature_visual_guide',
-                    navigationStyle: NavigationStyle.push,
-                  ),
+                  onTap: NavigationAction(fileName: 'verify_identity_signature_visual_guide', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
                 ),
                 StacSizedBox(height: 12),
                 _buildGuideOptionCard(

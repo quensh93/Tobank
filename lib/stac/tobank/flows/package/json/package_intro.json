@@ -528,7 +528,8 @@
                                             ]
                                           },
                                           {
-                                            "routeName": "package_package_list",
+                                            "fileName": "package_package_list",
+                                            "navMode": "dart",
                                             "navigationStyle": "push",
                                             "actionType": "navigate"
                                           }
@@ -1227,7 +1228,8 @@
                                             ]
                                           },
                                           {
-                                            "routeName": "package_package_list",
+                                            "fileName": "package_package_list",
+                                            "navMode": "dart",
                                             "navigationStyle": "push",
                                             "actionType": "navigate"
                                           }
@@ -1926,7 +1928,8 @@
                                             ]
                                           },
                                           {
-                                            "routeName": "package_package_list",
+                                            "fileName": "package_package_list",
+                                            "navMode": "dart",
                                             "navigationStyle": "push",
                                             "actionType": "navigate"
                                           }
@@ -2484,7 +2487,8 @@
                   "children": [
                     {
                       "onPressed": {
-                        "routeName": "package_add_sim",
+                        "fileName": "package_add_sim",
+                        "navMode": "dart",
                         "navigationStyle": "push",
                         "actionType": "navigate"
                       },

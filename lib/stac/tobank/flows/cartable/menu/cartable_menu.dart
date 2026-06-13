@@ -42,10 +42,7 @@ StacWidget cartableRealMenu() {
           ),
           StacSizedBox(height: 32),
           StacFilledButton(
-            onPressed: const StacNavigateAction(
-              routeName: 'cartable_intro',
-              navigationStyle: NavigationStyle.push,
-            ),
+            onPressed: NavigationAction(fileName: 'cartable_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:

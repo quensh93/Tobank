@@ -1,7 +1,7 @@
 import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 
 // Menu item visibility flags
-const bool _showPromissory = true;
 const bool _showVerifyIdentity = true;
 const bool _showPromissoryApiReal = true;
 const bool _showVerifyIdentityApiReal = true;
@@ -57,17 +57,6 @@ StacWidget tobankMenuDart() {
       padding: StacEdgeInsets.all(16),
       children: [
 
-        if (_showPromissory)
-          _buildMenuItemCard(
-            title: 'سفته',
-            dartPath:
-                'lib/stac/tobank/flows/promissory/dart/promissory_intro.dart',
-            jsonPath:
-                'lib/stac/tobank/flows/promissory/json/promissory_intro.json',
-            apiPath:
-                'lib/stac/tobank/flows/promissory/api/GET_promissory_intro.json',
-            widgetType: 'promissory_intro',
-          ),
         if (_showVerifyIdentity)
           _buildMenuItemCard(
             title: 'لاگین',
@@ -316,22 +305,12 @@ StacWidget _buildButtonWidget({
   StacAction? onPressed;
   if (buttonType == 'dart') {
     if (widgetType != null && widgetType.isNotEmpty && widgetType != 'null') {
-      onPressed = StacAction.fromJson({
-        'actionType': 'navigate',
-        'widgetType': widgetType,
-        'navigationStyle': 'push',
-      });
+      onPressed = NavigationAction(fileName: widgetType, navMode: NavModes.dart, navigationStyle: NavigationStyle.push);
     } else if (hasValidPath) {
-      onPressed = StacNavigateAction(
-        assetPath: path,
-        navigationStyle: NavigationStyle.push,
-      );
+      onPressed = NavigationAction(navMode: NavModes.localJson, pathOverride: path, navigationStyle: NavigationStyle.push);
     }
   } else if (hasValidPath) {
-    onPressed = StacNavigateAction(
-      assetPath: path,
-      navigationStyle: NavigationStyle.push,
-    );
+    onPressed = NavigationAction(navMode: NavModes.localJson, pathOverride: path, navigationStyle: NavigationStyle.push);
   }
 
   final isEnabled =

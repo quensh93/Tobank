@@ -293,7 +293,8 @@
             "type": "reactiveElevatedButton",
             "enabledKey": "depositCloseConfirmRulesChecked",
             "onPressed": {
-              "routeName": "deposit_close_selector",
+              "fileName": "deposit_close_selector",
+              "navMode": "dart",
               "navigationStyle": "push",
               "actionType": "navigate"
             },

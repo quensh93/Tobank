@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
@@ -271,10 +271,7 @@ StacWidget _buildTransferCardConfirmDialog() {
                 onPressed: StacSequenceAction(
                   actions: [
                     const StacCloseDialogAction(),
-                    const StacNavigateAction(
-                      routeName: 'transfer_card_result',
-                      navigationStyle: NavigationStyle.push,
-                    ),
+                    NavigationAction(fileName: 'transfer_card_result', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
                   ],
                 ),
                 style: StacButtonStyle(
@@ -549,10 +546,7 @@ StacWidget _defaultConfirmContent() {
         _defaultSummaryCard(),
         StacExpanded(child: StacSizedBox()),
         StacFilledButton(
-          onPressed: const StacNavigateAction(
-            routeName: 'transfer_result',
-            navigationStyle: NavigationStyle.push,
-          ),
+          onPressed: NavigationAction(fileName: 'transfer_result', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
           style: StacButtonStyle(
             fixedSize: const StacSize(999999, 57),
             shape: StacRoundedRectangleBorder(

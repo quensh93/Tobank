@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -267,10 +267,7 @@ StacWidget _buildServiceCards() {
         icon: 'assets/icons/ic_promissory_request.svg',
         title: '{{appStrings.promissory.requestPromissory}}',
         description: '{{appStrings.promissory.requestPromissoryDesc}}',
-        onTap: StacNavigateAction(
-          routeName: 'promissory_rules',
-          navigationStyle: NavigationStyle.push,
-        ),
+        onTap: NavigationAction(fileName: 'promissory_rules', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
       ),
       StacSizedBox(height: 12),
       _buildServiceCard(

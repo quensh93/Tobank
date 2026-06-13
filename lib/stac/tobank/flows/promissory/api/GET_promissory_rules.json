@@ -235,7 +235,8 @@
                 "onPressed": {
                   "actionType": "navigate",
                   "navigationStyle": "push",
-                  "widgetType": "promissory_deposits"
+                  "fileName": "promissory_deposits",
+                  "navMode": "dart"
                 },
                 "style": {
                   "backgroundColor": "{{appColors.current.primary.color}}",

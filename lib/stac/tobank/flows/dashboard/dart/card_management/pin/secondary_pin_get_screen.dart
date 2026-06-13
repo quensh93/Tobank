@@ -48,11 +48,7 @@ StacWidget dashboardSecondaryPinGet() {
           ),
           StacExpanded(child: StacSizedBox(height: 0)),
           StacFilledButton(
-            onPressed: StacRawJsonAction({
-              'actionType': 'navigate',
-              'widgetType': 'dashboard_secondary_pin_result',
-              'navigationStyle': 'push',
-            }),
+            onPressed: NavigationAction(fileName: 'dashboard_secondary_pin_result', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 8),
               minimumSize: const StacSize(0, 56),

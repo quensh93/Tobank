@@ -146,8 +146,8 @@
                                                             },
                                                             {
                                                                 "actionType": "navigate",
-                                                                "widgetType": "promissory_confirm",
-                                                                "assetPath": "lib/stac/tobank/flows/promissory_old/api/GET_promissory_confirm.json"
+                                                                "fileName": "promissory_confirm",
+                                                                "navMode": "apiJson"
                                                             }
                                                         ]
                                                     }

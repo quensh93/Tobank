@@ -696,7 +696,8 @@
                                                     ]
                                                   },
                                                   {
-                                                    "routeName": "cartable_detail",
+                                                    "fileName": "cartable_detail",
+                                                    "navMode": "dart",
                                                     "actionType": "navigate"
                                                   }
                                                 ]
@@ -954,7 +955,8 @@
                                                     ]
                                                   },
                                                   {
-                                                    "routeName": "cartable_detail",
+                                                    "fileName": "cartable_detail",
+                                                    "navMode": "dart",
                                                     "actionType": "navigate"
                                                   }
                                                 ]
@@ -1200,7 +1202,8 @@
                                                     ]
                                                   },
                                                   {
-                                                    "routeName": "cartable_detail",
+                                                    "fileName": "cartable_detail",
+                                                    "navMode": "dart",
                                                     "actionType": "navigate"
                                                   }
                                                 ]
@@ -1446,7 +1449,8 @@
                                                     ]
                                                   },
                                                   {
-                                                    "routeName": "cartable_detail",
+                                                    "fileName": "cartable_detail",
+                                                    "navMode": "dart",
                                                     "actionType": "navigate"
                                                   }
                                                 ]
@@ -1656,7 +1660,8 @@
                                               ]
                                             },
                                             {
-                                              "routeName": "cartable_detail",
+                                              "fileName": "cartable_detail",
+                                              "navMode": "dart",
                                               "actionType": "navigate"
                                             }
                                           ]

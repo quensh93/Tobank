@@ -392,7 +392,8 @@
                       }
                     ],
                     "onPlanSelectedAction": {
-                      "routeName": "gift_card_custom_message",
+                      "fileName": "gift_card_custom_message",
+                      "navMode": "dart",
                       "navigationStyle": "push",
                       "actionType": "navigate"
                     }
@@ -594,7 +595,8 @@
                       }
                     ],
                     "onPlanSelectedAction": {
-                      "routeName": "gift_card_custom_message",
+                      "fileName": "gift_card_custom_message",
+                      "navMode": "dart",
                       "navigationStyle": "push",
                       "actionType": "navigate"
                     }
@@ -801,7 +803,8 @@
                       }
                     ],
                     "onPlanSelectedAction": {
-                      "routeName": "gift_card_custom_message",
+                      "fileName": "gift_card_custom_message",
+                      "navMode": "dart",
                       "navigationStyle": "push",
                       "actionType": "navigate"
                     }
@@ -1003,7 +1006,8 @@
                       }
                     ],
                     "onPlanSelectedAction": {
-                      "routeName": "gift_card_custom_message",
+                      "fileName": "gift_card_custom_message",
+                      "navMode": "dart",
                       "navigationStyle": "push",
                       "actionType": "navigate"
                     }
@@ -1210,7 +1214,8 @@
                       }
                     ],
                     "onPlanSelectedAction": {
-                      "routeName": "gift_card_custom_message",
+                      "fileName": "gift_card_custom_message",
+                      "navMode": "dart",
                       "navigationStyle": "push",
                       "actionType": "navigate"
                     }
@@ -1412,7 +1417,8 @@
                       }
                     ],
                     "onPlanSelectedAction": {
-                      "routeName": "gift_card_custom_message",
+                      "fileName": "gift_card_custom_message",
+                      "navMode": "dart",
                       "navigationStyle": "push",
                       "actionType": "navigate"
                     }
@@ -1619,7 +1625,8 @@
                       }
                     ],
                     "onPlanSelectedAction": {
-                      "routeName": "gift_card_custom_message",
+                      "fileName": "gift_card_custom_message",
+                      "navMode": "dart",
                       "navigationStyle": "push",
                       "actionType": "navigate"
                     }
@@ -1821,7 +1828,8 @@
                       }
                     ],
                     "onPlanSelectedAction": {
-                      "routeName": "gift_card_custom_message",
+                      "fileName": "gift_card_custom_message",
+                      "navMode": "dart",
                       "navigationStyle": "push",
                       "actionType": "navigate"
                     }

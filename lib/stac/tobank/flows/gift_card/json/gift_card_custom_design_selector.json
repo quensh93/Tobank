@@ -609,7 +609,8 @@
                             "type": "column"
                           },
                           "onTap": {
-                            "routeName": "gift_card_image_selector",
+                            "fileName": "gift_card_image_selector",
+                            "navMode": "dart",
                             "navigationStyle": "push",
                             "actionType": "navigate"
                           },
@@ -644,7 +645,8 @@
               },
               "child": {
                 "onPressed": {
-                  "routeName": "gift_card_receiver_info",
+                  "fileName": "gift_card_receiver_info",
+                  "navMode": "dart",
                   "navigationStyle": "push",
                   "actionType": "navigate"
                 },

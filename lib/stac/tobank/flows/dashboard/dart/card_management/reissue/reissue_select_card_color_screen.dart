@@ -52,11 +52,7 @@ StacWidget dashboardCardReissueSelectCardColor() {
                 positiveAction: StacSequenceAction(
                   actions: [
                     const StacCloseDialogAction(),
-                    StacRawJsonAction({
-                      'actionType': 'navigate',
-                      'widgetType': 'dashboard_card_reissue_receipt',
-                      'navigationStyle': 'push',
-                    }),
+                    NavigationAction(fileName: 'dashboard_card_reissue_receipt', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
                   ],
                 ),
                 negativeAction: const StacCloseDialogAction(),

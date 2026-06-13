@@ -622,7 +622,8 @@
                     ]
                   },
                   {
-                    "routeName": "transfer_confirm",
+                    "fileName": "transfer_confirm",
+                    "navMode": "dart",
                     "navigationStyle": "push",
                     "actionType": "navigate"
                   }

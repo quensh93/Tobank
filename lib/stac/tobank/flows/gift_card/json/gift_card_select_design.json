@@ -356,7 +356,8 @@
                             ],
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
-                              "routeName": "gift_card_message",
+                              "fileName": "gift_card_message",
+                              "navMode": "dart",
                               "navigationStyle": "push"
                             }
                           },
@@ -575,7 +576,8 @@
                             ],
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
-                              "routeName": "gift_card_message",
+                              "fileName": "gift_card_message",
+                              "navMode": "dart",
                               "navigationStyle": "push"
                             }
                           },
@@ -799,7 +801,8 @@
                             ],
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
-                              "routeName": "gift_card_message",
+                              "fileName": "gift_card_message",
+                              "navMode": "dart",
                               "navigationStyle": "push"
                             }
                           },
@@ -1018,7 +1021,8 @@
                             ],
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
-                              "routeName": "gift_card_message",
+                              "fileName": "gift_card_message",
+                              "navMode": "dart",
                               "navigationStyle": "push"
                             }
                           },
@@ -1242,7 +1246,8 @@
                             ],
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
-                              "routeName": "gift_card_message",
+                              "fileName": "gift_card_message",
+                              "navMode": "dart",
                               "navigationStyle": "push"
                             }
                           },
@@ -1461,7 +1466,8 @@
                             ],
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
-                              "routeName": "gift_card_message",
+                              "fileName": "gift_card_message",
+                              "navMode": "dart",
                               "navigationStyle": "push"
                             }
                           },
@@ -1685,7 +1691,8 @@
                             ],
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
-                              "routeName": "gift_card_message",
+                              "fileName": "gift_card_message",
+                              "navMode": "dart",
                               "navigationStyle": "push"
                             }
                           },
@@ -1904,7 +1911,8 @@
                             ],
                             "onPlanSelectedAction": {
                               "actionType": "navigate",
-                              "routeName": "gift_card_message",
+                              "fileName": "gift_card_message",
+                              "navMode": "dart",
                               "navigationStyle": "push"
                             }
                           },

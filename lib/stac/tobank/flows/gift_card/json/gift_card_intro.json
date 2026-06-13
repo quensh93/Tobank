@@ -118,7 +118,8 @@
                       "actionType": "showGiftCardPurchaseBottomSheet",
                       "continueAction": {
                         "actionType": "navigate",
-                        "routeName": "gift_card_select_amount",
+                        "fileName": "gift_card_select_amount",
+                        "navMode": "dart",
                         "navigationStyle": "push"
                       }
                     },

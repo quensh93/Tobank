@@ -458,7 +458,8 @@
             "enabledKey": "cardsManagement.primaryPinChange.submitEnabled",
             "onPressed": {
               "actionType": "navigate",
-              "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_primary_pin_result.json",
+              "fileName": "dashboard_primary_pin_result",
+              "navMode": "localJson",
               "navigationStyle": "push"
             },
             "style": {

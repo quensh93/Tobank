@@ -1628,7 +1628,8 @@
                                                 },
                                                 {
                                                   "actionType": "navigate",
-                                                  "routeName": "deposit_card_issue_template",
+                                                  "fileName": "deposit_card_issue_template",
+                                                  "navMode": "dart",
                                                   "navigationStyle": "push"
                                                 }
                                               ]

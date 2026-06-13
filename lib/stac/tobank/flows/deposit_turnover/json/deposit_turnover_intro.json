@@ -713,7 +713,8 @@
                       "description": "لطفا برای ادامه از اثر انگشت استفاده کنید",
                       "onSuccess": {
                         "actionType": "navigate",
-                        "routeName": "deposit_turnover_transactions",
+                        "fileName": "deposit_turnover_transactions",
+                        "navMode": "dart",
                         "navigationStyle": "push"
                       },
                       "onFailure": {
@@ -1469,7 +1470,8 @@
                             "description": "لطفا برای ادامه از اثر انگشت استفاده کنید",
                             "onSuccess": {
                               "actionType": "navigate",
-                              "routeName": "deposit_turnover_transactions",
+                              "fileName": "deposit_turnover_transactions",
+                              "navMode": "dart",
                               "navigationStyle": "push"
                             },
                             "onFailure": {

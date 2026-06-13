@@ -685,7 +685,8 @@
                 "enabledKey": "hasSelection",
                 "onPressed": {
                   "actionType": "navigate",
-                  "widgetType": "promissory_issuer",
+                  "fileName": "promissory_issuer",
+                  "navMode": "dart",
                   "navigationStyle": "push"
                 },
                 "style": {

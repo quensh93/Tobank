@@ -999,7 +999,8 @@
                             "destinationKey": "transactionTime"
                           },
                           {
-                            "routeName": "promissory_sign",
+                            "fileName": "promissory_sign",
+                            "navMode": "dart",
                             "navigationStyle": "push",
                             "actionType": "navigate"
                           }

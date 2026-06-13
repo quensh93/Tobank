@@ -3,10 +3,7 @@ import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 
 StacWidget buildPackageRealAddButton({required String routeName}) {
   return StacFilledButton(
-    onPressed: StacNavigateAction(
-      routeName: routeName,
-      navigationStyle: NavigationStyle.push,
-    ),
+    onPressed: NavigationAction(fileName: routeName, navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
     style: StacButtonStyle(
       fixedSize: StacSize(148, 56),
       backgroundColor: '{{appColors.current.primary.color}}',

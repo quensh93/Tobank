@@ -409,7 +409,8 @@
                   },
                   {
                     "actionType": "navigate",
-                    "routeName": "verify_identity_certificate_generator",
+                    "fileName": "verify_identity_certificate_generator",
+                    "navMode": "dart",
                     "navigationStyle": "push"
                   }
                 ]

@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/amount/amount_to_words_action.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
@@ -479,10 +479,7 @@ StacAction _selectTransferTypeAndContinue(String type, String routeName) {
         value: type,
       ),
       const StacNavigateAction(navigationStyle: NavigationStyle.pop),
-      StacNavigateAction(
-        routeName: routeName,
-        navigationStyle: NavigationStyle.push,
-      ),
+      NavigationAction(fileName: routeName, navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
     ],
   );
 }

@@ -45,11 +45,7 @@ StacWidget verifyIdentityRealMenu() {
           ),
           StacSizedBox(height: 32),
           StacFilledButton(
-            onPressed: const StacNavigateAction(
-              assetPath:
-                  'lib/stac/tobank/flows/verify_identity/json/verify_identity_intro.json',
-              navigationStyle: NavigationStyle.push,
-            ),
+            onPressed: NavigationAction(fileName: 'verify_identity_intro', navMode: NavModes.localJson, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -67,10 +63,7 @@ StacWidget verifyIdentityRealMenu() {
           ),
           StacSizedBox(height: 16),
           StacFilledButton(
-            onPressed: const StacNavigateAction(
-              routeName: 'verify_identity_intro',
-              navigationStyle: NavigationStyle.push,
-            ),
+            onPressed: NavigationAction(fileName: 'verify_identity_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -88,10 +81,7 @@ StacWidget verifyIdentityRealMenu() {
           ),
           StacSizedBox(height: 16),
           StacOutlinedButton(
-            onPressed: const StacNavigateAction(
-              routeName: 'verify_identity_loader',
-              navigationStyle: NavigationStyle.pushReplacement,
-            ),
+            onPressed: NavigationAction(fileName: 'verify_identity_loader', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushReplacement),
             style: StacButtonStyle(
               backgroundColor:
                   '{{appColors.current.button.primary.backgroundColor}}',

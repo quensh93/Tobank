@@ -293,10 +293,8 @@
                     },
                     "onTap": {
                       "actionType": "navigate",
-                      "request": {
-                        "url": "https://api.tobank.com/flows/promissory_old/promissory_rules",
-                        "method": "get"
-                      },
+                      "fileName": "promissory_rules",
+                      "navMode": "apiJson",
                       "navigationStyle": "push"
                     }
                   },

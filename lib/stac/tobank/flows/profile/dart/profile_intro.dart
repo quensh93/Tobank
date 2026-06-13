@@ -192,10 +192,7 @@ StacWidget _buildMenuItem({
   required String routeName,
 }) {
   return StacGestureDetector(
-    onTap: StacNavigateAction(
-      routeName: routeName,
-      navigationStyle: NavigationStyle.push,
-    ),
+    onTap: NavigationAction(fileName: routeName, navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
     child: StacContainer(
       padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
       decoration: StacBoxDecoration(

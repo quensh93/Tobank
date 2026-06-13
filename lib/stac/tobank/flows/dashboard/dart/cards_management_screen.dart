@@ -675,11 +675,7 @@ StacWidget _buildNonTobankServices() {
         child: _serviceTile(
           title: _serviceBalanceTitle,
           iconRegistryKey: 'appAssets.current.icons.cardBalance',
-          onTap: StacRawJsonAction({
-            'actionType': 'navigate',
-            'widgetType': 'dashboard_card_balance',
-            'navigationStyle': 'push',
-          }),
+          onTap: NavigationAction(fileName: 'dashboard_card_balance', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
         ),
       ),
       StacSizedBox(width: 12),
@@ -855,11 +851,7 @@ StacWidget _cardDetailsBottomSheet() {
             onTap: StacSequenceAction(
               actions: [
                 const StacCloseDialogAction(),
-                StacRawJsonAction({
-                  'actionType': 'navigate',
-                  'widgetType': 'dashboard_card_edit',
-                  'navigationStyle': 'push',
-                }),
+                NavigationAction(fileName: 'dashboard_card_edit', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
               ],
             ),
           ),
@@ -879,11 +871,7 @@ StacWidget _cardDetailsBottomSheet() {
                     positiveAction: StacSequenceAction(
                       actions: [
                         const StacCloseDialogAction(),
-                        StacRawJsonAction({
-                          'actionType': 'navigate',
-                          'widgetType': 'dashboard_cards_management',
-                          'navigationStyle': 'pushAndRemoveAll',
-                        }),
+                        NavigationAction(fileName: 'dashboard_cards_management', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushAndRemoveAll),
                         StacCustomSnackBarAction(
                           title: 'کارت حذف شد',
                           detail: 'کارت با موفقیت از لیست حذف شد.',
@@ -2415,11 +2403,7 @@ StacWidget _walletTransferConfirmBottomSheet() {
                 actions: [
                   const StacCloseDialogAction(),
                   const StacCloseDialogAction(),
-                  StacRawJsonAction({
-                    'actionType': 'navigate',
-                    'widgetType': 'dashboard_wallet_transfer_receipt',
-                    'navigationStyle': 'push',
-                  }),
+                  NavigationAction(fileName: 'dashboard_wallet_transfer_receipt', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
                 ],
               ),
             ),
@@ -2687,11 +2671,7 @@ StacWidget _pinContinueButton({required String screenName}) {
     onPressed: StacSequenceAction(
       actions: [
         const StacCloseDialogAction(),
-        StacRawJsonAction({
-          'actionType': 'navigate',
-          'widgetType': screenName,
-          'navigationStyle': 'push',
-        }),
+        NavigationAction(fileName: screenName, navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
       ],
     ),
     style: StacButtonStyle(
@@ -2912,11 +2892,7 @@ StacWidget _secContinueButton({required String screenName}) {
     onPressed: StacSequenceAction(
       actions: [
         const StacCloseDialogAction(),
-        StacRawJsonAction({
-          'actionType': 'navigate',
-          'widgetType': screenName,
-          'navigationStyle': 'push',
-        }),
+        NavigationAction(fileName: screenName, navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
       ],
     ),
     style: StacButtonStyle(
@@ -3086,11 +3062,7 @@ StacWidget _reissuePostalCodeBottomSheet() {
               onPressed: StacSequenceAction(
                 actions: [
                   const StacCloseDialogAction(),
-                  StacRawJsonAction({
-                    'actionType': 'navigate',
-                    'widgetType': 'dashboard_card_reissue_request',
-                    'navigationStyle': 'push',
-                  }),
+                  NavigationAction(fileName: 'dashboard_card_reissue_request', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
                 ],
               ),
               style: StacButtonStyle(
@@ -3356,11 +3328,7 @@ StacWidget _blockSubmitButton() {
       positiveAction: StacSequenceAction(
         actions: [
           const StacCloseDialogAction(),
-          StacRawJsonAction({
-            'actionType': 'navigate',
-            'widgetType': 'dashboard_cards_management',
-            'navigationStyle': 'pushAndRemoveAll',
-          }),
+          NavigationAction(fileName: 'dashboard_cards_management', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushAndRemoveAll),
           StacCustomSnackBarAction(
             title: '{{appStrings.cardsManagement.block.successTitle}}',
             detail: 'کارت در اسرع وقت مسدود خواهد شد. (mock)',

@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -240,10 +240,7 @@ StacWidget promissoryRealPaymentDeposits() {
                   'sourceKey': 'rawTransactionTime',
                   'destinationKey': 'transactionTime',
                 },
-                const StacNavigateAction(
-                  routeName: 'promissory_sign',
-                  navigationStyle: NavigationStyle.push,
-                ).toJson(),
+                NavigationAction(fileName: 'promissory_sign', navMode: NavModes.dart, navigationStyle: NavigationStyle.push).toJson(),
               ],
             ).toJson(),
           },

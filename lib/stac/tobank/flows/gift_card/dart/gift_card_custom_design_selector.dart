@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -94,10 +94,7 @@ StacWidget giftCardRealCustomDesignSelector() {
                         children: [
                           StacSizedBox(height: 42),
                           StacGestureDetector(
-                            onTap: const StacNavigateAction(
-                              routeName: 'gift_card_image_selector',
-                              navigationStyle: NavigationStyle.push,
-                            ),
+                            onTap: NavigationAction(fileName: 'gift_card_image_selector', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
                             child: StacColumn(
                               children: [
                                 StacContainer(
@@ -151,10 +148,7 @@ StacWidget giftCardRealCustomDesignSelector() {
               child: StacPadding(
                 padding: StacEdgeInsets.only(left: 16, right: 16, bottom: 24),
                 child: StacFilledButton(
-                  onPressed: const StacNavigateAction(
-                    routeName: 'gift_card_receiver_info',
-                    navigationStyle: NavigationStyle.push,
-                  ),
+                  onPressed: NavigationAction(fileName: 'gift_card_receiver_info', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
                   style: StacButtonStyle(
                     fixedSize: StacSize(999999, 62),
                     backgroundColor: '{{appColors.current.primary.color}}',

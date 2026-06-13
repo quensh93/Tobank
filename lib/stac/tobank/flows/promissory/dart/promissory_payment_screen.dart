@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -563,11 +563,7 @@ StacWidget _buildPaymentButtons() {
                                           'sourceKey': 'rawTransactionTime',
                                           'destinationKey': 'transactionTime',
                                         },
-                                        const StacNavigateAction(
-                                          routeName: 'promissory_sign',
-                                          navigationStyle:
-                                              NavigationStyle.pushReplacement,
-                                        ).toJson(),
+                                        NavigationAction(fileName: 'promissory_sign', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushReplacement).toJson(),
                                       ],
                                     ).toJson(),
                                   },
@@ -637,10 +633,7 @@ StacWidget _buildPaymentButtons() {
           child: StacCustomReactiveElevatedButton(
             enabledKey: 'isPayEnabled',
             enabled: false,
-            onPressed: const StacNavigateAction(
-              routeName: 'promissory_payment_deposits',
-              navigationStyle: NavigationStyle.push,
-            ),
+            onPressed: NavigationAction(fileName: 'promissory_payment_deposits', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               backgroundColor: '{{appColors.current.primary.color}}',
               elevation: 0,

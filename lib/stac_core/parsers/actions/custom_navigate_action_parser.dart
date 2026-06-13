@@ -6,6 +6,8 @@ import 'package:stac_core/stac_core.dart';
 import '../../registry/stac_widget_loader.dart';
 import '../../services/stac_widget_resolver.dart';
 import '../../services/navigation/stac_navigation_service.dart';
+import '../../navigation/nav_modes.dart';
+import '../../navigation/flow_source_resolver.dart';
 import '../../../core/helpers/logger.dart';
 
 /// Custom navigation action parser with enhanced functionality.
@@ -28,6 +30,45 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
 
   @override
   StacNavigateAction getModel(Map<String, dynamic> json) {
+    // Declarative source selection: `fileName` + `navMode` resolve to the same
+    // address a legacy field would have produced. Translate into the existing
+    // widgetJson/assetPath/request channels so onCall handling is unchanged.
+    // Only engages when both keys are present; otherwise legacy logic runs.
+    final fileNameRaw = json['fileName'] as String?;
+    final fileName =
+        (fileNameRaw != null && fileNameRaw.isNotEmpty) ? fileNameRaw : null;
+    final navMode = NavModes.fromJson(json['navMode']);
+    final pathOverrideRaw = json['pathOverride'] as String?;
+    final pathOverride =
+        (pathOverrideRaw != null && pathOverrideRaw.isNotEmpty)
+            ? pathOverrideRaw
+            : null;
+    if (navMode != null && (fileName != null || pathOverride != null)) {
+      final resolution = FlowSourceResolver.resolve(
+        fileName: fileName,
+        navMode: navMode,
+        pathOverride: pathOverride,
+      );
+      json = Map<String, dynamic>.from(json);
+      switch (resolution) {
+        case NavDart(:final widgetJson):
+          json['widgetJson'] = Map<String, dynamic>.from(widgetJson)
+            ..['_originalWidgetType'] = fileName ?? pathOverride ?? '';
+        case NavAsset(:final assetPath):
+          json['assetPath'] = assetPath;
+        case NavNetwork(:final request):
+          json['request'] = request;
+        case NavError(:final message):
+          // Missing Dart key / unknown flow: leave channels empty so onCall
+          // falls through exactly like a legacy missing-source action.
+          AppLogger.wc(
+            LogCategory.stacNavigation,
+            '⚠️ Navigation resolve failed ($navMode/$fileName): $message',
+          );
+      }
+      return StacNavigateAction.fromJson(json);
+    }
+
     // Prefer assetPath/apiPath over widgetType when both are present
     // This ensures API JSON files (with onChanged actions) are used instead of Dart-generated JSON
     final assetPathValue = json['assetPath'];

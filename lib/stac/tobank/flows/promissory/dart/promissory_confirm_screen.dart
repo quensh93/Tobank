@@ -554,10 +554,7 @@ StacWidget _buildSubmitButton() {
           borderRadius: StacBorderRadius.all(12),
         ),
       ),
-      onPressed: StacNavigateAction(
-        routeName: 'promissory_payment',
-        navigationStyle: NavigationStyle.push,
-      ),
+      onPressed: NavigationAction(fileName: 'promissory_payment', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
       child: StacText(
         // تایید و پرداخت
         data: '{{appStrings.promissory.confirmAndPay}}',

@@ -787,7 +787,8 @@
                                                 "destinationKey": "transactionTime"
                                               },
                                               {
-                                                "routeName": "promissory_sign",
+                                                "fileName": "promissory_sign",
+                                                "navMode": "dart",
                                                 "navigationStyle": "pushReplacement",
                                                 "actionType": "navigate"
                                               }
@@ -885,7 +886,8 @@
                   "enabledKey": "isPayEnabled",
                   "enabled": false,
                   "onPressed": {
-                    "routeName": "promissory_payment_deposits",
+                    "fileName": "promissory_payment_deposits",
+                    "navMode": "dart",
                     "navigationStyle": "push",
                     "actionType": "navigate"
                   },

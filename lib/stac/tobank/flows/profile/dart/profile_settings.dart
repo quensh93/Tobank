@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
@@ -68,11 +68,7 @@ StacWidget profileRealSettings() {
           _settingsItem(
             title: 'تغییر رمز عبور',
             iconAsset: '{{appAssets.current.icons.cardServicePasswordChange}}',
-            onTapAction: StacRawJsonAction({
-              'actionType': 'navigate',
-              'widgetType': 'profile_change_password',
-              'navigationStyle': 'push',
-            }),
+            onTapAction: NavigationAction(fileName: 'profile_change_password', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
           ),
           StacSizedBox(height: 16),
           _settingsItem(

@@ -1,4 +1,5 @@
 import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 
 @StacScreen(screenName: 'login_splash')
 StacWidget loginSplash() {
@@ -6,10 +7,7 @@ StacWidget loginSplash() {
     jsonData: {
       'type': 'onMountAction',
       'delay': 5000,
-      'action': const StacNavigateAction(
-        routeName: 'login_onboarding',
-        navigationStyle: NavigationStyle.pushReplacement,
-      ).toJson(),
+      'action': NavigationAction(fileName: 'login_onboarding', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushReplacement).toJson(),
       'child': _buildSplashBody().toJson(),
     },
   );

@@ -152,7 +152,8 @@
                             "actionType": "closeDialog",
                             "result": {
                               "actionType": "navigate",
-                              "routeName": "deposit_card_issue_address",
+                              "fileName": "deposit_card_issue_address",
+                              "navMode": "dart",
                               "navigationStyle": "push"
                             }
                           },
@@ -250,7 +251,8 @@
                       "actionType": "closeDialog",
                       "result": {
                         "actionType": "navigate",
-                        "routeName": "deposit_close_confirm",
+                        "fileName": "deposit_close_confirm",
+                        "navMode": "dart",
                         "navigationStyle": "push"
                       }
                     },
@@ -900,7 +902,8 @@
                                 "actionType": "closeDialog",
                                 "result": {
                                   "actionType": "navigate",
-                                  "routeName": "deposit_card_issue_address",
+                                  "fileName": "deposit_card_issue_address",
+                                  "navMode": "dart",
                                   "navigationStyle": "push"
                                 }
                               },
@@ -998,7 +1001,8 @@
                           "actionType": "closeDialog",
                           "result": {
                             "actionType": "navigate",
-                            "routeName": "deposit_close_confirm",
+                            "fileName": "deposit_close_confirm",
+                            "navMode": "dart",
                             "navigationStyle": "push"
                           }
                         },

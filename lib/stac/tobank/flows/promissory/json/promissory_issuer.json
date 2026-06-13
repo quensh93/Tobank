@@ -873,7 +873,8 @@
               },
               "child": {
                 "onPressed": {
-                  "routeName": "promissory_receiver",
+                  "fileName": "promissory_receiver",
+                  "navMode": "dart",
                   "navigationStyle": "push",
                   "actionType": "navigate"
                 },

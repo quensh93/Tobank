@@ -100,11 +100,7 @@ StacWidget profileRealInviteFriends() {
           ),
           StacSizedBox(height: 16),
           StacGestureDetector(
-            onTap: StacRawJsonAction({
-              'actionType': 'navigate',
-              'widgetType': 'profile_customer_referrals',
-              'navigationStyle': 'push',
-            }),
+            onTap: NavigationAction(fileName: 'profile_customer_referrals', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
             child: StacContainer(
               padding: StacEdgeInsets.all(16),
               decoration: _itemDecoration(),

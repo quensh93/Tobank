@@ -43,23 +43,7 @@ StacWidget userValidationMenu() {
           ),
           StacSizedBox(height: 32),
           StacFilledButton(
-            onPressed: StacNavigateAction.fromJson({
-              'actionType': 'navigate',
-              'navigationStyle': 'push',
-              'request': {
-                'url':
-                    SduiConfig.resolveUrl('user_validation_intro'),
-                'method': 'post',
-                'headers': {
-                  'Content-Type': 'application/json',
-                  'Accept': '*/*',
-                },
-                'body': {
-                  'operator': 'is',
-                  'dimension': {'app': 'mobile'},
-                },
-              },
-            }),
+            onPressed: NavigationAction(fileName: 'user_validation_intro', navMode: NavModes.apiJson, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -77,11 +61,7 @@ StacWidget userValidationMenu() {
           ),
           StacSizedBox(height: 16),
           StacFilledButton(
-            onPressed: const StacNavigateAction(
-              assetPath:
-                  'lib/stac/tobank/flows/user_validation/json/user_validation_intro.json',
-              navigationStyle: NavigationStyle.push,
-            ),
+            onPressed: NavigationAction(fileName: 'user_validation_intro', navMode: NavModes.localJson, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -99,10 +79,7 @@ StacWidget userValidationMenu() {
           ),
           StacSizedBox(height: 16),
           StacFilledButton(
-            onPressed: const StacNavigateAction(
-              routeName: 'login_form_dart',
-              navigationStyle: NavigationStyle.push,
-            ),
+            onPressed: NavigationAction(fileName: 'login_form_dart', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:

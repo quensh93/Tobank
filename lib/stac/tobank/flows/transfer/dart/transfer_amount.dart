@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
@@ -1133,10 +1133,7 @@ StacAction _cardContinueAction() {
             .toList(),
         'cardNames': _cardDestinations.map((e) => e['title'] ?? '').toList(),
         'cardIcons': _cardDestinations.map((e) => e['icon'] ?? '').toList(),
-        'validAction': const StacNavigateAction(
-          routeName: 'transfer_card_details',
-          navigationStyle: NavigationStyle.push,
-        ).toJson(),
+        'validAction': NavigationAction(fileName: 'transfer_card_details', navMode: NavModes.dart, navigationStyle: NavigationStyle.push).toJson(),
         'invalidAction': const StacCustomSnackBarAction(
           title: 'خطا',
           detail: 'شماره کارت مقصد باید ۱۶ رقم باشد.',
@@ -1164,10 +1161,7 @@ StacWidget _interBankContinueButton() {
           key: 'transferApiTransferTypeTitle',
           value: '',
         ),
-        StacNavigateAction(
-          routeName: 'transfer_details',
-          navigationStyle: NavigationStyle.push,
-        ),
+        NavigationAction(fileName: 'transfer_details', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
       ],
     ),
     style: _continueButtonStyle(),
@@ -1185,10 +1179,7 @@ StacWidget _inBankContinueButton() {
           key: 'transferApiTransferTypeTitle',
           value: 'درون بانکی',
         ),
-        StacNavigateAction(
-          routeName: 'transfer_in_bank_details',
-          navigationStyle: NavigationStyle.push,
-        ),
+        NavigationAction(fileName: 'transfer_in_bank_details', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
       ],
     ),
     style: _continueButtonStyle(),

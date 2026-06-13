@@ -153,7 +153,8 @@
           },
           "child": {
             "onPressed": {
-              "routeName": "verify_identity_verify_otp",
+              "fileName": "verify_identity_verify_otp",
+              "navMode": "dart",
               "navigationStyle": "push",
               "actionType": "navigate"
             },

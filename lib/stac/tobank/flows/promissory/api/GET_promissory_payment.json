@@ -69,8 +69,8 @@
                                                 "statusCode": 200,
                                                 "action": {
                                                     "actionType": "navigate",
-                                                    "widgetType": "promissory_sign",
-                                                    "assetPath": "lib/stac/tobank/flows/promissory_old/dart/promissory_sign.dart"
+                                                    "fileName": "promissory_sign",
+                                                    "navMode": "apiJson"
                                                 }
                                             }
                                         ]

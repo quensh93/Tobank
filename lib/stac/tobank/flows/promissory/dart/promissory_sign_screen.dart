@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -379,13 +379,7 @@ StacWidget _buildSignButton() {
                                                       },
                                                     ],
                                                   },
-                                                  StacNavigateAction(
-                                                    routeName:
-                                                        'promissory_success',
-                                                    navigationStyle:
-                                                        NavigationStyle
-                                                            .pushReplacement,
-                                                  ).toJson(),
+                                                  NavigationAction(fileName: 'promissory_success', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushReplacement).toJson(),
                                                 ],
                                               },
                                             },

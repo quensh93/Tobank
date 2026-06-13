@@ -1,4 +1,5 @@
 import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
@@ -201,10 +202,7 @@ StacWidget _loanCard({required _LoanCardData data, required String warning}) {
                     {'key': 'loanDetail.showUnpaidInstallments', 'value': true},
                   ],
                 ),
-                const StacNavigateAction(
-                  routeName: 'installment_payment_detail_main',
-                  navigationStyle: NavigationStyle.push,
-                ),
+                NavigationAction(fileName: 'installment_payment_detail_main', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
               ],
             ),
             style: StacButtonStyle(

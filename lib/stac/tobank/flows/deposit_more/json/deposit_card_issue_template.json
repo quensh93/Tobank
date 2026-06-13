@@ -114,7 +114,8 @@
               "description": "لطفا برای ادامه صدور کارت، احراز هویت انجام دهید",
               "onSuccess": {
                 "actionType": "navigate",
-                "widgetType": "deposit_card_issue_result",
+                "fileName": "deposit_card_issue_result",
+                "navMode": "dart",
                 "navigationStyle": "push"
               },
               "onFailure": {

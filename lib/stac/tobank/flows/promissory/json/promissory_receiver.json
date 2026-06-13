@@ -1118,7 +1118,8 @@
                               },
                               {
                                 "actionType": "navigate",
-                                "widgetType": "promissory_data",
+                                "fileName": "promissory_data",
+                                "navMode": "dart",
                                 "navigationStyle": "push"
                               }
                             ]
@@ -1668,7 +1669,8 @@
                               },
                               {
                                 "actionType": "navigate",
-                                "widgetType": "promissory_data",
+                                "fileName": "promissory_data",
+                                "navMode": "dart",
                                 "navigationStyle": "push"
                               }
                             ]

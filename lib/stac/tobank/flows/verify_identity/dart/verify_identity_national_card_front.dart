@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -56,11 +56,7 @@ StacWidget verifyIdentityRealNationalCardFront() {
                 crossAxisAlignment: StacCrossAxisAlignment.stretch,
                 children: [
                   StacOutlinedButton(
-                    onPressed: StacRawJsonAction({
-                      'actionType': 'navigate',
-                      'widgetType': 'verify_identity_old_national_card',
-                      'navigationStyle': 'push',
-                    }),
+                    onPressed: NavigationAction(fileName: 'verify_identity_old_national_card', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
                     style: StacButtonStyle(
                       foregroundColor: '{{appColors.current.text.title}}',
                       minimumSize: const StacSize(999999, 60),
@@ -116,7 +112,8 @@ StacWidget verifyIdentityRealNationalCardFront() {
                     ).toJson(),
                     'onPressed': {
                       'actionType': 'navigate',
-                      'widgetType': 'verify_identity_national_card_back',
+                      'fileName': 'verify_identity_national_card_back',
+                      'navMode': 'dart',
                       'navigationStyle': 'push',
                     },
                   }),

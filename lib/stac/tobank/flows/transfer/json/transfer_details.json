@@ -1456,7 +1456,8 @@
                               ]
                             },
                             {
-                              "assetPath": "lib/stac/tobank/flows/transfer/json/transfer_confirm.json",
+                              "fileName": "transfer_confirm",
+                              "navMode": "localJson",
                               "navigationStyle": "push",
                               "actionType": "navigate"
                             }
@@ -1578,7 +1579,8 @@
                               ]
                             },
                             {
-                              "assetPath": "lib/stac/tobank/flows/transfer/json/transfer_confirm.json",
+                              "fileName": "transfer_confirm",
+                              "navMode": "localJson",
                               "navigationStyle": "push",
                               "actionType": "navigate"
                             }

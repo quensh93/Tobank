@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -387,10 +387,7 @@ StacAction _openPackageFlow({
           {'key': 'crSimShowDuplicateBanner', 'value': false},
         ],
       ),
-      const StacNavigateAction(
-        routeName: 'package_package_list',
-        navigationStyle: NavigationStyle.push,
-      ),
+      NavigationAction(fileName: 'package_package_list', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
     ],
   );
 }

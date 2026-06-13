@@ -1,4 +1,5 @@
 import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
@@ -18,10 +19,7 @@ StacWidget childLoanApiRealMenu() {
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
           StacFilledButton(
-            onPressed: const StacNavigateAction(
-              routeName: 'child_loan_rules',
-              navigationStyle: NavigationStyle.push,
-            ),
+            onPressed: NavigationAction(fileName: 'child_loan_rules', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -39,11 +37,7 @@ StacWidget childLoanApiRealMenu() {
           ),
           StacSizedBox(height: 16),
           StacFilledButton(
-            onPressed: const StacNavigateAction(
-              assetPath:
-                  'lib/stac/tobank/flows/child_loan/json/child_loan_rules.json',
-              navigationStyle: NavigationStyle.push,
-            ),
+            onPressed: NavigationAction(fileName: 'child_loan_rules', navMode: NavModes.localJson, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:
@@ -61,23 +55,7 @@ StacWidget childLoanApiRealMenu() {
           ),
           StacSizedBox(height: 16),
           StacOutlinedButton(
-            onPressed: StacNavigateAction.fromJson({
-              'actionType': 'navigate',
-              'navigationStyle': 'push',
-              'request': {
-                'url':
-                    SduiConfig.resolveUrl('child_loan_rules'),
-                'method': 'post',
-                'headers': {
-                  'Content-Type': 'application/json',
-                  'Accept': '*/*',
-                },
-                'body': {
-                  'operator': 'is',
-                  'dimension': {'app': 'mobile'},
-                },
-              },
-            }),
+            onPressed: NavigationAction(fileName: 'child_loan_rules', navMode: NavModes.apiJson, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               padding: StacEdgeInsets.symmetric(vertical: 16),
               backgroundColor:

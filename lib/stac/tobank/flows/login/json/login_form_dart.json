@@ -521,7 +521,8 @@
                             },
                             {
                               "actionType": "navigate",
-                              "widgetType": "dashboard_shell",
+                              "fileName": "dashboard_shell",
+                              "navMode": "dart",
                               "navigationStyle": "pushReplacement"
                             }
                           ]

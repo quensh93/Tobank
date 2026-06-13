@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -135,10 +135,7 @@ StacWidget promissoryRealIssuer() {
     ],
   );
 
-  final continueAction = const StacNavigateAction(
-    routeName: 'promissory_receiver',
-    navigationStyle: NavigationStyle.push,
-  );
+  final continueAction = NavigationAction(fileName: 'promissory_receiver', navMode: NavModes.dart, navigationStyle: NavigationStyle.push);
 
   return StacStatefulWidget(
     onInit: fetchAction,

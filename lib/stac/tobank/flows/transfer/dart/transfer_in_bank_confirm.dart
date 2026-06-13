@@ -20,10 +20,7 @@ StacWidget transferRealInBankConfirm() {
             _summaryCard(),
             StacExpanded(child: StacSizedBox()),
             StacFilledButton(
-              onPressed: const StacNavigateAction(
-                routeName: 'transfer_in_bank_result',
-                navigationStyle: NavigationStyle.push,
-              ),
+              onPressed: NavigationAction(fileName: 'transfer_in_bank_result', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
               style: StacButtonStyle(
                 fixedSize: const StacSize(999999, 57),
                 shape: StacRoundedRectangleBorder(

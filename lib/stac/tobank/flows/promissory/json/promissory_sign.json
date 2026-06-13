@@ -585,7 +585,8 @@
                                                                         ]
                                                                       },
                                                                       {
-                                                                        "routeName": "promissory_success",
+                                                                        "fileName": "promissory_success",
+                                                                        "navMode": "dart",
                                                                         "navigationStyle": "pushReplacement",
                                                                         "actionType": "navigate"
                                                                       }

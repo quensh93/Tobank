@@ -822,7 +822,8 @@
                     "child": {
                       "onPressed": {
                         "actionType": "navigate",
-                        "widgetType": "verify_identity_postal_code",
+                        "fileName": "verify_identity_postal_code",
+                        "navMode": "dart",
                         "navigationStyle": "push"
                       },
                       "style": {

@@ -1104,12 +1104,14 @@
                       "customDesignTitle": "طرح سفارشی",
                       "readyDesignAction": {
                         "actionType": "navigate",
-                        "routeName": "gift_card_design_selector",
+                        "fileName": "gift_card_design_selector",
+                        "navMode": "dart",
                         "navigationStyle": "push"
                       },
                       "customDesignAction": {
                         "actionType": "navigate",
-                        "routeName": "gift_card_custom_design_selector",
+                        "fileName": "gift_card_custom_design_selector",
+                        "navMode": "dart",
                         "navigationStyle": "push"
                       }
                     },

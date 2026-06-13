@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -349,10 +349,7 @@ StacWidget _buildServicesTab() {
               second: _buildServiceGridItem(
                 label: 'خدمات سفر',
                 iconPath: '{{appAssets.current.icons.megagasht}}',
-                onTap: const StacNavigateAction(
-                  routeName: 'tobank_travel_services_page',
-                  navigationStyle: NavigationStyle.push,
-                ),
+                onTap: NavigationAction(fileName: 'tobank_travel_services_page', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
               ),
               third: _buildServiceGridItem(
                 label: 'کارت هدیه',
@@ -368,9 +365,7 @@ StacWidget _buildServicesTab() {
               first: _buildServiceGridItem(
                 label: 'پذیرندگی',
                 iconPath: '{{appAssets.current.icons.acceptor}}',
-                onTap: const StacNavigateAction(
-                  routeName: 'tobank_acceptor_services_page',
-                ),
+                onTap: NavigationAction(fileName: 'tobank_acceptor_services_page', navMode: NavModes.dart),
               ),
               second: StacSizedBox(),
               third: StacSizedBox(),
@@ -772,11 +767,7 @@ StacAction _openCardsManagementAction(int selectedIndex) {
         key: 'cardsManagement.initialPage',
         value: selectedIndex,
       ),
-      StacRawJsonAction({
-        'actionType': 'navigate',
-        'widgetType': 'dashboard_cards_management',
-        'navigationStyle': 'push',
-      }),
+      NavigationAction(fileName: 'dashboard_cards_management', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
     ],
   );
 }
@@ -884,11 +875,7 @@ StacWidget _buildCardsFixedAddButtonOverlay() {
 
 StacWidget _buildCardsAddButton() {
   return StacGestureDetector(
-    onTap: StacRawJsonAction({
-      'actionType': 'navigate',
-      'widgetType': 'dashboard_add_new_card',
-      'navigationStyle': 'push',
-    }),
+    onTap: NavigationAction(fileName: 'dashboard_add_new_card', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
     child: StacContainer(
       width: 56,
       height: 56,
@@ -943,10 +930,7 @@ StacWidget _buildDepositsTab() {
               title: 'سایر خدمات',
               subtitle: 'سفته الکترونیک ...',
               iconPath: '{{appAssets.current.icons.promissory}}',
-              onTap: const StacNavigateAction(
-                routeName: 'tobank_special_services_page',
-                navigationStyle: NavigationStyle.push,
-              ),
+              onTap: NavigationAction(fileName: 'tobank_special_services_page', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
             ),
           ),
           StacSizedBox(width: 12),
@@ -1070,10 +1054,7 @@ StacWidget _buildAuthCardPage() {
               ),
             ),
             StacFilledButton(
-              onPressed: const StacNavigateAction(
-                routeName: 'verify_identity_intro',
-                navigationStyle: NavigationStyle.push,
-              ),
+              onPressed: NavigationAction(fileName: 'verify_identity_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
               style: StacButtonStyle(
                 backgroundColor:
                     '{{appColors.current.button.primary.backgroundColor}}',

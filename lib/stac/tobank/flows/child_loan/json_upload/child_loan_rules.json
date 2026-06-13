@@ -294,20 +294,8 @@
                 {
                   "navigationStyle": "push",
                   "actionType": "navigate",
-                  "request": {
-                    "method": "post",
-                    "headers": {
-                      "Content-Type": "application/json",
-                      "Accept": "*/*"
-                    },
-                    "body": {
-                      "operator": "is",
-                      "dimension": {
-                        "app": "mobile"
-                      }
-                    },
-                    "url": "http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.child_loan_customer_check/1"
-                  }
+                  "fileName": "child_loan_customer_check",
+                  "navMode": "apiJson"
                 }
               ]
             },

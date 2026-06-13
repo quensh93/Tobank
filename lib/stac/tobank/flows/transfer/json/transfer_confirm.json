@@ -1081,7 +1081,8 @@
                                     "actionType": "closeDialog"
                                   },
                                   {
-                                    "assetPath": "lib/stac/tobank/flows/transfer/json/transfer_card_result.json",
+                                    "fileName": "transfer_card_result",
+                                    "navMode": "localJson",
                                     "navigationStyle": "push",
                                     "actionType": "navigate"
                                   }
@@ -1566,7 +1567,8 @@
             },
             {
               "onPressed": {
-                "assetPath": "lib/stac/tobank/flows/transfer/json/transfer_result.json",
+                "fileName": "transfer_result",
+                "navMode": "localJson",
                 "navigationStyle": "push",
                 "actionType": "navigate"
               },

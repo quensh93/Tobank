@@ -1248,7 +1248,8 @@
                                         "type": "container"
                                       },
                                       "onTap": {
-                                        "routeName": "user_validation_report_detail",
+                                        "fileName": "user_validation_report_detail",
+                                        "navMode": "dart",
                                         "navigationStyle": "push",
                                         "actionType": "navigate"
                                       },
@@ -2027,7 +2028,8 @@
                                         "type": "container"
                                       },
                                       "onTap": {
-                                        "routeName": "user_validation_report_detail",
+                                        "fileName": "user_validation_report_detail",
+                                        "navMode": "dart",
                                         "navigationStyle": "push",
                                         "actionType": "navigate"
                                       },
@@ -2806,7 +2808,8 @@
                                         "type": "container"
                                       },
                                       "onTap": {
-                                        "routeName": "user_validation_report_detail",
+                                        "fileName": "user_validation_report_detail",
+                                        "navMode": "dart",
                                         "navigationStyle": "push",
                                         "actionType": "navigate"
                                       },
@@ -3585,7 +3588,8 @@
                                         "type": "container"
                                       },
                                       "onTap": {
-                                        "routeName": "user_validation_report_detail",
+                                        "fileName": "user_validation_report_detail",
+                                        "navMode": "dart",
                                         "navigationStyle": "push",
                                         "actionType": "navigate"
                                       },
@@ -4373,7 +4377,8 @@
                                         "type": "container"
                                       },
                                       "onTap": {
-                                        "routeName": "user_validation_report_detail",
+                                        "fileName": "user_validation_report_detail",
+                                        "navMode": "dart",
                                         "navigationStyle": "push",
                                         "actionType": "navigate"
                                       },
@@ -5161,7 +5166,8 @@
                                         "type": "container"
                                       },
                                       "onTap": {
-                                        "routeName": "user_validation_report_detail",
+                                        "fileName": "user_validation_report_detail",
+                                        "navMode": "dart",
                                         "navigationStyle": "push",
                                         "actionType": "navigate"
                                       },
@@ -5940,7 +5946,8 @@
                                         "type": "container"
                                       },
                                       "onTap": {
-                                        "routeName": "user_validation_report_detail",
+                                        "fileName": "user_validation_report_detail",
+                                        "navMode": "dart",
                                         "navigationStyle": "push",
                                         "actionType": "navigate"
                                       },
@@ -6719,7 +6726,8 @@
                                         "type": "container"
                                       },
                                       "onTap": {
-                                        "routeName": "user_validation_report_detail",
+                                        "fileName": "user_validation_report_detail",
+                                        "navMode": "dart",
                                         "navigationStyle": "push",
                                         "actionType": "navigate"
                                       },
@@ -8706,7 +8714,8 @@
                                                                                       "actionType": "closeDialog"
                                                                                     },
                                                                                     {
-                                                                                      "routeName": "user_validation_receipt",
+                                                                                      "fileName": "user_validation_receipt",
+                                                                                      "navMode": "dart",
                                                                                       "navigationStyle": "push",
                                                                                       "actionType": "navigate"
                                                                                     }
@@ -8944,7 +8953,8 @@
                                                                         "actionType": "closeDialog"
                                                                       },
                                                                       {
-                                                                        "routeName": "user_validation_receipt",
+                                                                        "fileName": "user_validation_receipt",
+                                                                        "navMode": "dart",
                                                                         "navigationStyle": "push",
                                                                         "actionType": "navigate"
                                                                       }

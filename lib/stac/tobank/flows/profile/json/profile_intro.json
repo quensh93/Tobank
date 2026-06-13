@@ -235,7 +235,8 @@
                               "type": "container"
                             },
                             "onTap": {
-                              "routeName": "profile_bank_info",
+                              "fileName": "profile_bank_info",
+                              "navMode": "dart",
                               "navigationStyle": "push",
                               "actionType": "navigate"
                             },
@@ -309,7 +310,8 @@
                               "type": "container"
                             },
                             "onTap": {
-                              "routeName": "profile_invite_friends",
+                              "fileName": "profile_invite_friends",
+                              "navMode": "dart",
                               "navigationStyle": "push",
                               "actionType": "navigate"
                             },
@@ -383,7 +385,8 @@
                               "type": "container"
                             },
                             "onTap": {
-                              "routeName": "profile_destinations",
+                              "fileName": "profile_destinations",
+                              "navMode": "dart",
                               "navigationStyle": "push",
                               "actionType": "navigate"
                             },
@@ -457,7 +460,8 @@
                               "type": "container"
                             },
                             "onTap": {
-                              "routeName": "profile_settings",
+                              "fileName": "profile_settings",
+                              "navMode": "dart",
                               "navigationStyle": "push",
                               "actionType": "navigate"
                             },
@@ -531,7 +535,8 @@
                               "type": "container"
                             },
                             "onTap": {
-                              "routeName": "profile_rules",
+                              "fileName": "profile_rules",
+                              "navMode": "dart",
                               "navigationStyle": "push",
                               "actionType": "navigate"
                             },
@@ -605,7 +610,8 @@
                               "type": "container"
                             },
                             "onTap": {
-                              "routeName": "profile_about",
+                              "fileName": "profile_about",
+                              "navMode": "dart",
                               "navigationStyle": "push",
                               "actionType": "navigate"
                             },
@@ -679,7 +685,8 @@
                               "type": "container"
                             },
                             "onTap": {
-                              "routeName": "profile_contact",
+                              "fileName": "profile_contact",
+                              "navMode": "dart",
                               "navigationStyle": "push",
                               "actionType": "navigate"
                             },

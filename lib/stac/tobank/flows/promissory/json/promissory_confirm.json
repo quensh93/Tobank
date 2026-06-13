@@ -744,7 +744,8 @@
         },
         "child": {
           "onPressed": {
-            "routeName": "promissory_payment",
+            "fileName": "promissory_payment",
+            "navMode": "dart",
             "navigationStyle": "push",
             "actionType": "navigate"
           },

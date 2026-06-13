@@ -1,4 +1,7 @@
 import 'package:stac_core/stac_core.dart';
+import '../navigation/nav_modes.dart';
+
+export '../navigation/nav_modes.dart';
 
 /// Raw JSON widget helper
 /// Use this when you need to construct a widget from a raw JSON map
@@ -40,13 +43,71 @@ class StacCustomWidget implements StacWidget {
 /// or when a specific builder is not available.
 class StacRawJsonAction extends StacAction {
   final Map<String, dynamic> json;
-  StacRawJsonAction(this.json);
+  const StacRawJsonAction(this.json);
 
   @override
   String get actionType => json['actionType'] as String;
 
   @override
   Map<String, dynamic> toJson() => json;
+}
+
+/// Typed navigate action for the flow-source model.
+///
+/// Clean Dart authoring for `fileName` + [NavModes] navigation. Cannot use the
+/// package `StacNavigateAction` because its model has no fileName/navMode
+/// fields and its generated toJson drops unknown keys. This emits the raw map
+/// the [CustomNavigateActionParser] understands.
+///
+/// ```dart
+/// onPressed: const NavigationAction(
+///   fileName: 'verify_identity_registration',
+///   navMode: NavModes.dart,
+/// ),
+/// ```
+class NavigationAction extends StacAction {
+  /// Logical screen key (same across all modes). May be null only when
+  /// [pathOverride] fully specifies the target.
+  final String? fileName;
+
+  /// Source mode: dart / localJson / apiJson.
+  final NavModes navMode;
+
+  /// Optional explicit address (interpreted by [navMode]) that beats the
+  /// fileName convention.
+  final String? pathOverride;
+
+  /// How navigation is performed. Defaults to push.
+  final NavigationStyle navigationStyle;
+
+  /// Optional result passed back on pop.
+  final Map<String, dynamic>? result;
+
+  /// Optional arguments for the destination.
+  final Map<String, dynamic>? arguments;
+
+  const NavigationAction({
+    this.fileName,
+    required this.navMode,
+    this.pathOverride,
+    this.navigationStyle = NavigationStyle.push,
+    this.result,
+    this.arguments,
+  });
+
+  @override
+  String get actionType => ActionType.navigate.name;
+
+  @override
+  Map<String, dynamic> toJson() => {
+        'actionType': 'navigate',
+        if (fileName != null) 'fileName': fileName,
+        'navMode': navMode.name,
+        if (pathOverride != null) 'pathOverride': pathOverride,
+        'navigationStyle': navigationStyle.name,
+        if (result != null) 'result': result,
+        if (arguments != null) 'arguments': arguments,
+      };
 }
 
 /// Custom action helper for parser-driven action types when a dedicated

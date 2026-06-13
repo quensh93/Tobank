@@ -182,10 +182,7 @@ StacWidget _buildNextButton() {
               {'key': 'crDetailVariantCompleteDocsEmpty', 'value': false},
             ],
           ),
-          StacNavigateAction(
-            routeName: 'child_loan_customer_check',
-            navigationStyle: NavigationStyle.push,
-          ),
+          NavigationAction(fileName: 'child_loan_customer_check', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
         ],
       ).toJson(),
       style: StacButtonStyle(

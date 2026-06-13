@@ -229,7 +229,8 @@
                 "enabledKey": "verifyIdentityHasSelectedJob",
                 "enabled": false,
                 "onPressed": {
-                  "routeName": "test_screen",
+                  "fileName": "test_screen",
+                  "navMode": "dart",
                   "navigationStyle": "push",
                   "actionType": "navigate"
                 },

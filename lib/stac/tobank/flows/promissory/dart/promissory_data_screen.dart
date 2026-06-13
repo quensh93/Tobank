@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -614,10 +614,7 @@ StacWidget _buildSubmitButton() {
                         {'key': 'isIdentityLoading', 'value': false},
                       ],
                     ),
-                    StacNavigateAction(
-                      routeName: 'promissory_confirm',
-                      navigationStyle: NavigationStyle.push,
-                    ),
+                    NavigationAction(fileName: 'promissory_confirm', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
                   ],
                 ).toJson(),
               },

@@ -725,7 +725,8 @@
                 "enabledKey": "isVerifyIdentityCertificateInfoValid",
                 "enabled": false,
                 "onPressed": {
-                  "routeName": "verify_identity_final",
+                  "fileName": "verify_identity_final",
+                  "navMode": "dart",
                   "navigationStyle": "push",
                   "actionType": "navigate"
                 },

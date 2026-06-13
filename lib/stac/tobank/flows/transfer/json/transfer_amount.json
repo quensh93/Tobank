@@ -1217,7 +1217,8 @@
                                         ]
                                       },
                                       {
-                                        "assetPath": "lib/stac/tobank/flows/transfer/json/transfer_card_details.json",
+                                        "fileName": "transfer_card_details",
+                                        "navMode": "localJson",
                                         "navigationStyle": "push",
                                         "actionType": "navigate"
                                       }
@@ -2309,7 +2310,8 @@
                                 ]
                               },
                               {
-                                "assetPath": "lib/stac/tobank/flows/transfer/json/transfer_in_bank_details.json",
+                                "fileName": "transfer_in_bank_details",
+                                "navMode": "localJson",
                                 "navigationStyle": "push",
                                 "actionType": "navigate"
                               }
@@ -3350,7 +3352,8 @@
                                 ]
                               },
                               {
-                                "assetPath": "lib/stac/tobank/flows/transfer/json/transfer_details.json",
+                                "fileName": "transfer_details",
+                                "navMode": "localJson",
                                 "navigationStyle": "push",
                                 "actionType": "navigate"
                               }

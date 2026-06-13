@@ -1160,7 +1160,8 @@
                           ]
                         },
                         {
-                          "routeName": "charge_payment",
+                          "fileName": "charge_payment",
+                          "navMode": "dart",
                           "navigationStyle": "push",
                           "actionType": "navigate"
                         }
@@ -1257,7 +1258,8 @@
                         ]
                       },
                       {
-                        "routeName": "charge_payment",
+                        "fileName": "charge_payment",
+                        "navMode": "dart",
                         "navigationStyle": "push",
                         "actionType": "navigate"
                       }

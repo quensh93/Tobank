@@ -918,7 +918,8 @@
                                 "type": "container"
                               },
                               "onTap": {
-                                "routeName": "transaction_filter",
+                                "fileName": "transaction_filter",
+                                "navMode": "dart",
                                 "navigationStyle": "push",
                                 "actionType": "navigate"
                               },
