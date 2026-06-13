@@ -2,7 +2,9 @@ import 'dart:ui' as ui;
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:stac/stac.dart';
+import '../../core/api/config_api/config_api_service.dart';
 import '../../core/helpers/logger.dart';
+import '../config/sdui_config.dart';
 
 /// Loads and caches color schema at app startup
 ///
@@ -30,7 +32,7 @@ class TobankColorsLoader {
   static final List<String> _storedKeys = []; // Track all keys we stored
   static final List<String> _aliasKeys =
       []; // Track all alias keys (appColors.current.*)
-  static const String _colorsUrl = 'https://api.tobank.com/colors';
+  static final String _colorsUrl = SduiConfig.mockUrl('colors');
   static const String _prefix = 'appColors';
 
   /// Load colors from API and store in StacRegistry
@@ -223,6 +225,51 @@ class TobankColorsLoader {
       );
       // Don't throw - app can still work with fallback colors
     }
+  }
+
+  /// Load colors from the REAL backend config server (API mode only).
+  ///
+  /// Failures are RETHROWN so the caller can block + retry.
+  static Future<void> loadColorsFromBackend(
+    ConfigApiService service, {
+    bool forceReload = false,
+  }) async {
+    if (_storedKeys.isNotEmpty) {
+      _clearStoredKeys();
+    }
+
+    if (_loaded && !forceReload) {
+      AppLogger.dc(LogCategory.theme, 'Colors already loaded, skipping');
+      return;
+    }
+
+    AppLogger.ic(
+      LogCategory.theme,
+      'Loading colors from backend (${SduiConfig.colors})...',
+    );
+
+    final colorsData = await service.fetchSduiConfig(
+      pathKey: SduiConfig.colors,
+      build: SduiConfig.configBuild,
+    );
+    _cachedColorsData = colorsData;
+
+    _storeColors(colorsData, _prefix);
+
+    final currentTheme = await _detectCurrentTheme();
+    _createCurrentThemeAliases(colorsData, currentTheme);
+
+    StacRegistry.instance.setValue('appTheme.current', currentTheme);
+    StacRegistry.instance.setValue(
+      'appTheme.currentLabel',
+      _resolveThemeLabel(currentTheme),
+    );
+
+    _loaded = true;
+    AppLogger.ic(
+      LogCategory.theme,
+      'Colors loaded from backend (${_storedKeys.length} keys, theme: $currentTheme)',
+    );
   }
 
   /// Recursively flatten and store color properties in StacRegistry

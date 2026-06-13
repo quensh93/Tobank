@@ -6,6 +6,7 @@ import 'package:ispectify_dio/ispectify_dio.dart';
 import 'package:tobank_sdui/core/api/auth/auth_manager.dart';
 import 'package:tobank_sdui/core/config/ispect_config.dart';
 import 'package:tobank_sdui/core/helpers/logger.dart';
+import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 
 class PromissoryRealService {
   final Dio _dio = Dio();
@@ -34,8 +35,7 @@ class PromissoryRealService {
   }
 
   // Constants
-  static const String _baseUrl =
-      'http://192.168.107.22:8280/api/digitalbanking';
+  static const String _baseUrl = SduiConfig.bizBaseUrl;
 
   // Headers
   static const Map<String, String> _defaultHeaders = {

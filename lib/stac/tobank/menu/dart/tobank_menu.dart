@@ -1,10 +1,8 @@
 import 'package:stac_core/stac_core.dart';
 
 // Menu item visibility flags
-const bool _showLinearLogin = true;
 const bool _showPromissory = true;
 const bool _showVerifyIdentity = true;
-const bool _showHome = true;
 const bool _showPromissoryApiReal = true;
 const bool _showVerifyIdentityApiReal = true;
 const bool _showCreditScoringApiReal = false;
@@ -58,17 +56,7 @@ StacWidget tobankMenuDart() {
     body: StacListView(
       padding: StacEdgeInsets.all(16),
       children: [
-        if (_showLinearLogin)
-          _buildMenuItemCard(
-            title: 'لاگین (خطی)',
-            dartPath:
-                'lib/stac/tobank/flows/login_flow_linear/dart/login_flow_linear_splash.dart',
-            jsonPath:
-                'lib/stac/tobank/flows/login_flow_linear/json/login_flow_linear_splash.json',
-            apiPath:
-                'lib/stac/tobank/flows/login_flow_linear/api/GET_login_flow_linear_splash.json',
-            widgetType: 'tobank_login_flow_linear_splash',
-          ),
+
         if (_showPromissory)
           _buildMenuItemCard(
             title: 'سفته',
@@ -82,65 +70,60 @@ StacWidget tobankMenuDart() {
           ),
         if (_showVerifyIdentity)
           _buildMenuItemCard(
-            title: 'احراز هویت',
+            title: 'لاگین',
             dartPath: 'lib/stac/tobank/flows/login/dart/login_splash.dart',
             jsonPath: 'lib/stac/tobank/flows/login/json/login_splash.json',
             apiPath: null,
             widgetType: 'login_splash',
           ),
-        if (_showHome)
-          _buildSingleButtonMenuItemCard(
-            title: 'خانه',
-            widgetType: 'tobank_home_page_menu',
-          ),
         if (_showPromissoryApiReal)
           _buildSingleButtonMenuItemCard(
-            title: 'سفته (API واقعی)',
+            title: 'سفته',
             widgetType: 'promissory_menu',
           ),
         if (_showVerifyIdentityApiReal)
           _buildSingleButtonMenuItemCard(
-            title: 'احراز هویت (API واقعی)',
+            title: 'احراز هویت',
             widgetType: 'verify_identity_menu',
           ),
         if (_showCreditScoringApiReal)
           _buildSingleButtonMenuItemCard(
-            title: 'اعتبارسنجی (API واقعی)',
+            title: 'اعتبارسنجی',
             widgetType: 'tobank_user_validation',
           ),
         if (_showProfileApiReal)
           _buildSingleButtonMenuItemCard(
-            title: 'پروفایل (API واقعی)',
+            title: 'پروفایل',
             widgetType: 'profile_menu',
           ),
         if (_showCartableApiReal)
           _buildSingleButtonMenuItemCard(
-            title: 'کارتابل (API واقعی)',
+            title: 'کارتابل',
             widgetType: 'cartable_menu',
           ),
         if (_showTransactionApiReal)
           _buildSingleButtonMenuItemCard(
-            title: 'تراکنش‌ها (API واقعی)',
+            title: 'تراکنش‌ها',
             widgetType: 'transaction_menu',
           ),
         if (_showInstallmentPaymentApiReal)
           _buildSingleButtonMenuItemCard(
-            title: 'پرداخت اقساط (API واقعی)',
+            title: 'پرداخت اقساط',
             widgetType: 'installment_payment_api_real_menu',
           ),
         if (_showChildLoanApiReal)
           _buildSingleButtonMenuItemCard(
-            title: 'تسهیلات فرزندآوری ( API واقعی)',
+            title: 'تسهیلات فرزندآوری',
             widgetType: 'child_loan_api_real_menu',
           ),
         if (_showNotificationApiReal)
           _buildSingleButtonMenuItemCard(
-            title: 'اعلانات (API واقعی)',
+            title: 'اعلانات',
             widgetType: 'notification_menu',
           ),
         if (_showDepositTurnoverApiReal)
           _buildSingleButtonMenuItemCard(
-            title: 'گردش سپرده (API واقعی)',
+            title: 'گردش سپرده',
             widgetType: 'deposit_turnover_menu',
           ),
         if (_showDepositMore)
@@ -150,39 +133,35 @@ StacWidget tobankMenuDart() {
           ),
         if (_showDashboardRealNavigation)
           _buildSingleButtonMenuItemCard(
-            title: 'داشبورد (ناوبری واقعی)',
+            title: 'داشبورد',
             widgetType: 'dashboard_menu',
           ),
         if (_showGiftCardApiReal)
           _buildSingleButtonMenuItemCard(
-            title: 'کارت هدیه (API واقعی)',
+            title: 'کارت هدیه',
             widgetType: 'gift_card_menu',
           ),
         if (_showTransferReal)
           _buildSingleButtonMenuItemCard(
-            title: 'انتقال وجه (واقعی)',
+            title: 'انتقال وجه',
             widgetType: 'transfer_menu',
           ),
         if (_showChargeApiReal)
           _buildSingleButtonMenuItemCard(
-            title: 'شارژ (API واقعی)',
+            title: 'شارژ',
             widgetType: 'charge_menu',
           ),
         if (_showPackageApiReal)
           _buildSingleButtonMenuItemCard(
-            title: 'پکیج اینترنت (API واقعی)',
+            title: 'پکیج اینترنت',
             widgetType: 'package_menu',
           ),
         StacSizedBox(height: 20),
         _buildSectionHeader('ماژول ها'),
         StacSizedBox(height: 8),
-        _buildSingleButtonMenuItemCard(
-          title: 'بیومتریک (تست ماژول)',
-          widgetType: 'biometric_test_menu',
-        ),
         if (_showBiometricModuleTest)
           _buildSingleButtonMenuItemCard(
-            title: 'بیومتریک ( تست ماژول)',
+            title: 'بیومتریک (تست ماژول)',
             widgetType: 'biometric_test_menu',
           ),
       ],

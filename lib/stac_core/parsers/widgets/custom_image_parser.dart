@@ -144,18 +144,13 @@ class CustomImageParser extends StacParser<CustomStacImage> {
     // 2. Check for Asset
     if (effectiveSrc.startsWith('assets/')) {
       if (isSvg) {
-        return SvgPicture.asset(
+        return _SafeSvgAsset(
           key: imageKey,
-          effectiveSrc,
+          src: effectiveSrc,
           width: model.width,
           height: model.height,
           fit: model.fit ?? BoxFit.contain,
-          colorFilter: color != null
-              ? ColorFilter.mode(color, BlendMode.srcIn)
-              : null,
-          // SvgPicture doesn't support errorBuilder directly in the same way,
-          // but we can wrap it or use a different loader if needed.
-          // However, asset SVGs should generally exist.
+          color: color,
         );
       }
       return Image.asset(
@@ -192,16 +187,13 @@ class CustomImageParser extends StacParser<CustomStacImage> {
     // 4. Fallback to Network
     if (effectiveSrc.startsWith('http')) {
       if (isSvg) {
-        return SvgPicture.network(
+        return _SafeSvgNetwork(
           key: imageKey,
-          effectiveSrc,
+          src: effectiveSrc,
           width: model.width,
           height: model.height,
           fit: model.fit ?? BoxFit.contain,
-          colorFilter: color != null
-              ? ColorFilter.mode(color, BlendMode.srcIn)
-              : null,
-          // placeholderBuilder: (context) => const CircularProgressIndicator(),
+          color: color,
         );
       }
       return Image.network(
@@ -252,5 +244,153 @@ class CustomImageParser extends StacParser<CustomStacImage> {
       AppLogger.w('Failed to parse color: $colorString');
     }
     return null;
+  }
+}
+
+
+/// Wraps [SvgPicture.asset] in an error boundary so that missing SVG assets
+/// don't crash the rendering pipeline / freeze the app.
+class _SafeSvgAsset extends StatelessWidget {
+  const _SafeSvgAsset({
+    super.key,
+    required this.src,
+    this.width,
+    this.height,
+    this.fit = BoxFit.contain,
+    this.color,
+  });
+
+  final String src;
+  final double? width;
+  final double? height;
+  final BoxFit fit;
+  final Color? color;
+
+  @override
+  Widget build(BuildContext context) {
+    return _SvgErrorBoundary(
+      fallbackWidth: width,
+      fallbackHeight: height,
+      child: SvgPicture.asset(
+        src,
+        width: width,
+        height: height,
+        fit: fit,
+        colorFilter:
+            color != null ? ColorFilter.mode(color!, BlendMode.srcIn) : null,
+      ),
+    );
+  }
+}
+
+/// Wraps [SvgPicture.network] in an error boundary so that failed network SVGs
+/// don't crash the rendering pipeline / freeze the app.
+class _SafeSvgNetwork extends StatelessWidget {
+  const _SafeSvgNetwork({
+    super.key,
+    required this.src,
+    this.width,
+    this.height,
+    this.fit = BoxFit.contain,
+    this.color,
+  });
+
+  final String src;
+  final double? width;
+  final double? height;
+  final BoxFit fit;
+  final Color? color;
+
+  @override
+  Widget build(BuildContext context) {
+    return _SvgErrorBoundary(
+      fallbackWidth: width,
+      fallbackHeight: height,
+      child: SvgPicture.network(
+        src,
+        width: width,
+        height: height,
+        fit: fit,
+        colorFilter:
+            color != null ? ColorFilter.mode(color!, BlendMode.srcIn) : null,
+      ),
+    );
+  }
+}
+
+/// A widget-level error boundary that catches rendering errors from child widgets
+/// (like SvgPicture throwing on missing assets) and shows a fallback instead of crashing.
+class _SvgErrorBoundary extends StatefulWidget {
+  const _SvgErrorBoundary({
+    required this.child,
+    this.fallbackWidth,
+    this.fallbackHeight,
+  });
+
+  final Widget child;
+  final double? fallbackWidth;
+  final double? fallbackHeight;
+
+  @override
+  State<_SvgErrorBoundary> createState() => _SvgErrorBoundaryState();
+}
+
+class _SvgErrorBoundaryState extends State<_SvgErrorBoundary> {
+  bool _hasError = false;
+
+  @override
+  Widget build(BuildContext context) {
+    if (_hasError) {
+      return SizedBox(width: widget.fallbackWidth, height: widget.fallbackHeight);
+    }
+
+    // Override ErrorWidget.builder temporarily within this widget's subtree
+    return _ErrorCatcher(
+      onError: () {
+        if (mounted && !_hasError) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (mounted) setState(() => _hasError = true);
+          });
+        }
+      },
+      fallbackWidth: widget.fallbackWidth,
+      fallbackHeight: widget.fallbackHeight,
+      child: widget.child,
+    );
+  }
+}
+
+class _ErrorCatcher extends StatelessWidget {
+  const _ErrorCatcher({
+    required this.child,
+    required this.onError,
+    this.fallbackWidth,
+    this.fallbackHeight,
+  });
+
+  final Widget child;
+  final VoidCallback onError;
+  final double? fallbackWidth;
+  final double? fallbackHeight;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: fallbackWidth,
+      height: fallbackHeight,
+      child: Builder(
+        builder: (context) {
+          // Wrap in a custom error widget builder scope
+          final originalBuilder = ErrorWidget.builder;
+          ErrorWidget.builder = (FlutterErrorDetails details) {
+            // Restore original builder immediately
+            ErrorWidget.builder = originalBuilder;
+            onError();
+            return SizedBox(width: fallbackWidth, height: fallbackHeight);
+          };
+          return child;
+        },
+      ),
+    );
   }
 }

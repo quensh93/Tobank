@@ -9,6 +9,8 @@ import '../../../registry/text_form_field_controller_registry.dart';
 
 class ShowCardExpireSelectBottomSheetActionModel {
   final String formFieldId;
+  final String? yearFieldId;
+  final String? monthFieldId;
   final String title;
   final String monthTitle;
   final String yearTitle;
@@ -19,6 +21,8 @@ class ShowCardExpireSelectBottomSheetActionModel {
 
   const ShowCardExpireSelectBottomSheetActionModel({
     required this.formFieldId,
+    this.yearFieldId,
+    this.monthFieldId,
     required this.title,
     required this.monthTitle,
     required this.yearTitle,
@@ -48,6 +52,8 @@ class ShowCardExpireSelectBottomSheetActionModel {
 
     return ShowCardExpireSelectBottomSheetActionModel(
       formFieldId: json['formFieldId'] as String? ?? 'cardExpireInput',
+      yearFieldId: json['yearFieldId'] as String?,
+      monthFieldId: json['monthFieldId'] as String?,
       title: json['title'] as String? ?? 'تاریخ انقضای کارت را انتخاب نمایید',
       monthTitle: json['monthTitle'] as String? ?? 'ماه',
       yearTitle: json['yearTitle'] as String? ?? 'سال',
@@ -311,6 +317,22 @@ class ShowCardExpireSelectBottomSheetActionParser
                                     fieldId: model.formFieldId,
                                     value: value,
                                   );
+
+                                  // Write to separate year/month fields if provided
+                                  if (model.yearFieldId != null) {
+                                    _updateFormField(
+                                      context: actionContext,
+                                      fieldId: model.yearFieldId!,
+                                      value: _toPersianDigits(year2),
+                                    );
+                                  }
+                                  if (model.monthFieldId != null) {
+                                    _updateFormField(
+                                      context: actionContext,
+                                      fieldId: model.monthFieldId!,
+                                      value: _toPersianDigits(month),
+                                    );
+                                  }
 
                                   RegistryNotifier.instance.notify();
                                   if (bottomSheetContext.mounted) {

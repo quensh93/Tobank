@@ -1,3 +1,5 @@
+import '../../config/sdui_config.dart';
+
 /// Service for normalizing asset paths and converting them to API URLs.
 ///
 /// Follows Single Responsibility Principle - only responsible for path
@@ -72,7 +74,7 @@ class StacPathNormalizer {
           .replaceAll('.json', '');
     }
 
-    return 'https://api.tobank.com/$apiPath';
+    return SduiConfig.mockUrl(apiPath);
   }
 
   /// Checks if a path is an API file (contains /api/GET_).

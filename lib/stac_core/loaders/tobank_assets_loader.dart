@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:stac/stac.dart';
+import '../../core/api/config_api/config_api_service.dart';
 import '../../core/helpers/logger.dart';
+import '../config/sdui_config.dart';
 
 /// Loads and caches assets paths at app startup
 ///
@@ -17,7 +19,7 @@ class TobankAssetsLoader {
   static Map<String, dynamic>? _cachedAssetsData;
   static final List<String> _storedKeys = []; // Track all keys we stored
   static final List<String> _aliasKeys = []; // Track theme-aware aliases
-  static const String _assetsUrl = 'https://api.tobank.com/assets';
+  static final String _assetsUrl = SduiConfig.mockUrl('assets');
   static const String _prefix = 'appAssets';
   static const Map<String, ({String light, String dark})>
   _serviceIconFallbacks = {
@@ -101,6 +103,44 @@ class TobankAssetsLoader {
       _storeServiceIconFallbacks(currentTheme);
       _loaded = true;
     }
+  }
+
+  /// Load assets from the REAL backend config server (API mode only).
+  ///
+  /// Failures are RETHROWN so the caller can block + retry.
+  static Future<void> loadAssetsFromBackend(
+    ConfigApiService service, {
+    bool forceReload = false,
+  }) async {
+    if (_storedKeys.isNotEmpty) {
+      _clearStoredKeys();
+    }
+
+    final currentTheme =
+        (StacRegistry.instance.getValue('appTheme.current') ?? 'light')
+            .toString();
+    _storeServiceIconFallbacks(currentTheme);
+
+    if (_loaded && !forceReload) {
+      AppLogger.d('Assets already loaded, skipping');
+      return;
+    }
+
+    AppLogger.i('Loading assets from backend (${SduiConfig.assets})...');
+
+    final assetsData = await service.fetchSduiConfig(
+      pathKey: SduiConfig.assets,
+      build: SduiConfig.configBuild,
+    );
+    _cachedAssetsData = assetsData;
+
+    _flattenAndStore(assetsData, _prefix);
+    _createGeneratedTypeAliases(assetsData);
+    _createCurrentThemeAliases(assetsData, currentTheme);
+    _storeServiceIconFallbacks(currentTheme);
+
+    _loaded = true;
+    AppLogger.i('Assets loaded from backend (${_storedKeys.length} keys)');
   }
 
   /// Recursively flatten nested Map structure and store in StacRegistry

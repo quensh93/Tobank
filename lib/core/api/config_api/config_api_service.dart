@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:ispect/ispect.dart';
 import 'package:ispectify_dio/ispectify_dio.dart';
+import '../../../stac_core/config/sdui_config.dart';
 import '../../helpers/logger.dart';
 import 'config_api_models.dart';
 
@@ -20,7 +21,7 @@ import 'config_api_models.dart';
 /// ```
 class ConfigApiService {
   /// Base URL for the configuration API
-  static const String defaultBaseUrl = 'http://192.168.179.21:8101';
+  static const String defaultBaseUrl = SduiConfig.configBaseUrl;
 
   /// Dio HTTP client
   late final Dio _dio;

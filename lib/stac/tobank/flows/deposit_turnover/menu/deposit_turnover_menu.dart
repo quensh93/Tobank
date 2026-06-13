@@ -1,5 +1,6 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 
 /// Deposit Turnover Real Flow - Debug Menu
 @StacScreen(screenName: 'deposit_turnover_menu')
@@ -47,7 +48,7 @@ StacWidget depositTurnoverRealMenu() {
               'navigationStyle': 'push',
               'request': {
                 'url':
-                    'http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.deposit_turnover_intro/1',
+                    SduiConfig.resolveUrl('deposit_turnover_intro'),
                 'method': 'post',
                 'headers': {
                   'Content-Type': 'application/json',

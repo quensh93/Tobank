@@ -1,5 +1,6 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 
 /// Notification Real Flow - Debug Menu
 @StacScreen(screenName: 'notification_menu')
@@ -47,7 +48,7 @@ StacWidget notificationRealMenu() {
               'navigationStyle': 'push',
               'request': {
                 'url':
-                    'http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.notification_intro/1',
+                    SduiConfig.resolveUrl('notification_intro'),
                 'method': 'post',
                 'headers': {
                   'Content-Type': 'application/json',

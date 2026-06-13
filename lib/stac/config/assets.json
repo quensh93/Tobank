@@ -499,12 +499,6 @@
                 "src_ic_share_002": "assets/icons/ic_share.svg",
                 "src_ic_download_003": "assets/icons/ic_download.svg"
             },
-            "flows__login_flow_linear__api__GET_login_flow_linear_login": {
-                "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
-            },
-            "flows__login_flow_linear__json__login_flow_linear_login": {
-                "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
-            },
             "flows__login__json__login_form_dart": {
                 "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
             },
@@ -1095,12 +1089,6 @@
                 "iconAsset_ic_share_001": "assets/icons/ic_share.svg",
                 "iconAsset_ic_download_002": "assets/icons/ic_download.svg",
                 "src_ic_tobank_red_003": "assets/icons/ic_tobank_red.svg"
-            },
-            "flows__login_flow_linear__dart__login_flow_linear_login": {
-                "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
-            },
-            "flows__login_flow_linear__inline_dart__login_flow_linear_login": {
-                "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
             },
             "flows__login__dart__login_screen": {
                 "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
@@ -1862,30 +1850,6 @@
         "flows__notification__menu__notification_menu": {
             "icons": {}
         },
-        "flows__login_flow_linear__dart__login_flow_linear_login": {
-            "icons": {}
-        },
-        "flows__login_flow_linear__dart__login_flow_linear_onboarding": {
-            "icons": {}
-        },
-        "flows__login_flow_linear__dart__login_flow_linear_splash": {
-            "icons": {}
-        },
-        "flows__login_flow_linear__dart__login_flow_linear_verify_otp": {
-            "icons": {}
-        },
-        "flows__login_flow_linear__inline_dart__login_flow_linear_login": {
-            "icons": {}
-        },
-        "flows__login_flow_linear__inline_dart__login_flow_linear_onboarding": {
-            "icons": {}
-        },
-        "flows__login_flow_linear__inline_dart__login_flow_linear_splash": {
-            "icons": {}
-        },
-        "flows__login_flow_linear__inline_dart__login_flow_linear_verify_otp": {
-            "icons": {}
-        },
         "flows__login__dart__login_onboarding": {
             "icons": {}
         },
@@ -1910,9 +1874,6 @@
         "flows__home_page__dart__home_page": {
             "icons": {}
         },
-        "flows__home_page__dart__home_page_menu": {
-            "icons": {}
-        },
         "flows__home_page__dart__tobank_special_services_page": {
             "icons": {}
         },
@@ -1923,9 +1884,6 @@
             "icons": {}
         },
         "flows__home_page__inline_dart__home_page": {
-            "icons": {}
-        },
-        "flows__home_page__inline_dart__home_page_menu": {
             "icons": {}
         },
         "flows__home_page__inline_dart__tobank_special_services_page": {

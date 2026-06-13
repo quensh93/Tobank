@@ -1,5 +1,6 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 
 /// User Validation - Debug Menu
 @StacScreen(screenName: 'tobank_user_validation')
@@ -47,7 +48,7 @@ StacWidget userValidationMenu() {
               'navigationStyle': 'push',
               'request': {
                 'url':
-                    'http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.user_validation_intro/1',
+                    SduiConfig.resolveUrl('user_validation_intro'),
                 'method': 'post',
                 'headers': {
                   'Content-Type': 'application/json',

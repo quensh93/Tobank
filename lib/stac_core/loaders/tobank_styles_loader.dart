@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:stac/stac.dart';
 import '../../core/helpers/logger.dart';
+import '../config/sdui_config.dart';
 
 /// Loads and caches component styles at app startup
 ///
@@ -26,7 +27,7 @@ import '../../core/helpers/logger.dart';
 class TobankStylesLoader {
   static bool _loaded = false;
   static final List<String> _storedKeys = []; // Track all keys we stored
-  static const String _stylesUrl = 'https://api.tobank.com/styles';
+  static final String _stylesUrl = SduiConfig.mockUrl('styles');
   static const String _prefix = 'appStyles';
 
   /// Load styles from API and store in StacRegistry

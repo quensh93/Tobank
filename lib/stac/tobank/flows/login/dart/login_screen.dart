@@ -1,4 +1,5 @@
 ﻿import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -311,7 +312,7 @@ StacWidget _buildSubmitButton() {
         ),
         StacNetworkRequestAction(
           url:
-              'http://192.168.107.22:8280/api/digitalbanking/logins/v1.0/tobank/users',
+              SduiConfig.bizUrl('logins/v1.0/tobank/users'),
           method: 'post',
           headers: const {
             'accept': '*/*',

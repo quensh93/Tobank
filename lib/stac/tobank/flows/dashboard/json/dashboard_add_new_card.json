@@ -1,0 +1,1323 @@
+﻿{
+  "appBar": {
+    "leading": {
+      "padding": {
+        "left": 12.0,
+        "top": null,
+        "right": null,
+        "bottom": null
+      },
+      "child": {
+        "widthFactor": null,
+        "heightFactor": null,
+        "child": {
+          "src": "{{appAssets.icons.support}}",
+          "alignment": null,
+          "imageType": "asset",
+          "color": "{{appColors.current.text.title}}",
+          "width": 24.0,
+          "height": 24.0,
+          "fit": null,
+          "repeat": null,
+          "filterQuality": null,
+          "semanticLabel": null,
+          "excludeFromSemantics": null,
+          "type": "image"
+        },
+        "type": "center"
+      },
+      "type": "padding"
+    },
+    "automaticallyImplyLeading": true,
+    "title": {
+      "data": "افزودن کارت جدید",
+      "children": null,
+      "style": {
+        "type": "alias",
+        "value": "{{appStyles.appbarStyle}}"
+      },
+      "copyWithStyle": null,
+      "textAlign": null,
+      "textDirection": "rtl",
+      "softWrap": null,
+      "overflow": null,
+      "textScaleFactor": null,
+      "maxLines": null,
+      "semanticsLabel": null,
+      "textWidthBasis": null,
+      "selectionColor": null,
+      "type": "text"
+    },
+    "actions": [
+      {
+        "padding": {
+          "left": null,
+          "top": null,
+          "right": 12.0,
+          "bottom": null
+        },
+        "child": {
+          "iconSize": null,
+          "visualDensity": null,
+          "padding": null,
+          "alignment": null,
+          "splashRadius": null,
+          "color": null,
+          "focusColor": null,
+          "hoverColor": null,
+          "highlightColor": null,
+          "splashColor": null,
+          "disabledColor": null,
+          "onPressed": {
+            "request": null,
+            "widgetJson": null,
+            "assetPath": null,
+            "routeName": null,
+            "navigationStyle": "pop",
+            "result": null,
+            "arguments": null,
+            "actionType": "navigate"
+          },
+          "onHover": null,
+          "onLongPress": null,
+          "mouseCursor": null,
+          "autofocus": null,
+          "tooltip": null,
+          "enableFeedback": null,
+          "constraints": null,
+          "style": null,
+          "isSelected": null,
+          "selectedIcon": null,
+          "icon": {
+            "src": "{{appAssets.icons.arrowBack}}",
+            "alignment": null,
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 31.0,
+            "height": 31.0,
+            "fit": null,
+            "repeat": null,
+            "filterQuality": null,
+            "semanticLabel": null,
+            "excludeFromSemantics": null,
+            "type": "image"
+          },
+          "type": "iconButton"
+        },
+        "type": "padding"
+      }
+    ],
+    "flexibleSpace": null,
+    "bottom": null,
+    "elevation": null,
+    "scrolledUnderElevation": null,
+    "shadowColor": null,
+    "surfaceTintColor": null,
+    "backgroundColor": null,
+    "foregroundColor": null,
+    "primary": null,
+    "centerTitle": true,
+    "excludeHeaderSemantics": null,
+    "titleSpacing": null,
+    "toolbarOpacity": null,
+    "bottomOpacity": null,
+    "toolbarHeight": null,
+    "leadingWidth": null,
+    "toolbarTextStyle": null,
+    "titleTextStyle": null,
+    "systemOverlayStyle": null,
+    "forceMaterialTransparency": null,
+    "useDefaultSemanticsOrder": null,
+    "clipBehavior": null,
+    "actionsPadding": null,
+    "type": "appBar"
+  },
+  "backgroundColor": "{{appColors.current.background.surface}}",
+  "body": {
+    "autovalidateMode": "always",
+    "child": {
+      "scrollDirection": null,
+      "reverse": null,
+      "padding": {
+        "left": 16.0,
+        "top": 16.0,
+        "right": 16.0,
+        "bottom": 16.0
+      },
+      "primary": null,
+      "physics": null,
+      "child": {
+        "mainAxisAlignment": null,
+        "mainAxisSize": null,
+        "crossAxisAlignment": "stretch",
+        "textDirection": null,
+        "verticalDirection": null,
+        "textBaseline": null,
+        "spacing": null,
+        "children": [
+          {
+            "alignment": null,
+            "padding": {
+              "left": 16.0,
+              "top": 14.0,
+              "right": 16.0,
+              "bottom": 14.0
+            },
+            "color": null,
+            "decoration": {
+              "color": "{{appColors.current.background.card}}",
+              "image": null,
+              "border": {
+                "color": "{{appColors.current.input.borderEnabled}}",
+                "borderStyle": null,
+                "width": 1.0,
+                "strokeAlign": null,
+                "top": null,
+                "right": null,
+                "bottom": null,
+                "left": null
+              },
+              "borderRadius": {
+                "topLeft": 12.0,
+                "topRight": 12.0,
+                "bottomLeft": 12.0,
+                "bottomRight": 12.0
+              },
+              "boxShadow": null,
+              "gradient": null,
+              "backgroundBlendMode": null,
+              "shape": null
+            },
+            "foregroundDecoration": null,
+            "width": null,
+            "height": null,
+            "constraints": null,
+            "margin": null,
+            "transformAlignment": null,
+            "child": {
+              "mainAxisAlignment": null,
+              "mainAxisSize": null,
+              "crossAxisAlignment": null,
+              "textDirection": null,
+              "verticalDirection": null,
+              "textBaseline": null,
+              "spacing": null,
+              "children": [
+                {
+                  "data": "بانک‌های مبدا تحت پوشش به مقصد کلیه بانک‌های کشور",
+                  "children": null,
+                  "style": {
+                    "type": "custom",
+                    "inherit": null,
+                    "color": "{{appColors.current.text.subtitle}}",
+                    "backgroundColor": null,
+                    "fontSize": 12.0,
+                    "fontWeight": "w500",
+                    "fontStyle": null,
+                    "letterSpacing": null,
+                    "wordSpacing": null,
+                    "textBaseline": null,
+                    "height": null,
+                    "leadingDistribution": null,
+                    "decoration": null,
+                    "decorationColor": null,
+                    "decorationStyle": null,
+                    "decorationThickness": null,
+                    "debugLabel": null,
+                    "fontFamily": null,
+                    "fontFamilyFallback": null,
+                    "package": null,
+                    "overflow": null
+                  },
+                  "copyWithStyle": null,
+                  "textAlign": "center",
+                  "textDirection": "rtl",
+                  "softWrap": null,
+                  "overflow": null,
+                  "textScaleFactor": null,
+                  "maxLines": null,
+                  "semanticsLabel": null,
+                  "textWidthBasis": null,
+                  "selectionColor": null,
+                  "type": "text"
+                },
+                {
+                  "width": null,
+                  "height": 12.0,
+                  "child": null,
+                  "type": "sizedBox"
+                },
+                {
+                  "mainAxisAlignment": "spaceEvenly",
+                  "mainAxisSize": null,
+                  "crossAxisAlignment": null,
+                  "textDirection": null,
+                  "verticalDirection": null,
+                  "textBaseline": null,
+                  "spacing": null,
+                  "children": [
+                    {
+                      "src": "{{appAssets.current.icons.gardeshgari}}",
+                      "alignment": null,
+                      "imageType": "asset",
+                      "color": null,
+                      "width": 32.0,
+                      "height": 32.0,
+                      "fit": null,
+                      "repeat": null,
+                      "filterQuality": null,
+                      "semanticLabel": null,
+                      "excludeFromSemantics": null,
+                      "type": "image"
+                    },
+                    {
+                      "src": "{{appAssets.current.icons.melli}}",
+                      "alignment": null,
+                      "imageType": "asset",
+                      "color": null,
+                      "width": 32.0,
+                      "height": 32.0,
+                      "fit": null,
+                      "repeat": null,
+                      "filterQuality": null,
+                      "semanticLabel": null,
+                      "excludeFromSemantics": null,
+                      "type": "image"
+                    },
+                    {
+                      "src": "{{appAssets.current.icons.sepah}}",
+                      "alignment": null,
+                      "imageType": "asset",
+                      "color": null,
+                      "width": 32.0,
+                      "height": 32.0,
+                      "fit": null,
+                      "repeat": null,
+                      "filterQuality": null,
+                      "semanticLabel": null,
+                      "excludeFromSemantics": null,
+                      "type": "image"
+                    },
+                    {
+                      "src": "{{appAssets.current.icons.keshavarzi}}",
+                      "alignment": null,
+                      "imageType": "asset",
+                      "color": null,
+                      "width": 32.0,
+                      "height": 32.0,
+                      "fit": null,
+                      "repeat": null,
+                      "filterQuality": null,
+                      "semanticLabel": null,
+                      "excludeFromSemantics": null,
+                      "type": "image"
+                    },
+                    {
+                      "src": "{{appAssets.current.icons.maskan}}",
+                      "alignment": null,
+                      "imageType": "asset",
+                      "color": null,
+                      "width": 32.0,
+                      "height": 32.0,
+                      "fit": null,
+                      "repeat": null,
+                      "filterQuality": null,
+                      "semanticLabel": null,
+                      "excludeFromSemantics": null,
+                      "type": "image"
+                    }
+                  ],
+                  "type": "row"
+                }
+              ],
+              "type": "column"
+            },
+            "clipBehavior": null,
+            "type": "container"
+          },
+          {
+            "width": null,
+            "height": 20.0,
+            "child": null,
+            "type": "sizedBox"
+          },
+          {
+            "child": {
+              "alignment": null,
+              "padding": {
+                "left": 16.0,
+                "top": 14.0,
+                "right": 16.0,
+                "bottom": 14.0
+              },
+              "color": null,
+              "decoration": {
+                "color": null,
+                "image": null,
+                "border": {
+                  "color": "{{appColors.current.input.borderEnabled}}",
+                  "borderStyle": null,
+                  "width": 1.0,
+                  "strokeAlign": null,
+                  "top": null,
+                  "right": null,
+                  "bottom": null,
+                  "left": null
+                },
+                "borderRadius": {
+                  "topLeft": 12.0,
+                  "topRight": 12.0,
+                  "bottomLeft": 12.0,
+                  "bottomRight": 12.0
+                },
+                "boxShadow": null,
+                "gradient": null,
+                "backgroundBlendMode": null,
+                "shape": null
+              },
+              "foregroundDecoration": null,
+              "width": null,
+              "height": null,
+              "constraints": null,
+              "margin": null,
+              "transformAlignment": null,
+              "child": {
+                "mainAxisAlignment": "center",
+                "mainAxisSize": null,
+                "crossAxisAlignment": null,
+                "textDirection": "rtl",
+                "verticalDirection": null,
+                "textBaseline": null,
+                "spacing": null,
+                "children": [
+                  {
+                    "src": "assets/icons/ic_scanner.svg",
+                    "alignment": null,
+                    "imageType": "asset",
+                    "color": "{{appColors.current.text.title}}",
+                    "width": 22.0,
+                    "height": 22.0,
+                    "fit": null,
+                    "repeat": null,
+                    "filterQuality": null,
+                    "semanticLabel": null,
+                    "excludeFromSemantics": null,
+                    "type": "image"
+                  },
+                  {
+                    "width": 8.0,
+                    "height": null,
+                    "child": null,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "data": "اسکن کارت",
+                    "children": null,
+                    "style": {
+                      "type": "custom",
+                      "inherit": null,
+                      "color": "{{appColors.current.text.title}}",
+                      "backgroundColor": null,
+                      "fontSize": 14.0,
+                      "fontWeight": "w600",
+                      "fontStyle": null,
+                      "letterSpacing": null,
+                      "wordSpacing": null,
+                      "textBaseline": null,
+                      "height": null,
+                      "leadingDistribution": null,
+                      "decoration": null,
+                      "decorationColor": null,
+                      "decorationStyle": null,
+                      "decorationThickness": null,
+                      "debugLabel": null,
+                      "fontFamily": null,
+                      "fontFamilyFallback": null,
+                      "package": null,
+                      "overflow": null
+                    },
+                    "copyWithStyle": null,
+                    "textAlign": null,
+                    "textDirection": "rtl",
+                    "softWrap": null,
+                    "overflow": null,
+                    "textScaleFactor": null,
+                    "maxLines": null,
+                    "semanticsLabel": null,
+                    "textWidthBasis": null,
+                    "selectionColor": null,
+                    "type": "text"
+                  }
+                ],
+                "type": "row"
+              },
+              "clipBehavior": null,
+              "type": "container"
+            },
+            "onTap": {
+              "actionType": "showTransferCardScanner",
+              "fieldId": "addNewCard.cardNumber"
+            },
+            "onTapDown": null,
+            "onTapUp": null,
+            "onTapCancel": null,
+            "onSecondaryTap": null,
+            "onSecondaryTapDown": null,
+            "onSecondaryTapUp": null,
+            "onSecondaryTapCancel": null,
+            "onTertiaryTapDown": null,
+            "onTertiaryTapUp": null,
+            "onTertiaryTapCancel": null,
+            "onDoubleTap": null,
+            "onDoubleTapDown": null,
+            "onDoubleTapCancel": null,
+            "onLongPress": null,
+            "onLongPressDown": null,
+            "onLongPressStart": null,
+            "onLongPressMoveUpdate": null,
+            "onLongPressUp": null,
+            "onLongPressEnd": null,
+            "onLongPressCancel": null,
+            "onSecondaryLongPress": null,
+            "onSecondaryLongPressDown": null,
+            "onSecondaryLongPressStart": null,
+            "onSecondaryLongPressMoveUpdate": null,
+            "onSecondaryLongPressUp": null,
+            "onSecondaryLongPressEnd": null,
+            "onSecondaryLongPressCancel": null,
+            "onTertiaryLongPress": null,
+            "onTertiaryLongPressDown": null,
+            "onTertiaryLongPressStart": null,
+            "onTertiaryLongPressMoveUpdate": null,
+            "onTertiaryLongPressUp": null,
+            "onTertiaryLongPressEnd": null,
+            "onTertiaryLongPressCancel": null,
+            "onVerticalDragDown": null,
+            "onVerticalDragStart": null,
+            "onVerticalDragUpdate": null,
+            "onVerticalDragEnd": null,
+            "onVerticalDragCancel": null,
+            "onHorizontalDragDown": null,
+            "onHorizontalDragStart": null,
+            "onHorizontalDragUpdate": null,
+            "onHorizontalDragEnd": null,
+            "onHorizontalDragCancel": null,
+            "onForcePressStart": null,
+            "onForcePressPeak": null,
+            "onForcePressUpdate": null,
+            "onForcePressEnd": null,
+            "onPanDown": null,
+            "onPanStart": null,
+            "onPanUpdate": null,
+            "onPanEnd": null,
+            "onPanCancel": null,
+            "onScaleStart": null,
+            "onScaleUpdate": null,
+            "onScaleEnd": null,
+            "behavior": null,
+            "excludeFromSemantics": null,
+            "dragStartBehavior": null,
+            "type": "gestureDetector"
+          },
+          {
+            "width": null,
+            "height": 24.0,
+            "child": null,
+            "type": "sizedBox"
+          },
+          {
+            "data": "شماره کارت",
+            "children": null,
+            "style": {
+              "type": "custom",
+              "inherit": null,
+              "color": "{{appColors.current.text.title}}",
+              "backgroundColor": null,
+              "fontSize": 14.0,
+              "fontWeight": "w600",
+              "fontStyle": null,
+              "letterSpacing": null,
+              "wordSpacing": null,
+              "textBaseline": null,
+              "height": null,
+              "leadingDistribution": null,
+              "decoration": null,
+              "decorationColor": null,
+              "decorationStyle": null,
+              "decorationThickness": null,
+              "debugLabel": null,
+              "fontFamily": null,
+              "fontFamilyFallback": null,
+              "package": null,
+              "overflow": null
+            },
+            "copyWithStyle": null,
+            "textAlign": "right",
+            "textDirection": "rtl",
+            "softWrap": null,
+            "overflow": null,
+            "textScaleFactor": null,
+            "maxLines": null,
+            "semanticsLabel": null,
+            "textWidthBasis": null,
+            "selectionColor": null,
+            "type": "text"
+          },
+          {
+            "width": null,
+            "height": 8.0,
+            "child": null,
+            "type": "sizedBox"
+          },
+          {
+            "type": "textFormField",
+            "id": "addNewCard.cardNumber",
+            "textDirection": "ltr",
+            "textAlign": "left",
+            "decoration": {
+              "hintText": "شماره کارت ۱۶ رقمی را وارد کنید",
+              "hintStyle": {
+                "type": "custom",
+                "fontSize": 14,
+                "color": "{{appColors.current.text.hint}}"
+              },
+              "enabledBorder": {
+                "type": "outlineInputBorder",
+                "borderSide": {
+                  "color": "{{appColors.current.input.borderEnabled}}",
+                  "width": 1
+                },
+                "borderRadius": {
+                  "all": 12
+                }
+              },
+              "focusedBorder": {
+                "type": "outlineInputBorder",
+                "borderSide": {
+                  "color": "{{appColors.current.button.primary.backgroundColor}}",
+                  "width": 1.5
+                },
+                "borderRadius": {
+                  "all": 12
+                }
+              },
+              "contentPadding": {
+                "left": 16,
+                "top": 16,
+                "right": 16,
+                "bottom": 16
+              }
+            },
+            "keyboardType": "number",
+            "maxLength": 16,
+            "validatorRules": [
+              {
+                "rule": "matches",
+                "options": {
+                  "pattern": "^\\d{16}$"
+                },
+                "message": "شماره کارت باید ۱۶ رقم باشد"
+              }
+            ],
+            "onChanged": {
+              "actionType": "validateFields",
+              "resultKey": "addNewCard.submitEnabled",
+              "fields": [
+                {
+                  "id": "addNewCard.cardNumber",
+                  "rule": "^\\d{16}$"
+                },
+                {
+                  "id": "addNewCard.expireDate",
+                  "rule": ".+"
+                },
+                {
+                  "id": "addNewCard.title",
+                  "rule": ".+"
+                }
+              ]
+            }
+          },
+          {
+            "width": null,
+            "height": 20.0,
+            "child": null,
+            "type": "sizedBox"
+          },
+          {
+            "data": "تاریخ انقضا کارت",
+            "children": null,
+            "style": {
+              "type": "custom",
+              "inherit": null,
+              "color": "{{appColors.current.text.title}}",
+              "backgroundColor": null,
+              "fontSize": 14.0,
+              "fontWeight": "w600",
+              "fontStyle": null,
+              "letterSpacing": null,
+              "wordSpacing": null,
+              "textBaseline": null,
+              "height": null,
+              "leadingDistribution": null,
+              "decoration": null,
+              "decorationColor": null,
+              "decorationStyle": null,
+              "decorationThickness": null,
+              "debugLabel": null,
+              "fontFamily": null,
+              "fontFamilyFallback": null,
+              "package": null,
+              "overflow": null
+            },
+            "copyWithStyle": null,
+            "textAlign": "right",
+            "textDirection": "rtl",
+            "softWrap": null,
+            "overflow": null,
+            "textScaleFactor": null,
+            "maxLines": null,
+            "semanticsLabel": null,
+            "textWidthBasis": null,
+            "selectionColor": null,
+            "type": "text"
+          },
+          {
+            "width": null,
+            "height": 8.0,
+            "child": null,
+            "type": "sizedBox"
+          },
+          {
+            "mainAxisAlignment": null,
+            "mainAxisSize": null,
+            "crossAxisAlignment": null,
+            "textDirection": "rtl",
+            "verticalDirection": null,
+            "textBaseline": null,
+            "spacing": null,
+            "children": [
+              {
+                "flex": null,
+                "child": {
+                  "type": "textFormField",
+                  "id": "addNewCard.expireYear",
+                  "textDirection": "rtl",
+                  "textAlign": "center",
+                  "decoration": {
+                    "hintText": "سال",
+                    "hintStyle": {
+                      "type": "custom",
+                      "fontSize": 14,
+                      "fontWeight": "w500",
+                      "color": "{{appColors.current.text.hint}}"
+                    },
+                    "enabledBorder": {
+                      "type": "outlineInputBorder",
+                      "borderSide": {
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "width": 1
+                      },
+                      "borderRadius": {
+                        "all": 12
+                      }
+                    },
+                    "focusedBorder": {
+                      "type": "outlineInputBorder",
+                      "borderSide": {
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "width": 1
+                      },
+                      "borderRadius": {
+                        "all": 12
+                      }
+                    },
+                    "contentPadding": {
+                      "left": 16,
+                      "top": 16,
+                      "right": 16,
+                      "bottom": 16
+                    }
+                  },
+                  "onTap": {
+                    "actionType": "showCardExpireSelectBottomSheet",
+                    "formFieldId": "addNewCard.expireDate",
+                    "yearFieldId": "addNewCard.expireYear",
+                    "monthFieldId": "addNewCard.expireMonth",
+                    "title": "تاریخ انقضای کارت را انتخاب نمایید",
+                    "monthTitle": "ماه",
+                    "yearTitle": "سال",
+                    "confirmText": "تایید",
+                    "onSelectedAction": {
+                      "actionType": "validateFields",
+                      "resultKey": "addNewCard.submitEnabled",
+                      "fields": [
+                        {
+                          "id": "addNewCard.cardNumber",
+                          "rule": "^\\d{16}$"
+                        },
+                        {
+                          "id": "addNewCard.expireDate",
+                          "rule": ".+"
+                        },
+                        {
+                          "id": "addNewCard.title",
+                          "rule": ".+"
+                        }
+                      ]
+                    }
+                  },
+                  "readOnly": true
+                },
+                "type": "expanded"
+              },
+              {
+                "width": 12.0,
+                "height": null,
+                "child": null,
+                "type": "sizedBox"
+              },
+              {
+                "flex": null,
+                "child": {
+                  "type": "textFormField",
+                  "id": "addNewCard.expireMonth",
+                  "textDirection": "rtl",
+                  "textAlign": "center",
+                  "decoration": {
+                    "hintText": "ماه",
+                    "hintStyle": {
+                      "type": "custom",
+                      "fontSize": 14,
+                      "fontWeight": "w500",
+                      "color": "{{appColors.current.text.hint}}"
+                    },
+                    "enabledBorder": {
+                      "type": "outlineInputBorder",
+                      "borderSide": {
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "width": 1
+                      },
+                      "borderRadius": {
+                        "all": 12
+                      }
+                    },
+                    "focusedBorder": {
+                      "type": "outlineInputBorder",
+                      "borderSide": {
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "width": 1
+                      },
+                      "borderRadius": {
+                        "all": 12
+                      }
+                    },
+                    "contentPadding": {
+                      "left": 16,
+                      "top": 16,
+                      "right": 16,
+                      "bottom": 16
+                    }
+                  },
+                  "onTap": {
+                    "actionType": "showCardExpireSelectBottomSheet",
+                    "formFieldId": "addNewCard.expireDate",
+                    "yearFieldId": "addNewCard.expireYear",
+                    "monthFieldId": "addNewCard.expireMonth",
+                    "title": "تاریخ انقضای کارت را انتخاب نمایید",
+                    "monthTitle": "ماه",
+                    "yearTitle": "سال",
+                    "confirmText": "تایید",
+                    "onSelectedAction": {
+                      "actionType": "validateFields",
+                      "resultKey": "addNewCard.submitEnabled",
+                      "fields": [
+                        {
+                          "id": "addNewCard.cardNumber",
+                          "rule": "^\\d{16}$"
+                        },
+                        {
+                          "id": "addNewCard.expireDate",
+                          "rule": ".+"
+                        },
+                        {
+                          "id": "addNewCard.title",
+                          "rule": ".+"
+                        }
+                      ]
+                    }
+                  },
+                  "readOnly": true
+                },
+                "type": "expanded"
+              }
+            ],
+            "type": "row"
+          },
+          {
+            "width": null,
+            "height": 0.0,
+            "child": {
+              "type": "textFormField",
+              "id": "addNewCard.expireDate",
+              "textDirection": "ltr",
+              "textAlign": "center",
+              "decoration": {
+                "enabledBorder": {
+                  "type": "outlineInputBorder",
+                  "borderSide": {
+                    "color": "#00000000",
+                    "width": 0
+                  },
+                  "borderRadius": {
+                    "all": 0
+                  }
+                },
+                "focusedBorder": {
+                  "type": "outlineInputBorder",
+                  "borderSide": {
+                    "color": "#00000000",
+                    "width": 0
+                  },
+                  "borderRadius": {
+                    "all": 0
+                  }
+                },
+                "contentPadding": {
+                  "left": 0,
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0
+                }
+              },
+              "onChanged": {
+                "actionType": "validateFields",
+                "resultKey": "addNewCard.submitEnabled",
+                "fields": [
+                  {
+                    "id": "addNewCard.cardNumber",
+                    "rule": "^\\d{16}$"
+                  },
+                  {
+                    "id": "addNewCard.expireDate",
+                    "rule": ".+"
+                  },
+                  {
+                    "id": "addNewCard.title",
+                    "rule": ".+"
+                  }
+                ]
+              },
+              "readOnly": true
+            },
+            "type": "sizedBox"
+          },
+          {
+            "width": null,
+            "height": 20.0,
+            "child": null,
+            "type": "sizedBox"
+          },
+          {
+            "data": "عنوان کارت",
+            "children": null,
+            "style": {
+              "type": "custom",
+              "inherit": null,
+              "color": "{{appColors.current.text.title}}",
+              "backgroundColor": null,
+              "fontSize": 14.0,
+              "fontWeight": "w600",
+              "fontStyle": null,
+              "letterSpacing": null,
+              "wordSpacing": null,
+              "textBaseline": null,
+              "height": null,
+              "leadingDistribution": null,
+              "decoration": null,
+              "decorationColor": null,
+              "decorationStyle": null,
+              "decorationThickness": null,
+              "debugLabel": null,
+              "fontFamily": null,
+              "fontFamilyFallback": null,
+              "package": null,
+              "overflow": null
+            },
+            "copyWithStyle": null,
+            "textAlign": "right",
+            "textDirection": "rtl",
+            "softWrap": null,
+            "overflow": null,
+            "textScaleFactor": null,
+            "maxLines": null,
+            "semanticsLabel": null,
+            "textWidthBasis": null,
+            "selectionColor": null,
+            "type": "text"
+          },
+          {
+            "width": null,
+            "height": 8.0,
+            "child": null,
+            "type": "sizedBox"
+          },
+          {
+            "type": "textFormField",
+            "id": "addNewCard.title",
+            "textDirection": "rtl",
+            "textAlign": "right",
+            "decoration": {
+              "hintText": "عنوان دلخواه برای کارت وارد کنید",
+              "hintStyle": {
+                "type": "custom",
+                "fontSize": 14,
+                "color": "{{appColors.current.text.hint}}"
+              },
+              "enabledBorder": {
+                "type": "outlineInputBorder",
+                "borderSide": {
+                  "color": "{{appColors.current.input.borderEnabled}}",
+                  "width": 1
+                },
+                "borderRadius": {
+                  "all": 12
+                }
+              },
+              "focusedBorder": {
+                "type": "outlineInputBorder",
+                "borderSide": {
+                  "color": "{{appColors.current.button.primary.backgroundColor}}",
+                  "width": 1.5
+                },
+                "borderRadius": {
+                  "all": 12
+                }
+              },
+              "contentPadding": {
+                "left": 16,
+                "top": 16,
+                "right": 16,
+                "bottom": 16
+              }
+            },
+            "validatorRules": [
+              {
+                "rule": "matches",
+                "options": {
+                  "pattern": ".+"
+                },
+                "message": "عنوان کارت نمی‌تواند خالی باشد"
+              }
+            ],
+            "onChanged": {
+              "actionType": "validateFields",
+              "resultKey": "addNewCard.submitEnabled",
+              "fields": [
+                {
+                  "id": "addNewCard.cardNumber",
+                  "rule": "^\\d{16}$"
+                },
+                {
+                  "id": "addNewCard.expireDate",
+                  "rule": ".+"
+                },
+                {
+                  "id": "addNewCard.title",
+                  "rule": ".+"
+                }
+              ]
+            }
+          },
+          {
+            "width": null,
+            "height": 24.0,
+            "child": null,
+            "type": "sizedBox"
+          },
+          {
+            "type": "reactiveElevatedButton",
+            "enabledKey": "addNewCard.submitEnabled",
+            "onPressed": {
+              "actionType": "sequence",
+              "actions": [
+                {
+                  "actionType": "customSnackBar",
+                  "backgroundColor": "#00000000",
+                  "duration": 3000,
+                  "permanent": false,
+                  "permenent": false,
+                  "child": {
+                    "type": "container",
+                    "decoration": {
+                      "color": "{{appColors.current.background.surfaceContainer}}",
+                      "borderRadius": {
+                        "topLeft": 8,
+                        "topRight": 8,
+                        "bottomLeft": 8,
+                        "bottomRight": 8
+                      },
+                      "border": {
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "width": 1
+                      }
+                    },
+                    "padding": {
+                      "left": 12,
+                      "top": 10,
+                      "right": 12,
+                      "bottom": 10
+                    },
+                    "child": {
+                      "type": "row",
+                      "textDirection": "ltr",
+                      "crossAxisAlignment": "center",
+                      "children": [
+                        {
+                          "type": "expanded",
+                          "child": {
+                            "type": "column",
+                            "mainAxisSize": "min",
+                            "crossAxisAlignment": "end",
+                            "children": [
+                              {
+                                "type": "text",
+                                "data": "ثبت شد",
+                                "textDirection": "rtl",
+                                "textAlign": "right",
+                                "style": {
+                                  "type": "custom",
+                                  "fontSize": 14,
+                                  "fontWeight": "w700",
+                                  "color": "{{appColors.current.text.title}}",
+                                  "height": 1.45
+                                }
+                              },
+                              {
+                                "type": "sizedBox",
+                                "height": 4
+                              },
+                              {
+                                "type": "text",
+                                "data": "کارت جدید با موفقیت اضافه شد.",
+                                "textDirection": "rtl",
+                                "textAlign": "right",
+                                "style": {
+                                  "type": "custom",
+                                  "fontSize": 13,
+                                  "fontWeight": "w500",
+                                  "color": "{{appColors.current.text.subtitle}}",
+                                  "height": 1.45
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "type": "sizedBox",
+                          "width": 10
+                        },
+                        {
+                          "type": "container",
+                          "width": 1,
+                          "height": 20,
+                          "decoration": {
+                            "color": "{{appColors.current.input.borderEnabled}}",
+                            "borderRadius": {
+                              "topLeft": 999,
+                              "topRight": 999,
+                              "bottomLeft": 999,
+                              "bottomRight": 999
+                            }
+                          }
+                        },
+                        {
+                          "type": "sizedBox",
+                          "width": 8
+                        },
+                        {
+                          "type": "image",
+                          "src": "assets/icons/ic_info.svg",
+                          "imageType": "asset",
+                          "width": 20,
+                          "height": 20,
+                          "color": "{{appColors.current.text.subtitle}}"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "request": null,
+                  "widgetJson": null,
+                  "assetPath": null,
+                  "routeName": null,
+                  "navigationStyle": "pop",
+                  "result": null,
+                  "arguments": null,
+                  "actionType": "navigate"
+                }
+              ]
+            },
+            "style": {
+              "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+              "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+              "disabledForegroundColor": null,
+              "disabledBackgroundColor": null,
+              "shadowColor": null,
+              "surfaceTintColor": null,
+              "iconColor": null,
+              "iconSize": null,
+              "iconAlignment": null,
+              "disabledIconColor": null,
+              "overlayColor": null,
+              "elevation": null,
+              "textStyle": null,
+              "padding": {
+                "left": null,
+                "top": 8.0,
+                "right": null,
+                "bottom": 8.0
+              },
+              "minimumSize": {
+                "width": 0.0,
+                "height": 56.0
+              },
+              "fixedSize": null,
+              "maximumSize": null,
+              "side": null,
+              "shape": {
+                "side": null,
+                "type": "roundedRectangleBorder",
+                "borderRadius": {
+                  "topLeft": 8.0,
+                  "topRight": 8.0,
+                  "bottomLeft": 8.0,
+                  "bottomRight": 8.0
+                }
+              },
+              "enableFeedback": null,
+              "alignment": null,
+              "tapTargetSize": null,
+              "animationDuration": null,
+              "enabledMouseCursor": null,
+              "disabledMouseCursor": null,
+              "visualDensity": null
+            },
+            "disabledStyle": {
+              "foregroundColor": "{{appColors.current.text.subtitle}}",
+              "backgroundColor": "{{appColors.current.input.borderEnabled}}",
+              "disabledForegroundColor": null,
+              "disabledBackgroundColor": null,
+              "shadowColor": null,
+              "surfaceTintColor": null,
+              "iconColor": null,
+              "iconSize": null,
+              "iconAlignment": null,
+              "disabledIconColor": null,
+              "overlayColor": null,
+              "elevation": null,
+              "textStyle": null,
+              "padding": {
+                "left": null,
+                "top": 8.0,
+                "right": null,
+                "bottom": 8.0
+              },
+              "minimumSize": {
+                "width": 0.0,
+                "height": 56.0
+              },
+              "fixedSize": null,
+              "maximumSize": null,
+              "side": null,
+              "shape": {
+                "side": null,
+                "type": "roundedRectangleBorder",
+                "borderRadius": {
+                  "topLeft": 8.0,
+                  "topRight": 8.0,
+                  "bottomLeft": 8.0,
+                  "bottomRight": 8.0
+                }
+              },
+              "enableFeedback": null,
+              "alignment": null,
+              "tapTargetSize": null,
+              "animationDuration": null,
+              "enabledMouseCursor": null,
+              "disabledMouseCursor": null,
+              "visualDensity": null
+            },
+            "child": {
+              "data": "ثبت کارت",
+              "children": null,
+              "style": {
+                "type": "custom",
+                "inherit": null,
+                "color": null,
+                "backgroundColor": null,
+                "fontSize": 14.0,
+                "fontWeight": "w700",
+                "fontStyle": null,
+                "letterSpacing": null,
+                "wordSpacing": null,
+                "textBaseline": null,
+                "height": null,
+                "leadingDistribution": null,
+                "decoration": null,
+                "decorationColor": null,
+                "decorationStyle": null,
+                "decorationThickness": null,
+                "debugLabel": null,
+                "fontFamily": null,
+                "fontFamilyFallback": null,
+                "package": null,
+                "overflow": null
+              },
+              "copyWithStyle": null,
+              "textAlign": null,
+              "textDirection": "rtl",
+              "softWrap": null,
+              "overflow": null,
+              "textScaleFactor": null,
+              "maxLines": null,
+              "semanticsLabel": null,
+              "textWidthBasis": null,
+              "selectionColor": null,
+              "type": "text"
+            }
+          }
+        ],
+        "type": "column"
+      },
+      "dragStartBehavior": null,
+      "clipBehavior": null,
+      "restorationId": null,
+      "keyboardDismissBehavior": null,
+      "type": "singleChildScrollView"
+    },
+    "type": "form"
+  },
+  "bottomNavigationBar": null,
+  "bottomSheet": null,
+  "drawer": null,
+  "drawerDragStartBehavior": null,
+  "drawerEdgeDragWidth": null,
+  "drawerEnableOpenDragGesture": null,
+  "drawerScrimColor": null,
+  "endDrawer": null,
+  "endDrawerEnableOpenDragGesture": null,
+  "extendBody": null,
+  "extendBodyBehindAppBar": null,
+  "floatingActionButton": null,
+  "floatingActionButtonLocation": null,
+  "onDrawerChanged": null,
+  "onEndDrawerChanged": null,
+  "persistentFooterAlignment": null,
+  "persistentFooterButtons": null,
+  "primary": null,
+  "resizeToAvoidBottomInset": null,
+  "restorationId": null,
+  "type": "scaffold"
+}

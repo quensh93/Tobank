@@ -1,4 +1,5 @@
 ﻿import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
@@ -46,7 +47,7 @@ StacWidget promissoryRealSign() {
         // Real API call to get PDF base64
         StacNetworkRequestAction(
           url:
-              'http://192.168.107.22:8280/api/digitalbanking/files/v1.0/{{form.unsigned_pdf_id}}/download/base64',
+              SduiConfig.bizUrl('files/v1.0/{{form.unsigned_pdf_id}}/download/base64'),
           method: 'get',
           headers: {
             'accept': 'application/json',
@@ -290,7 +291,7 @@ StacWidget _buildSignButton() {
                               {
                                 'actionType': 'networkRequest',
                                 'url':
-                                    'http://192.168.107.22:8280/api/digitalbanking/files/v1.0/promissory/upload/base64',
+                                    SduiConfig.bizUrl('files/v1.0/promissory/upload/base64'),
                                 'method': 'post',
                                 'headers': {
                                   'accept': '*/*',
@@ -317,7 +318,7 @@ StacWidget _buildSignButton() {
                                         {
                                           'actionType': 'networkRequest',
                                           'url':
-                                              'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/finalize/{{form.promissory_id}}',
+                                              SduiConfig.bizUrl('collateral/v1.0/promissories/finalize/{{form.promissory_id}}'),
                                           'method': 'post',
                                           'headers': {
                                             'accept': '*/*',

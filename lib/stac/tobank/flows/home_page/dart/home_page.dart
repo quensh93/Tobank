@@ -883,27 +883,34 @@ StacWidget _buildCardsFixedAddButtonOverlay() {
 }
 
 StacWidget _buildCardsAddButton() {
-  return StacContainer(
-    width: 56,
-    height: 56,
-    decoration: StacBoxDecoration(
-      color: '#FFFFFF',
-      borderRadius: StacBorderRadius.all(40),
-      boxShadow: [
-        StacBoxShadow(
-          color: '#1F101828',
-          blurRadius: 18,
-          offset: StacOffset(dx: 0, dy: 8),
-        ),
-      ],
-    ),
-    alignment: StacAlignment.center,
-    child: StacImage(
-      src: '{{appAssets.current.icons.addPlus}}',
-      imageType: StacImageType.asset,
-      width: 24,
-      height: 24,
-      color: '{{appColors.current.primary.color}}',
+  return StacGestureDetector(
+    onTap: StacRawJsonAction({
+      'actionType': 'navigate',
+      'widgetType': 'dashboard_add_new_card',
+      'navigationStyle': 'push',
+    }),
+    child: StacContainer(
+      width: 56,
+      height: 56,
+      decoration: StacBoxDecoration(
+        color: '#FFFFFF',
+        borderRadius: StacBorderRadius.all(40),
+        boxShadow: [
+          StacBoxShadow(
+            color: '#1F101828',
+            blurRadius: 18,
+            offset: StacOffset(dx: 0, dy: 8),
+          ),
+        ],
+      ),
+      alignment: StacAlignment.center,
+      child: StacImage(
+        src: '{{appAssets.current.icons.addPlus}}',
+        imageType: StacImageType.asset,
+        width: 24,
+        height: 24,
+        color: '{{appColors.current.primary.color}}',
+      ),
     ),
   );
 }
@@ -1030,10 +1037,75 @@ StacWidget _buildUnauthenticatedDepositsState() {
   );
 }
 
+StacWidget _buildAuthCardPage() {
+  return StacContainer(
+    height: 258,
+    child: StacCard(
+      color: '{{appColors.current.background.surfaceContainerLowest}}',
+      elevation: 0,
+      margin: StacEdgeInsets.all(0),
+      shape: StacRoundedRectangleBorder(
+        borderRadius: StacBorderRadius.all(8),
+        side: StacBorderSide(
+          color: '{{appColors.current.input.borderEnabled}}',
+          width: 0.5,
+        ),
+      ),
+      child: StacPadding(
+        padding: StacEdgeInsets.all(12),
+        child: StacColumn(
+          mainAxisAlignment: StacMainAxisAlignment.spaceAround,
+          crossAxisAlignment: StacCrossAxisAlignment.stretch,
+          children: [
+            StacText(
+              data:
+                  'کاربر گرامی، برای فعال سازی خدمات مرتبط با سپرده‌های بانک گردشگری، لطفا فرآیند احراز هویت را تکمیل نمایید.',
+              textDirection: StacTextDirection.rtl,
+              textAlign: StacTextAlign.center,
+              style: StacCustomTextStyle(
+                fontSize: 14,
+                fontWeight: StacFontWeight.w500,
+                color: '{{appColors.current.text.title}}',
+                height: 1.6,
+              ),
+            ),
+            StacFilledButton(
+              onPressed: const StacNavigateAction(
+                routeName: 'verify_identity_intro',
+                navigationStyle: NavigationStyle.push,
+              ),
+              style: StacButtonStyle(
+                backgroundColor:
+                    '{{appColors.current.button.primary.backgroundColor}}',
+                foregroundColor:
+                    '{{appColors.current.button.primary.foregroundColor}}',
+                minimumSize: const StacSize(0, 56),
+                padding: StacEdgeInsets.symmetric(vertical: 8),
+                shape: StacRoundedRectangleBorder(
+                  borderRadius: StacBorderRadius.all(8),
+                ),
+              ),
+              child: StacText(
+                data: 'احراز هویت',
+                textDirection: StacTextDirection.rtl,
+                style: StacCustomTextStyle(
+                  fontSize: 16,
+                  fontWeight: StacFontWeight.w700,
+                ),
+              ),
+            ),
+            _buildDisabledQuickActionsRow(),
+          ],
+        ),
+      ),
+    ),
+  );
+}
+
 StacWidget _buildAuthenticatedDepositsState() {
   return StacTobankCardsCarousel(
     height: 268,
-    initialPage: 3,
+    initialPage: 4,
     indicatorTopSpacing: 16,
     indicatorActiveColor: '#E31A2F',
     indicatorInactiveColor: '#D0D5DD',
@@ -1053,6 +1125,7 @@ StacWidget _buildAuthenticatedDepositsState() {
         accountNumber: '110.79.1755809.1',
         accountTitle: 'حساب قرض الحسنه جاری حقیقی توبانک',
       ).toJson(),
+      _buildAuthCardPage().toJson(),
     ],
   );
 }
@@ -1405,6 +1478,73 @@ StacWidget _buildQuickAction({
         ),
       ],
     ),
+  );
+}
+
+StacWidget _buildDisabledQuickActionsRow() {
+  return StacCustomOpacity(
+    opacity: 0.4,
+    child: StacPadding(
+      padding: StacEdgeInsets.only(left: 16, right: 4),
+      child: StacRow(
+        mainAxisAlignment: StacMainAxisAlignment.spaceAround,
+        textDirection: StacTextDirection.rtl,
+        children: [
+          _buildDisabledQuickAction(
+            label: 'گردش سپرده',
+            iconPath: '{{appAssets.current.icons.shareDeposit}}',
+          ),
+          _buildDisabledQuickAction(
+            label: 'انتقال وجه',
+            iconPath: '{{appAssets.current.icons.transferAmount}}',
+          ),
+          _buildDisabledQuickAction(
+            label: 'بیشتر',
+            iconPath: '{{appAssets.current.icons.more}}',
+          ),
+        ],
+      ),
+    ).toJson(),
+  );
+}
+
+StacWidget _buildDisabledQuickAction({
+  required String label,
+  required String iconPath,
+}) {
+  return StacColumn(
+    children: [
+      StacContainer(
+        width: 44,
+        height: 44,
+        decoration: StacBoxDecoration(
+          color: '{{appColors.current.background.surfaceContainerLowest}}',
+          borderRadius: StacBorderRadius.all(8),
+          border: StacBorder.all(
+            color: '{{appColors.current.input.borderEnabled}}',
+            width: 0.5,
+          ),
+        ),
+        alignment: StacAlignment.center,
+        child: StacImage(
+          src: iconPath,
+          imageType: StacImageType.asset,
+          width: 28,
+          height: 28,
+        ),
+      ),
+      StacSizedBox(height: 8),
+      StacText(
+        data: label,
+        textDirection: StacTextDirection.rtl,
+        textAlign: StacTextAlign.center,
+        style: StacCustomTextStyle(
+          fontSize: 14,
+          fontWeight: StacFontWeight.w500,
+          color: '{{appColors.current.text.subtitle}}',
+        ),
+      ),
+    ],
   );
 }
 

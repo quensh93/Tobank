@@ -1402,7 +1402,7 @@
                                                 },
                                                 {
                                                   "actionType": "navigate",
-                                                  "widgetType": "dashboard_card_edit",
+                                                  "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_card_edit.json",
                                                   "navigationStyle": "push"
                                                 }
                                               ]
@@ -1654,7 +1654,7 @@
                                                         },
                                                         {
                                                           "actionType": "navigate",
-                                                          "widgetType": "dashboard_cards_management",
+                                                          "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
                                                           "navigationStyle": "pushAndRemoveAll"
                                                         },
                                                         {
@@ -3762,7 +3762,7 @@
                                                 },
                                                 {
                                                   "actionType": "navigate",
-                                                  "widgetType": "dashboard_card_edit",
+                                                  "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_card_edit.json",
                                                   "navigationStyle": "push"
                                                 }
                                               ]
@@ -4014,7 +4014,7 @@
                                                         },
                                                         {
                                                           "actionType": "navigate",
-                                                          "widgetType": "dashboard_cards_management",
+                                                          "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
                                                           "navigationStyle": "pushAndRemoveAll"
                                                         },
                                                         {
@@ -6381,7 +6381,7 @@
                                                 },
                                                 {
                                                   "actionType": "navigate",
-                                                  "widgetType": "dashboard_card_edit",
+                                                  "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_card_edit.json",
                                                   "navigationStyle": "push"
                                                 }
                                               ]
@@ -6633,7 +6633,7 @@
                                                         },
                                                         {
                                                           "actionType": "navigate",
-                                                          "widgetType": "dashboard_cards_management",
+                                                          "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
                                                           "navigationStyle": "pushAndRemoveAll"
                                                         },
                                                         {
@@ -8741,7 +8741,7 @@
                                                 },
                                                 {
                                                   "actionType": "navigate",
-                                                  "widgetType": "dashboard_card_edit",
+                                                  "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_card_edit.json",
                                                   "navigationStyle": "push"
                                                 }
                                               ]
@@ -8993,7 +8993,7 @@
                                                         },
                                                         {
                                                           "actionType": "navigate",
-                                                          "widgetType": "dashboard_cards_management",
+                                                          "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
                                                           "navigationStyle": "pushAndRemoveAll"
                                                         },
                                                         {
@@ -11954,7 +11954,7 @@
                                                                 },
                                                                 {
                                                                   "actionType": "navigate",
-                                                                  "widgetType": "dashboard_wallet_transfer_receipt",
+                                                                  "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_wallet_transfer_receipt.json",
                                                                   "navigationStyle": "push"
                                                                 }
                                                               ]
@@ -16040,7 +16040,7 @@
                                                     },
                                                     {
                                                       "actionType": "navigate",
-                                                      "widgetType": "dashboard_secondary_pin_get",
+                                                      "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_secondary_pin_get.json",
                                                       "navigationStyle": "push"
                                                     }
                                                   ]
@@ -16147,7 +16147,7 @@
                                                       },
                                                       {
                                                         "actionType": "navigate",
-                                                        "widgetType": "dashboard_secondary_pin_change",
+                                                        "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_secondary_pin_change.json",
                                                         "navigationStyle": "push"
                                                       }
                                                     ]
@@ -17502,7 +17502,7 @@
                                                     },
                                                     {
                                                       "actionType": "navigate",
-                                                      "widgetType": "dashboard_primary_pin_get",
+                                                      "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_primary_pin_get.json",
                                                       "navigationStyle": "push"
                                                     }
                                                   ]
@@ -17609,7 +17609,7 @@
                                                       },
                                                       {
                                                         "actionType": "navigate",
-                                                        "widgetType": "dashboard_primary_pin_change",
+                                                        "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_primary_pin_change.json",
                                                         "navigationStyle": "push"
                                                       }
                                                     ]
@@ -19122,7 +19122,7 @@
                                                   },
                                                   {
                                                     "actionType": "navigate",
-                                                    "widgetType": "dashboard_cards_management",
+                                                    "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_cards_management.json",
                                                     "navigationStyle": "pushAndRemoveAll"
                                                   },
                                                   {
@@ -20255,7 +20255,7 @@
                                               },
                                               {
                                                 "actionType": "navigate",
-                                                "widgetType": "dashboard_card_reissue_request",
+                                                "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_card_reissue_request.json",
                                                 "navigationStyle": "push"
                                               }
                                             ]
@@ -21728,7 +21728,7 @@
                                               },
                                               {
                                                 "actionType": "navigate",
-                                                "widgetType": "dashboard_card_reissue_request",
+                                                "assetPath": "lib/stac/tobank/flows/dashboard/json/dashboard_card_reissue_request.json",
                                                 "navigationStyle": "push"
                                               }
                                             ]

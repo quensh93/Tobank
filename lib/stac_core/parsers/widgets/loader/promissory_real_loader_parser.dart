@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
 import 'package:tobank_sdui/core/api/config_api/config_api.dart';
 import 'package:tobank_sdui/core/helpers/logger.dart';
+import 'package:tobank_sdui/stac_core/loaders/tobank_assets_loader.dart';
+import 'package:tobank_sdui/stac_core/loaders/tobank_colors_loader.dart';
+import 'package:tobank_sdui/stac_core/loaders/tobank_strings_loader.dart';
+import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
+import 'package:tobank_sdui/stac_core/mock/stac_mock_dio_setup.dart';
 
 class PromissoryRealLoaderParser extends StacParser<Map<String, dynamic>> {
   const PromissoryRealLoaderParser();
@@ -50,8 +55,56 @@ class _PromissoryRealLoaderScreenState
 
   @override
   void dispose() {
+    // Auto-revert the 3 design configs back to LOCAL so any screen we pop
+    // back to renders with local strings/colors/assets again.
+    _revertConfigsToLocal();
     _configApiService.dispose();
     super.dispose();
+  }
+
+  /// Reload strings/colors/assets from the LOCAL mock source.
+  ///
+  /// Fire-and-forget: dispose() cannot await. A fresh mock Dio is cheap.
+  void _revertConfigsToLocal() {
+    final mockDio = setupStacMockDio();
+    () async {
+      try {
+        await TobankColorsLoader.loadColors(mockDio, forceReload: true);
+        await TobankStringsLoader.loadStrings(mockDio, forceReload: true);
+        await TobankAssetsLoader.loadAssets(mockDio, forceReload: true);
+        AppLogger.ic(
+          LogCategory.network,
+          'Reverted 3 design configs to LOCAL after leaving API flow',
+        );
+      } catch (e) {
+        AppLogger.e('Failed to revert configs to local: $e');
+      } finally {
+        mockDio.close();
+      }
+    }();
+  }
+
+  /// Load the 3 design configs (strings/colors/assets) from the REAL backend.
+  ///
+  /// Colors first (other configs may reference theme). Rethrows on failure so
+  /// the caller can surface the block + retry UI.
+  Future<void> _loadRealConfigs() async {
+    await TobankColorsLoader.loadColorsFromBackend(
+      _configApiService,
+      forceReload: true,
+    );
+    await TobankStringsLoader.loadStringsFromBackend(
+      _configApiService,
+      forceReload: true,
+    );
+    await TobankAssetsLoader.loadAssetsFromBackend(
+      _configApiService,
+      forceReload: true,
+    );
+    AppLogger.ic(
+      LogCategory.network,
+      'Loaded 3 design configs from REAL backend for API flow',
+    );
   }
 
   /// Fetch SDUI configuration from the API
@@ -62,9 +115,13 @@ class _PromissoryRealLoaderScreenState
     });
 
     try {
+      // API mode: swap the 3 design configs to the REAL backend first.
+      // Any failure here drops into the error/retry branch below.
+      await _loadRealConfigs();
+
       final sduiJson = await _configApiService.fetchSduiConfig(
-        pathKey: 'ipaam.builder.form.form.login_real_splash',
-        build: 1,
+        pathKey: SduiConfig.loginRealSplash,
+        build: SduiConfig.configBuild,
       );
 
       AppLogger.ic(LogCategory.network, 'SDUI config fetched successfully');

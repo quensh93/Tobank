@@ -1,5 +1,6 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 
 /// Deposit More Flow - Debug Menu
 @StacScreen(screenName: 'deposit_more_menu')
@@ -47,8 +48,7 @@ StacWidget depositMoreMenu() {
               'actionType': 'navigate',
               'navigationStyle': 'push',
               'request': {
-                'url':
-                    'http://192.168.179.21:8101/api/configurations/v1.0/configs/resolve/ipaam.builder.form.form.deposit_more_intro/1',
+                'url': SduiConfig.resolveUrl('deposit_more_intro'),
                 'method': 'post',
                 'headers': {
                   'Content-Type': 'application/json',

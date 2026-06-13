@@ -1,4 +1,5 @@
 ﻿import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/format/format_number_action.dart';
@@ -499,7 +500,7 @@ StacWidget _buildPaymentButtons() {
                               const StacCloseDialogAction(),
                               StacNetworkRequestAction(
                                 url:
-                                    'http://192.168.107.22:8280/api/digitalbanking/collateral/v1.0/promissories/draft',
+                                    SduiConfig.bizUrl('collateral/v1.0/promissories/draft'),
                                 method: 'post',
                                 headers: {
                                   'accept': 'application/json',

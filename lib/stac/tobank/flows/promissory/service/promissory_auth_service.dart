@@ -7,10 +7,10 @@ import 'package:ispectify_dio/ispectify_dio.dart';
 import 'package:tobank_sdui/core/api/auth/auth_manager.dart';
 import 'package:tobank_sdui/core/config/ispect_config.dart';
 import 'package:tobank_sdui/core/helpers/logger.dart';
+import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 
 class PromissoryRealAuthService {
-  static const String _url =
-      'http://192.168.107.22:8280/api/digitalbanking/logins/v1.0/tobank/users';
+  static final String _url = SduiConfig.bizUrl('logins/v1.0/tobank/users');
   static const Map<String, String> _headers = {
     'accept': '*/*',
     'app-platform': 'android',

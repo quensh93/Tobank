@@ -8917,10 +8917,265 @@
                                                 "type": "padding"
                                               },
                                               "type": "card"
+                                            },
+                                            {
+                                              "height": 258.0,
+                                              "child": {
+                                                "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                                "elevation": 0.0,
+                                                "shape": {
+                                                  "side": {
+                                                    "color": "{{appColors.current.input.borderEnabled}}",
+                                                    "width": 0.5
+                                                  },
+                                                  "type": "roundedRectangleBorder",
+                                                  "borderRadius": {
+                                                    "topLeft": 8.0,
+                                                    "topRight": 8.0,
+                                                    "bottomLeft": 8.0,
+                                                    "bottomRight": 8.0
+                                                  }
+                                                },
+                                                "margin": {
+                                                  "left": 0.0,
+                                                  "top": 0.0,
+                                                  "right": 0.0,
+                                                  "bottom": 0.0
+                                                },
+                                                "child": {
+                                                  "padding": {
+                                                    "left": 12.0,
+                                                    "top": 12.0,
+                                                    "right": 12.0,
+                                                    "bottom": 12.0
+                                                  },
+                                                  "child": {
+                                                    "mainAxisAlignment": "spaceAround",
+                                                    "crossAxisAlignment": "stretch",
+                                                    "children": [
+                                                      {
+                                                        "data": "\u06a9\u0627\u0631\u0628\u0631 \u06af\u0631\u0627\u0645\u06cc\u060c \u0628\u0631\u0627\u06cc \u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u062e\u062f\u0645\u0627\u062a \u0645\u0631\u062a\u0628\u0637 \u0628\u0627 \u0633\u067e\u0631\u062f\u0647\u200c\u0647\u0627\u06cc \u0628\u0627\u0646\u06a9 \u06af\u0631\u062f\u0634\u06af\u0631\u06cc\u060c \u0644\u0637\u0641\u0627 \u0641\u0631\u0622\u06cc\u0646\u062f \u0627\u062d\u0631\u0627\u0632 \u0647\u0648\u06cc\u062a \u0631\u0627 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0645\u0627\u06cc\u06cc\u062f.",
+                                                        "style": {
+                                                          "type": "custom",
+                                                          "color": "{{appColors.current.text.title}}",
+                                                          "fontSize": 14.0,
+                                                          "fontWeight": "w500",
+                                                          "height": 1.6
+                                                        },
+                                                        "textDirection": "rtl",
+                                                        "textAlign": "center",
+                                                        "type": "text"
+                                                      },
+                                                      {
+                                                        "onPressed": {
+                                                          "actionType": "navigate",
+                                                          "routeName": "verify_identity_intro",
+                                                          "navigationStyle": "push"
+                                                        },
+                                                        "style": {
+                                                          "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",
+                                                          "backgroundColor": "{{appColors.current.button.primary.backgroundColor}}",
+                                                          "minimumSize": {
+                                                            "width": 0.0,
+                                                            "height": 56.0
+                                                          },
+                                                          "padding": {
+                                                            "top": 8.0,
+                                                            "bottom": 8.0
+                                                          },
+                                                          "shape": {
+                                                            "type": "roundedRectangleBorder",
+                                                            "borderRadius": {
+                                                              "topLeft": 8.0,
+                                                              "topRight": 8.0,
+                                                              "bottomLeft": 8.0,
+                                                              "bottomRight": 8.0
+                                                            }
+                                                          }
+                                                        },
+                                                        "child": {
+                                                          "data": "\u0627\u062d\u0631\u0627\u0632 \u0647\u0648\u06cc\u062a",
+                                                          "style": {
+                                                            "type": "custom",
+                                                            "fontSize": 16.0,
+                                                            "fontWeight": "w700"
+                                                          },
+                                                          "textDirection": "rtl",
+                                                          "type": "text"
+                                                        },
+                                                        "type": "filledButton"
+                                                      },
+                                                      {
+                                                        "opacity": 0.4,
+                                                        "child": {
+                                                          "padding": {
+                                                            "left": 16.0,
+                                                            "right": 4.0
+                                                          },
+                                                          "child": {
+                                                            "mainAxisAlignment": "spaceAround",
+                                                            "textDirection": "rtl",
+                                                            "children": [
+                                                              {
+                                                                "children": [
+                                                                  {
+                                                                    "width": 44.0,
+                                                                    "height": 44.0,
+                                                                    "decoration": {
+                                                                      "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                                                      "borderRadius": {
+                                                                        "topLeft": 8.0,
+                                                                        "topRight": 8.0,
+                                                                        "bottomLeft": 8.0,
+                                                                        "bottomRight": 8.0
+                                                                      },
+                                                                      "border": {
+                                                                        "color": "{{appColors.current.input.borderEnabled}}",
+                                                                        "width": 0.5
+                                                                      }
+                                                                    },
+                                                                    "alignment": "center",
+                                                                    "child": {
+                                                                      "src": "{{appAssets.current.icons.shareDeposit}}",
+                                                                      "imageType": "asset",
+                                                                      "width": 28.0,
+                                                                      "height": 28.0,
+                                                                      "type": "image"
+                                                                    },
+                                                                    "type": "container"
+                                                                  },
+                                                                  {
+                                                                    "height": 8.0,
+                                                                    "type": "sizedBox"
+                                                                  },
+                                                                  {
+                                                                    "data": "\u06af\u0631\u062f\u0634 \u0633\u067e\u0631\u062f\u0647",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "{{appColors.current.text.subtitle}}",
+                                                                      "fontSize": 14.0,
+                                                                      "fontWeight": "w500"
+                                                                    },
+                                                                    "textDirection": "rtl",
+                                                                    "textAlign": "center",
+                                                                    "type": "text"
+                                                                  }
+                                                                ],
+                                                                "type": "column"
+                                                              },
+                                                              {
+                                                                "children": [
+                                                                  {
+                                                                    "width": 44.0,
+                                                                    "height": 44.0,
+                                                                    "decoration": {
+                                                                      "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                                                      "borderRadius": {
+                                                                        "topLeft": 8.0,
+                                                                        "topRight": 8.0,
+                                                                        "bottomLeft": 8.0,
+                                                                        "bottomRight": 8.0
+                                                                      },
+                                                                      "border": {
+                                                                        "color": "{{appColors.current.input.borderEnabled}}",
+                                                                        "width": 0.5
+                                                                      }
+                                                                    },
+                                                                    "alignment": "center",
+                                                                    "child": {
+                                                                      "src": "{{appAssets.current.icons.transferAmount}}",
+                                                                      "imageType": "asset",
+                                                                      "width": 28.0,
+                                                                      "height": 28.0,
+                                                                      "type": "image"
+                                                                    },
+                                                                    "type": "container"
+                                                                  },
+                                                                  {
+                                                                    "height": 8.0,
+                                                                    "type": "sizedBox"
+                                                                  },
+                                                                  {
+                                                                    "data": "\u0627\u0646\u062a\u0642\u0627\u0644 \u0648\u062c\u0647",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "{{appColors.current.text.subtitle}}",
+                                                                      "fontSize": 14.0,
+                                                                      "fontWeight": "w500"
+                                                                    },
+                                                                    "textDirection": "rtl",
+                                                                    "textAlign": "center",
+                                                                    "type": "text"
+                                                                  }
+                                                                ],
+                                                                "type": "column"
+                                                              },
+                                                              {
+                                                                "children": [
+                                                                  {
+                                                                    "width": 44.0,
+                                                                    "height": 44.0,
+                                                                    "decoration": {
+                                                                      "color": "{{appColors.current.background.surfaceContainerLowest}}",
+                                                                      "borderRadius": {
+                                                                        "topLeft": 8.0,
+                                                                        "topRight": 8.0,
+                                                                        "bottomLeft": 8.0,
+                                                                        "bottomRight": 8.0
+                                                                      },
+                                                                      "border": {
+                                                                        "color": "{{appColors.current.input.borderEnabled}}",
+                                                                        "width": 0.5
+                                                                      }
+                                                                    },
+                                                                    "alignment": "center",
+                                                                    "child": {
+                                                                      "src": "{{appAssets.current.icons.more}}",
+                                                                      "imageType": "asset",
+                                                                      "width": 28.0,
+                                                                      "height": 28.0,
+                                                                      "type": "image"
+                                                                    },
+                                                                    "type": "container"
+                                                                  },
+                                                                  {
+                                                                    "height": 8.0,
+                                                                    "type": "sizedBox"
+                                                                  },
+                                                                  {
+                                                                    "data": "\u0628\u06cc\u0634\u062a\u0631",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "{{appColors.current.text.subtitle}}",
+                                                                      "fontSize": 14.0,
+                                                                      "fontWeight": "w500"
+                                                                    },
+                                                                    "textDirection": "rtl",
+                                                                    "textAlign": "center",
+                                                                    "type": "text"
+                                                                  }
+                                                                ],
+                                                                "type": "column"
+                                                              }
+                                                            ],
+                                                            "type": "row"
+                                                          },
+                                                          "type": "padding"
+                                                        },
+                                                        "type": "opacity"
+                                                      }
+                                                    ],
+                                                    "type": "column"
+                                                  },
+                                                  "type": "padding"
+                                                },
+                                                "type": "card"
+                                              },
+                                              "type": "container"
                                             }
                                           ],
                                           "height": 268.0,
-                                          "initialPage": 3,
+                                          "initialPage": 4,
                                           "indicatorTopSpacing": 16.0,
                                           "indicatorActiveColor": "#E31A2F",
                                           "indicatorInactiveColor": "#D0D5DD",

@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:stac/stac.dart';
+import '../../core/api/config_api/config_api_service.dart';
 import '../../core/helpers/logger.dart';
+import '../config/sdui_config.dart';
 
 /// Loads and caches localization strings at app startup
 ///
@@ -23,7 +25,7 @@ import '../../core/helpers/logger.dart';
 class TobankStringsLoader {
   static bool _loaded = false;
   static final List<String> _storedKeys = []; // Track all keys we stored
-  static const String _stringsUrl = 'https://api.tobank.com/strings';
+  static final String _stringsUrl = SduiConfig.mockUrl('strings');
   static const String _prefix = 'appStrings';
   static const Map<String, String> _fallbackStrings = {
     'appStrings.cardsManagement.services.topUp':
@@ -154,6 +156,44 @@ class TobankStringsLoader {
       // Don't throw - app can still work with fallback strings
       // Or you could set default/fallback strings here
     }
+  }
+
+  /// Load strings from the REAL backend config server (API mode only).
+  ///
+  /// Unlike [loadStrings], failures are RETHROWN so the caller can block + retry.
+  static Future<void> loadStringsFromBackend(
+    ConfigApiService service, {
+    bool forceReload = false,
+  }) async {
+    if (_storedKeys.isNotEmpty) {
+      _clearStoredKeys();
+    }
+
+    _storeFallbackStrings();
+
+    if (_loaded && !forceReload) {
+      AppLogger.dc(LogCategory.string, 'Strings already loaded, skipping');
+      return;
+    }
+
+    AppLogger.ic(
+      LogCategory.string,
+      'Loading strings from backend (${SduiConfig.strings})...',
+    );
+
+    final stringsData = await service.fetchSduiConfig(
+      pathKey: SduiConfig.strings,
+      build: SduiConfig.configBuild,
+    );
+
+    _flattenAndStore(stringsData, _prefix);
+    _storeFallbackStrings(overwrite: false);
+
+    _loaded = true;
+    AppLogger.ic(
+      LogCategory.string,
+      'Strings loaded from backend (${_storedKeys.length} keys)',
+    );
   }
 
   static void _storeFallbackStrings({bool overwrite = true}) {

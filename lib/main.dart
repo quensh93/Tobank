@@ -12,6 +12,7 @@ import 'stac_core/utils/variable_resolver_debug.dart';
 import 'core/bootstrap/bootstrap.dart';
 import 'core/helpers/logger.dart';
 import 'stac_core/default_stac_options.dart';
+import 'stac_core/config/sdui_config.dart';
 
 void main() async {
   // CRITICAL: Initialize Flutter bindings FIRST
@@ -30,7 +31,14 @@ void main() async {
   final stacDio = setupStacMockDio();
 
   // Initialize STAC framework with options and mocked Dio
-  await Stac.initialize(options: defaultStacOptions, dio: stacDio);
+  // Cache: networkFirst = always fetch fresh from network, fall back to cache
+  // only when the network fails. maxAge null => no time-based expiry (cache
+  // validity is version-driven, wired in a later phase).
+  await Stac.initialize(
+    options: defaultStacOptions,
+    dio: stacDio,
+    cacheConfig: SduiConfig.cacheConfig,
+  );
 
   // Register custom STAC parsers
   await registerCustomParsers();
