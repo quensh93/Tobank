@@ -108,18 +108,12 @@ flutter:
 
     - lib/stac/tobank/flows/login/json/
     - lib/stac/tobank/flows/login/api/
-    - lib/stac/tobank/flows/login_flow_linear/json/
-    - lib/stac/tobank/flows/login_flow_linear/api/
+
 
     # Promissory Flow
 
-    - lib/stac/tobank/flows/promissory_old/json/
-    - lib/stac/tobank/flows/promissory_old/api/
-
-    # Promissory Real Flow
-
-    - lib/stac/tobank/flows/promissory_old/json/
-    - lib/stac/tobank/flows/promissory_old/api/
+    - lib/stac/tobank/flows/promissory/json/
+    - lib/stac/tobank/flows/promissory/api/
     - lib/stac/tobank/flows/verify_identity/json/
     - lib/stac/tobank/flows/transaction/json/
     - lib/stac/tobank/flows/notification/json/

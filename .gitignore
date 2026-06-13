@@ -61,3 +61,6 @@ AGENTS.md
 
 # RuVector database cache
 ruvector.db
+
+# Kiro IDE config
+.kiro/

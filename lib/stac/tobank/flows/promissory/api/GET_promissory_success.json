@@ -1,0 +1,111 @@
+{
+    "GET": {
+        "statusCode": 200,
+        "data": {
+            "data": {
+                "type": "stateful",
+                "onInit": {
+                    "actionType": "networkRequest",
+                    "url": "https://api.tobank.com/promissory_finalize",
+                    "method": "post",
+                    "results": [
+                        {
+                            "statusCode": 200,
+                            "action": {
+                                "actionType": "setValue",
+                                "values": [
+                                    {
+                                        "key": "promissoryId",
+                                        "value": "{{data.data.promissoryId}}"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "child": {
+                    "type": "scaffold",
+                    "body": {
+                        "type": "padding",
+                        "padding": {
+                            "all": 24
+                        },
+                        "child": {
+                            "type": "column",
+                            "mainAxisAlignment": "center",
+                            "crossAxisAlignment": "center",
+                            "children": [
+                                {
+                                    "type": "icon",
+                                    "data": "check_circle",
+                                    "size": 80,
+                                    "color": "{{appColors.current.success.color}}"
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "height": 24
+                                },
+                                {
+                                    "type": "text",
+                                    "data": "صدور سفته با موفقیت انجام شد",
+                                    "style": {
+                                        "type": "custom",
+                                        "fontSize": 20,
+                                        "fontWeight": "bold",
+                                        "color": "{{appColors.current.success.color}}"
+                                    }
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "height": 8
+                                },
+                                {
+                                    "type": "text",
+                                    "data": "شناسه سفته: {{promissoryId}}",
+                                    "style": {
+                                        "type": "custom",
+                                        "fontSize": 16
+                                    }
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "height": 48
+                                },
+                                {
+                                    "type": "filledButton",
+                                    "style": {
+                                        "backgroundColor": "{{appColors.current.primary.color}}",
+                                        "foregroundColor": "{{appColors.current.primary.onPrimary}}",
+                                        "minimumSize": {
+                                            "width": 999999,
+                                            "height": 56
+                                        },
+                                        "shape": {
+                                            "type": "roundedRectangle",
+                                            "borderRadius": {
+                                                "all": 12
+                                            }
+                                        }
+                                    },
+                                    "child": {
+                                        "type": "text",
+                                        "data": "سفته‌های من",
+                                        "style": {
+                                            "type": "custom",
+                                            "fontSize": 18,
+                                            "fontWeight": "bold"
+                                        }
+                                    },
+                                    "onPressed": {
+                                        "actionType": "navigate",
+                                        "navigationStyle": "popToRoot"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

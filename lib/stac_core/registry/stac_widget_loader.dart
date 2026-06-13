@@ -7,8 +7,6 @@ import '../../../stac/tobank/flows/user_validation/dart/user_validation_report_d
 import '../../../stac/tobank/menu/dart/tobank_menu.dart' as tobank_menu_dart;
 import '../../../stac/tobank/flows/home_page/dart/home_page.dart'
     as home_page_dart;
-import '../../../stac/tobank/flows/home_page/dart/home_page_menu.dart'
-    as home_page_menu_dart;
 import '../../../stac/tobank/flows/home_page/dart/tobank_special_services_page.dart'
     as tobank_special_services_page_dart;
 import '../../../stac/tobank/flows/home_page/dart/travel_services_page.dart'
@@ -16,40 +14,10 @@ import '../../../stac/tobank/flows/home_page/dart/travel_services_page.dart'
 import '../../../stac/tobank/flows/home_page/dart/acceptor_services_page.dart'
     as acceptor_services_page_dart;
 
-import '../../../stac/tobank/flows/login_flow_linear/dart/login_flow_linear_splash.dart'
-    as linear_splash_dart;
-import '../../../stac/tobank/flows/login_flow_linear/dart/login_flow_linear_onboarding.dart'
-    as linear_onboarding_dart;
-import '../../../stac/tobank/flows/login_flow_linear/dart/login_flow_linear_login.dart'
-    as linear_login_dart;
-import '../../../stac/tobank/flows/login_flow_linear/dart/login_flow_linear_verify_otp.dart'
-    as linear_verify_otp_dart;
-// Promissory Flow imports
-import '../../../stac/tobank/flows/promissory_old/dart/promissory_intro.dart'
-    as promissory_old_intro_dart;
-import '../../../stac/tobank/flows/promissory_old/dart/promissory_rules.dart'
-    as promissory_old_rules_dart;
-import '../../../stac/tobank/flows/promissory_old/dart/promissory_issuer.dart'
-    as promissory_old_issuer_dart;
-import '../../../stac/tobank/flows/promissory_old/dart/promissory_receiver.dart'
-    as promissory_old_receiver_dart;
-import '../../../stac/tobank/flows/promissory_old/dart/promissory_data.dart'
-    as promissory_old_data_dart;
-import '../../../stac/tobank/flows/promissory_old/dart/promissory_confirm.dart'
-    as promissory_old_confirm_dart;
-import '../../../stac/tobank/flows/promissory_old/dart/promissory_payment.dart'
-    as promissory_old_payment_dart;
-import '../../../stac/tobank/flows/promissory_old/dart/promissory_success.dart'
-    as promissory_old_success_dart;
-import '../../../stac/tobank/flows/promissory_old/dart/promissory_sign.dart'
-    as promissory_old_sign_dart;
+
 // Promissory Real (API) import
 import '../../../stac/tobank/flows/promissory/dart/promissory_intro.dart'
     as promissory_dart;
-import '../../../stac/tobank/flows/promissory_old/dart/promissory_deposit_select.dart'
-    as promissory_old_deposit_select_dart;
-import '../../../stac/tobank/flows/promissory_old/dart/request_promissory_deposit_page.dart'
-    as request_promissory_old_deposit_page_dart;
 import '../../../stac/tobank/flows/promissory/dart/promissory_receiver_screen.dart'
     as promissory_receiver_dart;
 import '../../../stac/tobank/flows/promissory/dart/promissory_data_screen.dart'
@@ -227,6 +195,8 @@ import '../../../stac/tobank/flows/dashboard/dart/card_management/reissue/reissu
     as reissue_receipt_dart;
 import '../../../stac/tobank/flows/dashboard/dart/card_management/balance/card_balance_screen.dart'
     as card_balance_screen_dart;
+import '../../../stac/tobank/flows/dashboard/dart/card_management/add_card/add_new_card_screen.dart'
+    as add_new_card_screen_dart;
 import '../../../stac/tobank/flows/gift_card/menu/gift_card_menu.dart'
     as gift_card_menu_dart;
 import '../../../stac/tobank/flows/transfer/menu/transfer_menu.dart'
@@ -321,8 +291,6 @@ class StacWidgetLoader {
     'tobank_user_validation': () =>
         user_validation_menu_dart.userValidationMenu().toJson(),
     'tobank_menu_dart': () => tobank_menu_dart.tobankMenuDart().toJson(),
-    'tobank_home_page_menu': () =>
-        home_page_menu_dart.tobankHomePageMenu().toJson(),
     'tobank_home_page_dart': () => home_page_dart.tobankHomePageDart().toJson(),
     'tobank_special_services_page': () =>
         tobank_special_services_page_dart.tobankSpecialServicesPage().toJson(),
@@ -332,36 +300,8 @@ class StacWidgetLoader {
         acceptor_services_page_dart.tobankAcceptorServicesPage().toJson(),
     'tobank_onboarding': () => login_onboarding_dart.loginOnboarding().toJson(),
 
-    // Linear flow widgets - each page handles navigation internally
-    // Splash: Uses onMountAction to auto-navigate after 2 seconds (handled in Dart file)
-    'tobank_login_flow_linear_splash': () =>
-        linear_splash_dart.tobankLoginFlowLinearSplash().toJson(),
-    'tobank_login_flow_linear_onboarding': () =>
-        linear_onboarding_dart.tobankLoginFlowLinearOnboarding().toJson(),
-    'tobank_login_flow_linear_login': () =>
-        linear_login_dart.tobankLoginFlowLinearLogin().toJson(),
-    'tobank_login_flow_linear_verify_otp': () =>
-        linear_verify_otp_dart.tobankLoginFlowLinearVerifyOtp().toJson(),
 
-    // Legacy promissory flow screens
-    'promissory_old_intro': () =>
-        promissory_old_intro_dart.promissoryIntro().toJson(),
-    'promissory_old_rules': () =>
-        promissory_old_rules_dart.promissoryRules().toJson(),
-    'promissory_old_issuer': () =>
-        promissory_old_issuer_dart.promissoryIssuer().toJson(),
-    'promissory_old_receiver': () =>
-        promissory_old_receiver_dart.promissoryReceiver().toJson(),
-    'promissory_old_data': () =>
-        promissory_old_data_dart.promissoryData().toJson(),
-    'promissory_old_confirm': () =>
-        promissory_old_confirm_dart.promissoryConfirm().toJson(),
-    'promissory_old_payment': () =>
-        promissory_old_payment_dart.promissoryPayment().toJson(),
-    'promissory_old_success': () =>
-        promissory_old_success_dart.promissorySuccess().toJson(),
-    'promissory_old_sign': () =>
-        promissory_old_sign_dart.promissorySign().toJson(),
+
     // Promissory Real (Real API) - fetches SDUI from real backend
     'promissory_menu': () =>
         promissory_debug_dart.promissoryRealDebugMenu().toJson(),
@@ -479,6 +419,8 @@ class StacWidgetLoader {
         reissue_receipt_dart.dashboardCardReissueReceipt().toJson(),
     'dashboard_card_balance': () =>
         card_balance_screen_dart.dashboardCardBalance().toJson(),
+    'dashboard_add_new_card': () =>
+        add_new_card_screen_dart.dashboardAddNewCard().toJson(),
     'gift_card_menu': () => gift_card_menu_dart.giftCardRealMenu().toJson(),
     'transfer_menu': () => transfer_menu_dart.transferRealMenu().toJson(),
     'transfer_amount': () => transfer_amount_dart.transferRealAmount().toJson(),
@@ -588,13 +530,6 @@ class StacWidgetLoader {
     'test_screen': () => test_screen_dart.testScreen().toJson(),
     'promissory_loader': () => {'type': 'promissory_loader'},
     'verify_identity_loader': () => {'type': 'verify_identity_loader'},
-    'promissory_old_deposit_select': () => promissory_old_deposit_select_dart
-        .promissoryDepositSelectPage()
-        .toJson(),
-    'request_promissory_old_deposit': () =>
-        request_promissory_old_deposit_page_dart
-            .requestPromissoryDepositPage()
-            .toJson(),
     'promissory_intro': () => promissory_dart.promissoryRealIntro().toJson(),
     'login_form_dart': () => login_screen_dart.loginForm().toJson(),
     'promissory_rules': () =>

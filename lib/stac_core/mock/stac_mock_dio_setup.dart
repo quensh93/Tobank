@@ -174,11 +174,11 @@ Dio setupStacMockDio() {
                 }
               } else if (parts.first == 'promissory') {
                 // Special handling for promissory flow APIs
-                // Pattern: promissory/sign/asset -> lib/stac/tobank/flows/promissory_old/api/GET_sign_asset.json
+                // Pattern: promissory/sign/asset -> lib/stac/tobank/flows/promissory/api/GET_sign_asset.json
                 final lastPart = parts.last;
                 final filename = '${method}_$lastPart.json';
                 final testPath =
-                    'lib/stac/tobank/flows/promissory_old/api/$filename';
+                    'lib/stac/tobank/flows/promissory/api/$filename';
                 try {
                   await rootBundle.loadString(testPath);
                   assetPath = testPath;

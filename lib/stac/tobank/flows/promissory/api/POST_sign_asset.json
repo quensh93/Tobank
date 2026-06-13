@@ -1,0 +1,33 @@
+{
+  "GET": {
+    "statusCode": 200,
+    "data": {
+      "data": {
+        "datetime": {
+          "solar_datetime": "1404-10-14 15:07:01.515660",
+          "gregorian_datetime": "2026-01-04 15:07:01.515660",
+          "time_stamp": 1767526621
+        },
+        "sign_coordination": {
+          "x": 450,
+          "y": 450,
+          "width": 150,
+          "height": 50,
+          "x_ios": 450,
+          "y_ios": 450,
+          "width_ios": 150,
+          "height_ios": 50,
+          "page": 0
+        },
+        "tourism_bank_details": {
+          "legal_national_number": "10320435268",
+          "legal_phone_number": "02123952395",
+          "payment_address": "سعادت آباد ، بلوار فرهنگ ، نبش کوچه نور، پلاک 6"
+        }
+      },
+      "success": true,
+      "message": "",
+      "code": 0
+    }
+  }
+}

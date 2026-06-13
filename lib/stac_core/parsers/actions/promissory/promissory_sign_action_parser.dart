@@ -5,7 +5,6 @@ import 'package:stac/stac.dart';
 import '../../../../core/helpers/logger.dart';
 import './stac_promissory_sign_action.dart';
 import '../../../services/signing/sign_document_data.dart';
-// import '../../../../../stac/tobank/flows/promissory_old/utils/promissory_sign_util.dart'; // Deprecated
 import '../../../services/signing/signing_service.dart';
 import 'package:secure_plugin/secure_plugin.dart' as secure;
 import '../../../../../core/storage/storage_util.dart';

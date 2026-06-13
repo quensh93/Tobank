@@ -16,6 +16,7 @@ import '../../stac_core/loaders/tobank_colors_loader.dart';
 import '../../stac_core/loaders/tobank_theme_loader.dart';
 import '../../stac_core/loaders/tobank_version_loader.dart';
 import '../../stac_core/parsers/widgets/loader/promissory_real_loader_parser.dart';
+import '../../stac_core/config/sdui_config.dart';
 import '../../stac_core/services/theme/theme_controller_provider.dart';
 import '../config/debug_panel_config.dart';
 import '../config/ispect_config.dart';
@@ -26,11 +27,6 @@ class AppRoot extends ConsumerStatefulWidget {
   const AppRoot({super.key, this.useDevicePreview});
 
   final bool? useDevicePreview;
-
-  static const bool startFromPromissoryRealFlow = bool.fromEnvironment(
-    'START_APP_FROM_PROMISSORY_REAL_FLOW',
-    defaultValue: false,
-  );
 
   static final GlobalKey<NavigatorState> mainAppNavigatorKey =
       GlobalKey<NavigatorState>();
@@ -167,7 +163,7 @@ class _AppRootState extends ConsumerState<AppRoot> {
 
   @override
   Widget build(BuildContext context) {
-    final homeWidget = AppRoot.startFromPromissoryRealFlow
+    final homeWidget = SduiConfig.startFromPromissoryRealFlow
         ? const PromissoryRealLoaderScreen()
         : const PreLaunchScreen();
 
