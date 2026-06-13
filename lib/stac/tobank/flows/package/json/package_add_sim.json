@@ -856,7 +856,7 @@
                             "value": "__STAC_OPEN__crAddEnteredPhone}}"
                           },
                           {
-                            "routeName": "package_package_list",
+                            "routeName": "package_list",
                             "navigationStyle": "push",
                             "actionType": "navigate"
                           }
@@ -2445,7 +2445,7 @@
                                                         "value": "__STAC_OPEN__crAddEnteredPhone}}"
                                                       },
                                                       {
-                                                        "routeName": "package_package_list",
+                                                        "routeName": "package_list",
                                                         "navigationStyle": "push",
                                                         "actionType": "navigate"
                                                       }

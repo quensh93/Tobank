@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:tobank_sdui/stac/tobank/flows/dashboard/dart/cards_management_screen.dart';
+import 'package:tobank_sdui/stac/tobank/flows/dashboard/dart/cards_management.dart';
 
 // JSON flow must use assetPath, not widgetType.
 // Dart source uses widgetType (correct for Dart flow).

@@ -388,7 +388,7 @@ StacAction _openPackageFlow({
         ],
       ),
       const StacNavigateAction(
-        routeName: 'package_package_list',
+        routeName: 'package_list',
         navigationStyle: NavigationStyle.push,
       ),
     ],
@@ -899,4 +899,3 @@ StacWidget _buildDeleteDialogOverlay() {
     ],
   );
 }
-

@@ -82,7 +82,7 @@ StacWidget verifyIdentityRealRegistration() {
                   enabledKey: 'verifyIdentityHasSelectedJob',
                   enabled: false,
                   onPressed: const StacNavigateAction(
-                    routeName: 'test_screen',
+                    routeName: 'test',
                     navigationStyle: NavigationStyle.push,
                   ),
                   style: StacButtonStyle(
@@ -169,4 +169,3 @@ StacWidget _buildJobSelector() {
     ),
   );
 }
-

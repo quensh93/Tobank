@@ -451,7 +451,7 @@
             "flows__package__json__package_intro": {
                 "src_ic_charge_empty_list_light_001": "assets/icons/ic_charge_empty_list_light.svg"
             },
-            "flows__package__json__package_package_list": {
+            "flows__package__json__package_list": {
                 "src_ic_package_001": "assets/icons/ic_package.svg",
                 "src_ic_package_002": "assets/icons/ic_package.svg",
                 "src_ic_package_003": "assets/icons/ic_package.svg",
@@ -971,22 +971,22 @@
                 "src_ic_arrow_circle_up_001": "assets/icons/ic_arrow_circle_up.svg",
                 "src_ic_arrow_circle_down_002": "assets/icons/ic_arrow_circle_down.svg"
             },
-            "flows__promissory__dart__promissory_payment_screen": {
+            "flows__promissory__dart__promissory_payment": {
                 "src_ic_promissory_request_001": "assets/icons/ic_promissory_request.svg",
                 "src_ic_wallet_002": "assets/icons/ic_wallet.svg",
                 "src_ic_gateway_003": "assets/icons/ic_gateway.svg"
             },
-            "flows__promissory__dart__promissory_receiver_screen": {
+            "flows__promissory__dart__promissory_receiver": {
                 "src_ic_calendar_001": "assets/icons/ic_calendar.svg",
                 "src_ic_gardeshgari_002": "assets/icons/ic_gardeshgari.svg"
             },
             "flows__promissory__dart__promissory_rules": {
                 "src_ic_check_001": "assets/icons/ic_check.svg"
             },
-            "flows__promissory__dart__promissory_sign_screen": {
+            "flows__promissory__dart__promissory_sign": {
                 "src_sign_pdf_001": "assets/icons/sign-pdf.svg"
             },
-            "flows__promissory__dart__promissory_success_screen": {
+            "flows__promissory__dart__promissory_success": {
                 "src_ic_transaction_success_001": "assets/icons/ic_transaction_success.svg",
                 "src_ic_pdf_file_002": "assets/icons/ic_pdf_file.svg",
                 "src_ic_show_003": "assets/icons/ic_show.svg"
@@ -995,22 +995,22 @@
                 "src_ic_arrow_circle_up_001": "assets/icons/ic_arrow_circle_up.svg",
                 "src_ic_arrow_circle_down_002": "assets/icons/ic_arrow_circle_down.svg"
             },
-            "flows__promissory__inline_dart__promissory_payment_screen": {
+            "flows__promissory__inline_dart__promissory_payment": {
                 "src_ic_promissory_request_001": "assets/icons/ic_promissory_request.svg",
                 "src_ic_wallet_002": "assets/icons/ic_wallet.svg",
                 "src_ic_gateway_003": "assets/icons/ic_gateway.svg"
             },
-            "flows__promissory__inline_dart__promissory_receiver_screen": {
+            "flows__promissory__inline_dart__promissory_receiver": {
                 "src_ic_calendar_001": "assets/icons/ic_calendar.svg",
                 "src_ic_gardeshgari_002": "assets/icons/ic_gardeshgari.svg"
             },
             "flows__promissory__inline_dart__promissory_rules": {
                 "src_ic_check_001": "assets/icons/ic_check.svg"
             },
-            "flows__promissory__inline_dart__promissory_sign_screen": {
+            "flows__promissory__inline_dart__promissory_sign": {
                 "src_sign_pdf_001": "assets/icons/sign-pdf.svg"
             },
-            "flows__promissory__inline_dart__promissory_success_screen": {
+            "flows__promissory__inline_dart__promissory_success": {
                 "src_ic_transaction_success_001": "assets/icons/ic_transaction_success.svg",
                 "src_ic_pdf_file_002": "assets/icons/ic_pdf_file.svg",
                 "src_ic_show_003": "assets/icons/ic_show.svg"
@@ -1062,7 +1062,7 @@
             "flows__package__dart__package_intro": {
                 "src_ic_charge_empty_list_light_001": "assets/icons/ic_charge_empty_list_light.svg"
             },
-            "flows__package__dart__package_package_list": {
+            "flows__package__dart__package_list": {
                 "src_ic_package_001": "assets/icons/ic_package.svg",
                 "src_ic_package_empty_list_light_002": "assets/icons/ic_package_empty_list_light.svg"
             },
@@ -1077,7 +1077,7 @@
             "flows__package__inline_dart__package_intro": {
                 "src_ic_charge_empty_list_light_001": "assets/icons/ic_charge_empty_list_light.svg"
             },
-            "flows__package__inline_dart__package_package_list": {
+            "flows__package__inline_dart__package_list": {
                 "src_ic_package_001": "assets/icons/ic_package.svg",
                 "src_ic_package_empty_list_light_002": "assets/icons/ic_package_empty_list_light.svg"
             },
@@ -1086,13 +1086,13 @@
                 "iconAsset_ic_download_002": "assets/icons/ic_download.svg",
                 "src_ic_tobank_red_003": "assets/icons/ic_tobank_red.svg"
             },
-            "flows__login__dart__login_screen": {
+            "flows__login__dart__login": {
                 "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
             },
             "flows__login__dart__login_splash": {
                 "src_ic_tobank_logo_001": "assets/icons/ic_tobank_logo.svg"
             },
-            "flows__login__inline_dart__login_screen": {
+            "flows__login__inline_dart__login": {
                 "src_ic_calendar_001": "assets/icons/ic_calendar.svg"
             },
             "flows__login__inline_dart__login_splash": {
@@ -1176,7 +1176,7 @@
             "flows__deposit_more__inline_dart__deposit_close_selector": {
                 "src_ic_warning_red_001": "assets/icons/ic_warning_red.svg"
             },
-            "flows__dashboard__dart__cards_management_screen": {
+            "flows__dashboard__dart__cards_management": {
                 "iconAsset_ic_card_edit_001": "assets/icons/ic_card_edit.svg",
                 "iconAsset_ic_card_delete_002": "assets/icons/ic_card_delete.svg",
                 "iconAsset_ic_share_card_003": "assets/icons/ic_share_card.svg",
@@ -1206,7 +1206,7 @@
                 "src_ic_home_main_007": "assets/icons/ic_home_main.svg",
                 "src_ic_home_main_selected_008": "assets/icons/ic_home_main_selected.svg"
             },
-            "flows__dashboard__dart__card_management__pin__secondary_pin_receipt_screen": {
+            "flows__dashboard__dart__card_management__pin__secondary_pin_receipt": {
                 "src_ic_eye_001": "assets/icons/ic_show_password.svg",
                 "src_ic_copy_002": "assets/icons/ic_copy.svg"
             },
@@ -1319,13 +1319,13 @@
         "page4": "assets/images/onboarding_4.svg"
     },
     "generated": {
-        "flows__login__dart__stac_tobank_onboarding_slider": {
+        "flows__login__dart__login_onboarding_slider": {
             "icons": {}
         },
         "menu__dart__tobank_menu": {
             "icons": {}
         },
-        "flows__verify_identity__dart__test_screen": {
+        "flows__verify_identity__dart__test": {
             "icons": {}
         },
         "flows__verify_identity__dart__verify_identity_certificate_generator": {
@@ -1376,7 +1376,7 @@
         "flows__verify_identity__dart__verify_identity_verify_otp": {
             "icons": {}
         },
-        "flows__verify_identity__inline_dart__test_screen": {
+        "flows__verify_identity__inline_dart__test": {
             "icons": {}
         },
         "flows__verify_identity__inline_dart__verify_identity_certificate_generator": {
@@ -1586,70 +1586,70 @@
         "flows__promissory_old__inline_dart__request_promissory_deposit_page": {
             "icons": {}
         },
-        "flows__promissory__dart__promissory_confirm_screen": {
+        "flows__promissory__dart__promissory_confirm": {
             "icons": {}
         },
-        "flows__promissory__dart__promissory_data_screen": {
+        "flows__promissory__dart__promissory_data": {
             "icons": {}
         },
         "flows__promissory__dart__promissory_intro": {
             "icons": {}
         },
-        "flows__promissory__dart__promissory_issuer_screen": {
+        "flows__promissory__dart__promissory_issuer": {
             "icons": {}
         },
-        "flows__promissory__dart__promissory_payment_deposits_screen": {
+        "flows__promissory__dart__promissory_payment_deposits": {
             "icons": {}
         },
-        "flows__promissory__dart__promissory_payment_screen": {
+        "flows__promissory__dart__promissory_payment": {
             "icons": {}
         },
-        "flows__promissory__dart__promissory_preview_screen": {
+        "flows__promissory__dart__promissory_preview": {
             "icons": {}
         },
-        "flows__promissory__dart__promissory_receiver_screen": {
+        "flows__promissory__dart__promissory_receiver": {
             "icons": {}
         },
         "flows__promissory__dart__promissory_rules": {
             "icons": {}
         },
-        "flows__promissory__dart__promissory_sign_screen": {
+        "flows__promissory__dart__promissory_sign": {
             "icons": {}
         },
-        "flows__promissory__dart__promissory_success_screen": {
+        "flows__promissory__dart__promissory_success": {
             "icons": {}
         },
-        "flows__promissory__inline_dart__promissory_confirm_screen": {
+        "flows__promissory__inline_dart__promissory_confirm": {
             "icons": {}
         },
-        "flows__promissory__inline_dart__promissory_data_screen": {
+        "flows__promissory__inline_dart__promissory_data": {
             "icons": {}
         },
         "flows__promissory__inline_dart__promissory_intro": {
             "icons": {}
         },
-        "flows__promissory__inline_dart__promissory_issuer_screen": {
+        "flows__promissory__inline_dart__promissory_issuer": {
             "icons": {}
         },
-        "flows__promissory__inline_dart__promissory_payment_deposits_screen": {
+        "flows__promissory__inline_dart__promissory_payment_deposits": {
             "icons": {}
         },
-        "flows__promissory__inline_dart__promissory_payment_screen": {
+        "flows__promissory__inline_dart__promissory_payment": {
             "icons": {}
         },
-        "flows__promissory__inline_dart__promissory_preview_screen": {
+        "flows__promissory__inline_dart__promissory_preview": {
             "icons": {}
         },
-        "flows__promissory__inline_dart__promissory_receiver_screen": {
+        "flows__promissory__inline_dart__promissory_receiver": {
             "icons": {}
         },
         "flows__promissory__inline_dart__promissory_rules": {
             "icons": {}
         },
-        "flows__promissory__inline_dart__promissory_sign_screen": {
+        "flows__promissory__inline_dart__promissory_sign": {
             "icons": {}
         },
-        "flows__promissory__inline_dart__promissory_success_screen": {
+        "flows__promissory__inline_dart__promissory_success": {
             "icons": {}
         },
         "flows__promissory__menu__promissory_menu": {
@@ -1777,7 +1777,7 @@
                 "delete_outline_002": "delete_outline"
             }
         },
-        "flows__package__dart__package_package_list": {
+        "flows__package__dart__package_list": {
             "icons": {
                 "chevron_left_001": "chevron_left"
             }
@@ -1805,7 +1805,7 @@
                 "delete_outline_002": "delete_outline"
             }
         },
-        "flows__package__inline_dart__package_package_list": {
+        "flows__package__inline_dart__package_list": {
             "icons": {
                 "chevron_left_001": "chevron_left"
             }
@@ -1849,7 +1849,7 @@
         "flows__login__dart__login_onboarding": {
             "icons": {}
         },
-        "flows__login__dart__login_screen": {
+        "flows__login__dart__login": {
             "icons": {}
         },
         "flows__login__dart__login_splash": {
@@ -1858,7 +1858,7 @@
         "flows__login__inline_dart__login_onboarding": {
             "icons": {}
         },
-        "flows__login__inline_dart__login_screen": {
+        "flows__login__inline_dart__login": {
             "icons": {}
         },
         "flows__login__inline_dart__login_splash": {
@@ -2061,13 +2061,13 @@
         "flows__deposit_more__menu__deposit_more_menu": {
             "icons": {}
         },
-        "flows__dashboard__dart__cards_management_screen": {
+        "flows__dashboard__dart__cards_management": {
             "icons": {}
         },
         "flows__dashboard__dart__dashboard_shell": {
             "icons": {}
         },
-        "flows__dashboard__inline_dart__cards_management_screen": {
+        "flows__dashboard__inline_dart__cards_management": {
             "icons": {}
         },
         "flows__dashboard__inline_dart__dashboard_shell": {
@@ -2076,37 +2076,37 @@
         "flows__dashboard__menu__dashboard_menu": {
             "icons": {}
         },
-        "flows__dashboard__dart__card_management__balance__card_balance_screen": {
+        "flows__dashboard__dart__card_management__balance__card_balance": {
             "icons": {}
         },
         "flows__dashboard__dart__card_management__block__card_block_confirm_dialog": {
             "icons": {}
         },
-        "flows__dashboard__dart__card_management__pin__primary_pin_change_screen": {
+        "flows__dashboard__dart__card_management__pin__primary_pin_change": {
             "icons": {}
         },
-        "flows__dashboard__dart__card_management__pin__primary_pin_get_screen": {
+        "flows__dashboard__dart__card_management__pin__primary_pin_get": {
             "icons": {}
         },
-        "flows__dashboard__dart__card_management__pin__primary_pin_result_screen": {
+        "flows__dashboard__dart__card_management__pin__primary_pin_result": {
             "icons": {}
         },
-        "flows__dashboard__dart__card_management__pin__secondary_pin_change_screen": {
+        "flows__dashboard__dart__card_management__pin__secondary_pin_change": {
             "icons": {}
         },
-        "flows__dashboard__dart__card_management__pin__secondary_pin_get_screen": {
+        "flows__dashboard__dart__card_management__pin__secondary_pin_get": {
             "icons": {}
         },
-        "flows__dashboard__dart__card_management__pin__secondary_pin_receipt_screen": {
+        "flows__dashboard__dart__card_management__pin__secondary_pin_receipt": {
             "icons": {}
         },
-        "flows__dashboard__dart__card_management__reissue__reissue_receipt_screen": {
+        "flows__dashboard__dart__card_management__reissue__reissue_receipt": {
             "icons": {}
         },
-        "flows__dashboard__dart__card_management__reissue__reissue_request_screen": {
+        "flows__dashboard__dart__card_management__reissue__reissue_request": {
             "icons": {}
         },
-        "flows__dashboard__dart__card_management__reissue__reissue_select_card_color_screen": {
+        "flows__dashboard__dart__card_management__reissue__reissue_select_card_color": {
             "icons": {}
         },
         "flows__dashboard__dart__card_management__wallet__wallet_transfer_receipt": {
@@ -2115,7 +2115,7 @@
         "flows__dashboard__dart__card_management__widgets__card_delete_confirm_dialog": {
             "icons": {}
         },
-        "flows__dashboard__dart__card_management__widgets__card_edit_screen": {
+        "flows__dashboard__dart__card_management__widgets__card_edit": {
             "icons": {}
         },
         "flows__charge__dart__charge_add_sim": {

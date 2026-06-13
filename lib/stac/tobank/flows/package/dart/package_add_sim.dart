@@ -367,7 +367,7 @@ StacAction _normalContinueAction() {
         value: '{{crAddEnteredPhone}}',
       ),
       const StacNavigateAction(
-        routeName: 'package_package_list',
+        routeName: 'package_list',
         navigationStyle: NavigationStyle.push,
       ),
     ],
@@ -537,7 +537,7 @@ StacAction _confirmPortedFlowAction() {
         value: '{{crAddEnteredPhone}}',
       ),
       const StacNavigateAction(
-        routeName: 'package_package_list',
+        routeName: 'package_list',
         navigationStyle: NavigationStyle.push,
       ),
     ],
@@ -1023,4 +1023,3 @@ StacWidget _buildDuplicateDialog() {
     ),
   );
 }
-

@@ -1,6 +1,6 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
-import 'package:tobank_sdui/stac/tobank/flows/login/dart/stac_tobank_onboarding_slider.dart';
+import 'package:tobank_sdui/stac/tobank/flows/login/dart/login_onboarding_slider.dart';
 
 /// Login Onboarding Screen
 @StacScreen(screenName: 'login_onboarding')

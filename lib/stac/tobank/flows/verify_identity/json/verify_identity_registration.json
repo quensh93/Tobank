@@ -229,7 +229,7 @@
                 "enabledKey": "verifyIdentityHasSelectedJob",
                 "enabled": false,
                 "onPressed": {
-                  "routeName": "test_screen",
+                  "routeName": "test",
                   "navigationStyle": "push",
                   "actionType": "navigate"
                 },

@@ -528,7 +528,7 @@
                                             ]
                                           },
                                           {
-                                            "routeName": "package_package_list",
+                                            "routeName": "package_list",
                                             "navigationStyle": "push",
                                             "actionType": "navigate"
                                           }
@@ -1227,7 +1227,7 @@
                                             ]
                                           },
                                           {
-                                            "routeName": "package_package_list",
+                                            "routeName": "package_list",
                                             "navigationStyle": "push",
                                             "actionType": "navigate"
                                           }
@@ -1926,7 +1926,7 @@
                                             ]
                                           },
                                           {
-                                            "routeName": "package_package_list",
+                                            "routeName": "package_list",
                                             "navigationStyle": "push",
                                             "actionType": "navigate"
                                           }

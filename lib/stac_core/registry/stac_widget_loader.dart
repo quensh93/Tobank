@@ -30,24 +30,24 @@ import '../../../stac/tobank/flows/promissory_guarantee/page/promissory_guarante
     as promissory_guarantee_final_page_dart;
 import '../../../stac/tobank/flows/promissory_guarantee/page/promissory_guarantee_preview_page.dart'
     as promissory_guarantee_preview_page_dart;
-import '../../../stac/tobank/flows/promissory/dart/promissory_receiver_screen.dart'
+import '../../../stac/tobank/flows/promissory/dart/promissory_receiver.dart'
     as promissory_receiver_dart;
-import '../../../stac/tobank/flows/promissory/dart/promissory_data_screen.dart'
+import '../../../stac/tobank/flows/promissory/dart/promissory_data.dart'
     as promissory_data_dart;
-import '../../../stac/tobank/flows/promissory/dart/promissory_confirm_screen.dart'
+import '../../../stac/tobank/flows/promissory/dart/promissory_confirm.dart'
     as promissory_confirm_dart;
-import '../../../stac/tobank/flows/promissory/dart/promissory_payment_screen.dart'
+import '../../../stac/tobank/flows/promissory/dart/promissory_payment.dart'
     as promissory_payment_dart;
-import '../../../stac/tobank/flows/promissory/dart/promissory_payment_deposits_screen.dart'
+import '../../../stac/tobank/flows/promissory/dart/promissory_payment_deposits.dart'
     as promissory_payment_deposits_dart;
-import '../../../stac/tobank/flows/promissory/dart/promissory_sign_screen.dart'
+import '../../../stac/tobank/flows/promissory/dart/promissory_sign.dart'
     as promissory_sign_dart;
-import '../../../stac/tobank/flows/promissory/dart/promissory_success_screen.dart'
+import '../../../stac/tobank/flows/promissory/dart/promissory_success.dart'
     as promissory_success_dart;
-import '../../../stac/tobank/flows/promissory/dart/promissory_issuer_screen.dart'
+import '../../../stac/tobank/flows/promissory/dart/promissory_issuer.dart'
     as promissory_issuer_dart;
 
-import '../../../stac/tobank/flows/login/dart/login_screen.dart'
+import '../../../stac/tobank/flows/login/dart/login.dart'
     as login_screen_dart;
 import '../../../stac/tobank/flows/promissory/menu/promissory_menu.dart'
     as promissory_debug_dart;
@@ -87,11 +87,11 @@ import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_registra
     as verify_identity_registration_dart;
 import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_job_selector.dart'
     as verify_identity_job_selector_dart;
-import '../../../stac/tobank/flows/verify_identity/dart/test_screen.dart'
+import '../../../stac/tobank/flows/verify_identity/dart/test.dart'
     as test_screen_dart;
 import '../../../stac/tobank/flows/promissory/dart/promissory_rules.dart'
     as promissory_real_rules_dart;
-import '../../../stac/tobank/flows/promissory/dart/promissory_preview_screen.dart'
+import '../../../stac/tobank/flows/promissory/dart/promissory_preview.dart'
     as promissory_preview_dart;
 import '../../../stac/tobank/flows/login/dart/login_onboarding.dart'
     as login_onboarding_dart;
@@ -127,8 +127,8 @@ import '../../../stac/tobank/flows/transaction/menu/transaction_menu.dart'
     as transaction_menu_dart;
 import '../../../stac/tobank/flows/installment_payment/menu/installment_payment_api_real_menu.dart'
     as installment_payment_api_real_menu_dart;
-import '../../../stac/tobank/flows/child_loan/menu/child_loan_api_real_menu.dart'
-    as child_loan_api_real_menu_dart;
+import '../../../stac/tobank/flows/child_loan/menu/child_loan_menu.dart'
+    as child_loan_menu_dart;
 import '../../../stac/tobank/flows/child_loan/dart/child_loan_rules.dart'
     as child_loan_rules_dart;
 import '../../../stac/tobank/flows/child_loan/dart/child_loan_customer_check.dart'
@@ -181,33 +181,33 @@ import '../../../stac/tobank/flows/biometric_test/menu/biometric_test_menu.dart'
     as biometric_test_menu_dart;
 import '../../../stac/tobank/flows/dashboard/dart/dashboard_shell.dart'
     as dashboard_shell_dart;
-import '../../../stac/tobank/flows/dashboard/dart/cards_management_screen.dart'
+import '../../../stac/tobank/flows/dashboard/dart/cards_management.dart'
     as cards_management_screen_dart;
-import '../../../stac/tobank/flows/dashboard/dart/card_management/widgets/card_edit_screen.dart'
+import '../../../stac/tobank/flows/dashboard/dart/card_management/widgets/card_edit.dart'
     as card_edit_screen_dart;
 import '../../../stac/tobank/flows/dashboard/dart/card_management/wallet/wallet_transfer_receipt.dart'
     as wallet_transfer_receipt_dart;
-import '../../../stac/tobank/flows/dashboard/dart/card_management/pin/primary_pin_get_screen.dart'
+import '../../../stac/tobank/flows/dashboard/dart/card_management/pin/primary_pin_get.dart'
     as primary_pin_get_dart;
-import '../../../stac/tobank/flows/dashboard/dart/card_management/pin/primary_pin_change_screen.dart'
+import '../../../stac/tobank/flows/dashboard/dart/card_management/pin/primary_pin_change.dart'
     as primary_pin_change_dart;
-import '../../../stac/tobank/flows/dashboard/dart/card_management/pin/primary_pin_result_screen.dart'
+import '../../../stac/tobank/flows/dashboard/dart/card_management/pin/primary_pin_result.dart'
     as primary_pin_result_dart;
-import '../../../stac/tobank/flows/dashboard/dart/card_management/pin/secondary_pin_get_screen.dart'
+import '../../../stac/tobank/flows/dashboard/dart/card_management/pin/secondary_pin_get.dart'
     as secondary_pin_get_dart;
-import '../../../stac/tobank/flows/dashboard/dart/card_management/pin/secondary_pin_change_screen.dart'
+import '../../../stac/tobank/flows/dashboard/dart/card_management/pin/secondary_pin_change.dart'
     as secondary_pin_change_dart;
-import '../../../stac/tobank/flows/dashboard/dart/card_management/pin/secondary_pin_receipt_screen.dart'
+import '../../../stac/tobank/flows/dashboard/dart/card_management/pin/secondary_pin_receipt.dart'
     as secondary_pin_receipt_dart;
-import '../../../stac/tobank/flows/dashboard/dart/card_management/reissue/reissue_request_screen.dart'
+import '../../../stac/tobank/flows/dashboard/dart/card_management/reissue/reissue_request.dart'
     as reissue_request_dart;
-import '../../../stac/tobank/flows/dashboard/dart/card_management/reissue/reissue_select_card_color_screen.dart'
+import '../../../stac/tobank/flows/dashboard/dart/card_management/reissue/reissue_select_card_color.dart'
     as reissue_select_card_color_dart;
-import '../../../stac/tobank/flows/dashboard/dart/card_management/reissue/reissue_receipt_screen.dart'
+import '../../../stac/tobank/flows/dashboard/dart/card_management/reissue/reissue_receipt.dart'
     as reissue_receipt_dart;
-import '../../../stac/tobank/flows/dashboard/dart/card_management/balance/card_balance_screen.dart'
+import '../../../stac/tobank/flows/dashboard/dart/card_management/balance/card_balance.dart'
     as card_balance_screen_dart;
-import '../../../stac/tobank/flows/dashboard/dart/card_management/add_card/add_new_card_screen.dart'
+import '../../../stac/tobank/flows/dashboard/dart/card_management/add_card/add_new_card.dart'
     as add_new_card_screen_dart;
 import '../../../stac/tobank/flows/gift_card/menu/gift_card_menu.dart'
     as gift_card_menu_dart;
@@ -265,8 +265,8 @@ import '../../../stac/tobank/flows/package/dart/package_intro.dart'
     as package_intro_dart;
 import '../../../stac/tobank/flows/package/dart/package_add_sim.dart'
     as package_add_sim_dart;
-import '../../../stac/tobank/flows/package/dart/package_package_list.dart'
-    as package_package_list_dart;
+import '../../../stac/tobank/flows/package/dart/package_list.dart'
+    as package_list_dart;
 import '../../../stac/tobank/flows/package/dart/package_payment.dart'
     as package_payment_dart;
 import '../../../stac/tobank/flows/package/dart/package_payment_success.dart'
@@ -368,7 +368,7 @@ class StacWidgetLoader {
             .installmentPaymentApiRealMenu()
             .toJson(),
     'child_loan_api_real_menu': () =>
-        child_loan_api_real_menu_dart.childLoanApiRealMenu().toJson(),
+        child_loan_menu_dart.childLoanApiRealMenu().toJson(),
     'child_loan_rules': () =>
         child_loan_rules_dart.childLoanRulesScreen().toJson(),
     'child_loan_customer_check': () =>
@@ -502,8 +502,7 @@ class StacWidgetLoader {
     'package_menu': () => package_menu_dart.packageRealMenu().toJson(),
     'package_intro': () => package_intro_dart.packageRealIntro().toJson(),
     'package_add_sim': () => package_add_sim_dart.packageRealAddSim().toJson(),
-    'package_package_list': () =>
-        package_package_list_dart.packageRealPackageList().toJson(),
+    'package_list': () => package_list_dart.packageRealPackageList().toJson(),
     'package_payment': () => package_payment_dart.packageRealPayment().toJson(),
     'package_payment_success': () =>
         package_payment_success_dart.packageRealPaymentSuccess().toJson(),
@@ -561,7 +560,7 @@ class StacWidgetLoader {
     'verify_identity_job_selector': () => verify_identity_job_selector_dart
         .verifyIdentityRealJobSelector()
         .toJson(),
-    'test_screen': () => test_screen_dart.testScreen().toJson(),
+    'test': () => test_screen_dart.testScreen().toJson(),
     'promissory_loader': () => {'type': 'promissory_loader'},
     'verify_identity_loader': () => {'type': 'verify_identity_loader'},
     'promissory_intro': () => promissory_dart.promissoryRealIntro().toJson(),

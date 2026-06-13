@@ -1,7 +1,7 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
-@StacScreen(screenName: 'test_screen')
+@StacScreen(screenName: 'test')
 StacWidget testScreen() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
