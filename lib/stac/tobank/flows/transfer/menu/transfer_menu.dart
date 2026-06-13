@@ -1,6 +1,5 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
-import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 
 /// Transfer API Real Flow - Debug Menu
 @StacScreen(screenName: 'transfer_menu')
@@ -90,18 +89,10 @@ StacWidget transferRealMenu() {
             onPressed: StacNavigateAction.fromJson({
               'actionType': 'navigate',
               'navigationStyle': 'push',
-              'request': {
-                'url':
-                    SduiConfig.resolveUrl('transfer_amount'),
-                'method': 'post',
-                'headers': {
-                  'Content-Type': 'application/json',
-                  'Accept': '*/*',
-                },
-                'body': {
-                  'operator': 'is',
-                  'dimension': {'app': 'mobile'},
-                },
+              'widgetJson': {
+                'type': 'real_config_loader',
+                'configName': 'transfer_amount',
+                'title': 'Transfer (API)',
               },
             }),
             style: StacButtonStyle(

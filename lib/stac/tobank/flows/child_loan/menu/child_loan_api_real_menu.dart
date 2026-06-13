@@ -1,6 +1,5 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
-import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
 @StacScreen(screenName: 'child_loan_api_real_menu')
@@ -64,18 +63,10 @@ StacWidget childLoanApiRealMenu() {
             onPressed: StacNavigateAction.fromJson({
               'actionType': 'navigate',
               'navigationStyle': 'push',
-              'request': {
-                'url':
-                    SduiConfig.resolveUrl('child_loan_rules'),
-                'method': 'post',
-                'headers': {
-                  'Content-Type': 'application/json',
-                  'Accept': '*/*',
-                },
-                'body': {
-                  'operator': 'is',
-                  'dimension': {'app': 'mobile'},
-                },
+              'widgetJson': {
+                'type': 'real_config_loader',
+                'configName': 'child_loan_rules',
+                'title': 'Child Loan (API)',
               },
             }),
             style: StacButtonStyle(

@@ -1,6 +1,5 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
-import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac/tobank/flows/installment_payment/dart/installment_payment_others_main.dart'
     as installment_payment_others_main_dart;
@@ -62,18 +61,10 @@ StacWidget installmentPaymentApiRealMenu() {
             onPressed: StacNavigateAction.fromJson({
               'actionType': 'navigate',
               'navigationStyle': 'push',
-              'request': {
-                'url':
-                    SduiConfig.resolveUrl('installment_payment_start'),
-                'method': 'post',
-                'headers': {
-                  'Content-Type': 'application/json',
-                  'Accept': '*/*',
-                },
-                'body': {
-                  'operator': 'is',
-                  'dimension': {'app': 'mobile'},
-                },
+              'widgetJson': {
+                'type': 'real_config_loader',
+                'configName': 'installment_payment_start',
+                'title': 'Installment Payment (API)',
               },
             }),
             style: StacButtonStyle(

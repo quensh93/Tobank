@@ -18,6 +18,18 @@ import '../../../stac/tobank/flows/home_page/dart/acceptor_services_page.dart'
 // Promissory Real (API) import
 import '../../../stac/tobank/flows/promissory/dart/promissory_intro.dart'
     as promissory_dart;
+import '../../../stac/tobank/flows/promissory_guarantee/menu/guarantee_promissory_api_real_menu.dart'
+    as guarantee_promissory_api_real_menu_dart;
+import '../../../stac/tobank/flows/promissory_guarantee/page/promissory_guarantee_info_page.dart'
+    as promissory_guarantee_info_page_dart;
+import '../../../stac/tobank/flows/promissory_guarantee/page/promissory_guarantee_confirm_page.dart'
+    as promissory_guarantee_confirm_page_dart;
+import '../../../stac/tobank/flows/promissory_guarantee/page/promissory_guarantee_sign_page.dart'
+    as promissory_guarantee_sign_page_dart;
+import '../../../stac/tobank/flows/promissory_guarantee/page/promissory_guarantee_final_page.dart'
+    as promissory_guarantee_final_page_dart;
+import '../../../stac/tobank/flows/promissory_guarantee/page/promissory_guarantee_preview_page.dart'
+    as promissory_guarantee_preview_page_dart;
 import '../../../stac/tobank/flows/promissory/dart/promissory_receiver_screen.dart'
     as promissory_receiver_dart;
 import '../../../stac/tobank/flows/promissory/dart/promissory_data_screen.dart'
@@ -305,6 +317,28 @@ class StacWidgetLoader {
     // Promissory Real (Real API) - fetches SDUI from real backend
     'promissory_menu': () =>
         promissory_debug_dart.promissoryRealDebugMenu().toJson(),
+    'guarantee_promissory_api_real_menu': () =>
+        guarantee_promissory_api_real_menu_dart
+            .guaranteePromissoryApiRealMenu()
+            .toJson(),
+    'promissory_guarantee_info_page': () => promissory_guarantee_info_page_dart
+        .promissoryGuaranteeInfoPage()
+        .toJson(),
+    'promissory_guarantee_confirm_page': () =>
+        promissory_guarantee_confirm_page_dart
+            .promissoryGuaranteeConfirmPage()
+            .toJson(),
+    'promissory_guarantee_sign_page': () => promissory_guarantee_sign_page_dart
+        .promissoryGuaranteeSignPage()
+        .toJson(),
+    'promissory_guarantee_final_page': () =>
+        promissory_guarantee_final_page_dart
+            .promissoryGuaranteeFinalPage()
+            .toJson(),
+    'promissory_guarantee_preview_page': () =>
+        promissory_guarantee_preview_page_dart
+            .promissoryGuaranteePreviewPage()
+            .toJson(),
     'verify_identity_menu': () =>
         verify_identity_menu_dart.verifyIdentityRealMenu().toJson(),
     'profile_menu': () => profile_menu_dart.profileRealMenu().toJson(),

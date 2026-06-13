@@ -4,6 +4,7 @@ import 'package:stac_core/stac_core.dart';
 const bool _showPromissory = true;
 const bool _showVerifyIdentity = true;
 const bool _showPromissoryApiReal = true;
+const bool _showGuaranteePromissoryApiReal = true;
 const bool _showVerifyIdentityApiReal = true;
 const bool _showCreditScoringApiReal = false;
 const bool _showProfileApiReal = true;
@@ -14,7 +15,6 @@ const bool _showInstallmentPaymentApiReal = true;
 const bool _showChildLoanApiReal = false;
 const bool _showDepositTurnoverApiReal = false;
 const bool _showDepositMore = true;
-
 
 const bool _showNotificationApiReal = true;
 const bool _showDashboardRealNavigation = true;
@@ -80,6 +80,11 @@ StacWidget tobankMenuDart() {
           _buildSingleButtonMenuItemCard(
             title: 'سفته',
             widgetType: 'promissory_menu',
+          ),
+        if (_showGuaranteePromissoryApiReal)
+          _buildSingleButtonMenuItemCard(
+            title: 'ضمانت سفته (API واقعی)',
+            widgetType: 'guarantee_promissory_api_real_menu',
           ),
         if (_showVerifyIdentityApiReal)
           _buildSingleButtonMenuItemCard(
@@ -275,24 +280,24 @@ StacWidget _buildMenuItemCard({
           StacRow(
             mainAxisSize: StacMainAxisSize.min,
             children: [
-                _buildButtonWidget(
-                  label: 'Dart',
-                  path: dartPath,
-                  widgetType: widgetType,
-                  buttonType: 'dart',
-                ),
-                StacSizedBox(width: 4),
-                _buildButtonWidget(
-                  label: 'JSON',
-                  path: jsonPath,
-                  buttonType: 'json',
-                ),
-                StacSizedBox(width: 4),
-                _buildButtonWidget(
-                  label: 'API',
-                  path: apiPath,
-                  buttonType: 'api',
-                ),
+              _buildButtonWidget(
+                label: 'Dart',
+                path: dartPath,
+                widgetType: widgetType,
+                buttonType: 'dart',
+              ),
+              StacSizedBox(width: 4),
+              _buildButtonWidget(
+                label: 'JSON',
+                path: jsonPath,
+                buttonType: 'json',
+              ),
+              StacSizedBox(width: 4),
+              _buildButtonWidget(
+                label: 'API',
+                path: apiPath,
+                buttonType: 'api',
+              ),
             ],
           ),
         ],

@@ -803,6 +803,7 @@ class StacShowBottomSheetAction extends StacAction {
   final Map<String, dynamic>? sheet;
   final String? title;
   final List<Map<String, dynamic>>? items;
+  final double? heightFactor;
   final bool? isScrollControlled;
   final bool? useSafeArea;
   final bool? isDismissible;
@@ -814,6 +815,7 @@ class StacShowBottomSheetAction extends StacAction {
     this.sheet,
     this.title,
     this.items,
+    this.heightFactor,
     this.isScrollControlled,
     this.useSafeArea,
     this.isDismissible,
@@ -831,6 +833,7 @@ class StacShowBottomSheetAction extends StacAction {
     if (sheet != null) 'sheet': sheet,
     if (title != null) 'title': title,
     if (items != null) 'items': items,
+    if (heightFactor != null) 'heightFactor': heightFactor,
     if (isScrollControlled != null) 'isScrollControlled': isScrollControlled,
     if (useSafeArea != null) 'useSafeArea': useSafeArea,
     if (isDismissible != null) 'isDismissible': isDismissible,

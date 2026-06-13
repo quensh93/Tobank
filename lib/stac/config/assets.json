@@ -138,10 +138,6 @@
         "printReceipt": "assets/icons/ic_share_image.svg",
         "block": "assets/icons/ic_card_service_block.svg",
         "generated": {
-            "menu__api__GET_tobank_menu": {
-                "src_ic_theme_001": "assets/icons/ic_theme.svg",
-                "src_ic_arrow_left_002": "assets/icons/ic_arrow_left.svg"
-            },
             "flows__verify_identity__json__verify_identity_verify_otp": {
                 "src_ic_info_001": "assets/icons/ic_info.svg"
             },

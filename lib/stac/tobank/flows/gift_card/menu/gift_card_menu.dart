@@ -1,6 +1,5 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
-import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 
 /// Gift Card Real Flow - Debug Menu
 @StacScreen(screenName: 'gift_card_menu')
@@ -46,18 +45,10 @@ StacWidget giftCardRealMenu() {
             onPressed: StacNavigateAction.fromJson({
               'actionType': 'navigate',
               'navigationStyle': 'push',
-              'request': {
-                'url':
-                    SduiConfig.resolveUrl('gift_card_intro'),
-                'method': 'post',
-                'headers': {
-                  'Content-Type': 'application/json',
-                  'Accept': '*/*',
-                },
-                'body': {
-                  'operator': 'is',
-                  'dimension': {'app': 'mobile'},
-                },
+              'widgetJson': {
+                'type': 'real_config_loader',
+                'configName': 'gift_card_intro',
+                'title': 'Gift Card (API)',
               },
             }),
             style: StacButtonStyle(
