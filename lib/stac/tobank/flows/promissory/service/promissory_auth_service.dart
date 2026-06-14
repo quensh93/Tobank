@@ -12,7 +12,7 @@ import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 
 class PromissoryRealAuthService {
   static final String _url = SduiConfig.bizUrl('logins/v1.0/tobank/users');
-  static Map<String, String> get _headers => {
+  static final Map<String, String> _headers = {
     ...DeviceHeaders.all,
     'authorization': 'Bearer null',
     'content-type': 'application/json',

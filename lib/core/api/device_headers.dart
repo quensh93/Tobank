@@ -1,3 +1,4 @@
+/// Shared device identification headers required by backend gateways.
 class DeviceHeaders {
   const DeviceHeaders._();
 
