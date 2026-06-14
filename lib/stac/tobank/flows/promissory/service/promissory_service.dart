@@ -1,39 +1,17 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:ispect/ispect.dart';
-import 'package:ispectify_dio/ispectify_dio.dart';
 import 'package:tobank_sdui/core/api/auth/auth_manager.dart';
 import 'package:tobank_sdui/core/api/device_headers.dart';
-import 'package:tobank_sdui/core/config/ispect_config.dart';
+import 'package:tobank_sdui/core/api/dio_factory.dart';
 import 'package:tobank_sdui/core/helpers/logger.dart';
 import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 
 class PromissoryRealService {
-  final Dio _dio = Dio();
+  final Dio _dio = DioFactory.authenticated();
   final AuthManager _authManager = AuthManager(
     storage: const FlutterSecureStorage(),
   );
-
-  PromissoryRealService() {
-    if (ISpectConfig.shouldInitialize) {
-      try {
-        _dio.interceptors.add(
-          ISpectDioInterceptor(
-            logger: ISpect.logger,
-            settings: const ISpectDioInterceptorSettings(
-              printRequestHeaders: true,
-              printResponseHeaders: true,
-              printRequestData: true,
-              printResponseData: true,
-            ),
-          ),
-        );
-      } catch (e) {
-        // Ignore if ISpect not ready
-      }
-    }
-  }
 
   // Constants
   static const String _baseUrl = SduiConfig.bizBaseUrl;
@@ -43,12 +21,6 @@ class PromissoryRealService {
   /// Fetch deposits list for the customer
   Future<List<Map<String, String>>?> getDeposits(BuildContext context) async {
     await _authManager.initialize();
-    final token = await _authManager.getAccessToken();
-    if (token == null) {
-      AppLogger.ec(LogCategory.network, 'No access token found');
-      return null;
-    }
-
     final nationalCode = await _authManager.getNationalCode();
     if (nationalCode == null || nationalCode.isEmpty) {
       AppLogger.ec(LogCategory.network, 'No national code found');
@@ -58,13 +30,8 @@ class PromissoryRealService {
     final url = '$_baseUrl/deposits/v1.0/customer/$nationalCode';
 
     try {
-      String authHeader = token;
-      if (!token.toLowerCase().startsWith('bearer ')) {
-        authHeader = 'Bearer $token';
-      }
-
       final options = Options(
-        headers: {...DeviceHeaders.all, 'authorization': authHeader},
+        headers: {...DeviceHeaders.all},
         sendTimeout: const Duration(seconds: 30),
         receiveTimeout: const Duration(seconds: 30),
       );
@@ -109,23 +76,11 @@ class PromissoryRealService {
     BuildContext context,
     String nationalCode,
   ) async {
-    await _authManager.initialize();
-    final token = await _authManager.getAccessToken();
-    if (token == null) {
-      AppLogger.ec(LogCategory.network, 'No access token found');
-      return null;
-    }
-
     final url = '$_baseUrl/customers/v1.0/info/$nationalCode';
 
     try {
-      String authHeader = token;
-      if (!token.toLowerCase().startsWith('bearer ')) {
-        authHeader = 'Bearer $token';
-      }
-
       final options = Options(
-        headers: {...DeviceHeaders.all, 'authorization': authHeader},
+        headers: {...DeviceHeaders.all},
         sendTimeout: const Duration(seconds: 30),
         receiveTimeout: const Duration(seconds: 30),
       );

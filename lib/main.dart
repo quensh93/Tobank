@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import 'package:stac/stac.dart';
+import 'package:tobank_sdui/core/api/dio_factory.dart';
 import 'package:tobank_sdui/core/storage/storage_util.dart';
 import 'stac_core/registry/register_custom_parsers.dart';
 import 'stac_core/mock/stac_mock_dio_setup.dart';
@@ -27,8 +27,8 @@ void main() async {
   // Override logging early to catch initialization logs
   AppLogger.overrideFlutterDebugPrint();
 
-  // Runtime STAC network uses a normal Dio client.
-  final stacDio = Dio();
+  // Runtime STAC network uses a plain Dio client.
+  final stacDio = DioFactory.plain();
 
   // Startup design/config loading still uses the mock-aware Dio.
   final startupMockDio = setupStacMockDio();

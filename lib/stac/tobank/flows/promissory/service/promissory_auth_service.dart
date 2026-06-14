@@ -2,11 +2,9 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:ispect/ispect.dart';
-import 'package:ispectify_dio/ispectify_dio.dart';
 import 'package:tobank_sdui/core/api/auth/auth_manager.dart';
 import 'package:tobank_sdui/core/api/device_headers.dart';
-import 'package:tobank_sdui/core/config/ispect_config.dart';
+import 'package:tobank_sdui/core/api/dio_factory.dart';
 import 'package:tobank_sdui/core/api/utils/curl_logger.dart';
 import 'package:tobank_sdui/core/helpers/logger.dart';
 import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
@@ -19,30 +17,10 @@ class PromissoryRealAuthService {
     'content-type': 'application/json',
   };
 
-  final Dio _dio = Dio();
+  final Dio _dio = DioFactory.plain();
   final AuthManager _authManager = AuthManager(
     storage: const FlutterSecureStorage(),
   );
-
-  PromissoryRealAuthService() {
-    if (ISpectConfig.shouldInitialize) {
-      try {
-        _dio.interceptors.add(
-          ISpectDioInterceptor(
-            logger: ISpect.logger,
-            settings: const ISpectDioInterceptorSettings(
-              printRequestHeaders: true,
-              printResponseHeaders: true,
-              printRequestData: true,
-              printResponseData: true,
-            ),
-          ),
-        );
-      } catch (e) {
-        // Ignore if ISpect not ready
-      }
-    }
-  }
 
   Future<bool> login(BuildContext context, Map<String, dynamic> body) async {
     AppLogger.ic(LogCategory.network, 'Initiating Real Login...');

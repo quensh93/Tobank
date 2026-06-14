@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:ispect/ispect.dart';
-import 'package:ispectify_dio/ispectify_dio.dart';
+import 'package:tobank_sdui/core/api/dio_factory.dart';
 import '../../../stac_core/config/sdui_config.dart';
 import '../utils/curl_logger.dart';
 import '../../helpers/logger.dart';
@@ -46,27 +45,9 @@ class ConfigApiService {
       // Use provided dio
       _dio = dio;
     } else {
-      // Configure internal dio
-      _dio = Dio();
+      // Configure internal dio via factory
+      _dio = DioFactory.plain(timeout: timeout);
       _dio.options.baseUrl = this.baseUrl;
-      _dio.options.connectTimeout = timeout;
-      _dio.options.receiveTimeout = timeout;
-      _dio.options.sendTimeout = timeout;
-
-      // Add ISpect if needed (mimicking auth service pattern, or just skipping to be safe)
-      try {
-        _dio.interceptors.add(
-          ISpectDioInterceptor(
-            logger: ISpect.logger,
-            settings: const ISpectDioInterceptorSettings(
-              printRequestHeaders: true,
-              printResponseHeaders: true,
-              printRequestData: true,
-              printResponseData: true,
-            ),
-          ),
-        );
-      } catch (_) {}
     }
   }
 
