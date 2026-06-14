@@ -101,7 +101,6 @@ flutter:
     - lib/stac/design_system/GET_styles.json
     - lib/stac/config/
     - lib/stac/config/assets.json
-    - lib/stac/tobank/menu/api/
 
 
     # Flows
