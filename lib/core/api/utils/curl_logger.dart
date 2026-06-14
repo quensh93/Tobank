@@ -36,6 +36,8 @@ class CurlLogger {
       try {
         if (_isFormData(body)) {
           components.add('-d "[FormData]"');
+        } else if (body is String) {
+          components.add("-d '$body'");
         } else if (body is Map || body is List) {
           components.add("-d '${json.encode(body)}'");
         } else {

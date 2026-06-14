@@ -1,0 +1,14 @@
+[
+  {
+    "id": "task-phase3-curl-logger",
+    "key": "phase3-curl-logger",
+    "content": "Task completed: phase3-curl-logger",
+    "namespace": "tasks",
+    "type": "task-outcome",
+    "metadata": {
+      "success": true,
+      "quality": 0.85
+    },
+    "createdAt": 1781433429693
+  }
+]
