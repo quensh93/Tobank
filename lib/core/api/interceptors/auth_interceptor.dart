@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:tobank_sdui/core/api/auth/auth_manager.dart';
-import 'package:tobank_sdui/core/helpers/log_category.dart';
+
 import 'package:tobank_sdui/core/helpers/logger.dart';
 
 /// Attaches Bearer token from AuthManager to every outgoing request.

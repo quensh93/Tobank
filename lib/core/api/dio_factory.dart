@@ -3,7 +3,7 @@ import 'package:ispect/ispect.dart';
 import 'package:ispectify_dio/ispectify_dio.dart';
 import 'package:tobank_sdui/core/api/interceptors/auth_interceptor.dart';
 import 'package:tobank_sdui/core/config/ispect_config.dart';
-import 'package:tobank_sdui/core/helpers/log_category.dart';
+
 import 'package:tobank_sdui/core/helpers/logger.dart';
 
 class DioFactory {
