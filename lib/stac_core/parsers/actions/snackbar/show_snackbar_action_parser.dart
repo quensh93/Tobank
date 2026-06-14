@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
+import '../custom_navigate_action_parser.dart';
 
 /// Model for snackbar actions (`customSnackBar` and overridden `showSnackBar`).
 class ShowSnackBarActionModel {
@@ -63,6 +64,7 @@ abstract class _BaseShowSnackBarActionParser
 
   @override
   FutureOr<void> onCall(BuildContext context, ShowSnackBarActionModel model) {
+    NavLogger.logOverlay('push', 'snackbar', model.message ?? '');
     final resolvedMessage = _resolveTemplateVariables(model.message);
     final customChild = model.child != null
         ? Stac.fromJson(model.child!, context)

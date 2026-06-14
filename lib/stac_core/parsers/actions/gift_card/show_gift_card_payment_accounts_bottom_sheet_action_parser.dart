@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stac/stac.dart';
 
 import '../../../registry/custom_component_registry.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowGiftCardPaymentAccountsBottomSheetActionModel {
   final String title;
@@ -155,6 +156,7 @@ class ShowGiftCardPaymentAccountsBottomSheetActionParser
     BuildContext context,
     ShowGiftCardPaymentAccountsBottomSheetActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'bottomSheet', 'gift_card_payment_accounts');
     if (!context.mounted || model.accounts.isEmpty) return;
 
     final colorScheme = Theme.of(context).colorScheme;

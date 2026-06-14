@@ -87,47 +87,16 @@ class ConsoleLoggingNavigatorObserver extends NavigatorObserver {
   ISpectNavigatorObserver get ispectObserver => _ispectObserver;
 
   @override
-  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    // Only log to console - ISpect observer handles its own logging
-    _logNavigation('PUSH', route, previousRoute);
-  }
+  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {}
 
   @override
-  void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    _logNavigation('POP', previousRoute, route);
-  }
+  void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {}
 
   @override
-  void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) {
-    AppLogger.dc(
-      LogCategory.navigation,
-      'REPLACE ${oldRoute?.settings.name ?? 'unknown'} → ${newRoute?.settings.name ?? 'unknown'}',
-    );
-  }
+  void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) {}
 
   @override
-  void didRemove(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    AppLogger.dc(
-      LogCategory.navigation,
-      'REMOVE ${route.settings.name ?? 'unknown'}',
-    );
-  }
-
-  void _logNavigation(
-    String action,
-    Route<dynamic>? toRoute,
-    Route<dynamic>? fromRoute,
-  ) {
-    final to =
-        toRoute?.settings.name ?? toRoute?.runtimeType.toString() ?? 'unknown';
-    final from = fromRoute?.settings.name ?? fromRoute?.runtimeType.toString();
-
-    if (from != null) {
-      AppLogger.dc(LogCategory.navigation, '$action $from → $to');
-    } else {
-      AppLogger.dc(LogCategory.navigation, '$action → $to');
-    }
-  }
+  void didRemove(Route<dynamic> route, Route<dynamic>? previousRoute) {}
 }
 
 /// Provider for ISpect panel buttons with custom debug panel toggle

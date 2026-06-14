@@ -8,6 +8,38 @@ import '../../navigation/nav_modes.dart';
 import '../../navigation/flow_source_resolver.dart';
 import '../../../core/helpers/logger.dart';
 
+/// Tracks the current screen name so overlay/nav parsers can log a meaningful source.
+class NavLogger {
+  static String _current = '/';
+
+  static String get current => _current;
+
+  static void logNav(String style, String navMode, String dest) {
+    AppLogger.dc(
+      LogCategory.stacNavigation,
+      '🗺️ [$style - $navMode] $_current → (page) $dest',
+    );
+    if (style != 'pop' && style != 'popAll') {
+      _current = dest;
+    }
+  }
+
+  static void logOverlay(String action, String type, String name) {
+    AppLogger.dc(
+      LogCategory.stacNavigation,
+      '🗺️ [$action] $_current → ($type) $name',
+    );
+  }
+
+  static void logClose(String type, [String? name]) {
+    final label = name != null ? '($type) $name' : '($type)';
+    AppLogger.dc(
+      LogCategory.stacNavigation,
+      '🗺️ [close] $label',
+    );
+  }
+}
+
 class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
   const CustomNavigateActionParser();
 
@@ -25,6 +57,7 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
         (pathOverrideRaw != null && pathOverrideRaw.isNotEmpty)
             ? pathOverrideRaw
             : null;
+    final navStyle = json['navigationStyle']?.toString() ?? 'push';
 
     if (navMode != null && (fileName != null || pathOverride != null)) {
       final resolution = FlowSourceResolver.resolve(
@@ -44,7 +77,7 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
         case NavError(:final message):
           AppLogger.wc(
             LogCategory.stacNavigation,
-            '⚠️ Navigation resolve failed ($navMode/$fileName): $message',
+            '🗺️ [$navStyle] ${navMode.name} → ${fileName ?? pathOverride} ✗ $message',
           );
       }
     }
@@ -52,46 +85,50 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
     return StacNavigateAction.fromJson(json);
   }
 
+  String _destination(StacNavigateAction model) {
+    if (model.widgetJson != null) {
+      return model.widgetJson!['_originalWidgetType'] as String? ?? 'dart';
+    } else if (model.assetPath != null && model.assetPath!.isNotEmpty) {
+      return model.assetPath!.split('/').last;
+    } else if (model.request != null) {
+      return model.request!.url;
+    } else if (model.routeName != null) {
+      return model.routeName!;
+    }
+    return 'unknown';
+  }
+
   @override
   FutureOr onCall(BuildContext context, StacNavigateAction model) async {
     Widget? widget;
 
-    final widgetTypeForLog = model.widgetJson != null
-        ? (model.widgetJson!['_originalWidgetType'] as String?)
-        : null;
+    final style = (model.navigationStyle ?? NavigationStyle.push).name;
+    final dest = _destination(model);
+    final resolvedNavMode = model.widgetJson != null
+        ? 'dart'
+        : model.assetPath != null && model.assetPath!.isNotEmpty
+            ? 'localJson'
+            : model.request != null
+                ? 'apiJson'
+                : 'route';
+    NavLogger.logNav(style, resolvedNavMode, dest);
 
     if (model.widgetJson != null) {
-      AppLogger.dc(
-        LogCategory.stacNavigation,
-        '🗺️ nav → dart:$widgetTypeForLog',
-      );
       widget = StacWidgetResolver.resolveFromJson(context, model.widgetJson);
     } else if (model.assetPath != null &&
         model.assetPath!.isNotEmpty &&
         model.assetPath != 'null') {
-      AppLogger.dc(
-        LogCategory.stacNavigation,
-        '🗺️ nav → asset:${model.assetPath}',
-      );
       widget = await StacWidgetResolver.resolveFromAssetPath(
         context,
         model.assetPath!,
       );
     } else if (model.request != null) {
-      AppLogger.dc(
-        LogCategory.stacNavigation,
-        '🗺️ nav → network',
-      );
       widget = StacWidgetResolver.resolveFromNetwork(context, model.request!);
     } else if (model.routeName != null &&
         (model.navigationStyle == null ||
             model.navigationStyle == NavigationStyle.push ||
             model.navigationStyle == NavigationStyle.pushReplacement ||
             model.navigationStyle == NavigationStyle.pushAndRemoveAll)) {
-      AppLogger.dc(
-        LogCategory.stacNavigation,
-        '🗺️ nav → route:${model.routeName}',
-      );
       widget = StacWidgetResolver.resolveFromRouteName(
         context,
         model.routeName!,

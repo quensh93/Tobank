@@ -6,6 +6,7 @@ import 'package:stac/stac.dart';
 import '../../../registry/custom_component_registry.dart';
 import '../../../registry/registry_notifier.dart';
 import '../../../registry/text_form_field_controller_registry.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowCardExpireSelectBottomSheetActionModel {
   final String formFieldId;
@@ -92,6 +93,7 @@ class ShowCardExpireSelectBottomSheetActionParser
     BuildContext context,
     ShowCardExpireSelectBottomSheetActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'bottomSheet', 'card_expire_select');
     if (!context.mounted) return;
     final actionContext = context;
 

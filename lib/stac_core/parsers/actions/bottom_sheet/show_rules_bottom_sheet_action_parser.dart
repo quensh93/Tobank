@@ -7,6 +7,7 @@ import 'package:tobank_sdui/stac/tobank/flows/verify_identity/dart/verify_identi
 
 import '../../../registry/custom_component_registry.dart';
 import '../../../../core/helpers/logger.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowRulesBottomSheetActionModel {
   final String routeName;
@@ -42,6 +43,7 @@ class ShowRulesBottomSheetActionParser
     BuildContext context,
     ShowRulesBottomSheetActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'bottomSheet', 'rules');
     final sections = _resolveSections(model.routeName);
     if (sections.isEmpty) {
       AppLogger.w(

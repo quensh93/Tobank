@@ -5,6 +5,7 @@ import 'package:stac/stac.dart';
 
 import '../../../registry/custom_component_registry.dart';
 import '../../../../core/helpers/logger.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowBottomSheetActionModel {
   final Map<String, dynamic>? sheet;
@@ -76,6 +77,10 @@ class ShowBottomSheetActionParser
     BuildContext context,
     ShowBottomSheetActionModel model,
   ) async {
+    final sheetId = model.title
+        ?? (model.sheet?['type'] as String?)
+        ?? (model.items != null ? 'items(${model.items!.length})' : 'bottom_sheet');
+    NavLogger.logOverlay('push', 'bottomSheet', sheetId);
     if (!context.mounted) return;
 
     try {

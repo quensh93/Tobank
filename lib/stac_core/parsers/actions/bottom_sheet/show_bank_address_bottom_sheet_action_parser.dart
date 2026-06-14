@@ -7,6 +7,7 @@ import 'package:stac/stac.dart';
 import '../../../../core/helpers/logger.dart';
 import '../../../registry/custom_component_registry.dart';
 import '../../../registry/registry_notifier.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowBankAddressBottomSheetActionModel {
   final String title;
@@ -80,6 +81,7 @@ class ShowBankAddressBottomSheetActionParser
     BuildContext context,
     ShowBankAddressBottomSheetActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'bottomSheet', 'bank_address');
     if (!context.mounted) return;
 
     final shouldOpenEdit = await _showCustomerAddressBottomSheet(

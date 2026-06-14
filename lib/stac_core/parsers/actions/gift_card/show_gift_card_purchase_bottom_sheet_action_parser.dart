@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
 
 import '../../../registry/custom_component_registry.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowGiftCardPurchaseBottomSheetActionModel {
   final String title;
@@ -61,6 +62,7 @@ class ShowGiftCardPurchaseBottomSheetActionParser
     BuildContext context,
     ShowGiftCardPurchaseBottomSheetActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'bottomSheet', 'gift_card_purchase');
     if (!context.mounted) return;
 
     bool isRulesAccepted = false;

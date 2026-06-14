@@ -6,6 +6,7 @@ import 'package:stac/stac.dart';
 
 import '../../../registry/custom_component_registry.dart';
 import '../../../registry/registry_notifier.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowGiftCardPlanSelectorBottomSheetActionModel {
   final String title;
@@ -117,6 +118,7 @@ class ShowGiftCardPlanSelectorBottomSheetActionParser
     BuildContext context,
     ShowGiftCardPlanSelectorBottomSheetActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'bottomSheet', 'gift_card_plan_selector');
     if (!context.mounted || model.plans.isEmpty) return;
 
     final colorScheme = Theme.of(context).colorScheme;

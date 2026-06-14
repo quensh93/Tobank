@@ -6,6 +6,7 @@ import 'package:stac/stac.dart';
 import '../../../registry/custom_component_registry.dart';
 import '../../../registry/registry_notifier.dart';
 import '../../../registry/text_form_field_controller_registry.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowGiftCardSelectDateBottomSheetActionModel {
   final String title;
@@ -98,6 +99,7 @@ class ShowGiftCardSelectDateBottomSheetActionParser
     BuildContext context,
     ShowGiftCardSelectDateBottomSheetActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'bottomSheet', 'gift_card_select_date');
     if (!context.mounted) return;
 
     final colorScheme = Theme.of(context).colorScheme;

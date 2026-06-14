@@ -68,7 +68,7 @@ class LogConfig {
   static const LogState general = LogState.disabled;
 
   /// 🌐 Network logs (cURL commands, responses)
-  static const LogState network = LogState.disabled;
+  static const LogState network = LogState.enabled;
 
   /// 📄 JSON parsing logs
   static const LogState json = LogState.disabled;

@@ -6,6 +6,7 @@ import 'package:stac/stac.dart';
 
 import '../../../registry/custom_component_registry.dart';
 import '../../../registry/registry_notifier.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowTransferTypeBottomSheetActionModel {
   final String title;
@@ -54,6 +55,7 @@ class ShowTransferTypeBottomSheetActionParser
     BuildContext context,
     ShowTransferTypeBottomSheetActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'bottomSheet', 'transfer_type');
     if (!context.mounted) return;
 
     final colorScheme = Theme.of(context).colorScheme;

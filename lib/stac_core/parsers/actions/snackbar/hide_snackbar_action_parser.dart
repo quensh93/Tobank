@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
 import 'package:tobank_sdui/core/bootstrap/app_root.dart';
+import '../custom_navigate_action_parser.dart';
 
 class HideSnackBarActionModel {
   const HideSnackBarActionModel();
@@ -27,6 +28,7 @@ class HideSnackBarActionParser
 
   @override
   FutureOr<void> onCall(BuildContext context, HideSnackBarActionModel model) {
+    NavLogger.logClose('snackbar');
     // Use app-root navigator context first; gesture context can be deactivated
     // when snackbar child is being removed.
     final rootContext = AppRoot.mainAppNavigatorKey.currentContext;

@@ -6,6 +6,7 @@ import 'package:stac/stac.dart';
 
 import '../../../registry/custom_component_registry.dart';
 import '../../../../core/helpers/logger.dart';
+import '../custom_navigate_action_parser.dart';
 
 class GuideBottomSheetOptionModel {
   final String title;
@@ -74,6 +75,7 @@ class ShowGuideOptionsBottomSheetActionParser
     BuildContext context,
     ShowGuideOptionsBottomSheetActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'bottomSheet', 'guide_options');
     if (model.options.isEmpty || !context.mounted) {
       return;
     }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
 
 import '../../../registry/custom_component_registry.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowGiftCardMessageGuideBottomSheetActionModel {
   final String title;
@@ -48,6 +49,7 @@ class ShowGiftCardMessageGuideBottomSheetActionParser
     BuildContext context,
     ShowGiftCardMessageGuideBottomSheetActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'bottomSheet', 'gift_card_message_guide');
     if (!context.mounted) return;
 
     final colorScheme = Theme.of(context).colorScheme;

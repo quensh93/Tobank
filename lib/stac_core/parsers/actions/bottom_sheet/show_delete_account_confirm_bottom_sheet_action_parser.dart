@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stac/stac.dart';
 
 import '../../../registry/custom_component_registry.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowDeleteAccountConfirmBottomSheetActionModel {
   final String title;
@@ -72,6 +73,7 @@ class ShowDeleteAccountConfirmBottomSheetActionParser
     BuildContext context,
     ShowDeleteAccountConfirmBottomSheetActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'bottomSheet', 'delete_account_confirm');
     if (!context.mounted) return;
 
     final colorScheme = Theme.of(context).colorScheme;

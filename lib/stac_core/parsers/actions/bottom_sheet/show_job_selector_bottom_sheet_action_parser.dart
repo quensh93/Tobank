@@ -7,6 +7,7 @@ import 'package:tobank_sdui/stac/tobank/flows/verify_identity/dart/verify_identi
 
 import '../../../registry/registry_notifier.dart';
 import '../../../registry/custom_component_registry.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowJobSelectorBottomSheetActionModel {
   final double heightFactor;
@@ -39,6 +40,7 @@ class ShowJobSelectorBottomSheetActionParser
     BuildContext context,
     ShowJobSelectorBottomSheetActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'bottomSheet', 'job_selector');
     if (!context.mounted) return;
 
     final colorScheme = Theme.of(context).colorScheme;

@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stac/stac.dart';
 
 import '../../../registry/custom_component_registry.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowGiftCardDesignTypeBottomSheetActionModel {
   final String title;
@@ -77,6 +78,7 @@ class ShowGiftCardDesignTypeBottomSheetActionParser
     BuildContext context,
     ShowGiftCardDesignTypeBottomSheetActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'bottomSheet', 'gift_card_design_type');
     if (!context.mounted) return;
 
     final colorScheme = Theme.of(context).colorScheme;

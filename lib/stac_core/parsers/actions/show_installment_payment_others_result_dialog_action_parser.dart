@@ -6,6 +6,7 @@ import 'package:stac/stac.dart';
 import '../../registry/custom_component_registry.dart';
 import '../../registry/registry_notifier.dart';
 import '../../registry/text_form_field_controller_registry.dart';
+import 'custom_navigate_action_parser.dart';
 
 class ShowInstallmentPaymentOthersResultDialogActionModel {
   final String nationalCodeFieldId;
@@ -49,6 +50,7 @@ class ShowInstallmentPaymentOthersResultDialogActionParser
     BuildContext context,
     ShowInstallmentPaymentOthersResultDialogActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'dialog', 'installment_payment_others_result');
     final rawValue =
         TextFormFieldControllerRegistry.instance
             .get(model.nationalCodeFieldId)

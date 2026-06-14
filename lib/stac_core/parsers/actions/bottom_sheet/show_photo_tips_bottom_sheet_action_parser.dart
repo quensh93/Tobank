@@ -9,6 +9,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 import '../../../registry/custom_component_registry.dart';
 import '../../../../core/helpers/logger.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowPhotoTipsBottomSheetActionModel {
   final String title;
@@ -70,6 +71,7 @@ class ShowPhotoTipsBottomSheetActionParser
     BuildContext context,
     ShowPhotoTipsBottomSheetActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'bottomSheet', 'photo_tips');
     if (!context.mounted) return;
 
     final colorScheme = Theme.of(context).colorScheme;

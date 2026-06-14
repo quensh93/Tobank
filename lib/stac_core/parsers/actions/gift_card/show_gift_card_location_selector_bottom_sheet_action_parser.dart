@@ -5,6 +5,7 @@ import 'package:stac/stac.dart';
 
 import '../../../registry/custom_component_registry.dart';
 import '../../../registry/registry_notifier.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowGiftCardLocationSelectorBottomSheetActionModel {
   final String title;
@@ -58,6 +59,7 @@ class ShowGiftCardLocationSelectorBottomSheetActionParser
     BuildContext context,
     ShowGiftCardLocationSelectorBottomSheetActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'bottomSheet', 'gift_card_location_selector');
     if (!context.mounted || model.options.isEmpty) return;
 
     final selected = await showModalBottomSheet<String>(

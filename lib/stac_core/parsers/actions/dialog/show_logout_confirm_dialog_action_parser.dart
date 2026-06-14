@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stac/stac.dart';
 
 import '../../../registry/custom_component_registry.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowLogoutConfirmDialogActionModel {
   final String title;
@@ -67,6 +68,7 @@ class ShowLogoutConfirmDialogActionParser
     BuildContext context,
     ShowLogoutConfirmDialogActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'dialog', 'logout_confirm');
     if (!context.mounted) return;
 
     final colorScheme = Theme.of(context).colorScheme;

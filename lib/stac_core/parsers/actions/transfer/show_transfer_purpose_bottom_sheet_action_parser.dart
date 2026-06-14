@@ -5,6 +5,7 @@ import 'package:stac/stac.dart';
 
 import '../../../registry/custom_component_registry.dart';
 import '../../../registry/registry_notifier.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowTransferPurposeBottomSheetActionModel {
   static const int minAmountRial = 10000;
@@ -89,6 +90,7 @@ class ShowTransferPurposeBottomSheetActionParser
     BuildContext context,
     ShowTransferPurposeBottomSheetActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'bottomSheet', 'transfer_purpose');
     if (!context.mounted) return;
 
     final colorScheme = Theme.of(context).colorScheme;

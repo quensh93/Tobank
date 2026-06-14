@@ -97,8 +97,6 @@ class _AppRootState extends ConsumerState<AppRoot> {
     }
 
     final isEnabled = settings.ispectDraggablePanelEnabled;
-    debugPrint('ISpectBuilder building - isISpectEnabled: $isEnabled');
-    AppLogger.d('ISpectBuilder building - isISpectEnabled: $isEnabled');
 
     try {
       // Stable key: do NOT embed isEnabled/debugPanelEnabled. The app renders in
@@ -122,8 +120,6 @@ class _AppRootState extends ConsumerState<AppRoot> {
         child: child,
       );
 
-      debugPrint('ISpectBuilder created with isISpectEnabled: $isEnabled');
-      AppLogger.d('ISpectBuilder created with isISpectEnabled: $isEnabled');
       return ispectBuilder;
     } catch (e, stackTrace) {
       debugPrint('ISpectBuilder error: $e');
@@ -264,9 +260,6 @@ class _AppRootState extends ConsumerState<AppRoot> {
           )
         : app;
 
-    if (DebugPanelConfig.shouldInitializeByFlag) {
-      debugPrint('DebugPanel enabled value: ${settings.debugPanelEnabled}');
-    }
 
     return appShell;
   }

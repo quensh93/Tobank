@@ -5,6 +5,7 @@ import 'package:stac/stac.dart';
 
 import '../../../registry/custom_component_registry.dart';
 import '../../../../core/helpers/logger.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowDialogActionModel {
   final Map<String, dynamic>? dialog;
@@ -50,6 +51,7 @@ class ShowDialogActionParser extends StacActionParser<ShowDialogActionModel> {
     BuildContext context,
     ShowDialogActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'dialog', 'app_dialog');
     if (!context.mounted) return;
 
     try {

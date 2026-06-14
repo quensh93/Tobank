@@ -4,6 +4,7 @@ import 'package:stac/stac.dart';
 import '../../../registry/custom_component_registry.dart';
 import '../../../../core/helpers/logger.dart';
 import './close_dialog_action.dart';
+import '../custom_navigate_action_parser.dart';
 
 /// Close Dialog Action Parser
 ///
@@ -20,6 +21,7 @@ class CloseDialogActionParser extends StacActionParser<StacCloseDialogAction> {
 
   @override
   FutureOr onCall(BuildContext context, StacCloseDialogAction model) async {
+    NavLogger.logClose('dialog');
     try {
       AppLogger.d('Closing dialog...');
       Navigator.of(context).pop(model.result);

@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stac/stac.dart';
 
 import '../../../registry/custom_component_registry.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowAddDestinationCardBottomSheetActionModel {
   final String title;
@@ -82,6 +83,7 @@ class ShowAddDestinationCardBottomSheetActionParser
     BuildContext context,
     ShowAddDestinationCardBottomSheetActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'bottomSheet', 'add_destination_card');
     if (!context.mounted) return;
 
     final colorScheme = Theme.of(context).colorScheme;

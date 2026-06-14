@@ -6,6 +6,7 @@ import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/services/theme/theme_controller_provider.dart';
 
 import '../../../registry/custom_component_registry.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowThemeSelectorBottomSheetActionModel {
   final String title;
@@ -50,6 +51,7 @@ class ShowThemeSelectorBottomSheetActionParser
     BuildContext context,
     ShowThemeSelectorBottomSheetActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'bottomSheet', 'theme_selector');
     if (!context.mounted) return;
 
     final container = ProviderScope.containerOf(context);

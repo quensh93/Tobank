@@ -6,6 +6,7 @@ import 'package:stac/stac.dart';
 
 import '../../../registry/custom_component_registry.dart';
 import '../../../registry/registry_notifier.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowTransferInBankTypeBottomSheetActionModel {
   final String title;
@@ -56,6 +57,7 @@ class ShowTransferInBankTypeBottomSheetActionParser
     BuildContext context,
     ShowTransferInBankTypeBottomSheetActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'bottomSheet', 'transfer_in_bank_type');
     if (!context.mounted) return;
 
     final colorScheme = Theme.of(context).colorScheme;

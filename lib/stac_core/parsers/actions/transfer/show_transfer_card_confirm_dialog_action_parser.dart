@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
 
 import '../../../registry/custom_component_registry.dart';
+import '../custom_navigate_action_parser.dart';
 
 class ShowTransferCardConfirmDialogActionModel {
   final String title;
@@ -83,6 +84,7 @@ class ShowTransferCardConfirmDialogActionParser
     BuildContext context,
     ShowTransferCardConfirmDialogActionModel model,
   ) async {
+    NavLogger.logOverlay('push', 'dialog', 'transfer_card_confirm');
     if (!context.mounted) return;
     final actionContext = context;
     final registry = StacRegistry.instance;
