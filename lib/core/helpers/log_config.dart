@@ -57,6 +57,10 @@ class LogConfig {
   /// Globally enable/disable log truncation
   static const bool truncateLogs = false;
 
+  /// Enable raw print chunking for cURL logs (bypasses Android 4 KB logcat limit).
+  /// Set to false to suppress RAW CURL START/END blocks in the console.
+  static const bool networkRawPrint = true;
+
   /// Max characters per log message before truncation
   static const int maxLogLength = 100000;
 

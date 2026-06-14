@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:tobank_sdui/core/helpers/log_config.dart';
 import 'package:tobank_sdui/core/helpers/logger.dart';
 
 /// Shared cURL logging utility.
@@ -57,6 +58,8 @@ class CurlLogger {
   /// [rawPrint] — also emit raw print chunks (900 chars) with START/END markers
   /// to bypass Android 4 KB logcat limit. Default false (AppLogger only).
   /// Pass true for large requests on Android (e.g. custom_network_request_action_parser).
+  /// Controlled globally by [LogConfig.networkRawPrint] — if that is false,
+  /// raw print is suppressed regardless of this parameter.
   static void log({
     required String method,
     required String url,
@@ -89,8 +92,8 @@ class CurlLogger {
 
       final curl = buffer.toString();
 
-      // 1. Raw print chunking — only when explicitly requested (Android large requests).
-      if (rawPrint) {
+      // 1. Raw print chunking — only when requested AND enabled in LogConfig.
+      if (rawPrint && LogConfig.networkRawPrint) {
         try {
           // ignore: avoid_print
           print('🌐 RAW CURL START -----------------------------------------');
