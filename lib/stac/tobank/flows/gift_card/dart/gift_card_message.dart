@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -25,7 +25,7 @@ StacWidget giftCardRealMessage() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: 'کارت هدیه',
+        title: '???? ????',
       ),
       body: StacForm(
         child: StacColumn(
@@ -41,7 +41,7 @@ StacWidget giftCardRealMessage() {
                       textDirection: StacTextDirection.rtl,
                       children: [
                         StacText(
-                          data: 'کارت هدیه',
+                          data: '???? ????',
                           textDirection: StacTextDirection.rtl,
                           textAlign: StacTextAlign.right,
                           style: StacCustomTextStyle(
@@ -86,7 +86,7 @@ StacWidget giftCardRealMessage() {
                         keyboardType: 'multiline',
                         textInputAction: 'newline',
                         decoration: StacInputDecoration(
-                          hintText: 'متن دلخواهتان را بنویسید (تا ۴۰ کاراکتر)',
+                          hintText: '??? ????????? ?? ??????? (?? ?? ???????)',
                           hintStyle: StacCustomTextStyle(
                             fontSize: 16,
                             fontWeight: StacFontWeight.w500,
@@ -129,7 +129,7 @@ StacWidget giftCardRealMessage() {
                       textDirection: StacTextDirection.rtl,
                       children: [
                         StacText(
-                          data: 'متن پیش\u200cفرض جایگزین',
+                          data: '??? ???\u200c??? ???????',
                           textDirection: StacTextDirection.rtl,
                           textAlign: StacTextAlign.right,
                           style: StacCustomTextStyle(
@@ -152,32 +152,32 @@ StacWidget giftCardRealMessage() {
                     ),
                     StacSizedBox(height: 14),
                     _buildPresetMessageCard(
-                      message: 'تولدت مبارک',
+                      message: '????? ?????',
                       selectedKey: 'giftCardRealMessageOption1Selected',
                       optionId: 1,
                     ),
                     StacSizedBox(height: 12),
                     _buildPresetMessageCard(
-                      message: 'سالروز زمینی شدنت مبارک',
+                      message: '?????? ????? ???? ?????',
                       selectedKey: 'giftCardRealMessageOption2Selected',
                       optionId: 2,
                     ),
                     StacSizedBox(height: 12),
                     _buildPresetMessageCard(
                       message:
-                          'روزی که تو به دنیا آمدی، قلبمان پر از شادی و عشق شد',
+                          '???? ?? ?? ?? ???? ????? ?????? ?? ?? ???? ? ??? ??',
                       selectedKey: 'giftCardRealMessageOption3Selected',
                       optionId: 3,
                     ),
                     StacSizedBox(height: 12),
                     _buildPresetMessageCard(
-                      message: 'چه فرخنده روزی است تولد زیباترین دختر دنیا',
+                      message: '?? ?????? ???? ??? ???? ???????? ???? ????',
                       selectedKey: 'giftCardRealMessageOption4Selected',
                       optionId: 4,
                     ),
                     StacSizedBox(height: 12),
                     _buildPresetMessageCard(
-                      message: 'امیدوارم روزگارت به زیبایی قلب مهربانت باشد',
+                      message: '???????? ??????? ?? ?????? ??? ??????? ????',
                       selectedKey: 'giftCardRealMessageOption5Selected',
                       optionId: 5,
                     ),
@@ -236,7 +236,7 @@ StacWidget giftCardRealMessage() {
                   elevation: 0,
                 ).toJson(),
                 child: StacText(
-                  data: 'ادامه',
+                  data: '?????',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 18,
@@ -256,10 +256,10 @@ StacWidget giftCardRealMessage() {
 StacAction _giftCardMessageGuideBottomSheetAction() {
   return _proxyLegacyBottomSheetAction(const {
     'actionType': 'showGiftCardMessageGuideBottomSheet',
-    'title': 'راهنما',
+    'title': '??????',
     'description':
-        'در صورت ورود متن دلخواه، یکی از متن‌های پیش‌فرض را انتخاب کنید تا در صورت عدم موافقت بانک با متن دلخواه شما، متن پیش‌فرض جایگزین آن شود',
-    'closeText': 'بستن',
+        '?? ???? ???? ??? ??????? ??? ?? ??????? ??????? ?? ?????? ???? ?? ?? ???? ??? ?????? ???? ?? ??? ?????? ???? ??? ??????? ??????? ?? ???',
+    'closeText': '????',
   });
 }
 
@@ -303,7 +303,7 @@ StacWidget _giftCardMessageGuideBottomSheet() {
           ),
           StacSizedBox(height: 24),
           StacText(
-            data: 'راهنما',
+            data: '??????',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -315,7 +315,7 @@ StacWidget _giftCardMessageGuideBottomSheet() {
           StacSizedBox(height: 16),
           StacText(
             data:
-                'در صورت ورود متن دلخواه، یکی از متن‌های پیش‌فرض را انتخاب کنید تا در صورت عدم موافقت بانک با متن دلخواه شما، متن پیش‌فرض جایگزین آن شود',
+                '?? ???? ???? ??? ??????? ??? ?? ??????? ??????? ?? ?????? ???? ?? ?? ???? ??? ?????? ???? ?? ??? ?????? ???? ??? ??????? ??????? ?? ???',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -340,7 +340,7 @@ StacWidget _giftCardMessageGuideBottomSheet() {
               elevation: 0,
             ),
             child: StacText(
-              data: 'بستن',
+              data: '????',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 17,

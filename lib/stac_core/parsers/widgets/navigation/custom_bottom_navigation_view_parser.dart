@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
-import 'package:stac_core/stac_core.dart';
 
 /// Keeps all bottom-nav pages mounted so tab state is preserved across switches.
 class CustomBottomNavigationViewParser

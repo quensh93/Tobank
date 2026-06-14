@@ -1,4 +1,4 @@
-import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac/tobank/flows/cartable/dart/cartable_intro.dart'
     as cartable_intro_dart;
 import 'package:tobank_sdui/stac/tobank/flows/profile/dart/profile_intro.dart'

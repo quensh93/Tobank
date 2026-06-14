@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 
@@ -47,7 +47,7 @@ StacWidget _buildAcceptorHeader() {
             StacSizedBox(width: 40),
             StacExpanded(
               child: StacText(
-                data: 'پذیرندگی',
+                data: '????????',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.center,
                 style: StacCustomTextStyle(
@@ -71,7 +71,7 @@ StacWidget _buildAcceptorHeader() {
                   ),
                 ),
                 child: StacText(
-                  data: 'بستن',
+                  data: '????',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 14,

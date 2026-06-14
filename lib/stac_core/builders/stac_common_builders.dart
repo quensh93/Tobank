@@ -1,4 +1,4 @@
-import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac.dart';
 import '../navigation/nav_modes.dart';
 
 export '../navigation/nav_modes.dart';

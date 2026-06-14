@@ -48,6 +48,17 @@ class _DebugPanelState extends ConsumerState<DebugPanel> {
       return widget.child;
     }
 
+    // Watch debugPanelEnabled from state — when disabled, skip the layout
+    // entirely and just show the app. The "Tools" button in the draggable
+    // panel (ISpect) still allows re-enabling from the bottom sheet.
+    final debugPanelEnabled = ref.watch(
+      debugPanelSettingsProvider.select((s) => s.debugPanelEnabled),
+    );
+
+    if (!debugPanelEnabled) {
+      return widget.child;
+    }
+
     return DebugPanelProvider(
       tools: widget.tools,
       child: _LayoutSelector(child: widget.child),
@@ -173,9 +184,7 @@ class _DebugPanelLargeLayoutState extends ConsumerState<DebugPanelLargeLayout> {
 
     return Directionality(
       textDirection: TextDirection.ltr,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: LayoutBuilder(
+      child: LayoutBuilder(
           builder: (context, constraints) {
             final availableWidth = constraints.maxWidth;
             final availableHeight = constraints.maxHeight;
@@ -291,7 +300,6 @@ class _DebugPanelLargeLayoutState extends ConsumerState<DebugPanelLargeLayout> {
             );
           },
         ),
-      ),
     );
   }
 }
@@ -424,10 +432,6 @@ class _MobileBottomSheetPanelState
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
-        ),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.2),
@@ -437,12 +441,7 @@ class _MobileBottomSheetPanelState
           ),
         ],
       ),
-      child: ClipRRect(
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
-        ),
-        child: Material(
+      child: Material(
           color: Colors.transparent,
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -580,7 +579,6 @@ class _MobileBottomSheetPanelState
             ],
           ),
         ),
-      ),
     );
   }
 
@@ -627,9 +625,7 @@ class _DebugPanelVerticalLayoutState
 
     return Directionality(
       textDirection: TextDirection.ltr,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: LayoutBuilder(
+      child: LayoutBuilder(
           builder: (context, constraints) {
             final availableHeight = constraints.maxHeight;
             const dividerHeight = 8.0;
@@ -744,7 +740,6 @@ class _DebugPanelVerticalLayoutState
             );
           },
         ),
-      ),
     );
   }
 }
@@ -759,11 +754,24 @@ class AppFrame extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final deviceState = ref.watch(devicePreviewProvider);
 
-    // Use a stable key to preserve the widget tree and prevent navigation resets
+    // When device preview is off, render the app directly without any frame
+    if (!deviceState.isPreviewEnabled) {
+      return SizedBox(
+        key: const ValueKey('app_frame'),
+        width: double.infinity,
+        height: double.infinity,
+        child: RepaintBoundary(
+          key: const ValueKey('app_frame_content'),
+          child: child,
+        ),
+      );
+    }
+
+    // Device preview is on — show the decorative frame around the device
     return Container(
       key: const ValueKey('app_frame'),
-      width: double.infinity, // Outer border full width
-      height: double.infinity, // Outer border full height
+      width: double.infinity,
+      height: double.infinity,
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(16),
@@ -773,19 +781,13 @@ class AppFrame extends ConsumerWidget {
         ),
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(
-          14.5,
-        ), // Adjusted to match container
+        borderRadius: BorderRadius.circular(14.5),
         child: Padding(
-          padding: const EdgeInsets.all(16.0), // Add padding inside the frame
+          padding: const EdgeInsets.all(16.0),
           child: Center(
-            // Center the device frame
             child: RepaintBoundary(
-              // Use stable key to preserve widget identity and prevent navigation resets
               key: const ValueKey('app_frame_content'),
-              child: deviceState.isPreviewEnabled
-                  ? _buildDevicePreview(context, deviceState)
-                  : child,
+              child: _buildDevicePreview(context, deviceState),
             ),
           ),
         ),

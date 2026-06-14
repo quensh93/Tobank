@@ -18,7 +18,6 @@ import 'package:stac/src/parsers/foundation/text/stac_text_style_parser.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/input_validations.dart';
 import 'package:stac/stac.dart';
-import 'package:stac_core/stac_core.dart';
 import '../../../core/helpers/logger.dart'; // Use AppLogger instead of stac_logger
 import '../../registry/text_form_field_controller_registry.dart';
 

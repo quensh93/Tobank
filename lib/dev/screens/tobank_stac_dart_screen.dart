@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:stac/stac.dart';
-import 'package:stac_core/stac_core.dart';
 import '../../stac/tobank/menu/dart/tobank_menu.dart' as tobank_menu;
 import 'package:tobank_sdui/stac_core/services/theme/theme_controller_provider.dart';
 import '../../core/helpers/logger.dart';

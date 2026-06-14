@@ -1,4 +1,4 @@
-import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac.dart';
 
 @StacScreen(screenName: 'biometric_test_menu')
 StacWidget biometricTestMenu() {

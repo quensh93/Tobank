@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -12,7 +12,7 @@ StacWidget transactionRealFilter() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: 'فیلتر تراکنش‌ها',
+        title: '????? ?????????',
       ),
       body: StacSingleChildScrollView(
         padding: StacEdgeInsets.all(16),
@@ -27,32 +27,32 @@ StacWidget transactionRealFilter() {
               ).toJson(),
               replacement: StacSizedBox(height: 2).toJson(),
             ),
-            _sectionTitle('بازه زمانی'),
+            _sectionTitle('???? ?????'),
             StacSizedBox(height: 12),
             StacRow(
               textDirection: StacTextDirection.rtl,
               children: [
                 StacExpanded(
                   child: _buildDateField(
-                    title: 'از تاریخ',
+                    title: '?? ?????',
                     fieldId: 'trFilterFromDate',
                   ),
                 ),
                 StacSizedBox(width: 10),
                 StacExpanded(
                   child: _buildDateField(
-                    title: 'تا تاریخ',
+                    title: '?? ?????',
                     fieldId: 'trFilterToDate',
                   ),
                 ),
               ],
             ),
             StacSizedBox(height: 20),
-            _sectionTitle('نوع تراکنش'),
+            _sectionTitle('??? ??????'),
             StacSizedBox(height: 12),
             _buildTypeChips(),
             StacSizedBox(height: 20),
-            _sectionTitle('وضعیت تراکنش'),
+            _sectionTitle('????? ??????'),
             StacSizedBox(height: 12),
             _buildStatusRow(),
             StacSizedBox(height: 26),
@@ -67,7 +67,7 @@ StacWidget transactionRealFilter() {
                 ),
               ),
               child: StacText(
-                data: 'فیلتر نتایج',
+                data: '????? ?????',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 18,
@@ -166,7 +166,7 @@ StacWidget _buildDirectionRow() {
     mainAxisAlignment: StacMainAxisAlignment.start,
     children: [
       _buildDirectionChip(
-        title: 'دریافت وجه',
+        title: '?????? ???',
         icon: 'south',
         selectedVisible: '[[trFilterDirectionReceive]]',
         selectedColor: '{{appColors.current.success.color}}',
@@ -185,7 +185,7 @@ StacWidget _buildDirectionRow() {
       ),
       StacSizedBox(width: 8),
       _buildDirectionChip(
-        title: 'ارسال وجه',
+        title: '????? ???',
         icon: 'north',
         selectedVisible: '[[trFilterDirectionSend]]',
         selectedColor: '{{appColors.current.warning.color}}',
@@ -345,11 +345,11 @@ StacWidget _buildTypeChips() {
     children: [
       _buildTypeRow(
         left: _buildTypeChip(
-          title: 'خرید کارت هدیه',
+          title: '???? ???? ????',
           key: 'trFilterTypeGiftCard',
         ),
         center: _buildTypeChip(
-          title: 'انتقال کیف پول',
+          title: '?????? ??? ???',
           key: 'trFilterTypeTransferWallet',
           onTap: const StacSequenceAction(
             actions: [
@@ -365,26 +365,26 @@ StacWidget _buildTypeChips() {
           ),
         ),
         right: _buildTypeChip(
-          title: 'کارت به کارت',
+          title: '???? ?? ????',
           key: 'trFilterTypeCardToCard',
         ),
       ),
       StacSizedBox(height: 8),
       _buildTypeRow(
         left: _buildTypeChip(
-          title: 'خرید بسته اینترنتی',
+          title: '???? ???? ????????',
           key: 'trFilterTypeBuyInternet',
         ),
         center: _buildTypeChip(
-          title: 'خرید شارژ مستقیم',
+          title: '???? ???? ??????',
           key: 'trFilterTypeBuyRecharge',
         ),
-        right: _buildTypeChip(title: 'نیکوکاری', key: 'trFilterTypeCharity'),
+        right: _buildTypeChip(title: '????????', key: 'trFilterTypeCharity'),
       ),
       StacSizedBox(height: 8),
       _buildTypeRow(
         left: _buildTypeChip(
-          title: 'شارژ کیف پول',
+          title: '???? ??? ???',
           key: 'trFilterTypeWalletCharge',
           onTap: const StacSequenceAction(
             actions: [
@@ -400,18 +400,18 @@ StacWidget _buildTypeChips() {
           ),
         ),
         center: _buildTypeChip(
-          title: 'پرداخت قبوض',
+          title: '?????? ????',
           key: 'trFilterTypeBillPayment',
         ),
         right: _buildTypeChip(
-          title: 'پرداخت گروهی قبوض',
+          title: '?????? ????? ????',
           key: 'trFilterTypeGroupBill',
         ),
       ),
       StacSizedBox(height: 8),
       _buildTypeRow(
         left: _buildTypeChip(
-          title: 'استرداد وجه',
+          title: '??????? ???',
           key: 'trFilterTypeRefund',
           onTap: const StacSequenceAction(
             actions: [
@@ -427,7 +427,7 @@ StacWidget _buildTypeChips() {
           ),
         ),
         center: _buildTypeChip(
-          title: 'صندوق امانات',
+          title: '????? ??????',
           key: 'trFilterTypeSafeBox',
         ),
         right: StacSizedBox(),
@@ -514,7 +514,7 @@ StacWidget _buildStatusRow() {
     children: [
       StacExpanded(
         child: _buildStatusChip(
-          title: 'پرداخت موفق',
+          title: '?????? ????',
           iconSrc: '{{appAssets.icons.transactionItemSuccessCurrent}}',
           selectedVisible: '[[trFilterStatusSuccessSelected]]',
           selectedColor: '{{appColors.current.success.color}}',
@@ -539,7 +539,7 @@ StacWidget _buildStatusRow() {
       StacSizedBox(width: 10),
       StacExpanded(
         child: _buildStatusChip(
-          title: 'پرداخت ناموفق',
+          title: '?????? ??????',
           iconSrc: '{{appAssets.icons.transactionItemFailedCurrent}}',
           selectedVisible: '[[trFilterStatusFailedSelected]]',
           selectedColor: '{{appColors.current.error.color}}',

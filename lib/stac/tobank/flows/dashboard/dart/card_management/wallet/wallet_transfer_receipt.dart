@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 
@@ -50,10 +50,10 @@ StacWidget dashboardWalletTransferReceipt() {
             children: [
               StacExpanded(
                 child: _actionChip(
-                  label: 'اشتراک‌گذاری',
+                  label: '????????????',
                   iconAsset: '{{appAssets.current.icons.share}}',
                   onTap: const StacCustomSnackBarAction(
-                    title: 'اشتراک‌گذاری',
+                    title: '????????????',
                     detail: '{{appStrings.common.comingSoon}}',
                     duration: 3000,
                   ),
@@ -62,10 +62,10 @@ StacWidget dashboardWalletTransferReceipt() {
               StacSizedBox(width: 12),
               StacExpanded(
                 child: _actionChip(
-                  label: 'پرینت رسید',
+                  label: '????? ????',
                   iconAsset: '{{appAssets.icons.printReceipt}}',
                   onTap: const StacCustomSnackBarAction(
-                    title: 'پرینت رسید',
+                    title: '????? ????',
                     detail: '{{appStrings.common.comingSoon}}',
                     duration: 3000,
                   ),
@@ -101,7 +101,7 @@ StacWidget _receiptCard() {
           valueKey: 'cardsManagement.wallet.transferAmount',
         ),
         StacSizedBox(height: 16),
-        _receiptRow(label: '{{appStrings.cardsManagement.wallet.statusLabel}}', value: 'موفق'),
+        _receiptRow(label: '{{appStrings.cardsManagement.wallet.statusLabel}}', value: '????'),
         StacSizedBox(height: 16),
         _receiptRow(label: '{{appStrings.cardsManagement.wallet.trackingNumber}}', value: '1234567890'),
       ],

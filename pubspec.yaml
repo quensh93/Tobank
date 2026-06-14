@@ -28,7 +28,6 @@ dependencies:
   #stac:
   #  path: .stac/packages/stac
   stac: ^1.1.2
-  stac_core: ^1.5.0
   debug_panel:
     path: lib/debug_panel
   uuid: ^4.5.2

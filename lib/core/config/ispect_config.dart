@@ -287,7 +287,10 @@ final ispectPanelItemsProvider = Provider<List<DraggablePanelItem>>((ref) {
                           onChanged: (value) {
                             currentController.setDebugPanelEnabled(value);
                             if (value) {
+                              // Re-enabling: restore tools and draggable panel
                               currentController.setAreToolsVisible(true);
+                              currentController
+                                  .setIspectDraggablePanelEnabled(true);
                             }
                           },
                         ),

@@ -252,9 +252,9 @@ class _AppRootState extends ConsumerState<AppRoot> {
 
     final appShell = DebugPanelConfig.shouldInitializeByFlag
         ? DebugPanel(
-            // TEMP force-on: persisted toggle was set false, hiding the panel and
-            // its settings tab (no way to re-enable from UI). Revert to
-            // `settings.debugPanelEnabled` after toggling it back on.
+            // Always mount the widget so the Tools bottom-sheet can toggle
+            // debugPanelEnabled back on. Actual visibility is governed by
+            // state.debugPanelEnabled inside _DebugPanelState.build().
             enabled: true,
             child: app,
           )

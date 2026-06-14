@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -111,7 +111,7 @@ StacWidget verifyIdentityRealOldNationalCard() {
   );
 }
 
-/// Top section: description text + "راهنما" guide button
+/// Top section: description text + "??????" guide button
 StacWidget _buildDescriptionAndGuide() {
   return StacRow(
     textDirection: StacTextDirection.rtl,
@@ -133,10 +133,10 @@ StacWidget _buildDescriptionAndGuide() {
       StacSizedBox(width: 12),
       StacGestureDetector(
         onTap: const StacShowGuideOptionsBottomSheetAction(
-          title: 'راهنما',
+          title: '??????',
           options: [
             {
-              'title': 'راهنمای تصویری',
+              'title': '??????? ??????',
               'iconAsset': '{{appAssets.icons.visualTutorialCurrent}}',
               'onTap': {
                 'actionType': 'launchUrl',
@@ -146,7 +146,7 @@ StacWidget _buildDescriptionAndGuide() {
               },
             },
             {
-              'title': 'راهنمای صوتی',
+              'title': '??????? ????',
               'iconAsset': '{{appAssets.icons.voiceTutorialCurrent}}',
               'onTap': {
                 'actionType': 'playAudioUrl',
@@ -236,7 +236,7 @@ StacWidget _buildTrackingCodeSection() {
   );
 }
 
-/// "ثبت عکس" card with camera button
+/// "??? ???" card with camera button
 StacWidget _buildCapturePhotoCard() {
   return StacContainer(
     decoration: StacBoxDecoration(
@@ -290,7 +290,7 @@ StacWidget _buildCapturePhotoCard() {
   );
 }
 
-/// "ثبت ویدیو" card with video button
+/// "??? ?????" card with video button
 StacWidget _buildCaptureVideoCard() {
   return StacContainer(
     decoration: StacBoxDecoration(
@@ -347,19 +347,19 @@ StacWidget _buildCaptureVideoCard() {
 StacWidget _buildPhotoCaptureTrigger() {
   return StacGestureDetector(
     onTap: const StacShowPhotoTipsBottomSheetAction(
-      title: 'نکات قابل توجه عکس',
+      title: '???? ???? ???? ???',
       iconAsset: '{{appAssets.icons.cameraCurrent}}',
       tips: [
-        'پوشش مناسب رعایت شود',
-        'عکس باید واضح و بدون تاری باشد',
-        'پس زمینه یکنواخت باشد',
-        'عدم وجود هرگونه فرد دیگر در تصویر',
-        'تصویر رخ کامل صورت فرد را نشان دهد (بدون عینک آفتابی، ماسک یا سایه‌های شدید)',
+        '???? ????? ????? ???',
+        '??? ???? ???? ? ???? ???? ????',
+        '?? ????? ??????? ????',
+        '??? ???? ?????? ??? ???? ?? ?????',
+        '????? ?? ???? ???? ??? ?? ???? ??? (???? ???? ??????? ???? ?? ???????? ????)',
       ],
       previewAsset:
           'https://appapi.tobank.ir/api/v1.0/media/ekyc/personal_picture_sample.png',
-      continueText: 'ادامه',
-      cancelText: 'بازگشت',
+      continueText: '?????',
+      cancelText: '??????',
       continueAction: {
         'actionType': 'pickFile',
         'fileType': 'image',
@@ -371,9 +371,9 @@ StacWidget _buildPhotoCaptureTrigger() {
         'cropAspectRatioX': 3,
         'cropAspectRatioY': 4,
         'previewBeforeConfirm': true,
-        'previewSheetTitle': 'عکس گرفته شده مورد تایید شما است؟',
-        'confirmButtonText': 'تایید',
-        'retryButtonText': 'بازگشت',
+        'previewSheetTitle': '??? ????? ??? ???? ????? ??? ????',
+        'confirmButtonText': '?????',
+        'retryButtonText': '??????',
       },
     ),
     child: StacRow(
@@ -404,19 +404,19 @@ StacWidget _buildPhotoCaptureTrigger() {
 StacWidget _buildVideoCaptureTrigger() {
   return StacGestureDetector(
     onTap: const StacShowPhotoTipsBottomSheetAction(
-      title: 'نکات قابل توجه ویدیو',
+      title: '???? ???? ???? ?????',
       iconAsset: '{{appAssets.icons.videoCurrent}}',
       tips: [
-        'پوشش مناسب رعایت شود',
-        'فیلم باید واضح و بدون تاری باشد',
-        'پس‌زمینه یکدست (ترجیحا سفید یا روشن)',
-        'تنها یک نفر در تصویر حضور داشته باشد',
-        'ویدیو باید کامل صورت کاربر را پوشش دهد (بدون عینک افتابی، ماسک یا سایه های شدید)',
+        '???? ????? ????? ???',
+        '???? ???? ???? ? ???? ???? ????',
+        '???????? ????? (?????? ???? ?? ????)',
+        '???? ?? ??? ?? ????? ???? ????? ????',
+        '????? ???? ???? ???? ????? ?? ???? ??? (???? ???? ??????? ???? ?? ???? ??? ????)',
       ],
       previewAsset:
           'https://appapi.tobank.ir/api/v1.0/media/ekyc/face_movement_video.mp4',
-      continueText: 'ادامه',
-      cancelText: 'بازگشت',
+      continueText: '?????',
+      cancelText: '??????',
       continueAction: {
         'actionType': 'pickFile',
         'fileType': 'video',
@@ -426,9 +426,9 @@ StacWidget _buildVideoCaptureTrigger() {
         'source': 'camera',
         'cameraDevice': 'front',
         'previewBeforeConfirm': true,
-        'previewSheetTitle': 'ویدیوی گرفته شده مورد تایید شما است؟',
-        'confirmButtonText': 'تایید',
-        'retryButtonText': 'بازگشت',
+        'previewSheetTitle': '?????? ????? ??? ???? ????? ??? ????',
+        'confirmButtonText': '?????',
+        'retryButtonText': '??????',
       },
     ),
     child: StacRow(
@@ -551,7 +551,7 @@ StacWidget _buildDeleteButton({required StacAction onTap}) {
         ),
         StacSizedBox(width: 6),
         StacText(
-          data: 'حذف',
+          data: '???',
           textDirection: StacTextDirection.rtl,
           style: StacCustomTextStyle(
             fontSize: 15,

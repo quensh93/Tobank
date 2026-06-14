@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -17,7 +17,7 @@ StacWidget profileRealDestinations() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: 'مخاطبین',
+        title: '???????',
       ),
       body: StacStack(
         children: [
@@ -84,9 +84,9 @@ StacWidget _tabSwitcher() {
         labelColor: '{{appColors.current.text.title}}',
         unselectedLabelColor: '{{appColors.current.text.subtitle}}',
         tabs: const [
-          StacTab(text: 'شبا', height: 44),
-          StacTab(text: 'سپرده', height: 44),
-          StacTab(text: 'کارت', height: 44),
+          StacTab(text: '???', height: 44),
+          StacTab(text: '?????', height: 44),
+          StacTab(text: '????', height: 44),
         ],
       ),
       StacPositioned(
@@ -119,31 +119,31 @@ StacWidget _cardTabList() {
     children: [
       _destinationCard(
         title: 'yuy',
-        subtitle: '۵۵۰۴ - ۱۶۱۰ - ۱۲۹۰ - ۶۵۶۵',
+        subtitle: '???? - ???? - ???? - ????',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'گردشگری - شعبه مجازی',
-        subtitle: '۵۵۰۴ - ۱۶۱۷ - ۰۴۸۲ - ۲۳۳۳',
+        title: '??????? - ???? ?????',
+        subtitle: '???? - ???? - ???? - ????',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'مهیار خلیجی',
-        subtitle: '۵۸۵۹ - ۸۳۱۸ - ۲۴۶۱ - ۷۰۳۸',
-        logoAsset: 'assets/icons/ic_gardeshgari.svg',
-      ),
-      StacSizedBox(height: 16),
-      _destinationCard(
-        title: 'blu',
-        subtitle: '۶۲۱۹ - ۸۶۱۹ - ۰۷۷۷ - ۹۵۵۷',
+        title: '????? ?????',
+        subtitle: '???? - ???? - ???? - ????',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
         title: 'blu',
-        subtitle: '۶۲۱۹ - ۸۶۱۹ - ۰۷۷۷ - ۹۵۵۷',
+        subtitle: '???? - ???? - ???? - ????',
+        logoAsset: 'assets/icons/ic_gardeshgari.svg',
+      ),
+      StacSizedBox(height: 16),
+      _destinationCard(
+        title: 'blu',
+        subtitle: '???? - ???? - ???? - ????',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
       ),
     ],
@@ -154,26 +154,26 @@ StacWidget _depositTabList() {
   return StacColumn(
     children: [
       _destinationCard(
-        title: 'مهدی جمشیدپور',
-        subtitle: '۱۱۰.۹۹۹۲.۱۷۵۵۸۰۹.۱',
+        title: '???? ????????',
+        subtitle: '???.????.???????.?',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'علیرضا حیدریان',
-        subtitle: '۱۱۰.۹۹۹۳.۷۶۳۴۰۵۰.۱',
+        title: '?????? ???????',
+        subtitle: '???.????.???????.?',
         logoAsset: 'assets/icons/ic_success_new.svg',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'مهدی جمشیدپور',
-        subtitle: '۱۱۰.۷۹۱.۱۷۵۵۸۰۹.۱',
+        title: '???? ????????',
+        subtitle: '???.???.???????.?',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'سجاد رحمانی پور',
-        subtitle: '۱۱۰.۹۹۹۲.۱۷۹۴۸۸۵.۱',
+        title: '???? ?????? ???',
+        subtitle: '???.????.???????.?',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
       ),
     ],
@@ -184,38 +184,38 @@ StacWidget _ibanTabList() {
   return StacColumn(
     children: [
       _destinationCard(
-        title: 'مهدی جمشیدپور',
-        subtitle: 'IR۰۶۰۶۶۷۶۱۱۸۲۸۰۰۱۰۰۰۸۸۷۰۱',
+        title: '???? ????????',
+        subtitle: 'IR???????????????????????',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'پرداخت اول کیش',
-        subtitle: 'IR۰۵۰۱۴۰۰۲۰۰۰۰۰۰۰۰۹۸۸۸۸۸۵۰۱',
+        title: '?????? ??? ???',
+        subtitle: 'IR?????????????????????????',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'زینب نعمت الهی',
-        subtitle: 'IR۷۱۵۷۰۳۰۴۳۷۷۰۰۱۷۹۸۴۰۰۰۱۰۱',
+        title: '???? ???? ????',
+        subtitle: 'IR????????????????????????',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'آذر عسکری',
-        subtitle: 'IR۹۸۰۶۴۰۰۱۱۹۹۹۶۹۹۹۷۷۸۸۰۱',
+        title: '??? ?????',
+        subtitle: 'IR??????????????????????',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'افدس عسکری',
-        subtitle: 'IR۰۳۰۵۶۶۷۱۱۸۲۸۰۰۶۲۲۳۹۲۱۹۰۱',
+        title: '???? ?????',
+        subtitle: 'IR????????????????????????',
         logoAsset: 'assets/icons/ic_gardeshgari.svg',
       ),
       StacSizedBox(height: 16),
       _destinationCard(
-        title: 'مهدی جمشیدپور',
-        subtitle: 'IR۰۵۱۴۴۰۰۰۰۰۰۰۰۱۱۰۷۵۵۸۰۹۱',
+        title: '???? ????????',
+        subtitle: 'IR???????????????????????',
         logoAsset: 'assets/icons/ic_success_new.svg',
       ),
     ],
@@ -229,8 +229,8 @@ StacWidget _destinationCard({
 }) {
   return StacGestureDetector(
     onTap: const StacShowResultAction(
-      title: 'گزینه‌ها',
-      content: 'مدیریت مقصد به زودی فعال می‌شود.',
+      title: '????????',
+      content: '?????? ???? ?? ???? ???? ??????.',
     ),
     child: StacContainer(
       padding: StacEdgeInsets.symmetric(horizontal: 14, vertical: 14),
@@ -336,7 +336,7 @@ StacWidget _addDestinationButton() {
         ),
         StacSizedBox(width: 7),
         StacText(
-          data: 'افزودن کارت مقصد',
+          data: '?????? ???? ????',
           style: StacCustomTextStyle(
             fontSize: 16,
             fontWeight: StacFontWeight.w600,
@@ -392,7 +392,7 @@ StacWidget _addCardBottomSheetOverlay() {
                 children: [
                   StacExpanded(
                     child: StacText(
-                      data: 'افزودن کارت جدید',
+                      data: '?????? ???? ????',
                       textDirection: StacTextDirection.rtl,
                       textAlign: StacTextAlign.right,
                       style: StacCustomTextStyle(
@@ -405,8 +405,8 @@ StacWidget _addCardBottomSheetOverlay() {
                   StacSizedBox(width: 12),
                   StacOutlinedButton(
                     onPressed: const StacShowResultAction(
-                      title: 'اسکن کارت',
-                      content: 'این بخش به زودی فعال می‌شود.',
+                      title: '???? ????',
+                      content: '??? ??? ?? ???? ???? ??????.',
                     ),
                     style: StacButtonStyle(
                       minimumSize: const StacSize(125, 50),
@@ -431,7 +431,7 @@ StacWidget _addCardBottomSheetOverlay() {
                         ),
                         StacSizedBox(width: 6),
                         StacText(
-                          data: 'اسکن کارت',
+                          data: '???? ????',
                           style: StacCustomTextStyle(
                             fontSize: 14,
                             fontWeight: StacFontWeight.w600,
@@ -445,7 +445,7 @@ StacWidget _addCardBottomSheetOverlay() {
               ),
               StacSizedBox(height: 16),
               StacText(
-                data: 'شماره کارت',
+                data: '????? ????',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
                 style: StacCustomTextStyle(
@@ -461,7 +461,7 @@ StacWidget _addCardBottomSheetOverlay() {
                 textAlign: StacTextAlign.right,
                 keyboardType: StacTextInputType.number,
                 decoration: StacInputDecoration(
-                  hintText: 'یک شماره کارت معتبر وارد نمایید',
+                  hintText: '?? ????? ???? ????? ???? ??????',
                   hintStyle: StacCustomTextStyle(
                     fontSize: 14,
                     fontWeight: StacFontWeight.w500,
@@ -476,7 +476,7 @@ StacWidget _addCardBottomSheetOverlay() {
               ),
               StacSizedBox(height: 16),
               StacText(
-                data: 'عنوان کارت',
+                data: '????? ????',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
                 style: StacCustomTextStyle(
@@ -492,7 +492,7 @@ StacWidget _addCardBottomSheetOverlay() {
                 textAlign: StacTextAlign.right,
                 keyboardType: StacTextInputType.text,
                 decoration: StacInputDecoration(
-                  hintText: 'عنوان کارت را وارد کنید',
+                  hintText: '????? ???? ?? ???? ????',
                   hintStyle: StacCustomTextStyle(
                     fontSize: 14,
                     fontWeight: StacFontWeight.w500,
@@ -514,8 +514,8 @@ StacWidget _addCardBottomSheetOverlay() {
                       value: false,
                     ),
                     StacShowResultAction(
-                      title: 'ثبت',
-                      content: 'کارت مقصد با موفقیت ثبت شد.',
+                      title: '???',
+                      content: '???? ???? ?? ?????? ??? ??.',
                     ),
                   ],
                 ),
@@ -528,7 +528,7 @@ StacWidget _addCardBottomSheetOverlay() {
                       '{{appColors.current.button.primary.backgroundColor}}',
                 ),
                 child: StacText(
-                  data: 'ثبت',
+                  data: '???',
                   style: StacCustomTextStyle(
                     fontSize: 16,
                     fontWeight: StacFontWeight.w700,

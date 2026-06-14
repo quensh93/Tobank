@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -23,7 +23,7 @@ StacWidget giftCardRealCustomMessage() {
       appBar: buildTobankFlowAppBar(
         showSupport: true,
         showBack: true,
-        title: 'کارت هدیه',
+        title: '???? ????',
       ),
       body: StacColumn(
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
@@ -50,7 +50,7 @@ StacWidget giftCardRealCustomMessage() {
                       ),
                       child: StacText(
                         data:
-                            'لطفا یکی از متن‌های پیش‌فرض را انتخاب کنید تا در صورت عدم موافقت بانک با متن دلخواه شما، متن پیش‌فرض جایگزین آن شود',
+                            '???? ??? ?? ??????? ??????? ?? ?????? ???? ?? ?? ???? ??? ?????? ???? ?? ??? ?????? ???? ??? ??????? ??????? ?? ???',
                         textDirection: StacTextDirection.rtl,
                         textAlign: StacTextAlign.right,
                         style: StacCustomTextStyle(
@@ -67,7 +67,7 @@ StacWidget giftCardRealCustomMessage() {
                     textDirection: StacTextDirection.rtl,
                     children: [
                       StacText(
-                        data: 'متن پیش‌فرض جایگزین',
+                        data: '??? ??????? ???????',
                         textDirection: StacTextDirection.rtl,
                         textAlign: StacTextAlign.right,
                         style: StacCustomTextStyle(
@@ -90,32 +90,32 @@ StacWidget giftCardRealCustomMessage() {
                   ),
                   StacSizedBox(height: 14),
                   _buildCustomAltMessageCard(
-                    message: 'آرزومند خوشبختی شما',
+                    message: '??????? ??????? ???',
                     selectedKey: 'giftCardRealCustomAltMessageOption1Selected',
                     optionId: 1,
                   ),
                   StacSizedBox(height: 12),
                   _buildCustomAltMessageCard(
-                    message: 'همسر عزیزم سالروز عهد و پیمان جاویدانمان مبارک',
+                    message: '???? ????? ?????? ??? ? ????? ?????????? ?????',
                     selectedKey: 'giftCardRealCustomAltMessageOption2Selected',
                     optionId: 2,
                   ),
                   StacSizedBox(height: 12),
                   _buildCustomAltMessageCard(
-                    message: 'تمام قلبم مال توست',
+                    message: '???? ???? ??? ????',
                     selectedKey: 'giftCardRealCustomAltMessageOption3Selected',
                     optionId: 3,
                   ),
                   StacSizedBox(height: 12),
                   _buildCustomAltMessageCard(
-                    message: 'دوستت دارم، همراه همیشگی من',
+                    message: '????? ????? ????? ?????? ??',
                     selectedKey: 'giftCardRealCustomAltMessageOption4Selected',
                     optionId: 4,
                   ),
                   StacSizedBox(height: 12),
                   _buildCustomAltMessageCard(
                     message:
-                        'خوشا دلی که دلدارش تو گردی، خوشا جانی که جانانش تو باشی',
+                        '???? ??? ?? ?????? ?? ????? ???? ???? ?? ?????? ?? ????',
                     selectedKey: 'giftCardRealCustomAltMessageOption5Selected',
                     optionId: 5,
                   ),
@@ -168,7 +168,7 @@ StacWidget giftCardRealCustomMessage() {
                 elevation: 0,
               ).toJson(),
               child: StacText(
-                data: 'ادامه',
+                data: '?????',
                 textDirection: StacTextDirection.rtl,
                 style: StacCustomTextStyle(
                   fontSize: 18,

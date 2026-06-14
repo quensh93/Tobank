@@ -1,4 +1,4 @@
-import 'package:stac_core/core/stac_options.dart';
+import 'package:stac/stac.dart';
 
 /// Default STAC options for the project
 ///

@@ -11,7 +11,7 @@ import 'package:stac/src/parsers/foundation/navigation/stac_tab_alignment_parser
 import 'package:stac/src/parsers/foundation/navigation/stac_tab_bar_indicator_size_parser.dart';
 import 'package:stac/src/parsers/foundation/text/stac_text_style_parser.dart';
 import 'package:stac/src/utils/color_utils.dart';
-import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac.dart';
 import 'package:stac_framework/stac_framework.dart';
 
 class CustomTabBarParser extends StacParser<StacTabBar> {

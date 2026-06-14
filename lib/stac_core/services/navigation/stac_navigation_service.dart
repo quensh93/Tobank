@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac.dart';
 
 /// Service for handling navigation operations.
 ///

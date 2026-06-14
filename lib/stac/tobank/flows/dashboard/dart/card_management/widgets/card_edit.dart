@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
@@ -13,7 +13,7 @@ StacWidget dashboardCardEdit() {
       centerTitle: true,
       automaticallyImplyLeading: false,
       title: StacText(
-        data: 'ویرایش کارت',
+        data: '?????? ????',
         textDirection: StacTextDirection.rtl,
         style: StacAliasTextStyle('{{appStyles.appbarStyle}}'),
       ),
@@ -41,7 +41,7 @@ StacWidget dashboardCardEdit() {
       child: StacColumn(
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
-          // ── Card number info row ─────────────────────────────────────
+          // -- Card number info row -------------------------------------
           StacContainer(
             padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 14),
             decoration: StacBoxDecoration(
@@ -57,7 +57,7 @@ StacWidget dashboardCardEdit() {
               mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
               children: [
                 StacText(
-                  data: 'شماره کارت',
+                  data: '????? ????',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
                     fontSize: 13,
@@ -108,9 +108,9 @@ StacWidget dashboardCardEdit() {
 
           StacSizedBox(height: 24),
 
-          // ── Expiry date (read-only, picker on tap) ───────────────────
+          // -- Expiry date (read-only, picker on tap) -------------------
           StacText(
-            data: 'تاریخ انقضاء',
+            data: '????? ??????',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -135,7 +135,7 @@ StacWidget dashboardCardEdit() {
               color: '{{appColors.current.text.title}}',
             ).toJson(),
             decoration: {
-              'hintText': '۰۶/۱۰',
+              'hintText': '??/??',
               'hintStyle': {
                 'type': 'custom',
                 'fontSize': 16,
@@ -170,9 +170,9 @@ StacWidget dashboardCardEdit() {
 
           StacSizedBox(height: 24),
 
-          // ── Card title (editable) ────────────────────────────────────
+          // -- Card title (editable) ------------------------------------
           StacText(
-            data: 'عنوان کارت',
+            data: '????? ????',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -219,13 +219,13 @@ StacWidget dashboardCardEdit() {
 
           StacSizedBox(height: 32),
 
-          // ── Save button ──────────────────────────────────────────────
+          // -- Save button ----------------------------------------------
           StacFilledButton(
             onPressed: StacSequenceAction(
               actions: [
                 StacCustomSnackBarAction(
-                  title: 'ذخیره شد',
-                  detail: 'عنوان کارت با موفقیت به‌روزرسانی شد.',
+                  title: '????? ??',
+                  detail: '????? ???? ?? ?????? ??????????? ??.',
                   duration: 3000,
                 ),
                 StacNavigateAction(navigationStyle: NavigationStyle.pop),
@@ -243,7 +243,7 @@ StacWidget dashboardCardEdit() {
               ),
             ),
             child: StacText(
-              data: 'ذخیره تغییرات',
+              data: '????? ???????',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 14,
@@ -262,10 +262,10 @@ StacAction _showCardExpireBottomSheetAction() {
   return StacRawJsonAction({
     'actionType': 'showCardExpireSelectBottomSheet',
     'formFieldId': _cardExpireFieldId,
-    'title': 'تاریخ انقضای کارت را انتخاب نمایید',
-    'monthTitle': 'ماه',
-    'yearTitle': 'سال',
-    'confirmText': 'تایید',
+    'title': '????? ?????? ???? ?? ?????? ??????',
+    'monthTitle': '???',
+    'yearTitle': '???',
+    'confirmText': '?????',
   });
 }
 

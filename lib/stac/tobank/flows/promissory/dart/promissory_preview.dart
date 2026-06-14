@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -76,7 +76,7 @@ StacWidget promissoryRealPreview() {
     child: StacScaffold(
       appBar: buildTobankFlowAppBar(
         showSupport: true,
-        // نمایش سفته
+        // ????? ????
         title: '{{appStrings.promissory.previewScreenTitle}}',
       ),
       body: StacColumn(
@@ -165,7 +165,7 @@ StacWidget _buildActionButtons() {
                   ),
                 ),
                 child: StacText(
-                  // ذخیره
+                  // ?????
                   data: '{{appStrings.promissory.saveButton}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(
@@ -197,7 +197,7 @@ StacWidget _buildActionButtons() {
                   ),
                 ),
                 child: StacText(
-                  // اشتراک گذاری
+                  // ?????? ?????
                   data: '{{appStrings.promissory.shareButton}}',
                   textDirection: StacTextDirection.rtl,
                   style: StacCustomTextStyle(

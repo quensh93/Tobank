@@ -1,4 +1,4 @@
-import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac.dart';
 
 class StacFormatDateAction extends StacAction {
   final String sourceKey;

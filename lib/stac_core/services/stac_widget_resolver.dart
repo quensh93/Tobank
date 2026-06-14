@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:stac/stac.dart';
-import 'package:stac_core/stac_core.dart';
 import 'theme/theme_controller_provider.dart';
 import '../utils/variable_resolver.dart' as variable_resolver;
 import 'path/stac_path_normalizer.dart';

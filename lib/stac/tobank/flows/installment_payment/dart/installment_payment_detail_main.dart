@@ -1,4 +1,4 @@
-import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/amount/amount_to_words_action.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';

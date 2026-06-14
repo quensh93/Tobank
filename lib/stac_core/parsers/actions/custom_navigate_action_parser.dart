@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
-import 'package:stac_core/stac_core.dart';
 import '../../services/stac_widget_resolver.dart';
 import '../../services/navigation/stac_navigation_service.dart';
 import '../../navigation/nav_modes.dart';

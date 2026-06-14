@@ -1,4 +1,4 @@
-import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';

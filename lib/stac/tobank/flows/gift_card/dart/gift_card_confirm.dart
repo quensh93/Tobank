@@ -1,4 +1,4 @@
-﻿import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -11,7 +11,7 @@ StacWidget giftCardRealConfirm() {
     appBar: buildTobankFlowAppBar(
       showSupport: true,
       showBack: true,
-      title: 'کارت هدیه',
+      title: '???? ????',
     ),
     body: StacColumn(
       crossAxisAlignment: StacCrossAxisAlignment.stretch,
@@ -44,7 +44,7 @@ StacWidget giftCardRealConfirm() {
               elevation: 0,
             ),
             child: StacText(
-              data: 'پرداخت {{giftCardRealSummaryPaymentLabel}}',
+              data: '?????? {{giftCardRealSummaryPaymentLabel}}',
               textDirection: StacTextDirection.rtl,
               style: StacCustomTextStyle(
                 fontSize: 19,
@@ -62,47 +62,47 @@ StacWidget giftCardRealConfirm() {
 StacAction _paymentAccountsBottomSheetAction() {
   return _proxyLegacyBottomSheetAction(const {
     'actionType': 'showGiftCardPaymentAccountsBottomSheet',
-    'title': 'کارت هدیه',
+    'title': '???? ????',
     'paymentAmountKey': 'giftCardRealSummaryPaymentAmount',
-    'walletLabel': 'کیف پول',
+    'walletLabel': '??? ???',
     'walletBalance': 226600,
-    'accountsTitle': 'حساب‌ها',
-    'insufficientText': 'موجودی ناکافی',
-    'sufficientText': 'موجودی کافی',
-    'chargeButtonText': 'شارژ حساب',
-    'continueButtonText': 'ادامه',
+    'accountsTitle': '???????',
+    'insufficientText': '?????? ??????',
+    'sufficientText': '?????? ????',
+    'chargeButtonText': '???? ????',
+    'continueButtonText': '?????',
     'accounts': [
       {
         'id': 'acc_1',
-        'title': 'سپرده حقیقی حساب قرض الحسنه جاری حقیقی- ریالی',
-        'ownerName': 'سید پارسا بنی طبا',
-        'depositNumber': '۱۱۰.۷۰.۱۶/۲۹۸۸.۱',
+        'title': '????? ????? ???? ??? ?????? ???? ?????- ?????',
+        'ownerName': '??? ????? ??? ???',
+        'depositNumber': '???.??.??/????.?',
         'availableAmount': 66770,
       },
       {
         'id': 'acc_2',
-        'title': 'سپرده حقیقی سپرده سرمایه گذاری کوتاه مدت',
-        'ownerName': 'توبانک- حقیقی ریالی سید پارسا بنی طبا',
-        'depositNumber': '۱۱۰.۹۹۹۲.۱۶/۲۹۸۸.۱',
+        'title': '????? ????? ????? ?????? ????? ????? ???',
+        'ownerName': '??????- ????? ????? ??? ????? ??? ???',
+        'depositNumber': '???.????.??/????.?',
         'availableAmount': 39148,
       },
       {
         'id': 'acc_3',
-        'title': 'سپرده حقیقی سپرده سرمایه گذاری ویژه',
-        'ownerName': 'توبانک- حقیقی ریالی سید پارسا بنی طبا',
-        'depositNumber': '۱۱۹.۹۲۹۰.۱۶/۲۹۸۸.۱',
+        'title': '????? ????? ????? ?????? ????? ????',
+        'ownerName': '??????- ????? ????? ??? ????? ??? ???',
+        'depositNumber': '???.????.??/????.?',
         'availableAmount': 9200000,
       },
     ],
     'continueAction': {
       'actionType': 'showResult',
-      'title': 'پرداخت',
-      'content': 'پرداخت با موفقیت انجام شد.',
+      'title': '??????',
+      'content': '?????? ?? ?????? ????? ??.',
     },
     'chargeAction': {
       'actionType': 'showResult',
-      'title': 'شارژ حساب',
-      'content': 'برای ادامه، حساب خود را شارژ کنید.',
+      'title': '???? ????',
+      'content': '???? ?????? ???? ??? ?? ???? ????.',
     },
   });
 }
@@ -195,7 +195,7 @@ StacWidget _buildCardLine({
         crossAxisAlignment: StacCrossAxisAlignment.end,
         children: [
           StacText(
-            data: 'کارت هدیه',
+            data: '???? ????',
             textDirection: StacTextDirection.rtl,
             textAlign: StacTextAlign.right,
             style: StacCustomTextStyle(
@@ -218,7 +218,7 @@ StacWidget _buildCardLine({
         ],
       ),
       StacText(
-        data: '{{$countKey}} عدد',
+        data: '{{$countKey}} ???',
         textDirection: StacTextDirection.rtl,
         style: StacCustomTextStyle(
           fontSize: 17,
@@ -245,43 +245,43 @@ StacWidget _buildDetailsSection() {
       crossAxisAlignment: StacCrossAxisAlignment.stretch,
       children: [
         _buildDetailRow(
-          'مبلغ کارت(های) هدیه',
+          '???? ????(???) ????',
           '{{giftCardRealSummaryCardsAmountLabel}}',
         ),
         _buildGap(),
         _buildDetailRow(
-          'هزینه صدور هر کارت',
+          '????? ???? ?? ????',
           '{{giftCardRealSummaryIssuanceFeeLabel}}',
         ),
         _buildGap(),
         _buildDetailRow(
-          'هزینه ارسال',
+          '????? ?????',
           '{{giftCardRealSummaryDeliveryFeeLabel}}',
         ),
         _buildGap(),
-        _buildDetailRow('نوع کارت هدیه', '{{giftCardRealSummaryType}}'),
+        _buildDetailRow('??? ???? ????', '{{giftCardRealSummaryType}}'),
         _buildGap(),
         _buildDetailRow(
-          'نام تحویل گیرنده',
+          '??? ????? ??????',
           '{{giftCardRealSummaryReceiverName}}',
         ),
         _buildGap(),
         _buildDetailRow(
-          'موبایل تحویل گیرنده',
+          '?????? ????? ??????',
           '{{giftCardRealSummaryReceiverMobile}}',
         ),
         _buildGap(),
-        _buildDetailRow('تاریخ تحویل', '{{giftCardRealSummaryDeliveryDate}}'),
+        _buildDetailRow('????? ?????', '{{giftCardRealSummaryDeliveryDate}}'),
         _buildGap(),
-        _buildDetailRow('ساعت تحویل', '{{giftCardRealSummaryDeliveryTime}}'),
+        _buildDetailRow('???? ?????', '{{giftCardRealSummaryDeliveryTime}}'),
         _buildGap(),
         _buildDetailRow(
-          'شهر تحویل گیرنده',
+          '??? ????? ??????',
           '{{giftCardRealSummaryReceiverCity}}',
         ),
         _buildGap(),
         StacText(
-          data: 'آدرس تحویل گیرنده',
+          data: '???? ????? ??????',
           textDirection: StacTextDirection.rtl,
           textAlign: StacTextAlign.right,
           style: StacCustomTextStyle(

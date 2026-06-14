@@ -1,4 +1,4 @@
-import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac.dart';
 
 /// StacAction wrapper for Persian Date Picker
 ///
