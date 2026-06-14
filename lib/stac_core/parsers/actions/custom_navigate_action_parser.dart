@@ -111,7 +111,8 @@ class CustomNavigateActionParser extends StacActionParser<StacNavigateAction> {
     if (model.widgetJson != null) {
       return model.widgetJson!['_originalWidgetType'] as String? ?? 'dart';
     } else if (model.assetPath != null && model.assetPath!.isNotEmpty) {
-      return model.assetPath!.split('/').last;
+      final filename = model.assetPath!.split('/').last;
+      return filename.endsWith('.json') ? filename.replaceAll('.json', '') : filename;
     } else if (model.request != null) {
       return model.request!.url;
     } else if (model.routeName != null) {

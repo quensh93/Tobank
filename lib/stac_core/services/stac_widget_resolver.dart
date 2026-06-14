@@ -222,27 +222,15 @@ class StacWidgetResolver {
     // Regular JSON file - load from assets and resolve variables before parsing
     // For asset files, we need to load the content first
     try {
-      AppLogger.dc(
-        LogCategory.stacNavigation,
-        'StacWidgetResolver: Attempting to load asset: $normalizedPath',
-      );
       final jsonString = await DefaultAssetBundle.of(
         context,
       ).loadString(normalizedPath);
-      AppLogger.dc(
-        LogCategory.stacNavigation,
-        'StacWidgetResolver: Successfully loaded asset: $normalizedPath',
-      );
       final jsonData = json.decode(jsonString) as Map<String, dynamic>;
 
       // Dashboard shell must remain stable while navigating to child pages.
       // Parse it once and reuse the same widget tree to avoid bottom-nav resets
       // when returning with back navigation.
       if (_shouldSingleParseAssetPath(normalizedPath)) {
-        AppLogger.dc(
-          LogCategory.stacNavigation,
-          'StacWidgetResolver: Using single-parse cache for $normalizedPath',
-        );
         return _SingleParseStacAssetWidget(
           assetPath: normalizedPath,
           rawJson: jsonData,
@@ -333,10 +321,6 @@ class _SingleParseStacAssetWidgetState
       );
 
       _parsedWidget = Stac.fromJson(resolvedJson, context) ?? const SizedBox();
-      AppLogger.dc(
-        LogCategory.stacNavigation,
-        'StacWidgetResolver: Single-parse cache initialized for ${widget.assetPath}',
-      );
     } catch (e) {
       AppLogger.e(
         'StacWidgetResolver: Failed to initialize single-parse cache for ${widget.assetPath}',
