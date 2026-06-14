@@ -56,8 +56,13 @@ class SduiConfig {
   );
 
   /// Build a full digitalbanking URL from a relative [path].
-  static String bizUrl(String path) =>
-      '$bizBaseUrl/${path.startsWith('/') ? path.substring(1) : path}';
+  /// Collapses double slashes that arise when template variables resolve to empty strings.
+  static String bizUrl(String path) {
+    final normalizedPath = path.startsWith('/') ? path.substring(1) : path;
+    final raw = '$bizBaseUrl/$normalizedPath';
+    // Replace double slashes except the protocol separator (e.g. https://)
+    return raw.replaceAll(RegExp(r'(?<!:)//+'), '/');
+  }
 
   /// Common namespace prefix shared by all SDUI pathKeys.
   static const String pathKeyPrefix = String.fromEnvironment(
