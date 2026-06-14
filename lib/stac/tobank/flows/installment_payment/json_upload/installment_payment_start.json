@@ -42,6 +42,7 @@
         {
           "onPressed": {
             "actionType": "showBottomSheet",
+            "title": "payment_start",
             "sheet": {
               "decoration": {
                 "color": "{{appColors.current.background.surface}}",

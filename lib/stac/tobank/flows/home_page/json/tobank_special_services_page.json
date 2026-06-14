@@ -153,6 +153,7 @@
                 },
                 "onTap": {
                   "actionType": "showBottomSheet",
+                  "title": "mobile_bank_services",
                   "sheet": {
                     "decoration": {
                       "color": "{{appColors.current.background.surface}}",
@@ -285,6 +286,7 @@
                               "actionType": "closeDialog",
                               "result": {
                                 "actionType": "showBottomSheet",
+                                "title": "activation_confirm",
                                 "sheet": {
                                   "decoration": {
                                     "color": "{{appColors.current.background.surface}}",
@@ -722,6 +724,7 @@
                               "actionType": "closeDialog",
                               "result": {
                                 "actionType": "showBottomSheet",
+                                "title": "recovery_username",
                                 "sheet": {
                                   "decoration": {
                                     "color": "{{appColors.current.background.surface}}",

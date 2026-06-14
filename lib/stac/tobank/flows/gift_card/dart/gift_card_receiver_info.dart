@@ -452,6 +452,7 @@ StacAction _deliveryDateTimeBottomSheetAction() {
 
 StacAction _proxyLegacyBottomSheetAction(Map<String, dynamic> legacyAction) {
   return StacShowBottomSheetAction(
+    title: 'gift_card_receiver',
     backgroundColor: '#00000000',
     sheet: StacStatefulWidget(
       onInit: StacSequenceAction(

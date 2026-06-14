@@ -767,6 +767,7 @@
         "child": {
           "onPressed": {
             "actionType": "showBottomSheet",
+            "title": "gift_card_confirm",
             "sheet": {
               "type": "stateFull",
               "onInit": {

@@ -26,6 +26,7 @@
       },
       {
         "actionType": "showBottomSheet",
+        "title": "deposit_filter",
         "sheet": {
           "decoration": {
             "color": "{{appColors.current.background.surface}}",
@@ -783,6 +784,7 @@
           {
             "onPressed": {
               "actionType": "showBottomSheet",
+              "title": "deposit_sort",
               "sheet": {
                 "decoration": {
                   "color": "{{appColors.current.background.surface}}",

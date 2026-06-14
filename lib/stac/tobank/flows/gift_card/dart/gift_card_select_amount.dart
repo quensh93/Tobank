@@ -550,6 +550,7 @@ StacAction _giftCardSelectAmountBottomSheetAction(int cardIndex) {
 
 StacAction _proxyLegacyBottomSheetAction(Map<String, dynamic> legacyAction) {
   return StacShowBottomSheetAction(
+    title: 'gift_card_amount',
     backgroundColor: '#00000000',
     sheet: StacStatefulWidget(
       onInit: StacSequenceAction(

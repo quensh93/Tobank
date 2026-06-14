@@ -585,6 +585,7 @@
                                           },
                                           {
                                             "actionType": "showBottomSheet",
+                                            "title": "charge_amount",
                                             "sheet": {
                                               "padding": {
                                                 "left": 16.0,
@@ -1863,6 +1864,7 @@
                                           },
                                           {
                                             "actionType": "showBottomSheet",
+                                            "title": "sim_action",
                                             "sheet": {
                                               "padding": {
                                                 "left": 14.0,
@@ -1985,6 +1987,7 @@
                                                         },
                                                         {
                                                           "actionType": "showBottomSheet",
+                                                          "title": "sim_edit",
                                                           "sheet": {
                                                             "padding": {
                                                               "left": 14.0,
@@ -2575,6 +2578,7 @@
                                           },
                                           {
                                             "actionType": "showBottomSheet",
+                                            "title": "charge_amount",
                                             "sheet": {
                                               "padding": {
                                                 "left": 16.0,
@@ -3853,6 +3857,7 @@
                                           },
                                           {
                                             "actionType": "showBottomSheet",
+                                            "title": "sim_action",
                                             "sheet": {
                                               "padding": {
                                                 "left": 14.0,
@@ -3975,6 +3980,7 @@
                                                         },
                                                         {
                                                           "actionType": "showBottomSheet",
+                                                          "title": "sim_edit",
                                                           "sheet": {
                                                             "padding": {
                                                               "left": 14.0,
@@ -4565,6 +4571,7 @@
                                           },
                                           {
                                             "actionType": "showBottomSheet",
+                                            "title": "charge_amount",
                                             "sheet": {
                                               "padding": {
                                                 "left": 16.0,
@@ -5843,6 +5850,7 @@
                                           },
                                           {
                                             "actionType": "showBottomSheet",
+                                            "title": "sim_action",
                                             "sheet": {
                                               "padding": {
                                                 "left": 14.0,
@@ -5965,6 +5973,7 @@
                                                         },
                                                         {
                                                           "actionType": "showBottomSheet",
+                                                          "title": "sim_edit",
                                                           "sheet": {
                                                             "padding": {
                                                               "left": 14.0,

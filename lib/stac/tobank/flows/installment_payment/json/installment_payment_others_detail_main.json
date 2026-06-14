@@ -571,6 +571,7 @@
                         },
                         {
                           "actionType": "showBottomSheet",
+                          "title": "payment_others_detail",
                           "sheet": {
                             "decoration": {
                               "color": "__STAC_OPEN__appColors.current.background.surface}}",

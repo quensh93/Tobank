@@ -573,6 +573,7 @@
                                           },
                                           {
                                             "actionType": "showBottomSheet",
+                                            "title": "package_select",
                                             "sheet": {
                                               "padding": {
                                                 "left": 14.0,
@@ -695,6 +696,7 @@
                                                         },
                                                         {
                                                           "actionType": "showBottomSheet",
+                                                          "title": "package_confirm",
                                                           "sheet": {
                                                             "padding": {
                                                               "left": 14.0,
@@ -1273,6 +1275,7 @@
                                           },
                                           {
                                             "actionType": "showBottomSheet",
+                                            "title": "package_select",
                                             "sheet": {
                                               "padding": {
                                                 "left": 14.0,
@@ -1395,6 +1398,7 @@
                                                         },
                                                         {
                                                           "actionType": "showBottomSheet",
+                                                          "title": "package_confirm",
                                                           "sheet": {
                                                             "padding": {
                                                               "left": 14.0,
@@ -1973,6 +1977,7 @@
                                           },
                                           {
                                             "actionType": "showBottomSheet",
+                                            "title": "package_select",
                                             "sheet": {
                                               "padding": {
                                                 "left": 14.0,
@@ -2095,6 +2100,7 @@
                                                         },
                                                         {
                                                           "actionType": "showBottomSheet",
+                                                          "title": "package_confirm",
                                                           "sheet": {
                                                             "padding": {
                                                               "left": 14.0,

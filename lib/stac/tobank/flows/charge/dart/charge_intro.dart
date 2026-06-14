@@ -408,6 +408,7 @@ StacAction _openPackageFlow({
 
 StacAction _showChargeAmountSheetAction() {
   return StacShowBottomSheetAction(
+    title: 'charge_amount',
     backgroundColor: '#8B63708C',
     sheet: _buildChargeAmountSheet().toJson(),
   );
@@ -865,6 +866,7 @@ StacAction _showSimActionsFor({
 
 StacAction _showSimActionSheetAction() {
   return StacShowBottomSheetAction(
+    title: 'sim_action',
     backgroundColor: '#8B63708C',
     sheet: _buildActionSheet().toJson(),
   );
@@ -872,6 +874,7 @@ StacAction _showSimActionSheetAction() {
 
 StacAction _showSimEditSheetAction() {
   return StacShowBottomSheetAction(
+    title: 'sim_edit',
     backgroundColor: '#8B63708C',
     sheet: _buildEditSheet().toJson(),
   );

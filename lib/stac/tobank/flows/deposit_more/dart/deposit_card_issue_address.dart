@@ -477,6 +477,7 @@ StacAction _continueAddressAction() {
         ],
       ),
       StacShowBottomSheetAction(
+        title: 'card_issue_address',
         isScrollControlled: true,
         useSafeArea: false,
         isDismissible: true,

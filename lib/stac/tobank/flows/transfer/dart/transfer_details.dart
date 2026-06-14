@@ -310,6 +310,7 @@ StacWidget _reasonPickerInput() {
 
 StacAction _showTransferTypeBottomSheetAction() {
   return StacShowBottomSheetAction(
+    title: 'transfer_type',
     backgroundColor: '#8B63708C',
     sheet: _buildTransferTypeBottomSheet().toJson(),
   );
@@ -317,6 +318,7 @@ StacAction _showTransferTypeBottomSheetAction() {
 
 StacAction _showTransferPurposeBottomSheetAction() {
   return StacShowBottomSheetAction(
+    title: 'transfer_purpose',
     backgroundColor: '#8B63708C',
     sheet: _buildTransferPurposeBottomSheet().toJson(),
   );

@@ -43,6 +43,7 @@ StacWidget installmentPaymentStart() {
 
 StacShowBottomSheetAction _loanPaymentBottomSheetAction() {
   return StacShowBottomSheetAction(
+    title: 'payment_start',
     backgroundColor: '#00000000',
     sheet: _loanPaymentBottomSheet().toJson(),
   );

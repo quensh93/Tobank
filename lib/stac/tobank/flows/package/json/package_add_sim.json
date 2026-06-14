@@ -929,6 +929,7 @@
                           },
                           {
                             "actionType": "showBottomSheet",
+                            "title": "sim_action",
                             "sheet": {
                               "padding": {
                                 "left": 14.0,
@@ -1112,6 +1113,7 @@
                       },
                       "onPressed": {
                         "actionType": "showBottomSheet",
+                        "title": "sim_edit",
                         "sheet": {
                           "padding": {
                             "left": 14.0,
@@ -1855,6 +1857,7 @@
                                     },
                                     {
                                       "actionType": "showBottomSheet",
+                                      "title": "sim_add",
                                       "sheet": {
                                         "padding": {
                                           "left": 14.0,

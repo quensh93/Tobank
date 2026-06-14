@@ -312,6 +312,7 @@
                       },
                       "onTap": {
                         "actionType": "showBottomSheet",
+                        "title": "transfer_in_bank_type",
                         "sheet": {
                           "padding": {
                             "left": 16.0,
@@ -1196,6 +1197,7 @@
               "enabledKey": "transferApiDetailsContinueEnabled",
               "onPressed": {
                 "actionType": "showBottomSheet",
+                "title": "transfer_purpose",
                 "sheet": {
                   "padding": {
                     "left": 16.0,

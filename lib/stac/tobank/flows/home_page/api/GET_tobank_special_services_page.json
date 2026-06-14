@@ -80,6 +80,7 @@
                 "child": {
                   "onTap": {
                     "actionType": "showBottomSheet",
+                    "title": "mobile_bank_services",
                     "backgroundColor": "#00000000",
                     "sheet": {
                       "type": "container",
@@ -518,6 +519,7 @@
                                 "actionType": "closeDialog",
                                 "result": {
                                   "actionType": "showBottomSheet",
+                                  "title": "activation_confirm",
                                   "backgroundColor": "#00000000",
                                   "sheet": {
                                     "type": "container",

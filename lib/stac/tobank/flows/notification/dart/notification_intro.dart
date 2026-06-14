@@ -299,6 +299,7 @@ StacAction _openNotificationDetailsSheetAction({
         ],
       ),
       StacShowBottomSheetAction(
+        title: 'notification_filter',
         isScrollControlled: true,
         useSafeArea: true,
         backgroundColor: '#00000000',

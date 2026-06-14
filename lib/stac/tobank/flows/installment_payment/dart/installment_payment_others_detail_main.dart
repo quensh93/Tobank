@@ -166,6 +166,7 @@ StacAction _showOthersPaymentAccountsSheetAction() {
         ],
       ),
       StacShowBottomSheetAction(
+        title: 'payment_others_detail',
         backgroundColor: '#8B63708C',
         sheet: _buildOthersPaymentAccountsBottomSheet().toJson(),
       ),

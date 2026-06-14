@@ -296,6 +296,7 @@
                   },
                   "onTap": {
                     "actionType": "showBottomSheet",
+                    "title": "gift_card_design",
                     "sheet": {
                       "type": "stateFull",
                       "onInit": {
@@ -516,6 +517,7 @@
                   },
                   "onTap": {
                     "actionType": "showBottomSheet",
+                    "title": "gift_card_design",
                     "sheet": {
                       "type": "stateFull",
                       "onInit": {
@@ -741,6 +743,7 @@
                   },
                   "onTap": {
                     "actionType": "showBottomSheet",
+                    "title": "gift_card_design",
                     "sheet": {
                       "type": "stateFull",
                       "onInit": {
@@ -961,6 +964,7 @@
                   },
                   "onTap": {
                     "actionType": "showBottomSheet",
+                    "title": "gift_card_design",
                     "sheet": {
                       "type": "stateFull",
                       "onInit": {
@@ -1186,6 +1190,7 @@
                   },
                   "onTap": {
                     "actionType": "showBottomSheet",
+                    "title": "gift_card_design",
                     "sheet": {
                       "type": "stateFull",
                       "onInit": {
@@ -1406,6 +1411,7 @@
                   },
                   "onTap": {
                     "actionType": "showBottomSheet",
+                    "title": "gift_card_design",
                     "sheet": {
                       "type": "stateFull",
                       "onInit": {
@@ -1631,6 +1637,7 @@
                   },
                   "onTap": {
                     "actionType": "showBottomSheet",
+                    "title": "gift_card_design",
                     "sheet": {
                       "type": "stateFull",
                       "onInit": {
@@ -1851,6 +1858,7 @@
                   },
                   "onTap": {
                     "actionType": "showBottomSheet",
+                    "title": "gift_card_design",
                     "sheet": {
                       "type": "stateFull",
                       "onInit": {

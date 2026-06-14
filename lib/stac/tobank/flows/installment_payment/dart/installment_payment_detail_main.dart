@@ -462,6 +462,7 @@ StacWidget _paymentTypeCard() {
 
 StacShowBottomSheetAction _showLoanDetailMoreBottomSheetAction() {
   return StacShowBottomSheetAction(
+    title: 'payment_detail',
     backgroundColor: '#00000000',
     sheet: _buildLoanDetailMoreBottomSheet().toJson(),
   );
@@ -547,6 +548,7 @@ StacAction _showPaymentAccountsBottomSheetAction() {
         ],
       ),
       StacShowBottomSheetAction(
+        title: 'payment_confirm',
         backgroundColor: '#8B63708C',
         sheet: _buildPaymentAccountsBottomSheet().toJson(),
       ),
@@ -943,6 +945,7 @@ StacWidget _buildLoanDetailMoreBottomSheet() {
               actions: [
                 const StacNavigateAction(navigationStyle: NavigationStyle.pop),
                 StacShowBottomSheetAction(
+                  title: 'payment_result',
                   backgroundColor: '#8B63708C',
                   sheet: _buildLoanMoreDetailBottomSheet().toJson(),
                 ),

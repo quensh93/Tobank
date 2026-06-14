@@ -328,6 +328,7 @@
                               },
                               {
                                 "actionType": "showBottomSheet",
+                                "title": "notification_filter",
                                 "sheet": {
                                   "decoration": {
                                     "color": "{{appColors.current.background.surface}}",
@@ -604,6 +605,7 @@
                               },
                               {
                                 "actionType": "showBottomSheet",
+                                "title": "notification_filter",
                                 "sheet": {
                                   "decoration": {
                                     "color": "{{appColors.current.background.surface}}",
@@ -880,6 +882,7 @@
                               },
                               {
                                 "actionType": "showBottomSheet",
+                                "title": "notification_filter",
                                 "sheet": {
                                   "decoration": {
                                     "color": "{{appColors.current.background.surface}}",
@@ -1174,6 +1177,7 @@
                               },
                               {
                                 "actionType": "showBottomSheet",
+                                "title": "notification_filter",
                                 "sheet": {
                                   "decoration": {
                                     "color": "{{appColors.current.background.surface}}",
@@ -1450,6 +1454,7 @@
                               },
                               {
                                 "actionType": "showBottomSheet",
+                                "title": "notification_filter",
                                 "sheet": {
                                   "decoration": {
                                     "color": "{{appColors.current.background.surface}}",
@@ -1726,6 +1731,7 @@
                               },
                               {
                                 "actionType": "showBottomSheet",
+                                "title": "notification_filter",
                                 "sheet": {
                                   "decoration": {
                                     "color": "{{appColors.current.background.surface}}",
@@ -2002,6 +2008,7 @@
                               },
                               {
                                 "actionType": "showBottomSheet",
+                                "title": "notification_filter",
                                 "sheet": {
                                   "decoration": {
                                     "color": "{{appColors.current.background.surface}}",
@@ -2278,6 +2285,7 @@
                               },
                               {
                                 "actionType": "showBottomSheet",
+                                "title": "notification_filter",
                                 "sheet": {
                                   "decoration": {
                                     "color": "{{appColors.current.background.surface}}",
@@ -2554,6 +2562,7 @@
                               },
                               {
                                 "actionType": "showBottomSheet",
+                                "title": "notification_filter",
                                 "sheet": {
                                   "decoration": {
                                     "color": "{{appColors.current.background.surface}}",

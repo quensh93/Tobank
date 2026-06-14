@@ -79,6 +79,7 @@ StacWidget installmentPaymentApiRealMenu() {
 
 StacShowBottomSheetAction _loanPaymentBottomSheetAction() {
   return StacShowBottomSheetAction(
+    title: 'payment_menu',
     backgroundColor: '#00000000',
     sheet: _loanPaymentBottomSheet().toJson(),
   );

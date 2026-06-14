@@ -420,6 +420,7 @@ StacAction _showSimActionsFor({
 
 StacAction _showSimActionSheetAction() {
   return StacShowBottomSheetAction(
+    title: 'package_select',
     backgroundColor: '#8B63708C',
     sheet: _buildActionSheet().toJson(),
   );
@@ -427,6 +428,7 @@ StacAction _showSimActionSheetAction() {
 
 StacAction _showSimEditSheetAction() {
   return StacShowBottomSheetAction(
+    title: 'package_confirm',
     backgroundColor: '#8B63708C',
     sheet: _buildEditSheet().toJson(),
   );

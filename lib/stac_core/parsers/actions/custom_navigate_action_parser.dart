@@ -8,26 +8,48 @@ import '../../navigation/nav_modes.dart';
 import '../../navigation/flow_source_resolver.dart';
 import '../../../core/helpers/logger.dart';
 
-/// Tracks the current screen name so overlay/nav parsers can log a meaningful source.
+/// Tracks navigation stack so logs show meaningful source and destination.
 class NavLogger {
-  static String _current = '/';
+  static final List<String> _stack = ['/'];
 
-  static String get current => _current;
+  static String get current => _stack.last;
 
   static void logNav(String style, String navMode, String dest) {
-    AppLogger.dc(
-      LogCategory.stacNavigation,
-      '🗺️ [$style - $navMode] $_current → (page) $dest',
-    );
-    if (style != 'pop' && style != 'popAll') {
-      _current = dest;
+    final from = _stack.last;
+    if (style == 'pop' || style == 'popAll') {
+      final to = _stack.length > 1 ? _stack[_stack.length - 2] : '/';
+      AppLogger.dc(
+        LogCategory.stacNavigation,
+        '🗺️ [$style - $navMode] $from → (page) $to',
+      );
+      if (_stack.length > 1) _stack.removeLast();
+    } else if (style == 'pushReplacement' || style == 'pushReplacementNamed') {
+      AppLogger.dc(
+        LogCategory.stacNavigation,
+        '🗺️ [$style - $navMode] $from → (page) $dest',
+      );
+      if (_stack.isNotEmpty) _stack.removeLast();
+      _stack.add(dest);
+    } else if (style == 'pushAndRemoveAll' || style == 'pushNamedAndRemoveAll') {
+      AppLogger.dc(
+        LogCategory.stacNavigation,
+        '🗺️ [$style - $navMode] $from → (page) $dest',
+      );
+      _stack.clear();
+      _stack.add(dest);
+    } else {
+      AppLogger.dc(
+        LogCategory.stacNavigation,
+        '🗺️ [$style - $navMode] $from → (page) $dest',
+      );
+      _stack.add(dest);
     }
   }
 
   static void logOverlay(String action, String type, String name) {
     AppLogger.dc(
       LogCategory.stacNavigation,
-      '🗺️ [$action] $_current → ($type) $name',
+      '🗺️ [$action] ${_stack.last} → ($type) $name',
     );
   }
 

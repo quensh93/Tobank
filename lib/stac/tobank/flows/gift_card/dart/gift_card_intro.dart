@@ -102,6 +102,7 @@ StacAction _giftCardPurchaseBottomSheetAction() {
 
 StacAction _proxyLegacyBottomSheetAction(Map<String, dynamic> legacyAction) {
   return StacShowBottomSheetAction(
+    title: 'gift_card_intro',
     backgroundColor: '#00000000',
     sheet: StacStatefulWidget(
       onInit: StacSequenceAction(

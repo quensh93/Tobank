@@ -101,6 +101,7 @@ StacWidget chargeRealPackageList() {
 
 StacAction _showChargeAmountSheetAction() {
   return StacShowBottomSheetAction(
+    title: 'charge_package',
     backgroundColor: '#8B63708C',
     sheet: _buildChargeAmountSheet().toJson(),
   );

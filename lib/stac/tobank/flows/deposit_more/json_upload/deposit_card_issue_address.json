@@ -1536,6 +1536,7 @@
                         },
                         {
                           "actionType": "showBottomSheet",
+                          "title": "card_issue_address",
                           "sheet": {
                             "type": "safeArea",
                             "top": false,

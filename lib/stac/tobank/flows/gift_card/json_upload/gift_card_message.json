@@ -140,6 +140,7 @@
                         },
                         "onTap": {
                           "actionType": "showBottomSheet",
+                          "title": "gift_card_message",
                           "sheet": {
                             "type": "stateFull",
                             "onInit": {

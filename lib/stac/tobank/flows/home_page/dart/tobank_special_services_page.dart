@@ -183,6 +183,7 @@ StacWidget _buildServiceTile({
 
 StacShowBottomSheetAction _mobileBankServicesBottomSheetAction() {
   return StacShowBottomSheetAction(
+    title: 'mobile_bank_services',
     backgroundColor: '#00000000',
     sheet: _mobileBankServicesSheet().toJson(),
   );
@@ -242,6 +243,7 @@ StacWidget _mobileBankServicesSheet() {
 
 StacAction _mobileBankActivationConfirmAction() {
   return StacShowBottomSheetAction(
+    title: 'activation_confirm',
     backgroundColor: '#00000000',
     sheet: _mobileBankActivationConfirmSheet().toJson(),
   );
@@ -249,6 +251,7 @@ StacAction _mobileBankActivationConfirmAction() {
 
 StacAction _mobileBankRecoveryUsernameAction() {
   return StacShowBottomSheetAction(
+    title: 'recovery_username',
     backgroundColor: '#00000000',
     sheet: _mobileBankRecoveryUsernameSheet().toJson(),
   );

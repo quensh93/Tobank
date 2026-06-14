@@ -7030,6 +7030,7 @@
                               },
                               {
                                 "actionType": "showBottomSheet",
+                                "title": "validation_guide",
                                 "sheet": {
                                   "top": false,
                                   "bottom": false,
@@ -7532,6 +7533,7 @@
                                               "child": {
                                                 "onPressed": {
                                                   "actionType": "showBottomSheet",
+                                                  "title": "validation_options",
                                                   "sheet": {
                                                     "top": false,
                                                     "bottom": false,

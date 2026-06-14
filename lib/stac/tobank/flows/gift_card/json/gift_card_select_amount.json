@@ -150,6 +150,7 @@
                         },
                         "onTap": {
                           "actionType": "showBottomSheet",
+                          "title": "gift_card_amount",
                           "sheet": {
                             "type": "stateFull",
                             "onInit": {
@@ -267,6 +268,7 @@
                                 },
                                 "onTap": {
                                   "actionType": "showBottomSheet",
+                                  "title": "gift_card_amount",
                                   "sheet": {
                                     "type": "stateFull",
                                     "onInit": {
@@ -519,6 +521,7 @@
                                       },
                                       "onTap": {
                                         "actionType": "showBottomSheet",
+                                        "title": "gift_card_amount",
                                         "sheet": {
                                           "type": "stateFull",
                                           "onInit": {
@@ -816,6 +819,7 @@
                                       },
                                       "onTap": {
                                         "actionType": "showBottomSheet",
+                                        "title": "gift_card_amount",
                                         "sheet": {
                                           "type": "stateFull",
                                           "onInit": {
@@ -1092,6 +1096,7 @@
           "child": {
             "onPressed": {
               "actionType": "showBottomSheet",
+              "title": "gift_card_amount",
               "sheet": {
                 "type": "stateFull",
                 "onInit": {

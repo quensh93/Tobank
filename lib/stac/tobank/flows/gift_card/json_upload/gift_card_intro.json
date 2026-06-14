@@ -109,6 +109,7 @@
           "child": {
             "onPressed": {
               "actionType": "showBottomSheet",
+              "title": "gift_card_intro",
               "sheet": {
                 "type": "stateFull",
                 "onInit": {

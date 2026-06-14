@@ -614,6 +614,7 @@ StacWidget _buildWalletServices() {
                 ],
               ),
               StacShowBottomSheetAction(
+                title: 'wallet_transfer',
                 backgroundColor: '#00000000',
                 sheet: _walletTransferBottomSheet().toJson(),
               ),
@@ -655,6 +656,7 @@ StacWidget _buildWalletServices() {
                 ],
               ),
               StacShowBottomSheetAction(
+                title: 'wallet_charge',
                 backgroundColor: '#00000000',
                 sheet: _walletChargeBottomSheet().toJson(),
               ),
@@ -695,6 +697,7 @@ StacWidget _buildCardServiceGrid() {
               iconRegistryKey:
                   'appAssets.current.icons.cardServicePasswordChange',
               onTap: StacShowBottomSheetAction(
+                title: 'secondary_pin_select',
                 backgroundColor: '#00000000',
                 sheet: _secondaryPinSelectBottomSheet().toJson(),
               ),
@@ -707,6 +710,7 @@ StacWidget _buildCardServiceGrid() {
               iconRegistryKey:
                   'appAssets.current.icons.cardServicePasswordChange',
               onTap: StacShowBottomSheetAction(
+                title: 'primary_pin_select',
                 backgroundColor: '#00000000',
                 sheet: _primaryPinSelectBottomSheet().toJson(),
               ),
@@ -722,6 +726,7 @@ StacWidget _buildCardServiceGrid() {
               title: _serviceBlockTitle,
               iconRegistryKey: 'appAssets.current.icons.cardServiceBlock',
               onTap: StacShowBottomSheetAction(
+                title: 'card_block',
                 backgroundColor: '#00000000',
                 sheet: _cardBlockBottomSheet().toJson(),
               ),
@@ -743,6 +748,7 @@ StacWidget _buildCardServiceGrid() {
                     value: '',
                   ),
                   StacShowBottomSheetAction(
+                    title: 'card_reissue',
                     backgroundColor: '#00000000',
                     sheet: _reissuePostalCodeBottomSheet().toJson(),
                   ),
@@ -775,6 +781,7 @@ StacAction _openCardDetailSheetAction({
         ],
       ),
       StacShowBottomSheetAction(
+        title: 'card_details',
         backgroundColor: '#00000000',
         sheet: _cardDetailsBottomSheet().toJson(),
       ),
@@ -802,6 +809,7 @@ StacAction _openShareSheetAction({
         ],
       ),
       StacShowBottomSheetAction(
+        title: 'share_card',
         backgroundColor: '#00000000',
         sheet: _shareCardBottomSheet().toJson(),
       ),
@@ -1176,6 +1184,7 @@ StacWidget _buildDisabledServices() {
                     value: '',
                   ),
                   StacShowBottomSheetAction(
+                    title: 'card_reissue',
                     backgroundColor: '#00000000',
                     sheet: _reissuePostalCodeBottomSheet().toJson(),
                   ),
@@ -1504,6 +1513,7 @@ StacWidget _walletChargeContinueButton() {
           value: 'gateway',
         ),
         StacShowBottomSheetAction(
+          title: 'wallet_payment_method',
           backgroundColor: '#00000000',
           sheet: _walletPaymentMethodBottomSheet().toJson(),
         ),
@@ -2139,6 +2149,7 @@ StacWidget _walletTransferBottomSheet() {
                     value: _walletTransferMockDestinationWallet,
                   ),
                   StacShowBottomSheetAction(
+                    title: 'wallet_transfer_confirm',
                     backgroundColor: '#00000000',
                     sheet: _walletTransferConfirmBottomSheet().toJson(),
                   ),

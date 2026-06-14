@@ -17,6 +17,7 @@ StacWidget depositTurnoverIntro() {
           ],
         ),
         StacShowBottomSheetAction(
+          title: 'deposit_filter',
           isScrollControlled: true,
           useSafeArea: true,
           backgroundColor: '#00000000',
@@ -35,6 +36,7 @@ StacWidget depositTurnoverIntro() {
           children: [
             StacFilledButton(
               onPressed: StacShowBottomSheetAction(
+                title: 'deposit_sort',
                 isScrollControlled: true,
                 useSafeArea: true,
                 backgroundColor: '#00000000',

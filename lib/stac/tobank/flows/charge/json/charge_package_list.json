@@ -66,6 +66,7 @@
       },
       {
         "actionType": "showBottomSheet",
+        "title": "charge_package",
         "sheet": {
           "padding": {
             "left": 16.0,

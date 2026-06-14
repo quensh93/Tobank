@@ -602,6 +602,7 @@ StacAction _buildPaymentBottomSheetAction() {
         ],
       ),
       StacShowBottomSheetAction(
+        title: 'validation_guide',
         isScrollControlled: true,
         useSafeArea: false,
         isDismissible: true,
@@ -785,6 +786,7 @@ StacWidget _buildPayButtonInSheet({required StacAction onPressed}) {
 
 StacAction _buildSelectDepositBottomSheetAction() {
   return StacShowBottomSheetAction(
+    title: 'validation_options',
     isScrollControlled: true,
     useSafeArea: false,
     isDismissible: true,

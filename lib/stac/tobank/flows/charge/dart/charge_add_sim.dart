@@ -419,6 +419,7 @@ StacAction _operatorSelectAction(String op) {
 
 StacAction _showOperatorSheetAction() {
   return StacShowBottomSheetAction(
+    title: 'sim_action',
     backgroundColor: '#8B63708C',
     sheet: _buildOperatorSheet().toJson(),
   );
@@ -426,6 +427,7 @@ StacAction _showOperatorSheetAction() {
 
 StacAction _showSimTypeSheetAction() {
   return StacShowBottomSheetAction(
+    title: 'sim_edit',
     backgroundColor: '#8B63708C',
     sheet: _buildSimTypeSheet().toJson(),
   );
@@ -433,6 +435,7 @@ StacAction _showSimTypeSheetAction() {
 
 StacAction _showDuplicateDialogAction() {
   return StacShowBottomSheetAction(
+    title: 'sim_add',
     backgroundColor: '#8B63708C',
     sheet: _buildDuplicateDialog().toJson(),
   );

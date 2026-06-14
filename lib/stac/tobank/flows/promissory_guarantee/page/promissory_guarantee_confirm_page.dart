@@ -45,6 +45,7 @@ StacWidget promissoryGuaranteeConfirmPage() {
                   enabledKey: 'isGuaranteeConfirmEnabled',
                   enabled: false,
                   onPressed: StacShowBottomSheetAction(
+                    title: 'promissory_confirm',
                     isScrollControlled: true,
                     useSafeArea: false,
                     heightFactor: 0.67,

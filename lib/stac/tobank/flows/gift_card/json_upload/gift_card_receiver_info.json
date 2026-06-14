@@ -423,6 +423,7 @@
                       "actions": [
                         {
                           "actionType": "showBottomSheet",
+                          "title": "gift_card_receiver",
                           "sheet": {
                             "type": "stateFull",
                             "onInit": {
@@ -570,6 +571,7 @@
                       "actions": [
                         {
                           "actionType": "showBottomSheet",
+                          "title": "gift_card_receiver",
                           "sheet": {
                             "type": "stateFull",
                             "onInit": {
@@ -846,6 +848,7 @@
               "enabledKey": "giftCardRealReceiverContinueEnabled",
               "onPressed": {
                 "actionType": "showBottomSheet",
+                "title": "gift_card_receiver",
                 "sheet": {
                   "type": "stateFull",
                   "onInit": {

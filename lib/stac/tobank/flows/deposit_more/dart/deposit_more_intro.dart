@@ -16,6 +16,7 @@ StacWidget depositMoreIntro() {
           ],
         ),
         StacShowBottomSheetAction(
+          title: 'deposit_services',
           isScrollControlled: true,
           useSafeArea: true,
           backgroundColor: '{{appColors.current.background.surface}}',
@@ -31,6 +32,7 @@ StacWidget depositMoreIntro() {
           padding: StacEdgeInsets.symmetric(horizontal: 16),
           child: StacFilledButton(
             onPressed: StacShowBottomSheetAction(
+              title: 'deposit_services',
               isScrollControlled: true,
               useSafeArea: true,
               backgroundColor: '{{appColors.current.background.surface}}',
@@ -217,6 +219,7 @@ StacAction _openDepositDetailsBottomSheetAction() {
           ],
         ),
         StacShowBottomSheetAction(
+          title: 'deposit_details',
           isScrollControlled: true,
           useSafeArea: true,
           backgroundColor: '{{appColors.current.background.surface}}',
