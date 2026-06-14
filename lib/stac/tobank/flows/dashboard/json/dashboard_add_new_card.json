@@ -855,8 +855,7 @@
             "type": "row"
           },
           {
-            "width": null,
-            "height": 0.0,
+            "visible": false,
             "child": {
               "type": "textFormField",
               "id": "addNewCard.expireDate",
@@ -910,7 +909,7 @@
               },
               "readOnly": true
             },
-            "type": "sizedBox"
+            "type": "visibility"
           },
           {
             "width": null,

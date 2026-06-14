@@ -292,27 +292,14 @@ StacWidget dashboardAddNewCard() {
               ],
             ),
             // Hidden field for combined expire value (used for validation)
-            StacSizedBox(
-              height: 0,
+            StacVisibility(
+              visible: false,
               child: StacCustomTextFormField(
                 id: _expireDateFieldId,
                 textDirection: 'ltr',
                 textAlign: 'center',
                 readOnly: true,
                 onChanged: _validateAddNewCardAction(),
-                decoration: {
-                  'enabledBorder': {
-                    'type': 'outlineInputBorder',
-                    'borderSide': {'color': '#00000000', 'width': 0},
-                    'borderRadius': {'all': 0},
-                  },
-                  'focusedBorder': {
-                    'type': 'outlineInputBorder',
-                    'borderSide': {'color': '#00000000', 'width': 0},
-                    'borderRadius': {'all': 0},
-                  },
-                  'contentPadding': {'left': 0, 'top': 0, 'right': 0, 'bottom': 0},
-                },
               ),
             ),
 

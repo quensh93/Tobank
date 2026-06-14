@@ -49,14 +49,29 @@ void main() {
     expect(m.assetPath, 'lib/stac/tobank/flows/promissory/json_upload/x.json');
   });
 
-  test('legacy action (no fileName/navMode) still resolves widgetType', () {
+  // Post-migration: every nav uses fileName+navMode. Raw `widgetType` is no
+  // longer a supported source (0 usages remain), so the parser does NOT
+  // auto-resolve it — it passes through untouched.
+  test('legacy widgetType-only is no longer auto-resolved', () {
     final action = parser.getModel({
       'actionType': 'navigate',
       'widgetType': 'promissory_intro',
       'navigationStyle': 'push',
     });
     final m = StacNavigateActionView(action);
-    expect(m.widgetJson, isNotNull);
+    expect(m.widgetJson, isNull);
+  });
+
+  // A legacy assetPath-only action still passes through (onCall assetPath
+  // branch handles it) — real back-compat retained.
+  test('legacy assetPath-only passes through', () {
+    final action = parser.getModel({
+      'actionType': 'navigate',
+      'assetPath': 'lib/stac/tobank/flows/profile/json/profile_intro.json',
+      'navigationStyle': 'push',
+    });
+    expect(StacNavigateActionView(action).assetPath,
+        'lib/stac/tobank/flows/profile/json/profile_intro.json');
   });
 }
 

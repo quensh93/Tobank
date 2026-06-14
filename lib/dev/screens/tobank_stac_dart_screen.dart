@@ -5,6 +5,8 @@ import 'package:stac_core/stac_core.dart';
 import '../../stac/tobank/menu/dart/tobank_menu.dart' as tobank_menu;
 import 'package:tobank_sdui/stac_core/services/theme/theme_controller_provider.dart';
 import '../../core/helpers/logger.dart';
+import '../../stac_core/builders/stac_common_builders.dart';
+import '../../stac_core/navigation/nav_modes.dart';
 
 /// Renders the Tobank STAC menu screen directly from the Dart StacWidget.
 ///
@@ -196,21 +198,22 @@ class TobankStacDartScreen extends ConsumerWidget {
 
     if (buttonType == 'dart') {
       if (widgetType != null && widgetType.isNotEmpty && widgetType != 'null') {
-        final actionJson = {
-          'actionType': 'navigate',
-          'widgetType': widgetType,
-          'navigationStyle': 'push',
-        };
-        onPressed = StacAction.fromJson(actionJson);
+        onPressed = NavigationAction(
+          fileName: widgetType,
+          navMode: NavModes.dart,
+          navigationStyle: NavigationStyle.push,
+        );
       } else if (hasValidPath) {
-        onPressed = StacNavigateAction(
-          assetPath: path,
+        onPressed = NavigationAction(
+          navMode: NavModes.localJson,
+          pathOverride: path,
           navigationStyle: NavigationStyle.push,
         );
       }
     } else if (hasValidPath) {
-      onPressed = StacNavigateAction(
-        assetPath: path,
+      onPressed = NavigationAction(
+        navMode: NavModes.localJson,
+        pathOverride: path,
         navigationStyle: NavigationStyle.push,
       );
     }
