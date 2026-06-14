@@ -3,6 +3,8 @@ import 'package:ispect/ispect.dart';
 import 'package:ispectify_dio/ispectify_dio.dart';
 import 'package:tobank_sdui/core/api/interceptors/auth_interceptor.dart';
 import 'package:tobank_sdui/core/config/ispect_config.dart';
+import 'package:tobank_sdui/core/helpers/log_category.dart';
+import 'package:tobank_sdui/core/helpers/logger.dart';
 
 class DioFactory {
   const DioFactory._();
@@ -42,7 +44,10 @@ class DioFactory {
             ),
           ),
         );
-      } catch (_) {}
+      } catch (e) {
+        // ISpect not ready — safe to ignore, interceptor simply won't be added
+        AppLogger.wc(LogCategory.network, 'ISpect interceptor init failed', e);
+      }
     }
   }
 }
