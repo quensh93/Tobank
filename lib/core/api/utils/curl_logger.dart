@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:tobank_sdui/core/helpers/log_config.dart';
 import 'package:tobank_sdui/core/helpers/logger.dart';
 
 /// Shared cURL logging utility.
