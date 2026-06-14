@@ -64,3 +64,6 @@ ruvector.db
 
 # Kiro IDE config
 .kiro/
+
+# Agent database files
+agentdb.rvf*
