@@ -5,22 +5,17 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:ispect/ispect.dart';
 import 'package:ispectify_dio/ispectify_dio.dart';
 import 'package:tobank_sdui/core/api/auth/auth_manager.dart';
+import 'package:tobank_sdui/core/api/device_headers.dart';
 import 'package:tobank_sdui/core/config/ispect_config.dart';
 import 'package:tobank_sdui/core/helpers/logger.dart';
 import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 
 class PromissoryRealAuthService {
   static final String _url = SduiConfig.bizUrl('logins/v1.0/tobank/users');
-  static const Map<String, String> _headers = {
-    'accept': '*/*',
-    'app-platform': 'android',
-    'app-store': 'application/json',
-    'app-version': '456',
+  static Map<String, String> get _headers => {
+    ...DeviceHeaders.all,
     'authorization': 'Bearer null',
     'content-type': 'application/json',
-    'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
-    'serviceauthorization':
-        'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
   };
 
   final Dio _dio = Dio();

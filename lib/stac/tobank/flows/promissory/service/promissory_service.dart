@@ -4,6 +4,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:ispect/ispect.dart';
 import 'package:ispectify_dio/ispectify_dio.dart';
 import 'package:tobank_sdui/core/api/auth/auth_manager.dart';
+import 'package:tobank_sdui/core/api/device_headers.dart';
 import 'package:tobank_sdui/core/config/ispect_config.dart';
 import 'package:tobank_sdui/core/helpers/logger.dart';
 import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
@@ -37,18 +38,7 @@ class PromissoryRealService {
   // Constants
   static const String _baseUrl = SduiConfig.bizBaseUrl;
 
-  // Headers
-  static const Map<String, String> _defaultHeaders = {
-    // Match login headers (some gateways are picky about names/casing)
-    'accept': '*/*',
-    'app-platform': 'android',
-    'app-store': 'application/json',
-    'app-version': '456',
-    'device-uuid': '5109ab4c-77ca-4f0c-9858-da4df58031d2',
-    'serviceauthorization':
-        'Basic Z2ZRdDVha3U2anVCQW9DWHhPcEJya3J2S1dRYTpxUmZkUXp5WmhYSFRKcmZ0UGd6Zk9CRFpCUllhbDBaT0RUZ291MEVST2d3YQ==',
-    // Authorization header will be added dynamically.
-  };
+  // Headers — shared device headers; authorization is added dynamically.
 
   /// Fetch deposits list for the customer
   Future<List<Map<String, String>>?> getDeposits(BuildContext context) async {
@@ -74,7 +64,7 @@ class PromissoryRealService {
       }
 
       final options = Options(
-        headers: {..._defaultHeaders, 'authorization': authHeader},
+        headers: {...DeviceHeaders.all, 'authorization': authHeader},
         sendTimeout: const Duration(seconds: 30),
         receiveTimeout: const Duration(seconds: 30),
       );
@@ -135,7 +125,7 @@ class PromissoryRealService {
       }
 
       final options = Options(
-        headers: {..._defaultHeaders, 'authorization': authHeader},
+        headers: {...DeviceHeaders.all, 'authorization': authHeader},
         sendTimeout: const Duration(seconds: 30),
         receiveTimeout: const Duration(seconds: 30),
       );
