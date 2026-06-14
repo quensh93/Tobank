@@ -4,8 +4,8 @@ import 'package:stac/stac.dart';
 
 import '../../../../core/helpers/logger.dart';
 import './stac_promissory_sign_action.dart';
-import '../../../services/signing/sign_document_data.dart';
-import '../../../services/signing/signing_service.dart';
+import 'package:tobank_sdui/stac/tobank/flows/promissory/signing/sign_document_data.dart';
+import 'package:tobank_sdui/stac/tobank/flows/promissory/signing/signing_service.dart';
 import 'package:secure_plugin/secure_plugin.dart' as secure;
 import '../../../../../core/storage/storage_util.dart';
 import '../../../../core/storage/auth_info_data.dart';
