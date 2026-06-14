@@ -7,6 +7,7 @@ import 'package:ispectify_dio/ispectify_dio.dart';
 import 'package:tobank_sdui/core/api/auth/auth_manager.dart';
 import 'package:tobank_sdui/core/api/device_headers.dart';
 import 'package:tobank_sdui/core/config/ispect_config.dart';
+import 'package:tobank_sdui/core/api/utils/curl_logger.dart';
 import 'package:tobank_sdui/core/helpers/logger.dart';
 import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 
@@ -53,7 +54,12 @@ class PromissoryRealAuthService {
         receiveTimeout: const Duration(seconds: 30),
       );
 
-      _logCurl(_url, options, data: body);
+      CurlLogger.log(
+        method: 'POST',
+        url: _url,
+        headers: options.headers?.map((k, v) => MapEntry(k.toString(), v)),
+        body: body,
+      );
 
       final response = await _dio.post(_url, options: options, data: body);
 
@@ -219,19 +225,4 @@ class PromissoryRealAuthService {
     }
   }
 
-  void _logCurl(String url, Options options, {dynamic data}) {
-    String curl = 'curl --request POST';
-    curl += ' --url "$url"';
-    options.headers?.forEach((key, value) {
-      // Hide authorization value for security
-      final safeValue = key.toLowerCase().contains('authorization')
-          ? '***'
-          : value;
-      curl += ' -H "$key: $safeValue"';
-    });
-    if (data != null) {
-      curl += ' -d \'${jsonEncode(data)}\'';
-    }
-    AppLogger.dc(LogCategory.network, 'CURL: $curl');
-  }
 }

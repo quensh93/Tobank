@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:ispect/ispect.dart';
 import 'package:ispectify_dio/ispectify_dio.dart';
 import '../../../stac_core/config/sdui_config.dart';
+import '../utils/curl_logger.dart';
 import '../../helpers/logger.dart';
 import 'config_api_models.dart';
 
@@ -104,10 +105,13 @@ class ConfigApiService {
 
       // Manual CURL logging matching exactly what we are about to send
       final jsonBody = jsonEncode(requestBody);
-      String curl = 'curl --request POST --url $url';
-      headers.forEach((k, v) => curl += " --header '$k: $v'");
-      curl += " --data '$jsonBody'";
-      AppLogger.dc(LogCategory.network, 'CURL: $curl');
+      CurlLogger.log(
+        method: 'POST',
+        url: url,
+        headers: headers,
+        body: jsonBody,
+        maskAuth: false,
+      );
 
       final options = Options(
         headers: headers,

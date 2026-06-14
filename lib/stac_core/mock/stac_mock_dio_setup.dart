@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:stac/stac.dart';
 import '../utils/reactive_button_action_tunneler.dart';
 import '../utils/variable_resolver.dart';
+import '../../core/api/utils/curl_logger.dart';
 import '../../core/helpers/logger.dart';
 
 /// Sets up Dio instance with custom mock interceptor for STAC dynamicView
@@ -41,7 +42,17 @@ Dio setupStacMockDio() {
       onRequest: (options, handler) async {
         // Log cURL Request for mock interceptor
         try {
-          final curl = _cURLRepresentation(options);
+          final filteredHeaders = <String, dynamic>{};
+          options.headers.forEach((k, v) {
+            if (k != 'Cookie') filteredHeaders[k] = v;
+          });
+          final curl = CurlLogger.generate(
+            method: options.method,
+            url: options.uri.toString(),
+            headers: filteredHeaders,
+            body: options.data,
+            maskAuth: false,
+          );
           AppLogger.dc(LogCategory.stacMock, 'CURL: $curl');
         } catch (e) {
           AppLogger.dc(
@@ -608,35 +619,3 @@ dynamic _getNestedValue(Map map, List<String> keys) {
   return current;
 }
 
-/// Generate a copy-pasteable cURL command from request options
-String _cURLRepresentation(RequestOptions options) {
-  final components = <String>['curl -i'];
-  if (options.method.toUpperCase() != 'GET') {
-    components.add('-X ${options.method}');
-  }
-
-  options.headers.forEach((k, v) {
-    if (k != 'Cookie') {
-      components.add('-H "$k: $v"');
-    }
-  });
-
-  if (options.data != null) {
-    try {
-      if (options.data is FormData) {
-        components.add('-d "[FormData]"');
-      } else if (options.data is Map || options.data is List) {
-        final data = json.encode(options.data);
-        components.add("-d '$data'");
-      } else {
-        components.add("-d '${options.data}'");
-      }
-    } catch (_) {
-      components.add("-d '${options.data}'");
-    }
-  }
-
-  components.add('"${options.uri.toString()}"');
-
-  return components.join(' ');
-}

@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
+import '../../../core/api/utils/curl_logger.dart';
 import '../../../core/helpers/logger.dart';
 import '../../registry/registry_notifier.dart';
 
@@ -64,7 +65,12 @@ class CustomNetworkRequestActionParser
       }
 
       // Log cURL for debugging
-      _logCurl(resolvedModel);
+      CurlLogger.log(
+        method: resolvedModel.method.name,
+        url: resolvedModel.url,
+        headers: resolvedModel.headers?.map((k, v) => MapEntry(k, v as dynamic)),
+        body: resolvedModel.body,
+      );
 
       response = await StacNetworkService.request(
         context,
@@ -457,85 +463,4 @@ class CustomNetworkRequestActionParser
     return value;
   }
 
-  void _logCurl(StacNetworkRequest request) {
-    try {
-      final buffer = StringBuffer();
-      buffer.write('curl --request ${request.method.name.toUpperCase()}');
-      buffer.write(' --url "${request.url}"');
-
-      request.headers?.forEach((key, value) {
-        final lowerKey = key.toLowerCase();
-        if (lowerKey == 'authorization' || lowerKey == 'serviceauthorization') {
-          buffer.write(" --header '$key: [token]'");
-        } else {
-          buffer.write(" --header '$key: $value'");
-        }
-      });
-
-      if (request.body != null) {
-        String jsonBody;
-        if (request.body is String) {
-          jsonBody = request.body as String;
-        } else {
-          jsonBody = jsonEncode(request.body);
-        }
-        final escapedBody = jsonBody.replaceAll("'", "'\\''");
-        buffer.write(" --data '$escapedBody'");
-      }
-
-      final curl = buffer.toString();
-
-      // 1. Raw Logging (Chunked)
-      // We manually split this into chunks to guarantee it bypasses Android's 4KB limit
-      // nicely while still looking like a "raw" block in the console.
-      try {
-        // ignore: avoid_print
-        print('🌐 RAW CURL START -----------------------------------------');
-
-        const int rawChunkSize = 900;
-        for (int i = 0; i < curl.length; i += rawChunkSize) {
-          int end = (i + rawChunkSize < curl.length)
-              ? i + rawChunkSize
-              : curl.length;
-          // ignore: avoid_print
-          print(curl.substring(i, end));
-        }
-
-        // ignore: avoid_print
-        print('🌐 RAW CURL END -------------------------------------------');
-      } catch (_) {}
-
-      // 2. Chunked logging for safety (fallback)
-      const int chunkSize = 800;
-
-      if (curl.length <= chunkSize) {
-        AppLogger.dc(LogCategory.network, 'CURL: $curl', null, null, true);
-      } else {
-        // Initial chunk
-        AppLogger.dc(
-          LogCategory.network,
-          'CURL (Part 1/${(curl.length / chunkSize).ceil()}): ${curl.substring(0, chunkSize)}',
-          null,
-          null,
-          true,
-        );
-
-        // Subsequent chunks
-        for (int i = chunkSize; i < curl.length; i += chunkSize) {
-          int end = (i + chunkSize < curl.length) ? i + chunkSize : curl.length;
-          final partNum = (i / chunkSize).floor() + 1;
-          final totalParts = (curl.length / chunkSize).ceil();
-          AppLogger.dc(
-            LogCategory.network,
-            'CURL (Part $partNum/$totalParts): ${curl.substring(i, end)}',
-            null,
-            null,
-            true,
-          );
-        }
-      }
-    } catch (e) {
-      AppLogger.ec(LogCategory.network, 'Failed to generate cURL log', e);
-    }
-  }
 }
