@@ -20,14 +20,14 @@ void main() {
 
   group('FlowRegistry.flowOf longest-prefix', () {
     test('multi-word flow is not shadowed by short prefix', () {
-      expect(FlowRegistry.flowOf('deposit_more_intro'), 'deposit_more');
+      expect(FlowRegistry.flowOf('deposit_more_options_intro'), 'deposit_more_options');
       expect(FlowRegistry.flowOf('deposit_turnover_intro'), 'deposit_turnover');
       expect(FlowRegistry.flowOf('child_loan_rules'), 'child_loan');
       expect(
         FlowRegistry.flowOf('installment_payment_list_main'),
         'installment_payment',
       );
-      expect(FlowRegistry.flowOf('user_validation_receipt'), 'user_validation');
+      expect(FlowRegistry.flowOf('user_credit_validation_receipt'), 'user_credit_validation');
       expect(FlowRegistry.flowOf('gift_card_intro'), 'gift_card');
     });
 
@@ -62,12 +62,12 @@ void main() {
 
     test('multi-word flow path', () {
       final r = FlowSourceResolver.resolve(
-        fileName: 'deposit_more_intro',
+        fileName: 'deposit_more_options_intro',
         navMode: NavModes.localJson,
       );
       expect(
         (r as NavAsset).assetPath,
-        'lib/stac/tobank/flows/deposit_more/json/deposit_more_intro.json',
+        'lib/stac/tobank/flows/deposit_more_options/json/deposit_more_options_intro.json',
       );
     });
 

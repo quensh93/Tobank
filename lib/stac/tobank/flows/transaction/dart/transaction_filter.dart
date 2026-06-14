@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+﻿import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -7,6 +7,12 @@ import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 @StacScreen(screenName: 'transaction_filter')
 StacWidget transactionRealFilter() {
   return StacStatefulWidget(
+    onInit: const StacCustomSetValueAction(
+      values: [
+        {'key': 'trFilterFromDate', 'value': 'از تاریخ'},
+        {'key': 'trFilterToDate', 'value': 'تا تاریخ'},
+      ],
+    ),
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
       appBar: buildTobankFlowAppBar(
@@ -35,14 +41,14 @@ StacWidget transactionRealFilter() {
                 StacExpanded(
                   child: _buildDateField(
                     title: '?? ?????',
-                    fieldId: 'trFilterFromDate',
+                    registryKey: 'trFilterFromDate',
                   ),
                 ),
                 StacSizedBox(width: 10),
                 StacExpanded(
                   child: _buildDateField(
                     title: '?? ?????',
-                    fieldId: 'trFilterToDate',
+                    registryKey: 'trFilterToDate',
                   ),
                 ),
               ],
@@ -289,14 +295,25 @@ StacWidget _buildDirectionChip({
   );
 }
 
-StacWidget _buildDateField({required String title, required String fieldId}) {
+StacAction _openTransactionDateRangePickerAction() {
+  return StacRawJsonAction({
+    'actionType': 'persianDateRangePicker',
+    'startDateKey': 'trFilterFromDate',
+    'endDateKey': 'trFilterToDate',
+    'helpText': 'انتخاب بازه زمانی',
+    'confirmText': 'تایید',
+    'cancelText': 'انصراف',
+    'firstDate': '1400/01/01',
+    'lastDate': '1450/12/29',
+  });
+}
+
+StacWidget _buildDateField({
+  required String title,
+  required String registryKey,
+}) {
   return StacGestureDetector(
-    onTap: StacPersianDatePickerAction(
-      formFieldId: fieldId,
-      firstDate: '1400/01/01',
-      lastDate: '1450/12/29',
-      includeTime: true,
-    ),
+    onTap: _openTransactionDateRangePickerAction(),
     child: StacContainer(
       height: 52,
       padding: StacEdgeInsets.symmetric(horizontal: 14),
@@ -321,9 +338,9 @@ StacWidget _buildDateField({required String title, required String fieldId}) {
           StacSizedBox(width: 8),
           StacExpanded(
             child: StacCustomRegistryReactive(
-              registryKey: 'form.$fieldId',
+              registryKey: registryKey,
               child: StacText(
-                data: title,
+                data: '{{$registryKey}}',
                 textDirection: StacTextDirection.rtl,
                 textAlign: StacTextAlign.right,
                 style: StacCustomTextStyle(
@@ -643,4 +660,3 @@ StacWidget _buildStatusChip({
     ),
   );
 }
-

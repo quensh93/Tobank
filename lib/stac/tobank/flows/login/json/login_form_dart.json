@@ -33,7 +33,7 @@
       "type": "appBar"
     },
     "body": {
-      "autovalidateMode": "onUserInteraction",
+      "autovalidateMode": "always",
       "child": {
         "crossAxisAlignment": "stretch",
         "textDirection": "rtl",
@@ -87,6 +87,8 @@
                         "id": "mobile_number",
                         "textDirection": "rtl",
                         "textAlign": "right",
+                        "supportTextDirection": "rtl",
+                        "autovalidateMode": "always",
                         "decoration": {
                           "hintText": "{{appStrings.login.mobileNumberPlaceholder}}",
                           "contentPadding": {
@@ -108,7 +110,10 @@
                         ],
                         "validatorRules": [
                           {
-                            "rule": "^09\\d{9}$",
+                            "rule": "matches",
+                            "options": {
+                              "pattern": "^09\\d{9}$"
+                            },
                             "message": "{{appStrings.login.mobileNumberError}}"
                           }
                         ],
@@ -160,6 +165,8 @@
                         "id": "national_code",
                         "textDirection": "rtl",
                         "textAlign": "right",
+                        "supportTextDirection": "rtl",
+                        "autovalidateMode": "always",
                         "decoration": {
                           "hintText": "{{appStrings.login.nationalCodePlaceholder}}",
                           "contentPadding": {
@@ -181,7 +188,10 @@
                         ],
                         "validatorRules": [
                           {
-                            "rule": "^\\d{10}$",
+                            "rule": "matches",
+                            "options": {
+                              "pattern": "^\\d{10}$"
+                            },
                             "message": "{{appStrings.login.nationalCodeError}}"
                           }
                         ],
@@ -358,11 +368,15 @@
                           },
                           "textAlign": "right",
                           "textDirection": "rtl",
+                          "autovalidateMode": "always",
                           "readOnly": true,
                           "enabled": false,
                           "validatorRules": [
                             {
-                              "rule": ".+",
+                              "rule": "matches",
+                              "options": {
+                                "pattern": ".+"
+                              },
                               "message": "{{appStrings.login.birthdateError}}"
                             }
                           ],

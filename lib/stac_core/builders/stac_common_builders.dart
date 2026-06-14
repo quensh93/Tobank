@@ -61,7 +61,7 @@ class StacRawJsonAction extends StacAction {
 ///
 /// ```dart
 /// onPressed: const NavigationAction(
-///   fileName: 'verify_identity_registration',
+///   fileName: 'authentication_registration',
 ///   navMode: NavModes.dart,
 /// ),
 /// ```
@@ -100,14 +100,14 @@ class NavigationAction extends StacAction {
 
   @override
   Map<String, dynamic> toJson() => {
-        'actionType': 'navigate',
-        if (fileName != null) 'fileName': fileName,
-        'navMode': navMode.name,
-        if (pathOverride != null) 'pathOverride': pathOverride,
-        'navigationStyle': navigationStyle.name,
-        if (result != null) 'result': result,
-        if (arguments != null) 'arguments': arguments,
-      };
+    'actionType': 'navigate',
+    if (fileName != null) 'fileName': fileName,
+    'navMode': navMode.name,
+    if (pathOverride != null) 'pathOverride': pathOverride,
+    'navigationStyle': navigationStyle.name,
+    if (result != null) 'result': result,
+    if (arguments != null) 'arguments': arguments,
+  };
 }
 
 /// Custom action helper for parser-driven action types when a dedicated
@@ -133,6 +133,8 @@ class StacCustomTextFormField extends StacWidget {
     this.id,
     this.textDirection,
     this.textAlign,
+    this.supportTextDirection,
+    this.autovalidateMode,
     this.formatThousands,
     this.thousandsSeparator,
     this.decoration,
@@ -154,6 +156,8 @@ class StacCustomTextFormField extends StacWidget {
   final String? id;
   final String? textDirection;
   final String? textAlign;
+  final String? supportTextDirection;
+  final String? autovalidateMode;
   final bool? formatThousands;
   final String? thousandsSeparator;
   final Map<String, dynamic>? decoration;
@@ -180,6 +184,9 @@ class StacCustomTextFormField extends StacWidget {
     if (id != null) 'id': id,
     if (textDirection != null) 'textDirection': textDirection,
     if (textAlign != null) 'textAlign': textAlign,
+    if (supportTextDirection != null)
+      'supportTextDirection': supportTextDirection,
+    if (autovalidateMode != null) 'autovalidateMode': autovalidateMode,
     if (formatThousands != null) 'formatThousands': formatThousands,
     if (thousandsSeparator != null) 'thousandsSeparator': thousandsSeparator,
     if (decoration != null) 'decoration': decoration,

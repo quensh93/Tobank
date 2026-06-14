@@ -677,7 +677,11 @@ StacWidget _buildNonTobankServices() {
         child: _serviceTile(
           title: _serviceBalanceTitle,
           iconRegistryKey: 'appAssets.current.icons.cardBalance',
-          onTap: NavigationAction(fileName: 'dashboard_card_balance', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+          onTap: NavigationAction(
+            fileName: 'dashboard_card_balance',
+            navMode: NavModes.dart,
+            navigationStyle: NavigationStyle.push,
+          ),
         ),
       ),
       StacSizedBox(width: 12),
@@ -859,7 +863,11 @@ StacWidget _cardDetailsBottomSheet() {
             onTap: StacSequenceAction(
               actions: [
                 const StacCloseDialogAction(),
-                NavigationAction(fileName: 'dashboard_card_edit', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                NavigationAction(
+                  fileName: 'dashboard_card_edit',
+                  navMode: NavModes.dart,
+                  navigationStyle: NavigationStyle.push,
+                ),
               ],
             ),
           ),
@@ -879,7 +887,11 @@ StacWidget _cardDetailsBottomSheet() {
                     positiveAction: StacSequenceAction(
                       actions: [
                         const StacCloseDialogAction(),
-                        NavigationAction(fileName: 'dashboard_cards_management', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushAndRemoveAll),
+                        NavigationAction(
+                          fileName: 'dashboard_cards_management',
+                          navMode: NavModes.dart,
+                          navigationStyle: NavigationStyle.pushAndRemoveAll,
+                        ),
                         StacCustomSnackBarAction(
                           title: 'کارت حذف شد',
                           detail: 'کارت با موفقیت از لیست حذف شد.',
@@ -1265,7 +1277,7 @@ StacWidget _walletChargeBottomSheet() {
       borderRadius: const StacBorderRadius.only(topLeft: 18, topRight: 18),
     ),
     child: StacForm(
-      autovalidateMode: StacAutovalidateMode.onUserInteraction,
+      autovalidateMode: StacAutovalidateMode.always,
       child: StacPadding(
         padding: StacEdgeInsets.only(left: 16, top: 10, right: 16, bottom: 24),
         child: StacColumn(
@@ -1841,7 +1853,7 @@ StacWidget _walletTransferBottomSheet() {
       borderRadius: const StacBorderRadius.only(topLeft: 18, topRight: 18),
     ),
     child: StacForm(
-      autovalidateMode: StacAutovalidateMode.onUserInteraction,
+      autovalidateMode: StacAutovalidateMode.always,
       child: StacPadding(
         padding: StacEdgeInsets.only(left: 16, top: 10, right: 16, bottom: 24),
         child: StacColumn(
@@ -1889,6 +1901,8 @@ StacWidget _walletTransferBottomSheet() {
                     id: 'wallet_transfer_phone',
                     textDirection: 'rtl',
                     textAlign: 'right',
+                    supportTextDirection: 'rtl',
+                    autovalidateMode: 'always',
                     keyboardType: 'phone',
                     maxLength: 11,
                     inputFormatters: const [
@@ -1896,7 +1910,8 @@ StacWidget _walletTransferBottomSheet() {
                     ],
                     validatorRules: const [
                       {
-                        'rule': r'^09\d{9}$',
+                        'rule': 'matches',
+                        'options': {'pattern': r'^09\d{9}$'},
                         'message': 'شماره موبایل معتبر نیست',
                       },
                     ],
@@ -2006,12 +2021,15 @@ StacWidget _walletTransferBottomSheet() {
               id: 'wallet_transfer_amount',
               textDirection: 'rtl',
               textAlign: 'right',
+              supportTextDirection: 'rtl',
+              autovalidateMode: 'always',
               keyboardType: 'number',
               formatThousands: true,
               thousandsSeparator: '،',
               validatorRules: const [
                 {
-                  'rule': r'^\d{5,}$',
+                  'rule': 'matches',
+                  'options': {'pattern': r'^\d{5,}$'},
                   'message': 'حداقل مبلغ انتقال ۱۰،۰۰۰ ریال است',
                 },
               ],
@@ -2414,7 +2432,11 @@ StacWidget _walletTransferConfirmBottomSheet() {
                 actions: [
                   const StacCloseDialogAction(),
                   const StacCloseDialogAction(),
-                  NavigationAction(fileName: 'dashboard_wallet_transfer_receipt', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                  NavigationAction(
+                    fileName: 'dashboard_wallet_transfer_receipt',
+                    navMode: NavModes.dart,
+                    navigationStyle: NavigationStyle.push,
+                  ),
                 ],
               ),
             ),
@@ -2682,7 +2704,11 @@ StacWidget _pinContinueButton({required String screenName}) {
     onPressed: StacSequenceAction(
       actions: [
         const StacCloseDialogAction(),
-        NavigationAction(fileName: screenName, navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+        NavigationAction(
+          fileName: screenName,
+          navMode: NavModes.dart,
+          navigationStyle: NavigationStyle.push,
+        ),
       ],
     ),
     style: StacButtonStyle(
@@ -2903,7 +2929,11 @@ StacWidget _secContinueButton({required String screenName}) {
     onPressed: StacSequenceAction(
       actions: [
         const StacCloseDialogAction(),
-        NavigationAction(fileName: screenName, navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+        NavigationAction(
+          fileName: screenName,
+          navMode: NavModes.dart,
+          navigationStyle: NavigationStyle.push,
+        ),
       ],
     ),
     style: StacButtonStyle(
@@ -3073,7 +3103,11 @@ StacWidget _reissuePostalCodeBottomSheet() {
               onPressed: StacSequenceAction(
                 actions: [
                   const StacCloseDialogAction(),
-                  NavigationAction(fileName: 'dashboard_card_reissue_request', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                  NavigationAction(
+                    fileName: 'dashboard_card_reissue_request',
+                    navMode: NavModes.dart,
+                    navigationStyle: NavigationStyle.push,
+                  ),
                 ],
               ),
               style: StacButtonStyle(
@@ -3339,7 +3373,11 @@ StacWidget _blockSubmitButton() {
       positiveAction: StacSequenceAction(
         actions: [
           const StacCloseDialogAction(),
-          NavigationAction(fileName: 'dashboard_cards_management', navMode: NavModes.dart, navigationStyle: NavigationStyle.pushAndRemoveAll),
+          NavigationAction(
+            fileName: 'dashboard_cards_management',
+            navMode: NavModes.dart,
+            navigationStyle: NavigationStyle.pushAndRemoveAll,
+          ),
           StacCustomSnackBarAction(
             title: '{{appStrings.cardsManagement.block.successTitle}}',
             detail: 'کارت در اسرع وقت مسدود خواهد شد. (mock)',

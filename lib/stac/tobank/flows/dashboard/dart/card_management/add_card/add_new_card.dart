@@ -38,7 +38,8 @@ StacWidget dashboardAddNewCard() {
               child: StacColumn(
                 children: [
                   StacText(
-                    data: 'بانک\u200cهای مبدا تحت پوشش به مقصد کلیه بانک\u200cهای کشور',
+                    data:
+                        'بانک\u200cهای مبدا تحت پوشش به مقصد کلیه بانک\u200cهای کشور',
                     textDirection: StacTextDirection.rtl,
                     textAlign: StacTextAlign.center,
                     style: StacCustomTextStyle(
@@ -148,6 +149,8 @@ StacWidget dashboardAddNewCard() {
               id: _cardNumberFieldId,
               textDirection: 'ltr',
               textAlign: 'left',
+              supportTextDirection: 'rtl',
+              autovalidateMode: 'always',
               keyboardType: 'number',
               maxLength: 16,
               validatorRules: const [
@@ -321,6 +324,8 @@ StacWidget dashboardAddNewCard() {
               id: _cardTitleFieldId,
               textDirection: 'rtl',
               textAlign: 'right',
+              supportTextDirection: 'rtl',
+              autovalidateMode: 'always',
               validatorRules: const [
                 {
                   'rule': 'matches',

@@ -55,6 +55,9 @@ enum SecureStorageKeys {
 
   // Auth
   password,
+
+  // KYC (Identity Verification)
+  kycCompleted,
 }
 
 /// Extension to provide additional functionality for SecureStorageKeys
@@ -126,6 +129,8 @@ extension SecureStorageKeysExtension on SecureStorageKeys {
         return 'Custom Key 3';
       case SecureStorageKeys.password:
         return 'Password';
+      case SecureStorageKeys.kycCompleted:
+        return 'KYC Completion Status';
     }
   }
 

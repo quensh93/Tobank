@@ -23,8 +23,8 @@ class StacWidgetResolver {
   static const String _dashboardShellKey = 'dashboard_shell';
   static const String _depositTurnoverIntroJsonPath =
       'lib/stac/tobank/flows/deposit_turnover/json/deposit_turnover_intro.json';
-  static const String _depositMoreIntroJsonPath =
-      'lib/stac/tobank/flows/deposit_more/json/deposit_more_intro.json';
+  static const String _depositMoreOptionsIntroJsonPath =
+      'lib/stac/tobank/flows/deposit_more_options/json/deposit_more_options_intro.json';
 
   /// Resolves a widget from widgetJson.
   /// Returns the widget wrapped with theme-awareness (rebuilds on theme change).
@@ -135,9 +135,9 @@ class StacWidgetResolver {
     return url.contains(_dashboardShellKey);
   }
 
-  static bool _isDepositMoreIntroNetworkRequest(StacNetworkRequest request) {
+  static bool _isDepositMoreOptionsIntroNetworkRequest(StacNetworkRequest request) {
     final url = request.url.toLowerCase();
-    return url.contains('ipaam.builder.form.form.deposit_more_intro');
+    return url.contains('ipaam.builder.form.form.deposit_more_options_intro');
   }
 
   static bool _isDepositTurnoverIntroNetworkRequest(StacNetworkRequest request) {
@@ -147,13 +147,13 @@ class StacWidgetResolver {
 
   static bool _shouldSingleParseNetworkRequest(StacNetworkRequest request) {
     return _isDashboardShellNetworkRequest(request) ||
-        _isDepositMoreIntroNetworkRequest(request) ||
+        _isDepositMoreOptionsIntroNetworkRequest(request) ||
         _isDepositTurnoverIntroNetworkRequest(request);
   }
 
   static bool _shouldSingleParseAssetPath(String normalizedPath) {
     return normalizedPath == _dashboardShellJsonPath ||
-        normalizedPath == _depositMoreIntroJsonPath ||
+        normalizedPath == _depositMoreOptionsIntroJsonPath ||
         normalizedPath == _depositTurnoverIntroJsonPath;
   }
 

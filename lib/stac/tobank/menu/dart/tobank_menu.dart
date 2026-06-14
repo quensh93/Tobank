@@ -2,10 +2,10 @@ import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 
 // Menu item visibility flags
-const bool _showVerifyIdentity = true;
+const bool _showAuthentication = true;
 const bool _showPromissoryApiReal = true;
 const bool _showGuaranteePromissoryApiReal = true;
-const bool _showVerifyIdentityApiReal = true;
+const bool _showAuthenticationApiReal = true;
 const bool _showCreditScoringApiReal = false;
 const bool _showProfileApiReal = true;
 const bool _showCartableApiReal = true;
@@ -14,14 +14,14 @@ const bool _showTransactionApiReal = true;
 const bool _showInstallmentPaymentApiReal = true;
 const bool _showChildLoanApiReal = false;
 const bool _showDepositTurnoverApiReal = false;
-const bool _showDepositMore = true;
+const bool _showDepositMoreOptions = true;
 
 const bool _showNotificationApiReal = true;
 const bool _showDashboardRealNavigation = true;
 const bool _showGiftCardApiReal = true;
 const bool _showTransferReal = true;
 const bool _showChargeApiReal = true;
-const bool _showPackageApiReal = true;
+const bool _showInternetPakageApiReal = true;
 const bool _showBiometricModuleTest = true;
 
 /// Tobank Menu Screen built entirely from Dart (no menu-items JSON dependency).
@@ -57,7 +57,7 @@ StacWidget tobankMenuDart() {
       padding: StacEdgeInsets.all(16),
       children: [
 
-        if (_showVerifyIdentity)
+        if (_showAuthentication)
           _buildMenuItemCard(
             title: 'لاگین',
             dartPath: 'lib/stac/tobank/flows/login/dart/login_splash.dart',
@@ -75,15 +75,15 @@ StacWidget tobankMenuDart() {
             title: 'ضمانت سفته (API واقعی)',
             widgetType: 'guarantee_promissory_api_real_menu',
           ),
-        if (_showVerifyIdentityApiReal)
+        if (_showAuthenticationApiReal)
           _buildSingleButtonMenuItemCard(
             title: 'احراز هویت',
-            widgetType: 'verify_identity_menu',
+            widgetType: 'authentication_menu',
           ),
         if (_showCreditScoringApiReal)
           _buildSingleButtonMenuItemCard(
             title: 'اعتبارسنجی',
-            widgetType: 'tobank_user_validation',
+            widgetType: 'tobank_user_credit_validation',
           ),
         if (_showProfileApiReal)
           _buildSingleButtonMenuItemCard(
@@ -120,10 +120,10 @@ StacWidget tobankMenuDart() {
             title: 'گردش سپرده',
             widgetType: 'deposit_turnover_menu',
           ),
-        if (_showDepositMore)
+        if (_showDepositMoreOptions)
           _buildSingleButtonMenuItemCard(
             title: 'بیشتر(سپرده)',
-            widgetType: 'deposit_more_menu',
+            widgetType: 'deposit_more_options_menu',
           ),
         if (_showDashboardRealNavigation)
           _buildSingleButtonMenuItemCard(
@@ -145,10 +145,10 @@ StacWidget tobankMenuDart() {
             title: 'شارژ',
             widgetType: 'charge_menu',
           ),
-        if (_showPackageApiReal)
+        if (_showInternetPakageApiReal)
           _buildSingleButtonMenuItemCard(
             title: 'پکیج اینترنت',
-            widgetType: 'package_menu',
+            widgetType: 'internet_pakage_menu',
           ),
         StacSizedBox(height: 20),
         _buildSectionHeader('ماژول ها'),

@@ -31,7 +31,7 @@ StacWidget promissoryRealReceiver() {
         title: '{{appStrings.promissory.issuanceTitle}}',
       ),
       body: StacForm(
-        autovalidateMode: StacAutovalidateMode.onUserInteraction,
+        autovalidateMode: StacAutovalidateMode.always,
         child: StacColumn(
           crossAxisAlignment: StacCrossAxisAlignment.stretch,
           children: [
@@ -272,6 +272,8 @@ StacWidget promissoryRealReceiver() {
                             id: 'receiver_national_code',
                             textDirection: 'rtl',
                             textAlign: 'right',
+                            supportTextDirection: 'rtl',
+                            autovalidateMode: 'always',
                             maxLength: 10,
                             inputFormatters: const [
                               {'type': 'allow', 'rule': '[0-9]'},
@@ -290,7 +292,8 @@ StacWidget promissoryRealReceiver() {
                             textInputAction: 'next',
                             validatorRules: const [
                               {
-                                'rule': r'^\d{10}$',
+                                'rule': 'matches',
+                                'options': {'pattern': r'^\d{10}$'},
                                 // کد ملی معتبر وارد نمایید
                                 'message':
                                     '{{appStrings.promissory.nationalCodeError}}',
@@ -327,6 +330,8 @@ StacWidget promissoryRealReceiver() {
                             id: 'receiver_mobile',
                             textDirection: 'rtl',
                             textAlign: 'right',
+                            supportTextDirection: 'rtl',
+                            autovalidateMode: 'always',
                             maxLength: 11,
                             inputFormatters: const [
                               {'type': 'allow', 'rule': '[0-9]'},
@@ -345,7 +350,8 @@ StacWidget promissoryRealReceiver() {
                             textInputAction: 'next',
                             validatorRules: const [
                               {
-                                'rule': r'^09\d{9}$',
+                                'rule': 'matches',
+                                'options': {'pattern': r'^09\d{9}$'},
                                 // شماره همراه معتبر وارد نمایید
                                 'message':
                                     '{{appStrings.promissory.mobileNumberError}}',
@@ -435,6 +441,7 @@ StacWidget promissoryRealReceiver() {
                                 ),
                               ),
                               keyboardType: StacTextInputType.text,
+                              autovalidateMode: StacAutovalidateMode.always,
                               style: StacCustomTextStyle(
                                 fontSize: 16,
                                 fontWeight: StacFontWeight.w600,
@@ -442,7 +449,8 @@ StacWidget promissoryRealReceiver() {
                               ),
                               validatorRules: [
                                 StacFormFieldValidator(
-                                  rule: r'^\d{4}/\d{2}/\d{2}$',
+                                  rule: 'matches',
+                                  options: {'pattern': r'^\d{4}/\d{2}/\d{2}$'},
                                   // تاریخ تولد را انتخاب نمایید
                                   message:
                                       '{{appStrings.promissory.selectBirthdateError}}',
@@ -564,6 +572,8 @@ StacWidget promissoryRealReceiver() {
                                   id: 'legal_national_id',
                                   textDirection: 'rtl',
                                   textAlign: 'right',
+                                  supportTextDirection: 'rtl',
+                                  autovalidateMode: 'always',
                                   maxLength: 11,
                                   inputFormatters: const [
                                     {'type': 'allow', 'rule': '[0-9]'},
@@ -582,7 +592,8 @@ StacWidget promissoryRealReceiver() {
                                   textInputAction: 'next',
                                   validatorRules: const [
                                     {
-                                      'rule': r'^\d{10,}$',
+                                      'rule': 'matches',
+                                      'options': {'pattern': r'^\d{10,}$'},
                                       // کد ملی معتبر وارد نمایید
                                       'message':
                                           '{{appStrings.promissory.nationalCodeError}}',
@@ -619,6 +630,8 @@ StacWidget promissoryRealReceiver() {
                                   id: 'legal_contact_number',
                                   textDirection: 'rtl',
                                   textAlign: 'right',
+                                  supportTextDirection: 'rtl',
+                                  autovalidateMode: 'always',
                                   maxLength: 11,
                                   inputFormatters: const [
                                     {'type': 'allow', 'rule': '[0-9]'},
@@ -637,7 +650,8 @@ StacWidget promissoryRealReceiver() {
                                   textInputAction: 'done',
                                   validatorRules: const [
                                     {
-                                      'rule': r'^\d{10,}$',
+                                      'rule': 'matches',
+                                      'options': {'pattern': r'^\d{10,}$'},
                                       // شماره همراه معتبر وارد نمایید
                                       'message':
                                           '{{appStrings.promissory.mobileNumberError}}',
@@ -836,8 +850,9 @@ StacWidget promissoryRealReceiver() {
                       // Call identity API (real) then navigate on success
                       {
                         'actionType': 'networkRequest',
-                        'url':
-                            SduiConfig.bizUrl('customers/v1.0/identity/{{receiver.nationalCode}}/{{receiver.birthDateCompact}}'),
+                        'url': SduiConfig.bizUrl(
+                          'customers/v1.0/identity/{{receiver.nationalCode}}/{{receiver.birthDateCompact}}',
+                        ),
                         'method': 'get',
                         'headers': {
                           'accept': '*/*',
@@ -896,7 +911,8 @@ StacWidget promissoryRealReceiver() {
                                 {
                                   'actionType': 'navigate',
                                   'fileName': 'promissory_data',
-                                  'navMode': 'dart', // Navigate to Real Data Screen
+                                  'navMode':
+                                      'dart', // Navigate to Real Data Screen
                                   'navigationStyle': 'push',
                                 },
                               ],
@@ -1075,8 +1091,9 @@ StacWidget promissoryRealReceiver() {
                       // Call identity API (real) then navigate on success
                       {
                         'actionType': 'networkRequest',
-                        'url':
-                            SduiConfig.bizUrl('customers/v1.0/identity/{{receiver.legalNationalId}}'),
+                        'url': SduiConfig.bizUrl(
+                          'customers/v1.0/identity/{{receiver.legalNationalId}}',
+                        ),
                         'method': 'get',
                         'headers': {
                           'accept': '*/*',
@@ -1135,7 +1152,8 @@ StacWidget promissoryRealReceiver() {
                                 {
                                   'actionType': 'navigate',
                                   'fileName': 'promissory_data',
-                                  'navMode': 'dart', // Navigate to Real Data Screen
+                                  'navMode':
+                                      'dart', // Navigate to Real Data Screen
                                   'navigationStyle': 'push',
                                 },
                               ],
@@ -1253,4 +1271,3 @@ StacWidget promissoryRealReceiver() {
     ),
   );
 }
-

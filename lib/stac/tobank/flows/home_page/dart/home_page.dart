@@ -6,19 +6,23 @@ import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
 @StacScreen(screenName: 'tobank_home_page_dart')
 StacWidget tobankHomePageDart() {
   return StacStatefulWidget(
-    onInit: const StacCustomSetValueAction(
-      values: [
-        {'key': 'homePage.tab.deposits', 'value': true},
-        {'key': 'homePage.tab.cards', 'value': false},
-        {'key': 'homePage.tab.investment', 'value': false},
-        {'key': 'homePage.tab.services', 'value': false},
-        {'key': 'homePage.authenticated', 'value': true},
-        {'key': 'homePage.balanceVisible', 'value': false},
-        {'key': 'homePage.depositPageIndex', 'value': 3},
-        {'key': 'homePage.page.create', 'value': false},
-        {'key': 'homePage.page.first', 'value': false},
-        {'key': 'homePage.page.second', 'value': false},
-        {'key': 'homePage.page.third', 'value': true},
+    onInit: StacSequenceAction(
+      actions: [
+        {'actionType': 'kyc_check', 'targetKey': 'homePage.authenticated'},
+        const StacCustomSetValueAction(
+          values: [
+            {'key': 'homePage.tab.deposits', 'value': true},
+            {'key': 'homePage.tab.cards', 'value': false},
+            {'key': 'homePage.tab.investment', 'value': false},
+            {'key': 'homePage.tab.services', 'value': false},
+            {'key': 'homePage.balanceVisible', 'value': false},
+            {'key': 'homePage.depositPageIndex', 'value': 3},
+            {'key': 'homePage.page.create', 'value': false},
+            {'key': 'homePage.page.first', 'value': false},
+            {'key': 'homePage.page.second', 'value': false},
+            {'key': 'homePage.page.third', 'value': true},
+          ],
+        ),
       ],
     ),
     child: StacScaffold(
@@ -982,17 +986,7 @@ StacWidget _buildUnauthenticatedDepositsState() {
           ),
           StacSizedBox(height: 16),
           StacFilledButton(
-            onPressed: const StacCustomSetValueAction(
-              values: [
-                {'key': 'homePage.authenticated', 'value': true},
-                {'key': 'homePage.balanceVisible', 'value': false},
-                {'key': 'homePage.depositPageIndex', 'value': 3},
-                {'key': 'homePage.page.create', 'value': false},
-                {'key': 'homePage.page.first', 'value': false},
-                {'key': 'homePage.page.second', 'value': false},
-                {'key': 'homePage.page.third', 'value': true},
-              ],
-            ),
+            onPressed: NavigationAction(fileName: 'authentication_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
             style: StacButtonStyle(
               backgroundColor:
                   '{{appColors.current.button.primary.backgroundColor}}',
@@ -1054,7 +1048,7 @@ StacWidget _buildAuthCardPage() {
               ),
             ),
             StacFilledButton(
-              onPressed: NavigationAction(fileName: 'verify_identity_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+              onPressed: NavigationAction(fileName: 'authentication_intro', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
               style: StacButtonStyle(
                 backgroundColor:
                     '{{appColors.current.button.primary.backgroundColor}}',
@@ -1086,7 +1080,7 @@ StacWidget _buildAuthCardPage() {
 StacWidget _buildAuthenticatedDepositsState() {
   return StacTobankCardsCarousel(
     height: 268,
-    initialPage: 4,
+    initialPage: 3,
     indicatorTopSpacing: 16,
     indicatorActiveColor: '#E31A2F',
     indicatorInactiveColor: '#D0D5DD',
@@ -1106,7 +1100,6 @@ StacWidget _buildAuthenticatedDepositsState() {
         accountNumber: '110.79.1755809.1',
         accountTitle: 'حساب قرض الحسنه جاری حقیقی توبانک',
       ).toJson(),
-      _buildAuthCardPage().toJson(),
     ],
   );
 }

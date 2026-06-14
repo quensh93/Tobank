@@ -574,6 +574,8 @@
             "id": "addNewCard.cardNumber",
             "textDirection": "ltr",
             "textAlign": "left",
+            "supportTextDirection": "rtl",
+            "autovalidateMode": "always",
             "decoration": {
               "hintText": "شماره کارت ۱۶ رقمی را وارد کنید",
               "hintStyle": {
@@ -966,6 +968,8 @@
             "id": "addNewCard.title",
             "textDirection": "rtl",
             "textAlign": "right",
+            "supportTextDirection": "rtl",
+            "autovalidateMode": "always",
             "decoration": {
               "hintText": "عنوان دلخواه برای کارت وارد کنید",
               "hintStyle": {

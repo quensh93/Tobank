@@ -28,7 +28,7 @@ StacWidget loginForm() {
         centerTitle: false,
       ),
       body: StacForm(
-        autovalidateMode: StacAutovalidateMode.onUserInteraction,
+        autovalidateMode: StacAutovalidateMode.always,
         child: StacColumn(
           crossAxisAlignment: StacCrossAxisAlignment.stretch,
           textDirection: StacTextDirection.rtl,
@@ -90,6 +90,8 @@ StacWidget _buildMobileNumberField() {
         id: 'mobile_number',
         textDirection: 'rtl',
         textAlign: 'right',
+        supportTextDirection: 'rtl',
+        autovalidateMode: 'always',
         maxLength: 11,
         inputFormatters: const [
           {'type': 'allow', 'rule': '[0-9]'},
@@ -107,7 +109,8 @@ StacWidget _buildMobileNumberField() {
         textInputAction: 'next',
         validatorRules: const [
           {
-            'rule': r'^09\d{9}$',
+            'rule': 'matches',
+            'options': {'pattern': r'^09\d{9}$'},
             // فرمت شماره موبایل صحیح نیست
             'message': '{{appStrings.login.mobileNumberError}}',
           },
@@ -134,6 +137,8 @@ StacWidget _buildNationalCodeField() {
         id: 'national_code',
         textDirection: 'rtl',
         textAlign: 'right',
+        supportTextDirection: 'rtl',
+        autovalidateMode: 'always',
         maxLength: 10,
         inputFormatters: const [
           {'type': 'allow', 'rule': '[0-9]'},
@@ -151,7 +156,8 @@ StacWidget _buildNationalCodeField() {
         textInputAction: 'next',
         validatorRules: const [
           {
-            'rule': r'^\d{10}$',
+            'rule': 'matches',
+            'options': {'pattern': r'^\d{10}$'},
             // کد ملی باید 10 رقم باشد
             'message': '{{appStrings.login.nationalCodeError}}',
           },
@@ -258,9 +264,11 @@ StacWidget _buildBirthDateField() {
             ),
           ),
           keyboardType: StacTextInputType.text,
+          autovalidateMode: StacAutovalidateMode.always,
           validatorRules: const [
             StacFormFieldValidator(
-              rule: r'.+',
+              rule: 'matches',
+              options: {'pattern': r'.+'},
               // تاریخ تولد الزامی است
               message: '{{appStrings.login.birthdateError}}',
             ),
@@ -311,8 +319,7 @@ StacWidget _buildSubmitButton() {
           ],
         ),
         StacNetworkRequestAction(
-          url:
-              SduiConfig.bizUrl('logins/v1.0/tobank/users'),
+          url: SduiConfig.bizUrl('logins/v1.0/tobank/users'),
           method: 'post',
           headers: const {
             'accept': '*/*',
@@ -428,4 +435,3 @@ class StacAuthPersistAction extends StacAction {
     'nationalCode': nationalCode,
   };
 }
-

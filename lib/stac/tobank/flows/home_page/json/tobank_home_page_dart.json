@@ -1,51 +1,56 @@
 {
   "type": "stateFull",
   "onInit": {
-    "actionType": "setValue",
-    "values": [
+    "actionType": "sequence",
+    "actions": [
       {
-        "key": "homePage.tab.deposits",
-        "value": true
+        "actionType": "kyc_check",
+        "targetKey": "homePage.authenticated"
       },
       {
-        "key": "homePage.tab.cards",
-        "value": false
-      },
-      {
-        "key": "homePage.tab.investment",
-        "value": false
-      },
-      {
-        "key": "homePage.tab.services",
-        "value": false
-      },
-      {
-        "key": "homePage.authenticated",
-        "value": true
-      },
-      {
-        "key": "homePage.balanceVisible",
-        "value": false
-      },
-      {
-        "key": "homePage.depositPageIndex",
-        "value": 3
-      },
-      {
-        "key": "homePage.page.create",
-        "value": false
-      },
-      {
-        "key": "homePage.page.first",
-        "value": false
-      },
-      {
-        "key": "homePage.page.second",
-        "value": false
-      },
-      {
-        "key": "homePage.page.third",
-        "value": true
+        "actionType": "setValue",
+        "values": [
+          {
+            "key": "homePage.tab.deposits",
+            "value": true
+          },
+          {
+            "key": "homePage.tab.cards",
+            "value": false
+          },
+          {
+            "key": "homePage.tab.investment",
+            "value": false
+          },
+          {
+            "key": "homePage.tab.services",
+            "value": false
+          },
+          {
+            "key": "homePage.balanceVisible",
+            "value": false
+          },
+          {
+            "key": "homePage.depositPageIndex",
+            "value": 3
+          },
+          {
+            "key": "homePage.page.create",
+            "value": false
+          },
+          {
+            "key": "homePage.page.first",
+            "value": false
+          },
+          {
+            "key": "homePage.page.second",
+            "value": false
+          },
+          {
+            "key": "homePage.page.third",
+            "value": true
+          }
+        ]
       }
     ]
   },
@@ -3840,37 +3845,10 @@
                                         },
                                         {
                                           "onPressed": {
-                                            "actionType": "setValue",
-                                            "values": [
-                                              {
-                                                "key": "homePage.authenticated",
-                                                "value": true
-                                              },
-                                              {
-                                                "key": "homePage.balanceVisible",
-                                                "value": false
-                                              },
-                                              {
-                                                "key": "homePage.depositPageIndex",
-                                                "value": 3
-                                              },
-                                              {
-                                                "key": "homePage.page.create",
-                                                "value": false
-                                              },
-                                              {
-                                                "key": "homePage.page.first",
-                                                "value": false
-                                              },
-                                              {
-                                                "key": "homePage.page.second",
-                                                "value": false
-                                              },
-                                              {
-                                                "key": "homePage.page.third",
-                                                "value": true
-                                              }
-                                            ]
+                                            "actionType": "navigate",
+                                            "fileName": "authentication_intro",
+                                            "navMode": "localJson",
+                                            "navigationStyle": "push"
                                           },
                                           "style": {
                                             "foregroundColor": "{{appColors.current.button.primary.foregroundColor}}",

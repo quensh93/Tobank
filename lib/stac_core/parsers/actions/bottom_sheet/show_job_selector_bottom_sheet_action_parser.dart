@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
-import 'package:tobank_sdui/stac/tobank/flows/verify_identity/dart/verify_identity_job_selector.dart'
-    as verify_identity_job_selector_dart;
+import 'package:tobank_sdui/stac/tobank/flows/authentication/dart/authentication_job_selector.dart'
+    as authentication_job_selector_dart;
 
 import '../../../registry/registry_notifier.dart';
 import '../../../registry/custom_component_registry.dart';
@@ -70,8 +70,8 @@ class ShowJobSelectorBottomSheetActionParser
               child: Padding(
                 padding: EdgeInsets.fromLTRB(0, 0, 0, bottomInset + 8),
                 child: _JobSelectorBottomSheet(
-                  jobTitles: verify_identity_job_selector_dart
-                      .verifyIdentityRealJobTitles,
+                  jobTitles: authentication_job_selector_dart
+                      .authenticationRealJobTitles,
                 ),
               ),
             ),
@@ -85,10 +85,10 @@ class ShowJobSelectorBottomSheetActionParser
     }
 
     StacRegistry.instance.setValue(
-      'verifyIdentitySelectedJobTitle',
+      'authenticationSelectedJobTitle',
       selectedJob,
     );
-    StacRegistry.instance.setValue('verifyIdentityHasSelectedJob', true);
+    StacRegistry.instance.setValue('authenticationHasSelectedJob', true);
     RegistryNotifier.instance.notify();
   }
 }

@@ -36,7 +36,7 @@ StacWidget promissoryRealData() {
         title: '{{appStrings.promissory.issuanceTitle}}',
       ),
       body: StacForm(
-        autovalidateMode: StacAutovalidateMode.onUserInteraction,
+        autovalidateMode: StacAutovalidateMode.always,
         child: StacStack(
           children: [
             StacColumn(
@@ -239,6 +239,8 @@ StacWidget _buildAmountInput() {
         id: 'promissory_amount',
         textDirection: 'rtl',
         textAlign: 'right',
+        supportTextDirection: 'rtl',
+        autovalidateMode: 'always',
         formatThousands: true,
         thousandsSeparator: ',',
         decoration: StacInputDecoration(
@@ -261,12 +263,16 @@ StacWidget _buildAmountInput() {
         ],
         validatorRules: const [
           {
-            'rule': r'^\d+$',
+            'rule': 'matches',
+            'options': {'pattern': r'^\d+$'},
             // مبلغ الزامی است
             'message': '{{appStrings.promissory.amountRequired}}',
           },
           {
-            'rule': r'^(2[0-9]{7,}|[3-9][0-9]{7,}|[1-9][0-9]{8,})$',
+            'rule': 'matches',
+            'options': {
+              'pattern': r'^(2[0-9]{7,}|[3-9][0-9]{7,}|[1-9][0-9]{8,})$',
+            },
             // حداقل مبلغ ۲۰,۰۰۰,۰۰۰ ریال می‌باشد
             'message': 'حداقل مبلغ تعهد بیست میلیون ریال می‌باشد',
           },
@@ -388,9 +394,11 @@ StacWidget _buildDateInput() {
                 size: 20,
               ),
             ),
+            autovalidateMode: StacAutovalidateMode.always,
             validatorRules: [
               StacFormFieldValidator(
-                rule: r'^\d{4}/\d{2}/\d{2}$',
+                rule: 'matches',
+                options: {'pattern': r'^\d{4}/\d{2}/\d{2}$'},
                 // تاریخ سررسید الزامی است
                 message: '{{appStrings.promissory.dueDateRequired}}',
               ),
@@ -449,6 +457,8 @@ StacWidget _buildPaymentPlaceInput() {
           id: 'paymentPlace',
           textDirection: 'rtl',
           textAlign: 'right',
+          supportTextDirection: 'rtl',
+          autovalidateMode: 'always',
           minLines: 3,
           maxLines: 5,
           maxLength: 200,
@@ -463,7 +473,8 @@ StacWidget _buildPaymentPlaceInput() {
           ).toJson(),
           validatorRules: const [
             {
-              'rule': r'^.{5,200}$',
+              'rule': 'matches',
+              'options': {'pattern': r'^.{5,200}$'},
               'message': '{{appStrings.promissory.enterPaymentPlace}}',
             },
           ],
@@ -583,10 +594,9 @@ StacWidget _buildSubmitButton() {
           // Fetch Fees API Call
           StacCustomSetValueAction(key: 'isIdentityLoading', value: true),
           StacNetworkRequestAction(
-            url:
-                SduiConfig.bizUrl(
-                  "collateral/v1.0/promissories/fees?amount={{replace(form.promissory_amount,',','')}}",
-                ),
+            url: SduiConfig.bizUrl(
+              "collateral/v1.0/promissories/fees?amount={{replace(form.promissory_amount,',','')}}",
+            ),
             method: 'get',
             headers: {
               'accept': 'application/json',
@@ -614,7 +624,11 @@ StacWidget _buildSubmitButton() {
                         {'key': 'isIdentityLoading', 'value': false},
                       ],
                     ),
-                    NavigationAction(fileName: 'promissory_confirm', navMode: NavModes.dart, navigationStyle: NavigationStyle.push),
+                    NavigationAction(
+                      fileName: 'promissory_confirm',
+                      navMode: NavModes.dart,
+                      navigationStyle: NavigationStyle.push,
+                    ),
                   ],
                 ).toJson(),
               },
@@ -688,4 +702,3 @@ StacValidateFieldsAction _getFullValidationAction() {
   ];
   return StacValidateFieldsAction(resultKey: 'isDataFormValid', fields: fields);
 }
-

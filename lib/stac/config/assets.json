@@ -138,7 +138,7 @@
         "printReceipt": "assets/icons/ic_share_image.svg",
         "block": "assets/icons/ic_card_service_block.svg",
         "generated": {
-            "flows__verify_identity__json__verify_identity_verify_otp": {
+            "flows__authentication__json__authentication_verify_otp": {
                 "src_ic_info_001": "assets/icons/ic_info.svg"
             },
             "flows__transfer__json__transfer_amount": {
@@ -439,7 +439,7 @@
             "flows__profile__json__profile_settings": {
                 "src_ic_warning_red_001": "assets/icons/ic_warning_red.svg"
             },
-            "flows__package__json__package_add_sim": {
+            "flows__internet_pakage__json__internet_pakage_add_sim": {
                 "src_ic_pick_contact_001": "assets/icons/ic_pick_contact.svg",
                 "src_ic_hamrah_aval_002": "assets/icons/ic_hamrah_aval.svg",
                 "src_ic_hamrah_aval_003": "assets/icons/ic_hamrah_aval.svg",
@@ -448,10 +448,10 @@
                 "src_ic_rightel_006": "assets/icons/ic_rightel.svg",
                 "src_ic_rightel_007": "assets/icons/ic_rightel.svg"
             },
-            "flows__package__json__package_intro": {
+            "flows__internet_pakage__json__internet_pakage_intro": {
                 "src_ic_charge_empty_list_light_001": "assets/icons/ic_charge_empty_list_light.svg"
             },
-            "flows__package__json__package_list": {
+            "flows__internet_pakage__json__internet_pakage_list": {
                 "src_ic_package_001": "assets/icons/ic_package.svg",
                 "src_ic_package_002": "assets/icons/ic_package.svg",
                 "src_ic_package_003": "assets/icons/ic_package.svg",
@@ -490,7 +490,7 @@
                 "src_ic_package_036": "assets/icons/ic_package.svg",
                 "src_ic_package_037": "assets/icons/ic_package.svg"
             },
-            "flows__package__json__package_payment_success": {
+            "flows__internet_pakage__json__internet_pakage_payment_success": {
                 "src_ic_tobank_red_001": "assets/icons/ic_tobank_red.svg",
                 "src_ic_share_002": "assets/icons/ic_share.svg",
                 "src_ic_download_003": "assets/icons/ic_download.svg"
@@ -692,24 +692,24 @@
                 "src_shetab_015": "assets/icons/shetab.svg",
                 "src_gardeshgary_016": "assets/icons/gardeshgary.svg"
             },
-            "flows__deposit_more__json__deposit_close_confirm": {
+            "flows__deposit_more_options__json__deposit_close_confirm": {
                 "src_ic_warning_001": "assets/icons/ic_warning.svg",
                 "src_ic_check_002": "assets/icons/ic_check.svg"
             },
-            "flows__deposit_more__json__deposit_close_result": {
+            "flows__deposit_more_options__json__deposit_close_result": {
                 "src_ic_success_new_001": "assets/icons/ic_success_new.svg"
             },
-            "flows__deposit_more__json__deposit_close_selector": {
+            "flows__deposit_more_options__json__deposit_close_selector": {
                 "src_ic_warning_red_001": "assets/icons/ic_warning_red.svg"
             },
-            "flows__deposit_more__json_upload__deposit_close_confirm": {
+            "flows__deposit_more_options__json_upload__deposit_close_confirm": {
                 "src_ic_warning_001": "assets/icons/ic_warning.svg",
                 "src_ic_check_002": "assets/icons/ic_check.svg"
             },
-            "flows__deposit_more__json_upload__deposit_close_result": {
+            "flows__deposit_more_options__json_upload__deposit_close_result": {
                 "src_ic_success_new_001": "assets/icons/ic_success_new.svg"
             },
-            "flows__deposit_more__json_upload__deposit_close_selector": {
+            "flows__deposit_more_options__json_upload__deposit_close_selector": {
                 "src_ic_warning_red_001": "assets/icons/ic_warning_red.svg"
             },
             "flows__dashboard__json__dashboard_cards_management": {
@@ -819,7 +819,7 @@
             "flows__charge__json__charge_intro": {
                 "src_ic_charge_empty_list_light_001": "assets/icons/ic_charge_empty_list_light.svg"
             },
-            "flows__charge__json__charge_package_list": {
+            "flows__charge__json__charge_internet_pakage_list": {
                 "src_ic_pick_contact_001": "assets/icons/ic_pick_contact.svg"
             },
             "flows__charge__json__charge_payment_success": {
@@ -1056,32 +1056,32 @@
             "flows__profile__inline_dart__profile_settings": {
                 "src_ic_warning_red_001": "assets/icons/ic_warning_red.svg"
             },
-            "flows__package__dart__package_add_sim": {
+            "flows__internet_pakage__dart__internet_pakage_add_sim": {
                 "src_ic_pick_contact_001": "assets/icons/ic_pick_contact.svg"
             },
-            "flows__package__dart__package_intro": {
+            "flows__internet_pakage__dart__internet_pakage_intro": {
                 "src_ic_charge_empty_list_light_001": "assets/icons/ic_charge_empty_list_light.svg"
             },
-            "flows__package__dart__package_list": {
+            "flows__internet_pakage__dart__internet_pakage_list": {
                 "src_ic_package_001": "assets/icons/ic_package.svg",
                 "src_ic_package_empty_list_light_002": "assets/icons/ic_package_empty_list_light.svg"
             },
-            "flows__package__dart__package_payment_success": {
+            "flows__internet_pakage__dart__internet_pakage_payment_success": {
                 "iconAsset_ic_share_001": "assets/icons/ic_share.svg",
                 "iconAsset_ic_download_002": "assets/icons/ic_download.svg",
                 "src_ic_tobank_red_003": "assets/icons/ic_tobank_red.svg"
             },
-            "flows__package__inline_dart__package_add_sim": {
+            "flows__internet_pakage__inline_dart__internet_pakage_add_sim": {
                 "src_ic_pick_contact_001": "assets/icons/ic_pick_contact.svg"
             },
-            "flows__package__inline_dart__package_intro": {
+            "flows__internet_pakage__inline_dart__internet_pakage_intro": {
                 "src_ic_charge_empty_list_light_001": "assets/icons/ic_charge_empty_list_light.svg"
             },
-            "flows__package__inline_dart__package_list": {
+            "flows__internet_pakage__inline_dart__internet_pakage_list": {
                 "src_ic_package_001": "assets/icons/ic_package.svg",
                 "src_ic_package_empty_list_light_002": "assets/icons/ic_package_empty_list_light.svg"
             },
-            "flows__package__inline_dart__package_payment_success": {
+            "flows__internet_pakage__inline_dart__internet_pakage_payment_success": {
                 "iconAsset_ic_share_001": "assets/icons/ic_share.svg",
                 "iconAsset_ic_download_002": "assets/icons/ic_download.svg",
                 "src_ic_tobank_red_003": "assets/icons/ic_tobank_red.svg"
@@ -1156,24 +1156,24 @@
                 "src_shetab_001": "assets/icons/shetab.svg",
                 "src_gardeshgary_002": "assets/icons/gardeshgary.svg"
             },
-            "flows__deposit_more__dart__deposit_close_confirm": {
+            "flows__deposit_more_options__dart__deposit_close_confirm": {
                 "src_ic_warning_001": "assets/icons/ic_warning.svg",
                 "src_ic_check_002": "assets/icons/ic_check.svg"
             },
-            "flows__deposit_more__dart__deposit_close_result": {
+            "flows__deposit_more_options__dart__deposit_close_result": {
                 "src_ic_success_new_001": "assets/icons/ic_success_new.svg"
             },
-            "flows__deposit_more__dart__deposit_close_selector": {
+            "flows__deposit_more_options__dart__deposit_close_selector": {
                 "src_ic_warning_red_001": "assets/icons/ic_warning_red.svg"
             },
-            "flows__deposit_more__inline_dart__deposit_close_confirm": {
+            "flows__deposit_more_options__inline_dart__deposit_close_confirm": {
                 "src_ic_warning_001": "assets/icons/ic_warning.svg",
                 "src_ic_check_002": "assets/icons/ic_check.svg"
             },
-            "flows__deposit_more__inline_dart__deposit_close_result": {
+            "flows__deposit_more_options__inline_dart__deposit_close_result": {
                 "src_ic_success_new_001": "assets/icons/ic_success_new.svg"
             },
-            "flows__deposit_more__inline_dart__deposit_close_selector": {
+            "flows__deposit_more_options__inline_dart__deposit_close_selector": {
                 "src_ic_warning_red_001": "assets/icons/ic_warning_red.svg"
             },
             "flows__dashboard__dart__cards_management": {
@@ -1216,7 +1216,7 @@
             "flows__charge__dart__charge_intro": {
                 "src_ic_charge_empty_list_light_001": "assets/icons/ic_charge_empty_list_light.svg"
             },
-            "flows__charge__dart__charge_package_list": {
+            "flows__charge__dart__charge_internet_pakage_list": {
                 "src_ic_pick_contact_001": "assets/icons/ic_pick_contact.svg"
             },
             "flows__charge__dart__charge_payment_success": {
@@ -1230,7 +1230,7 @@
             "flows__charge__inline_dart__charge_intro": {
                 "src_ic_charge_empty_list_light_001": "assets/icons/ic_charge_empty_list_light.svg"
             },
-            "flows__charge__inline_dart__charge_package_list": {
+            "flows__charge__inline_dart__charge_internet_pakage_list": {
                 "src_ic_pick_contact_001": "assets/icons/ic_pick_contact.svg"
             },
             "flows__charge__inline_dart__charge_payment_success": {
@@ -1325,109 +1325,109 @@
         "menu__dart__tobank_menu": {
             "icons": {}
         },
-        "flows__verify_identity__dart__test": {
+        "flows__authentication__dart__test": {
             "icons": {}
         },
-        "flows__verify_identity__dart__verify_identity_certificate_generator": {
+        "flows__authentication__dart__authentication_certificate_generator": {
             "icons": {}
         },
-        "flows__verify_identity__dart__verify_identity_final": {
+        "flows__authentication__dart__authentication_final": {
             "icons": {}
         },
-        "flows__verify_identity__dart__verify_identity_intro": {
+        "flows__authentication__dart__authentication_intro": {
             "icons": {}
         },
-        "flows__verify_identity__dart__verify_identity_job_selector": {
+        "flows__authentication__dart__authentication_job_selector": {
             "icons": {}
         },
-        "flows__verify_identity__dart__verify_identity_national_card_back": {
+        "flows__authentication__dart__authentication_national_card_back": {
             "icons": {}
         },
-        "flows__verify_identity__dart__verify_identity_national_card_front": {
+        "flows__authentication__dart__authentication_national_card_front": {
             "icons": {}
         },
-        "flows__verify_identity__dart__verify_identity_old_national_card": {
+        "flows__authentication__dart__authentication_old_national_card": {
             "icons": {}
         },
-        "flows__verify_identity__dart__verify_identity_postal_code": {
+        "flows__authentication__dart__authentication_postal_code": {
             "icons": {}
         },
-        "flows__verify_identity__dart__verify_identity_preregister": {
+        "flows__authentication__dart__authentication_preregister": {
             "icons": {}
         },
-        "flows__verify_identity__dart__verify_identity_registration": {
+        "flows__authentication__dart__authentication_registration": {
             "icons": {}
         },
-        "flows__verify_identity__dart__verify_identity_rules": {
+        "flows__authentication__dart__authentication_rules": {
             "icons": {}
         },
-        "flows__verify_identity__dart__verify_identity_selfie": {
+        "flows__authentication__dart__authentication_selfie": {
             "icons": {}
         },
-        "flows__verify_identity__dart__verify_identity_signature": {
+        "flows__authentication__dart__authentication_signature": {
             "icons": {}
         },
-        "flows__verify_identity__dart__verify_identity_signature_guide": {
+        "flows__authentication__dart__authentication_signature_guide": {
             "icons": {}
         },
-        "flows__verify_identity__dart__verify_identity_signature_visual_guide": {
+        "flows__authentication__dart__authentication_signature_visual_guide": {
             "icons": {}
         },
-        "flows__verify_identity__dart__verify_identity_verify_otp": {
+        "flows__authentication__dart__authentication_verify_otp": {
             "icons": {}
         },
-        "flows__verify_identity__inline_dart__test": {
+        "flows__authentication__inline_dart__test": {
             "icons": {}
         },
-        "flows__verify_identity__inline_dart__verify_identity_certificate_generator": {
+        "flows__authentication__inline_dart__authentication_certificate_generator": {
             "icons": {}
         },
-        "flows__verify_identity__inline_dart__verify_identity_final": {
+        "flows__authentication__inline_dart__authentication_final": {
             "icons": {}
         },
-        "flows__verify_identity__inline_dart__verify_identity_intro": {
+        "flows__authentication__inline_dart__authentication_intro": {
             "icons": {}
         },
-        "flows__verify_identity__inline_dart__verify_identity_job_selector": {
+        "flows__authentication__inline_dart__authentication_job_selector": {
             "icons": {}
         },
-        "flows__verify_identity__inline_dart__verify_identity_national_card_back": {
+        "flows__authentication__inline_dart__authentication_national_card_back": {
             "icons": {}
         },
-        "flows__verify_identity__inline_dart__verify_identity_national_card_front": {
+        "flows__authentication__inline_dart__authentication_national_card_front": {
             "icons": {}
         },
-        "flows__verify_identity__inline_dart__verify_identity_old_national_card": {
+        "flows__authentication__inline_dart__authentication_old_national_card": {
             "icons": {}
         },
-        "flows__verify_identity__inline_dart__verify_identity_postal_code": {
+        "flows__authentication__inline_dart__authentication_postal_code": {
             "icons": {}
         },
-        "flows__verify_identity__inline_dart__verify_identity_preregister": {
+        "flows__authentication__inline_dart__authentication_preregister": {
             "icons": {}
         },
-        "flows__verify_identity__inline_dart__verify_identity_registration": {
+        "flows__authentication__inline_dart__authentication_registration": {
             "icons": {}
         },
-        "flows__verify_identity__inline_dart__verify_identity_rules": {
+        "flows__authentication__inline_dart__authentication_rules": {
             "icons": {}
         },
-        "flows__verify_identity__inline_dart__verify_identity_selfie": {
+        "flows__authentication__inline_dart__authentication_selfie": {
             "icons": {}
         },
-        "flows__verify_identity__inline_dart__verify_identity_signature": {
+        "flows__authentication__inline_dart__authentication_signature": {
             "icons": {}
         },
-        "flows__verify_identity__inline_dart__verify_identity_signature_guide": {
+        "flows__authentication__inline_dart__authentication_signature_guide": {
             "icons": {}
         },
-        "flows__verify_identity__inline_dart__verify_identity_signature_visual_guide": {
+        "flows__authentication__inline_dart__authentication_signature_visual_guide": {
             "icons": {}
         },
-        "flows__verify_identity__inline_dart__verify_identity_verify_otp": {
+        "flows__authentication__inline_dart__authentication_verify_otp": {
             "icons": {}
         },
-        "flows__verify_identity__menu__verify_identity_menu": {
+        "flows__authentication__menu__authentication_menu": {
             "icons": {}
         },
         "flows__transfer__dart__transfer_amount": {
@@ -1764,73 +1764,73 @@
         "flows__profile__menu__profile_menu": {
             "icons": {}
         },
-        "flows__package__dart__package_add_sim": {
+        "flows__internet_pakage__dart__internet_pakage_add_sim": {
             "icons": {
                 "check_001": "check",
                 "check_002": "check",
                 "error_outline_003": "error_outline"
             }
         },
-        "flows__package__dart__package_intro": {
+        "flows__internet_pakage__dart__internet_pakage_intro": {
             "icons": {
                 "edit_outlined_001": "edit_outlined",
                 "delete_outline_002": "delete_outline"
             }
         },
-        "flows__package__dart__package_list": {
+        "flows__internet_pakage__dart__internet_pakage_list": {
             "icons": {
                 "chevron_left_001": "chevron_left"
             }
         },
-        "flows__package__dart__package_payment": {
+        "flows__internet_pakage__dart__internet_pakage_payment": {
             "icons": {
                 "account_balance_wallet_outlined_001": "account_balance_wallet_outlined"
             }
         },
-        "flows__package__dart__package_payment_success": {
+        "flows__internet_pakage__dart__internet_pakage_payment_success": {
             "icons": {
                 "check_001": "check"
             }
         },
-        "flows__package__inline_dart__package_add_sim": {
+        "flows__internet_pakage__inline_dart__internet_pakage_add_sim": {
             "icons": {
                 "check_001": "check",
                 "check_002": "check",
                 "error_outline_003": "error_outline"
             }
         },
-        "flows__package__inline_dart__package_intro": {
+        "flows__internet_pakage__inline_dart__internet_pakage_intro": {
             "icons": {
                 "edit_outlined_001": "edit_outlined",
                 "delete_outline_002": "delete_outline"
             }
         },
-        "flows__package__inline_dart__package_list": {
+        "flows__internet_pakage__inline_dart__internet_pakage_list": {
             "icons": {
                 "chevron_left_001": "chevron_left"
             }
         },
-        "flows__package__inline_dart__package_payment": {
+        "flows__internet_pakage__inline_dart__internet_pakage_payment": {
             "icons": {
                 "account_balance_wallet_outlined_001": "account_balance_wallet_outlined"
             }
         },
-        "flows__package__inline_dart__package_payment_success": {
+        "flows__internet_pakage__inline_dart__internet_pakage_payment_success": {
             "icons": {
                 "check_001": "check"
             }
         },
-        "flows__package__menu__package_menu": {
+        "flows__internet_pakage__menu__internet_pakage_menu": {
             "icons": {}
         },
-        "flows__package__inline_dart__widgets__package_widgets": {
+        "flows__internet_pakage__inline_dart__widgets__internet_pakage_widgets": {
             "icons": {
                 "add_001": "add",
                 "chevron_left_002": "chevron_left",
                 "error_outline_003": "error_outline"
             }
         },
-        "flows__package__dart__widgets__package_widgets": {
+        "flows__internet_pakage__dart__widgets__internet_pakage_widgets": {
             "icons": {
                 "add_001": "add",
                 "chevron_left_002": "chevron_left",
@@ -2016,49 +2016,49 @@
         "flows__deposit_turnover__menu__deposit_turnover_menu": {
             "icons": {}
         },
-        "flows__deposit_more__dart__deposit_card_issue_address": {
+        "flows__deposit_more_options__dart__deposit_card_issue_address": {
             "icons": {}
         },
-        "flows__deposit_more__dart__deposit_card_issue_result": {
+        "flows__deposit_more_options__dart__deposit_card_issue_result": {
             "icons": {}
         },
-        "flows__deposit_more__dart__deposit_card_issue_template": {
+        "flows__deposit_more_options__dart__deposit_card_issue_template": {
             "icons": {}
         },
-        "flows__deposit_more__dart__deposit_close_confirm": {
+        "flows__deposit_more_options__dart__deposit_close_confirm": {
             "icons": {}
         },
-        "flows__deposit_more__dart__deposit_close_result": {
+        "flows__deposit_more_options__dart__deposit_close_result": {
             "icons": {}
         },
-        "flows__deposit_more__dart__deposit_close_selector": {
+        "flows__deposit_more_options__dart__deposit_close_selector": {
             "icons": {}
         },
-        "flows__deposit_more__dart__deposit_more_intro": {
+        "flows__deposit_more_options__dart__deposit_more_options_intro": {
             "icons": {}
         },
-        "flows__deposit_more__inline_dart__deposit_card_issue_address": {
+        "flows__deposit_more_options__inline_dart__deposit_card_issue_address": {
             "icons": {}
         },
-        "flows__deposit_more__inline_dart__deposit_card_issue_result": {
+        "flows__deposit_more_options__inline_dart__deposit_card_issue_result": {
             "icons": {}
         },
-        "flows__deposit_more__inline_dart__deposit_card_issue_template": {
+        "flows__deposit_more_options__inline_dart__deposit_card_issue_template": {
             "icons": {}
         },
-        "flows__deposit_more__inline_dart__deposit_close_confirm": {
+        "flows__deposit_more_options__inline_dart__deposit_close_confirm": {
             "icons": {}
         },
-        "flows__deposit_more__inline_dart__deposit_close_result": {
+        "flows__deposit_more_options__inline_dart__deposit_close_result": {
             "icons": {}
         },
-        "flows__deposit_more__inline_dart__deposit_close_selector": {
+        "flows__deposit_more_options__inline_dart__deposit_close_selector": {
             "icons": {}
         },
-        "flows__deposit_more__inline_dart__deposit_more_intro": {
+        "flows__deposit_more_options__inline_dart__deposit_more_options_intro": {
             "icons": {}
         },
-        "flows__deposit_more__menu__deposit_more_menu": {
+        "flows__deposit_more_options__menu__deposit_more_options_menu": {
             "icons": {}
         },
         "flows__dashboard__dart__cards_management": {
@@ -2131,7 +2131,7 @@
                 "delete_outline_002": "delete_outline"
             }
         },
-        "flows__charge__dart__charge_package_list": {
+        "flows__charge__dart__charge_internet_pakage_list": {
             "icons": {}
         },
         "flows__charge__dart__charge_payment": {
@@ -2157,7 +2157,7 @@
                 "delete_outline_002": "delete_outline"
             }
         },
-        "flows__charge__inline_dart__charge_package_list": {
+        "flows__charge__inline_dart__charge_internet_pakage_list": {
             "icons": {}
         },
         "flows__charge__inline_dart__charge_payment": {

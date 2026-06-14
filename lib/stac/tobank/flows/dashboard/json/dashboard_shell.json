@@ -12035,8 +12035,15 @@
         {
           "type": "stateFull",
           "onInit": {
-            "actionType": "setValue",
-            "values": [
+            "actionType": "sequence",
+            "actions": [
+              {
+                "actionType": "kyc_check",
+                "targetKey": "homePage.authenticated"
+              },
+              {
+                "actionType": "setValue",
+                "values": [
               {
                 "key": "homePage.tab.deposits",
                 "value": true
@@ -12052,10 +12059,6 @@
               {
                 "key": "homePage.tab.services",
                 "value": false
-              },
-              {
-                "key": "homePage.authenticated",
-                "value": true
               },
               {
                 "key": "homePage.balanceVisible",
@@ -12080,6 +12083,8 @@
               {
                 "key": "homePage.page.third",
                 "value": true
+              }
+            ]
               }
             ]
           },
@@ -20376,7 +20381,7 @@
                                                       {
                                                         "onPressed": {
                                                           "actionType": "navigate",
-                                                          "fileName": "verify_identity_intro",
+                                                          "fileName": "authentication_intro",
                                                           "navMode": "localJson",
                                                           "navigationStyle": "push"
                                                         },
@@ -20829,7 +20834,7 @@
                                             }
                                           ],
                                           "height": 268.0,
-                                          "initialPage": 4,
+                                          "initialPage": 3,
                                           "indicatorTopSpacing": 16.0,
                                           "indicatorActiveColor": "#E31A2F",
                                           "indicatorInactiveColor": "#D0D5DD",
@@ -20926,37 +20931,10 @@
                                                 },
                                                 {
                                                   "onPressed": {
-                                                    "actionType": "setValue",
-                                                    "values": [
-                                                      {
-                                                        "key": "homePage.authenticated",
-                                                        "value": true
-                                                      },
-                                                      {
-                                                        "key": "homePage.balanceVisible",
-                                                        "value": false
-                                                      },
-                                                      {
-                                                        "key": "homePage.depositPageIndex",
-                                                        "value": 3
-                                                      },
-                                                      {
-                                                        "key": "homePage.page.create",
-                                                        "value": false
-                                                      },
-                                                      {
-                                                        "key": "homePage.page.first",
-                                                        "value": false
-                                                      },
-                                                      {
-                                                        "key": "homePage.page.second",
-                                                        "value": false
-                                                      },
-                                                      {
-                                                        "key": "homePage.page.third",
-                                                        "value": true
-                                                      }
-                                                    ]
+                                                    "actionType": "navigate",
+                                                    "fileName": "authentication_intro",
+                                                    "navMode": "localJson",
+                                                    "navigationStyle": "push"
                                                   },
                                                   "onLongPress": null,
                                                   "onHover": null,

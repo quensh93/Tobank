@@ -228,7 +228,7 @@ Overrides:
 | `tobankCardManagementSlider` | Card management slider. | `type`, `cards?`, `height?`, `initialPage?` | `{"type":"tobankCardManagementSlider","cards":[],"height":240}` |
 | `tobankMegaGashtWebView` | MegaGasht web view. | `type`, `url?`, `title?` | `{"type":"tobankMegaGashtWebView","url":"https://example.com"}` |
 | `tobank_onboarding_slider` | Tobank onboarding slider. | `type`, `pages`, `onFinish?` | `{"type":"tobank_onboarding_slider","pages":[{"title":"T","description":"D","image":"asset.png"}],"onFinish":{"actionType":"navigate","routeName":"login"}}` |
-| `verify_identity_real_loader` | Loader for Verify Identity Real config flow. | `type` plus loader-specific request data. | `{"type":"verify_identity_real_loader"}` |
+| `authentication_real_loader` | Loader for Verify Identity Real config flow. | `type` plus loader-specific request data. | `{"type":"authentication_real_loader"}` |
 
 ## Custom Action IDL
 

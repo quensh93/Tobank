@@ -1,9 +1,9 @@
-import '../../../stac/tobank/flows/user_validation/dart/user_validation_receipt.dart'
-    as user_validation_receipt_dart;
-import '../../../stac/tobank/flows/user_validation/dart/user_validation_preview.dart'
-    as user_validation_preview_dart;
-import '../../../stac/tobank/flows/user_validation/dart/user_validation_report_detail.dart'
-    as user_validation_report_detail_dart;
+import '../../../stac/tobank/flows/user_credit_validation/dart/user_credit_validation_receipt.dart'
+    as user_credit_validation_receipt_dart;
+import '../../../stac/tobank/flows/user_credit_validation/dart/user_credit_validation_preview.dart'
+    as user_credit_validation_preview_dart;
+import '../../../stac/tobank/flows/user_credit_validation/dart/user_credit_validation_report_detail.dart'
+    as user_credit_validation_report_detail_dart;
 import '../../../stac/tobank/menu/dart/tobank_menu.dart' as tobank_menu_dart;
 import '../../../stac/tobank/flows/home_page/dart/home_page.dart'
     as home_page_dart;
@@ -51,43 +51,43 @@ import '../../../stac/tobank/flows/login/dart/login.dart'
     as login_screen_dart;
 import '../../../stac/tobank/flows/promissory/menu/promissory_menu.dart'
     as promissory_debug_dart;
-import '../../../stac/tobank/flows/verify_identity/menu/verify_identity_menu.dart'
-    as verify_identity_menu_dart;
-import '../../../stac/tobank/flows/user_validation/menu/user_validation_menu.dart'
-    as user_validation_menu_dart;
-import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_intro.dart'
-    as verify_identity_intro_dart;
-import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_preregister.dart'
-    as verify_identity_preregister_dart;
-import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_verify_otp.dart'
-    as verify_identity_verify_otp_dart;
-import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_national_card_front.dart'
-    as verify_identity_national_card_front_dart;
-import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_national_card_back.dart'
-    as verify_identity_national_card_back_dart;
-import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_old_national_card.dart'
-    as verify_identity_old_national_card_dart;
-import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_selfie.dart'
-    as verify_identity_selfie_dart;
-import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_postal_code.dart'
-    as verify_identity_postal_code_dart;
-import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_rules.dart'
-    as verify_identity_rules_dart;
-import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_signature.dart'
-    as verify_identity_signature_dart;
-import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_certificate_generator.dart'
-    as verify_identity_certificate_generator_dart;
-import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_signature_guide.dart'
-    as verify_identity_signature_guide_dart;
-import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_signature_visual_guide.dart'
-    as verify_identity_signature_visual_guide_dart;
-import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_final.dart'
-    as verify_identity_final_dart;
-import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_registration.dart'
-    as verify_identity_registration_dart;
-import '../../../stac/tobank/flows/verify_identity/dart/verify_identity_job_selector.dart'
-    as verify_identity_job_selector_dart;
-import '../../../stac/tobank/flows/verify_identity/dart/test.dart'
+import '../../../stac/tobank/flows/authentication/menu/authentication_menu.dart'
+    as authentication_menu_dart;
+import '../../../stac/tobank/flows/user_credit_validation/menu/user_credit_validation_menu.dart'
+    as user_credit_validation_menu_dart;
+import '../../../stac/tobank/flows/authentication/dart/authentication_intro.dart'
+    as authentication_intro_dart;
+import '../../../stac/tobank/flows/authentication/dart/authentication_preregister.dart'
+    as authentication_preregister_dart;
+import '../../../stac/tobank/flows/authentication/dart/authentication_verify_otp.dart'
+    as authentication_verify_otp_dart;
+import '../../../stac/tobank/flows/authentication/dart/authentication_national_card_front.dart'
+    as authentication_national_card_front_dart;
+import '../../../stac/tobank/flows/authentication/dart/authentication_national_card_back.dart'
+    as authentication_national_card_back_dart;
+import '../../../stac/tobank/flows/authentication/dart/authentication_old_national_card.dart'
+    as authentication_old_national_card_dart;
+import '../../../stac/tobank/flows/authentication/dart/authentication_selfie.dart'
+    as authentication_selfie_dart;
+import '../../../stac/tobank/flows/authentication/dart/authentication_postal_code.dart'
+    as authentication_postal_code_dart;
+import '../../../stac/tobank/flows/authentication/dart/authentication_rules.dart'
+    as authentication_rules_dart;
+import '../../../stac/tobank/flows/authentication/dart/authentication_signature.dart'
+    as authentication_signature_dart;
+import '../../../stac/tobank/flows/authentication/dart/authentication_certificate_generator.dart'
+    as authentication_certificate_generator_dart;
+import '../../../stac/tobank/flows/authentication/dart/authentication_signature_guide.dart'
+    as authentication_signature_guide_dart;
+import '../../../stac/tobank/flows/authentication/dart/authentication_signature_visual_guide.dart'
+    as authentication_signature_visual_guide_dart;
+import '../../../stac/tobank/flows/authentication/dart/authentication_final.dart'
+    as authentication_final_dart;
+import '../../../stac/tobank/flows/authentication/dart/authentication_registration.dart'
+    as authentication_registration_dart;
+import '../../../stac/tobank/flows/authentication/dart/authentication_job_selector.dart'
+    as authentication_job_selector_dart;
+import '../../../stac/tobank/flows/authentication/dart/test.dart'
     as test_screen_dart;
 import '../../../stac/tobank/flows/promissory/dart/promissory_rules.dart'
     as promissory_real_rules_dart;
@@ -159,21 +159,21 @@ import '../../../stac/tobank/flows/deposit_turnover/dart/deposit_turnover_intro.
     as deposit_turnover_intro_dart;
 import '../../../stac/tobank/flows/deposit_turnover/dart/deposit_turnover_transactions.dart'
     as deposit_turnover_transactions_dart;
-import '../../../stac/tobank/flows/deposit_more/menu/deposit_more_menu.dart'
-    as deposit_more_menu_dart;
-import '../../../stac/tobank/flows/deposit_more/dart/deposit_more_intro.dart'
-    as deposit_more_intro_dart;
-import '../../../stac/tobank/flows/deposit_more/dart/deposit_card_issue_address.dart'
+import '../../../stac/tobank/flows/deposit_more_options/menu/deposit_more_options_menu.dart'
+    as deposit_more_options_menu_dart;
+import '../../../stac/tobank/flows/deposit_more_options/dart/deposit_more_options_intro.dart'
+    as deposit_more_options_intro_dart;
+import '../../../stac/tobank/flows/deposit_more_options/dart/deposit_card_issue_address.dart'
     as deposit_card_issue_address_dart;
-import '../../../stac/tobank/flows/deposit_more/dart/deposit_card_issue_template.dart'
+import '../../../stac/tobank/flows/deposit_more_options/dart/deposit_card_issue_template.dart'
     as deposit_card_issue_template_dart;
-import '../../../stac/tobank/flows/deposit_more/dart/deposit_card_issue_result.dart'
+import '../../../stac/tobank/flows/deposit_more_options/dart/deposit_card_issue_result.dart'
     as deposit_card_issue_result_dart;
-import '../../../stac/tobank/flows/deposit_more/dart/deposit_close_confirm.dart'
+import '../../../stac/tobank/flows/deposit_more_options/dart/deposit_close_confirm.dart'
     as deposit_close_confirm_dart;
-import '../../../stac/tobank/flows/deposit_more/dart/deposit_close_selector.dart'
+import '../../../stac/tobank/flows/deposit_more_options/dart/deposit_close_selector.dart'
     as deposit_close_selector_dart;
-import '../../../stac/tobank/flows/deposit_more/dart/deposit_close_result.dart'
+import '../../../stac/tobank/flows/deposit_more_options/dart/deposit_close_result.dart'
     as deposit_close_result_dart;
 import '../../../stac/tobank/flows/dashboard/menu/dashboard_menu.dart'
     as dashboard_menu_dart;
@@ -259,18 +259,18 @@ import '../../../stac/tobank/flows/charge/dart/charge_payment.dart'
     as charge_payment_dart;
 import '../../../stac/tobank/flows/charge/dart/charge_payment_success.dart'
     as charge_payment_success_dart;
-import '../../../stac/tobank/flows/package/menu/package_menu.dart'
-    as package_menu_dart;
-import '../../../stac/tobank/flows/package/dart/package_intro.dart'
-    as package_intro_dart;
-import '../../../stac/tobank/flows/package/dart/package_add_sim.dart'
-    as package_add_sim_dart;
-import '../../../stac/tobank/flows/package/dart/package_list.dart'
-    as package_list_dart;
-import '../../../stac/tobank/flows/package/dart/package_payment.dart'
-    as package_payment_dart;
-import '../../../stac/tobank/flows/package/dart/package_payment_success.dart'
-    as package_payment_success_dart;
+import '../../../stac/tobank/flows/internet_pakage/menu/internet_pakage_menu.dart'
+    as internet_pakage_menu_dart;
+import '../../../stac/tobank/flows/internet_pakage/dart/internet_pakage_intro.dart'
+    as internet_pakage_intro_dart;
+import '../../../stac/tobank/flows/internet_pakage/dart/internet_pakage_add_sim.dart'
+    as internet_pakage_add_sim_dart;
+import '../../../stac/tobank/flows/internet_pakage/dart/internet_pakage_list.dart'
+    as internet_pakage_list_dart;
+import '../../../stac/tobank/flows/internet_pakage/dart/internet_pakage_payment.dart'
+    as internet_pakage_payment_dart;
+import '../../../stac/tobank/flows/internet_pakage/dart/internet_pakage_payment_success.dart'
+    as internet_pakage_payment_success_dart;
 import '../../../stac/tobank/flows/gift_card/dart/gift_card_message.dart'
     as gift_card_message_dart;
 import '../../../stac/tobank/flows/gift_card/dart/gift_card_receiver_info.dart'
@@ -293,15 +293,15 @@ class StacWidgetLoader {
   /// Registry of widget type to loader function mappings.
   /// Extensible - new widget types can be registered without modifying this class.
   static final Map<String, Map<String, dynamic> Function()> _widgetLoaders = {
-    'user_validation_receipt': () =>
-        user_validation_receipt_dart.userValidationReceipt().toJson(),
-    'user_validation_preview': () =>
-        user_validation_preview_dart.userValidationPreview().toJson(),
-    'user_validation_report_detail': () => user_validation_report_detail_dart
-        .userValidationReportDetail()
+    'user_credit_validation_receipt': () =>
+        user_credit_validation_receipt_dart.userCreditValidationReceipt().toJson(),
+    'user_credit_validation_preview': () =>
+        user_credit_validation_preview_dart.userCreditValidationPreview().toJson(),
+    'user_credit_validation_report_detail': () => user_credit_validation_report_detail_dart
+        .userCreditValidationReportDetail()
         .toJson(),
-    'tobank_user_validation': () =>
-        user_validation_menu_dart.userValidationMenu().toJson(),
+    'tobank_user_credit_validation': () =>
+        user_credit_validation_menu_dart.userCreditValidationMenu().toJson(),
     'tobank_menu_dart': () => tobank_menu_dart.tobankMenuDart().toJson(),
     'tobank_home_page_dart': () => home_page_dart.tobankHomePageDart().toJson(),
     'tobank_special_services_page': () =>
@@ -339,8 +339,8 @@ class StacWidgetLoader {
         promissory_guarantee_preview_page_dart
             .promissoryGuaranteePreviewPage()
             .toJson(),
-    'verify_identity_menu': () =>
-        verify_identity_menu_dart.verifyIdentityRealMenu().toJson(),
+    'authentication_menu': () =>
+        authentication_menu_dart.authenticationRealMenu().toJson(),
     'profile_menu': () => profile_menu_dart.profileRealMenu().toJson(),
     'profile_intro': () => profile_intro_dart.profileRealIntro().toJson(),
     'profile_bank_info': () =>
@@ -405,10 +405,10 @@ class StacWidgetLoader {
     'deposit_turnover_transactions': () => deposit_turnover_transactions_dart
         .depositTurnoverTransactions()
         .toJson(),
-    'deposit_more_menu': () =>
-        deposit_more_menu_dart.depositMoreMenu().toJson(),
-    'deposit_more_intro': () =>
-        deposit_more_intro_dart.depositMoreIntro().toJson(),
+    'deposit_more_options_menu': () =>
+        deposit_more_options_menu_dart.depositMoreOptionsMenu().toJson(),
+    'deposit_more_options_intro': () =>
+        deposit_more_options_intro_dart.depositMoreOptionsIntro().toJson(),
     'deposit_card_issue_address': () =>
         deposit_card_issue_address_dart.depositCardIssueAddress().toJson(),
     'deposit_card_issue_template': () =>
@@ -494,75 +494,75 @@ class StacWidgetLoader {
     'charge_menu': () => charge_menu_dart.chargeRealMenu().toJson(),
     'charge_intro': () => charge_intro_dart.chargeRealIntro().toJson(),
     'charge_add_sim': () => charge_add_sim_dart.chargeRealAddSim().toJson(),
-    'charge_package_list': () =>
+    'charge_internet_pakage_list': () =>
         charge_package_list_dart.chargeRealPackageList().toJson(),
     'charge_payment': () => charge_payment_dart.chargeRealPayment().toJson(),
     'charge_payment_success': () =>
         charge_payment_success_dart.chargeRealPaymentSuccess().toJson(),
-    'package_menu': () => package_menu_dart.packageRealMenu().toJson(),
-    'package_intro': () => package_intro_dart.packageRealIntro().toJson(),
-    'package_add_sim': () => package_add_sim_dart.packageRealAddSim().toJson(),
-    'package_list': () => package_list_dart.packageRealPackageList().toJson(),
-    'package_payment': () => package_payment_dart.packageRealPayment().toJson(),
-    'package_payment_success': () =>
-        package_payment_success_dart.packageRealPaymentSuccess().toJson(),
+    'internet_pakage_menu': () => internet_pakage_menu_dart.packageRealMenu().toJson(),
+    'internet_pakage_intro': () => internet_pakage_intro_dart.packageRealIntro().toJson(),
+    'internet_pakage_add_sim': () => internet_pakage_add_sim_dart.packageRealAddSim().toJson(),
+    'internet_pakage_list': () => internet_pakage_list_dart.packageRealInternetPakageList().toJson(),
+    'internet_pakage_payment': () => internet_pakage_payment_dart.packageRealPayment().toJson(),
+    'internet_pakage_payment_success': () =>
+        internet_pakage_payment_success_dart.packageRealPaymentSuccess().toJson(),
     'gift_card_message': () =>
         gift_card_message_dart.giftCardRealMessage().toJson(),
     'gift_card_receiver_info': () =>
         gift_card_receiver_info_dart.giftCardRealReceiverInfo().toJson(),
     'gift_card_confirm': () =>
         gift_card_confirm_dart.giftCardRealConfirm().toJson(),
-    'verify_identity_intro': () =>
-        verify_identity_intro_dart.verifyIdentityRealIntro().toJson(),
-    'verify_identity_preregister': () => verify_identity_preregister_dart
-        .verifyIdentityRealPreRegister()
+    'authentication_intro': () =>
+        authentication_intro_dart.authenticationRealIntro().toJson(),
+    'authentication_preregister': () => authentication_preregister_dart
+        .authenticationRealPreRegister()
         .toJson(),
-    'verify_identity_verify_otp': () =>
-        verify_identity_verify_otp_dart.verifyIdentityRealVerifyOtp().toJson(),
-    'verify_identity_national_card_front': () =>
-        verify_identity_national_card_front_dart
-            .verifyIdentityRealNationalCardFront()
+    'authentication_verify_otp': () =>
+        authentication_verify_otp_dart.authenticationRealVerifyOtp().toJson(),
+    'authentication_national_card_front': () =>
+        authentication_national_card_front_dart
+            .authenticationRealNationalCardFront()
             .toJson(),
-    'verify_identity_national_card_back': () =>
-        verify_identity_national_card_back_dart
-            .verifyIdentityRealNationalCardBack()
+    'authentication_national_card_back': () =>
+        authentication_national_card_back_dart
+            .authenticationRealNationalCardBack()
             .toJson(),
-    'verify_identity_old_national_card': () =>
-        verify_identity_old_national_card_dart
-            .verifyIdentityRealOldNationalCard()
+    'authentication_old_national_card': () =>
+        authentication_old_national_card_dart
+            .authenticationRealOldNationalCard()
             .toJson(),
-    'verify_identity_selfie': () =>
-        verify_identity_selfie_dart.verifyIdentityRealSelfie().toJson(),
-    'verify_identity_postal_code': () => verify_identity_postal_code_dart
-        .verifyIdentityRealPostalCode()
+    'authentication_selfie': () =>
+        authentication_selfie_dart.authenticationRealSelfie().toJson(),
+    'authentication_postal_code': () => authentication_postal_code_dart
+        .authenticationRealPostalCode()
         .toJson(),
-    'verify_identity_rules': () =>
-        verify_identity_rules_dart.verifyIdentityRealRules().toJson(),
-    'verify_identity_signature': () =>
-        verify_identity_signature_dart.verifyIdentityRealSignature().toJson(),
-    'verify_identity_certificate_generator': () =>
-        verify_identity_certificate_generator_dart
-            .verifyIdentityRealCertificateGenerator()
+    'authentication_rules': () =>
+        authentication_rules_dart.authenticationRealRules().toJson(),
+    'authentication_signature': () =>
+        authentication_signature_dart.authenticationRealSignature().toJson(),
+    'authentication_certificate_generator': () =>
+        authentication_certificate_generator_dart
+            .authenticationRealCertificateGenerator()
             .toJson(),
-    'verify_identity_signature_guide': () =>
-        verify_identity_signature_guide_dart
-            .verifyIdentityRealSignatureGuide()
+    'authentication_signature_guide': () =>
+        authentication_signature_guide_dart
+            .authenticationRealSignatureGuide()
             .toJson(),
-    'verify_identity_signature_visual_guide': () =>
-        verify_identity_signature_visual_guide_dart
-            .verifyIdentityRealSignatureVisualGuide()
+    'authentication_signature_visual_guide': () =>
+        authentication_signature_visual_guide_dart
+            .authenticationRealSignatureVisualGuide()
             .toJson(),
-    'verify_identity_final': () =>
-        verify_identity_final_dart.verifyIdentityRealFinal().toJson(),
-    'verify_identity_registration': () => verify_identity_registration_dart
-        .verifyIdentityRealRegistration()
+    'authentication_final': () =>
+        authentication_final_dart.authenticationRealFinal().toJson(),
+    'authentication_registration': () => authentication_registration_dart
+        .authenticationRealRegistration()
         .toJson(),
-    'verify_identity_job_selector': () => verify_identity_job_selector_dart
-        .verifyIdentityRealJobSelector()
+    'authentication_job_selector': () => authentication_job_selector_dart
+        .authenticationRealJobSelector()
         .toJson(),
     'test': () => test_screen_dart.testScreen().toJson(),
     'promissory_loader': () => {'type': 'promissory_loader'},
-    'verify_identity_loader': () => {'type': 'verify_identity_loader'},
+    'authentication_loader': () => {'type': 'authentication_loader'},
     'promissory_intro': () => promissory_dart.promissoryRealIntro().toJson(),
     'login_form_dart': () => login_screen_dart.loginForm().toJson(),
     'promissory_rules': () =>

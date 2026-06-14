@@ -23,7 +23,7 @@ import '../parsers/actions/file/file_picker_action_parser.dart';
 import '../parsers/widgets/custom_text_form_field_parser.dart';
 import '../parsers/widgets/loader/promissory_real_loader_parser.dart';
 import '../parsers/widgets/loader/real_config_loader_parser.dart';
-import '../parsers/widgets/loader/verify_identity_real_loader_parser.dart';
+import '../parsers/widgets/loader/authentication_real_loader_parser.dart';
 import '../../../../stac/tobank/flows/promissory/service/promissory_login_action_parser.dart';
 import '../parsers/actions/file/save_file_action_parser.dart';
 import '../parsers/actions/file/share_file_action_parser.dart';
@@ -79,6 +79,8 @@ import '../parsers/actions/biometric/finger_print_action_parser.dart';
 import '../parsers/actions/biometric/biometric_register_action_parser.dart';
 import '../parsers/actions/biometric/biometric_debug_action_parser.dart';
 import '../parsers/actions/auth_persist_action_parser.dart';
+import '../parsers/actions/kyc_persist_action_parser.dart';
+import '../parsers/actions/kyc_check_action_parser.dart';
 import '../parsers/actions/promissory/promissory_sign_action_parser.dart';
 import '../parsers/actions/transfer/filter_transfer_iban_list_action_parser.dart';
 import '../parsers/actions/transfer/set_transfer_destination_from_iban_action_parser.dart';
@@ -491,7 +493,7 @@ void _registerAllParsers() {
 
   // Register Verify Identity Real Loader parser
   CustomComponentRegistry.instance.registerWidget(
-    const VerifyIdentityRealLoaderParser(),
+    const AuthenticationRealLoaderParser(),
   );
 
   // Register generic Real Config Loader parser
@@ -557,6 +559,16 @@ void _registerAllParsers() {
   // Register authPersist action parser
   CustomComponentRegistry.instance.registerAction(
     const AuthPersistActionParser(),
+  );
+
+  // Register kycPersist action parser
+  CustomComponentRegistry.instance.registerAction(
+    const KycPersistActionParser(),
+  );
+
+  // Register kycCheck action parser
+  CustomComponentRegistry.instance.registerAction(
+    const KycCheckActionParser(),
   );
 
   // Register promissorySign action parser

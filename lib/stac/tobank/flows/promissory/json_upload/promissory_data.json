@@ -24,8 +24,8 @@
           "src": "assets/icons/ic_right_arrow.svg",
           "imageType": "asset",
           "color": "{{appColors.current.text.title}}",
-          "width": 24.0,
-          "height": 24.0,
+          "width": 24,
+          "height": 24,
           "type": "image"
         },
         "type": "iconButton"
@@ -43,7 +43,7 @@
       "type": "appBar"
     },
     "body": {
-      "autovalidateMode": "onUserInteraction",
+      "autovalidateMode": "always",
       "child": {
         "children": [
           {
@@ -52,10 +52,10 @@
               {
                 "child": {
                   "padding": {
-                    "left": 16.0,
-                    "top": 16.0,
-                    "right": 16.0,
-                    "bottom": 16.0
+                    "left": 16,
+                    "top": 16,
+                    "right": 16,
+                    "bottom": 16
                   },
                   "child": {
                     "crossAxisAlignment": "stretch",
@@ -63,22 +63,22 @@
                     "children": [
                       {
                         "padding": {
-                          "left": 16.0,
-                          "top": 16.0,
-                          "right": 16.0,
-                          "bottom": 16.0
+                          "left": 16,
+                          "top": 16,
+                          "right": 16,
+                          "bottom": 16
                         },
                         "decoration": {
                           "color": "{{appColors.current.background.surfaceContainer}}",
                           "border": {
                             "color": "{{appColors.current.input.borderEnabled}}",
-                            "width": 1.0
+                            "width": 1
                           },
                           "borderRadius": {
-                            "topLeft": 12.0,
-                            "topRight": 12.0,
-                            "bottomLeft": 12.0,
-                            "bottomRight": 12.0
+                            "topLeft": 12,
+                            "topRight": 12,
+                            "bottomLeft": 12,
+                            "bottomRight": 12
                           }
                         },
                         "child": {
@@ -89,14 +89,14 @@
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
-                                "fontSize": 16.0,
+                                "fontSize": 16,
                                 "fontWeight": "w700"
                               },
                               "textDirection": "rtl",
                               "type": "text"
                             },
                             {
-                              "height": 12.0,
+                              "height": 12,
                               "type": "sizedBox"
                             },
                             {
@@ -108,7 +108,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
-                                    "fontSize": 14.0
+                                    "fontSize": 14
                                   },
                                   "textDirection": "rtl",
                                   "type": "text"
@@ -118,7 +118,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
-                                    "fontSize": 14.0,
+                                    "fontSize": 14,
                                     "fontWeight": "w600"
                                   },
                                   "type": "text"
@@ -127,7 +127,7 @@
                               "type": "row"
                             },
                             {
-                              "height": 8.0,
+                              "height": 8,
                               "type": "sizedBox"
                             },
                             {
@@ -139,7 +139,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
-                                    "fontSize": 14.0
+                                    "fontSize": 14
                                   },
                                   "textDirection": "rtl",
                                   "type": "text"
@@ -149,7 +149,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
-                                    "fontSize": 14.0,
+                                    "fontSize": 14,
                                     "fontWeight": "w600"
                                   },
                                   "type": "text"
@@ -158,7 +158,7 @@
                               "type": "row"
                             },
                             {
-                              "height": 8.0,
+                              "height": 8,
                               "type": "sizedBox"
                             },
                             {
@@ -170,7 +170,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.subtitle}}",
-                                    "fontSize": 14.0
+                                    "fontSize": 14
                                   },
                                   "textDirection": "rtl",
                                   "type": "text"
@@ -180,7 +180,7 @@
                                   "style": {
                                     "type": "custom",
                                     "color": "{{appColors.current.text.title}}",
-                                    "fontSize": 14.0,
+                                    "fontSize": 14,
                                     "fontWeight": "w600"
                                   },
                                   "type": "text"
@@ -194,7 +194,7 @@
                         "type": "container"
                       },
                       {
-                        "height": 24.0,
+                        "height": 24,
                         "type": "sizedBox"
                       },
                       {
@@ -202,14 +202,14 @@
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
-                          "fontSize": 14.0,
+                          "fontSize": 14,
                           "fontWeight": "w600"
                         },
                         "textDirection": "rtl",
                         "type": "text"
                       },
                       {
-                        "height": 8.0,
+                        "height": 8,
                         "type": "sizedBox"
                       },
                       {
@@ -221,27 +221,27 @@
                           "hintText": "{{appStrings.promissory.enterAmount}}",
                           "suffixIcon": {
                             "padding": {
-                              "left": 12.0,
-                              "top": 12.0,
-                              "right": 12.0,
-                              "bottom": 12.0
+                              "left": 12,
+                              "top": 12,
+                              "right": 12,
+                              "bottom": 12
                             },
                             "child": {
                               "data": "{{appStrings.common.rial}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
-                                "fontSize": 12.0
+                                "fontSize": 12
                               },
                               "type": "text"
                             },
                             "type": "padding"
                           },
                           "contentPadding": {
-                            "left": 16.0,
-                            "top": 16.0,
-                            "right": 16.0,
-                            "bottom": 16.0
+                            "left": 16,
+                            "top": 16,
+                            "right": 16,
+                            "bottom": 16
                           },
                           "filled": false
                         },
@@ -254,8 +254,11 @@
                         ],
                         "validatorRules": [
                           {
-                            "rule": "^\\d+$",
-                            "message": "{{appStrings.promissory.amountRequired}}"
+                            "rule": "matches",
+                            "message": "{{appStrings.promissory.amountRequired}}",
+                            "options": {
+                              "pattern": "^\\d+$"
+                            }
                           }
                         ],
                         "onChanged": {
@@ -271,10 +274,12 @@
                               "rule": "^\\d{4}/\\d{2}/\\d{2}$"
                             }
                           ]
-                        }
+                        },
+                        "autovalidateMode": "always",
+                        "supportTextDirection": "rtl"
                       },
                       {
-                        "height": 16.0,
+                        "height": 16,
                         "type": "sizedBox"
                       },
                       {
@@ -282,14 +287,14 @@
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
-                          "fontSize": 14.0,
+                          "fontSize": 14,
                           "fontWeight": "w600"
                         },
                         "textDirection": "rtl",
                         "type": "text"
                       },
                       {
-                        "height": 8.0,
+                        "height": 8,
                         "type": "sizedBox"
                       },
                       {
@@ -300,15 +305,15 @@
                             "prefixIcon": {
                               "icon": "calendar_today",
                               "iconType": "material",
-                              "size": 20.0,
+                              "size": 20,
                               "color": "{{appColors.current.text.subtitle}}",
                               "type": "icon"
                             },
                             "contentPadding": {
-                              "left": 16.0,
-                              "top": 16.0,
-                              "right": 16.0,
-                              "bottom": 16.0
+                              "left": 16,
+                              "top": 16,
+                              "right": 16,
+                              "bottom": 16
                             },
                             "filled": false
                           },
@@ -319,16 +324,21 @@
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
-                            "fontSize": 14.0,
+                            "fontSize": 14,
                             "fontWeight": "w600"
                           },
                           "validatorRules": [
                             {
-                              "rule": "^\\d{4}/\\d{2}/\\d{2}$",
-                              "message": "{{appStrings.promissory.dueDateRequired}}"
+                              "rule": "matches",
+                              "message": "{{appStrings.promissory.dueDateRequired}}",
+                              "options": {
+                                "pattern": "^\\d{4}/\\d{2}/\\d{2}$"
+                              }
                             }
                           ],
-                          "type": "textFormField"
+                          "type": "textFormField",
+                          "autovalidateMode": "always",
+                          "supportTextDirection": "rtl"
                         },
                         "onTap": {
                           "actionType": "persianDatePicker",
@@ -353,7 +363,7 @@
                         "type": "gestureDetector"
                       },
                       {
-                        "height": 16.0,
+                        "height": 16,
                         "type": "sizedBox"
                       },
                       {
@@ -361,14 +371,14 @@
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
-                          "fontSize": 14.0,
+                          "fontSize": 14,
                           "fontWeight": "w600"
                         },
                         "textDirection": "rtl",
                         "type": "text"
                       },
                       {
-                        "height": 8.0,
+                        "height": 8,
                         "type": "sizedBox"
                       },
                       {
@@ -376,10 +386,10 @@
                         "decoration": {
                           "hintText": "{{appStrings.promissory.descriptionHint}}",
                           "contentPadding": {
-                            "left": 16.0,
-                            "top": 16.0,
-                            "right": 16.0,
-                            "bottom": 16.0
+                            "left": 16,
+                            "top": 16,
+                            "right": 16,
+                            "bottom": 16
                           },
                           "filled": false
                         },
@@ -388,7 +398,7 @@
                         "type": "textFormField"
                       },
                       {
-                        "height": 16.0,
+                        "height": 16,
                         "type": "sizedBox"
                       },
                       {
@@ -396,14 +406,14 @@
                         "style": {
                           "type": "custom",
                           "color": "{{appColors.current.text.title}}",
-                          "fontSize": 14.0,
+                          "fontSize": 14,
                           "fontWeight": "w600"
                         },
                         "textDirection": "rtl",
                         "type": "text"
                       },
                       {
-                        "height": 8.0,
+                        "height": 8,
                         "type": "sizedBox"
                       },
                       {
@@ -411,10 +421,10 @@
                         "decoration": {
                           "hintText": "{{appStrings.promissory.paymentPlaceHint}}",
                           "contentPadding": {
-                            "left": 16.0,
-                            "top": 16.0,
-                            "right": 16.0,
-                            "bottom": 16.0
+                            "left": 16,
+                            "top": 16,
+                            "right": 16,
+                            "bottom": 16
                           },
                           "filled": false
                         },
@@ -431,10 +441,10 @@
               },
               {
                 "padding": {
-                  "left": 16.0,
-                  "top": 16.0,
-                  "right": 16.0,
-                  "bottom": 16.0
+                  "left": 16,
+                  "top": 16,
+                  "right": 16,
+                  "bottom": 16
                 },
                 "child": {
                   "type": "reactiveElevatedButton",
@@ -489,18 +499,18 @@
                   },
                   "style": {
                     "backgroundColor": "{{appColors.current.primary.color}}",
-                    "elevation": 0.0,
+                    "elevation": 0,
                     "fixedSize": {
-                      "width": 999999.0,
-                      "height": 56.0
+                      "width": 999999,
+                      "height": 56
                     },
                     "shape": {
                       "type": "roundedRectangleBorder",
                       "borderRadius": {
-                        "topLeft": 12.0,
-                        "topRight": 12.0,
-                        "bottomLeft": 12.0,
-                        "bottomRight": 12.0
+                        "topLeft": 12,
+                        "topRight": 12,
+                        "bottomLeft": 12,
+                        "bottomRight": 12
                       }
                     }
                   },
@@ -509,7 +519,7 @@
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.primary.onPrimary}}",
-                      "fontSize": 18.0,
+                      "fontSize": 18,
                       "fontWeight": "bold"
                     },
                     "textDirection": "rtl",

@@ -13,7 +13,11 @@ const _secondaryPinEnabledKey =
 StacWidget dashboardSecondaryPinChange() {
   return StacScaffold(
     backgroundColor: '{{appColors.current.background.surface}}',
-    appBar: buildTobankFlowAppBar(title: 'تغییر رمز دوم', showSupport: true, showBack: true),
+    appBar: buildTobankFlowAppBar(
+      title: 'تغییر رمز دوم',
+      showSupport: true,
+      showBack: true,
+    ),
     body: StacForm(
       autovalidateMode: StacAutovalidateMode.always,
       child: StacSingleChildScrollView(
@@ -21,241 +25,251 @@ StacWidget dashboardSecondaryPinChange() {
         child: StacColumn(
           crossAxisAlignment: StacCrossAxisAlignment.stretch,
           children: [
-          StacText(
-            data: 'رعایت این موارد الزامیست...',
-            textDirection: StacTextDirection.rtl,
-            textAlign: StacTextAlign.right,
-            style: StacCustomTextStyle(
-              fontSize: 14,
-              fontWeight: StacFontWeight.w700,
-              color: '{{appColors.current.text.title}}',
-            ),
-          ),
-          StacSizedBox(height: 12),
-          _ruleRow(text: 'رمز دوم کارت باید حداقل ۵ و حداکثر ۱۲ رقم باشد'),
-          StacSizedBox(height: 8),
-          _ruleRow(
-            text: 'انتخاب رمزهای ساده نظیر ۱۱۱۱۱ یا ۱۲۳۴۵۶ امکان پذیر نیست',
-          ),
-          StacSizedBox(height: 24),
-          StacText(
-            data: 'رمز فعلی',
-            textDirection: StacTextDirection.rtl,
-            textAlign: StacTextAlign.right,
-            style: StacCustomTextStyle(
-              fontSize: 14,
-              fontWeight: StacFontWeight.w600,
-              color: '{{appColors.current.text.title}}',
-            ),
-          ),
-          StacSizedBox(height: 8),
-          StacCustomTextFormField(
-            id: _secondaryPinCurrentFieldId,
-            textDirection: 'rtl',
-            textAlign: 'right',
-            keyboardType: 'number',
-            validatorRules: const [
-              {
-                'rule': 'matches',
-                'options': {'pattern': r'.+'},
-                'message': 'رمز فعلی نمی‌تواند خالی باشد',
-              },
-            ],
-            onChanged: _validateSecondaryPinChangeAction(),
-            decoration: {
-              'hintText': 'رمز عبور فعلی را وارد کنید',
-              'hintStyle': {
-                'textDirection': 'rtl',
-                'style': {
-                  'color': '{{appColors.current.text.hint}}',
-                  'fontSize': 14,
-                },
-              },
-              'enabledBorder': {
-                'type': 'outlineInputBorder',
-                'borderSide': {
-                  'color': '{{appColors.current.input.borderEnabled}}',
-                  'width': 1,
-                },
-                'borderRadius': {'all': 12},
-              },
-              'focusedBorder': {
-                'type': 'outlineInputBorder',
-                'borderSide': {
-                  'color':
-                      '{{appColors.current.button.primary.backgroundColor}}',
-                  'width': 1.5,
-                },
-                'borderRadius': {'all': 12},
-              },
-              'contentPadding': {
-                'left': 16,
-                'top': 16,
-                'right': 16,
-                'bottom': 16,
-              },
-            },
-          ),
-          StacSizedBox(height: 20),
-          StacText(
-            data: 'رمز جدید',
-            textDirection: StacTextDirection.rtl,
-            textAlign: StacTextAlign.right,
-            style: StacCustomTextStyle(
-              fontSize: 14,
-              fontWeight: StacFontWeight.w600,
-              color: '{{appColors.current.text.title}}',
-            ),
-          ),
-          StacSizedBox(height: 8),
-          StacCustomTextFormField(
-            id: _secondaryPinNewFieldId,
-            textDirection: 'rtl',
-            textAlign: 'right',
-            keyboardType: 'number',
-            validatorRules: const [
-              {
-                'rule': 'matches',
-                'options': {'pattern': r'.+'},
-                'message': 'رمز جدید نمی‌تواند خالی باشد',
-              },
-            ],
-            onChanged: _validateSecondaryPinChangeAction(),
-            decoration: {
-              'hintText': 'رمز جدید را وارد کنید',
-              'hintStyle': {
-                'textDirection': 'rtl',
-                'style': {
-                  'color': '{{appColors.current.text.hint}}',
-                  'fontSize': 14,
-                },
-              },
-              'enabledBorder': {
-                'type': 'outlineInputBorder',
-                'borderSide': {
-                  'color': '{{appColors.current.input.borderEnabled}}',
-                  'width': 1,
-                },
-                'borderRadius': {'all': 12},
-              },
-              'focusedBorder': {
-                'type': 'outlineInputBorder',
-                'borderSide': {
-                  'color':
-                      '{{appColors.current.button.primary.backgroundColor}}',
-                  'width': 1.5,
-                },
-                'borderRadius': {'all': 12},
-              },
-              'contentPadding': {
-                'left': 16,
-                'top': 16,
-                'right': 16,
-                'bottom': 16,
-              },
-            },
-          ),
-          StacSizedBox(height: 20),
-          StacText(
-            data: 'تکرار رمز جدید',
-            textDirection: StacTextDirection.rtl,
-            textAlign: StacTextAlign.right,
-            style: StacCustomTextStyle(
-              fontSize: 14,
-              fontWeight: StacFontWeight.w600,
-              color: '{{appColors.current.text.title}}',
-            ),
-          ),
-          StacSizedBox(height: 8),
-          StacCustomTextFormField(
-            id: _secondaryPinConfirmFieldId,
-            textDirection: 'rtl',
-            textAlign: 'right',
-            keyboardType: 'number',
-            validatorRules: const [
-              {
-                'rule': 'matches',
-                'options': {'pattern': r'.+'},
-                'message': 'تکرار رمز جدید نمی‌تواند خالی باشد',
-              },
-              {
-                'rule': 'compare',
-                'message': 'رمز جدید و تکرار رمز جدید باید یکسان باشند',
-                'options': {'fieldId': _secondaryPinNewFieldId},
-              },
-            ],
-            onChanged: _validateSecondaryPinChangeAction(),
-            decoration: {
-              'hintText': 'رمز جدید را تکرار کنید',
-              'hintStyle': {
-                'textDirection': 'rtl',
-                'style': {
-                  'color': '{{appColors.current.text.hint}}',
-                  'fontSize': 14,
-                },
-              },
-              'enabledBorder': {
-                'type': 'outlineInputBorder',
-                'borderSide': {
-                  'color': '{{appColors.current.input.borderEnabled}}',
-                  'width': 1,
-                },
-                'borderRadius': {'all': 12},
-              },
-              'focusedBorder': {
-                'type': 'outlineInputBorder',
-                'borderSide': {
-                  'color':
-                      '{{appColors.current.button.primary.backgroundColor}}',
-                  'width': 1.5,
-                },
-                'borderRadius': {'all': 12},
-              },
-              'contentPadding': {
-                'left': 16,
-                'top': 16,
-                'right': 16,
-                'bottom': 16,
-              },
-            },
-          ),
-          StacSizedBox(height: 24),
-          StacCustomReactiveElevatedButton(
-            enabledKey: _secondaryPinEnabledKey,
-            onPressed: NavigationAction(fileName: 'dashboard_secondary_pin_result', navMode: NavModes.dart, navigationStyle: NavigationStyle.push).toJson(),
-            style: StacButtonStyle(
-              padding: StacEdgeInsets.symmetric(vertical: 8),
-              minimumSize: const StacSize(0, 56),
-              backgroundColor:
-                  '{{appColors.current.button.primary.backgroundColor}}',
-              foregroundColor:
-                  '{{appColors.current.button.primary.foregroundColor}}',
-              shape: StacRoundedRectangleBorder(
-                borderRadius: StacBorderRadius.all(8),
-              ),
-            ).toJson(),
-            disabledStyle: StacButtonStyle(
-              padding: StacEdgeInsets.symmetric(vertical: 8),
-              minimumSize: const StacSize(0, 56),
-              backgroundColor: '{{appColors.current.input.borderEnabled}}',
-              foregroundColor: '{{appColors.current.text.subtitle}}',
-              shape: StacRoundedRectangleBorder(
-                borderRadius: StacBorderRadius.all(8),
-              ),
-            ).toJson(),
-            child: StacText(
-              data: 'تغییر رمز دوم',
+            StacText(
+              data: 'رعایت این موارد الزامیست...',
               textDirection: StacTextDirection.rtl,
+              textAlign: StacTextAlign.right,
               style: StacCustomTextStyle(
                 fontSize: 14,
                 fontWeight: StacFontWeight.w700,
+                color: '{{appColors.current.text.title}}',
               ),
-            ).toJson(),
-          ),
-        ],
+            ),
+            StacSizedBox(height: 12),
+            _ruleRow(text: 'رمز دوم کارت باید حداقل ۵ و حداکثر ۱۲ رقم باشد'),
+            StacSizedBox(height: 8),
+            _ruleRow(
+              text: 'انتخاب رمزهای ساده نظیر ۱۱۱۱۱ یا ۱۲۳۴۵۶ امکان پذیر نیست',
+            ),
+            StacSizedBox(height: 24),
+            StacText(
+              data: 'رمز فعلی',
+              textDirection: StacTextDirection.rtl,
+              textAlign: StacTextAlign.right,
+              style: StacCustomTextStyle(
+                fontSize: 14,
+                fontWeight: StacFontWeight.w600,
+                color: '{{appColors.current.text.title}}',
+              ),
+            ),
+            StacSizedBox(height: 8),
+            StacCustomTextFormField(
+              id: _secondaryPinCurrentFieldId,
+              textDirection: 'rtl',
+              textAlign: 'right',
+              supportTextDirection: 'rtl',
+              autovalidateMode: 'always',
+              keyboardType: 'number',
+              validatorRules: const [
+                {
+                  'rule': 'matches',
+                  'options': {'pattern': r'.+'},
+                  'message': 'رمز فعلی نمی‌تواند خالی باشد',
+                },
+              ],
+              onChanged: _validateSecondaryPinChangeAction(),
+              decoration: {
+                'hintText': 'رمز عبور فعلی را وارد کنید',
+                'hintStyle': {
+                  'textDirection': 'rtl',
+                  'style': {
+                    'color': '{{appColors.current.text.hint}}',
+                    'fontSize': 14,
+                  },
+                },
+                'enabledBorder': {
+                  'type': 'outlineInputBorder',
+                  'borderSide': {
+                    'color': '{{appColors.current.input.borderEnabled}}',
+                    'width': 1,
+                  },
+                  'borderRadius': {'all': 12},
+                },
+                'focusedBorder': {
+                  'type': 'outlineInputBorder',
+                  'borderSide': {
+                    'color':
+                        '{{appColors.current.button.primary.backgroundColor}}',
+                    'width': 1.5,
+                  },
+                  'borderRadius': {'all': 12},
+                },
+                'contentPadding': {
+                  'left': 16,
+                  'top': 16,
+                  'right': 16,
+                  'bottom': 16,
+                },
+              },
+            ),
+            StacSizedBox(height: 20),
+            StacText(
+              data: 'رمز جدید',
+              textDirection: StacTextDirection.rtl,
+              textAlign: StacTextAlign.right,
+              style: StacCustomTextStyle(
+                fontSize: 14,
+                fontWeight: StacFontWeight.w600,
+                color: '{{appColors.current.text.title}}',
+              ),
+            ),
+            StacSizedBox(height: 8),
+            StacCustomTextFormField(
+              id: _secondaryPinNewFieldId,
+              textDirection: 'rtl',
+              textAlign: 'right',
+              supportTextDirection: 'rtl',
+              autovalidateMode: 'always',
+              keyboardType: 'number',
+              validatorRules: const [
+                {
+                  'rule': 'matches',
+                  'options': {'pattern': r'.+'},
+                  'message': 'رمز جدید نمی‌تواند خالی باشد',
+                },
+              ],
+              onChanged: _validateSecondaryPinChangeAction(),
+              decoration: {
+                'hintText': 'رمز جدید را وارد کنید',
+                'hintStyle': {
+                  'textDirection': 'rtl',
+                  'style': {
+                    'color': '{{appColors.current.text.hint}}',
+                    'fontSize': 14,
+                  },
+                },
+                'enabledBorder': {
+                  'type': 'outlineInputBorder',
+                  'borderSide': {
+                    'color': '{{appColors.current.input.borderEnabled}}',
+                    'width': 1,
+                  },
+                  'borderRadius': {'all': 12},
+                },
+                'focusedBorder': {
+                  'type': 'outlineInputBorder',
+                  'borderSide': {
+                    'color':
+                        '{{appColors.current.button.primary.backgroundColor}}',
+                    'width': 1.5,
+                  },
+                  'borderRadius': {'all': 12},
+                },
+                'contentPadding': {
+                  'left': 16,
+                  'top': 16,
+                  'right': 16,
+                  'bottom': 16,
+                },
+              },
+            ),
+            StacSizedBox(height: 20),
+            StacText(
+              data: 'تکرار رمز جدید',
+              textDirection: StacTextDirection.rtl,
+              textAlign: StacTextAlign.right,
+              style: StacCustomTextStyle(
+                fontSize: 14,
+                fontWeight: StacFontWeight.w600,
+                color: '{{appColors.current.text.title}}',
+              ),
+            ),
+            StacSizedBox(height: 8),
+            StacCustomTextFormField(
+              id: _secondaryPinConfirmFieldId,
+              textDirection: 'rtl',
+              textAlign: 'right',
+              supportTextDirection: 'rtl',
+              autovalidateMode: 'always',
+              keyboardType: 'number',
+              validatorRules: const [
+                {
+                  'rule': 'matches',
+                  'options': {'pattern': r'.+'},
+                  'message': 'تکرار رمز جدید نمی‌تواند خالی باشد',
+                },
+                {
+                  'rule': 'compare',
+                  'message': 'رمز جدید و تکرار رمز جدید باید یکسان باشند',
+                  'options': {'fieldId': _secondaryPinNewFieldId},
+                },
+              ],
+              onChanged: _validateSecondaryPinChangeAction(),
+              decoration: {
+                'hintText': 'رمز جدید را تکرار کنید',
+                'hintStyle': {
+                  'textDirection': 'rtl',
+                  'style': {
+                    'color': '{{appColors.current.text.hint}}',
+                    'fontSize': 14,
+                  },
+                },
+                'enabledBorder': {
+                  'type': 'outlineInputBorder',
+                  'borderSide': {
+                    'color': '{{appColors.current.input.borderEnabled}}',
+                    'width': 1,
+                  },
+                  'borderRadius': {'all': 12},
+                },
+                'focusedBorder': {
+                  'type': 'outlineInputBorder',
+                  'borderSide': {
+                    'color':
+                        '{{appColors.current.button.primary.backgroundColor}}',
+                    'width': 1.5,
+                  },
+                  'borderRadius': {'all': 12},
+                },
+                'contentPadding': {
+                  'left': 16,
+                  'top': 16,
+                  'right': 16,
+                  'bottom': 16,
+                },
+              },
+            ),
+            StacSizedBox(height: 24),
+            StacCustomReactiveElevatedButton(
+              enabledKey: _secondaryPinEnabledKey,
+              onPressed: NavigationAction(
+                fileName: 'dashboard_secondary_pin_result',
+                navMode: NavModes.dart,
+                navigationStyle: NavigationStyle.push,
+              ).toJson(),
+              style: StacButtonStyle(
+                padding: StacEdgeInsets.symmetric(vertical: 8),
+                minimumSize: const StacSize(0, 56),
+                backgroundColor:
+                    '{{appColors.current.button.primary.backgroundColor}}',
+                foregroundColor:
+                    '{{appColors.current.button.primary.foregroundColor}}',
+                shape: StacRoundedRectangleBorder(
+                  borderRadius: StacBorderRadius.all(8),
+                ),
+              ).toJson(),
+              disabledStyle: StacButtonStyle(
+                padding: StacEdgeInsets.symmetric(vertical: 8),
+                minimumSize: const StacSize(0, 56),
+                backgroundColor: '{{appColors.current.input.borderEnabled}}',
+                foregroundColor: '{{appColors.current.text.subtitle}}',
+                shape: StacRoundedRectangleBorder(
+                  borderRadius: StacBorderRadius.all(8),
+                ),
+              ).toJson(),
+              child: StacText(
+                data: 'تغییر رمز دوم',
+                textDirection: StacTextDirection.rtl,
+                style: StacCustomTextStyle(
+                  fontSize: 14,
+                  fontWeight: StacFontWeight.w700,
+                ),
+              ).toJson(),
+            ),
+          ],
+        ),
       ),
     ),
-      ),
   );
 }
 

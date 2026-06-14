@@ -13,9 +13,9 @@ import 'dart:io';
 
 const Set<String> kFlows = {
   'biometric_test', 'cartable', 'charge', 'child_loan', 'dashboard',
-  'deposit_more', 'deposit_turnover', 'gift_card', 'home_page',
-  'installment_payment', 'login', 'notification', 'package', 'profile',
-  'promissory', 'transaction', 'transfer', 'user_validation', 'verify_identity',
+  'deposit_more_options', 'deposit_turnover', 'gift_card', 'home_page',
+  'installment_payment', 'login', 'notification', 'internet_pakage', 'profile',
+  'promissory', 'transaction', 'transfer', 'user_credit_validation', 'authentication',
 };
 String? flowOf(String f) {
   String? best;

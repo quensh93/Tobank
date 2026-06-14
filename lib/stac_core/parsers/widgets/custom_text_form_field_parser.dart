@@ -229,8 +229,7 @@ class _CustomTextFormFieldWidgetState
   Widget build(BuildContext context) {
     final onTapAction = widget.rawJson?['onTap'] as Map<String, dynamic>?;
     final supportTextDirection = _parseSupportTextDirection();
-    final fieldTextDirection =
-        supportTextDirection ?? widget.model.textDirection?.parse;
+    final fieldTextDirection = widget.model.textDirection?.parse;
 
     final obscuringCharacter = _normalizeObscuringCharacter(
       widget.model.obscuringCharacter,
@@ -643,7 +642,8 @@ class _CustomTextFormFieldWidgetState
         try {
           if (validator.rule == 'compare') {
             final otherValue = _resolveComparisonValue(validator.options);
-            if (_normalizeDigits(normalizedValue) != _normalizeDigits(otherValue)) {
+            if (_normalizeDigits(normalizedValue) !=
+                _normalizeDigits(otherValue)) {
               return validator.message;
             }
             continue;
@@ -679,14 +679,18 @@ class _CustomTextFormFieldWidgetState
         return fromController;
       }
 
-      final fromFormRegistry =
-          StacRegistry.instance.getValue('form.$fieldId')?.toString().trim();
+      final fromFormRegistry = StacRegistry.instance
+          .getValue('form.$fieldId')
+          ?.toString()
+          .trim();
       if (fromFormRegistry != null && fromFormRegistry.isNotEmpty) {
         return fromFormRegistry;
       }
 
-      final fromDirectRegistry =
-          StacRegistry.instance.getValue(fieldId)?.toString().trim();
+      final fromDirectRegistry = StacRegistry.instance
+          .getValue(fieldId)
+          ?.toString()
+          .trim();
       if (fromDirectRegistry != null && fromDirectRegistry.isNotEmpty) {
         return fromDirectRegistry;
       }

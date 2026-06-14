@@ -11,9 +11,9 @@ import 'dart:io';
 // --- Convention constants (mirror FlowRegistry + SduiConfig) ---
 const Set<String> kFlows = {
   'biometric_test', 'cartable', 'charge', 'child_loan', 'dashboard',
-  'deposit_more', 'deposit_turnover', 'gift_card', 'home_page',
-  'installment_payment', 'login', 'notification', 'package', 'profile',
-  'promissory', 'transaction', 'transfer', 'user_validation', 'verify_identity',
+  'deposit_more_options', 'deposit_turnover', 'gift_card', 'home_page',
+  'installment_payment', 'login', 'notification', 'internet_pakage', 'profile',
+  'promissory', 'transaction', 'transfer', 'user_credit_validation', 'authentication',
 };
 const String kConfigBaseUrl = 'http://192.168.179.21:8101';
 const String kPathKeyPrefix = 'ipaam.builder.form.form';

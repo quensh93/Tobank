@@ -651,7 +651,7 @@ Description: Shows Tobank onboarding slides/pages with controlled paging and vis
 }
 ```
 
-### verify_identity_real_loader
+### authentication_real_loader
 
 Description: Feature loader widget that boots the Verify Identity Real experience from flow data.
 
@@ -660,13 +660,13 @@ Description: Feature loader widget that boots the Verify Identity Real experienc
 | --- | --- | --- |
 | type | String | Contract key used in JSON. |
 | parser | String | VerifyIdentityRealLoaderParser |
-| source | String | lib/core/stac/parsers/widgets/verify_identity_real_loader_parser.dart |
+| source | String | lib/core/stac/parsers/widgets/authentication_real_loader_parser.dart |
 
 #### JSON
 
 ```json
 {
-    "type":  "verify_identity_real_loader"
+    "type":  "authentication_real_loader"
 }
 ```
 
@@ -1799,14 +1799,14 @@ Description: Opens rules bottom sheet; routeName maps to predefined rules sectio
 
 #### Enum Values
 
-- `routeName`: `verify_identity_real_rules`
+- `routeName`: `authentication_real_rules`
 
 #### JSON
 
 ```json
 {
     "actionType":  "showRulesBottomSheet",
-    "routeName":  "verify_identity_real_rules",
+    "routeName":  "authentication_real_rules",
     "title":  "Rules"
 }
 ```

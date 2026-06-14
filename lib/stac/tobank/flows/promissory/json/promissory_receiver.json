@@ -29,15 +29,15 @@
     "appBar": {
       "leading": {
         "padding": {
-          "left": 12.0
+          "left": 12
         },
         "child": {
           "child": {
             "src": "{{appAssets.icons.support}}",
             "imageType": "asset",
             "color": "{{appColors.current.text.title}}",
-            "width": 24.0,
-            "height": 24.0,
+            "width": 24,
+            "height": 24,
             "type": "image"
           },
           "type": "center"
@@ -57,7 +57,7 @@
       "actions": [
         {
           "padding": {
-            "right": 12.0
+            "right": 12
           },
           "child": {
             "onPressed": {
@@ -68,8 +68,8 @@
               "src": "{{appAssets.icons.arrowBack}}",
               "imageType": "asset",
               "color": "{{appColors.current.text.title}}",
-              "width": 31.0,
-              "height": 31.0,
+              "width": 31,
+              "height": 31,
               "type": "image"
             },
             "type": "iconButton"
@@ -81,22 +81,22 @@
       "type": "appBar"
     },
     "body": {
-      "autovalidateMode": "onUserInteraction",
+      "autovalidateMode": "always",
       "child": {
         "crossAxisAlignment": "stretch",
         "children": [
           {
             "child": {
               "padding": {
-                "left": 16.0,
-                "right": 16.0
+                "left": 16,
+                "right": 16
               },
               "child": {
                 "crossAxisAlignment": "stretch",
                 "textDirection": "rtl",
                 "children": [
                   {
-                    "height": 16.0,
+                    "height": 16,
                     "type": "sizedBox"
                   },
                   {
@@ -104,14 +104,14 @@
                     "style": {
                       "type": "custom",
                       "color": "{{appColors.current.text.title}}",
-                      "fontSize": 16.0,
+                      "fontSize": 16,
                       "fontWeight": "w700"
                     },
                     "textDirection": "rtl",
                     "type": "text"
                   },
                   {
-                    "height": 16.0,
+                    "height": 16,
                     "type": "sizedBox"
                   },
                   {
@@ -121,27 +121,27 @@
                         "child": {
                           "child": {
                             "padding": {
-                              "top": 12.0,
-                              "bottom": 12.0
+                              "top": 12,
+                              "bottom": 12
                             },
                             "decoration": {
                               "border": {
                                 "color": "{{isIndividualSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}",
-                                "width": 1.0
+                                "width": 1
                               },
                               "borderRadius": {
-                                "topLeft": 8.0,
-                                "topRight": 8.0,
-                                "bottomLeft": 8.0,
-                                "bottomRight": 8.0
+                                "topLeft": 8,
+                                "topRight": 8,
+                                "bottomLeft": 8,
+                                "bottomRight": 8
                               }
                             },
                             "child": {
                               "padding": {
-                                "left": 16.0,
-                                "top": 6.0,
-                                "right": 16.0,
-                                "bottom": 6.0
+                                "left": 16,
+                                "top": 6,
+                                "right": 16,
+                                "bottom": 6
                               },
                               "child": {
                                 "crossAxisAlignment": "center",
@@ -152,30 +152,30 @@
                                       "color": "transparent",
                                       "border": {
                                         "color": "{{isIndividualSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}",
-                                        "width": 2.0
+                                        "width": 2
                                       },
                                       "borderRadius": {
-                                        "topLeft": 9999.0,
-                                        "topRight": 9999.0,
-                                        "bottomLeft": 9999.0,
-                                        "bottomRight": 9999.0
+                                        "topLeft": 9999,
+                                        "topRight": 9999,
+                                        "bottomLeft": 9999,
+                                        "bottomRight": 9999
                                       }
                                     },
-                                    "width": 20.0,
-                                    "height": 20.0,
+                                    "width": 20,
+                                    "height": 20,
                                     "child": {
                                       "child": {
                                         "decoration": {
                                           "color": "{{isIndividualSelected ? appColors.current.secondary.color : \"transparent\"}}",
                                           "borderRadius": {
-                                            "topLeft": 9999.0,
-                                            "topRight": 9999.0,
-                                            "bottomLeft": 9999.0,
-                                            "bottomRight": 9999.0
+                                            "topLeft": 9999,
+                                            "topRight": 9999,
+                                            "bottomLeft": 9999,
+                                            "bottomRight": 9999
                                           }
                                         },
-                                        "width": 10.0,
-                                        "height": 10.0,
+                                        "width": 10,
+                                        "height": 10,
                                         "type": "container"
                                       },
                                       "type": "center"
@@ -183,7 +183,7 @@
                                     "type": "container"
                                   },
                                   {
-                                    "width": 8.0,
+                                    "width": 8,
                                     "type": "sizedBox"
                                   },
                                   {
@@ -192,7 +192,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
-                                        "fontSize": 14.0,
+                                        "fontSize": 14,
                                         "fontWeight": "w600"
                                       },
                                       "textDirection": "rtl",
@@ -237,34 +237,34 @@
                         "type": "expanded"
                       },
                       {
-                        "width": 8.0,
+                        "width": 8,
                         "type": "sizedBox"
                       },
                       {
                         "child": {
                           "child": {
                             "padding": {
-                              "top": 12.0,
-                              "bottom": 12.0
+                              "top": 12,
+                              "bottom": 12
                             },
                             "decoration": {
                               "border": {
                                 "color": "{{isLegalSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}",
-                                "width": 1.0
+                                "width": 1
                               },
                               "borderRadius": {
-                                "topLeft": 8.0,
-                                "topRight": 8.0,
-                                "bottomLeft": 8.0,
-                                "bottomRight": 8.0
+                                "topLeft": 8,
+                                "topRight": 8,
+                                "bottomLeft": 8,
+                                "bottomRight": 8
                               }
                             },
                             "child": {
                               "padding": {
-                                "left": 16.0,
-                                "top": 6.0,
-                                "right": 16.0,
-                                "bottom": 6.0
+                                "left": 16,
+                                "top": 6,
+                                "right": 16,
+                                "bottom": 6
                               },
                               "child": {
                                 "crossAxisAlignment": "center",
@@ -275,30 +275,30 @@
                                       "color": "transparent",
                                       "border": {
                                         "color": "{{isLegalSelected ? appColors.current.secondary.color : appColors.current.input.borderEnabled}}",
-                                        "width": 2.0
+                                        "width": 2
                                       },
                                       "borderRadius": {
-                                        "topLeft": 9999.0,
-                                        "topRight": 9999.0,
-                                        "bottomLeft": 9999.0,
-                                        "bottomRight": 9999.0
+                                        "topLeft": 9999,
+                                        "topRight": 9999,
+                                        "bottomLeft": 9999,
+                                        "bottomRight": 9999
                                       }
                                     },
-                                    "width": 20.0,
-                                    "height": 20.0,
+                                    "width": 20,
+                                    "height": 20,
                                     "child": {
                                       "child": {
                                         "decoration": {
                                           "color": "{{isLegalSelected ? appColors.current.secondary.color : \"transparent\"}}",
                                           "borderRadius": {
-                                            "topLeft": 9999.0,
-                                            "topRight": 9999.0,
-                                            "bottomLeft": 9999.0,
-                                            "bottomRight": 9999.0
+                                            "topLeft": 9999,
+                                            "topRight": 9999,
+                                            "bottomLeft": 9999,
+                                            "bottomRight": 9999
                                           }
                                         },
-                                        "width": 10.0,
-                                        "height": 10.0,
+                                        "width": 10,
+                                        "height": 10,
                                         "type": "container"
                                       },
                                       "type": "center"
@@ -306,7 +306,7 @@
                                     "type": "container"
                                   },
                                   {
-                                    "width": 8.0,
+                                    "width": 8,
                                     "type": "sizedBox"
                                   },
                                   {
@@ -315,7 +315,7 @@
                                       "style": {
                                         "type": "custom",
                                         "color": "{{appColors.current.text.title}}",
-                                        "fontSize": 14.0,
+                                        "fontSize": 14,
                                         "fontWeight": "w600"
                                       },
                                       "textDirection": "rtl",
@@ -363,7 +363,7 @@
                     "type": "row"
                   },
                   {
-                    "height": 16.0,
+                    "height": 16,
                     "type": "sizedBox"
                   },
                   {
@@ -377,14 +377,14 @@
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
-                            "fontSize": 14.0,
+                            "fontSize": 14,
                             "fontWeight": "w600"
                           },
                           "textDirection": "rtl",
                           "type": "text"
                         },
                         {
-                          "height": 8.0,
+                          "height": 8,
                           "type": "sizedBox"
                         },
                         {
@@ -395,10 +395,10 @@
                           "decoration": {
                             "hintText": "{{appStrings.promissory.enterNationalCode}}",
                             "contentPadding": {
-                              "left": 16.0,
-                              "top": 16.0,
-                              "right": 16.0,
-                              "bottom": 16.0
+                              "left": 16,
+                              "top": 16,
+                              "right": 16,
+                              "bottom": 16
                             },
                             "filled": false
                           },
@@ -413,8 +413,11 @@
                           ],
                           "validatorRules": [
                             {
-                              "rule": "^\\d{10}$",
-                              "message": "{{appStrings.promissory.nationalCodeError}}"
+                              "rule": "matches",
+                              "message": "{{appStrings.promissory.nationalCodeError}}",
+                              "options": {
+                                "pattern": "^\\d{10}$"
+                              }
                             }
                           ],
                           "onChanged": {
@@ -434,10 +437,12 @@
                                 "rule": "^\\d{4}/\\d{2}/\\d{2}$"
                               }
                             ]
-                          }
+                          },
+                          "autovalidateMode": "always",
+                          "supportTextDirection": "rtl"
                         },
                         {
-                          "height": 16.0,
+                          "height": 16,
                           "type": "sizedBox"
                         },
                         {
@@ -445,14 +450,14 @@
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
-                            "fontSize": 14.0,
+                            "fontSize": 14,
                             "fontWeight": "w600"
                           },
                           "textDirection": "rtl",
                           "type": "text"
                         },
                         {
-                          "height": 8.0,
+                          "height": 8,
                           "type": "sizedBox"
                         },
                         {
@@ -463,10 +468,10 @@
                           "decoration": {
                             "hintText": "{{appStrings.promissory.enterMobileNumber}}",
                             "contentPadding": {
-                              "left": 16.0,
-                              "top": 16.0,
-                              "right": 16.0,
-                              "bottom": 16.0
+                              "left": 16,
+                              "top": 16,
+                              "right": 16,
+                              "bottom": 16
                             },
                             "filled": false
                           },
@@ -481,8 +486,11 @@
                           ],
                           "validatorRules": [
                             {
-                              "rule": "^09\\d{9}$",
-                              "message": "{{appStrings.promissory.mobileNumberError}}"
+                              "rule": "matches",
+                              "message": "{{appStrings.promissory.mobileNumberError}}",
+                              "options": {
+                                "pattern": "^09\\d{9}$"
+                              }
                             }
                           ],
                           "onChanged": {
@@ -502,10 +510,12 @@
                                 "rule": "^\\d{4}/\\d{2}/\\d{2}$"
                               }
                             ]
-                          }
+                          },
+                          "autovalidateMode": "always",
+                          "supportTextDirection": "rtl"
                         },
                         {
-                          "height": 16.0,
+                          "height": 16,
                           "type": "sizedBox"
                         },
                         {
@@ -513,14 +523,14 @@
                           "style": {
                             "type": "custom",
                             "color": "{{appColors.current.text.title}}",
-                            "fontSize": 14.0,
+                            "fontSize": 14,
                             "fontWeight": "w600"
                           },
                           "textDirection": "rtl",
                           "type": "text"
                         },
                         {
-                          "height": 8.0,
+                          "height": 8,
                           "type": "sizedBox"
                         },
                         {
@@ -531,32 +541,32 @@
                               "hintStyle": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.subtitle}}",
-                                "fontSize": 15.0,
+                                "fontSize": 15,
                                 "fontWeight": "w500"
                               },
                               "prefixIcon": {
                                 "padding": {
-                                  "left": 8.0,
-                                  "top": 8.0,
-                                  "right": 8.0,
-                                  "bottom": 8.0
+                                  "left": 8,
+                                  "top": 8,
+                                  "right": 8,
+                                  "bottom": 8
                                 },
                                 "child": {
                                   "src": "assets/icons/ic_calendar.svg",
                                   "imageType": "asset",
                                   "color": "{{appColors.current.text.subtitle}}",
-                                  "width": 24.0,
-                                  "height": 24.0,
+                                  "width": 24,
+                                  "height": 24,
                                   "fit": "scaleDown",
                                   "type": "image"
                                 },
                                 "type": "padding"
                               },
                               "contentPadding": {
-                                "left": 16.0,
-                                "top": 16.0,
-                                "right": 16.0,
-                                "bottom": 16.0
+                                "left": 16,
+                                "top": 16,
+                                "right": 16,
+                                "bottom": 16
                               },
                               "filled": false
                             },
@@ -564,7 +574,7 @@
                             "style": {
                               "type": "custom",
                               "color": "{{appColors.current.text.title}}",
-                              "fontSize": 16.0,
+                              "fontSize": 16,
                               "fontWeight": "w600"
                             },
                             "textAlign": "right",
@@ -573,11 +583,16 @@
                             "enabled": false,
                             "validatorRules": [
                               {
-                                "rule": "^\\d{4}/\\d{2}/\\d{2}$",
-                                "message": "{{appStrings.promissory.selectBirthdateError}}"
+                                "rule": "matches",
+                                "message": "{{appStrings.promissory.selectBirthdateError}}",
+                                "options": {
+                                  "pattern": "^\\d{4}/\\d{2}/\\d{2}$"
+                                }
                               }
                             ],
-                            "type": "textFormField"
+                            "type": "textFormField",
+                            "autovalidateMode": "always",
+                            "supportTextDirection": "rtl"
                           },
                           "onTap": {
                             "actionType": "persianDatePicker",
@@ -606,7 +621,7 @@
                           "type": "gestureDetector"
                         },
                         {
-                          "height": 40.0,
+                          "height": 40,
                           "type": "sizedBox"
                         }
                       ],
@@ -629,7 +644,7 @@
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
-                                  "fontSize": 15.0,
+                                  "fontSize": 15,
                                   "fontWeight": "w600"
                                 },
                                 "textDirection": "rtl",
@@ -644,12 +659,12 @@
                                 {
                                   "src": "assets/icons/ic_gardeshgari.svg",
                                   "imageType": "asset",
-                                  "width": 24.0,
-                                  "height": 24.0,
+                                  "width": 24,
+                                  "height": 24,
                                   "type": "image"
                                 },
                                 {
-                                  "width": 8.0,
+                                  "width": 8,
                                   "type": "sizedBox"
                                 },
                                 {
@@ -711,7 +726,7 @@
                             "crossAxisAlignment": "stretch",
                             "children": [
                               {
-                                "height": 16.0,
+                                "height": 16,
                                 "type": "sizedBox"
                               },
                               {
@@ -719,14 +734,14 @@
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
-                                  "fontSize": 14.0,
+                                  "fontSize": 14,
                                   "fontWeight": "w600"
                                 },
                                 "textDirection": "rtl",
                                 "type": "text"
                               },
                               {
-                                "height": 8.0,
+                                "height": 8,
                                 "type": "sizedBox"
                               },
                               {
@@ -737,10 +752,10 @@
                                 "decoration": {
                                   "hintText": "{{appStrings.promissory.enterNationalId}}",
                                   "contentPadding": {
-                                    "left": 16.0,
-                                    "top": 16.0,
-                                    "right": 16.0,
-                                    "bottom": 16.0
+                                    "left": 16,
+                                    "top": 16,
+                                    "right": 16,
+                                    "bottom": 16
                                   },
                                   "filled": false
                                 },
@@ -755,8 +770,11 @@
                                 ],
                                 "validatorRules": [
                                   {
-                                    "rule": "^\\d{10,}$",
-                                    "message": "{{appStrings.promissory.nationalCodeError}}"
+                                    "rule": "matches",
+                                    "message": "{{appStrings.promissory.nationalCodeError}}",
+                                    "options": {
+                                      "pattern": "^\\d{10,}$"
+                                    }
                                   }
                                 ],
                                 "onChanged": {
@@ -772,10 +790,12 @@
                                       "rule": "^\\d{10,}$"
                                     }
                                   ]
-                                }
+                                },
+                                "autovalidateMode": "always",
+                                "supportTextDirection": "rtl"
                               },
                               {
-                                "height": 16.0,
+                                "height": 16,
                                 "type": "sizedBox"
                               },
                               {
@@ -783,14 +803,14 @@
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
-                                  "fontSize": 14.0,
+                                  "fontSize": 14,
                                   "fontWeight": "w600"
                                 },
                                 "textDirection": "rtl",
                                 "type": "text"
                               },
                               {
-                                "height": 8.0,
+                                "height": 8,
                                 "type": "sizedBox"
                               },
                               {
@@ -801,10 +821,10 @@
                                 "decoration": {
                                   "hintText": "{{appStrings.promissory.enterContactNumber}}",
                                   "contentPadding": {
-                                    "left": 16.0,
-                                    "top": 16.0,
-                                    "right": 16.0,
-                                    "bottom": 16.0
+                                    "left": 16,
+                                    "top": 16,
+                                    "right": 16,
+                                    "bottom": 16
                                   },
                                   "filled": false
                                 },
@@ -819,8 +839,11 @@
                                 ],
                                 "validatorRules": [
                                   {
-                                    "rule": "^\\d{10,}$",
-                                    "message": "{{appStrings.promissory.mobileNumberError}}"
+                                    "rule": "matches",
+                                    "message": "{{appStrings.promissory.mobileNumberError}}",
+                                    "options": {
+                                      "pattern": "^\\d{10,}$"
+                                    }
                                   }
                                 ],
                                 "onChanged": {
@@ -836,10 +859,12 @@
                                       "rule": "^\\d{10,}$"
                                     }
                                   ]
-                                }
+                                },
+                                "autovalidateMode": "always",
+                                "supportTextDirection": "rtl"
                               },
                               {
-                                "height": 40.0,
+                                "height": 40,
                                 "type": "sizedBox"
                               }
                             ],
@@ -853,7 +878,7 @@
                             "crossAxisAlignment": "stretch",
                             "children": [
                               {
-                                "height": 16.0,
+                                "height": 16,
                                 "type": "sizedBox"
                               },
                               {
@@ -861,14 +886,14 @@
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
-                                  "fontSize": 14.0,
+                                  "fontSize": 14,
                                   "fontWeight": "w600"
                                 },
                                 "textDirection": "rtl",
                                 "type": "text"
                               },
                               {
-                                "height": 8.0,
+                                "height": 8,
                                 "type": "sizedBox"
                               },
                               {
@@ -879,25 +904,25 @@
                                     "color": "{{appColors.current.input.borderEnabled}}"
                                   },
                                   "borderRadius": {
-                                    "topLeft": 12.0,
-                                    "topRight": 12.0,
-                                    "bottomLeft": 12.0,
-                                    "bottomRight": 12.0
+                                    "topLeft": 12,
+                                    "topRight": 12,
+                                    "bottomLeft": 12,
+                                    "bottomRight": 12
                                   }
                                 },
                                 "child": {
                                   "padding": {
-                                    "left": 16.0,
-                                    "top": 16.0,
-                                    "right": 16.0,
-                                    "bottom": 16.0
+                                    "left": 16,
+                                    "top": 16,
+                                    "right": 16,
+                                    "bottom": 16
                                   },
                                   "child": {
                                     "data": "10320435268",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
-                                      "fontSize": 16.0,
+                                      "fontSize": 16,
                                       "fontWeight": "w600"
                                     },
                                     "textAlign": "right",
@@ -907,7 +932,7 @@
                                 }
                               },
                               {
-                                "height": 16.0,
+                                "height": 16,
                                 "type": "sizedBox"
                               },
                               {
@@ -915,14 +940,14 @@
                                 "style": {
                                   "type": "custom",
                                   "color": "{{appColors.current.text.title}}",
-                                  "fontSize": 14.0,
+                                  "fontSize": 14,
                                   "fontWeight": "w600"
                                 },
                                 "textDirection": "rtl",
                                 "type": "text"
                               },
                               {
-                                "height": 8.0,
+                                "height": 8,
                                 "type": "sizedBox"
                               },
                               {
@@ -933,25 +958,25 @@
                                     "color": "{{appColors.current.input.borderEnabled}}"
                                   },
                                   "borderRadius": {
-                                    "topLeft": 12.0,
-                                    "topRight": 12.0,
-                                    "bottomLeft": 12.0,
-                                    "bottomRight": 12.0
+                                    "topLeft": 12,
+                                    "topRight": 12,
+                                    "bottomLeft": 12,
+                                    "bottomRight": 12
                                   }
                                 },
                                 "child": {
                                   "padding": {
-                                    "left": 16.0,
-                                    "top": 16.0,
-                                    "right": 16.0,
-                                    "bottom": 16.0
+                                    "left": 16,
+                                    "top": 16,
+                                    "right": 16,
+                                    "bottom": 16
                                   },
                                   "child": {
                                     "data": "02123952395",
                                     "style": {
                                       "type": "custom",
                                       "color": "{{appColors.current.text.title}}",
-                                      "fontSize": 16.0,
+                                      "fontSize": 16,
                                       "fontWeight": "w600"
                                     },
                                     "textAlign": "right",
@@ -962,7 +987,7 @@
                                 }
                               },
                               {
-                                "height": 40.0,
+                                "height": 40,
                                 "type": "sizedBox"
                               }
                             ],
@@ -985,10 +1010,10 @@
             "visible": "[[isIndividualSelected]]",
             "child": {
               "padding": {
-                "left": 16.0,
-                "top": 16.0,
-                "right": 16.0,
-                "bottom": 16.0
+                "left": 16,
+                "top": 16,
+                "right": 16,
+                "bottom": 16
               },
               "child": {
                 "type": "reactiveElevatedButton",
@@ -1508,18 +1533,18 @@
                 },
                 "style": {
                   "backgroundColor": "{{appColors.current.primary.color}}",
-                  "elevation": 0.0,
+                  "elevation": 0,
                   "fixedSize": {
-                    "width": 999999.0,
-                    "height": 56.0
+                    "width": 999999,
+                    "height": 56
                   },
                   "shape": {
                     "type": "roundedRectangleBorder",
                     "borderRadius": {
-                      "topLeft": 12.0,
-                      "topRight": 12.0,
-                      "bottomLeft": 12.0,
-                      "bottomRight": 12.0
+                      "topLeft": 12,
+                      "topRight": 12,
+                      "bottomLeft": 12,
+                      "bottomRight": 12
                     }
                   }
                 },
@@ -1528,7 +1553,7 @@
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.primary.onPrimary}}",
-                    "fontSize": 18.0,
+                    "fontSize": 18,
                     "fontWeight": "bold"
                   },
                   "textDirection": "rtl",
@@ -1543,10 +1568,10 @@
             "visible": "[[isLegalSelected]]",
             "child": {
               "padding": {
-                "left": 16.0,
-                "top": 16.0,
-                "right": 16.0,
-                "bottom": 16.0
+                "left": 16,
+                "top": 16,
+                "right": 16,
+                "bottom": 16
               },
               "child": {
                 "type": "reactiveElevatedButton",
@@ -2059,18 +2084,18 @@
                 },
                 "style": {
                   "backgroundColor": "{{appColors.current.primary.color}}",
-                  "elevation": 0.0,
+                  "elevation": 0,
                   "fixedSize": {
-                    "width": 999999.0,
-                    "height": 56.0
+                    "width": 999999,
+                    "height": 56
                   },
                   "shape": {
                     "type": "roundedRectangleBorder",
                     "borderRadius": {
-                      "topLeft": 12.0,
-                      "topRight": 12.0,
-                      "bottomLeft": 12.0,
-                      "bottomRight": 12.0
+                      "topLeft": 12,
+                      "topRight": 12,
+                      "bottomLeft": 12,
+                      "bottomRight": 12
                     }
                   }
                 },
@@ -2079,7 +2104,7 @@
                   "style": {
                     "type": "custom",
                     "color": "{{appColors.current.primary.onPrimary}}",
-                    "fontSize": 18.0,
+                    "fontSize": 18,
                     "fontWeight": "bold"
                   },
                   "textDirection": "rtl",

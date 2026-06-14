@@ -188,6 +188,8 @@
             "id": "primary_pin_current",
             "textDirection": "rtl",
             "textAlign": "right",
+            "supportTextDirection": "rtl",
+            "autovalidateMode": "always",
             "keyboardType": "number",
             "validatorRules": [
               {
@@ -281,6 +283,8 @@
             "id": "primary_pin_new",
             "textDirection": "rtl",
             "textAlign": "right",
+            "supportTextDirection": "rtl",
+            "autovalidateMode": "always",
             "keyboardType": "number",
             "validatorRules": [
               {
@@ -374,6 +378,8 @@
             "id": "primary_pin_confirm",
             "textDirection": "rtl",
             "textAlign": "right",
+            "supportTextDirection": "rtl",
+            "autovalidateMode": "always",
             "keyboardType": "number",
             "validatorRules": [
               {

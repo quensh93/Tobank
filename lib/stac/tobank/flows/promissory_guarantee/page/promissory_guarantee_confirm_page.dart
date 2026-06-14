@@ -20,7 +20,7 @@ StacWidget promissoryGuaranteeConfirmPage() {
         showSupport: true,
       ),
       body: StacForm(
-        autovalidateMode: StacAutovalidateMode.onUserInteraction,
+        autovalidateMode: StacAutovalidateMode.always,
         child: StacSingleChildScrollView(
           child: StacPadding(
             padding: StacEdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -184,6 +184,8 @@ StacWidget _buildMultilineField({
         id: id,
         textDirection: 'rtl',
         textAlign: 'right',
+        supportTextDirection: 'rtl',
+        autovalidateMode: 'always',
         maxLength: 200,
         minLines: 4,
         maxLines: 6,
@@ -265,7 +267,11 @@ StacWidget _buildMultilineField({
         keyboardType: 'multiline',
         textInputAction: 'next',
         validatorRules: const [
-          {'rule': r'^.{1,200}$', 'message': 'این فیلد الزامی است'},
+          {
+            'rule': 'matches',
+            'options': {'pattern': r'^.{1,200}$'},
+            'message': 'این فیلد الزامی است',
+          },
         ],
         onChanged: StacSequenceAction(
           actions: [

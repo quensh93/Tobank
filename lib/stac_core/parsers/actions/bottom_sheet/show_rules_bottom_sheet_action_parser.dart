@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
-import 'package:tobank_sdui/stac/tobank/flows/verify_identity/dart/verify_identity_rules.dart'
-    as verify_identity_rules_dart;
+import 'package:tobank_sdui/stac/tobank/flows/authentication/dart/authentication_rules.dart'
+    as authentication_rules_dart;
 
 import '../../../registry/custom_component_registry.dart';
 import '../../../../core/helpers/logger.dart';
@@ -57,7 +57,7 @@ class ShowRulesBottomSheetActionParser
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final title = model.title ??
-        verify_identity_rules_dart.verifyIdentityRealRulesSheetTitle;
+        authentication_rules_dart.authenticationRealRulesSheetTitle;
     const actionColor = Color(0xFFD61F2C);
 
     await showModalBottomSheet<void>(
@@ -160,11 +160,11 @@ class ShowRulesBottomSheetActionParser
     );
   }
 
-  List<verify_identity_rules_dart.VerifyIdentityRealRuleSectionData>
+  List<authentication_rules_dart.AuthenticationRealRuleSectionData>
       _resolveSections(String routeName) {
     switch (routeName) {
-      case 'verify_identity_rules':
-        return verify_identity_rules_dart.verifyIdentityRealRulesSections;
+      case 'authentication_rules':
+        return authentication_rules_dart.authenticationRealRulesSections;
       default:
         return const [];
     }

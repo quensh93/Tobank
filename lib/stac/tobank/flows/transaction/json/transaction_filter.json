@@ -1,5 +1,18 @@
 {
   "type": "stateFull",
+  "onInit": {
+    "actionType": "setValue",
+    "values": [
+      {
+        "key": "trFilterFromDate",
+        "value": "از تاریخ"
+      },
+      {
+        "key": "trFilterToDate",
+        "value": "تا تاریخ"
+      }
+    ]
+  },
   "child": {
     "appBar": {
       "leading": {
@@ -403,9 +416,9 @@
                         {
                           "child": {
                             "type": "registryReactive",
-                            "registryKey": "form.trFilterFromDate",
+                            "registryKey": "trFilterFromDate",
                             "child": {
-                              "data": "از تاریخ",
+                              "data": "{{trFilterFromDate}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -425,11 +438,14 @@
                     "type": "container"
                   },
                   "onTap": {
-                    "actionType": "persianDatePicker",
-                    "formFieldId": "trFilterFromDate",
+                    "actionType": "persianDateRangePicker",
+                    "startDateKey": "trFilterFromDate",
+                    "endDateKey": "trFilterToDate",
+                    "helpText": "انتخاب بازه زمانی",
+                    "confirmText": "تایید",
+                    "cancelText": "انصراف",
                     "firstDate": "1400/01/01",
-                    "lastDate": "1450/12/29",
-                    "includeTime": true
+                    "lastDate": "1450/12/29"
                   },
                   "type": "gestureDetector"
                 },
@@ -478,9 +494,9 @@
                         {
                           "child": {
                             "type": "registryReactive",
-                            "registryKey": "form.trFilterToDate",
+                            "registryKey": "trFilterToDate",
                             "child": {
-                              "data": "تا تاریخ",
+                              "data": "{{trFilterToDate}}",
                               "style": {
                                 "type": "custom",
                                 "color": "{{appColors.current.text.title}}",
@@ -500,11 +516,14 @@
                     "type": "container"
                   },
                   "onTap": {
-                    "actionType": "persianDatePicker",
-                    "formFieldId": "trFilterToDate",
+                    "actionType": "persianDateRangePicker",
+                    "startDateKey": "trFilterFromDate",
+                    "endDateKey": "trFilterToDate",
+                    "helpText": "انتخاب بازه زمانی",
+                    "confirmText": "تایید",
+                    "cancelText": "انصراف",
                     "firstDate": "1400/01/01",
-                    "lastDate": "1450/12/29",
-                    "includeTime": true
+                    "lastDate": "1450/12/29"
                   },
                   "type": "gestureDetector"
                 },

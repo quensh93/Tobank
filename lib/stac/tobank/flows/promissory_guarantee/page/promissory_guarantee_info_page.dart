@@ -18,7 +18,7 @@ StacWidget promissoryGuaranteeInfoPage() {
         showSupport: true,
       ),
       body: StacForm(
-        autovalidateMode: StacAutovalidateMode.onUserInteraction,
+        autovalidateMode: StacAutovalidateMode.always,
         child: StacColumn(
           crossAxisAlignment: StacCrossAxisAlignment.stretch,
           textDirection: StacTextDirection.rtl,
@@ -122,6 +122,8 @@ StacWidget _buildField({
         id: id,
         textDirection: 'rtl',
         textAlign: 'right',
+        supportTextDirection: 'rtl',
+        autovalidateMode: 'always',
         maxLength: maxLength,
         inputFormatters: const [
           {'type': 'allow', 'rule': '[0-9]'},
@@ -150,7 +152,11 @@ StacWidget _buildField({
         keyboardType: 'number',
         textInputAction: 'next',
         validatorRules: [
-          {'rule': rule, 'message': message},
+          {
+            'rule': 'matches',
+            'options': {'pattern': rule},
+            'message': message,
+          },
         ],
         onChanged: _validationAction(),
       ),

@@ -185,7 +185,7 @@ Description: Auto-scrolling image PageView with animated dot indicators, used on
 - `receiptRepaintBoundary` — `lib/core/stac/parsers/widgets/receipt_repaint_boundary_parser.dart`
 - `exampleCard` — `lib/core/stac/parsers/widgets/example_card_parser.dart`
 - `promissoryRealLoader` — `lib/core/stac/parsers/widgets/promissory_real_loader_parser.dart`
-- `verifyIdentityRealLoader` — `lib/core/stac/parsers/widgets/verify_identity_real_loader_parser.dart`
+- `verifyIdentityRealLoader` — `lib/core/stac/parsers/widgets/authentication_real_loader_parser.dart`
 - `tobankCardsCarousel` — `lib/core/stac/parsers/widgets/tobank_cards_carousel_parser.dart`
 - `tobankCardManagementSlider` — `lib/core/stac/parsers/widgets/tobank_card_management_slider_parser.dart`
 - `tobankCardsStackScroller` — `lib/core/stac/parsers/widgets/tobank_cards_stack_scroller_parser.dart`

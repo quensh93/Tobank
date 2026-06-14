@@ -1,0 +1,810 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "setValue",
+    "values": [
+      {
+        "key": "isAuthenticationCertificateInfoValid",
+        "value": false
+      },
+      {
+        "key": "hasAuthenticationEnglishFirstNameInput",
+        "value": false
+      },
+      {
+        "key": "hasAuthenticationEnglishLastNameInput",
+        "value": false
+      },
+      {
+        "key": "hasAuthenticationEmailInput",
+        "value": false
+      },
+      {
+        "key": "hasAuthenticationHomePhoneInput",
+        "value": false
+      }
+    ]
+  },
+  "child": {
+    "appBar": {
+      "leading": {
+        "padding": {
+          "left": 12.0
+        },
+        "child": {
+          "child": {
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24.0,
+            "height": 24.0,
+            "type": "image"
+          },
+          "type": "center"
+        },
+        "type": "padding"
+      },
+      "automaticallyImplyLeading": true,
+      "title": {
+        "data": "{{appStrings.menu.items.authentication}}",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "actions": [
+        {
+          "padding": {
+            "right": 12.0
+          },
+          "child": {
+            "onPressed": {
+              "navigationStyle": "pop",
+              "actionType": "navigate"
+            },
+            "icon": {
+              "src": "{{appAssets.icons.arrowBack}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 31.0,
+              "height": 31.0,
+              "type": "image"
+            },
+            "type": "iconButton"
+          },
+          "type": "padding"
+        }
+      ],
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "backgroundColor": "{{appColors.current.background.surface}}",
+    "body": {
+      "top": false,
+      "bottom": true,
+      "child": {
+        "autovalidateMode": "always",
+        "child": {
+          "crossAxisAlignment": "stretch",
+          "children": [
+            {
+              "child": {
+                "padding": {
+                  "left": 16.0,
+                  "top": 16.0,
+                  "right": 16.0,
+                  "bottom": 16.0
+                },
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "children": [
+                    {
+                      "height": 8.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "data": "لطفا اطلاعات تکمیلی مورد نیاز را وارد کنید",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.subtitle}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w600",
+                        "height": 1.8
+                      },
+                      "textAlign": "right",
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    {
+                      "height": 28.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "data": "نام به انگلیسی",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w700"
+                      },
+                      "textAlign": "right",
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    {
+                      "height": 8.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "type": "textFormField",
+                      "id": "authentication_english_first_name",
+                      "textDirection": "ltr",
+                      "textAlign": "right",
+                      "supportTextDirection": "rtl",
+                      "autovalidateMode": "always",
+                      "decoration": {
+                        "hintText": "نام خود را به انگلیسی وارد کنید",
+                        "hintStyle": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.hint}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w500"
+                        },
+                        "helperText": " ",
+                        "helperStyle": {
+                          "type": "custom",
+                          "height": 0.5
+                        },
+                        "suffixIcon": {
+                          "type": "visibility",
+                          "visible": "[[hasAuthenticationEnglishFirstNameInput]]",
+                          "child": {
+                            "child": {
+                              "padding": {
+                                "left": 12.0,
+                                "top": 12.0,
+                                "right": 12.0,
+                                "bottom": 12.0
+                              },
+                              "child": {
+                                "icon": "close",
+                                "iconType": "material",
+                                "size": 20.0,
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "type": "icon"
+                              },
+                              "type": "padding"
+                            },
+                            "onTap": {
+                              "actionType": "sequence",
+                              "actions": [
+                                {
+                                  "actionType": "setValue",
+                                  "values": [
+                                    {
+                                      "key": "authentication_english_first_name",
+                                      "value": ""
+                                    },
+                                    {
+                                      "key": "hasAuthenticationEnglishFirstNameInput",
+                                      "value": false
+                                    },
+                                    {
+                                      "key": "isAuthenticationCertificateInfoValid",
+                                      "value": false
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            "type": "gestureDetector"
+                          }
+                        },
+                        "contentPadding": {
+                          "left": 16.0,
+                          "top": 18.0,
+                          "right": 16.0,
+                          "bottom": 18.0
+                        },
+                        "filled": false
+                      },
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w600"
+                      },
+                      "keyboardType": "text",
+                      "textInputAction": "next",
+                      "validatorRules": [
+                        {
+                          "rule": "matches",
+                          "options": {
+                            "pattern": "^[A-Za-z ]{2,}$"
+                          },
+                          "message": "لطفا نام را به انگلیسی و به‌صورت صحیح وارد کنید"
+                        }
+                      ],
+                      "onChanged": {
+                        "actionType": "sequence",
+                        "actions": [
+                          {
+                            "actionType": "validateFields",
+                            "resultKey": "hasAuthenticationEnglishFirstNameInput",
+                            "fields": [
+                              {
+                                "id": "authentication_english_first_name"
+                              }
+                            ]
+                          },
+                          {
+                            "actionType": "validateFields",
+                            "resultKey": "isAuthenticationCertificateInfoValid",
+                            "fields": [
+                              {
+                                "id": "authentication_english_first_name",
+                                "rule": "^[A-Za-z ]{2,}$"
+                              },
+                              {
+                                "id": "authentication_english_last_name",
+                                "rule": "^[A-Za-z ]{2,}$"
+                              },
+                              {
+                                "id": "authentication_email",
+                                "rule": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+                              },
+                              {
+                                "id": "authentication_home_phone",
+                                "rule": "^0\\d{10}$"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "maxLength": 40,
+                      "inputFormatters": [
+                        {
+                          "type": "allow",
+                          "rule": "[A-Za-z ]"
+                        }
+                      ]
+                    },
+                    {
+                      "height": 18.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "data": "نام خانوادگی به انگلیسی",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w700"
+                      },
+                      "textAlign": "right",
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    {
+                      "height": 8.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "type": "textFormField",
+                      "id": "authentication_english_last_name",
+                      "textDirection": "ltr",
+                      "textAlign": "right",
+                      "supportTextDirection": "rtl",
+                      "autovalidateMode": "always",
+                      "decoration": {
+                        "hintText": "نام خانوادگی خود را به انگلیسی وارد کنید",
+                        "hintStyle": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.hint}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w500"
+                        },
+                        "helperText": " ",
+                        "helperStyle": {
+                          "type": "custom",
+                          "height": 0.5
+                        },
+                        "suffixIcon": {
+                          "type": "visibility",
+                          "visible": "[[hasAuthenticationEnglishLastNameInput]]",
+                          "child": {
+                            "child": {
+                              "padding": {
+                                "left": 12.0,
+                                "top": 12.0,
+                                "right": 12.0,
+                                "bottom": 12.0
+                              },
+                              "child": {
+                                "icon": "close",
+                                "iconType": "material",
+                                "size": 20.0,
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "type": "icon"
+                              },
+                              "type": "padding"
+                            },
+                            "onTap": {
+                              "actionType": "sequence",
+                              "actions": [
+                                {
+                                  "actionType": "setValue",
+                                  "values": [
+                                    {
+                                      "key": "authentication_english_last_name",
+                                      "value": ""
+                                    },
+                                    {
+                                      "key": "hasAuthenticationEnglishLastNameInput",
+                                      "value": false
+                                    },
+                                    {
+                                      "key": "isAuthenticationCertificateInfoValid",
+                                      "value": false
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            "type": "gestureDetector"
+                          }
+                        },
+                        "contentPadding": {
+                          "left": 16.0,
+                          "top": 18.0,
+                          "right": 16.0,
+                          "bottom": 18.0
+                        },
+                        "filled": false
+                      },
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w600"
+                      },
+                      "keyboardType": "text",
+                      "textInputAction": "next",
+                      "validatorRules": [
+                        {
+                          "rule": "matches",
+                          "options": {
+                            "pattern": "^[A-Za-z ]{2,}$"
+                          },
+                          "message": "لطفا نام خانوادگی را به انگلیسی و به‌صورت صحیح وارد کنید"
+                        }
+                      ],
+                      "onChanged": {
+                        "actionType": "sequence",
+                        "actions": [
+                          {
+                            "actionType": "validateFields",
+                            "resultKey": "hasAuthenticationEnglishLastNameInput",
+                            "fields": [
+                              {
+                                "id": "authentication_english_last_name"
+                              }
+                            ]
+                          },
+                          {
+                            "actionType": "validateFields",
+                            "resultKey": "isAuthenticationCertificateInfoValid",
+                            "fields": [
+                              {
+                                "id": "authentication_english_first_name",
+                                "rule": "^[A-Za-z ]{2,}$"
+                              },
+                              {
+                                "id": "authentication_english_last_name",
+                                "rule": "^[A-Za-z ]{2,}$"
+                              },
+                              {
+                                "id": "authentication_email",
+                                "rule": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+                              },
+                              {
+                                "id": "authentication_home_phone",
+                                "rule": "^0\\d{10}$"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "maxLength": 60,
+                      "inputFormatters": [
+                        {
+                          "type": "allow",
+                          "rule": "[A-Za-z ]"
+                        }
+                      ]
+                    },
+                    {
+                      "height": 18.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "data": "ایمیل",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w700"
+                      },
+                      "textAlign": "right",
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    {
+                      "height": 8.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "type": "textFormField",
+                      "id": "authentication_email",
+                      "textDirection": "ltr",
+                      "textAlign": "right",
+                      "supportTextDirection": "rtl",
+                      "autovalidateMode": "always",
+                      "decoration": {
+                        "hintText": "ایمیل خود را وارد کنید",
+                        "hintStyle": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.hint}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w500"
+                        },
+                        "helperText": " ",
+                        "helperStyle": {
+                          "type": "custom",
+                          "height": 0.5
+                        },
+                        "suffixIcon": {
+                          "type": "visibility",
+                          "visible": "[[hasAuthenticationEmailInput]]",
+                          "child": {
+                            "child": {
+                              "padding": {
+                                "left": 12.0,
+                                "top": 12.0,
+                                "right": 12.0,
+                                "bottom": 12.0
+                              },
+                              "child": {
+                                "icon": "close",
+                                "iconType": "material",
+                                "size": 20.0,
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "type": "icon"
+                              },
+                              "type": "padding"
+                            },
+                            "onTap": {
+                              "actionType": "sequence",
+                              "actions": [
+                                {
+                                  "actionType": "setValue",
+                                  "values": [
+                                    {
+                                      "key": "authentication_email",
+                                      "value": ""
+                                    },
+                                    {
+                                      "key": "hasAuthenticationEmailInput",
+                                      "value": false
+                                    },
+                                    {
+                                      "key": "isAuthenticationCertificateInfoValid",
+                                      "value": false
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            "type": "gestureDetector"
+                          }
+                        },
+                        "contentPadding": {
+                          "left": 16.0,
+                          "top": 18.0,
+                          "right": 16.0,
+                          "bottom": 18.0
+                        },
+                        "filled": false
+                      },
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w600"
+                      },
+                      "keyboardType": "emailAddress",
+                      "textInputAction": "next",
+                      "validatorRules": [
+                        {
+                          "rule": "matches",
+                          "options": {
+                            "pattern": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+                          },
+                          "message": "لطفا ایمیل معتبر وارد کنید"
+                        }
+                      ],
+                      "onChanged": {
+                        "actionType": "sequence",
+                        "actions": [
+                          {
+                            "actionType": "validateFields",
+                            "resultKey": "hasAuthenticationEmailInput",
+                            "fields": [
+                              {
+                                "id": "authentication_email"
+                              }
+                            ]
+                          },
+                          {
+                            "actionType": "validateFields",
+                            "resultKey": "isAuthenticationCertificateInfoValid",
+                            "fields": [
+                              {
+                                "id": "authentication_english_first_name",
+                                "rule": "^[A-Za-z ]{2,}$"
+                              },
+                              {
+                                "id": "authentication_english_last_name",
+                                "rule": "^[A-Za-z ]{2,}$"
+                              },
+                              {
+                                "id": "authentication_email",
+                                "rule": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+                              },
+                              {
+                                "id": "authentication_home_phone",
+                                "rule": "^0\\d{10}$"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "maxLength": 80
+                    },
+                    {
+                      "height": 18.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "data": "شماره تلفن منزل",
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w700"
+                      },
+                      "textAlign": "right",
+                      "textDirection": "rtl",
+                      "type": "text"
+                    },
+                    {
+                      "height": 8.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "type": "textFormField",
+                      "id": "authentication_home_phone",
+                      "textDirection": "ltr",
+                      "textAlign": "right",
+                      "supportTextDirection": "rtl",
+                      "autovalidateMode": "always",
+                      "decoration": {
+                        "hintText": "شماره تلفن منزل را با پیش شماره استان وارد کنید",
+                        "hintStyle": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.hint}}",
+                          "fontSize": 14.0,
+                          "fontWeight": "w500"
+                        },
+                        "helperText": " ",
+                        "helperStyle": {
+                          "type": "custom",
+                          "height": 0.5
+                        },
+                        "suffixIcon": {
+                          "type": "visibility",
+                          "visible": "[[hasAuthenticationHomePhoneInput]]",
+                          "child": {
+                            "child": {
+                              "padding": {
+                                "left": 12.0,
+                                "top": 12.0,
+                                "right": 12.0,
+                                "bottom": 12.0
+                              },
+                              "child": {
+                                "icon": "close",
+                                "iconType": "material",
+                                "size": 20.0,
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "type": "icon"
+                              },
+                              "type": "padding"
+                            },
+                            "onTap": {
+                              "actionType": "sequence",
+                              "actions": [
+                                {
+                                  "actionType": "setValue",
+                                  "values": [
+                                    {
+                                      "key": "authentication_home_phone",
+                                      "value": ""
+                                    },
+                                    {
+                                      "key": "hasAuthenticationHomePhoneInput",
+                                      "value": false
+                                    },
+                                    {
+                                      "key": "isAuthenticationCertificateInfoValid",
+                                      "value": false
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            "type": "gestureDetector"
+                          }
+                        },
+                        "contentPadding": {
+                          "left": 16.0,
+                          "top": 18.0,
+                          "right": 16.0,
+                          "bottom": 18.0
+                        },
+                        "filled": false
+                      },
+                      "style": {
+                        "type": "custom",
+                        "color": "{{appColors.current.text.title}}",
+                        "fontSize": 16.0,
+                        "fontWeight": "w600"
+                      },
+                      "keyboardType": "phone",
+                      "textInputAction": "done",
+                      "validatorRules": [
+                        {
+                          "rule": "matches",
+                          "options": {
+                            "pattern": "^0\\d{10}$"
+                          },
+                          "message": "لطفا شماره تلفن منزل را با پیش‌شماره صحیح وارد کنید"
+                        }
+                      ],
+                      "onChanged": {
+                        "actionType": "sequence",
+                        "actions": [
+                          {
+                            "actionType": "validateFields",
+                            "resultKey": "hasAuthenticationHomePhoneInput",
+                            "fields": [
+                              {
+                                "id": "authentication_home_phone"
+                              }
+                            ]
+                          },
+                          {
+                            "actionType": "validateFields",
+                            "resultKey": "isAuthenticationCertificateInfoValid",
+                            "fields": [
+                              {
+                                "id": "authentication_english_first_name",
+                                "rule": "^[A-Za-z ]{2,}$"
+                              },
+                              {
+                                "id": "authentication_english_last_name",
+                                "rule": "^[A-Za-z ]{2,}$"
+                              },
+                              {
+                                "id": "authentication_email",
+                                "rule": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+                              },
+                              {
+                                "id": "authentication_home_phone",
+                                "rule": "^0\\d{10}$"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "maxLength": 11,
+                      "inputFormatters": [
+                        {
+                          "type": "allow",
+                          "rule": "[0-9]"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "singleChildScrollView"
+              },
+              "type": "expanded"
+            },
+            {
+              "padding": {
+                "left": 16.0,
+                "right": 16.0,
+                "bottom": 24.0
+              },
+              "child": {
+                "type": "reactiveElevatedButton",
+                "enabledKey": "isAuthenticationCertificateInfoValid",
+                "enabled": false,
+                "onPressed": {
+                  "fileName": "authentication_final",
+                  "navMode": "dart",
+                  "navigationStyle": "push",
+                  "actionType": "navigate"
+                },
+                "style": {
+                  "backgroundColor": "{{appColors.current.primary.color}}",
+                  "elevation": 0.0,
+                  "fixedSize": {
+                    "width": 999999.0,
+                    "height": 56.0
+                  },
+                  "shape": {
+                    "type": "roundedRectangleBorder",
+                    "borderRadius": {
+                      "topLeft": 12.0,
+                      "topRight": 12.0,
+                      "bottomLeft": 12.0,
+                      "bottomRight": 12.0
+                    }
+                  }
+                },
+                "disabledStyle": {
+                  "backgroundColor": "{{appColors.current.background.surfaceContainerHigh}}",
+                  "elevation": 0.0,
+                  "fixedSize": {
+                    "width": 999999.0,
+                    "height": 56.0
+                  },
+                  "shape": {
+                    "type": "roundedRectangleBorder",
+                    "borderRadius": {
+                      "topLeft": 12.0,
+                      "topRight": 12.0,
+                      "bottomLeft": 12.0,
+                      "bottomRight": 12.0
+                    }
+                  }
+                },
+                "child": {
+                  "data": "تکمیل فرآیند",
+                  "style": {
+                    "type": "custom",
+                    "color": "{{appColors.current.primary.onPrimary}}",
+                    "fontSize": 18.0,
+                    "fontWeight": "w700"
+                  },
+                  "textDirection": "rtl",
+                  "type": "text"
+                }
+              },
+              "type": "padding"
+            }
+          ],
+          "type": "column"
+        },
+        "type": "form"
+      },
+      "type": "safeArea"
+    },
+    "type": "scaffold"
+  }
+}

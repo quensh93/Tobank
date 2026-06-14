@@ -102,6 +102,7 @@ flutter:
     - lib/stac/config/assets.json
 
 
+
     # Flows
 
     - lib/stac/tobank/flows/login/json/
@@ -112,19 +113,19 @@ flutter:
 
     - lib/stac/tobank/flows/promissory/json/
     - lib/stac/tobank/flows/promissory/api/
-    - lib/stac/tobank/flows/verify_identity/json/
+    - lib/stac/tobank/flows/authentication/json/
     - lib/stac/tobank/flows/transaction/json/
     - lib/stac/tobank/flows/notification/json/
     - lib/stac/tobank/flows/deposit_turnover/json/
-    - lib/stac/tobank/flows/deposit_more/json/
+    - lib/stac/tobank/flows/deposit_more_options/json/
     - lib/stac/tobank/flows/profile/json/
     - lib/stac/tobank/flows/dashboard/json/
     - lib/stac/tobank/flows/transfer/json/
     - lib/stac/tobank/flows/gift_card/json/
-    - lib/stac/tobank/flows/package/json/
+    - lib/stac/tobank/flows/internet_pakage/json/
     - lib/stac/tobank/flows/home_page/json/
     - lib/stac/tobank/flows/home_page/api/
-    - lib/stac/tobank/flows/user_validation/json/
+    - lib/stac/tobank/flows/user_credit_validation/json/
     - lib/stac/tobank/flows/installment_payment/json/
     - lib/stac/tobank/flows/installment_payment/json_upload/
 

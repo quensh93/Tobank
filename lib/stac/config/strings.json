@@ -45,7 +45,7 @@
         "noItemsFound": "آیتمی در منو یافت نشد",
         "items": {
             "login": "لاگین",
-            "verifyIdentity": "احراز هویت",
+            "authentication": "احراز هویت",
             "home": "هوم",
             "accountOverview": "اطلاعات حساب ها",
             "transfer": "انتقال وجه",
