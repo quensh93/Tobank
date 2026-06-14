@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:stac/stac.dart';
@@ -27,16 +28,16 @@ void main() async {
   // Override logging early to catch initialization logs
   AppLogger.overrideFlutterDebugPrint();
 
-  // Runtime STAC network uses a plain Dio client.
-  final stacDio = DioFactory.plain();
-
   // Startup design/config loading still uses the mock-aware Dio.
   final startupMockDio = setupStacMockDio();
 
   // Initialize STAC framework with a real Dio client.
+  // stacDio created BEFORE bootstrap so Stac.initialize can run first,
+  // but ISpect is added after bootstrap() where ISpect is guaranteed initialized.
   // Cache: networkFirst = always fetch fresh from network, fall back to cache
   // only when the network fails. maxAge null => no time-based expiry (cache
   // validity is version-driven, wired in a later phase).
+  final stacDio = Dio();
   await Stac.initialize(
     options: defaultStacOptions,
     dio: stacDio,
@@ -68,8 +69,11 @@ void main() async {
     VariableResolverDebug.testCommonVariables();
   }
 
-  // Use bootstrap for app initialization
+  // Use bootstrap for app initialization (initializes ISpect among other things)
   await bootstrap();
+
+  // Add ISpect interceptor to stacDio AFTER bootstrap so ISpect is initialized
+  DioFactory.addISpect(stacDio);
 
   await StorageUtil.setUserCertificate(
     "MIIFUDCCBDigAwIBAgIKFdo4if1Yg9CT1jANBgkqhkiG9w0BAQsFADCBnTELMAkGA1UEBhMCSVIxDzANBgNVBAgTBlRlaHJhbjEZMBcGA1UEChMQTm9uLUdvdmVybm1lbnRhbDEWMBQGA1UECxMNUmFhaGJhciBUcnVzdDEQMA4GA1UECxMHUmFhaGJhcjE4MDYGA1UEAxMvUmFhaGJhciBUcnVzdCBQcml2YXRlIEludGVybWVkaWF0ZSBCcm9uemUgQ0EtRzMwHhcNMjYwMjE0MDgxMjU1WhcNMjcwMjE0MDgxMjU1WjCB4jELMAkGA1UEBhMCSVIxEzARBgNVBAgMCtiq2YfYsdin2YYxEzARBgNVBAcMCtiq2YfYsdin2YYxFTATBgNVBAoMDFVuYWZmaWxpYXRlZDEZMBcGA1UEBAwQ2KzZhdi024zYr9m+2YjYsTERMA8GA1UEKgwI2YXZh9iv24wxEzARBgNVBAUTCjA0NDA2MzY3MTExKjAoBgNVBAMMIW1hYWhkaSBqYWFtc2hpZHBvZHIgW01vYmlsZSBTaWduXTEjMCEGCSqGSIb3DQEJARYUMDQ0MDYzNjcxMUBUZW5pYW4uaXIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDHEA8enmpo0wuXSmhLyWWX7z4mPqTsmCneX7kTasnOLAwo2s8vrio50hkL7D/EHi3M4hTLckk6JBUGPICyYOx4OAvLGIoyv9raoTPDxbXzoPD9TQIWDwzIP6i5KFViEeAMcSaslrofxzdrjbAALnx4R+7HmYw3yW4GYtRYSq5gcsnHdAzNBw/AqmCu8vqOIDqdEA0ThMztAuCc5CKELWxI65g1FXAGWJg3jJ0HnQEv9Dc6vHrT7ZFFTBnqX9akS8MWYYRWZbffAIxqH8T+S/bsO1FzNB5gYMI5rqzODzu8vPFy0WjHrVxtdVxfBnWYDtk61BuHo83+8cwEK+1LPo6dAgMBAAGjggFJMIIBRTAfBgNVHSMEGDAWgBSGYsbbYF7OhlHeC67agiParpQ+4DA7BggrBgEFBQcBAQQvMC0wKwYIKwYBBQUHMAGGH2h0dHA6Ly92YTEucmFhaGJhcnRydXN0LmlyL29jc3AwYwYDVR0gBFwwWjBYBgdggmxlAQEBME0wSwYIKwYBBQUHAgEWP2h0dHA6Ly9jYS5yYWFoYmFydHJ1c3QuaXIvZGwvUmVwb3NpdG9yeS9SSUNBQ1BTUmFhaGJhclRydXN0LnBkZjATBgNVHSUEDDAKBggrBgEFBQcDAjA8BgNVHR8ENTAzMDGgL6AthitodHRwOi8vdmExLnJhYWhiYXJ0cnVzdC5pci9Ccm9uemUtTDEtRzMuY3JsMB0GA1UdDgQWBBR5GUKX5ZkImMFZ/AfILCrWFqGhpTAOBgNVHQ8BAf8EBAMCBsAwDQYJKoZIhvcNAQELBQADggEBAFlHlaVhSQZCOc4V/Iq6KgS4bbnYZKWWYjVRy+8cd50mBZWQ6OHjloVTpmlxBgx8JVEQ49GzkiL82nfoTIGqm0okM8ij1O6cV7kIa4HolruWxPNO8n/LMmJ5XjbV8V+DBcViRlE0Km+AfJQLkGYLJi+LoZQ6ZcmASEkQe6Dsh7iL72VNZgliZntg42JiooADI3/mUhRHpmrEgMTCtNP69tgRNDYY+JA9yiR9yORvLIZkb857Fa8a3x5Y8+9my4gjEbRZL83DQElVLjkXDs43CTx6TSmzliDQaT5x6kpqhXe//IwG5P36kxkUwRxxCaYzHrIdUyG3kn7gylnNo/eh1p4=",

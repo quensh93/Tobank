@@ -16,7 +16,8 @@ class DioFactory {
     final dio = Dio();
     dio.options.connectTimeout = timeout;
     dio.options.receiveTimeout = timeout;
-    dio.options.sendTimeout = timeout;
+    // sendTimeout intentionally omitted: Dio web adapter does not support
+    // sendTimeout on requests without a body (GET/HEAD), causing warnings on Web.
     _addISpect(dio);
     return dio;
   }
@@ -29,6 +30,11 @@ class DioFactory {
     dio.interceptors.add(AuthInterceptor());
     return dio;
   }
+
+  /// Adds ISpect interceptor to an existing Dio instance.
+  /// Call after ISpect is initialized (post-bootstrap) for Dio instances
+  /// created before bootstrap completes.
+  static void addISpect(Dio dio) => _addISpect(dio);
 
   static void _addISpect(Dio dio) {
     if (ISpectConfig.shouldInitialize) {
