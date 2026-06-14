@@ -54,15 +54,16 @@ class CurlLogger {
 
   /// Build and log a cURL command.
   ///
-  /// Preserves Android 4 KB chunking behavior:
-  /// - Raw print chunks (900 chars) with START/END markers.
-  /// - AppLogger chunks (800 chars) numbered Part N/Total.
+  /// [rawPrint] — also emit raw print chunks (900 chars) with START/END markers
+  /// to bypass Android 4 KB logcat limit. Default false (AppLogger only).
+  /// Pass true for large requests on Android (e.g. custom_network_request_action_parser).
   static void log({
     required String method,
     required String url,
     Map<String, dynamic>? headers,
     dynamic body,
     bool maskAuth = true,
+    bool rawPrint = false,
   }) {
     try {
       final buffer = StringBuffer();
@@ -88,20 +89,23 @@ class CurlLogger {
 
       final curl = buffer.toString();
 
-      // 1. Raw print chunking (900 chars) — bypasses Android 4 KB logcat limit.
-      try {
-        // ignore: avoid_print
-        print('🌐 RAW CURL START -----------------------------------------');
-        const int rawChunkSize = 900;
-        for (int i = 0; i < curl.length; i += rawChunkSize) {
-          final end =
-              (i + rawChunkSize < curl.length) ? i + rawChunkSize : curl.length;
+      // 1. Raw print chunking — only when explicitly requested (Android large requests).
+      if (rawPrint) {
+        try {
           // ignore: avoid_print
-          print(curl.substring(i, end));
-        }
-        // ignore: avoid_print
-        print('🌐 RAW CURL END -------------------------------------------');
-      } catch (_) {}
+          print('🌐 RAW CURL START -----------------------------------------');
+          const int rawChunkSize = 900;
+          for (int i = 0; i < curl.length; i += rawChunkSize) {
+            final end = (i + rawChunkSize < curl.length)
+                ? i + rawChunkSize
+                : curl.length;
+            // ignore: avoid_print
+            print(curl.substring(i, end));
+          }
+          // ignore: avoid_print
+          print('🌐 RAW CURL END -------------------------------------------');
+        } catch (_) {}
+      }
 
       // 2. AppLogger chunking (800 chars) — structured log fallback.
       const int chunkSize = 800;

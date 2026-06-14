@@ -70,6 +70,7 @@ class CustomNetworkRequestActionParser
         url: resolvedModel.url,
         headers: resolvedModel.headers?.map((k, v) => MapEntry(k, v as dynamic)),
         body: resolvedModel.body,
+        rawPrint: true,
       );
 
       response = await StacNetworkService.request(
