@@ -2,6 +2,7 @@ import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
+import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 
 @StacScreen(screenName: 'promissory_guarantee_info_page')
@@ -58,8 +59,9 @@ StacWidget promissoryGuaranteeInfoPage() {
               child: StacCustomReactiveElevatedButton(
                 enabledKey: 'isInquiryEnabled',
                 enabled: false,
-                onPressed: const StacNavigateAction(
-                  routeName: 'promissory_guarantee_confirm_page',
+                onPressed: const NavigationAction(
+                  fileName: 'promissory_guarantee_confirm_page',
+                  navMode: NavModes.dart,
                   navigationStyle: NavigationStyle.push,
                 ),
                 style: StacButtonStyle(

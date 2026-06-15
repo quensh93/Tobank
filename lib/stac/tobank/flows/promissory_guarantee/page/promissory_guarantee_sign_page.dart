@@ -1,5 +1,7 @@
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
+import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 
 @StacScreen(screenName: 'promissory_guarantee_sign_page')
@@ -117,7 +119,7 @@ StacWidget _buildSignConfirmDialog() {
             children: [
               StacExpanded(
                 child: StacFilledButton(
-                  onPressed: const StacFingerPrintAction(
+                  onPressed: StacFingerPrintAction(
                     title: 'احراز هویت',
                     description:
                         'لطفا برای ادامه امضای ضمانت سفته از اثر انگشت استفاده کنید',
@@ -125,11 +127,11 @@ StacWidget _buildSignConfirmDialog() {
                       'actionType': 'sequence',
                       'actions': [
                         {'actionType': 'closeDialog'},
-                        {
-                          'actionType': 'navigate',
-                          'routeName': 'promissory_guarantee_final_page',
-                          'navigationStyle': 'pushReplacement',
-                        },
+                        NavigationAction(
+                          fileName: 'promissory_guarantee_final_page',
+                          navMode: NavModes.dart,
+                          navigationStyle: NavigationStyle.pushReplacement,
+                        ).toJson(),
                       ],
                     },
                     onFailure: {

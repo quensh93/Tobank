@@ -5,7 +5,7 @@ import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 // Menu item visibility flags
 const bool _showAuthentication = true;
 const bool _showPromissoryApiReal = true;
-const bool _showGuaranteePromissoryApiReal = true;
+const bool _showGuaranteePromissoryApiReal = false;
 const bool _showAuthenticationApiReal = true;
 const bool _showCreditScoringApiReal = false;
 const bool _showProfileApiReal = true;

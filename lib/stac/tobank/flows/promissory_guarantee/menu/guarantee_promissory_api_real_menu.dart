@@ -40,8 +40,9 @@ StacWidget guaranteePromissoryApiRealMenu() {
           ),
           StacSizedBox(height: 16),
           StacFilledButton(
-            onPressed: const StacNavigateAction(
-              routeName: 'promissory_guarantee_info_page',
+            onPressed: const NavigationAction(
+              fileName: 'promissory_guarantee_info_page',
+              navMode: NavModes.dart,
               navigationStyle: NavigationStyle.push,
             ),
             style: StacButtonStyle(
