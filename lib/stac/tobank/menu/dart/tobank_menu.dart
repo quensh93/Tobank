@@ -5,15 +5,20 @@ import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 // Menu item visibility flags
 const bool _showAuthentication = true;
 const bool _showPromissoryApiReal = true;
-const bool _showGuaranteePromissoryApiReal = false;
 const bool _showAuthenticationApiReal = true;
-const bool _showCreditScoringApiReal = false;
 const bool _showProfileApiReal = true;
 const bool _showCartableApiReal = true;
 const bool _showTransactionApiReal = true;
 
-const bool _showInstallmentPaymentApiReal = true;
+//sp6
+const bool _showCreditScoringApiReal = false;
+const bool _showInstallmentPaymentApiReal = false;
+
+//Sp7
 const bool _showChildLoanApiReal = false;
+const bool _showGuaranteePromissoryApiReal = false;
+
+//sp5
 const bool _showDepositTurnoverApiReal = false;
 const bool _showDepositMoreOptions = true;
 
