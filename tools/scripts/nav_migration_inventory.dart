@@ -1,3 +1,4 @@
+// ignore_for_file: avoid_print
 // Throwaway analysis script (NOT shipped). Scans JSON screens for navigate
 // actions, classifies each into the proposed fileName+navMode shape, runs an
 // address-equality self-check, and emits a CSV + summary.
@@ -229,8 +230,9 @@ void main() {
   byMode.forEach((k, v) => print('  $k: $v'));
   print('');
   print('needs-review reasons:');
-  (reviewReasons.entries.toList()..sort((a, b) => b.value.compareTo(a.value)))
-      .forEach((e) => print('  ${e.value}x  ${e.key}'));
+  for (final e in (reviewReasons.entries.toList()..sort((a, b) => b.value.compareTo(a.value)))) {
+    print('  ${e.value}x  ${e.key}');
+  }
   print('');
   print('CSV: tools/scripts/nav_inventory.csv');
 }

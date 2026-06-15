@@ -1,3 +1,4 @@
+﻿// ignore_for_file: use_null_aware_elements
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/custom_navigate_action_parser.dart';

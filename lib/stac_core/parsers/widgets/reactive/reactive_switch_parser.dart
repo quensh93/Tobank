@@ -54,7 +54,7 @@ class ReactiveSwitchParser extends StacParser<ReactiveSwitchModel> {
 
         final switchWidget = Switch.adaptive(
           value: currentValue,
-          activeColor: model.activeColor != null
+          activeThumbColor: model.activeColor != null
               ? _parseColor(context, model.activeColor!)
               : Theme.of(context).colorScheme.primary,
           inactiveTrackColor: model.inactiveTrackColor != null

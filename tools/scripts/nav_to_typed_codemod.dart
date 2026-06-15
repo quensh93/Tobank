@@ -1,3 +1,4 @@
+// ignore_for_file: avoid_print
 // Throwaway codemod (NOT shipped). Swaps raw-map navigate actions in .dart
 // files -- StacRawJsonAction({...navMode...}) / StacAction.fromJson({...navMode...})
 // -- to the typed NavigationAction(...). Behavior identical: NavigationAction
@@ -38,7 +39,7 @@ int matchParen(String s, int openParen) {
 /// Extract `'key': <value>` from a map body. Value runs until top-level comma
 /// or closing brace. Returns trimmed value text or null.
 String? memberValue(String mapText, String key) {
-  final m = RegExp("'" + key + r"'\s*:\s*").firstMatch(mapText);
+  final m = RegExp("'$key'\\s*:\\s*").firstMatch(mapText);
   if (m == null) return null;
   var depth = 0;
   String? str;
@@ -201,6 +202,7 @@ void main(List<String> args) {
 
   print('\n=== NAV->TYPED ${apply ? "APPLIED" : "DRY"} ===');
   print('files changed: $filesChanged   converted: $totalConv   imports added: $importsAdded');
-  (skips.entries.toList()..sort((a, b) => b.value.compareTo(a.value)))
-      .forEach((e) => print('  ${e.value}x  ${e.key}'));
+  for (final e in (skips.entries.toList()..sort((a, b) => b.value.compareTo(a.value)))) {
+    print('  ${e.value}x  ${e.key}');
+  }
 }

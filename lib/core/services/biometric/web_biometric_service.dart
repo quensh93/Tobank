@@ -45,7 +45,7 @@ class WebBiometricService {
               userAgent.contains('safari') &&
               !userAgent.contains('chrome'));
     } catch (e) {
-      print('Error detecting Apple device: $e');
+      debugPrint('Error detecting Apple device: $e');
       return false;
     }
   }
@@ -63,7 +63,7 @@ class WebBiometricService {
       final credentials = html.window.navigator.credentials;
       return credentials != null;
     } catch (e) {
-      print('WebAuthn not available: $e');
+      debugPrint('WebAuthn not available: $e');
       return false;
     }
   }
@@ -83,7 +83,7 @@ class WebBiometricService {
     try {
       html.window.localStorage[_enabledKey] = enabled.toString();
     } catch (e) {
-      print('Error setting biometric enabled: $e');
+      debugPrint('Error setting biometric enabled: $e');
     }
   }
 
@@ -123,14 +123,14 @@ class WebBiometricService {
     bool passkeyOnly = false,
   }) async {
     if (!isAvailable()) {
-      print('Authentication is not available');
+      debugPrint('Authentication is not available');
       return false;
     }
 
     // For Apple devices, try passkey first (requires iCloud + two-step verification)
     // If passkey fails, fall back to password authentication (unless passkeyOnly is true)
     if (_isAppleDevice()) {
-      print(
+      debugPrint(
         '🍎 WebBiometricService - Apple device detected, trying passkey first...',
       );
 
@@ -169,7 +169,7 @@ class WebBiometricService {
           // Passkey registration successful (user has iCloud + two-step verification)
           html.window.localStorage[_credentialIdKey] = credential;
           await setEnabled(true);
-          print(
+          debugPrint(
             '✅ WebBiometricService - Passkey registered successfully (iCloud available)',
           );
           return true;
@@ -193,12 +193,12 @@ class WebBiometricService {
             errorString.contains('user denied');
 
         if (isUserCancelled) {
-          print(
+          debugPrint(
             '🚫 WebBiometricService - Passkey registration cancelled by user: $e',
           );
           return false; // User cancelled - don't fallback to password
         }
-        print(
+        debugPrint(
           '⚠️ WebBiometricService - Passkey registration failed (likely no iCloud): $e',
         );
         // For other errors (like no iCloud), fall through to password authentication
@@ -207,24 +207,24 @@ class WebBiometricService {
       // Password fallback - only if passkeyOnly is false
       if (!passkeyOnly) {
         // Fallback to password authentication (if passkey failed)
-        print(
+        debugPrint(
           '🔐 WebBiometricService - Falling back to password authentication',
         );
         final String? storedPassword = await StorageUtil.getPassword();
         if (storedPassword != null && storedPassword.isNotEmpty) {
           await setEnabled(true);
-          print(
+          debugPrint(
             '✅ WebBiometricService - Password authentication enabled (password already set)',
           );
           return true;
         } else {
-          print(
+          debugPrint(
             '🔴 WebBiometricService - Password not set. User needs to set a password first.',
           );
           return false;
         }
       } else {
-        print(
+        debugPrint(
           '🔐 WebBiometricService - passkeyOnly mode, no password fallback',
         );
         return false;
@@ -254,19 +254,19 @@ class WebBiometricService {
         // Store credential ID for future authentication
         html.window.localStorage[_credentialIdKey] = credential;
         await setEnabled(true);
-        print('WebAuthn credential registered successfully');
+        debugPrint('WebAuthn credential registered successfully');
         return true;
       }
 
       // WebAuthn registration returned null - try password fallback
       if (!passkeyOnly) {
-        print(
+        debugPrint(
           '🔐 WebBiometricService - WebAuthn returned null, trying password fallback',
         );
         final String? storedPassword = await StorageUtil.getPassword();
         if (storedPassword != null && storedPassword.isNotEmpty) {
           await setEnabled(true);
-          print(
+          debugPrint(
             '✅ WebBiometricService - Password authentication enabled (password already set)',
           );
           return true;
@@ -288,23 +288,23 @@ class WebBiometricService {
           errorString.contains('user denied');
 
       if (isUserCancelled) {
-        print(
+        debugPrint(
           '🚫 WebBiometricService - WebAuthn registration cancelled by user: $e',
         );
         return false; // User cancelled - don't fallback to password
       }
 
-      print('Error registering WebAuthn credential: $e');
+      debugPrint('Error registering WebAuthn credential: $e');
 
       // For other errors, try password fallback
       if (!passkeyOnly) {
-        print(
+        debugPrint(
           '🔐 WebBiometricService - WebAuthn failed, trying password fallback',
         );
         final String? storedPassword = await StorageUtil.getPassword();
         if (storedPassword != null && storedPassword.isNotEmpty) {
           await setEnabled(true);
-          print(
+          debugPrint(
             '✅ WebBiometricService - Password authentication enabled (password already set)',
           );
           return true;
@@ -320,13 +320,13 @@ class WebBiometricService {
   /// This matches mobile behavior where biometric is requested directly, no credential check needed
   static Future<bool> authenticate({String? reason, String? userId}) async {
     if (!isAvailable()) {
-      print('Authentication is not available');
+      debugPrint('Authentication is not available');
       return false;
     }
 
     // For Apple devices, try passkey first (if available), fall back to password
     if (_isAppleDevice()) {
-      print(
+      debugPrint(
         '🍎 WebBiometricService - Apple device detected, trying passkey first...',
       );
 
@@ -342,12 +342,12 @@ class WebBiometricService {
           );
 
           if (result) {
-            print('✅ WebBiometricService - Passkey authentication successful');
+            debugPrint('✅ WebBiometricService - Passkey authentication successful');
             return true;
           }
           // If result is false, it might be cancelled or failed
           // Don't fallback to password if user cancelled
-          print(
+          debugPrint(
             '⚠️ WebBiometricService - Passkey authentication returned false',
           );
           return false; // Don't fallback - user might have cancelled
@@ -355,19 +355,19 @@ class WebBiometricService {
           final errorString = e.toString();
           // Check if user cancelled
           if (errorString.contains('USER_CANCELLED')) {
-            print(
+            debugPrint(
               '🚫 WebBiometricService - Passkey authentication cancelled by user',
             );
             return false; // User cancelled - don't fallback to password
           }
-          print('⚠️ WebBiometricService - Passkey authentication failed: $e');
+          debugPrint('⚠️ WebBiometricService - Passkey authentication failed: $e');
           // For other errors, fall through to password authentication
         }
       }
 
       // If no credential exists and userId is provided, try to register passkey first
       if ((credentialId == null || credentialId.isEmpty) && userId != null) {
-        print(
+        debugPrint(
           '🔐 WebBiometricService - No credential found, trying to register passkey...',
         );
         final registered = await register(userId: userId);
@@ -377,7 +377,7 @@ class WebBiometricService {
           // But if it returned false due to password fallback, it would have returned true
           // So if registered is false, it means user cancelled or registration failed
           // In this case, we should fallback to password if available
-          print(
+          debugPrint(
             '⚠️ WebBiometricService - Passkey registration failed or cancelled, checking password...',
           );
           // Will fall through to password authentication below
@@ -393,13 +393,13 @@ class WebBiometricService {
                 credentialId: newCredentialId,
               );
               if (result) {
-                print(
+                debugPrint(
                   '✅ WebBiometricService - Passkey authentication successful after registration',
                 );
                 return true;
               }
               // If result is false, don't fallback - user might have cancelled
-              print(
+              debugPrint(
                 '⚠️ WebBiometricService - Passkey authentication returned false after registration',
               );
               return false;
@@ -407,12 +407,12 @@ class WebBiometricService {
               final errorString = e.toString();
               // Check if user cancelled
               if (errorString.contains('USER_CANCELLED')) {
-                print(
+                debugPrint(
                   '🚫 WebBiometricService - Passkey authentication cancelled by user after registration',
                 );
                 return false; // User cancelled - don't fallback to password
               }
-              print(
+              debugPrint(
                 '⚠️ WebBiometricService - Passkey authentication failed after registration: $e',
               );
               // For other errors, fall through to password authentication
@@ -420,7 +420,7 @@ class WebBiometricService {
           } else {
             // Registration returned true but no credential - means password was enabled
             // Fall through to password authentication
-            print(
+            debugPrint(
               '🔐 WebBiometricService - Registration enabled password authentication',
             );
           }
@@ -428,7 +428,7 @@ class WebBiometricService {
       }
 
       // Fallback to password authentication
-      print('🔐 WebBiometricService - Falling back to password authentication');
+      debugPrint('🔐 WebBiometricService - Falling back to password authentication');
       return await _authenticateWithPassword(reason: reason);
     }
 
@@ -439,26 +439,26 @@ class WebBiometricService {
     // In mobile: biometric is requested directly, no credential check needed
     // In Web: if credential doesn't exist, we can auto-register with userId
     if ((credentialId == null || credentialId.isEmpty) && userId != null) {
-      print(
+      debugPrint(
         '🔐 WebBiometricService - No credential found, auto-registering with userId: $userId',
       );
       final registered = await register(userId: userId);
       if (!registered) {
-        print('🔴 WebBiometricService - Failed to auto-register credential');
+        debugPrint('🔴 WebBiometricService - Failed to auto-register credential');
         // Fallback to password authentication
-        print(
+        debugPrint(
           '🔐 WebBiometricService - Falling back to password authentication',
         );
         return await _authenticateWithPassword(reason: reason);
       }
-      print('✅ WebBiometricService - Credential auto-registered successfully');
+      debugPrint('✅ WebBiometricService - Credential auto-registered successfully');
     } else if (credentialId == null || credentialId.isEmpty) {
       // No credential and no userId provided - try password fallback
-      print(
+      debugPrint(
         'No credential registered and no userId provided for auto-registration',
       );
       // Fallback to password authentication
-      print('🔐 WebBiometricService - Falling back to password authentication');
+      debugPrint('🔐 WebBiometricService - Falling back to password authentication');
       return await _authenticateWithPassword(reason: reason);
     }
 
@@ -469,9 +469,9 @@ class WebBiometricService {
       // Get the credentialId again (in case we just registered)
       final currentCredentialId = html.window.localStorage[_credentialIdKey];
       if (currentCredentialId == null || currentCredentialId.isEmpty) {
-        print('No credential available after registration attempt');
+        debugPrint('No credential available after registration attempt');
         // Fallback to password authentication
-        print(
+        debugPrint(
           '🔐 WebBiometricService - Falling back to password authentication',
         );
         return await _authenticateWithPassword(reason: reason);
@@ -490,7 +490,7 @@ class WebBiometricService {
       }
 
       // WebAuthn returned false - fallback to password
-      print(
+      debugPrint(
         '🔐 WebBiometricService - WebAuthn returned false, falling back to password authentication',
       );
       return await _authenticateWithPassword(reason: reason);
@@ -509,13 +509,13 @@ class WebBiometricService {
           errorString.contains('user denied');
 
       if (isUserCancelled) {
-        print('🚫 WebBiometricService - WebAuthn cancelled by user: $e');
+        debugPrint('🚫 WebBiometricService - WebAuthn cancelled by user: $e');
         return false; // User cancelled - don't fallback to password
       }
 
-      print('Error authenticating with WebAuthn: $e');
+      debugPrint('Error authenticating with WebAuthn: $e');
       // Fallback to password authentication for other errors
-      print('🔐 WebBiometricService - Falling back to password authentication');
+      debugPrint('🔐 WebBiometricService - Falling back to password authentication');
       return await _authenticateWithPassword(reason: reason);
     }
   }
@@ -525,19 +525,20 @@ class WebBiometricService {
   static Future<bool> _authenticateWithPassword({String? reason}) async {
     try {
       // Check if password is set
-      final String? storedPassword = await StorageUtil.getPassword();
-      if (storedPassword == null || storedPassword.isEmpty) {
-        print(
-          '🔴 WebBiometricService - No password found. User needs to set a password first.',
+      // Capture context synchronously before any async gap
+      final context = Get.context;
+      if (context == null) {
+        debugPrint(
+          '🔴 WebBiometricService - No context available for password dialog',
         );
         return false;
       }
 
-      // Use Get.context or find the current context
-      final context = Get.context;
-      if (context == null) {
-        print(
-          '🔴 WebBiometricService - No context available for password dialog',
+      // Check if password is set
+      final String? storedPassword = await StorageUtil.getPassword();
+      if (storedPassword == null || storedPassword.isEmpty) {
+        debugPrint(
+          '🔴 WebBiometricService - No password found. User needs to set a password first.',
         );
         return false;
       }
@@ -545,6 +546,7 @@ class WebBiometricService {
       // Show password dialog and wait for result
       void Function(String)? setErrorCallback;
       final result = await showDialog<bool>(
+        // ignore: use_build_context_synchronously — context captured before async gap (Get.context at L529)
         context: context,
         barrierDismissible: false,
         builder: (BuildContext dialogContext) {
@@ -572,16 +574,16 @@ class WebBiometricService {
       final authenticated = result == true;
 
       if (authenticated) {
-        print('✅ WebBiometricService - Password authentication successful');
+        debugPrint('✅ WebBiometricService - Password authentication successful');
       } else {
-        print(
+        debugPrint(
           '🔴 WebBiometricService - Password authentication cancelled or failed',
         );
       }
 
       return authenticated;
     } catch (e) {
-      print(
+      debugPrint(
         '🔴 WebBiometricService - Error during password authentication: $e',
       );
       return false;
@@ -594,7 +596,7 @@ class WebBiometricService {
       html.window.localStorage.remove(_credentialIdKey);
       await setEnabled(false);
     } catch (e) {
-      print('Error removing credential: $e');
+      debugPrint('Error removing credential: $e');
     }
   }
 
@@ -642,7 +644,7 @@ class WebBiometricService {
       final result = await _jsCreateCredential(options);
       return result;
     } catch (e) {
-      print('JS createCredential error: $e');
+      debugPrint('JS createCredential error: $e');
       return null;
     }
   }
@@ -659,7 +661,7 @@ class WebBiometricService {
       if (_isUserCancelledError(e)) {
         rethrow;
       }
-      print('JS getCredential error: $e');
+      debugPrint('JS getCredential error: $e');
       return false;
     }
   }
@@ -728,7 +730,7 @@ class WebBiometricService {
       final result = await jsPromise.toDart;
       return result?.toDart;
     } catch (e) {
-      print('Execute WebAuthn create error: $e');
+      debugPrint('Execute WebAuthn create error: $e');
       return null;
     }
   }
@@ -747,7 +749,7 @@ class WebBiometricService {
       if (_isUserCancelledError(e)) {
         rethrow;
       }
-      print('Execute WebAuthn get error: $e');
+      debugPrint('Execute WebAuthn get error: $e');
       return false;
     }
   }

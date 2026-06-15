@@ -101,7 +101,7 @@ class PromissorySignActionParser
         );
       }
 
-      final String? unsignedContract =
+      final String unsignedContract =
           model.unsignedContract ?? "MOCK_PDF_BASE64";
 
       AppLogger.i(
@@ -158,7 +158,7 @@ class PromissorySignActionParser
 
       // Prepare Data
       final SignDocumentData signDocumentData = SignDocumentData(
-        documentBase64: unsignedContract!,
+        documentBase64: unsignedContract,
         reason: '${model.promissoryTitle ?? "سفته"}_request',
         signLocations: signLocations,
       );
@@ -182,8 +182,10 @@ class PromissorySignActionParser
         );
 
         // Store signed PDF in registry/form
+        if (!context.mounted) return true;
         await _storeSignedPdf(context, result);
 
+        if (!context.mounted) return true;
         final activeContext = _resolveActiveContext(context);
         if (activeContext != null && model.onSuccess != null) {
           await Stac.onCallFromJson(model.onSuccess!, activeContext);

@@ -26,7 +26,7 @@ class _CustomBottomNavigationBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = BottomNavigationScope.of(context)?.controller;
+    final controller = NavigationScope.of(context)?.controller;
     final theme = Theme.of(context);
     final splashColor = _reduceAlpha(theme.splashColor, 0.35);
     final highlightColor = _reduceAlpha(theme.highlightColor, 0.35);

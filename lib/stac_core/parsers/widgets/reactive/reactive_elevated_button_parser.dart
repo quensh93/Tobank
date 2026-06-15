@@ -1,3 +1,4 @@
+﻿// ignore_for_file: use_null_aware_elements
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import '../../../registry/registry_notifier.dart';
@@ -86,7 +87,7 @@ class ReactiveElevatedButtonParser
   Widget parse(BuildContext context, ReactiveElevatedButtonModel model) {
     return ValueListenableBuilder<int>(
       valueListenable: RegistryNotifier.instance.listenable,
-      builder: (context, _, __) {
+      builder: (context, _, _) {
         final enabled = _resolveEnabled(model);
         final isLoading = _resolveLoading(model);
 

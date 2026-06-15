@@ -1,3 +1,4 @@
+// ignore_for_file: avoid_print
 // Throwaway surgical codemod (NOT shipped). Rewrites navigate actions in JSON
 // screens to the fileName+navMode shape, editing ONLY the source-key byte span
 // so CRLF / indentation / Persian text / number formatting are preserved.

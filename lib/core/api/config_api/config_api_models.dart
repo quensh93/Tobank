@@ -2,6 +2,7 @@
 ///
 /// These models are used to parse the response from the configuration API
 /// which returns SDUI (Server-Driven UI) content.
+library;
 
 /// Root response from the configuration API
 class ConfigApiResponse {

@@ -75,9 +75,9 @@ class TobankMegaGashtBackActionParser
 }
 
 class TobankMegaGashtWebViewBridge {
-  static _TobankMegaGashtWebViewState? _activeState;
+  static TobankMegaGashtWebViewState? _activeState;
 
-  static void register(_TobankMegaGashtWebViewState state) {
+  static void register(TobankMegaGashtWebViewState state) {
     AppLogger.dc(
       LogCategory.stacWidget,
       'MegaGashtWebViewBridge: registered active webview state',
@@ -85,7 +85,7 @@ class TobankMegaGashtWebViewBridge {
     _activeState = state;
   }
 
-  static void unregister(_TobankMegaGashtWebViewState state) {
+  static void unregister(TobankMegaGashtWebViewState state) {
     if (_activeState == state) {
       AppLogger.dc(
         LogCategory.stacWidget,
@@ -118,10 +118,10 @@ class _TobankMegaGashtWebView extends StatefulWidget {
 
   @override
   State<_TobankMegaGashtWebView> createState() =>
-      _TobankMegaGashtWebViewState();
+      TobankMegaGashtWebViewState();
 }
 
-class _TobankMegaGashtWebViewState extends State<_TobankMegaGashtWebView>
+class TobankMegaGashtWebViewState extends State<_TobankMegaGashtWebView>
     with WidgetsBindingObserver {
   WebViewController? _controller;
   int _progress = 0;

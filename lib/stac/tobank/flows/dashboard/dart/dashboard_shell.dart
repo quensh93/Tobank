@@ -9,12 +9,12 @@ import 'package:tobank_sdui/stac/tobank/flows/transaction/dart/transaction_intro
 
 @StacScreen(screenName: 'dashboard_shell')
 StacWidget dashboardShell() {
-  return StacDefaultBottomNavigationController(
+  return StacDefaultNavigationController(
     length: 4,
     initialIndex: 3,
     child: StacScaffold(
       backgroundColor: '{{appColors.current.background.surface}}',
-      body: StacBottomNavigationView(
+      body: StacNavigationView(
         children: [
           profile_intro_dart.profileRealIntro(),
           cartable_intro_dart.cartableRealIntro(),

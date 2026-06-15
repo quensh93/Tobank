@@ -63,7 +63,7 @@ class _ReactiveListViewWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder<int>(
       valueListenable: RegistryNotifier.instance.listenable,
-      builder: (context, _, __) {
+      builder: (context, _, _) {
         final registry = StacRegistry.instance;
 
         // --- State management: loading / error ---

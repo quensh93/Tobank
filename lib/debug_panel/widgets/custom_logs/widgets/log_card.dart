@@ -455,7 +455,7 @@ class _JsonFormattedText extends StatelessWidget {
       children.add(const TextSpan(text: '\n'));
     }
 
-    children.add(TextSpan(text: '${'  ' * indent}'));
+    children.add(TextSpan(text: '  ' * indent));
     children.add(const TextSpan(text: '}'));
 
     return TextSpan(children: children);
@@ -479,7 +479,7 @@ class _JsonFormattedText extends StatelessWidget {
       children.add(const TextSpan(text: '\n'));
     }
 
-    children.add(TextSpan(text: '${'  ' * indent}'));
+    children.add(TextSpan(text: '  ' * indent));
     children.add(const TextSpan(text: ']'));
 
     return TextSpan(children: children);

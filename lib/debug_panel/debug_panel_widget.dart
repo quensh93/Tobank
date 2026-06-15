@@ -354,7 +354,7 @@ class _DebugPanelSmallLayoutState extends ConsumerState<DebugPanelSmallLayout> {
             Positioned.fill(
               child: GestureDetector(
                 onTap: () => setState(() => _isExpanded = false),
-                child: Container(color: Colors.black.withOpacity(0.5)),
+                child: Container(color: Colors.black.withValues(alpha: 0.5)),
               ),
             ),
 
@@ -582,7 +582,7 @@ class _MobileBottomSheetPanelState
     );
   }
 
-  Tab _buildTab(IconData icon, String label, dynamic state) {
+  Tab _buildTab(IconData icon, String label, DebugPanelSettingsState state) {
     return Tab(
       height: 48,
       child: Row(

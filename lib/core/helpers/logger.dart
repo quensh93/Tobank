@@ -332,7 +332,7 @@ class AppLogger {
       category: const LogCategorySettings(),
   };
 
-  static bool _isInternalLog = false;
+  static final bool _isInternalLog = false;
 
   /// Initialize logger and override Flutter's debugPrint
   /// This must be called early in main() to capture all logs.
@@ -522,8 +522,9 @@ class AppLogger {
     bool bypassTruncation = false,
   }) {
     // Early bailout if global logging is disabled via code
-    if (LogConfig.masterLogControl == MasterLogControl.forceDisabled)
+    if (LogConfig.masterLogControl == MasterLogControl.forceDisabled) {
       return null;
+    }
 
     // NOTE: We deliberately do NOT check Logger.level here.
     // Logger.level is set to Level.off to silence external loggers (stac_logger),

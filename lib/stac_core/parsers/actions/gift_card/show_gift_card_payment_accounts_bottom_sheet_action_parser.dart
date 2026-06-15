@@ -500,7 +500,6 @@ Widget _buildDisabledWalletTile({
   final iconColor = isDisabled
       ? colorScheme.onSurfaceVariant.withValues(alpha: 0.55)
       : colorScheme.onSurfaceVariant;
-  final iconBorderColor = colorScheme.outlineVariant.withValues(alpha: 0.25);
   final iconOpacity = isDisabled ? 0.45 : 0.75;
   final textColor = isDisabled
       ? colorScheme.onSurfaceVariant.withValues(alpha: 0.45)

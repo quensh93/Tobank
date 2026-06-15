@@ -1,3 +1,4 @@
+// ignore_for_file: avoid_print
 // Throwaway dart codemod (NOT shipped). Converts typed
 // `StacNavigateAction(routeName:/widgetType:/assetPath:, navigationStyle:)`
 // constructions to `StacRawJsonAction({...})` carrying fileName+navMode, so
@@ -238,6 +239,7 @@ void main(List<String> args) {
   print('=== DART CODEMOD ${apply ? "APPLIED" : "DRY"} ===');
   print('files changed: $filesChanged   converted: $totalConv');
   print('skips:');
-  (skipReasons.entries.toList()..sort((a, b) => b.value.compareTo(a.value)))
-      .forEach((e) => print('  ${e.value}x  ${e.key}'));
+  for (final e in (skipReasons.entries.toList()..sort((a, b) => b.value.compareTo(a.value)))) {
+    print('  ${e.value}x  ${e.key}');
+  }
 }

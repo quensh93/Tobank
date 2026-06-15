@@ -1,3 +1,4 @@
+// ignore_for_file: avoid_print
 // Throwaway dart raw-map codemod (NOT shipped). Converts raw map navigate
 // actions in .dart files -- e.g. StacAction.fromJson({'actionType':'navigate',
 // 'widgetType':X,...}) and result:{...} maps -- to fileName+navMode.
@@ -128,7 +129,6 @@ void main(List<String> args) {
       final rq = _directMember(text, open, close, 'request');
 
       String? fileNameExpr, navMode;
-      Edit? extraDelete;
 
       if (ap != null) {
         final p = _strLit(ap.valueText);
@@ -178,7 +178,6 @@ void main(List<String> args) {
       }
       totalConv++;
       if (wrapperEdit != null) edits.add(wrapperEdit);
-      if (extraDelete != null) edits.add(extraDelete);
     }
 
     if (edits.isEmpty) continue;
@@ -197,8 +196,9 @@ void main(List<String> args) {
 
   print('\n=== DART RAWMAP CODEMOD ${apply ? "APPLIED" : "DRY"} ===');
   print('files changed: $filesChanged   converted: $totalConv');
-  (skips.entries.toList()..sort((a, b) => b.value.compareTo(a.value)))
-      .forEach((e) => print('  ${e.value}x  ${e.key}'));
+  for (final e in (skips.entries.toList()..sort((a, b) => b.value.compareTo(a.value)))) {
+    print('  ${e.value}x  ${e.key}');
+  }
 }
 
 class MemberSpan {
@@ -209,7 +209,7 @@ class MemberSpan {
 
 /// Locates a direct member `'key': value` within (open,close) at brace-depth 1.
 MemberSpan? _directMember(String s, int open, int close, String key) {
-  final re = RegExp("'" + key + r"'\s*:\s*");
+  final re = RegExp("'$key'\\s*:\\s*");
   for (final m in re.allMatches(s, open, )) {
     if (m.start > close) break;
     // depth-1 check: count braces between open and m.start

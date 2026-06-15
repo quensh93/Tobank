@@ -1,3 +1,4 @@
+﻿// ignore_for_file: use_null_aware_elements
 import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/amount/amount_to_words_action.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';

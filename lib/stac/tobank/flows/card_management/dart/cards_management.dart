@@ -1615,7 +1615,7 @@ StacWidget _amountChip(
       child: StacCustomRegistryReactive(
         registryKey: selectedKey,
         child: StacCustomVisibility(
-          visible: '[[${selectedKey}]]',
+          visible: '[[$selectedKey]]',
           child: chipContent(
             borderColor: '{{appColors.current.button.primary.backgroundColor}}',
             borderWidth: 1.5,
@@ -2502,7 +2502,7 @@ StacWidget _pinServiceRow({
   required String selectedKey,
   required StacAction onTap,
 }) {
-  StacWidget _rowContent({
+  StacWidget rowContent({
     required String borderColor,
     required double borderWidth,
   }) {
@@ -2554,12 +2554,12 @@ StacWidget _pinServiceRow({
     child: StacCustomRegistryReactive(
       registryKey: selectedKey,
       child: StacCustomVisibility(
-        visible: '[[${selectedKey}]]',
-        child: _rowContent(
+        visible: '[[$selectedKey]]',
+        child: rowContent(
           borderColor: '{{appColors.current.button.primary.backgroundColor}}',
           borderWidth: 1.5,
         ).toJson(),
-        replacement: _rowContent(
+        replacement: rowContent(
           borderColor: '{{appColors.current.input.borderEnabled}}',
           borderWidth: 1,
         ).toJson(),
@@ -2727,7 +2727,7 @@ StacWidget _secPinServiceRow({
   required String selectedKey,
   required StacAction onTap,
 }) {
-  StacWidget _rowContent({
+  StacWidget rowContent({
     required String borderColor,
     required double borderWidth,
   }) {
@@ -2779,12 +2779,12 @@ StacWidget _secPinServiceRow({
     child: StacCustomRegistryReactive(
       registryKey: selectedKey,
       child: StacCustomVisibility(
-        visible: '[[${selectedKey}]]',
-        child: _rowContent(
+        visible: '[[$selectedKey]]',
+        child: rowContent(
           borderColor: '{{appColors.current.button.primary.backgroundColor}}',
           borderWidth: 1.5,
         ).toJson(),
-        replacement: _rowContent(
+        replacement: rowContent(
           borderColor: '{{appColors.current.input.borderEnabled}}',
           borderWidth: 1,
         ).toJson(),
