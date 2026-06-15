@@ -14458,9 +14458,6 @@
                                                                       "actionType": "closeDialog"
                                                                     },
                                                                     {
-                                                                      "actionType": "closeDialog"
-                                                                    },
-                                                                    {
                                                                       "actionType": "customSnackBar",
                                                                       "backgroundColor": "#00000000",
                                                                       "duration": 3000,
