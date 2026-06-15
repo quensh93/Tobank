@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 
 export 'dialog/close_dialog_action.dart' show StacCloseDialogAction;
 export 'biometric/stac_finger_print_action.dart';

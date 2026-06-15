@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import '../../registry/registry_notifier.dart';
 import '../../../core/helpers/logger.dart';
+import 'package:stac/stac.dart';
 
 /// Model for the pdfPreview widget.
 class PdfPreviewModel {

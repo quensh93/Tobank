@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 import 'package:tobank_sdui/core/api/auth/auth_manager.dart';
 import 'package:tobank_sdui/core/helpers/logger.dart';
+import 'promissory_auth_service.dart';
+import 'package:stac/stac.dart';
 import 'package:tobank_sdui/core/api/services/auth_service.dart';
 
 class PromissoryLoginActionParser

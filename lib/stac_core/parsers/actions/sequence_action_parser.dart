@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'package:stac/stac.dart';
 
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 
 class SequenceActionModel {
   final List<Map<String, dynamic>> actions;

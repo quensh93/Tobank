@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'package:stac/stac.dart';
 
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac/tobank/flows/authentication/dart/authentication_job_selector.dart'
     as authentication_job_selector_dart;
 

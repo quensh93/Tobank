@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 
 /// Helper: Promissory Divider (dashed style similar to MySeparator)
 StacWidget buildPromissoryDivider() {

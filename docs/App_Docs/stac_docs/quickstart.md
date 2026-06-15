@@ -191,7 +191,7 @@ Copy
 ```
 import 'package:stac_demo/default_stac_options.dart';
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 void main() async {
   await Stac.initialize(options: defaultStacOptions);
   runApp(const MyApp());
@@ -211,7 +211,7 @@ Copy
 ```
 import 'package:example_app/default_stac_options.dart';
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 void main() {
   Stac.initialize(options: defaultStacOptions);
   runApp(const MyApp());

@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'package:stac/stac.dart';
 
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 
 import '../../../registry/custom_component_registry.dart';
 import '../custom_navigate_action_parser.dart';

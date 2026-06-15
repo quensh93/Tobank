@@ -54,7 +54,7 @@ The app currently has **two theme systems** that need to be properly separated:
 ### Implementation Pattern
 ```dart
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 
 void main() async {
   await Stac.initialize();

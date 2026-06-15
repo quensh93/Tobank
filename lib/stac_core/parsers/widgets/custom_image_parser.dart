@@ -2,10 +2,9 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:stac/stac.dart';
 import 'package:universal_io/io.dart' show File;
 import '../../../core/helpers/logger.dart';
-import '../../../core/helpers/log_category.dart';
+import 'package:stac/stac.dart';
 
 class CustomStacImage {
   const CustomStacImage({

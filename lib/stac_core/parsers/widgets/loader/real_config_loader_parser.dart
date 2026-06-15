@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 import 'package:tobank_sdui/core/api/config_api/config_api.dart';
 import 'package:tobank_sdui/core/helpers/logger.dart';
 import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
+import 'package:stac/stac.dart';
 
 class RealConfigLoaderParser extends StacParser<Map<String, dynamic>> {
   const RealConfigLoaderParser();

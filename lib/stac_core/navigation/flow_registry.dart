@@ -24,6 +24,7 @@ class FlowRegistry {
     'internet_pakage',
     'profile',
     'promissory',
+    'promissory_guarantee',
     'transaction',
     'transfer',
     'user_credit_validation',

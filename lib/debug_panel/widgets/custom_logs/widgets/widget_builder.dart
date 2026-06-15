@@ -36,7 +36,6 @@ class _ISpectifyBuilderState extends State<ISpectifyBuilder> {
   StreamSubscription<ISpectLogData>? _subscription;
   Timer? _updateTimer;
   Timer? _clearCheckTimer;
-  bool _pendingUpdate = false;
   bool _isFirstBuild = true;
 
   @override
@@ -78,7 +77,6 @@ class _ISpectifyBuilderState extends State<ISpectifyBuilder> {
     if (!mounted) return;
     if (widget.iSpectLogger.history.length < _cachedData.length) {
       _updateTimer?.cancel();
-      _pendingUpdate = false;
       setState(() {
         _cachedData = widget.iSpectLogger.history;
       });
@@ -91,13 +89,11 @@ class _ISpectifyBuilderState extends State<ISpectifyBuilder> {
       _updateTimer?.cancel();
     } else {
       // For Throttle: If timer is running, just mark pending (do not cancel)
-      _pendingUpdate = true;
       if (_updateTimer?.isActive ?? false) return;
     }
 
     _updateTimer = Timer(widget.updateInterval, () {
       if (mounted) {
-        _pendingUpdate = false;
         // In debounce mode, we always update when timer fires.
         // In throttle mode, we update only if there was a pending change (or timer expired).
         setState(() {

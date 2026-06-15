@@ -1,5 +1,6 @@
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 
 /// Deposit Turnover Real Flow - Debug Menu
 @StacScreen(screenName: 'deposit_turnover_menu')

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:ispect/ispect.dart';
 import '../bootstrap/app_root.dart';
-import '../helpers/logger.dart';
 import '../../debug_panel/state/debug_panel_settings_state.dart';
 import '../../debug_panel/state/device_preview_state.dart';
 import '../../debug_panel/widgets/custom_logs/screens/logs_screen.dart';

@@ -1,10 +1,9 @@
 import 'dart:async';
+import 'package:stac/stac.dart';
 
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:stac/stac.dart';
 
-import '../../../core/helpers/log_category.dart';
 import '../../../core/helpers/logger.dart';
 
 class ShareTextActionModel {

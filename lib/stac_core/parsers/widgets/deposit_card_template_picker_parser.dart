@@ -1,7 +1,7 @@
 import 'dart:math' as math;
+import 'package:stac/stac.dart';
 
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 
 import '../../registry/custom_component_registry.dart';
 

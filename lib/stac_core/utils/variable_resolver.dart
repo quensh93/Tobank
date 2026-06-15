@@ -1,6 +1,6 @@
-import 'package:stac/stac.dart';
 import '../loaders/tobank_styles_loader.dart';
 import '../../core/helpers/logger.dart';
+import 'package:stac/stac.dart';
 
 /// Resolve variables in JSON while preserving value types (numbers, bools, etc.)
 ///

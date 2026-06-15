@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 import '../utils/reactive_button_action_tunneler.dart';
 
 /// Dart builder for 'stateFull' STAC widgets.

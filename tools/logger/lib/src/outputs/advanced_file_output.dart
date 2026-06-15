@@ -247,12 +247,12 @@ class AdvancedFileOutput extends LogOutput {
         .toList();
 
     // If the number of files is less than the limit, don't delete anything
-    if (files.length <= _maxRotatedFilesCount!) return;
+    if (files.length <= _maxRotatedFilesCount) return;
 
     files.sort(_fileSorter);
 
     final filesToDelete =
-        files.sublist(0, files.length - _maxRotatedFilesCount!);
+        files.sublist(0, files.length - _maxRotatedFilesCount);
     for (final file in filesToDelete) {
       try {
         await file.delete();

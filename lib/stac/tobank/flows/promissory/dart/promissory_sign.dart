@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/config/sdui_config.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -7,6 +7,7 @@ import 'package:tobank_sdui/stac_core/parsers/actions/promissory/stac_promissory
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
 import 'package:tobank_sdui/stac/tobank/flows/promissory/dart/widgets/promissory_error_state.dart';
 import 'package:tobank_sdui/stac/tobank/flows/promissory/dart/widgets/promissory_loading_state.dart';
+import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 
 /// Promissory Real Flow - Digital Signature Page
 ///

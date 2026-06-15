@@ -1,10 +1,10 @@
 import 'dart:async';
+import 'package:stac/stac.dart';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_contact_picker/flutter_native_contact_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:stac/stac.dart';
 
 import '../../registry/custom_component_registry.dart';
 import '../../registry/text_form_field_controller_registry.dart';

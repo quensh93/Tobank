@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:ispect/ispect.dart' hide ISpectColumnBuilder;
 import '../controllers/ispect_view_controller.dart';

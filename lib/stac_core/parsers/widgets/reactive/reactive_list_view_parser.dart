@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 import '../../../../core/helpers/logger.dart';
-import '../../../../core/helpers/log_category.dart';
 import '../../../registry/registry_notifier.dart';
+import 'package:stac/stac.dart';
 
 /// A generic reactive list view parser that reads data from a registry key,
 /// iterates over it using an item template, and rebuilds when registry changes.
@@ -196,18 +195,16 @@ class _ReactiveListViewWidget extends StatelessWidget {
                   '📋 ReactiveListView: depositNumber=${item['depositNumber']}, depositIban=${item['depositIban']}',
                 );
                 // Debug: log the resolved action to see if {{item.*}} was replaced
-                if (resolvedAction is Map) {
-                  final actions = resolvedAction['actions'] as List?;
-                  if (actions != null && actions.isNotEmpty) {
-                    for (int a = 0; a < actions.length && a < 3; a++) {
-                      AppLogger.dc(
-                        LogCategory.stacWidget,
-                        '📋 ReactiveListView: resolvedAction[$a]=${actions[a]}',
-                      );
-                    }
+                final actions = resolvedAction['actions'] as List?;
+                if (actions != null && actions.isNotEmpty) {
+                  for (int a = 0; a < actions.length && a < 3; a++) {
+                    AppLogger.dc(
+                      LogCategory.stacWidget,
+                      '📋 ReactiveListView: resolvedAction[$a]=${actions[a]}',
+                    );
                   }
                 }
-                try {
+                              try {
                   Stac.onCallFromJson(resolvedAction, context);
                   // Log registry values after tap action completes
                   AppLogger.dc(

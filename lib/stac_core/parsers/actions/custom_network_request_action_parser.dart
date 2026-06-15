@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:stac/stac.dart';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 import '../../../core/api/utils/curl_logger.dart';
 import '../../../core/helpers/logger.dart';
 import '../../registry/registry_notifier.dart';

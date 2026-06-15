@@ -1,8 +1,8 @@
 import 'dart:async';
+import 'package:stac/stac.dart';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 
 import '../../../../core/helpers/logger.dart';
 import '../../../../core/services/biometric/biometric_service.dart';

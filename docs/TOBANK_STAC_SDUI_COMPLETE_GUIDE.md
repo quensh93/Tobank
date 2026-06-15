@@ -161,7 +161,7 @@ tobank_sdui/
 
 2. **Write Dart widget** in `dart/new_feature.dart`:
    ```dart
-   import 'package:stac/stac.dart';
+   import 'package:stac_core/stac_core.dart';
    
    @StacScreen(screenName: 'new_feature')
    StacWidget newFeature() {

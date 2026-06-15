@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/services.dart';
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 import '../../core/helpers/logger.dart';
 
 /// Loader for Tobank STAC themes

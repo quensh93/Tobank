@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 // Import STAC core (adjust path based on your project structure)
-// import 'package:stac/stac.dart';
+// import 'package:stac_core/stac_core.dart';
 
 part 'custom-widget-example.g.dart';
 

@@ -60,7 +60,7 @@ lib/stac/tobank/account/
 **Create the Dart file** in `dart/{feature_name}.dart`:
 
 ```dart
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:stac_core/stac_core.dart';
 
 /// Tobank {Feature Name} screen

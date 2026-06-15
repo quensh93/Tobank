@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 import './format_number_action.dart';
+import 'package:stac/stac.dart';
 
 class FormatNumberActionParser
     extends StacActionParser<StacFormatNumberAction> {

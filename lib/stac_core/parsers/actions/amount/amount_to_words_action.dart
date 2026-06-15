@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 
 class StacAmountToWordsAction extends StacAction {
   final String sourceKey;

@@ -1,5 +1,5 @@
-import 'package:stac/stac.dart';
 import '../../core/helpers/logger.dart';
+import 'package:stac/stac.dart';
 
 /// Debug utility to test variable resolution
 ///

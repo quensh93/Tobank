@@ -1,0 +1,2474 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "setValue",
+    "key": "isGuaranteeConfirmEnabled",
+    "value": false
+  },
+  "child": {
+    "appBar": {
+      "leading": {
+        "padding": {
+          "left": 12.0
+        },
+        "child": {
+          "child": {
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24.0,
+            "height": 24.0,
+            "type": "image"
+          },
+          "type": "center"
+        },
+        "type": "padding"
+      },
+      "automaticallyImplyLeading": true,
+      "title": {
+        "data": "ضمانت سفته",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "actions": [
+        {
+          "padding": {
+            "right": 12.0
+          },
+          "child": {
+            "onPressed": {
+              "navigationStyle": "pop",
+              "actionType": "navigate"
+            },
+            "icon": {
+              "src": "{{appAssets.icons.arrowBack}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 31.0,
+              "height": 31.0,
+              "type": "image"
+            },
+            "type": "iconButton"
+          },
+          "type": "padding"
+        }
+      ],
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "body": {
+      "autovalidateMode": "always",
+      "child": {
+        "child": {
+          "padding": {
+            "left": 16.0,
+            "top": 16.0,
+            "right": 16.0,
+            "bottom": 16.0
+          },
+          "child": {
+            "crossAxisAlignment": "stretch",
+            "children": [
+              {
+                "decoration": {
+                  "color": "{{appColors.current.background.surface}}",
+                  "border": {
+                    "color": "{{appColors.current.input.borderEnabled}}",
+                    "width": 0.5
+                  },
+                  "borderRadius": {
+                    "topLeft": 8.0,
+                    "topRight": 8.0,
+                    "bottomLeft": 8.0,
+                    "bottomRight": 8.0
+                  }
+                },
+                "child": {
+                  "padding": {
+                    "left": 16.0,
+                    "top": 16.0,
+                    "right": 16.0,
+                    "bottom": 16.0
+                  },
+                  "child": {
+                    "crossAxisAlignment": "stretch",
+                    "children": [
+                      {
+                        "data": "اطلاعات سفته",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 18.0,
+                          "fontWeight": "w700"
+                        },
+                        "textAlign": "right",
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "height": 8.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "thickness": 1.0,
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "type": "divider"
+                      },
+                      {
+                        "height": 8.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "crossAxisAlignment": "start",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "child": {
+                              "data": "مبلغ سفته",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "width": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "child": {
+                              "data": "۶۸۹,۰۰۰,۰۰۰ ریال",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w600"
+                              },
+                              "textAlign": "left",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "crossAxisAlignment": "start",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "child": {
+                              "data": "تاریخ پرداخت",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "width": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "child": {
+                              "data": "عندالمطالبه",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w600"
+                              },
+                              "textAlign": "left",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "crossAxisAlignment": "stretch",
+                        "children": [
+                          {
+                            "data": "توضیحات",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 16.0,
+                              "fontWeight": "w500"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "height": 8.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "data": "سفته وام پارسا",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 16.0,
+                              "fontWeight": "w600",
+                              "height": 1.6
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "column"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "crossAxisAlignment": "stretch",
+                        "children": [
+                          {
+                            "data": "محل پرداخت",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 16.0,
+                              "fontWeight": "w500"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "height": 8.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "data": "سعادت آباد، بلوار فرهنگ، نبش کوچه نور، پلاک ۶",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 16.0,
+                              "fontWeight": "w600",
+                              "height": 1.6
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "column"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "thickness": 1.0,
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "type": "divider"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "data": "اطلاعات صادرکننده",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 18.0,
+                          "fontWeight": "w700"
+                        },
+                        "textAlign": "right",
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "crossAxisAlignment": "start",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "child": {
+                              "data": "کد ملی",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "width": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "child": {
+                              "data": "۰۰۲۰۹۲۰۷۸۴",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w600"
+                              },
+                              "textAlign": "left",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "crossAxisAlignment": "start",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "child": {
+                              "data": "شماره موبایل صادرکننده",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "width": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "child": {
+                              "data": "۰۹۱۲۹۴۶۵۸۷۲",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w600"
+                              },
+                              "textAlign": "left",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "crossAxisAlignment": "start",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "child": {
+                              "data": "نام و نام‌خانوادگی",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "width": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "child": {
+                              "data": "زهرا حاجی ابراهیمی",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w600"
+                              },
+                              "textAlign": "left",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "crossAxisAlignment": "stretch",
+                        "children": [
+                          {
+                            "data": "آدرس محل اقامت",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.subtitle}}",
+                              "fontSize": 16.0,
+                              "fontWeight": "w500"
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          },
+                          {
+                            "height": 8.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "data": "تهران - تهران - تهران اکباتان - پلاک ۲ - طبقه ۳ - واحد ۳",
+                            "style": {
+                              "type": "custom",
+                              "color": "{{appColors.current.text.title}}",
+                              "fontSize": 16.0,
+                              "fontWeight": "w600",
+                              "height": 1.6
+                            },
+                            "textAlign": "right",
+                            "textDirection": "rtl",
+                            "type": "text"
+                          }
+                        ],
+                        "type": "column"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "thickness": 1.0,
+                        "color": "{{appColors.current.input.borderEnabled}}",
+                        "type": "divider"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "data": "اطلاعات دریافت‌کننده",
+                        "style": {
+                          "type": "custom",
+                          "color": "{{appColors.current.text.title}}",
+                          "fontSize": 18.0,
+                          "fontWeight": "w700"
+                        },
+                        "textAlign": "right",
+                        "textDirection": "rtl",
+                        "type": "text"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "crossAxisAlignment": "start",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "child": {
+                              "data": "شناسه ملی",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "width": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "child": {
+                              "data": "۱۰۳۲۰۴۳۵۲۶۸",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w600"
+                              },
+                              "textAlign": "left",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "crossAxisAlignment": "start",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "child": {
+                              "data": "شماره تماس",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "width": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "child": {
+                              "data": "۰۲۱۳۳۹۵۳۳۹۵",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w600"
+                              },
+                              "textAlign": "left",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          }
+                        ],
+                        "type": "row"
+                      },
+                      {
+                        "height": 16.0,
+                        "type": "sizedBox"
+                      },
+                      {
+                        "mainAxisAlignment": "spaceBetween",
+                        "crossAxisAlignment": "start",
+                        "textDirection": "rtl",
+                        "children": [
+                          {
+                            "child": {
+                              "data": "نام شرکت",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.subtitle}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w500"
+                              },
+                              "textAlign": "right",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          },
+                          {
+                            "width": 12.0,
+                            "type": "sizedBox"
+                          },
+                          {
+                            "child": {
+                              "data": "بانک گردشگری",
+                              "style": {
+                                "type": "custom",
+                                "color": "{{appColors.current.text.title}}",
+                                "fontSize": 16.0,
+                                "fontWeight": "w600"
+                              },
+                              "textAlign": "left",
+                              "textDirection": "rtl",
+                              "type": "text"
+                            },
+                            "type": "expanded"
+                          }
+                        ],
+                        "type": "row"
+                      }
+                    ],
+                    "type": "column"
+                  },
+                  "type": "padding"
+                },
+                "type": "container"
+              },
+              {
+                "height": 24.0,
+                "type": "sizedBox"
+              },
+              {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "data": "آدرس",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "type": "textFormField",
+                    "id": "guarantee_payment_address",
+                    "textDirection": "rtl",
+                    "textAlign": "right",
+                    "supportTextDirection": "rtl",
+                    "autovalidateMode": "always",
+                    "decoration": {
+                      "hintText": "آدرس محل پرداخت را بنویسید (تا ۲۰۰ کاراکتر)",
+                      "filled": false,
+                      "hintStyle": {
+                        "type": "custom",
+                        "fontSize": 14,
+                        "fontWeight": "w400",
+                        "color": "{{appColors.current.text.subtitle}}"
+                      },
+                      "hintTextDirection": "rtl",
+                      "hintTextAlign": "right",
+                      "contentPadding": {
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
+                      },
+                      "prefixIcon": {
+                        "type": "visibility",
+                        "visible": "[[guarantee_payment_address_has_value]]",
+                        "child": {
+                          "type": "gestureDetector",
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "guarantee_payment_address",
+                                    "value": ""
+                                  },
+                                  {
+                                    "key": "guarantee_payment_address_has_value",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "actionType": "validateFields",
+                                "resultKey": "isGuaranteeConfirmEnabled",
+                                "fields": [
+                                  {
+                                    "id": "guarantee_payment_address",
+                                    "rule": "^.{1,200}$"
+                                  },
+                                  {
+                                    "id": "guarantee_description",
+                                    "rule": "^.{1,200}$"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "child": {
+                            "type": "padding",
+                            "padding": {
+                              "all": 12
+                            },
+                            "child": {
+                              "type": "icon",
+                              "icon": "close",
+                              "size": 20,
+                              "color": "{{appColors.current.text.title}}"
+                            }
+                          }
+                        },
+                        "replacement": {
+                          "type": "sizedBox",
+                          "width": 24
+                        }
+                      },
+                      "border": {
+                        "type": "outlineInputBorder",
+                        "borderSide": {
+                          "color": "#D6D6D6",
+                          "width": 1
+                        },
+                        "borderRadius": {
+                          "all": 10
+                        }
+                      },
+                      "enabledBorder": {
+                        "type": "outlineInputBorder",
+                        "borderSide": {
+                          "color": "#D6D6D6",
+                          "width": 1
+                        },
+                        "borderRadius": {
+                          "all": 10
+                        }
+                      },
+                      "focusedBorder": {
+                        "type": "outlineInputBorder",
+                        "borderSide": {
+                          "color": "#D6D6D6",
+                          "width": 1.2
+                        },
+                        "borderRadius": {
+                          "all": 10
+                        }
+                      }
+                    },
+                    "style": {
+                      "type": "custom",
+                      "fontSize": 16,
+                      "fontWeight": "w700",
+                      "color": "{{appColors.current.text.title}}"
+                    },
+                    "keyboardType": "multiline",
+                    "textInputAction": "next",
+                    "maxLength": 200,
+                    "minLines": 4,
+                    "maxLines": 6,
+                    "validatorRules": [
+                      {
+                        "rule": "matches",
+                        "options": {
+                          "pattern": "^.{1,200}$"
+                        },
+                        "message": "این فیلد الزامی است"
+                      }
+                    ],
+                    "onChanged": {
+                      "actionType": "sequence",
+                      "actions": [
+                        {
+                          "actionType": "validateFields",
+                          "resultKey": "guarantee_payment_address_has_value",
+                          "fields": [
+                            {
+                              "id": "guarantee_payment_address",
+                              "rule": "^.{1,200}$"
+                            }
+                          ]
+                        },
+                        {
+                          "actionType": "validateFields",
+                          "resultKey": "isGuaranteeConfirmEnabled",
+                          "fields": [
+                            {
+                              "id": "guarantee_payment_address",
+                              "rule": "^.{1,200}$"
+                            },
+                            {
+                              "id": "guarantee_description",
+                              "rule": "^.{1,200}$"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "type": "column"
+              },
+              {
+                "height": 24.0,
+                "type": "sizedBox"
+              },
+              {
+                "crossAxisAlignment": "stretch",
+                "children": [
+                  {
+                    "data": "توضیحات",
+                    "style": {
+                      "type": "custom",
+                      "color": "{{appColors.current.text.title}}",
+                      "fontSize": 16.0,
+                      "fontWeight": "w700"
+                    },
+                    "textAlign": "right",
+                    "textDirection": "rtl",
+                    "type": "text"
+                  },
+                  {
+                    "height": 8.0,
+                    "type": "sizedBox"
+                  },
+                  {
+                    "type": "textFormField",
+                    "id": "guarantee_description",
+                    "textDirection": "rtl",
+                    "textAlign": "right",
+                    "supportTextDirection": "rtl",
+                    "autovalidateMode": "always",
+                    "decoration": {
+                      "hintText": "توضیحات ضمانت را بنویسید (تا ۲۰۰ کاراکتر)",
+                      "filled": false,
+                      "hintStyle": {
+                        "type": "custom",
+                        "fontSize": 14,
+                        "fontWeight": "w400",
+                        "color": "{{appColors.current.text.subtitle}}"
+                      },
+                      "hintTextDirection": "rtl",
+                      "hintTextAlign": "right",
+                      "contentPadding": {
+                        "left": 16,
+                        "top": 16,
+                        "right": 16,
+                        "bottom": 16
+                      },
+                      "prefixIcon": {
+                        "type": "visibility",
+                        "visible": "[[guarantee_description_has_value]]",
+                        "child": {
+                          "type": "gestureDetector",
+                          "onTap": {
+                            "actionType": "sequence",
+                            "actions": [
+                              {
+                                "actionType": "setValue",
+                                "values": [
+                                  {
+                                    "key": "guarantee_description",
+                                    "value": ""
+                                  },
+                                  {
+                                    "key": "guarantee_description_has_value",
+                                    "value": false
+                                  }
+                                ]
+                              },
+                              {
+                                "actionType": "validateFields",
+                                "resultKey": "isGuaranteeConfirmEnabled",
+                                "fields": [
+                                  {
+                                    "id": "guarantee_payment_address",
+                                    "rule": "^.{1,200}$"
+                                  },
+                                  {
+                                    "id": "guarantee_description",
+                                    "rule": "^.{1,200}$"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "child": {
+                            "type": "padding",
+                            "padding": {
+                              "all": 12
+                            },
+                            "child": {
+                              "type": "icon",
+                              "icon": "close",
+                              "size": 20,
+                              "color": "{{appColors.current.text.title}}"
+                            }
+                          }
+                        },
+                        "replacement": {
+                          "type": "sizedBox",
+                          "width": 24
+                        }
+                      },
+                      "border": {
+                        "type": "outlineInputBorder",
+                        "borderSide": {
+                          "color": "#D6D6D6",
+                          "width": 1
+                        },
+                        "borderRadius": {
+                          "all": 10
+                        }
+                      },
+                      "enabledBorder": {
+                        "type": "outlineInputBorder",
+                        "borderSide": {
+                          "color": "#D6D6D6",
+                          "width": 1
+                        },
+                        "borderRadius": {
+                          "all": 10
+                        }
+                      },
+                      "focusedBorder": {
+                        "type": "outlineInputBorder",
+                        "borderSide": {
+                          "color": "#D6D6D6",
+                          "width": 1.2
+                        },
+                        "borderRadius": {
+                          "all": 10
+                        }
+                      }
+                    },
+                    "style": {
+                      "type": "custom",
+                      "fontSize": 16,
+                      "fontWeight": "w700",
+                      "color": "{{appColors.current.text.title}}"
+                    },
+                    "keyboardType": "multiline",
+                    "textInputAction": "next",
+                    "maxLength": 200,
+                    "minLines": 4,
+                    "maxLines": 6,
+                    "validatorRules": [
+                      {
+                        "rule": "matches",
+                        "options": {
+                          "pattern": "^.{1,200}$"
+                        },
+                        "message": "این فیلد الزامی است"
+                      }
+                    ],
+                    "onChanged": {
+                      "actionType": "sequence",
+                      "actions": [
+                        {
+                          "actionType": "validateFields",
+                          "resultKey": "guarantee_description_has_value",
+                          "fields": [
+                            {
+                              "id": "guarantee_description",
+                              "rule": "^.{1,200}$"
+                            }
+                          ]
+                        },
+                        {
+                          "actionType": "validateFields",
+                          "resultKey": "isGuaranteeConfirmEnabled",
+                          "fields": [
+                            {
+                              "id": "guarantee_payment_address",
+                              "rule": "^.{1,200}$"
+                            },
+                            {
+                              "id": "guarantee_description",
+                              "rule": "^.{1,200}$"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "type": "column"
+              },
+              {
+                "height": 40.0,
+                "type": "sizedBox"
+              },
+              {
+                "type": "reactiveElevatedButton",
+                "enabledKey": "isGuaranteeConfirmEnabled",
+                "enabled": false,
+                "onPressed": {
+                  "actionType": "showBottomSheet",
+                  "sheet": {
+                    "type": "stateFull",
+                    "onInit": {
+                      "actionType": "setValue",
+                      "values": [
+                        {
+                          "key": "selectedPromissoryGuaranteeDepositId",
+                          "value": ""
+                        },
+                        {
+                          "key": "promissoryGuaranteeDeposit1Selected",
+                          "value": false
+                        },
+                        {
+                          "key": "promissoryGuaranteeDeposit2Selected",
+                          "value": false
+                        },
+                        {
+                          "key": "promissoryGuaranteeDeposit3Selected",
+                          "value": false
+                        },
+                        {
+                          "key": "hasPromissoryGuaranteeDepositSelection",
+                          "value": false
+                        }
+                      ]
+                    },
+                    "child": {
+                      "top": false,
+                      "bottom": false,
+                      "child": {
+                        "decoration": {
+                          "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                          "borderRadius": {
+                            "topLeft": 18.0,
+                            "topRight": 18.0
+                          }
+                        },
+                        "child": {
+                          "padding": {
+                            "left": 16.0,
+                            "top": 10.0,
+                            "right": 16.0,
+                            "bottom": 8.0
+                          },
+                          "child": {
+                            "mainAxisSize": "max",
+                            "crossAxisAlignment": "stretch",
+                            "children": [
+                              {
+                                "child": {
+                                  "decoration": {
+                                    "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                    "borderRadius": {
+                                      "topLeft": 999.0,
+                                      "topRight": 999.0,
+                                      "bottomLeft": 999.0,
+                                      "bottomRight": 999.0
+                                    }
+                                  },
+                                  "width": 44.0,
+                                  "height": 5.0,
+                                  "type": "container"
+                                },
+                                "type": "center"
+                              },
+                              {
+                                "height": 24.0,
+                                "type": "sizedBox"
+                              },
+                              {
+                                "child": {
+                                  "child": {
+                                    "crossAxisAlignment": "stretch",
+                                    "children": [
+                                      {
+                                        "data": "سپرده خود را جهت ضمانت سفته انتخاب کنید:",
+                                        "style": {
+                                          "type": "custom",
+                                          "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                          "fontSize": 18.0,
+                                          "fontWeight": "w700"
+                                        },
+                                        "textAlign": "right",
+                                        "textDirection": "rtl",
+                                        "type": "text"
+                                      },
+                                      {
+                                        "height": 16.0,
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "child": {
+                                          "type": "visibility",
+                                          "visible": "[[promissoryGuaranteeDeposit1Selected]]",
+                                          "child": {
+                                            "decoration": {
+                                              "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                              "border": {
+                                                "color": "#20C4D8",
+                                                "width": 1.0
+                                              },
+                                              "borderRadius": {
+                                                "topLeft": 12.0,
+                                                "topRight": 12.0,
+                                                "bottomLeft": 12.0,
+                                                "bottomRight": 12.0
+                                              }
+                                            },
+                                            "child": {
+                                              "padding": {
+                                                "left": 16.0,
+                                                "top": 16.0,
+                                                "right": 16.0,
+                                                "bottom": 16.0
+                                              },
+                                              "child": {
+                                                "crossAxisAlignment": "stretch",
+                                                "children": [
+                                                  {
+                                                    "mainAxisAlignment": "spaceBetween",
+                                                    "crossAxisAlignment": "start",
+                                                    "textDirection": "rtl",
+                                                    "children": [
+                                                      {
+                                                        "child": {
+                                                          "crossAxisAlignment": "stretch",
+                                                          "children": [
+                                                            {
+                                                              "data": "سپرده سرمایه گذاری کوتاه مدت علیرضا حیدریان",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                "fontSize": 18.0,
+                                                                "fontWeight": "w700",
+                                                                "height": 1.45
+                                                              },
+                                                              "textAlign": "right",
+                                                              "textDirection": "rtl",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "height": 16.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "thickness": 1.0,
+                                                              "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                              "type": "divider"
+                                                            },
+                                                            {
+                                                              "height": 16.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "mainAxisAlignment": "spaceBetween",
+                                                              "crossAxisAlignment": "start",
+                                                              "textDirection": "rtl",
+                                                              "children": [
+                                                                {
+                                                                  "data": "شماره سپرده:",
+                                                                  "style": {
+                                                                    "type": "custom",
+                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "fontSize": 15.0,
+                                                                    "fontWeight": "w500"
+                                                                  },
+                                                                  "textDirection": "rtl",
+                                                                  "type": "text"
+                                                                },
+                                                                {
+                                                                  "child": {
+                                                                    "data": "144.9966.763020.1",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "fontSize": 15.0,
+                                                                      "fontWeight": "w700"
+                                                                    },
+                                                                    "textAlign": "left",
+                                                                    "textDirection": "ltr",
+                                                                    "type": "text"
+                                                                  },
+                                                                  "type": "expanded"
+                                                                }
+                                                              ],
+                                                              "type": "row"
+                                                            },
+                                                            {
+                                                              "height": 12.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "mainAxisAlignment": "spaceBetween",
+                                                              "crossAxisAlignment": "start",
+                                                              "textDirection": "rtl",
+                                                              "children": [
+                                                                {
+                                                                  "data": "شماره شبا:",
+                                                                  "style": {
+                                                                    "type": "custom",
+                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "fontSize": 15.0,
+                                                                    "fontWeight": "w500"
+                                                                  },
+                                                                  "textDirection": "rtl",
+                                                                  "type": "text"
+                                                                },
+                                                                {
+                                                                  "child": {
+                                                                    "data": "IR9606400144996607630200001",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "fontSize": 15.0,
+                                                                      "fontWeight": "w700"
+                                                                    },
+                                                                    "textAlign": "left",
+                                                                    "textDirection": "ltr",
+                                                                    "type": "text"
+                                                                  },
+                                                                  "type": "expanded"
+                                                                }
+                                                              ],
+                                                              "type": "row"
+                                                            }
+                                                          ],
+                                                          "type": "column"
+                                                        },
+                                                        "type": "expanded"
+                                                      },
+                                                      {
+                                                        "padding": {
+                                                          "top": 2.0
+                                                        },
+                                                        "child": {
+                                                          "decoration": {
+                                                            "border": {
+                                                              "color": "#20C4D8",
+                                                              "width": 2.0
+                                                            },
+                                                            "shape": "circle"
+                                                          },
+                                                          "width": 24.0,
+                                                          "height": 24.0,
+                                                          "child": {
+                                                            "child": {
+                                                              "type": "opacity",
+                                                              "opacity": 1,
+                                                              "child": {
+                                                                "decoration": {
+                                                                  "color": "#20C4D8",
+                                                                  "shape": "circle"
+                                                                },
+                                                                "width": 12.0,
+                                                                "height": 12.0,
+                                                                "type": "container"
+                                                              }
+                                                            },
+                                                            "type": "center"
+                                                          },
+                                                          "type": "container"
+                                                        },
+                                                        "type": "padding"
+                                                      }
+                                                    ],
+                                                    "type": "row"
+                                                  }
+                                                ],
+                                                "type": "column"
+                                              },
+                                              "type": "padding"
+                                            },
+                                            "type": "container"
+                                          },
+                                          "replacement": {
+                                            "decoration": {
+                                              "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                              "border": {
+                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                "width": 1.0
+                                              },
+                                              "borderRadius": {
+                                                "topLeft": 12.0,
+                                                "topRight": 12.0,
+                                                "bottomLeft": 12.0,
+                                                "bottomRight": 12.0
+                                              }
+                                            },
+                                            "child": {
+                                              "padding": {
+                                                "left": 16.0,
+                                                "top": 16.0,
+                                                "right": 16.0,
+                                                "bottom": 16.0
+                                              },
+                                              "child": {
+                                                "crossAxisAlignment": "stretch",
+                                                "children": [
+                                                  {
+                                                    "mainAxisAlignment": "spaceBetween",
+                                                    "crossAxisAlignment": "start",
+                                                    "textDirection": "rtl",
+                                                    "children": [
+                                                      {
+                                                        "child": {
+                                                          "crossAxisAlignment": "stretch",
+                                                          "children": [
+                                                            {
+                                                              "data": "سپرده سرمایه گذاری کوتاه مدت علیرضا حیدریان",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                "fontSize": 18.0,
+                                                                "fontWeight": "w700",
+                                                                "height": 1.45
+                                                              },
+                                                              "textAlign": "right",
+                                                              "textDirection": "rtl",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "height": 16.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "thickness": 1.0,
+                                                              "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                              "type": "divider"
+                                                            },
+                                                            {
+                                                              "height": 16.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "mainAxisAlignment": "spaceBetween",
+                                                              "crossAxisAlignment": "start",
+                                                              "textDirection": "rtl",
+                                                              "children": [
+                                                                {
+                                                                  "data": "شماره سپرده:",
+                                                                  "style": {
+                                                                    "type": "custom",
+                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "fontSize": 15.0,
+                                                                    "fontWeight": "w500"
+                                                                  },
+                                                                  "textDirection": "rtl",
+                                                                  "type": "text"
+                                                                },
+                                                                {
+                                                                  "child": {
+                                                                    "data": "144.9966.763020.1",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "fontSize": 15.0,
+                                                                      "fontWeight": "w700"
+                                                                    },
+                                                                    "textAlign": "left",
+                                                                    "textDirection": "ltr",
+                                                                    "type": "text"
+                                                                  },
+                                                                  "type": "expanded"
+                                                                }
+                                                              ],
+                                                              "type": "row"
+                                                            },
+                                                            {
+                                                              "height": 12.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "mainAxisAlignment": "spaceBetween",
+                                                              "crossAxisAlignment": "start",
+                                                              "textDirection": "rtl",
+                                                              "children": [
+                                                                {
+                                                                  "data": "شماره شبا:",
+                                                                  "style": {
+                                                                    "type": "custom",
+                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "fontSize": 15.0,
+                                                                    "fontWeight": "w500"
+                                                                  },
+                                                                  "textDirection": "rtl",
+                                                                  "type": "text"
+                                                                },
+                                                                {
+                                                                  "child": {
+                                                                    "data": "IR9606400144996607630200001",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "fontSize": 15.0,
+                                                                      "fontWeight": "w700"
+                                                                    },
+                                                                    "textAlign": "left",
+                                                                    "textDirection": "ltr",
+                                                                    "type": "text"
+                                                                  },
+                                                                  "type": "expanded"
+                                                                }
+                                                              ],
+                                                              "type": "row"
+                                                            }
+                                                          ],
+                                                          "type": "column"
+                                                        },
+                                                        "type": "expanded"
+                                                      },
+                                                      {
+                                                        "padding": {
+                                                          "top": 2.0
+                                                        },
+                                                        "child": {
+                                                          "decoration": {
+                                                            "border": {
+                                                              "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                              "width": 2.0
+                                                            },
+                                                            "shape": "circle"
+                                                          },
+                                                          "width": 24.0,
+                                                          "height": 24.0,
+                                                          "child": {
+                                                            "child": {
+                                                              "type": "opacity",
+                                                              "opacity": 0,
+                                                              "child": {
+                                                                "decoration": {
+                                                                  "color": "#20C4D8",
+                                                                  "shape": "circle"
+                                                                },
+                                                                "width": 12.0,
+                                                                "height": 12.0,
+                                                                "type": "container"
+                                                              }
+                                                            },
+                                                            "type": "center"
+                                                          },
+                                                          "type": "container"
+                                                        },
+                                                        "type": "padding"
+                                                      }
+                                                    ],
+                                                    "type": "row"
+                                                  }
+                                                ],
+                                                "type": "column"
+                                              },
+                                              "type": "padding"
+                                            },
+                                            "type": "container"
+                                          }
+                                        },
+                                        "onTap": {
+                                          "actionType": "setValue",
+                                          "values": [
+                                            {
+                                              "key": "selectedPromissoryGuaranteeDepositId",
+                                              "value": "144.9966.763020.1"
+                                            },
+                                            {
+                                              "key": "promissoryGuaranteeDeposit1Selected",
+                                              "value": true
+                                            },
+                                            {
+                                              "key": "promissoryGuaranteeDeposit2Selected",
+                                              "value": false
+                                            },
+                                            {
+                                              "key": "promissoryGuaranteeDeposit3Selected",
+                                              "value": false
+                                            },
+                                            {
+                                              "key": "hasPromissoryGuaranteeDepositSelection",
+                                              "value": true
+                                            }
+                                          ]
+                                        },
+                                        "type": "gestureDetector"
+                                      },
+                                      {
+                                        "height": 16.0,
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "child": {
+                                          "type": "visibility",
+                                          "visible": "[[promissoryGuaranteeDeposit2Selected]]",
+                                          "child": {
+                                            "decoration": {
+                                              "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                              "border": {
+                                                "color": "#20C4D8",
+                                                "width": 1.0
+                                              },
+                                              "borderRadius": {
+                                                "topLeft": 12.0,
+                                                "topRight": 12.0,
+                                                "bottomLeft": 12.0,
+                                                "bottomRight": 12.0
+                                              }
+                                            },
+                                            "child": {
+                                              "padding": {
+                                                "left": 16.0,
+                                                "top": 16.0,
+                                                "right": 16.0,
+                                                "bottom": 16.0
+                                              },
+                                              "child": {
+                                                "crossAxisAlignment": "stretch",
+                                                "children": [
+                                                  {
+                                                    "mainAxisAlignment": "spaceBetween",
+                                                    "crossAxisAlignment": "start",
+                                                    "textDirection": "rtl",
+                                                    "children": [
+                                                      {
+                                                        "child": {
+                                                          "crossAxisAlignment": "stretch",
+                                                          "children": [
+                                                            {
+                                                              "data": "سپرده حقیقی حساب قرض الحسنه جاری حقیقی، ریالی علیرضا حیدریان",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                "fontSize": 18.0,
+                                                                "fontWeight": "w700",
+                                                                "height": 1.45
+                                                              },
+                                                              "textAlign": "right",
+                                                              "textDirection": "rtl",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "height": 16.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "thickness": 1.0,
+                                                              "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                              "type": "divider"
+                                                            },
+                                                            {
+                                                              "height": 16.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "mainAxisAlignment": "spaceBetween",
+                                                              "crossAxisAlignment": "start",
+                                                              "textDirection": "rtl",
+                                                              "children": [
+                                                                {
+                                                                  "data": "شماره سپرده:",
+                                                                  "style": {
+                                                                    "type": "custom",
+                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "fontSize": 15.0,
+                                                                    "fontWeight": "w500"
+                                                                  },
+                                                                  "textDirection": "rtl",
+                                                                  "type": "text"
+                                                                },
+                                                                {
+                                                                  "child": {
+                                                                    "data": "132.70.763020.1",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "fontSize": 15.0,
+                                                                      "fontWeight": "w700"
+                                                                    },
+                                                                    "textAlign": "left",
+                                                                    "textDirection": "ltr",
+                                                                    "type": "text"
+                                                                  },
+                                                                  "type": "expanded"
+                                                                }
+                                                              ],
+                                                              "type": "row"
+                                                            },
+                                                            {
+                                                              "height": 12.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "mainAxisAlignment": "spaceBetween",
+                                                              "crossAxisAlignment": "start",
+                                                              "textDirection": "rtl",
+                                                              "children": [
+                                                                {
+                                                                  "data": "شماره شبا:",
+                                                                  "style": {
+                                                                    "type": "custom",
+                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "fontSize": 15.0,
+                                                                    "fontWeight": "w500"
+                                                                  },
+                                                                  "textDirection": "rtl",
+                                                                  "type": "text"
+                                                                },
+                                                                {
+                                                                  "child": {
+                                                                    "data": "IR9606400132007007630200001",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "fontSize": 15.0,
+                                                                      "fontWeight": "w700"
+                                                                    },
+                                                                    "textAlign": "left",
+                                                                    "textDirection": "ltr",
+                                                                    "type": "text"
+                                                                  },
+                                                                  "type": "expanded"
+                                                                }
+                                                              ],
+                                                              "type": "row"
+                                                            }
+                                                          ],
+                                                          "type": "column"
+                                                        },
+                                                        "type": "expanded"
+                                                      },
+                                                      {
+                                                        "padding": {
+                                                          "top": 2.0
+                                                        },
+                                                        "child": {
+                                                          "decoration": {
+                                                            "border": {
+                                                              "color": "#20C4D8",
+                                                              "width": 2.0
+                                                            },
+                                                            "shape": "circle"
+                                                          },
+                                                          "width": 24.0,
+                                                          "height": 24.0,
+                                                          "child": {
+                                                            "child": {
+                                                              "type": "opacity",
+                                                              "opacity": 1,
+                                                              "child": {
+                                                                "decoration": {
+                                                                  "color": "#20C4D8",
+                                                                  "shape": "circle"
+                                                                },
+                                                                "width": 12.0,
+                                                                "height": 12.0,
+                                                                "type": "container"
+                                                              }
+                                                            },
+                                                            "type": "center"
+                                                          },
+                                                          "type": "container"
+                                                        },
+                                                        "type": "padding"
+                                                      }
+                                                    ],
+                                                    "type": "row"
+                                                  }
+                                                ],
+                                                "type": "column"
+                                              },
+                                              "type": "padding"
+                                            },
+                                            "type": "container"
+                                          },
+                                          "replacement": {
+                                            "decoration": {
+                                              "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                              "border": {
+                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                "width": 1.0
+                                              },
+                                              "borderRadius": {
+                                                "topLeft": 12.0,
+                                                "topRight": 12.0,
+                                                "bottomLeft": 12.0,
+                                                "bottomRight": 12.0
+                                              }
+                                            },
+                                            "child": {
+                                              "padding": {
+                                                "left": 16.0,
+                                                "top": 16.0,
+                                                "right": 16.0,
+                                                "bottom": 16.0
+                                              },
+                                              "child": {
+                                                "crossAxisAlignment": "stretch",
+                                                "children": [
+                                                  {
+                                                    "mainAxisAlignment": "spaceBetween",
+                                                    "crossAxisAlignment": "start",
+                                                    "textDirection": "rtl",
+                                                    "children": [
+                                                      {
+                                                        "child": {
+                                                          "crossAxisAlignment": "stretch",
+                                                          "children": [
+                                                            {
+                                                              "data": "سپرده حقیقی حساب قرض الحسنه جاری حقیقی، ریالی علیرضا حیدریان",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                "fontSize": 18.0,
+                                                                "fontWeight": "w700",
+                                                                "height": 1.45
+                                                              },
+                                                              "textAlign": "right",
+                                                              "textDirection": "rtl",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "height": 16.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "thickness": 1.0,
+                                                              "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                              "type": "divider"
+                                                            },
+                                                            {
+                                                              "height": 16.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "mainAxisAlignment": "spaceBetween",
+                                                              "crossAxisAlignment": "start",
+                                                              "textDirection": "rtl",
+                                                              "children": [
+                                                                {
+                                                                  "data": "شماره سپرده:",
+                                                                  "style": {
+                                                                    "type": "custom",
+                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "fontSize": 15.0,
+                                                                    "fontWeight": "w500"
+                                                                  },
+                                                                  "textDirection": "rtl",
+                                                                  "type": "text"
+                                                                },
+                                                                {
+                                                                  "child": {
+                                                                    "data": "132.70.763020.1",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "fontSize": 15.0,
+                                                                      "fontWeight": "w700"
+                                                                    },
+                                                                    "textAlign": "left",
+                                                                    "textDirection": "ltr",
+                                                                    "type": "text"
+                                                                  },
+                                                                  "type": "expanded"
+                                                                }
+                                                              ],
+                                                              "type": "row"
+                                                            },
+                                                            {
+                                                              "height": 12.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "mainAxisAlignment": "spaceBetween",
+                                                              "crossAxisAlignment": "start",
+                                                              "textDirection": "rtl",
+                                                              "children": [
+                                                                {
+                                                                  "data": "شماره شبا:",
+                                                                  "style": {
+                                                                    "type": "custom",
+                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "fontSize": 15.0,
+                                                                    "fontWeight": "w500"
+                                                                  },
+                                                                  "textDirection": "rtl",
+                                                                  "type": "text"
+                                                                },
+                                                                {
+                                                                  "child": {
+                                                                    "data": "IR9606400132007007630200001",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "fontSize": 15.0,
+                                                                      "fontWeight": "w700"
+                                                                    },
+                                                                    "textAlign": "left",
+                                                                    "textDirection": "ltr",
+                                                                    "type": "text"
+                                                                  },
+                                                                  "type": "expanded"
+                                                                }
+                                                              ],
+                                                              "type": "row"
+                                                            }
+                                                          ],
+                                                          "type": "column"
+                                                        },
+                                                        "type": "expanded"
+                                                      },
+                                                      {
+                                                        "padding": {
+                                                          "top": 2.0
+                                                        },
+                                                        "child": {
+                                                          "decoration": {
+                                                            "border": {
+                                                              "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                              "width": 2.0
+                                                            },
+                                                            "shape": "circle"
+                                                          },
+                                                          "width": 24.0,
+                                                          "height": 24.0,
+                                                          "child": {
+                                                            "child": {
+                                                              "type": "opacity",
+                                                              "opacity": 0,
+                                                              "child": {
+                                                                "decoration": {
+                                                                  "color": "#20C4D8",
+                                                                  "shape": "circle"
+                                                                },
+                                                                "width": 12.0,
+                                                                "height": 12.0,
+                                                                "type": "container"
+                                                              }
+                                                            },
+                                                            "type": "center"
+                                                          },
+                                                          "type": "container"
+                                                        },
+                                                        "type": "padding"
+                                                      }
+                                                    ],
+                                                    "type": "row"
+                                                  }
+                                                ],
+                                                "type": "column"
+                                              },
+                                              "type": "padding"
+                                            },
+                                            "type": "container"
+                                          }
+                                        },
+                                        "onTap": {
+                                          "actionType": "setValue",
+                                          "values": [
+                                            {
+                                              "key": "selectedPromissoryGuaranteeDepositId",
+                                              "value": "132.70.763020.1"
+                                            },
+                                            {
+                                              "key": "promissoryGuaranteeDeposit1Selected",
+                                              "value": false
+                                            },
+                                            {
+                                              "key": "promissoryGuaranteeDeposit2Selected",
+                                              "value": true
+                                            },
+                                            {
+                                              "key": "promissoryGuaranteeDeposit3Selected",
+                                              "value": false
+                                            },
+                                            {
+                                              "key": "hasPromissoryGuaranteeDepositSelection",
+                                              "value": true
+                                            }
+                                          ]
+                                        },
+                                        "type": "gestureDetector"
+                                      },
+                                      {
+                                        "height": 16.0,
+                                        "type": "sizedBox"
+                                      },
+                                      {
+                                        "child": {
+                                          "type": "visibility",
+                                          "visible": "[[promissoryGuaranteeDeposit3Selected]]",
+                                          "child": {
+                                            "decoration": {
+                                              "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                              "border": {
+                                                "color": "#20C4D8",
+                                                "width": 1.0
+                                              },
+                                              "borderRadius": {
+                                                "topLeft": 12.0,
+                                                "topRight": 12.0,
+                                                "bottomLeft": 12.0,
+                                                "bottomRight": 12.0
+                                              }
+                                            },
+                                            "child": {
+                                              "padding": {
+                                                "left": 16.0,
+                                                "top": 16.0,
+                                                "right": 16.0,
+                                                "bottom": 16.0
+                                              },
+                                              "child": {
+                                                "crossAxisAlignment": "stretch",
+                                                "children": [
+                                                  {
+                                                    "mainAxisAlignment": "spaceBetween",
+                                                    "crossAxisAlignment": "start",
+                                                    "textDirection": "rtl",
+                                                    "children": [
+                                                      {
+                                                        "child": {
+                                                          "crossAxisAlignment": "stretch",
+                                                          "children": [
+                                                            {
+                                                              "data": "سپرده حقیقی سپرده سرمایه گذاری کوتاه مدت-حقیقی ریالی علیرضا حیدریان",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                "fontSize": 18.0,
+                                                                "fontWeight": "w700",
+                                                                "height": 1.45
+                                                              },
+                                                              "textAlign": "right",
+                                                              "textDirection": "rtl",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "height": 16.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "thickness": 1.0,
+                                                              "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                              "type": "divider"
+                                                            },
+                                                            {
+                                                              "height": 16.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "mainAxisAlignment": "spaceBetween",
+                                                              "crossAxisAlignment": "start",
+                                                              "textDirection": "rtl",
+                                                              "children": [
+                                                                {
+                                                                  "data": "شماره سپرده:",
+                                                                  "style": {
+                                                                    "type": "custom",
+                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "fontSize": 15.0,
+                                                                    "fontWeight": "w500"
+                                                                  },
+                                                                  "textDirection": "rtl",
+                                                                  "type": "text"
+                                                                },
+                                                                {
+                                                                  "child": {
+                                                                    "data": "110.9992.763020.1",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "fontSize": 15.0,
+                                                                      "fontWeight": "w700"
+                                                                    },
+                                                                    "textAlign": "left",
+                                                                    "textDirection": "ltr",
+                                                                    "type": "text"
+                                                                  },
+                                                                  "type": "expanded"
+                                                                }
+                                                              ],
+                                                              "type": "row"
+                                                            },
+                                                            {
+                                                              "height": 12.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "mainAxisAlignment": "spaceBetween",
+                                                              "crossAxisAlignment": "start",
+                                                              "textDirection": "rtl",
+                                                              "children": [
+                                                                {
+                                                                  "data": "شماره شبا:",
+                                                                  "style": {
+                                                                    "type": "custom",
+                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "fontSize": 15.0,
+                                                                    "fontWeight": "w500"
+                                                                  },
+                                                                  "textDirection": "rtl",
+                                                                  "type": "text"
+                                                                },
+                                                                {
+                                                                  "child": {
+                                                                    "data": "IR6206400110999207630200001",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "fontSize": 15.0,
+                                                                      "fontWeight": "w700"
+                                                                    },
+                                                                    "textAlign": "left",
+                                                                    "textDirection": "ltr",
+                                                                    "type": "text"
+                                                                  },
+                                                                  "type": "expanded"
+                                                                }
+                                                              ],
+                                                              "type": "row"
+                                                            }
+                                                          ],
+                                                          "type": "column"
+                                                        },
+                                                        "type": "expanded"
+                                                      },
+                                                      {
+                                                        "padding": {
+                                                          "top": 2.0
+                                                        },
+                                                        "child": {
+                                                          "decoration": {
+                                                            "border": {
+                                                              "color": "#20C4D8",
+                                                              "width": 2.0
+                                                            },
+                                                            "shape": "circle"
+                                                          },
+                                                          "width": 24.0,
+                                                          "height": 24.0,
+                                                          "child": {
+                                                            "child": {
+                                                              "type": "opacity",
+                                                              "opacity": 1,
+                                                              "child": {
+                                                                "decoration": {
+                                                                  "color": "#20C4D8",
+                                                                  "shape": "circle"
+                                                                },
+                                                                "width": 12.0,
+                                                                "height": 12.0,
+                                                                "type": "container"
+                                                              }
+                                                            },
+                                                            "type": "center"
+                                                          },
+                                                          "type": "container"
+                                                        },
+                                                        "type": "padding"
+                                                      }
+                                                    ],
+                                                    "type": "row"
+                                                  }
+                                                ],
+                                                "type": "column"
+                                              },
+                                              "type": "padding"
+                                            },
+                                            "type": "container"
+                                          },
+                                          "replacement": {
+                                            "decoration": {
+                                              "color": "__STAC_OPEN__appColors.current.background.surface}}",
+                                              "border": {
+                                                "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                "width": 1.0
+                                              },
+                                              "borderRadius": {
+                                                "topLeft": 12.0,
+                                                "topRight": 12.0,
+                                                "bottomLeft": 12.0,
+                                                "bottomRight": 12.0
+                                              }
+                                            },
+                                            "child": {
+                                              "padding": {
+                                                "left": 16.0,
+                                                "top": 16.0,
+                                                "right": 16.0,
+                                                "bottom": 16.0
+                                              },
+                                              "child": {
+                                                "crossAxisAlignment": "stretch",
+                                                "children": [
+                                                  {
+                                                    "mainAxisAlignment": "spaceBetween",
+                                                    "crossAxisAlignment": "start",
+                                                    "textDirection": "rtl",
+                                                    "children": [
+                                                      {
+                                                        "child": {
+                                                          "crossAxisAlignment": "stretch",
+                                                          "children": [
+                                                            {
+                                                              "data": "سپرده حقیقی سپرده سرمایه گذاری کوتاه مدت-حقیقی ریالی علیرضا حیدریان",
+                                                              "style": {
+                                                                "type": "custom",
+                                                                "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                "fontSize": 18.0,
+                                                                "fontWeight": "w700",
+                                                                "height": 1.45
+                                                              },
+                                                              "textAlign": "right",
+                                                              "textDirection": "rtl",
+                                                              "type": "text"
+                                                            },
+                                                            {
+                                                              "height": 16.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "thickness": 1.0,
+                                                              "color": "__STAC_OPEN__appColors.current.input.borderEnabled}}",
+                                                              "type": "divider"
+                                                            },
+                                                            {
+                                                              "height": 16.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "mainAxisAlignment": "spaceBetween",
+                                                              "crossAxisAlignment": "start",
+                                                              "textDirection": "rtl",
+                                                              "children": [
+                                                                {
+                                                                  "data": "شماره سپرده:",
+                                                                  "style": {
+                                                                    "type": "custom",
+                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "fontSize": 15.0,
+                                                                    "fontWeight": "w500"
+                                                                  },
+                                                                  "textDirection": "rtl",
+                                                                  "type": "text"
+                                                                },
+                                                                {
+                                                                  "child": {
+                                                                    "data": "110.9992.763020.1",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "fontSize": 15.0,
+                                                                      "fontWeight": "w700"
+                                                                    },
+                                                                    "textAlign": "left",
+                                                                    "textDirection": "ltr",
+                                                                    "type": "text"
+                                                                  },
+                                                                  "type": "expanded"
+                                                                }
+                                                              ],
+                                                              "type": "row"
+                                                            },
+                                                            {
+                                                              "height": 12.0,
+                                                              "type": "sizedBox"
+                                                            },
+                                                            {
+                                                              "mainAxisAlignment": "spaceBetween",
+                                                              "crossAxisAlignment": "start",
+                                                              "textDirection": "rtl",
+                                                              "children": [
+                                                                {
+                                                                  "data": "شماره شبا:",
+                                                                  "style": {
+                                                                    "type": "custom",
+                                                                    "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                                    "fontSize": 15.0,
+                                                                    "fontWeight": "w500"
+                                                                  },
+                                                                  "textDirection": "rtl",
+                                                                  "type": "text"
+                                                                },
+                                                                {
+                                                                  "child": {
+                                                                    "data": "IR6206400110999207630200001",
+                                                                    "style": {
+                                                                      "type": "custom",
+                                                                      "color": "__STAC_OPEN__appColors.current.text.title}}",
+                                                                      "fontSize": 15.0,
+                                                                      "fontWeight": "w700"
+                                                                    },
+                                                                    "textAlign": "left",
+                                                                    "textDirection": "ltr",
+                                                                    "type": "text"
+                                                                  },
+                                                                  "type": "expanded"
+                                                                }
+                                                              ],
+                                                              "type": "row"
+                                                            }
+                                                          ],
+                                                          "type": "column"
+                                                        },
+                                                        "type": "expanded"
+                                                      },
+                                                      {
+                                                        "padding": {
+                                                          "top": 2.0
+                                                        },
+                                                        "child": {
+                                                          "decoration": {
+                                                            "border": {
+                                                              "color": "__STAC_OPEN__appColors.current.text.subtitle}}",
+                                                              "width": 2.0
+                                                            },
+                                                            "shape": "circle"
+                                                          },
+                                                          "width": 24.0,
+                                                          "height": 24.0,
+                                                          "child": {
+                                                            "child": {
+                                                              "type": "opacity",
+                                                              "opacity": 0,
+                                                              "child": {
+                                                                "decoration": {
+                                                                  "color": "#20C4D8",
+                                                                  "shape": "circle"
+                                                                },
+                                                                "width": 12.0,
+                                                                "height": 12.0,
+                                                                "type": "container"
+                                                              }
+                                                            },
+                                                            "type": "center"
+                                                          },
+                                                          "type": "container"
+                                                        },
+                                                        "type": "padding"
+                                                      }
+                                                    ],
+                                                    "type": "row"
+                                                  }
+                                                ],
+                                                "type": "column"
+                                              },
+                                              "type": "padding"
+                                            },
+                                            "type": "container"
+                                          }
+                                        },
+                                        "onTap": {
+                                          "actionType": "setValue",
+                                          "values": [
+                                            {
+                                              "key": "selectedPromissoryGuaranteeDepositId",
+                                              "value": "110.9992.763020.1"
+                                            },
+                                            {
+                                              "key": "promissoryGuaranteeDeposit1Selected",
+                                              "value": false
+                                            },
+                                            {
+                                              "key": "promissoryGuaranteeDeposit2Selected",
+                                              "value": false
+                                            },
+                                            {
+                                              "key": "promissoryGuaranteeDeposit3Selected",
+                                              "value": true
+                                            },
+                                            {
+                                              "key": "hasPromissoryGuaranteeDepositSelection",
+                                              "value": true
+                                            }
+                                          ]
+                                        },
+                                        "type": "gestureDetector"
+                                      },
+                                      {
+                                        "height": 16.0,
+                                        "type": "sizedBox"
+                                      }
+                                    ],
+                                    "type": "column"
+                                  },
+                                  "type": "singleChildScrollView"
+                                },
+                                "type": "expanded"
+                              },
+                              {
+                                "type": "reactiveElevatedButton",
+                                "enabledKey": "hasPromissoryGuaranteeDepositSelection",
+                                "enabled": false,
+                                "onPressed": {
+                                  "actionType": "sequence",
+                                  "actions": [
+                                    {
+                                      "navigationStyle": "pop",
+                                      "actionType": "navigate"
+                                    },
+                                    {
+                                      "fileName": "promissory_guarantee_sign_page",
+                                      "navMode": "localJson",
+                                      "navigationStyle": "push",
+                                      "actionType": "navigate"
+                                    }
+                                  ]
+                                },
+                                "style": {
+                                  "foregroundColor": "#FFFFFF",
+                                  "backgroundColor": "#D91F2A",
+                                  "elevation": 0.0,
+                                  "fixedSize": {
+                                    "width": 999999.0,
+                                    "height": 56.0
+                                  },
+                                  "shape": {
+                                    "type": "roundedRectangleBorder",
+                                    "borderRadius": {
+                                      "topLeft": 12.0,
+                                      "topRight": 12.0,
+                                      "bottomLeft": 12.0,
+                                      "bottomRight": 12.0
+                                    }
+                                  }
+                                },
+                                "disabledStyle": {
+                                  "foregroundColor": "#FFFFFF",
+                                  "backgroundColor": "#E8A0A5",
+                                  "elevation": 0.0,
+                                  "fixedSize": {
+                                    "width": 999999.0,
+                                    "height": 56.0
+                                  },
+                                  "shape": {
+                                    "type": "roundedRectangleBorder",
+                                    "borderRadius": {
+                                      "topLeft": 12.0,
+                                      "topRight": 12.0,
+                                      "bottomLeft": 12.0,
+                                      "bottomRight": 12.0
+                                    }
+                                  }
+                                },
+                                "child": {
+                                  "data": "ثبت ضمانت سفته",
+                                  "style": {
+                                    "type": "custom",
+                                    "fontSize": 18.0,
+                                    "fontWeight": "w700"
+                                  },
+                                  "type": "text"
+                                }
+                              }
+                            ],
+                            "type": "column"
+                          },
+                          "type": "padding"
+                        },
+                        "type": "container"
+                      },
+                      "type": "safeArea"
+                    }
+                  },
+                  "title": "promissory_confirm",
+                  "heightFactor": 0.67,
+                  "isScrollControlled": true,
+                  "useSafeArea": false,
+                  "backgroundColor": "#00000000",
+                  "barrierColor": "#55000000"
+                },
+                "style": {
+                  "foregroundColor": "#FFFFFF",
+                  "backgroundColor": "#D91F2A",
+                  "elevation": 0.0,
+                  "fixedSize": {
+                    "width": 999999.0,
+                    "height": 56.0
+                  },
+                  "shape": {
+                    "type": "roundedRectangleBorder",
+                    "borderRadius": {
+                      "topLeft": 12.0,
+                      "topRight": 12.0,
+                      "bottomLeft": 12.0,
+                      "bottomRight": 12.0
+                    }
+                  }
+                },
+                "disabledStyle": {
+                  "foregroundColor": "#FFFFFF",
+                  "backgroundColor": "#E8A0A5",
+                  "elevation": 0.0,
+                  "fixedSize": {
+                    "width": 999999.0,
+                    "height": 56.0
+                  },
+                  "shape": {
+                    "type": "roundedRectangleBorder",
+                    "borderRadius": {
+                      "topLeft": 12.0,
+                      "topRight": 12.0,
+                      "bottomLeft": 12.0,
+                      "bottomRight": 12.0
+                    }
+                  }
+                },
+                "child": {
+                  "data": "تایید و ادامه",
+                  "style": {
+                    "type": "custom",
+                    "fontSize": 18.0,
+                    "fontWeight": "w700"
+                  },
+                  "type": "text"
+                }
+              },
+              {
+                "height": 16.0,
+                "type": "sizedBox"
+              }
+            ],
+            "type": "column"
+          },
+          "type": "padding"
+        },
+        "type": "singleChildScrollView"
+      },
+      "type": "form"
+    },
+    "type": "scaffold"
+  }
+}

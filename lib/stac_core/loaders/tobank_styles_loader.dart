@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:stac/stac.dart';
 import '../../core/helpers/logger.dart';
 import '../config/sdui_config.dart';
+import 'package:stac/stac.dart';
 
 /// Loads and caches component styles at app startup
 ///

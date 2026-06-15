@@ -1,7 +1,7 @@
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
-import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
+import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 
 @StacScreen(screenName: 'child_loan_api_real_menu')
 StacWidget childLoanApiRealMenu() {

@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
+import 'package:stac/stac.dart';
 
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 
 import '../../registry/registry_notifier.dart';
 

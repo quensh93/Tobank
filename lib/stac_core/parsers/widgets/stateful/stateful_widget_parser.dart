@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 import '../../../../core/helpers/logger.dart';
 import '../../../registry/registry_notifier.dart';
 import 'stateful_widget_model.dart';
+import 'package:stac/stac.dart';
 
 class StatefulWidgetParser extends StacParser<StatefulWidgetModel> {
   const StatefulWidgetParser();

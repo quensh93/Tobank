@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 import '../../registry/stac_widget_loader.dart';
 import '../../services/stac_widget_resolver.dart';
 import '../../services/navigation/stac_navigation_service.dart';
 import '../../../core/helpers/logger.dart';
+import 'package:stac/stac.dart';
 
 /// Model for timed splash configuration.
 class TimedSplashModel {

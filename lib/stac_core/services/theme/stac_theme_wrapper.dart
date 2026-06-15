@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 import 'package:tobank_sdui/core/helpers/logger.dart';
+import 'package:stac/stac.dart';
 
 /// Service for creating and applying themes to widgets.
 ///

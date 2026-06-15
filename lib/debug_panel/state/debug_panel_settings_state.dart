@@ -8,7 +8,6 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart'; // For kIsWeb
 import 'package:shared_preferences/shared_preferences.dart'; // For Web persistence
 
-import '../../core/helpers/log_config.dart';
 import '../../core/helpers/logger.dart';
 import '../themes/debug_panel_theme.dart';
 

@@ -1,4 +1,5 @@
 ﻿import 'package:stac/stac.dart';
+import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
@@ -13,8 +14,6 @@ const _serviceSecondPinTitle =
 const _serviceReissueTitle = '{{appStrings.cardsManagement.services.reissue}}';
 const _serviceBlockTitle = '{{appStrings.cardsManagement.services.block}}';
 const _serviceBalanceTitle = '{{appStrings.cardsManagement.services.balance}}';
-const _servicePlaceholderContent =
-    '{{appStrings.cardsManagement.services.placeholder}}';
 const _walletTransferMockDestinationWallet = 'سینایی';
 
 @StacScreen(screenName: 'card_management_root')
@@ -2209,112 +2208,8 @@ StacWidget _walletTransferBottomSheet() {
   );
 }
 
-StacWidget _walletTransferContactPicker() {
-  return StacContainer(
-    decoration: StacBoxDecoration(
-      color: '{{appColors.current.background.surface}}',
-      borderRadius: const StacBorderRadius.only(topLeft: 18, topRight: 18),
-    ),
-    child: StacPadding(
-      padding: StacEdgeInsets.only(left: 16, top: 10, right: 16, bottom: 24),
-      child: StacColumn(
-        mainAxisSize: StacMainAxisSize.min,
-        crossAxisAlignment: StacCrossAxisAlignment.stretch,
-        children: [
-          StacCenter(
-            child: StacContainer(
-              width: 36,
-              height: 4,
-              decoration: StacBoxDecoration(
-                color: '{{appColors.current.input.borderEnabled}}',
-                borderRadius: StacBorderRadius.all(4),
-              ),
-            ),
-          ),
-          StacSizedBox(height: 16),
-          StacText(
-            data: 'انتخاب از مخاطبین',
-            textDirection: StacTextDirection.rtl,
-            textAlign: StacTextAlign.right,
-            style: StacCustomTextStyle(
-              fontSize: 16,
-              fontWeight: StacFontWeight.w700,
-              color: '{{appColors.current.text.title}}',
-            ),
-          ),
-          StacSizedBox(height: 16),
-          _contactRow(name: 'علی سینایی', phone: '09121234567'),
-          _sheetDivider(),
-          _contactRow(name: 'رضا محمدی', phone: '09351112222'),
-          _sheetDivider(),
-          _contactRow(name: 'مریم احمدی', phone: '09123334444'),
-        ],
-      ),
-    ),
-  );
-}
 
-StacWidget _contactRow({required String name, required String phone}) {
-  return StacGestureDetector(
-    onTap: StacSequenceAction(
-      actions: [
-        StacCustomSetValueAction(
-          key: 'cardsManagement.wallet.transferPhone',
-          value: phone,
-        ),
-        const StacCloseDialogAction(),
-      ],
-    ),
-    child: StacPadding(
-      padding: StacEdgeInsets.symmetric(vertical: 14),
-      child: StacRow(
-        textDirection: StacTextDirection.rtl,
-        mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-        children: [
-          StacColumn(
-            crossAxisAlignment: StacCrossAxisAlignment.end,
-            mainAxisSize: StacMainAxisSize.min,
-            children: [
-              StacText(
-                data: name,
-                textDirection: StacTextDirection.rtl,
-                style: StacCustomTextStyle(
-                  fontSize: 14,
-                  fontWeight: StacFontWeight.w600,
-                  color: '{{appColors.current.text.title}}',
-                ),
-              ),
-              StacSizedBox(height: 2),
-              StacText(
-                data: phone,
-                textDirection: StacTextDirection.ltr,
-                style: StacCustomTextStyle(
-                  fontSize: 13,
-                  fontWeight: StacFontWeight.w400,
-                  color: '{{appColors.current.text.hint}}',
-                ),
-              ),
-            ],
-          ),
-          StacImage(
-            src: '{{appAssets.current.icons.contacts}}',
-            imageType: StacImageType.asset,
-            width: 24,
-            height: 24,
-            color: '{{appColors.current.text.hint}}',
-          ),
-        ],
-      ),
-    ),
-  );
-}
 
-StacWidget _sheetDivider() => StacContainer(
-  height: 1,
-  decoration: StacBoxDecoration(
-    color: '{{appColors.current.input.borderEnabled}}',
-  ),
-);
 
 // ─── Wallet: Transfer Confirm ─────────────────────────────────────────────
 
@@ -2466,32 +2361,6 @@ StacWidget _walletTransferConfirmBottomSheet() {
   );
 }
 
-StacWidget _summaryRow({required String label, required String valueKey}) {
-  return StacRow(
-    textDirection: StacTextDirection.rtl,
-    mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-    children: [
-      StacText(
-        data: valueKey,
-        textDirection: StacTextDirection.rtl,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          fontWeight: StacFontWeight.w500,
-          color: '{{appColors.current.text.body}}',
-        ),
-      ),
-      StacText(
-        data: label,
-        textDirection: StacTextDirection.rtl,
-        style: StacCustomTextStyle(
-          fontSize: 14,
-          fontWeight: StacFontWeight.w400,
-          color: '{{appColors.current.text.hint}}',
-        ),
-      ),
-    ],
-  );
-}
 
 StacWidget _summaryRowFromRegistry({
   required String label,

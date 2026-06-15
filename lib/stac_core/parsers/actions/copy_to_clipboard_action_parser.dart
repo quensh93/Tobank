@@ -1,11 +1,10 @@
 import 'dart:async';
+import 'package:stac/stac.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:stac/stac.dart';
 import 'package:tobank_sdui/core/bootstrap/app_root.dart';
 
-import '../../../core/helpers/log_category.dart';
 import '../../../core/helpers/logger.dart';
 
 class CopyToClipboardActionModel {

@@ -1,4 +1,3 @@
-import 'package:stac/stac.dart';
 import '../../core/helpers/logger.dart';
 import 'custom_component_registry.dart';
 import '../parsers/widgets/carousel/tobank_onboarding_slider_parser.dart';
@@ -65,6 +64,7 @@ import '../parsers/actions/gift_card/update_gift_card_amount_count_action_parser
 import '../parsers/actions/launch_url_action_parser.dart';
 import '../parsers/actions/play_audio_url_action_parser.dart';
 import '../parsers/actions/pick_contact_phone_action_parser.dart';
+import 'package:stac/stac.dart';
 
 import '../parsers/widgets/reactive/reactive_list_view_parser.dart';
 import '../parsers/widgets/navigation/custom_bottom_navigation_bar_parser.dart';

@@ -30,7 +30,7 @@ To implement theming in Stac, follow these steps:
 Copy
 ```
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 void main() async {
   await Stac.initialize();
   runApp(const MyApp());

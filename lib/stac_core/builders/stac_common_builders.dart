@@ -1,7 +1,6 @@
-import 'package:stac/stac.dart';
-import '../navigation/nav_modes.dart';
+import 'package:stac_core/stac_core.dart';
+import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 
-export '../navigation/nav_modes.dart';
 
 /// Raw JSON widget helper
 /// Use this when you need to construct a widget from a raw JSON map

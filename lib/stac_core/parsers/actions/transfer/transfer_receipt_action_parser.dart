@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'dart:ui' as ui;
+import 'package:stac/stac.dart';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:stac/stac.dart';
 
 import '../../../../core/helpers/logger.dart';
 import '../../../registry/custom_component_registry.dart';

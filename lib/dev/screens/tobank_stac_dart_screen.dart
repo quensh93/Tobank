@@ -5,7 +5,7 @@ import '../../stac/tobank/menu/dart/tobank_menu.dart' as tobank_menu;
 import 'package:tobank_sdui/stac_core/services/theme/theme_controller_provider.dart';
 import '../../core/helpers/logger.dart';
 import '../../stac_core/builders/stac_common_builders.dart';
-import '../../stac_core/navigation/nav_modes.dart';
+import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 
 /// Renders the Tobank STAC menu screen directly from the Dart StacWidget.
 ///

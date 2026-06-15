@@ -1,12 +1,11 @@
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac/tobank/flows/cartable/dart/cartable_intro.dart'
     as cartable_intro_dart;
 import 'package:tobank_sdui/stac/tobank/flows/profile/dart/profile_intro.dart'
     as profile_intro_dart;
 import 'package:tobank_sdui/stac/tobank/flows/transaction/dart/transaction_intro.dart'
     as transaction_intro_dart;
-import 'package:tobank_sdui/stac/tobank/flows/home_page/dart/home_page.dart'
-    as home_page_dart;
+
 
 @StacScreen(screenName: 'dashboard_shell')
 StacWidget dashboardShell() {
@@ -20,7 +19,7 @@ StacWidget dashboardShell() {
           profile_intro_dart.profileRealIntro(),
           cartable_intro_dart.cartableRealIntro(),
           transaction_intro_dart.transactionRealIntro(),
-          home_page_dart.tobankHomePageDart(),
+
         ],
       ),
       bottomNavigationBar: StacContainer(

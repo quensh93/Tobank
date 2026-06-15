@@ -336,7 +336,7 @@ graph LR
 ```dart
 // main.dart
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 import 'parsers/custom_widget_parser.dart';
 import 'parsers/custom_action_parser.dart';
 
@@ -466,7 +466,7 @@ stac deploy
 ```dart
 // main.dart
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 import 'default_stac_options.dart';
 
 void main() async {

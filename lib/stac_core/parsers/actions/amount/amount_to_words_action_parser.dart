@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'package:stac/stac.dart';
 
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 import './amount_to_words_action.dart';
 import '../../../registry/registry_notifier.dart';
 

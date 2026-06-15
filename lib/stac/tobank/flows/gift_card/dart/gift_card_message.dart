@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
 import 'package:tobank_sdui/stac_core/parsers/actions/stac_custom_actions.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_stateful_widget.dart';
@@ -279,81 +279,6 @@ StacAction _proxyLegacyBottomSheetAction(Map<String, dynamic> legacyAction) {
   );
 }
 
-StacWidget _giftCardMessageGuideBottomSheet() {
-  return StacContainer(
-    decoration: StacBoxDecoration(
-      color: '{{appColors.current.background.surface}}',
-      borderRadius: const StacBorderRadius.only(topLeft: 12, topRight: 12),
-    ),
-    child: StacPadding(
-      padding: StacEdgeInsets.only(left: 24, top: 10, right: 24, bottom: 24),
-      child: StacColumn(
-        mainAxisSize: StacMainAxisSize.min,
-        crossAxisAlignment: StacCrossAxisAlignment.stretch,
-        children: [
-          StacCenter(
-            child: StacContainer(
-              width: 62,
-              height: 6,
-              decoration: StacBoxDecoration(
-                color: '#737373',
-                borderRadius: StacBorderRadius.all(999),
-              ),
-            ),
-          ),
-          StacSizedBox(height: 24),
-          StacText(
-            data: '??????',
-            textDirection: StacTextDirection.rtl,
-            textAlign: StacTextAlign.right,
-            style: StacCustomTextStyle(
-              fontSize: 18,
-              fontWeight: StacFontWeight.w700,
-              color: '{{appColors.current.text.title}}',
-            ),
-          ),
-          StacSizedBox(height: 16),
-          StacText(
-            data:
-                '?? ???? ???? ??? ??????? ??? ?? ??????? ??????? ?? ?????? ???? ?? ?? ???? ??? ?????? ???? ?? ??? ?????? ???? ??? ??????? ??????? ?? ???',
-            textDirection: StacTextDirection.rtl,
-            textAlign: StacTextAlign.right,
-            style: StacCustomTextStyle(
-              fontSize: 16,
-              fontWeight: StacFontWeight.w500,
-              height: 1.8,
-              color: '{{appColors.current.text.subtitle}}',
-            ),
-          ),
-          StacSizedBox(height: 24),
-          StacFilledButton(
-            onPressed: const StacNavigateAction(
-              navigationStyle: NavigationStyle.pop,
-            ),
-            style: StacButtonStyle(
-              fixedSize: StacSize(999999, 56),
-              backgroundColor: '{{appColors.current.primary.color}}',
-              foregroundColor: '{{appColors.current.primary.onPrimary}}',
-              shape: StacRoundedRectangleBorder(
-                borderRadius: StacBorderRadius.all(12),
-              ),
-              elevation: 0,
-            ),
-            child: StacText(
-              data: '????',
-              textDirection: StacTextDirection.rtl,
-              style: StacCustomTextStyle(
-                fontSize: 17,
-                fontWeight: StacFontWeight.w700,
-                color: '{{appColors.current.primary.onPrimary}}',
-              ),
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
-}
 
 StacWidget _buildPresetMessageCard({
   required String message,

@@ -1,23 +1,9 @@
 // ignore_for_file: implementation_imports
 import 'package:flutter/material.dart';
-import 'package:stac/src/parsers/foundation/colors/stac_brightness_parser.dart';
-import 'package:stac/src/parsers/foundation/decoration/stac_input_decoration_parser.dart';
-import 'package:stac/src/parsers/foundation/forms/stac_autovalidate_mode_parser.dart';
-import 'package:stac/src/parsers/foundation/forms/stac_input_formatter_type_parser.dart';
-import 'package:stac/src/parsers/foundation/forms/stac_max_length_enforcement_parser.dart';
-import 'package:stac/src/parsers/foundation/geometry/stac_edge_insets_parser.dart';
-import 'package:stac/src/parsers/foundation/text/stac_smart_dashes_type_parser.dart';
-import 'package:stac/src/parsers/foundation/text/stac_smart_quotes_type_parser.dart';
-import 'package:stac/src/parsers/foundation/text/stac_text_align_parser.dart';
-import 'package:stac/src/parsers/foundation/text/stac_text_capitalization_parser.dart';
-import 'package:stac/src/parsers/foundation/text/stac_text_direction_parser.dart';
-import 'package:stac/src/parsers/foundation/text/stac_text_input_action_parser.dart';
+import 'package:stac/stac.dart';
 import 'package:stac/src/parsers/foundation/text/stac_text_input_type_parser.dart'
     as kbtype;
-import 'package:stac/src/parsers/foundation/text/stac_text_style_parser.dart';
-import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/input_validations.dart';
-import 'package:stac/stac.dart';
 import '../../../core/helpers/logger.dart'; // Use AppLogger instead of stac_logger
 import '../../registry/text_form_field_controller_registry.dart';
 

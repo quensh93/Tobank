@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 import '../../../registry/registry_notifier.dart';
+import 'package:stac/stac.dart';
 
 class ReactiveElevatedButtonModel {
   final String? enabledKey;

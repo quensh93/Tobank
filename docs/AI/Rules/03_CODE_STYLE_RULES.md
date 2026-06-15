@@ -274,13 +274,13 @@ StacGestureDetector(
 **Priority**: HIGH
 
 **Action Required:**
-- **STAC**: `import 'package:stac/stac.dart';`
+- **STAC**: `import 'package:stac_core/stac_core.dart';`
 - **STAC Core**: `import 'package:stac_core/stac_core.dart';`
 - **Annotations**: Include `@StacScreen` from stac_core
 
 **Examples:**
 ```dart
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:stac_core/stac_core.dart';
 
 @StacScreen(screenName: 'tobank_login')

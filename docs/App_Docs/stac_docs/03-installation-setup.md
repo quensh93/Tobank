@@ -47,7 +47,7 @@ flutter pub get
 Import the Stac package in your Dart file:
 
 ```dart
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 ```
 
 ## Basic Setup
@@ -58,7 +58,7 @@ In your `main.dart` file, initialize Stac before running your app:
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -160,7 +160,7 @@ For a more integrated experience, use `StacApp` instead of `MaterialApp`:
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

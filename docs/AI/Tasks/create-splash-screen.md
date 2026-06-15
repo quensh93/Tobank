@@ -54,7 +54,7 @@ Add `package_info_plus: ^9.0.0` to `pubspec.yaml` dependencies.
 Create `lib/core/stac/loaders/tobank/tobank_version_loader.dart`:
 ```dart
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 
 class TobankVersionLoader {
   static Future<void> loadVersion() async {

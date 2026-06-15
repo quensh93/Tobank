@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:stac/stac.dart';
 import '../../core/api/config_api/config_api_service.dart';
 import '../../core/helpers/logger.dart';
 import '../config/sdui_config.dart';
+import 'package:stac/stac.dart';
 
 /// Loads and caches localization strings at app startup
 ///

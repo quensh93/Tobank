@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 import 'package:tobank_sdui/core/helpers/logger.dart';
 import 'package:tobank_sdui/core/storage/secure_storage_service.dart';
 import 'package:tobank_sdui/core/storage/secure_storage_keys.dart';
 import '../../registry/registry_notifier.dart';
+import 'package:stac/stac.dart';
 
 /// Action parser that persists KYC (identity verification) completion status
 /// to secure storage and updates the registry.

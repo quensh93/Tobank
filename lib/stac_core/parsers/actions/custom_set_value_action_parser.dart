@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'package:stac/stac.dart';
 
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 import '../../../core/helpers/logger.dart';
 import '../../registry/registry_notifier.dart';
 import '../../registry/text_form_field_controller_registry.dart';

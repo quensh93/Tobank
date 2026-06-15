@@ -5,14 +5,6 @@ import '../../../stac/tobank/flows/user_credit_validation/dart/user_credit_valid
 import '../../../stac/tobank/flows/user_credit_validation/dart/user_credit_validation_report_detail.dart'
     as user_credit_validation_report_detail_dart;
 import '../../../stac/tobank/menu/dart/tobank_menu.dart' as tobank_menu_dart;
-import '../../../stac/tobank/flows/home_page/dart/home_page.dart'
-    as home_page_dart;
-import '../../../stac/tobank/flows/home_page/dart/tobank_special_services_page.dart'
-    as tobank_special_services_page_dart;
-import '../../../stac/tobank/flows/home_page/dart/travel_services_page.dart'
-    as travel_services_page_dart;
-import '../../../stac/tobank/flows/home_page/dart/acceptor_services_page.dart'
-    as acceptor_services_page_dart;
 
 
 // Promissory Real (API) import
@@ -305,13 +297,8 @@ class StacWidgetLoader {
     'tobank_user_credit_validation': () =>
         user_credit_validation_menu_dart.userCreditValidationMenu().toJson(),
     'tobank_menu_dart': () => tobank_menu_dart.tobankMenuDart().toJson(),
-    'tobank_home_page_dart': () => home_page_dart.tobankHomePageDart().toJson(),
-    'tobank_special_services_page': () =>
-        tobank_special_services_page_dart.tobankSpecialServicesPage().toJson(),
-    'tobank_travel_services_page': () =>
-        travel_services_page_dart.tobankTravelServicesPage().toJson(),
-    'tobank_acceptor_services_page': () =>
-        acceptor_services_page_dart.tobankAcceptorServicesPage().toJson(),
+
+
     'tobank_onboarding': () => login_onboarding_dart.loginOnboarding().toJson(),
 
 

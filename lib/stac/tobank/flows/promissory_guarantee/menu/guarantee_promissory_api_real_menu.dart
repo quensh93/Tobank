@@ -1,5 +1,7 @@
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:tobank_sdui/core/widgets/tobank_flow_app_bar.dart';
+import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 
 @StacScreen(screenName: 'guarantee_promissory_api_real_menu')
 StacWidget guaranteePromissoryApiRealMenu() {
@@ -15,6 +17,28 @@ StacWidget guaranteePromissoryApiRealMenu() {
         mainAxisAlignment: StacMainAxisAlignment.center,
         crossAxisAlignment: StacCrossAxisAlignment.stretch,
         children: [
+          StacFilledButton(
+            onPressed: const NavigationAction(
+              fileName: 'promissory_guarantee_info_page',
+              navMode: NavModes.localJson,
+              navigationStyle: NavigationStyle.push,
+            ),
+            style: StacButtonStyle(
+              padding: StacEdgeInsets.symmetric(vertical: 16),
+              backgroundColor:
+                  '{{appColors.current.button.primary.backgroundColor}}',
+              foregroundColor:
+                  '{{appColors.current.button.primary.foregroundColor}}',
+            ),
+            child: StacText(
+              data: 'بارگذاری از JSON محلی',
+              style: StacTextStyle(
+                fontSize: 16,
+                fontWeight: StacFontWeight.w600,
+              ),
+            ),
+          ),
+          StacSizedBox(height: 16),
           StacFilledButton(
             onPressed: const StacNavigateAction(
               routeName: 'promissory_guarantee_info_page',

@@ -269,7 +269,7 @@ Update your `lib/main.dart`:
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

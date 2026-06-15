@@ -1,5 +1,6 @@
 import 'package:stac/stac.dart';
 import 'package:tobank_sdui/stac_core/builders/stac_common_builders.dart';
+import 'package:tobank_sdui/stac_core/navigation/nav_modes.dart';
 
 @StacScreen(screenName: 'card_management_menu')
 StacWidget cardManagementRealMenu() {

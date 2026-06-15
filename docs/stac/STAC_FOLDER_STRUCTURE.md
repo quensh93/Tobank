@@ -242,7 +242,7 @@ lib/stac/
 
 **Example**: `login/dart/login.dart`
 ```dart
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 
 StacWidget tobankLogin() {
   return StacContainer(

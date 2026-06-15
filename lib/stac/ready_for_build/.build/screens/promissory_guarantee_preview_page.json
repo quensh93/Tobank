@@ -1,0 +1,208 @@
+{
+  "type": "stateFull",
+  "onInit": {
+    "actionType": "setValue",
+    "key": "promissoryGuaranteePdfBase64",
+    "value": "JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFszIDAgUl0gL0NvdW50IDEgPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA1OTUgODQyXSAvQ29udGVudHMgNCAwIFIgL1Jlc291cmNlcyA8PCAvRm9udCA8PCAvRjEgNSAwIFIgPj4gPj4gPj4KZW5kb2JqCjQgMCBvYmoKPDwgL0xlbmd0aCAxOTIgPj4Kc3RyZWFtCkJUCi9GMSAyOCBUZgo3MCA3NjAgVGQKKFByb21pc3NvcnkgR3VhcmFudGVlIFJlY2VpcHQpIFRqCi9GMSAxNiBUZgowIC00MCBUZAooQW1vdW50OiA2ODksMDAwLDAwMCBSaWFsKSBUagowIC0yOCBUZAooSXNzdWVyOiBaYWhyYSBIYWppIEVicmFoaW1pKSBUagowIC0yOCBUZAooU3RhdHVzOiBTaWduZWQgc3VjY2Vzc2Z1bGx5KSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCjUgMCBvYmoKPDwgL1R5cGUgL0ZvbnQgL1N1YnR5cGUgL1R5cGUxIC9CYXNlRm9udCAvSGVsdmV0aWNhID4+CmVuZG9iagp4cmVmCjAgNgowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAwMDkgMDAwMDAgbiAKMDAwMDAwMDA1OCAwMDAwMCBuIAowMDAwMDAwMTE1IDAwMDAwIG4gCjAwMDAwMDAyNDEgMDAwMDAgbiAKMDAwMDAwMDQ4NCAwMDAwMCBuIAp0cmFpbGVyCjw8IC9TaXplIDYgL1Jvb3QgMSAwIFIgPj4Kc3RhcnR4cmVmCjU1NAolJUVPRgo="
+  },
+  "child": {
+    "appBar": {
+      "leading": {
+        "padding": {
+          "left": 12.0
+        },
+        "child": {
+          "child": {
+            "src": "{{appAssets.icons.support}}",
+            "imageType": "asset",
+            "color": "{{appColors.current.text.title}}",
+            "width": 24.0,
+            "height": 24.0,
+            "type": "image"
+          },
+          "type": "center"
+        },
+        "type": "padding"
+      },
+      "automaticallyImplyLeading": true,
+      "title": {
+        "data": "نمایش سفته",
+        "style": {
+          "type": "alias",
+          "value": "{{appStyles.appbarStyle}}"
+        },
+        "textDirection": "rtl",
+        "type": "text"
+      },
+      "actions": [
+        {
+          "padding": {
+            "right": 12.0
+          },
+          "child": {
+            "onPressed": {
+              "navigationStyle": "pop",
+              "actionType": "navigate"
+            },
+            "icon": {
+              "src": "{{appAssets.icons.arrowBack}}",
+              "imageType": "asset",
+              "color": "{{appColors.current.text.title}}",
+              "width": 31.0,
+              "height": 31.0,
+              "type": "image"
+            },
+            "type": "iconButton"
+          },
+          "type": "padding"
+        }
+      ],
+      "centerTitle": true,
+      "type": "appBar"
+    },
+    "body": {
+      "padding": {
+        "left": 16.0,
+        "top": 16.0,
+        "right": 16.0,
+        "bottom": 16.0
+      },
+      "child": {
+        "crossAxisAlignment": "stretch",
+        "children": [
+          {
+            "child": {
+              "type": "receiptRepaintBoundary",
+              "boundaryKey": "promissoryGuaranteePreviewContent",
+              "child": {
+                "child": {
+                  "crossAxisAlignment": "stretch",
+                  "textDirection": "rtl",
+                  "children": [
+                    {
+                      "height": 18.0,
+                      "type": "sizedBox"
+                    },
+                    {
+                      "padding": {
+                        "left": 8.0,
+                        "top": 8.0,
+                        "right": 8.0,
+                        "bottom": 8.0
+                      },
+                      "decoration": {
+                        "color": "#F0EAF7"
+                      },
+                      "width": 999999.0,
+                      "child": {
+                        "type": "pdfPreview",
+                        "src": "{{promissoryGuaranteePdfBase64}}",
+                        "registryKey": "promissoryGuaranteePdfBase64",
+                        "width": 999999,
+                        "height": 500
+                      },
+                      "type": "container"
+                    }
+                  ],
+                  "type": "column"
+                },
+                "type": "singleChildScrollView"
+              }
+            },
+            "type": "expanded"
+          },
+          {
+            "height": 24.0,
+            "type": "sizedBox"
+          },
+          {
+            "onPressed": {
+              "actionType": "transferReceipt",
+              "mode": "shareImage",
+              "title": "سفته ضمانت",
+              "pixelRatio": 3.0,
+              "boundaryKey": "promissoryGuaranteePreviewContent"
+            },
+            "style": {
+              "fixedSize": {
+                "width": 999999.0,
+                "height": 56.0
+              },
+              "side": {
+                "color": "#D91F2A",
+                "width": 1.3
+              },
+              "shape": {
+                "type": "roundedRectangleBorder",
+                "borderRadius": {
+                  "topLeft": 10.0,
+                  "topRight": 10.0,
+                  "bottomLeft": 10.0,
+                  "bottomRight": 10.0
+                }
+              }
+            },
+            "child": {
+              "data": "ذخیره در گالری",
+              "style": {
+                "type": "custom",
+                "color": "#D91F2A",
+                "fontSize": 18.0,
+                "fontWeight": "w700"
+              },
+              "textDirection": "rtl",
+              "type": "text"
+            },
+            "type": "outlinedButton"
+          },
+          {
+            "height": 14.0,
+            "type": "sizedBox"
+          },
+          {
+            "onPressed": {
+              "actionType": "transferReceipt",
+              "mode": "shareImage",
+              "title": "سفته ضمانت",
+              "pixelRatio": 3.0,
+              "boundaryKey": "promissoryGuaranteePreviewContent"
+            },
+            "style": {
+              "foregroundColor": "#FFFFFF",
+              "backgroundColor": "#D91F2A",
+              "elevation": 0.0,
+              "fixedSize": {
+                "width": 999999.0,
+                "height": 56.0
+              },
+              "shape": {
+                "type": "roundedRectangleBorder",
+                "borderRadius": {
+                  "topLeft": 10.0,
+                  "topRight": 10.0,
+                  "bottomLeft": 10.0,
+                  "bottomRight": 10.0
+                }
+              }
+            },
+            "child": {
+              "data": "اشتراک‌گذاری",
+              "style": {
+                "type": "custom",
+                "color": "#FFFFFF",
+                "fontSize": 18.0,
+                "fontWeight": "w700"
+              },
+              "textDirection": "rtl",
+              "type": "text"
+            },
+            "type": "filledButton"
+          }
+        ],
+        "type": "column"
+      },
+      "type": "padding"
+    },
+    "type": "scaffold"
+  }
+}

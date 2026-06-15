@@ -27,7 +27,8 @@ dependencies:
   ispectify_dio: 4.6.0
   #stac:
   #  path: .stac/packages/stac
-  stac: ^1.1.2
+  stac: ^1.5.0
+  stac_core: ^1.5.0
   debug_panel:
     path: lib/debug_panel
   uuid: ^4.5.2
@@ -63,6 +64,7 @@ dependencies:
   local_auth: ^3.0.0
   get: ^4.7.3
   universal_html: ^2.3.0
+  stac_framework: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -72,7 +74,6 @@ dev_dependencies:
   riverpod_generator: ^4.0.0+1
   riverpod_lint: ^3.0.3
   flutter_launcher_icons: ^0.14.3
-  stac_framework: 1.0.0
 
 # Force use of local logger instead of pub.dev version
 # This allows us to customize the logger package
@@ -113,6 +114,7 @@ flutter:
 
     - lib/stac/tobank/flows/promissory/json/
     - lib/stac/tobank/flows/promissory/api/
+    - lib/stac/tobank/flows/promissory_guarantee/json/
     - lib/stac/tobank/flows/authentication/json/
     - lib/stac/tobank/flows/transaction/json/
     - lib/stac/tobank/flows/notification/json/
@@ -124,8 +126,6 @@ flutter:
     - lib/stac/tobank/flows/transfer/json/
     - lib/stac/tobank/flows/gift_card/json/
     - lib/stac/tobank/flows/internet_pakage/json/
-    - lib/stac/tobank/flows/home_page/json/
-    - lib/stac/tobank/flows/home_page/api/
     - lib/stac/tobank/flows/user_credit_validation/json/
     - lib/stac/tobank/flows/installment_payment/json/
     - lib/stac/tobank/flows/installment_payment/json_upload/

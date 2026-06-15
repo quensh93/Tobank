@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
 import '../../registry/stac_widget_loader.dart';
 import '../../../core/helpers/logger.dart';
+import 'package:stac/stac.dart';
 
 /// Model for onMountAction configuration.
 ///

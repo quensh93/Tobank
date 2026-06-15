@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
 
 class StacTobankOnboardingSlider extends StacWidget {
   const StacTobankOnboardingSlider({required this.pages, this.onFinish});

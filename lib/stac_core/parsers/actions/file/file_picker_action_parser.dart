@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:stac/stac.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:stac/stac.dart';
 
 import 'file_picker_action_model.dart';
 import '../../../registry/custom_component_registry.dart';

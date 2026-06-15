@@ -1,8 +1,8 @@
 import 'dart:async';
+import 'package:stac/stac.dart';
 
 import 'package:flutter/material.dart';
 import 'package:ml_card_scanner/ml_card_scanner.dart';
-import 'package:stac/stac.dart';
 
 import '../../../registry/custom_component_registry.dart';
 import '../../../registry/registry_notifier.dart';
